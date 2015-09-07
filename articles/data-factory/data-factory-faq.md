@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory - Perguntas frequentes" 
-	description="Perguntas frequentes sobre o Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure Data Factory - Perguntas frequentes"
+	description="Perguntas frequentes sobre o Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Perguntas frequentes
@@ -90,17 +90,6 @@ Consulte os artigos [Atividades de movimentação de dados](data-factory-data-mo
 A configuração **disponibilidade** na tabela de dados de saída determina quando a atividade é executada. A atividade verifica se todas as dependências de dados de entrada foram atendidas (ou seja, estado **Pronto**) antes de começar a ser executada.
 
 ## Atividade de Cópia - Perguntas frequentes
-### Quais as regiões com suporte para a Atividade de Cópia?
-
-A Atividade de Cópia dá suporte a cópia de dados nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Região Central dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Europa do Norte, Europa Ocidental, Sudeste Asiático, Leste do Japão e Sul do Brasil.
-
-Também há suporte para a cópia de dados para outras regiões, utilizando uma das regiões acima para rotear os dados. A operação de cópia é medida com base na região de onde os dados são roteados.
-
-Região de destino da cópia | Região usada para roteamento
--------------------------- | -----------------------
-Ásia Oriental | Sudeste da Ásia
-Oeste do Japão | Leste do Japão
- 
 ### É melhor ter um pipeline com várias atividades ou um pipeline separado para cada atividade? 
 Pipelines devem agrupar atividades relacionadas. Logicamente, você pode manter as atividades em um pipeline se as tabelas que as conectam não são consumidas por nenhuma outra atividade fora do pipeline. Desse modo, você não precisaria encadear períodos ativos do pipeline para que eles se alinhem uns com os outros. Além disso, a integridade dos dados nas tabelas internas ao pipeline será melhor preservada ao atualizar o pipeline. A atualização de pipeline interrompe essencialmente todas as atividades no pipeline, remove-as e cria essas atividades novamente. Da perspectiva de criação, também pode ser mais fácil ver o fluxo de dados nas atividades relacionadas em um arquivo JSON para o pipeline.
 
@@ -192,4 +181,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

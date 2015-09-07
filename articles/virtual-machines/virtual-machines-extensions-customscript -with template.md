@@ -1,20 +1,20 @@
 <properties
    pageTitle="Usar a Modelos do Gerenciador de Recursos do Azure para Extensão de Script Personalizado"
-   description="Automatização de tarefas de configuração de Máquina Virtual do Azure usando script personalizado com modelos ARM"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="kundanap"
-   manager="madhana"
-   editor=""/>
+	description="Automatização de tarefas de configuração de Máquina Virtual do Azure usando script personalizado com modelos ARM"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kundanap"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/01/2015"
-   ms.author="kundanap"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/01/2015"
+	ms.author="kundanap"/>
 
 # Usar a Extensão de Script Personalizado com modelos do Gerenciador de Recursos do Azure
 
@@ -42,7 +42,7 @@ O Modelo do Gerenciador de Recursos do Azure permitem que você especifique decl
 
 Para implantar com modelos, usamos a mesma versão da Extensão de Script Personalizado disponível para APIs de Gerenciamento de Serviços do Azure. A extensão dá suporte os mesmos parâmetros e cenários de como carregar arquivos para a conta de Armazenamento do Azure ou local do Github. A principal diferença ao usar modelos é que a versão exata da extensão deve ser especificada, em vez de especificar a versão do formato de majorversion.*.
 
- \#\# Trecho do modelo para a Extensão de Script Personalizado em uma VM do Linux
+ ## Trecho do modelo para a Extensão de Script Personalizado em uma VM do Linux
 
 Defina o recurso de extensão a seguir na seção de Recursos do modelo
 
@@ -97,4 +97,4 @@ Consulte os exemplos abaixo para ver amostras completas de configuração de apl
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensão de Script Personalizado em uma VM do Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensão de Script personalizado em uma VM do Windows</a>.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

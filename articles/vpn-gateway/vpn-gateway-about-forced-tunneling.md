@@ -1,14 +1,15 @@
-<properties pageTitle="Configurar túnel forçado para gateways de VPN do Microsoft Azure" description="Se você tiver uma rede virtual com um gateway de VPN entre locais, poderá redirecionar ou "forçar" todo o tráfego de Internet de volta para o local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" />
-<tags
-   ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/13/2015"
-   ms.author="cherylmc" />
+<properties pageTitle="Configurar túnel forçado para gateways de VPN do Microsoft Azure | Microsoft Azure" description="Se você tiver uma rede virtual com um gateway de VPN entre locais, poderá redirecionar ou "forçar" todo o tráfego de Internet para sua instalação local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor=""/>
 
-# Sobre túnel forçado
+<tags  
+   ms.service="vpn-gateway"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="cherylmc"/>
+
+# Configurar o túnel forçado
 
 O túnel forçado permite redirecionar ou "forçar" todo o tráfego direcionado para a Internet de volta para seu local por meio de um túnel VPN de site a site para inspeção e auditoria. Esse é um requisito crítico de segurança para a maioria das políticas de TI empresariais. Sem o túnel forçado, o tráfego direcionado para Internet de suas VMs no Azure sempre percorrerão da infraestrutura de rede do Azure diretamente para a Internet, sem a opção para permitir que você inspecione ou audite o tráfego. O acesso não autorizado à Internet pode levar à divulgação de informações ou outros tipos de violações de segurança.
 
@@ -36,13 +37,15 @@ O túnel forçado no Azure é configurado por meio de Rotas de Rede virtual Defi
 
 -  Com a liberação de rotas definidas pelo usuário, você poderá criar uma tabela de roteamento para adicionar uma rota padrão e, em seguida, associar a tabela de roteamento às suas sub-redes de VNet para habilitar o túnel forçado nessas sub-redes.
 
-- O túnel forçado deve ser associado a um VNet que possui um gateway de VPN de Roteamento Dinâmico do Azure (não um gateway Estático). Você precisa definir um "site padrão" entre sites locais entre locais conectado à rede virtual.
+- O túnel forçado deve ser associado a uma Rede Virtual que tem um gateway de VPN de roteamento dinâmico (e não um gateway estático). Você precisa definir um "site padrão" entre sites locais entre locais conectado à rede virtual.
 
-- Observe que o Túnel Forçado da Rota Expressa não está configurado por intermédio deste mecanismo, mas é habilitado por clientes que anunciam uma rota padrão por meio de sessões de emparelhamento de BGP da Rota Expressa. Consulte a [Documentação da Rota Expressa](https://azure.microsoft.com/documentation/services/expressroute/) para saber mais.
+- Observe que o túnel forçado da Rota Expressa não está configurado por intermédio deste mecanismo, mas é habilitado por meio do anúncio de uma rota padrão por meio de sessões de emparelhamento de BGP da Rota Expressa. Consulte a [Documentação da Rota Expressa](https://azure.microsoft.com/documentation/services/expressroute/) para saber mais.
 
-## Como configurar o túnel forçado
+## Visão geral de configuração
 
-As instruções a seguir ajudarão você a especificar um túnel forçado em uma rede virtual. As etapas de configuração correspondem ao exemplo de rede virtual abaixo. Esta rede virtual de várias camadas tem três sub-redes: *Front-end*, *Intermediária* e *Back-end*, com 4 conexões entre locais:*DefaultSiteHQ* e 3 *Ramificações*. As etapas de configuração a seguir definirão o *DefaultSiteHQ* como a conexão de site padrão para o túnel forçado e configurará as sub-redes *Intermediária* e *Back-end* para usarem túnel forçado.
+O procedimento a seguir ajudará você a especificar um túnel forçado em uma rede virtual. As etapas de configuração correspondem ao exemplo de arquivo netcfg de rede virtual abaixo.
+
+No exemplo, a rede virtual "MultiTier-VNet" tem três sub-redes: *Frontend*, *Midtier* e *Backend*, com 4 conexões entre locais:*DefaultSiteHQ* e 3 *Branches*. As etapas de procedimento definirão o *DefaultSiteHQ* como a conexão de site padrão para o túnel forçado e configurará as sub-redes *Midtier* e *Backend* para usarem túnel forçado.
 
 	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
@@ -86,7 +89,9 @@ As instruções a seguir ajudarão você a especificar um túnel forçado em uma
 
 - Uma rede virtual configurada.
 
-- A versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página Download](http://azure.microsoft.com/downloads/).
+- A versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página de download](http://azure.microsoft.com/downloads/).
+
+## Configurar o túnel forçado
 
 Use o procedimento a seguir para configurar o túnel forçado.
 
@@ -117,6 +122,8 @@ Use o procedimento a seguir para configurar o túnel forçado.
 
 ## Cmdlets do PowerShell adicionais
 
+Abaixo estão alguns cmdlets adicionais do PowerShell que podem ser úteis ao trabalhar com configurações de túnel forçado.
+
 **Para excluir uma tabela de rotas:**
 
 	Remove-AzureRouteTable -RouteTableName <routeTableName>
@@ -143,6 +150,6 @@ Use o procedimento a seguir para configurar o túnel forçado.
 
 ## Próximas etapas
 
-Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
+Para obter informações sobre como proteger o tráfego de rede. Consulte [O que é um grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

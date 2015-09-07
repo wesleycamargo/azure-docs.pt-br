@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Provedor de recursos de rede"
-   description="Provedor de recursos de rede"
-   services="azure-portal"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Provedor de recursos de rede"
+	services="azure-portal"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="azure-portal"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="04/22/2015"
+	ms.author="telmos"/>
 
 # Provedor de recursos de rede
 Uma necessidade básica para sucesso nos negócios de hoje é a capacidade de compilar e gerenciar aplicativos com reconhecimento de rede de grande escala de uma maneira ágil, flexível, segura e repetível. O ARM (Gerenciador de Recursos do Azure) permite que você crie aplicativos como um único conjunto de recursos em grupos de recursos. Esses recursos são gerenciados por meio de vários provedores de recursos no ARM.
@@ -210,7 +210,7 @@ As principais vantagens de usar modelos são:
 
 Para exemplos de modelo, consulte [Modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Para obter mais informações sobre a linguagem de modelo do ARM, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para obter mais informações sobre a linguagem de modelo do ARM, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 O modelo de exemplo acima usa a rede virtual e recursos de sub-rede. Há outros recursos de rede, que você pode usar, conforme listado abaixo:
 
@@ -349,7 +349,7 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 
 [Referência do Azure PowerShell para rede](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Idioma de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Idioma de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 
 [Rede do Azure - modelos usados frequentemente](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +363,4 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 
 [Implantações de modelo](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

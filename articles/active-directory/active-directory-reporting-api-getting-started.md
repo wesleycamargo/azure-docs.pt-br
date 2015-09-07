@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introdução à API de relatório do AD do Azure"
-   description="Como começar a usar a API de relatório do Active Directory do Azure"
-   services="active-directory"
-   documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
-   editor=""/>
+	description="Como começar a usar a API de relatório do Active Directory do Azure"
+	services="active-directory"
+	documentationCenter=""
+	authors="kenhoff"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/17/2015"
-   ms.author="kenhoff;yossib"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/17/2015"
+	ms.author="kenhoff;yossib"/>
 
 
 # Introdução à API de relatório do AD do Azure
@@ -73,7 +73,9 @@ As etapas a seguir guiarão você para obter a ID do cliente do aplicativo e o s
 
 
 ## Modificar o script
-Para editar o script do PowerShell abaixo para funcionar com seu diretório, substitua $ClientID, $ClientSecret e $tenantdomain pelos valores corretos de "Delegando acesso no AD do Azure".
+Edite um dos scripts abaixo para trabalhar com seu diretório, substituindo $ClientID, $ClientSecret e $tenantdomain pelos valores corretos de "Delegar Acesso no AD do Azure".
+
+### Script do PowerShell
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
     $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
@@ -125,6 +127,30 @@ Para editar o script do PowerShell abaixo para funcionar com seu diretório, sub
         Write-Host "ERROR: No Access Token"
         }
 
+### Script Bash
+
+    #!/bin/bash
+
+    # Author: Ken Hoff (kenhoff@microsoft.com)
+    # Date: 2015.08.20
+    # NOTE: This script requires jq (https://stedolan.github.io/jq/)
+
+    CLIENT_ID="<<YOUR CLIENT ID HERE>>"			# Should be a ~35 character string insert your info here
+    CLIENT_SECRET="<<YOUR CLIENT SECRET HERE>>"	# Should be a ~44 character string insert your info here
+    LOGIN_URL="https://login.windows.net"
+    TENANT_DOMAIN="<<YOUR TENANT NAME HERE>>"	 # For example, contoso.onmicrosoft.com
+
+    TOKEN_INFO=$(curl -s --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" "$LOGIN_URL/$TENANT_DOMAIN/oauth2/token?api-version=1.0")
+
+    TOKEN_TYPE=$(echo $TOKEN_INFO | jq -r '.token_type')
+    ACCESS_TOKEN=$(echo $TOKEN_INFO | jq -r '.access_token')
+
+    REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" https://graph.windows.net/$TENANT_DOMAIN/reports/auditEvents?api-version=beta)
+
+    echo $REPORT | jq -r '.value' | jq -r ".[]"
+
+
+
 
 ## Execute o script
 Quando você terminar de editar o script, execute-o e verifique se os dados esperados do relatório AuditEvents são retornados.
@@ -137,4 +163,4 @@ O script retorna listas de todos os relatórios disponíveis e retorna a saída 
 - Consulte [Eventos de relatório de auditoria do AD do Azure](active-directory-reporting-audit-events.md) para obter mais detalhes sobre o relatório de auditoria
 - Consulte [Eventos e relatórios de auditoria do AD do Azure (visualização)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obter mais detalhes sobre o serviço REST de Graph API
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,29 +1,29 @@
-<properties 
+<properties
    pageTitle="Criar, iniciar ou excluir um Application Gateway | Microsoft Azure"
-   description="Esta página fornece instruções para criar, configurar, iniciar e excluir um Application Gateway do Azure"
-   documentationCenter="na"
-   services="application-gateway"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn"/>
-<tags 
+	description="Esta página fornece instruções para criar, configurar, iniciar e excluir um Application Gateway do Azure"
+	documentationCenter="na"
+	services="application-gateway"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
+<tags
    ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="hero-article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="07/29/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/29/2015"
+	ms.author="joaoma"/>
 
 # Criar, iniciar ou excluir um Application Gateway
 
+Nesta versão, você pode criar um Application Gateway usando o PowerShell ou chamadas à API REST. O suporte ao portal do Azure e à CLI será fornecido em uma versão futura. Este artigo orienta você pelas etapas para criar, configurar, iniciar e excluir um Application Gateway.
 
 > [AZURE.SELECTOR]
 - [Azure classic steps](application-gateway-create-gateway.md)
 - [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
 
 
-Nesta versão, você pode criar um Application Gateway usando o PowerShell ou chamadas à API REST. O suporte ao portal e à CLI será fornecido em uma versão futura. Este artigo orienta você pelas etapas para criar, configurar, iniciar e excluir um gateway de aplicativo.
 
 ## Antes de começar
 
@@ -32,41 +32,41 @@ Nesta versão, você pode criar um Application Gateway usando o PowerShell ou ch
 3. Os servidores que você configurará para usar o Application Gateway devem existir ou tem seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
 
 ## O que é necessário para criar um Application Gateway?
- 
 
-Quando você usa o comando New-AzureApplicationGateway para criar o Application Gateway, nenhuma configuração é definida nesse ponto e o recurso recém-criado precisará ser configurado usando um objeto de configuração ou XML.
+
+Quando você usa o comando **New-AzureApplicationGateway** para criar o Application Gateway, nenhuma configuração é definida nesse ponto e o recurso recém-criado precisará ser configurado usando um objeto de configuração ou XML.
 
 
 Os valores são:
 
-- **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público. 
+- **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-- **Porta front-end:** essa porta é a porta pública aberta no Application Gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
-- **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). 
-- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic*. A regra *basic* é a distribuição de carga round robin.
+- **Porta front-end:** essa porta é a porta pública aberta no application gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
+- **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL).
+- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *básica*. A regra *básica* é a distribuição de carga round robin.
 
 
- 
+
 ## Criar um novo Application Gateway
 
 Existe uma ordem de etapas que você precisará seguir para criar um Application Gateway:
 
-1. Crie um recurso do Application Gateway
-2. Crie o arquivo XML de configuração ou o objeto de configuração
-3. Confirme a configuração do recurso do Application Gateway recém-criado
+1. Crie um recurso do Application Gateway.
+2. Crie o arquivo XML de configuração ou o objeto de configuração.
+3. Confirme a configuração do recurso do Application Gateway recém-criado.
 
 ### Criar o recurso do Application Gateway
 
-**Para criar o gateway**, use o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
+Para criar o gateway, use o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
-O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede virtual chamada "testvnet1" e uma sub-rede denominada "subnet-1":
+O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede virtual chamada "testvnet1" e uma sub-rede denominada "subnet-1".
 
-    
+
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
+	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
@@ -81,7 +81,7 @@ O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
-	Description   : 
+	Description   :
 	VnetName      : testvnet1
 	Subnets       : {Subnet-1}
 	InstanceCount : 2
@@ -97,15 +97,15 @@ O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede
 
 ## Configurar o Application Gateway
 
-Você pode configurar o Application Gateway usando os seguintes métodos abaixo: objeto de configuração ou XML.
+Você pode configurar o Application Gateway usando XML ou um objeto de configuração.
 
-## Configurar o Application Gateway usando XML 
+## Configurar o Application Gateway usando XML
 
 No exemplo a seguir, você usará um arquivo XML para definir todas as configurações do Application Gateway e confirmá-las para o recurso do Application Gateway.
 
 ### Etapa 1  
 
-Copie o texto abaixo e cole-o no bloco de notas:
+Copie o seguinte texto no bloco de notas.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -205,18 +205,18 @@ O exemplo a seguir mostra como usar um arquivo de configuração configurando o 
 
 ### Etapa 2
 
-Em seguida, você vai configurar o gateway de aplicativo. Você usará o cmdlet `Set-AzureApplicationGatewayConfig` com um arquivo XML de configuração.
+Em seguida, você vai configurar o Application Gateway. Você usará o cmdlet `Set-AzureApplicationGatewayConfig` com um arquivo XML de configuração.
 
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 
-	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
+	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 
-## Configurar o Application Gateway usando o objeto de configuração
+## Configurar o Application Gateway usando um objeto de configuração
 
 O exemplo a seguir mostra como configurar o Application Gateway usando objetos de configuração. Todos os itens de configuração precisam ser configurado individualmente e, em seguida, adicionados a um objeto de configuração do Application Gateway. Depois de criar o objeto de configuração, você usará o comando `Set-AzureApplicationGateway` para confirmar a configuração para o recurso do Application Gateway criado anteriormente.
 
@@ -224,55 +224,62 @@ O exemplo a seguir mostra como configurar o Application Gateway usando objetos d
 
 ### Etapa 1
 
-Crie todos os itens de configuração individuais:
+Crie todos os itens de configuração individuais.
 
-Crie a porta front-end:
-	
-	PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort 
-	PS C:\> $fep.Name = "fep1" 
+Crie um IP front-end, conforme mostrado no exemplo a seguir.
+
+	PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
+	PS C:\> $fip.Name = "fip1"
+	PS C:\> $fip.Type = "Private"
+	PS C:\> $fip.StaticIPAddress = "10.0.0.5"
+
+Crie uma porta front-end, conforme mostrado no exemplo a seguir.
+
+	PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
+	PS C:\> $fep.Name = "fep1"
 	PS C:\> $fep.Port = 80
-	
-Crie o pool de servidores back-end:
 
- Defina os endereços IP que serão adicionados ao pool de servidores back-end:
+Crie o pool de servidores back-end
+
+ Defina os endereços IP que serão adicionados ao pool de servidores back-end conforme mostrado no exemplo a seguir.
 
 
-	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection 
-	PS C:\> $servers.Add("10.0.0.1") 
+	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
+	PS C:\> $servers.Add("10.0.0.1")
 	PS C:\> $servers.Add("10.0.0.2")
 
- Usando o objeto $server, adicione os valores ao objeto do pool de back-end ($pool)
+ Usando o objeto $server, adicione os valores ao objeto do pool de back-end ($pool).
 
-	PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool 
-	PS C:\> $pool.BackendServers = $servers 
+	PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
+	PS C:\> $pool.BackendServers = $servers
 	PS C:\> $pool.Name = "pool1"
 
 Crie a configuração do pool de servidores back-end
 
-	PS C:\> $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings 
-	PS C:\> $setting.Name = "setting1" 
-	PS C:\> $setting.CookieBasedAffinity = "enabled" 
-	PS C:\> $setting.Port = 80 
+	PS C:\> $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
+	PS C:\> $setting.Name = "setting1"
+	PS C:\> $setting.CookieBasedAffinity = "enabled"
+	PS C:\> $setting.Port = 80
 	PS C:\> $setting.Protocol = "http"
 
 Crie o ouvinte
 
-	PS C:\> $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener 
-	PS C:\> $listener.Name = "listener1" 
-	PS C:\> $listener.FrontendPort = "fep1" 
-	PS C:\> $listener.FrontendIP = "fip1" 
-	PS C:\> $listener.Protocol = "http" 
+	PS C:\> $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
+	PS C:\> $listener.Name = "listener1"
+	PS C:\> $listener.FrontendPort = "fep1"
+	PS C:\> $listener.FrontendIP = "fip1"
+	PS C:\> $listener.Protocol = "http"
 	PS C:\> $listener.SslCert = ""
 
 Crie a regra
 
-	PS C:\> $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule 
-	PS C:\> $rule.Name = "rule1" 
-	PS C:\> $rule.Type = "basic" 
-	PS C:\> $rule.BackendHttpSettings = "setting1" 
-	PS C:\> $rule.Listener = "listener1" 
+	PS C:\> $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
+	PS C:\> $rule.Name = "rule1"
+	PS C:\> $rule.Type = "basic"
+	PS C:\> $rule.BackendHttpSettings = "setting1"
+	PS C:\> $rule.Listener = "listener1"
 	PS C:\> $rule.BackendAddressPool = "pool1"
- 
+
 ### Etapa 2
 
 Atribua todos os itens de configuração individuais a um objeto de configuração do Application Gateway ($appgwconfig):
@@ -280,126 +287,126 @@ Atribua todos os itens de configuração individuais a um objeto de configuraç�
 Adicione o IP front-end à configuração
 
 	PS C:\> $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
-	PS C:\> $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]" 
+	PS C:\> $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
 	PS C:\> $appgwconfig.FrontendIPConfigurations.Add($fip)
- 
+
 Adicione a porta front-end à configuração
 
-	PS C:\> $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]" 
+	PS C:\> $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
 	PS C:\> $appgwconfig.FrontendPorts.Add($fep)
 
 Adicione o pool de servidores back-end à configuração
 
-	PS C:\> $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]" 
+	PS C:\> $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
 	PS C:\> $appgwconfig.BackendAddressPools.Add($pool)  
 
 Adicione a configuração do pool back-end à configuração
 
-	PS C:\> $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]" 
-	PS C:\> $appgwconfig.BackendHttpSettingsList.Add($setting) 
+	PS C:\> $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
+	PS C:\> $appgwconfig.BackendHttpSettingsList.Add($setting)
 
 Adicione o ouvinte à configuração
 
-	PS C:\> $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]" 
+	PS C:\> $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
 	PS C:\> $appgwconfig.HttpListeners.Add($listener)
 
 Adicione a regra à configuração
 
-	PS C:\> $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]" 
-	PS C:\> $appgwconfig.HttpLoadBalancingRules.Add($rule) 
+	PS C:\> $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
+	PS C:\> $appgwconfig.HttpLoadBalancingRules.Add($rule)
 
 ### Etapa 3
 
-Confirme o objeto de configuração do recurso do Application Gateway usando `Set-AzureApplicationGatewayConfig`:
- 
+Confirme o objeto de configuração do recurso do Application Gateway usando `Set-AzureApplicationGatewayConfig`.
+
 	Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 
 ## Iniciar o gateway
 
-Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicationGateway` para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito.
+Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicationGateway` para iniciá-lo. A cobrança por um Application Gateway começa depois que o gateway tiver sido iniciado com êxito.
 
 
-**Observação:** o cmdlet `Start-AzureApplicationGateway` pode levar até 15 a 20 minutos para ser concluído.
+> [AZURE.NOTE]O cmdlet `Start-AzureApplicationGateway` pode levar até 15 a 20 minutos para ser concluído.
 
 
 
-	PS C:\> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
+	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 
 ## Verificar o status do gateway
 
-Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* foi bem-sucedido na etapa anterior, o item State deverá ser *Running*, e Vip e DnsName deverão ter entradas válidas.
+Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* foi bem-sucedido na etapa anterior, o Estado deverá ser *Running*, e Vip e DnsName devem ter entradas válidas.
 
 Este exemplo mostra um Application Gateway que está ativo, em execução e pronto para assumir o tráfego destinado a `http://<generated-dns-name>.cloudapp.net`.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
+	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-	Name          : AppGwTest 
-	Description   : 
-	VnetName      : testvnet1 
-	Subnets       : {Subnet-1} 
-	InstanceCount : 2 
-	GatewaySize   : Medium 
-	State         : Running 
-	Vip           : 138.91.170.26 
+	Name          : AppGwTest
+	Description   :
+	VnetName      : testvnet1
+	Subnets       : {Subnet-1}
+	InstanceCount : 2
+	GatewaySize   : Medium
+	State         : Running
+	Vip           : 138.91.170.26
 	DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 
 
-## Excluir um gateway de aplicativo
+## Excluir um Application Gateway
 
-Para excluir um gateway de aplicativo, você precisará seguir este procedimento na ordem:
+Para excluir um Application Gateway
 
-1. Use o cmdlet `Stop-AzureApplicationGateway` para interromper o gateway. 
+1. Use o cmdlet `Stop-AzureApplicationGateway` para interromper o gateway.
 2. Use o cmdlet `Remove-AzureApplicationGateway` para remover o gateway.
 3. Verifique se o gateway foi removido usando o cmdlet `Get-AzureApplicationGateway`.
 
-Este exemplo mostra o cmdlet `Stop-AzureApplicationGateway` na primeira linha, seguido pela saída.
+O exemplo a seguir mostra o cmdlet `Stop-AzureApplicationGateway` na primeira linha, seguido pela saída.
 
-	PS C:\> Stop-AzureApplicationGateway AppGwTest 
+	PS C:\> Stop-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
+	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-Depois que o Application Gateway estiver em um estado Stopped, use o cmdlet `Remove-AzureApplicationGateway` para remover o serviço.
+Depois que o application gateway estiver em um estado Parado, use o cmdlet `Remove-AzureApplicationGateway` para remover o serviço.
 
 
-	PS C:\> Remove-AzureApplicationGateway AppGwTest 
+	PS C:\> Remove-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
+	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 Para verificar se o serviço foi removido, você pode usar o cmdlet `Get-AzureApplicationGateway`. Essa etapa não é necessária.
 
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
+	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-	Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist. 
+	Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 	.....
 
 ## Próximas etapas
 
-Se desejar configurar o descarregamento SSL, consulte [Configurar um Application Gateway para descarregamento SSL](application-gateway-ssl.md).
+Se desejar configurar o descarregamento SSL, consulte [Configurar o Application Gateway para descarregamento SSL](application-gateway-ssl.md).
 
-Se desejar configurar um Application Gateway para usar com o ILB, consulte [Criar um Application Gateway com um ILB (Balanceador de Carga Interno)](application-gateway-ilb.md).
+Se desejar configurar um Application Gateway para usar com o ILB, confira [Criar um Application Gateway com um ILB (Balanceador de Carga Interno)](application-gateway-ilb.md).
 
 Se deseja obter mais informações sobre as opções de balanceamento de carga no geral, consulte:
 
-- [Balanceador de Carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+- [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

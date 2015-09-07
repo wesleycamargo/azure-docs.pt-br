@@ -44,13 +44,13 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
    3. Outras funções. Por exemplo: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
 
 
-- Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\\). Por exemplo: "Nome da empresa: "Contoso""
+- Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: "Contoso""
 
 
 
 ## Lista de funções
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [MatchRegex](#matchregex) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [ObsoleteReplace](#obsoletereplace) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceRegex](#replaceregex) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 
 
@@ -72,21 +72,6 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 
 ----------
-### Coalesce
-
-**Função:**<br> Coalesce(source1, source2, …)
-
-**Descrição:**<br> retorna o primeiro valor não vazio da lista dos parâmetros source.
- 
-**Parâmetros:**<br>
-
-|Nome| Obrigatório/repetição | Tipo | Observações |
-|--- | ---                 | ---  | ---   |
-| **source1 .. sourceN ** | Obrigatório, número de vezes variável | Cadeia de caracteres |Valores de **source** entre os quais escolher |
-
-
-
-----------
 ### FormatDateTime
 
 **Função:**<br> FormatDateTime(source, inputFormat, outputFormat)
@@ -98,7 +83,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 |Nome| Obrigatório/repetição | Tipo | Observações |
 |--- | ---                 | ---  | ---   |
 | **fonte** | Obrigatório | Cadeia de caracteres | Normalmente o nome do atributo do objeto de source. |
-| **inputFormat** | Obrigatório | Cadeia de caracteres | Formato esperado do valor de source. Para conhecer os formatos com suporte, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** | Obrigatório | Cadeia de caracteres | Formato esperado do valor de source. Para conhecer os formatos com suporte, confira [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** | Obrigatório | Cadeia de caracteres | Formato da data de saída. |
 
 
@@ -119,26 +104,6 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 |--- | ---                 | ---  | ---   |
 | **separator** | Obrigatório | Cadeia de caracteres | Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
 | ****source1 … sourceN ** | Obrigatório, número de vezes variável| Cadeia de caracteres | Valores da cadeia de caracteres a serem unidos. |
-
-
-
-
-
-----------
-### MatchRegex
-
-**Função:**<br> MatchRegex(source, find, group)
-
-**Descrição:**<br> retorna a subcadeia de caracteres dentro do valor de source que corresponde ao padrão de expressão regular especificado no parâmetro find. Se group for especificado, retorna somente o valor desse grupo de RegEx
-
-
-**Parâmetros:**<br>
-
-|Nome| Obrigatório/repetição | Tipo | Observações |
-|--- | ---                 | ---  | ---   |
-| **fonte** | Obrigatório | Cadeia de caracteres | Valor de **source** a pesquisar. |
-| **find** | Obrigatório | Cadeia de caracteres | Expressão regular para corresponder dentro do valor de **source**. |
-| **group** | Opcional | Cadeia de caracteres | Nome do grupo dentro da correspondência da expressão regular cujo valor desejamos usar. |
 
 
 
@@ -178,14 +143,11 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 
 ----------
-### ObsoleteReplace
+### Substitua
 
 **Função:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**Descrição:**<br>
-> [AZURE.NOTE]Essa função será preterida no futuro próximo e substituída por versões mais simples
-
-Substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira diferente dependendo dos parâmetros fornecidos:
+**Descrição:**<br> substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira diferente dependendo dos parâmetros fornecidos:
 
 - Quando **oldValue** e **replacementValue** são fornecidos:
 
@@ -203,7 +165,7 @@ Substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
    - Se **source** tiver um valor, o **source** é retornado
 
-- Se **source** não tiver valor, usa **oldValueRegexPattern** e **oldValueRegexGroupName** para extrair o valor de substituição da propriedade com **replacementPropertyName**. O valor de substituição é retornado como o resultado
+   - Se **source** não tiver valor, usa **oldValueRegexPattern** e **oldValueRegexGroupName** para extrair o valor de substituição da propriedade com **replacementPropertyName**. O valor de substituição é retornado como o resultado
 
 
 **Parâmetros:**<br>
@@ -217,42 +179,6 @@ Substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 | **replacementValue** | Opcional | Cadeia de caracteres | Novo valor com o qual substituir um antigo. |
 | **replacementAttributeName** | Opcional | Cadeia de caracteres | Nome do atributo a ser usado para o valor de substituição quando source não tiver nenhum valor. |
 | **template** | Opcional | Cadeia de caracteres | Quando o valor de **template** for fornecido, procuraremos **oldValue** dentro de template e o substituiremos pelo valor de source. |
-
-
-
-----------
-### Substitua
-
-**Função:**<br> Replace(source, find, replace)
-
-**Descrição:**<br> substitui todas as ocorrências do valor de **find** na cadeia de caracteres de **source** pelo valor do parâmetro **replace**.
-
-**Parâmetros:**<br>
-
-|Nome| Obrigatório/repetição | Tipo | Observações |
-|--- | ---                 | ---  | ---   |
-| **fonte** | Obrigatório | Cadeia de caracteres | Valor de **source** a pesquisar. |
-| **find** | Obrigatório | Cadeia de caracteres | Valor a pesquisar. |
-| **substitui** | Obrigatório | Cadeia de caracteres | Valor com o qual substituir. |
-
-
-
-----------
-### ReplaceRegex
-
-**Função:**<br> ReplaceRegex(source, find, replace, group)
-
-**Descrição:**<br> dentro da cadeia de caracteres de **source**, substitui todas as subcadeias de caracteres que correspondem à expressão regular de **find** pelo valor de **replace**. Se um **group** for especificado, ele substitui somente o valor desse grupo de RegEx.
-
-**Parâmetros:**<br>
-
-|Nome| Obrigatório/repetição | Tipo | Observações |
-|--- | ---                 | ---  | ---   |
-| **fonte** | Obrigatório | Cadeia de caracteres | Valor de **source** a pesquisar. |
-| **find** | Obrigatório | Cadeia de caracteres | Expressão regular para corresponder dentro do valor de **source**. |
-| **substitui** | Obrigatório | Cadeia de caracteres | Valor com o qual substituir. |
-| **group** | Opcional | Cadeia de caracteres | Nome do grupo dentro da correspondência da expressão regular cujo valor desejamos usar. |
-
 
 
 
@@ -296,14 +222,13 @@ Substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 Você precisa retirar um nome de domínio conhecido do email de um usuário para obter um nome de usuário. <br> Por exemplo, se o domínio for "contoso.com", você pode usar a seguinte expressão:
 
 
-**Expressão:** <br> `Replace([mail], "@contoso.com", "")`
+**Expressão:** <br> `Replace([mail], "@contoso.com", , ,"", ,)`
 
 **Entrada/saída de exemplo:** <br>
 
-- **ENTRADA** (email): "john.doe@contoso.com"
+- **ENTRADA** (email): "davi.barros@contoso.com"
 
-- **SAÍDA**: "john.doe"
-
+- **SAÍDA**: "davi.barros"
 
 
 ### Acrescentar sufixo constante ao nome de usuário
@@ -317,10 +242,10 @@ Se você estiver usando um Salesforce Sandbox, talvez seja necessário acrescent
 
 **Entrada/saída de exemplo:** <br>
 
-- **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"
+- **ENTRADA**: (userPrincipalName): "Davi.Barros@contoso.com"
 
 
-- **SAÍDA**: "John.Doe@contoso.com.test"
+- **SAÍDA**: "Davi.Barros@contoso.com.test"
 
 
 
@@ -335,11 +260,11 @@ Você precisa gerar um alias de usuário selecionando as três primeiras letras 
 
 **Entrada/saída de exemplo:** <br>
 
-- **ENTRADA** (givenName): "John"
+- **ENTRADA** (givenName): "Davi"
 
-- **SAÍDA** (sobrenome): "Doe"
+- **ENTRADA** (sobrenome): "Barros"
 
-- **SAÍDA**: "JohDoe"
+- **SAÍDA**: "DaviBarros"
 
 
 
@@ -382,4 +307,4 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

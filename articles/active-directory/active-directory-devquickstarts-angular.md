@@ -34,7 +34,7 @@ Para aplicativos de javascript em execução em um navegador, o AD do Azure forn
 
 Para compilar o aplicativo em funcionamento completo, você precisará:
 
-2. Registrar seu aplicativo no AD do Azure.
+2. Registrar seu aplicativo com o AD do Azure.
 3. Instalar a ADAL e configurar o SPA.
 5. Usar a ADAL para proteger as páginas no SPA.
 
@@ -152,4 +152,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

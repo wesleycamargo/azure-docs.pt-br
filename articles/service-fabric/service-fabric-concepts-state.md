@@ -1,20 +1,20 @@
 <properties
    pageTitle="Definir e gerenciar o estado"
-   description="Como definir e gerenciar o estado do serviço na malha de serviço"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="Como definir e gerenciar o estado do serviço na malha de serviço"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/13/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # Estado do serviço
 **Estado do serviço** são os dados que o serviço requer para funcionar. São as estruturas de dados e variáveis que o serviço lê e grava para poder funcionar.
@@ -41,4 +41,4 @@ Para obter informações sobre os conceitos de malha do serviço, consulte:
 - [Particionamento dos serviços da malha de serviço](service-fabric-concepts-partitioning.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

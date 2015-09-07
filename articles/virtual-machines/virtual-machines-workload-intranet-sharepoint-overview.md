@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure"
-	description="É possível implantar o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure em cinco fases."
+	pageTitle="Implantar um farm do SharePoint Server 2013 | Microsoft Azure"
+	description="Implante um farm do SharePoint Server 2013 de alta disponibilidade usando grupos de disponibilidade do AlwaysOn do SQL Server no Azure em cinco fases."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -49,7 +49,7 @@ Lembre-se:
 
 - Se você tiver experiência com o SharePoint, fique à vontade para adaptar as instruções das Fases 3 a 5 e criar o farm da maneira que melhor atenda às suas necessidades.
 - Se você já tiver uma implementação de nuvem híbrida do Azure, fique à vontade para adaptar ou ignorar as instruções das Fases 1 e 2 para hospedar o novo farm do SharePoint na sub-rede apropriada.
-- Todos os servidores estão localizados em uma só sub-rede da rede virtual do Azure. Se você quiser fornecer segurança adicional equivalente ao isolamento de sub-rede, poderá usar [grupos de segurança de rede](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+- Todos os servidores estão localizados em uma só sub-rede da rede virtual do Azure. Se você quiser fornecer segurança adicional equivalente ao isolamento de sub-rede, é possível usar [grupos de segurança de rede](virtual-networks-nsg.md).
 
 Para criar um ambiente de desenvolvimento/teste ou uma verificação de conceito dessa configuração, consulte [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
@@ -72,4 +72,4 @@ Para iniciar a configuração dessa carga de trabalho, vá para [Fase 1: configu
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

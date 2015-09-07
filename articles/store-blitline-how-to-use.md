@@ -1,35 +1,25 @@
 <properties 
-	pageTitle="Como usar o Blitline para processar imagens - guia de recursos Azure" 
-	description="Aprenda a usar o serviço Blitline para processar imagens em um aplicativo do Azure." 
-	services="" 
-	documentationCenter=".net" 
-	authors="blitline-dev" 
-	manager="jason@blitline.com" 
+	pageTitle="Como usar o Blitline para processar imagens - guia de recursos Azure"
+	description="Aprenda a usar o serviço Blitline para processar imagens em um aplicativo do Azure."
+	services=""
+	documentationCenter=".net"
+	authors="blitline-dev"
+	manager="jason@blitline.com"
 	editor="jason@blitline.com"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/09/2014" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/09/2014"
 	ms.author="support@blitline.com"/>
-
-
-
-
-
-
 # Como usar o Blitline com o Azure e o Armazenamento do Azure
 
 Este guia explicará como acessar os serviços do Blitline e enviar trabalhos para o Blitline.
 
-## Sumário
-
-[O que é o Blitline?][] [O que o Blitline NÃO é][] [Criar uma conta do Blitline][] [Como criar um trabalho do Blitline][] [Como salvar uma imagem em seu Armazenamento do Azure][] [Próximas etapas][]
-
-## <a id="whatis"></a>O que é Blitline?
+## O que é Blitline?
 
 Blitline é um serviço de processamento de imagens com base na nuvem que fornece processamento de imagens de nível empresarial a uma fração do preço que custaria para você mesmo fazer a compilação.
 
@@ -37,7 +27,7 @@ O fato é que o processamento de imagens foi realizado repetidamente, normalment
 
 Para obter mais informações, consulte [http://www.blitline.com](http://www.blitline.com).
 
-## <a id="whatisnot"></a>O que o Blitline NÃO é...
+## O que o Blitline NÃO é...
 
 Para esclarecer a utilidade do Blitline, geralmente é mais fácil identificar o que o Blitline NÃO faz antes de seguir adiante.
 
@@ -49,11 +39,11 @@ Para esclarecer a utilidade do Blitline, geralmente é mais fácil identificar o
 
 - O Blitline é massivamente paralelo e NÃO faz nenhum processamento síncrono. Ou seja, você deve nos fornecer um postback\_url para que possamos informar a conclusão do processamento.
 
-## <a id="createaccount"></a>Criar uma conta do Blitline
+## Criar uma conta do Blitline
 
 [AZURE.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
-## <a id="createjob"></a>Como criar um trabalho do Blitline
+## Como criar um trabalho do Blitline
 
 O Blitline usa JSON para definir as ações que você deseja executar em uma imagem. Esse JSON é composto de alguns campos simples.
 
@@ -97,7 +87,7 @@ O JSON de volta será semelhante a isto:
 
 Isso informa a você que o Blitline recebeu sua solicitação, colocou-a em uma fila de processamento e, quando ela for concluída, a imagem será disponibilizada em: ****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
-## <a id="saveazure"></a>Como salvar uma imagem em sua conta de Armazenamento do Azure
+## Como salvar uma imagem em sua conta de armazenamento do Azure
 
 Se tiver uma conta de armazenamento do Azure, o Blitline poderá enviar por push as imagens processadas para seu contêiner do Azure com facilidade. Ao adicionar um "azure\_destination", você define o local e as permissões para o Blitline enviar por push.
 
@@ -121,7 +111,7 @@ Aqui está um exemplo:
 
 Ao preencher os valores EM LETRAS MAIÚSCULAS com seus próprios valores, você pode enviar esse JSON para http://api.blitline.com/job e a imagem "src" será processada com um filtro de desfoque, em seguida, enviada por push ao destino do Azure.
 
-<h3>Observação:</h3>
+###Observação:
 
 As SAS devem conter a URL inteira de SAS, incluindo o nome do arquivo de destino.
 
@@ -133,7 +123,7 @@ Exemplo:
 Você também pode ler a última edição de documentos do armazenamento do Azure do Blitline [aqui (a página pode estar em inglês)](http://www.blitline.com/docs/azure_storage).
 
 
-## <a id="nextsteps"></a>Próximas Etapas
+## Próximas etapas
 
 Acesse blitline.com para ler sobre todos os nossos outros recursos (as páginas podem estar em inglês):
 
@@ -142,12 +132,4 @@ Acesse blitline.com para ler sobre todos os nossos outros recursos (as páginas 
 * Exemplos da API do Blitline <http://www.blitline.com/docs/examples>
 * Biblioteca de Nuget de terceiros <http://nuget.org/packages/Blitline.Net>
 
-
-  [Próximas etapas]: #nextsteps
-  [O que é o Blitline?]: #whatis
-  [O que o Blitline NÃO é]: #whatisnot
-  [Criar uma conta do Blitline]: #createaccount
-  [Como criar um trabalho do Blitline]: #createjob
-  [Como salvar uma imagem em seu Armazenamento do Azure]: #saveazure
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

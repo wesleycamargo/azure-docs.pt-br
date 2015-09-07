@@ -1,29 +1,30 @@
 <properties
-   pageTitle="Usando o conector do SQL no Serviço de Aplicativo do Microsoft Azure"
-   description="Como usar o conector do SQL"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Usando o Conector SQL em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector SQL ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Conector do Microsoft SQL
-
+# Introdução ao Conector do Microsoft SQL e à adição dele ao seu Aplicativo Lógico
 Conecte-se ao SQL Server local ou a um banco de dados SQL do Azure para criar e alterar suas informações ou dados. Conectores podem ser usados em Aplicativos de Lógicos para obter, processar ou enviar dados como parte de um “fluxo de trabalho”. Utilizando o Conector do SQL em seu fluxo de trabalho, você pode chegar a diversos resultados. Por exemplo, você pode:
 
 - Expor uma seção dos dados residentes no seu banco de dados SQL usando um aplicativo da Web ou móvel.
 - Inserir dados em uma tabela de banco de dados SQL para armazenamento. Por exemplo, você pode inserir registros de funcionários, atualizar ordens de venda e assim por diante.
 - Extrair dados do SQL para uso em um processo comercial. Por exemplo, você pode obter registros do cliente e colocá-los no SalesForce.
+
+Você pode adicionar o Conector SQL a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 ## Gatilhos e Ações
 *Gatilhos* são eventos que ocorrem. Por exemplo, quando um pedido é atualizado ou quando um novo cliente é adicionado. Uma *Ação* é o resultado do gatilho. Por exemplo, quando uma ordem é atualizada, enviar um alerta para o vendedor. Ou, quando um novo cliente for adicionado, enviar um email de boas-vindas para ele.
@@ -34,14 +35,14 @@ O conector de SQL tem os seguintes gatilhos e ações disponíveis:
 
 Gatilhos | Ações
 --- | ---
-Sondar dados | <ul><li>Inserir na tabela</li><li>Atualizar tabela</li><li>Selecionar da tabela</li><li>Excluir da tabela</li><li>Chamar procedimento armazenado</li></ul>
+Sondar dados | <ul><li>Inserir na Tabela</li><li>Atualizar Tabela</li><li>Selecionar da Tabela</li><li>Excluir da Tabela</li><li>Chamar Procedimento Armazenado</li></ul>
 
 ## Criar o conector do SQL
 
 Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
-2. Pesquise "Conector do SQL", selecione-o e selecione **Criar**.
+2. Procure "Conector do SQL", selecione-o e selecione **Criar**.
 3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades.
 4. Insira as seguintes configurações de pacote:
 
@@ -57,9 +58,9 @@ Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelec
 Nome do Servidor Parceiro | Não | Se o servidor primário não estiver disponível, você poderá informar um servidor parceiro como servidor alternativo ou de backup.
 Tabelas | Não | Lista as tabelas de banco de dados que podem ser atualizadas pelo conector. Por exemplo, digite *OrdersTable* ou *EmployeeTable*. Se nenhuma tabela for especificada, todas as tabelas poderão ser usadas. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação.
 Procedimentos Armazenados | Não | Informe um procedimento armazenado existente que pode ser chamado pelo conector. Por exemplo, digite *sp\_IsEmployeeEligible* ou *sp\_CalculateOrderDiscount*. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação.
-Consulta de Dados Disponíveis | Para suporte de gatilho | Instrução SQL para determinar se há dados disponíveis para sondar uma tabela de banco de dados do SQL Server. Deve retornar um valor numérico que representa o número de linhas de dados disponíveis. Exemplo: SELECT COUNT(*) from table\_name. Pesquisar consulta de dados | Para suporte de gatilho | A instrução SQL para pesquisar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>***Observação**<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente.
+Consulta de Dados Disponíveis | Para suporte de gatilho | Instrução SQL para determinar se há dados disponíveis para sondar uma tabela de banco de dados do SQL Server. Deve retornar um valor numérico que representa o número de linhas de dados disponíveis. Exemplo: SELECT COUNT(*) from nome\_da\_tabela. Pesquisar consulta de dados | Para suporte de gatilho | A instrução SQL para pesquisar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT * FROM nome\_da\_tabela; DELETE FROM nome\_da\_tabela. <br/><br/>***Observação**<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente.
 
-5. Após a conclusão, as Configurações de Pacote são semelhantes às seguintes: ![][1]
+5. Após a conclusão, as Configurações de Pacote serão semelhantes às seguintes: ![][1]
 
 6. Selecione **Criar**.
 
@@ -91,7 +92,7 @@ Para usar o conector do SQL como um gatilho, informe os valores de **Consulta de
 
 2. Selecione o gatilho **Sondar Dados (JSON)**, insira a frequência e clique em ✓: ![][6]
 
-3. O gatilho agora aparece conforme configurado no aplicativo lógico. As saídas do gatilho serão mostradas e poderão ser usadas como entradas em ações posteriores: ![][7]
+3. O gatilho agora aparece conforme configurado no aplicativo lógico. As saídas do gatilho serão mostradas e poderão ser usadas como entradas em quaisquer ações posteriores: ![][7]
 
 ## Usar o Conector como uma Ação
 Usaremos o cenário de aplicativo lógico simples que sonda os dados de uma tabela SQL, adiciona os dados a outra tabela e os atualiza.
@@ -112,7 +113,7 @@ Você pode testar o aplicativo lógico adicionando um novo registro na tabela qu
 
 Consulta SQL | Suportado | Sem suporte
 --- | --- | ---
-Cláusula Where | <ul><li>Operadores: AND, OR =, <>, <, <=, >, >= e LIKE</li><li>Várias subcondições podem ser combinadas com "(" e ")"</li><li>Literais de cadeia de caracteres, Datetime (entre aspas simples), números (apenas caracteres numéricos)</li><li>Deve estar rigorosamente em formato de expressão binária, como ((operando do operador operando) AND/OR (operando do operador operando))**</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas as funções internas, como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>Operadores matemáticos, como *, -, + e assim por diante</li><li>Concatenações de cadeia de caracteres usando +.</li><li>Todas as junções</li><li>IS NULL e IS NOT Null</li><li>Quaisquer números com caracteres não numéricos, como números hexadecimais</li></ul> Campos (na consulta Select) | <ul><li>Nomes de colunas válidos separados por vírgulas. Nenhum prefixo de nome de tabela permitido (o conector funciona em uma tabela por vez).</li><li>Os nomes podem escapar com "[" e "]"</li></ul> | <ul><li>Palavras-chave como TOP, DISTINCT e assim por diante</li><li>Alias, como rua + cidade + CEP como endereço</li><li>Todas as funções internas, como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>Operadores matemáticos, como *, -, + e assim por diante</li><li>Concatenações de cadeias de caracteres usando +</li></ul>
+Cláusula Where | <ul><li>Operadores: AND, OR =, <>, <, <=, >, >= e LIKE</li><li>Várias subcondições podem ser combinadas com "(" e ")"</li><li>Literais de cadeia de caracteres, Datetime (entre aspas simples), números (apenas caracteres numéricos)</li><li>Deve estar rigorosamente em formato de expressão binária, como ((operando do operador operando) AND/OR (operando do operador operando))**</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas as funções internas, como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>Operadores matemáticos, como *, -, + e assim por diante</li><li>Concatenações de cadeia de caracteres usando +.</li><li>Todas as junções</li><li>IS NULL e IS NOT Null</li><li>Quaisquer números com caracteres não numéricos, como números hexadecimais</li></ul> Campos (na consulta Select) | <ul><li>Nomes de colunas válidos separados por vírgulas. Nenhum prefixo de nome de tabela permitido (o conector funciona em uma tabela por vez).</li><li>Os nomes podem escapar com "[" e "]"</li></ul> | <ul><li>Palavras-chave como TOP, DISTINCT e assim por diante</li><li>Alias, como Rua + Cidade + Código Postal como endereço</li><li>Todas as funções internas, como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>Operadores matemáticos, como *, -, + e assim por diante</li><li>Concatenações de cadeias de caracteres usando +</li></ul>
 
 #### Dicas
 
@@ -134,7 +135,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho 
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
@@ -148,4 +149,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,109 +1,119 @@
 <properties 
-	pageTitle="Codecs e formatos do Codificador de Mídia do Azure" 
-	description="Este tópico fornece uma visão geral dos codecs e formatos do Codificador de Mídia do Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Codecs e formatos do Codificador de Mídia do Azure"
+	description="Este tópico fornece uma visão geral dos codecs e formatos do Codificador de Mídia do Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
 #Codecs e formatos do Codificador de Mídia do Azure
 
-Os codificadores compactam mídia digital usando codecs. Normalmente, os codificadores têm várias configurações que permitem especificar propriedades da mídia gerada, por exemplo, os codecs usados, o formato do arquivo, a resolução e taxa de bits. Formatos de arquivo são contêineres que armazenam o vídeo compactado, bem como informações sobre quais codecs foram usados para compactar o vídeo.
-
-Codecs têm dois componentes: um para compactar arquivos de mídia digital para transmissão e outro para descompactar arquivos de mídia digital para reprodução. Há codecs de áudio para compactar e descompactar áudio e codecs de vídeo para compactar e descompactar vídeo. Os codecs podem usar compactação com ou sem perdas. Codecs sem perdas preservam todas as informações quando ocorre a compressão. Quando o arquivo é descompactado, o resultado é um arquivo idêntico ao da mídia de entrada, o que torna os codecs sem perdas adequados para arquivamento e armazenamento. Codecs com perdas perdem algumas informações durante a codificação e produzem arquivos menores (que o original) à custa da qualidade do vídeo e servem para streaming pela Internet. Os dois principais codecs usados pelo Codificador de Mídia do Azure para codificação são H.264 e VC-1. Outros codecs podem estar disponíveis em nosso ecossistema de parceiros de codificadores.
-
-É importante compreender a diferença entre codecs e formatos de arquivo. Codecs são o software que implementa os algoritmos de compactação/descompactação. Já os formatos de arquivo são contêineres que armazenam o vídeo compactado. Para obter mais informações, consulte [Codificação versus Empacotamento](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
-
-Este documento contém uma lista dos formatos de arquivo de importação e importação mais comuns que você pode usar com o Codificador de Mídia do Azure.
+Este documento contém uma lista dos formatos e codecs de arquivo de entrada e saída mais comuns que você pode usar com o Codificador de Mídia do Azure.
 
 
-[Formatos de Importação do Codificador de Mídia do Azure](#import_formats)
-
-[Formatos de Exportação do Codificador de Mídia do Azure](#export_formats)
-
-
-##<a id="import_formats"></a>Formatos de Importação do Codificador de Mídia do Azure 
-
-A seção a seguir lista os codecs e formatos de arquivo com suporte para importação.
-
-###Codecs de vídeo
-
-- H.264 (Perfis Linha de base, Principal e Alto)
-- MPEG-1 (incluindo MPEG-PS)
-- MPEG-2 (Perfis Simples e Principal e perfil 4:2:2)
-- MPEG-4 v2 (Perfil Visual Simples e Perfil Simples Avançado)
-- VC-1 (Perfis Simples, Principal e Avançado)
-- Vídeo do Windows Media (Perfis Simples, Principal e Avançado)
-- DV (DVC, DVHD, DVSD, DVSL)
-- Grass Valley HQ/HQX
+##Formatos de arquivo de entrada de vídeo (contêineres)
  
-###Codecs de áudio
-
-- AC-3 (áudio Dolby Digital)
-- AAC (AAC-LC, HE-AAC v1 com núcleo AAC-LC e HE-AAC v2 com núcleo AAC-LC)
-- MP3
-- Áudio do Windows Media 9 (Windows Media Audio Standard, Windows Media Audio Professional e Windows Media Audio Lossless)
-
-###Formatos de arquivo de vídeo
- 
-Formato de arquivo|Extensões de arquivo
+Formato de arquivo (extensões de arquivo)|Suportado
 ---|---
-3GPP, 3GPP2|.3gp, .3g2, .3gp2
-Formato ASF|.asf
-AVCHD (Codificação de vídeo avançada de alta definição) [fluxo de transporte de MPEG-2]|.mts, .m2ts
-Formato AVI|.avi
-Câmera de vídeo digital MPEG-2 (MOD)|.mod
-Arquivo TS (fluxo de transporte) de DVD|.ts
-Arquivo VOB (objeto de vídeo) de DVD|.vob
-Arquivo de codec do Expression Encoder Screen Capture|.xesc
-MP4|.mp4
-Fluxo de sistema MPEG-1|.mpeg, .mpg
-Arquivo de vídeo MPEG-2|.m2v
-Formato de arquivo do Smooth Streaming (PIFF 1.3)|.ismv
-Vídeo do Windows Media (WMV)|.wmv
-
+3GPP, 3GPP2 (.3gp, .3g2, .3gp2) |Sim
+Formato ASF (.asf) |Sim
+AVCHD (Codificação de vídeo avançada de alta definição) [fluxo de transporte de MPEG-2] (.mts, .m2ts) |Sim
+Formato AVI (.avi) |Sim
+Câmera de vídeo digital MPEG-2 (MOD) (.mod) |Sim
+Arquivo TS (fluxo de transporte) de DVD (.ts) |Sim
+Arquivo VOB (objeto de vídeo) de DVD (.vob) |Sim
+Arquivo de codec do Expression Encoder Screen Capture (.xesc) |Sim
+MP4 (.mp4) |Sim
+Fluxo de sistema MPEG-1 (.mpeg, .mpg) |Sim
+Arquivo de vídeo MPEG-2 (.m2v) |Sim
+Formato de arquivo do Smooth Streaming (PIFF 1.3) (.ismv) |Sim
+Vídeo do Windows Media (WMV) (.wmv) |Sim
+Adobe® Flash® F4V |Não		
+MXF/SMPTE 377M |Limitado 
+GXF |Não		 
+[Gravação (DVR-MS) de vídeo Digital da Microsoft](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Não
+Matroska/WebM |Não
 
 Há suporte para alguns formatos descompactados. Para saber mais, consulte [Formatos de vídeo descompactado compatíveis](#uncompressed)
 
-###Formatos de arquivo de áudio
+##Formatos de arquivo de áudio de entrada
 
-Formato de arquivo|Extensões de arquivo
+Formato de arquivo (extensões de arquivo)|Suportado
 ---|---
-Áudio AC-3 (Dolby Digital)|.ac3
-Formato AIFF|.aiff
-Broadcast Wave Format|.bwf
-MP3 (MPEG-1 Audio Layer 3)|.mp3
-Áudio MP4|.m4A
-Audiolivro MPEG-4|.m4b
-Arquivo WAVE|.wav
-Áudio do Windows Media|.wma
+Áudio AC-3 (Dolby Digital) (.ac3)|Sim
+Formato AIFF (.aiff)|Sim
+Broadcast Wave Format (.bwf)|Sim
+MP3 (MPEG-1 Audio Layer 3) (.mp3)|Sim
+Áudio MP4 (.m4A)|Sim
+Audiolivro MPEG-4 (.m4b)|Sim
+Arquivo WAVE (.wav)|Sim
+Áudio do Windows Media (.wma)|Sim
 
-###Formatos de arquivo de imagem
 
-Formato de arquivo|Extensões de arquivo
+##Codecs de vídeo de entrada
+
+Codecs de vídeo de entrada|Suportado
+---|--- 
+H.264 (Perfis Linha de base, Principal e Alto) |Sim
+AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |Apenas 8 bits 4:2:0
+DNxHD ávido (em MXF) |Não
+DVCPro/DVCProHD (em MXF) |Não
+JPEG2000 |Não
+MPEG-2 (Perfis Simples e Principal e perfil 4:2:2) |Até perfil 4:2:2
+MPEG-1 (incluindo MPEG-PS) |Sim
+Windows Media Video/VC-1 |Sim
+Canopus HQ/HQX |Sim
+MPEG-4 v2 (Perfil Visual Simples e Perfil Simples Avançado) |Sim
+[Theora](https://en.wikipedia.org/wiki/Theora) |Não
+VC-1 (Perfis Simples, Principal e Avançado) |Sim
+Vídeo do Windows Media (Perfis Simples, Principal e Avançado) |Sim
+DV (DVC, DVHD, DVSD, DVSL) |Sim
+Grass Valley HQ/HQX |Sim
+ 
+
+##Codecs de áudio de entrada
+
+Codecs de áudio de entrada|Suportado
 ---|---
-Bitmap|.bmp
-GIF, GIF animado|.gif
-JPEG|.jpeg, .jpg
-PNG|.png
-TIFF|.tif
-WPF Canvas XAML|.xaml
+AES (SMPTE 331M e 302M, AES3-2003) |Não
+Dolby® E |Não
+Dolby® Digital (AC3) |Sim
+Dolby® Digital Plus (E-AC3) |Não
+AAC (AAC-LC, HE-AAC v1 com núcleo AAC-LC e HE-AAC v2 com núcleo AAC-LC; até 5.1)|Sim
+MPEG Layer 2|Sim|Sim|Sim
+MP3 (MPEG-1 Audio Layer 3)|Sim
+Áudio do Windows Media 9 (Windows Media Audio Standard, Windows Media Audio Professional e Windows Media Audio Lossless) |Sim
+WAV/PCM|Sim
+[FLAC](https://en.wikipedia.org/wiki/FLAC)|Não
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Não
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)|Não
 
 
-##<a id="export_formats"></a>Formatos de exportação do Codificador de Mídia do Azure
+##Formatos de arquivo de imagem de entrada
+
+Formato de arquivo (extensões de arquivo) | Suportado
+---|---
+Bitmap (.bpm) | Sim
+GIF, GIF animado (.gif)| Sim
+.jpeg, .jpg (.jpeg, .jpg)| Sim
+PNG (. png)| Sim
+TIFF (. tif)| Sim
+WPF Canvas XAML (.xaml)| Sim
+
+
+##Formatos e codecs de saída
 
 A tabela a seguir lista os codecs e formatos de arquivo com suporte para exportação.
-
 
 Formato de arquivo|Codec de vídeo|Codec de áudio
 ---|---|---
@@ -131,4 +141,4 @@ Dados em formato YUV 211|Um formato YUV empacotado. Uma amostra Y a cada dois pi
 Formato Cirrus Logic Jr YUV 411|Formato Cirrus Logic Jr YUV 411 com menos de 8 bits por amostra Y, U e V. Uma amostra Y a cada pixel, uma amostra U e V a cada quatro pixels horizontais em cada linha; cada linha vertical de amostra.
 Formato YVU9 produzido em Indeo|Formato YVU9 produzido em Indeo com informações adicionais sobre as diferenças do último quadro. 9,5 bits por pixel, mas relatado como 9.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

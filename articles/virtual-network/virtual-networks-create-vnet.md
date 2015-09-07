@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Como criar uma rede virtual (VNet)"
-   description="Saiba como criar uma rede virtual (VNet)"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Saiba como criar uma rede virtual (VNet)"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # Como criar uma rede virtual (VNet)
 
 Quando você cria uma rede virtual, seus serviços e máquinas virtuais na VNet podem se comunicar com segurança entre si sem ter que utilizar a Internet. A criação de uma VNet do Azure é um processo relativamente rápido e fácil se a ideia não for conectá-la a outras VNets ou à sua rede local, já que não será necessário adquirir e configurar um dispositivo VPN ou coordenar os endereços IP que você escolher com outras VNets ou com a rede local.
 
->[AZURE.WARNING]Não use esse procedimento para criar uma VNet que será conectada mais tarde a outras VNets ou à sua rede local. Se você deseja criar uma conexão híbrida ou segura entre locais, confira [Sobre conectividade segura entre locais na rede virtual](https://msdn.microsoft.com/library/azure/dn133798.aspx). Se você quiser criar uma VNet que se conecta a outra VNet, confira [Configurar uma conexão VNet com VNet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+>[AZURE.WARNING]Não use esse procedimento para criar uma VNet que será conectada mais tarde a outras VNets ou à sua rede local. Se você deseja criar uma conexão híbrida ou segura entre locais, confira [Sobre conectividade segura entre locais na rede virtual](vpn-gateway-cross-premises-options.md). Se você quiser criar uma VNet que se conecta a outra VNet, confira [Configurar uma conexão VNet com VNet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ## Configurar a rede virtual
 
@@ -35,7 +35,7 @@ Quando você cria uma rede virtual, seus serviços e máquinas virtuais na VNet 
 
 	- **Local:** selecione o local (região) na lista suspensa. O local está diretamente relacionado ao local físico (região) onde você deseja que os recursos (VMs) residam. Por exemplo, se você deseja que suas VMs fiquem localizadas fisicamente no *Leste dos EUA*, selecione essa região local. Você não pode alterar a região associada à sua rede virtual depois de criá-la.
 
-1. Na página **Servidores DNS e Conectividade VPN**, não faça nenhuma alteração. Simplesmente avance para a próxima página clicando na seta. Por padrão, o Azure fornece solução de nomes básica para a sua rede virtual. É possível que seus requisitos de resolução de nome sejam mais complexos do que pode ser tratado pela resolução de nomes básica do Azure. Nesse caso, você pode querer adicionar uma máquina virtual executando DNS à sua rede virtual posteriormente Para saber mais sobre DNS e solução de nomes do Azure, confira [Solução de nome (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx).
+1. Na página **Servidores DNS e Conectividade VPN**, não faça nenhuma alteração. Simplesmente avance para a próxima página clicando na seta. Por padrão, o Azure fornece solução de nomes básica para a sua rede virtual. É possível que seus requisitos de resolução de nome sejam mais complexos do que pode ser tratado pela resolução de nomes básica do Azure. Nesse caso, você pode querer adicionar uma máquina virtual executando DNS à sua rede virtual posteriormente Para saber mais sobre DNS e solução de nomes do Azure, confira [Solução de nome (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 1. A página **Espaços de Endereço de Rede Virtual** é onde você insere o espaço de endereço que deseja usar para esse VNet. A menos que você precise de um determinado intervalo de endereço IP interno para suas VMs ou deseja criar uma subrede específica para VMs que receberão um DIP estático, você não precisa fazer nenhuma alteração nessa página. Se você quiser criar várias sub-redes, pode fazer isso nessa página clicando em **Adicionar sub-rede**.
 
@@ -66,4 +66,4 @@ Depois de criar a sua VNet, você pode adicionar novas VMs a ela. É importante 
 [Como excluir uma rede virtual (VNet)](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

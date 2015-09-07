@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Microsoft Azure AD Connect - Atualizar a partir da ferramenta de sincronização do AD do Microsoft Azure (DirSync)" 
-   description="Saiba como atualizar do DirSync para o Azure AD Connect. Este artigo descreve as etapas para atualizar sua atual ferramenta de sincronização do AD do Microsoft Azure (DirSync) ao Azure AD Connect." 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="shoatman" 
-   manager="terrylanfear" 
-   editor="billmath"/>
+   pageTitle="Microsoft Azure AD Connect - Atualizar a partir da ferramenta de sincronização do AD do Microsoft Azure (DirSync)"
+	description="Saiba como atualizar do DirSync para o Azure AD Connect. Este artigo descreve as etapas para atualizar sua atual ferramenta de sincronização do AD do Microsoft Azure (DirSync) ao Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="shoatman"
+	manager="terrylanfear"
+	editor="billmath"/>
 
 <tags 
-   ms.service="active-directory" 
-   ms.workload="identity" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="05/26/2015" 
-   ms.author="shoatman"/>
+   ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/26/2015"
+	ms.author="shoatman"/>
 
 # Atualizando a sincronização do Active Directory do Microsoft Azure (DirSync) com o Azure Active Directory Connect
 
@@ -203,7 +203,7 @@ A seguir, uma lista de pré-requisitos e componentes de suporte que o Azure AD C
 * [Como o Azure AD Connect funciona](active-directory-aadconnect-how-it-works.md)
 * [O que vem a seguir com o Azure AD Connect](active-directory-aadconnect-whats-next.md)
 * [Saiba mais](active-directory-aadconnect-learn-more.md)
-* [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [Azure AD Connect no MSDN](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

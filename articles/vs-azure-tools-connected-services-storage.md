@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Adicionar Armazenamento do Azure usando os serviços conectados no Visual Studio"
-   description="Adicionar Armazenamento do Azure ao seu aplicativo usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Adicionar Armazenamento do Azure usando serviços conectados no Visual Studio | Microsoft Azure"
+	description="Adicionar Armazenamento do Azure ao seu aplicativo usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="mobile"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="mobile"
+	ms.date="08/12/2015"
+	ms.author="patshea"/>
 
 # Adicionando armazenamento do Azure usando os serviços conectados do Visual Studio
 
 ## Visão geral
 
-Com o Visual Studio 2015, você pode conectar qualquer serviço de nuvem do C\#, serviço móvel back-end do .NET, site ou serviço ASP.NET, serviço 5 ASP.NET ou serviço WebJob do Azure ao Armazenamento do Azure usando a caixa de diálogo **Adicionar Serviços Conectados**. A funcionalidade do serviço conectado adiciona todas as referências necessárias e o código de conexão, bem como modifica os arquivos de configuração adequadamente. A caixa de diálogo também dá acesso à documentação que informa quais são as próximas etapas para iniciar o armazenamento de blob, as filas e as tabelas.
+Com o Visual Studio 2015, você pode conectar qualquer serviço de nuvem do C#, serviço móvel back-end do .NET, site ou serviço ASP.NET, serviço 5 ASP.NET ou serviço WebJob do Azure ao Armazenamento do Azure usando a caixa de diálogo **Adicionar Serviços Conectados**. A funcionalidade do serviço conectado adiciona todas as referências necessárias e o código de conexão, bem como modifica os arquivos de configuração adequadamente. A caixa de diálogo também dá acesso à documentação que informa quais são as próximas etapas para iniciar o armazenamento de blob, as filas e as tabelas.
 
 ## Tipos de projeto com suporte
 
@@ -38,13 +38,13 @@ Você pode usar a caixa de diálogo Serviços Conectados para se conectar ao Arm
 
 ## Conectar-se ao Armazenamento do Azure usando a caixa de diálogo Serviços Conectados
 
-1. Verifique se você tem uma conta do Azure. Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](http://go.microsoft.com/fwlink/?LinkId=518146). Com uma conta do Azure, você pode criar contas de armazenamento, criar serviços móveis e configurar o Active Directory do Azure.
+1. Verifique se você tem uma conta do Azure. Se não tiver uma conta do Azure, poderá se inscrever para uma [avaliação gratuita](http://go.microsoft.com/fwlink/?LinkId=518146). Quando você tiver uma conta Azure, poderá criar contas de armazenamento, de serviços móveis, e configurar o Active Directory do Azure.
 
 1. Abra o projeto no Visual Studio, abra o menu de contexto do nó **Referências** no Gerenciador de Soluções e escolha **Adicionar Serviço Conectado**.
 
     ![Adicionando um serviço conectado](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
-1. Na caixa de diálogo **Adicionar Serviço Conectado**, escolha **Armazenamento do Azure** e escolha o botão **Configurar**. Caso ainda não tenha entrado no Azure, talvez seja solicitado que você faça isso agora.
+1. Na caixa de diálogo **Adicionar Serviço Conectado**, escolha **Armazenamento do Azure**, e, em seguida, escolha o botão **Configurar**. Você será solicitado a fazer logon no Azure, se ainda não o fez.
 
     ![Caixa de diálogo Adicionar Serviço Conectado — Armazenamento](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
@@ -79,7 +79,7 @@ Quando você acaba de fazer suas escolhas na caixa de diálogo, o Visual Studio 
  - Para projetos ASP.NET, consulte [O que aconteceu — projetos ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
  - Para projetos 5 ASP.NET, consulte [O que aconteceu — projetos 5 ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
  - Para projetos de serviço de nuvem (funções Web e funções de trabalho), consulte [O que aconteceu — projetos de serviço de nuvem](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
- - Para projetos WebJob, consulte [O que aconteceu — projetos WebJob](storage/vs-storage-webjobs-what-happened/).
+ - Para projetos de Trabalho Web, consulte [O que aconteceu — projetos de Trabalho Web](vs-storage-webjobs-what-happened/).
 
 ## Próximas etapas
 
@@ -94,4 +94,4 @@ Quando você acaba de fazer suas escolhas na caixa de diálogo, o Visual Studio 
 
      - [Documentação do Armazenamento em azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

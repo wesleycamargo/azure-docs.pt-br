@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Comparação de ferramentas de integração de diretório" 
-	description="Esta é a página que fornecerá as tabelas abrangentes que comparam as várias ferramentas de integração de diretório." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Comparação de ferramentas de integração de diretório"
+	description="Esta é a página que fornecerá as tabelas abrangentes que comparam as várias ferramentas de integração de diretório."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Comparação de ferramentas de integração de diretório
@@ -88,4 +88,4 @@ Permitir que os modelos de serviço diferentes a sejam aplicados para fluxos de 
 Permitir a remoção de atributos do fluxo do AD para o AD do Azure | ● | ● | |  
 Permitir a personalização avançada para fluxos de atributo | ● | ● | | ●  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

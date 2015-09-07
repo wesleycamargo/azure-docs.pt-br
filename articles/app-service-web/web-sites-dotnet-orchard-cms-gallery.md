@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Criar um aplicativo Web Orchard CMS do Azure Marketplace" 
-	description="Um tutorial que ensina a criar um novo aplicativo Web no Azure. Aprenda também como iniciar e gerenciar seu aplicativo Web usando o Portal do Azure" 
+	pageTitle="Criar um aplicativo Web Orchard CMS do Azure Marketplace"
+	description="Um tutorial que ensina a criar um novo aplicativo Web no Azure. Aprenda também como iniciar e gerenciar seu aplicativo Web usando o Portal do Azure"
 	tags="azure-portal"
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 # Criar um aplicativo Web Orchard CMS do Azure Marketplace
@@ -73,7 +73,6 @@ Você criará um aplicativo Web Orchard CMS que usa um modelo padrão. O [Orchar
 
 ## Próximas etapas
 
-* [Desenvolver e implantar um aplicativo Web com o Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md) -- saiba como editar um Aplicativo Web do Serviço de Aplicativo no WebMatrix. 
 * [Crie um aplicativo ASP.NET MVC com autenticação e banco de dados SQL e implante o Serviço de Aplicativo do Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)-- saiba como criar um novo aplicativo Web no Serviço de Aplicativo do Azure a partir do Visual Studio.
 
 ## O que mudou
@@ -92,4 +91,4 @@ Você criará um aplicativo Web Orchard CMS que usa um modelo padrão. O [Orchar
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

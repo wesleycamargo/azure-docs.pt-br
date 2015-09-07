@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Filas do Azure e filas do Barramento de Serviço — comparações e contrastes"
-   description="Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+	description="Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure."
+	services="service-bus"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor="tysonn"/>
 <tags 
    ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="05/21/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/25/2015"
+	ms.author="sethm"/>
 
 # Filas do Azure e filas do Barramento de Serviço — comparações e contrastes
 
@@ -290,8 +290,6 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço de u
 
 - Na elaboração deste documento, todas as transferências de dados de entrada não estavam sujeitas à cobrança.
 
-- O custo das transações do ACS é insignificante na execução de operações do sistema de mensagens em filas do Barramento de Serviço. O Barramento de Serviço adquire um token do ACS por uma única instância do objeto de fábrica do sistema de mensagens. O token é então reutilizado até expirar, depois de cerca de 20 minutos. Portanto, o volume de operações do sistema de mensagens no Barramento de Serviço não é diretamente proporcional à quantidade de transações de ACS necessárias para oferecer suporte a essas operações.
-
 - Dado o suporte à sondagem longa, usar as filas do Barramento de Serviço pode ser econômico em situações em que a entrega de baixa latência é necessária.
 
 >[AZURE.NOTE]Todos os custos estão sujeitos a alterações. Esta tabela reflete os preços atuais no momento da elaboração deste artigo e não inclui nenhuma oferta promocional que possa estar disponível no momento. Para obter informações atualizadas sobre os preços do Azure, consulte a página de [preços do Azure](http://azure.microsoft.com/pricing/). Para obter mais informações sobre o preço do Barramento de Serviço, consulte [Preço do Barramento de Serviço]((http://azure.microsoft.com/pricing/details/service-bus/).
@@ -317,4 +315,4 @@ Os artigos a seguir fornecem mais orientação e informações sobre como usar a
 - [Noções básicas sobre a cobrança de armazenamento do Azure — largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

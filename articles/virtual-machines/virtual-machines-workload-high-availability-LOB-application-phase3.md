@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Carga de trabalho de aplicativo de linha de negócios fase 3: configurar a infraestrutura do SQL Server" 
-	description="Nesta terceira fase de implantação de um aplicativo de linha de negócios de alta disponibilidade no Azure, você criará os computadores do cluster do SQL Server e o cluster em si." 
+	pageTitle="Aplicativo de linha de negócios Fase 3 | Microsoft Azure"
+	description="Crie os computadores e o cluster do SQL Server e habilite grupos de disponibilidade na fase 3 do aplicativo de linha de negócios no Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 3: configurar a infraestrutura do SQL Server
@@ -37,7 +37,7 @@ Use o seguinte bloco de comandos do PowerShell para criar as máquinas virtuais 
 - Tabela ST para suas contas de armazenamento
 - Tabela A para os conjuntos de disponibilidade
 
-Lembre-se que você definiu a Tabela M na [fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Lembre-se de que você definiu a Tabela M na [fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
 Quando você tiver fornecido a todos os valores adequados, execute o bloco resultante no prompt do Azure PowerShell.
 
@@ -177,7 +177,7 @@ O SQL Server exige uma porta que os clientes usam para acessar o servidor de ban
 
 Saia como administrador local de cada uma das máquinas virtuais do SQL Server.
 
-Para obter informações sobre como otimizar o desempenho do SQL Server no Azure, consulte [Práticas recomendadas de desempenho do SQL Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). Você também pode desabilitar o GRS (Armazenamento com Redundância Geográfica) para a conta de armazenamento do aplicativo da linha de negócios e usar os espaços de armazenamento para otimizar o IOPs.
+Para obter informações sobre como otimizar o desempenho do SQL Server no Azure, consulte [Práticas recomendadas de desempenho do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md). Você também pode desabilitar o GRS (Armazenamento com Redundância Geográfica) para a conta de armazenamento do aplicativo de linha de negócios e usar os espaços de armazenamento para otimizar o IOPs.
 
 ## Configurar o servidor do nó principal do cluster
 
@@ -268,4 +268,4 @@ Para definir a configuração dessa carga de trabalho, vá para [Fase 4: configu
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

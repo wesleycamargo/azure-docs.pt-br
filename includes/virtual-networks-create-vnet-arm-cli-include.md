@@ -1,15 +1,15 @@
-## How to create a VNet using the Azure CLI
+## Como criar uma Rede Virtual usando a CLI do Azure
 
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
+Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de comando de qualquer computador com Windows, Linux ou OSX. Para criar uma Rede Virtual usando a CLI do Azure, siga as etapas abaixo.
 
-1. If you have never used the Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
 
 		info:    New mode is arm
 
-3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+3. Se necessário, execute **azure group create** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
 
@@ -25,10 +25,10 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:
 		info:    group create command OK
 
-	- **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
-	- **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *centralus*.
+	- **-n (ou --name)**. Nome do novo grupo de recursos. Para o nosso cenário, *TestRG*.
+	- **-l (ou --location)**. Região do Azure em que o novo grupo de recursos será criado. Para o nosso cenário, *centralus*.
 
-4. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. Notice the output from the CLI command. The list shown after the output explains the parameters used.
+4. Execute o comando **azure network vnet create** para criar uma Rede Virtual e uma sub-rede, como mostrado abaixo. Observe a saída do comando CLI. A lista exibida após a saída explicar os parâmetros usados.
 5. 
 		azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
 
@@ -45,12 +45,12 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:      192.168.0.0/16
 		info:    network vnet create command OK
 
-	- **-g (or --resource-group)**. Name of the resource group where the VNet will be created. For our scenario, *TestRG*.
-	- **-n (or --name)**. Name of the VNet to be created. For our scenario, *TestVNet*
-	- **-a (or --address-prefixes)**. List of CIDR blocks used for the VNet address space. For our scenario, *192.168.0.0/16*
-	- **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *centralus*.
+	- **-g (ou --resource-group)**. Nome do grupo de recursos em que a Rede Virtual será criada. Para o nosso cenário, *TestRG*.
+	- **-n (ou --name)**. Nome da Rede Virtual a ser criada. Para o nosso cenário, *TestVNet*
+	- **-a (ou --address-prefixes)**. Lista de blocos CIDR usado para o espaço de endereço de Rede Virtual. Para o nosso cenário, *192.168.0.0/16*
+	- **-l (ou --location)**. Região do Azure em que a Rede Virtual será criada. Para o nosso cenário, *centralus*.
 
-5. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
+5. Execute o comando **azure network vnet subnet create** para criar uma sub-rede, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados.
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
@@ -66,15 +66,15 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:
 		info:    network vnet subnet create command OK
 
-	- **-e (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-	- **-n (or --name)**. Name of the new subnet. For our scenario, *FrontEnd*.
-	- **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.1.0/24*.
+	- **-e (ou --vnet-name**. Nome da Rede Virtual em que a sub-rede será criada. Para o nosso cenário, *TestVNet*.
+	- **-n (ou --name)**. Nome da nova sub-rede. Para o nosso cenário, *FrontEnd*.
+	- **-a (ou --address-prefix)**. Bloco CIDR de sub-rede. Para o nosso cenário, *192.168.1.0/24*.
 
-6. Repeat step 5 above to create other subnets, if necessary. For our scenario, run the command below to create the *BackEnd* subnet.
+6. Repita a etapa 5 acima para criar outras sub-redes, se necessário. Para o nosso cenário, execute o comando a seguir para criar a sub-rede *back-end*.
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n BackEnd -a 192.168.2.0/24
 
-4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+4. Execute o comando **azure network vnet show** para exibir as propriedades de nova vnet, como mostrado abaixo.
 
 		azure network vnet show -g TestRG -n TestVNet
 
@@ -95,3 +95,5 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:      Address prefix                : 192.168.2.0/24
 		data:
 		info:    network vnet show command OK
+
+<!---HONumber=August15_HO9-->

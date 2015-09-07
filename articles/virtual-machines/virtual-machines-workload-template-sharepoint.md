@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Implantar farms do SharePoint com os modelos do Gerenciador de Recursos do Azure"
+	pageTitle="Implantar farms do SharePoint com os modelos do Gerenciador de Recursos do Azure | Microsoft Azure"
 	description="Implante facilmente um farm de três ou nove servidores do SharePoint com modelos do Gerenciador de Recursos e o Portal de Visualização do Azure, Azure PowerShell ou Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
@@ -27,11 +27,11 @@ Para um farm básico do SharePoint Server 2013, um modelo do Gerenciador de Recu
 
 ![](./media/virtual-machines-workload-template-sharepoint/three-server-sharepoint-farm.png)
 
-Você pode executar o modelo com o Portal de Visualização do Azure, o Azure PowerShell ou a CLI do Azure.
+Você pode executar o modelo com o portal de visualização do Azure, o Azure PowerShell ou CLI do Azure.
 
-### Portal de Visualização do Azure
+### Portal de visualização do Azure
 
-Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
+Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -40,7 +40,7 @@ Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recurso
 3.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
 4.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
 5.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
-6.	Se for necessário, clique em **Termos legais** para rever os termos e o contrato de utilização do modelo.
+6.	Se necessário, clique em **Termos legais** para rever os termos e o contrato de utilização do modelo.
 7.	Clique em **Criar**.
 
 Dependendo do modelo, pode levar algum tempo para o Azure criar a carga de trabalho. Ao concluir, você terá um novo farm de três servidores do SharePoint em seu grupo de recursos novos ou existentes.
@@ -94,13 +94,13 @@ Ao executar o comando **azure group deployment create**, você receberá uma sol
 
 Agora você tem um novo farm de três servidores do SharePoint em seu novo grupo de recursos.
 
-##Implantar um farm de nove servidores do SharePoint
+## Implantar um farm de nove servidores do SharePoint
 
 Para um farm do SharePoint Server 2013 de alta disponibilidade, um modelo do Gerenciador de Recursos cria nove máquinas virtuais em uma nova rede virtual em quatro sub-redes diferentes.
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-### Portal de Visualização do Azure
+### Portal de visualização do Azure
 
 Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
@@ -108,10 +108,10 @@ Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recurso
 
 1.	Para o painel **Modelo**, clique em **Salvar**.
 2.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
-3.	Se for necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
-4.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um para essa carga de trabalho.
-5.	Se for necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
-6.	Se necessário, clique em Termos Legais para rever os termos e o contrato para usar o modelo.
+3.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
+4.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
+5.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
+6.	Se necessário, clique em **Termos legais** para rever os termos e o contrato de utilização do modelo.
 7.	Clique em **Criar**.
 
 Dependendo do modelo, pode levar algum tempo para o Azure criar a carga de trabalho. Ao concluir, você terá um novo farm de nove servidores do SharePoint em seu grupo de recursos novos ou existentes.
@@ -138,7 +138,7 @@ Aqui está um exemplo.
 	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-Em seguida, execute o bloco de comando no prompt do Azure PowerShell.
+Em seguida, execute o bloco de comando no prompt de comando do Azure PowerShell.
 
 Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois de especificar todos os valores de parâmetro, o **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
 
@@ -170,9 +170,9 @@ Quando a execução do modelo for concluída, você terá, então, um novo farm 
 
 [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e o Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Computação do Azure, provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+[Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
 
 [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -180,4 +180,4 @@ Quando a execução do modelo for concluída, você terá, então, um novo farm 
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

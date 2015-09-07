@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Cenários da Possibilidade de Teste da Malha do Serviço: comunicação do serviço" 
-   description="As comunicação entre serviços é um ponto de integração essencial de um aplicativo da Malha do Serviço. Este artigo aborda as considerações de design e as técnicas de teste." 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="vturecek" 
-   manager="timlt" 
-   editor=""/>
+   pageTitle="Cenários da Possibilidade de Teste da Malha do Serviço: comunicação do serviço"
+	description="As comunicação entre serviços é um ponto de integração essencial de um aplicativo da Malha do Serviço. Este artigo aborda as considerações de design e as técnicas de teste."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="vturecek"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
-   ms.date="04/17/2015"
-   ms.author="vturecek"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="vturecek"/>
 
 # Cenários da Possibilidade de Teste da Malha do Serviço: comunicação do serviço
 
@@ -101,4 +101,4 @@ Neste exemplo, definimos `QuorumLossMode` como `PartialQuorumLoss` para indicar 
 
 [Saiba mais sobre os Cenários da Possibilidade de Teste](service-fabric-testability-scenarios.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

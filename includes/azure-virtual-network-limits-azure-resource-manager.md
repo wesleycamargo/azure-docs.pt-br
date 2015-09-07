@@ -4,7 +4,7 @@
    <th align="left" valign="middle">Limite padrão</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Redes virtuais</a><sup>1</sup> por assinatura</p></td>
+   <td valign="middle"><p><a href="../virtual-network/virtual-networks-overview.md">Redes virtuais</a><sup>1</sup> por assinatura</p></td>
    <td valign="middle"><p>50 por Região<sup>1</sup></p></td>
 </tr>
 <tr>
@@ -51,4 +51,4 @@
 
 <sup>1</sup>O limite pode ser aumentado entrando em contato com o suporte.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

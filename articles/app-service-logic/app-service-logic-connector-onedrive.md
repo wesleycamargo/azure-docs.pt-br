@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Conector do OneDrive"
-	description="Introdução ao Conector do OneDrive"
+	pageTitle="Usando o Conector do OneDrive em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector do OneDrive ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,14 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Usando o Conector de OneDrive em seu aplicativo lógico #
-
-Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
-
-O Conector do OneDrive permite que você carregue\\baixe\\exclua arquivos de sua conta do OneDrive.
+# Introdução ao Conector do OneDrive e à adição dele a seu Aplicativo Lógico
+Conecte-se ao seu OneDrive para carregar, baixar e excluir arquivos. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode adicionar o Conector do OneDrive a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 ## Criando um Conector do OneDrive para seu aplicativo lógico ##
 Para usar o conector do OneDrive, primeiro você precisa criar uma instância do aplicativo de API do conector do OneDrive. Isso pode ser feito diretamente do designer do aplicativo lógico ou de fora dele. Criar uma instância fora do designer pode ser feito da seguinte maneira:
@@ -83,7 +80,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho 
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-onedrive/img1.PNG
@@ -98,4 +95,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Definição da API do OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

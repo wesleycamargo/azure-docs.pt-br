@@ -1,20 +1,20 @@
 <properties
    pageTitle="Visão Geral do Gerenciador de Recursos do Azure"
-   description="Descreve como usar o Gerenciador de Recursos do Azure para implantação, gerenciamento e controle de acesso dos recursos do Azure."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Descreve como usar o Gerenciador de Recursos do Azure para implantação, gerenciamento e controle de acesso dos recursos do Azure."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Visão Geral do Gerenciador de Recursos do Azure
 
@@ -22,7 +22,9 @@ Aplicativos normalmente são compostos por vários componentes, como um aplicati
 
 O Gerenciador de Recursos do Azure nativamente integra o controle de acesso à plataforma de gerenciamento para que você possa especificar as ações que um usuário da sua organização pode utilizar em um grupo de recursos.
 
-Veja uma demonstração desta visão geral.
+O Gerenciador de Recursos fornece uma nova maneira de implantar e gerenciar suas soluções. Para saber mais sobre as alterações no novo modelo de implantação, consulte [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
+
+Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
@@ -124,9 +126,9 @@ Para obter informações sobre o uso do portal de visualização, consulte [Usan
 
 ## Próximas etapas
 
-- Para saber mais sobre a criação de modelos, consulte [Criando modelos](./resource-group-authoring-templates.md)
+- Para saber mais sobre a criação de modelos, consulte [Criando modelos](./resource-group-authoring-templates.md).
 - Para implantar o modelo criado, consulte [Implantando modelos](azure-portal/resource-group-template-deploy.md)
 - Para entender as funções que você pode usar em um modelo, consulte [Funções de modelo](./resource-group-template-functions.md)
 - Para obter orientação sobre como criar seus modelos, consulte [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

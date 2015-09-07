@@ -1,20 +1,20 @@
 <properties
    pageTitle="Entender as diferenças entre os modelos do Gerenciador de Recursos e da implantação clássica"
-   description="Descreve as diferenças entre o modelo de implantação do Gerenciador de Recursos e o modelo de implantação clássica (ou do Gerenciamento de Serviços)."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Descreve as diferenças entre o modelo de implantação do Gerenciador de Recursos e o modelo de implantação clássica (ou do Gerenciamento de Serviços)."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica
 
@@ -151,9 +151,11 @@ Para obter uma lista de comandos equivalentes da CLI do Azure durante a transiç
 
 Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
+Para obter informações sobre como conectar redes virtuais de diferentes modelos de implantação, consulte [Conectando VNets clássicas a VNets novas](./virtual-network/virtual-networks-arm-asm-s2s.md).
+
 ## Próximas etapas
 
-- Para saber mais sobre como criar modelos de implantação declarativa, consulte [Autorizando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+- Para saber mais sobre como criar modelos de implantação declarativa, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Como habilitar ou desabilitar o complemento Premium da Rota Expressa | Microsoft Azure"
-   description="Como habilitar ou desabilitar o complemento Premium da Rota Expressa para um circuito da Rota Expressa. A Rota Expressa Premium permite adicionar até 10.000 rotas para emparelhamento público e privado e até 10 redes virtuais para o circuito da Rota Expressa. Você também pode vincular uma rede virtual em uma região para um circuito da Rota Expressa em outra."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Como habilitar ou desabilitar o complemento Premium da Rota Expressa para um circuito da Rota Expressa. A Rota Expressa Premium permite adicionar até 10.000 rotas para emparelhamento público e privado e até 10 redes virtuais para o circuito da Rota Expressa. Você também pode vincular uma rede virtual em uma região para um circuito da Rota Expressa em outra."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Configure o complemento da Rota Expressa Premium para o seu circuito de Rota Expressa
 
@@ -172,9 +172,9 @@ Você pode desabilitar o complemento Premium da Rota Expressa para um circuito d
 		Sku                              : Premium
 		Status                           : Standard
 
-	O seu circuito agora tem o complemento Premium da Rota Expressa habilitado.
+	O complemento Premium agora está desabilitado para o seu circuito.
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

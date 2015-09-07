@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="Conectando-se pela primeira vez com o Multi-Factor Authentication" 
-	description="Esta página descreve qual será a experiência do usuário na primeira vez que se conectar." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Conectando-se pela primeira vez com o Multi-Factor Authentication"
+	description="Esta página descreve qual será a experiência do usuário na primeira vez que se conectar."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
-
 # Experiência de configuração do Azure Multi-Factor Authentication
 
  As configurações da verificação de segurança adicional são usadas quando um administrador configura sua conta para exigir que a senha e uma resposta de seu telefone sejam usadas para verificar sua identidade. Se um administrador tiver configurado a conta para exigir a verificação de segurança adicional, **não será possível se conectar até concluir o processo de registro automático**.
@@ -37,4 +36,4 @@ Método|Descrição
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

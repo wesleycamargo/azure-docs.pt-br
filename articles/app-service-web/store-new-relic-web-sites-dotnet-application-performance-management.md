@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aplicativo Web do .NET no Serviço de Aplicativo do Azure com o gerenciamento de desempenho de aplicativo New Relic" 
-	description="Saiba como usar o monitoramento de desempenho do New Relic para aplicativos ASP.NET em execução no Serviço de Aplicativo do Azure." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="Aplicativo Web do .NET no Serviço de Aplicativo do Azure com o gerenciamento de desempenho de aplicativo New Relic"
+	description="Saiba como usar o monitoramento de desempenho do New Relic para aplicativos ASP.NET em execução no Serviço de Aplicativo do Azure."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
 
 
@@ -77,7 +77,7 @@ Para se inscrever para o New Relic diretamente do Azure Marketplace, siga estas 
 
 ## Etapa 3: Publicar o aplicativo Web ASP.NET
 
-Usando o Visual Studio ou o WebMatrix, publique seu aplicativo Web. Se você já publicou anteriormente o seu aplicativo Web, publique-o novamente para que a instância de aplicativos Web seja adicionada ao pacote New Relic NuGet necessário para habilitar o monitoramento do New Relic.
+Usando o Visual Studio, publique seu aplicativo Web. Se você já publicou anteriormente o seu aplicativo Web, publique-o novamente para que a instância de aplicativos Web seja adicionada ao pacote New Relic NuGet necessário para habilitar o monitoramento do New Relic.
 
 ## Etapa 4. Conferir o desempenho do seu aplicativo no New Relic.
 
@@ -179,4 +179,4 @@ Confira estes recursos adicionais para obter mais informações:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

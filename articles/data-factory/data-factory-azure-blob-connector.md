@@ -1,32 +1,32 @@
 <properties 
-	pageTitle="Conector de Blob do Azure - Mover dados de e para o Blob do Azure" 
-	description="Saiba mais sobre o conector de Blob do Azure para o serviço do Data Factory que permite mover dados de/para o armazenamento de Blob do Azure" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Mover dados para e do blob do Azure | Azure Data Factory"
+	description="Saiba como mover dados para/do Armazenamento de Blob do Azure usando o Azure Data Factory"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector de Blob do Azure - Mover dados de e para o Blob do Azure
+# Mover dados para e do blob do Azure usando o Azure Data Factory
 Este artigo descreve como você pode usar a Atividade de Cópia em uma Azure Data Factory para mover dados para o Blob do Azure de outro armazenamento de dados e mover dados de outro armazenamento de dados para o Blob do Azure. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados para as quais há suporte.
 
 ## Exemplo: Copiar dados do Blob do Azure para o SQL Azure
 O exemplo a seguir mostra:
 
-1.	Um serviço vinculado do tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md).
-2.	Um serviço vinculado do tipo [AzureStorage](#LinkedService).
-3.	Um conjunto de dados de entrada do tipo [AzureBlob](#Dataset).
-4.	Um conjunto de dados de saída do tipo [AzureSqlTable](data-factory-azure-sql-connector.md).
-4.	Um pipeline com Atividade de cópia que usa [BlobSource](#CopyActivity) e [SqlSink](data-factory-azure-sql-connector.md).
+1.	Um serviço vinculado do tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+2.	Um serviço vinculado do tipo [AzureStorage](#azure-storage-linked-service-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](#azure-blob-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
+4.	Um [pipeline](data-factory-create-pipelines.md) com Atividade de cópia que usa [BlobSource](#azure-blob-copy-activity-type-properties) e [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
 O exemplo copia os dados pertencentes a uma série temporal de um blob do Azure para uma tabela no banco de dados SQL do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -192,11 +192,12 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 ## Exemplo: Copiar dados do SQL Azure para o Blob do Azure
 O exemplo a seguir mostra:
 
-1.	Um serviço vinculado do tipo AzureSqlDatabase.
-2.	Um serviço vinculado do tipo AzureStorage.
-3.	Um conjunto de dados de entrada do tipo AzureSqlTable.
-4.	Um conjunto de dados de saída do tipo AzureBlob.
-4.	O pipeline com a Atividade de cópia que usa SqlSource e BlobSink.
+1.	Um serviço vinculado do tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+2.	Um serviço vinculado do tipo [AzureStorage](#azure-storage-linked-service-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](#azure-blob-dataset-type-properties).
+4.	O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) e [BlobSink](#azure-blob-copy-activity-type-properties).
+
 
 O exemplo copia a cada hora dados pertencentes a uma série temporal de uma tabela no banco de dados SQL do Azure para um blob. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -313,7 +314,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 
 **Pipeline com Atividade de cópia:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. No definição JSON do pipeline, o tipo **source** está definido como **SqlSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **SqlSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
 
 
 	{  
@@ -361,7 +362,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 		}
 	}
 
-## <a name="LinkedService"></a> Propriedades do Serviço vinculado de armazenamento do Azure
+## Propriedades do serviço vinculado de armazenamento do Azure
 
 Você pode vincular uma conta de armazenamento do Azure a uma Azure Data Factory usando um serviço de armazenamento do Azure vinculado. A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço de Armazenamento do Azure vinculado.
 
@@ -370,7 +371,7 @@ Você pode vincular uma conta de armazenamento do Azure a uma Azure Data Factory
 | type | A propriedade type deve ser definida como: **AzureStorage** | Sim |
 | connectionString | Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. Você pode obter connectionString para o armazenamento do Azure do Portal do Azure. | Sim |
 
-## <a name="Dataset"></a> Propriedades de tipo de conjunto de dados de Blob do Azure
+## Propriedades de tipo de conjunto de dados de Blob do Azure
 
 Para obter uma lista completa das seções JSON e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
@@ -423,7 +424,7 @@ Se o formato é definido como **TextFormat**você pode especificar as seguintes 
 | escapeChar | <p>O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.</p><p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), você pode definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na fonte.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não | 
 | quoteChar | <p>O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.</p><p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas deseja ter caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte Essa propriedade é aplicável às tabelas de entrada e saída.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não |
 | nullValue | <p>Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. Essa marca é opcional. O valor padrão é "\\N".</p><p>Por exemplo, com base no exemplo acima, "NaN" no blob será convertido como valor nulo, enquanto for copiado no, por exemplo, SQL Server.</p> | Não |
-| encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: [Propriedade Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8. | Não | 
+| encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8. | Não | 
 
 #### Exemplos
 O exemplo a seguir mostra algumas das propriedades de formato para TextFormat.
@@ -456,7 +457,7 @@ Se o formato é definido como AvroFormat, não é necessário especificar nenhum
 
 Para usar o formato Avro em uma tabela de Hive, consulte [Tutorial do Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
-## <a name="CopyActivity"></a> Propriedades de tipo de atividade de cópia de Blob do Azure  
+## Propriedades de tipo de atividade de cópia de Blob do Azure  
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
 
 Propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de atividade de cópia, variam dependendo dos tipos de fontes e coletores
@@ -481,4 +482,4 @@ Propriedades disponíveis na seção typeProperties da atividade, por outro lado
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

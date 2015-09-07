@@ -1,44 +1,25 @@
 <properties 
-	pageTitle="Usar o bloco de aplicativos de dimensionamento automático (.NET) | Microsoft Azure" 
-	description="Saiba como usar o Aplicativo de Dimensionamento Automático para Azure. Os exemplos de código são escritos em C# e usam a API .NET." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="squillace" 
-	manager="timlt" 
+	pageTitle="Usar o bloco de aplicativos de dimensionamento automático (.NET) | Microsoft Azure"
+	description="Saiba como usar o Aplicativo de Dimensionamento Automático para Azure. Os exemplos de código são escritos em C# e usam a API .NET."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="05/18/2015"
 	ms.author="rasquill"/>
-
-
-
-
-
-
-
 # Como usar o Bloco de Aplicativos de Dimensionamento Automático
 
-Este guia demonstrará como executar cenários comuns usando o Bloco de Aplicativos de Dimensionamento Automático do [Pacote de Integração do Microsoft Enterprise Library 5.0 para Azure][]. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem **hospedagem do bloco**, **uso de regras de restrição** e **uso de regras reativas**. Para obter mais informações sobre o Bloco de Aplicativos de Dimensionamento Automático, consulte a seção [Próximas etapas][].
+Este guia demonstrará como executar cenários comuns usando o Bloco de Aplicativos de Dimensionamento Automático do [Pacote de Integração do Microsoft Enterprise Library 5.0 para Azure][]. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem **hospedagem do bloco**, **uso de regras de restrição** e **uso de regras reativas**. Para obter mais informações sobre o Bloco de Aplicativos de Dimensionamento Automático, consulte a seção [Próximas etapas](#next-steps).
 
-## Sumário
-
-[O que é o Bloco de Aplicativos de Dimensionamento Automático?][]   
-[Conceitos][]   
-[Coletar dados de contador de desempenho do aplicativo do Azure de destino][]   
-[Configurar um aplicativo host para o bloco de aplicativo de dimensionamento automático][]   
-[Como instanciar e executar o dimensionador automático][]   
-[Como definir o modelo de serviço][]   
-[Como definir suas regras de dimensionamento automático][]   
-[Como configurar um bloco de aplicativo de dimensionamento automático][]   
-[Próximas etapas][]   
-
-## <a id="WhatIs"> </a>O que é o Bloco de Aplicativos de Dimensionamento Automático?
+## O que é o Bloco de Aplicativos de Dimensionamento Automático?
 
 O Bloco de Aplicativos de Dimensionamento Automático pode dimensionar seu aplicativo do Azure automaticamente com base nas regras que você definir especificamente para seu aplicativo. Você pode usar essas regras para ajudar seu aplicativo do Azure a manter sua taxa de transferência em resposta a alterações em sua carga de trabalho e, ao mesmo tempo, controlar os custos associados à hospedagem de seu aplicativo no Azure. Junto com o dimensionamento, aumentando ou diminuindo o número de instâncias de função de seu aplicativo, o bloco também permite que você use outras ações de dimensionamento, como a limitação de determinada funcionalidade dentro de seu aplicativo ou o uso de ações personalizadas.
 
@@ -46,7 +27,7 @@ Você pode optar por hospedar o bloco em uma função do Azure ou em um aplicati
 
 O Bloco de Aplicativos de Dimensionamento Automático faz parte do [Pacote de Integração da Microsoft Enterprise Library 5.0 para Azure][].
 
-## <a id="Concepts"> </a>Conceitos
+## Conceitos
 
 No diagrama a seguir, a linha verde mostra um gráfico do número de instâncias de uma função do Azure em execução por dois dias. O número de instâncias é alterado automaticamente com o tempo em resposta a um conjunto de regras de dimensionamento automático.
 
@@ -64,13 +45,13 @@ O bloco armazena seus parâmetros configurações em dois repositórios:
 
 -   **Repositório de Informações do Serviço:** o Repositório de Informações do Serviço armazena sua configuração operacional, que é o modelo de serviço de seu aplicativo do Azure. Esse modelo de serviço inclui todas as informações sobre seu aplicativo do Azure (como nomes de funções e detalhes da conta de armazenamento) de que o bloco precisa ser capaz de coletar pontos de dados do aplicativo do Azure de destino e executar operações de dimensionamento.
 
-## <a id="PerfCounter"> </a>Coletar dados do contador de desempenho do seu aplicativo do Azure de destino
+## Coletar dados do contador de desempenho do seu aplicativo do Azure de destino
 
 As regras reativas podem usar dados do contador de desempenho das funções como parte da definição da regra. Por exemplo, uma regra reativa pode monitorar a utilização da CPU de uma função do Azure para determinar se o bloco deve iniciar uma operação de dimensionamento. O bloco lê os dados do contador de desempenho da tabela do Diagnóstico do Azure denominada **WADPerformanceCountersTable** no armazenamento do Azure.
 
 Por padrão, o Azure não grava dados do contador de desempenho na tabela de Diagnóstico do Azure no armazenamento do Azure. Portanto, você deve modificar as funções das quais precisa coletar dados do contador de desempenho para salvar esses dados. Para obter detalhes sobre como habilitar os contadores de desempenho em seu aplicativo, consulte [Usando contadores de desempenho no Azure][].
 
-## <a id="CreateHost"> </a>Configurar um aplicativo host para o Bloco de Aplicativos de Ajuste de Escala Automático
+## Configurar um aplicativo host para o Bloco de Aplicativos de Dimensionamento Automático
 
 Você pode hospedar o Bloco de Aplicativos de Dimensionamento Automático em uma função do Azure ou em um aplicativo local. O Bloco de Aplicativos de Dimensionamento Automático normalmente é hospedado em um aplicativo separado do aplicativo de destino que você deseja dimensionar automaticamente. Esta seção fornece as diretrizes de como configurar seu aplicativo host.
 
@@ -109,7 +90,7 @@ Adicione as seguintes declarações de namespace do código à parte superior de
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
     using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.Autoscaling;
 
-## <a id="Instantiate"> </a>Como criar uma instância e executar o Dimensionador Automático
+## Como criar uma instância e executar o Dimensionador Automático
 
 Use o método **IServiceLocator.GetInstance** para instanciar o Dimensionador Automático e, em seguida, chame o método **Autoscaler.Start** para executar o **Dimensionador Automático**.
 
@@ -117,7 +98,7 @@ Use o método **IServiceLocator.GetInstance** para instanciar o Dimensionador Au
         EnterpriseLibraryContainer.Current.GetInstance<Autoscaler>();
     scaler.Start();
 
-## <a id="DefineServiceModel"> </a>Como definir seu modelo de serviço
+## Como definir seu modelo de serviço
 
 Normalmente, você armazena seu modelo de serviço (uma descrição do seu ambiente do Azure que inclui informações sobre assinaturas, serviços hospedados, funções e contas de armazenamento) em um arquivo XML. Você pode localizar uma cópia do esquema desse arquivo XML no arquivo **AutoscalingServiceModel.xsd** em seu projeto. No Visual Studio, esse esquema fornece IntelliSense e validação quando você edita o arquivo XML de modelo de serviço.
 
@@ -197,7 +178,7 @@ Entre no Portal de Gerenciamento.
 
 Para saber mais sobre o conteúdo do arquivo de modelo de serviço, consulte [Armazenando seus dados de informações de serviço][].
 
-## <a id="DefineAutoscalingRules"> </a>Como definir suas regras de dimensionamento automático
+## Como definir suas regras de dimensionamento automático
 
 Normalmente, você armazena as regras de dimensionamento automático que controlam o número de instâncias de função em seu aplicativo de destino em um arquivo XML. Você pode localizar uma cópia do esquema desse arquivo XML no arquivo **AutoscalingRules.xsd** em seu projeto. No Visual Studio, esse esquema fornece IntelliSense e validação quando você edita o arquivo XML.
 
@@ -260,7 +241,7 @@ Nesse exemplo, há três regras de dimensionamento automático (uma **regra de r
 
 -   A regra reativa chamada **ScaleDownOnLowUtilization** reduzirá a contagem de instâncias da função de destino em um se a utilização média da CPU nos últimos cinco minutos tiver sido menor ou igual a 60%.
 
-## <a id="Configure"> </a>Como configurar o Bloco de Aplicativos de Dimensionamento Automático
+## Como configurar o Bloco de Aplicativos de Dimensionamento Automático
 
 Após ter definido seu modelo de serviço e as regras de dimensionamento automático, você deverá configurar o Bloco de Aplicativos de Dimensionamento Automático para usá-los. Essas informações de configuração operacionais são armazenadas no arquivo de configuração de aplicativo.
 
@@ -349,7 +330,7 @@ Agora, você pode executar o aplicativo de console do host do Bloco de Aplicativ
     "InstanceChanges":{"AutoscalingApplicationRole":{"CurrentValue":1,"DesiredValue":2}},
     "SettingChanges":{},"RequestID":"f8ca3ada07c24559b1cb075534f02d44"}
 
-## <a id="NextSteps"> </a>Próximas etapas
+## Próximas etapas
 
 Agora que você aprendeu os conceitos básicos de como usar o Bloco de Aplicativos de Dimensionamento Automático, siga estes links para saber como implementar cenários de dimensionamento automático mais complexos:
 
@@ -367,16 +348,6 @@ Agora que você aprendeu os conceitos básicos de como usar o Bloco de Aplicativ
 
   [Pacote de Integração da Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
   [Pacote de Integração do Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
-  [Próximas etapas]: #NextSteps
-  [O que é o Bloco de Aplicativos de Dimensionamento Automático?]: #WhatIs
-  [Conceitos]: #Concepts
-  [Coletar dados de contador de desempenho do aplicativo do Azure de destino]: #PerfCounter
-  [Configurar um aplicativo host para o bloco de aplicativo de dimensionamento automático]: #CreateHost
-  [Como instanciar e executar o dimensionador automático]: #Instantiate
-  [Como definir o modelo de serviço]: #DefineServiceModel
-  [Como definir seu modelo de serviço]: #DefineServiceModel
-  [Como definir suas regras de dimensionamento automático]: #DefineAutoscalingRules
-  [Como configurar um bloco de aplicativo de dimensionamento automático]: #Configure
   [Usando contadores de desempenho no Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
@@ -394,4 +365,4 @@ Agora que você aprendeu os conceitos básicos de como usar o Bloco de Aplicativ
   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

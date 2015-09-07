@@ -1,25 +1,25 @@
 <properties
-   pageTitle="Apontar uma domínio de Internet da empresa para um domínio do Gerenciador de Tráfego | Microsoft Azure"
-   description="Este artigo ajudará a indicar o nome de domínio de sua empresa para um nome de domínio do Gerenciador de Tráfego."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+   pageTitle="Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego | Microsoft Azure"
+	description="Este artigo ajudará a indicar o nome de domínio de sua empresa para um nome de domínio do Gerenciador de Tráfego."
+	services="traffic-manager"
+	documentationCenter=""
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags
    ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/19/2015"
+	ms.author="joaoma"/>
 
-# Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego
+# Apontar um domínio de Internet da empresa para um Domínio do Gerenciador de Tráfego do Azure.
 
 Para apontar o nome de domínio da empresa para um nome de domínio do Gerenciador de Tráfego, modifique o registro de recurso DNS no servidor DNS da Internet para usar o tipo de registro CNAME, que mapeia o nome de domínio da empresa para o nome de domínio do seu perfil do Gerenciador de Tráfego. Você pode ver o nome do domínio do Gerenciador de Tráfego na seção **Geral** da página Configuração do perfil do Gerenciador de Tráfego.
 
-Por exemplo, para apontar o nome de domínio de empresa **www.contoso.com** para o nome de domínio do Gerenciador de Tráfego **contoso.trafficmanager.net**, você atualizaria seu registro de recurso DNS para o seguinte:
+Por exemplo, para apontar o nome de domínio de empresa www.contoso.com para o nome de domínio do Gerenciador de Tráfego contoso.trafficmanager.net, você atualizaria seu registro de recurso DNS para o seguinte:
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
@@ -36,6 +36,5 @@ Todas as solicitações de tráfego para *www.contoso.com* agora serão direcion
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
 [O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

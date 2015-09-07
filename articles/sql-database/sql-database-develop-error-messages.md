@@ -5,16 +5,16 @@
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor="" />
+	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="genemi"/>
 
 
@@ -60,9 +60,11 @@ Erros transitórios também são chamados de falhas transitórias. Quando o prog
 |40197|17|O serviço encontrou um erro ao processar sua solicitação. Tente novamente. Código de erro %d.<br/><br/>Você receberá este erro quando o serviço ficar inativo devido a atualizações de software ou hardware, falhas de hardware ou quaisquer outros problemas de failover. O código de erro (%d) inserido na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou failover que ocorreu. Alguns exemplos de códigos que são inseridos na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>Reconectar-se ao servidor do Banco de Dados SQL conectará você automaticamente a uma cópia íntegra do banco de dados. Seu aplicativo deve capturar o erro 40197, registrar o código de erro inserido (%d) na mensagem para solução do problema e tentar se reconectar ao Banco de Dados SQL até que os recursos estejam disponíveis e a conexão seja restabelecida.|
 |40501|20|O serviço está ocupado. Repita a solicitação depois de 10 segundos. ID do incidente: %ls. Código: %d.<br/><br/>*Observação:* para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>• [Limitação do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn338079.aspx).
 |40613|17|O banco de dados “%.&#x2a;ls” no servidor “%.&#x2a;ls” não está disponível momento. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da sessão “%.&#x2a;ls”.|
+|49918|16|Não é possível processar a solicitação. Não há recursos suficientes para processar a solicitação.<br/><br/>O serviço está ocupado no momento. Tente fazer novamente a solicitação. |
+|49919|16|Não é possível criar o processo ou atualizar a solicitação. Muitas operações de criação ou atualização em andamento para a assinatura "%ld".<br/><br/>O serviço está ocupado processando várias solicitações de criação ou atualização para a assinatura ou o servidor. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) para operações pendentes. Espere até que as solicitações pendentes de criação ou atualização sejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
+|49920|16|Não é possível processar a solicitação. Muitas operações em andamento para assinatura "% ld".<br/><br/>O serviço está ocupado processando várias solicitações para essa assinatura. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) para estatísticas de operação. Espere até que as solicitações pendentes estejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
 
-
-**Observação:** talvez seja necessário incluir os erros de federação 10053 e 10054 em sua lógica de repetição.
+**Observação:** Talvez seja necessário incluir os erros de federação 10053 e 10054 em sua lógica de repetição.
 
 
 ## Erros de cópia de banco de dados
@@ -97,7 +99,7 @@ A tabela a seguir abrange os erros causados pelo uso excessivo de recursos enqua
 - Sua transação pode ter ficado aberta por muito tempo.
 - Sua transação pode estar mantendo bloqueios demais.
 - Seu programa pode estar consumindo muita memória.
-- Seu programa pode estar consumindo muito espaço `TempDb`.
+- Seu programa pode estar consumindo muito espaço de `TempDb`.
 
 
 **Dica:** o link a seguir oferece mais informações que se aplicam à maioria ou a todos os erros nesta seção:
@@ -111,7 +113,7 @@ A tabela a seguir abrange os erros causados pelo uso excessivo de recursos enqua
 |40544|20|O banco de dados atingiu sua cota de tamanho. Particione ou exclua dados, descarte índices ou consulte a documentação para conhecer as possíveis resoluções.|
 |40549|16|A sessão foi encerrada porque você tem uma transação de longa duração. Tente encurtar a transação.|
 |40550|16|A sessão foi encerrada porque adquiriu muitos bloqueios. Tente ler ou modificar menos linhas em uma única transação.|
-|40551|16|A sessão foi encerrada devido ao uso excessivo de `TEMPDB`. Tente modificar a consulta para reduzir o uso de espaço na tabela temporária.<br/><br/>*Dica:* se você estiver usando objetos temporários, conserve espaço no banco de dados `TEMPDB` removendo objetos temporários após eles deixarem de ser necessários para a sessão.|
+|40551|16|A sessão foi encerrada devido ao uso excessivo de `TEMPDB`. Tente modificar a consulta para reduzir o uso temporário de espaço da tabela.<br/><br/>*Dica:* se você estiver usando objetos temporários, conserve espaço no banco de dados `TEMPDB` removendo os objetos temporários após eles deixarem de ser necessários para a sessão.|
 |40552|16|A sessão foi encerrada devido a uso excessivo do espaço de log de transação. Tente modificar menos linhas em uma única transação.<br/><br/>*Dica:* se você executar inserções em massa usando o utilitário `bcp.exe` ou a classe `System.Data.SqlClient.SqlBulkCopy`, tente usar as opções `-b batchsize` ou `BatchSize` para limitar o número de linhas copiadas para o servidor em cada transação. Se você estiver recriando um índice com a instrução `ALTER INDEX`, tente usar a opção `REBUILD WITH ONLINE = ON`.|
 |40553|16|A sessão foi encerrada devido ao uso excessivo de memória. Tente modificar a consulta para processar menos linhas.<br/><br/>*Dica:* reduzir o número de operações `ORDER BY` e `GROUP BY` em seu código Transact-SQL reduz os requisitos de memória de sua consulta.|
 
@@ -125,14 +127,14 @@ Para ver uma discussão adicional sobre a governança de recursos e os erros ass
 ## Erros de federação
 
 
-A tabela a seguir abrange os erros que você pode encontrar ao trabalhar com federações. Para saber mais, confira [Gerenciando federações de bancos de dados (Banco de Dados SQL do Azure)](http://msdn.microsoft.com/library/azure/hh597455.aspx).
+A tabela a seguir abrange os erros que você pode encontrar ao trabalhar com federações. Para saber mais, consulte [Gerenciando Federações de Bancos de Dados (Banco de Dados SQL do Azure)](http://msdn.microsoft.com/library/azure/hh597455.aspx).
 
 
 > [AZURE.IMPORTANT]A implementação atual das Federações será descontinuada com as camadas de serviço Web e Business. A versão V12 do Banco de Dados SQL do Azure não dá suporte às camadas de serviço Web e Business.
 > 
 > O recurso de Dimensionamento elástico foi projetado para criar aplicativos de fragmentação com um esforço mínimo.
 > 
-> Para obter mais informações sobre o Dimensionamento elástico, consulte [Tópicos sobre o Dimensionamento elástico do Banco de Dados SQL do Azure](sql-database-elastic-scale-documentation-map.md). Considere a implantação de soluções personalizadas de fragmentação para maximizar a escalabilidade, a flexibilidade e o desempenho. Para obter mais informações sobre a fragmentação personalizada, consulte [Escalando horizontalmente o Bancos de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn495641.aspx).
+> Para obter mais informações sobre o Dimensionamento Elástico, consulte [Tópicos sobre o Dimensionamento Elástico do Banco de Dados SQL do Azure](sql-database-elastic-scale-documentation-map.md). Considere a implantação de soluções personalizadas de fragmentação para maximizar a escalabilidade, a flexibilidade e o desempenho. Para obter mais informações sobre a fragmentação personalizada, consulte [Colocando em Escala Horizontalmente o Bancos de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn495641.aspx).
 
 
 |Número do erro|Severidade|Descrição|Redução|
@@ -143,23 +145,23 @@ A tabela a seguir abrange os erros que você pode encontrar ao trabalhar com fed
 |2714|16|Já existe um objeto chamado '%.&#x2a;ls' no banco de dados|O nome da federação já existe.|
 |10054, 10053|20|Ocorreu um erro de nível de transporte ao receber os resultados do servidor. Uma conexão estabelecida foi anulada pelo software no computador host|Implemente a lógica de repetição em seu aplicativo.|
 |40530|15|<statement> deve ser a única instrução no lote|Certifique-se de que não haja nenhuma outra instrução no lote|
-|40604|16|Não foi possível `CREATE DATABASE` pois isso excederia a cota do servidor|Expanda a cota de contagem do banco de dados do servidor|
-|45000|16|Falha na operação <statement>. O nome da federação especificado <federation_name> não é válido|Federation\_name não está em conformidade com as regras de nome de federação ou não é um identificador válido|
-|45001|16|Falha na operação <statement>. O nome da federação especificado não existe|O nome da federação não existe|
-|45002|16|Falha na operação <statement>. O nome da chave de federação especificado <distribution_name> não é válido|Chave de federação inválida ou inexistente|
-|45004|16|Falha na operação <statement>. O valor especificado não é válido para a chave da federação <distribution_name> e a federação <federation_name>|`USE FEDERATION`: use um valor de limite que esteja no domínio do tipo de dados da chave de federação ou que não seja NULL.<br/><br/>`ALTER FEDERATION SPLIT`: use um valor válido no domínio da chave de federação que ainda não seja um ponto de divisão existente.<br/><br/>`ALTER FEDERATION DROP`: use um valor válido no domínio da chave de federação que já seja um ponto de divisão.|
-|45005|16|<statement> não pode ser executado enquanto outra operação de federação está em andamento na federação <federation_name> e no membro com a ID <member_id>|Aguarde a operação simultânea ser concluída.|
-|45006|16|Falha nas operações <statement>. Relações de chave estrangeira em tabelas de referência que se referem a tabelas federadas não são permitidas em membros da federação|Sem suporte.|
-|45007|16|Falha na operação <statement>. Relações de chave estrangeira entre tabelas federadas devem incluir as colunas de chave de federação.|Sem suporte|
-|45008|16|Falha na operação <statement>. O tipo de dados da chave de federação não coincide com o tipo de dados da coluna|Sem suporte.|
-|45009|16|Falha na operação <statement>. A operação não tem suporte em conexões de filtragem|Sem suporte.|
-|45010|16|Falha na operação <statement>. Não é possível atualizar a chave da federação|Sem suporte.|
-|45011|16|Falha na operação <statement>. Não é possível atualizar o esquema da chave da federação|Sem suporte.|
-|45012|16|O valor especificado para a chave de federação não é válido|O valor deve estar no intervalo de endereço da conexão.<br/><br/>Se filtrado, o valor da chave de federação especificado.<br/><br/>Se não filtrado, o intervalo coberto pelo membro da federação.|
+|40604|16|Não foi possível `CREATE DATABASE`, pois isso excederia a cota do servidor|Expanda a cota de contagem do banco de dados do servidor|
+|45000|16|Falha na operação de <statement>. O nome da federação especificado <federation_name> não é válido|Federation\_name não está em conformidade com as regras de nome de federação ou não é um identificador válido|
+|45001|16|Falha na operação de <statement>. O nome da federação especificado não existe|O nome da federação não existe|
+|45002|16|Falha na operação de <statement>. O nome da chave de federação especificado <distribution_name> não é válido|Chave de federação inválida ou inexistente|
+|45004|16|Falha na operação de <statement>. O valor especificado não é válido para a chave da federação <distribution_name> e a federação <federation_name>|`USE FEDERATION`: use um valor de limite que esteja no domínio do tipo de dados da chave de federação ou que não seja NULL.<br/><br/>`ALTER FEDERATION SPLIT`: use um valor válido no domínio da chave de federação que ainda não seja um ponto de divisão existente.<br/><br/>`ALTER FEDERATION DROP`: use um valor válido no domínio da chave de federação que já seja um ponto de divisão.|
+|45005|16|<statement> não pode ser executado enquanto outra operação de federação estiver em andamento na federação <federation_name> e no membro com a id <member_id>|Aguarde a operação simultânea ser concluída.|
+|45006|16|Falha nas operações de <statement>. Relações de chave estrangeira em tabelas de referência que se referem a tabelas federadas não são permitidas em membros da federação|Sem suporte.|
+|45007|16|Falha na operação de <statement>. Relações de chave estrangeira entre tabelas federadas devem incluir as colunas de chave de federação.|Sem suporte|
+|45008|16|Falha na operação de <statement>. O tipo de dados da chave de federação não coincide com o tipo de dados da coluna|Sem suporte.|
+|45009|16|Falha na operação de <statement>. A operação não tem suporte em conexões de filtragem|Sem suporte.|
+|45010|16|Falha na operação de <statement>. Não é possível atualizar a chave da federação|Sem suporte.|
+|45011|16|Falha na operação de <statement>. Não é possível atualizar o esquema da chave da federação|Sem suporte.|
+|45012|16|O valor especificado para a chave de federação não é válido|O valor deve estar no intervalo que a conexão está tratando.<br/><br/>Se filtrado, o valor da chave de federação especificado.<br/><br/>Se não filtrado, o intervalo coberto pelo membro da federação.|
 |45013|16|O SID já existe com um nome de usuário diferente|O SID de um usuário em um membro da federação é copiado do SID a mesma conta de usuário na raiz da federação. Sob certas condições, o SID já pode estar em uso.|
 |45014|16|Não há suporte para %Is em %Is.|Operação sem suporte.|
-|45022|16|Falha na operação <statement>. O valor limite especificado já existe para a chave de federação <distribution_name> e a federação <federation_name>|Especifique um valor que já seja um valor de limite.|
-|45023|16|Falha na operação <statement>. O valor limite especificado não existe para a chave de federação <distribution_name> e a federação <federation_name>|Especifique um valor que não seja um valor de limite.|
+|45022|16|Falha na operação de <statement>. O valor limite especificado já existe para a chave de federação <distribution_name> e a federação <federation_name>|Especifique um valor que já seja um valor de limite.|
+|45023|16|Falha na operação de <statement>. O valor limite especificado não existe para a chave de federação <distribution_name> e a federação <federation_name>|Especifique um valor que não seja um valor de limite.|
 
 
 ## Erros gerais
@@ -215,7 +217,7 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 |40631|16|A senha que você especificou é muito longa. A senha deve ter no máximo 128 caracteres.|
 |40632|16|Falha na validação da senha. A senha não atende aos requisitos da política porque não é complexa o suficiente.|
 |40636|16|Não é possível usar um nome de banco de dados reservado '%.&#x2a;ls' nesta operação.|
-|40638|16|ID de assinatura inválida <subscription-id>. A assinatura não existe.|
+|40638|16|Id de assinatura inválida <subscription-id>. A assinatura não existe.|
 |40639|16|A solicitação não corresponde ao esquema: <schema error>.|
 |40640|20|O servidor encontrou uma exceção inesperada.|
 |40641|16|O local especificado é inválido.|
@@ -240,4 +242,4 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 - [Limitações e diretrizes de gerais do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Gerenciamento de recursos](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,26 +1,26 @@
 <properties
-   pageTitle="Criar várias instâncias de recursos"
-   description="Descreve como usar a operação de cópia em um modelo do Gerenciador de Recursos do Azure para iterar várias vezes durante a implantação de recursos."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   pageTitle="Implantar várias instâncias dos recursos | Microsoft Azure"
+	description="Use a operação de cópia e matrizes em um modelo do Gerenciador de Recursos do Azure para iterar várias vezes durante a implantação de recursos."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/14/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # Criar várias instâncias de recursos no Gerenciador de Recursos do Azure
 
 Este tópico mostra como iterar em seu modelo do Gerenciador de Recursos do Azure para criar várias instâncias de um recurso.
 
-## copy e copyIndex()
+## copy, copyIndex e length
 
 No recurso a ser criado várias vezes, você pode definir um objeto **copy** que especifica o número de vezes para iterar. A cópia recebe o seguinte formato:
 
@@ -32,6 +32,13 @@ No recurso a ser criado várias vezes, você pode definir um objeto **copy** que
 Você pode acessar o valor de iteração atual com a função **copyIndex()**, como mostrado a seguir na função concat.
 
     [concat('examplecopy-', copyIndex())]
+
+Ao criar vários recursos de uma matriz de valores, você pode usar a função **length** para especificar a contagem. Você pode fornecer a matriz como o parâmetro para a função length.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
 
 ## Use o valor de índice no nome
 
@@ -89,11 +96,7 @@ Use o modelo a seguir:
              "Fabrikam", 
              "Coho" 
           ] 
-      },
-      "count": { 
-         "type": "int", 
-         "defaultValue": 3 
-      } 
+      }
     }, 
     "resources": [ 
       { 
@@ -103,15 +106,15 @@ Use o modelo a seguir:
           "apiVersion": "2014-06-01",
           "copy": { 
              "name": "websitescopy", 
-             "count": "[parameters('count')]" 
+             "count": "[length(parameters('org'))]" 
           }, 
           "properties": {} 
       } 
     ]
 
 ## Próximas etapas
-- [Criação de modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md)
-- [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md)
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
+- Para saber mais sobre as seções de um modelo, consulte [Criando modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
+- Para ver todas as funções que você pode usar em um modelo, consulte [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md).
+- Para saber mais sobre como implantar modelos, consulte, [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

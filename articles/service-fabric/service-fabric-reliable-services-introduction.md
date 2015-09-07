@@ -1,20 +1,20 @@
 <properties
    pageTitle="Visão geral do modelo de programação de Serviços Confiáveis da Malha de Serviços"
-   description="Saiba mais sobre o modelo de programação dos Serviços Confiáveis da Malha de Serviços e comece a desenvolver seus próprios serviços."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor="jessebenson; mani-ramaswamy"/>
+	description="Saiba mais sobre o modelo de programação dos Serviços Confiáveis da Malha de Serviços e comece a desenvolver seus próprios serviços."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="masnider"
+	manager="timlt"
+	editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/17/2015"
-   ms.author="masnider;jesseb"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="masnider;jesseb"/>
 
 # Visão geral dos Serviços Confiáveis
 A Malha de Serviços simplifica o desenvolvimento e o gerenciamento de serviços confiáveis com e sem estado. Este documento aborda:
@@ -23,11 +23,11 @@ A Malha de Serviços simplifica o desenvolvimento e o gerenciamento de serviços
 2. As diferentes decisões que você precisa tomar ao desenvolver um serviço confiável.
 3. Alguns dos diferentes cenários e exemplos de quando você usaria Serviços Confiáveis e como eles são desenvolvidos.
 
-Os Serviços Confiáveis são um dos modelos de programação disponíveis na Malha de Serviços. Para obter mais informações sobre o modelo de programação de Atores Confiáveis, confira [a introdução](../service-fabric/service-fabric-reliable-actors-introduction.md).
+Os Serviços Confiáveis são um dos modelos de programação disponíveis na Malha de Serviços. Para obter mais informações sobre o modelo de programação de Atores Confiáveis, confira [a introdução](service-fabric-reliable-actors-introduction.md).
 
 Na Malha de Serviços, um serviço consiste na configuração, no código do aplicativo e, opcionalmente, no estado.
 
-A Malha de Serviços gerencia a vida útil dos serviços desde o provisionamento e a implantação até a atualização e a exclusão através do [gerenciamento de aplicativos da Malha de Serviço](../service-fabric/service-fabric-deploy-remove-applications.md).
+A Malha de Serviços gerencia a vida útil dos serviços desde o provisionamento e a implantação até a atualização e a exclusão através do [gerenciamento de aplicativos da Malha de Serviço](service-fabric-deploy-remove-applications.md).
 
 ## O que são Serviços Confiáveis?
 Os Serviços Confiáveis fornecem um modelo de programação simples, potente e de nível superior que o ajuda a expressar o que é importante para seu aplicativo. Com o modelo de programação de Serviços Confiáveis, você obtém:
@@ -36,7 +36,7 @@ Os Serviços Confiáveis fornecem um modelo de programação simples, potente e 
 
 2. Um modelo simples para executar seu próprio código que se parece com os modelos de programação com os quais você já está acostumado: o código tem um ponto de entrada bem definido e um ciclo de vida fácil de gerenciar.
 
-3. Um modelo de comunicação conectável - use o transporte de sua escolha, como HTTP com [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados, etc. Os Serviços Confiáveis oferece excelentes opções prontas predefinidas ou permite que você forneça suas próprias.
+3. Um modelo de comunicação conectável - use o transporte de sua escolha, como HTTP com [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados, etc. Os Serviços Confiáveis oferece excelentes opções prontas predefinidas ou permite que você forneça suas próprias.
 
 ## Por que os Serviços Confiáveis são diferentes?
 Os Serviços Confiáveis na Malha de Serviços são diferentes dos serviços que você já desenvolveu anteriormente. A Malha de Serviços fornece confiabilidade, disponibilidade, consistência e escalabilidade.
@@ -52,7 +52,7 @@ Os Serviços Confiáveis na Malha de Serviços são diferentes dos serviços que
 ## Ciclo de vida do serviço
 Independentemente de seu serviço ser com ou sem estado, os Serviços Confiáveis fornecem um ciclo de vida simples que permite rapidamente conectar seu código e começar. Há apenas um ou dois métodos que você precisa implementar para colocar o serviço em funcionamento.
 
-+ CreateCommunicationListener - Onde o serviço define a pilha de comunicações que deseja usar. A pilha de comunicação, como [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md), é o que define os pontos de extremidade de escuta para do serviço (como os clientes o acessarão) e como essas mensagens que aparecem acabam interagindo com o restante do código do serviço.
++ CreateCommunicationListener - Onde o serviço define a pilha de comunicações que deseja usar. A pilha de comunicação, como [Web API](service-fabric-reliable-services-communication-webapi.md), é o que define os pontos de extremidade de escuta para do serviço (como os clientes o acessarão) e como essas mensagens que aparecem acabam interagindo com o restante do código do serviço.
 
 + RunAsync - é aqui que o seu serviço executa sua lógica de negócios. O token de cancelamento fornecido é um sinal de quando esse trabalho deve parar. Por exemplo, se você tiver um serviço que precisa constantemente extrair mensagens de um ReliableQueue e processá-las, é aí que esse trabalho aconteceria.
 
@@ -63,13 +63,13 @@ Os principais eventos no ciclo de vida de um Serviço Confiável são os seguint
 2. O método CreateCommunicationListener é chamado, dando ao serviço a oportunidade de retornar um ouvinte de comunicação de sua escolha.
   + Observe que isso é opcional, embora a maioria dos serviços exponha um ponto de extremidade diretamente.
 
-3. Depois que o CommunicationListener é criado, ele é aberto
-  + O CommunicationListeners tem um método chamado Open(), que é chamado neste ponto e que retorna o endereço de escuta do serviço. Se seu Serviço Confiável usar um dos ICommunicationListeners internos, isso será processado para você.
+3. Depois que o ouvinte de comunicação é criado, ele é aberto
+  + Os ouvintes de comunicação têm um método chamado Open(), que é chamado neste ponto e que retorna o endereço de escuta do serviço. Se seu Serviço Confiável usar um dos ICommunicationListeners internos, isso será processado para você.
 
 4. Depois que o ouvinte de comunicação se torna Open(), a chamada RunAsync() no serviço principal é chamada.
   + Observe que RunAsync é opcional; se o serviço fizer todo o seu trabalho somente em resposta direta a chamadas do usuário, não é necessário que ele implemente RunAsync().
 
-Quando o serviço está sendo desligado (ou quando for excluído ou simplesmente estiver sendo movido de um local específico), a ordem de chamada é a mesma, primeiro Close() é chamado no CommunicationListener, em seguida, o token de cancelamento que foi passado para RunAsync() é cancelado.
+Quando o serviço está sendo desligado (ou quando for excluído ou simplesmente estiver sendo movido de um local específico), a ordem de chamada é a mesma, primeiro Close() é chamado no ouvinte de comunicação, em seguida, o token de cancelamento que foi passado para RunAsync() é cancelado.
 
 ## Serviços de exemplo
 Conhecendo este modelo de programação, vamos dar uma olhada em dois serviços diferentes para ver como essas peças se encaixam.
@@ -79,7 +79,7 @@ Um serviço sem estado é aquele em que não há literalmente nenhum estado mant
 
 Por exemplo, considere uma calculadora que não tem memória e que recebe todos os termos e as operações para serem executados ao mesmo tempo.
 
-Nesse caso, o RunAsync() do serviço pode ser vazio porque não há nenhum processamento de tarefa em segundo plano que o serviço precisa executar. Quando o serviço da Calculadora for criado, ele retornará um CommunicationListener (por exemplo, [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md)) que abre um ponto de extremidade de escuta em alguma porta. Esse ponto de extremidade de escuta se conectará aos diferentes métodos (por ex.: "Add (n1, n2)") que definem a API pública da Calculadora.
+Nesse caso, o RunAsync() do serviço pode ser vazio porque não há nenhum processamento de tarefa em segundo plano que o serviço precisa executar. Quando o serviço da Calculadora for criado, ele retornará um CommunicationListener (por exemplo, [Web API](service-fabric-reliable-services-communication-webapi.md)) que abre um ponto de extremidade de escuta em alguma porta. Esse ponto de extremidade de escuta se conectará aos diferentes métodos (por ex.: "Add (n1, n2)") que definem a API pública da Calculadora.
 
 Quando é feita uma chamada de um cliente, o método apropriado é invocado e o serviço da Calculadora executa as operações nos dados fornecidos e retorna o resultado. O estado não é armazenado.
 
@@ -125,9 +125,9 @@ Se um dos seguintes itens caracterizar as necessidades de serviço do aplicativo
 
 
 ## Próximas etapas
-+ [Início Rápido dos Serviços Confiáveis](../service-fabric/service-fabric-reliable-services-quick-start.md)
++ [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
 + [Confira o uso avançado dos Serviços Confiáveis](service-fabric-reliable-services-advanced-usage.md)
-+ [Leia o modelo de programação de Atores Confiáveis](../service-fabric/service-fabric-reliable-actors-introduction.md)
++ [Leia o modelo de programação de Atores Confiáveis](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

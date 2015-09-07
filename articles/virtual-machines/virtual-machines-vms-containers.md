@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Máquinas virtuais e contêineres no Azure" 
-	description="Descreve as Máquinas virtuais, contêineres do Docker e Linux e seu uso em grupos no Azure, incluindo os benefícios de cada um e cenários em que cada abordagem funciona muito bem." 
-	services="virtual-machines" 
-	documentationCenter="virtual-machines" 
-	authors="squillace" 
-	manager="timlt" 
-/>
+	pageTitle="Máquinas virtuais e contêineres no Azure"
+	description="Descreve as Máquinas virtuais, contêineres do Docker e Linux e seu uso em grupos no Azure, incluindo os benefícios de cada um e cenários em que cada abordagem funciona muito bem."
+	services="virtual-machines"
+	documentationCenter="virtual-machines"
+	authors="squillace"
+	manager="timlt"/>
 	
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="infrastructure" 
-	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
-	ms.author="rasquill" 
-/>
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="infrastructure"
+	ms.workload="infrastructure"
+	ms.date="07/02/2015"
+	ms.author="rasquill"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Máquinas virtuais e contêineres no Azure
@@ -123,7 +121,7 @@ Essas capacidades frequentemente são migradas para ferramentas como [Puppet](ht
 
 ### Modelos do grupo de recursos do Azure
 
-Mais recentemente, o Azure lançou a API REST do [Gerenciamento de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md) e atualizou as ferramentas atualizadas do PowerShell e da CLI do Azure para usá-lo facilmente. Você pode implantar, modificar ou reimplantar topologias de aplicativo usando [Modelos do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx) com a API de Gerenciamento de Recursos do Azure usando:
+Mais recentemente, o Azure lançou a API REST do [Gerenciamento de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md) e atualizou as ferramentas atualizadas do PowerShell e da CLI do Azure para usá-lo facilmente. Você pode implantar, modificar ou reimplantar topologias de aplicativo usando [Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md) com a API de Gerenciamento de Recursos do Azure usando:
 
 - o [Portal de Visualização do Azure usando modelos](https://github.com/Azure/azure-quickstart-templates) - dica, use o botão "DeployToAzure"
 - a [CLI do Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
@@ -236,4 +234,4 @@ Confira o [Docker](https://www.docker.com) e os [Contêineres do Windows Server]
 [microsserviços]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

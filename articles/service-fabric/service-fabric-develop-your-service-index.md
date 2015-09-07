@@ -1,20 +1,20 @@
 <properties
    pageTitle="Desenvolver um serviço da Malha do Serviço"
-   description="Informações conceituais e tutoriais que ajudarão você a entender como desenvolver um serviço da Malha do Serviço usando os modelos de programação Ator Confiável ou Serviços Confiáveis."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+	description="Informações conceituais e tutoriais que ajudarão você a entender como desenvolver um serviço da Malha do Serviço usando os modelos de programação Ator Confiável ou Serviços Confiáveis."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="rwike77"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/14/2015"
-   ms.author="ryanwi"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/20/2015"
+	ms.author="ryanwi"/>
 
 # Desenvolver um serviço da Malha do Serviço
 Esta página contém links para artigos conceituais e de visão geral, bem como para tutoriais que ajudam você a aprender a desenvolver um serviço da Malha do Serviço. A Malha do Serviço oferece dois modelos de programação de nível alto para criação de serviços: as APIs de ator confiável e as APIs de serviços confiáveis. Embora ambos se baseiem no mesmo núcleo da Malha do Serviço, eles apresentam diferentes compensações entre simplicidade e flexibilidade em termos de simultaneidade, particionamento e comunicação. É útil entender ambos os modelos para que você possa escolher a estrutura apropriada para um determinado serviço no seu aplicativo.
@@ -53,7 +53,7 @@ Uma simultaneidade simples baseada em turno é fornecida para métodos de Ator C
 - [Eventos e contadores de desempenho relacionados à simultaneidade](service-fabric-reliable-actors-diagnostics.md)
 - [Reentrância de Ator](service-fabric-reliable-actors-reentrancy.md)
 - [Temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
- 
+
 Informações sobre como configurar Atores Confiáveis são encontradas aqui:
 
 - [Configuração de KVSActorStateProvider](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)  
@@ -86,6 +86,5 @@ A comunicação com Serviços Confiáveis e as abstrações que os clientes pode
 Os Serviços Confiáveis emitem eventos e contadores de desempenho, que podem ser usados para diagnosticar e monitorar seu serviço:
 
 - [Diagnóstico de Serviços Confiáveis com estado](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

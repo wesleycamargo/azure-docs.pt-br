@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Gerenciamento de riscos com acesso condicional"
-	description="Um tópico que explica como permitir acesso de qualquer lugar a recursos específicos de dispositivos conhecidos em conformidade com políticas e não permitir acesso de dispositivos perdidos, roubados ou em não conformidade."
+	description="Permita acesso em qualquer lugar a recursos específicos na rede corporativa por meio de dispositivos conhecidos em conformidade com políticas e não permita o acesso por meio de dispositivos perdidos, roubados ou não compatíveis."
 	services="active-directory, virtual-network"
 	documentationCenter=""
 	authors="femila"
-	manager="stevepo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
 	ms.topic="article"
-  ms.tgt_pltfrm="na"
-  ms.workload="identity" 
-	ms.date="07/31/2015"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/19/2015"
 	ms.author="femila"/>
 
 
@@ -35,13 +35,13 @@ Com os vários recursos de acesso condicional oferecidos por meio do Azure Activ
 
 Os tópicos a seguir abordam cada um dos mecanismos diferentes disponíveis para definir políticas de acesso condicional na sua organização.
 
-- [Visão geral do registro de dispositivos do Azure Active Directory](https://msdn.microsoft.com/library/azure/dn903763.aspx)
-- [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
-- [Políticas de dispositivo de acesso condicional para serviços do Office 365](https://msdn.microsoft.com/library/azure/dn903766.aspx)
-- [Visualização de acesso condicional do Azure para aplicativos SaaS](https://msdn.microsoft.com/library/azure/dn906877.aspx)
+- [Visão geral do registro de dispositivos do Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+- [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](active-directory-conditional-access-on-premises-setup.md)
+- [Políticas de dispositivo de acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md)
+- [Visualização de acesso condicional do Azure para aplicativos SaaS](active-directory-conditional-access-azuread-connected-apps.md)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,25 +1,25 @@
 <properties
    pageTitle="Delegar seu domínio ao Azure DNS | Microsoft Azure"
-   description="Entenda como alterar a delegação de domínio e usar servidores de nomes do Azure DNS para fornecer hospedagem do domínio"
-   services="dns"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="Adinah"
-   editor=""/>
+	description="Entenda como alterar a delegação de domínio e usar servidores de nomes do Azure DNS para fornecer hospedagem do domínio."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/28/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 
 # Delegar domínio ao Azure DNS
 
-O Azure DNS é um serviço de hospedagem para domínios DNS. Para que consultas DNS para um domínio acessem o Azure DNS, o domínio deve ser delegado ao Azure DNS por meio do domínio-pai. Esta página explica como funciona a delegação de domínio e como delegar domínios ao Azure DNS.
+O Azure DNS é um serviço de hospedagem para domínios DNS. Para que consultas DNS para um domínio acessem o Azure DNS, o domínio deve ser delegado ao Azure DNS por meio do domínio-pai. Esta página explica como funciona a delegação de domínio e como delegar domínios ao DNS do Azure.
 
 
 ## Como funciona a delegação de DNS
@@ -30,7 +30,7 @@ Um domínio é um nome exclusivo no sistema de nome de domínio, por exemplo "co
 
 >[AZURE.NOTE]Para obter mais informações sobre quem possui um nome de domínio específico ou sobre como comprar um domínio, consulte [Gerenciamento de domínio de Internet no Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
 
-Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Por exemplo, domínio "contoso.com" pode conter uma série de registros DNS, como “mail.contoso.com” (para um servidor de email) e “www.contoso.com” (para um site da Web).
+Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Por exemplo, o domínio "contoso.com" pode conter uma série de registros DNS, como “mail.contoso.com” (para um servidor de email) e “www.contoso.com” (para um site da Web).
 
 O Azure DNS permite hospedar uma zona DNS e, portanto, gerenciar os registros DNS para um domínio no Azure. Tenha em mente que o Azure DNS não é um registrador de domínio.
 
@@ -40,7 +40,7 @@ Os domínios na hierarquia de DNS são hospedados usando zonas DNS separadas. Es
 
 ### Resolução e delegação
 
-Existem dois tipos de servidor DNS:
+Existem dois tipos de servidores DNS:
 
 - Um servidor DNS _autoritativo_ hospeda zonas DNS. Ele responde a consultas DNS apenas para registros nessas zonas.
 - Um servidor DNS _recursivo_ não hospeda zonas DNS. Ele responde a todas as consultas DNS, chamando os servidores DNS autoritativos para coletar os dados de que precisa.
@@ -53,11 +53,10 @@ Isso é chamado de resolução de nome DNS (estritamente, resolução de DNS inc
 
 Como uma zona-pai “aponta” os servidores de nomes para uma zona-filho? Ele faz isso usando um tipo especial de registro DNS, chamado de registro NS (NS significa name server, “servidor de nomes”). Por exemplo, a zona raiz contém registros NS para “com”, mostrando os servidores de nomes da zona “com”. A zona “com”, por sua vez, contém registros NS para “contoso.com”, mostrando os servidores de nomes da zona “contoso.com”. Configurar os registros NS para uma zona-filho em uma zona-pai é chamado de delegar o domínio.
 
-O diagrama a seguir ilustra:
 
 ![Servidor de nomes DNS](./media/dns-domain-delegation/image1.png)
 
-Cada delegação realmente tem duas cópias dos registros NS — uma na zona-pai apontando para a zona-filho e outra na própria zona-filho. Ou seja, a zona “contoso.com” contém os registros NS para contoso.com (juntamente com os registros NS em “com”). Estes são chamados de registros NS autoritativos e ficam no ápice da zona-filho.
+Cada delegação realmente tem duas cópias dos registros NS — uma na zona-pai apontando para a zona-filho e outra na própria zona-filho. A zona “contoso.com” contém os registros NS para contoso.com (juntamente com os registros NS em “com”). Estes são chamados de registros NS autoritativos e ficam no ápice da zona-filho.
 
 
 ## Delegando um domínio ao Azure DNS
@@ -70,7 +69,7 @@ Por exemplo, suponha que você compre o domínio “contoso.com” e crie uma zo
 
 Para configurar a delegação, você precisa saber os nomes de servidor de nomes para a zona. O Azure DNS aloca os servidores de nomes de um pool de cada vez que uma zona é criada e armazena-os nos registros NS autoritativos que são criados automaticamente dentro de sua região. Portanto, para ver os nomes de servidor de nomes, basta obter esses registros.
 
-Usando o PowerShell do Azure, os registros NS autoritativos podem ser obtidos conforme descrito a seguir (o nome do Registro “@” é usado para fazer referência a registros no ápice da zona):
+Usando o Azure PowerShell, os registros NS autoritativos podem ser obtidos conforme descrito a seguir (o nome do Registro “@” é usado para fazer referência a registros no ápice da zona).
 
 	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
 	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -117,28 +116,28 @@ Tendo configurado e delegado o ‘contoso.com’ no DNS do Azure, suponha que vo
 
 A única diferença é que, na etapa 3, os registros NS devem ser criados na zona pai ‘contoso.com’ no DNS do Azure, em vez de serem configurados por meio de um registrador de domínio.
 
-O exemplo do PowerShell a seguir demonstra isso. Primeiro, criamos as zonas pai e filho — elas podem estar no mesmo grupo de recursos ou em grupos de recursos diferentes:
+O exemplo do PowerShell a seguir demonstra isso. Primeiro, criamos as zonas pai e filho — elas podem estar no mesmo grupo de recursos ou em grupos de recursos diferentes.
 
 	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
 	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
-Em seguida, recuperamos os registros NS autoritativos da zona filho:
+Em seguida, recuperamos os registros NS autoritativos da zona filho conforme mostrado no exemplo a seguir.
 
 	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-Finalmente, criamos um conjunto de registros NS correspondente na zona pai para concluir a delegação (Observe que o nome do conjunto de registros na zona pai coincide com o nome da zona filho, neste caso "parceiros"):
+Finalmente, criamos um conjunto de registros NS correspondente na zona pai para concluir a delegação (observe que o nome do conjunto de registros na zona pai coincide com o nome da zona filho, neste caso "parceiros"):
 
 	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
 
-Da mesma forma que é feito ao delegar usando um registrador, podemos verificar que tudo está configurado corretamente examinando o registro SOA da zona filho:
+Da mesma forma que é feito ao delegar usando um registrador, podemos verificar que tudo esteja configurado corretamente examinando o registro SOA da zona filho.
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-	
+
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-	
+
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com
@@ -159,6 +158,5 @@ Da mesma forma que é feito ao delegar usando um registrador, podemos verificar 
 [Automatizar operações do Azure com o SDK do .NET](../dns-sdk)
 
 [Referência da API REST do Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

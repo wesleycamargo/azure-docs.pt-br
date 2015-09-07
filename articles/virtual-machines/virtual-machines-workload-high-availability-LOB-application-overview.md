@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure" 
-	description="Você pode implantar um aplicativo de linha de negócios baseado na Web e de alta disponibilidade com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure em cinco fases." 
+	pageTitle="Implantar um aplicativo de linha de negócios | Microsoft Azure"
+	description="Implante um aplicativo de linha de negócios baseado na Web e de alta disponibilidade com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure em cinco fases."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure
@@ -38,7 +38,7 @@ Implante essa configuração nas seguintes fases:
 - [Fase 2: configurar os controladores de domínio](virtual-machines-workload-high-availability-LOB-application-phase2.md). Crie e configure os controladores de domínio dos Serviços de Domínio do Active Directory (AD DS).
 - [Fase 3: configurar a infraestrutura do SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md). Crie e configure as máquinas virtuais que executam o SQL Server, crie o cluster e habilite os Grupos de Disponibilidade AlwaysOn do SQL Server.
 - [Fase 4: configurar servidores Web](virtual-machines-workload-high-availability-LOB-application-phase4.md). Crie e configure as duas máquinas virtuais do servidor Web.
-- [Fase 5: adicionar os bancos de dados de aplicativo a um Grupo de Disponibilidade AlwaysOn do SQL Server](virtual-machines-workload-high-availability-LOB-application-phase5.md). Prepare os bancos de dados do aplicativo linha de negócios e adicione-os a um Grupo de Disponibilidade AlwaysOn do SQL Server.
+- [Fase 5: adicionar os bancos de dados de aplicativo a um Grupo de Disponibilidade AlwaysOn do SQL Server](virtual-machines-workload-high-availability-LOB-application-phase5.md). Prepare os bancos de dados do aplicativo de linha de negócios e adicione-os a um Grupo de Disponibilidade AlwaysOn do SQL Server.
 
 Essa implantação foi projetada para acompanhar o [Plano gráfico da arquitetura de aplicativos de linha de negócios](http://msdn.microsoft.com/dn630664) e incorporar as recomendações mais recentes.
 
@@ -66,4 +66,4 @@ Para iniciar a configuração dessa carga de trabalho, vá para [Fase 1: configu
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

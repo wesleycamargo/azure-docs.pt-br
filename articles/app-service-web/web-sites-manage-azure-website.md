@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure" 
-	description="Links para recursos para gerenciar um aplicativo Web no Serviço de Aplicativo do Azure." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="erikre" 
-	manager="wpickett" 
+	pageTitle="Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure"
+	description="Links para recursos para gerenciar um aplicativo Web no Serviço de Aplicativo do Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="erikre"/>
 
 # Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure
@@ -22,7 +22,7 @@ Este tópico contém links para recursos para gerenciar um aplicativo Web no [Se
 
 Durante o ciclo de vida de um aplicativo Web, você realizará diferentes tarefas de gerenciamento, a medida em que você move da implantação inicial à operação normal, manutenção e atualizações.
 
-Muitas tarefas de gerenciamento de aplicativo Web podem ser realizadas no portal do Azure. Para obter mais informações, consulte [Gerenciar aplicativos Web usando o Portal do Azure](web-sites-manage.md).
+Muitas tarefas de gerenciamento de aplicativo Web podem ser realizadas no portal do Azure.
 
 ## Antes de implantar seu aplicativo Web para produção
 
@@ -103,4 +103,4 @@ Se você usar o Visual Studio Online, é possível configurar a implantação co
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="Conector do BizTalk Edifact" 
-   description="Conector do BizTalk Edifact" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Usando o Conector do BizTalk Edifact em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector do BizTalk Edifact ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# Conector do BizTalk Edifact
-O Serviço do Edifact do Microsoft Azure permite receber e enviar mensagens conforme o protocolo Edifact nas comunicações de empresas. Edifact é também conhecido como ASC Edifact ou Edifact do Accredited Standards Committee. Ele é amplamente usado em vários setores.
+# Comece a usar o Conector do BizTalk Edifact e adicione-o a seu Aplicativo Lógico  
+Use o serviço do Edifact para receber e enviar mensagens através do protocolo Edifact nas comunicações comerciais. O Edifact também é conhecido como ASC Edifact ou Accredited Standards Committee Edifact e é amplamente usado em vários setores.
+
+Você pode adicionar o conector do BizTalk Edifact a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 ## Pré-requisitos
 - Aplicativo de API do TPM: antes de criar um conector do Edifact, você precisa criar um [Conector de Gerenciamento de Parceiros Comerciais do BizTalk][1].
@@ -93,4 +95,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

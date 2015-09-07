@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Perguntas frequentes do Azure AD Connect Health" 
-	description="Encontre respostas para perguntas frequentes sobre o Azure AD Connect Health. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança, recursos, limitações e suporte." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Perguntas frequentes do Azure AD Connect Health"
+	description="Encontre respostas para perguntas frequentes sobre o Azure AD Connect Health. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança, recursos, limitações e suporte."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015"
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="billmath"/>
 
 
@@ -40,12 +40,12 @@ O impacto da instalação do agente de integridade de identidade Microsoft nos s
 
 Os números a seguir são uma aproximação.
 
-- O consumo da CPU: \~ 1% de aumento
+- O consumo da CPU: ~ 1% de aumento
 - Consumo de memória: 10% da memória total do sistema
-- Uso de largura de banda de rede: \~ 1 MB / 1000 das solicitações de ADFS
+- Uso de largura de banda de rede: ~ 1 MB / 1000 das solicitações de ADFS
 >[AZURE.NOTE]No caso do agente estar sendo capaz de se comunicar no Azure, o agente armazenará os dados localmente, até um limite máximo de 10% da memória total do sistema. Quando o agente atinge 10% da memória física total, se o agente não foi capaz de carregar os dados para o serviço, as novas transações ADFS substituirão quaisquer transações "em cache" considerando as "menos recentemente atendidas".
 
-- Armazenamento de buffer local para o agente de integridade do AD: \~ 20 MB
+- Armazenamento de buffer local para o agente de integridade do AD: ~ 20 MB
 - Armazenamento de dados necessário para o canal de auditoria
 
 
@@ -71,7 +71,6 @@ Execute a qualquer momento antes de executar o Register-AdHealthAgent (a etapa f
 Localize o arquivo machine.config. O arquivo está localizado em %windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>
 
 Adicione a seguinte entrada sob o elemento de <configuration></configuration> no arquivo machine.config.
- 
 		
 	<system.net>  
 			<defaultProxy useDefaultCredentials="true">
@@ -84,7 +83,7 @@ Adicione a seguinte entrada sob o elemento de <configuration></configuration> no
 
  
 
-Mais<defaultProxy>informações podem ser encontradas [aqui] (https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx).
+Mais <defaultProxy> informações podem ser encontradas [aqui] (https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
 
 Essas definições configuram os aplicativos .NET em todo o sistema para usar o proxy definido explicitamente quando fizer solicitações http .NET. Não é recomendável modificar cada app.config individualmente porque a configuração será desfeita durante a atualização automática. Você somente precisará alterar um arquivo e ele será mantido pelas atualizações se você modificar apenas o machine.config.
 
@@ -128,4 +127,11 @@ Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. 
 
 Você precisará ter as portas TCP/UDP 80 e 443 abertas para o agente do Azure AD Connect Health poder se comunicar com os pontos de extremidade de serviço de integridade do AD do Azure.
 
-<!---HONumber=06-->
+## Links relacionados
+
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Instalação do Agente do Azure AD Connect Health para AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
+* [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+
+<!---HONumber=August15_HO9-->

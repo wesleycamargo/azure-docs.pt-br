@@ -1,21 +1,21 @@
 <properties
    pageTitle="Diretrizes para implementação de API | Microsoft Azure"
-   description="Diretrizes para modo de implementação de uma API."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
+	description="Diretrizes para modo de implementação de uma API."
+	services=""
+	documentationCenter="na"
+	authors="dragon119"
+	manager="masimms"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="best-practice"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/13/2015"
-   ms.author="masashin"/>
+	ms.devlang="rest-api"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="05/13/2015"
+	ms.author="masashin"/>
 
 # Diretrizes para implementação de API
 
@@ -1061,7 +1061,7 @@ O Azure fornece o [Serviço de Gerenciamento de API](http://azure.microsoft.com/
 
 Você pode encontrar detalhes completos sobre como realizar essas tarefas na página [Gerenciamento de API](http://azure.microsoft.com/services/api-management/), no site da Microsoft. O serviço de Gerenciamento de API do Azure também fornece sua própria interface REST, permitindo que você crie uma interface personalizada para simplificar o processo de configuração de uma API da Web. Para obter mais informações, visite a página [Referência de API REST do Gerenciamento de API do Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx), no site da Microsoft.
 
-> [AZURE.TIP]O Azure oferece o Gerenciador de Tráfego do Azure, que permite implementar failover e balanceamento de carga, além de reduzir a latência entre várias instâncias de um site hospedado em diferentes locais geográficos. Você pode usar o Gerenciador de Tráfego do Azure em conjunto com o Serviço de Gerenciamento de API; o Serviço de Gerenciamento de API pode rotear solicitações para instâncias de um site por meio do Gerenciador de Tráfego do Azure. Para obter mais informações, visite a página [Sobre Métodos de Balanceamento de Carga do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/dn339010.aspx), no site da Microsoft.
+> [AZURE.TIP]O Azure oferece o Gerenciador de Tráfego do Azure, que permite implementar failover e balanceamento de carga, além de reduzir a latência entre várias instâncias de um site hospedado em diferentes locais geográficos. Você pode usar o Gerenciador de Tráfego do Azure em conjunto com o Serviço de Gerenciamento de API; o Serviço de Gerenciamento de API pode rotear solicitações para instâncias de um site por meio do Gerenciador de Tráfego do Azure. Para obter mais informações, visite a página [Sobre Métodos de Balanceamento de Carga do Gerenciador de Tráfego](../traffic-manager/traffic-manager-load-balancing-methods.md), no site da Microsoft.
 
 > Nessa estrutura, se você estiver usando nomes DNS personalizados para sites, você deve configurar o registro CNAME apropriado para que cada site aponte para o nome DNS do site do Gerenciador de Tráfego do Azure.
 
@@ -1147,9 +1147,9 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 - A página [Notificação de Usuários nos Hubs de Notificação do Azure](notification-hubs-aspnet-backend-windows-dotnet-notify-users/), no site da Microsoft, mostra como você pode usar um Hub de notificação do Azure para enviar respostas assíncronas a aplicativos cliente.
 - A página [Gerenciamento de API](http://azure.microsoft.com/services/api-management/) no site da Microsoft descreve como publicar um produto que fornece acesso controlado e seguro a uma API da Web.
 - A página [Referência de API REST de Gerenciamento de API do Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) no site da Microsoft descreve como usar a API REST de Gerenciamento de API para criar aplicativos de gerenciamento personalizados.
-- A página [Sobre os métodos de balanceamento de carga do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/dn339010.aspx) no site da Microsoft resume como o Gerenciador de Tráfego do Azure pode ser usado para realizar o balanceamento de carga de solicitações entre várias instâncias de um site que hospeda uma API da Web.
+- A página [Sobre os métodos de balanceamento de carga do Gerenciador de Tráfego](../traffic-manager/traffic-manager-load-balancing-methods.md) no site da Microsoft resume como o Gerenciador de Tráfego do Azure pode ser usado para realizar o balanceamento de carga de solicitações entre várias instâncias de um site que hospeda uma API da Web.
 - A página [Application Insights - Iniciar o monitoramento de integridade e uso do seu aplicativo](app-insights-start-monitoring-app-health-usage.md), no site da Microsoft, fornece informações detalhadas sobre como instalar e configurar o Application Insights em um projeto de API Web ASP.NET.
 - A página [Verificando o Código Pelo Uso de Testes de Unidade](https://msdn.microsoft.com/library/dd264975.aspx), no site da Microsoft, fornece informações detalhadas sobre criação e gerenciamento de testes de unidade pelo uso do Visual Studio.
 - A página [Executar testes de desempenho em um aplicativo antes do lançamento](https://msdn.microsoft.com/library/dn250793.aspx) no site da Microsoft descreve como usar o Visual Studio Ultimate para criar um projeto de teste de carga e desempenho da Web.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

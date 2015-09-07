@@ -170,11 +170,11 @@ Uma combinação de uma entidade de serviço e o RBAC pode ser usada para atende
 
 Muitos cenários terão requisitos que especificam como o tráfego para uma ou mais instâncias de VM em sua rede virtual é controlado. Você pode usar um NSG (grupo de segurança de rede) para fazer isso como parte de uma implantação de modelo do ARM.
 
-Um grupo de segurança de rede é um objeto de nível superior associado à sua assinatura. Um NSG contém regras de controle de acesso que permitem ou negam o tráfego para as instâncias de VM. As regras de um NSG podem ser alteradas a qualquer momento e as alterações se aplicam a todas as instâncias associadas. Para usar um NSG, você deve ter uma rede virtual associada a uma região (local). Os NSGs não são compatíveis com as redes virtuais associadas a um grupo de afinidades. Se você não tiver uma rede virtual regional e quiser controlar o tráfego para os pontos de extremidade, consulte [Sobre as ACLs (Listas de Controle de Acesso) de rede](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+Um grupo de segurança de rede é um objeto de nível superior associado à sua assinatura. Um NSG contém regras de controle de acesso que permitem ou negam o tráfego para as instâncias de VM. As regras de um NSG podem ser alteradas a qualquer momento e as alterações se aplicam a todas as instâncias associadas. Para usar um NSG, você deve ter uma rede virtual associada a uma região (local). Os NSGs não são compatíveis com as redes virtuais associadas a um grupo de afinidades. Se você não tiver uma rede virtual regional e quiser controlar o tráfego dos pontos de extremidade, consulte [Sobre as ACLs (Listas de Controle de Acesso) de rede](../virtual-network/virtual-networks-acl.md).
 
 Você pode associar um NSG a uma VM ou a uma sub-rede em uma rede virtual. Quando associado a uma máquina virtual, o NSG se aplica a todo o tráfego que é enviado e recebido pela instância de VM. Quando aplicado a uma sub-rede na rede virtual, ele se aplica a todo o tráfego que é enviado e recebido por todas as instâncias de VM na sub-rede. Uma VM ou sub-rede pode ser associada a apenas um NSG, no entanto, cada NSG pode conter até 200 regras. Você pode ter 100 NSGs por assinatura.
 
->[AZURE.NOTE]Não há suporte para grupos de segurança de rede e ACLs baseadas em ponto de extremidade na mesma instância de VM. Se você quiser usar um NSG e já tiver uma ACL de ponto de extremidade à disposição, primeiro remova a ACL de ponto de extremidade. Para saber mais sobre como fazer isso, confira [Gerenciando listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+>[AZURE.NOTE]Não há suporte para grupos de segurança de rede e ACLs baseadas em ponto de extremidade na mesma instância de VM. Se você quiser usar um NSG e já tiver uma ACL de ponto de extremidade à disposição, primeiro remova a ACL de ponto de extremidade. Para saber mais sobre como fazer isso, confira [Gerenciando listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ### Como funcionam os grupos de segurança de rede
 
@@ -337,4 +337,4 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 - Para configurar o roteamento e o encaminhamento IP, consulte [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network/virtual-networks-udr-how-to.md) 
 - Para obter uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

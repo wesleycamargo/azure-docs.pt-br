@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="O que é StorSimple?" 
-   description="Descreve a arquitetura e os recursos do StorSimple e apresenta seus componentes." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="O que é o StorSimple? | Microsoft Azure"
+	description="Descreve o gerenciamento de dados StorSimple e processo de proteção, benefícios e arquitetura e apresenta os componentes do StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/14/2015"
-   ms.author="v-sharos@microsoft.com"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos@microsoft.com"/>
 
-# O que é StorSimple? 
+# Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida 
 
 ## Visão geral
 
@@ -66,11 +66,11 @@ A solução Microsoft Azure StorSimple inclui os seguintes componentes:
 
 ## Próximas etapas
 
-Leia a [Visão geral das soluções StorSimple Série 8000](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx) e veja a [explicação sobre o StorSimple](http://www.microsoft.com/server-cloud/products/storsimple/Features.aspx).
+Saiba mais sobre o [StorSimple](https://azure.microsoft.com/documentation/services/storsimple/).
 
 Leia mais sobre os [componentes e a terminologia do StorSimple](storsimple-components.md).
 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

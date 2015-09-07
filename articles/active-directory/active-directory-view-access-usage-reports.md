@@ -100,36 +100,8 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 
 
 ## Relatórios de atividades anômalas
+Os relatórios de atividade de entrada anômala contêm atividade de entrada suspeita para o Portal de Gerenciamento do Azure, o Painel de Acesso do AD do Azure, o Office365, o Sharepoint Online, o Dynamics CRM Online e outros serviços online da Microsoft, independentemente do provedor de federação. <p>Os seguintes relatórios estão disponíveis: </p><ul> <li>[Entradas de fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Entradas após várias falhas](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Atividade de entrada irregular](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Entradas de dispositivos possivelmente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuários com atividade de entrada anômala](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuários com credenciais insuficientes</li></ul>
 
-### Entradas de fontes desconhecidas
-
-Para obter detalhes sobre esse relatório, verifique [Entradas de fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md).
-
-### Entradas após várias falhas
-
-Para obter detalhes sobre esse relatório, verifique [Entradas após várias falhas](active-directory-reporting-sign-ins-after-multiple-failures.md).
-
-### Entradas de várias regiões geográficas
-
-Para obter detalhes sobre esse relatório, verifique [Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).
-
-### Entradas de endereços IP com atividade suspeita
-
-Para obter detalhes sobre esse relatório, verifique [Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
-
-### Atividade de conexão anômala
-
-Para obter detalhes sobre esse relatório, verifique [Atividade de conexão anômala](active-directory-reporting-irregular-sign-in-activity.md).
-
-### Entradas de dispositivos possivelmente infectados
-
-Para obter detalhes sobre esse relatório, verifique [Entradas de dispositivos possivelmente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
-
-### Usuários com atividade de entrada anômala
-
-Para obter detalhes sobre esse relatório, verifique [Usuários com atividade de entrada anômala](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
-
-<!-- Users with leaked credentials goes here -->
 
 
 
@@ -254,7 +226,7 @@ Somente determinados tipos de eventos de entrada serão exibidos no relatório d
 | Realiza a entrada em um aplicativo de negócios personalizado que foi adicionado ao diretório | Não (em breve) |
 | Conexões em um aplicativo de proxy de aplicativo do Azure AD que foi adicionado ao diretório | Não (em breve) |
 
-> Observação: Para reduzir a quantidade de ruído no relatório, as entradas no aplicativo nativo [Lync/Skype for Business](http://products.office.com/pt-br/skype-for-business/online-meetings) e o [Assistente de Conexão do Microsoft Online Services](http://community.office365.com/pt-br/w/sso/534.aspx) não são mostradas.
+> Observação: Para reduzir a quantidade de ruído no relatório, as entradas no aplicativo nativo [Lync/Skype for Business](http://products.office.com/pt-BR/skype-for-business/online-meetings) e o [Assistente de Conexão do Microsoft Online Services](http://community.office365.com/pt-BR/w/sso/534.aspx) não são mostradas.
 
 
 
@@ -302,4 +274,4 @@ Para obter mais informações sobre as notificações de relatórios do AD do Az
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

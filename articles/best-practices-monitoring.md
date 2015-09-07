@@ -1,21 +1,21 @@
 <properties
    pageTitle="Diretrizes de monitoramento e diagnóstico | Microsoft Azure"
-   description="Práticas recomendadas para monitoramento de aplicativos distribuídos na nuvem."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
+	description="Práticas recomendadas para monitoramento de aplicativos distribuídos na nuvem."
+	services=""
+	documentationCenter="na"
+	authors="dragon119"
+	manager="masimms"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="best-practice"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="masashin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="04/28/2015"
+	ms.author="masashin"/>
 
 # Diretrizes de monitoramento e diagnóstico
 
@@ -608,8 +608,8 @@ Em muitos casos, relatórios podem ser gerados por processos em lotes de acordo 
 - A página [Configurando o diagnóstico para os Serviços de Nuvem do Azure e máquinas virtuais](https://msdn.microsoft.com/library/azure/dn186185.aspx) no site da Microsoft.
 - As páginas do [Cache Redis do Azure](http://azure.microsoft.com/services/cache/), do [Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) e do [HDInsight](http://azure.microsoft.com/services/hdinsight/) no site da Microsoft.
 - A página [Como usar Filas do barramento de serviço](http://azure.microsoft.com/) no site da Microsoft.
-- O artigo [Microsoft SQL Server Business Intelligence em Máquinas Virtuais do Azure](https://msdn.microsoft.com/library/azure/jj992719.aspx) no site da Microsoft.
+- O artigo [Microsoft SQL Server Business Intelligence em Máquinas Virtuais do Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) no site da Microsoft.
 - A página [Noções básicas sobre alertas e notificações de monitoramento no Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) no site da Microsoft.
 - A página do [Application Insights](app-insights-get-started/) no site da Microsoft.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

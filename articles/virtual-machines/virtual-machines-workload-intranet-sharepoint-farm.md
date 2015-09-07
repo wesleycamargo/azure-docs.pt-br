@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint na Intranet"
-	description="Saiba mais sobre o valor de um farm do SharePoint na Intranet implantado no Azure, como configurar um ambiente de desenvolvimento/teste e como implantar uma configuração de produção de alta disponibilidade."
+	pageTitle="Farm do SharePoint Server 2013 no Azure | Microsoft Azure"
+	description="Conheça o valor de um farm do SharePoint Server 2013 no Azure, configure um ambiente de teste e implante uma configuração de alta disponibilidade."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -124,4 +124,4 @@ Uma vez configurado, você pode expandir esse farm do SharePoint com a orientaç
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

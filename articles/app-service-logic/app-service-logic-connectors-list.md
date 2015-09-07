@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Lista de conectores e aplicativos de API | Microsoft Azure"
-	description="Leia sobre conectores e aplicativos de API no serviço de aplicativo do Azure; arquitetura de microsserviços"
+	pageTitle="Lista de Aplicativos de API e de Conectores no Serviço de Aplicativo do Microsoft Azure"
+	description="Leia sobre os Conectores e os Aplicativos de API no Serviço de Aplicativo do Azure"
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
 
-# Lista de conectores e aplicativos de API no Serviço de Aplicativo do Microsoft Azure
-Este tópico lista todos os conectores e aplicativos de API disponíveis, criados pela Microsoft.
+# Lista de Conectores e de Aplicativos de API a serem usados em seus Aplicativos Lógicos
+Saiba mais sobre todos os conectores e Aplicativos de API disponibilizados pela Microsoft a serem usados em seus Aplicativos Lógicos
 
 Para obter informações de preço e uma lista do que é incluído com cada camada de serviço, consulte [Preços do Serviço de Aplicativo do Azure](http://azure.microsoft.com/pricing/details/app-service/).
 
@@ -93,4 +93,4 @@ Os conectores também podem ser usados como ações dentro do Aplicativo Lógico
 
 [O que são aplicativos de API do BizTalk e conectores](app-service-logic-what-are-biztalk-api-apps.md) [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md) [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

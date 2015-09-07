@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Conector de FTP"
-	description="Introdução ao Conector de FTP"
+	pageTitle="Usando o Conector de FTP em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector de FTP ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
 	authors="rajram"
 	manager="dwrede"
 	editor=""
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-# Conector de FTP
-
-## Visão geral
-O Conector de FTP permite mover dados de/para um servidor FTP. Os principais recursos do Conector de FTP são:
+# Introdução ao Conector de FTP e à adição dele ao seu Aplicativo Lógico
+Conecte-se a um servidor FTP para mover dados ou arquivos. Os principais recursos do conector de FTP incluem:
 
 - Extrair arquivos do servidor FTP sob demanda
 - Executar sondagens com base em um cronograma configurável
@@ -27,6 +25,8 @@ O Conector de FTP permite mover dados de/para um servidor FTP. Os principais rec
 - Especificar o servidor FTP com um endereço IP, porta, senha e nome de host
 - Capacidade de fazer envios sob demanda
 - Capacidade de excluir arquivos do servidor FTP sob demanda
+
+Você pode adicionar o conector de FTP a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 ## Criar um novo conector de FTP
 Para criar um novo conector de FTP, siga as etapas abaixo. - Inicie o portal do Azure - Abra o Azure Marketplace usando +Novo (na parte inferior da página) -> Web+Móvel --> Azure Marketplace:![Iniciar o Azure Marketplace][1]
@@ -158,4 +158,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

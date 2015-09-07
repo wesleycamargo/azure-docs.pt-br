@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector do sistema de arquivos: mover dados para e do sistema de arquivos" 
-	description="Saiba mais sobre o conector do sistema de arquivos para o serviço Data Factory que permite mover dados de/para o sistema de arquivos local" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Mover dados para e do Sistema de Arquivos | Azure Data Factory"
+	description="Aprenda como mover dados para/do sistema de arquivos local usando o Azure Data Factory"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector do sistema de arquivos: mover dados para e do sistema de arquivos local
+# Mover dados para e do sistema de arquivos local usando o Azure Data Factory
 
 Este artigo descreve como você pode usar a atividade de cópia da data factory para mover dados para e do sistema de arquivos local. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
@@ -35,11 +35,11 @@ Execute as duas etapas a seguir para usar um compartilhamento de arquivos do Lin
 
 O exemplo a seguir mostra:
 
-1.	Um serviço vinculado do tipo OnPremisesFileServer.
-2.	Um serviço vinculado do tipo AzureStorage.
-3.	Um conjunto de dados de entrada do tipo FileShare.
-4.	Um conjunto de dados de saída do tipo AzureBlob.
-4.	O pipeline com a atividade de cópia que usa FileSystemSource e BlobSink. 
+1.	Um serviço vinculado do tipo [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
+2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	O [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que usa [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 O exemplo a seguir copia dados pertencentes a uma série temporal do sistema de arquivos local para o blob do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -52,7 +52,7 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -273,7 +273,7 @@ O exemplo copia a cada hora dados pertencentes a uma série temporal de uma tabe
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -427,11 +427,13 @@ Você pode vincular um sistema de arquivos local a uma Azure Data Factory com o 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 type | A propriedade type deve ser configurada como **OnPremisesFileServer**. | Sim 
-host | Nome do host do servidor. Use ' \\ ' como o caractere de escape, como no exemplo a seguir: se o compartilhamento for: \\servername, especifique \\\\servername.<p>Se o sistema de arquivos for local no computador do gateway, use localhost ou Local. Se o sistema de arquivos estiver em um servidor diferente do computador do gateway, use \\\\servername.</p> | Sim
+host | Nome do host do servidor. Use ' \\ ' como o caractere de escape, como no exemplo a seguir: se o compartilhamento for: \\servername, especifique \\\servername.<p>Se o sistema de arquivos for local no computador do gateway, use localhost ou Local. Se o sistema de arquivos estiver em um servidor diferente do computador do gateway, use \\\servername.</p> | Sim
 userid | Especifique a ID do usuário que tem acesso ao servidor | Não (se você escolher encryptedcredential)
-Senha | Especifique a senha para o usuário (userid) | Não (se você escolher encryptedcredential) 
-Encryptedcredential | Especifique as credenciais criptografadas que você pode obter executando o cmdlet New-AzureDataFactoryEncryptValue<p>**Observação:** você deve usar o Azure PowerShell de versão 0.8.14 ou superior para usar cmdlets como New-AzureDataFactoryEncryptValue com parâmetro type definido como OnPremisesFileSystemLinkedService</p> | Não (se você optar por especificar userid e password em texto sem formatação)
-Gatewayname | O nome do gateway que o serviço Data Factory deve usar para se conectar ao servidor de arquivos local | Sim
+Senha | Especifique a senha para o usuário (userid) | Não (se você escolher encryptedcredential 
+encryptedCredential | Especifique as credenciais criptografadas que você pode obter executando o cmdlet New-AzureDataFactoryEncryptValue<p>**Observação:** você deve usar o Azure PowerShell de versão 0.8.14 ou superior para usar cmdlets como New-AzureDataFactoryEncryptValue com parâmetro type definido como OnPremisesFileSystemLinkedService</p> | Não (se você optar por especificar userid e password em texto sem formatação)
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao servidor de arquivos local | Sim
+
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do sistema de arquivos local.
 
 **Exemplo: usando username e password em texto sem formatação**
 	
@@ -440,7 +442,7 @@ Gatewayname | O nome do gateway que o serviço Data Factory deve usar para se co
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -456,7 +458,7 @@ Gatewayname | O nome do gateway que o serviço Data Factory deve usar para se co
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
 	      "host": "localhost",
-	      "encryptedcredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+	      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
 	      "gatewayName": "mygateway"
 	    }
 	  }
@@ -464,7 +466,7 @@ Gatewayname | O nome do gateway que o serviço Data Factory deve usar para se co
 
 ## Propriedades type do conjunto de dados de sistema de arquivos local
 
-Para obter uma lista completa das seções e propriedades disponíveis para definição de conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL do Azure, Blob do Azure, tabela do Azure, sistema de arquivos local etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL do Azure, Blob do Azure, tabela do Azure, sistema de arquivos local etc.).
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local, formato etc. de dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **FileShare** tem as seguintes propriedades.
 
@@ -517,9 +519,9 @@ Propriedade | Descrição | Obrigatório
 columnDelimiter | Os caracteres usados como um separador de coluna em um arquivo. O valor padrão é vírgula (,). | Não
 rowDelimiter | Os caracteres usados como um separador bruto no arquivo. O valor padrão é qualquer um dos seguintes: [“\\r\\n”, “\\r”,” \\n”]. | Não
 escapeChar | O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), você pode definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na fonte.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
-quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte. Essa propriedade é aplicável às tabelas de entrada e saída.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
+quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas deseja ter caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte Essa propriedade é aplicável às tabelas de entrada e saída.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
 nullValue | Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. O valor padrão é “\\N”.> | Não
-encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. <p>Por exemplo: windows-1250 ou shift\_jis. O valor padrão é: UTF-8.</p> | Não
+encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. <p>Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8.</p> | Não
 
 #### Exemplos:
 
@@ -571,4 +573,4 @@ No momento, **FileSystemSource** e **FileSystemSink** não dão suporte a nenhum
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

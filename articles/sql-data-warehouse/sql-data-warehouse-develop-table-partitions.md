@@ -1,20 +1,20 @@
 <properties
    pageTitle="Partições de tabela no SQL Data Warehouse | Microsoft Azure"
-   description="Dicas para usar partições de tabela no SQL Data Warehouse do Azure para desenvolvimento de soluções."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+	description="Dicas para usar partições de tabela no SQL Data Warehouse do Azure para desenvolvimento de soluções."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="jrowlandjones"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Partições de tabela no SQL Data Warehouse
 
@@ -24,9 +24,16 @@ Migrar definições de partição do SQL Server para o SQL Data Warehouse:
 - Defina as partições quando você criar a tabela. Basta especificar pontos de limite de partição e como deseja que o ponto de limite seja eficaz `RANGE RIGHT` ou `RANGE LEFT`.
 
 ### Dimensionamento da partição
-Dimensionamento da partição é uma consideração importante para o SQL Data Warehouse. Normalmente as operações de gerenciamento de dados e rotinas de carregamento de dados são destinados para partições individuais, em vez de lidar com a tabela inteira de uma só vez. Isso é particularmente relevante para columnstores clusterizadas (CCI). As CCI podem consumir uma quantidade significativa de memória. Portanto, apesar de podermos querer revisar a granularidade do plano de particionamento, não queremos dimensionar as partições para um tamanho que nos deparamos com a pressão de memória durante a tentativa de executar tarefas de gerenciamento.
+O SQL DW oferece ao DBA várias opções de tipos de tabela: heap, CI (índice clusterizado) e CCI (índice de repositório de coluna clusterizado). Para cada um desses tipos de tabela, o DBA também pode particionar a tabela, que significa dividi-la em várias seções para melhorar o desempenho. No entanto, criar uma tabela com muitas partições pode, de fato, causar degradação do desempenho ou falhas de consulta sob algumas circunstâncias. Essas questões são especialmente verdadeiras para tabelas CCI. Para que o particionamento seja útil, é importante para um DBA entender quando usar o particionamento e o número de partições a serem criadas. Essas diretrizes se destinam a ajudar os DBAs a fazer as melhores escolhas para seus cenários.
 
-Ao decidir a granularidade das partições é importante lembrar que o SQL Data Warehouse distribuirá automaticamente os dados em distribuições. Consequentemente, os dados que normalmente teriam existido em uma tabela em uma única partição em um banco de dados do SQL Server, agora existem em uma partição em muitas tabelas em um banco de dados do SQL Data Warehouse. Para manter um número significativo de linhas em cada uma das partições, normalmente o tamanho do limite da partição é alterado. Por exemplo, se você tiver usado um particionamento de nível diário para o data warehouse convém considerar algo menos granular, como mensal ou trimestral.
+Geralmente, as partições de tabela são úteis de duas maneiras importantes:
+
+1. Usando a alternância de partição para truncar rapidamente uma seção de uma tabela. Um design usado frequentemente é de uma tabela de fatos para conter linhas somente por algum período finito predeterminado. Por exemplo, uma tabela de fatos de vendas pode conter dados somente dos últimos 36 meses. No final de cada mês, o mês de dados de vendas mais antigo é excluído da tabela. Para isso, basta excluir todas as linhas do mês mais antigo, mas excluir um grande volume de dados, linha por linha, pode demorar muito tempo. Para otimizar esse cenário, o SQL DW oferece suporte à permutação de partição, que permite que o conjunto inteiro de linhas em uma partição seja descartado em uma única operação rápida.   
+
+2. O particionamento permite às consultas excluir facilmente o processamento de um grande conjunto de linhas (isto é, uma partição) se as consultas colocarem um predicado na coluna de particionamento. Por exemplo, se a tabela de fatos de vendas for particionada em 36 meses usando o campo de data das vendas, as consultas que forem filtradas pela data da venda podem pular o processamento de partições que não correspondam ao filtro. Na verdade, o particionamento usado dessa maneira é um índice grosseiro.
+
+Ao criar índices de repositório de coluna clusterizado no SQL DW, um DBA precisa considerar um fator adicional: o número de linhas. As tabelas CCI podem atingir um alto grau de compactação e ajudam o SQL DW a acelerar o desempenho da consulta. Devido ao funcionamento interno da compactação no SQL DW, cada partição em uma tabela CCI precisa ter um número razoavelmente grande de linhas para que os dados sejam compactados. Além disso, o SQL DW espalha os dados por um grande número de distribuições, e cada distribuição ainda é dividida por partições. Para obter uma compactação e um desempenho ideais, é necessário um mínimo de 100.000 linhas por distribuição e partição. Usando o exemplo acima, se a tabela de fatos de vendas contiver 36 partições mensais, e uma vez que o SQL DW tem 60 distribuições, a tabela de fatos de vendas deverá conter 6 milhões de linhas por mês, ou 216 milhões de linhas quando todos os meses forem populados. Se uma tabela contiver significativamente menos linhas do que o mínimo recomendado, o DBA deverá considerar a criação de uma tabela com menos partições para que o número de linhas por distribuição seja maior.
+
 
 Para dimensionar seu banco de dados atual no nível de partição use uma consulta como mostrada abaixo:
 
@@ -319,4 +326,4 @@ Depois de migrar com êxito o esquema do seu banco de dados para o SQL Data Ware
 
 <!-- Other web references -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

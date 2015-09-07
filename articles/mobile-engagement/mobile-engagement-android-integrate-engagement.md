@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integração do SDK do Android do Azure Mobile Engagement" 
+	pageTitle="Integração do SDK do Android do Azure Mobile Engagement"
 	description="Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 #Como integrar o Engagement ao Android
 
@@ -54,10 +54,6 @@ A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
 
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
--   Em alguns modelos de dispositivo, não é possível gerar o identificador de dispositivo do Engagement por meio do ANDROID\_ID (pode conter bugs ou estar indisponível). Nesse caso, o SDK gera um identificador aleatório de dispositivo e tenta salvá-lo no armazenamento externo desse dispositivo, para que outros aplicativos do Engagement possam compartilhar o mesmo identificador de dispositivo (ele também é salvo como uma preferência compartilhada, para garantir que o próprio aplicativo use sempre o mesmo identificador de dispositivo, independentemente do que acontecer com o armazenamento externo). Para que esse mecanismo funcione corretamente, você precisa adicionar a permissão a seguir se ele estiver ausente (antes da marca `<application>`):
-
-			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 -   Adicione a seção a seguir (entre as marcas `<application>` e `</application>`):
 
@@ -177,15 +173,20 @@ Se quiser que locais sejam informados, você precisa adicionar algumas linhas de
 
 O relatório de local de área lenta permite relatar o país, a região e a localidade associados aos dispositivos. Esse tipo de relatório de local usa apenas os locais de rede (com base na ID da célula ou WIFI). A área de dispositivo é relatada no máximo uma vez por sessão. O GPS nunca é usado e, portanto, esse tipo de relatório de local tem pouco impacto (ou quase nenhum) sobre a bateria.
 
-As áreas relatadas são usadas para computar as estatísticas geográficas sobre usuários, sessões, eventos e erros. Elas também podem ser usadas como critério nas campanhas do Reach. A última área conhecida relatada para um dispositivo pode ser recuperada graças à [API do dispositivo].
+As áreas relatadas são usadas para computar as estatísticas geográficas sobre usuários, sessões, eventos e erros. Elas também podem ser usadas como critério nas campanhas do Reach.
 
-Para habilitar o relatório de local de área lenta, adicione:
+Para habilitar o relatório de localização de área simples, você pode fazer isso usando a configuração mencionada anteriormente neste procedimento:
 
-			<meta-data android:name="engagement:locationReport:lazyArea" android:value="true"/>
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setLazyAreaLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-Você também precisa adicionar a permissão a seguir, se ausente:
+Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+Ou pode continuar usando ``ACCESS_FINE_LOCATION`` se você já usa em seu aplicativo.
 
 ### Relatórios de local em tempo real
 
@@ -193,19 +194,28 @@ Os relatórios de local em tempo real permitem relatar a latitude e a longitude 
 
 Os locais em tempo real *NÃO* são usados para calcular estatísticas. Sua única finalidade é permitir o uso do critério de isolamento geográfico em tempo real <Reach-Audience-geofencing> em Campanhas de alcance.
 
-Para habilitar o relatório de local em tempo real, adicione:
+Para habilitar o relatório local em tempo real, você pode fazer isso usando a configuração mencionada anteriormente neste procedimento:
 
-			<meta-data android:name="engagement:locationReport:realTime" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
+Ou pode continuar usando ``ACCESS_FINE_LOCATION`` se você já usa em seu aplicativo.
+
 #### Relatórios com base em GPS
 
-Por padrão, os relatórios de local em tempo real usam apenas locais com base em rede. Para habilitar o uso do GPS com base em locais (que são muito mais precisos), adicione:
+Por padrão, os relatórios de local em tempo real usam apenas locais com base em rede. Para habilitar o uso do GPS com base em locais (que são muito mais precisos), use o objeto de configuração:
 
-			<meta-data android:name="engagement:locationReport:realTime:fine" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    engagementConfiguration.setFineRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
@@ -213,9 +223,13 @@ Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
 #### Relatório de segundo plano
 
-Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o aplicativo é executado em primeiro plano (ou seja, durante uma sessão). Para habilitar o relatório também em segundo plano, adicione:
+Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o aplicativo é executado em primeiro plano (ou seja, durante uma sessão). Para habilitar o relatório também em segundo plano, use o objeto de configuração:
 
-			<meta-data android:name="engagement:locationReport:realTime:background" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    engagementConfiguration.setBackgroundRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 > [AZURE.NOTE]Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
 
@@ -231,6 +245,63 @@ O relatório de local de segundo plano será interrompido se o usuário reinicia
 Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
 			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+### Permissões do Android M
+
+A partir do Android M, algumas permissões são gerenciadas em tempo de execução e precisam de aprovação do usuário.
+
+As permissões de tempo de execução serão desativadas por padrão para novas instalações do aplicativo se você selecionar o nível 23 da API do Android. Caso contrário, elas serão ativadas por padrão.
+
+O usuário pode habilitar/desabilitar essas permissões no menu de configurações do dispositivo. A desativação de permissões no menu do sistema interrompe os processos em segundo plano do aplicativo; esse é um comportamento do sistema e não tem nenhum impacto na capacidade de receber push em segundo plano.
+
+No contexto do Mobile Engagement, as permissões que exigem aprovação em tempo de execução são:
+
+- `ACCESS_COARSE_LOCATION`
+- `ACCESS_FINE_LOCATION`
+- `WRITE_EXTERNAL_STORAGE` (somente para direcionamento de nível 23 da API do Android para essa)
+
+O armazenamento externo é usado apenas para o recurso Acessar visão global. Se você acha que pedir essa permissão aos usuários é incômodo, é possível removê-la se a usou somente para o Mobile Engagement, mas isso desabilitará o recurso de visão global.
+
+Para os recursos de localização, você deve solicitar permissões para usuário usando uma caixa de diálogo padrão do sistema. Se o usuário aprovar, é necessário pedir a ``EngagementAgent`` para levar em conta essa alteração em tempo real (caso contrário, a alteração será processada na próxima vez que o usuário iniciar o aplicativo).
+
+Aqui está um exemplo de código para usar em uma atividade do seu aplicativo para solicitar permissões e encaminhar o resultado se for positivo para ``EngagementAgent``:
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+      /* Other code... */
+    
+      /* Request permissions */
+      requestPermissions();
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private void requestPermissions()
+    {
+      /* Avoid crashing if not on Android M */
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+      {
+        /*
+         * Request location permission, but this won't explain why it is needed to the user.
+         * The standard Android documentation explains with more details how to display a rationale activity to explain the user why the permission is needed in your application.
+         * Putting COARSE vs FINE has no impact here, they are part of the same group for runtime permission management.
+         */
+        if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+          requestPermissions(new String[] { android.Manifest.permission.ACCESS_FINE_LOCATION }, 0);
+    
+        /* Only if you want to keep features using external storage */
+        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+          requestPermissions(new String[] { android.Manifest.permission.WRITE_EXTERNAL_STORAGE }, 1);
+      }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
+      /* Only a positive location permission update requires engagement agent refresh, hence the request code matching from above function */
+      if (requestCode == 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        getEngagementAgent().refreshPermissions();
+    }
 
 ##Relatórios avançados
 
@@ -308,7 +379,7 @@ Em seguida, você pode adicionar um `CheckBoxPreference` em seu layout de prefer
 			  android:summaryOff="Engagement is disabled." />
 
 <!-- URLs. -->
-[API do dispositivo]: http://go.microsoft.com/?linkid=9876094
+[Device API]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

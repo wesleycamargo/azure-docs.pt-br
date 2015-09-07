@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Visão geral da Malha do Serviço" 
-   description="Uma visão geral da Malha do Serviço onde aplicativos são compostos por microsserviços. A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem" 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="msfussell" 
-   manager="timlt" 
-   editor="masnider"/>
+   pageTitle="Visão geral da Service Fabric | Microsoft Azure"
+	description="Uma visão geral da Malha do Serviço onde aplicativos são compostos por microsserviços. A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="msfussell"
+	manager="timlt"
+	editor="masnider"/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
-   ms.date="04/14/2015"
-   ms.author="mfussell"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="mfussell"/>
 
 # Visão geral da Malha do Serviço
 A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem. A Malha do Serviço resolve os desafios significativos do desenvolvimento e gerenciamento de aplicativos em nuvem. Ao usar a Malha do Serviço, desenvolvedores e administradores podem evitar a resolução de problemas complexos de infraestrutura e, em vez disso, se concentram na implementação de cargas de trabalho essenciais e exigentes sabendo que elas são escalonáveis, confiáveis e gerenciáveis. A Malha do Serviço representa a plataforma de middleware de última geração para criação e gerenciamento de serviços dimensionáveis de nuvem de Camada 1 e nível corporativo.
 
-## Aplicativos compostos por microsserviços ##
+## Aplicativos compostos por microsserviços
 A Malha do Serviço permite criar e gerenciar aplicativos escalonáveis e confiáveis compostos por microsserviços que são executados em densidade bastante alta em um pool compartilhado de computadores (geralmente conhecido como um cluster da Malha do Serviço). Ela fornece um tempo de execução sofisticado para criação de microsserviços com e sem estado, distribuídos e escalonáveis, bem como recursos abrangentes de gerenciamento de aplicativos para provisionamento, implantação, monitoramento, atualização/aplicação de patch e exclusão de aplicativos implantados.
 
 A Malha do Serviço é a tecnologia de muitos serviços atuais da Microsoft, como os Bancos de Dados SQL do Azure, Banco de Dados de Documentos do Azure, Cortana, Power BI, Microsoft Intune, Hubs de Eventos do Azure, muitos Serviços de núcleo do Azure e Skype for Business, apenas para citar alguns.
@@ -42,7 +42,7 @@ Por que os microsserviços com estado são importantes? Por que não usar servi�
 
 2) Simplificação de design de aplicativo, pois os microsserviços com estado eliminam a necessidade de filas e caches adicionais que têm sido tradicionalmente exigidos para atender aos requisitos de disponibilidade e latência de um aplicativo puramente sem estado. Uma vez que os serviços com estado são, de forma natural, altamente disponíveis e de baixa latência, isso significa menos partes móveis para gerenciar no seu aplicativo como um todo.
 
-Para obter mais informações sobre padrões e design de aplicativos usando a Malha do Serviço, consulte [Cenários de aplicativos](../service-fabric-application-scenarios)
+Para obter mais informações sobre padrões e design de aplicativos usando a Malha do Serviço, consulte [Cenários de aplicativos](service-fabric-application-scenarios.md)
 
 ## Gerenciamento do ciclo de vida de aplicativos
 A Malha do Serviço fornece suporte de primeira classe para o ALM (gerenciamento do ciclo de vida de aplicativos) completo de aplicativos em nuvem: do desenvolvimento à implantação, ao gerenciamento diário, à manutenção e à desativação final.
@@ -51,7 +51,7 @@ Os recursos do ALM da Malha do Serviço permitem que os administradores de aplic
 
 A maioria dos aplicativos consiste em uma combinação de microsserviços com e sem estado e outros EXE/tempos de execução que são implantados juntos. Tendo tipos fortes nos aplicativos e os microsserviços empacotados, a Malha do Serviço permite a implantação de várias instâncias de aplicativo, e cada uma delas pode ser gerenciada e atualizada de maneira independente. Vale destacar que a Malha do Serviço é capaz de implantar *qualquer* executável ou tempo de execução e torná-los confiáveis. Por exemplo, ela pode ser usada para implantar ASP.NET 5, node.js, scripts ou qualquer item que componha seu aplicativo.
   
-Para obter mais informações sobre o gerenciamento do ciclo de vida de aplicativos, consulte [Ciclo de vida de aplicativos](../service-fabric-application-lifecycle)
+Para obter mais informações sobre o gerenciamento do ciclo de vida de aplicativos, consulte [Ciclo de vida de aplicativos](service-fabric-application-lifecycle.md)
 
 ## Principais recursos
 Ao usar a Malha do Serviço, você pode:
@@ -89,10 +89,13 @@ Ao usar a Malha do Serviço, você pode:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
-Para obter mais informações: [Visão geral técnica](../service-fabric-technical-overview).
+* Para obter mais informações: [Visão geral técnica](service-fabric-technical-overview.md).
+* Configurar o [ambiente de desenvolvimento](service-fabric-get-started.md) do Service Fabric.  
+* Escolher uma [estrutura](service-fabric-choose-framework.md) para seu serviço.
+
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,12 +1,12 @@
-<properties pageTitle="Implantar recursos do Azure usando um modelo" description="Aprenda a usar alguns dos clientes disponíveis na Biblioteca de Gerenciamento de Recursos do Azure para implantar uma máquina virtual, rede virtual e conta de armazenamento" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties pageTitle="Implantar recursos do Azure usando um modelo" description="Aprenda a usar alguns dos clientes disponíveis na Biblioteca de Gerenciamento de Recursos do Azure para implantar uma máquina virtual, rede virtual e conta de armazenamento" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager"/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-resource-manager"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Implantar recursos do Azure usando bibliotecas .NET e um modelo
@@ -75,7 +75,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
             "contentVersion": "1.0.0.0",
         }
 
-6. [Parâmetros](https://msdn.microsoft.com/library/azure/dn835138.aspx#parameters) nem sempre são necessários, mas eles facilitam o gerenciamento de modelos. Eles descrevem o tipo do valor, o valor padrão, se necessário e, possivelmente, os valores permitidos do parâmetro. Neste tutorial, os parâmetros que são usados para criar uma máquina virtual, uma conta de armazenamento e uma rede virtual são adicionados ao modelo.
+6. [Parâmetros](../resource-group-authoring-templates.md#parameters) nem sempre são necessários, mas eles facilitam o gerenciamento de modelos. Eles descrevem o tipo do valor, o valor padrão, se necessário e, possivelmente, os valores permitidos do parâmetro. Neste tutorial, os parâmetros que são usados para criar uma máquina virtual, uma conta de armazenamento e uma rede virtual são adicionados ao modelo.
 
     Adicione o elemento parameters e seus elementos filho após o elemento contentVersion:
 
@@ -106,7 +106,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
           },
         }
 
-7.	[Variáveis](https://msdn.microsoft.com/library/azure/dn835138.aspx#variables) podem ser usadas em um modelo para especificar valores que podem ser alterados com frequência ou que precisam ser criados com base em uma combinação de valores de parâmetros.
+7.	[Variáveis](../resource-group-authoring-templates.md#variables) podem ser usadas em um modelo para especificar valores que podem ser alterados com frequência ou que precisam ser criados com base em uma combinação de valores de parâmetros.
 
     Adicione o elemento variables após a seção de parâmetros:
 
@@ -142,7 +142,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
           },
         }
 
-8.	[Recursos](https://msdn.microsoft.com/library/azure/dn835138.aspx#resources) como a máquina virtual, a rede virtual e a conta de armazenamento são definidos no modelo em seguida.
+8.	[Recursos](../resource-group-authoring-templates.md#resources) como a máquina virtual, a rede virtual e a conta de armazenamento são definidos no modelo em seguida.
 
     Adicione a seção de recursos após a seção de variáveis:
 
@@ -443,4 +443,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 	![Criar um aplicativo do AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

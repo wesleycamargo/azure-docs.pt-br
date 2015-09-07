@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Exibindo e modificando os nomes do host"
-   description="Descrição"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn" />
+	description="Descrição"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="joaoma"/>
 
 # Exibindo e modificando os nomes do host
 
@@ -51,7 +51,7 @@ Em um cliente REST, siga estas instruções:
 
 1. Defina uma entrada de cabeçalho chamada x-ms-version com um valor de 2013-11-01.
 
-1. Envie uma solicitação no seguinte formato: https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
+1. Envie uma solicitação no seguinte formato: https://management.core.windows.net/<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
 
 1. Procure o elemento **HostName** para cada elemento **RoleInstance**.
 
@@ -61,14 +61,14 @@ Em um cliente REST, siga estas instruções:
 
 Você pode modificar o nome de host para qualquer máquina virtual ou instância de função, carregando um arquivo de configuração de serviço modificado ou renomeando o computador em uma sessão de área de trabalho remota.
 
-## Consulte também
+## Próximas etapas
 
-[Resolução de nomes (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)
+[Resolução de nomes (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Esquema de configuração de serviço do Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
 [Esquema de configuração de Rede Virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Configurar uma Rede Virtual usando arquivos de configuração de rede](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Especificar configurações de DNS usando arquivos de configuração de rede](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Visão geral do Barramento de Serviço AMQP| Microsoft Azure" 
-	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 no Azure." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	pageTitle="Visão geral do Barramento de Serviço AMQP| Microsoft Azure"
+	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 no Azure."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
 	editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
 
@@ -77,7 +77,7 @@ Neste momento, as seguintes bibliotecas de cliente são conhecidas para trabalha
 | C | Apache Qpid Proton-C |
 | PHP | Apache Qpid Proton-PHP |
 | Python | Apache Qpid Proton-Python |
-
+| C# | AMQP .Net Lite |
 
 **Figura 2: Tabela de bibliotecas de cliente do AMQP 1.0**
 
@@ -98,4 +98,4 @@ Para saber mais sobre como obter e usar essas bibliotecas com o Barramento de Se
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [Guia do desenvolvedor do Barramento de Serviço do AMQP]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

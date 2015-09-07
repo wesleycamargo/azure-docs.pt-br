@@ -1,26 +1,27 @@
 <properties
-   pageTitle="Criar um Conector do SharePoint para usar em seu aplicativo lógico"
-   description="Criar um Conector do SharePoint; Usando o Conector do SharePoint em seu aplicativo lógico"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Usando o Conector do SharePoint em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector do SharePoint ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
-# Usando o Conector do SharePoint em seu aplicativo lógico
-
-Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. O conector do Microsoft SharePoint permite que você se conecte ao Microsoft SharePoint Server ou SharePoint Online e gerencie documentos e itens de lista. Você pode executar várias ações, como criar, atualizar, obter e excluir documentos e itens de lista. Ao usar o servidor SharePoint local, é possível inserir a cadeia de conexão do Barramento de Serviço como parte da configuração do conector e instalar o agente de ouvinte local para se conectar ao servidor.
+# Introdução ao Conector do SharePoint e à adição dele ao seu Aplicativo Lógico
+Conecte-se ao SharePoint Server ou ao SharePoint Online para gerenciar documentos e itens de lista. Você pode executar várias ações, como criar, atualizar, obter e excluir documentos e itens de lista. Ao usar o servidor SharePoint local, é possível inserir a cadeia de conexão do Barramento de Serviço como parte da configuração do conector e instalar o agente de ouvinte local para se conectar ao servidor.
 
 O aplicativo de Conector do SharePoint Online e do SharePoint Server na galeria oferece gatilho e ações como mecanismos de interação com o SharePoint.
+
+Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode adicionar o Conector do SharePoint a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 ## Criar um Conector do SharePoint Online
 
@@ -33,9 +34,10 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 	Nome | Obrigatório | Descrição
 --- | --- | ---
-URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, digite: **https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de Documentos / URLs Relativas de Lista | Sim | Insira as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
+URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: **https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de Documentos / URLs Relativas de Lista | Sim | Insira as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
 
-5. Após a conclusão, as configurações de pacote são semelhantes às seguintes: <br/> ![][1]
+5. Após a conclusão, as Configurações de Pacote serão semelhantes às seguintes: 
+![][1]
 
 Depois disso, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do SharePoint Online.
 
@@ -57,7 +59,7 @@ Biblioteca de Documentos / URLs Relativas da Lista | Sim | Especifique as biblio
 Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/)
 
 5. Após a conclusão, as Configurações de Pacote são semelhantes às seguintes: 
-	![][2]
+![][2]
 
 Depois disso, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do SharePoint Server.
 
@@ -73,19 +75,19 @@ Depois de criar seu aplicativo de API, agora você pode usar o conector do Share
 3. Se o conector do SharePoint é selecionado no início do aplicativo lógico, ele atua como gatilho. Caso contrário, as ações poderiam ser realizadas na conta do SharePoint usando o conector.
 
 4. Ao usar o conector do SharePoint Online, você precisa autenticar e autorizar os aplicativos lógicos a executar operações em seu nome. Para iniciar a autorização, clique em **Autorizar** no Conector do SharePoint: 
-	![][3]
+![][3]
 
 5. Clique em Autorizar abre a caixa de diálogo de autenticação do SharePoint. Forneça os detalhes de logon da conta do SharePoint na qual você deseja executar as operações: 
-	![][4]
+![][4]
 
 6. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome: 
-	![][5]
+![][5]
 
 7. Se o Conector do SharePoint estiver configurado como Gatilho, os gatilhos são mostrados. Caso contrário, uma lista de ações é exibida e você pode escolher a operação apropriada que deseja executar: 
-	![][6]
+![][6]
   
 **URL relativa configurada para a biblioteca de documentos** 
-	![][7]
+![][7]
 
 **URL relativa configurada para a lista de documentos**
 
@@ -475,4 +477,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

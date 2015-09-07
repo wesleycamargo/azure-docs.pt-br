@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar as filas de Barramento de Serviço (Node.js) | Microsoft Azure" 
-	description="Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js." 
-	services="service-bus" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Como usar as filas de Barramento de Serviço (Node.js) | Microsoft Azure"
+	description="Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js."
+	services="service-bus"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="07/06/2015"
 	ms.author="mwasson"/>
 
 # Como usar filas do Barramento de Serviço
@@ -24,7 +24,7 @@ Este guia descreve como usar as filas do barramento de serviço. As amostras sã
 
 ## Criar um aplicativo do Node.js
 
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, confira [Criar e implantar um aplicativo Node.js em um site do Azure], [Serviço de Nuvem do Node.js ][Node.js Cloud Service](usando o Windows PowerShell) ou [Site com o WebMatrix].
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, confira [Criar e implantar um aplicativo Node.js em um site do Azure] ou [Serviço de Nuvem do Node.js ][Node.js Cloud Service](usando o Windows PowerShell).
 
 ## Configurar seu aplicativo para usar o Barramento de serviço
 
@@ -165,7 +165,7 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 
 Agora que você já sabe as noções básicas das filas de Barramento de Serviço, siga estes links para saber mais.
 
--   Confira a Referência do MSDN: [Filas, tópicos e assinaturas][]
+-   Consulte a Referência do MSDN: [Filas, Tópicos e Assinaturas][]
 -   Visite o repositório [SDK do Azure para o nó] no GitHub.
 
   [SDK do Azure para o nó]: https://github.com/Azure/azure-sdk-for-node
@@ -183,11 +183,10 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/library/azure/hh367516.aspx
-  [Site com o WebMatrix]: ../app-service-web/web-sites-dotnet-using-webmatrix.md
+  [Filas, Tópicos e Assinaturas]: http://msdn.microsoft.com/library/azure/hh367516.aspx
   [Criar e implantar um aplicativo Node.js em um site do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Serviço de Nuvem do Node.js com Armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Aplicativo Node.js na Web com armazenamento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

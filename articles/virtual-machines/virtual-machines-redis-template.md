@@ -487,7 +487,7 @@ Se quiser personalizar o tamanho da implantação do Cluster Redis, você pode a
 
 Observação: as propriedades `totalMemberCountExcludingLast` e `totalMemberCount` são necessárias porque o idioma do modelo atualmente não tem operações de "matemática".
 
-Para saber mais sobre o idioma do modelo, consulte a MSDN em [Idioma do modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para saber mais sobre o idioma do modelo, consulte a MSDN em [Idioma do modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 ### Seção "recursos"
 
@@ -664,6 +664,6 @@ Essencialmente, essa abordagem sugere o seguinte:
 - Para membros de um grupo de recursos idênticos (nós em um cluster etc.), crie modelos específicos que usam o loop de recursos para implantar várias instâncias com propriedades exclusivas.
 - Para todas as tarefas pós-implantação (instalação de produtos, configurações etc.), use extensões de implantação de scripts e crie scripts específicos para cada tecnologia.
 
-Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

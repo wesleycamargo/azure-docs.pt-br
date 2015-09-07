@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Fornecendo mídia sob demanda com os Serviços de Mídia do Azure" 
-	description="Este tópico fornece uma visão geral dos principais componentes envolvidos na transmissão ao vivo." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Fornecendo mídia sob demanda com os Serviços de Mídia do Azure"
+	description="Este tópico fornece uma visão geral dos principais componentes envolvidos na transmissão ao vivo."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 
@@ -85,4 +85,4 @@ Para obter mais informações, consulte [Trabalhando com Canais que recebam tran
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

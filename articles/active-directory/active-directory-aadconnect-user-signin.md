@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect - entrada do usuário" 
-	description="Entrada do usuário do Azure AD Connect para configurações personalizadas." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect - entrada do usuário"
+	description="Entrada do usuário do Azure AD Connect para configurações personalizadas."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -64,4 +64,4 @@ Para a maioria das organizações que desejam apenas habilitar o usuário a faze
 	- Acesso condicional para recursos locais e de nuvem usando o registro de dispositivos, a associação de AD do Azure ou políticas do Intune MDM
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

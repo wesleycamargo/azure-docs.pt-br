@@ -1,27 +1,26 @@
 <properties
-   pageTitle="Aplicativo de API de conector do Chatter"
-   description="Como usar o conector do Chatter"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Usando o Conector do Chatter em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector do Chatter ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Usando o Conector do Chatter em seu aplicativo lógico
+# Introdução ao Conector do Chatter e à adição dele ao seu Aplicativo Lógico 
+Conecte-se ao Chatter e poste uma mensagem ou pesquise um feed. Por exemplo, você pode pesquisar um feed do Chatter e ao encontrar algo específico, é possível postar a mensagem do Chatter em um grupo de Vendas.
 
-O Conector do Chatter permite que você se conecte ao Chatter e execute tarefas comuns, como postar uma mensagem. Por exemplo, você pode pesquisar um feed do Chatter e ao encontrar algo específico, é possível postar a mensagem do Chatter em um grupo de Vendas.
-
-Você pode adicionar o conector do Chatter aos seu fluxo de trabalho comercial e processar dados como parte desse fluxo de trabalho.
+Você pode adicionar o conector do Chatter a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um aplicativo lógico.
 
 ## Gatilhos e Ações
 
@@ -104,4 +103,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

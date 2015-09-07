@@ -46,7 +46,7 @@ Esta é uma lista de artigos para trabalhar com máquinas virtuais no Gerenciame
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Eu preciso de uma rede virtual?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[Eu preciso de uma rede virtual?](../virtual-network/virtual-networks-overview.md)
 
 ## Criar
 
@@ -150,4 +150,4 @@ Esta é uma lista de artigos para trabalhar com máquinas virtuais no Gerenciame
 
 [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gerenciar aplicativos de API" 
-	description="Saiba como gerenciar aplicativos de API do Serviço de Aplicativo do Azure usando o portal do Azure e o Gerenciador de Servidores do Visual Studio." 
-	services="app-service\api" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Gerenciar aplicativos de API"
+	description="Saiba como gerenciar aplicativos de API do Serviço de Aplicativo do Azure usando o portal do Azure e o Gerenciador de Servidores do Visual Studio."
+	services="app-service\api"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.topic="article"
+	ms.date="06/17/2015"
 	ms.author="tdykstra"/>
 
 # Gerenciar aplicativos de API no Serviço de Aplicativo do Azure
@@ -65,7 +65,7 @@ As únicas funções fornecidas na folha **Aplicativo de API** que não são dup
 
 ### Tarefas que você pode realizar apenas na folha Host de Aplicativo de API
 
-Você usa a folha **Host de Aplicativo de API** para todas as tarefas que você realizaria para qualquer aplicativo Web. Para obter mais informações, consulte [Gerenciar aplicativos Web no portal](../app-service-web/web-sites-manage.md).
+Você usa a folha **Host de Aplicativo de API** para todas as tarefas que você realizaria para qualquer aplicativo Web.
 
 ### Tarefas que você pode realizar apenas na folha gateway
 
@@ -80,7 +80,7 @@ As folhas gateway e host do gateway compartilham a mesma IU presente nas folhas 
 
 ### Tarefas que você pode realizar somente na folha host do gateway
 
-Você usa a folha **Host de gateway** para todas as tarefas que você realizaria para qualquer aplicativo da Web. Para obter mais informações, consulte [Gerenciar aplicativos Web no portal](web-sites-manage.md).
+Você usa a folha **Host de gateway** para todas as tarefas que você realizaria para qualquer aplicativo da Web.
 
 ## <a id="navigate"></a>Como navegar até as folhas de aplicativo de API e de gateway 
 
@@ -130,8 +130,8 @@ Para chegar a um aplicativo de API no Gerenciador de Servidores, clique em **Azu
 
 ## Próximas etapas
 
-Este artigo mostra como usar o portal do Azure para executar tarefas de gerenciamento de aplicativos de API. Para aplicativos de API instalados a partir de galeria de aplicativos de API, consulte também [Gerenciar e monitorar aplicativos de API e conectores internos](../app-service-logic/app-service-logic-monitor-your-connectors.md).
+Este artigo mostra como usar o portal do Azure para executar tarefas de gerenciamento de aplicativos de API. Para aplicativos de API instalados a partir da galeria de aplicativos de API, confira também [Gerenciar e monitorar aplicativos de API e conectores internos](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 Para obter informações sobre como gerenciar aplicativos de API usando a linha de comando, consulte os artigos na seção **Automatizar** do menu que aparece no lado esquerdo do artigo (em janelas de navegador largas) ou na parte superior do artigo (em janelas de navegador estreitas).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

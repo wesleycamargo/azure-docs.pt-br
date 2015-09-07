@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Painel, Monitor, Escala, Configurar e Conexões Híbridas nos Serviços BizTalk | Microsoft Azure" 
-	description="Saiba mais sobre os controles e monitore o desempenho nas guias do Portal de Gerenciamento para os Serviços BizTalk: Painel, Monitor, Escala, Configurar e Conexões Híbridas MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	pageTitle="Painel, Monitor, Escala, Configurar e Conexões Híbridas nos Serviços BizTalk | Microsoft Azure"
+	description="Saiba mais sobre os controles e monitore o desempenho nas guias do Portal de Gerenciamento para os Serviços BizTalk: Painel, Monitor, Escala, Configurar e Conexões Híbridas MABS, WABS"
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="mandia"/>
 
 
 
 
-# Serviços BizTalk: guias Painel, Monitor, Escala, Configurar e Conexão Híbrida
+# Examine as guias Painel, Monitor, Escala, Configurar e Conexão Híbrid
 
 Depois de criar o Serviço BizTalk e implantar seu aplicativo, você pode alterar algumas configurações do Serviço BizTalk e monitorar o desempenho do aplicativo.
 
@@ -323,11 +323,11 @@ Em um cenário de solicitação-resposta, a métrica é incrementada quando o de
 ## Escala
 Na guia Escala, você pode adicionar ou subtrair o número de unidades usadas pelo Serviço do BizTalk. Por padrão, há uma unidade configurada. Unidades adicionais podem ser adicionadas para dimensionar seu Serviço do BizTalk. Quando você aumenta a escala, você está aumentando a produção. A quantidade de recursos também aumenta, inclusive as pontes implantadas, os acordos, as conexões de LOB e a capacidade de processamento. Por exemplo, você aumenta a escala de uma unidade para duas. Nessa situação, você pode implantar duas vezes mais pontes, contratos, conexões de LOB e a capacidade de processamento.
 
-Algumas edições do BizTalk não oferecem uma opção de escala. Nesta situação, uma unidade é permitida. Para determinar a quantidade de unidades de dimensionamento da sua edição, consulte [Serviços BizTalk: gráfico de edições](http://go.microsoft.com/fwlink/p/?LinkID=302279)
+Algumas edições do BizTalk não oferecem uma opção de escala. Nesta situação, uma unidade é permitida. Para determinar a quantidade de unidades de dimensionamento da sua edição, consulte [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md)
 
 Aumentar o número de unidades pode afetar os preços. Se você aumentar as unidades, selecione **Salvar** para exibir uma mensagem que informa se a cobrança é afetada. Você escolhe continuar. Quando você aumenta o número de unidades, o status do Serviço do BizTalk é alterado de Ativo para Atualizando. Durante o estado Atualizando, seu Serviço do BizTalk continua funcionando.
 
-[Serviços BizTalk: gráfico de edições](http://go.microsoft.com/fwlink/p/?LinkID=302279) define uma “Unidade”.
+[Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) define uma “Unidade”.
 
 
 ## Configurar
@@ -335,7 +335,7 @@ Não é aplicado para Conexões Híbridas.
 
 Define o Status de Backup para Nenhum ou Automático. Quando estiver definido para Nenhum, nenhum backup será criado automaticamente. Quando estiver definido para Automático, você configura o local do backup, a frequência do backup, e por quanto tempo manter os arquivos de backup.
 
-[Serviços BizTalk: backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873) fornece os detalhes.
+[Serviços BizTalk: backup e restauração](biztalk-backup-restore.md) fornece os detalhes.
 
 
 ## <a name="HybridConnections"></a>Conexões Híbridas
@@ -345,22 +345,22 @@ Para criar Conexões Híbridas nos Sites do Azure, consulte [Conexão Híbrida: 
 
 Para usar Conexões Híbridas nos Serviços Móveis do Azure, consulte [Serviços Móveis do Azure e Conexões Híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-Para criar ou gerenciar as Conexões Híbridas nos Serviços do BizTalk do Azure, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+Para criar ou gerenciar as Conexões Híbridas nos Serviços do BizTalk do Azure, consulte [Conexões Híbridas](integration-hybrid-connection-overview.md).
 
 
 
 ## Avançar
 Agora que está familiarizado com as diferentes guias, você pode obter mais informações sobre os recursos dos Serviços BizTalk do Azure:
 
-- [Serviços BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Serviços BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-- [Serviços BizTalk: backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)  
+- [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)  
+- [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md)
 
 ## Consulte também
-- [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-- [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Serviços BizTalk: provisionamento usando o Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Serviços BizTalk: gráfico de estado do Serviço do BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [Conexões Híbridas](integration-hybrid-connection-overview.md)  
+- [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)  
+- [Serviços BizTalk: provisionamento usando o Portal de Gerenciamento do Azure](biztalk-provision-services.md)  
+- [Serviços BizTalk: gráfico de estado do Serviço do BizTalk (a página pode estar em inglês)](biztalk-service-state-chart.md)  
 - [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
@@ -369,4 +369,4 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

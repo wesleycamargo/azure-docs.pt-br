@@ -1,13 +1,13 @@
 <properties
    pageTitle="Backup do Azure em 10 min | Microsoft Azure"
-   description="Comece a usar o Backup do Azure em 10 minutos"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="Comece a usar o Backup do Azure em 10 minutos"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
 
 # Experimente o Backup do Azure em 10 minutos
 É extremamente fácil configurar o Backup do Azure e os vídeos de instruções a seguir o ajudarão a dar os primeiros passos.
@@ -42,7 +42,8 @@ Execute as etapas mencionadas no vídeo [Introdução ao Backup do Azure 3 de 3 
 > [AZURE.VIDEO getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server]
 
 ## Próximas etapas
-- Para saber mais sobre o Backup do Azure, consulte [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md).
+- Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
+- [Fazer backup de um servidor Windows](backup-azure-backup-windows-server.md)
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
     pageTitle="Notas de versão do StorSimple série 8000 Atualização 1 | Microsoft Azure"
-    description="Descreve os novos recursos, problemas e soluções alternativas da Atualização 1 do StorSimple série 8000."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="carolz"
-    editor="" />
+	description="Descreve os novos recursos, problemas e soluções alternativas da Atualização 1 do StorSimple série 8000."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
  <tags 
     ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="08/19/2015"
-    ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/21/2015"
+	ms.author="alkohli"/>
 
 # Notas de versão da Atualização 1 do StorSimple série 8000  
 
@@ -28,7 +28,7 @@ Examine as informações contidas nas notas de versão antes de implantar as atu
 >[AZURE.IMPORTANT]
 > 
 - Um patch crítico, Atualização 1.1, foi lançada em 23 de junho. Esse patch resolve um problema no mecanismo de backup. Se você aplicou a Atualização 1 antes de 23 de junho e estiver usando software versão **6.3.9600.17491**, certifique-se de aplicar essa atualização crítica para evitar problemas com backups. Depois de instalar a atualização, a versão do software será alterada para **6.3.9600.17521**.
-- Se você criou um dispositivo virtual entre 27 de maio e 10 de julho que está na versão de software 6.3.9600.17481, crie um novo dispositivo virtual e o faça failover de todos os volumes do dispositivo virtual antigo para o novo. (Isso ocorre porque o dispositivo virtual mais antigo não pode ser atualizado.) Se você não criar um novo dispositivo virtual, poderá ver os backups começarem a falhar. Para procedimentos de recuperação de desastres e failover, vá até [Failover e recuperação de desastres para seu dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
+- Se você criou um dispositivo virtual entre 27 de maio e 10 de julho que está na versão de software **6.3.9600.17481**, crie um novo dispositivo virtual e o faça failover de todos os volumes do dispositivo virtual antigo para o novo. (Isso ocorre porque o dispositivo virtual mais antigo não pode ser atualizado.) Se você não criar um novo dispositivo virtual, poderá ver os backups começarem a falhar. Para procedimentos de recuperação de desastres e failover, vá até [Failover e recuperação de desastres para seu dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 - Use o serviço StorSimple Manager, e não o Windows PowerShell para StorSimple, para instalar a Atualização 1.
 - Esta versão também contém as atualizações de firmware de disco que só podem ser aplicadas quando o dispositivo está no modo de Manutenção. Essas são as atualizações com interrupção que podem resultar em tempo de inatividade para seu dispositivo. Você pode aplicar essas atualizações durante a manutenção planejada.
 - São necessárias cerca de 5 a 10 horas para instalar essa atualização (incluindo as atualizações do Windows). 
@@ -45,7 +45,7 @@ Esta atualização contém os seguintes recursos e aprimoramentos novos:
 
     Consulte o [guia de migração](http://www.microsoft.com/download/details.aspx?id=47322) para obter detalhes sobre como migrar um dispositivo StorSimple série 5000-7000 para um dispositivo série 8000.
 
-- **Disponibilidade no Portal Governamental do Azure** – Agora, o StorSimple está disponível no portal Governamental do Azure. Veja como [implantar um dispositivo StorSimple no Portal Governamental do Azure](storsimple-deployment-walkthrough-gov.md).
+- **Disponibilidade no Portal Governamental do Azure** – Agora, o StorSimple está disponível no portal Governamental do Azure. Veja como [implantar um dispositivo StorSimple no Portal de Gerenciamento do Azure](storsimple-deployment-walkthrough-gov.md).
 
 - **Suporte para outros provedores de serviços de nuvem** – Os outros provedores de serviços de nuvem com suporte são Amazon S3, Amazon S3 com RRS, HP e OpenStack (beta).
 
@@ -85,7 +85,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 6 | Proxy Web | Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. | Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](storsimple-configure-web-proxy.md). | Sim | Não |
 | 7 | Proxy Web | Ao configurar e habilitar o proxy Web em um dispositivo registrado, você precisará reiniciar o controlador ativo em seu dispositivo. | | Sim | Não |
 | 8 | Latência de nuvem alta e alta carga de trabalho de E/S | Quando seu dispositivo StorSimple encontra uma combinação de latências de nuvem muito altas (ordem de segundos) e alta carga de trabalho de E/S, os volumes do dispositivo entram em um estado degradado e as E/Ss podem falhar com o erro "o dispositivo não está pronto". | Você precisará reiniciar os controladores de dispositivo manualmente ou executar um failover do dispositivo para se recuperar dessa situação. | Sim | Não |
-| 9 | PowerShell do Azure | Quando você usa o cmdlet StorSimple **Get-AzureStorSimpleStorageAccountCredential &\#124; Select-Object -First 1 -Wait** para selecionar o primeiro objeto para que possa criar um novo objeto **VolumeContainer**, o cmdlet retorna todos os objetos. | Coloque o cmdlet entre parênteses da seguinte maneira: **(Get-Azure-StorSimpleStorageAccountCredential) &\#124; Select-Object -First 1 -Wait** | Sim | Sim |
+| 9 | PowerShell do Azure | Quando você usa o cmdlet StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** para selecionar o primeiro objeto para que possa criar um novo objeto **VolumeContainer**, o cmdlet retorna todos os objetos. | Coloque o cmdlet entre parênteses da seguinte maneira: **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Sim | Sim |
 | 10| Migração | Quando contêineres de vários volumes forem passados para a migração, o ETA do backup mais recente será preciso apenas para o contêiner do primeiro volume. Além disso, a migração paralela será iniciada depois que os primeiros 4 backups no primeiro contêiner de volume forem migrados. | É recomendável que você migre um contêiner de volume por vez. | Sim | Não |
 | 11| Migração | Após a restauração, os volumes não são adicionados à política de backup ou ao grupo de discos virtuais. | Você terá que adicionar esses volumes a uma política de backup para criar backups. | Sim | Sim |
 | 12| Migração | Depois que a migração for concluída, o dispositivo série 5000/7000 não deverá acessar os contêineres de dados migrados. | É recomendável que você exclua os contêineres de dados migrados quando a migração estiver concluída e confirmada. | Sim | Não |
@@ -94,9 +94,9 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 
 ## Atualizações de dispositivo físico na Atualização 1
 
-Quando essas atualizações são aplicadas a um dispositivo físico, a versão do software é alterada para 6.3.9600.17521.
+Se a atualização do patch 1.2 é aplicada a um dispositivo físico (executando versões anteriores à atualização 1), a versão do software será alterada para 6.3.9600.17521.
 
-## Controlador SCSI (SAS) anexado em série e atualizações na Atualização 1
+## Atualizações de controlador e firmware na Atualização 1
 
 Esta versão atualiza o driver e o firmware no controlador SAS de seu dispositivo físico. Ela também atualiza o firmware de disco no seu dispositivo.
  
@@ -115,4 +115,4 @@ Esta atualização não pode ser aplicada ao dispositivo virtual. No entanto, os
 - [Instalar a Atualização 1 no seu dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

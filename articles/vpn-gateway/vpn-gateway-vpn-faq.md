@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Perguntas frequentes sobre o Gateway de VPN de rede virtual | Microsoft Azure"
-   description="Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de rede virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de rede virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/16/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="cherylmc"/>
 
 # Perguntas frequentes de gateway de VPN
 
@@ -22,6 +22,7 @@
 ### Posso conectar redes virtuais em diferentes regiões do Azure?
 
 Sim. Na verdade, não há nenhuma restrição de região. Uma rede virtual pode se conectar a outra rede virtual na mesma região ou em outra região do Azure.
+
 ### Posso conectar redes virtuais em assinaturas diferentes?
 
 Sim.
@@ -30,17 +31,17 @@ Sim.
 Você pode se conectar a vários sites usando o Windows PowerShell e as APIs REST do Azure. Consulte a seção [Conectividade multissite e de VNet para VNet](#multi-site-and-vnet-to-vnet-connectivity) das perguntas frequentes.
 ## Quais são minhas opções de conexão entre locais?
 
-A Rede Virtual dá suporte às seguintes conexões entre locais:
+Há suporte para as seguintes conexões entre locais:
 
 - [Site a Site](vpn-gateway-site-to-site-create.md) – conexão VPN sobre IPsec (IKE v1 e IKE v2). Esse tipo de conexão exige um dispositivo VPN ou RRAS.
 
 - [Ponto a Site](vpn-gateway-point-to-site-create.md) – conexão VPN sobre SSTP (Secure Socket Tunneling Protocol). Essa conexão não exige um dispositivo VPN.
 
-- [VNet a VNet](../virtual-networks-vnet-to-vnet-connection.md) - esse tipo de conexão é o mesmo que uma configuração de site a site. VNet a VNet é uma conexão VPN sobre IPsec (IKE v1 e IKE v2). Ela não requer um dispositivo VPN.
+- [VNet a VNet](virtual-networks-configure-vnet-to-vnet-connection.md) - esse tipo de conexão é o mesmo que uma configuração de site a site. VNet a VNet é uma conexão VPN sobre IPsec (IKE v1 e IKE v2). Ela não requer um dispositivo VPN.
 
-- [Multissite](http://go.microsoft.com/fwlink/?LinkID=615106) - essa é uma variação de uma configuração de site a site que permite conectar vários sites locais a uma rede virtual.
+- [Multissite](vpn-gateway-multi-site.md) - essa é uma variação de uma configuração de site a site que permite conectar vários sites locais a uma rede virtual.
 
-- [Rota Expressa](../expressroute-overview.md) - Rota Expressa é uma conexão direta para o Azure de sua WAN, não pela Internet pública. Consulte a [Visão geral técnica da Rota Expressa](../expressroute-overview.md) e as [Perguntas frequentes sobre a Rota Expressa](../expressroute-faqs.md) para obter mais informações.
+- [Rota Expressa](../expressroute/expressroute-introduction.md) - Rota Expressa é uma conexão direta para o Azure de sua WAN, não pela Internet pública. Consulte a [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md) e as [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) para obter mais informações.
 
 ### Qual é a diferença entre uma conexão site a site e ponto a site?
 
@@ -48,7 +49,9 @@ As conexões **site a site** permitem que você conecte entre qualquer um dos co
 
 As conexões de **ponto a site** permitem que você se conecte de um único computador em qualquer lugar para qualquer item localizado em sua rede virtual. Elas usam o cliente de VPN integrado ao Windows. Como parte da configuração de ponto a site, você pode instalar um certificado e um pacote de configuração de cliente VPN, que contém as configurações que permitem que o computador se conecte a qualquer máquina virtual ou instância de função na rede virtual. É ótimo quando você deseja se conectar a uma rede virtual, mas não está localizado no local. Também é uma boa opção quando você não tem acesso a hardware de VPN ou a um endereço IPv4 voltado para o exterior, sendo que ambos são necessários para uma conexão site a site.
 
-Observação: você pode configurar sua rede virtual para usar as opções de site a site e ponto a site simultaneamente, desde que crie sua conexão site a site usando um gateway de roteamento dinâmico. Para obter mais informações, consulte [Sobre a conectividade de rede virtual segura entre locais](http://go.microsoft.com/fwlink/p/?LinkID=532884&clcid=0x409).
+Observação: você pode configurar sua rede virtual para usar as opções de site a site e ponto a site simultaneamente, desde que crie sua conexão site a site usando um gateway de roteamento dinâmico.
+
+Para obter mais informações, consulte [Sobre a conectividade entre locais segura para redes virtuais](vpn-gateway-cross-premises-options.md).
 
 ### O que é Rota Expressa?
 
@@ -56,17 +59,17 @@ A Rota Expressa permite a criação de conexões privadas entre os datacenters d
 
 As conexões de rota expressa oferecem maior segurança, mais confiabilidade, maior largura de banda e latências menores do que as conexões típicas pela Internet. Em alguns casos, o uso de conexões de Rota Expressa para transferir dados entre sua rede local e o Azure também pode proporcionar relações custo/benefício significativas. Se você já tiver criado uma conexão entre locais de sua rede local para o Azure, você pode migrar para uma conexão de Rota Expressa, mantendo a sua rede virtual intacta.
 
-Consulte as [Perguntas Frequentes sobre Rota Expressa](../expressroute-faqs.md) para obter mais detalhes.
+Consulte as [Perguntas Frequentes sobre Rota Expressa](../expressroute/expressroute-faqs.md) para obter mais detalhes.
 
-## Dispositivos de VPN e conexões de site a site
+## Conexões de site a site e dispositivos VPN
 
 ### O que devo considerar ao escolher um dispositivo VPN?
 
-Validamos um conjunto de dispositivos de VPN site a site padrão em parceria com fornecedores de dispositivos. Uma lista de dispositivos de VPN compatíveis conhecidos, as instruções de configuração correspondentes ou exemplos e especificações de dispositivo pode ser encontrados [aqui](http://go.microsoft.com/fwlink/p/?LinkID=248098). Todos os dispositivos das famílias de dispositivos listadas como compatíveis e conhecidas devem funcionar com a Rede Virtual. Para ajudar a configurar seu dispositivo VPN, consulte o exemplo de configuração do dispositivo ou o link que corresponde à família de dispositivos apropriada.
+Validamos um conjunto de dispositivos de VPN site a site padrão em parceria com fornecedores de dispositivos. Uma lista de dispositivos de VPN compatíveis conhecidos, as instruções de configuração correspondentes ou exemplos e especificações de dispositivo pode ser encontrados [aqui](vpn-gateway-about-vpn-devices.md). Todos os dispositivos das famílias de dispositivos listadas como compatíveis e conhecidas devem funcionar com a Rede Virtual. Para ajudar a configurar seu dispositivo VPN, consulte o exemplo de configuração do dispositivo ou o link que corresponde à família de dispositivos apropriada.
 
 ### O que devo fazer se tiver um dispositivo VPN que não esteja na lista de dispositivos compatíveis conhecidos?
 
-Se não encontrar seu dispositivo listado como um dispositivo VPN compatível conhecido e desejar usá-lo para a conexão VPN, você precisará verificar se ele atende às opções de configuração de IPsec/IKE e aos parâmetros listados com suporte [aqui](http://go.microsoft.com/fwlink/p/?LinkID=615099). Os dispositivos que atendem aos requisitos mínimos devem funcionar bem com a Rede Virtual. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
+Se não encontrar seu dispositivo listado como um dispositivo de VPN compatível conhecido e desejar usá-lo para a conexão VPN, você precisará verificar se ele atende às opções de configuração de IPsec/IKE e aos parâmetros listados com suporte [aqui](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Os dispositivos que atendem aos requisitos mínimos devem funcionar bem com os gateways de VPN. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
 
 ### Posso usar VPNs de software para me conectar ao Azure?
 
@@ -152,17 +155,17 @@ Estamos limitados ao uso de PSK (chaves pré-compartilhadas) para autenticação
 
 ### O que é a "sub-rede de gateway" e por que ela é necessária?
 
-Temos um serviço de gateway que executamos para habilitar a conectividade entre locais. Precisamos de dois endereços IP de seu domínio de roteamento para podermos habilitar o roteamento entre seu local e a nuvem. É necessário especificar pelo menos uma sub-rede /29 da qual podemos obter endereços IP para configurar rotas.
+Temos um serviço de gateway que executamos para habilitar a conectividade entre locais. Precisamos de dois endereços IP de seu domínio de roteamento para podermos habilitar o roteamento entre seu local e a nuvem. É necessário especificar pelo menos uma sub-rede /29 da qual podemos obter endereços IP para configurar rotas. Mesmo que você possa criar uma sub-rede /29, entenda que alguns recursos exigem um tamanho específico de gateway. Siga os requisitos de sub-rede de gateway para o recurso que você deseja configurar.
 
 Observe que você não deve implantar máquinas virtuais ou instâncias de função na sub-rede de gateway.
 
 ### Como especificar qual tráfego passa pelo gateway de VPN?
 
-Adicione cada intervalo que você deseja enviar pelo gateway para sua rede virtual na página Redes, em Redes Locais.
+Se você estiver usando o Portal do Azure, adicione cada intervalo que você deseja enviar pelo gateway para sua rede virtual na página Redes, em Redes Locais.
 
 ### Posso configurar o Túnel Forçado?
 
-Sim. Consulte [Sobre Túnel Forçado](vpn-gateway-about-forced-tunneling.md).
+Sim. Consulte [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.md).
 
 ### Posso configurar meu próprio servidor de VPN no Azure e usá-lo para me conectar à minha rede local?
 
@@ -186,6 +189,10 @@ Não, ambas as redes virtuais devem estar usando VPNs de roteamento dinâmico.
 
 Sim, ele é protegido por criptografia IPsec/IKE.
 
+### Tráfego Rede Virtual para Rede Virtual passa pelo backbone do Azure?
+
+Sim.
+
 ### A quantos sites locais e redes virtuais uma rede virtual pode se conectar?
 
 Máx. Dez combinados para os gateways Basic e Standard de Roteamento Dinâmico; 30 para os gateways de VPN de Alto Desempenho.
@@ -200,7 +207,7 @@ Não, não há suporte para túneis redundantes entre uma rede virtual do Azure 
 
 ### Pode haver sobreposição de espaços de endereço entre as redes virtuais conectadas e sites local locais?
 
-Não. Espaços de endereço sobrepostos farão com que o carregamento de NETCFG ou a Criação de Rede Virtual falhem.
+Não. Espaços de endereço sobrepostos farão com que o carregamento de arquivo netcfg ou a Criação de Rede Virtual falhem.
 
 ### Obtenho mais largura de banda com mais VPNs site a site do que com uma única rede virtual?
 
@@ -208,7 +215,7 @@ Não, todos os túneis de VPN, incluindo VPNs site a ponto, compartilham o mesmo
 
 ### Posso usar o gateway de VPN do Azure para o tráfego entre meus sites locais ou para outra rede virtual?
 
-O tráfego de trânsito via gateway de VPN do Azure é possível, mas conta com espaços de endereço estaticamente definidos no arquivo de configuração NETCFG. Ainda não há suporte a BGP com Redes Virtuais do Azure e gateways de VPN. Sem BGP, a definição manual de espaços de endereço de trânsito em NETCFG é muito propensa a erros e não é recomendada.
+O tráfego de trânsito via gateway de VPN do Azure é possível, mas conta com espaços de endereço estaticamente definidos no arquivo de configuração netcfg. Ainda não há suporte a BGP com Redes Virtuais do Azure e gateways de VPN. Sem BGP, a definição manual de espaços de endereço de trânsito em netcfg é muito propensa a erros e não é recomendada.
 
 ### O Azure gera a mesma chave pré-compartilhada IPsec/IKE para todas as minhas conexões VPN para a mesma rede virtual?
 
@@ -216,15 +223,16 @@ Não, por padrão, o Azure gera chaves pré-compartilhadas diferentes para conex
 
 ### O Azure cobra pelo tráfego entre redes virtuais?
 
-Para o tráfego entre diferentes redes virtuais do Azure, o Azure cobra somente pelo tráfego que passa de uma região do Azure para outra. A taxa de custo é listada na página [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) do Gateway de VPN do Azure.
+Para o tráfego entre diferentes redes virtuais do Azure, o Azure cobra somente pelo tráfego que passa de uma região do Azure para outra. A taxa de custo é listada na página [Preços do Gateway de VPN do Azure](https://azure.microsoft.com/pricing/details/vpn-gateway/).
+
 
 ### Posso conectar uma rede virtual com VPNs IPsec a meu circuito Rota Expressa?
 
-Não há suporte para isso.
+Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](../expressroute/expressroute-coexist.md).
 
-## Conectividade e máquinas virtuais
+## Conectividade e VMs
 
-### Se minha VM estiver em uma rede virtual e eu tiver uma conexão entre locais, como devo me conectar à VM?
+### Se minha máquina virtual estiver em uma rede virtual e eu tiver uma conexão entre locais, como devo me conectar à VM?
 
 Você tem algumas opções. Se tiver um protocolo RDP habilitado e tiver criado um ponto de extremidade, você poderá se conectar à sua máquina virtual usando o VIP. Nesse caso, você especificaria o VIP e a porta à qual deseja se conectar. Você precisará configurar a porta em sua máquina virtual para o tráfego. Normalmente, você deve ir para o Portal de Gerenciamento e salvar as configurações para a conexão de RDP em seu computador. As configurações conterão as informações de conexão necessárias.
 
@@ -238,10 +246,10 @@ Não. Somente o tráfego com um destino IP contido em intervalos de endereços I
 
 Exibir mais perguntas frequentes sobre redes para obter detalhes adicionais:
 
-- [Perguntas frequentes sobre rede virtual](http://go.microsoft.com/fwlink/p/?LinkId=615155)
+- [Perguntas frequentes sobre rede virtual](../virtual-network/virtual-networks-faq.md)
 
-- [Perguntas Frequentes sobre Rota Expressa](../expressroute-faqs.md)
+- [Perguntas Frequentes sobre Rota Expressa](../expressroute/expressroute-faqs.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

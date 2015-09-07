@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar os diagnósticos (.NET)| Microsoft Azure" 
-	description="Saiba como usar dados de diagnóstico no Azure para depuração, medição do desempenho, monitoramento, análise de tráfego e mais." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="rboucher" 
-	manager="jwhit" 
+	pageTitle="Como usar os diagnósticos (.NET)| Microsoft Azure"
+	description="Saiba como usar dados de diagnóstico no Azure para depuração, medição do desempenho, monitoramento, análise de tráfego e mais."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="robb"/>
 
 
@@ -174,7 +174,7 @@ Substitua os conteúdos do WorkerRole.cs pelo código a seguir. A classe SampleE
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -320,7 +320,7 @@ Esse passo a passo assume que você tem uma assinatura do Azure e está usando o
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -373,24 +373,24 @@ Os seguintes códigos de erro são devolvidos pelo plug-in:
 Código de Saída|Descrição
 ---|---
 0|Sucesso.
-\-1|Erro genérico.
-\-2|Não foi possível carregar o arquivo rcf.<p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM.
-\-3|Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: esse é o resultado de um arquivo de configuração não ser aprovado na validação de esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema.
-\-4|Outra instância do agente de monitoramento do Diagnostics já está usando o diretório de recurso local.<p><p>Solução: especifique um valor diferente para **LocalResourceDirectory**.
-\-6|O iniciador de plug-in do agente de convidado tentou iniciar o Diagnóstico com uma linha de comando inválida.<p><p>Esse é um erro interno que deve acontecer somente se o iniciador de plug-in do agente convidado for invocado manualmente e incorretamente na máquina virtual.
-\-10|O plug-in de Diagnostics saiu com uma exceção sem tratamento.
-\-11|O agente convidado não pôde criar o processo responsável por iniciar e monitorar o agente de monitoramento.<p><p>Solução: verifique se os recursos de sistema suficientes estão disponíveis para iniciar novos processos.<p>
-\-101|Argumentos inválidos ao chamar o plug-in de Diagnóstico.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM.
-\-102|O processo do plug-in não consegue inicializar-se sozinho.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.
-\-103|O processo de plug-in é incapaz de iniciar sozinho. Especificamente, não consegue criar o objeto do agente.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.
-\-104|Não foi possível carregar o arquivo rcf fornecido pelo agente convidado.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM.
-\-105|O plug-in de Diagnóstico não consegue abrir o arquivo de configuração do Diagnóstico.<p><p>Este é um erro interno que deve acontecer apenas se plug-in do Diagnóstico é invocado manual e incorretamente na VM.
-\-106|Não é possível ler o arquivo de configuração do Diagnóstico.<p><p>Solução: esse é o resultado de um arquivo de configuração não ser aprovado na validação de esquema. Então a solução é fornecer um arquivo de configuração que cumpre com o esquema. Você pode localizar o XML que é fornecido para a extensão Diagnostics na pasta *%SystemDrive%\\WindowsAzure\\Config* no VM. Abra o arquivo XML apropriado e pesquise por **Microsoft.Azure.Diagnostics** e, em seguida, por campo **xmlCfg**. Os dados são base64 codificados, então você precisará [decodificá-los](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnostics.<p>
-\-107|A passagem do diretório de recursos para o agente de monitoramento é inválida.<p><p>Este é um erro interno que deve acontecer apenas se o agente de monitoramento é invocado manual e incorretamente na VM.</p>
-\-108 |Não é possível converter o arquivo de configuração de Diagnóstico para o arquivo de configuração do agente de monitoramento.<p><p>Esse é um erro interno que deve acontecer somente se o plug-in de diagnóstico é invocado manualmente com um arquivo de configuração inválido.
-\-110|Erro de configuração de diagnóstico geral.<p><p>Esse é um erro interno que deve acontecer somente se o plug-in de diagnóstico é manualmente invocado com um arquivo de configuração inválido.
-\-111|Não foi possível iniciar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.
-\-112|Erro geral
+-1|Erro genérico.
+-2|Não foi possível carregar o arquivo rcf.<p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM.
+-3|Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: esse é o resultado de um arquivo de configuração não ser aprovado na validação de esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema.
+-4|Outra instância do agente de monitoramento do Diagnostics já está usando o diretório de recurso local.<p><p>Solução: especifique um valor diferente para **LocalResourceDirectory**.
+-6|O iniciador de plug-in do agente de convidado tentou iniciar o Diagnóstico com uma linha de comando inválida.<p><p>Esse é um erro interno que deve acontecer somente se o iniciador de plug-in do agente convidado for invocado manualmente e incorretamente na máquina virtual.
+-10|O plug-in de Diagnostics saiu com uma exceção sem tratamento.
+-11|O agente convidado não pôde criar o processo responsável por iniciar e monitorar o agente de monitoramento.<p><p>Solução: verifique se os recursos de sistema suficientes estão disponíveis para iniciar novos processos.<p>
+-101|Argumentos inválidos ao chamar o plug-in de Diagnóstico.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM.
+-102|O processo do plug-in não consegue inicializar-se sozinho.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.
+-103|O processo de plug-in é incapaz de iniciar sozinho. Especificamente, não consegue criar o objeto do agente.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.
+-104|Não foi possível carregar o arquivo rcf fornecido pelo agente convidado.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM.
+-105|O plug-in de Diagnóstico não consegue abrir o arquivo de configuração do Diagnóstico.<p><p>Este é um erro interno que deve acontecer apenas se plug-in do Diagnóstico é invocado manual e incorretamente na VM.
+-106|Não é possível ler o arquivo de configuração do Diagnóstico.<p><p>Solução: esse é o resultado de um arquivo de configuração não ser aprovado na validação de esquema. Então a solução é fornecer um arquivo de configuração que cumpre com o esquema. Você pode localizar o XML que é fornecido para a extensão Diagnostics na pasta *%SystemDrive%\\WindowsAzure\\Config* no VM. Abra o arquivo XML apropriado e pesquise por **Microsoft.Azure.Diagnostics** e, em seguida, por campo **xmlCfg**. Os dados são base64 codificados, então você precisará [decodificá-los](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnostics.<p>
+-107|A passagem do diretório de recursos para o agente de monitoramento é inválida.<p><p>Este é um erro interno que deve acontecer apenas se o agente de monitoramento é invocado manual e incorretamente na VM.</p>
+-108 |Não é possível converter o arquivo de configuração de Diagnóstico para o arquivo de configuração do agente de monitoramento.<p><p>Esse é um erro interno que deve acontecer somente se o plug-in de diagnóstico é invocado manualmente com um arquivo de configuração inválido.
+-110|Erro de configuração de diagnóstico geral.<p><p>Esse é um erro interno que deve acontecer somente se o plug-in de diagnóstico é manualmente invocado com um arquivo de configuração inválido.
+-111|Não foi possível iniciar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.
+-112|Erro geral
 
 
 ### Os dados do Diagnostics não estão conectados ao armazenamentodata
@@ -512,4 +512,4 @@ Manifesto com base no ETW|Não|Tabela|Eventos ETW gerados por qualquer processo.
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

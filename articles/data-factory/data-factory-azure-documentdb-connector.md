@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector do Banco de Dados de Documentos - Mover dados de e para o Banco de Dados de Documentos" 
-	description="Saiba mais sobre o Conector de Banco de Dados de Documentos do Azure para o serviço do Data Factory que permite mover dados de/para a coleção do Banco de Dados de Documentos do Azure" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Mover dados para e do Banco de Dados de Documentos | Azure Data Factory"
+	description="Saiba como mover dados para/da coleção Banco de Dados de Documentos do Azure usando o Azure Data Factory"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector do Banco de Dados de Documentos - Mover dados de e para o Banco de Dados de Documentos
+# Mover dados para e do Banco de Dados de Documentos usando o Azure Data Factory
 
 Este artigo descreve como você pode usar a Atividade de Cópia em uma Azure Data Factory para mover dados para o Banco de Dados de Documentos do Azure de outro armazenamento de dados e mover dados de outro armazenamento de dados para o Banco de Dados de Documentos. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
@@ -24,11 +24,11 @@ Este artigo descreve como você pode usar a Atividade de Cópia em uma Azure Dat
 
 O exemplo a seguir mostra:
 
-1. Um serviço vinculado do tipo Banco de Dados de Documentos.
-2. Um serviço vinculado do tipo AzureStorage. 
-3. Um conjunto de dados de entrada do tipo DocumentDbCollection. 
-4. Um conjunto de dados de saída do tipo AzureBlob.
-4. O pipeline com Atividade de cópia que usa DocumentDbCollectionSource e BlobSink.
+1. Um serviço vinculado do tipo [Banco de Dados de Documentos](#azure-documentdb-linked-service-properties).
+2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. Um [pipeline](data-factory-create-pipelines.md) com Atividade de cópia que usa [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia dados de Banco de Dados de Documentos do Azure para Blobs do Azure. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -164,11 +164,12 @@ O pipeline a seguir copia dados da coleção Person no banco de dados Banco de D
 
 O exemplo a seguir mostra:
 
-1. Um serviço vinculado do tipo Banco de Dados de Documentos.
-2. Um serviço vinculado do tipo AzureStorage.
-3. Um conjunto de dados de entrada do tipo AzureBlob.
-4. Um conjunto de dados de saída do tipo DocumentDbCollection. 
-4. O pipeline com a Atividade de cópia que usa BlobSource e DocumentDbCollectionSink.
+1. Um serviço vinculado do tipo [Banco de Dados de Documentos](#azure-documentdb-linked-service-properties).
+2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
+
 
 O exemplo copia dados do blob do Azure para o Banco de Dados de Documentos do Azure. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -343,12 +344,12 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 | **Propriedade** | **Descrição** | **Obrigatório** |
 | -------- | ----------- | --------- |
-| type | A propriedade type deve ser definida como: **DocumentDb** | Sim |
+| type | A propriedade do tipo deve ser definida como: **DocumentDb** | Sim |
 | connectionString | Especifique as informações necessárias para se conectar ao banco de dados do Banco de Dados de Documentos do Azure. | Sim |
 
 ## Propriedades de tipo de conjunto de dados do Banco de Dados de Documentos do Azure
 
-Para obter uma lista completa das seções e propriedades disponíveis para definição de conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
  
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **DocumentDbCollection** tem as propriedades a seguir.
 
@@ -394,10 +395,10 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | Um caractere especial no nome da coluna de fonte para indicar que esse documento aninhado é necessário. <p>Exemplo acima: Name.First in the output table produces the following JSON structure in the DocumentDB document:</p><p>"Name": {<br/> "First": "John"<br/>},</p> | Caractere que é usado para separar os níveis de aninhamento.<p>O valor padrão é . (ponto).</p> | Caractere que é usado para separar os níveis de aninhamento. <p>O valor padrão é . (ponto).</p> | Não | 
-| writeBatchSize | Número de solicitações paralelas para o serviço Banco de Dados de Documentos criar documentos.<p>Você pode ajustar o desempenho ao copiar dados para/do Banco de Dados de Documentos usando essa propriedade. Você pode esperar um melhor desempenho quando você aumenta writeBatchSize, pois mais solicitações paralelas para Banco de Dados de Documentos são enviadas. No entanto, será necessário evitar limitação que pode gerar a mensagem de erro: "Taxa de solicitação é grande".</p><p>A limitação é decidida por vários fatores, incluindo o tamanho dos documentos, o número de termos em documentos, indexação política da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter mais taxa de transferência disponível (solicitação de 2.500 unidades/segundo).</p> | Valor inteiro | Não |
+| nestingSeparator | Um caractere especial no nome da coluna de fonte para indicar que esse documento aninhado é necessário. <p>Exemplo acima: Name.First na tabela de saída produz a seguinte estrutura JSON no documento do Banco de Dados de Documentos:</p><p>"Name": {<br/> "First": "John"<br/>},</p> | Caractere que é usado para separar os níveis de aninhamento.<p>O valor padrão é . (ponto).</p> | Caractere que é usado para separar os níveis de aninhamento. <p>O valor padrão é . (ponto).</p> | Não | 
+| writeBatchSize | Número de solicitações paralelas para o serviço Banco de Dados de Documentos criar documentos.<p>Você pode ajustar o desempenho ao copiar dados para/do Banco de Dados de Documentos usando essa propriedade. Você pode esperar um melhor desempenho quando você aumenta writeBatchSize, pois mais solicitações paralelas para Banco de Dados de Documentos são enviadas. No entanto, será necessário evitar a limitação que pode gerar a mensagem de erro: "Taxa de solicitação é grande".</p><p>A limitação é decidida por vários fatores, incluindo o tamanho dos documentos, o número de termos em documentos, indexação política da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter mais taxa de transferência disponível (solicitação de 2.500 unidades/segundo).</p> | Valor inteiro | Não |
 | writeBatchTimeout | Tempo de espera para a operação ser concluída antes de atingir o tempo limite. | (Unidade = timespan) Exemplo: "00:30:00" (30 minutos). | Não |
  
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

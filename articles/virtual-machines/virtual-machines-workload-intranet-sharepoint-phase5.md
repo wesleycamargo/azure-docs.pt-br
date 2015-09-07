@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fase 5 da carga de trabalho da intranet do SharePoint: Criar o Grupo de Disponibilidade e adicionar os bancos de dados do SharePoint."
-	description="Na última fase da implantação de um farm do SharePoint 2013 somente intranet, você deve criar um grupo de disponibilidade e adicionar seus bancos de dados do SharePoint a ele."
+	pageTitle="Farm do SharePoint Server 2013 Fase 5 | Microsoft Azure"
+	description="Criar um grupo de disponibilidade e adicionar seus bancos de dados do SharePoint a ele na fase 5 do farm do SharePoint Server 2013 no Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -56,7 +56,7 @@ Use estas etapas para fazer backup de um banco de dados:
 3.	No painel esquerdo, expanda o nó **Banco de Dados**.
 4.	Clique com o botão direito no banco de dados que deseja armazenar em backup, aponte para **Tarefas**, e, em seguida, clique em **Fazer backup**.
 5.	Na seção **Destino**, clique em **Remover** para remover o caminho de arquivo padrão para o arquivo de backup.
-6.	Clique em **Adicionar**. Em **Nome do arquivo**, digite **\\[NomeDaMáquina]\\backup[nomeDoBancoDeDados].bak**, em que nomeDaMáquina é o nome do computador do SQL Server primário e nomeDoBancoDeDados é o nome do banco de dados. Clique em **OK** e em **OK** novamente após a mensagem avisando que o backup foi bem-sucedido.
+6.	Clique em **Adicionar**. Em **Nome do arquivo**, digite **\[NomeDaMáquina]\\backup[nomeDoBancoDeDados].bak**, em que nomeDaMáquina é o nome do computador do SQL Server primário e nomeDoBancoDeDados é o nome do banco de dados. Clique em **OK** e em **OK** novamente após a mensagem avisando que o backup foi bem-sucedido.
 7.	No painel esquerdo, clique com botão direito em **[NomeDoBancoDeDados]**, aponte para **Tarefas**, e, em seguida, clique em **Fazer Backup**.
 8.	Em **Tipo de backup**, selecione **Log de Transações** e clique em **OK** duas vezes.
 9.	Mantenha essa sessão de área de trabalho remota aberta.
@@ -69,7 +69,7 @@ Use estas etapas para restaurar um banco de dados:
 4.	No painel esquerdo, clique com botão direito em **Bancos de Dados** e clique em **Restaurar Banco de Dados**.
 5.	Na seção **Fonte**, selecione **Dispositivo** e clique no botão de reticências (...).
 6.	Em **Selecionar dispositivos de backup**, clique em **Adicionar**.
-7.	Em **Local do arquivo de backup**, digite **\\[NomeDaMáquina]\\backup**, pressione Enter, selecione **[NomeDoBancoDeDados].bak** e, em seguida, clique em **OK** duas vezes. Agora você deverá ver o backup completo e o backup do log na seção **Conjuntos de backup a serem restaurados**.
+7.	Em **Local do arquivo de backup**, digite **\[NomeDaMáquina]\\backup**, pressione Enter, selecione **[NomeDoBancoDeDados].bak** e, em seguida, clique em **OK** duas vezes. Agora você deverá ver o backup completo e o backup do log na seção **Conjuntos de backup a serem restaurados**.
 8.	Em **Selecionar uma página**, clique em **Opções**. Na seção **Opções de restauração**, em **Estado de recuperação**, selecione **RESTAURAR COM NORECOVERY** e, em seguida, clique em **OK**.
 9.	Quando solicitado, clique em **OK**.
 
@@ -126,4 +126,4 @@ Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

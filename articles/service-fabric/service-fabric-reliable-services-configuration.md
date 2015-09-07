@@ -1,20 +1,20 @@
 <properties
    pageTitle="Configurando Serviços Confiáveis com estado"
-   description="Saiba como configurar Serviços Confiáveis com estado na Malha de Serviços."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="Saiba como configurar Serviços Confiáveis com estado na Malha de Serviços."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/24/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Configurando Serviços Confiáveis com estado
 A configuração padrão dos Serviços Confiáveis com estado pode ser modificada alterando o arquivo "settings.xml" gerado na raiz do pacote do Visual Studio na pasta "Config" para cada serviço no aplicativo.
@@ -91,4 +91,4 @@ O MaxRecordSizeInKB define o tamanho máximo de um registro que pode ser gravado
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas e permitem que um serviço use um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para o arquivo de log compartilhado, de forma que a contenção de movimentação do cabeçote seja reduzida. A expectativa é de que isso precise ser alterado somente em casos raros.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

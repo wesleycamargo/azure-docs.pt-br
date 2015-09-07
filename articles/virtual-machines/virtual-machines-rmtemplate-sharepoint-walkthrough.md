@@ -20,7 +20,7 @@
 
 Este tópico orienta você quanto à estrutura do arquivo de modelo azuredeploy.json para o farm do SharePoint de três servidores. Você pode ver o conteúdo do modelo em seu navegador clicando [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Se preferir, para examinar uma cópia local do arquivo azuredeploy.json, designe uma pasta local para criar o arquivo (por exemplo, C:\\Azure\\Templates\\SharePointFarm). Preencha o nome da pasta e execute esses comandos no prompt de comando do PowerShell do Azure.
+Se preferir, para examinar uma cópia local do arquivo azuredeploy.json, designe uma pasta local para criar o arquivo (por exemplo, C:\\Azure\\Templates\\SharePointFarm). Preencha o nome da pasta e execute esses comandos no prompt de comando do Azure PowerShell.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -364,7 +364,7 @@ Seu próprio modelo JSON para criar uma infraestrutura de várias camadas no Azu
 1.	Crie os elementos comuns (conta de armazenamento, rede virtual), específicos da camada (conjuntos de disponibilidade) e específicos da máquina virtual (endereços IP públicos, conjuntos de disponibilidade, interfaces de rede, instâncias do balanceador de carga) da infraestrutura do Azure que são necessários para sua implantação.
 2.	Para cada camada em seu aplicativo (por exemplo, autenticação, banco de dados, Web), crie e configure os servidores nessa camada usando os elementos comuns (conta de armazenamento, rede virtual), específicos da camada (conjunto de disponibilidade) e específicos da máquina virtual (endereços IP públicos, interfaces de rede, instâncias do balanceador de carga).
 
-Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 ## Recursos adicionais
 
@@ -374,4 +374,4 @@ Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de R
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

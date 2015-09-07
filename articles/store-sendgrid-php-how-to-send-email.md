@@ -1,36 +1,25 @@
 <properties 
-	pageTitle="Como usar o serviço de email SendGrid (PHP) | Microsoft Azure" 
-	description="Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos em PHP." 
-	documentationCenter="php" 
-	services="" 
-	manager="sendgrid" 
-	editor="mollybos" 
+	pageTitle="Como usar o serviço de email SendGrid (PHP) | Microsoft Azure"
+	description="Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos em PHP."
+	documentationCenter="php"
+	services=""
+	manager="sendgrid"
+	editor="mollybos"
 	authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="10/30/2014"
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
-
 # Como usar serviço de email SendGrid do PHP
 
-Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são escritas em PHP. Os cenários abordados incluem **escrever email**, **enviar email**, and **adicionar anexos**. Para obter mais informações sobre o SendGrid e o envio de e-mails, consulte a seção [Próximas etapas][].
+Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são escritas em PHP. Os cenários abordados incluem **escrever email**, **enviar email**, and **adicionar anexos**. Para obter mais informações sobre o SendGrid e o envio de e-mails, consulte a seção [Próximas etapas](#next-steps).
 
-## Sumário
-
--   [O que é o serviço de email SendGrid?][]
--   [Crie uma conta do SendGrid][]
--   [Usando SendGrid de seu aplicativo PHP][]
--   [Como enviar um email][]
--   [Como adicionar um anexo][]
--   [Como usar filtros para habilitar rodapés, rastreamento e análise][]
--   [Próximas etapas][]
-
-## <a name="bkmk_WhatIsSendGrid"> </a>O que é o serviço de email SendGrid?
+## O que é o serviço de email SendGrid?
 
 O SendGrid é um [serviço de e-mail baseado em nuvem] que oferece [entrega de e-mail transacional], escalabilidade e análise em tempo real confiáveis com APIsflexíveis que facilitam a integração personalizada. Os cenários comuns de uso do SendGrid incluem:
 
@@ -43,15 +32,15 @@ O SendGrid é um [serviço de e-mail baseado em nuvem] que oferece [entrega de e
 
 Para obter mais informações, consulte [https://sendgrid.com][].
 
-## <a name="bkmk_CreateSendGrid"> </a>Criar uma conta do SendGrid
+## Criar uma conta do SendGrid
 
 [AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="bkmk_UsingSendGridfromPHP"> </a>Usando SendGrid de seu aplicativo PHP
+## Usando SendGrid de seu aplicativo PHP
 
 O uso do SendGrid em um aplicativo PHP Azure não exige configuração ou codificação especial. Como o SendGrid é um serviço, ele pode ser acessado exatamente da mesma maneira de um aplicativo em nuvem ou de um aplicativo local.
 
-## <a name="bkmk_HowToSendEmail"> </a>Como enviar um email
+## Como: enviar um email
 
 É possível enviar emails usando o SMTP ou a API Web fornecida pelo SendGrid.
 
@@ -163,7 +152,7 @@ Use a [função de rotação][] do PHP para enviar email usando a API Web do Sen
 
 A API Web do SendGrid é muito semelhante a uma API REST, embora ela não seja realmente uma API RESTful já que, na maioria das chamadas, ambos os verbos GET e POST podem ser usados de maneira alternada.
 
-## <a name="bkmk_HowToAddAttachment"> </a>Como adicionar um anexo
+## Como: adicionar um anexo
 
 ### API do SMTP
 
@@ -290,11 +279,11 @@ Exemplo:
      // print everything out
      print_r($response);
 
-## <a name="bkmk_HowToUseFilters"> </a>Como usar filtros para habilitar rodapés, rastreamento e análise
+## Como: usar filtros para habilitar rodapés, rastreamento e análise
 
 O SendGrid fornece a funcionalidade adicional de email por meio do uso de ‘filtros’. Essas são as configurações que podem ser adicionadas a uma mensagem de email para habilitar uma funcionalidade específica, como habilitar rastreamento de cliques, Google analytics, rastreamento de assinatura e assim por diante.
 
-Os filtros podem ser aplicados a uma mensagem pela propriedade filtros. Cada filtro é especificado por um hash que tem configurações específicas de filtro. O exemplo a seguir ativa o filtro do rodapé e especifica uma mensagem de texto que será anexada na parte inferior da mensagem de email: Para este exemplo usaremos [biblioteca de sendgrid-php]. Use o [Compositor] para instalar a biblioteca:
+Os filtros podem ser aplicados a uma mensagem pela propriedade filtros. Cada filtro é especificado por um hash que tem configurações específicas de filtro. O exemplo a seguir ativa o filtro do rodapé e especifica uma mensagem de texto que será anexada na parte inferior da mensagem de email: Para este exemplo, usaremos a [biblioteca de sendgrid-php]. Use o [Compositor] para instalar a biblioteca:
     
     php composer.phar require sendgrid/sendgrid 2.1.1
 
@@ -393,7 +382,7 @@ Exemplo:
 
      print_r($response);
 
-## <a name="bkmk_NextSteps"> </a>Próximas etapas
+## Próximas etapas
 
 Agora que você já conhece as noções básicas do serviço de email SendGrid, siga estes links para saber mais.
 
@@ -401,14 +390,6 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
 -   Biblioteca de SendGrid PHP: <https://github.com/sendgrid/sendgrid-php>
 -   Oferta especial do SendGrid para clientes do Azure: <https://sendgrid.com/windowsazure.html>
 
-  [Próximas etapas]: #bkmk_NextSteps
-  [O que é o serviço de email SendGrid?]: #bkmk_WhatIsSendGrid
-  [Crie uma conta do SendGrid]: #bkmk_CreateSendGrid
-  [Usando SendGrid de seu aplicativo PHP]: #bkmk_UsingSendGridfromPHP
-  [Como enviar um email]: #bkmk_HowToSendEmail
-  [Como adicionar um anexo]: #bkmk_HowToAddAttachment
-  [Como usar filtros para habilitar rodapés, rastreamento e análise]: #bkmk_HowToUseFilters
-  [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html
@@ -420,4 +401,4 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
   [biblioteca de sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Compositor]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Estender o HDInsight com a Rede Virtual | Microsoft Azure"  
+	pageTitle="Estender o HDInsight com a Rede Virtual | Microsoft Azure"
 	description="Saiba como usar a Rede Virtual do Azure para conectar o HDInsight a outros recursos de nuvem ou recursos no seu datacenter"
 	services="hdinsight"
 	documentationCenter=""
@@ -9,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/06/2015"
+	ms.author="larryfr"/>
 
 
 #Estender os recursos do HDInsight usando a Rede Virtual do Azure
@@ -55,9 +55,9 @@ A [Rede Virtual do Azure](/documentation/services/virtual-network/) permite que 
 
 	* **Invocar serviços ou trabalhos do HDInsight** de um aplicativo LOB. Um exemplo é usar APIs do HBase Java para armazenar e recuperar dados de um cluster HDInsight HBase.
 
-Para obter mais informações sobre os recursos, benefícios e capacidades das redes virtuais, consulte a [Visão geral da rede virtual do Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+Para obter mais informações sobre os recursos, benefícios e capacidades das redes virtuais, consulte a [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE]Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, consulte [Tarefas de configuração de rede virtual](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+> [AZURE.NOTE]Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, consulte [Tarefas de configuração de rede virtual](/documentation/services/virtual-network/).
 >
 > O Azure HDInsight dá suporte apenas a redes virtuais baseadas em local e atualmente não funciona com redes virtuais baseadas em grupo de afinidade.
 >
@@ -171,6 +171,6 @@ Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azur
 
 * [Usar o Sqoop com o Hadoop no HDInsight](hdinsight-use-sqoop.md): fornece informações sobre como usar o Sqoop para transferir dados com o SQL Server em uma rede virtual.
 
-Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Virtual do Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -51,18 +51,18 @@ Os servidores de aplicativos e os controladores de domínio são implantados em 
     Nesta página do assistente… | Especifique esses valores
 	------------- | -------------
 	**Detalhes de rede virtual** | <p>Nome: Digite um nome para a rede virtual, como WestUSVNet.</p><p>Região: Escolha a região mais próxima.</p>
-	**Conectividade DNS e VPN** | <p>Servidores DNS: Especifique o nome e o endereço IP de um ou mais servidores DNS locais.</p><p>Conectividade: Selecione **Configurar uma VPN site a site**.</p><p>Rede local: especifique uma nova rede local.</p><p>Se você estiver usando o ExpressRoute, em vez de uma VPN, consulte [Configurar uma conexão de Rota Expressa por meio de um provedor do Exchange](https://msdn.microsoft.com/library/azure/dn606306.aspx).</p>
+	**Conectividade DNS e VPN** | <p>Servidores DNS: Especifique o nome e o endereço IP de um ou mais servidores DNS locais.</p><p>Conectividade: Selecione **Configurar uma VPN site a site**.</p><p>Rede local: especifique uma nova rede local.</p><p>Se você estiver usando a Rota Expressa, em vez de uma VPN, consulte [Configurar uma conexão de Rota Expressa por meio de um provedor do Exchange](../expressroute/expressroute-configuring-exps.md).</p>
 	**Conectividade site a site** | <p>Nome: Digite um nome para a rede local.</p><p>Endereço IP do dispositivo VPN: especifique o endereço IP público do dispositivo que se conectará à rede virtual. O dispositivo VPN não pode ser localizado atrás de um NAT.</p><p>Endereço: Especifique os intervalos de endereços para a sua rede local (como 192.168.0.0/16 no diagrama do cenário).</p>
 	**Espaços de endereço da rede virtual** | <p>Espaço de endereço: Especifique o intervalo de endereços IP para as máquinas virtuais que você deseja executar na rede virtual do Azure (como 10.1.0.0/16 no diagrama do cenário). Este intervalo de endereços não pode sobrepor os intervalos de endereços da rede local.</p><p>Sub-redes: Especifique um nome e o endereço de uma sub-rede para servidores de aplicativos (como o front-end, 10.1.1.0/24) e para os controladores de domínio (como back-end, 10.1.2.0/24).</p><p>Clique em **Adicionar sub-rede de gateway**.</p>
 
-2. Em seguida, você configurará o gateway de rede virtual para criar uma conexão VPN site a site segura. Consulte [Configurar um Gateway de Rede Virtual](https://msdn.microsoft.com/library/azure/jj156210.aspx) para ver as instruções.
-3. Crie a conexão VPN site a site entre a nova rede virtual e um dispositivo VPN local. Consulte [Configurar um Gateway de Rede Virtual](https://msdn.microsoft.com/library/azure/jj156210.aspx) para ver as instruções.
+2. Em seguida, você configurará o gateway de rede virtual para criar uma conexão VPN site a site segura. Consulte [Configurar um Gateway de Rede Virtual](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) para ver as instruções.
+3. Crie a conexão VPN site a site entre a nova rede virtual e um dispositivo VPN local. Consulte [Configurar um Gateway de Rede Virtual](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) para ver as instruções.
 
 
 
 ## Crie máquinas virtuais do Azure para as funções de controlador de domínio
 
-Repita as etapas a seguir para criar VMs para hospedar a função de controlador de domínio, conforme necessário. Você deve implantar pelo menos dois controladores de domínio virtuais para fornecer redundância e tolerância à falhas. Se a rede virtual do Azure inclui pelo menos dois controladores de domínio configurados da mesma forma (ou seja, ambos são GCs, executam o servidor DNS e não contêm nenhuma função FSMO, etc.), coloque as VMs que executam tais controladores de domínio em um conjunto de disponibilidade para melhorar a tolerância. Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md).
+Repita as etapas a seguir para criar VMs para hospedar a função de controlador de domínio, conforme necessário. Você deve implantar pelo menos dois controladores de domínio virtuais para fornecer redundância e tolerância à falhas. Se a rede virtual do Azure inclui pelo menos dois controladores de domínio configurados da mesma forma (ou seja, ambos são GCs, executam o servidor DNS e não contêm nenhuma função FSMO, etc.), coloque as VMs que executam tais controladores de domínio em um conjunto de disponibilidade para melhorar a tolerância. Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 1. No portal clássico do Azure, clique em **Novo** > **Computação** > **Máquina Virtual** > **Da galeria**. Use os valores a seguir para concluir o assistente. Aceite o valor padrão para uma configuração, a menos que outro valor seja sugerido ou necessário.
 
@@ -74,7 +74,7 @@ Repita as etapas a seguir para criar VMs para hospedar a função de controlador
 	**Configuração de máquina virtual** | <p>Selecione <b>Instalar o Agente de VM</b> e quaisquer outras extensões que você precisa.</p>
 2. Anexe um disco a cada máquina virtual que executará a função de servidor de controlador de domínio. O disco adicional é necessário para armazenar o banco de dados, logs e SYSVOL do AD. Especifique um tamanho para o disco (por exemplo, 10 GB) e deixe a **Preferência de Cache do Host** definida como **Nenhum**. Consulte [Como anexar um disco de dados a uma máquina virtual Windows](../virtual-machines/storage-windows-attach-disk.md).
 3. Depois de entrar na VM pela primeira vez, abra o **Gerenciador do Servidor** > **Serviços de Arquivo e Armazenamento** para criar um volume nesse disco usando o NTFS.
-4. Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](../powershell-install-configure.md) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
+4. Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o Azure PowerShell](../powershell-install-configure.md) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
@@ -86,7 +86,7 @@ Conecte-se a uma VM e verifique se tem conectividade através da conexão VPN si
 
 ## Reconfigure o servidor DNS para a rede virtual
 
-1. No portal clássico do Azure, clique no nome da rede virtual e, em seguida, clique na guia **Configurar** para [reconfigurar os endereços IP do servidor DNS para a sua rede virtual](https://msdn.microsoft.com/library/azure/dn275925.aspx) para usar os endereços IP estáticos atribuídos à réplica de controladores de domínio em vez de endereços IP de servidores DNS locais.
+1. No portal clássico do Azure, clique no nome da rede virtual e, em seguida, clique na guia **Configurar** para [reconfigurar os endereços IP do servidor DNS para a sua rede virtual](virtual-networks-manage-dns-in-vnet.md) para usar os endereços IP estáticos atribuídos à réplica de controladores de domínio em vez de endereços IP de servidores DNS locais.
 
 2. Para garantir que todas as VMs do controlador de domínio de réplica na rede virtual sejam configuradas para usar servidores DNS na rede virtual, clique em **Máquinas Virtuais**, clique na coluna de status para cada VM e, em seguida, clique em **Reiniciar**. Aguarde até a VM mostrar o estado **Executando** antes de tentar conectar-se a ela.
 
@@ -104,22 +104,22 @@ Conecte-se a uma VM e verifique se tem conectividade através da conexão VPN si
 
 2. Após cada VM ter sido provisionada, conecte-se e a associe ao domínio. Em **Gerenciador do Servidor**, clique em **Servidor Local** > **GRUPO DE TRABALHO** > **Alterar...** e, em seguida, selecione **Domínio** e digite o nome do domínio local. Forneça as credenciais de um usuário de domínio e, em seguida, reinicie a VM para concluir o ingresso no domínio.
 
-Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md).
+Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 Para obter mais informações sobre como usar o Windows PowerShell, consulte [Introdução aos Cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) e [Referência de Cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
 
 ## Recursos adicionais
 
 -  [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [Como carregar controladores de domínio locais de Hyper-V existentes no Azure usando o PowerShell do Azure](http://support.microsoft.com/kb/2904015)
+-  [Como carregar controladores de domínio locais de Hyper-V existentes no Azure usando o Azure PowerShell](http://support.microsoft.com/kb/2904015)
 -  [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](../active-directory-new-forest-virtual-machine.md)
--  [Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md)
 -  [Microsoft Azure IaaS para profissionais de TI: (01) conceitos básicos de máquina virtual](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx)
+-  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Cmdlets de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/jj152841)
 
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - O que vem a seguir" 
-	description="Esta é a página do Azure Multi-Factor Authentication que descreve o que fazer depois com o MFA. Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure Multi-Factor Authentication - O que vem a seguir"
+	description="Esta é a página do Azure Multi-Factor Authentication que descreve o que fazer depois com o MFA. Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Configurando o Azure Multi-Factor Authentication
@@ -228,6 +228,8 @@ Em alguns aplicativos, como o Office 2010 ou mais antigo e o Apple Mail, você n
 >
 > Os clientes do Office 2013 (incluindo o Outlook) agora têm suporte a novos protocolos de autenticação e podem ser habilitados para oferecer suporte ao Multi-Factor Authentication. Isso significa que, uma vez habilitadas, as senhas de aplicativo não são necessárias para usar com os clientes do Office 2013. Para obter mais informações, consulte [Anúncio da visualização pública da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
+
+
 ### Coisas importantes a saber sobre senhas de aplicativo
 
 Veja a seguir uma lista de importante das coisas que você deve saber sobre senhas de aplicativo.
@@ -240,6 +242,11 @@ Experiência de autenticação|Para aplicativos baseados em navegador|Para aplic
 - Os aplicativos que armazenam senhas em cache e a usam em cenários locais podem começar a falhar, pois a senha do aplicativo não será conhecida fora da ID organizacional. Um exemplo é o de emails do Exchange que estão no local, mas o email arquivado está na nuvem. A mesma senha não funcionará.
 - A senha real é gerada automaticamente e não é fornecida pelo usuário. Isso ocorre porque a senha gerada automaticamente é mais difícil para um invasor adivinhar e é mais segura.
 - Atualmente, há um limite de 40 senhas por usuário. Você será solicitado a excluir uma de suas senhas de aplicativo existente para criar uma nova.
+- Assim que a multi-factor authentication é habilitada na conta de um usuário, as senhas do aplicativo podem ser usadas com a maioria dos clientes sem navegador, como Outlook e Lync, mas as ações administrativas não podem ser executadas usando senhas do aplicativo por meio de aplicativos sem navegador, como o Windows PowerShell, mesmo se o usuário tiver uma conta administrativa. Certifique-se de criar uma conta de serviço com uma senha segura para executar scripts do PowerShell e não habilite essa conta para multi-factor authentication.
+
+>[AZURE.WARNING]As senhas de aplicativo não funcionam em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática local e na nuvem.
+>
+>Esteja ciente de que as senhas de aplicativos não funcionarão em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática locais e na nuvem, já que as senhas de domínio são necessárias para autenticação local e as senhas de aplicativo são necessárias para autenticação na nuvem.
 
 
 ### Nomeando orientação para senhas de aplicativo
@@ -356,6 +363,6 @@ Para garantir que as contas de usuário sejam protegidas, você deve restaurar a
 <li>No Diretório que você selecionou, clique em Configurar.</li>
 <li>Na seção autenticação multifator, clique em Gerenciar configurações de serviço.</li>
 <li>Na página Configurações de serviço, em Gerenciar configurações de usuário do dispositivo, marque/desmarque elar seleção de **Permite aos usuários suspender o Multi-Factor Authentication, fazendo com que um dispositivo seja lembrado**.</li>
-![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Defina o número de dias que você deseja permitir a suspensão. O padrão é 14 dias.</li> <li>Clique em Salvar.</li> <li>clique em Fechar.</li>
+![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Defina o número de dias que você deseja permitir a suspensão. O padrão é 14 dias.</li> <li>Clique em Salvar.</li> <li>Clique em Fechar.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

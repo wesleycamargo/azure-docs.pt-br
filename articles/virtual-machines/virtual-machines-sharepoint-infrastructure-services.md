@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Farms do SharePoint hospedados nos Serviços de Infraestrutura do Azure"
-	description="Encontre os principais tópicos que descrevem como configurar um farm de desenvolvimento/teste ou produção do SharePoint 2013 nos serviços de infraestrutura do Microsoft Azure."
+	pageTitle="Farms do SharePoint Server 2013 no Azure | Microsoft Azure"
+	description="Encontre os artigos que descrevem como configurar um ambiente de desenvolvimento/teste ou um farm do SharePoint Server 2013 no Microsoft Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -63,4 +63,4 @@ Consulte estes recursos para obter configurações e informações adicionais do
 
 - [Implantar DirSync (Sincronização de Diretório) do Office 365 no Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

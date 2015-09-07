@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/11/2015"
+	ms.date="08/21/2015"
 	ms.author="jgao"/>
 
 # Provisionar clusters do Hadoop no HDInsight
@@ -224,7 +224,7 @@ A [Rede Virtual do Azure](http://azure.microsoft.com/documentation/services/virt
 
 	![diagrama da configuração ponto a site](./media/hdinsight-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-Para obter mais informações sobre os recursos, benefícios e capacidades das redes virtuais, consulte a [Visão geral da rede virtual do Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+Para obter mais informações sobre os recursos, benefícios e capacidades das redes virtuais, consulte a [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
 > [AZURE.NOTE]Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, consulte [Provisionar um cluster Hadoop em uma rede virtual](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network).
 >
@@ -305,7 +305,7 @@ Você pode consultar as [opções de configuração básica] e as [opções de c
 	| ------------------ | --------------------- |
 	| ![Indicador de provisionamento no quadro inicial](./media/hdinsight-provision-clusters/provisioning.png) | ![Bloco de cluster provisionado](./media/hdinsight-provision-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]Levará algum tempo para o cluster ser criado, geralmente cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de provisionamento.
+	> [AZURE.NOTE]Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de provisionamento.
 
 5. Quando o provisionamento for concluído, clique no bloco para o cluster a partir do quadro inicial para iniciar a folha de cluster. A folha de cluster fornece informações essenciais sobre o cluster como o nome, o grupo de recursos ao qual ele pertence, o local, o sistema operacional, a URL para o painel do cluster, etc.
 
@@ -543,6 +543,19 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 7. Pressione **F5** para executar o aplicativo. Uma janela de console deve ser aberta e exibir o status do aplicativo. Você também será solicitado a inserir suas credenciais de conta do Azure. Pode levar vários minutos para criar um cluster HDInsight.
 
 
+## Criar cluster HDInsight usando SQL Server Integration Services local
+
+Você também pode usar o SQL Server Integration Services (SSIS) para criar ou excluir um cluster HDInsight. O Feature Pack do Azure para SSIS fornece os seguintes componentes que funcionam com clusters HDInsight.
+
+
+- [Azure HDInsight Criar tarefa de Cluster][ssisclustercreate]
+- [Azure HDInsight Excluir tarefa de Cluster][ssisclusterdelete]
+- [Gerenciador de conexões de assinatura do Azure][connectionmanager]
+
+Saiba mais sobre o Feature Pack do Azure para SSIS [aqui][ssispack].
+
+
+
 ##<a id="nextsteps"></a> Próximas etapas
 Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
 
@@ -555,5 +568,9 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
+[connectionmanager]: http://msdn.microsoft.com/pt-BR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/pt-BR/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/pt-BR/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/pt-BR/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

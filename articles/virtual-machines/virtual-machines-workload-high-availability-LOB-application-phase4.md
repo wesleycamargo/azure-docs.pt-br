@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Carga de trabalho de aplicativo de linha de negócios fase 4: configurar os servidores Web" 
-	description="Nesta quarta fase de implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você criará os servidores Web e carregará seu aplicativo de linha de negócios neles." 
+	pageTitle="Aplicativo de linha de negócios Fase 4 | Microsoft Azure"
+	description="Crie os servidores da Web e carregue seu aplicativo de linha de negócios na fase 4 do aplicativo de linha de negócios do Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 4: configurar os servidores Web
@@ -66,7 +66,7 @@ Use o seguinte bloco de comandos do PowerShell para criar as máquinas virtuais 
 - Tabela ST para suas contas de armazenamento
 - Tabela A para os conjuntos de disponibilidade
 
-Lembre-se que você definiu a Tabela M na [fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Lembre-se de que você definiu a Tabela M na [fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
 Quando você tiver fornecido a todos os valores adequados, execute o bloco resultante no prompt do Azure PowerShell.
 
@@ -168,4 +168,4 @@ Para continuar com a configuração dessa carga de trabalho, vá para a [Fase 5:
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

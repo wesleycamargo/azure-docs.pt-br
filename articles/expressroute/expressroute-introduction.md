@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Introdução à Rota Expressa | Microsoft Azure"
-   description="Esta página fornece uma visão geral do serviço de Rota Expressa, incluindo como funciona uma conexão da Rota Expressa, trabalhar com provedores do Exchange e provedores de serviços de rede e emparelhamento público, privado e da Microsoft na Rota Expressa."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="Esta página fornece uma visão geral do serviço de Rota Expressa, incluindo como funciona uma conexão da Rota Expressa, trabalhar com provedores do Exchange e provedores de serviços de rede e emparelhamento público, privado e da Microsoft na Rota Expressa."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/15/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Visão Geral Técnica da Rota Expressa
 
@@ -104,4 +104,4 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 - Encontrar um provedor de serviços. Consulte [Locais e provedores de serviços de Rota Expressa](expressroute-locations.md).
 - Configurar sua conexão da Rota Expressa. Consulte [Configurar uma conexão da Rota Expressa através de um provedor de serviço de rede](expressroute-configuring-nsps.md) ou [Configurar uma conexão da Rota Expressa por meio de um provedor do Exchange](expressroute-configuring-exps.md) para obter instruções. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

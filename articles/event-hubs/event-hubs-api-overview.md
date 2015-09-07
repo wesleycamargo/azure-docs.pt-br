@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Visão geral de API de Hubs de Eventos"
-   description="Um resumo de algumas das principais APIs de cliente .NET de Hubs de Eventos."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+	description="Um resumo de algumas das principais APIs de cliente .NET de Hubs de Eventos."
+	services="event-hubs"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="07/10/2015"
+	ms.author="sethm"/>
 
 # Visão geral de API de Hubs de Eventos
 
@@ -186,6 +186,5 @@ As referências de API .NET estão aqui:
 
 - [Referência de API do .NET de Hubs de Eventos e Barramento de Serviço](https://msdn.microsoft.com/library/jj933424.aspx)
 - [Referência de API do host de processador de eventos](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
-- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

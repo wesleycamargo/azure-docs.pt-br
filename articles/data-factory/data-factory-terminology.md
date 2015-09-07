@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory - Terminologia" 
-	description="Este artigo apresenta a terminologia usada na criação de data factories usando o serviço Azure Data Factory" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure Data Factory - Terminologia"
+	description="Este artigo apresenta a terminologia usada na criação de data factories usando o serviço Azure Data Factory"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 #Azure Data Factory - Terminologia
@@ -47,7 +47,7 @@ Uma etapa um processamento de dados em um pipeline que usa um ou mais conjuntos 
 O serviço de Fábrica de Dados do Azure dá suporte às seguintes atividades em um pipeline:
 
 - **Atividade de Cópia** copia os dados de um repositório de dados para outro.  
-- A **Atividade de HDInsight** processa dados executando scripts Hive/Pig ou programas MapReduce em um cluster HDInsight. Consulte [Usar Pig e Hive com Data Factory][use-pig-hive] e [Invocar programas MapReduce por meio da Data Factory][run-map-reduce] para obter detalhes. 
+- A **Atividade de HDInsight** processa dados executando scripts Hive/Pig ou programas MapReduce em um cluster HDInsight.  
 - A **Atividade de contagem em lotes do Aprendizado de Máquina do Azure** invoca a API de pontuação em lotes do Aprendizado de Máquina do Azure. Consulte [Criar pipelines de previsão usando a Azure Data Factory e o Aprendizado de Máquina do Azure][azure-ml-adf] para obter detalhes. 
 - A **Atividade de Procedimento Armazenado** invoca um procedimento armazenado em um Banco de Dados SQL do Azure. Consulte a [Atividade de Procedimento Armazenado][msdn-stored-procedure-activity] na biblioteca MSDN para obter detalhes.   
 
@@ -82,8 +82,6 @@ Uma característica importante do Hub é que um pipeline é executado em um úni
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[use-pig-hive]: data-factory-pig-hive-activities.md
-[run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
 [adf-common-scenarios]: data-factory-common-scenarios.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
@@ -112,4 +110,4 @@ Uma característica importante do Hub é que um pipeline é executado em um úni
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

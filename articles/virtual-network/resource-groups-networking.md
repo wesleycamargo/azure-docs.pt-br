@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Provedor de recursos de rede"
-   description="Provedor de recursos de rede"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Provedor de recursos de rede"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="telmos"/>
 
 # Provedor de recursos de rede
 Uma necessidade básica para sucesso nos negócios de hoje é a capacidade de compilar e gerenciar aplicativos com reconhecimento de rede de grande escala de uma maneira ágil, flexível, segura e repetível. O ARM (Gerenciador de Recursos do Azure) permite que você crie aplicativos como um único conjunto de recursos em grupos de recursos. Esses recursos são gerenciados por meio de vários provedores de recursos no ARM.
@@ -210,7 +210,7 @@ As principais vantagens de usar modelos são:
 
 Para exemplos de modelo, consulte [Modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Para obter mais informações sobre a linguagem de modelo do ARM, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para obter mais informações sobre a linguagem de modelo do ARM, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 O modelo de exemplo acima usa a rede virtual e recursos de sub-rede. Há outros recursos de rede, que você pode usar, conforme listado abaixo:
 
@@ -267,6 +267,19 @@ Os balanceadores de carga contêm os seguintes recursos filho:
 - **Sondas** – sondas permitem que você controle a integridade das instâncias de VMs. Se um teste de integridade falhar, a instância VM será retirada automaticamente do rodízio.
 - **Regras de NAT de entrada** – regras de NAT definindo o tráfego de entrada fluindo pelo IP front-end e distribuído para o IP de back-end.
 
+## Application Gateway
+
+O Application Gateway o fornece uma solução de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7. O balanceamento de carga do aplicativo permite o uso de regras de roteamento para o tráfego de rede com base em HTTP.
+
+Os Application Gateways contêm os seguintes recursos filhos:
+
+- **Pool de servidores back-end** - a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público. 
+- **Configurações do pool de servidores back-end** - cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
+- **Porta front-end** - essa porta é a porta pública aberta no application gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
+- **Ouvinte** - o ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). 
+- **Regra** - a regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra básica. A regra básica é a distribuição de carga round robin.
+
+
 ## IP público
 Um recurso de endereço IP público pode fornecer tanto um endereço IP público dinâmico quanto um reservado. Um endereço IP público pode ser atribuído a um balanceador de carga, NAT ou associado a um endereço IP privado em uma NIC de uma VM.
 
@@ -296,16 +309,18 @@ As propriedades principais de uma regra de segurança incluem:
 - **Direção** – especifica se a regra será aplicada ao tráfego na direção de *entrada* ou *saída*. 
 
 ## Gateway de VPN 
-Um recurso de gateway VPN permite que você crie uma conexão segura entre seu data center local e o Azure. Um recurso de gateway VPN pode ser configurado de três maneiras diferentes:
+Um recurso de gateway de VPN permite que você crie uma conexão segura entre seu data center local e o Azure. Um recurso de gateway de VPN pode ser configurado de três maneiras diferentes:
  
 - **Ponto a Site** – você pode acessar com segurança os recursos do Azure hospedados em uma VNET com um cliente VPN, em qualquer computador. 
 - **Conexão multissite** – você pode conectar-se com segurança por meio de seus data centers locais para recursos em execução em uma VNET. 
 - **VNET para VNET** – você pode conectar-se com segurança entre VNETS do Azure na mesma região ou em regiões diferentes, para criar cargas de trabalho com redundância geográfica.
 
-Propriedades principais de um gateway VPN incluem:
+Propriedades principais de um gateway de VPN incluem:
  
 - **Tipo de gateway** - gateway roteado dinamicamente ou estaticamente. 
 - **Prefixo do Pool de endereços do cliente de VPN** – endereços IP a serem atribuídos a clientes conectando-se em configuração de ponto a site.
+
+
 
 ## Perfil de Gerenciador de Tráfego
 O gerenciador de tráfego e seu recurso de ponto de extremidade filho permitem a distribuição de tráfego para pontos de extremidade no Azure e fora do Azure. Essa distribuição de tráfego é controlada por políticas. O Gerenciador de Tráfego também permite que a integridade do ponto de extremidade seja monitorada e que o tráfego seja desviado adequadamente, com base na integridade de um ponto de extremidade.
@@ -329,6 +344,16 @@ As propriedades principais de um ponto de extremidade incluem:
 - **Peso** - peso de ponto de extremidade usado no gerenciamento de tráfego. 
 - **Prioridade** - prioridade do ponto de extremidade, usada para definir uma ação de failover. 
 
+## DNS do Azure
+
+O DNS do Azure é um serviço de hospedagem para domínios DNS, fornecendo resolução de nomes usando a infraestrutura do Microsoft Azure.
+
+As propriedades principais de um DNS do Azure incluem:
+
+- **Zonas de DNS** - Informações de zona de domínio para hospedar registros de DNS de um domínio específico.
+- **Conjuntos de registro DNS** - uma coleção de registros de um tipo específico. Os tipos com suporte são A, AAAA, CNAME, MX, NS, SOA, SRV e TXT.
+
+
 ## Criação de um modelo
 
 Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureCLI ou apenas clicando para implantar no GitHub. Para implantar os serviços de um modelo no GitHub, execute as etapas a seguir:
@@ -343,13 +368,14 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 
 ![Implantação do modelo de exemplo](./media/resource-groups-networking/Figure6.png)
 
+
 ## Consulte também
 
 [Referência de API de rede do Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 [Referência do Azure PowerShell para rede](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Idioma de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Idioma de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 
 [Rede do Azure - modelos usados frequentemente](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +389,4 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 
 [Implantações de modelo](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

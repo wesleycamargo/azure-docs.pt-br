@@ -1,25 +1,24 @@
 <properties
-   pageTitle="Conector do QuickBooks"
-   description="Como usar o Conector do QuickBooks"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Usando o Conector do QuickBooks em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector do QuickBooks ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-#Usando o Conector do QuickBooks em seu aplicativo lógico#
-
-Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. O Conector do QuickBooks permite criar e modificar entidades do QuickBooks diferentes. A seguir há uma lista de entidades do QuickBooks às quais o Conector do QuickBooks dá suporte.
+# Introdução ao Conector do QuickBooks e à adição dele a seu Aplicativo Lógico
+Use o conector do QuickBooks para criar e modificar entidades diferentes do QuickBooks. A tabela a seguir lista as entidades com suporte:
 
 Entidades|Descrição
 ---|---
@@ -31,7 +30,7 @@ Fatura|Uma Fatura representa um formulário de venda em que o cliente paga por u
 Item|Um item é algo que sua empresa compra, vende ou revende, como produtos, frete e manuseio de encargos, descontos e impostos sobre vendas (caso aplicável). Um item é mostrado como uma linha em uma fatura ou outro formulário de venda.
 SalesReceipt|Essa entidade representa o recibo de venda que é fornecido a um cliente.
 
-
+Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode adicionar o Conector do QuickBooks a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 ##Ações do QuickBooks ##
 A seguir estão as diferentes ações disponíveis no Conector do QuickBooks.
@@ -124,7 +123,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho 
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-quickbooks/1_New_Logic_App.png
@@ -141,4 +140,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

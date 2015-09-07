@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2015"
+	ms.date="08/24/2015"
 	ms.author="aashishr"/>
 
 # Backup de máquina virtual do Azure - Introdução
@@ -111,7 +111,7 @@ Saiba mais sobre o [Agente de VM](https://go.microsoft.com/fwLink/?LinkID=390493
 
 ## Limitações durante a visualização
 
-- Não há suporte para o backup de máquinas virtuais com mais de cinco discos.
+- Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
 - Não há suporte para o backup de máquinas virtuais usando o armazenamento Premium.
 - Não há suporte para o backup de máquinas virtuais usando várias NICs ou em uma configuração de balanceamento de carga.
 - Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Primeiro, exclua a máquina virtual existente e todos os discos associados e, em seguida, restaure os dados do backup.
@@ -136,4 +136,4 @@ Para começar a usar o backup de máquinas virtuais, saiba como:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

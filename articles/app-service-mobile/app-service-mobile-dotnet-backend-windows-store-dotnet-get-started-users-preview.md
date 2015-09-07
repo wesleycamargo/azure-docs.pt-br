@@ -3,7 +3,7 @@
 	description="Aprenda a usar os aplicativos móveis do Serviço de Aplicativos do Azure para autenticar usuários de seu aplicativo Windows usando uma variedade de provedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="08/22/2015"
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao seu aplicativo do Windows
@@ -22,11 +22,7 @@
 
 Este tópico mostra como autenticar usuários de um aplicativo móvel do Serviço de Aplicativo em seu aplicativo cliente. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade que tenha suporte no Serviço de Aplicativo. Após ser autenticado e autorizado com sucesso pelo aplicativo móvel, o valor da ID de usuário é exibido.
 
-Este tutorial baseia-se no início rápido do aplicativo móvel. Você deve primeiro concluir o tutorial [Introdução ao seu aplicativo móvel].
-
-##<a name="review"></a>Examine a configuração do projeto do servidor (opcional)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+Este tutorial baseia-se no início rápido do aplicativo móvel. Você deve primeiro concluir o tutorial [Introdução ao seu aplicativo móvel]. http://acom-sandbox.azurewebsites.net/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/?rnd=1
 
 ##<a name="create-gateway"></a>Criar um gateway de Serviço de Aplicativo
 
@@ -40,7 +36,7 @@ Este tutorial baseia-se no início rápido do aplicativo móvel. Você deve prim
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. No Visual Studio, abra o arquivo de projeto App.xaml.cs compartilhado em seu projeto de aplicativo do cliente e verifique se a instância **MobileServiceClient** está configurada para usar tanto a URL do back-end do aplicativo móvel e o Gateway.
+&nbsp;&nbsp;4. No Visual Studio, abra o arquivo de projeto App.xaml.cs compartilhado em seu projeto de aplicativo do cliente e verifique se a instância **MobileServiceClient** está configurada para usar tanto a URL do back-end do Aplicativo Móvel e o Gateway.
 
 &nbsp;&nbsp;5. Com um os projetos de aplicativo do Windows configurado como projeto de inicialização, pressione a tecla F5 para executar o aplicativo; verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado.
 
@@ -64,4 +60,4 @@ Em seguida, você atualizará o aplicativo para autenticar usuários antes de so
 [Introdução ao seu aplicativo móvel]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

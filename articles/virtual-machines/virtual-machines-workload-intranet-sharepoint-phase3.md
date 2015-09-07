@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fase 3 da carga de trabalho do farm da intranet do SharePoint: Configurar a infraestrutura do SQL Server"
-	description="Na terceira fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você deve criar os computadores do cluster do SQL Server e o próprio cluster."
+	pageTitle="Farm do SharePoint Server 2013 Fase 3 | Microsoft Azure"
+	description="Crie os computadores e o cluster do SQL Server e habilite grupos de disponibilidade na Fase 3 do farm do SharePoint Server 2013 no Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -35,7 +35,7 @@ Use o seguinte bloco de comandos do PowerShell para criar as máquinas virtuais 
 - Tabela A para os conjuntos de disponibilidade.
 - Tabela C para os serviços de nuvem.
 
-Lembre-se de que você definiu a tabela na [Fase 2: Configurar controladores de domínio](virtual-machines-workload-intranet-sharepoint-phase2.md) e as Tabelas V, S, A e C na [Fase 1: Configurar o Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
+Lembre-se de que você definiu a Tabela M na [Fase 2: configurar controladores de domínio](virtual-machines-workload-intranet-sharepoint-phase2.md) e as Tabelas V, S, A e C na [Fase 1: configurar o Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 Quando você tiver fornecido a todos os valores adequados, execute o bloco resultante no prompt de comando do Azure PowerShell.
 
@@ -44,7 +44,7 @@ Quando você tiver fornecido a todos os valores adequados, execute o bloco resul
 	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availSet="<Table A – Item 2 – Availability set name column>"
 
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Enterprise on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
 
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server computer."
@@ -143,7 +143,7 @@ O SQL Server exige uma porta que os clientes usem para acessar o servidor de ban
 
 Saia como administrador local de cada uma das máquinas virtuais do SQL Server.
 
-Para obter informações sobre como otimizar o desempenho do SQL Server no Azure, consulte [Práticas recomendadas de desempenho do SQL Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). Você também desabilitar o armazenamento com redundância geográfica (GRS) para a conta de armazenamento do farm do SharePoint e usar espaços de armazenamento para otimizar o IOPs.
+Para obter informações sobre como otimizar o desempenho do SQL Server no Azure, consulte [Práticas recomendadas de desempenho do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md). Você também desabilitar o armazenamento com redundância geográfica (GRS) para a conta de armazenamento do farm do SharePoint e usar espaços de armazenamento para otimizar o IOPs.
 
 ## Configurar o servidor do nó principal do cluster
 
@@ -228,4 +228,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 4: conf
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

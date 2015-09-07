@@ -8,7 +8,7 @@ Leituras de API do Gerenciador de Recursos|32\.000 por hora|32\.000 por hora
 Gravações de API do Gerenciador de Recursos|1\.200 por hora|1\.200 por hora
 Tamanho da solicitação de API do Gerenciador de Recursos|4194304 bytes|4194304 bytes
 [Serviços de nuvem](cloud-services-what-is.md) por assinatura|Preterido<sup>3</sup>|Preterido<sup>3</sup>
-[Grupos de afinidade](http://msdn.microsoft.com/library/azure/jj156085.aspx) por assinatura|Preterido<sup>3</sup>|Preterido<sup>3</sup>
+[Grupos de afinidade](../virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura|Preterido<sup>3</sup>|Preterido<sup>3</sup>
 
 <sup>1</sup>Os limites padrão variam de acordo com o tipo de categoria oferecido, como avaliação gratuita, pré-pago, etc.
 
@@ -16,4 +16,4 @@ Tamanho da solicitação de API do Gerenciador de Recursos|4194304 bytes|4194304
 
 <sup>3</sup>Esses recursos não são mais necessários com os Grupos de Recursos do Azure e o Gerenciador de Recursos do Azure.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

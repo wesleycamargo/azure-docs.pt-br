@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector do Oracle: mover dados para e do Oracle" 
-	description="Saiba mais sobre o conector do Oracle para o serviço Data Factory que permite mover dados de/para o banco de dados Oracle local." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Mover dados para e do Oracle | Azure Data Factory"
+	description="Aprenda a mover dados de/para o banco de dados da Oracle que está no local usando o Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector do Oracle: mover dados para o Oracle local 
+# Mover dados para Oracle no local usando O Azure Data Factory 
 
 Este artigo descreve como você pode usar a atividade de cópia da data factory para mover dados do Oracle para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
@@ -24,11 +24,11 @@ Este artigo descreve como você pode usar a atividade de cópia da data factory 
 
 O exemplo a seguir mostra:
 
-1.	Um serviço vinculado do tipo OnPremisesOracle.
-2.	Um serviço vinculado do tipo AzureStorage.
-3.	Um conjunto de dados de entrada do tipo OracleTable. 
-4.	Um conjunto de dados de saída do tipo AzureBlob.
-5.	O pipeline com a atividade de cópia que usa OracleSource como fonte e BlobSink como coletor.
+1.	Um serviço vinculado do tipo [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
+2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties). 
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+5.	O [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que usa [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) como fonte e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) como coletor.
 
 O exemplo copia dados de uma tabela em um banco de dados Oracle local para um blob a cada hora. Para obter mais informações sobre várias propriedades usadas no exemplo abaixo, consulte a documentação sobre as diferentes propriedades nas seções após os exemplos.
 
@@ -204,13 +204,14 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-type | A propriedade type deve ser definida como: **OnPremisesOracle** | Sim
+type | A propriedade do tipo deve ser definida como: **OnPremisesOracle** | Sim
 connectionString | Especifique as informações necessárias para se conectar à instância do Banco de Dados Oracle para a propriedade connectionString. | Sim 
 gatewayName | Nome do gateway que será usado para se conectar ao servidor Oracle local | Sim
 
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do Oracle local.
 ## Propriedades de tipo do conjunto de dados do Oracle
 
-Para obter uma lista completa das seções e propriedades disponíveis para definição de conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (Oracle, blob do Azure, tabela do Azure etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (Oracle, blob do Azure, tabela do Azure etc.).
  
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo OracleTable tem as propriedades a seguir.
 
@@ -231,13 +232,13 @@ No caso de Atividade de cópia, quando a fonte é do tipo SqlSource, as seguinte
 Propriedade | Descrição |Valores permitidos | Obrigatório
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. 
-Por exemplo: select * from MyTable <p>Se não for especificada, a instrução SQL que é executada é: select from MyTable</p> | Não
+Por exemplo: select * from MyTable <p>Se não for especificada, a instrução SQL que é executada é: select * from MyTable</p> | Não
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Mapeamento de tipo para Oracle
 
-Conforme mencionado no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de tipos de fonte para tipos de coletor, com a abordagem em duas etapas descrita a seguir:
+Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -273,4 +274,4 @@ XML | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

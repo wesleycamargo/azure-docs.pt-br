@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Usando o editor de regras de sincronização do Azure AD Connect" 
-	description="Saiba como usar o editor de regras de sincronização do Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Usando o editor de regras de sincronização do Azure AD Connect"
+	description="Saiba como usar o editor de regras de sincronização do Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Editor de regras de sincronização do Azure AD Connect
@@ -74,4 +74,4 @@ Para colocar isso em contexto, em uma implantação de floresta de Recurso de Co
 O tópico de transformação é vasto e fornece uma grande parte da configuração personalizada possível com o Azure AD Connect. A configuração personalizada não será abordada neste documento de visão geral, mas vamos examinar alguns fluxos de atributos adicionais neste documento.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

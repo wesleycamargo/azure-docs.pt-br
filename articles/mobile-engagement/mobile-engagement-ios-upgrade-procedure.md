@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #Procedimentos de atualização
 
@@ -23,11 +23,13 @@ Se você já tiver integrado uma versão anterior do Engagement no seu aplicativ
 Para cada nova versão do SDK, você deve primeiro substituir (remover e importar novamente no xcode) as pastas EngagementSDK e EngagementReach.
 
 ##De 2.0.0 a 3.0.0
+Suporte removido para iOS 4.X. A partir de esta versão, o destino da implantação do seu aplicativo deve ter pelo menos o iOS 6.
+
 Se você estiver usando o Reach em seu aplicativo, deverá adicionar o valor `remote-notification` à matriz `UIBackgroundModes` no arquivo Info.plist para receber notificações remotas.
 
-O método `application:didReceiveRemoteNotification:` precisa ser substituído por `application:didReceiveRemoteNotification:fetchCompletionHandler:` em seu representante de aplicativo.
+O método `application:didReceiveRemoteNotification:` precisa ser substituído pelo `application:didReceiveRemoteNotification:fetchCompletionHandler:` em seu representante de aplicativo.
 
-"AEPushDelegate.h" é uma interface preterida e você precisa remover todas as referências. Isso inclui remover `[[EngagementAgent shared] setPushDelegate:self]` e os métodos representantes do seu representante de aplicativo:
+"AEPushDelegate.h" é uma interface preterida e você precisa remover todas as referências. Isso inclui remover o `[[EngagementAgent shared] setPushDelegate:self]` e os métodos representantes do seu representante de aplicativo:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
@@ -70,4 +72,4 @@ Exemplos:
 -   A classe `CapptainUtils` foi renomeada para `EngagementUtils`.
 -   A classe `CapptainViewController` foi renomeada para `EngagementViewController`.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

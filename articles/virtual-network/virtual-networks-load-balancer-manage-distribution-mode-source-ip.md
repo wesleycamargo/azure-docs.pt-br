@@ -1,22 +1,20 @@
 <properties 
    pageTitle="Gerenciar: modo de distribuição do balanceador de carga (afinidade de IP de origem)"
-   description="Recursos de gerenciamento para o modo de distribuição do balanceador de carga do Azure" 
-   services="virtual-network" 
-   documentationCenter="" 
-   authors="telmosampaio" 
-   manager="carolz" 
-   editor=""
-   />
+	description="Recursos de gerenciamento para o modo de distribuição do balanceador de carga do Azure"
+	services="virtual-network"
+	documentationCenter=""
+	authors="telmosampaio"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="telmos"
-   />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/21/2015"
+	ms.author="telmos"/>
    
 # Gerenciar a rede virtual: modo de distribuição do balanceador de carga (afinidade de IP de origem)
 **Afinidade de IP de origem** (também conhecida como **afinidade de sessão** ou **afinidade IP do cliente**), um modo de distribuição do balanceador de carga do Azure, une conexões de um único cliente a um único servidor hospedado do Azure, em vez de distribuir cada conexão do cliente dinamicamente para diferentes servidores hospedados do Azure (o comportamento padrão do balanceador de carga).
@@ -32,7 +30,7 @@ A afinidade do IP de origem resolve uma [incompatibilidade anterior entre o bala
 A afinidade de IP de origem podem ser configurada para:
 
 * [Pontos de extremidade de máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md)
-* [Conjuntos de pontos de extremidade com balanceamento de carga](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [Conjuntos de pontos de extremidade com balanceamento de carga](../load-balancer/load-balancer-overview.md)
 * [Funções da Web](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Funções de trabalho](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
@@ -161,4 +159,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

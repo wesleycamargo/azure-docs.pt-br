@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Modelando dados no Banco de Dados de Documentos do Azure | Microsoft Azure" 
-	description="Saiba como modelar dados para um banco de dados de documentos NoSQL, como o Banco de Dados de Documentos do Azure." 
-	services="documentdb" 
-	authors="ryancrawcour" 
-	manager="jhubbard" 
-	editor="mimig1" 
+	pageTitle="Modelando dados no Banco de Dados de Documentos do Azure | Microsoft Azure"
+	description="Saiba como modelar dados para um banco de dados de documentos NoSQL, como o Banco de Dados de Documentos do Azure."
+	services="documentdb"
+	authors="ryancrawcour"
+	manager="jhubbard"
+	editor="mimig1"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="ryancraw"/>
 
 #Modelando dados no Banco de Dados de Documentos#
@@ -392,4 +392,4 @@ Para saber como fragmentar seus dados em diversas partições, consulte [Partici
 Por fim, para obter diretrizes sobre fragmentação e modelagem de dados para aplicativos multilocatários, consulte [Dimensionando um aplicativo multilocatário com o Banco de Dados de Documentos do Azure](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

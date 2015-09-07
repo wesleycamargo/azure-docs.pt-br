@@ -1,25 +1,24 @@
 <properties
-   pageTitle="Usando o conector do Barramento de Serviço do Azure no Serviço de Aplicativo do Azure"
-   description="Como usar o conector do Barramento de Serviço do Azure"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Usando o Conector do Barramento de Serviço do Azure em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector do Barramento de Serviço do Azure ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
 
-# Conector de barramento de serviço do Azure
-
-O conector do Barramento de Serviço do Azure permite enviar mensagens de entidades do Barramento de Serviço como filas e tópicos e receber mensagens de entidades do Barramento de Serviço como filas e assinaturas.
+# Introdução ao Conector do Barramento de Serviço do Azure e à adição dele a seu Aplicativo Lógico 
+Conecte-se ao Barramento de Serviço do Azure para enviar mensagens a Filas e Tópicos e receber mensagens de Filas e Assinaturas. Os conectores são usados em Aplicativos Lógicos como parte de um "fluxo de trabalho".
 
 ## Gatilhos e Ações
 Gatilhos são eventos que ocorrem. Por exemplo, quando um pedido é atualizado ou quando um novo cliente é adicionado. Uma ação é o resultado do gatilho. Por exemplo, quando um pedido ou uma nova mensagem entra em uma fila, enviar um alerta ou uma mensagem.
@@ -37,8 +36,8 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Pesquise "Conector do Barramento de Serviço do Azure", selecione-o e selecione **Criar**.
-3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
-  ![][1]
+3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades:  
+	![][1]
 
 4. Insira as seguintes configurações de pacote:
 
@@ -53,26 +52,26 @@ Nome da assinatura | Digite o nome da assinatura da qual receber mensagens.
 ## Usando o conector do Barramento de Serviço em seu aplicativo lógico
 Após criar o conector, você pode usar o conector do Barramento de Serviço do Azure como gatilho ou ação para seu aplicativo lógico. Para fazer isso:
 
-1.	Crie um novo aplicativo lógico e escolha o mesmo grupo de recursos que tem o conector do Barramento de Serviço do Azure: 
-  ![][2]
+1.	Crie um novo aplicativo lógico e escolha o mesmo grupo de recursos que tem o conector do Barramento de Serviço do Azure:  
+	![][2]
 
-2.	Abra "Gatilhos e Ações" para abrir o designer de Aplicativos Lógicos e configurar seu fluxo de trabalho: 
-  ![][3]
+2.	Abra "Gatilhos e Ações" para abrir o designer de Aplicativos Lógicos e configurar seu fluxo de trabalho:  
+	![][3]
 
-3. O conector do Barramento de Serviço do Azure aparece na seção "Aplicativos de API neste grupo de recursos" na galeria do lado direito: 
-  ![][4]
+3. O conector do Barramento de Serviço do Azure aparece na seção "Aplicativos de API neste grupo de recursos" na galeria do lado direito:  
+	![][4]
 
 4. Você pode soltar o conector do Barramento de Serviço do Azure no editor clicando em "Conector do Barramento de Serviço do Azure".
 
-5.	Agora você pode usar o conector do Barramento de Serviço do Azure no fluxo de trabalho. Você pode usar a mensagem recuperada do gatilho do Barramento de Serviço do Azure ("Mensagem Disponível") em outras ações no fluxo: 
-  ![][5]
+5.	Agora você pode usar o conector do Barramento de Serviço do Azure no fluxo de trabalho. Você pode usar a mensagem recuperada do gatilho do Barramento de Serviço do Azure ("Mensagem Disponível") em outras ações no fluxo:  
+	![][5]
 
-  ![][6]
+	![][6]
 
-Você também pode usar a ação "Enviar Mensagem" do Barramento de Serviço do Azure: 
-  ![][7]
+Você também pode usar a ação "Enviar Mensagem" do Barramento de Serviço do Azure:  
+![][7]
 
-  ![][8]
+![][8]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
@@ -92,4 +91,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

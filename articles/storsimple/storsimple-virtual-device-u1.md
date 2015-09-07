@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Dispositivo virtual StorSimple"
-   description="Saiba como criar, configurar, implantar e gerenciar o dispositivo virtual StorSimple executando a Atualização 1.0."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Dispositivo virtual StorSimple | Microsoft Azure"
+	description="Saiba como criar, configurar, implantar e gerenciar o dispositivo virtual StorSimple executando a Atualização 1.0."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/27/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/21/2015"
+	ms.author="alkohli"/>
 
 # Dispositivo virtual StorSimple
 
@@ -21,8 +21,6 @@
 
 ##Visão geral
 O dispositivo virtual StorSimple é um recurso adicional que acompanha a sua solução Microsoft Azure StorSimple. O dispositivo virtual StorSimple é executado em uma máquina virtual em uma rede virtual do Microsoft Azure e você pode usá-lo para fazer backup e clonar dados de seus hosts. Os tópicos a seguir o ajudarão a conhecer, a configurar e a usar o dispositivo virtual StorSimple.
-
-
 
 - Como o dispositivo virtual difere do dispositivo físico
 
@@ -72,13 +70,13 @@ As seções a seguir ajudarão você a se preparar para usar o dispositivo virtu
 
 Antes de provisionar o dispositivo virtual, você precisará fazer as seguintes preparações no seu ambiente do Azure:
 
-- Para o dispositivo virtual, [configure uma rede virtual no Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx). 
+- Para o dispositivo virtual, [configure uma rede virtual no Azure](../virtual-network/virtual-networks-create-vnet.md). 
 - É aconselhável utilizar o servidor DNS padrão fornecido pelo Azure em vez de especificar o nome do seu próprio servidor DNS. Se o nome do servidor DNS não for válido, haverá falha na criação do dispositivo virtual.
 - Ponto a site e site a site são opcionais, mas não obrigatórios. Se desejar, você pode configurar essas opções para cenários mais avançados. 
 
 >[AZURE.IMPORTANT]**Verifique se a rede virtual está na mesma região das contas de armazenamento de nuvem que você pretende usar com o dispositivo virtual.**
 
-- É possível criar [Máquinas Virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156003.aspx) (servidores de host) na rede virtual que pode usar os volumes expostos pelo dispositivo virtual. Esses servidores devem atender aos seguintes requisitos: 							
+- É possível criar [Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-about.md) (servidores de host) na rede virtual que possam usar os volumes expostos pelo dispositivo virtual. Esses servidores devem atender aos seguintes requisitos: 							
 	- Ser VMs do Windows ou do Linux com software Iniciador iSCSI instalado
 	- Estar em execução na mesma rede virtual que o dispositivo virtual
 	- Ser capaz de se conectar ao destino iSCSI do dispositivo virtual por meio do endereço IP interno do dispositivo virtual
@@ -90,9 +88,9 @@ Antes de provisionar o dispositivo virtual, você precisará fazer as seguintes 
 Faça as seguintes atualizações para o seu serviço do Azure StorSimple antes de criar um dispositivo virtual:
 
 
-- Adicione [registros de controle de acesso](https://msdn.microsoft.com/library/1747f56e-858a-4cfe-a020-949d7db23b8b#sec02) às máquinas virtuais que serão os servidores de host para seu dispositivo virtual.
+- Adicione [registros de controle de acesso](storsimple-manage-acrs.md) às máquinas virtuais que serão os servidores de host para seu dispositivo virtual.
 
-- Certifique-se de que tem uma [conta de armazenamento](storsimple-manage-storage-accounts.md) na mesma região do dispositivo virtual. Contas de armazenamento em regiões diferentes podem resultar em baixo desempenho.
+- Certifique-se de que tem uma [conta de armazenamento](storsimple-manage-storage-accounts.md#add-a-storage-account) na mesma região do dispositivo virtual. Contas de armazenamento em regiões diferentes podem resultar em baixo desempenho.
 
 - Certifique-se de usar uma conta de armazenamento para a criação do dispositivo virtual diferente da usada para seus dados. O uso da mesma conta de armazenamento pode resultar em baixo desempenho.
 
@@ -110,43 +108,41 @@ Certifique-se de ter as seguintes informações antes de começar:
 
 ## Criar e configurar o dispositivo virtual
 
-Antes de executar esses procedimentos, certifique-se de que você atendeu aos [pré-requisitos para o dispositivo virtual](#Prerequisites-for-the-virtual-device).
+Antes de executar esses procedimentos, certifique-se de que você atendeu aos [pré-requisitos para o dispositivo virtual](#prerequisites-for-the-virtual-device).
 
-Depois de concluir estes procedimentos, você estará pronto para [Trabalhar com o dispositivo virtual](#Work-with-the-StorSimple-virtual-device).
+Depois de concluir estes procedimentos, você estará pronto para [Trabalhar com o dispositivo virtual](#work-with-the-StorSimple-virtual-device).
 
 ### Criar o dispositivo virtual
 
 Depois de ter criado uma rede virtual, configurado um serviço Gerenciador do StorSimple e registrado seu dispositivo StorSimple físico no serviço, você poderá usar as seguintes etapas para criar um dispositivo virtual StorSimple.
 
-Executar as seguintes etapas para criar o dispositivo virtual StorSimple
-
-
+Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
 1.  No Portal de Gerenciamento, vá até o serviço **Gerenciador do StorSimple**.
 
-- Vá para a página **Dispositivos**. Clique em **Criar dispositivo virtual** na parte inferior da página Dispositivos.
+2. Vá para a página **Dispositivos**. Clique em **Criar dispositivo virtual** na parte inferior da página **Dispositivos**.
 
-- Na **caixa de diálogo Criar Dispositivo Virtual**, especifique o seguinte:
+3. Na **caixa de diálogo Criar Dispositivo Virtual**, especifique o seguinte:
 
-	a. **Nome** – um nome exclusivo para seu dispositivo virtual.
+	1. **Nome** – um nome exclusivo para seu dispositivo virtual.
 
 
-	b. **Versão** - escolha a versão do dispositivo virtual. Esta opção não estará disponível se você tiver apenas dispositivos físicos com a Atualização 1 (ou acima) registrados com esse serviço. Esse campo é exibido somente se você tiver uma combinação de dispositivos físicos pré-atualização 1 e Atualização 1 registrados com o serviço. A versão do dispositivo virtual determinará em qual dispositivo físico você pode aplicar o failover ou clonar. É importante que você crie uma versão apropriada do dispositivo virtual. Selecione:
+	2. **Versão** - escolha a versão do dispositivo virtual. Esta opção não estará disponível se você tiver apenas dispositivos físicos com a Atualização 1 (ou acima) registrados com esse serviço. Esse campo é exibido somente se você tiver uma combinação de dispositivos físicos pré-atualização 1 e Atualização 1 registrados com o serviço. A versão do dispositivo virtual determinará em qual dispositivo físico você pode aplicar o failover ou clonar. É importante que você crie uma versão apropriada do dispositivo virtual. Selecione:
 
-	- Versão da Atualização 0.3 se for realizar o failover ou DR de um dispositivo físico com a versão GA ou com as Atualizações 0.1 a 0.3. 
-	- Versão da Atualização 1 se for realizar o failover ou clone de um dispositivo físico com a Atualização 1 (ou acima). 
+	   - Versão da Atualização 0.3 se for realizar o failover ou DR de um dispositivo físico com a versão GA ou com as Atualizações 0.1 a 0.3. 
+	   - Versão da Atualização 1 se for realizar o failover ou clone de um dispositivo físico com a Atualização 1 (ou acima). 
 
  
-	b. **Rede virtual** – o nome da rede virtual que você deseja usar com este dispositivo virtual.
+	3. **Rede virtual** – o nome da rede virtual que você deseja usar com este dispositivo virtual.
 
-	c. **Sub-rede** – a sub-rede na rede virtual para uso com o dispositivo virtual.
+	4. **Sub-rede** – a sub-rede na rede virtual para uso com o dispositivo virtual.
 
-	d. **Conta de Armazenamento para Criação de Dispositivo Virtual** – a conta de armazenamento que será usada para armazenar a imagem do dispositivo virtual durante o provisionamento. Esta conta de armazenamento deve estar na mesma região do dispositivo virtual e da rede virtual. Ela não deve ser usada para armazenamento de dados, o dispositivo físico ou o dispositivo virtual. Por padrão, uma nova conta de armazenamento será criada para essa finalidade. No entanto, se você souber que você já tem uma conta de armazenamento adequada para esse uso, poderá selecioná-la da lista.
+	5. **Conta de Armazenamento para Criação de Dispositivo Virtual** – a conta de armazenamento que será usada para armazenar a imagem do dispositivo virtual durante o provisionamento. Esta conta de armazenamento deve estar na mesma região do dispositivo virtual e da rede virtual. Ela não deve ser usada para armazenamento de dados, o dispositivo físico ou o dispositivo virtual. Por padrão, uma nova conta de armazenamento será criada para essa finalidade. No entanto, se você souber que você já tem uma conta de armazenamento adequada para esse uso, poderá selecioná-la da lista.
 	
 
->[AZURE.NOTE]O dispositivo virtual só pode trabalhar com as contas de armazenamento do Azure. Outros provedores de serviços de nuvem, como a Amazon, HP e OpenStack (que têm suporte para o dispositivo físico) não têm suporte para o dispositivo virtual StorSimple.
+    >[AZURE.NOTE]O dispositivo virtual só pode trabalhar com as contas de armazenamento do Azure. Outros provedores de serviços de nuvem, como a Amazon, HP e OpenStack (que têm suporte para o dispositivo físico) não têm suporte para o dispositivo virtual StorSimple.
 	
-- Clique na marca de seleção para indicar que você entende que os dados armazenados no dispositivo virtual serão hospedados em um datacenter da Microsoft. Quando você usa apenas um dispositivo físico, sua chave de criptografia é mantida com seu dispositivo; portanto, a Microsoft não pode descriptografá-la. Quando você usa um dispositivo virtual, a chave de criptografia e a chave de descriptografia são armazenadas no Microsoft Azure. Para saber mais, consulte [Considerações de segurança para usar um dispositivo virtual](#security-considerations-for-using-a-virtual-device).
+4. Clique na marca de seleção para indicar que você entende que os dados armazenados no dispositivo virtual serão hospedados em um datacenter da Microsoft. Quando você usa apenas um dispositivo físico, sua chave de criptografia é mantida com seu dispositivo; portanto, a Microsoft não pode descriptografá-la. Quando você usa um dispositivo virtual, a chave de criptografia e a chave de descriptografia são armazenadas no Microsoft Azure. Para saber mais, consulte [Considerações de segurança para usar um dispositivo virtual](#security-considerations-for-using-a-virtual-device).
 
 ### Configurar e registrar o dispositivo virtual
 
@@ -157,13 +153,13 @@ Execute as seguintes etapas para configurar e registrar o dispositivo virtual St
 
 1. Selecione o **Dispositivo virtual StorSimple** que acabou de criar na página Dispositivos. 
 
-- Clique em **concluir a instalação do dispositivo**. Isso inicia o assistente Configurar dispositivo.
+2. Clique em **concluir a instalação do dispositivo**. Isso inicia o assistente Configurar dispositivo.
 
-- Insira a **Chave de Criptografia de Dados de Serviço** no espaço fornecido.
+3. Insira a **Chave de Criptografia de Dados de Serviço** no espaço fornecido.
 
-- Insira as senhas do Snapshot Manager e do Administrador do Dispositivo com o comprimento e as configurações especificadas.
+4. Insira as senhas do Snapshot Manager e do Administrador do Dispositivo com o comprimento e as configurações especificadas.
 
-- Clique na marca de seleção para concluir a configuração inicial e o registro do dispositivo virtual.
+5. Clique na marca de seleção para concluir a configuração inicial e o registro do dispositivo virtual.
 
 ### Modificar as configurações do dispositivo
 
@@ -181,7 +177,7 @@ Esse parâmetro contém as credenciais usadas pelo dispositivo virtual quando um
 
 O software Gerenciador de Instantâneos StorSimple software reside no host Windows e permite que os administradores gerenciem backups do seu dispositivo StorSimple na forma de instantâneos locais e de nuvem.
 
->[AZURE.NOTE]**Para o dispositivo virtual, o seu host do Windows é uma VM do Azure.**
+>[AZURE.NOTE]Para o dispositivo virtual, o seu host do Windows é uma VM do Azure.
 
 Ao configurar um dispositivo no Gerenciador de Instantâneos StorSimple, você deverá fornecer o endereço IP do dispositivo StorSimple e a senha para autenticar o dispositivo de armazenamento.
 
@@ -189,11 +185,11 @@ Realize as etapas a seguir para alterar a senha do StorSimple Snapshot Manager.
 
 1. Em seu dispositivo virtual, vá para **Dispositivos > Configurar**.
 
-- Role para baixo até a seção **Gerenciador de Instantâneos**. Insira uma senha que tenha 14 ou 15 caracteres. Verifique se a senha contém três dentre estas quatro opções: caracteres maiúsculos, minúsculos, numéricos e especiais.
+2. Role para baixo até a seção **Gerenciador de Instantâneos**. Insira uma senha que tenha 14 ou 15 caracteres. Verifique se a senha contém três dentre estas quatro opções: caracteres maiúsculos, minúsculos, numéricos e especiais.
 
-- Confirme a senha.
+3. Confirme a senha.
 
-- Na parte inferior da página, clique em **Salvar**.
+4. Na parte inferior da página, clique em **Salvar**.
 
 A senha do Gerenciador de Instantâneos StorSimple foi atualizada e poderá ser usada quando você autenticar seus hosts do Windows.
 
@@ -205,11 +201,11 @@ Realize as etapas a seguir para alterar a senha de administrador do dispositivo 
 
 1. Em seu dispositivo virtual, vá para **Dispositivos > Configurar**.
  
-1. Role para baixo até a seção **Senha do Administrador do Dispositivo**. Forneça uma senha do administrador que contenha de 8 a 15 caracteres. A senha deve conter três dentre estas quatro opções: caracteres maiúsculos, minúsculos, numéricos e especiais.
+2. Role para baixo até a seção **Senha do Administrador do Dispositivo**. Forneça uma senha do administrador que contenha de 8 a 15 caracteres. A senha deve conter três dentre estas quatro opções: caracteres maiúsculos, minúsculos, numéricos e especiais.
 
-1. Confirme a senha.
+3. Confirme a senha.
  
-1. Na parte inferior da página, clique em **Salvar**.
+4. Na parte inferior da página, clique em **Salvar**.
 
 A senha do administrador do dispositivo agora deve estar atualizada. Você usará esta senha modificada para acessar a interface do Windows PowerShell em seu dispositivo virtual.
 
@@ -281,7 +277,7 @@ Depois que você o tiver habilitado na página de configuração do dispositivo 
 
 >[AZURE.WARNING]**Para maior segurança, é altamente recomendável que você use HTTPS durante a conexão com os pontos de extremidade e, em seguida, exclua os pontos de extremidade depois de concluir sua sessão remota do PowerShell.**
 
-Você deve seguir os procedimentos em [Conectando remotamente usando o Windows PowerShell](https://msdn.microsoft.com/library/dn772393.aspx) para configurar a comunicação remota para seu dispositivo virtual.
+Você deve seguir os procedimentos em [Conectar-se remotamente ao seu dispositivo StorSimple](storsimple-remote-connect.md) para configurar a comunicação remota no seu dispositivo virtual.
 
 No entanto, se você quiser se conectar diretamente ao dispositivo virtual de outro computador fora da rede virtual ou do ambiente do Microsoft Azure, precisará criar pontos de extremidade adicionais, como descrito no procedimento a seguir.
 
@@ -337,35 +333,35 @@ Se você decidir que deseja apenas recriar seu dispositivo virtual, simplesmente
 
 A recuperação de desastres (RD) é um dos principais cenários para os quais o dispositivo virtual StorSimple foi projetado. Nesse cenário, o dispositivo físico StorSimple ou o datacenter inteiro podem não estar disponível. Felizmente, você pode usar um dispositivo virtual para restaurar operações em um local alternativo. Durante a RD, os contêineres de volume do dispositivo de origem alteram a propriedade e são transferidos para o dispositivo de destino. Os pré-requisitos para a RD são que o dispositivo virtual tenha sido criado e configurado, todos os volumes no contêiner de volume tenham sido colocados offline e o contêiner de volume tenha um de instantâneo de nuvem associado.
 
->[AZURE.NOTE]**Você não pode realizar o failover ou clonar um dispositivo que executa a Atualização 1 para um dispositivo que executa um software anterior à Atualização 1. Se você selecionar um dispositivo de destino que esteja executando um software anterior à Atualização 1, receberá uma notificação de que precisa atualizar o dispositivo de destino antes de realizar o failover.**
+>[AZURE.NOTE]Você não pode realizar o failover ou clonar um dispositivo que executa a Atualização 1 para um dispositivo que executa um software anterior à Atualização 1. Se você selecionar um dispositivo de destino que esteja executando um software anterior à Atualização 1, receberá uma notificação de que precisa atualizar o dispositivo de destino antes de realizar o failover.
 
 ### Para restaurar seu dispositivo físico para o dispositivo virtual StorSimple
 
 1. Verifique se o contêiner de volume para o qual você deseja fazer o failover associou instantâneos de nuvem.
 
-- Abra a página **Dispositivo** e então clique na guia **Contêineres de Volume**.
+2. Abra a página **Dispositivo** e então clique na guia **Contêineres de Volume**.
 
-- Selecione um contêiner de volume para o qual você gostaria de fazer failover para o dispositivo virtual. Clique no contêiner de volume para exibir a lista de volumes no contêiner. Selecione um volume e clique em **Colocar Offline** para colocar o volume offline. Repita este processo para todos os volumes no contêiner de volume.
+3. Selecione um contêiner de volume para o qual você gostaria de fazer failover para o dispositivo virtual. Clique no contêiner de volume para exibir a lista de volumes no contêiner. Selecione um volume e clique em **Colocar Offline** para colocar o volume offline. Repita este processo para todos os volumes no contêiner de volume.
 
-- Repita a etapa anterior para todos os contêineres de volume para os quais você gostaria de fazer o failover para outro dispositivo.
+4. Repita a etapa anterior para todos os contêineres de volume para os quais você gostaria de fazer o failover para outro dispositivo.
 
-- Na página **Dispositivo**, selecione o dispositivo para o qual você precisa fazer failover e, em seguida, clique em **Failover** para abrir o assistente **Failover de Dispositivo**.
+5. Na página **Dispositivo**, selecione o dispositivo para o qual você precisa fazer failover e, em seguida, clique em **Failover** para abrir o assistente **Failover de Dispositivo**.
 
-- Em **Escolher o contêiner de volume para failover**, selecione o volume para o qual você gostaria de fazer failover. Para ser exibido nesta lista, o contêiner de volume deve conter um instantâneo de nuvem e deve estar offline. Se um contêiner de volume que você esperava ver não estiver presente, cancele o assistente e verifique se ele está offline.
+6. Em **Escolher o contêiner de volume para failover**, selecione o volume para o qual você gostaria de fazer failover. Para ser exibido nesta lista, o contêiner de volume deve conter um instantâneo de nuvem e deve estar offline. Se um contêiner de volume que você esperava ver não estiver presente, cancele o assistente e verifique se ele está offline.
 
-- Na próxima página, em **Escolher um dispositivo de destino para os volumes**, nos contêineres selecionados, selecione o dispositivo virtual na lista suspensa de dispositivos disponíveis. Apenas os dispositivos com a capacidade disponível são exibidos na lista suspensa.
+7. Na próxima página, em **Escolher um dispositivo de destino para os volumes**, nos contêineres selecionados, selecione o dispositivo virtual na lista suspensa de dispositivos disponíveis. Apenas os dispositivos com a capacidade disponível são exibidos na lista suspensa.
 
-- Examine todas as configurações de failover na página **Confirmar failover**. Se estiverem corretas, clique no ícone de seleção.
+8. Examine todas as configurações de failover na página **Confirmar failover**. Se estiverem corretas, clique no ícone de seleção.
 
 O processo de failover começará. Quando o failover estiver concluído, vá para a página Dispositivos e selecione o dispositivo virtual que foi usado como o destino para o processo de failover. Vá para a página Contêineres de Volume. Todos os contêineres de volume, juntamente com os volumes do antigo dispositivo, devem aparecer.
 
->[AZURE.NOTE]**A quantidade de armazenamento com suporte no dispositivo virtual é de 30 TB.**
+>[AZURE.NOTE]A quantidade de armazenamento com suporte no dispositivo virtual é de 30 TB.
 
 ## Desligar ou excluir o dispositivo virtual
 
 Se você configurou previamente e usou um dispositivo virtual StorSimple, mas agora deseja parar de acumular encargos de computação para seu uso, poderá desligar o dispositivo virtual. Desligar o dispositivo virtual não exclui seu sistema operacional ou os discos de dados do armazenamento. Isso para o acúmulo de encargos em sua assinatura, mas os encargos de armazenamento para os discos de sistema operacional e de dados continuarão.
 
-Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativá-lo ou por excluí-lo como um dispositivo e se também desejar excluir os backups criados pelo dispositivo virtual. Para saber mais, consulte [Desativar](https://msdn.microsoft.com/library/33b7811b-36ba-4609-b165-0796ad456435#BKMK_acis_deactivate).
+Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativá-lo ou por excluí-lo como um dispositivo e se também desejar excluir os backups criados pelo dispositivo virtual. Para saber mais, consulte [Desativar um dispositivo](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
 
 ### Para desligar o dispositivo virtual StorSimple
 
@@ -385,6 +381,6 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 ## Próximas etapas
 
-Saiba como [Restaurar de um conjunto de backups](../storsimple-restore-from-backupset.md)
+Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

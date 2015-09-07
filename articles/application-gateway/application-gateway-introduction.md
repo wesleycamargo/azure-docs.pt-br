@@ -1,24 +1,26 @@
 <properties 
    pageTitle="Introdução ao Application Gateway | Microsoft Azure"
-   description="Esta página fornece uma visão geral do serviço Application Gateway para balanceamento de carga de camada 7, incluindo tamanhos de gateway, balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL."
-   documentationCenter="na"
-   services="application-gateway"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn"/>
+	description="Esta página fornece uma visão geral do serviço Application Gateway para balanceamento de carga de camada 7, incluindo tamanhos de gateway, balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL."
+	documentationCenter="na"
+	services="application-gateway"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/24/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="joaoma"/>
 
-# Visão geral técnica do Application Gateway 
+# O que é o Application Gateway?
 
 
-O Microsoft Azure Application Gateway fornece uma solução de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7. O balanceamento de carga do aplicativo permite que os desenvolvedores e administradores de TI criem regras de roteamento de tráfego de rede com base em HTTP. O serviço de gateway de aplicativo é altamente disponível e medido. Para ver o SLA e o preço, consulte as página [SLA](http://azure.microsoft.com/support/legal/sla/) e [Preço](https://azure.microsoft.com/pricing/details/application-gateway/).
+O Microsoft Azure Application Gateway fornece uma solução de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7.
+
+O balanceamento de carga do aplicativo permite que os desenvolvedores e administradores de TI criem regras de roteamento de tráfego de rede com base em HTTP. O serviço de gateway de aplicativo é altamente disponível e medido. Para ver o SLA e o Preço, consulte as página [SLA](http://azure.microsoft.com/support/legal/sla/) e [Preço](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 Atualmente, o Application Gateway oferece suporte à entrega de aplicativo de camada 7 para:
 
@@ -55,8 +57,8 @@ Você pode criar até 10 gateways de aplicativo por assinatura e cada um deles p
 
 ## Próximas etapas
 
-Criar um Application Gateway. Consulte [Criar um Application Gateway](application-gateway-create-gateway.md).
+Criar um Application Gateway. Confira [Criar um Application Gateway](application-gateway-create-gateway.md).
 
-Configurar o descarregamento SSL. Consulte [Configurar o descarregamento de SSL com o Application Gateway](application-gateway-ssl.md).
+Configurar o descarregamento SSL. Confira [Configurar o descarregamento de SSL com o Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

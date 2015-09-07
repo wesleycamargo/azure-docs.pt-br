@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar uma rede virtual entre locais usando tabelas de configuração"
-	description="Este tópico descreve como configurar uma rede virtual entre locais usando tabelas de configurações predeterminadas."
+	pageTitle="Rede virtual usando tabelas de configuração | Microsoft Azure"
+	description="Saiba como configurar uma rede virtual do Azure entre locais com configurações de uma tabela de configuração com configurações predeterminadas."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -30,7 +30,7 @@ Estas tabelas geralmente são preenchidas em um tópico que descreve a configura
 
 O procedimento a seguir faz referência às informações dessas tabelas para orientar você durante o processo de configuração da rede virtual. Se você ainda não tiver especificado as configurações nessas tabelas em outro tópico, mas quiser continuar configurando uma rede virtual entre locais, consulte [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-> [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar a Rota Expressa do Azure para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
+> [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar a Rota Expressa do Azure para sua conexão site a site, consulte [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md).
 
 ## Criar uma nova rede de virtual entre locais do Azure usando os valores da sua tabela de configurações
 
@@ -61,10 +61,10 @@ O procedimento a seguir faz referência às informações dessas tabelas para or
 
 ## Recursos adicionais
 
-[Visão geral da rede virtual](https://msdn.microsoft.com/library/jj156007.aspx)
+[Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md)
 
-[Tarefas de configuração da rede virtual](https://msdn.microsoft.com/library/jj156206.aspx)
+[Tarefas de configuração da rede virtual](../documentation/services/virtual-machines/)
 
 [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

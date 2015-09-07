@@ -1,21 +1,21 @@
 <properties
    pageTitle="Criar uma rede virtual com uma conexão VPN site a site usando o PowerShell e o Gerenciador de Recursos do Azure | Microsoft Azure"
-   description="Criar uma conexão VPN site a site da rede virtual até seu local usando o PowerShell e o Gerenciador de Recursos do Azure"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="Criar uma conexão VPN site a site da rede virtual até seu local usando o PowerShell e o Gerenciador de Recursos do Azure"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/21/2015"
+	ms.author="cherylmc"/>
 
 # Criar uma rede virtual com uma conexão VPN site a site usando o PowerShell e o Gerenciador de Recursos do Azure
 
@@ -96,9 +96,26 @@ Você também especificará o prefixo de espaço de endereço para o site local.
 - O *GatewayIPAddress* é o endereço IP do dispositivo VPN local. O dispositivo VPN não pode estar localizado atrás de um NAT. 
 - O *AddressPrefix* é o espaço de endereço local.
 
-Use este exemplo para adicionar o site local:
+Use este exemplo para adicionar um site local com um prefixo de endereço único.
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+
+Se você deseja adicionar um site local com vários prefixos de endereço, use este exemplo.
+
+		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+
+
+Para adicionar prefixos de endereço adicionais a um site local que você já criou, use o exemplo a seguir.
+
+		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+
+Para remover um prefixo de endereço de um site local, use o exemplo a seguir. Exclua os prefixos de que você não precisa mais. Neste exemplo, não é mais necessário prefixar 20.0.0.0/24 (do exemplo anterior), portanto, iremos atualizar o site local e excluir o prefixo.
+
+		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+
 
 ## Solicitar um endereço IP público para o gateway da VNet
 
@@ -152,4 +169,4 @@ Depois de alguns minutos, a conexão deve ser estabelecida. Neste momento, as co
 
 Adicione uma máquina virtual à rede virtual. [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

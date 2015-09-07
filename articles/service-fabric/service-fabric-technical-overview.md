@@ -1,20 +1,20 @@
 <properties
    pageTitle="Visão geral técnica"
-   description="Uma visão geral técnica da Malha do Serviço. Discute os principais conceitos e visão geral da arquitetura"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor="chackdan;subramar"/>
+	description="Uma visão geral técnica da Malha do Serviço. Discute os principais conceitos e visão geral da arquitetura"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="msfussell"
+	manager="timlt"
+	editor="chackdan;subramar"/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/14/2015"
-   ms.author="mfussell"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="mfussell"/>
 
 # Visão geral técnica da Malha do Serviço
 
@@ -54,4 +54,4 @@ Para saber mais sobre a Malha do Serviço, consulte:
 - [Cenários de Aplicativo](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configurar um ambiente de nuvem híbrida simulado para testes" 
-	description="Aprenda a criar um ambiente de nuvem híbrida simulado para testes profissionais de TI ou testes de desenvolvimento, usando duas redes virtuais do Azure e uma conexão VNet para VNet." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Ambiente de teste de nuvem híbrida simulado | Microsoft Azure"
+	description="Crie um ambiente de nuvem híbrida simulado para testes profissionais de TI ou testes de desenvolvimento, usando duas redes virtuais do Azure e uma conexão Rede Virtual para Rede Virtual."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configurar um ambiente de nuvem híbrida simulado para testes
@@ -77,11 +77,11 @@ Primeiro, crie uma nova rede virtual chamada TestVNET.
 	- Na coluna **CIDR (Contagem de Endereços)** de TestSubnet, clique em **/24 (256)**.
 7.	Clique no ícone Concluído. Aguarde a rede virtual ser criada antes de continuar.
 
-Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure para instalar o PowerShell do Azure no computador local](../install-configure-powershell.md).
+Em seguida, use as instruções em [Como instalar e configurar o Azure PowerShell para instalar o Azure PowerShell no computador local](../install-configure-powershell.md).
 
 Em seguida, crie um novo serviço de nuvem para a rede virtual TestVNET. Você deve escolher um nome exclusivo. Por exemplo, você poderia nomeá-lo como **TestVNET-***UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se a sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de **TestVNET-Tailspin**.
 
-Você pode testar a exclusividade do nome com este comando do PowerShell do Azure em seu computador local.
+Você pode testar a exclusividade do nome com este comando do Azure PowerShell em seu computador local.
 
 	Test-AzureName -Service <Proposed cloud service name>
 
@@ -123,11 +123,11 @@ Em seguida, crie gateways de rede virtual para as duas redes virtuais.
 
 1.	No Portal de Gerenciamento do Azure, na página **Redes**, clique em **TestLab**. Na página Painel, você deve ver um status de **O gateway não foi criado**.
 2.	Na barra de tarefas, clique em **Criar Gateway** e, em seguida, em **Roteamento Dinâmico**. Clique em **Sim** quando solicitado. Aguarde até que o gateway esteja concluído e seu status seja alterado para **Conectando**. Isso pode levar alguns minutos.
-3.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o endereço IP público do gateway VPN do Azure para a rede virtual TestLab. Registre esse endereço IP, pois você precisará dele para configurar a conexão de VNet para VNet.
+3.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o endereço IP público do gateway de VPN do Azure para a rede virtual TestLab. Registre esse endereço IP, pois você precisará dele para configurar a conexão de VNet para VNet.
 4.	Na barra de tarefas, clique em **Gerenciar Chave** e clique no ícone de cópia ao lado da chave para copiá-la para a área de transferência. Cole essa chave em um documento e salve-o. Você precisa desse valor de chave para configurar a conexão de VNet para VNet.
 5.	Na página Redes, clique em **TestVNET**. Na página Painel, você deve ver um status de **O gateway não foi criado**.
 6.	Na barra de tarefas, clique em **Criar Gateway** e, em seguida, em **Roteamento Dinâmico**. Clique em **Sim** quando solicitado. Aguarde até que o gateway esteja concluído e seu status seja alterado para **Conectando**. Isso pode levar alguns minutos.
-7.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o endereço IP público do gateway VPN do Azure para a rede virtual TestVNET. Registre esse endereço IP, pois você precisará dele para configurar a conexão de VNet para VNet.
+7.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o endereço IP público do gateway de VPN do Azure para a rede virtual TestVNET. Registre esse endereço IP, pois você precisará dele para configurar a conexão de VNet para VNet.
 
 Em seguida, configure as redes locais TestLabLNet e TestVNETLNet com os endereços IP públicos obtidos na criação dos gateways de rede virtual.
 
@@ -152,7 +152,7 @@ Esta é a configuração atual.
  
 ## Fase 4: configurar o DC2
 
-Primeiro, crie uma máquina virtual do Azure para o DC2. Execute estes comandos no prompt de comando do PowerShell do Azure em seu computador local.
+Primeiro, crie uma máquina virtual do Azure para o DC2. Execute estes comandos no prompt de comando do Azure PowerShell em seu computador local.
 
 	$ServiceName="<Your cloud service name from Phase 2>"
 	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC2."
@@ -171,7 +171,7 @@ Em seguida, faça logon na nova máquina virtual DC2.
 3.	Quando solicitado a abrir DC2.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC2\**[Nome da conta de administrador local]
+- Nome: **DC2**[Nome da conta de administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -238,7 +238,7 @@ Você também pode criar estas configurações nesse ambiente de teste:
 
 Para minimizar os custos de executar máquinas virtuais nesse ambiente, realize seus testes e demonstração necessários o mais rápido possível e, então, exclua ou desligue as máquinas virtuais quando você não as estiver usando. Por exemplo, você poderia usar um runbook e automação do Azure para desligar automaticamente as máquinas virtuais nas redes virtuais TestLab e Test\_VNET ao final de cada dia útil. Para saber mais, confira [Introdução à automação do Azure](../automation-create-runbook-from-samples.md). Ao reiniciar as máquinas virtuais na sub-rede Corpnet, inicie o DC1 primeiro.
 
-Um gateway VPN do Azure é implementado como um conjunto de duas máquinas virtuais do Azure, o que gera um custo monetário contínuo. Para obter detalhes, confira [Preços - Rede Virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar os custos dos dois gateways VPN (um para TestLab e outro para TestVNET), crie o ambiente de teste e realize seus testes e demonstração necessários o mais rápido possível ou exclua os gateways com estas etapas.
+Um gateway de VPN do Azure é implementado como um conjunto de duas máquinas virtuais do Azure, o que gera um custo monetário contínuo. Para obter detalhes, confira [Preços - Rede Virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar os custos dos dois gateways VPN (um para TestLab e outro para TestVNET), crie o ambiente de teste e realize seus testes e demonstração necessários o mais rápido possível ou exclua os gateways com estas etapas.
  
 1.	No Portal de Gerenciamento do Azure em seu computador local, clique em **Redes** no painel esquerdo, clique em **TestLab** e, em seguida, clique em **Painel**.
 2.	Na barra de tarefas, clique em **Excluir Gateway**. Clique em **Sim** quando solicitado. Aguarde até que o gateway seja excluído e seu status seja alterado para **O Gateway Não Foi Criado**.
@@ -249,11 +249,11 @@ Se excluir os gateways e quiser restaurar esse ambiente de teste, você deverá 
 
 1.	No Portal de Gerenciamento do Azure em seu computador local, clique em **Redes** no painel esquerdo e, em seguida, clique em **TestLab**. Na página Painel, você deve ver um status de **O gateway não foi criado**.
 2.	Na barra de tarefas, clique em **Criar Gateway** e, em seguida, em **Roteamento Dinâmico**. Clique em **Sim** quando solicitado. Aguarde até que o gateway esteja concluído e seu status seja alterado para **Conectando**. Isso pode levar alguns minutos.
-3.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o novo endereço IP público do gateway VPN do Azure para a rede virtual TestLab. Você precisa desse endereço IP para reconfigurar a rede local TestLabLNet.
-4.	Na barra de tarefas, clique em **Gerenciar Chave** e clique no ícone de cópia ao lado da chave para copiá-la para a área de transferência. Cole esse valor de chave em um documento e salve-o. Você precisa desse valor de chave para reconfigurar o gateway VPN para a rede virtual TestVNET.
+3.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o novo endereço IP público do gateway de VPN do Azure para a rede virtual TestLab. Você precisa desse endereço IP para reconfigurar a rede local TestLabLNet.
+4.	Na barra de tarefas, clique em **Gerenciar Chave** e clique no ícone de cópia ao lado da chave para copiá-la para a área de transferência. Cole esse valor de chave em um documento e salve-o. Você precisa desse valor de chave para reconfigurar o gateway de VPN para a rede virtual TestVNET.
 5.	No Portal de Gerenciamento do Azure em seu computador local, clique em **Redes** no painel esquerdo e, em seguida, clique em **TestVNET**. Na página Painel, você deve ver um status de **O gateway não foi criado**.
 6.	Na barra de tarefas, clique em **Criar Gateway** e, em seguida, em **Roteamento Dinâmico**. Clique em **Sim** quando solicitado. Aguarde até que o gateway esteja concluído e seu status seja alterado para Conectando. Isso pode levar alguns minutos.
-7.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o novo endereço IP público do gateway VPN do Azure para a rede virtual TestVNET. Você precisa desse endereço IP para reconfigurar a rede local TestVNETLNet.
+7.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o novo endereço IP público do gateway de VPN do Azure para a rede virtual TestVNET. Você precisa desse endereço IP para reconfigurar a rede local TestVNETLNet.
 
 Em seguida, configure as redes locais TestLabLNet e TestVNETLNet com os novos endereços IP públicos obtidos na criação dos gateways de rede virtual.
 
@@ -273,4 +273,4 @@ Em seguida, configure a chave pré-compartilhada para que ambos os gateways usem
 Em seguida, na página Rede do Portal de Gerenciamento do Azure, clique na rede virtual **TestLab** e, em seguida, clique em **Conectar** na barra de tarefas. Aguarde até que a rede virtual TestLab mostre um estado conectado à rede local TestVNET.
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

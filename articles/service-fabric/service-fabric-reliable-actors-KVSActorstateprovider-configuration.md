@@ -1,20 +1,20 @@
 <properties
    pageTitle="Visão geral da configuração de KVSActorStateProvider de atores confiáveis da malha do serviço"
-   description="Saiba como configurar atores com monitoração de estado do serviço malha do tipo 'KVSActorStateProvider'"
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="Saiba como configurar atores com monitoração de estado do serviço malha do tipo 'KVSActorStateProvider'"
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/20/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Atores confiáveis para configuração - KVSActorStateProvider
 A configuração padrão do KVSActorStateProvider pode ser modificada modificando-se o arquivo "settings.xml" gerado na raiz pacote do Visual Studio dentro da pasta "Config" para o ator especificado em questão.
@@ -84,4 +84,4 @@ As configurações de armazenamento servem para configurar o armazenamento local
 BatchAcknowledgementInterval controla a latência de replicação. Um valor '0' resulta na menor latência possível, ao custo de taxa de transferência (como mais mensagens de confirmação devem ser enviadas e processadas, cada uma contendo menos confirmações). Quanto maior o valor para BatchAcknowledgementInterval, maior será a produtividade geral da replicação, ao custo da maior latência de operação. Isso se converte diretamente para a latência de confirmações de transações.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

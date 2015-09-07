@@ -1,4 +1,3 @@
-
 #Como criar uma máquina virtual personalizada
 
 Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você criou usando o método **de Galeria**, porque isso lhe dá mais opções de configuração do que o método **Criação Rápida**. Estas opções incluem:
@@ -37,7 +36,7 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 
 	**Observação**: para obter mais informações sobre como conectar máquinas virtuais na mesma nuvem, consulte [Como conectar máquinas virtuais em um serviço de nuvem](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
-12. Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região, grupo de afinidade ou rede virtual que você deseja usar que contenha a máquina virtual. Para obter mais informações sobre grupos de afinidade, consulte [Sobre grupos de afinidade da rede Virtual (a página pode estar em inglês)](http://msdn.microsoft.com/library/azure/jj156085.aspx).
+12. Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região, grupo de afinidade ou rede virtual que você deseja usar que contenha a máquina virtual. Para obter mais informações sobre grupos de afinidade, consulte [Sobre grupos de afinidade da rede Virtual (a página pode estar em inglês)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 13. Na **conta de armazenamento**, selecione uma conta de armazenamento existente para o arquivo VHD ou usar uma conta de armazenamento gerado automaticamente. Apenas uma conta de armazenamento por região será criada automaticamente. Todas as outras máquinas virtuais que você criar com essa configuração estarão localizadas nessa conta de armazenamento. Você está limitado a 20 contas de armazenamento.
 
@@ -60,4 +59,4 @@ Depois que a máquina virtual é criada, ela é iniciada automaticamente. Quando
 - [Como fazer logon em uma máquina virtual executando o Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties pageTitle="Versão de Visualização de 31-07-2014 da API REST do Serviço Azure Search" description="API REST do Serviço de Pesquisa do Azure: Versão 2014-07-31-Visualização" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/26/2015" ms.author="heidist"/>
 
 # API REST do Serviço de Pesquisa do Azure: Versão 2014-07-31-Visualização
 
@@ -125,8 +125,7 @@ O exemplo a seguir fornece uma ilustração de um esquema usado para pesquisar i
     "fields": [
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
-      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
+      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true}
       {"name": "hotelName", "type": "Edm.String", "suggestions": true},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -164,9 +163,9 @@ HTTPS é necessário para todas as solicitações de serviço. A solicitação *
 
 O nome do índice deve estar em letras minúsculas, começar com uma letra ou número, não conter barras ou pontos e ter menos de 128 caracteres. Depois de iniciar o nome do índice com uma letra ou número, o restante do nome pode incluir qualquer letra, número e traços, desde que os traços não sejam consecutivos.
 
-A `api-version` é obrigatória. Os valores válidos incluem `2014-07-31-Preview` ou `2014-10-20-Preview`. Você pode especificar qual deles usar em cada solicitação para obter comportamentos específicos da versão, mas, como prática recomendada, use a mesma versão em todo o código. A versão recomendada é `2014-07-31-Preview` para uso geral. Como alternativa, use `2014-10-20-Preview` para avaliar recursos experimentais, como suporte a analisadores de idioma expressado por meio do atributo de índice de analisador. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes sobre as versões de API. Consulte [Suporte a idiomas](#LanguageSupport) para obter detalhes sobre os analisadores de idioma.
+A `api-version` é obrigatória. Os valores válidos incluem `2014-07-31-Preview` ou `2014-10-20-Preview`. Você pode especificar qual deles usar em cada solicitação para obter comportamentos específicos da versão, mas, como prática recomendada, use a mesma versão em todo o código. A versão recomendada é `2014-07-31-Preview` para uso geral. Como alternativa, use `2014-10-20-Preview` para avaliar recursos experimentais, como suporte a analisadores de idioma expressado por meio do atributo de índice de analisador.
 
-**Cabeçalhos de solicitação**
+**Cabeçalhos da solicitação**
 
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
 
@@ -274,321 +273,6 @@ Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalh
 
 `scoringProfiles` ‒ define comportamentos de pontuação personalizados que permitem influenciam quais itens aparecem em posição mais elevada nos resultados de pesquisa. Perfis de pontuação são compostos de funções e campos ponderados. Consulte [Adicionar perfis de pontuação a um índice de pesquisa](http://msdn.microsoft.com/library/azure/dn798928.aspx) para obter mais informações sobre os atributos usados em um perfil de pontuação.
 
-`analyzer` - Define o nome do analisador de texto a ser usado para o campo. Para obter o conjunto de valores permitidos, consulte [Suporte ao Idioma](#LanguageSupport). Essa opção só pode ser usada com campos `searchable`. Depois que o analisador for escolhido, ele não poderá ser alterado para o campo.
-
-
-<a name="LanguageSupport"></a> **Suporte ao idioma**
-
-Os campos pesquisáveis são submetidos a análise que, frequentemente, envolve quebra de palavras, normalização do texto e filtragem de termos. Por padrão, os campos pesquisáveis no Azure Search são analisados com o [Analisador Apache Lucene Padrão](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html), que quebra o texto em elementos seguindo as regras de ["Segmentação de texto Unicode"](http://unicode.org/reports/tr29/). Além disso, o analisador padrão converte todos os caracteres em sua forma em letras minúsculas. Documentos indexados e termos de pesquisa são submetidos a análise durante a indexação e o processamento de consultas.
-
-O Azure Search permite a indexação de perfis em diversos idiomas. Cada um desses idiomas requer um analisador de texto não padrão que leva em consideração as características de determinado idioma. Por exemplo, o analisador de francês aplica um [Lematizador Leve do Francês](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/fr/FrenchLightStemmer.html) para reduzir as palavras a seus [radicais](http://en.wikipedia.org/wiki/Stemming). Além disso, ele remove [elisões](http://en.wikipedia.org/wiki/Elision) e palavras irrelevantes do francês do texto analisado. O analisador de inglês amplia o analisador padrão. Ele remove possessivos (apóstrofos à direita) de palavras, aplica a lematização conforme o [algoritmo de lematização de Porter](http://tartarus.org/~martin/PorterStemmer/) e remove as [palavras irrelevantes](http://en.wikipedia.org/wiki/Stop_words) do inglês.
-
-O analisador pode ser configurado independentemente para cada campo na definição do índice por meio da definição da propriedade `analyzer`. Por exemplo, você pode ter campos separados para descrições de hotéis em inglês, francês e espanhol, existentes lado a lado no mesmo índice. A consulta especifica o campo específico do idioma a ser retornado em suas consultas de pesquisa.
-
-A seguir está a lista de analisadores com suporte, juntamente com uma breve descrição de seus recursos:
-
-<table style="font-size:12">
-    <tr>
-		<th>Linguagem</th>
-		<th>Nome do analisador</th>
-		<th>Descrição</th>
-	</tr>
-    <tr>
-		<td>Árabe</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>Implementa a normalização ortográfica do árabe</li>
-			<li>Aplica a lematização algorítmica leve</li>
-			<li>Filtra palavras irrelevantes do árabe</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Português (Brasil)</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do português (Brasil)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Chinês (simplificado)</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>Usa modelos de conhecimento probabilístico para encontrar a segmentação de palavras ideal</li>
-			<li>Filtra palavras irrelevantes do chinês</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Chinês (tradicional)</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>Indexa bigramas (grupos sobrepostos de dois caracteres chineses adjacentes)</li>
-			<li>Normaliza diferenças de largura de caracteres</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>Tcheco</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do tcheco</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Dinamarquês</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do dinamarquês</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Holandês</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do holandês</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Alemão</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do alemão</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Grego</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do grego</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Inglês</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do inglês</li>
-			<li>Remove possessivos</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Finlandês</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do finlandês</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Francês</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do francês</li>
-			<li>Remove elisões</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Híndi</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do híndi</li>
-			<li>Remove algumas diferenças de variações de ortografia</li>
-			<li>Normaliza a representação Unicode de texto em idiomas indianos.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Húngaro</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do húngaro</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Indonésio (Bahasa)</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do indonésio</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Italiano</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do italiano</li>
-			<li>Remove elisões</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Japonês</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>Usa a análise morfológica</li>
-			<li>Normaliza variações comuns de ortografia katakana</li>
-			<li>Remoção leve de palavras/marcas irrelevantes</li>
-			<li>Normalização de largura de caracteres</li>
-			<li>Tematização ‒ reduz adjetivos e verbos flexionados à sua forma base</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Coreano</td>
-		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>Indexa bigramas (grupos sobrepostos de dois caracteres chineses adjacentes)</li>
-			<li>Normaliza diferenças de largura de caracteres</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Letão</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do letão</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>Norueguês</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do norueguês</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Polonês</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização algorítmica (Stempel)</li>
-			<li>Filtra palavras irrelevantes do polonês</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Português (Portugal)</td>
-		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do português</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>Romeno</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do romeno</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Russo</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do russo</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Espanhol</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do espanhol</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Sueco</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do sueco</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Turco</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>Remove todos os caracteres após um apóstrofo (inclusive o próprio apóstrofo)</li>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do turco</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Tailandês</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>Aplica a lematização leve</li>
-			<li>Filtra palavras irrelevantes do tailandês</li>
-		</ul>
-		</td>
-	</tr>
-</table>
-
-Todos os analisadores com nomes anotados com <i>lucene</i> são da plataforma de [analisadores de idiomas do Apache Lucene](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html).
-
 **Opções de CORS**
 
 O Javascript do lado do cliente não pode chamar APIs por padrão, pois o navegador impedirá todas as solicitações entre origens. Habilite o CORS (Compartilhamento de Recursos entre Origens) definindo o atributo `corsOptions` para permitir consultas entre origens em seu índice. Observe que apenas APIs de consulta dão suporte a CORS por motivos de segurança. As seguintes opções podem ser definidas para CORS:
@@ -605,7 +289,6 @@ O Javascript do lado do cliente não pode chamar APIs por padrão, pois o navega
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String", "suggestions": true},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -632,7 +315,7 @@ Você pode atualizar um índice existente no Azure Search usando uma solicitaç�
     Content-Type: application/json
     api-key: [admin key]
 
-**Importante:** na Visualização Pública do Azure Search, não há suporte a atualizações de esquema de índice limitadas. Atualmente, não há suporte às atualizações de esquema que exigem reindexação, como a alteração de tipos de campo. Novos campos podem ser adicionados a qualquer momento, embora os campos existentes não possam ser alterados nem excluídos.
+**Importante:** na visualização pública da Pesquisa do Azure, não existe suporte para atualizações de esquema que exijam a reindexação, incluindo a alteração de tipos de campo. Novos campos podem ser adicionados a qualquer momento, mas os campos existentes não podem ser alterados nem excluídos.
 
 Ao se adicionar um novo campo a um índice, todos os documentos existentes no índice automaticamente terão um valor nulo para esse campo. Nenhum espaço de armazenamento adicional será consumido até que novos documentos sejam adicionados ao índice.
 
@@ -999,7 +682,6 @@ O código de status: 429 indica que você excedeu sua cota no número de documen
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
 		  "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
@@ -1014,7 +696,6 @@ O código de status: 429 indica que você excedeu sua cota no número de documen
           "hotelId": "2",
           "baseRate": 79.99,
           "description": "Cheapest hotel in town",
-	      "description_fr": "Hôtel le moins cher en ville",
           "hotelName": "Roach Motel",
 		  "category": "Budget",
           "tags": ["motel", "budget"],
@@ -1381,4 +1062,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&api-version=2014-07-31-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -5,7 +5,7 @@
 2. No assistente Adicionar um volume, em **Configurações Básicas**:
    1. Digite uma **Nome** para o seu volume.
    2. Especifique o **Capacidade Provisionada** para o seu volume. **A capacidade do volume deve estar entre 1 GB e 64 TB.**
-   3. Na lista suspensa, selecione o **Tipo de Uso** para o seu volume. Para dados de arquivamento acessados com menos frequência, selecione um **Volume de arquivamento**. Para todos os outros tipos de dados, selecione **Volume primário**.
+   3. Na lista suspensa, selecione o **Tipo de Uso** para o seu volume. Para dados de arquivamento acessados com menos frequência, selecione um **Volume de arquivamento**. Para todos os outros tipos de dados, selecione **Volume em camadas**. (Volumes em camadas eram chamados anteriormente de volumes primários).
    4. Clique no ícone de seta ![ícone-de-seta](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) para ir para a próxima página.
 
      ![Adicionar volume](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
@@ -21,4 +21,4 @@
 
 4. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Será criado um volume com as configurações especificadas.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

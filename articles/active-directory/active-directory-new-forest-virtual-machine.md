@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Instalar uma floresta do Active Directory em uma rede virtual do Azure" 
-	description="Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure." 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="TerryLan" 
+	pageTitle="Instalar uma floresta do Active Directory em uma rede virtual do Azure"
+	description="Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure."
+	services="active-directory, virtual-network"
+	documentationCenter=""
+	authors="markusvi"
+	manager="TerryLan"
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="07/23/2015" 
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/23/2015"
 	ms.author="markusvi"/>
 
 
 # Instalar uma nova floresta do Active Directory em uma rede virtual do Azure
 
-Este tópico mostra como criar um novo ambiente do Active Directory do Windows Server em uma rede virtual do Azure em uma máquina virtual (VM) em uma [rede virtual do Azure](https://msdn.microsoft.com/library/azure/jj156007.aspx). Nesse caso, a rede virtual do Azure não está conectada a uma rede local.
+Este tópico mostra como criar um novo ambiente do Active Directory do Windows Server em uma rede virtual do Azure em uma máquina virtual (VM) em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Nesse caso, a rede virtual do Azure não está conectada a uma rede local.
 
 Você também pode estar interessado nestes tópicos relacionados:
 
@@ -32,8 +32,7 @@ Você também pode estar interessado nestes tópicos relacionados:
 
 Nesse cenário, os usuários externos precisam acessar os aplicativos que são executados ingressados no domínio. As VMs que executam os servidores de aplicativos e as VMs que executam os controladores de domínio são instaladas em seus próprios serviços de nuvem em uma rede virtual do Azure. Elas também estão incluídas em um conjunto de disponibilidade para melhorar a tolerância a falhas.
 
-![][1]
-
+![][1] 7
 ## Como isso difere do local?
 
 Não há muita diferença entre instalar um controlador de domínio no Azure em comparação com um local. As diferenças principais estão listadas na tabela a seguir.
@@ -120,12 +119,12 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
 -  [Como instalar uma nova floresta do Active Directory em uma rede virtual do Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [Criar uma rede virtual somente na nuvem](https://msdn.microsoft.com/library/dn631643.aspx)
+-  [Criar uma rede virtual somente na nuvem](../virtual-network/virtual-networks-create-vnet.md)
 -  [Configurar uma VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Instalar uma Réplica do Controlador de Domínio do Active Directory em uma rede virtual do Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IaaS para profissionais de TI: (01) conceitos básicos de máquina virtual](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [Visão geral da Rede Virtual](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
 -  [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md)
 -  [PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Referência de Cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
@@ -139,4 +138,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste" 
-	description="Aprenda a criar um farm de intranet do SharePoint em um ambiente de nuvem híbrida para teste de desenvolvimento ou teste profissional de TI." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Ambiente de teste de farm do SharePoint 2013 | Microsoft Azure"
+	description="Aprenda a criar um farm de intranet do SharePoint 2013 de duas camadas em um ambiente de nuvem híbrida para teste de desenvolvimento ou teste profissional de TI."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 
@@ -66,7 +66,7 @@ Em seguida, crie uma conta de administrador de farm do SharePoint. Abra um promp
 
 Quando solicitado a fornecer a senha da conta SPFarmAdmin, digite uma senha forte e registre-a em um local seguro.
 
-Em seguida, crie uma máquina virtual do Azure para o SQL1 com estes comandos no prompt de comando do PowerShell do Azure em seu computador local.
+Em seguida, crie uma máquina virtual do Azure para o SQL1 com estes comandos no prompt de comando do Azure PowerShell em seu computador local.
 
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
@@ -88,7 +88,7 @@ Em seguida, conecte-se à nova máquina virtual SQL1* usando a conta de administ
 3.	Quando solicitado a abrir SQL1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-	- Nome: **SQL1\**[Nome da conta de administrador local]
+	- Nome: **SQL1**[Nome da conta de administrador local]
 	- Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -147,7 +147,7 @@ Esta é a configuração atual.
  
 ## Fase 3: Configurar os servidores do SharePoint (SP1)
 
-Primeiro, crie uma máquina virtual do Azure para o SP1 com estes comandos no prompt de comando do PowerShell do Azure em seu computador local.
+Primeiro, crie uma máquina virtual do Azure para o SP1 com estes comandos no prompt de comando do Azure PowerShell em seu computador local.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SP1."
@@ -212,4 +212,4 @@ Seu farm de intranet do SharePoint em um ambiente de nuvem híbrida agora está 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

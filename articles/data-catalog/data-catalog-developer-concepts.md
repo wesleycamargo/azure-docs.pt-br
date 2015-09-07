@@ -1,6 +1,6 @@
 <properties
    pageTitle="Conceitos de desenvolvedor do Catálogo de Dados do Azure"
-	description="Conceitos de desenvolvedor no Catálogo de Dados do Azure: catálogo, usuários, ativos e crowdsourcing."
+	description="Introdução aos conceitos principais no modelo conceitual do Catálogo de Dados do Azure, conforme exposto pela API REST do Catálogo."
 	services="data-catalog"
 	documentationCenter=""
 	authors="dvana"
@@ -231,4 +231,4 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

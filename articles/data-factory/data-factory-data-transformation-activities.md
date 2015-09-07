@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Atividades de Transformação de Dados | Microsoft Azure" 
-	description="Saiba como você pode usar o serviço Azure Data Factory para transformar e analisar dados." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Atividades de Transformação de Dados | Microsoft Azure"
+	description="Saiba como você pode usar o serviço Azure Data Factory para transformar e analisar dados."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
 
 # Transformar e analisar usando o Azure Data Factory
@@ -37,4 +37,4 @@ Atividade de transformação | Ambiente de computação
 
 Consulte o artigo [Serviços vinculados de computação](data-factory-compute-linked-services.md) para saber mais sobre os serviços vinculados de computação com suporte do Data Factory.
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

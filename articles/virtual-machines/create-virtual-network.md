@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Tutorial: Criar uma rede virtual somente de nuvem" 
-	description="Saiba como criar um exemplo apenas na nuvem da rede virtual do Azure neste tutorial." 
-	services="virtual-machines, virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="Tutorial: Criar uma rede virtual somente de nuvem"
+	description="Saiba como criar um exemplo apenas na nuvem da rede virtual do Azure neste tutorial."
+	services="virtual-machines, virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 # Tutorial: Criar uma rede virtual somente de nuvem no Azure
@@ -24,7 +24,7 @@ Este tutorial explica as etapas no Portal de gerenciamento do Azure para criar u
 
 Por exemplo, o FrontEndSubnet poderia ser usado para servidores web e o BackendSubnet poderia ser usado para SQL servers ou controladores de domínio.
 
-Este tutorial pressupõe que você não tem experiência anterior com o Azure. O objetivo é ajudar a familiarizar-se com as etapas requeridas para criar sua própria rede virtual, o orientando por uma configuração de exemplo. Se você quiser criar uma rede virtual somente de nuvem que funcione para sua configuração específica, consulte [Configurar uma rede virtual apenas de nuvem no Portal de Gerenciamento](http://msdn.microsoft.com/library/azure/dn631643.aspx). Se você estiver procurando cenários de design e informações avançadas sobre Rede Virtual, consulte [Visão geral de Rede Virtual do Windows Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+Este tutorial pressupõe que você não tem experiência anterior com o Azure. O objetivo é ajudar a familiarizar-se com as etapas requeridas para criar sua própria rede virtual, o orientando por uma configuração de exemplo. Se você quiser criar uma rede virtual somente de nuvem que funcione para sua configuração específica, consulte [Configurar uma rede virtual apenas de nuvem no Portal de Gerenciamento](../virtual-network/virtual-networks-create-vnet.md). Se você estiver procurando cenários de design e informações avançadas sobre Rede Virtual, consulte [Visão geral de Rede Virtual do Windows Azure](../virtual-network/virtual-networks-overview.md).
 
 
 > [AZURE.NOTE]Este tutorial não lhe orienta para criar uma configuração entre locais, na qual a rede virtual é conectada à sua rede organizacional. Para um tutorial passo a passo sobre como criar uma rede virtual com conectividade entre locais e uma conexão VPN site-a-site (isto é, conectar ao Active Directory ou SharePoint localizado em sua empresa), consulte [Tutorial: Criar uma rede virtual entre locais conectividade site-a-site](../virtual-network/virtual-networks-create-site-to-site-cross-premises-connectivity.md).
@@ -90,9 +90,9 @@ Você pode continuar aprendendo sobre os serviços da infraestrutura do Azure co
 
 Para remover esta rede virtual, selecione-a, clique em **Excluir** e, em seguida, clique em **Sim**.
 
-Quanto você estiver pronto para criar uma rede virtual somente de nuvem que funcione para sua configuração específica, consulte [Configurar uma rede virtual apenas de nuvem no Portal de Gerenciamento](http://msdn.microsoft.com/library/azure/dn631643.aspx).
+Quanto você estiver pronto para criar uma rede virtual somente de nuvem que funcione para sua configuração específica, consulte [Configurar uma rede virtual apenas de nuvem no Portal de Gerenciamento](../virtual-network/virtual-networks-create-vnet.md).
 
-Se você estiver procurando cenários de design e informações avançadas sobre Rede Virtual, consulte [Visão geral de Rede Virtual do Windows Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+Se você estiver procurando cenários de design e informações avançadas sobre Rede Virtual, consulte [Visão geral de Rede Virtual do Windows Azure](../virtual-network/virtual-networks-overview.md).
 
 Para obter procedimentos e definições da configuração Rede Virtual adicionais, consulte [Tarefas de configuração de Rede Virtual do Azure](http://go.microsoft.com/fwlink/p/?linkid=296652&clcid=0x409).
 
@@ -118,4 +118,4 @@ Para obter procedimentos e definições da configuração Rede Virtual adicionai
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

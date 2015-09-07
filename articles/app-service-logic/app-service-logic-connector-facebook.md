@@ -1,43 +1,46 @@
 <properties
-   pageTitle="Usando o conector do Facebook no aplicativo lógico no Serviço de Aplicativo do Azure"
-   description="Como usar o Conector do Facebook em um aplicativo lógico"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Usando o Conector do Facebook em aplicativos lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector do Facebook ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
 
-# Conector do Facebook
+# Comece a usar o Conector do Facebook e adicione-o a seu Aplicativo Lógico
+Conecte-se à conta do Facebook para postar uma mensagem ou publicar uma foto. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
 
-Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
+Com o Conector do Facebook, você pode:
 
-- O gatilho do conector do Facebook recupera “Nova Postagem na Linha do Tempo do Usuário” ou “Nova Postagem na Página”. Quando um novo tweet é recuperado, ele dispara uma nova instância do fluxo e transmite os dados recebidos na solicitação para o fluxo de processamento.
-- As ações de conector do Facebook permitem "Publicar Postagem", "Publicar Fotos" e assim por diante. Essas ações obtêm uma resposta e a disponibilizam para uso pelas ações no fluxo.
+- Usar gatilhos para recuperar "Nova Postagem na Linha do Tempo do Usuário" ou "Nova Postagem na Página". Quando uma nova postagem é recuperada, ela dispara uma nova instância do fluxo e transmite os dados recebidos na solicitação para o fluxo de processamento.
+- Usar ações que lhe permitem "Publicar Postagem", "Publicar Foto" e assim por diante. Essas ações obtêm uma resposta e a disponibilizam para uso pelas ações no fluxo.
+
+Você pode adicionar o Conector do Facebook a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 ## Gatilhos e Ações
 
 Gatilhos | Ações
 --- | ---
-<ul><li>Nova Postagem na Linha do Tempo do Usuário</li><li>Nova Postagem em Página</li></ul> | <ul><li>Publicar Postagem</li>Publicar foto<li></li></ul>
+<ul><li>Nova Postagem na Linha do Tempo do Usuário</li><li>Nova Postagem na Página</li></ul> | <ul><li>Publicar Postagem</li><li>Publicar foto</li></ul>
 
 
 
 ## Criar um conector do Facebook para o aplicativo lógico
-Para usar o conector do Facebook, você precisa primeiro criar uma instância do aplicativo de API do Conector do Facebook. Isso pode ser feito da seguinte maneira:
+Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Pesquise "Conector do Facebook", selecione-o e selecione **Criar**.
-3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: ![][1]
+3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades: ![][1]
 4.	Selecione **Criar**.
 
 
@@ -60,7 +63,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho 
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Confira [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-facebook/img1.png
@@ -75,4 +78,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

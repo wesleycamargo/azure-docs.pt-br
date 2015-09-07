@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Visão geral da DSC da Automação do Azure" 
-   description="Uma visão geral da DSC (Configuração do Estado Desejado) da Automação do Azure, seus termos e problemas conhecidos" 
-   services="automation" 
-   documentationCenter="dev-center-name" 
-   authors="coreyp-at-msft" 
-   manager="stevenka" 
-   editor="tysonn"/>
+   pageTitle="Visão geral da DSC da Automação do Azure"
+	description="Uma visão geral da DSC (Configuração do Estado Desejado) da Automação do Azure, seus termos e problemas conhecidos"
+	services="automation"
+	documentationCenter="dev-center-name"
+	authors="coreyp-at-msft"
+	manager="stevenka"
+	editor="tysonn"/>
 
 <tags
    ms.service="automation"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="TBD" 
-   ms.date="07/09/2015"
-   ms.author="coreyp"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="TBD"
+	ms.date="08/18/2015"
+	ms.author="coreyp"/>
 
 # Visão geral da DSC da Automação do Azure #
 
@@ -57,7 +57,7 @@ A DSC do PowerShell introduziu um novo conceito, chamado de configurações. As 
 
 ![texto alternativo](./media/automation-dsc-overview/AADSC_1.png)
 
-Dentro do bloco de configuração, você pode definir blocos de configuração de nó que especificam a configuração desejada para um conjunto de nós (computadores) em seu ambiente que devem ser configurados exatamente da mesma maneira. Assim, uma configuração de nó representa uma "função" que um ou mais nós devem assumir. Um bloco de configuração de nó começa com a palavra-chave do nó. Inclua depois dessa palavra-chave o nome da função, que pode ser uma variável. Após o nome do computador, use chaves {} para delimitar o bloco de configuração de nó.
+Dentro do bloco de configuração, você pode definir blocos de configuração de nó que especificam a configuração desejada para um conjunto de nós (computadores) em seu ambiente que devem ser configurados exatamente da mesma maneira. Assim, uma configuração de nó representa uma "função" que um ou mais nós devem assumir. Um bloco de configuração de nó começa com a palavra-chave do nó. Inclua depois dessa palavra-chave o nome da função, que pode ser uma variável ou expressão. Após o nome da função, use chaves {} para delimitar o bloco de configuração de nó.
 
 ![texto alt](./media/automation-dsc-overview/AADSC_2.png)
  
@@ -82,14 +82,14 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 
 Quando uma Configuração da DSC é compilada, uma ou mais configurações de nó são produzidas, dependendo dos blocos de Nó na configuração. Uma configuração de nó é o mesmo que um "MOF" ou "documento de configuração" (se você estiver familiarizado com esses termos da DSC do PS) e representa uma "função", como servidor Web ou trabalhador, o estado desejado que um ou mais nós devem assumir.
 
-Os nós da DSC do PS ficam cientes de configurações de nós que eles devem aplicar via push da DSC ou métodos de pull. A DSC da Automação do Azure utiliza o método de pull da DSC, em que nós solicitam configurações de nó que devem aplicar dos servidores de pull da DSC da Automação do Azure. Como os nós fazem a solicitação à DSC da Automação do Azure, eles podem estar atrás de firewalls, ter todas as portas de entrada fechadas etc. Eles só precisam de acesso de saída à Internet.
+Os nós da DSC do PS ficam cientes de configurações de nós que eles devem aplicar via push da DSC ou métodos de pull. A DSC da Automação do Azure utiliza o método de pull da DSC, em que nós solicitam configurações de nó que devem aplicar do servidor de pull da DSC da Automação do Azure. Como os nós fazem a solicitação à DSC da Automação do Azure, eles podem estar atrás de firewalls, ter todas as portas de entrada fechadas etc. Eles só precisam de acesso de saída à Internet.
 
 No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módulo do PowerShell do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/mt244122.aspx) para gerenciamento de configurações de nó da DSC: `Get-AzureAutomationDscNodeConfiguration`
 
 
 ###Nó###
 
-Um nó da DSC é qualquer computador cuja configuração seja gerenciada pela DSC. Pode se tratar de uma VM do Azure ou uma VM local/host físico. Os nós aplicam configurações de nó para obter e manter a conformidade com o estado desejado que definem e também podem relatar a um servidor de relatórios seu status de configuração e sua conformidade.
+Um nó DSC é qualquer computador que tenha sua configuração gerenciada pelo DSC. Pode se tratar de uma VM do Azure ou de uma VM local/host físico. Os nós aplicam configurações de nó para obter e manter a conformidade com o estado desejado que definem e também podem relatar a um servidor de relatórios seu status de configuração e sua conformidade.
 
 A DSC da Automação do Azure facilita a integração de nós para gerenciamento pela DSC da Automação do Azure e permite a alteração da configuração de nó atribuída a cada nó do servidor, Assim, na próxima vez que um nó verificar o servidor para obter instruções, ele assumirá uma função diferente e alterará sua configuração de forma correspondente. Os nós também relatam seu status e sua conformidade de configuração à DSC da Automação do Azure.
 
@@ -103,7 +103,7 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 -	`Get-AzureAutomationDscNodeReport`
 -	`Export-AzureAutomationDscNodeReportContent`
 
-O cmdlet `Get-AzureAutomationRegistrationInfo` pode ser usado para obter a URL de registro e a chave necessárias para integrar VMs do Azure Classic a uma conta da Automação do Azure, via a extensão de VM da DSC da Automação do Azure no portal do Azure ou via PowerShell.
+O cmdlet `Get-AzureAutomationRegistrationInfo` pode ser usado para obter a URL de registro e a chave necessárias para integrar VMs do Azure clássicas a uma conta da Automação do Azure, via a extensão de VM da DSC da Automação do Azure no portal do Azure ou via PowerShell.
 
 
 Extensão de VM da DSC da Automação do Azure:
@@ -170,7 +170,7 @@ Os recursos da DSC também podem ser importados como parte dos módulos do Power
 
 A DSC da Automação do Azure é fornecida com todos os mesmos recursos internos da DSC que a DSC do PS. Recursos adicionais podem ser adicionados à DSC da Automação do Azure importando-se módulos do PowerShell que contêm os recursos para a Automação do Azure.
 
-No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módulo do PowerShell do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/mt244122.aspx) para gerenciamento de Nós da DSC:
+No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módulo do PowerShell do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/mt244122.aspx) para gerenciamento de módulos do PowerShell:
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -195,7 +195,7 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 
 ##Problemas gerais conhecidos:##
 
-- Como a DSC da Automação do Azure está em visualização, ao usar esse recurso pela primeira vez, você precisará inscrever-se usando cmdlets do PowerShell do Azure. Você pode se inscrever chamando os dois seguintes cmdlets:
+- Como a DSC de Automação do Azure está em visualização, ao usar esse recurso pela primeira vez, você precisará inscrever-se usando os cmdlets do Azure PowerShell ou o portal de visualização do Azure. Você pode se inscrever chamando os dois seguintes cmdlets:
 
  - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
  - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation` 
@@ -226,4 +226,4 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 
 - Os nós DSC integrados à DSC da Automação do Azure, inicialmente, mostrarão um status de conformidade, mesmo que eles não estejam de fato em conformidade com a configuração do nó DSC para o qual foram mapeados. Depois que um nó efetua seu primeiro pull e envia seu primeiro relatório DSC à DSC da Automação do Azure, o status do nó deve ser corrigido.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Perguntas frequentes sobre o Catálogo de Dados do Azure"
-	description="Catálogo de Dados do Azure: perguntas frequentes do Catálogo"
+	description="Perguntas frequentes sobre a visualização do Catálogo de Dados do Azure, incluindo recursos para descoberta de fontes de dados, anotação e gerenciamento."
 	services="data-catalog"
 	documentationCenter=""
 	authors="steelanddata"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/19/2015"
+	ms.date="08/21/2015"
 	ms.author="maroche"/>
 
 # Perguntas frequentes sobre o Catálogo de Dados do Azure
@@ -160,4 +160,4 @@ Se você tiver problemas ou precisar de ajuda com a visualização do Catálogo 
 
 Vá diretamente para o [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

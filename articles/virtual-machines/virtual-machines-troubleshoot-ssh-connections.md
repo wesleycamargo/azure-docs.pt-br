@@ -54,7 +54,7 @@ No portal de visualização do Azure:
 
 Para verificar a conectividade de rede, analise os pontos de extremidade configurados e determine se você pode acessar a máquina virtual por meio de outro protocolo, como HTTP ou outro serviço conhecido.
 
-Se for necessário, [Reinicie a máquina virtual](https://msdn.microsoft.com/library/azure/dn763934.aspx) ou [Redimensione a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+Se necessário, [Reinicie a máquina virtual](https://msdn.microsoft.com/library/azure/dn763934.aspx) ou [Redimensione a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 
 Após essas etapas, tente estabelecer novamente a conexão SSH.
 
@@ -85,10 +85,10 @@ Em todos esses casos, tente desabilitar temporariamente o software e tente estab
 
 Se você estiver usando autenticação de certificado, verifique se tem essas permissões para a pasta .ssh em seu diretório base:
 
-- Chmod 700 \~/.ssh
-- Chmod 644 \~/.ssh/*.pub
-- Chmod 600 \~/.ssh/id\_rsa (ou qualquer outro arquivo que armazene chaves privadas)
-- Chmod 644 \~/.ssh/known\_hosts (contém os hosts aos quais você se conectou via SSH)
+- Chmod 700 ~/.ssh
+- Chmod 644 ~/.ssh/*.pub
+- Chmod 600 ~/.ssh/id\_rsa (ou qualquer outro arquivo que armazene chaves privadas)
+- Chmod 644 ~/.ssh/known\_hosts (contém os hosts aos quais você se conectou via SSH)
 
 ### Fonte 2: dispositivo de borda da organização
 
@@ -119,7 +119,7 @@ Se não houver outra máquina virtual na mesmo rede virtual, você poderá criar
 Se você puder criar uma conexão SSH com uma máquina virtual na mesma rede virtual, verifique:
 
 - A configuração de ponto de extremidade para o tráfego de SSH na máquina virtual de destino. A porta TCP privada do ponto de extremidade deve corresponder à porta TCP na qual o serviço SSH na máquina virtual está escutando, que, por padrão, é 22. Para máquinas virtuais criadas no Gerenciador de Recursos do Azure usando modelos, verifique o número da porta TCP do SSH no portal de visualização do Azure com **Procurar** > **Máquinas virtuais (v2)** > *Nome da VM* > **Configurações** > **Pontos de Extremidade**.
-- A ACL para o ponto de extremidade de tráfego de SSH na máquina virtual de destino. As ACLs permitem que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de SSH para o ponto de extremidade. Examine suas ACLs para verificar se o tráfego de entrada dos endereços IP públicos de seu proxy ou outro servidor de borda é permitido. Para obter mais informações, consulte [Sobre ACLs (listas de controle de acesso) de rede](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+- A ACL para o ponto de extremidade de tráfego de SSH na máquina virtual de destino. As ACLs permitem que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de SSH para o ponto de extremidade. Examine suas ACLs para verificar se o tráfego de entrada dos endereços IP públicos de seu proxy ou outro servidor de borda é permitido. Para obter mais informações, consulte [Sobre ACLs (listas de controle de acesso) de rede](../virtual-network/virtual-networks-acl.md).
 
 Para que o ponto de extremidade deixe de ser a fonte do problema, remova o ponto de extremidade atual e crie um novo, especificando o nome **SSH** (porta TCP 22 como o número de porta pública e privada). Para obter mais informações, consulte [Configurar pontos de extremidade em uma máquina virtual no Azure](virtual-machines-set-up-endpoints.md).
 
@@ -161,8 +161,8 @@ Para obter informações sobre como usar o Suporte do Azure, consulte as [Pergun
 
 [Como redefinir uma senha ou SSH para máquinas virtuais Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 
-[Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
+[Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

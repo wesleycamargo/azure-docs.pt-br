@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="08/22/2015"
 	ms.author="krisragh"/>
 
 
@@ -21,19 +21,17 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do iOS] de forma que sempre que um registro for inserido, uma notificação por push seja enviada. Este tutorial se baseia no [tutorial de Início Rápido de iOS] , que você deve concluir primeiro. O [simulador de iOS não dá suporte a notificações por push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), portanto, para este tutorial, você precisa de um dispositivo iOS físico e uma [associação ao programa de desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
+Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do iOS] de forma que sempre que um registro for inserido, uma notificação por push seja enviada. Este tutorial se baseia no [tutorial de Início Rápido de iOS] , que você deve concluir primeiro. Se você não usar o projeto baixado de início rápido do servidor, deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a id="register"></a>Registrar aplicativo para notificações por push
+O [simulador de iOS não dá suporte a notificações por push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), portanto, para este tutorial, você precisa de um dispositivo iOS físico e uma [associação ao programa de desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
+
+## <a id="register"></a>Registrar o aplicativo para notificações por push
 
 [AZURE.INCLUDE [Habilitar Notificações por push da Apple](../../includes/enable-apple-push-notifications.md)]
 
 ## Configurar o Azure para enviar notificações por push
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
-
-##<a name="review"></a>Examine a configuração do projeto do servidor (opcional)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
 ##<a id="update-server"></a> Atualizar projeto de servidor para enviar notificações por push
 
@@ -47,7 +45,7 @@ Neste tutorial, você adicionará notificações por push ao projeto de [início
 
 [AZURE.INCLUDE [Adicionar notificações por push ao aplicativo](../../includes/app-service-add-push-notifications-to-app.md)]
 
-## <a id="test"></a>Testar notificações por push em seu aplicativo
+## <a id="test"></a>Testar notificações por push no aplicativo
 
 [AZURE.INCLUDE [Testar notificações por push no aplicativo](../../includes/test-push-notifications-in-app.md)]
 
@@ -112,4 +110,4 @@ Neste tutorial, você adicionará notificações por push ao projeto de [início
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

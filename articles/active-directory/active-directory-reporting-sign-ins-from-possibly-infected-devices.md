@@ -17,11 +17,11 @@
 	ms.author="saah;kenhoff"/>
 
 # Entradas de dispositivos possivelmente infectados
+<p>Esse relatório tenta identificar os dispositivos de seus usuários que foram infectados e agora fazem parte de um botnet (também conhecido como um exército de zombies). Correlacionamos endereços IP de entradas de usuários com endereços IP que sabemos que estão em contato com servidores botnet.</p>
+<p>Recomendação: este relatório sinaliza endereços IP, não dispositivos de usuários. É recomendável que você entre em contato com o usuário e verifique todos os dispositivos do usuário para ter certeza. Também é possível que um dispositivo pessoal do usuário esteja infectado ou que alguém que não seja o usuário, que estava usando o mesmo endereço IP que o usuário, tenha um dispositivo infectado. </p>
+<p>Para obter mais informações sobre como abordar infecções por malware, consulte o [Centro de Proteção contra Malware] (http://go.microsoft.com/fwlink/?linkid=335773). </p>
 
-| Descrição | Local do relatório |
-| :-------------     | :-------        |
-| <p>Use este relatório quando desejar ver entradas de dispositivos nos quais algum malware (software mal-intencionado) pode estar em execução. Correlacionamos endereços IP de entradas com endereços IP por meio dos quais foi feita uma tentativa de contatar um servidor de malware.</p><p>Recomendação: como este relatório presume que um endereço IP foi associado ao mesmo dispositivo em ambos os casos, é recomendável que você entre em contato com o usuário e faça uma varredura no dispositivo dele para ter certeza.</p><p>Para obter mais informações sobre como tratar de infecções por malware, consulte o [Centro de Proteção contra Malware](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Diretório > guia Relatórios |
 
 ![Entradas de dispositivos possivelmente infectados](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

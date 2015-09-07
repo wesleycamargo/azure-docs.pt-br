@@ -1,26 +1,23 @@
 <properties 
-	pageTitle="Introdução ao Azure AD Connect" 
-	description="Saiba como baixar, instalar e executar o assistente de instalação do Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Introdução ao Azure AD Connect"
+	description="Saiba como baixar, instalar e executar o assistente de instalação do Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Introdução ao Azure AD Connect
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="O que é">O que é</a> <a href="../active-directory-aadconnect-how-it-works/" title="Como ele funciona">Como ele funciona</a> <a href="../active-directory-aadconnect-get-started/" title="Introdução" class="current">Introdução</a> <a href="../active-directory-aadconnect-whats-next/" title="A seguir">A seguir</a> <a href="../active-directory-aadconnect-learn-more/" title="Saiba mais">Saiba mais</a>
-</div>
 
 
 A documentação a seguir o ajudará a começar com o Azure Active Directory Connect. Essa documentação lida com o uso da instalação expressa para o Azure AD Connect. Para obter informações sobre uma instalação personalizada, consulte [Instalação personalizada para o Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Para obter informações sobre como atualizar do DirSync para o Azure AD Connect, consulte [Atualizando o DirSync para o Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -114,4 +111,4 @@ Agora que você tem o Azure AD Connect instalado, você pode usar o link [aqui](
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

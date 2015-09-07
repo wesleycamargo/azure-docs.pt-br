@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Fornecendo Mídia sob Demanda com os Serviços de Mídia do Azure" 
-	description="Este tópico aborda cenários comuns do fornecimento de mídia sob demanda com os Serviços de Mídia do Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Fornecendo Mídia sob Demanda com os Serviços de Mídia do Azure"
+	description="Este tópico aborda cenários comuns do fornecimento de mídia sob demanda com os Serviços de Mídia do Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -27,7 +27,7 @@ Observe que você pode integrar os serviços de mídia com suas ferramentas e pr
 
 O diagrama a seguir mostra as partes principais da plataforma de serviços de mídia que estão envolvidas no vídeo no fluxo de trabalho sob demanda.![Fluxo de trabalho VoD][vod-overview]
 
-##<a id="vod_scenarios"></a>Cenários comuns: fornecimento de mídia sob demanda. 
+##<a id="vod_scenarios"></a>Cenários comuns: fornecimento de mídia sob demanda
 
 ###Proteja o conteúdo no armazenamento e forneça mídia de streaming sem proteção (não criptografada)
 
@@ -220,4 +220,4 @@ Para obter mais informações, consulte [executando seu conteúdo com jogadores 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

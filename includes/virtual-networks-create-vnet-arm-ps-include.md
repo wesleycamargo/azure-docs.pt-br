@@ -1,17 +1,17 @@
-## How to create a VNet using PowerShell
+## Como criar uma VNet usando o PowerShell
 
-To create a VNet by using PowerShell, follow the steps below.
+Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. From an Azure PowerShell prompt, run the  **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
+1. Se você nunca tiver usado o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o final para entrar no Azure e selecionar sua assinatura.
+2. Em um prompt do Azure PowerShell, execute o cmdlet **Switch-AzureMode** para alternar para modo Gerenciador de Recursos, conforme mostrado abaixo.
 
 		Switch-AzureMode AzureResourceManager
 	
 		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
-	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
+	>[AZURE.WARNING]O cmdlet Switch-AzureMode será preterido em breve. Quando isso acontecer, todos os cmdlets do Gerenciador de Recursos serão renomeados.
 	
-3. If necessary, run the **New-AzureResourceGroup** cmdlet to create a new resource group, as shown below. For our scenario, create a resource group named *TestRG*. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+3. Se necessário, execute o cmdlet **New-AzureResourceGroup** para criar um novo grupo de recursos, como mostrado abaixo. Para nosso cenário, crie um grupo de recursos denominado *TestRG*. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 	
@@ -26,7 +26,7 @@ To create a VNet by using PowerShell, follow the steps below.
 		
 		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG	
 
-4. Run the **New-AzureVirtualNetwork** cmdlet to create a new VNet, as shown below.
+4. Execute o cmdlet **New-AzureVirtualNetwork** para criar uma nova Rede Virtual, como mostrado abaixo.
 
 		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
@@ -49,13 +49,13 @@ To create a VNet by using PowerShell, follow the steps below.
 		NetworkInterfaces : null
 		Subnets           : []
 
-5. Run the **Get-AzureVirtualNetwork** cmdlet to store the virtual network object in a variable, as shown below.
+5. Execute o cmdlet **Get-AzureVirtualNetwork** para armazenar o objeto de rede virtual em uma variável, como mostrado abaixo.
 
 		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
-	>[AZURE.TIP] You can combine steps 4 and 5 by running **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP]Você pode combinar as etapas 4 e 5 executando **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
-6. Run the **Add-AzureVirtualNetworkSubnetConfig** cmdlet to add a subnet to the new VNet, as shown below.
+6. Execute o cmdlet **Add-AzureVirtualNetworkSubnetConfig** para adicionar uma sub-rede à nova Rede Virtual, como mostrado abaixo.
 
 		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
@@ -89,12 +89,12 @@ To create a VNet by using PowerShell, follow the steps below.
 		                      }
 		                    ]
 
-7. Repeat step 6 above for each subnet you want to create. The command below creates the *BackEnd* subnet for our scenario.
+7. Repita a etapa 6 acima para cada sub-rede que você deseja criar. O comando a seguir cria a sub-rede *BackEnd* para nosso cenário.
 
 		Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
 
-8. Although you create subnets, they currently only exist in the local variable used to retrieve the VNet you create in step 4 above. To save the changes to Azure, run the **Set-AzureVirtualNetwork** cmdlet, as shown below.
+8. Embora você crie sub-redes, elas atualmente só existem na variável local usada para recuperar a VNet criada na etapa 4 acima. Para salvar as alterações no Azure, execute o cmdlet **Set-AzureVirtualNetwork** como mostrado abaixo.
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
@@ -117,7 +117,7 @@ To create a VNet by using PowerShell, follow the steps below.
 		Subnets           : [
 		                      {
 		                        "Name": "FrontEnd",
-		                        "Etag": "W/\"2d3496d8-2b85-4238-bde2-377fe660aa4a\"",
+		                        "Etag": "W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"",
 		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
 		                        "AddressPrefix": "192.168.1.0/24",
 		                        "IpConfigurations": [],
@@ -127,7 +127,7 @@ To create a VNet by using PowerShell, follow the steps below.
 		                      },
 		                      {
 		                        "Name": "BackEnd",
-		                        "Etag": "W/\"2d3496d8-2b85-4238-bde2-377fe660aa4a\"",
+		                        "Etag": "W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"",
 		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
 		                        "AddressPrefix": "192.168.2.0/24",
 		                        "IpConfigurations": [],
@@ -136,3 +136,5 @@ To create a VNet by using PowerShell, follow the steps below.
 		                        "ProvisioningState": "Succeeded"
 		                      }
 		                    ]
+
+<!---HONumber=August15_HO9-->

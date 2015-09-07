@@ -1,29 +1,24 @@
 <properties 
-	pageTitle="Como o Azure AD Connect funciona" 
-	description="Saiba como o Azure AD Connect funciona" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Como o Azure AD Connect funciona"
+	description="Saiba como o Azure AD Connect funciona"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Como o Azure AD Connect funciona
 
- > [AZURE.SELECTOR]
-- [What is It](../active-directory-aadconnect/)
-- [How it Works](../active-directory-aadconnect-how-it-works/)
-- [Getting Started](../active-directory-aadconnect-get-started/)
-- [What's Next](../active-directory-aadconnect-whats-next/) 
-- [Learn More](../active-directory-aadconnect-learn-more/)
+
 
 O Azure Active Directory Connect é composto de três partes principais. Elas são: os serviços de sincronização, a parte opcional de Serviços de Federação do Active Directory e a parte de monitoramento que é feita usando o [Azure AD Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx).
 
@@ -52,4 +47,4 @@ A seguir, uma lista de pré-requisitos e componentes de suporte que o Azure AD C
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

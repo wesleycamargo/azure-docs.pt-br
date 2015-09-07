@@ -490,7 +490,7 @@ A variável **vmStorageAccountContainerName** é um exemplo de uma variável sim
 
 Se você quiser personalizar o tamanho da implantação do cluster Spark, altere as propriedades das variáveis **tshirtSizeS**, **tshirtSizeM** e **tshirtSizeL** no modelo azuredeploy.json.
 
-Para saber mais sobre o idioma do modelo, consulte a MSDN em [Idioma do modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para saber mais sobre o idioma do modelo, consulte a MSDN em [Idioma do modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 
 ### Seção "recursos"
@@ -833,7 +833,7 @@ Essencialmente, essa abordagem sugere o seguinte:
 -	Para membros de um grupo de recursos idênticos (nós em um cluster etc.), crie modelos específicos que usam o loop de recursos para implantar várias instâncias com propriedades exclusivas.
 -	Para todas as tarefas pós-implantação (instalação de produtos, configurações etc.), use extensões de implantação de scripts e crie scripts específicos para cada tecnologia.
 
-Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 ## Próximas etapas
 
@@ -843,4 +843,4 @@ Descubra mais [estruturas de aplicativo](virtual-machines-app-frameworks.md).
 
 [Solucionar problemas de implantações de modelo](resource-group-deploy-debug.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

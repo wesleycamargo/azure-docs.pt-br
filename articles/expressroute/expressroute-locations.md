@@ -1,26 +1,26 @@
 <properties
-   pageTitle="Locais de Rota Expressa"
-   description="Esta página fornece uma visão geral detalhada dos locais onde os serviços são oferecidos e de como se conectar a regiões do Azure."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor="tysonn" />
-<tags 
+   pageTitle="Locais da Rota Expressa | Microsoft Azure"
+	description="Este artigo fornece uma visão geral detalhada dos locais onde os serviços são oferecidos e de como se conectar a regiões do Azure."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor="tysonn"/>
+<tags
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/06/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/06/2015"
+	ms.author="cherylmc"/>
 
-# Locais de emparelhamento e parceiros da Rota Expressa
-As tabelas nesta página fornecem informações sobre provedores de conectividade da Rota Expressa (EXPs e NSPs), a cobertura geográfica da Rota Expressa, serviços em nuvem da Microsoft com suporte ao longo da Rota Expressa e SIs (integradores de serviço) da Rota Expressa.
+# Locais de emparelhamento e parceiros da Rota Expressa do Azure
+As tabelas neste artigo fornecem informações sobre provedores de conectividade da Rota Expressa (EXPs e NSPs), a cobertura geográfica da Rota Expressa, serviços de nuvem da Microsoft com suporte ao longo da Rota Expressa e SIs (integradores de serviço) da Rota Expressa.
 
 ## Provedores de conectividade da Rota Expressa
 Há suporte para Rota Expressa em todos os locais e regiões do Azure. O mapa a seguir fornece uma lista de locais de Rota Expressa e regiões do Azure. Os locais de Rota Expressa são aqueles onde a Microsoft emparelha-se a vários provedores de serviços.
- 
+
 ![](./media/expressroute-locations/expressroute-locations-map.png)
 
 Você terá acesso aos serviços do Azure em todas as regiões dentro de uma região geopolítica se estiver conectado a pelo menos um local de Rota Expressa dentro da região geopolítica. A tabela a seguir fornece um mapa das regiões do Azure para locais de Rota Expressa em uma região geopolítica.
@@ -41,7 +41,7 @@ Não há suporte para a conectividade entre regiões geopolíticas. Você pode t
 
 ## Locais de EXP (provedor do Exchange)
 
-| **Provedor de Serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
+| **Provedor de serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Suportado | Sem suporte | Vale do Silício, Cingapura, Washington, D.C. |
 | **[Colt Ethernet](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Sem suporte | Amsterdã, Londres |
@@ -63,7 +63,7 @@ Consulte [Configurar sua conexão EXP](expressroute-configuring-exps.md) para ve
 ## Locais do NSP (provedor de serviços de rede)
 
 
-| **Provedor de Serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
+| **Provedor de serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Suportado | Em breve | Amsterdã +, Londres + Dallas, Vale do Silício, Washington, D.C. |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Suportado | Em breve | Amsterdã, Londres, Vale do Silício+, Washington, D.C. |
@@ -71,7 +71,7 @@ Consulte [Configurar sua conexão EXP](expressroute-configuring-exps.md) para ve
 | **[Colt IPVPN](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Sem suporte | Amsterdã, Londres |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Suportado | Sem suporte | Tóquio |
 | **[Comunicações de nível 3 - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Sem suporte | Chicago, Dallas, Londres, Seattle, Vale do Silício, Washington, D.C. |
-| **NTT Communications** | Em breve | Sem suporte | Tóquio + | 
+| **NTT Communications** | Em breve | Sem suporte | Tóquio + |
 | **[Orange](http://www.orange-business.com/)** | Suportado | Sem suporte | Amsterdã, Londres, Vale do Silício, Washington, D.C. |
 | **PCCW Global Limited** | Suportado | Sem suporte | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Suportado | Sem suporte | Cingapura |
@@ -83,25 +83,25 @@ Consulte [Configurar sua conexão EXP](expressroute-configuring-exps.md) para ve
 
 Consulte [Configurar sua conexão NSP](expressroute-configuring-nsps.md) para conhecer as etapas a seguir para configurar sua conexão.
 
-## Conectividade por meio de provedores de serviços não listados 
+## Conectividade por meio de provedores de serviços não listados
 
-Se seu provedor de conectividade não estiver nas seções listadas acima, você ainda pode criar uma conexão.
+Se seu provedor de conectividade não estiver listado em seções anteriores, você ainda pode criar uma conexão.
 
-- Verifique com seu provedor de conectividade para ver se eles estão conectados a qualquer um dos provedores Exchange nos locais de EXP listados. Você pode verificar os links abaixo para obter mais informações sobre os serviços oferecidos por provedores do Exchange. Vários provedores de conectividade já estão conectados a Exchanges de Ethernet dos EXPs.
-	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/) 
+- Verifique com seu provedor de conectividade para ver se eles estão conectados a qualquer um dos provedores Exchange nos locais de EXP listados. Você pode verificar os links a seguir para obter mais informações sobre os serviços oferecidos por provedores do Exchange. Vários provedores de conectividade já estão conectados a Exchanges de Ethernet dos EXPs.
+	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 - Faça com que seu provedor de conectividade estenda sua rede para o local do Exchange de sua escolha.
 	- Certifique-se de que seu provedor de conectividade estenda sua conectividade de maneira altamente disponível para que não exista nenhum ponto de falha.
-	- Provedores de conectividade (especificamente provedores Ethernet) podem exigir a aquisição de um par de circuitos para Ethernet Exchange, para garantir alta disponibilidade. 
+	- Provedores de conectividade (especificamente provedores Ethernet) podem exigir a aquisição de um par de circuitos para Ethernet Exchange, para garantir alta disponibilidade.
 - Solicite um circuito de Rota Expressa por meio do provedor do Exchange para se conectar ao Azure.
 	- Siga as etapas em [Configurar sua conexão EXP](expressroute-configuring-exps.md) para configurar a conectividade.
 
-|**Provedor de conectividade**|**Provedores do Exchange**|**Locais de emparelhamento**|
+|**Provedor de conectividade**|**Provedor do Exchange**|**Locais de emparelhamento**|
 |---|---|---|
 |**[Comunicações XO](http://www.xo.com/)**|Equinix|Vale do Silício|
 
 ## Integradores de sistema de Rota Expressa
-Habilitar a conectividade privada para atender às suas necessidades pode ser desafiador, dependendo da escala de sua rede. Você pode trabalhar com qualquer dos integradores de sistema listados na tabela a seguir para ajudá-lo com integração à Rota Expressa.
+Habilitar a conectividade privada para atender às suas necessidades pode ser desafiador, dependendo da escala de sua rede. Você pode trabalhar com qualquer dos Integradores de Sistema listados na tabela a seguir para ajudá-lo com integração à Rota Expressa.
 
 
 |**Integrador de Sistema**|**Continent**|
@@ -114,6 +114,5 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Visite as [Perguntas Frequentes](expressroute-faqs.md) para obter mais informações.
 - Se você deseja configurar uma conexão Rota Expressa, consulte [Configurar sua conexão EXP](expressroute-configuring-exps.md) ou [Configurar sua conexão NSP](expressroute-configuring-nsps.md).
 - Se você deseja configurar uma conexão site a site VPN e uma Rota Expressa para a mesma rede virtual, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](expressroute-coexist.md).
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

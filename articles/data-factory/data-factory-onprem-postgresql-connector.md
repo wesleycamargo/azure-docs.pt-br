@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector do PostgreSQL: mover dados do PostgreSQL" 
-	description="Saiba mais sobre o conector do PostgreSQL para o serviço da Data Factory que permite mover dados do banco de dados PostgreSQL" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Mover dados do PostgreSQL | Azure Data Factory"
+	description="Saiba mais sobre como mover dados do banco de dados PostgreSQL usando o Azure Data Factory"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector do PostgreSQL: mover dados do PostgreSQL usando a Azure Data Factory
+# Mover dados do PostgreSQL usando o Azure Data Factory
 
 Este artigo descreve como você pode usar a atividade de cópia em uma Azure Data Factory para mover dados do PostgreSQL para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
@@ -34,11 +34,11 @@ Para o Gateway de Gerenciamento de Dados para se conectar ao banco de dados Post
 
 O exemplo a seguir mostra:
 
-1.	Um serviço vinculado do tipo OnPremisesPostgreSql.
-2.	Um serviço vinculado do tipo AzureStorage.
-3.	Um conjunto de dados de entrada do tipo RelationalTable.
-4.	Um conjunto de dados de saída do tipo BlobSink.
-4.	O pipeline com atividade de cópia que usa RelationalSource e BlobSink. 
+1.	Um serviço vinculado do tipo [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#postgresql-linked-service-properties).
+2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [RelationalTable](data-factory-onprem-postgresql-connector.md#postgresql-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	O [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [RelationalSource](data-factory-onprem-postgresql-connector.md#postgresql-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 O exemplo copia dados de um resultado de consulta no banco de dados PostgreSQL para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -163,7 +163,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 
 **Atividade de cópia:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. No definição JSON do pipeline, o tipo de **source** está definido como **RelationalSource** e o tipo de **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados da tabela public.usstates no banco de dados PostgreSQL.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados da tabela public.usstates no banco de dados PostgreSQL.
 	
 	{
 	    "name": "CopyPostgreSqlToBlob",
@@ -214,7 +214,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-type | A propriedade type deve ser definida como: **OnPremisesPostgreSql** | Sim
+type | A propriedade tipo deve ser definida como: **OnPremisesPostgreSql** | Sim
 server | Nome do servidor PostgreSQL. | Sim 
 database | Nome do banco de dados PostgreSQL. | Sim 
 schema | Nome do esquema no banco de dados. | Não 
@@ -223,9 +223,11 @@ Nome de Usuário | Especifique o nome de usuário se você estiver usando a aute
 Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não 
 gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados PostgreSQL local. | Sim 
 
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do PostgreSQL local.
+
 ## Propriedades de tipo do conjunto de dados do PostgreSQL
 
-Para obter uma lista completa das seções e propriedades disponíveis para definição de conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties de um conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do PostgreSQL) tem as seguintes propriedades.
 
@@ -249,7 +251,7 @@ query | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracter
 
 ## Mapeamento de tipo para PostgreSQL
 
-Conforme mencionado no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de tipos de fonte para tipos de coletor, com a abordagem em duas etapas descrita a seguir:
+Conforme mencionado no artigo [Atividades de movimentação de dados ](data-factory-data-movement-activities.md), A atividade de cópia executa conversões automáticas de tipos de fontes para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 1. Converter do tipo .NET para o tipo de coletor nativo
@@ -304,4 +306,4 @@ texto | | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

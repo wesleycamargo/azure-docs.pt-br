@@ -1,19 +1,19 @@
 <properties
    pageTitle="Execução de runbook na Automação do Azure"
-   description="Descreve os detalhes de como um runbook na Automação do Azure é processado."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	description="Descreve os detalhes de como um runbook na Automação do Azure é processado."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn"/>
 <tags
    ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
-   ms.author="bwren" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/22/2015"
+	ms.author="bwren"/>
 
 # Execução de runbook na Automação do Azure
 
@@ -89,7 +89,7 @@ Os comandos de exemplo a seguir recuperam o último trabalho para um exemplo de 
 
 ## Fração justa
 
-Para compartilhar recursos entre todos os runbooks na nuvem, a Automação do Azure irá descarregar temporariamente qualquer trabalho depois de ser executado por 3 horas e reiniciá-lo de seu último [ponto de verificação](http://aka.ms/runbookauthor/checkpoints). Durante esse tempo, o trabalho mostrará o status Executando, aguardando recursos. Se o runbook não tiver nenhum ponto de verificação ou o trabalho não atingir o primeiro ponto de verificação antes de ser descarregado, ele será reiniciado desde o início.
+Para compartilhar recursos entre todos os runbooks na nuvem, a Automação do Azure irá descarregar temporariamente qualquer trabalho depois de ser executado por 3 horas e reiniciá-lo de seu último [ponto de verificação](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). Durante esse tempo, o trabalho mostrará o status Executando, aguardando recursos. Se o runbook não tiver nenhum ponto de verificação ou o trabalho não atingir o primeiro ponto de verificação antes de ser descarregado, ele será reiniciado desde o início.
 
 Se o runbook reiniciar a partir do mesmo ponto de verificação ou desde o início do runbook três vezes consecutivas, ele será encerrado com um status Falha, aguardando recursos. Isso serve para proteger contra runbooks em execução indefinidamente sem conclusão, já que não são capazes alcançar o próximo ponto de verificação sem serem descarregados novamente. Nesse caso, você receberá a exceção com falha abaixo.
 
@@ -101,8 +101,6 @@ Quando você criar um runbook, verifique se o tempo para executar atividades ent
 
 ## Artigos relacionados
 
-- [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook)
-- [Exibindo o status de um trabalho de runbook na Automação do Azure](automation-viewing-the-status-of-a-runbook-job)
- 
+- [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

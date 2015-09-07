@@ -1,20 +1,20 @@
 <properties
    pageTitle="Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure"
-   services="azure-resource-manager"
-   description="Use o Gerenciador de recursos do Azure para implantar um aplicativo no Azure. Um modelo é um arquivo JSON e pode ser usado do Portal, PowerShell, a Interface de linha de comando do Azure para Mac, Linux e Windows ou REST."
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	services="azure-resource-manager"
+	description="Use o Gerenciador de recursos do Azure para implantar um aplicativo no Azure. Um modelo é um arquivo JSON e pode ser usado do Portal, PowerShell, a Interface de linha de comando do Azure para Mac, Linux e Windows ou REST."
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure
 
@@ -256,6 +256,8 @@ Se você usar um arquivo de parâmetro para passar os valores de parâmetro para
        }
     }
 
+O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
+
 ## Próximas etapas
 - Para obter um exemplo da implantação de recursos por meio da biblioteca de cliente .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](../arm-template-deployment.md)
 - Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de modo previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
@@ -264,4 +266,4 @@ Se você usar um arquivo de parâmetro para passar os valores de parâmetro para
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

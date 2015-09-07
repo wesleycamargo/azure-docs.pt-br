@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fase 4 da carga de trabalho do farm da intranet do SharePoint: Configurar servidores do SharePoint"
-	description="Nesta quarta fase da implantação de um farm do SharePoint 2013 apenas de intranet, você cria máquinas virtuais do SharePoint server e um novo farm do SharePoint."
+	pageTitle="Farm do SharePoint Server 2013 Fase 4 | Microsoft Azure"
+	description="Crie máquinas virtuais do SharePoint Server e um novo farm do SharePoint na Fase 4 do farm do SharePoint Server 2013 no Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -193,4 +193,4 @@ Para continuar com a configuração dessa carga de trabalho, vá para a [Fase 5:
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

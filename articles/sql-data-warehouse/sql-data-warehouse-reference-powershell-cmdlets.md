@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introdução aos cmdlets no SQL Data Warehouse"
-   description="Suspender e reiniciar o SQL Data Warehouse usando cmdlets do PowerShell"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sidneyh"
-   manager="jhubbard"
-   editor=""/>
+	description="Suspender e reiniciar o SQL Data Warehouse usando cmdlets do PowerShell"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sidneyh"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/29/2015"
-   ms.author="sidneyh;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/29/2015"
+	ms.author="sidneyh;barbkess"/>
 
 # Introdução aos cmdlets e APIs REST do Data Warehouse do Azure
 
@@ -90,6 +90,10 @@ Este exemplo recupera um banco de dados denominado “Database02” de um servid
 	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
 
 
+
+> [AZURE.NOTE]Observe que se o servidor for foo.database.windows.net, use "foo" como o nome do servidor nos cmdlets do powershell.
+
+
 ## Próximas etapas
 Para obter mais informações de referência, consulte [Visão geral de referência do SQL Data Warehouse][].
 
@@ -106,4 +110,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

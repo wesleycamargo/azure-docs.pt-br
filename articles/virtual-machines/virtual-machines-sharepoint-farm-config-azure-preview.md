@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Detalhes da configuração do Farm do SharePoint Server"
-	description="Este artigo descreve a configuração padrão dos farms do SharePoint quando você usa o recurso Farm de Servidores do SharePoint do portal de visualização do Azure."
+	pageTitle="Configuração de Farm do SharePoint Server | Microsoft Azure"
+	description="Saiba sobre a configuração padrão dos farms do SharePoint quando você usar o recurso Farm de Servidores do SharePoint do portal de visualização do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -129,7 +129,7 @@ Aqui estão os detalhes da configuração:
 
 ## Gerenciador de Recursos do Azure
 
-O recurso Farm de Servidores do SharePoint do portal de visualização do azure cria máquinas virtuais no Gerenciamento de Serviços. Para criar farms do SharePoint Server 2013 no Gerenciador de Recursos do Azure, consulte [Implantar farms do SharePoint com os modelos do Gerenciador de Recursos do Azure](virtual-machines-workload-template-sharepoint.md).
+O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria máquinas virtuais no Gerenciamento de Serviços. Para criar farms do SharePoint Server 2013 no Gerenciador de Recursos do Azure, consulte [Implantar farms do SharePoint com os modelos do Gerenciador de Recursos do Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Recursos adicionais
 
@@ -139,4 +139,4 @@ O recurso Farm de Servidores do SharePoint do portal de visualização do azure 
 
 [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

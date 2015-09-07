@@ -1,20 +1,20 @@
 <properties
    pageTitle="Malha de serviço do Microsoft Azure Como se comunicar com serviços"
-   description="Este artigo descreve como você pode conectar-se e comunicar-se com serviços em aplicativos de malha do serviço."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="kunaldsingh"
-   manager="timlt"
-   editor=""/>
+	description="Este artigo descreve como você pode conectar-se e comunicar-se com serviços em aplicativos de malha do serviço."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="kunaldsingh"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/29/2015"
-   ms.author="kunalds"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/21/2015"
+	ms.author="kunalds"/>
 
 
 # Comunicação com os serviços
@@ -56,6 +56,5 @@ Todas as APIs de comunicação do ServiceFabric estão atualmente disponíveis s
 * [Modelo de comunicação de serviços confiáveis](service-fabric-reliable-services-communication.md)
 * [Introdução à API da Web da malha de serviço do Microsoft Azure OWIN auto-host](service-fabric-reliable-services-communication-webapi.md)
 * [WCF com base em pilha de comunicação para serviços confiáveis](service-fabric-reliable-services-communication-wcf.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

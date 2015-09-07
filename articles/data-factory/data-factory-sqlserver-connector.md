@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="SQL Server Connector - mover dados de e para o SQL Server" 
-	description="Saiba mais sobre o SQL Server Connector para o serviço Data Factory que permite mover dados de/para um banco de dados do SQL Server local ou em uma VM do Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Mover dados para e do SQL Server | Azure Data Factory"
+	description="Saiba mais sobre como mover dados de/para o banco de dados do SQL Server local ou em uma VM do Azure usando o Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# SQL Server Connector - mover dados para e do SQL Server local ou em IaaS (VM do Azure)
+# Mover dados para e do SQL Server local ou em IaaS (VM do Azure) usando o Azure Data Factory
 
 Este artigo descreve como você pode usar a Atividade de Cópia em uma Azure Data Factory para mover dados de outro repositório de dados para o SQL Server. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
@@ -32,11 +32,11 @@ Embora você possa instalar o gateway no mesmo computador local ou instância VM
 
 O exemplo a seguir mostra:
 
-1.	Um serviço vinculado do tipo OnPremisesSqlServer.
-2.	Um serviço vinculado do tipo AzureStorage.
-3.	Um conjunto de dados de entrada do tipo SqlServerTable. 
-4.	Um conjunto de dados de saída do tipo AzureBlob.
-4.	O pipeline com Atividade de cópia que usa SqlSource e BlobSink.
+1.	Um serviço vinculado do tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties). 
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	O [pipeline](data-factory-create-pipelines.md) com Atividade de cópia que usa [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia a cada hora dados pertencentes a uma série temporal de uma tabela no banco de dados do SQL Server para um blob. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -156,7 +156,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 
 **Pipeline com Atividade de cópia**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. No definição JSON do pipeline, o tipo **source** está definido como **SqlSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **SqlSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
 
 
 	{  
@@ -208,11 +208,11 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 
 O exemplo a seguir mostra:
 
-1.	O serviço vinculado do tipo OnPremisesSqlServer.
-2.	O serviço vinculado do tipo AzureStorage.
-3.	Um conjunto de dados de entrada do tipo AzureBlob.
-4.	Um conjunto de dados de saída do tipo SqlServerTable.
-4.	Um pipeline com Atividade de cópia que usa BlobSource e SqlSink.
+1.	O serviço vinculado do tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	O serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
+4.	O [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
 
 O exemplo copia, a cada hora, dados pertencentes a uma série temporal do Blob do Azure para uma tabela no banco de dados do SQL Server. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -382,11 +382,15 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| type | A propriedade de tipo deve ser configurada como **OnPremisesSqlServer**. | Sim |
+| type | A propriedade do tipo deve ser definida como: **OnPremisesSqlServer**. | Sim |
 | connectionString | Especifique as informações de connectionString necessárias para conexão com o banco de dados do SQL Server local usando a autenticação do SQL ou então a autenticação do Windows. | Sim |
 | gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados do SQL Server local. | Sim |
 | Nome de Usuário | Especifique o nome de usuário se você estiver usando a Autenticação do Windows. | Não |
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não |
+
+Você pode criptografar credenciais usando o cmdlet **New-AzureDataFactoryEncryptValue** e usá-las na cadeia de conexão, conforme mostrado no exemplo a seguir (propriedade **EncryptedCredential**):
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
 ### Exemplos
 
@@ -418,9 +422,11 @@ Se o nome de usuário e senha forem especificados, o gateway os usará para repr
 	     } 
 	}
 
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do SQL Server.
+
 ## Propriedades de tipo de conjunto de dados do SQL Server
 
-Para obter uma lista completa das seções e propriedades disponíveis para definição de conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como estrutura, disponibilidade e política de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Server, blob do Azure, tabela do Azure, etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como estrutura, disponibilidade e política de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Server, blob do Azure, tabela do Azure, etc.).
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **SqlServerTable** tem as propriedades a seguir.
 
@@ -462,7 +468,7 @@ No caso de Atividade de cópia, quando a fonte é do tipo **SqlSource**, as segu
 
 ### Mapeamento de tipo para SQL Server e SQL Azure
 
-Conforme mencionado no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de cópia executa conversões automáticas de tipo de tipos de fonte para tipos de coletor, com a abordagem em duas etapas descrita a seguir:
+Conforme mencionado no artigo [Atividades de movimentação de dados ](data-factory-data-movement-activities.md), A atividade de cópia executa conversões automáticas de tipos de fontes para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -512,4 +518,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

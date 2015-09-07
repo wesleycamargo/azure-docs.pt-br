@@ -50,11 +50,11 @@ Antes de carregar a imagem no Azure, você precisa generalizá-la usando o coman
 
 Na máquina virtual na qual o sistema operacional foi instalado, conclua o procedimento a seguir:
 
-1. Faça logon no sistema operacional.
+1. Entre no sistema operacional.
 
 2. Abra uma janela de prompt de comando como administrador. Altere o diretório para **%windir%\\system32\\sysprep** e, a seguir, execute `sysprep.exe`.
 
-	![Abrir janela de Prompt de comando](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
+	![Abrir una janela de Prompt de comando](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
 3.	A caixa de diálogo **Ferramenta de Preparação do Sistema** é aberta.
 
@@ -80,14 +80,11 @@ Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .v
 
 4. Preencha os campos da seguinte maneira:
 
-	- Em **URL**, digite um nome de subdomínio para usar no URL para a conta de armazenamento. A entrada pode conter de 3 a 24 letras minúsculas e números. Esse nome se torna o nome do host na URL que é usada para lidar com os recursos Blob, Fila ou Tabela da assinatura.
+ - Em **URL**, digite um nome de subdomínio para usar no URL para a conta de armazenamento. A entrada pode conter de 3 a 24 letras minúsculas e números. Esse nome se torna o nome do host na URL que é usada para lidar com os recursos blob, fila ou tabela da assinatura.
+ - Escolha o **local ou o grupo de afinidade** da conta de armazenamento. Um grupo de afinidades permite colocar seus serviços de nuvem e armazenamento no mesmo data center.
+ - Escolha entre usar a **replicação geográfica** ou não para a conta de armazenamento. A replicação geográfica é ativada por padrão. Essa opção replica os dados para um local secundário, sem nenhum custo para você, para que o armazenamento efetue o failover para o local se ocorrer uma falha grave no local principal. O local secundário é atribuído automaticamente e não pode ser alterado. Se você precisar de mais controle sobre o local do armazenamento baseado em nuvem devido a requisitos legais ou política organizacional, você pode desligar a replicação geográfica. No entanto, saiba que ao ativar a replicação geográfica posteriormente, você deverá pagar uma taxa de transferência de uma única vez para replicar seus dados existentes para o local secundário. Serviços de armazenamento sem replicação geográfica são oferecidos com desconto. Mais detalhes sobre como gerenciar a replicação geográfica de contas de armazenamento podem ser encontrados aqui: [Criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account/#replication-options).
 
-	- Escolha o **local ou o grupo de afinidade** da conta de armazenamento. Um grupo de afinidade permite colocar seus serviços de nuvem e armazenamento no mesmo data center.
-
-	- Escolha entre usar a **replicação geográfica** ou não para a conta de armazenamento. A replicação geográfica é ativada por padrão. Essa opção replica os dados para um local secundário, sem nenhum custo para você, para que o armazenamento efetue o failover para o local se ocorrer uma falha grave no local principal. O local secundário é atribuído automaticamente e não pode ser alterado. Se você precisar de mais controle sobre o local do armazenamento baseado em nuvem devido a requisitos legais ou política organizacional, você pode desligar a replicação geográfica. No entanto, saiba que ao ativar a replicação geográfica posteriormente, você deverá pagar uma taxa de transferência de uma única vez para replicar seus dados existentes para o local secundário. Serviços de armazenamento sem replicação geográfica são oferecidos com desconto. Mais detalhes sobre como gerenciar a replicação geográfica de contas de armazenamento podem ser encontrados aqui: [Criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account/#replication-options).
-
-	![Insira os detalhes da conta de armazenamento](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
-
+      ![Insira os detalhes da conta de armazenamento](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
 5. Clique em **Criar Conta de Armazenamento**. A conta aparece agora em **Armazenamento**.
 
@@ -105,7 +102,7 @@ Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .v
 
 	![Nome do contêiner](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-	> [AZURE.NOTE]Por padrão, o contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público dos blobs no contêiner, mas não das propriedades ou metadados do contêiner, use a opção "Public Blob". Para permitir o acesso de leitura público completo dos dados do contêiner e de blobs, use a opção "Public Container".
+	> [AZURE.NOTE]Por padrão, o contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público dos blobs no contêiner, mas não das propriedades ou metadados do contêiner, use a opção **Public Blob**. Para permitir o acesso de leitura público completo dos dados do contêiner e de blobs, use a opção **Public Container**.
 
 ## Etapa 3: preparar a conexão com o Microsoft Azure ##
 
@@ -143,8 +140,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 ## Etapa 4: carregar o arquivo .vhd
 
-Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar no seu armazenamento de blob. Nos exemplos de comando a seguir, **BlobStorageURL** é a URL da conta de armazenamento que você criou na Etapa 2, **YourImagesFolder** é o contêiner no armazenamento de blob onde você deseja armazenar as imagens. **VHDName** é o rótulo que aparece no Portal de Gerenciamento para identificar o disco rígido virtual. **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd.
-
+Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar no seu armazenamento de blob. Nos exemplos de comando a seguir, **BlobStorageURL** é a URL da conta de armazenamento que você criou na Etapa 2, **YourImagesFolder** é o contêiner no armazenamento de blob onde você deseja armazenar as imagens. **VHDName** é o rótulo que aparece no portal para identificar o disco rígido virtual. **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd.
 
 1. Na janela PowerShell do Azure que você usou na etapa anterior, digite:
 
@@ -168,19 +164,23 @@ Depois de carregar o .vhd, você o adiciona como uma imagem à lista de imagens 
 
 4. Em **Criar uma imagem a partir de um VHD**, faça o seguinte:
 
-	- Especifique **nome**
-	- Especifique **descrição**
+	- Especifique o **nome**.
+
+	- Especifique a **descrição**.
+
 	- Para especificar a **URL do seu VHD**, clique no botão de pasta para abrir a seguinte janela:
 
-	![Selecione VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
+    ![Selecione VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
 
 	- Selecione a conta de armazenamento em que seu VHD está e clique em **Abrir**. Isso o levará de volta à janela**Criar uma imagem a partir de um VHD**.
-	- Após retornar à janela **Criar uma imagem a partir de um VHD**, selecione a família do sistema operacional.
+
+	- Após retornar à janela **Criar uma imagem a partir de um VHD**, selecione seu sistema operacional na Família do Sistema Operacional.
+
 	- Marque **Executei o Sysprep na máquina virtual associada a este VHD** para confirmar que você generalizou o sistema operacional na Etapa 1 e, em seguida, clique em **OK**.
 
-	![Adicionar uma imagem](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
+    ![Adicionar uma imagem](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
 
-5. **OPCIONAL:** você pode usar o cmdlet Add-AzureVMImage em vez do portal para adicionar seu VHD como uma imagem. No console do PowerShell do Azure, digite:
+5. **OPCIONAL:** você pode usar o cmdlet **Add-AzureVMImage** em vez do portal para adicionar seu VHD como uma imagem. No console do PowerShell do Azure, digite:
 
 	`Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>`
 
@@ -188,14 +188,13 @@ Depois de carregar o .vhd, você o adiciona como uma imagem à lista de imagens 
 
 6. Após completar as etapas anteriores, a nome imagem será listada ao escolher a guia **Imagens**.
 
-
 	![imagem personalizada](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
 	Essa nova imagem agora está disponível em **Minhas Imagens** quando você cria uma máquina virtual. Para obter instruções, confira [Como criar uma máquina virtual personalizada executando o Windows](virtual-machines-windows-create-custom.md).
 
 	![crie uma VM da imagem personalizada](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP]Se você receber um erro ao tentar criar uma VM, com essa mensagem de erro "O VHD https://XXXXX...tem um tamanho virtual sem suporte de bytes aaaa. O tamanho deve ser um número inteiro (em MB),” significa que o VHD não tem um número inteiro de MB e precisa ser um VHD de tamanho fixo. Tente usar o cmdlet Add-AzureVMImage PowerShell em vez do Portal de gerenciamento para adicionar a imagem (consulte a etapa 5, acima). Os cmdlets do Azure asseguram que o VHD atende aos requisitos do Azure.
+	> [AZURE.TIP]Se você receber um erro ao tentar criar uma VM, com essa mensagem de erro "O VHD https://XXXXX...tem um tamanho virtual sem suporte de bytes aaaa. O tamanho deve ser um número inteiro (em MB),” significa que o VHD não tem um número inteiro de MB e precisa ser um VHD de tamanho fixo. Tente usar o cmdlet **Add-AzureVMImage** do PowerShell em vez do Portal para adicionar a imagem (consulte a etapa 5, acima). Os cmdlets do Azure asseguram que o VHD atende aos requisitos do Azure.
 
 ## Próximas etapas ##
 
@@ -206,4 +205,4 @@ Após criar uma máquina virtual, tente criar uma máquina virtual do SQL Server
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

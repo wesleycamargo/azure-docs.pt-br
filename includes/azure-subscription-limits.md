@@ -11,10 +11,10 @@ Servidores DNS por assinatura|9|100
 IPs reservados por assinatura|20|100
 Circuitos dedicados da Rota Expressa por assinatura|10|25
 Certificados de serviço hospedado por assinatura|400|400
-[Grupos de afinidade](http://msdn.microsoft.com/library/azure/jj156085.aspx) por assinatura|256|256
+[Grupos de afinidade](../virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura|256|256
 Contas do [Lote](http://azure.microsoft.com/services/batch/) por região, por assinatura|1|50
 Regras de alerta por assinatura|250|250
 
 <sup>1</sup>Instâncias muito pequenas contam como um núcleo para o limite de núcleos, apesar de utilizarem um núcleo parcial.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

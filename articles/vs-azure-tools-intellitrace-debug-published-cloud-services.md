@@ -1,19 +1,21 @@
 <properties 
-   pageTitle="Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio"
-   description="Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio | Microsoft Azure"
+	description="Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
+
+
 
 # Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio
 
@@ -31,7 +33,9 @@ Para habilitar o IntelliTrace para um aplicativo Azure, você deve criar e publi
 
 1. Quando estiver pronto para implantar o aplicativo Azure, verifique se os destinos de compilação do projeto estão definidos como **Depurar**.
 
-1. Abra o menu de atalho do projeto do Azure no Gerenciador de Soluções e escolha **Publicar**. O assistente Publicar Aplicativo do Azure é exibido.
+1. Abra o menu de atalho do projeto do Azure no Gerenciador de Soluções e escolha **Publicar**.
+ 
+    O assistente Publicar Aplicativo do Azure é exibido.
 
 1. Para coletar os logs do IntelliTrace do seu aplicativo quando ele é publicado na nuvem, marque a caixa de seleção **Habilitar IntelliTrace**.
 
@@ -61,8 +65,8 @@ Quando os logs são baixados, o Visual Studio exibe o andamento da operação na
 
 >[AZURE.NOTE]Os logs do IntelliTrace podem conter exceções que a estrutura gera e subsequentemente trata. O código interno da estrutura gera essas exceções como uma parte normal de iniciar uma função, de modo que você pode ignorá-las com segurança.
 
-## Próximas etapas
+## Consulte também
 
-[Depurando serviços de nuvem](http://go.microsoft.com/fwlink/p/?LinkID=62304)
+[Depurando serviços de nuvem](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="IP Reservado"
-   description="Noções básicas sobre IPs reservados, VIP, ILPIP e como gerenciá-los"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Noções básicas sobre IPs reservados, VIP, ILPIP e como gerenciá-los"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/17/2015"
+	ms.author="telmos"/>
 
 # Visão geral de IPs reservados
 Os endereços IP no Azure recaem em duas categorias: dinâmicos e reservados. Os endereços IP públicos gerenciados pelo Azure são dinâmicos por padrão. Isso significa que o endereço IP usado para um determinado serviço de nuvem (VIP) ou para acessar uma VM ou instância de função diretamente (ILPIP) pode mudar de tempos em tempos, quando recursos forem desligados ou desalocados.
@@ -35,7 +35,7 @@ Para evitar que endereços IP sejam alterados, é possível reservar um endereç
 1. Como eu reservo um endereço IP? 
   - Você pode usar o PowerShell ou a [API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) para solicitar um IP reservado de uma região específica. O Azure reservará um endereço IP dessa região e fará a correlação com a sua assinatura. Você então poderá usar o IP reservado nessa região. Não é possível reservar um endereço IP usando o Portal de Gerenciamento.
 1. Posso usar isso com redes virtuais baseadas em grupos de afinidade? 
-  - Os IPs reservados têm suporte apenas em redes virtuais regionais. Eles não têm suporte para redes virtuais associadas a grupos de afinidade. Para obter mais informações sobre a associação de uma rede virtual a uma região ou a um grupo de afinidade, veja [Sobre redes virtuais regionais e grupos de afinidade](https://msdn.microsoft.com/library/azure/jj156085.aspx). 
+  - Os IPs reservados têm suporte apenas em redes virtuais regionais. Eles não têm suporte para redes virtuais associadas a grupos de afinidade. Para obter mais informações sobre a associação de uma rede virtual a uma região ou a um grupo de afinidade, veja [Sobre redes virtuais regionais e grupos de afinidade](virtual-networks-migrate-to-regional-vnet.md). 
 
 ## Como gerenciar VIPs reservados
 
@@ -119,4 +119,4 @@ Você também pode associar um IP reservado a um serviço de nuvem usando um arq
 
 - Verifique as [APIs REST do IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

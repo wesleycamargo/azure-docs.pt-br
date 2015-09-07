@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Instalação personalizada do Azure AD Connect" 
-	description="Este documento fornece detalhes sobre as opções de instalação personalizada para o Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Instalação personalizada do Azure AD Connect"
+	description="Este documento fornece detalhes sobre as opções de instalação personalizada para o Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Instalação personalizada do Azure AD Connect
@@ -83,9 +83,9 @@ Meu próprio atributo|Essa opção permite que você selecione seu próprio atri
 
 - **Âncora de origem** - o atributo sourceAnchor é um atributo imutável durante o tempo de vida de um objeto de usuário. É a chave primária de vinculação de usuário local com o usuário no AD do Azure. Como o atributo não pode ser alterado, você deve planejar um bom atributo para usar. Um bom candidato é objectGUID. Esse atributo não será alterado, a menos que a conta de usuário seja movida entre florestas/domínios. Em um ambiente de várias floresta em que você move contas entre florestas, outro atributo deve ser usado, como um atributo com employeeID. Os atributos a serem evitados são aqueles que seriam alterados se uma pessoa casasse ou mudasse de cargo. Você não pode usar atributos com um caractere @. Portanto, email e userPrincipalName não podem ser usados. O atributo também diferencia maiúsculas de minúsculas. Pportanto, se você mover um objeto entre florestas, preserve as maiúsculas/minúsculas. Para atributos binários, o valor é codificado na base 64, mas para outros tipos de atributo, ele permanecerá no estado não codificado. Em cenários de Federação e algumas interfaces do AD do Azure, esse atributo também é conhecido como immutableID.
 
-- **UserPrincipalName** - o atributo userPrincipalName é o atributo que os usuários usarão ao fazer logon no AD do Azure e no Office 365. Os domínios usados, também conhecidos como sufixo UPN, devem ser verificados no AD do Azure antes que os usuários sejam sincronizados. É altamente recomendável manter o atributo padrão userPrincipalName. Se esse atributo não for roteável e não puder ser verificado, será possível selecionar outro atributo, como email, como o atributo contendo a ID de logon.
+- **UserPrincipalName** - o atributo userPrincipalName é o atributo que os usuários usarão ao fazer logon no AD do Azure e no Office 365. Os domínios usados, também conhecidos como sufixo UPN, devem ser verificados no AD do Azure antes que os usuários sejam sincronizados. É altamente recomendável manter o atributo padrão userPrincipalName. Se esse atributo não for roteável e não puder ser verificado, será possível selecionar outro atributo, como email, como o atributo contendo a ID de logon. Isso é conhecido como **ID Alternativa**. O valor do atributo da ID Alternativa deve seguir o padrão RFC822. Uma ID Alternativa pode ser usada tanto com o SSO de senha quanto o SSO de federação como a solução de entrada.
 
->[AZURE.WARNING]Usar uma ID alternativa não é compatível com todas as cargas de trabalho do Office 365. Para obter mais informações, consulte [Configurando ID de logon alternativo](https://technet.microsoft.com/library/dn659436.aspx.).
+>[AZURE.WARNING]Usar uma ID alternativa não é compatível com todas as cargas de trabalho do Office 365. Para obter mais informações, consulte [Configuring Alternate Login ID (Configurando ID de logon alternativo)](https://technet.microsoft.com/library/dn659436.aspx.).
 
 
 
@@ -103,7 +103,7 @@ O recurso de filtragem em grupos permite executar um piloto pequeno em que somen
 
 Essa tela permite que você selecione os recursos opcionais para seus cenários específicos. Abaixo está uma breve explicação de cada um dos recursos individuais.
 
-<center>![Instalação expressa](./media/active-directory-aadconnect-get-started-custom/of.png)</center>
+<center>![Instalação expressa](./media/active-directory-aadconnect-get-started-custom/optional.png)</center>
 
 
 Recursos opcionais | Descrição
@@ -111,7 +111,6 @@ Recursos opcionais | Descrição
 Implantação híbrida do Exchange |O recurso de implantação híbrida do Exchange permite a coexistência de caixas de correio do Exchange no local e no Azure, sincronizando um conjunto específico de atributos do AD do Azure de volta ao diretório local.
 Aplicativo AD do Azure e filtragem de atributos|Ao habilitar o aplicativo AD do Azure e filtragem de atributo, o conjunto de atributos sincronizados pode ser adaptado para um conjunto específico em uma página subsequente do assistente. Isso abre duas páginas de configuração adicionais no assistente.  
 Write-back de senha|Ao habilitar o write-back de senha, as alterações de senha que se originam com o AD do Azure serão gravadas no diretório local.
-Write-back de usuário|Ao habilitar o write-back de usuário, os usuários criados no AD do Azure serão gravados de volta no diretório local. Isso abre uma página de configuração adicional no assistente.  
 Sincronização de atributo de extensão de diretório|Ao habilitar a sincronização de atributo de extensão de diretório, os atributos especificados serão sincronizados com o AD do Azure. Isso abre uma página de configuração adicional no assistente.  
 
 Para opções de configuração adicionais, como alterar a configuração padrão, usando o Editor de regras de sincronização e Provisionamento declarativo, consulte [Gerenciar o Azure AD Connect](active-directory-aadconnect-whats-next.md)
@@ -137,17 +136,7 @@ Estes atributos agora estarão disponíveis por meio do Gráfico:
 ![Filtragem de sincronização](./media/active-directory-aadconnect-get-started-custom/extension4.png)
 
 
-## Write-back de usuário (visualização)
 
-> [AZURE.WARNING]Se você tiver o DirSync ou a Sincronização do AD do Azure ativa, não ative os recursos de write-back no Azure AD Connect
-
-O write-back do usuário permite obter um usuário criado no AD do Azure (por meio do portal, gráfico, PowerShell ou qualquer outro método) e gravar o usuário de volta para o ADDS local. Para habilitar o recurso, selecione "Write-back de usuário" na página de recursos opcionais. Você agora verá o local em que deseja que esses usuários sejam criados. A configuração padrão criará todos os usuários em um único local no AD DS.
-
-![Filtragem de sincronização](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
-
-Os usuários serão criados com uma senha aleatória. Portanto, você precisará redefinir a senha no AD DS para o usuário poder realmente fazer logon.
-
->[AZURE.NOTE]A sincronização de senha e o write-back de senha não são compatíveis com esse recurso de visualização.
 
 ## Write-back de grupo (visualização)
 
@@ -234,7 +223,7 @@ Aqui, você digitará os servidores específicos em que deseja instalar o AD FS.
 
  
 ### Especificar os servidores proxy de aplicativo Web
-Aqui você digitará os servidores específicos que deseja definir como os servidores proxy de aplicativo Web. O servidor proxy de aplicativo Web é implantado em sua rede de perímetro (voltada para a extranet) e dá suporte a solicitações de autenticação da extranet. Você pode adicionar um ou mais servidores com base em sua necessidades de planejamento de capacidade. É recomendável instalar um único servidor proxy de aplicativo Web para implantações de teste e piloto e implantar servidores adicionais abrindo o Azure AD Connect e implantando io Proxy de Aplicativo Web em servidores adicionais. Normalmente, é recomendável ter um número equivalente de servidores proxy para satisfazer à autenticação da intranet.
+Aqui você digitará os servidores específicos que deseja definir como os servidores proxy de aplicativo Web. O servidor proxy de aplicativo Web é implantado em sua rede de DMZ (voltada para a extranet) e dá suporte a solicitações de autenticação da extranet. Você pode adicionar um ou mais servidores com base em sua necessidades de planejamento de capacidade. É recomendável instalar um único servidor proxy de aplicativo Web para implantações de teste e piloto e implantar servidores adicionais abrindo o Azure AD Connect e implantando io Proxy de Aplicativo Web em servidores adicionais. Normalmente, é recomendável ter um número equivalente de servidores proxy para satisfazer à autenticação da intranet.
 
 > [AZURE.NOTE]<li>Se a conta que você está usando para instalar o Azure AD Connect não for administrador local nos servidores do AD FS, você será solicitado a fornecer credenciais para uma conta que tenha permissões suficientes.</li><li>Verifique se há conectividade HTTP/HTTPS entre o servidor do Azure AD Connect e o servidor proxy de aplicativo Web antes de configurar essa etapa.</li><li> Além disso, verifique se há conectividade HTTP/HTTPS entre o servidor de aplicativos Web e o servidor do AD FS para permitir solicitações de autenticação por meio de fluxo.</li>
 
@@ -290,4 +279,4 @@ Você pode personalizar a imagem do logotipo e a ilustração para as páginas d
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

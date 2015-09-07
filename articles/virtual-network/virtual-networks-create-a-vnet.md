@@ -1,20 +1,20 @@
 <properties
    pageTitle="Criar uma rede virtual"
-   description="Percorra as etapas para criar facilmente uma rede virtual básica."
-   services="virtual-network"
-   documentationCenter=""
-   authors="telmos"
-   manager="carolz"
-   editor="tysonn"/>
+	description="Percorra as etapas para criar facilmente uma rede virtual básica."
+	services="virtual-network"
+	documentationCenter=""
+	authors="telmos"
+	manager="carolz"
+	editor="tysonn"/>
 
 <tags
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/06/2015"
-   ms.author="telmosampaio"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/06/2015"
+	ms.author="telmosampaio"/>
 
 # Criar uma rede virtual
 
@@ -22,7 +22,7 @@ Quando você cria uma rede virtual, seus serviços e VMs na VNet podem se comuni
 
 Depois de criar sua rede virtual, você pode adicionar novas VMs e instâncias de PaaS a ela. Observe que se você usar o Portal de Gerenciamento para criar suas VMs, será preciso selecionar **Da Galeria** para especificar a rede virtual. Isso é importante porque você não poderá voltar e colocar uma VM em uma rede virtual depois de criar a máquina virtual.
 
-[Observação do Azure] **Use este procedimento para criar uma rede virtual exclusiva em nuvem.** Devido à maior complexidade associada com a criação de uma configuração entre locais, não use este procedimento para criar uma rede virtual que posteriormente será conectada à rede local. Se você quiser criar uma conexão segura entre locais entre o Azure e sua rede local, consulte [Sobre a conectividade segura entre os locais da rede virtual](https://msdn.microsoft.com/library/azure/dn133798.aspx).
+[Observação do Azure] **Use este procedimento para criar uma rede virtual exclusiva em nuvem.** Devido à maior complexidade associada com a criação de uma configuração entre locais, não use este procedimento para criar uma rede virtual que posteriormente será conectada à rede local. Se você quiser criar uma conexão segura entre locais entre o Azure e sua rede local, consulte [Sobre a conectividade segura entre os locais da rede virtual](vpn-gateway-cross-premises-options.md).
 
 ## Criar sua rede virtual
 
@@ -35,7 +35,7 @@ Depois de criar sua rede virtual, você pode adicionar novas VMs e instâncias d
 
 
 
-4. Na página **Servidores DNS e Conectividade VPN**, não faça nenhuma alteração. Simplesmente avance para a próxima página clicando na seta. Por padrão, o Azure fornece resolução de nomes básica para sua rede virtual. É possível que seus requisitos de resolução de nome sejam mais complexos do que pode ser tratado pela resolução de nomes básica do Azure. Nesse caso, posteriormente convém adicionar uma máquina virtual executando DNS à sua rede virtual. Para obter mais informações sobre DNS e resolução de nomes do Azure, consulte [Resolução de nomes](https://msdn.microsoft.com/library/azure/jj156088.aspx).
+4. Na página **Servidores DNS e Conectividade VPN**, não faça nenhuma alteração. Simplesmente avance para a próxima página clicando na seta. Por padrão, o Azure fornece resolução de nomes básica para sua rede virtual. É possível que seus requisitos de resolução de nome sejam mais complexos do que pode ser tratado pela resolução de nomes básica do Azure. Nesse caso, posteriormente convém adicionar uma máquina virtual executando DNS à sua rede virtual. Para obter mais informações sobre DNS e resolução de nomes do Azure, consulte [Resolução de nomes](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 5. A página **Espaços de Endereço de Rede Virtual** é onde você insere o espaço de endereço que deseja usar para esse VNet. A menos que você precise de um determinado intervalo de endereço IP interno para suas VMs ou deseja criar uma subrede específica para VMs que receberão um DIP estático, você não precisa fazer nenhuma alteração nessa página. Se você quiser criar várias sub-redes, pode fazer isso nessa página clicando em **Adicionar sub-rede**. Para obter mais informações sobre as configurações na página de detalhes, consulte a seção **Detalhes da Rede Virtual** em [Como gerenciar propriedades de rede virtual (VNet)](../virtual-networks-settings).
 
 	-  Para obter mais informações sobre as configurações na página de detalhes, consulte a seção **Detalhes da Rede Virtual** em [Como gerenciar propriedades de rede virtual (VNet)](../virtual-networks-settings).
@@ -48,8 +48,8 @@ Depois de criar sua rede virtual, você pode adicionar novas VMs e instâncias d
 
 
 ## Próximas etapas
--  Saiba mais sobre [redes virtuais](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx) no Azure. 
+-  Saiba mais sobre [redes virtuais](../virtual-network/virtual-networks-overview.md) no Azure. 
 
 -  [Adicionar uma máquina virtual](../virtual-machines/virtual-machines-create-custom.md) a uma rede virtual.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

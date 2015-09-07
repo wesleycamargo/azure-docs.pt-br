@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Como usar o Cache Redis do Azure com Node.js
@@ -33,7 +33,7 @@ Este tutorial usa [node\_redis](https://github.com/mranney/node_redis), mas voc�
 
 ## Criar um cache Redis no Azure
 
-Na [Visualização do Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkId=398536), clique em **Novo**, **Dados + Armazenamento** e selecione **Cache Redis**.
+No [portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=398536), clique em **Novo**, **Dados + Armazenamento** e selecione **Cache Redis**.
 
   ![][1]
 
@@ -42,7 +42,7 @@ Insira um nome de host DNS. Ele terá o formato `<name>.redis.cache.windows.net`
   ![][2]
 
 
-Depois de criar o cache, clique nele no portal do Azure para exibir as configurações do cache. Clique no link em **Chaves** e copie a chave primária. Ela será necessária para autenticar as solicitações.
+Depois de criar o cache, clique nele no portal de visualização para exibir as configurações do cache. Clique no link em **Chaves** e copie a chave primária. Ela será necessária para autenticar as solicitações.
 
   ![][4]
 
@@ -91,4 +91,4 @@ Saída:
 
 [Criar um Aplicativo de Chat do Node.js com Socket.IO em um Site do Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

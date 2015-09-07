@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste" 
-	description="Aprenda a criar um aplicativo de linha de negócios baseado na Web em um ambiente de nuvem híbrida para testes profissionais de TI ou testes de desenvolvimento." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Ambiente de teste de aplicativos de LOB | Microsoft Azure"
+	description="Aprenda a criar um aplicativo de linha de negócios baseado na Web em um ambiente de nuvem híbrida para testes profissionais de TI ou testes de desenvolvimento."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste
@@ -59,7 +59,7 @@ Esta é a configuração atual.
 
 No Portal de Gerenciamento do Azure, inicie o computador DC2 se necessário.
 
-Em seguida, crie uma máquina virtual do Azure para o SQL1 com estes comandos no prompt de comando do PowerShell do Azure em seu computador local. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < and >.
+Em seguida, crie uma máquina virtual do Azure para o SQL1 com estes comandos no prompt de comando do Azure PowerShell em seu computador local. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < and >.
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
@@ -80,7 +80,7 @@ Em seguida, conecte-se à nova máquina virtual SQL1* usando a conta de administ
 3.	Quando solicitado a abrir SQL1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-	- Nome: **SQL1\**[Nome da conta de administrador local]
+	- Nome: **SQL1**[Nome da conta de administrador local]
 	- Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -135,7 +135,7 @@ Esta é a configuração atual.
  
 ## Fase 3: Configurar o servidor LOB (LOB1)
 
-Primeiro, crie uma máquina virtual do Azure para o LOB1 com estes comandos no prompt de comando do PowerShell do Azure em seu computador local.
+Primeiro, crie uma máquina virtual do Azure para o LOB1 com estes comandos no prompt de comando do Azure PowerShell em seu computador local.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for LOB1."
@@ -162,7 +162,7 @@ Em seguida, configure o LOB1 para IIS e teste o acesso do CLIENT1.
 3.	Na página Selecionar tipo de instalação, clique em **Avançar**.
 4.	Na página Selecionar servidor de destino, clique em **Avançar**.
 5.	Na página Funções do servidor, clique em **Servidor Web (IIS)** na lista **Funções**.
-6.	Quando solicitado, clique em **Adicionar Recursos** e clique em **Avançar**.
+6.	Quando solicitado, clique em **Adicionar Recursos** e depois em **Avançar**.
 7.	Na página Selecionar recursos, clique em **Avançar**.
 8.	Na página Servidor Web (IIS), clique em **Avançar**.
 9.	Na página Selecionar serviços da função, marque ou desmarque as caixas de seleção dos serviços de que você precisa para testar seu aplicativo LOB e, em seguida, clique em **Avançar**.
@@ -196,4 +196,4 @@ Este ambiente agora está pronto para que você implante seu aplicativo baseado 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

@@ -17,11 +17,9 @@
 	ms.author="saah; kenhoff"/>
 
 # Entradas de endereços IP com atividade suspeita
+<p>Este relatório mostra entradas de endereços IP em que foi detectada atividade suspeita. Nesse caso, atividades suspeitas são definidas como uma proporção anormalmente alta de entradas com falha em comparação às entradas com êxito, o que pode indicar que um IP está sendo usado para fins mal-intencionados.</p>
 
-| Descrição | Local do relatório |
-| :-------------     | :-------        |
-| <p>Este relatório inclui tentativas de entrada realizadas de endereços IP em que atividades suspeitas foram observadas. Atividades suspeitas incluem muitas tentativas de entrada com falha do mesmo endereço IP em um curto período de tempo e outras atividades consideradas suspeitas. Isso pode indicar que um hacker tentou entrar usando esse endereço IP.</p><p>Os resultados desse relatório mostrará a você tentativas de entrada que foram originadas de um endereço IP em que foi observada atividade suspeita, junto com o carimbo de data/hora associado à entrada.</p> | Diretório > guia Relatórios |
 
 ![Entradas de endereços IP com atividade suspeita](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

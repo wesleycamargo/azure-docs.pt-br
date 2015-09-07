@@ -114,6 +114,8 @@ Agora você pode se conectar por **ssh** em sua VM do Azure e estará pronto par
 	ops@ubuntuvm:~$
 
 
+> [AZURE.NOTE]Você também pode configurar um FQDN (nome de domínio totalmente qualificado) para sua máquina virtual no portal. Leia mais sobre o FQDN [aqui](virtual-machines-create-fqdn-on-portal.md).
+
 ## Próximas etapas
 
 Para saber mais sobre o Linux no Azure, confira:
@@ -126,4 +128,4 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

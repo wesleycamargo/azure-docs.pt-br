@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Cargas de trabalho transacionais e data warehouse do SQL Server nas máquinas virtuais do Azure
 
-Para usar o SQL Server para cargas de trabalho transacionais ou de data warehouse em uma Máquina Virtual do Azure, recomendamos usar uma das imagens de máquina virtual pré-configuradas na Galeria de Máquinas Virtuais do Azure. Essas imagens foram otimizadas com base nas recomendações em [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+Para usar o SQL Server para cargas de trabalho transacionais ou de data warehouse em uma Máquina Virtual do Azure, recomendamos usar uma das imagens de máquina virtual pré-configuradas na Galeria de Máquinas Virtuais do Azure. Essas imagens foram otimizadas com base nas recomendações em [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Este artigo se concentra na execução dessas cargas de trabalho nas Máquinas Virtuais do Azure (também é conhecido como infraestrutura como serviço ou IaaS). Você também pode executar cargas de trabalho transacionais e de data warehouse como um serviço no Azure. Para obter mais informações, consulte [Visualização do SQL Data Warehouse no Azure](http://azure.microsoft.com/documentation/services/sql-data-warehouse/) e [Banco de Dados SQL Azure](http://azure.microsoft.com/documentation/services/sql-database/).
 
@@ -75,20 +75,23 @@ Para saber mais sobre a criação de dados com o PowerShell, consulte [Usar o Az
 
 ## Configurações específicas incluídas nas imagens transacionais/de DW
 
-As otimizações incluídas nas imagens são baseadas nas [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). Especificamente, a configuração dessas imagens inclui as seguintes otimizações.
+As otimizações incluídas nas imagens são baseadas nas [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md). Especificamente, a configuração dessas imagens inclui as seguintes otimizações.
 
 >[AZURE.NOTE]Se estiver usando sua própria licença e criando uma máquina virtual de Data Warehouse ou transacional do zero, você pode basear suas otimizações no artigo de desempenho e no exemplo das otimizações nas imagens pré-configuradas da galeria abaixo.
 
 ### Configurações de disco
 
-
+|Configuração|Configuração|
 |---|---|
 |Número de discos de dados anexados|15|
 |Espaços de armazenamento|Dois pools de armazenamento:<br/>– 1 pool de dados com 12 discos de dados; tamanho fixo de 12 TB; coluna = 12<br/>– 1 pool de logs com 3 discos de dados; tamanho fixo de 3 TB; coluna = 3<br/><br/>Um disco de dados restante para o usuário anexar e determinar o uso.<br/><br/>**DW**: tamanho da faixa = 256 KB<br/>**Transacional**: tamanho da faixa = 64 KB|
-|Tamanhos de disco, armazenamento em cache, tamanho da alocação|1 TB cada, HostCache = None, Tamanho da unidade de alocação do NTFS = 64 KB|
+|Tamanhos do disco|1 TB cada|
+|Cache|HostCache=None|
+|Tamanho da alocação|Tamanho da unidade de alocação de NTFS = 64KB|
 
 ### Configurações do SQL Server
 
+|Configuração|Configuração|
 |---|---|
 |Parâmetros de inicialização|-T1117 para ajudar a manter os arquivos de dados do mesmo tamanho caso o banco de dados precise de crescimento automático<br/><br/>-T1118 para auxiliar na escalabilidade de tempdb (para obter mais informações, consulte [Uso do sinalizador de rastreamento 1118 (T1118) do SQL Server (2005 e 2008)](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce).)|
 |Modo de recuperação|**DW**: definido como SIMPLE para o banco de dados modelo usando ALTER DATABASE<br/>**Transacional**: nenhuma alteração|
@@ -132,4 +135,4 @@ Depois de instalar qualquer máquina virtual com o SQL Server, você poderá que
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

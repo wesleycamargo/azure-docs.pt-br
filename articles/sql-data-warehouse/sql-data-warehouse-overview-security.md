@@ -1,20 +1,20 @@
 <properties
    pageTitle="Proteger um banco de dados no SQL Data Warehouse | Microsoft Azure"
-   description="Dicas para proteger um banco de dados no SQL Data Warehouse do Azure para desenvolvimento de soluções."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Dicas para proteger um banco de dados no SQL Data Warehouse do Azure para desenvolvimento de soluções."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="sahajs"/>
 
 # Proteger um banco de dados no SQL Data Warehouse
 
@@ -58,6 +58,28 @@ Há formas de limitar ainda mais o que um usuário pode fazer com o Banco de Dad
 O gerenciamento de bancos de dados e servidores lógicos pelo Portal de Gerenciamento do Azure ou usando a API do Gerenciador de Recursos do Azure é controlado pela atribuições de função da sua conta de usuário. Para obter mais informações sobre esse tópico, consulte [Controle de acesso baseado em função no portal de Visualização do Azure][].
 
 
+
+## Criptografia
+
+O SQL Data Warehouse do Azure pode ajudar a proteger seus dados ao criptografá-los quando estiverem “em repouso” ou armazenados nos arquivos e backups de banco de dados usando [Transparent Data Encryption][]. Para criptografar o banco de dados, conecte-se como um proprietário de banco de dados e execute:
+
+
+```
+
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
+
+```
+
+Você também pode habilitar a Transparent Data Encryption das configurações de banco de dados no [Portal do Azure][].
+
+
+
+## Auditoria
+
+A Auditoria e o rastreamento dos eventos de banco de dados podem ajudar você a manter a conformidade normativa e a identificar atividades suspeitas. A Auditoria do SQL Data Warehouse permite registrar eventos no banco de dados em um log de auditoria na sua conta de armazenamento do Azure. A Auditoria do SQL Data Warehouse também se integra ao Microsoft Power BI para facilitar análises e relatórios detalhados. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL][].
+
+
+
 ## Próximas etapas
 Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
 
@@ -73,9 +95,11 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [permissões]: https://msdn.microsoft.com/library/ms191291.aspx
 [procedimentos armazenados]: https://msdn.microsoft.com/library/ms190782.aspx
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
+[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
+[Introdução à Auditoria do Banco de Dados SQL]: sql-database-auditing-get-started.md
+[Portal do Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Controle de acesso baseado em função no portal de Visualização do Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

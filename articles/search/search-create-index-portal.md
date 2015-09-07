@@ -1,25 +1,25 @@
 <properties
-	pageTitle="Criar um índice de Pesquisa do Azure no portal"
-	description="Adicionar um índice ao serviço de Pesquisa do Azure, preenchendo as definições de campo no portal de gerenciamento"
+	pageTitle="Criar um índice de Pesquisa do Azure no portal | Microsoft Azure"
+	description="Adicionar um índice ao serviço de Pesquisa do Azure, preenchendo as definições de campo no portal do Azure"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="azure-portal"/>
+	tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="rest-api"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
-# Criar um índice de Pesquisa do Azure no portal
+# Criar um índice de Pesquisa do Azure no portal do Azure
 
-Você pode rapidamente gerar um protótipo de índice na Pesquisa do Azure, criando um no portal de gerenciamento do Azure. Usar o portal é ótimo para testes de verificação de conceito, mas também é possível usá-lo para exibir definições de esquema e uso de recursos para qualquer índice implantado em seu serviço.
+Você pode rapidamente gerar um protótipo de índice na Pesquisa do Azure, criando um no portal do Azure. Usar o portal é ótimo para testes de verificação de conceito, mas também é possível usá-lo para exibir definições de esquema e uso de recursos para qualquer índice implantado em seu serviço.
 
 Para concluir essa tarefa, verifique se você tem um serviço de Pesquisa do Azure que está pronto para ser usado. Consulte [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) se precisar de ajuda para configurá-lo.
 
@@ -27,7 +27,7 @@ Para concluir essa tarefa, verifique se você tem um serviço de Pesquisa do Azu
 
 2. Abra o painel de serviços de seu serviço de Pesquisa do Azure. Aqui estão algumas maneiras para localizar o painel.
 	- Na barra de navegação rápida, clique em **Home**. A home page conta com blocos para cada serviço em sua assinatura. Clique no bloco para abrir o painel de serviços.
-	- Na barra de navegação, clique em **Procurar tudo** | **Filtrar por** | **Serviços de Pesquisa** para localizar o serviço de Pesquisa na lista.
+	- Na barra de navegação, clique em **Procurar tudo** > **Filtrar por** > **Serviços de Pesquisa** para localizar o serviço de Pesquisa na lista.
 
 3. No painel do serviços, você verá uma barra de comandos na parte superior, inclusive um para **Adicionar índice**.
 
@@ -43,7 +43,7 @@ Para concluir essa tarefa, verifique se você tem um serviço de Pesquisa do Azu
 
 	Pode levar um minuto para criar o índice, mas quando ele estiver pronto para se trabalhar com, aparecerá na lista de índices.
 
-6. Clique em *hotéis* para abrir a folha de definição de índice.
+6. Clique em **hotéis** para abrir a folha de definição de índice.
 
 	Quando você cria um índice no portal, um campo obrigatório (id) é criado para você. Este é o campo de chave, usado para identificar exclusivamente cada documento. Há apenas um campo por chave (sem chaves compostas) e é sempre uma cadeia de caracteres.
 
@@ -53,11 +53,11 @@ Para concluir essa tarefa, verifique se você tem um serviço de Pesquisa do Azu
 
 7. Para editar o nome do campo, clique na seta para a direita na lista de campos.
 
-8. Substitua *id* por *hotelId*.
+8. Substitua **id** por **hotelId**.
 
 9. Clique em **OK** em cada folha (campos e índice) para criar o índice.
 
-##Adicionar campos
+## Adicionar campos
 
 Na Pesquisa do Azure, atributos de índice como pesquisável, facetável e filtrável são habilitados por padrão. Você define esses atributos geralmente para desativar os comportamentos de pesquisa que não fazem sentido (por exemplo, classificação ou facetagem em uma descrição).
 
@@ -87,9 +87,9 @@ O portal é diferente. No portal, comportamentos de pesquisa são desativados po
 4. Clique em **OK** para salvar o índice que você acabou de definir e, em seguida, clique em **OK** na página Adicionar índice para criar o índice.
 
 
-##Próximas etapas
+## Próximas etapas
 
-Embora o índice esteja definido, ele não estará pronto para uso até que você carregue documentos. Suponha que você está recriando o índice Hotéis, usado para fins de teste, você pode carregar facilmente um pequeno número de documentos para aquele índice no [Fiddler](search-fiddler.md), usando as instruções em **Carregar documentos** na seção [Como usar o Fiddler com a Pesquisa do Azure](search-fiddler.md). Em seguida, você pode seguir as etapas restantes nesse artigo para executar algumas consultas.
+Embora o índice esteja definido, ele não estará pronto para uso até que você carregue documentos. Suponha que você está recriando o índice Hotéis, usado para fins de teste, você pode carregar facilmente um pequeno número de documentos para aquele índice no [Fiddler](search-fiddler.md), usando as instruções na seção Carregar documentos de [Como usar o Fiddler com a Pesquisa do Azure](search-fiddler.md). Em seguida, você pode seguir as etapas restantes nesse artigo para executar algumas consultas.
 
 Quando você estiver familiarizado com o índice básico, considere a possibilidade de adicionar um analisador de linguagem ou sugestor para adicionar suporte a vários idiomas ou sugestões de preenchimento automático. Os dois recursos são especificados no esquema de índice. Consulte [Suporte a Idiomas](https://msdn.microsoft.com/elibrary/azure/dn879793.aspx) e [Criar Índice](https://msdn.microsoft.com/library/azure/dn798941.aspx) para obter mais informações.
 
@@ -100,4 +100,4 @@ Quando você estiver familiarizado com o índice básico, considere a possibilid
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

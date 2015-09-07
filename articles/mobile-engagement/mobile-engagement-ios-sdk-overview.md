@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #SDK do iOS para o Mobile Engagement do Azure
 
@@ -32,9 +32,9 @@ Clique para ver o [Conteúdo do SDK](mobile-engagement-ios-sdk-content.md)
 
 ##Notas de versão
 
-##3\.0.0 (08/05/2015)
+###3\.1.0 (26/08/2015)
 
--   O Mobile Engagement usa notificações por push silenciosas.
+-   Corrija o bug de compatibilidade do iOS 9 com uma biblioteca de terceiros. Ele estava causando falhas ao enviar resultados de pesquisas, informações do aplicativo ou dados adicionais.
 
 Para a versão anterior, consulte as [notas de versão completas](mobile-engagement-ios-release-notes.md)
 
@@ -46,7 +46,17 @@ Talvez você precise seguir vários procedimentos se perdeu várias versões do 
 
 Para cada nova versão do SDK, você deve primeiro substituir (remover e importar novamente no xcode) as pastas EngagementSDK e EngagementReach.
 
-###De 2.0.0 a 2.1.0
-Nenhum.
+###De 2.0.0 a 3.0.0
+Suporte removido para iOS 4.X. A partir de esta versão, o destino da implantação do seu aplicativo deve ter pelo menos o iOS 6.
 
-<!---HONumber=August15_HO6-->
+Se você estiver usando o Reach em seu aplicativo, deverá adicionar o valor `remote-notification` à matriz `UIBackgroundModes` no arquivo Info.plist para receber notificações remotas.
+
+O método `application:didReceiveRemoteNotification:` precisa ser substituído pelo `application:didReceiveRemoteNotification:fetchCompletionHandler:` em seu representante de aplicativo.
+
+"AEPushDelegate.h" é uma interface preterida e você precisa remover todas as referências. Isso inclui remover o `[[EngagementAgent shared] setPushDelegate:self]` e os métodos representantes do seu representante de aplicativo:
+
+	-(void)willRetrieveLaunchMessage;
+	-(void)didFailToRetrieveLaunchMessage;
+	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
+
+<!---HONumber=August15_HO9-->

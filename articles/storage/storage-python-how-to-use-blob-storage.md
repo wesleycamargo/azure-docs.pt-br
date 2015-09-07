@@ -3,7 +3,7 @@
 	description="Saiba como usar o armazenamento de Blob do Azure no Python para carregar, baixar, listar e excluir blobs."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 # Como usar o armazenamento de Blob do Azure no Python
 
@@ -22,7 +22,7 @@
 
 ## Visão geral
 
-Este artigo mostra como executar cenários comuns usando o armazenamento de Blob. Os exemplos são escritos em Python e usam o [Pacote do Python Azure][]. Os cenários abrangidos incluem carregar, listar, baixar e excluir blobs.
+Este artigo mostra como executar cenários comuns usando o armazenamento de Blob. Os exemplos são escritos em Python e usam o [pacote de armazenamento do Python Azure][]. Os cenários abrangidos incluem carregar, listar, baixar e excluir blobs.
 
 [AZURE.INCLUDE [armazenamento-blob-conceitos-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -34,7 +34,7 @@ Este artigo mostra como executar cenários comuns usando o armazenamento de Blob
 
 O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. O código a seguir cria um objeto **BlobService**. Adicione o seguinte próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento do Azure programaticamente.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 O código a seguir cria um objeto **Serviço de blob** usando o nome da conta de armazenamento e a chave da conta. Substitua 'Minha conta' e 'mykey' com a conta real e a chave.
 
@@ -111,6 +111,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga es
 
 [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[Pacote do Python Azure]: https://pypi.python.org/pypi/azure
+[pacote do Python Azure]: https://pypi.python.org/pypi/azure
+[pacote de armazenamento do Python Azure]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

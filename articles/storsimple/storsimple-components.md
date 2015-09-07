@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="Quais são os componentes do StorSimple? | Microsoft Azure" 
-   description="Descreve o dispositivo, os serviços e as tecnologias de gerenciamento do StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="AdinaH" 
-   editor=""/>
+   pageTitle="Quais são os componentes do StorSimple? | Microsoft Azure"
+	description="Descreve o dispositivo StorSimple, dispositivo virtual, serviços e tecnologias de gerenciamento e define os principais termos usados na solução."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="AdinaH"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/13/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos"/>
 
 
-# Quais são os componentes do StorSimple? 
+# Quais são os componentes do StorSimple e como funcionam? 
+
+## Visão geral
 
 Bem-vindo ao Microsoft Azure StorSimple, uma solução de armazenamento integrado que gerencia as tarefas de armazenamento entre os dispositivos local e o armazenamento em nuvem do Microsoft Azure. O StorSimple foi projetado para reduzir os custos de armazenamento, simplificar o gerenciamento de armazenamento, melhorar a eficiência e a capacidade de recuperação de desastres e proporcionar mobilidade de dados.
 
@@ -55,7 +57,7 @@ O dispositivo virtual StorSimple (também conhecido como StorSimple Virtual Appl
 
 É recomendável que você use o dispositivo virtual StorSimple para cenários de recuperação de desastres em que um dispositivo físico não esteja disponível, como desenvolvimento de nuvem e cenários de teste.
 
-Para obter mais informações, consulte [Dispositivo virtual StorSimple](storsimple-virtual-device.md).
+Para obter mais informações, consulte [Dispositivo virtual do StorSimple](storsimple-virtual-device.md).
 
 
 ## Tecnologias de gerenciamento de armazenamento
@@ -110,7 +112,7 @@ O Windows PowerShell para StorSimple fornece uma interface de linha de comando q
 
 Você pode acessar o Windows PowerShell para StorSimple em um console serial (em um computador host conectado diretamente ao dispositivo) ou remotamente usando o Windows PowerShell. Observe que algumas tarefas do Windows PowerShell para StorSimple, como registro de dispositivo inicial, só podem ser feitas no console serial.
 
-Para obter mais informações, consulte [Usar o Windows PowerShell para StorSimple para administrar o dispositivo](storsimple-windows-powershell-administration.md).
+Para obter mais informações, consulte [Usar o Windows PowerShell para StorSimple para administrar seu dispositivo](storsimple-windows-powershell-administration.md).
 
 ## Cmdlets do Azure PowerShell StorSimple
 
@@ -146,7 +148,7 @@ Backups são capturados como instantâneos, que registram apenas as alterações
 
 Se ocorrer um desastre ou precisar restaurar dados por outro motivo, o Gerenciador de instantâneos do StorSimple restaurará de forma incremental conforme necessário. A Restauração de dados não requer que você desligue o sistema inteiro ao restaurar um arquivo, substituir equipamentos ou mover operações para outro site.
 
-Para obter mais informações, consulte [O que é o StorSimple Snapshot Manager](storsimple-what-is-snapshot-manager.md).
+Para obter mais informações, consulte [O que é o StorSimple Snapshot ManagerStorSimple Manager](storsimple-what-is-snapshot-manager.md).
 
 ## Adaptador do StorSimple para SharePoint
 
@@ -209,7 +211,7 @@ Antes de implantar sua solução de Microsoft Azure StorSimple, recomendamos que
 | Serviço StorSimple Manager | Extensão do Portal de Gerenciamento do Azure que permite que você gerencie seus dispositivos locais e virtuais do Azure StorSimple.|
 | Gerenciador de instantâneos do StorSimple | Snap-in do console de gerenciamento Microsoft (MMC) para gerenciar operações de backup e restauração no Microsoft Azure StorSimple.|
 | fazer backup | Recurso que permite ao usuário fazer um backup interativo de um volume. É uma maneira alternativa de fazer o backup manual de um volume em vez de fazer um backup automatizado por meio de uma política definida.|
-| provisionamento dinâmico | Método de otimizar a eficiência com a qual o espaço de armazenamento disponível é usado em sistemas de armazenamento. No provisionamento dinâmico, o armazenamento é alocado entre vários usuários com base no espaço mínimo exigido por cada usuário em determinado momento. Consulte também *provisionamento FAT*.|
+| provisionamento dinâmico | Método de otimizar a eficiência com a qual o espaço de armazenamento disponível é usado em sistemas de armazenamento. No provisionamento dinâmico, o armazenamento é alocado entre vários usuários com base no espaço mínimo exigido por cada usuário em determinado momento. Consulte também *provisionamento fat*.|
 | volume | Áreas de armazenamento lógico apresentadas na forma de unidades. Os volumes do StorSimple correspondem aos volumes montados pelo host, incluindo os descobertos através do uso de iSCSI e de um dispositivo StorSimple.|
  | contêiner de volume | Grupo de volumes e as configurações que se aplicam a eles. Todos os volumes em seu dispositivo StorSimple são agrupados em contêineres de volume. As configurações de contêiner de volume incluem contas de armazenamento, configurações de criptografia para dados enviados para a nuvem com chaves de criptografia associadas e largura de banda consumida para operações que envolvem a nuvem.|
 | grupo de volumes | No Gerenciador de instantâneos do StorSimple, um grupo de volumes é uma coleção de volumes configurados para facilitar o processamento de backup.|
@@ -226,4 +228,4 @@ Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Exemplos do Cache Redis do Azure" 
-	description="Saiba como usar o Cache Redis do Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Exemplos do Cache Redis do Azure"
+	description="Saiba como usar o Cache Redis do Azure"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Exemplos do Cache Redis do Azure 
@@ -65,7 +65,7 @@ O exemplo [Gerenciar o Cache Redis do Azure usando Bibliotecas de Gerenciamento 
 
 ## Exemplo de monitoramento personalizado
 
-O exemplo [Acessar dados de monitoramento do Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) demonstra como é possível acessar os dados de monitoramento do Cache Redis do Azure fora do portal do Azure.
+O exemplo [Acessar dados de monitoramento do Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) demonstra como é possível acessar os dados de monitoramento do Cache Redis do Azure fora do portal de visualização do Azure.
 
 ## Um clone no estilo do Twitter escrito usando PHP e Redis
 
@@ -75,4 +75,4 @@ O exemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) é o Redis Hello Wor
 
 O exemplo de [Monitor de largura de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite que você monitore a largura de banda usada no cliente. Para medir a largura de banda, execute o exemplo no computador cliente de cache, faça chamadas ao cache e observe a largura de banda relatada pelo exemplo de monitor de largura de banda.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

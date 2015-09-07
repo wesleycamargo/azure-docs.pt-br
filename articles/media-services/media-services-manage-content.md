@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como gerenciar conteúdo com os Serviços de Mídia do Azure usando o Portal de Gerenciamento do Azure" 
-	description="Saiba como gerenciar seu conteúdo de mídia nos Serviços de Mídia do Azure. Isso inclui: upload, indexação, codificação, criptografia e publicação." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Como gerenciar conteúdo com os Serviços de Mídia do Azure usando o Portal de Gerenciamento do Azure"
+	description="Saiba como gerenciar seu conteúdo de mídia nos Serviços de Mídia do Azure. Isso inclui: upload, indexação, codificação, criptografia e publicação."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="juliako"/>
 
 
@@ -129,6 +129,7 @@ Esta seção descreve as etapas que você pode seguir para codificar o conteúdo
 
 ##<a id="encrypt"></a>Como: criptografar conteúdo
 
+
 Se você desejar para os serviços de mídia criptografar dinamicamente seus ativos com uma chave AES ou DRM PlayReady, certifique-se de fazer o seguinte:
 
 - Codificar seu arquivo mezanino (origem) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde na seção [Codificar](#encode)
@@ -141,6 +142,11 @@ Se você desejar para os serviços de mídia criptografar dinamicamente seus ati
 	![Criptografar][encrypt]
 
 	Uma vez que você habilitou a criptografia, sempre que um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+
+Consulte também:
+
+- [Proteger com o PlayReady DRM](media-services-rest-deliver-streaming-content.md)
+- [Proteger com a chave AES-128](media-services-protect-with-aes128.md)
 
 ##<a id="publish"></a>Como: publicar conteúdo
 
@@ -215,4 +221,4 @@ Algumas considerações se aplicam:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

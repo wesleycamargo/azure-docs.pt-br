@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Como dimensionar o Cache Redis do Azure" 
-	description="Saiba como dimensionar suas instâncias do Cache Redis do Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Como dimensionar o Cache Redis do Azure"
+	description="Saiba como dimensionar suas instâncias do Cache Redis do Azure"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Como dimensionar o Cache Redis do Azure
 
 >[AZURE.NOTE]O recurso de dimensionamento do Cache Redis do Azure está atualmente na visualização.
 
-O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho do cache usando a folha **Alterar camada de preços** no [portal do Azure](https://portal.azure.com).
+O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho do cache usando a folha **Alterar camada de preços** no [portal de visualização do Azure](https://portal.azure.com).
 
 >[AZURE.NOTE]Ao dimensionar um Cache Redis do Azure, você pode alterar o tamanho, mas não pode mudar de um cache Padrão para um cache Básico e vice-versa.
 
@@ -38,7 +38,7 @@ Você pode monitorar as métricas a seguir para ajudá-lo a determinar se é pre
 Se determinar que o cache não atende mais aos requisitos de seu aplicativo, você poderá mudar para uma camada de preços cache maior ou menor que seja adequada ao aplicativo. Para obter mais informações sobre como determinar qual camada de preços de cache usar, consulte [Qual oferta e tamanho do Cache Redis devo usar](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Dimensionar um cache
-Para dimensionar o cache, [navegue até o cache](https://msdn.microsoft.com/library/azure/dn793612.aspx#RedisCacheConfiguration) no [portal do Azure](https://portal.azure.com) e clique na **Camada padrão** ou na **Camada básica** na folha do **Cache Redis**.
+Para dimensionar o cache, [navegue até o cache](cache-configure.md#configure-redis-cache-settings) no [portal de visualização do Azure](https://portal.azure.com) e clique na **Camada standard** ou na **Camada básica** na folha do **Cache Redis**.
 
 ![Camada de preços][redis-cache-pricing-tier-part]
 
@@ -58,12 +58,12 @@ Quando o dimensionamento for concluído, o status será alterado de **Dimensiona
 
 ## Como automatizar uma operação de dimensionamento
 
-Além de dimensionar sua instância de Cache Redis do Azure no portal do Azure, você pode dimensionar usando [MAML (Bibliotecas de Gerenciamento do Microsoft Azure)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Para dimensionar seu cache, chame o método `IRedisOperations.CreateOrUpdate` e passeo novo tamanho para `RedisProperties.SKU.Capacity`.
+Além de dimensionar sua instância de Cache Redis do Azure no portal de visualização, você pode dimensionar usando [MAML (Bibliotecas de Gerenciamento do Microsoft Azure)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Para dimensionar seu cache, chame o método `IRedisOperations.CreateOrUpdate` e passeo novo tamanho para `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
-        // https://msdn.microsoft.com/pt-br/library/azure/dn790557.aspx#bk_portal
+        // https://azure.microsoft.com/documentation/articles/cache-configure/#access-keys
         string token = GetAuthorizationHeader();
 
         TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);
@@ -120,7 +120,7 @@ O dimensionamento leva aproximadamente 20 minutos, dependendo da quantidade de d
 
 ## Como saber quando o dimensionamento é concluído?
 
-No portal, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **Executando**.
+No portal de visualização, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **Executando**.
 
 ## Por que esse recurso está na visualização?
 
@@ -138,4 +138,4 @@ Estamos lançando esse recurso para obter comentários. Com base nos comentário
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

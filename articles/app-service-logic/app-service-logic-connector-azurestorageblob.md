@@ -1,23 +1,23 @@
 <properties 
-   pageTitle="Conector do Blob de Armazenamento do Azure" 
-   description="Introdução ao Conector do Blob de Armazenamento do Azure" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Usando o Conector de Blob de Armazenamento do Azure em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector de Blob de Armazenamento do Azure ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
    
-# Conector do Blob de Armazenamento do Azure
-Conecte-se ao blob de armazenamento do Azure para carregar, baixar e excluir blobs de um contêiner de blob. Os conectores podem ser usados em aplicativos lógicos como parte de um "fluxo de trabalho".
+# Introdução ao Conector de Blob de Armazenamento do Azure e à adição dele a seu Aplicativo Lógico 
+Conecte-se ao blob de armazenamento do Azure para carregar, baixar e excluir blobs de um contêiner de blob. Os conectores são usados em Aplicativos Lógicos como parte de um "fluxo de trabalho".
 
 ## Gatilhos e Ações
 *Gatilhos* são eventos que ocorrem. Por exemplo, quando um pedido é atualizado ou quando um novo cliente é adicionado. Uma *Ação* é o resultado do gatilho. Por exemplo, quando uma ordem é atualizada, enviar um alerta para o vendedor. Ou, quando um novo cliente for adicionado, enviar um email de boas-vindas para ele.
@@ -102,4 +102,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

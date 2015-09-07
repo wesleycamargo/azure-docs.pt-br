@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # Como usar um cliente .NET para os Serviços Móveis do Azure
@@ -22,7 +22,7 @@
 
 ##Visão geral
 
-Este guia mostra como executar cenários comuns usando um cliente .NET para os Serviços Móveis do Azure, em aplicativos da Windows Store e em aplicativos do Windows Phone. Os cenários abrangidos incluem consultas de dados, inserção, atualização e exclusão de dados, autenticação de usuários e tratamento de erros. Se você for novo nos Serviços Móveis, você deverá considerar primeiro concluir o tutorial de [início rápido dos Serviços Móveis]() ou o tutorial [Adicionar os Serviços Móveis para um aplicativo existente]().
+Este guia mostra como executar cenários comuns usando um cliente .NET para os Serviços Móveis do Azure, em aplicativos da Windows Store e em aplicativos do Windows Phone. Os cenários abrangidos incluem consultas de dados, inserção, atualização e exclusão de dados, autenticação de usuários e tratamento de erros. Se você for novo nos Serviços Móveis, você deverá considerar primeiro concluir o tutorial de [início rápido dos Serviços Móveis](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) ou o tutorial [Adicionar os Serviços Móveis para um aplicativo existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -699,4 +699,4 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [InvokeApiSync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

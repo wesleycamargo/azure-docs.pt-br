@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integração do SDK do Android do Azure Mobile Engagement" 
+	pageTitle="Integração do SDK do Android do Azure Mobile Engagement"
 	description="Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #Procedimentos de atualização
@@ -25,13 +25,36 @@ Você precisará seguir vários procedimentos se perdeu várias versões do SDK.
 
 Seja qual for a versão de atualização, você precisa substituir o `mobile-engagement-VERSION.jar` pelo novo.
 
+##De 4.0.0 a 4.1.0
+
+O SDK agora manipula o novo modelo de permissão para Android M.
+
+Se você usar os recursos de localização ou notificações de visão geral, leia [esta seção](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
+
+Além do novo modelo de permissão, podemos agora dar suporte a recursos locais de configuração em tempo de execução. Ainda somos compatíveis com os parâmetros de manifesto para o localização, mas agora foi preterido. Para usar a configuração de tempo de execução, remova as seções a seguir do seu ``AndroidManifest.xml``:
+
+    <meta-data
+      android:name="engagement:locationReport:lazyArea"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:background"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:fine"
+      android:value="true"/>
+
+e leia [este procedimento atualizado](mobile-engagement-android-integrate-engagement.md#location-reporting) para usar em vez disso, a configuração de tempo de execução.
+
 ##De 3.0.0 a 4.0.0
 
 ### Push nativo
 
 O push nativo (GCM/ADM) agora também é usado nas notificações de aplicativo para que você deve configurar as credenciais por push nativo para qualquer tipo de campanha de envio.
 
-Caso ainda não tenha feito, siga [esse procedimento](mobile-engagement-android-integrate-engagement-reach.md#native-push).
+Caso ainda não o tenha feito, siga [este procedimento](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
 ### AndroidManifest.xml
 
@@ -86,7 +109,7 @@ Possivelmente, agora existe uma tela de carregamento quando você clica em um an
 
 ### Recursos
 
-Insira o novo arquivo `res/layout/engagement_loading.xml` em seu projeto.
+Insira o novo arquivo `res/layout/engagement_loading.xml` no seu projeto.
 
 ##De 2.4.0 a 3.0.0
 
@@ -363,4 +386,4 @@ A configuração ProGuard pode ser afetada por mudanças de marca, as regras ago
 			}
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -15,25 +15,11 @@
 	ms.topic="article"
 	ms.date="06/11/2015"
 	ms.author="szark"/>
-
-
-
-
-
 #Introdução ao Linux no Azure
 
 Este tópico apresenta uma visão geral de alguns aspectos do uso de máquinas virtuais Linux na nuvem do Azure. Implantar uma máquina virtual Linux é um processo simples usando uma imagem da galeria.
 
-## Sumário ##
-
-* [Autenticação: nomes de usuário, senhas e chaves SSH.](#authentication)
-* [Obtendo privilégios de superusuário usando sudo](#superuserprivileges)
-* [Configuração do firewall](#firewallconfiguration)
-* [Alterações de nome do host](#hostnamechanges)
-* [Captura de imagem da máquina virtual](#virtualmachine)
-* [Anexando discos](#attachingdisks)
-
-## <a id="authentication"></a>Autenticação: nomes de usuário, senhas e chaves SSH
+## Autenticação: nomes de usuário, senhas e chaves SSH.
 
 Ao criar uma máquina virtual Linux usando o Portal de Gerenciamento do Azure, você deve fornecer um nome de usuário, uma senha e uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos - root por exemplo.
 
@@ -42,7 +28,7 @@ Ao criar uma máquina virtual Linux usando o Portal de Gerenciamento do Azure, v
  - Consulte [Como usar SSH com Linux no Azure](../linux-use-ssh-key.md)
 
 
-## <a id="superuserprivileges"></a>Obtendo privilégios de superusuário usando `sudo`
+## Obtendo privilégios de superusuário usando o `sudo`
 
 A conta de usuário especificada durante a implantação da instância de máquina virtual no Azure é uma conta privilegiada. Essa conta é configurada pelo Agente Linux do Azure para poder elevar privilégios para raiz (conta de superusuário) usando o utilitário `sudo`. Depois de fazer logon usando essa conta de usuário, você poderá executar comandos como raiz usando a sintaxe de comando.
 
@@ -53,7 +39,7 @@ Opcionalmente, você pode obter um shell de root usando **sudo -s**.
 - Consulte [Usando privilégios de raiz em máquinas virtuais Linux do Azure](virtual-machines-linux-use-root-privileges.md)
 
 
-## <a id="firewallconfiguration"></a>Configuração do firewall
+## Configuração do firewall
 
 O Azure fornece um filtro de pacote de entrada que restringe a conectividade a portas especificadas no Portal de Gerenciamento. Por padrão, a única porta permitida é SSH. Você pode abrir acesso a portas adicionais na máquina virtual Linux configurando pontos de extremidade no Portal de Gerenciamento:
 
@@ -62,7 +48,7 @@ O Azure fornece um filtro de pacote de entrada que restringe a conectividade a p
 As imagens do Linux na Galeria do Azure não habilitam o firewall *iptables* por padrão. Se desejado, o firewall poderá ser configurado para fornecer filtragem adicional.
 
 
-## <a id="hostnamechanges"></a>Alterações de nome do host
+## Alterações de nome do host
 
 Ao implantar uma instância de uma imagem do Linux inicialmente, você precisa fornecer um nome de host para a máquina virtual. Quando a máquina virtual está em execução, esse nome de host é publicado nos servidores DNS da plataforma, de forma que as várias máquinas virtuais conectadas entre si possam executar pesquisas de endereço IP usando nomes de host.
 
@@ -83,7 +69,7 @@ As imagens do **Ubuntu** e **CoreOS** utilizam inicialização de nuvem pn Azure
  - [Como usar o CoreOS no Azure](virtual-machines-linux-coreos-how-to.md)
 
 
-## <a id="virtualmachine"></a>Captura de imagem da máquina virtual
+## Captura de imagem da máquina virtual
 
 O Azure oferece a possibilidade de capturar o estado de uma máquina virtual existente em uma imagem que pode ser usada depois na implantação de instâncias de máquina virtual. O Agente Linux do Azure pode ser usado para reverter algumas das personalizações que foram realizadas durante o processo de provisionamento. Você pode seguir as seguintes etapas para capturar uma máquina virtual como uma imagem:
 
@@ -96,7 +82,7 @@ O Azure oferece a possibilidade de capturar o estado de uma máquina virtual exi
  - Confira: [Como capturar uma máquina virtual Linux para ser usada como um modelo](virtual-machines-linux-capture-image.md)
 
 
-## <a id="attachingdisks"></a>Anexando discos
+## Anexando discos
 
 Cada máquina virtual tem um *disco de recursos* anexado. Como os dados em um disco de recurso talvez não sejam duráveis nas reinicializações, ele costuma ser usado por aplicativos e processos em execução na máquina virtual para o armazenamento de dados transitório e **temporário**. Ele também é usado para armazenar páginas ou trocar arquivos para o sistema operacional.
 
@@ -110,4 +96,4 @@ No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os us
  - **Consulte também:** [configurar RAID de software no Linux](virtual-machines-linux-configure-raid.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

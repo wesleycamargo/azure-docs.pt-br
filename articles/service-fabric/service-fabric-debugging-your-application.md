@@ -1,20 +1,20 @@
 <properties
    pageTitle="Depurando seu aplicativo da Malha do Serviço no Visual Studio usando F5"
-   description="Melhore a confiabilidade e o desempenho dos seus serviços usando o Visual Studio e um cluster de desenvolvimento local."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="jessebenson"
-   manager="timlt"
-   editor=""/>
+	description="Melhore a confiabilidade e o desempenho dos seus serviços usando o Visual Studio e um cluster de desenvolvimento local."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="jessebenson"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/18/2015"
-   ms.author="jesseb"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/26/2015"
+	ms.author="jesseb"/>
 
 # Depurando seu aplicativo da Malha do Serviço no Visual Studio usando F5
 
@@ -28,7 +28,7 @@ Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malh
 
 3. Defina os pontos de interrupção no seu código e explore o aplicativo clicando nos comandos do menu **Depurar**.
 
-    > [AZURE.NOTE]O Visual Studio se conecta a todas as instâncias do seu aplicativo. Ao percorrer o código, os pontos de interrupção podem ser atingidos por vários processos, resultando em sessões simultâneas. Tente desabilitar os pontos de interrupção depois que eles forem atingidos, tornando o ponto de interrupção condicional na ID do thread, ou use Eventos de Diagnóstico.
+    > [AZURE.NOTE]O Visual Studio se conecta a todas as instâncias do seu aplicativo. Ao percorrer o código, os pontos de interrupção podem ser atingidos por vários processos, resultando em sessões simultâneas. Tente desabilitar os pontos de interrupção depois que eles forem atingidos, tornando o ponto de interrupção condicional na ID do thread, ou usando Eventos de Diagnóstico.
 
 4. A janela **Eventos de Diagnóstico** abrirá automaticamente para exibir eventos de diagnóstico em tempo real.
 
@@ -66,4 +66,4 @@ Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malh
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

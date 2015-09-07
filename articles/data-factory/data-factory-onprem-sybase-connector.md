@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector do Sybase - mover dados do Sybase" 
-	description="Saiba mais sobre o conector do Sybase para o serviço do Data Factory que permite mover dados do banco de dados Sybase" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Mover dados do Sybase | Azure Data Factory"
+	description="Saiba mais sobre como mover dados do banco de dados Sybase usando o Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector do Sybase - mover dados do Sybase 
+# Mover dados do Sybase usando o Azure Data Factory 
 
 Este artigo descreve como você pode usar a atividade de cópia em um Azure Data Factory para mover dados do Sybase para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
@@ -34,15 +34,15 @@ Para o Gateway de Gerenciamento de Dados para se conectar ao banco de dados Syba
 
 O exemplo a seguir mostra:
 
-1.	Um serviço vinculado do tipo OnPremisesSybase.
-2.	Um serviço vinculado do tipo AzureStorage.
-3.	Um conjunto de dados de entrada do tipo RelationalTable.
-4.	Um conjunto de dados de saída do tipo AzureBlob.
-4.	O pipeline com atividade de cópia que usa RelationalSource e BlobSink.
+1.	Um serviço vinculado do tipo [OnPremisesSybase](data-factory-onprem-sybase-connector.md#sybase-linked-service-properties).
+2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [RelationalTable](data-factory-onprem-sybase-connector.md#sybase-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	O [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [RelationalSource](data-factory-onprem-sybase-connector.md#sybase-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia dados de um resultado de consulta no banco de dados Sybase para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
+Na primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [Movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Serviço vinculado Sybase:**
 
@@ -79,7 +79,7 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 
 O exemplo supõe que você criou uma tabela "MyTable" no Sybase e que ela contém uma coluna chamada "timestamp" para dados de série temporal.
 
-Definir “external”: true e especificar a política externalData informa à data factory que essa é uma tabela externa à data factory e não é produzida por uma atividade nessa data factory. Observe que o **tipo** do serviço vinculado é definido como: **RelationalTable**.
+Definir “external”: true e especificar a política externalData informa à data factory que essa é uma tabela externa à data factory e não é produzida por uma atividade nessa data factory. Observe que o **tipo** do serviço vinculado seja definido como: **RelationalTable**.
 	
 	{
 	    "name": "SybaseDataSet",
@@ -164,7 +164,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 
 **Pipeline com Atividade de cópia:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. No definição JSON do pipeline, o tipo de **source** está definido como **RelationalSource** e o tipo de **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados da tabela DBA.Orders no banco de dados.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados da tabela DBA.Orders no banco de dados.
 
 
 	{
@@ -216,7 +216,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-type | A propriedade type deve ser definida como: **OnPremisesSybase** | Sim
+type | A propriedade do tipo deve ser definida como: **OnPremisesSybase** | Sim
 server | Nome do servidor do Sybase. | Sim
 database | Nome do banco de dados do Sybase. | Sim 
 schema | Nome do esquema no banco de dados. | Não
@@ -225,9 +225,11 @@ Nome de Usuário | Especifique o nome de usuário se você estiver usando a aute
 Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não
 gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados local do Sybase. | Sim 
 
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do Sybase local.
+
 ## Propriedades de tipo do Banco de Dados do Sybase
 
-Para obter uma lista completa das seções e propriedades disponíveis para definição de conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** de um conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados PostgreSQL) tem as propriedades a seguir.
 
@@ -241,7 +243,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
-No caso da atividade de cópia, quando a fonte é do tipo **RelationalSource** (que inclui o Sybase), as seguintes propriedades estão disponíveis na seção **typeProperties**:
+No caso da Atividade de cópia, quando a fonte é do tipo **RelationalSource** (que inclui o Sybase), as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
@@ -262,4 +264,4 @@ Sybase dá suporte a T-SQL e tipos T-SQL. Para uma tabela de mapeamento de tipos
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

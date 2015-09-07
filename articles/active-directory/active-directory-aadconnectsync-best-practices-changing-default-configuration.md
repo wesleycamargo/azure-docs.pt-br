@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Práticas recomendadas para alterar a configuração padrão"
-	description="Fornece práticas recomendadas para alterar a configuração padrão do Azure AD Connect Sync."
+	pageTitle="Práticas recomendadas para alterar a configuração padrão | Microsoft Azure"
+	description="Fornece práticas recomendadas para alterar a configuração padrão da sincronização do Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,15 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
-	ms.author="markusvi"/>
+	ms.date="08/25/2015"
+	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: práticas recomendadas para alterar a configuração padrão
+# Sincronização do Azure AD Connect: práticas recomendadas para alterar a configuração padrão
 
-A configuração criada pelo Azure AD Connect funciona "como está" para a maioria dos ambientes de sincronização do Active Directory local com o AD do Azure.<br> No entanto, em alguns casos, é necessário aplicar alterações a uma configuração para atender a uma necessidade ou requisito específico.
+O objetivo deste tópico é descrever as alterações com e sem suporte para a sincronização do Azure AD Connect.
 
-Mesmo havendo suporte para aplicar as alterações à sua configuração do AD do Azure, você deve aplicá-las com cuidado, porque o AD do Azure deve estar o mais próximo possível de um dispositivo.
+A configuração criada pelo Azure AD Connect funciona "da forma como é" para a maioria dos ambientes que sincronizam o Active Directory local com o AD do Azure. No entanto, em alguns casos, é necessário aplicar alterações a uma configuração para atender a uma necessidade ou requisito específico.
+
+## Alterações na conta de serviço
+A sincronização do Azure AD Connect é executada em uma conta de serviço criada pelo assistente de instalação. Essa conta de serviço mantém as chaves de criptografia no banco de dados usado pela sincronização. Ela é criada com uma senha de 127 caracteres que é definida para não expirar.
+
+- **Não há suporte** para alteração ou redefinição da senha da conta de serviço. Se isso ocorrer, as chaves de criptografia serão destruídas e o serviço não poderá acessar o banco de dados e iniciar.
+
+## Alterações no agendador
+A sincronização do Azure AD Connect está definida para sincronizar dados de identidade a cada três horas. Durante a instalação, uma tarefa agendada é criada em execução em uma conta de serviço com permissões para operar o servidor de sincronização.
+
+- **Não há suporte** para alterações na tarefa agendada. A senha da conta de serviço não é conhecida. Consulte [Alterações na conta de serviço](#changes-to-the-service-account)
+- **Não há suporte** para frequência de sincronização menor do que o padrão de 3 horas.
+
+## Alterações nas regras de sincronização
+
+Mesmo com suporte para aplicar alterações à sua configuração de sincronização do Azure AD Connect, você deve aplicá-las com cuidado, porque a sincronização do Azure AD Connect deve estar o mais próximo possível de um dispositivo.
 
 A seguir, uma lista de comportamentos esperados:
 
@@ -40,19 +55,11 @@ Quando você precisar alterar a configuração padrão, faça o seguinte:
 
 
 
-**Outras observações importantes:**
-
-- Se você tem sincronização de senha e filtragem baseadas em atributos configuradas, certifique-se de que somente os objetos sincronizados com o AD do Azure estão no escopo da sincronização de senha. 
-
-
-
-
-
 ## Recursos adicionais
 
-* [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
+* [Sincronização do Azure AD Connect: personalizando as opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

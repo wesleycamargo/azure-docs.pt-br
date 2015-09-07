@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ambientes de teste de nuvem híbrida do Azure"
-	description="Acesse os principais tópicos que descrevem como criar ambientes de teste que você pode usar para desenvolvimento/teste ou uma prova de conceito para sua nuvem híbrida do Azure."
+	pageTitle="Ambientes de teste de nuvem híbrida no Azure | Microsoft Azure"
+	description="Encontre os artigos que descrevem como criar ambientes profissionais de TI de verificação de conceito e de desenvolvimento e teste para a sua nuvem híbrida baseada no Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -58,4 +58,4 @@ Para organizações e indivíduos para os quais uma conexão direta com a Intern
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

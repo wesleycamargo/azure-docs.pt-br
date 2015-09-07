@@ -1,20 +1,20 @@
 <properties
    pageTitle="Carregar dados de exemplo no SQL Data Warehouse | Microsoft Azure"
-   description="Carregar dados de exemplo no SQL Data Warehouse"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+	description="Carregar dados de exemplo no SQL Data Warehouse"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="lodipalm"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/05/2015"
-   ms.author="lodipalm;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/05/2015"
+	ms.author="lodipalm;barbkess"/>
 
 #Carregar dados de amostra no SQL Data Warehouse
 
@@ -24,7 +24,18 @@ Agora que você configurou uma instância do SQL Data Warehouse, fica fácil car
 
 2. Após o download do arquivo, extraia o conteúdo do arquivo AdventureWorksPDW2012.zip e abra a nova pasta AdventureWorksPDW2012.
 
-3. Edite o arquivo aw\_create.bat e defina os seguintes valores na parte superior do arquivo: a. **Servidor**: o nome totalmente qualificado do servidor no qual o SQL Data Warehouse reside em b. **Usuário**: o usuário para o servidor acima c. **Senha**: a senha para logon no servidor fornecido d. **Banco de dados**: o nome da instância do SQL Data Warehouse na qual você deseja carregar dados
+3. Edite o arquivo aw\_create.bat e defina os seguintes valores na parte superior do arquivo:
+
+   a. **Servidor**: o nome totalmente qualificado do servidor no qual o SQL Data Warehouse reside
+
+   b. **Usuário**: o usuário para o servidor acima
+   
+   c. **Senha**: a senha para logon no servidor fornecido
+   
+   d. **Banco de dados**: o nome da instância do SQL Data Warehouse na qual você deseja carregar dados
+   
+   Certifique-se de que não exista nenhum espaço em branco entre o '=' e esses parâmetros.
+   
 
 4. Execute aw\_create.bat no diretório no qual ele está localizado. Isso criará o esquema e carregará os dados em todas as tabelas usando o BCP.
 
@@ -60,16 +71,16 @@ Agora que proporcionamos a você um aquecimento com a verificação de dados de 
 <!--Image references-->
 
 <!--Article references-->
-[migrar]: https://azure.microsoft.com/pt-br/documentation/articles/sql-data-warehouse-overview-migrate/
-[desenvolver]: https://azure.microsoft.com/pt-br/documentation/articles/sql-data-warehouse-overview-develop/
-[carregar]: https://azure.microsoft.com/pt-br/documentation/articles/sql-data-warehouse-overview-load/
-[conexão e consulta]: https://azure.microsoft.com/pt-br/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[migrar código]: https://azure.microsoft.com/pt-br/documentation/articles/sql-data-warehouse-migrate-code/
+[migrar]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-overview-migrate/
+[desenvolver]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-overview-develop/
+[carregar]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-overview-load/
+[conexão e consulta]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-get-started-connect-query/
+[migrar código]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-migrate-code/
 
 <!--MSDN references-->
-[Utilitários de linha de comando da Microsoft para SQL Server]: http://www.microsoft.com/pt-br/download/details.aspx?id=36433
+[Utilitários de linha de comando da Microsoft para SQL Server]: http://www.microsoft.com/pt-BR/download/details.aspx?id=36433
 
 <!--Other Web references-->
 [Exemplos de scripts de dados]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

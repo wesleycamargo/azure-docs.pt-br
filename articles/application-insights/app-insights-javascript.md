@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Application Insights para aplicativos Web JavaScript" 
-	description="Obter contagens de sessões e exibições de páginas e dados de clientes da Web e acompanhar padrões de uso. Detecte exceções e problemas de desempenho em páginas da Web do JavaScript." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="Application Insights para aplicativos Web JavaScript | Microsoft Azure"
+	description="Obter contagens de sessões e exibições de páginas e dados de clientes da Web e acompanhar padrões de uso. Detecte exceções e problemas de desempenho em páginas da Web do JavaScript."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/10/2015"
 	ms.author="awills"/>
- 
+
 # Application Insights para aplicativos Web JavaScript
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -48,19 +48,19 @@ Em Início Rápido, obtenha o script para páginas da Web:
 
 Insira o script antes da marca &lt;/head&gt; de cada página que você deseja acompanhar. Se seu site possui uma página mestra, você poderá colocar o script lá. Por exemplo:
 
-* Em um projeto MVC ASP.NET, você deve colocá-lo em View\\Shared\\\_Layout.cshtml
+* Em um projeto MVC ASP.NET, você deve colocá-lo em View\\Shared\\_Layout.cshtml
 * Em um site do SharePoint, no painel de controle, abra [Configurações do Site/Página Mestra](app-insights-sharepoint.md).
 
 O script contém a chave de instrumentação que direciona os dados para o recurso do Application Insights.
 
 *(Se você estiver usando uma estrutura de página da Web conhecida, procure adaptadores do Application Insights. Por exemplo, há [um módulo AngularJS](http://ngmodules.org/modules/angular-appinsights).)*
 
- 
+
 ## <a name="run"></a>Executar seu aplicativo
 
-Execute seu aplicativo Web, use-o por algum tempo para gerar telemetria e aguarde alguns segundos. Você pode executá-lo com F5 em seu computador de desenvolvimento ou publicá-lo e permitir que os usuários o utilizem.
+Execute seu aplicativo Web, use-o por algum tempo para gerar telemetria e aguarde alguns segundos. Você pode executá-lo usando a tecla **F5** em seu computador de desenvolvimento ou publicá-lo e permitir que os usuários o utilizem.
 
-Se desejar verificar a telemetria que um aplicativo Web está enviando ao Application Insights, use as ferramentas de depuração de seu navegador (F12 em muitos navegadores). Os dados são enviados a dc.services.visualstudio.com.
+Se desejar verificar a telemetria que um aplicativo Web está enviando ao Application Insights, use as ferramentas de depuração de seu navegador (**F12** em muitos navegadores). Os dados são enviados a dc.services.visualstudio.com.
 
 ## Explorar seus dados
 
@@ -96,7 +96,7 @@ Se desejar ver o desempenho das páginas ao longo do tempo, clique duas vezes na
 
 ## Visão geral de uso do cliente
 
-Na folha visão geral, clique em Uso:
+Na folha visão geral, clique em **Uso**:
 
 ![](./media/app-insights-javascript/14-usage.png)
 
@@ -147,7 +147,7 @@ Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique
 
 ### Propriedades de exibição de página
 
-* **Duração da exibição de página** O tempo necessário para carregar a página e iniciar a execução de scripts. Especificamente, o intervalo entre iniciar o carregamento da página e a execução de trackPageView. Se você moveu trackPageView da sua posição normal após a inicialização do script, ele refletirá um valor diferente. 
+* **Duração da exibição de página** &#151; o tempo necessário para carregar a página e iniciar a execução de scripts. Especificamente, o intervalo entre iniciar o carregamento da página e a execução de trackPageView. Se você moveu trackPageView da sua posição normal após a inicialização do script, ele refletirá um valor diferente.
 
 ## Rastreamento de uso personalizado
 
@@ -184,6 +184,4 @@ Se ainda não tiver feito isso, você poderá obter percepções de seu servidor
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

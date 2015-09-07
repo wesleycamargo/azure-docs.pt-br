@@ -1,20 +1,20 @@
 <properties
    pageTitle="Visão geral da configuração de 'ReliableDictionaryActorStateProvider' de atores confiáveis da malha do serviço"
-   description="Saiba como configurar atores com monitoração de estado do serviço malha do tipo 'ReliableDictionaryActorStateProvider'"
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="Saiba como configurar atores com monitoração de estado do serviço malha do tipo 'ReliableDictionaryActorStateProvider'"
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/20/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Configurando Atores Confiáveis — ReliableDictionaryActorStateProvider
 A configuração padrão do ReliableDictionaryActorStateProvider pode ser modificada modificando-se o arquivo "settings.xml" gerado na raiz pacote do Visual Studio dentro da pasta "Config" para o ator especificado em questão.
@@ -88,4 +88,4 @@ O MaxRecordSizeInKB define o tamanho máximo de um registro que pode ser gravado
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas e permitem que um serviço use um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para o arquivo de log compartilhado, de forma que a contenção de movimentação do cabeçote seja reduzida. A expectativa é de que isso precise ser alterado somente em casos raros.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

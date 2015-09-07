@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Configurar o Backup do Azure para prepará-lo para o backup do Windows Server
 
@@ -28,7 +21,7 @@ Para fazer backup de arquivos e de dados do seu Windows Server no Azure, primeir
 - **Baixe credenciais do cofre** — No Backup do Azure, carregue o certificado de gerenciamento que você criou para o cofre.
 - **Instalar o Agente de Backup do Azure e registrar o servidor** — no Backup do Azure, instale o agente e registre o servidor no cofre de backup.
 
-[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
+[AZURE.INCLUDE [backup-create-vault-wgif](../../includes/backup-create-vault-wgif.md)]
 
 [AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -41,4 +34,4 @@ Para fazer backup de arquivos e de dados do seu Windows Server no Azure, primeir
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 - [Fórum de Backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

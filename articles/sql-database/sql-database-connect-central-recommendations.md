@@ -1,38 +1,34 @@
 <properties 
-	pageTitle="Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design" 
-	description="Um tópico de ponto de partida que reúne links e recomendações para programas cliente que se conectam ao Banco de Dados SQL do Azure a partir de tecnologias como ADO.NET e PHP." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	pageTitle="Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design"
+	description="Um tópico de ponto de partida que reúne links e recomendações para programas cliente que se conectam ao Banco de Dados SQL do Azure a partir de tecnologias como ADO.NET e PHP."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="genemi"/>
 
 
 # Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design
 
 
-Este tópico é um bom ponto de partida para a conectividade do cliente com o Banco de Dados SQL do Azure. Ele fornece links para exemplos de código de várias tecnologias que você pode usar para se conectar e interagir com o Banco de Dados SQL. As tecnologias incluem Enterprise Library, JDBC, PHP e muito mais. São fornecidas recomendações que se aplicam em geral, independentemente da tecnologia de conexão ou da linguagem de programação específica.
+Este tópico é um bom ponto de partida para a conectividade do cliente com o Banco de Dados SQL do Azure. Ele fornece links para exemplos de código de várias tecnologias que você pode usar para se conectar e interagir com o Banco de Dados SQL. As tecnologias incluem Enterprise Library, JDBC, PHP e muito mais. As informações fornecidas se aplicam independentemente de qual tecnologia específica você usar para se conectar ao banco de dados SQL.
 
 
 ## Recomendações de tecnologia independente
 
 
-As informações nesta seção se aplicam independentemente de qual tecnologia específica você usar para se conectar ao banco de dados SQL.
-
-
 - [Diretrizes para conexão com o Banco de Dados SQL do Azure de forma programática](http://msdn.microsoft.com/library/azure/ee336282.aspx) — discussões incluem o seguinte:
- - Portas
- - Firewall
+ - [Portas e Firewalls](https://azure.microsoft.com/pt-BR/documentation/articles/sql-database-configure-firewall-settings/)
  - Cadeias de conexão
 - [Gerenciamento de recursos do banco de dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx) — discussões incluem o seguinte:
  - Governança de recursos
@@ -40,22 +36,16 @@ As informações nesta seção se aplicam independentemente de qual tecnologia e
  - Limitação
 
 
-Independentemente de qual tecnologia de conexão é usada, determinadas configurações do firewall do servidor de banco de dados SQL e até bancos de dados individuais, importam:
-
-
-- [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
 ## Recomendações de autenticação
 
 
-- Use a autenticação do banco de dados SQL, não a autenticação do Windows.
+- Use a autenticação do banco de dados SQL do Azure, não a autenticação do Windows que não está disponível no Banco de dados SQL do Azure.
 - Especifique um determinado banco de dados, em vez de padronizar para o banco de dados *mestre*.
-- Às vezes, o nome de usuário deve ser fornecido com o sufixo de *@nomedoservidor*, mas, outras vezes, o sufixo deve ser omitido. Depende de como a ferramenta ou a API foi gravada.
- - Verifique os detalhes sobre cada tecnologia.
 - Conecte-se especificando um usuário em um [banco de dados independente](http://msdn.microsoft.com/library/ff929071.aspx).
  - Essa abordagem fornece um melhor desempenho e escalabilidade, evitando a necessidade de um logon no banco de dados mestre.
- - Você não pode usar a instrução Transact-SQL **USE myDatabaseName;** no Banco de Dados SQL.
+ - Não é possível usar a instrução **USE myDatabaseName;** do Transact-SQL no Banco de Dados SQL.
 
 
 ## Recomendações de conexão
@@ -66,7 +56,7 @@ Independentemente de qual tecnologia de conexão é usada, determinadas configur
 - Certifique-se de que o seu [firewall do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/ee621782.aspx) permite a comunicação TCP de saída na porta 1433.
  - Você pode definir as configurações de [firewall](http://msdn.microsoft.com/library/azure/ee621782.aspx) em um servidor de Banco de Dados SQL ou em um banco de dados individual.
 - Se você estiver usando um [pool de conexões](http://msdn.microsoft.com/library/8xx3tyca.aspx), feche a conexão no instante em que o programa não estiver usando-o ativamente e não estiver se preparando para reutilizá-lo.
- - A menos que seu programa vá utilizar a conexão para outra operação imediatamente, sem pausa, é recomendável o seguinte padrão: <br/><br/>Abra uma conexão. <br/>Faça uma operação por meio da conexão. <br/>Feche a conexão.<br/><br/>
+ - A menos que seu programa vá utilizar a conexão para outra operação imediatamente, sem pausa, é recomendável o seguinte padrão: <br/><br/>Abra uma conexão. <br/>Faça uma operação através da conexão. <br/>Feche a conexão.<br/><br/>
 - Use a lógica de repetição com a lógica de conexão, mas apenas para erros transitórios. Ao usar o banco de dados SQL, as suas tentativas de abrir uma conexão ou emitir uma consulta podem falhar por vários motivos.
  - Um motivo persistente de falha pode ser que a cadeia de conexão está malformada.
  - Um motivo transitório para a falha poderia ser que o sistema de banco de dados SQL precisa equilibrar a carga total. O motivo transitório desaparece por si só, o que significa que o programa deve tentar novamente.
@@ -96,7 +86,7 @@ Quando ocorre um erro com o Banco de Dados SQL, uma [SqlException](https://msdn.
 
 - [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
  - A seção **Erros transitórios, Erros de perda de conexão** é uma lista dos erros transitórios que garantem uma repetição automática.
- - Por exemplo, repita se o número de erro 40613 ocorrer, que informa algo semelhante a<br/>*O banco de dados 'mydatabase' no servidor 'theserver' não está disponível no momento.
+ - Por exemplo, repita se o número de erro 40613 ocorrer, que informa algo semelhante a<br/>*O banco de dados 'mydatabase' no servidor 'theserver' não está disponível no momento*.
 
 
 Às vezes, os *erros* transitórios são chamados de *falhas* transitórias. Este tópico considera esses dois termos como sinônimos.
@@ -126,7 +116,7 @@ O proxy de middleware atua como mediador entre o V11 e seu cliente ADO.NET 4.5 l
 O proxy V12 manipula um subconjunto menor de falhas transitórias. Em outros casos do V12, o proxy é ignorado para a velocidade superior da conexão direta ao Banco de Dados SQL. Para um programa cliente ADO.NET 4.5, essas alterações fazem o Banco de Dados SQL do Azure V12 se parecer mais com o Microsoft SQL Server.
 
 
-Para obter exemplos de código que demonstram a lógica de repetição, consulte:<br/>[Exemplos de código de início rápido do cliente para o Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md).
+Para obter exemplos de código que demonstram a lógica de repetição, consulte: <br/>[Exemplos de código de início rápido do cliente para o Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md).
 
 
 > [AZURE.TIP]Em um ambiente de produção, os clientes que se conectam ao Banco de Dados SQL do Azure V11 ou V12 são aconselhados a implementar a lógica de repetição em seu código. Pode ser um código personalizado, ou pode ser um código que utiliza uma API como a Enterprise Library.
@@ -168,4 +158,4 @@ Vários exemplos de código são fornecidos para clientes que são executados no
 
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Atualizar a largura de banda da Rota Expressa dinamicamente | Microsoft Azure"
-   description="Como aumentar dinamicamente o tamanho de largura de banda de um circuito da Rota Expressa sem tempo de inatividade."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Como aumentar dinamicamente o tamanho de largura de banda de um circuito da Rota Expressa sem tempo de inatividade."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Atualize a banda larga do circuito da Rota Expressa de maneira dinâmica sem tempo de inatividade
 
@@ -85,4 +85,4 @@ O Windows PowerShell é um ambiente de script poderoso que você pode usar para 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

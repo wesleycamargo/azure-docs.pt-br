@@ -1,20 +1,20 @@
 <properties
    pageTitle="Monitore sua carga de trabalho usando DMVs | Microsoft Azure"
-   description="Aprenda a monitorar sua carga de trabalho usando DMVs."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Aprenda a monitorar sua carga de trabalho usando DMVs."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/06/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/06/2015"
+	ms.author="sahajs"/>
 
 # Monitore sua carga de trabalho usando DMVs
 
@@ -135,7 +135,11 @@ ORDER BY step_index;
 
 Salve o índice da etapa da etapa de execução longa.
 
-Verifique a coluna *operation\_type* da etapa de consulta de execução longa:-Continue com a etapa 4a para**Operações SQL**: OnOperation, RemoteOperation, ReturnOperation - continue com a etapa 4b para**operações de movimentação de dados**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation
+Verifique a coluna *operation\_type* da etapa de consulta de execução longa:
+
+- Continue com a etapa 4a para **operações SQL**: OnOperation, RemoteOperation, ReturnOperation.
+- Continue com a etapa 4b para **Operações de movimentação de dados**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+
 
 
 
@@ -203,7 +207,7 @@ O resultado dessa consulta lhe mostrará o número de linhas da tabela que são 
 
 
 ## Próximas etapas
-Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte[Gerenciar visão geral][].
+Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte [Gerenciar visão geral][].
 
 <!--Image references-->
 
@@ -213,4 +217,4 @@ Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte[Gerenc
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

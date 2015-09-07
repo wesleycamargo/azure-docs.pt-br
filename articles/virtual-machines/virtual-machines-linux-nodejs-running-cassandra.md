@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Executar Cassandra com Linux no Azure" 
-	description="Como executar um cluster Cassandra no Linux em máquinas virtuais do Azure de um aplicativo Node.js" 
-	services="virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Executar Cassandra com Linux no Azure"
+	description="Como executar um cluster Cassandra no Linux em máquinas virtuais do Azure de um aplicativo Node.js"
+	services="virtual-machines"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="MikeWasson"/>
 
 
@@ -53,7 +53,7 @@ Figura 1: implantação de região única
 
 Observe que, no momento da redação deste artigo, o Azure não permite o mapeamento explícito de um grupo de VMs em um domínio de falha específico; consequentemente, mesmo com o modelo de implantação mostrado na Figura 1, é estatisticamente provável que todas as máquinas virtuais possam ser mapeadas para dois domínios de falha em vez de quatro.
 
-**Tráfego Thrift de Balanceamento de Carga:** as bibliotecas de cliente Thrift dentro do servidor Web se conectam ao cluster por meio de um balanceador de carga interno. Isso exige o processo de adicionar o balanceador de carga interno à sub-rede "data" (confira a Figura 1) no contexto do serviço de nuvem que hospeda o cluster Cassandra. Depois que o balanceador de carga interno for definido, cada nó requer o ponto de extremidade com balanceamento de carga a ser adicionado com as anotações de um conjunto de balanceamento de carga com o nome do balanceador de carga definido anteriormente. Confira [Balanceamento de carga interno do Azure ](http://msdn.microsoft.com/library/azure/dn690121.aspx)para obter mais detalhes.
+**Tráfego Thrift de Balanceamento de Carga:** as bibliotecas de cliente Thrift dentro do servidor Web se conectam ao cluster por meio de um balanceador de carga interno. Isso exige o processo de adicionar o balanceador de carga interno à sub-rede "data" (confira a Figura 1) no contexto do serviço de nuvem que hospeda o cluster Cassandra. Depois que o balanceador de carga interno for definido, cada nó requer o ponto de extremidade com balanceamento de carga a ser adicionado com as anotações de um conjunto de balanceamento de carga com o nome do balanceador de carga definido anteriormente. Confira [Balanceamento de carga interno do Azure ](../load-balancer/load-balancer-internal-overview.md)para obter mais detalhes.
 
 **Sementes de cluster:** é importante selecionar os nós que estejam altamente disponíveis para sementes, pois os nós mais novos vão se comunicar com os nós de propagação para descobrir a topologia do cluster. Um nó de cada conjunto de disponibilidade será designado como nó de propagação para evitar pontos únicos de falha.
 
@@ -124,7 +124,7 @@ As seguintes versões de software são usadas durante a implantação:
 
 Como o download do JRE requer a aceitação manual da licença do Oracle, para simplificar a implantação, baixe todos os softwares necessários para a área de trabalho para carregar mais tarde na imagem de modelo do Ubuntu que estaremos criando como precursora da implantação de cluster.
 
-Baixe o software acima em um diretório de downloads conhecido (por exemplo, %TEMP%/downloads no Windows ou \~/downloads no Linux ou no Mac) na área de trabalho local.
+Baixe o software acima em um diretório de downloads conhecido (por exemplo, %TEMP%/downloads no Windows ou ~/downloads no Linux ou no Mac) na área de trabalho local.
 
 ### CRIAR UMA MV UBUNTU
 Nesta etapa do processo, criaremos a imagem do Ubuntu com o software de pré-requisito para que a imagem possa ser reutilizada para o provisionamento de vários nós de Cassandra.
@@ -165,7 +165,7 @@ Clique na seta para a direita, mantenha os padrões na tela #3 e clique no botã
 
 ###INSTALAR O SOFTWARE NECESSÁRIO
 ####ETAPA 1: carregar tarballs 
-Usando scp ou pscp, copie o software baixado anteriormente para o diretório \~/downloads usando o seguinte formato de comando:
+Usando scp ou pscp, copie o software baixado anteriormente para o diretório ~/downloads usando o seguinte formato de comando:
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 
@@ -301,7 +301,7 @@ Certifique-se de que a máquina virtual esteja realçada e clique no link CAPTUR
 Isto levará alguns segundos e a imagem deverá estar disponível na seção MINHAS IMAGENS da galeria de imagens. A VM de origem será automaticamente delatada depois que a imagem for capturada com êxito.
 
 ##Processo de implantação de região única
-**Etapa 1: criar a rede virtual** Faça logon no portal de gerenciamento e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma Rede Virtual Somente na Nuvem no portal de gerenciamento](http://msdn.microsoft.com/library/azure/dn631643.aspx) para obter as etapas detalhadas do processo.
+**Etapa 1: criar a rede virtual** Faça logon no portal de gerenciamento e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma Rede Virtual Somente na Nuvem no portal de gerenciamento](../virtual-network/virtual-networks-create-vnet.md) para obter as etapas detalhadas do processo.
 
 <table>
 <tr><th>Nome do atributo da VM</th><th>Valor</th><th>Comentários</th></tr>
@@ -467,7 +467,7 @@ Observe que o keyspace criado na etapa 4 usa SimpleStrategy com um replication\_
 Utilizará a implantação de região única concluída e repetirá o mesmo processo para instalar a segunda região. A principal diferença entre a implantação de região única e a de várias regiões é a configuração de túnel VPN para comunicação entre regiões; começaremos com a instalação de rede, provisionamento de VMs e configuração de Cassandra.
 
 ###Etapa 1: criar uma rede virtual na 2ª região
-Faça logon no portal de gerenciamento e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma Rede Virtual somente na nuvem no portal de gerenciamento](http://msdn.microsoft.com/library/azure/dn631643.aspx) para obter as etapas detalhadas do processo.
+Faça logon no portal de gerenciamento e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma Rede Virtual somente na nuvem no portal de gerenciamento](../virtual-network/virtual-networks-create-vnet.md) para obter as etapas detalhadas do processo.
 
 <table>
 <tr><th>Nome do atributo    </th><th>Valor	</th><th>Comentários</th></tr>
@@ -700,4 +700,4 @@ O Microsoft Azure é uma plataforma flexível que permite a execução tanto de 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

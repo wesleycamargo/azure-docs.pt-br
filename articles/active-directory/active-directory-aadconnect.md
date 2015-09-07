@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Integrando suas identidades locais ao Active Directory do Azure." 
-	description="Este é o Azure AD Connect que descreve o que ele é e por que usá-lo." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Integrando suas identidades locais ao Active Directory do Azure."
+	description="Este é o Azure AD Connect que descreve o que ele é e por que usá-lo."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/13/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Integração de suas identidades locais com o Active Directory do Azure
@@ -249,7 +249,7 @@ Para obter documentação adicional sobre como trabalhar com o Azure AD Connect,
 - [Usando o editor de regras de sincronização do Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Usando provisionamento declarativo](active-directory-aadconnect-whats-next-declarative-prov.md)
 
-Além disso, algumas das documentações criadas para o Azure AD Sync ainda são relevantes e aplicam-se ao Azure AD Connect. Embora todos os esforços estejam sendo feitos para trazer essa documentação para o Azure.com, uma parte dela ainda reside na biblioteca de escopo do MSDN. Para obter documentação adicional, consulte [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) e [Azure AD Sync no MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
+Além disso, algumas das documentações criadas para o Azure AD Sync ainda são relevantes e aplicam-se ao Azure AD Connect. Embora todos os esforços estejam sendo feitos para trazer essa documentação para o Azure.com, uma parte dela ainda reside na biblioteca de escopo do MSDN. Para obter documentação adicional, consulte [Azure AD Connect no MSDN](active-directory-aadconnect.md) e [Azure AD Sync no MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
 
 
 **Recursos adicionais**
@@ -273,4 +273,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

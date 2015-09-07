@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL usando PowerShell" 
-   description="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL do Azure usando PowerShell" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL usando PowerShell"
+	description="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL do Azure usando PowerShell"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/12/2015"
-   ms.author="adamkr; sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="adamkr; sstein"/>
 
 # Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL usando PowerShell
 
@@ -105,6 +105,7 @@ Agora que você tem um grupo de recursos, um servidor e uma regra de firewall co
 
 O pool criado na etapa anterior está vazio, ele não contém bancos de dados elásticos. As seções a seguir mostram como criar novos bancos de dados elásticos dentro do pool e também como adicionar bancos de dados existentes ao pool.
 
+*Depois de criar um pool você também pode usar o Transact-SQL para criar um novo banco de dados elástico no pool, e mover bancos de dados existentes dentro e fora de um pool. Para saber mais detalhes, consulte [Referência de pool de banco de dados elástico - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Criar um novo banco de dados elástico dentro de um pool de banco de dados elástico
 
@@ -117,7 +118,7 @@ Para criar um novo banco de dados diretamente dentro de um pool, use o cmdlet **
 
 ### Mover um banco de dados existente para um pool de banco de dados elástico
 
-Para mover um banco de dados existente para um pool, use o cmdlet **Set-AzurSqlDatabase** e defina o parâmetro **ElasticPoolName**.
+Para mover um banco de dados existente para um pool, use o cmdlet **Set-AzureSqlDatabase** e defina o parâmetro **ElasticPoolName**.
 
 
 Para a demonstração, crie um banco de dados que não esteja em um pool de banco de dados elástico.
@@ -239,4 +240,4 @@ Depois de criar um pool de banco de dados elástico, você pode gerenciar os ban
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

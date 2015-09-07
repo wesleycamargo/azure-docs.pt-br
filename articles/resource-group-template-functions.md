@@ -1,24 +1,36 @@
 <properties
    pageTitle="Funções de modelo do Gerenciador de Recursos do Azure"
-   description="Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, cadeias de caracteres de formato e recuperar informações de implantação."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, cadeias de caracteres de formato e recuperar informações de implantação."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/27/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # Funções de modelo do Gerenciador de Recursos do Azure
 
 Este tópico descreve todas as funções que você pode usar em um modelo do Gerenciador de Recursos do Azure.
+
+## adicionar
+
+**add(operand1, operand2)**
+
+Retorna a soma dos dois inteiros fornecidos.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| operand1 | Sim | Primeiro operando a usar.
+| operand2 | Sim | Segundo operando a usar.
+
 
 ## base64
 
@@ -85,6 +97,23 @@ O exemplo a seguir mostra como retornar informações sobre a implantação da s
       }
     }
 
+## div
+
+**div(operand1, operand2)**
+
+Retorna a divisão de inteiros dos dois inteiros fornecidos.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| operand1 | Sim | Número que está sendo dividido.
+| operand2 | Sim | Número que é usado para dividir, deve ser diferente de 0.
+
+## length
+
+**length(array)**
+
+Retorna o número de elementos em uma matriz. Normalmente, é usado para especificar o número de iterações durante a criação de recursos. Para um exemplo do uso desta função, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -104,6 +133,30 @@ O exemplo a seguir mostra como retornar as chaves de uma conta de armazenamento 
         "type" : "object" 
       } 
     } 
+
+## mod
+
+**mod(operand1, operand2)**
+
+Retorna o restante da divisão de inteiros usando os dois inteiros fornecidos.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| operand1 | Sim | Número que está sendo dividido.
+| operand2 | Sim | Número que é usado para dividir, deve ser diferente de 0.
+
+
+## mul
+
+**mul(operand1, operand2)**
+
+Retorna a multiplicação de dois inteiros fornecidos.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| operand1 | Sim | Primeiro operando a usar.
+| operand2 | Sim | Segundo operando a usar.
+
 
 ## padLeft
 
@@ -311,6 +364,37 @@ Frequentemente, você precisa usar essa função ao usar uma conta de armazename
       }]
     }
 
+## split
+
+**split(inputString, delimiter)** **split(inputString, [delimiters])**
+
+Retorna uma matriz de cadeias de caracteres que contém as subcadeias de caracteres da cadeia de caracteres de entrada que são delimitadas por delimitadores enviados.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| inputString | Sim | A cadeia de caracteres a ser dividida.
+| delimiter | Sim | O delimitador a ser usado, pode ser uma única cadeia de caracteres ou uma matriz de cadeias de caracteres.
+
+O exemplo a seguir divide a cadeia de caracteres de entrada com uma vírgula.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## sub
+
+**sub(operand1, operand2)**
+
+Retorna a subtração dos dois inteiros fornecidos.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| operand1 | Sim | Número que deve ser subtraído.
+| operand2 | Sim | Número a ser subtraído.
+
 
 ## assinatura
 
@@ -383,9 +467,9 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 
 
 ## Próximas etapas
-- Para ver uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, consulte [Modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
-- Para mesclar diversos modelos, consulte [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
+- Para ver uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, consulte [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
+- Para mesclar diversos modelos, consulte [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

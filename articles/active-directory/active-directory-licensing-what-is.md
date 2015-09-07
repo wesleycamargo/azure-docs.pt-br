@@ -1,45 +1,48 @@
 <properties
    pageTitle="O que é o licenciamento do Active Directory do Microsoft Azure? | Microsoft Azure"
-   description="Descrição de licenciamento do AD do Microsoft Azure, como ele funciona, como começar e práticas recomendadas, incluindo o Office 365, Microsoft Intune, e edições do Azure Active Directory Premium e Basic"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="swadhwa"
-   editor=""/>
+	description="Descrição de licenciamento do AD do Microsoft Azure, como ele funciona, como começar e práticas recomendadas, incluindo o Office 365, Microsoft Intune, e edições do Azure Active Directory Premium e Basic"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadhwa"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/16/2015"
-   ms.author="curtand"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/16/2015"
+	ms.author="curtand"/>
 
 # O que é o licenciamento do Active Directory do Microsoft Azure?
 
 ##Descrição
 O Active Directory (AD) do Azure é a identidade da Microsoft como uma solução e plataforma de serviço (IDaaS). O AD do Azure é oferecido em várias versões técnicas e funcionais, desde o AD gratuito do Azure, disponível com qualquer serviço da Microsoft, como o Office 365, Dynamics, Microsoft Intune e Azure (o AD do Azure não gera encargos de consumo nesse modo), até versões pagas do AD do Azure, como o Enterprise Mobility Suite (EMS), AD Premium e Basic do Azure, além de MFA (Multi-Factor Authentication). Como muitos serviços online da Microsoft, a maioria das versões pagas do AD do Azure é fornecida por meio de direitos de usuário, como é no Office 365, Microsoft Intune e AD do Azure. Nesses casos, a compra do serviço é representada com uma ou mais assinaturas e cada assinatura inclui um número de pré-compra de licenças em seu locatário. Direitos de usuário são obtidos por meio da atribuição de licença, criando um vínculo entre o usuário e o produto, habilitando os componentes de serviço para o usuário e consumindo uma das licenças pré-pagas.
 
-O portal de administração do AD do Azure é uma parte do Portal de Gerenciamento do Azure. Ao passo que o uso do AD do Azure não requer nenhuma compra do Azure, o acesso a esse portal requer uma assinatura ativa do Azure ou uma [assinatura de avaliação do Azure](http://azure.microsoft.com/pricing/free-trial/).
+[Experimente o Azure AD Premium agora.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
-Para obter uma visão geral dos recursos de serviço do AD do Azure, consulte [O que é o AD do Azure](active-directory-whatis.md).
+> [AZURE.NOTE]O portal de administração do AD do Azure é uma parte do Portal de Gerenciamento do Azure. Embora o uso do AD do Azure não exija nenhuma compra do Azure, o acesso a esse portal requer uma assinatura ativa do Azure ou uma [assinatura de avaliação do Azure](http://azure.microsoft.com/pricing/free-trial/).
+
+Para obter uma visão geral ampla dos recursos de serviço do AD do Azure, confira [O que é o AD do Azure](active-directory-whatis.md). [Saiba mais sobre os níveis de serviço do AD do Azure](http://azure.microsoft.com/support/legal/sla/)
 
 > [AZURE.NOTE]As assinaturas pré-pagas do Azure são diferentes: enquanto também representadas em seu diretório, essas assinaturas permitem a criação de recursos do Azure e os mapeiam para seu método de pagamento. Nesse caso, NÃO há contagens de licença associadas à assinatura. A associação de usuários com a assinatura, o acesso dos usuários para gerenciar recursos de assinatura, é alcançada ao conceder permissões a eles para operar em recursos do Azure mapeados para a assinatura.
 
-> [Saiba mais sobre os níveis de serviço do AD do Azure](http://azure.microsoft.com/support/legal/sla/)
 
 ##Como funciona o trabalho de licenciamento do AD do Azure?
 
-Serviços do AD do Azure baseados em licença ou direito funcionam ativando uma assinatura no locatário de serviço/diretório do AD do Azure. Quando a assinatura está ativa, os recursos de serviço podem ser gerenciados por administradores de serviço/diretório e usados por usuários licenciados.
+Os Serviços do AD do Azure baseados em licença (baseados em direito) funcionam ativando uma assinatura no locatário de serviço/diretório do AD do Azure. Quando a assinatura está ativa, os recursos de serviço podem ser gerenciados por administradores de serviço/diretório e usados por usuários licenciados.
 
 Quando você compra ou ativa o Enterprise Mobility Suite, AD Premium ou AD Basic do Azure, seu diretório é atualizado com a assinatura, incluindo período de validade e licenças pré-pagas. As informações de assinatura, incluindo status, o próximo evento de ciclo de vida e o número de licenças atribuídas ou disponíveis estão disponíveis no Portal de Gerenciamento do AD do Azure, na guia Licenças do diretório específico. Este é também o melhor lugar para gerenciar suas atribuições de licença.
 
-Cada assinatura consiste em um ou mais planos de serviço, cada um representando o nível funcional incluído do tipo de serviço; por exemplo, AD do Azure, Azure MFA, Microsoft Intune, Exchange Online ou SharePoint Online. O gerenciamento de licença do AD do Azure não requer gerenciamento de nível de plano de serviço. Isso é diferente do Office 365, que conta com esse modo de configuração avançada para gerenciar o acesso aos serviços incluídos. O AD do Azure depende da configuração de serviço para habilitar recursos e gerenciar permissões individuais.
+Cada assinatura consiste em um ou mais planos de serviço, cada um mapeando o nível funcional incluído do tipo de serviço; por exemplo, AD do Azure, Azure MFA, Microsoft Intune, Exchange Online ou SharePoint Online. O gerenciamento de licença do AD do Azure não requer gerenciamento de nível de plano de serviço. Isso é diferente do Office 365, que conta com esse modo de configuração avançada para gerenciar o acesso aos serviços incluídos. O AD do Azure depende da configuração de serviço para habilitar recursos e gerenciar permissões individuais.
 
 Em geral, informações de assinatura do AD do Azure são gerenciadas por meio do Portal de Gerenciamento do Azure, na guia Licenças do diretório específico. Assinaturas de AD do Azure, com exceção do AD Premium, não aparecem no portal do Office.
 
 > [AZURE.IMPORTANT]O AD Premium e Basic do Azure, bem como assinaturas do Enterprise Mobility Suite, restringem-se a seu diretório/locatário provisionado. As assinaturas não podem ser divididas entre diretórios nem usadas para dar direitos a usuários em outros diretórios. É possível mover uma assinatura entre diretórios, mas requer o envio de um tíquete de suporte ou cancelamento e nova compra, no caso de compras diretas.
+
+> [AZURE.IMPORTANT]Ao comprar o AD do Azure ou o Enterprise Mobility Suite por meio do Licenciamento por Volume, a ativação da assinatura ocorrerá automaticamente quando o contrato incluir outros serviços Online da Microsoft, por exemplo, o Office 365.
 
 Recursos pagos do AD do Azure estendem a amplitude do diretório. Os exemplos incluem:- Atribuição baseada em grupo a aplicativos, que é habilitada no aplicativo específico que você está gerenciando. - Recursos avançados e de autoatendimento de gerenciamento de grupo estão disponíveis na configuração do diretório ou dentro do grupo específico. -Relatórios de segurança premium estão na guia Relatórios - Descoberta de aplicativos de nuvem aparece no portal de visualização do Azure, em Identidade.
 
@@ -77,7 +80,7 @@ Como indicado, o AD do Azure tem diferentes versões pagas. Essas versões têm 
 ![Ativar planos de licença de avaliação](./media/active-directory-licensing-what-is/active_license_trials.png)
 
 ###Atribuir licenças
-Quando a avaliação estiver ativa, você deve atribuir uma licença a si mesmo e atualizar o navegador para garantir a exibição de todos os seus recursos. A próxima etapa é atribuir licenças aos usuários que precisarão de acesso ou inclusão nos recursos pagos do AD do Azure. Como mencionamos anteriormente em "Atribuindo licenças", a melhor maneira de fazer isso é identificar o grupo que representa o público-alvo desejado e atribuí-lo à licença; dessa forma, os usuários adicionados ou removidos do grupo ao longo de seu ciclo de vida terão a licença atribuída ou removida.
+Quando a assinatura estiver ativa, você deve atribuir uma licença a si mesmo e atualizar o navegador para garantir a exibição de todos os seus recursos. A próxima etapa é atribuir licenças aos usuários que precisarão de acesso ou inclusão nos recursos pagos do AD do Azure. Como mencionamos anteriormente em "Atribuindo licenças", a melhor maneira de fazer isso é identificar o grupo que representa o público-alvo desejado e atribuí-lo à licença; dessa forma, os usuários adicionados ou removidos do grupo ao longo de seu ciclo de vida terão a licença atribuída ou removida.
 
 Para atribuir uma licença a um grupo ou usuários individuais, selecione o plano de licença que deseja atribuir e clique em **Atribuir** na barra de comandos.
 
@@ -105,7 +108,7 @@ Uma lista detalhada de usuários e grupos atribuídos, incluindo status e caminh
 
 ![Exibição de detalhes de licenças atribuídas a um plano de licença](./media/active-directory-licensing-what-is/assigned_licenses_detail.png)
 
-Remover licenças é tão fácil quanto atribuí-las. Se o usuário for atribuído diretamente ou a um grupo atribuído, você poderá remover a licença selecionando o tipo de licença, selecionando **Remover**, adicionando o usuário ou grupo à lista de remoção e confirmando a ação. Alternativamente, você pode abrir um tipo de licença, selecionar o usuário ou grupo específico, e tocar em **Remover** na barra de comandos. Para encerrar a herança de um usuário de uma licença de um grupo, basta remover o usuário do grupo.
+Remover licenças é tão fácil quanto atribuí-las. Se o usuário for atribuído diretamente ou a um grupo atribuído, você poderá remover a licença selecionando o tipo de licença, selecionando **Remover**, adicionando o usuário ou grupo à lista de remoção e confirmando a ação. Como alternativa, você pode abrir um tipo de licença, selecionar o usuário ou grupo específico, e tocar em **Remover** na barra de comandos. Para encerrar a herança de um usuário de uma licença de um grupo, basta remover o usuário do grupo.
 
 ###Estendendo avaliações
 
@@ -128,4 +131,4 @@ Agora você pode estar pronto para configurar e usar alguns recursos do AD Premi
 - [Autenticação Multifator do Azure](multi-factor-authentication.md)
 - [Compra direta de licenças do AD Premium do Azure](http://aka.ms/buyaadp)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

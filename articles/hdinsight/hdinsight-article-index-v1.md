@@ -63,11 +63,11 @@ Para um conjunto completo de artigos sobre o uso do Linux e dos clusters do Linu
 * [Usar funções definidas pelo usuário do C# com streaming de Hive e Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 * [Desenvolver programas de streaming do Hadoop em C#](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
-## HBase: Análise do NoSQL
+## HBase: banco de dados NoSQL
 
 * [Configurar a replicação geográfica HBase](hdinsight-hbase-geo-replication.md)
 * [Utilizar o Maven para compilar aplicativos Java que usam o HBase](hdinsight-hbase-build-java-maven.md)
-* [Analisar o sentimento do Twitter em tempo real com o HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
+* [Analisar o sentimento do Twitter em tempo real no HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
 
 ## Apache Storm: consulta de fluxo
 
@@ -132,4 +132,4 @@ Para obter artigos sobre o uso de clusters nativos do Apache Spark no portal de 
 * [Mensagens de erro detalhadas](hdinsight-debug-jobs.md)
 * [Obtenha ajuda no fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

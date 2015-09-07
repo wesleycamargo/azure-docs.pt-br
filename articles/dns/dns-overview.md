@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Visão geral do DNS do Azure | Microsoft Azure" 
-   description="Visão geral dos serviços de hospedagem do DNS do Azure no Microsoft Azure e comece a hospedar seu domínio no Microsoft Azure" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
-   editor=""/>
+   pageTitle="Visão geral do DNS do Azure | Microsoft Azure"
+	description="Visão geral dos serviços de hospedagem do DNS do Azure no Microsoft Azure e comece a hospedar seu domínio no Microsoft Azure"
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 # Visão geral do DNS do Azure
 
@@ -31,7 +31,7 @@ O serviço se baseia no ARM (Azure Resource Manager, Gerenciador de Recursos do 
 
 [Começar a criar zonas DNS](dns-getstarted-create-dnszone.md)
 
-[Automatizar operações do Azure com o SDK do .NET](../dns-sdk)
+[Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)
 
 [Referência da API REST do Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
@@ -40,4 +40,4 @@ O serviço se baseia no ARM (Azure Resource Manager, Gerenciador de Recursos do 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

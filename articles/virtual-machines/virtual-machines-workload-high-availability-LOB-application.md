@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade" 
-	description="Saiba mais sobre o valor de um aplicativo de linha de negócios baseado na Web implantado no Azure, como configurar um ambiente de desenvolvimento/teste e como implantar uma configuração de produção de alta disponibilidade." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Aplicativo de linha de negócios no Azure | Microsoft Azure"
+	description="Conheça o valor de um aplicativo de linha de negócios no Azure, configure um ambiente de teste e implante uma configuração de alta disponibilidade."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade
@@ -103,4 +103,4 @@ Uma vez configurado, você pode expandir facilmente esse aplicativo de linha de 
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

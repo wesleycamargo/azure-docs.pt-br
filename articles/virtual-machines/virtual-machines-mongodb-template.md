@@ -1,20 +1,20 @@
 <properties
   pageTitle="Criar um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure"
-  description="Crie um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure por meio do Azure PowerShell ou da CLI do Azure"
-  services="virtual-machines"
-  documentationCenter=""
-  authors="karthmut"
-  manager="timlt"
-  editor="tysonn"/>
+	description="Crie um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure por meio do Azure PowerShell ou da CLI do Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="karthmut"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
   ms.service="virtual-machines"
-  ms.workload="multiple"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="04/29/2015"
-  ms.author="karthmut"/>
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="karthmut"/>
 
 # Criar um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure
 
@@ -688,6 +688,6 @@ Essencialmente, essa abordagem sugere que você:
 -	Para membros de um grupo de recursos idênticos (nós em um cluster etc.), crie modelos específicos que usam o loop de recursos para implantar várias instâncias com propriedades exclusivas.
 -	Para todas as tarefas de pós-implantação (por exemplo, instalação de produtos e configurações, entre outros), aproveite as extensões de implantação de scripts e crie scripts específicos para cada tecnologia.
 
-Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

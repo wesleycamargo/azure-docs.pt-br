@@ -18,7 +18,7 @@ O caminho de conexão é resumido pelo diagrama a seguir:
 
 Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de extremidade para escutar comunicação TCP de entrada. Essa etapa de configuração do Azure, direciona o tráfego da porta TCP de entrada para uma porta TCP que está acessível para a máquina virtual.
 
->[AZURE.NOTE]Se estiver se conectando dentro do mesmo serviço de nuvem ou rede virtual, você não precisa criar um ponto de extremidade acessível publicamente. Nesse caso, você pode continuar para a próxima etapa. Para saber mais, consulte [Considerações sobre conectividade para o SQL Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/dn133152.aspx).
+>[AZURE.NOTE]Se estiver se conectando dentro do mesmo serviço de nuvem ou rede virtual, você não precisa criar um ponto de extremidade acessível publicamente. Nesse caso, você pode continuar para a próxima etapa. Para obter mais informações, consulte [Cenários de conexão](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
 
 1. No Portal de Gerenciamento do Azure, clique em **MAQUINAS VIRTUAIS**.
 	
@@ -183,4 +183,4 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 
 	![Conectar-se usando SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

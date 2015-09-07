@@ -1,20 +1,20 @@
 <properties
    pageTitle="Catálogo de Dados do Azure: Introdução ao catálogo de dados"
-   description="Tutorial ponta a ponta dos cenários e recursos do Catálogo de Dados do Azure"
-   documentationCenter=""
-   services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Tutorial ponta a ponta dos cenários e recursos do Catálogo de Dados do Azure"
+	documentationCenter=""
+	services="data-catalog"
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Introdução ao Catálogo de Dados do Azure
 
@@ -62,7 +62,7 @@ Neste exercício, você usará a ferramenta de registro do Catálogo de Dados do
     ![registrar3][3]
 6.	Insira o **Nome do Servidor** e clique em **Conectar**.
 7.	Você poderá registrar os metadados da fonte de dados na próxima página. Neste exemplo, você deve registrar os objetos **Produto** do namespace de produção do AdventureWorks. Veja como fazê-lo:
-    
+
     a. Na árvore de Hierarquia, clique em **Produção**.
 
     b. Ctrl+clique em Produto, ProductCategory, ProductDescription e ProductPhoto.
@@ -76,7 +76,7 @@ Neste exercício, você usará a ferramenta de registro do Catálogo de Dados do
     d. **Opcional**: você pode **Incluir uma Visualização** e **Adicionar um especialista em fonte de dados**.
 
     e. Em **Adicionar marcas**, insira uma descrição, uma foto. Isso vai adicionar marcas de pesquisa para esses ativos de dados. Marcas são uma ótima maneira de ajudar os usuários a localizar uma fonte de dados registrada.
- 
+
     f. Clique em **REGISTRAR**. O Catálogo de Dados do Azure registra os objetos selecionados. Neste exercício, os objetos selecionados do Adventure Works são registrados.
 
     ![registrar6][6]
@@ -115,9 +115,9 @@ Neste exemplo, você fará uma pesquisa de **Agrupamento** para ativos de dados 
 
 1.	Faça logon no portal do **Catálogo de Dados do Azure**.
 2.	Clique em **Descobrir**.
-3.	Na caixa **Pesquisar**, insira uma consulta de **Agrupamento**: (tags:description OR tags:photo). 
+3.	Na caixa **Pesquisar**, insira uma consulta de **Agrupamento**: (tags:description OR tags:photo).
 4.	Clique no ícone de pesquisa ou pressione Enter. O **Catálogo de Dados do Azure** exibirá os ativos de dados para esta consulta de pesquisa.
-    
+
     ![pesquisar][8]
 
 Neste exercício, você usou o portal do **Catálogo de Dados do Azure** para descobrir e exibir os ativos de dados registrados no catálogo.
@@ -222,4 +222,4 @@ Neste tutorial, você explorou recursos essenciais da visualização do **Catál
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

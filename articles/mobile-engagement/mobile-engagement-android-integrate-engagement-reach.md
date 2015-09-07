@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integração do SDK do Android do Azure Mobile Engagement" 
+	pageTitle="Integração do SDK do Android do Azure Mobile Engagement"
 	description="Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 #Como integrar o Engagement Reach ao Android
 
@@ -93,6 +93,8 @@ Edite seu arquivo `AndroidManifest.xml`:
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 			<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+
+  -   No Android M e se seu aplicativo direciona o nível de API de 23 do Android ou maior, a permissão do ``WRITE_EXTERNAL_STORAGE`` requer aprovação do usuário. Leia [esta seção](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
 
 -   Para notificações de sistema, você também pode especificar na campanha do Reach se o dispositivo deve tocar e/ou vibrar. Para que isso funcione, você deve certificar-se de ter declarado a permissão a seguir (após a marca `</application>`):
 
@@ -247,7 +249,7 @@ Quando você modifica os layouts fornecidos, pode modificar também a aparência
 
 Para registrar um manipulador de categorias para suas notificações, você precisa adicionar uma chamada quando o aplicativo é inicializado.
 
-> [AZURE.IMPORTANT]Leia o aviso sobre o atributo android: process \<android-sdk-engagement-process\> no tópico Como integrar contratos Android antes de continuar.
+> [AZURE.IMPORTANT]Leia o aviso sobre o atributo android: process <android-sdk-engagement-process> no tópico Como integrar contratos Android antes de continuar.
 
 O exemplo a seguir pressupõe que você confirmou o recebimento do aviso anterior e utilizará uma subclasse de `EngagementApplication`:
 
@@ -647,4 +649,4 @@ Agora, verifique sua integração lendo Como testar a integração do Engagement
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

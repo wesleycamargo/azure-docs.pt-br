@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Vários VIPs por serviço de nuvem"
-   description="Visão geral de vários VIPs e como definir vários VIPs em um serviço de nuvem"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Visão geral de vários VIPs e como definir vários VIPs em um serviço de nuvem"
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/23/2015"
+	ms.author="joaoma"/>
 
 # Vários VIPs por serviço de nuvem
 Você pode acessar os serviços de nuvem do Azure pela Internet pública usando um endereço IP fornecido pelo Azure. Este endereço IP público é conhecido como um VIP (IP virtual), uma vez que está vinculado ao balanceador de carga do Azure, e não realmente às instâncias VM no serviço de nuvem. Você pode acessar qualquer instância VM dentro de um serviço de nuvem usando um único VIP.
@@ -150,9 +150,9 @@ Você também pode atualizar o balanceador de carga para usar um VIP diferente. 
 
 [Introdução ao balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
 
-[Visão geral da Rede Virtual](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

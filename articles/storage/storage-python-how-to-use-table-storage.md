@@ -3,7 +3,7 @@
 	description="Saiba como usar o serviço Tabela do Python para criar e excluir uma tabela e inserir e consultar uma tabela."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 
 # Como usar o Armazenamento de tabela do Python
@@ -23,7 +23,7 @@
 
 ## Visão geral
 
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Tabela do Azure. Os exemplos são escritos em Python e usam o [Pacote do Python Azure][]. Os cenários abrangidos incluem criar e excluir uma tabela, além de inserir e consultar entidades em uma tabela.
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Tabela do Azure. Os exemplos são escritos em Python e usam o [pacote de armazenamento do Python Azure][]. Os cenários abrangidos incluem criar e excluir uma tabela, além de inserir e consultar entidades em uma tabela.
 
 [AZURE.INCLUDE [armazenamento-tabela-conceitos-include](../../includes/storage-table-concepts-include.md)]
 
@@ -36,7 +36,7 @@ Este guia mostra como executar cenários comuns usando o serviço de armazenamen
 
 O objeto **TableService** permite que você trabalhe com serviços de tabela. O código a seguir cria um objeto **TableService**. Adicione o código próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento do Azure programaticamente:
 
-	from azure.storage import TableService, Entity
+	from azure.storage.table import TableService, Entity
 
 O código a seguir cria um objeto **TableService** usando o nome da conta de armazenamento e a chave da conta. Substitua 'Minha conta' e 'mykey' com a conta real e a chave.
 
@@ -138,6 +138,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
 
 [Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[Pacote do Python Azure]: https://pypi.python.org/pypi/azure
+[pacote do Python Azure]: https://pypi.python.org/pypi/azure
+[pacote de armazenamento do Python Azure]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

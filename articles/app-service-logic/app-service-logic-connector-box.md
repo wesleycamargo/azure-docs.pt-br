@@ -1,22 +1,23 @@
 <properties
-   pageTitle="Usando o Conector do Box em seu aplicativo lógico"
-   description="Como usar o Conector do Box em seu aplicativo lógico"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Usando o Conector do Box em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o conector do Box ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
-# Conector do Box
+# Comece a usar o Conector do Box e adicione-o a seu Aplicativo Lógico 
+Conecte-se ao Box para obter, carregar, excluir. e realizar outras operações em seus arquivos. Os conectores são usados em Aplicativos Lógicos como parte de um "fluxo de trabalho".
 
 Você pode ter situações em que talvez precise trabalhar com o Box, que permite compartilhar dados com qualquer pessoa de maneira segura – mesmo que a pessoa esteja fora do seu firewall. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
 
@@ -65,7 +66,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Pesquise "Conector do Box", selecione-o e selecione **Criar**.
-3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
+3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
 	![][1]
 4. Selecione **Criar**.
 
@@ -104,4 +105,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

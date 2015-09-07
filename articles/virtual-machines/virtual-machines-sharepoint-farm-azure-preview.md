@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Farm do SharePoint Server"
-	description="Você pode criar rapidamente um novo farm do SharePoint Server 2013 usando o recurso de Farm do SharePoint Server no Portal de Visualização do Azure."
+	pageTitle="Farm do SharePoint Server | Microsoft Azure"
+	description="Crie rapidamente um novo farm básico ou altamente disponível do SharePoint Server 2013 usando o Farm do SharePoint Server no Portal de Visualização do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -83,7 +83,7 @@ Observações:
 
 ## Gerenciador de Recursos do Azure
 
-O recurso de Farm do SharePoint Server do Portal de Visualização do Azure cria máquinas virtuais no Gerenciador de Serviços. Para criar farms do SharePoint Server 2013 no Gerenciador de Recursos, consulte [Implantar farms do SharePoint com modelos de Gerenciador de Recursos do Azure](virtual-machines-workload-template-sharepoint.md).
+O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria máquinas virtuais no Gerenciamento de Serviços. Para criar farms do SharePoint Server 2013 no Gerenciador de Recursos, consulte [Implantar farms do SharePoint com modelos de Gerenciador de Recursos do Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Recursos adicionais
 
@@ -95,4 +95,4 @@ O recurso de Farm do SharePoint Server do Portal de Visualização do Azure cria
 
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

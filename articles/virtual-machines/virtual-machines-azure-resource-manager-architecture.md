@@ -1,20 +1,20 @@
 <properties
    pageTitle="Arquitetura do Gerenciador de Recursos do Azure"
-   description="Saiba mais sobre a arquitetura do Gerenciador de Recursos e as relações entre provedores de recursos de computação, rede e armazenamento."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="davidmu1"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="Saiba mais sobre a arquitetura do Gerenciador de Recursos e as relações entre provedores de recursos de computação, rede e armazenamento."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="azure-resource-manager"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Arquitetura do Gerenciador de Recursos do Azure
@@ -79,4 +79,4 @@ Você também pode ver a componentização e os relacionamentos dependentes entr
 
 [Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

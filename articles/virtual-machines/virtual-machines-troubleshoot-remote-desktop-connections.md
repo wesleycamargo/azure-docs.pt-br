@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows"
-	description="Se você não conseguir conectar sua máquina virtual do Azure baseada no Windows, use esse diagnóstico e as etapas para isolar a origem do problema."
+	pageTitle="Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada em Windows"
+	description="Se você não conseguir conectar sua máquina virtual do Azure baseada em Windows, use esse diagnóstico e as etapas para isolar a origem do problema."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -72,7 +72,7 @@ Soluções possíveis para esse problema:
 
 Causa: a máquina virtual à qual você está se conectando não pode localizar a autoridade de segurança indicada na parte do nome de usuário de suas credenciais.
 
-Quando seu nome de usuário estiver no formato *AutoridadeDeSegurança*\*NomeDeUsuário* (exemplo: CORP\\User1),a porção *AutoridadeDeSegurança* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário estiver no formato *AutoridadeDeSegurança**NomeDeUsuário* (exemplo: CORP\\User1),a porção *AutoridadeDeSegurança* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
 
 Soluções possíveis para esse problema:
 
@@ -86,8 +86,8 @@ Causa: o nome da conta e a senha que você enviou não podem ser validados pela 
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta baseada em domínio.
 
-- Para contas locais, use a sintaxe *NomeDoComputador*\*NomeDeUsuário* (exemplo: SQL1\\Admin4798).
-- Para contas de domínio, use a sintaxe *NomeDeDomínio*\*NomeDeUsuário* (exemplo: CONTOSO\\johndoe).
+- Para contas locais, use a sintaxe *NomeDoComputador**NomeDeUsuário* (exemplo: SQL1\\Admin4798).
+- Para contas de domínio, use a sintaxe *NomeDeDomínio**NomeDeUsuário* (exemplo: CONTOSO\\johndoe).
 
 Para computadores promovidos a controladores de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado ao realizar a promoção é convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta de administrador local anterior é excluída. Por exemplo, se você estiver conectado à conta de administrador local DC1\\DCAdmin e tiver promovido a máquina virtual como um controlador de domínio em uma nova floresta para o domínio corp.contoso.com, a conta local DC1\\DCAdmin será excluída, e uma nova conta de domínio (CORP\\DCAdmin) será criada com a mesma senha.
 
@@ -136,7 +136,7 @@ A incapacidade do cliente de Área de Trabalho Remota de acessar os Serviços de
 - Dispositivo de borda de intranet da organização
 - Ponto de extremidade de serviço de nuvem e ACL (lista de controle de acesso)
 - Grupos de segurança de rede
-- Máquina virtual baseada no Windows Azure
+- Máquina virtual baseada em Windows Azure
 
 ### Fonte 1: computador cliente de Área de Trabalho Remota
 
@@ -182,7 +182,7 @@ Se não houver outra máquina virtual no mesmo serviço de nuvem ou rede virtual
 Se você puder criar uma Conexão de Área de Trabalho Remota com uma máquina virtual no mesmo serviço de nuvem ou rede virtual, verifique o seguinte:
 
 - A configuração de ponto de extremidade para o tráfego de Área de Trabalho Remota na máquina virtual de destino. A porta TCP privada do ponto de extremidade deve corresponder à porta TCP em que os Serviços de Área de Trabalho Remota na máquina virtual estão escutando, que, por padrão, é 3389.
-- A ACL para o ponto de extremidade de tráfego de Área de Trabalho Remota na máquina virtual de destino. As ACLs permitem que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de Área de Trabalho Remota para o ponto de extremidade. Examine suas ACLs para verificar se o tráfego de entrada dos endereços IP públicos de seu proxy ou outro servidor de borda é permitido. Para obter mais informações, consulte [O que é uma lista de controle de acesso (ACL) de rede?](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+- A ACL para o ponto de extremidade de tráfego de Área de Trabalho Remota na máquina virtual de destino. As ACLs permitem que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de Área de Trabalho Remota para o ponto de extremidade. Examine suas ACLs para verificar se o tráfego de entrada dos endereços IP públicos de seu proxy ou outro servidor de borda é permitido. Para obter mais informações, consulte [O que é uma lista de controle de acesso (ACL) de rede?](../virtual-network/virtual-networks-acl.md).
 
 Para eliminar o ponto de extremidade como a fonte do problema, remova o ponto de extremidade atual e crie um novo ponto de extremidade, escolhendo uma porta aleatória no intervalo 49152-65535 para o número da porta externa. Para obter mais informações, confira [Como configurar pontos de extremidade para uma máquina virtual](virtual-machines-set-up-endpoints.md).
 
@@ -192,7 +192,7 @@ Os grupos de segurança de rede lhe proporcionam um controle mais granular do tr
 
 Para obter mais informações, consulte [O que é um NSG (Grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md).
 
-### Fonte 5: máquina virtual do Azure baseada no Windows
+### Fonte 5: máquina virtual do Azure baseada em Windows
 
 O último conjunto de problemas possíveis está na máquina virtual do Azure em si.
 
@@ -212,9 +212,9 @@ Tente estabelecer a conexão de seu computador novamente. Se você não tiver ê
 
 Para corrigir esses possíveis problemas de máquinas virtuais criadas na API de Gerenciamento de Serviços, você pode usar uma sessão remota do Azure PowerShell com a máquina virtual do Azure. Primeiro, você deve instalar um certificado para o serviço de nuvem de hospedagem da máquina virtual. Vá para [Configurar o acesso remoto seguro do PowerShell para máquinas virtuais do Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e baixe o arquivo de script **InstallWinRMCertAzureVM.ps1** para uma pasta no computador local.
 
-Em seguida, instale o PowerShell do Azure, se ainda não tiver feito isso. Consulte [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).
+Em seguida, instale o Azure PowerShell, se ainda não tiver feito isso. Consulte [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md).
 
-Em seguida, abra um prompt de comando do PowerShell do Azure e altere a pasta atual para o local do arquivo de script **InstallWinRMCertAzureVM.ps1**. Para executar um script do Azure PowerShell, é preciso definir a política de execução correta. Execute o comando **Get-ExecutionPolicy** para determinar o nível de política atual. Para obter informações sobre como definir o nível apropriado, consulte [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
+Em seguida, abra um prompt de comando do Azure PowerShell e altere a pasta atual para o local do arquivo de script **InstallWinRMCertAzureVM.ps1**. Para executar um script do Azure PowerShell, é preciso definir a política de execução correta. Execute o comando **Get-ExecutionPolicy** para determinar o nível de política atual. Para obter informações sobre como definir o nível apropriado, consulte [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
 Em seguida, preencha o nome de sua assinatura do Azure, o nome do serviço de nuvem e o nome da máquina virtual (removendo os caracteres < and >) e execute estes comandos.
 
@@ -233,7 +233,7 @@ Em seguida, inicie uma sessão remota do Azure PowerShell usando estes comandos.
 	$creds = Get-Credential
 	Enter-PSSession -ConnectionUri $uri -Credential $creds
 
-Depois de inserir credenciais de administrador válidas, você verá algo semelhante ao seguinte exemplo como o prompt do PowerShell do Azure:
+Depois de inserir credenciais de administrador válidas, você verá algo semelhante ao seguinte exemplo como o prompt do Azure PowerShell:
 
 	[cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
 
@@ -281,10 +281,10 @@ Para obter informações sobre como usar o Suporte do Azure, consulte as [Pergun
 
 [Como redefinir uma senha ou o serviço de Área de Trabalho Remota para máquinas virtuais Windows](virtual-machines-windows-reset-password.md)
 
-[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
+[Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

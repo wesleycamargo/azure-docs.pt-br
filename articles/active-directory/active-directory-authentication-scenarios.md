@@ -1,21 +1,21 @@
 
 <properties
    pageTitle="Cenários de autenticação do AD do Azure"
-   description="Uma visão geral dos cinco cenários mais comuns de autenticação para o Azure Active Directory (AAD)"
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Uma visão geral dos cinco cenários mais comuns de autenticação para o Azure Active Directory (AAD)"
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="06/01/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="06/01/2015"
+	ms.author="mbaldwin"/>
 
 # Cenários de autenticação do AD do Azure
 
@@ -60,7 +60,7 @@ Com o diagrama acima em mente, aqui está o que você precisa saber sobre seus v
 - Os desenvolvedores podem usar as bibliotecas de autenticação de código aberto do Azure AD para facilitar a autenticação, manipulando os detalhes de protocolo por você. Consulte [Bibliotecas de autenticação do Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151135.aspx) para obter mais informações.
 
 
-• Depois que um usuário foi autenticado, o aplicativo deve validar o token de segurança do usuário para garantir que a autenticação tenha sido bem-sucedida para as partes planejadas. Os desenvolvedores podem usar as bibliotecas de autenticação fornecidas para manipular a validação de qualquer token do Azure AD, incluindo o JSON Web Tokens (JWT) ou SAML 2.0. Se você quiser executar a validação manualmente, consulte a documentação [Manipulador de token JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
+• Depois que um usuário foi autenticado, o aplicativo deve validar o token de segurança do usuário para garantir que a autenticação tenha sido bem-sucedida para as partes planejadas. Os desenvolvedores podem usar as bibliotecas de autenticação fornecidas para manipular a validação de qualquer token do Azure AD, incluindo o JSON Web Tokens (JWT) ou SAML 2.0. Se você quiser executar a validação manualmente, consulte a documentação [Manipulador de token JWT](<https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx>).
 
 
 > [AZURE.IMPORTANT]O Azure AD usa criptografia de chave pública para assinar tokens e verificar se eles são válidos. Consulte [Informações importantes sobre substituição de chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) para obter mais informações sobre a lógica necessária que você deve ter em seu aplicativo para garantir que ele esteja sempre atualizado com as últimas chaves.
@@ -338,7 +338,7 @@ A identidade do aplicativo e os tipos de identidade do usuário delegado são di
 
 ##### Identidade do aplicativo com concessão de credenciais do cliente OAuth 2.0
 
-1. Um usuário está conectado ao Azure AD no aplicativo Web (consulte a seção Navegador da Web para aplicativo Web acima).
+1. Um usuário está conectado ao Azure AD no aplicativo Web (consulte a seção [Navegador da Web para aplicativo Web](#web-browser-to-web-application) acima).
 
 
 2. O aplicativo Web precisa adquirir um token de acesso para que ele possa autenticar a API da Web e recuperar o recurso desejado. Ele faz uma solicitação ao ponto de extremidade do token do Azure AD, fornecendo a credencial, a ID do cliente e o URI de ID do aplicativo da API da Web.
@@ -466,4 +466,4 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

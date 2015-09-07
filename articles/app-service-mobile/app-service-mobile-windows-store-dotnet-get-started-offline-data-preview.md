@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="08/22/2015"
 	ms.author="wesmc"/>
 
 # Habilitar sincronização offline para o seu aplicativo do Windows
@@ -24,9 +24,9 @@
 
 Este tutorial mostra como adicionar suporte offline para um aplicativo do Windows 8.1 Store ou Phone usando o back-end de aplicativos móveis do Azure. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local; quando o dispositivo estiver online novamente, essas alterações serão sincronizadas ao serviço remoto.
 
-Neste tutorial, você atualizará o projeto de aplicativo do Windows 8.1 do tutorial [Criar um aplicativo do Windows] para dar suporte a recursos offline dos aplicativos móveis do Azure.
+Neste tutorial, você atualizará o projeto de aplicativo do Windows 8.1 do tutorial [Criar um aplicativo do Windows] para dar suporte a recursos offline dos aplicativos móveis do Azure. Se você não usar o projeto baixado do início rápido do servidor, deve adicionar os pacotes de extensão de acesso de dados autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Para saber mais sobre o recurso de sincronização offline, consulte o tópico [Sincronização de dados offline em aplicativos móveis do Azure].
+Para saber mais sobre o recurso de sincronização offline, confira o tópico [Sincronização de dados offline em aplicativos móveis do Azure].
 
 ## Requisitos
 
@@ -38,10 +38,6 @@ Este tutorial exige o seguinte:
 * [SQLite para Windows 8.1](http://www.sqlite.org/downloads)
 
 >[AZURE.NOTE]Para concluir este tutorial, será necessária uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Avaliação Gratuita do Azure</a>.
-
-## Examine a configuração do projeto do servidor (opcional)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
 ## Atualize o aplicativo cliente para dar suporte aos recursos offline
 
@@ -88,7 +84,7 @@ Os recursos offline do aplicativo móvel do Azure permitem que você interaja co
 
 7. Em MainPage.cs, na região marcada como `Offline sync`, remova os métodos `InitLocalStoreAsync` e `SyncAsync`. O método `InitLocalStoreAsync` inicializa o contexto de sincronização do cliente com um armazenamento do SQLite. No Visual Studio, é possível selecionar todas as linhas comentadas e usar o atalho de teclado **Ctrl**+**K**+**U** para remover os comentários.
 
-	Observe que em `SyncAsync` uma operação de push é executada por `MobileServiceClient.SyncContext` em vez de `IMobileServicesSyncTable`. Isso ocorre porque o contexto controla as alterações feitas pelo cliente para todas as tabelas. Isso é para cobrir cenários onde há relacionamentos entre tabelas. Para obter mais informações sobre esse comportamento, consulte [Sincronização de dados offline em aplicativos móveis do Azure].
+	Observe que em `SyncAsync` uma operação de push é executada por `MobileServiceClient.SyncContext` em vez de `IMobileServicesSyncTable`. Isso ocorre porque o contexto controla as alterações feitas pelo cliente para todas as tabelas. Isso é para cobrir cenários onde há relacionamentos entre tabelas. Para obter mais informações sobre esse comportamento, confira [Sincronização de dados offline em aplicativos móveis do Azure].
 
         private async Task InitLocalStoreAsync()
         {
@@ -182,7 +178,7 @@ Os recursos offline do aplicativo móvel do Azure permitem que você interaja co
 
 11. No Visual Studio, pressione a tecla **F5** para recompilar e executar o aplicativo cliente. O aplicativo se comportará como antes das alterações de sincronização offline, porque ele faz uma operação de sincronização nas operações Inserir, Update e Atualizar. No entanto, ele preencherá um banco de dados local que pode ser usado em um cenário offline. Colocaremos o cenário offline na próxima seção agora que o banco de dados local é preenchido.
 
-## <a name="update-sync"></a>Atualizar o comportamento de sincronização do aplicativo cliente
+## <a name="update-sync"></a>Atualize o comportamento de sincronização do aplicativo cliente
 
 Nesta seção, você modificará o aplicativo cliente para simular um cenário offline quebrando a conexão com o back-end do aplicativo móvel do Azure. Quando você adicionar itens de dados, o manipulador de exceção informará que o aplicativo está operando no modo offline com `PushResult.Status == CancelledByNetworkError`. Itens adicionados serão mantidos no armazenamento local, mas não sincronizados no back-end do aplicativo móvel até você ficar online novamente e executar um push bem-sucedido para o back-end do aplicativo móvel do Azure.
 
@@ -203,11 +199,11 @@ Nesta seção, você modificará o aplicativo cliente para simular um cenário o
 
 5. (Opcional) Use o Visual Studio para exibir a tabela de Banco de Dados SQL do Azure para ver se os dados no banco de dados do back-end não foram alterados.
 
-   No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
+   No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
 
 6. (Opcional) Use uma ferramenta REST, como o Fiddler ou Postman, para consultar seu back-end móvel, usando uma consulta GET no formulário `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
 
-## <a name="update-online-app"></a>Atualizar o aplicativo para reconectar seu back-end do aplicativo móvel
+## <a name="update-online-app"></a>Atualize o aplicativo para reconectar seu back-end do aplicativo móvel
 
 Nesta seção, você reconecta o aplicativo ao back-end do aplicativo móvel. Isso simula o aplicativo mudando de um estado offline para um estado online com o back-end do aplicativo móvel. Quando você executar o aplicativo pela primeira vez, o manipulador de eventos de `OnNavigatedTo` chamará `InitLocalStoreAsync`. Isso, por sua vez, chamará `SyncAsync` para sincronizar seu armazenamento local com o banco de dados de back-end. Então, o aplicativo tentará sincronizar na inicialização.
 
@@ -219,7 +215,7 @@ Nesta seção, você reconecta o aplicativo ao back-end do aplicativo móvel. Is
 
 4. No aplicativo, clique na caixa de seleção ao lado de alguns itens a serem concluídos no repositório local.
 
-  `UpdateCheckedTodoItem` chama `SyncAsync` para sincronizar a conclusão de cada item com o back-end do aplicativo móvel. `SyncAsync` chama push e pull. No entanto, você deve observar que, **sempre que executar um pull em comparação a uma tabela em que o cliente fez alterações, um push no contexto de sincronização do cliente sempre será executado primeiro automaticamente**. Isso serve para garantir que todas as tabelas no repositório local, juntamente com as relações, permaneçam consistentes. Então nesse caso, poderíamos ter removido a chamada para `PushAsync` porque ela é executada automaticamente ao executar um pull. Esse comportamento pode resultar em um push inesperado se você não estiver ciente dele. Para obter mais informações sobre esse comportamento, consulte [Sincronização de dados offline em aplicativos móveis do Azure].
+  `UpdateCheckedTodoItem` chama `SyncAsync` para sincronizar a conclusão de cada item com o back-end do aplicativo móvel. `SyncAsync` chama push e pull. No entanto, você deve observar que, **sempre que executar um pull em comparação a uma tabela em que o cliente fez alterações, um push no contexto de sincronização do cliente sempre será executado primeiro automaticamente**. Isso serve para garantir que todas as tabelas no repositório local, juntamente com as relações, permaneçam consistentes. Então nesse caso, poderíamos ter removido a chamada para `PushAsync` porque ela é executada automaticamente ao executar um pull. Esse comportamento pode resultar em um push inesperado se você não estiver ciente dele. Para obter mais informações sobre esse comportamento, confira[Sincronização de dados offline em aplicativos móveis do Azure].
 
 
 ##Resumo
@@ -255,7 +251,7 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
 * [Sincronização de dados offline em Aplicativos Móveis do Azure]
 
-* [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure] \(observação: o vídeo está em serviços móveis, mas a sincronização offline funciona de maneira semelhante em aplicativos móveis do Azure)
+* [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure] (Observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
 
 * [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]
 
@@ -284,4 +280,4 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

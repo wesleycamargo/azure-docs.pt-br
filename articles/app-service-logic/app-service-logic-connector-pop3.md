@@ -1,27 +1,27 @@
 <properties
-   pageTitle="Aplicativo de API do Conector de POP3"
-   description="Como usar o Conector de POP3"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Usando o Conector POP3 em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector POP3 ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Usando o Conector de POP3 em seu aplicativo lógico #
+# Introdução ao Conector POP3 e à adição dele a seu Aplicativo Lógico
+Conecte-se a um servidor POP3 para recuperar emails, incluindo emails com anexos.
 
-Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
+Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode adicionar o Conector POP3 a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
-O Conector de POP3 permite que você se conecte a um servidor POP3 e fornece um gatilho para recuperar emails com anexos.
 
 ## Criando um conector de POP3 para seu aplicativo lógico ##
 Para usar o conector de POP3, primeiro você precisa criar uma instância do aplicativo de API do conector de POP3. Isso pode ser feito diretamente do designer do aplicativo lógico ou de fora dele. Criar uma instância fora do designer pode ser feito da seguinte maneira:
@@ -63,8 +63,9 @@ Depois de criar seu aplicativo de API, você pode usar o conector de POP3 como g
 5.	Agora você pode usar o conector de POP3 no fluxo. Selecione o gatilho "Obter Email" e configure a frequência e o intervalo. Você pode usar o email recuperado do gatilho de POP3 em outras ações no fluxo.
 		 
 
-	![][5]
+	![][5] 
 	![][6]
+
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
@@ -81,4 +82,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

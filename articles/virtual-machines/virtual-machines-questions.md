@@ -59,7 +59,7 @@ De muitas formas, elas são semelhantes às VMs Hyper-V da "Geração 1", mas n�
 
 ## Essas máquinas virtuais podem usar minha infraestrutura de rede local existente?
 
-Para máquinas virtuais criadas no Gerenciamento de Serviços, é possível usar a Rede Virtual do Azure para ampliar a infraestrutura existente. A abordagem é semelhante ao estabelecimento de uma filial. Você provisionar e gerenciar VPNs (redes virtuais privadas) no Azure e conectá-las com segurança à infraestrutura de TI local. Para obter os detalhes, consulte [Visão geral da rede virtual](https://msdn.microsoft.com/library/jj156007.aspx).
+Para máquinas virtuais criadas no Gerenciamento de Serviços, é possível usar a Rede Virtual do Azure para ampliar a infraestrutura existente. A abordagem é semelhante ao estabelecimento de uma filial. Você provisionar e gerenciar VPNs (redes virtuais privadas) no Azure e conectá-las com segurança à infraestrutura de TI local. Para obter os detalhes, consulte [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md).
 
 Você precisará especificar a rede à qual deseja que a máquina virtual pertença quando criar a máquina virtual. Isso significa, por exemplo, que você não pode vincular uma máquina virtual existente a uma rede virtual. No entanto, você pode contornar esse problema desanexando o VHD (disco rígido virtual) da máquina virtual existente e usá-lo para criar uma nova máquina virtual com a configuração de rede desejada.
 
@@ -125,8 +125,8 @@ O Azure cobra um preço por hora com base no tamanho da VM e do sistema operacio
 Você será cobrado quando o status da VM for Em execução ou Parada, mas não será cobrado quando o status da VM for Parada (Desalocada). Para colocar uma VM no estado Parada (Desalocada), siga um destes procedimentos:
 
 - Feche ou exclua a VM no Portal de Gerenciamento.
-- Use o cmdlet Stop-AzureVM, disponível no módulo do PowerShell do Azure.
-- Use a operação de Função de Desligamento na API REST do Gerenciador de Serviços e especifique StoppedDeallocated para o elemento PostShutdownAction.
+- Use o cmdlet Stop-AzureVM, disponível no módulo do Azure PowerShell.
+- Use a operação de Função de Desligamento na API REST do Gerenciamento de Serviços e especifique StoppedDeallocated para o elemento PostShutdownAction.
 
 Para obter detalhes, consulte [Preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/).
 
@@ -136,7 +136,7 @@ Em geral, você pode iniciar, parar ou reiniciar a VM sempre que precisar. (Para
 
 Para qualquer VM autônoma (ou seja, uma VM que não faz parte de um conjunto de disponibilidade), o Azure notifica o Administrador de Serviços de assinatura por email pelo menos uma semana antes da manutenção planejada, porque as máquinas virtuais podem ser reiniciadas durante a atualização. Aplicativos em execução nas VMs podem experimentar tempo de inatividade.
 
-Você também pode usar o Portal do Azure ou PowerShell do Azure para exibir os logs de reinicialização quando a reinicialização ocorrer devido a uma manutenção planejada. Para obter detalhes, consulte [Exibição de logs de reinicialização de VM](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Você também pode usar o Portal do Azure ou Azure PowerShell para exibir os logs de reinicialização quando a reinicialização ocorrer devido a uma manutenção planejada. Para obter detalhes, consulte [Exibição de logs de reinicialização de VM](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semelhante no mesmo conjunto de disponibilidade. Isso ajuda a garantir que pelo menos uma VM esteja disponível durante a manutenção planejada ou não planejada. O Azure garante determinados níveis de disponibilidade de VM para essa configuração. Para obter detalhes, consulte [Gerenciar a disponibilidade de máquinas virtuais](virtual-machines-manage-availability.md).
 
@@ -148,4 +148,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

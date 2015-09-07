@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/06/2015"
+	ms.date="08/21/2015"
 	ms.author="larryfr"/>
 
 # Usar o Hive e o HiveQL com o Hadoop no HDInsight para analisar um arquivo log4j do Apache de exemplo
@@ -119,13 +119,26 @@ O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tab
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
 | [Área de Trabalho Remota](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+## Executando trabalhos do Hive no HDInsight do Azure usando o SQL Server Integration Services local
+
+Também é possível usar o SQL Server Integration Services (SSIS) para executar um trabalho do Hive. O Feature Pack do Azure para SSIS fornece os seguintes componentes que funcionam com trabalhos do Hive no HDInsight.
+
+
+- [Tarefa do Hive de HDInsight do Azure][hivetask]
+- [Gerenciador de conexões de assinatura do Azure][connectionmanager]
+
+
+Saiba mais sobre o Feature Pack do Azure para SSIS [aqui][ssispack].
+
+
 ##<a id="nextsteps"></a>Próximas etapas
 
 Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o HDInsight, use os links abaixo para explorar outras maneiras de trabalhar com o Azure HDInsight.
 
-* [Carregar dados no HDInsight][hdinsight-upload-data]
-* [Usar o Pig com o HDInsight][hdinsight-use-pig]
-* [Usar trabalhos do MapReduce com o HDInsight][hdinsight-use-mapreduce]
+
+- [Carregar dados no HDInsight][hdinsight-upload-data]
+- [Usar o Pig com o HDInsight][hdinsight-use-pig]
+- [Usar trabalhos do MapReduce com o HDInsight][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
@@ -142,6 +155,9 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: http://msdn.microsoft.com/pt-BR/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/pt-BR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/pt-BR/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -163,4 +179,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

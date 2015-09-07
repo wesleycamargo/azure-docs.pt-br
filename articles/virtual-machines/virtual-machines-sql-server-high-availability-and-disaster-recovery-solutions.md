@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure"
-   description="Discute os diversos tipos de estratégias HADR do SQL Server em execução em máquinas virtuais do Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
+	description="Discute os diversos tipos de estratégias HADR do SQL Server em execução em máquinas virtuais do Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 <tags 
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/17/2015"
+	ms.author="jroth"/>
 
 # Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure
 
@@ -134,7 +134,7 @@ A replicação geográfica em discos do Azure não dá suporte ao arquivo de dad
 
 Se você precisar criar uma máquina virtual do Azure com SQL Server, consulte [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-provision-sql-server.md).
 
-Para obter o melhor desempenho do SQL Server em execução em uma VM do Azure, consulte o guia em [Práticas recomentadas para o desempenho do SQL Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+Para obter o melhor desempenho do SQL Server em execução em uma VM do Azure, consulte o guia em [Práticas recomentadas para o desempenho do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
@@ -143,4 +143,4 @@ Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, c
 - [Instalar uma nova floresta do Active Directory no Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Criar cluster WSFC para Grupos de Disponibilidade AlwaysOn em VM do Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Criar senhas de aplicativo no portal do Azure para o Azure Multi-Factor Authentication" 
-	description="Estas página mostra aos usuários como eles podem criar senhas de aplicativo adicionais no portal do Azure." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Criar senhas de aplicativo no portal do Azure para o Azure Multi-Factor Authentication"
+	description="Estas página mostra aos usuários como eles podem criar senhas de aplicativo adicionais no portal do Azure."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Criar senhas de aplicativo no portal do Azure para o Azure Multi-Factor Authentication
@@ -32,4 +32,4 @@ Se você usar uma autenticação multifator com o Azure, talvez seja conveniente
 
 <center>![Nuvem](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

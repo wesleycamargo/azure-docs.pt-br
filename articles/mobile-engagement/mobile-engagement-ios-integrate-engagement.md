@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #Como integrar o Engagement no iOS
 
@@ -26,13 +26,13 @@
 
 Este procedimento descreve a maneira mais simples de ativar as funções de Analítica e Monitoramento do Engagement em seu aplicativo iOS.
 
-> [AZURE.IMPORTANT]O SDK do Engagement exige iOS5+: o destino da implantação do seu aplicativo deve ter pelo menos o iOS 5.
+> [AZURE.IMPORTANT]O SDK do Engagement exige iOS6+: o destino da implantação do seu aplicativo deve ter pelo menos o iOS 6.
 
 As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessários para calcular outras estatísticas, como Trabalhos, Erros e Eventos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement no seu aplicativo iOS](mobile-engagement-ios-use-engagement-api.md) já que essas estatísticas são dependentes do aplicativo.
 
 ##Incorporar o SDK do Engagement em seu projeto do iOS
 
-Adicione o SDK do Engagement ao seu projeto do iOS: no Xcode 4, clique com o botão direito do mouse no seu projeto e selecione **"Adicionar arquivos a..."** e escolha a pasta `EngagementSDK`.
+Adicione o SDK do Engagement ao seu projeto do iOS: no Xcode, clique com o botão direito do mouse no seu projeto e selecione **"Adicionar arquivos a..."** e escolha a pasta `EngagementSDK`.
 
 O Engagement exige estruturas adicionais para funcionar: no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra a guia **"Compilar fases"** e no menu **"Link binário com bibliotecas"**, adicione essas estruturas:
 
@@ -207,4 +207,4 @@ O exemplo a seguir de `Settings.bundle` mostra como implementá-lo:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

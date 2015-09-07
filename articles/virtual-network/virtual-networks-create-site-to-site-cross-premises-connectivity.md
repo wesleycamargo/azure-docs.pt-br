@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Tutorial: criar uma rede virtual para conectividade site a site entre instalações" 
-	description="Aprenda a criar uma rede virtual do Azure com conectividade entre locais neste tutorial." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="Tutorial: criar uma rede virtual para conectividade site a site entre instalações"
+	description="Aprenda a criar uma rede virtual do Azure com conectividade entre locais neste tutorial."
+	services="virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 
@@ -24,7 +24,7 @@ Este tutorial explica as etapas para criar um exemplo de rede virtual entre inst
 
 Se você quiser criar uma rede virtual somente em nuvem, confira [Tutorial: criar uma rede virtual somente em nuvem no Azure](../virtual-machines/create-virtual-network.md). Se você desejar criar uma VPN ponto a site usando certificados e um cliente VPN, consulte [Configurar uma VPN ponto a site no Portal de Gerenciamento](http://go.microsoft.com/fwlink/p/?LinkId=296653)
 
-Este tutorial pressupõe que você não tem experiência anterior com o Azure. O objetivo é ajudá-lo a familiarizar-se com as etapas necessárias para criar uma rede virtual entre instalações. Se você estiver procurando cenários de design e informações avançadas sobre Rede Virtual, confira [Visão geral da Rede Virtual do Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+Este tutorial pressupõe que você não tem experiência anterior com o Azure. O objetivo é ajudá-lo a familiarizar-se com as etapas necessárias para criar uma rede virtual entre instalações. Se você estiver procurando cenários de design e informações avançadas sobre Rede Virtual, confira [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
 Depois de concluir este tutorial, você terá uma rede virtual de exemplo entre instalações. A figura a seguir mostra os detalhes, com base nas configurações de exemplo deste tutorial.
 
@@ -272,4 +272,4 @@ Se você desejar exportar as configurações de rede virtual para um arquivo de 
 
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

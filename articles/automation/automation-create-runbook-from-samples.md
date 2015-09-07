@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução à Automação do Azure"
+	pageTitle="Introdução à Automação do Azure | Microsoft Azure"
 	description="Saiba como importar e executar uma tarefa de automação no Azure."
 	services="automation"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
@@ -21,7 +21,7 @@
 
 ## O que é Automação do Azure?
 
-A Automação do Microsoft Azure fornece uma maneira para os usuários automatizarem tarefas manuais, longas, sujeitas a erros e repetidas com frequência que normalmente são executadas em um ambiente de nuvem. Você pode criar, monitorar, gerenciar e implantar recursos em seu ambiente do Azure usando runbooks, que são baseados em fluxos de trabalho do Windows PowerShell. Neste guia, você passará por um tutorial para a execução de um runbook de exemplo simples. Em seguida, você encontrará recursos para explorar as funcionalidades mais avançadas do serviço.
+A Automação do Microsoft Azure fornece uma maneira para os usuários automatizarem tarefas manuais, longas, sujeitas a erros e repetidas com frequência que normalmente são executadas em um ambiente de nuvem. Você pode criar, monitorar, gerenciar e implantar recursos em seu ambiente do Azure usando runbooks, que são baseados em fluxos de trabalho do Windows PowerShell. Neste artigo, você passará por um tutorial para a execução de um runbook de exemplo simples. Em seguida, você encontrará recursos para explorar as funcionalidades mais avançadas do serviço.
 
 ## Tutorial
 Este tutorial orienta você pela criação de uma conta de automação, importação de um runbook "Hello World" de exemplo na Automação do Azure, execução desse runbook e, em seguida, pela visualização de sua saída.
@@ -38,11 +38,11 @@ Aqui está um passo a passo deste tutorial.
 
 ## <a name="automationaccount"></a>Criar uma conta de automação
 
-Uma conta de automação é um contêiner para seus recursos de Automação do Azure: ela fornece uma maneira de separar seus ambientes ou organizar ainda mais seus fluxos de trabalho. Para obter mais informações, consulte [Contas de Automação](http://aka.ms/runbookauthor/azure/automationaccounts) na Biblioteca de Automação. Se você já tiver criado uma conta de automação, pode ignorar essa etapa.
+Uma conta de automação é um contêiner para os seus recursos de Automação do Azure. Ele fornece uma maneira de separar seus ambientes ou organizar ainda mais seus fluxos de trabalho. Para obter mais informações, confira [Contas de Automação](http://aka.ms/runbookauthor/azure/automationaccounts) na Biblioteca de Automação. Se você já tiver criado uma conta de automação, pode ignorar essa etapa.
 
-1.	Faça logon no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
+1.	Faça logon no [Portal do Azure](http://manage.windowsazure.com).
 
-2.	No Portal de Gerenciamento, clique em **Criar uma Conta de Automação**.
+2.	No portal do Azure, clique em **Criar uma Conta de Automação**.
 
 	![Criar conta](./media/automation-create-runbook-from-samples/automation_01_CreateAccount.png)
 
@@ -100,7 +100,7 @@ O runbook primeiro é importado no modo Rascunho. Isso significa que você pode 
 
 	![Prompt para Salvar e publicar](./media/automation-create-runbook-from-samples/automation_09_SavePubPrompt.png)
 
-## <a name="startrunbook"></a>Iniciar runbook
+## <a name="startrunbook"></a>Iniciar Runbook
 
 Com o runbook importado e publicado, agora você pode executá-lo e, em seguida, inspecionar a saída. Para obter mais informações, consulte [Iniciando um runbook](http://aka.ms/runbookauthor/azure/startrunbook) e [Mensagens e saída do runbook](http://aka.ms/runbookauthor/azure/runbookoutput).
 
@@ -123,7 +123,7 @@ Com o runbook importado e publicado, agora você pode executá-lo e, em seguida,
 Parabéns! Você concluiu o tutorial.
 
 ## <a name="nextsteps"></a>Próximas etapas
-1. O runbook simples neste tutorial **não gerencia serviços do Azure**. A maioria dos runbooks usará o [cmdlets do Azure](http://msdn.microsoft.com/library/jj156055.aspx) para fazer isso, o que requer autenticação para sua assinatura do Azure. Siga as instruções em [Configurando o Azure para gerenciamento por runbooks](http://aka.ms/azureautomationauthentication) para configurar sua assinatura do Azure para trabalhar com esses cmdlets.  
+1. O runbook simples neste tutorial *não gerencia serviços do Azure*. A maioria dos runbooks usará o [cmdlets do Azure](http://msdn.microsoft.com/library/jj156055.aspx) para fazer isso, o que requer autenticação para sua assinatura do Azure. Siga as instruções em [Configurando o Azure para gerenciamento por runbooks](http://aka.ms/azureautomationauthentication) para configurar sua assinatura do Azure para trabalhar com esses cmdlets.  
 2. Consulte os [Recursos](#resources) listados abaixo para obter mais informações sobre os recursos de Automação do Azure.
 3. Assine o [Blog de Automação do Azure](http://azure.microsoft.com/blog/tag/azure-automation) para se manter atualizado com o que há de mais recente da equipe de Automação do Azure.
 
@@ -139,12 +139,11 @@ Uma variedade de outros recursos estão disponíveis para você aprender mais so
 
 ## Exemplos e runbooks utilitários
 
-A Microsoft e a comunidade da Automação do Azure fornecem runbooks de exemplo, que pode ajudá-lo a começar a criar suas próprias soluções, e runbooks utilitários, que você pode usar como blocos de construção para tarefas de automação maiores. Você pode baixar esses runbooks do [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029) ou importá-los diretamente na Automação do Azure usando a [Galeria de Runbooks](http://aka.ms/runbookgallery).
+A Microsoft e a comunidade da Automação do Azure fornecem runbooks de exemplo, que pode ajudá-lo a começar a criar suas próprias soluções, e runbooks utilitários, que você pode usar como blocos de construção para tarefas de automação maiores. Você pode baixar esses runbooks do [Script Center](http://azure.microsoft.com/documentation/scripts/) ou importá-los diretamente para a Automação do Azure usando a [Galeria de Runbooks](http://aka.ms/runbookgallery).
 
 
 ## Comentários
 
 **Fornecer comentários** Se você estiver procurando por uma solução de runbook de Automação do Azure ou por um módulo de integração, poste uma Solicitação de script no Script Center. Se você tiver comentários ou solicitações de recurso para a Automação do Azure, poste-os em [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Obrigado!
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

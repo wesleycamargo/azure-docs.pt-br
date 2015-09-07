@@ -1,27 +1,26 @@
 <properties
-   pageTitle="Usando o conector do Twitter no Serviço de Aplicativo do Microsoft Azure"
-   description="Como usar o aplicativo de API de conector do Twitter"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Usando o Conector do Twitter em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector do Twitter ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Conector do Twitter
-
+# Introdução ao Conector do Twitter e à adição dele ao seu Aplicativo Lógico
 Conecte-se ao seu feed do Twitter para publicar e receber tweets de sua linha do tempo, da linha do tempo de seus amigos e dos seguidores de sua conta do Twitter. Conectores podem ser usados em Aplicativos de Lógicos para obter, processar ou enviar dados como parte de um “fluxo de trabalho”. Utilizando o Conector do Twitter em seu fluxo de trabalho, você pode chegar a diversos resultados. Por exemplo, você pode:
 
-- Obter novos tweets associados a uma palavra-chave ou texto específico. Quando um novo tweet é recuperado, ele dispara uma nova instância do fluxo de trabalho e passa os dados para o próximo conector no fluxo de trabalho. Por exemplo: você cria um conector do Twitter e usa o disparador de novo tweet da pesquisa para monitorar \#peanutbutterandjelly. Sempre que houver um novo tweet com \#peanutbutterandjelly, o fluxo de trabalho (também conhecido como aplicativo lógico) será iniciado automaticamente.
+- Obter novos tweets associados a uma palavra-chave ou texto específico. Quando um novo tweet é recuperado, ele dispara uma nova instância do fluxo de trabalho e passa os dados para o próximo conector no fluxo de trabalho. Por exemplo: você cria um conector do Twitter e usa o disparador de novo tweet da pesquisa para monitorar #peanutbutterandjelly. Sempre que houver um novo tweet com #peanutbutterandjelly, o fluxo de trabalho (também conhecido como aplicativo lógico) será iniciado automaticamente.
 - Usando ações diferentes, como "Pesquisar Tweets", você obtém a resposta e a usa em seu fluxo de trabalho. Por exemplo: você pode pesquisar tweets com o nome da sua empresa. Quando eles são encontrados, você pode usar um aplicativo lógico para gravar esses dados em um banco de dados do SQL Server. Em seguida, use os dados do SQL Server para determinar o que está sendo tweetado sobre a sua empresa. 
 - Usar todos os operadores em [Pesquisa do Twitter](https://twitter.com/search). Selecione o link **operadores**. O conector do Twitter é compatível todos os operadores listados.
 
@@ -37,7 +36,7 @@ Gatilhos | Ações
 --- | ---
 Novo tweet da pesquisa | <ul><li>Obter a linha do tempo do usuário</li><li>Pesquisar Tweets</li><li>Tweetar</li><li>Obter linha do tempo de menções</li><li>Obter linha do tempo inicial</li><li>Obter seguidores</li><li>Obter amigos</li><li>Obter detalhes do usuário</li><li>Tweetar para usuário</li><li>Enviar mensagem direta</li></ul>
 
-> [AZURE.IMPORTANT]O gatilho **Novo tweet** foi arquivado. Atualmente, ele ainda está disponível e pode ser usado como uma operação avançada. A ação **Retweet** foi removida e não tem mais suporte. Se você usar a ação Retweet, ela falhará em tempo de execução. Como resultado, remova a ação Retweet dos aplicativos lógicos.
+O gatilho **Novo tweet** foi arquivado. Atualmente, ele ainda está disponível e pode ser usado como uma operação avançada. A ação **Retweet** foi removida e não tem mais suporte. Se você usar a ação Retweet, ela falhará em tempo de execução. Como resultado, remova a ação Retweet dos aplicativos lógicos.
 
 
 ## Criar o conector do Twitter
@@ -46,43 +45,37 @@ Novo tweet da pesquisa | <ul><li>Obter a linha do tempo do usuário</li><li>Pesq
 
 Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
-1. Criar um aplicativo grátis do Twitter em [http://apps.twitter.com](http://apps.twitter.com)
+1. Crie um aplicativo gratuito do Twitter em [http://apps.twitter.com](http://apps.twitter.com).
     * Ao registrar o aplicativo, você pode colocar qualquer URL do site e deixar a URL de retorno de chamada em branco.
 2. No quadro inicial do Azure, selecione **Marketplace**.
-2. Pesquise "Conector do Twitter".
-3. Selecione o “Conector do Twitter” e clique em “Criar”. Isso abrirá a folha Criar.
-3. Clique em ‘Configurações do pacote’ e cole a 'Chave do consumidor' do seu aplicativo do Twitter no campo 'clientId'. Cole o ‘Segredo do consumidor' do seu aplicativo do Twitter no campo 'clientSecret'.
- ![][10]
-4. Inserir outras configurações necessárias no Nome do conector, Serviço de aplicativo, e Grupo de recursos.
-5.	Clique em **Criar**.
+3. Procure "Conector do Twitter", selecione-o e selecione **Criar**.
+4. Clique em ‘Configurações do pacote’ e cole a 'Chave do consumidor' do seu aplicativo do Twitter no campo 'clientId'. Cole o ‘Segredo do Consumidor' do seu aplicativo do Twitter no campo 'clientSecret':  
+	![][10]
+5. Inserir outras configurações necessárias no Nome do conector, Serviço de aplicativo, e Grupo de recursos.
+6.	Clique em **Criar**.
 
-> [AZURE.NOTE]Se você quiser proteger ainda mais o API do Twitter com a URL de redirecionamento, você pode consultar detalhes sobre como fazer isso [aqui](app-service-logic-oauth-security.md)
+> [AZURE.NOTE]Se você quiser proteger ainda mais o API do Twitter com a URL de redirecionamento, poderá consultar detalhes sobre como fazer isso [aqui](app-service-logic-oauth-security.md)
 
 
 ## Usando o Conector do Twitter em seu aplicativo lógico
 Após a criação do aplicativo de API, você poderá usar o conector do Twitter como ação ou gatilho para seus aplicativos lógicos. Para fazer isso:
 
-1.	Crie um novo aplicativo lógico ou abra um aplicativo lógico existente:
-
+1.	Crie um novo Aplicativo Lógico ou abra um Aplicativo Lógico existente:  
 	![][2]
-2.	Abra **Gatilhos e ações** para abrir o designer de aplicativos lógicos:
-
+2.	Abra **Gatilhos e Ações** para abrir o designer de Aplicativos Lógicos:  
 	![][3]
-3.	O conector do Twitter está listado no lado direito. Selecione-o para adicioná-lo automaticamente ao aplicativo lógico:
-
+3.	O conector do Twitter está listado no lado direito. Selecione-o para adicioná-lo automaticamente ao aplicativo lógico:  
 	![][4]
-4.	Selecione **Autorizar **, insira suas credenciais do Twitter e selecione **Autorizar aplicativo**:
-
+4.	Selecione **Autorizar**, insira suas credenciais do Twitter e selecione **Autorizar aplicativo**:  
 	![][5]
 
 
-Agora você pode configurar o conector do Twitter para compilar seu fluxo de trabalho. Você pode usar os tweets recuperados do gatilho do Twitter em outras ações no fluxo.
+Agora você pode configurar o conector do Twitter para compilar seu fluxo de trabalho. Você pode usar os Tweets recuperados do gatilho do Twitter em outras ações no fluxo:  
+	![][6]
 
-![][6]
-
-De maneira semelhante, você pode usar as ações do Twitter no fluxo de trabalho. Selecione uma ação do Twitter e configure as entradas para a ação:
-
-![][7] ![][8]
+De maneira semelhante, você pode usar as ações do Twitter no fluxo de trabalho. Selecione uma ação do Twitter e configure as entradas para a ação:  
+	![][7] 
+	![][8]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
@@ -103,4 +96,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

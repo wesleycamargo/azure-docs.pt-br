@@ -75,7 +75,7 @@ As opções disponíveis incluem:
 
 
 ### Registrando-se no serviço de Backup do Azure
-Antes de poder se registrar no serviço de Backup do Azure, você precisa garantir que os [pré-requisitos](backup-try-azure-backup-in-10-mins.md) sejam atendidos. Você deve:
+Antes de poder se registrar no serviço de Backup do Azure, você precisa garantir que os [pré-requisitos](backup-configure-vault.md) sejam atendidos. Você deve:
 
 - Ter uma assinatura válida do Azure
 - Ter um cofre de backup
@@ -578,6 +578,9 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ```
 
 ## Próximas etapas
-Para obter mais informações sobre o Backup do Azure para Windows Server/Client, consulte [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
+Para obter mais informações sobre o Backup do Azure para Windows Server/Client, consulte
 
-<!---HONumber=August15_HO8-->
+- [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
+- [Fazer backup de servidores Windows](backup-azure-backup-windows-server.md)
+
+<!---HONumber=August15_HO9-->

@@ -1,26 +1,28 @@
 <properties
    pageTitle="Criando modelos do Gerenciador de Recursos do Azure"
-   description="Crie modelos do Gerenciador de Recursos do Azure usando sintaxe JSON declarativa para implantar aplicativos no Azure."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Crie modelos do Gerenciador de Recursos do Azure usando sintaxe JSON declarativa para implantar aplicativos no Azure."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure
 
 Normalmente, os aplicativos do Azure exigem uma combinação de recursos (como servidor de banco de dados, banco de dados ou site) para cumprir as metas desejadas. Em vez de implantar e gerenciar cada recurso separadamente, você pode criar um modelo do Gerenciador de Recursos do Azure que implanta e provisiona todos os recursos para seu aplicativo em uma única operação coordenada. No modelo, você define os recursos que são necessários para o aplicativo e especifica os parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
 
 Este tópico descreve as seções do modelo. Para os esquemas reais, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
+
+Você deve limitar o tamanho de seu modelo para 1 MB, e cada arquivo de parâmetro para 64 KB. O limite de 1 MB se aplica para o estado final do modelo depois que ele foi expandido com definições de recurso iterativo e valores para variáveis e parâmetros.
 
 ## Formato de modelo
 
@@ -401,8 +403,8 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
 
 ## Próximas etapas
 - Para obter detalhes sobre as funções que você pode usar de dentro de um modelo, consulte [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
-- Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
-- Para obter um exemplo detalhado de implantação de um aplicativo, consulte [Provisionar e implantar microsserviços de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
+- Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
+- Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

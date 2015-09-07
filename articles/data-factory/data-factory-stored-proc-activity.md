@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Atividade de procedimento armazenado do SQL Server" 
-	description="Saiba como é possível usar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado em um banco de dados SQL do Azure de um pipeline de Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Atividade de procedimento armazenado do SQL Server"
+	description="Saiba como é possível usar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado em um banco de dados SQL do Azure de um pipeline de Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="spelluru"/>
 
 # Atividade de procedimento armazenado do SQL Server
@@ -45,13 +45,10 @@ Propriedade | Descrição | Obrigatório
 name | Nome da atividade | Sim
 description | Texto que descreve qual a utilidade da atividade | Não
 type | SqlServerStoredProcedure | Sim
-inputs | Entrada(s) que deve estar disponível (no status "Pronta") para que a atividade de procedimento armazenado seja executada | Não
-outputs | Saída(s) produzida pela atividade de procedimento armazenado. Certifique-se de que a tabela de saída usa um serviço vinculado que vincula um Banco de Dados SQL do Azure ao data factory. | Sim
+inputs | Conjunto(s) de dados de entrada que devem estar disponíveis (no status "Pronto") para que a atividade de procedimento armazenado seja executada A entrada(s) para a atividade de procedimento armazenado somente serve como gerenciamento de dependência ao encadear esta atividade com outras. O(s) conjunto(s) de dados de entrada não podem ser consumidos no procedimento armazenado como um parâmetro. | Não
+outputs | Conjunto(s) de dado(s) de saída produzidos pela atividade de procedimento armazenado. Certifique-se de que a tabela de saída usa um serviço vinculado que vincula um Banco de Dados SQL do Azure ao data factory. As saída(s) na atividade de procedimento armazenado podem servir como uma maneira de passar o resultado da atividade de procedimento armazenado para realizar o processamento subsequentemente e/ou pode servir como o gerenciamento de dependência ao encadear essa atividade com outras | Sim
 storedProcedureName | Especifique o nome do procedimento armazenado no banco de dados SQL do Azure que é representado pelo serviço vinculado utilizado pela tabela de saída. | Sim
 storedProcedureParameters | Especificar valores para parâmetros de procedimento armazenado | Não
-
-> [AZURE.NOTE]A entrada(s) para a atividade de procedimento armazenado é usada somente para gerenciamento de dependência e encadeamento dessa atividade com outras. A entrada(s) não pode ser consumida no procedimento armazenado como um parâmetro.
- 
 
 ## Exemplo
 
@@ -72,7 +69,7 @@ Datetime | Data e hora em que a ID correspondente foi gerada
 	    VALUES (newid(), @DateTime)
 	END
 
-> [AZURE.NOTE]O **nome** e o **uso de maiúsculas** do parâmetro (DateTime, neste exemplo) devem corresponder àqueles do parâmetro especificado na atividade JSON abaixo. Na definição do procedimento armazenado, certifique-se de que **@** é usado como um prefixo para o parâmetro.
+> [AZURE.NOTE]O **nome** e o **uso de maiúsculas** do parâmetro (DateTime, neste exemplo) devem corresponder àqueles do parâmetro especificado na atividade JSON abaixo. Na definição do procedimento armazenado, certifique-se de que **@** seja usado como um prefixo para o parâmetro.
 
 Para executar esse procedimento armazenado em um pipeline de Data Factory, você precisa fazer o seguinte:
 
@@ -106,7 +103,7 @@ Para executar esse procedimento armazenado em um pipeline de Data Factory, você
 5.	Implante o [pipeline](data-factory-create-pipelines.md).
 6.	[Monitore o pipeline](data-factory-monitor-manage-pipelines.md) usando as exibições de gerenciamento e monitoramento de data factory.
 
-> [AZURE.NOTE]No exemplo acima, SprocActivitySample não tem entradas. Se você deseja encadear isso com uma atividade upstream, a saída(s) de atividade upstream pode ser usada como entrada(s) nessa atividade. Nesse caso, essa atividade não será executada até que a atividade de upstream seja concluída e a saída(s) esteja disponível (com status Pronta). A entrada(s) não pode ser usada diretamente como um parâmetro para a atividade de procedimento armazenado
+> [AZURE.NOTE]No exemplo acima, SprocActivitySample não tem entradas. Se você deseja encadear isso com uma atividade upstream (ou seja, antes do processamento), a saída(s) de atividade upstream pode ser usada como entrada(s) nessa atividade. Nesse caso, essa atividade não será executada até que a atividade de upstream seja concluída e a saída(s) das atividades de upstream esteja disponível (com status Pronta). A entrada(s) não pode ser usada diretamente como um parâmetro para a atividade de procedimento armazenado
 > 
 > Os nomes e o uso de letras maiúsculas e minúsculas (superior/inferior) de parâmetros de procedimento armazenado no arquivo JSON devem corresponder aos nomes de parâmetros de procedimento armazenado no banco de dados de destino.
 
@@ -135,4 +132,4 @@ Para fazer isso, passe o parâmetro Cenário e o valor da atividade de procedime
 		}
 	}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

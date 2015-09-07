@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Adicione notificações de push para seu aplicativo universal do Windows Runtime 8.1 | Aplicativos móveis do Azure" 
-	description="Saiba como usar os Aplicativos Móveis do Serviço de Aplicativo do Azure e Hubs de Notificação do Azure para enviar notificações por push para seu aplicativo do Windows." 
-	services="app-service\mobile,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+	pageTitle="Adicione notificações de push para seu aplicativo universal do Windows Runtime 8.1 | Aplicativos móveis do Azure"
+	description="Saiba como usar os Aplicativos Móveis do Serviço de Aplicativo do Azure e Hubs de Notificação do Azure para enviar notificações por push para seu aplicativo do Windows."
+	services="app-service\mobile,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="glenga"/>
 
 # Adicionar notificações de push para seu aplicativo universal do Windows Runtime 8.1
@@ -24,7 +24,7 @@
 
 Este tópico mostra como enviar notificações por push para um aplicativo universal do Windows Runtime 8.1 usando os Aplicativos móveis do serviço de aplicativo do Azure e os Hubs de notificação do Azure. Nesse cenário, quando um novo item é adicionado, o back-end do Aplicativo móvel envia uma notificação por push para todos os aplicativos do Windows registrados com o Serviço de Notificação do Windows (WNS).
 
-Este tutorial se baseia no guia de início rápido do Aplicativo móvel do Serviço de Aplicativo. Antes de iniciar este tutorial, você deve primeiro concluir o tutoriais de início rápido [Criar um aplicativo do Windows](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
+Este tutorial se baseia no guia de início rápido do Aplicativo móvel do Serviço de Aplicativo. Antes de iniciar este tutorial, você deve primeiro concluir o tutoriais de início rápido [Criar um aplicativo do Windows](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md). Se você não usar o projeto baixado do início rápido do servidor, você deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Pré-requisitos
 
@@ -32,11 +32,9 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Uma [conta ativa da Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045).
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Concluir o [tutorial de início rápido](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
+* Conclua o [tutorial de início rápido](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).  
 
-##<a name="review"></a>Examine a configuração do projeto do servidor (opcional)
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
 ##<a name="create-gateway"></a>Criar um Hub de notificação
 
@@ -52,7 +50,7 @@ Em seguida, você usará esse hub de notificação para habilitar envios por pus
 
 Antes de poder enviar notificações por push para aplicativos do Windows a partir do Azure, você deve enviar seu aplicativo para a Windows Store. Você pode configurar seu projeto de servidor para integrar com o WNS.
 
-1. No gerenciador de soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo da Windows Store, clique em **Armazenar** > **Aplicativo associado à Store...**. 
+1. No gerenciador de soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo da Windows Store, clique em **Armazenar** > **Associar Aplicativo à Store...**. 
 
     ![][3]
     
@@ -62,11 +60,11 @@ Antes de poder enviar notificações por push para aplicativos do Windows a part
 
 7. Repita as etapas 1 e 3 para o projeto de aplicativo da Windows Phone Store usando o mesmo registro que você criou anteriormente para o aplicativo da Windows Store.
 
-7. Navegue até o [Windows Dev Center](https://dev.windows.com/pt-br/overview), entre com sua conta da Microsoft, clique no registro de novo aplicativo em **Meus aplicativos**, em seguida, expanda **Serviços** > **Notificações por Push**.
+7. Navegue até o [Centro de Desenvolvimento do Windows](https://dev.windows.com/pt-BR/overview), entre com sua conta da Microsoft, clique no registro de novo aplicativo em **Meus aplicativos**, em seguida, expanda **Serviços** > **Notificações por Push**.
 
 8. Na página **Notificações por push**, clique em **Site do Live Services** em **Serviços Móveis do Microsoft Azure**.
 
-9. Na guia **Configurações de aplicativo**, anote os valores de**Segredo do cliente** e **SID de Pacote**.
+9. Na guia **Configurações de aplicativo**, anote os valores de **Segredo do cliente** e **SID de Pacote**.
 
     ![][6]
 
@@ -76,7 +74,7 @@ Antes de poder enviar notificações por push para aplicativos do Windows a part
 
 1. Faça logon no [Portal do Azure], selecione **Procurar** > **Aplicativo Móvel** > seu aplicativo > **Serviços de notificação por Push**.
 
-2. No **Serviço de notificação do Windows**, digite a **Chave de segurança** (segredo do cliente) e **SID do pacote** que você obteve no site do Live Services, clique em **Salvar**.
+2. No **Serviço de notificação do Windows**, digite a **Chave de segurança** (segredo do cliente) e **SID do pacote** que você obteve no site do Live Services e clique em **Salvar**.
 
 O back-end do Aplicativo móvel agora está configurado para funcionar com o WNS.
 
@@ -162,7 +160,7 @@ Agora que as notificações por push estão habilitadas no aplicativo, você dev
     
     Esse código recupera o ChannelURI do aplicativo de WNS e registra esse ChannelURI com seu Aplicativo Móvel do Serviço de Aplicativo.
     
-5. Na parte superior do manipulador de eventos **OnLaunched** no **App.xaml.cs**, adicione o modificador **async** à definição do método e adicione a seguinte chamada para o novo método **InitNotificationsAsync**, conforme no seguinte exemplo:
+5. Na parte superior do manipulador de eventos **OnLaunched** no **App.xaml.cs**, adicione o modificador **async** à definição do método e adicione a seguinte chamada para o novo método **InitNotificationsAsync**, conforme no exemplo a seguir:
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -202,4 +200,4 @@ Seu aplicativo agora está pronto para receber notificações do sistema.
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

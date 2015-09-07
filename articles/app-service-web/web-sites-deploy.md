@@ -127,7 +127,6 @@ Para obter informações sobre como implantar aplicativos Web por meio do Visual
 
 Para obter informações sobre como implantar aplicativos Web por meio do WebMatrix, consulte os recursos a seguir:
 
-* [Desenvolver e implantar um aplicativo Web com o Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md). Como criar um aplicativo Web simples do ASP.NET usando um modelo do WebMatrix e implantá-lo em Aplicativos Web usando o WebMatrix e a Implantação da Web.
 * [Compilar e implantar um site do node.js no Azure usando o WebMatrix](web-sites-nodejs-use-webmatrix.md).
 * [Criar e implantar um aplicativo Web do PHP-MySQL usando o WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: Git Integrado e Implantação no Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Como usar o WebMatrix para implantar de um repositório de controle do código-fonte do Git.
@@ -228,4 +227,4 @@ Para obter mais informações sobre outros tópicos de implantação, consulte a
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

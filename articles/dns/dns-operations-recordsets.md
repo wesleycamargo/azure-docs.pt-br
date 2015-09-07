@@ -1,22 +1,27 @@
 <properties 
-   pageTitle="Gerenciar conjuntos de registros DNS e registros no DNS do Azure | Microsoft Azure" 
-   description="Gerenciando conjuntos de registros DNS e registros no DNS do Azure ao hospedar seu domínio no DNS do Azure. Todos os comandos do PowerShell para operações em conjuntos de registros e registros." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="Adinah" 
-   editor=""/>
+   pageTitle="Gerenciar conjuntos de registros DNS e registros no DNS do Azure | Microsoft Azure"
+	description="Gerenciando conjuntos de registros DNS e registros no DNS do Azure ao hospedar seu domínio no DNS do Azure. Todos os comandos do PowerShell para operações em conjuntos de registros e registros."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="08/02/2015"
-   ms.author="joaoma"/>
+	ms.devlang="en"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/02/2015"
+	ms.author="joaoma"/>
 
 # Como gerenciar os registros DNS
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-operations-recordsets-cli.md)
+- [Azure Powershell](dns-operations-recordsets.md)
 
 
 Este guia mostrará como gerenciar conjuntos de registro e registros de zona DNS.
@@ -46,7 +51,7 @@ New-AzureDnsRecordSet retorna um objeto local que representa o conjunto de regis
 >[AZURE.NOTE]Conjuntos de registros CNAME não podem coexistir com outros conjuntos de registros com o mesmo nome. Por exemplo, você não pode criar um CNAME com o nome relativo “www” e um registro A com o nome relativo “www” ao mesmo tempo. Uma vez que o apex de zona (nome = “@”) sempre contém os conjuntos de registro NS e SOA criados quando a zona é criada, isso significa que você não pode criar um conjunto de registros CNAME no apex da zona. Essas restrições são provenientes dos padrões DNS, elas não são limitações do DNS do Azure.
 
 ### Registros curinga
-O Azure DNS dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga).
+O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga).
 
 >[AZURE.NOTE]Para criar um conjunto de registros curinga, use o nome do conjunto de registros "*", ou um nome cujo primeiro rótulo seja "*", por exemplo, "*.foo".
 
@@ -266,4 +271,4 @@ O objeto do conjunto de registros também pode ser redirecionado em vez de ser p
 [Introdução à criação de conjuntos de registros e registros](../dns-getstarted-create-recordset)<BR> [Executar operações em zonas DNS](../dns-operations-dnszones)<BR> [Automatizar operações usando o SDK do .NET](../dns-sdk)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

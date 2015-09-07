@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="Como gerenciar pontos de extremidade de streaming em uma conta de Serviços de Mídia" 
-	description="Este tópico mostra como gerenciar pontos de extremidade de Streaming usando o Portal de Gerenciamento do Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Como gerenciar pontos de extremidade de streaming em uma conta de Serviços de Mídia"
+	description="Este tópico mostra como gerenciar pontos de extremidade de Streaming usando o Portal de Gerenciamento do Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 
 #<a id="managemediaservicesorigins"></a>Como gerenciar pontos de extremidade de streaming em uma conta de Serviços de Mídia
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-origins.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
+Nos Serviços de Mídia do Microsoft Azure, um **Ponto de Extremidade de Streaming** representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player de cliente ou à CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior. Os Serviços de Mídia também fornecem integração perfeita da CDN do Azure. O fluxo de saída do serviço StreamingEndpoint pode ser um fluxo ao vivo ou um ativo de vídeo por demanda na sua conta dos Serviços de Mídia.
 
-Nos Serviços de Mídia do Microsoft Azure, um **Ponto de Extremidade de Streaming** representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player de cliente ou à CDN (Rede de Entrega de Conteúdo) para a distribuição posterior. Os Serviços de Mídia também fornecem integração perfeita da CDN do Azure. O fluxo de saída do serviço StreamingEndpoint pode ser um fluxo ao vivo ou um ativo de vídeo por demanda na sua conta dos Serviços de Mídia.
-
-Além disso, você pode controlar a capacidade do serviço de ponto de extremidade de Streaming para lidar com crescentes necessidades de largura de banda ajustando as unidades de dimensionamento (também conhecido como unidades de streaming). É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. As unidades de dimensionamento fornecem capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps e funcionalidade adicional que inclui: [empacotamento dinâmico](https://msdn.microsoft.com/library/azure/jj889436.aspx), Integração de CDN e configuração avançada.
+Além disso, você pode controlar a capacidade do serviço de ponto de extremidade de Streaming para lidar com crescentes necessidades de largura de banda ajustando as unidades de dimensionamento (também conhecido como unidades de streaming). É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. As unidades de dimensionamento fornecem capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps e funcionalidade adicional que inclui: [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), Integração de CDN e configuração avançada.
 
 Observe que você será cobrado apenas quando seu StreamingEndpoint estiver em estado de execução.
 
@@ -46,11 +47,11 @@ Para adicionar\\excluir um ponto de extremidade de streaming usando o Portal, fa
 	![Página de ponto de extremidade de streaming][streaming-endpoint]
 
 
-Por padrão, você pode ter até dois pontos de extremidade de streaming. Se você precisar solicitar mais, consulte [Cotas e limitações](media-services-quotas-and-limitations/).
+Por padrão, você pode ter até dois pontos de extremidade de streaming. Se você precisar solicitar mais, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
 
 ##<a id="scale_streaming_endpoints"></a>Dimensionar o ponto de extremidade de streaming
 
-As unidades para Streaming fornecem capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps e funcionalidade adicional que, atualmente, inclui [recursos de empacotamento dinâmico](http://go.microsoft.com/fwlink/?LinkId=276874). Por padrão, o streaming é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso, etc.) são compartilhados com todos os outros usuários. Para melhorar uma taxa de transferência de streaming, é recomendável adquirir unidades de Streaming.
+As unidades para Streaming fornecem capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps e funcionalidade adicional que, atualmente, inclui [recursos de empacotamento dinâmico](media-services-dynamic-packaging-overview.md). Por padrão, o streaming é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso, etc.) são compartilhados com todos os outros usuários. Para melhorar uma taxa de transferência de streaming, é recomendável adquirir unidades de Streaming.
 
 Você pode dimensionar usando o SDK do .NET, a API REST ou o Portal de Gerenciamento do Azure.
 
@@ -98,12 +99,12 @@ A seguir há uma breve descrição dos campos.
 
 3. Especifique a configuração para autenticação do cabeçalho de assinatura do Akamai.
 
-4. Você pode especificar uma política de acesso entre domínios para clientes do Adobe Flash (para obter mais informações, consulte [Especificação de arquivo de política entre domínios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html). Além de política de acesso de cliente para clientes do Microsoft Silverlight (para obter mais informações, consulte [Tornando um serviço disponível entre os limites de domínio.aspx](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
+4. Você pode especificar uma política de acesso entre domínios para clientes do Adobe Flash (para obter mais informações, consulte [Especificação de arquivo de política entre domínios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html). Além de política de acesso de cliente para clientes do Microsoft Silverlight (para obter mais informações, consulte [Tornando um serviço disponível entre os limites de domínio](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
 
 5. Você também pode configurar nomes de host personalizados clicando no botão **configurar**. Para obter mais informações, consulte a propriedade **CustomHostNames** no tópico [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
 
 
-##<a id="enable_cdn"></a>Habilitar a integração da CDN do Azure CDN
+##<a id="enable_cdn"></a>Habilitar a integração da CDN do Azure
 
 Você pode especificar a habilitação da integração da CDN do Azure para um Ponto de Extremidade de Streaming (isso é desabilitado por padrão).
 
@@ -139,4 +140,4 @@ Para obter mais informações, consulte [Anunciando a integração dos Serviços
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

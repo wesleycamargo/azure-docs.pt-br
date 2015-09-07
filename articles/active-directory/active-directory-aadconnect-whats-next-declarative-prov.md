@@ -1,21 +1,21 @@
 
 
 <properties 
-	pageTitle="Usando o provisionamento declarativo do Azure AD Connect" 
-	description="Saiba como usar o provisionamento declarativo do Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Usando o provisionamento declarativo do Azure AD Connect"
+	description="Saiba como usar o provisionamento declarativo do Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Provisionamento declarativo do Azure AD Connect
@@ -28,4 +28,4 @@ Uma parte essencial de Provisionamento declarativo é a linguagem de expressão 
 
 Para obter mais informações sobre linguagem, consulte [Noções básicas sobre expressões de provisionamento declarativo](https://msdn.microsoft.com/library/azure/dn801048.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

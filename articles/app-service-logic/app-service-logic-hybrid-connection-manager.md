@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Usando o Gerenciador de Conexão Híbrida para Serviço de Aplicativo do Azure" 
-	description="Instalar e configurar o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure; arquitetura de microsserviços" 
-	services="app-service\logic" 
+	pageTitle="Usando o Gerenciador de Conexão Híbrida | Serviço de aplicativo do Microsoft Azure"
+	description="Instalar e configurar o Gerenciador de Conexão Híbrida e conectar-se aos conectores locais no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
-# Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure
-Alguns conectores podem se conectar a um sistema local, como SAP, SQL Server, SharePoint e assim por diante. Para usar um sistema local, O Serviço de Aplicativo do Azure usa o Gerenciador de Conexão Híbrida.
+# Conecte-se aos conectores locais no serviço de aplicativo do Azure usando o Gerenciador de Conexão Híbrida
+Para usar um sistema local, O Serviço de Aplicativo do Azure usa o Gerenciador de Conexão Híbrida. Alguns conectores podem se conectar a um sistema local, como SAP, SQL Server, SharePoint e assim por diante.
 
 O HCM (Gerenciador de Conexão Híbrida) é um instalador com clique único, instalado em um servidor IIS em sua rede, por trás do firewall. Usando uma retransmissão do Barramento de Serviço do Azure, o HCM autentica o sistema local com o conector no Azure.
 
@@ -133,4 +133,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Analisar dados do sensor com o Apache Storm e o HBase | Microsoft Azure"
-   description="Saiba como conectar-se ao Apache Storm com uma rede virtual. Use o Storm com o HBase para processar dados de sensor de um hub de eventos e visualize-o com D3.js."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="Saiba como conectar-se ao Apache Storm com uma rede virtual. Use o Storm com o HBase para processar dados de sensor de um hub de eventos e visualize-o com D3.js."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="java"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="java"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/06/2015"
+	ms.author="larryfr"/>
 
 # Analisar dados de sensor com o Apache Storm e com o HBase no HDInsight (Hadoop)
 
@@ -300,7 +300,7 @@ Se você planeja usar o HBase com este exemplo, você deve criar uma rede virtua
 
 	- **Local**:O local deve ser o mesmo que o do cluster HBase que você criará.
 
-	- **Servidor DNS**: este artigo usa o servidor DNS interno fornecido pelo Azure; portanto, você pode selecionar **Nenhum**. Configurações de rede mais avançadas com servidores DNS personalizados também têm suporte. Para obter orientações detalhadas, confira [Resolução de nomes (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+	- **Servidor DNS**: este artigo usa o servidor DNS interno fornecido pelo Azure; portanto, você pode selecionar **Nenhum**. Configurações de rede mais avançadas com servidores DNS personalizados também têm suporte. Para obter orientações detalhadas, confira [Resolução de nomes (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 4. Clique em **Criar uma Rede Virtual**. O nome da nova rede virtual aparecerá na lista. Aguarde até que a coluna de Status exiba **Criada**.
 
@@ -420,4 +420,4 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

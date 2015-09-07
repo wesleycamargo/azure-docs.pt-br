@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="Usando o conector do AS2 no Serviço de Aplicativo do Microsoft Azure" 
-   description="Como usar o conector do AS2" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Usando o Conector do AS2 em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o conector do AS2 ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# Conector do Microsoft AS2
-O Conector do Microsoft Azure AS2 permite receber e enviar mensagens pelo protocolo de transporte AS2 (Applicability Statement 2) em comunicações business-to-business. Os dados são transportados de maneira segura e confiável pela Internet. A segurança é obtida usando criptografia e certificados digitais.
+# Comece a usar o Conector do AS2 e adicione-o a seu Aplicativo Lógico
+Use o Conector do AS2 para receber e enviar mensagens pelo protocolo de transporte AS2 (Applicability Statement 2) em comunicações comerciais. Os dados são transportados de maneira segura e confiável pela Internet. A segurança é obtida usando criptografia e certificados digitais.
+
+Você pode adicionar o Conector do AS2 a seu fluxo de trabalho comercial e processar dados como parte de um fluxo de trabalho comercial dentro de um Aplicativo Lógico.
 
 ## Gatilhos e Ações
 Um Gatilho inicia uma nova instância com base em um evento específico, como a chegada de uma mensagem AS2 de um parceiro. Uma Ação é o resultado, como após receber uma mensagem AS2 e depois enviar a mensagem usando AS2.
@@ -35,7 +37,7 @@ Requisito | Descrição
 --- | ---
 Aplicativo de API do TPM | Antes de criar um conector do AS2, você precisa criar um [Conector de Gerenciamento de Parceiros Comerciais do BizTalk][1]. <br/><br/>**Observação** Saiba o nome do Aplicativo de API de TPM. 
 Banco de Dados SQL do Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio banco de dados SQL do Azure. <br/><br/>* * Observação * * Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database-get-started.md)
-Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar de arquivamento de mensagens AS2, não será necessário um contêiner de armazenamento. <br/><br/>* * Observação * * Se você estiver habilitando o arquivamento, copie a cadeia de conexão para o armazenamento de Blob.<br/><br/>[Sobre contas de armazenamento do Azure](../storage-create-storage-account.md).
+Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar de arquivamento de mensagens AS2, não será necessário um contêiner de armazenamento. <br/><br/>* * Observação * * Se você estiver habilitando o arquivamento, copie a cadeia de conexão para este Armazenamento de Blob.<br/><br/>[Sobre contas de armazenamento do Azure](../storage-create-storage-account.md).
 
 ## Criar o conector do AS2
 
@@ -71,10 +73,10 @@ As etapas envolvidas na criação de um contrato de parceiro comercial são docu
 
 Como parte da saída, o conector retorna a carga do AS2, bem como os metadados específicos do AS2.
 
-O Gatilho é disparado quando uma Carga do AS2 é como uma POSTAGEM para https://{Host URL}/decode. Você pode encontrar a URL do Host nas configurações do Aplicativo de API. Talvez você precise alterar o nível de acesso do Aplicativo de API nas configurações do aplicativo para Público (autenticado ou anônimo).
+O Gatilho é disparado quando uma Carga do AS2 é como um POST para https://{Host URL}/decode. Você pode encontrar a URL do Host nas configurações do Aplicativo de API. Talvez você precise alterar o nível de acesso do Aplicativo de API nas configurações do aplicativo para Público (autenticado ou anônimo).
 
 ## Usar o Conector como uma Ação
-1. Após o gatilho (ou escolha "executar esta lógica manualmente"), adicione o conector do AS2 criado no painel à direita: ![Configurações de ação][7]
+1. Após utilizar o gatilho (ou escolher "executar esta lógica manualmente"), adicione o conector do AS2 criado no painel à direita: ![Configurações de ação][7]
 
 2. Clique na seta para a direita →: ![Lista de ações][8]
 
@@ -99,7 +101,7 @@ Mais informações sobre aplicativos lógicos em [O que são aplicativos lógico
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Confira [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!--References -->
 [1]: app-service-logic-connector-tpm.md
@@ -113,4 +115,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

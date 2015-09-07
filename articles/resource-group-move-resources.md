@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mover recursos para um novo grupo de recursos" 
-	description="Use o Azure PowerShell ou a API REST para mover recursos para um novo grupo de recursos do Gerenciador de Recursos do Azure." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	pageTitle="Mover recursos para um novo grupo de recursos"
+	description="Use o Azure PowerShell ou a API REST para mover recursos para um novo grupo de recursos do Gerenciador de Recursos do Azure."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -55,9 +55,14 @@ Os serviços que atualmente não dão suporte à transferência de um recurso s�
 
 - Redes Virtuais
 
+Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de Aplicativo. Para mover os aplicativos Web, as opções são:
+
+- Mova todos os recursos de um grupo de recursos para um grupo de recursos diferente, se o grupo de recursos de destino ainda não tiver recursos Microsoft.Web.
+- Mova os aplicativos Web para um grupo de recursos diferente, mas mantenha o plano de Serviço de Aplicativo no grupo de recursos original.
+
 ## Usando o PowerShell para mover recursos
 
-Para mover recursos existentes para outro grupo de recursos ou outra assinatura, use o comando **Move-AzureResource**.
+Para mover recursos existentes para outra assinatura ou grupo de recursos, use o comando **Move-AzureResource**.
 
 O primeiro exemplo mostra como mover um recurso para um novo grupo de recursos.
 
@@ -96,4 +101,4 @@ Na solicitação, inclua um objeto JSON que define o grupo de recursos de destin
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

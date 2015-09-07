@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais" 
-	description="Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com múltiplas taxas de bits de um codificador local. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais"
+	description="Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com múltiplas taxas de bits de um codificador local. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 #Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais
@@ -238,86 +238,13 @@ Outras considerações relacionadas ao trabalho com canais e componentes relacio
 - Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada. 
 - Você será cobrado apenas quando o canal estiver no estado **Executando**. Para obter mais informações, consulte [esta](media-services-manage-channels-overview.md#states) seção.
 
-##<a id="tasks"></a>Tarefas relacionadas ao streaming ao vivo
-
-###Criar uma conta de serviços de mídia
-
-[Criar uma conta de Serviços de Mídia do Azure](media-services-create-account.md).
-
-###Configurando pontos de extremidade de streaming
-
-Para obter uma visão geral sobre streaming de pontos de extremidade e informações sobre como gerenciá-los, consulte [Como gerenciar pontos de extremidade de streaming em uma conta de Serviços de Mídia](media-services-manage-origins.md)
-
-###Configurando o ambiente de desenvolvimento  
-
-Escolha **.NET** ou **API REST** como seu ambiente de desenvolvimento.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-###Conectando por meio de programação  
-
-Escolha **.NET** ou **API REST** para conectar-se aos Serviços de Mídia do Azure por meio de programação.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
-
-###Criando Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais
+##Como ciar canais que recebam transmissão ao vivo de diversas taxas de bits de codificadores locais
 
 Para saber mais sobre codificadores locais ativos, consulte [Usando codificadores ativos de terceiros com os Serviços de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
 Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar canais e programas.
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
-
-###Protegendo ativos
-
-**Visão geral**:
-
-[Visão geral da proteção de conteúdo](media-services-content-protection-overview.md)
-
-
-Se você deseja criptografar um ativo associado um programa à criptografia AES (de padrão avançado, usando chaves de criptografia de 128 bits) ou DRM PlayReady, você precisa criar uma chave de conteúdo.
-
-Use **.NET** ou **API REST** para criar chaves.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-Depois de criar a chave de conteúdo, você pode configurar a política de autorização de chave usando **.NET** ou **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-####Integração com parceiros
-
-[Usando o castLabs para fornecer licenças DRM para os serviços de mídia do Azure](media-services-castlabs-integration.md)
-
-###Publicando e fornecendo ativos
-
-**Visão geral**:
-
-- [Visão geral do empacotamento dinâmico](media-services-dynamic-packaging-overview.md)
-
-Configure a política de fornecimento de ativos usando **.NET** ou **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Publicar ativos (pela criação de localizadores) usando o **Portal de Gerenciamento do Azure** ou **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-Fornecer Conteúdo
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-
-###Habilitando o CDN do Azure
-
-Os Serviços de Mídia dão suporte à integração com o CDN do Azure. Para obter informações sobre como habilitar o CDN do Azure, consulte [Como gerenciar pontos de extremidade de Streaming em uma conta de Serviços de Mídia](media-services-manage-origins.md#enable_cdn).
-
-###Dimensionamento de uma conta de serviços de mídia
-
-Você pode dimensionar **Serviços de Mídia** especificando o número de **Unidades Reservadas de Streaming** com o qual você gostaria que sua conta fosse provisionada.
-
-Para obter informações sobre unidades de streaming de dimensionamento, consulte: [Como dimensionar unidades de streaming](media-services-manage-origins.md#scale_streaming_endpoints.md).
 
 ##Tópicos relacionados
 
@@ -330,4 +257,4 @@ Para obter informações sobre unidades de streaming de dimensionamento, consult
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

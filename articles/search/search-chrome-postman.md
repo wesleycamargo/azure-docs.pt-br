@@ -1,25 +1,25 @@
 <properties
-	pageTitle="Como usar o Chrome Postman com a Pesquisa do Azure"
-	description="Como usar o Chrome Postman com a Pesquisa do Azure"
+	pageTitle="Usar o Chrome Postman com a Pesquisa do Azure | Microsoft Azure"
+	description="Usar o Chrome Postman com a Pesquisa do Azure. Instalar e configurar o Postman. Criar um índice de Pesquisa do Azure. Publicar documentos e consulta o índice com o Postman."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="azure-portal"/>
+	tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="rest-api"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Como usar o Chrome Postman com a Pesquisa do Azure #
 
-O [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") é uma ferramenta fornecida como parte do Google Chrome e que permite aos desenvolvedores trabalhar eficientemente com a API baseada em REST de serviços, como a Pesquisa do Azure. Você pode usar o carteiro para criar rapidamente e consultar seus índices de pesquisa enviando chamadas de API por meio do Postman, sem precisar escrever nenhum código. Essa abordagem é uma maneira eficiente para aprender sobre a API e experimentar os novos recursos.
+O [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") é uma ferramenta fornecida como parte do Google Chrome e que permite aos desenvolvedores trabalhar eficientemente com a API baseada em REST de serviços, como a Pesquisa do Azure. Você pode usar o Postman para criar e consultar rapidamente seus índices de pesquisa enviando chamadas de API por meio do Postman, sem precisar escrever nenhum código. Essa abordagem é uma maneira eficiente para aprender sobre a API e experimentar os novos recursos.
 
 ![][1]
 
@@ -32,23 +32,23 @@ Para baixar o Postman, visite o [Repositório do Google Chrome](https://chrome.g
 
 ![][2]
 
-## Configurando o Postman para a Consulta de Pesquisa do Azure ##
+## Configurar o Postman para a consulta de Pesquisa do Azure ##
 Para configurar o Postman, siga as etapas a seguir:
 
 1. Insira a URL do serviço de Pesquisa do Azure onde se vê a mensagem "Insira a URL de solicitação aqui".  
-2. Acrescentar à URL: `?api-version=2015-02-28`. Você também pode especificar uma versão diferente da API. Consulte [Controle de versão de serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes.
+2. Acrescentar à URL: `?api-version=2015-02-28`. Você também pode especificar uma versão diferente da API. Consulte [Controle de versão de serviço de Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes.
 3. Certifique-se de que `GET` seja escolhido.
 4. Clique no botão **Cabeçalhos**.
-5. Insira um valor para:
+5. Insira valores para:
 	- `api-key`: [Chave Admin]
 	- `Content-Type`: `application/json; charset=utf-8`
 6. Clique em **Enviar** para emitir a chamada REST para Pesquisa do Azure e visualize a resposta JSON.
 
 ![][3]
 
-## Criando um índice de Pesquisa do Azure com o Postman ##
+## Criar um índice de Pesquisa do Azure com o Postman ##
 
-A seguir falaremos mais do que concluímos na última etapa, emitindo uma chamada REST para criar um novo índice de Pesquisa do Azure. Ao contrário da chamada anterior, a criação de índice requer um HTTP PUT, bem como um documento JSON com a definição do esquema de índice. Para este exemplo, vamos criar um índice que armazenará uma lista de trilhas de caminhada. Para fazer isso:
+A seguir falaremos mais do que concluímos na última etapa, emitindo uma chamada REST para criar um novo índice de Pesquisa do Azure. Ao contrário da chamada anterior, a criação de índice requer um HTTP PUT, e um documento JSON com a definição do esquema de índice. Para este exemplo, vamos criar um índice que armazenará uma lista de trilhas de caminhada. Para fazer isso:
 
 1. Altere a URL para: `https://[SEARCH SERVICE].search.windows.net/indexes/trails?api-version=2015-02-28`, usando seu nome de Serviço de Pesquisa.
 2. Altere o tipo de solicitação de `GET` para `PUT`.
@@ -68,7 +68,7 @@ A seguir falaremos mais do que concluímos na última etapa, emitindo uma chamad
 
 ![][4]
 
-## Publicação de documentos para um índice de Pesquisa do Azure com o Postman ##
+## Publicar documentos para um índice de Pesquisa do Azure com o Postman ##
 Agora que o índice é criado, podemos carregar documentos nele. Para fazer isso, publicaremos um grupo de documentos em um lote, usando dados para cinco trilhas do conjunto de dados do USGS (United States Geological Survey - pesquisa geológica dos Estados Unidos):
 
 1. Altere a URL para: `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28`, usando seu nome de Serviço de Pesquisa. Observe que a URL inclui um caminho para o índice que você acabou de criar.
@@ -89,14 +89,14 @@ Agora que o índice é criado, podemos carregar documentos nele. Para fazer isso
 
 ![][5]
 
-## Consultando o Índice com o Postman ##
+## Consultar o Índice com o Postman ##
 A etapa final é consultar o índice e emitir uma solicitação de pesquisa de texto completo simples para a palavra *trilha*.
 
 1. Digite o seguinte na URL: `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail` usando seu nome de Serviço de Pesquisa. Observe que a URL inclui o parâmetro de consulta `search` e um termo de pesquisa *trilha*.
 2. Altere o tipo de solicitação HTTP para `GET`.
 3. Clique em **Enviar**.
 
-Em Resposta, você deve ver os resultados da pesquisa JSON que retornam da Pesquisa do Azure.
+Na resposta, você deve ver os resultados da pesquisa JSON que retornam da Pesquisa do Azure.
 
 ![][6]
 
@@ -117,6 +117,5 @@ Você também pode visitar a [Lista de tutoriais e vídeos](https://msdn.microso
 [4]: ./media/search-chrome-postman/create_index.png
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,20 @@
 <properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="Gerenciar: tempo limite de ociosidade do balanceador de carga" 
-   description="Recursos de gerenciamento para o tempo limite de ociosidade do balanceador de carga do Azure" 
-   services="virtual-network" 
-   />
+   authors="danielceckert"
+	documentationCenter="dev-center-name"
+	editor=""
+	manager="jefco"
+	pageTitle="Gerenciar: tempo limite de ociosidade do balanceador de carga"
+	description="Recursos de gerenciamento para o tempo limite de ociosidade do balanceador de carga do Azure"
+	services="virtual-network"/>
 
 <tags
    ms.author="danecke"
-   ms.date="05/27/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   />
+	ms.date="05/27/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"/>
    
 # Gerenciar a rede virtual: tempo limite de ociosidade do TCP do balanceador de carga
 
@@ -34,8 +32,8 @@ Para dar suporte a cenários de dispositivo móvel, o balanceador de carga do Az
 
 O tempo limite de ociosidade do TCP pode ser configurado para:
 
-* [IPs públicos em nível de instância](http://msdn.microsoft.com/library/azure/dn690118.aspx)
-* [Conjuntos de pontos de extremidade com balanceamento de carga](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [IPs públicos em nível de instância](virtual-networks-instance-level-public-ip.md)
+* [Conjuntos de pontos de extremidade com balanceamento de carga](../load-balancer/load-balancer-overview.md)
 * [Pontos de extremidade de máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md)
 * [Funções da Web](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Funções de trabalho](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
@@ -152,4 +150,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

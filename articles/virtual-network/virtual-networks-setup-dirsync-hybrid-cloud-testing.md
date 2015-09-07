@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste" 
-	description="Aprenda a configurar um servidor de Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para testes profissionais de TI ou testes de desenvolvimento." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Ambiente de teste do DirSync do Office 365 | Microsoft Azure"
+	description="Aprenda a configurar um servidor de Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para testes profissionais de TI ou testes de desenvolvimento."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste
@@ -79,7 +79,7 @@ Esta é a configuração atual.
 
 ## Fase 3: Configurar o servidor DirSync (DS1)
 
-Primeiro, crie uma máquina virtual do Azure para o DS1 com estes comandos no prompt de comando do PowerShell do Azure em seu computador local. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < and >.
+Primeiro, crie uma máquina virtual do Azure para o DS1 com estes comandos no prompt de comando do Azure PowerShell em seu computador local. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < and >.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for DS1."
@@ -197,4 +197,4 @@ Este ambiente agora está pronto para você executar testes de aplicativos do Of
 
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

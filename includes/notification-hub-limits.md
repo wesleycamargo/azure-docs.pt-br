@@ -1,9 +1,11 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| CAMADA: | GRATUITO | BASIC | PADRÃO |
 |----|----|----|----|
-| Included Pushes | 1 Million | 10 Million | 10 Million |
-| Active Devices | 500 | Unlimited | Unlimited |
-| Broadcast Tag Size | 10K | 10K | Unlimited |
-| # of tags (broadcast groups) | 3K | 3K unless broadcasted to less than 5 devices | Unlimited |
+| Envios incluídos | 1 milhão | 10 milhões | 10 milhões |
+| Dispositivos ativos | 500 | Ilimitado | Ilimitado |
+| Tamanho de marca de difusão | 10K | 10K | Ilimitado |
+| N º de marcas (grupos de difusão) | 3K | 3K, a menos que difundido para menos de 5 dispositivos | Ilimitado |
 
-For additional details on these limits and for information on pricing, see [Notification Hubs Pricing](http://azure.microsoft.com/pricing/details/notification-hubs/). 
+Para obter detalhes adicionais sobre esses limites e informações sobre preços, consulte [Preços de Hubs de Notificação](http://azure.microsoft.com/pricing/details/notification-hubs/).
+
+<!---HONumber=August15_HO9-->

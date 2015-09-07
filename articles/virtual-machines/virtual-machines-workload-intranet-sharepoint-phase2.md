@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fase 2 da carga de trabalho do farm da intranet do SharePoint: Configurar controladores de domínio"
-	description="Na segunda fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você deve criar e configurar os dois controladores de domínio do Active Directory."
+	pageTitle="Farm do SharePoint Server 2013 Fase 2 | Microsoft Azure"
+	description="Crie e configure os dois controladores de domínio de réplica do Active Directory na fase 2 do farm do SharePoint Server 2013 no Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -113,7 +113,7 @@ Faça logon no primeiro computador do controlador de domínio usando as credenci
 5.	A caixa de diálogo do navegador será exibida com a pergunta: "Deseja abrir ou salvar ComputerName.rdp de manage.windowsazure.com?" Clique em **Abrir**.
 6.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Conectar**.
 7.	Na caixa de diálogo **Segurança do Windows**, clique em **Usar outra conta**.
-8.	Em **Nome de usuário**, digite o nome da VM e o nome de usuário da conta de administrador local criada com a máquina virtual (uma conta de máquina local). Use o seguinte formato: *NomeDoComputador*\*NomeDeContaDoAdministradorLocal*
+8.	Em **Nome de usuário**, digite o nome da VM e o nome de usuário da conta de administrador local criada com a máquina virtual (uma conta de máquina local). Use o seguinte formato: *NomeDoComputador**NomeDeContaDoAdministradorLocal*
 9.	Em **Senha**, digite a senha da conta de administrador local.
 10.	Clique em **OK**.
 11.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Sim**. A área de trabalho da nova máquina é exibida em uma janela de sessão de Área de Trabalho Remota.
@@ -246,4 +246,4 @@ Para continuar a configuração dessa carga de trabalho, vá para a [Fase 3: con
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

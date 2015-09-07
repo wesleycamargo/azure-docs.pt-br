@@ -1,19 +1,19 @@
 <properties
  pageTitle="Configurar um cluster de RDMA do Linux para executar aplicativos MPI | Microsoft Azure"
- description="Aprenda a criar um cluster do Linux de VMs de tamanho A8 ou A9 para usar RDMA para executar aplicativos MPI."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="Aprenda a criar um cluster do Linux de VMs de tamanho A8 ou A9 para usar RDMA para executar aplicativos MPI."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-linux"
- ms.workload="infrastructure-services"
- ms.date="07/17/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="07/17/2015"
+	ms.author="danlep"/>
 
 # Configurar um cluster de RDMA do Linux para executar aplicativos MPI
 
@@ -137,7 +137,7 @@ Salve a chave pública em um local padrão e lembre a senha inserida.
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-No diretório \~/.ssh, edite ou crie o arquivo ssh\_config. Forneça o intervalo do endereço IP da rede privada que você usará no Azure:
+No diretório ~/.ssh, edite ou crie o arquivo ssh\_config. Forneça o intervalo do endereço IP da rede privada que você usará no Azure:
 
 ```
 host 10.32.0.*
@@ -190,7 +190,7 @@ Modifique o script a seguir com os valores apropriados para seu ambiente e execu
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" –e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -339,4 +339,4 @@ Você verá um resultado semelhante ao seguinte em um cluster em funcionamento c
 
 * Consulte a [Documentação do Intel MPI Library](https://software.intel.com/pt-br/articles/intel-mpi-library-documentation/) para obter orientação sobre o Intel MPI.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

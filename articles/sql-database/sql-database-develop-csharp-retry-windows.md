@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Exemplo de código: repetir a lógica em C# para se conectar ao Banco de Dados SQL | Microsoft Azure" 
-	description="O exemplo em C# inclui uma lógica de repetição robusta para interagir com o Banco de Dados SQL do Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	pageTitle="Exemplo de código: repetir a lógica em C# para se conectar ao Banco de Dados SQL | Microsoft Azure"
+	description="O exemplo em C# inclui uma lógica de repetição robusta para interagir com o Banco de Dados SQL do Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="genemi"/>
 
 
@@ -174,7 +174,7 @@ O método `Main` está em `Program.cs`. A pilha de chamadas é executada da segu
 	        {
 	            int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
 	            int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
-	            int secondsBetweenRetries = 4;  // Simple retry strategy.
+	            int secondsBetweenRetries = 6;  // Simple retry strategy.
 	
 	            // [A.1] Prepare the connection string to Azure SQL Database.
 	            this.scsBuilder = new C.SqlConnectionStringBuilder();
@@ -496,4 +496,4 @@ A versão curta facilita a visualização das chamadas ADO.NET, sabendo que elas
 
 - [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

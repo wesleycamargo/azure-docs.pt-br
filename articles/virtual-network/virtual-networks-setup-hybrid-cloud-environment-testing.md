@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configurar um ambiente de nuvem híbrida para teste" 
-	description="Aprenda a criar um ambiente de nuvem híbrida para testes profissionais de TI ou testes de desenvolvimento." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Ambiente de teste de nuvem híbrida | Microsoft Azure"
+	description="Aprenda a criar um ambiente de nuvem híbrida para testes profissionais de TI ou testes de desenvolvimento, completo com uma rede local simplificada."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configurar um ambiente de nuvem híbrida para teste
@@ -127,11 +127,11 @@ Primeiro, faça logon no [Portal de Gerenciamento do Azure](https://manage.windo
 	- Clique em **Adicionar Sub-rede de Gateway**.
 11.	Clique no ícone Concluído. Aguarde a rede virtual ser criada antes de continuar.
 
-Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para instalar o PowerShell do Azure no computador local.
+Em seguida, use as instruções em [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para instalar o Azure PowerShell no computador local.
 
 Em seguida, crie um novo serviço de nuvem para a rede virtual TestVNET. Você deve escolher um nome exclusivo. Por exemplo, você poderia nomeá-lo como TestVNET-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se a sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestVNET-Tailspin.
 
-Você pode testar a exclusividade do nome com o comando a seguir do PowerShell do Azure em seu computador local.
+Você pode testar a exclusividade do nome com o comando a seguir do Azure PowerShell em seu computador local.
 
 	Test-AzureName -Service <Proposed cloud service name>
 
@@ -160,7 +160,7 @@ Primeiro, crie um gateway de rede virtual.
 1.	No Portal de Gerenciamento do Azure em seu computador local, clique em **Redes** no painel esquerdo e verifique se a coluna **Status** de TestVNET está definida como **Criado**.
 2.	Clique em **TestVNET**. Na página Painel, você deve ver um status de **O Gateway não foi criado**.
 3.	Na barra de tarefas, clique em **Criar Gateway** e, em seguida, em **Roteamento Dinâmico**. Clique em **Sim** quando solicitado. Aguarde até que o gateway esteja concluído e seu status seja alterado para **Conectando**. Isso pode levar alguns minutos.
-4.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o endereço IP público do gateway VPN do Azure para a rede virtual TestVNET. Você precisa desse endereço IP para configurar o RRAS1.
+4.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o endereço IP público do gateway de VPN do Azure para a rede virtual TestVNET. Você precisa desse endereço IP para configurar o RRAS1.
 5.	Na barra de tarefas, clique em **Gerenciar Chave** e clique no ícone de cópia ao lado da chave para copiá-la para a área de transferência. Cole essa chave em um documento e salve-o. Você precisa desse valor de chave para configurar o RRAS1. 
 
 Em seguida, configure o RRAS1 com o Serviço de Roteamento e Acesso Remoto para atuar como dispositivo VPN para a sub-rede Corpnet. Faça logon no RRAS1 como administrador local e execute estes comandos no prompt de comando do Windows PowerShell.
@@ -169,7 +169,7 @@ Em seguida, configure o RRAS1 com o Serviço de Roteamento e Acesso Remoto para 
 	Install-WindowsFeature RemoteAccess -IncludeManagementTools
 	Add-WindowsFeature -name Routing -IncludeManagementTools
 
-Em seguida, configure o RRAS1 para receber a conexão VPN site a site do gateway VPN do Azure. Reinicie o RRAS1, faça logon como administrador local e execute estes comandos no prompt de comando do Windows PowerShell. Você precisa fornecer o endereço IP do gateway VPN do Azure e o valor da chave.
+Em seguida, configure o RRAS1 para receber a conexão VPN site a site do gateway de VPN do Azure. Reinicie o RRAS1, faça logon como administrador local e execute estes comandos no prompt de comando do Windows PowerShell. Você precisa fornecer o endereço IP do gateway de VPN do Azure e o valor da chave.
 
 	$PresharedKey="<Key value>"
 	Import-Module RemoteAccess
@@ -218,7 +218,7 @@ Esta é a configuração atual.
 
 ## Fase 5: configurar o DC2
 
-Primeiro, crie uma máquina virtual do Azure para o DC2 com estes comandos no prompt de comando do PowerShell do Azure em seu computador local.
+Primeiro, crie uma máquina virtual do Azure para o DC2 com estes comandos no prompt de comando do Azure PowerShell em seu computador local.
 
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -239,7 +239,7 @@ Em seguida, faça logon na nova máquina virtual DC2.
 3.	Quando solicitado a abrir DC2.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-	- Nome: **DC2\**[Nome da conta de administrador local]
+	- Nome: **DC2**[Nome da conta de administrador local]
 	- Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -306,7 +306,7 @@ Seu ambiente de nuvem híbrida agora está pronto para testes.
 
 Para minimizar os custos de executar máquinas virtuais nesse ambiente, realize seus testes e demonstração necessários o mais rápido possível e, então, exclua ou desligue as máquinas virtuais quando você não as estiver usando. Por exemplo, você poderia usar um runbook e automação do Azure para desligar automaticamente as máquinas virtuais na rede virtual Test\_VNET ao final de cada dia útil. Para saber mais, confira [Introdução à automação do Azure](../automation-create-runbook-from-samples.md).
 
-O gateway VPN do Azure é implementado como um conjunto de duas máquinas virtuais do Azure, o que gera um custo monetário contínuo. Para obter detalhes, confira [Preços - Rede Virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar os custos do gateway VPN, crie o ambiente de teste e realize seus testes e demonstração necessários o mais rápido possível ou exclua o gateway com estas etapas.
+O gateway de VPN do Azure é implementado como um conjunto de duas máquinas virtuais do Azure, o que gera um custo monetário contínuo. Para obter detalhes, confira [Preços - Rede Virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar os custos do gateway de VPN, crie o ambiente de teste e realize seus testes e demonstração necessários o mais rápido possível ou exclua o gateway com estas etapas.
 
 1.	No Portal de Gerenciamento do Azure em seu computador local, clique em **Redes** no painel esquerdo, clique em **TestVNET** e, em seguida, clique em **Painel**.
 2.	Na barra de tarefas, clique em **Excluir Gateway**. Clique em **Sim** quando solicitado. Aguarde até que o gateway seja excluído e seu status seja alterado para **O Gateway Não Foi Criado**.
@@ -315,7 +315,7 @@ Se excluir o gateway e quiser restaurar esse ambiente de teste, você deverá pr
 
 1.	No Portal de Gerenciamento do Azure em seu computador local, clique em **Redes** no painel esquerdo e, em seguida, clique em **TestVNET**. Na página Painel, você deve ver um status de **O gateway não foi criado**.
 2.	Na barra de tarefas, clique em **Criar Gateway** e, em seguida, em **Roteamento Dinâmico**. Clique em **Sim** quando solicitado. Aguarde até que o gateway esteja concluído e seu status seja alterado para **Conectando**. Isso pode levar alguns minutos.
-3.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o novo endereço IP público do gateway VPN do Azure para a rede virtual TestVNET. Você precisa desse endereço IP para reconfigurar o RRAS1.
+3.	Na página Painel, observe o **Endereço IP do Gateway**. Esse é o novo endereço IP público do gateway de VPN do Azure para a rede virtual TestVNET. Você precisa desse endereço IP para reconfigurar o RRAS1.
 4.	Na barra de tarefas, clique em **Gerenciar Chave** e clique no ícone de cópia ao lado da chave para copiá-la para a área de transferência. Cole esse valor de chave em um documento e salve-o. Você precisa desse valor de chave para reconfigurar o RRAS1. 
 
 Em seguida, faça logon no RRAS1 como administrador local e execute estes comandos em um prompt de comando com nível de administrador do Windows PowerShell para reconfigurar o RRAS1 com o novo endereço IP público e a chave pré-compartilhada.
@@ -326,4 +326,4 @@ Em seguida, faça logon no RRAS1 como administrador local e execute estes comand
 Em seguida, vá para o Portal de Gerenciamento do Azure em seu computador local e aguarde até que a rede virtual TestVNET mostre um status de Conectado.
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Conector de arquivo"
-	description="Introdução ao Conector de Arquivo"
+	pageTitle="Usando o Conector de Arquivo em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o Conector de Arquivo ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Usando o conector de Arquivo em seu aplicativo lógico #
+# Introdução ao Conector de Arquivo e à adição dele ao seu Aplicativo Lógico
+Conecte-se a um sistema de arquivos para carregar, baixar e realizar outras operações com seus arquivos em um computador host. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados. Você pode adicionar o conector de Arquivo a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
-Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
-
-O conector de Arquivo permite que você carregue\\baixe\\exclua arquivos do sistema de arquivos em um computador host. Ele usa o Gerenciador de Conexões Híbridas para conectividade híbrida para o computador host.
+O Conector de Arquivo usa o Gerenciador de Conexões Híbridas para conectividade híbrida com o sistema de arquivos do host.
 
 ## Criando um conector de Arquivo para seu aplicativo lógico ##
 Para usar o conector de Arquivo, primeiro você precisa criar uma instância do aplicativo de API do Conector de Arquivo. Isso pode ser feito da seguinte maneira:
@@ -84,4 +83,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [Definição da API do Conector de Arquivo]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso do Gerenciador de Conexão Híbrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

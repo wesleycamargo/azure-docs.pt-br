@@ -1,18 +1,19 @@
 <properties      
-    pageTitle="Particionando dados no Banco de Dados de Documentos | Microsoft Azure"      
-    description="Saiba como particionar dados no Banco de Dados de Documentos e quando usar particionamento hash, por intervalos e por pesquisa."          
-    services="documentdb"      
-    authors="arramac"      
-    manager="jhubbard"      
-    editor="monicar"      
-    documentationCenter=""/> <tags      
-    ms.service="documentdb"      
-    ms.workload="data-services"      
-    ms.tgt_pltfrm="na"      
-    ms.devlang="na"      
-    ms.topic="article"      
-    ms.date="05/28/2015"      
-    ms.author="arramac"/>
+    pageTitle="Particionando dados no Banco de Dados de Documentos | Microsoft Azure"
+	description="Saiba como particionar dados no Banco de Dados de Documentos e quando usar particionamento hash, por intervalos e por pesquisa."
+	services="documentdb"
+	authors="arramac"
+	manager="jhubbard"
+	editor="monicar"
+	documentationCenter=""/>
+<tags       
+    ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/28/2015"
+	ms.author="arramac"/>
 
 # Particionando dados no Banco de Dados de Documentos
 
@@ -91,7 +92,7 @@ Se não, você pode armazená-lo em qualquer armazenamento persistente. Um padr�
 
 ## Adicionando e removendo partições
 
-Com o Banco de Dados de Documentos, você pode adicionar e remover as coleções criadas a qualquer momento e usá-las para armazenar novos dados ou balancear novamente dados disponíveis em coleções existentes. Veja na página [Limites](documentdb-limits.md) o número de coleções. E você sempre pode nos contatar para aumentar os limites.
+Com o Banco de Dados de Documentos, você pode adicionar e remover as coleções a qualquer momento e usá-las para armazenar novos dados ou balancear novamente dados disponíveis em coleções existentes. Veja na página [Limites](documentdb-limits.md) o número de coleções. E você sempre pode nos contatar para aumentar os limites.
 
 Adicionar e remover uma nova partição usando particionamento por intervalos ou pesquisa é simples. Por exemplo, para adicionar uma nova região ou um novo intervalo de tempo para dados recentes, você precisa apenas acrescentar as novas partições ao mapa existente. Dividir uma partição existente em várias partições ou mesclar duas partições demanda um pouco mais de esforço. Você precisa
 
@@ -113,4 +114,4 @@ Neste artigo, apresentamos algumas técnicas comuns para particionar dados com o
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

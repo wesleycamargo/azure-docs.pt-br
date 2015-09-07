@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Carga de trabalho de aplicativo de linha de negócios fase 1: configurar o Azure" 
-	description="A primeira fase da implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você criará a rede virtual e outros elementos de infraestrutura do Azure." 
+	pageTitle="Aplicativo de linha de negócios Fase 1 | Microsoft Azure"
+	description="Crie a rede virtual e outros elementos de infraestrutura do Azure na fase 1 do aplicativo de linha de negócios no Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 1: configurar o Azure
@@ -60,7 +60,7 @@ Item | Nome da sub-rede | Espaço de endereço da sub-rede | Finalidade
 
 **Tabela S: Sub-redes na rede virtual**
 
-> [AZURE.NOTE]Essa arquitetura predefinida usa uma única sub-rede para manter a simplicidade. Se você quiser sobrepor um conjunto de filtros de tráfego para emular o isolamento da sub-rede, use os [Grupos de Segurança de Rede do Azure](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+> [AZURE.NOTE]Essa arquitetura predefinida usa uma única sub-rede para manter a simplicidade. Se você quiser sobrepor um conjunto de filtros de tráfego para emular o isolamento da sub-rede, use os [Grupos de Segurança de Rede do Azure](virtual-networks-nsg.md).
 
 Para os dois servidores DNS locais que você deseja usar ao configurar os controladores de domínio em sua rede virtual inicialmente, preencha a Tabela D. Dê a cada servidor DNS um nome amigável e um só endereço IP. Esse nome amigável não precisa coincidir com o nome do host ou o nome do computador do servidor DNS. Observe que duas entradas em branco são listadas, mas é possível adicionar outras. Trabalhe com o departamento de TI para determinar essa lista.
 
@@ -248,4 +248,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 2: Conf
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

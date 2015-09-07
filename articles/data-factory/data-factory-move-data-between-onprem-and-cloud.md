@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mover dados entre o local e a nuvem usando a Azure Data Factory" 
-	description="Saiba mais sobre como mover dados entre locais e a nuvem usando o Gateway de Gerenciamento de Dados e a Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Mover dados entre o local e a nuvem usando a Azure Data Factory"
+	description="Saiba mais sobre como mover dados entre locais e a nuvem usando o Gateway de Gerenciamento de Dados e a Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="spelluru"/>
 
 # Mover dados entre fontes locais e nuvem com o Gateway de Gerenciamento de Dados
@@ -193,18 +193,7 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 5. Clique em **OK** na folha **Novo armazenamento de dados**. 	
 6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
-Se você acessar o portal de um computador diferente do computador do gateway, você deve garantir que o aplicativo Gerenciador de credenciais possa se conectar ao computador do gateway. Se o aplicativo não puder acessar o computador do gateway, ele não permitirá que você defina credenciais da fonte de dados teste a conexão à fonte de dados.
-
-##### Configurando credenciais e segurança
-Quando você usa o método descrito acima com o aplicativo "Configurando Credenciais" iniciado pelo do Portal do Azure para configurar credenciais para uma fonte de dados local, o portal criptografa as credenciais com o certificado especificado na guia Certificado do Gerenciador de Configuração de Gateway de Gerenciamento de Dados no computador do gateway.
-
-Se você estiver procurando uma abordagem baseada em API para criptografar as credenciais, pode usar o cmdlet do PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) para criptografar as credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você pode as credenciais criptografadas retornadas por esse cmdlet e adicioná-las ao elemento EncryptedCredential de connectionString no arquivo JSON que será usado com o cmdlet [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) ou no trecho de código JSON no editor da Data Factory no portal.
-
-	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**Observação:** se você usar o aplicativo "Configurando Credenciais", ele configura automaticamente as credenciais criptografadas no serviço vinculado conforme mostrado acima.
-
-Há mais uma abordagem para configurar credenciais usando o editor da Data Factory. Se você criar um serviço vinculado SQL Server usando o editor e inserir credenciais em texto sem formatação, as credenciais são criptografadas usando um certificado que é de propriedade do serviço Data Factory, NÃO o certificado que o gateway está configurado para usar. Embora essa abordagem possa ser um pouco mais rápida em alguns casos, ela é menos segura. Portanto, é recomendável que você siga essa abordagem somente para fins de desenvolvimento/teste.
+Consulte a seção [Definir credenciais e segurança](#setting-credentials-and-security) para obter mais detalhes sobre definição de credenciais.
 
 #### Adicionar um serviço vinculado para uma conta de armazenamento do Azure
  
@@ -225,7 +214,7 @@ Nesta etapa, você criará conjuntos de dados de entrada e saída que representa
 
 ### Preparar o SQL Server local para o tutorial
 
-1. No banco de dados especificado para o serviço vinculado do SQL Server local (**￼SqlServerLinkedService**), use o seguinte script SQL para criar a tabela **emp** no banco de dados.
+1. No banco de dados especificado para o serviço vinculado do SQL Server local (**SqlServerLinkedService**), use o seguinte script SQL para criar a tabela **emp** no banco de dados.
 
 
         CREATE TABLE dbo.emp
@@ -320,7 +309,7 @@ Nesta etapa, você criará conjuntos de dados de entrada e saída que representa
 	- **folderPath** é definido como **adftutorial/outfromonpremdf**, em que outfromonpremdf é a pasta no contêiner adftutorial. Você precisa apenas criar o contêiner **adftutorial**.
 	- A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1**). O serviço Data Factory gerará uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure. 
 
-	Se você não especificar um **fileName** para uma **tabela de entrada**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos de exemplo no [tutorial][adf-tutorial] para ver exemplos.
+	Se você não especificar um **fileName** para uma **tabela de entradas**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos de exemplo no [tutorial][adf-tutorial] para ver exemplos.
  
 	Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
@@ -398,14 +387,14 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 
 	Observe o seguinte:
  
-	- Na seção activities, há somente a atividade cujo **type** é definido como **Copy**.
+	- Na seção atividades, há somente a atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
-	- Na seção **transformação**, **SqlSource** é especificado como o **tipo de fonte** e **BlobSink ** é especificado como o **tipo de coletor**.
+	- Na seção **transformação**, **SqlSource** é especificado como o **tipo de fonte** e **BlobSink **é especificado como o **tipo de coletor**.
 - A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
 	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
-	Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
+	Se você não especificar o valor para a propriedade **término**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
 	
 	Especificando o período ativo de um pipeline, você está definindo a duração de tempo em que as fatias de dados serão processadas com base nas propriedades de **Disponibilidade** que foram definidas para cada tabelo da Azure Data Factory.
 	
@@ -476,6 +465,20 @@ Nesta etapa, você utilizará o Portal do Azure para monitorar o que está acont
 	![Gerenciador de Armazenamento do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 
+## Configurando credenciais e segurança
+Se você acessar o portal de um computador diferente do computador do gateway, você deve garantir que o aplicativo Gerenciador de credenciais possa se conectar ao computador do gateway. Se o aplicativo não puder acessar o computador do gateway, ele não permitirá que você defina credenciais da fonte de dados teste a conexão à fonte de dados.
+
+Quando você usa o aplicativo "Configurando Credenciais" iniciado pelo do Portal do Azure para configurar credenciais para uma fonte de dados local, o portal criptografa as credenciais com o certificado especificado na guia Certificado do Gerenciador de Configuração de Gateway de Gerenciamento de Dados no computador do gateway.
+
+Se você estiver procurando uma abordagem baseada em API para criptografar as credenciais, pode usar o cmdlet do PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) para criptografar as credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você pode as credenciais criptografadas retornadas por esse cmdlet e adicioná-las ao elemento EncryptedCredential de connectionString no arquivo JSON que será usado com o cmdlet [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) ou no trecho de código JSON no editor da Data Factory no portal.
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
+**Observação:** se você usar o aplicativo "Configurando Credenciais", ele configura automaticamente as credenciais criptografadas no serviço vinculado conforme mostrado acima.
+
+Há mais uma abordagem para definir as credenciais usando o Editor Data Factory. Se você criar um serviço vinculado SQL Server usando o editor e inserir credenciais em texto sem formatação, as credenciais são criptografadas usando um certificado que é de propriedade do serviço Data Factory, NÃO o certificado que o gateway está configurado para usar. Embora essa abordagem possa ser um pouco mais rápida em alguns casos, ela é menos segura. Portanto, é recomendável que você siga essa abordagem somente para fins de desenvolvimento/teste.
+
+
 ## Criando e registrando um gateway usando o PowerShell do Azure 
 Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerShell do Azure.
 
@@ -517,7 +520,7 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. No Azure PowerShell, alterne para a pasta **C:\\Arquivos de Programas\\Gateway de Gerenciamento de Dados da Microsoft\\1.0\\PowerShellScript** e execute o script **RegisterGateway.ps1** associado à variável local **$Key** conforme mostrado no seguinte comando para registrar o agente cliente instalado no computador com o gateway lógico criado anteriormente.
+4. No Azure PowerShell, alterne para a pasta **C:\\Arquivos de Programas\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\** e execute o script **RegisterGateway.ps1** associado à variável local **$Key** conforme mostrado no seguinte comando para registrar o agente cliente instalado no computador com o gateway lógico criado anteriormente.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -552,8 +555,8 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	Se estiver usando o aplicativo **Configurando Credenciais**, você deve iniciá-lo em um computador que pode se conectar ao Gateway de Gerenciamento de Dados para poder configurar credenciais para a fonte de dados e para testar a conexão com a fonte de dados.
 4.	Ao copiar dados de/para um banco de dados do SQL Server local de um banco de dados SQL do Azure, certifique-se do seguinte:	
-	- 	O firewall no computador do gateway permite a comunicação TCP de saída na porta **TCP** **1433**.
-	- 	Defina as [configurações do firewall do SQL do Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) para adicionar o **endereço IP do computador do gateway** aos **endereços IP permitidos**.
+	- 	Que o firewall no computador do gateway permite a comunicação TCP de saída na porta **TCP** **1433**
+	- 	Defina as [Configurações de firewall do Azure SQL](https://msdn.microsoft.com/library/azure/jj553530.aspx) para adicionar o **endereço IP do computador do gateway** aos **endereços IP permitidos**.
 5.	Ao copiar dados para/de um SQL Server local para qualquer destino quando os computadores do gateway e do SQL Server forem diferentes, faça o seguinte: [configure o Firewall do Windows](https://msdn.microsoft.com/library/ms175043.aspx) no computador do SQL Server para que o gateway possa acessar o banco de dados por meio de portas que a instância do SQL Server escuta. Para a instância padrão, é a porta 1433.
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO9-->

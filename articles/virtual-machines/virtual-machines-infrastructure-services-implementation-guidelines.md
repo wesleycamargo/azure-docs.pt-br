@@ -25,7 +25,7 @@ Esta diretriz identifica muitas áreas para as quais o planejamento é essencial
 
 Este artigo foi adaptado do conteúdo na postagem de blog [Diretrizes de implementação do Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Obrigado Santiago Cánepa (gerente de desenvolvimento de aplicativos da Microsoft,) e Hugo Salcedo (gerente de desenvolvimento de aplicativos da Microsoft) pelo material original.
 
-> [AZURE.NOTE]Grupos de afinidade foram preteridos. Seu uso não é descrito aqui. Para saber mais, confira [Sobre VNets regionais e grupos de afinidade](https://msdn.microsoft.com/library/azure/jj156085.aspx).
+> [AZURE.NOTE]Grupos de afinidade foram preteridos. Seu uso não é descrito aqui. Para saber mais, consulte [Sobre Redes Virtuais regionais e grupos de afinidade](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Convenções de nomenclatura
 
@@ -440,4 +440,4 @@ Essa configuração inclui:
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

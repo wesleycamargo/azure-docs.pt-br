@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Conectar seus diretórios com o Azure AD Connect" 
-	description="Descrição de configurações personalizadas de diretórios conectados do Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Conectar seus diretórios com o Azure AD Connect"
+	description="Descrição de configurações personalizadas de diretórios conectados do Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -43,7 +43,7 @@ Logon único e AD FS| Permissões de administrador de domínio no domínio em qu
 * [Permissões para Exchange híbrido](https://msdn.microsoft.com/library/azure/dn757602.aspx#exchange)
 * [Permissões para write-back de senha](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [Azure AD Connect no MSDN](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->
