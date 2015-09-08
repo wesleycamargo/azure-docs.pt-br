@@ -72,14 +72,15 @@ Agora você pode configurar o conector de SMTP para usar em seu fluxo de trabalh
 
 	Propriedade | Descrição
 	--- | ---
-	To | Insira o endereço de email do(s) destinatário(s). Separe vários endereços de email com um ponto e vírgula (;). Por exemplo, insira: *recipient1@domain.com;recipient2@domain.com*.
+	Para | Insira o endereço de email do(s) destinatário(s). Separe vários endereços de email com um ponto e vírgula (;). Por exemplo, insira: *recipient1@domain.com;recipient2@domain.com*.
 	Cc | Insira o endereço de email do(s) destinatário(s) de cópia carbono.  Separe vários endereços de email com um ponto e vírgula (;). Por exemplo, insira: *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Insira o assunto do email.
-	Body | Insira o corpo do email.
+	Assunto | Insira o assunto do email.
+	Corpo | Insira o corpo do email.
 	Is HTML | Quando essa propriedade está definida como true, o conteúdo do corpo é enviado como HTML.
 	Bcc | Insira o endereço de email do(s) destinatário(s) de cópia oculta. Separe vários endereços de email com um ponto e vírgula (;). Por exemplo, insira: *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Insira a Prioridade do email. As opções são Normal, Baixa e Alta.
-	Attachments | Os anexos a serem enviados com o email. A propriedade contém os seguintes campos: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	Prioridade | Insira a Prioridade do email. As opções são Normal, Baixa e Alta.
+	Anexos | Os anexos a serem enviados com o email. A propriedade contém os seguintes campos: <ul><li>Conteúdo (String)</li><li>Codificação de transferência de conteúdo (Enum) (“none”|”base64”)</li><li> Tipo de Conteúdo (String)</li><li>ID de Conteúdo (String)</li><li>Nome do Arquivo (String)</li></ul>
+
 
 	![][5]
 	![][6]

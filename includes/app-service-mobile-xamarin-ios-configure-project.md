@@ -2,7 +2,7 @@
 
 1. No Xamarin.Studio, abra **Info.plist** e atualize o **Identificador de Pacote** com a ID criada anteriormente.
 
-    ![][121]
+    ![][88]
 
 2. Role para baixo até **Modos de Tela de Fundo** e marque a caixa **Habilitar Modos de Plano de Fundo** e a caixa **Notificações remotas**.
 
@@ -31,7 +31,7 @@
     Isso garantirá que o projeto use o novo perfil para a assinatura de código. Para obter a documentação oficial de provisionamento do dispositivo Xamarin, consulte [Provisionamento do dispositivo Xamarin].
 
 [120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
-[121]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
+[88]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
 [122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
 [123]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
 [124]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
