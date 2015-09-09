@@ -82,8 +82,8 @@ Agora você pode configurar o conector de SMTP para usar em seu fluxo de trabalh
 	Anexos | Os anexos a serem enviados com o email. A propriedade contém os seguintes campos: <ul><li>Conteúdo (String)</li><li>Codificação de transferência de conteúdo (Enum) (“none”|”base64”)</li><li> Tipo de Conteúdo (String)</li><li>ID de Conteúdo (String)</li><li>Nome do Arquivo (String)</li></ul>
 
 
-	![][5]
-	![][6]
+![][5]
+![][6]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
@@ -100,4 +100,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->

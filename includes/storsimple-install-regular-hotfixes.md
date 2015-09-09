@@ -11,11 +11,11 @@
 
        >[AZURE.IMPORTANT]
        >
-       >-Este comando se aplica somente a hotfixes normais. Você executa esse comando em apenas um controlador, mas ambos os controladores são atualizados.
+       >- Este comando se aplica somente a hotfixes normais. Você executa esse comando em apenas um controlador, mas ambos os controladores são atualizados.
        >- Você pode notar um failover do controlador durante o processo de atualização. Porém, o failover não afetará a disponibilidade nem a operação do sistema.
 
 4. Quando solicitado, forneça o caminho para a pasta compartilhada que contém os arquivos de hotfix.
 
 5. Será solicitada a sua confirmação. Digite **Y** para prosseguir com a instalação do hotfix.
 
-<!---HONumber=August15_HO8-->
+<!-----HONumber=August15_HO8-->

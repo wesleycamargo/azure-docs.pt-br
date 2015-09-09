@@ -154,4 +154,4 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você d
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!----HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

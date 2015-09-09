@@ -238,7 +238,8 @@ Para se conectar ao Windows PowerShell para StorSimple, você precisa usar um so
 
 ## Verificar e aplicar atualizações
 
-Atualizar seu dispositivo pode demorar várias horas. Execute as etapas a seguir para verificar e aplicar atualizações em seu dispositivo. <!-- > can take 1-4 hours-->
+Atualizar seu dispositivo pode demorar várias horas. Execute as etapas a seguir para verificar e aplicar atualizações em seu dispositivo.
+<!-- > can take 1-4 hours-->
 
 <!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -286,4 +287,4 @@ Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 Use o [Serviço StorSimple Manager](storsimple-manager-service-administration.md) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->

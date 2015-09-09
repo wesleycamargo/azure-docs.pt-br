@@ -76,7 +76,7 @@ Para as informações mais atualizadas sobre as imagens do SQL Server com suport
 	- Na caixa **Serviço de Nuvem**, selecione **Criar um novo serviço de nuvem**.
 	- Na caixa **Nome DNS do Serviço de Nuvem**, forneça a primeira parte de um nome DNS de sua escolha, para que ele complete um nome no formato **TESTNAME.cloudapp.net** 
 	- Selecione uma **ASSINATURA**, se você tiver várias assinaturas para escolher. A escolha determina quais **contas de armazenamento** estão disponíveis.
-- Na caixa **Região/Grupo de Afinidade/Rede Virtual**, selecione uma região onde essa imagem virtual será hospedada.
+	- Na caixa **Região/Grupo de Afinidade/Rede Virtual**, selecione uma região onde essa imagem virtual será hospedada.
 	- Na **conta de armazenamento**, gere automaticamente uma conta, ou selecione uma na lista. Altere a **ASSINATURA** para ver mais contas. 
 	- Na caixa **CONJUNTO DE DISPONIBILIDADE**, selecione **(nenhum)**.
 	- Leia e aceite o termos legais.
@@ -156,4 +156,4 @@ A lista a seguir fornece recursos adicionais para o SQL Server em máquinas virt
 
 - [Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->
