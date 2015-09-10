@@ -43,11 +43,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-servicenow-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
-6.  Na caixa **pesquisar**, digite ** ServiceNow**.
+6.  Na caixa **pesquisar**, digite **ServiceNow**.
 
     ![Galeria de aplicativos](./media/active-directory-saas-servicenow-tutorial/IC701016.png "Galeria de aplicativos")
 
-7.  No painel de resultados, selecione ** ServiceNow** e clique em **Concluir** para adicionar o aplicativo.
+7.  No painel de resultados, selecione **ServiceNow** e clique em **Concluir** para adicionar o aplicativo.
 
     ![ServiceNow](./media/active-directory-saas-servicenow-tutorial/IC701017.png "ServiceNow")
 ##Configurando o logon único
@@ -99,7 +99,7 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
   
 
-7. Na seção **Propriedades do Provedor de Serviço (Service-Now) **, execute as seguintes etapas:
+7. Na seção **Propriedades do Provedor de Serviço (Service-Now)**, execute as seguintes etapas:
 
      7.1. Na caixa de texto **A URL para a home page de instância do Service-now**, digite a URL para a home page de instância do ServiceNow. A URL da página inicial da instância do ServiceNow é uma concatenação do seu **URL de locatário do ServiceNow** e **/navpage.do**: **https://<InstanceName>.service-now.com/navpage.do** <br><br>   ![Home page de instância do Service-now](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Home page de instância do Service-now")
 
@@ -114,7 +114,7 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
      7.6 Deixe desmarcada **Criar uma solicitação de AuthnContextClass na instrução AuthnRequest**.
 
-     7.7 Na caixa de texto **O método AuthnContextClassRef que será incluído em nosso SAML 2.0 AuthnRequest para o Provedor de Identidade**, digite ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+     7.7 Na caixa de texto **O método AuthnContextClassRef que será incluído em nosso SAML 2.0 AuthnRequest para o Provedor de Identidade**, digite **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
 
 
 
@@ -176,7 +176,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
      2.5. Clique no botão **Avançar** para abrir a página **Próximas etapas**.
 
-     2.6. Se você deseja provisionar esse aplicativo a todos os usuários, selecione “** Provisionar automaticamente todas as contas de usuário no diretório para este aplicativo**”. <br><br> ![Próximas etapas](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Próximas etapas")
+     2.6. Se você deseja provisionar esse aplicativo a todos os usuários, selecione “**Provisionar automaticamente todas as contas de usuário no diretório para este aplicativo**”. <br><br> ![Próximas etapas](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Próximas etapas")
 
      2.7. Na página **Próximas etapas**, clique em **Concluir** para salvar sua configuração.
 
@@ -198,7 +198,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 1.  No portal do AD do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **ServiceNow **, clique **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **ServiceNow**, clique **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-servicenow-tutorial/IC769499.png "Atribuir usuários")
 
@@ -214,4 +214,4 @@ Se você quiser testar suas configurações de logon único, abra o Painel de Ac
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!----HONumber=August15_HO8-->
+<!-----HONumber=August15_HO8-->
