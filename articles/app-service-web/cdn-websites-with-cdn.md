@@ -170,20 +170,20 @@ Siga as etapas acima para configurar esta ação do controlador:
 1. Na pasta *\Controllers*, crie um novo arquivo .cs chamado *MemeGeneratorController.cs* e substitua o conteúdo pelo código a seguir. Substitua o caminho do arquivo por `~/Content/chuck.bmp` e o nome da CDN por `yourCDNName`.
 
 
-	using System;
-	using System.Collections.Generic;
-	using System.Diagnostics;
-	using System.Drawing;
-	using System.IO;
-	using System.Net;
-	using System.Web.Hosting;
-	using System.Web.Mvc;
-	using System.Web.UI;
+		using System;
+		using System.Collections.Generic;
+		using System.Diagnostics;
+		using System.Drawing;
+		using System.IO;
+		using System.Net;
+		using System.Web.Hosting;
+		using System.Web.Mvc;
+		using System.Web.UI;
 	
-	namespace cdnwebapp.Controllers
-	{
-	    public class MemeGeneratorController : Controller
-	    {
+		namespace cdnwebapp.Controllers
+		{
+		    public class MemeGeneratorController : Controller
+		    {
 	        static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
 
 	        public ActionResult Index()
@@ -264,7 +264,7 @@ Siga as etapas acima para configurar esta ação do controlador:
 	            }
 	        }
 	    }
-	}
+		}
 
 2. Clique com o botão direito na ação `Index()` padrão e selecione **Adicionar Exibição**.
 
@@ -508,8 +508,27 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 4. Republique seu aplicativo Web do Azure e acesse a página inicial.
 5. Exiba o código HTML da página. Você deve encontrar scripts injetados semelhantes ao seguinte:    
 	
-	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
+	```
+	...
+	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() {
+                var loadFallback,
+                    len = document.styleSheets.length;
+                for (var i = 0; i < len; i++) {
+                    var sheet = document.styleSheets[i];
+                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+                        var meta = document.createElement('meta');
+                        meta.className = 'sr-only';
+                        document.head.appendChild(meta);
+                        var value = window.getComputedStyle(meta).getPropertyValue('width');
+                        document.head.removeChild(meta);
+                        if (value !== '1px') {
+                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
+                        }
+                    }
+                }
+                return true;
+            }())||document.write('<script src="/Content/css"><\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -544,6 +563,6 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
 
-<!---HONumber=August15_HO9-->
+
+<!----HONumber=August15_HO9-->

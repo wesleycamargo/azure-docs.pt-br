@@ -38,7 +38,8 @@ Para obter informações sobre preços, consulte a [Página New Relic no Azure M
 
 Azure clientes recebem uma assinatura de avaliação de 2 semanas do nova Relíquia Pro ao implantar o agente Relíquia de novo.
 
-Inscrever-se para o New Relic usando o Azure Marketplace --
+Inscrever-se para o New Relic usando o Azure Marketplace
+--
 
 O New Relic integra-se perfeitamente com as funções Web, as funções de trabalho e o Serviço de Aplicativo do Azure.
 
@@ -179,4 +180,4 @@ Confira estes recursos adicionais para obter mais informações:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->

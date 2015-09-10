@@ -71,7 +71,9 @@ O nome e a chave do emissor do Barramento de Serviço são usados pelos Serviço
 2. No painel de navegação esquerdo, selecione **Barramento de Serviço**.
 3. Selecione seu namespace. Na barra de tarefas, selecione **Informações da Conexão**. Isso exibe o **Emissor padrão** (Nome do Emissor) e a **Chave Padrão** (Chave do Emissor). Os valores podem ser copiados.  
 
-Resumindo: Nome do Emissor = Emissor Padrão Chave do Emissor = Chave Padrão
+Resumindo: 
+Nome do Emissor = Emissor Padrão 
+Chave do Emissor = Chave Padrão
 
 ## Avançar
 Tópicos adicionais sobre Serviços BizTalk do Azure:
@@ -92,4 +94,4 @@ Tópicos adicionais sobre Serviços BizTalk do Azure:
 - [Serviços BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
