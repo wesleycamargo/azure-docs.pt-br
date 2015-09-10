@@ -34,56 +34,70 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+O aplicativo completo também é fornecido no final deste tutorial.
 
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. Registrar um Aplicativo
+Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Não se esqueça de:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
+- Anotar a **Id do aplicativo** atribuída ao aplicativo; você precisará dela em breve.
+- Adicione a plataforma **Móvel** de seu aplicativo.
+- Copie o **URI de Redirecionamento** do portal. Use um valor padrão de `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2: Download node.js for your platform
-To successfully use this sample, you must have a working installation of Node.js.
+## 2: Baixar node.js para sua plataforma
+Para usar este exemplo com êxito, você deve ter uma instalação do Node.js em funcionamento.
 
 Install Node.js from [http://nodejs.org](http://nodejs.org).
 
-## 3: Install MongoDB on to your platform
+## 3: Instalar o MongoDB em sua plataforma
 
-To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistant across server instances.
+Para usar este exemplo com êxito, você deve ter uma instalação do MongoDB funcionando corretamente. Nós usaremos o MongoDB para tornar nossa API REST persistente entre instâncias de servidor.
 
 Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
+> [AZURE.NOTE] Este passo a passo presume que você usa os pontos de extremidade de servidor e de instalação padrão para MongoDB, que, no momento da redação deste artigo, é: mongodb://localhost
 
-## 4: Install the Restify modules in to your Web API
+## 4: Instalar os módulos Restify em sua API da Web
 
-We will be using Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.
+Usaremos Resitfy para criar nossa API REST. O Restify é uma estrutura de aplicativo do Node.js mínima e flexível, derivada do Express, que tem um conjunto robusto de recursos para a criação de APIs REST no Connect.
 
-### Install Restify
+### Instalar Restify
 
-From the command-line, change directories to the azuread directory. If the **azuread** directory does not exist, create it.
+Na linha de comando, altere os diretórios para o diretório azuread. Se o diretório **azuread** não existir, crie-o.
 
 `cd azuread` - or- `mkdir azuread;`
 
-Type the following command:
+Digite o seguinte comando:
 
 `npm install restify`
 
-This command installs Restify.
+Este comando instala o Restify.
 
-#### Did you get an error?
+#### VOCÊ OBTEVE UM ERRO?
 
-When using npm on some operating systems, you may receive an error of Error: EPERM, chmod '/usr/local/bin/..' and a request to try running the account as an administrator. If this occurs, use the sudo command to run npm at a higher privilege level.
+Ao usar npm em alguns sistemas operacionais, você poderá receber uma mensagem de Erro: EPERM, chmod '/usr/local/bin/...' e uma solicitação para tentar executar a conta como administrador. Se isso ocorrer, use o comando sudo para executar o npm com um nível de privilégio mais elevado.
 
-#### Did you get an error regarding DTrace?
+#### VOCÊ OBTEVE UM ERRO COM RELAÇÃO AO DTRACE?
 
-You may see something like this when installing Restify:
+Você pode ver algo assim ao instalar Restify:
 
 ```Shell
-clang: erro: arquivo ou diretório inexistente: 'HD/azuread/node\_modules/restify/node\_modules/dtrace-provider/libusdt' make: *** [Release/DTraceProviderBindings.node] Error 1 gyp ERR! build error gyp ERR! stack Error: `make` failed with exit code: 2 gyp ERR! stack at ChildProcess.onExit (/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/lib/build.js:267:23) gyp ERR! stack at ChildProcess.EventEmitter.emit (events.js:98:17) gyp ERR! stack at Process.ChildProcess.\_handle.onexit (child\_process.js:789:12) gyp ERR! System Darwin 13.1.0 gyp ERR! command "node" "/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/bin/node-gyp.js" "rebuild" gyp ERR! cwd /Volumes/Development HD/azuread/node\_modules/restify/node\_modules/dtrace-provider gyp ERR! node -v v0.10.11 gyp ERR! node-gyp -v v0.10.0 gyp ERR! not ok npm WARN optional dep failed, continuing dtrace-provider@0.2.8 ```
+clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
+make: *** [Release/DTraceProviderBindings.node] Error 1
+gyp ERR! build error
+gyp ERR! stack Error: `make` failed with exit code: 2
+gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:267:23)
+gyp ERR! stack     at ChildProcess.EventEmitter.emit (events.js:98:17)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (child_process.js:789:12)
+gyp ERR! System Darwin 13.1.0
+gyp ERR! command "node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp ERR! cwd /Volumes/Development HD/azuread/node_modules/restify/node_modules/dtrace-provider
+gyp ERR! node -v v0.10.11
+gyp ERR! node-gyp -v v0.10.0
+gyp ERR! not ok
+npm WARN optional dep failed, continuing dtrace-provider@0.2.8
+```
 
 
 O Restify fornece um mecanismo eficiente para rastrear chamadas REST usando o DTrace. No entanto, muitos sistemas operacionais não têm o DTrace disponível. Você pode ignorar com segurança esses erros.
