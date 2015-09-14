@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Move data to and from Azure Table | Azure Data Factory"
-	description="Learn how to move data to/from Azure Table Storage using Azure Data Factory."
+	pageTitle="Mover dados para e da Tabela do Azure | Azure Data Factory" 
+	description="Saiba como mover dados para/do Armazenamento de Tabela do Azure usando o Azure Data Factory" 
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,22 +16,22 @@
 	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Move data to and from Azure Table using Azure Data Factory
+# Mover dados para e da Tabela do Azure | Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Table from another data store and move data from another data store to Azure Table. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+Este artigo descreve como você pode usar a Atividade de Cópia em uma Azure Data Factory para mover dados para a Tabela do Azure de outro armazenamento de dados e mover dados de outro armazenamento de dados para a Tabela do Azure. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
-## Sample: Copy data from Azure Table to Azure Blob
+## Exemplo: Copiar dados da Tabela do Azure para o Blob do Azure
 
-The sample below shows:
+O exemplo a seguir mostra:
 
-1.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (used for both table & blob).
-2.	An input [dataset](data-factory-create-datasets.md) of type [AzureTable](#azure-table-dataset-type-properties).
-3.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
-3.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [AzureTableSource](#azure-table-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+1.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usado para a tabela e o blob).
+2.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureTable](#azure-table-dataset-type-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+3.	O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [AzureTableSource](#azure-table-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
-The sample copies data belonging to the default partition in an Azure Table to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
+O exemplo copia dados pertencentes à partição padrão em uma tabela do Azure para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-**Azure storage linked service:**
+**Serviço vinculado de armazenamento do Azure:**
 
 	{
 	  "name": "StorageLinkedService",
@@ -43,11 +43,11 @@ The sample copies data belonging to the default partition in an Azure Table to a
 	  }
 	}
 
-**Azure Table input dataset:**
+**Conjunto de dados de entrada da Tabela do Azure:**
 
-The sample assumes you have created a table “MyTable” in Azure Table.
+O exemplo pressupõe que você tenha criado uma tabela "MyTable" na Tabela do Azure.
  
-Setting “external”: ”true” and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.
+Definir “external”: “true” e especificar a política externalData informa à data factory que essa é uma tabela externa à data factory e não é produzida por uma atividade nessa data factory.
 
 	{
 	  "name": "AzureTableInput",
@@ -72,9 +72,9 @@ Setting “external”: ”true” and specifying externalData policy tells data
 	  }
 	}
 
-**Azure Blob output dataset:**
+**Conjunto de dados de saída de Blob do Azure:**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
+Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
 	{
 	  "name": "AzureBlobOutput",
@@ -130,9 +130,9 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	  }
 	}
 
-**Pipeline with the Copy activity:**
+**Pipeline com Atividade de cópia:**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **AzureTableSource** and **sink** type is set to **BlobSink**. The SQL query specified with **AzureTableSourceQuery** property selects the data from the default partition every hour to copy.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **AzureTableSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada com a propriedade **AzureTableSourceQuery** seleciona os dados da partição padrão na última hora a serem copiados.
 
 	{  
 	    "name":"SamplePipeline",
@@ -179,19 +179,19 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 		}
 	}
 
-## Sample: Copy data from Azure Blob to Azure Table
+## Exemplo: Copiar dados do Blob do Azure para a Tabela do Azure
 
-The sample below shows:
+O exemplo a seguir mostra:
 
-1.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (used for both table & blob)
-3.	An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureTable](#azure-table-dataset-type-properties). 
-4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [AzureTableSink](#azure-table-copy-activity-type-properties). 
+1.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usado para ambos tabela e blob)
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureTable](#azure-table-dataset-type-properties). 
+4.	O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [AzureTableSink](#azure-table-copy-activity-type-properties). 
 
 
-The sample copies data belonging to a time series from Azure blob to a table in Azure Table database every hour. The JSON properties used in these samples are described in sections following the samples.
+O exemplo copia os dados pertencentes a uma série temporal de um blob do Azure para uma tabela no banco de dados da Tabela do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-**Azure storage (for both Azure Table & Blob) linked service:**
+**Serviço de armazenamento vinculado do Azure (para Tabela e Blob do Azure):**
 
 	{
 	  "name": "StorageLinkedService",
@@ -203,9 +203,9 @@ The sample copies data belonging to a time series from Azure blob to a table in 
 	  }
 	}
 
-**Azure Blob input dataset:**
+**Conjunto de dados de entrada de Blob do Azure:**
 
-Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.
+Os dados são coletados de um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta e nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa parte da hora de início do dia, mês e ano e nome de arquivo usa a parte de hora da hora de início. A configuração “external”: ”true” informa o serviço Data Factory que essa é uma tabela externa à data factory e não é produzida por uma atividade na data factory.
 	
 	{
 	  "name": "AzureBlobInput",
@@ -270,9 +270,9 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	  }
 	}
 
-**Azure Table output dataset:**
+**Conjunto de dados de saída de Tabela do Azure:**
 
-The sample copies data to a table named “MyTable” in Azure Table. You should create the table in Azure Table with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
+O exemplo copia dados para uma tabela chamada "MyTable" na Tabela do Azure. Você deve criar a tabela na Tabela do Azure com o mesmo número de colunas que você espera que o arquivo CSV de Blob contenha. Novas linhas são adicionadas à tabela a cada hora.
 
 	{
 	  "name": "AzureTableOutput",
@@ -289,9 +289,9 @@ The sample copies data to a table named “MyTable” in Azure Table. You should
 	  }
 	}
 
-**Pipeline with the Copy activity:**
+**Pipeline com Atividade de cópia:**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **AzureTableSink**.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **BlobSource** e o tipo **sink** está definido como **AzureTableSink**.
 
 
 	{  
@@ -341,79 +341,79 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-## Azure Storage Linked Service properties
+## Propriedades do serviço vinculado de armazenamento do Azure
 
-You can link an Azure storage account to an Azure data factory with Azure Storage linked service. The following table provides descriptions for JSON elements specific to Azure Storage linked service.
+Você pode vincular uma conta de armazenamento do Azure a uma Azure Data Factory usando um serviço de armazenamento vinculado do Azure. A tabela a seguir fornece a descrição para elementos JSON específica para o serviço de armazenamento vinculado do Azure.
 
-| Property | Description | Required |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| type | The type property must be set to: AzureStorage | Yes |
-| connectionString | Specify information needed to connect to Azure storage for the connectionString property. You can get the connectionString for the Azure storage from the Azure Portal. | Yes |
+| type | A propriedade type deve ser definida como: AzureStorage | Sim |
+| connectionString | Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. Você pode obter connectionString para o armazenamento do Azure do Portal do Azure. | Sim |
 
-## Azure Table Dataset type properties
+## Propriedades de tipo do Conjunto de Dados da Tabela do Azure
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **AzureTable** has the following properties.
+A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **AzureTable** tem as propriedades a seguir.
 
-| Property | Description | Required |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| tableName | Name of the table in the Azure Table Database instance that linked service refers to. | Yes
+| tableName | Nome da tabela na instância do Banco de Dados da Tabela do Azure à qual o serviço vinculado se refere. | Sim
 
-## Azure Table Copy Activity type properties
+## Propriedades de tipo de atividade de cópia de Tabela do Azure
 
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
+As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
-**AzureTableSource** supports the following properties in typeProperties section:
+**AzureTableSource** dá suporte às seguintes propriedades na seção typeProperties:
 
-Property | Description | Allowed values | Required
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Use the custom query to read data. | Azure table query string. Sample: **ColumnA eq ValueA** | No
-azureTableSourceIgnoreTableNotFound | Indicate whether swallow the exception of table not exist. | TRUE<br/>FALSE | No |
+azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta de tabela do Azure. Exemplo: **ColumnA eq ValueA** | Não
+azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
 
-**AzureTableSink** supports the following properties in typeProperties section:
+**AzureTableSink** dá suporte às seguintes propriedades na seção typeProperties:
 
 
-Property | Description | Allowed values | Required  
+Propriedade | Descrição | Valores permitidos | Obrigatório  
 -------- | ----------- | -------------- | -------- 
-azureTableDefaultPartitionKeyValue | Default partition key value that can be used by the sink. | A string value. | No 
-azureTablePartitionKeyName | User specified column name, whose column values are used as partition key. If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key. | A column name. | No |
-azureTableRowKeyName | User specified column name, whose column values are used as row key. If not specified, use a GUID for each row. | A column name. | No  
-azureTableInsertType | The mode to insert data into Azure table. | merge<br/>replace | No 
-writeBatchSize | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. | Integer from 1 to 100 (unit = Row Count) | No (Default = 100) 
-writeBatchTimeout | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit | (Unit = timespan)Sample: “00:20:00” (20 minutes) | No (Default to storage client default timeout value 90 sec)
+azureTableDefaultPartitionKeyValue | Valor de chave de partição padrão que pode ser utilizado pelo coletor. | Um valor de cadeia de caracteres. | Não 
+azureTablePartitionKeyName | Nome de coluna do usuário especificado, cujos valores de coluna são utilizados como chave de partição. Se não especificado, AzureTableDefaultPartitionKeyValue será utilizado como a chave da partição. | Um nome de coluna. | Não |
+azureTableRowKeyName | Nome de coluna especificado pelo usuário, cujos valores de coluna são utilizados como chave de linha. Se não especificado, um GUID é usado para cada linha. | Um nome de coluna. | Não  
+azureTableInsertType | O modo para inserir dados na tabela do Azure. | mesclar<br/>substituir | Não 
+writeBatchSize | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido. | Inteiro de 1 a 100 (unidade = contagem de linhas) | Não (Padrão = 100) 
+writeBatchTimeout | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido | (Unidade = timespan)Exemplo: “00:20:00” (20 minutos) | Não (padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Type Mapping for Azure Table
+### Mapeamento de tipo de Tabela do Azure
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach.
+Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
 
-1. Convert from native source types to .NET type
-2. Convert from .NET type to native sink type
+1. Converter de tipos de fonte nativos para o tipo .NET
+2. Converter do tipo .NET para o tipo de coletor nativo
 
-When moving data to & from Azure Table, the following [mappings defined by Azure Table service](https://msdn.microsoft.com/library/azure/dd179338.aspx) will be used from Azure Table OData types to .NET type and vice versa.
+Ao mover dados para e da Tabela do Azure, os seguintes [mapeamentos definidos pelo serviço Tabela do Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) serão usados nos tipos OData da Tabela do Azure para o tipo .NET e vice-versa.
 
-| OData Data Type | .NET Type | Details |
+| Tipo de dados OData | Tipo .NET | Detalhes |
 | --------------- | --------- | ------- |
-| Edm.Binary | byte | An array of bytes up to 64 KB in size. |
-| Edm.Boolean | bool | A Boolean value. |
-| Edm.DateTime | DateTime | A 64-bit value expressed as Coordinated Universal Time (UTC). The supported DateTime range begins from 12:00 midnight, January 1, 1601 A.D. (C.E.), UTC. The range ends at December 31, 9999. |
-| Edm.Double | double | A 64-bit floating point value. |
-| Edm.Guid | Guid | A 128-bit globally unique identifier. |
-| Edm.Int32 | Int32 or int | A 32-bit integer. |
-| Edm.Int64 | Int64 or long | A 64-bit integer. |
-| Edm.String | String | A UTF-16-encoded value. String values may be up to 64 KB in size. |
+| Edm.Binary | byte | Uma matriz de bytes de até 64 KB de tamanho. |
+| Edm.Boolean | bool | Um valor booliano. |
+| Edm.DateTime | DateTime | Um valor de 64 bits expressado como Tempo Universal Coordenado (UTC). O intervalo de data e hora com suporte começa à 00:00 de 1º de janeiro de 1601 D.C. (C.E.), UTC. O intervalo termina em 31 de dezembro de 9999. |
+| Edm.Double | double | Um valor de ponto flutuante de 64 bits. |
+| Edm.Guid | Guid | Um identificador global exclusivo de 128 bits. |
+| Edm.Int32 | Int32 ou int | Um inteiro de 32 bits. |
+| Edm.Int64 | Int64 ou longo | Um inteiro de 64 bits. |
+| Edm.String | Cadeia de caracteres | Um valor codificado em UTF-16. Valores de cadeia de caracteres podem ter até 64 KB em tamanho. |
 
-### Type Conversion Sample
+### Exemplo de conversão de tipo
 
-The following sample is for copying data from an Azure Blob to Azure Table with type conversions.
+O exemplo a seguir é para copiar dados de um Blob do Azure para Tabela do Azure com conversões de tipo.
 
-Suppose the Blob dataset is in CSV format and contains 3 columns. One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week.
+Suponha que o conjunto de dados de Blob está no formato CSV e contém 3 colunas. Uma delas é uma coluna de data e hora com um formato de data e hora personalizado usando nomes abreviados em francês para o dia da semana.
 
-You will define the Blob Source dataset as follows along with type definitions for the columns.
+Você definirá o conjunto de dados de origem de Blob como a seguir, juntamente com definições de tipo para as colunas.
 	
 	{
 	    "name": " AzureBlobInput",
@@ -452,17 +452,17 @@ You will define the Blob Source dataset as follows along with type definitions f
 	    }
 	}
 
-Given the type mapping from Azure Table OData type to .NET type above you would define the table in Azure Table with the following schema.
+Dado o mapeamento de tipo OData da Tabela do Azure para o tipo .NET acima, você definiria a tabela na Tabela do Azure com o esquema a seguir.
 
-**Azure Table schema:**
+**Esquema da tabela do Azure:**
 
-Column name | Type
+Nome da coluna | Tipo
 ----------- | --------
 userid | Edm.Int64
 name | Edm.String 
 lastlogindate | Edm.DateTime
 
-Next, you will define the Azure Table dataset as follows. You do not need to specify “structure” section with the type information since the type information is already specified in the underlying data store.
+Em seguida, você definirá o conjunto de dados de Tabela do Azure da seguinte maneira. Você não precisa especificar a seção "estrutura" com as informações de tipo, pois o tipo de informação já está especificado no armazenamento de dados subjacente.
 
 	{
 	  "name": "AzureTableOutput",
@@ -479,10 +479,17 @@ Next, you will define the Azure Table dataset as follows. You do not need to spe
 	  }
 	}
 
-In this case data factory will automatically do the type conversions including the Datetime field with the custom datetime format using the fr-fr culture when moving data from Blob to Azure Table.
+Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclusive o campo de data e hora com o formato de data e hora personalizado usando a cultura fr-fr ao mover dados de Blob para a Tabela do Azure.
 
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+
+
+
+<!----HONumber=August15_HO9-->
+
+
+
+

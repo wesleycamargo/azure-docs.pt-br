@@ -188,4 +188,4 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
   [serviço de email baseado em nuvem]: https://sendgrid.com/email-solutions
   [entrega de email transacional]: https://sendgrid.com/transactional-email
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

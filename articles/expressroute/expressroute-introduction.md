@@ -110,4 +110,4 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 - Encontrar um provedor de serviços. Consulte [Locais e provedores de serviços de Rota Expressa](expressroute-locations.md).
 - Configurar sua conexão da Rota Expressa. Consulte [Configurar uma conexão da Rota Expressa através de um provedor de serviço de rede](expressroute-configuring-nsps.md) ou [Configurar uma conexão da Rota Expressa por meio de um provedor do Exchange](expressroute-configuring-exps.md) para obter instruções. 
 
-<!----HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->

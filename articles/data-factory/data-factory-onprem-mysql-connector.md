@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Move data from MySQL | Azure Data Factory"
-	description="Learn about how to move data from MySQL database using Azure Data Factory."
+	pageTitle="Mover dados do MySQL | Azure Data Factory" 
+	description="Saiba mais sobre como mover dados do banco de dados MySQL usando o Azure Data Factory" 
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,34 +16,34 @@
 	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Move data From MySQL using Azure Data Factory
+# Mover dados do MySQL usando o Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from MySQL to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+Este artigo descreve como você pode usar a atividade de cópia em uma Azure Data Factory para mover dados do MySQL para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
-Data Factory service supports connecting to on-premises MySQL sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.
+O serviço Data Factory dá suporte à conexão com fontes MySQL locais usando o Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway.
 
-**Note:** You need to leverage the gateway to connect to MySQL even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of MySQL hosted in cloud, you can also install the gateway instance in the IaaS VM.
+**Observação:** é necessário utilizar o gateway para se conectar ao MySQL, mesmo se ele estiver hospedado em VMs IaaS do Azure. Se estiver tentando se conectar a uma instância do MySQL hospedada na nuvem, você também pode instalar a instância do gateway na VM de IaaS.
 
-Data factory currently supports only moving data from MySQL to other data stores, but not for moving data from other data stores to MySQL.
+Atualmente, a data factory dá suporte apenas para a movimentação de dados do MySQL para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para o MySQL.
 
-## Installation 
-For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) on the same system as the Data Management Gateway.
+## Instalação 
+Para o Gateway de Gerenciamento de Dados para se conectar ao banco de dados MySQL, você precisa instalar o [Conector do MySQL/Net 6.6.5 para Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) no mesmo sistema que o Gateway de Gerenciamento de Dados.
 
-## Sample: Copy data from MySQL to Azure Blob
+## Exemplo: copiar dados do MySQL para o Blob do Azure
 
-The sample below shows:
+O exemplo a seguir mostra:
 
-1.	A linked service of type [OnPremisesMySql](data-factory-onprem-mysql-connector.md#mysql-linked-service-properties).
-2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-mysql-connector.md#mysql-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-mysql-connector.md#mysql-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1.	Um serviço vinculado do tipo [OnPremisesMySql](data-factory-onprem-mysql-connector.md#mysql-linked-service-properties).
+2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [RelationalTable](data-factory-onprem-mysql-connector.md#mysql-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [RelationalSource](data-factory-onprem-mysql-connector.md#mysql-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-The sample copies data from a query result in MySQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
+O exemplo copia dados de um resultado de consulta no banco de dados MySQL para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-As a first step, please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
+Na primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [Movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
-**MySQL linked service**
+**Serviço vinculado do MySQL**
 
 	{
 	  "name": "OnPremMySqlLinkedService",
@@ -61,7 +61,7 @@ As a first step, please setup the data management gateway as per the instruction
 	  }
 	}
 
-**Azure Storage linked service**
+**Serviço vinculado de armazenamento do Azure**
 
 	{
 	  "name": "AzureStorageLinkedService",
@@ -73,11 +73,11 @@ As a first step, please setup the data management gateway as per the instruction
 	  }
 	}
 
-**MySQL input dataset**
+**Conjunto de dados de entrada do MySQL**
 
-The sample assumes you have created a table “MyTable” in MySQL and it contains a column called “timestampcolumn” for time series data.
+O exemplo supõe que você criou uma tabela "MyTable" no MySQL e que ela contém uma coluna chamada "timestampcolumn" para dados de série temporal.
 
-Setting “external”: ”true” and specifying externalData policy informs the Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
+Definir “external”: “true” e especificar a política externalData informa o serviço Data Factory que essa é uma tabela externa à data factory e não é produzida por uma atividade dessa data factory.
 	
 	{
 	    "name": "MySqlDataSet",
@@ -103,9 +103,9 @@ Setting “external”: ”true” and specifying externalData policy informs th
 
 
 
-**Azure Blob output dataset**
+**Conjunto de dados de saída de Blob do Azure**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
+Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
 	{
 	    "name": "AzureBlobMySqlDataSet",
@@ -163,9 +163,9 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 
 
-**Pipeline with Copy activity**
+**Pipeline com Atividade de cópia**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados na última hora para copiar.
 	
 	{
 	    "name": "CopyMySqlToBlob",
@@ -177,7 +177,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \'{0:yyyy-MM-ddTHH:mm:ss}\' AND timestamp < \'{1:yyyy-MM-ddTHH:mm:ss}\'', WindowStart, WindowEnd)"
+	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",
@@ -213,96 +213,96 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 
 
 
-## MySQL Linked Service properties
+## Propriedades do serviço vinculado do MySQL
 
-The following table provides description for JSON elements specific to MySQL linked service.
+A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do MySQL.
 
-| Property | Description | Required |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- | 
-| type | The type property must be set to: **OnPremisesMySql** | Yes |
-| server | Name of the MySQL server. | Yes |
-| database | Name of the MySQL database. | Yes | 
-| schema | Name of the schema in the database. | No | 
-| authenticationType | Type of authentication used to connect to the MySQL database. Possible values are: Anonymous, Basic, and Windows. | Yes | 
-| username | Specify user name if you are using Basic or Windows authentication. | No | 
-| password | Specify password for the user account you specified for the username. | No | 
-| gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. | Yes |
+| type | A propriedade do tipo deve ser definida como: **OnPremisesMySql** | Sim |
+| server | Nome do servidor MySQL. | Sim |
+| database | Nome do banco de dados MySQL. | Sim | 
+| schema | Nome do esquema no banco de dados. | Não | 
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: Anonymous, Basic e Windows. | Sim | 
+| Nome de Usuário | Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. | Não | 
+| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não | 
+| gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados MySQL local. | Sim |
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises MySQL data source.
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do MySQL no local.
 
-## MySQL Dataset type properties
+## Propriedades de tipo do conjunto de dados do MySQL
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes MySQL dataset) has the following properties
+A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties de um conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do MySQL) tem as propriedades a seguir
 
-| Property | Description | Required |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| tableName | Name of the table in the MySQL Database instance that linked service refers to. | Yes | 
+| tableName | Nome da tabela na instância do Banco de Dados MySQL à qual o serviço vinculado se refere. | Sim | 
 
-## MySQL Copy Activity type properties
+## Propriedades de tipo da atividade de cópia do MySQL
 
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades como nome, descrição, tabelas de entrada e saída, diversas políticas, etc. estão disponíveis para todos os tipos de atividades.
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
+As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
-In case of Copy Activity when source is of type **RelationalSource** (which includes MySQL) the following properties are available in typeProperties section:
+No caso da atividade de cópia, quando a fonte é do tipo **RelationalSource** (que inclui o MySQL), as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Property | Description | Allowed values | Required |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | Yes | 
+| query | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. | Sim | 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Type mapping for MySQL
+### Mapeamento de tipo para MySQL
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:
+Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
 
-1. Convert from native source types to .NET type
-2. Convert from .NET type to native sink type
+1. Converter de tipos de fonte nativos para o tipo .NET
+2. Converter do tipo .NET para o tipo de coletor nativo
 
-When moving data to MySQL the following mappings will be used from MySQL types to .NET types.
+Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do MySQL para os tipos do .NET.
 
-| MySQL Database type | .NET Framework type |
+| Tipo do Banco de Dados MySQL | Tipo .NET Framework |
 | ------------------- | ------------------- | 
 | bigint unsigned | Decimal |
 | bigint | Int64 |
 | bit | Decimal |
 | blob | Byte |
-| bool | Boolean | 
-| char | String |
-| date | Datetime |
+| bool | Booliano | 
+| char | Cadeia de caracteres |
+| data | Datetime |
 | datetime | Datetime |
 | decimal | Decimal |
-| double precision | Double |
-| double | Double |
-| enum | String |
-| float | Single |
+| double precision | Duplo |
+| double | Duplo |
+| enum | Cadeia de caracteres |
+| flutuante | Single |
 | int unsigned | Int64 |
 | int | Int32 |
 | integer unsigned | Int64 |
-| integer | Int32 | 
+| inteiro | Int32 | 
 | long varbinary | Byte |
-| long varchar | String |
+| long varchar | Cadeia de caracteres |
 | longblob | Byte |
-| longtext | String | 
+| longtext | Cadeia de caracteres | 
 | mediumblob | 	Byte | 
 | mediumint unsigned | Int64 |
 | mediumint | Int32 | 
-| mediumtext | String |
-| numeric | Decimal |
-| real | Double |
-| set | String |
+| mediumtext | Cadeia de caracteres |
+| numérico | Decimal |
+| real | Duplo |
+| set | Cadeia de caracteres |
 | smallint unsigned | Int32 |
 | smallint | Int16 |
-| text | String |
-| time | TimeSpan |
+| texto | Cadeia de caracteres |
+| tempo real | TimeSpan |
 | timestamp | Datetime |
 | tinyblob | Byte |
 | tinyint unsigned | Int16 | 
 | tinyint | Int16 |
-| tinytext | String | 
-| varchar | String | 
+| tinytext | Cadeia de caracteres | 
+| varchar | Cadeia de caracteres | 
 | year | Int | 
 
 
@@ -310,4 +310,5 @@ When moving data to MySQL the following mappings will be used from MySQL types t
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
+
