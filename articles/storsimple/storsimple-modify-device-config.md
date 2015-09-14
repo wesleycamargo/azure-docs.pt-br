@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple | Microsoft Azure" 
-   description="Descreve como usar o serviço StorSimple Manager para reconfigurar um dispositivo StorSimple que já foi implantado." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="Modificar a configuração do dispositivo StorSimple | Microsoft Azure"
+	description="Descreve como usar o serviço StorSimple Manager para reconfigurar um dispositivo StorSimple que já foi implantado."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="07/30/2015"
-   ms.author="v-sharos@microsoft.com"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/14/2015"
+	ms.author="v-sharos@microsoft.com"/>
 
 # Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple
 
@@ -128,4 +128,4 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
  
      
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,18 +1,18 @@
-<properties 
-        pageTitle="Autenticar os usuários do aplicativo iOS com o Logon Único do Active Directory do Azure" 
-        description="Saiba como fazer logon de usuários em seu aplicativo iOS com a biblioteca de autenticação do Active Directory." 
-        documentationCenter="Mobile" 
-        authors="mattchenderson" 
-        services="app-service\mobile" 
-        manager="dwrede" />
+<properties
+        pageTitle="Autenticar os usuários do aplicativo iOS com o Logon Único do Active Directory do Azure"
+	description="Saiba como fazer logon de usuários em seu aplicativo iOS com a biblioteca de autenticação do Active Directory."
+	documentationCenter="Mobile"
+	authors="mattchenderson"
+	services="app-service\mobile"
+	manager="dwrede"/>
 
-<tags ms.service="app-service"
-ms.workload="mobile"
-ms.tgt_pltfrm="mobile-ios" 
-ms.devlang="objective-c" 
-ms.topic="article" 
-ms.date="05/19/2015" 
-ms.author="mahender" />
+<tags ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="05/19/2015"
+	ms.author="mahender"/>
 
 # Adicionar logon único do Active Directory do Azure ao seu aplicativo iOS
 
@@ -123,4 +123,4 @@ Agora você poderá referenciar a Biblioteca de Autenticação do Active Directo
  [Introdução a Aplicativos Móveis]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [Adicionar autenticação ao seu aplicativo]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=06-->
+<!---HONumber=September15_HO1-->

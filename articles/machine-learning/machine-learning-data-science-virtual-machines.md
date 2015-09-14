@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="msolhab"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="mohabib;xibingao;bradsev"/>
 
 # Máquinas virtuais de ciência de dados no Azure
 
-Vários tipos de máquinas virtuais do Azure podem ser provisionados e configurados para serem usados como parte de um ambiente de ciência de dados baseado em nuvem. A decisão sobre qual tipo de máquina virtual usar depende do tipo e da quantidade de dados que serão modelados com o aprendizado de máquina e do destino de tais dados na nuvem. Para obter diretrizes sobre as perguntas a serem consideradas ao tomar essa decisão, consulte [Planejar seu ambiente de ciência de dados do Aprendizado de Máquina do Azure](machine-learning-data-science-plan-your-environment.md). Para um catálogo de alguns dos cenários que você pode encontrar ao fazer análises avançadas, consulte [Cenários para o processo de análise avançada e tecnologia no Aprendizado de Máquina do Azure](../machine-learning-data-science-plan-sample-scenarios.md)
+Vários tipos de máquinas virtuais do Azure podem ser provisionados e configurados para serem usados como parte de um ambiente de ciência de dados baseado em nuvem. A decisão sobre qual tipo de máquina virtual usar depende do tipo e da quantidade de dados que serão modelados com o aprendizado de máquina e do destino de tais dados na nuvem.
+
+
+* Para obter diretrizes sobre as perguntas a serem consideradas ao tomar essa decisão, consulte [Planejar seu ambiente de ciência de dados do Aprendizado de Máquina do Azure](machine-learning-data-science-plan-your-environment.md). 
+* Para um catálogo de alguns dos cenários que você pode encontrar ao fazer análises avançadas, consulte [Cenários para o processo de análise avançada e tecnologia no Aprendizado de Máquina do Azure](../machine-learning-data-science-plan-sample-scenarios.md)
 
 São fornecidas instruções que descrevem como configurar uma VM do Azure e uma VM do Azure com o serviço do SQL como servidores IPython Notebook. A máquina virtual do Windows está configurada com ferramentas de suporte como o IPython Notebook, o Azure Storage Explorer e o AzCopy, bem como outros utilitários que são úteis para projetos de ciência de dados. O Azure Storage Explorer e o AzCopy, por exemplo, fornecem maneiras convenientes para carregar dados no armazenamento do Azure em seu computador local ou baixá-lo em seu computador local por meio do armazenamento. São fornecidos dois conjuntos de instruções:
 
@@ -32,4 +36,4 @@ Uma vez provisionadas e configuradas, essas máquinas virtuais estão prontas pa
 > [AZURE.NOTE]A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. Para garantir que você não esteja sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (Desalocado)** do [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/). Para obter instruções passo a passo ou como desalocar a sua máquina virtual, consulte [Desligar e desalocar máquina virtual quando não estiver em uso](machine-learning-data-science-setup-virtual-machine.md#shutdown)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

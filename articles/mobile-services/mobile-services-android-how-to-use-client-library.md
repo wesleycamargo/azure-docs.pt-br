@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Trabalhando com a Biblioteca de Cliente Android para Serviços Móveis" 
-	description="Saiba como usar um cliente Android para os serviços móveis do Azure." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Trabalhando com a Biblioteca de Cliente Android para Serviços Móveis"
+	description="Saiba como usar um cliente Android para os serviços móveis do Azure."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 
@@ -44,7 +44,7 @@ O objeto tipado do lado do cliente correspondente é o seguinte:
 		private String text;
 		private Boolean complete;
 	}
-	
+
 Quando o esquema dinâmico está habilitado, os Serviços Móveis do Azure geram automaticamente novas colunas com base no objeto da solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://go.microsoft.com/fwlink/p/?LinkId=296271).
 
 ##<a name="create-client"></a>Como criar o cliente dos Serviços Móveis
@@ -52,7 +52,7 @@ O código a seguir cria o objeto [MobileServiceClient](http://dl.windowsazure.co
 
 		MobileServiceClient mClient = new MobileServiceClient(
 				"MobileServiceUrl", // Replace with the above Site URL
-				"AppKey", 			// replace with the Application Key 
+				"AppKey", 			// replace with the Application Key
 				this)
 
 No código acima, substitua `MobileServiceUrl` e `AppKey` pela URL e pela chave do aplicativo do serviço móvel, nessa ordem. Ambas estão disponíveis no Portal de Gerenciamento do Azure, selecionando seu serviço móvel e, em seguida, clicando em *Painel*.
@@ -130,7 +130,7 @@ O código a seguir retorna todos os itens da tabela *ToDoItem* cujo campo *compl
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    final MobileServiceList<ToDoItem> result = 
+                    final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
                 		Log.i(TAG, "Read object with ID " + item.id);  
@@ -206,12 +206,12 @@ O código a seguir ilustra como retornar todos os itens de uma tabela *ToDoItem*
 
 		mToDoTable.select("complete", "text").execute().get();
 
-	
+
 Aqui, os parâmetros para a função select são os nomes de cadeia de caracteres das colunas da tabela que você deseja retornar.
 
 O método [**select**](http://go.microsoft.com/fwlink/p/?LinkId=290689) precisa seguir métodos como [**where**](http://go.microsoft.com/fwlink/p/?LinkId=296296) e [**orderBy**](http://go.microsoft.com/fwlink/p/?LinkId=296313), se eles estiverem presentes. Ele pode ser seguido por métodos como [**top**](http://go.microsoft.com/fwlink/p/?LinkId=298731).
 
-### <a name="chaining"></a>Como concatenar métodos de consulta 
+### <a name="chaining"></a>Como concatenar métodos de consulta
 
 Os métodos usados na consulta de tabelas de serviços móveis podem ser concatenados. Isso lhe permitirá executar tarefas como selecionar colunas específicas ou linhas filtradas que são classificadas e paginadas. Você pode criar filtros lógicos bastante complexos.
 
@@ -223,7 +223,7 @@ Este é um exemplo de código onde *mToDoTable* é uma referência à tabela *To
 						.and().startsWith("text", "PRI0")
 						.or().field("duration").gt(10)
 					.select("id", "complete", "text", "duration")
-					.orderBy(duration, QueryOrder.Ascending).top(20)				
+					.orderBy(duration, QueryOrder.Ascending).top(20)
 					.execute().get();
 
 O principal requisito no encadeamento de métodos é que o método *where* e os predicados precisam vir primeiro. Depois disso, você poderá chamar métodos subsequentes na ordem que melhor atenda às necessidades do seu aplicativo.
@@ -238,12 +238,12 @@ Primeiro, crie uma instância da classe *ToDoItem* e defina suas propriedades.
 		ToDoItem mToDoItem = new ToDoItem();
 		mToDoItem.text = "Test Program";
 		mToDoItem.complete = false;
-		
+
  Em seguida, execute o código a seguir:
 
 		// Insert the new item
 	    new AsyncTask<Void, Void, Void>() {
-	
+
 	        @Override
 	        protected Void doInBackground(Void... params) {
 	            try {
@@ -313,9 +313,9 @@ O código a seguir mostra como atualizar dados em uma tabela. Neste exemplo, *it
 	    if (mClient == null) {
 	        return;
 	    }
-	
+
 	    new AsyncTask<Void, Void, Void>() {
-	
+
 	        @Override
 	        protected Void doInBackground(Void... params) {
 	            try {
@@ -347,7 +347,7 @@ O código a seguir mostra como excluir dados de uma tabela. Ele exclui um item e
 
 		// Set the item as completed and update it in the table
 		item.setComplete(true);
-		
+
 		new AsyncTask<Void, Void, Void>() {
 
             @Override
@@ -461,7 +461,7 @@ O código a seguir mostra como fazer uma inserção. A primeira etapa consiste e
 		item.addProperty("complete", false);
 
 A próxima etapa consiste em inserir o objeto. A função de retorno de chamada passada para o método [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=298535) é uma instância da classe [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298532). Observe como o parâmetro do método *insert* é um JsonObject.
-		 
+
         // Insert the new item
         new AsyncTask<Void, Void, Void>() {
 
@@ -492,7 +492,7 @@ O código a seguir mostra como excluir uma instância, neste caso, a mesma inst�
 
 
 Você também pode excluir uma instância diretamente, usando sua ID:
-		
+
 		 mToDoTable.delete(ID);
 
 
@@ -551,7 +551,7 @@ O código especifica um layout de tela que define a exibição dos dados que ser
 E os dois são associados juntos com um adaptador, que, nesse código, é uma extensão da classe *ArrayAdapter&lt;ToDoItem&gt;*.
 
 ### <a name="layout"></a>Como definir o layout
- 
+
 O layout é definido por vários trechos de código XML. Com base em um layout existente, vamos supor que o código a seguir representa a **ListView** que queremos preencher com nossos dados de servidor.
 
     <ListView
@@ -560,7 +560,7 @@ O layout é definido por vários trechos de código XML. Com base em um layout e
         android:layout_height="wrap_content"
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
-	
+
 
 No código acima, o atributo *listitem* especifica a id do layout para uma linha individual na lista. Este é o código, que especifica uma caixa de seleção e seu texto associado. Isso será instanciado uma vez para cada item da lista. Um layout mais complexo seria especificar campos adicionais na exibição. Este código está no arquivo *row\_list\_to\_do.xml*.
 
@@ -568,17 +568,17 @@ No código acima, o atributo *listitem* especifica a id do layout para uma linha
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
-	    android:orientation="horizontal">		    
+	    android:orientation="horizontal">
 	    <CheckBox
 	        android:id="@+id/checkToDoItem"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/checkbox_text" />
 	</LinearLayout>
-		
+
 
 ### <a name="adapter"></a>Como definir o adaptador
-	
+
 Como a fonte de dados da nossa exibição é uma matriz de *ToDoItem*, podemos criar uma subclasse do nosso adaptador de uma classe *ArrayAdapter&lt;ToDoItem&gt;*. Esta subclasse produzirá uma exibição para cada *ToDoItem* usando o layout *row\_list\_to\_do*.
 
 No nosso código, definimos a seguinte classe que é uma extensão da classe *ArrayAdapter&lt;ToDoItem&gt;*:
@@ -590,21 +590,21 @@ Você deve substituir o método *getView* do adaptador. Este código de exemplo 
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
-	
+
 		final ToDoItem currentItem = getItem(position);
-	
+
 		if (row == null) {
 			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
 			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
 		}
-	
+
 		row.setTag(currentItem);
-	
+
 		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
 		checkBox.setText(currentItem.getText());
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
-	
+
 		return row;
 	}
 
@@ -668,7 +668,7 @@ Os Serviços Móveis oferecem suporte aos seguintes provedores de identidade exi
 - Conta da Microsoft
 - Facebook
 - Twitter
-- Google 
+- Google
 - Azure Active Directory
 
 Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a ID de um usuário autenticado para modificar solicitações.
@@ -690,24 +690,24 @@ Essas duas primeiras tarefas são feitas usando o [Portal de Gerenciamento do Az
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
 2. No método **onCreate** da classe de atividade, adicione a linha de código a seguir após o código que cria o objeto `MobileServiceClient`: supomos que a referência ao objeto `MobileServiceClient` seja *mClient*.
-	
+
 	    // Login using the Google provider.
-	    
+
 		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
     	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
     		@Override
     		public void onFailure(Throwable exc) {
     			createAndShowDialog((Exception) exc, "Error");
-    		}   		
+    		}
     		@Override
     		public void onSuccess(MobileServiceUser user) {
     			createAndShowDialog(String.format(
                         "You are now logged in - %1$2s",
                         user.getUserId()), "Success");
-    			createTable();	
+    			createTable();
     		}
-    	}); 
+    	});
 
     Esse código autentica o usuário usando um logon do Google. Será exibida uma caixa de diálogo que exibe a ID do usuário autenticado. Você não pode continuar sem uma autenticação positiva.
 
@@ -732,38 +732,38 @@ O seguinte trecho de código demonstra a obtenção de um token para um logon de
 		}
 		else
 		{
-			    // Login using the Google provider.    
+			    // Login using the Google provider.
 				ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-		
+
 		    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
 		    		@Override
 		    		public void onFailure(Throwable exc) {
 		    			createAndShowDialog("You must log in. Login Required", "Error");
-		    		}   		
+		    		}
 		    		@Override
 		    		public void onSuccess(MobileServiceUser user) {
 		    			createAndShowDialog(String.format(
 		                        "You are now logged in - %1$2s",
 		                        user.getUserId()), "Success");
 		    			cacheUserToken(mClient.getCurrentUser());
-		    			createTable();	
+		    			createTable();
 		    		}
 		    	});		}
-	}	
+	}
 
 
 	private boolean LoadCache()
 	{
 		SharedPreferences prefs = getSharedPreferences("temp", Context.MODE_PRIVATE);
-		String tmp1 = prefs.getString("tmp1", "undefined"); 
+		String tmp1 = prefs.getString("tmp1", "undefined");
 		if (tmp1 == "undefined")
 			return false;
-		String tmp2 = prefs.getString("tmp2", "undefined"); 
+		String tmp2 = prefs.getString("tmp2", "undefined");
 		if (tmp2 == "undefined")
 			return false;
 		MobileServiceUser user = new MobileServiceUser(tmp1);
 		user.setAuthenticationToken(tmp2);
-		mClient.setCurrentUser(user);		
+		mClient.setCurrentUser(user);
 		return true;
 	}
 
@@ -793,7 +793,7 @@ Você talvez queira anexar um cabeçalho personalizado a cada solicitação de s
 
         @Override
         public ListenableFuture<ServiceFilterResponse> handleRequest(
-                	ServiceFilterRequest request, 
+                	ServiceFilterRequest request,
 					NextServiceFilterCallback next) {
 
             runOnUiThread(new Runnable() {
@@ -843,7 +843,7 @@ Você precisa serializar os nomes de cliente em nomes JSON que correspondam aos 
 
 	@com.google.gson.annotations.SerializedName("complete")
 	private boolean mComplete;
- 
+
 	@com.google.gson.annotations.SerializedName("duration")
 	private String mDuration;
 
@@ -873,12 +873,12 @@ O código a seguir usa o método *setFieldNamingStrategy()*, em que definimos um
 	            }
 	        })
 	        .setPrettyPrinting());
-	
+
 
 
 Esse código deve ser executado antes de qualquer chamada de método no objeto de cliente de Serviços Móveis.
 
-### <a name="complex"></a>Como armazenar uma propriedade de objeto ou matriz em uma tabela 
+### <a name="complex"></a>Como armazenar uma propriedade de objeto ou matriz em uma tabela
 
 Até agora, todos os nossos exemplos de serialização envolveram tipos primitivos, como inteiros e cadeias de caracteres que serializam facilmente em JSON e na tabela de serviços móveis. Suponha que desejemos adicionar um objeto complexo ao nosso tipo de cliente, que não serializa automaticamente em JSON e na tabela. Por exemplo, talvez desejemos adicionar uma matriz de cadeias de caracteres ao objeto de cliente. Agora, cabe a nós especificar como fazer a serialização e como armazenar a matriz na tabela de serviços móveis.
 
@@ -926,6 +926,5 @@ Esse método geral pode ser usado sempre que tivermos um objeto complexo não se
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

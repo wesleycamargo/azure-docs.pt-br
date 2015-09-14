@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Chamar uma API personalizada de um cliente do Windows Phone - Serviços Móveis" 
-	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo do Windows Phone que usa os serviços móveis do Azure." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Chamar uma API personalizada de um cliente do Windows Phone - Serviços Móveis"
+	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo do Windows Phone que usa os serviços móveis do Azure."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Chamar uma API personalizada do cliente
@@ -59,6 +59,5 @@ Além disso, considere a possibilidade de obter mais informações sobre os segu
 [Get started with push notifications]: ../mobile-services-windows-phone-get-started-push.md
 
 [Scripts de servidor de armazenamento no controle do código-fonte]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

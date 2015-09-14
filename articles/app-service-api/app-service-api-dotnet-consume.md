@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Consumir um aplicativo de API no Serviço de Aplicativo do Azure por meio de um cliente .NET" 
-	description="Saiba como consumir um aplicativo de API a partir de um cliente .NET usando o SDK do serviço de aplicativo." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Consumir um aplicativo de API no Serviço de Aplicativo do Azure por meio de um cliente .NET"
+	description="Saiba como consumir um aplicativo de API a partir de um cliente .NET usando o SDK do serviço de aplicativo."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="tdykstra"/>
 
 # Consumir um aplicativo de API no serviço de aplicativo do Azure por meio de um cliente .NET 
@@ -37,7 +37,7 @@ Os exemplos de projeto e o código neste artigo baseiam-se no projeto de aplicat
 
 - [Criar um aplicativo de API](app-service-dotnet-create-api-app.md)
 - [Implantar um aplicativo de API](app-service-dotnet-deploy-api-app.md)
-- [Proteger um aplicativo de API](../app-service-dotnet-add-authentication.md)
+- [Proteger um aplicativo de API](../app-service-api-dotnet-add-authentication.md)
 
 [AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
 
@@ -205,4 +205,4 @@ Para obter exemplos adicionais de um código que chame um aplicativo de API de c
 Para obter informações sobre como usar a autenticação em aplicativos de API, consulte [Autenticação para aplicativos de API e aplicativos móveis no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

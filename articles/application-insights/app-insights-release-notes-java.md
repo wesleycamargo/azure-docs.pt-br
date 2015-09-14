@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notas de versão do Application Insights" 
-	description="As últimas atualizações." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Notas de versão do Application Insights para Java"
+	description="As últimas atualizações."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="awills"/>
  
 # Notas de versão do SDK do Application Insights para Java
@@ -37,6 +37,14 @@ Após a atualização, você precisará mesclar de novo todas as personalizaçõ
  
 Compare o ApplicationInsights.xml antigo e novo. Muitas das alterações que você vê são porque nós adicionamos e removemos módulos. Reaplique todas as personalizações que você fez.
 
+## Versão 1.0.1
+- O agente Java dá suporte à coleta de informações de dependência sobre o seguinte:
+	- Chamadas HTTP feitas por meio de HttpClient, OkHttp e RestTemplate (Spring).
+	- Chamadas para Redis feitas por meio do cliente Jedis. Quando um limite configurável for ultrapassado, o SDK também buscará os argumentos de chamada.
+	- Chamadas JDBC feitas com clientes dos bancos de dados Oracle e Apache Derby.
+	- Suporte ao tipo de consulta 'executeBatch' para instruções preparadas: o SDK mostrará a instrução com o número de lotes.
+	- Plano de consulta para clientes JDBC com suporte para ele (MySql, PostgreSql): o plano de consulta é buscado somente quando um limite configurável é ultrapassado
+
 ## Versão 1.0.0
 - Adicionando suporte para o plug-in de gravador do Application Insights para CollectD.
 - Adicionando suporte para o agente Java do Application Insights.
@@ -60,4 +68,4 @@ Compare o ApplicationInsights.xml antigo e novo. Muitas das alterações que voc
 - Capacidade de marcar um item de telemetria como sintético adicionando uma propriedade ```SyntheticSource``` ao item relatado.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

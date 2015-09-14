@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Integrar um serviço de nuvem à CDN do Azure" 
-	description="Um tutorial que ensina como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado" 
-	services="cdn, cloud-services" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="Integrar um serviço de nuvem à CDN do Azure"
+	description="Um tutorial que ensina como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado"
+	services="cdn, cloud-services"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="cephalin"/>
 
 
@@ -48,9 +48,9 @@ Este tutorial tem os seguintes pré-requisitos:
 -	Uma [conta do Microsoft Azure](/account/) ativa
 -	Visual Studio 2013 com o [SDK do Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE] Você precisa de uma conta do Azure para concluir este tutorial:
-> + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) - Com isso, recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar os serviços gratuitos do Azure, como os Aplicativos Web do [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
-> + Você pode [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/) - Sua assinatura do MSDN fornece mensalmente a você créditos que podem ser usados para os serviços pagos do Azure.
+> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial:
+> + você pode [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como sites.
+> + Você pode [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
 
 <a name="deploy"></a>
 ## Implantar um serviço de nuvem com um ponto de extremidade da CDN integrado ##
@@ -90,7 +90,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE]O processo de publicação para serviços de nuvem leva muito tempo. A opção Habilitar Implantação da Web para todas as funções pode acelerar muito a depuração do serviço de nuvem fornecendo atualizações rápidas (mas temporárias) para suas funções Web. Para saber mais sobre esta opção, consulte [Publicando um Serviço de Nuvem usando as Ferramentas do Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+	>[AZURE.NOTE] O processo de publicação para serviços de nuvem leva muito tempo. A opção Habilitar Implantação da Web para todas as funções pode acelerar muito a depuração do serviço de nuvem fornecendo atualizações rápidas (mas temporárias) para suas funções Web. Para saber mais sobre esta opção, consulte [Publicando um Serviço de Nuvem usando as Ferramentas do Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Quando o **Log de atividades do Microsoft Azure** mostrar que o status da publicação é **Concluído**, crie um ponto de extremidade CDN que esteja integrado a esse serviço de nuvem.
 
@@ -99,7 +99,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png)
 
-	>[AZURE.NOTE]Após a criação do ponto de extremidade da CDN, o portal do Azure mostrará sua URL e o domínio de origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó de CDN.
+	>[AZURE.NOTE] Após a criação do ponto de extremidade da CDN, o portal do Azure mostrará sua URL e o domínio de origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó de CDN.
 
 	Observe que o ponto de extremidade CDN está vinculado ao caminho **cdn/** do serviço de nuvem. Você pode criar uma pasta **cdn** em seu projeto **FunçãoDaWeb1** ou usar o URL reescrito para remover todos o links de entrada deste caminho. Neste tutorial, você adotará a segunda opção.
 
@@ -111,7 +111,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
 
-	>[AZURE.NOTE]Embora habilitar a cadeia de consulta não seja necessário para esta seção do tutorial, é aconselhável fazer isso o quanto antes para maior conveniência, uma vez que qualquer alteração aqui levará tempo para ser propagada para todos os nós da CDN, e você não quer um acúmulo de conteúdo não habilitado para cadeia de consulta no cache da CDN (a atualização do conteúdo da CDN será abordada mais adiante).
+	>[AZURE.NOTE] Embora habilitar a cadeia de consulta não seja necessário para esta seção do tutorial, é aconselhável fazer isso o quanto antes para maior conveniência, uma vez que qualquer alteração aqui levará tempo para ser propagada para todos os nós da CDN, e você não quer um acúmulo de conteúdo não habilitado para cadeia de consulta no cache da CDN (a atualização do conteúdo da CDN será abordada mais adiante).
 
 3. Execute o ping de seu ponto de extremidade da CDN para garantir que ele esteja propagado para os nós de CDN. Talvez seja necessário esperar por até uma hora antes de ele responder a pings.
 
@@ -219,7 +219,7 @@ Você tem uma ação `Index` simples que permite que os clientes especifiquem os
 
 Siga as etapas acima para configurar esta ação do controlador:
 
-1. Na pasta *\Controllers*, crie um novo arquivo .cs chamado *MemeGeneratorController.cs* e substitua o conteúdo pelo código a seguir. Certifique-se de substituir a porção destacada pelo nome de sua CDN.  
+1. Na pasta *\\Controllers*, crie um novo arquivo .cs chamado *MemeGeneratorController.cs* e substitua o conteúdo pelo código a seguir. Certifique-se de substituir a porção destacada pelo nome de sua CDN.  
 
 		using System;
 		using System.Collections.Generic;
@@ -339,8 +339,8 @@ Siga as etapas acima para configurar esta ação do controlador:
 
 5. Publique o serviço de nuvem novamente e navegue até **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** em seu navegador.
 
-Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método de ação `Index_Post` retorna um link para o método de ação `Show` com o respectivo identificador de entrada. Ao clicar no link, você é levado ao código a seguir:
-<pre class="prettyprint">
+Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método de ação `Index_Post` retorna um link para o método de ação `Show` com o respectivo identificador de entrada. Quando clicar em senha, você chegará ao seguinte código:
+
 	[OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)]
 	public ActionResult Show(string id)
 	{
@@ -359,7 +359,6 @@ Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método
 	        return Redirect(string.Format(";http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
 	    }
 	}
-</pre>
 	
 Se o seu depurador local estiver anexado, você terá a experiência de depuração normal com um redirecionamento local. Se estiver sendo executado no serviço de nuvem, será redirecionado para:
 
@@ -401,7 +400,7 @@ No projeto **FunçãoDaWeb1** criado em [Integrar um ponto de extremidade da CDN
 		...
     }
 
-A primeira instrução `bundles.Add()` adiciona um grupo de script ao diretório virtual `~/bundles/jquery`. Depois, abra *Views\\Shared\_Layout.cshtml* para ver como a marcação do grupo de script é renderizada. Você deve encontrar a seguinte linha de código Razor:
+A primeira instrução `bundles.Add()` adiciona um grupo de script ao diretório virtual `~/bundles/jquery`. Depois, abra *Views\\Shared_Layout.cshtml* para ver como a marcação do grupo de script é renderizada. Você deve encontrar a seguinte linha de código Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -417,8 +416,8 @@ Isso permite que você depure o código JavaScript em seu ambiente de desenvolvi
 
 Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto de extremidade CDN.
 
-1. Em *App_Start\\BundleConfig.cs*, modifique os métodos `bundles.Add()` para usar um [Construtor de grupo](http://msdn.microsoft.com/library/jj646464.aspx) diferente, um que especifique um endereço CDN. Para fazer isso, substitua a `RegisterBundles` definição do método pelo seguinte código:  
-	<pre class="prettyprint">
+1. Em *App\_Start\\BundleConfig.cs*, modifique os métodos `bundles.Add()` para usar um [Construtor de grupo](http://msdn.microsoft.com/library/jj646464.aspx) diferente, um que especifique um endereço CDN. Para fazer isso, substitua a `RegisterBundles` definição do método pelo seguinte código:  
+
 		public static void RegisterBundles(BundleCollection bundles)
 		{
 		    bundles.UseCdn = true;
@@ -445,7 +444,6 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 		                "~/Content/bootstrap.css",
 		                "~/Content/site.css"));
 		}
-	</pre>
 
 	Substitua `<yourCDNName>` pelo nome da sua CDN do Azure.
 
@@ -461,8 +459,8 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 	
 	-	A origem do URL da CDN é `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, que é na realidade o diretório virtual do grupo de scripts em seu serviço de nuvem.
 	-	Como você está usando um construtor CDN, a marcação do script CDN para o grupo não contém mais a cadeia da versão gerada automaticamente na URL renderizada. Você deve gerar manualmente uma cadeia de versão única sempre que o grupo de scripts for modificado para gerar uma perda de cache em sua CDN do Azure. Ao mesmo tempo, essa cadeia de versão única deve permanecer constante ao longo da vida útil da implantação para maximizar as ocorrências no cache na CDN do Azure após a implantação do grupo.
-	-	A cadeia de consulta v=<W.X.Y.Z> efetua pull de *Properties\\AssemblyInfo.cs* no projeto de função Web. Você pode ter um fluxo de trabalho de implantação que inclua o incremento da versão de assembly sempre que você publicar no Azure. Ou pode apenar modificar *Properties\\AssemblyInfo.cs* em seu projeto para incrementar automaticamente a cadeia da versão sempre que compilar, usando o caractere curinga “*”. Por exemplo:
-
+	-	A cadeia de consulta v=<W.X.Y.Z> efetua pull de *Properties\AssemblyInfo.cs* no projeto de função Web. Você pode ter um fluxo de trabalho de implantação que inclua o incremento da versão de assembly sempre que você publicar no Azure. Ou pode apenar modificar *Properties\AssemblyInfo.cs* em seu projeto para incrementar automaticamente a cadeia da versão sempre que compilar, usando o caractere curinga “*”. Por exemplo:
+	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
 		Qualquer outra estratégia para simplificar a geração de uma cadeia única para a vida útil de uma implantação funcionará aqui.
@@ -504,7 +502,6 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 		<script src="/Scripts/respond.js"></script>
 		
 		...   
-	</pre>
 
 <a name="fallback"></a>
 ## Mecanismo de fallback para URLs da CDN ##
@@ -545,7 +542,7 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 		    bundles.Add(new StyleBundle(";~/Content/css";, string.Format(cdnUrl, ";Content/css";)).Include(
 		                ";~/Content/bootstrap.css";,
 		                ";~/Content/site.css";));
-	}</pre>
+		}
 
 	Quando `CdnFallbackExpression` não é nulo, o script é injetado no HTML para testar se o grupo é carregado com sucesso e, se não, acessar o grupo diretamente por meio do servidor Web de origem. Esta propriedade precisa ser definida como uma expressão JavaScript que testa se o grupo CDN respectivo é carregado corretamente. A expressão necessária para testar cada grupo difere de acordo com o conteúdo. Para os grupos padrão acima:
 	
@@ -558,18 +555,17 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	
 	Há, no entanto, um bom [Fallback de Grupo de Estilo](https://github.com/EmberConsultingGroup/StyleBundleFallback) oferecido pelo [Ember Consulting Group](https://github.com/EmberConsultingGroup).
 
-2. Para usar a solução alternativa para CSS, crie um novo arquivo .cs na pasta *App\_Start* de seu projeto de função Web, nomeie esse arquivo como *StyleBundleExtensions.cs* e substitua seu conteúdo pelo [código do GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
+2. Para usar a solução alternativa para CSS, crie um novo arquivo .cs na pasta *App_Start* de seu projeto de função Web, nomeie esse arquivo como *StyleBundleExtensions.cs* e substitua seu conteúdo pelo [código do GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
 4. Em *App_Start\StyleFundleExtensions.cs*, renomeie o namespace como nome da sua função Web (por exemplo, **FunçãoDaWeb1**).
 
 3. Volte para e `App_Start\BundleConfig.cs` modifique a última `bundles.Add` instrução com o seguinte código em destaque:
-	<pre class="prettyprint">
+
 		bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
 		    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
 		    .Include(
 		          "~/Content/bootstrap.css",
 		          "~/Content/site.css"));
-	</pre>
 
 	Este novo método de extensão usa a mesma ideia para injetar script no HTML para verificar o DOM para um nome de classe, nome de regra e valor de regra correspondente no grupo CSS, e retorna ao servidor Web original se não encontrar um resultado correspondente.
 
@@ -611,7 +607,7 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 		<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 		
 		...
-	</pre>
+
 
 	Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade `CdnFallbackExpression` na linha:
 
@@ -626,4 +622,4 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 - [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Usando a CDN para Azure](cdn-how-to-use.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

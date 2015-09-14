@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Usar Hubs de Notificação para enviar as notícias mais recentes (Windows Universal)" 
-	description="Use Hubs de notificação do Azure com marcas no registro para enviar as últimas notícias para um aplicativo Windows universal." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Usar Hubs de Notificação para enviar as notícias mais recentes (Windows Universal)"
+	description="Use Hubs de notificação do Azure com marcas no registro para enviar as últimas notícias para um aplicativo Windows universal."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Usar hubs de notificação para enviar notícias recentes
@@ -38,7 +38,7 @@ Este tópico se baseia no aplicativo criado em [Introdução aos Hubs de Notific
 A primeira etapa é adicionar os elementos da interface do usuário na página principal existente que permitem ao usuário selecionar categorias para o registro. As categorias selecionadas por um usuário são armazenadas no dispositivo. Quando o aplicativo é iniciado, o registro do dispositivo é criado no seu hub de notificação com as categorias selecionadas como rótulos.
 
 1. Abra o arquivo de projetos MainPage.xaml e copie o seguinte código no elemento **Grid**:
-			
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -137,7 +137,7 @@ A primeira etapa é adicionar os elementos da interface do usuário na página p
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
-	
+
 	Esse método cria uma lista de categorias e usa a classe **Notificações** para armazenar a lista no armazenamento local e registrar os rótulos correspondentes com o hub de notificação. Quando as categorias são alteradas, o registro é recriado com as novas categorias.
 
 Seu aplicativo agora é capaz de armazenar um conjunto de categorias no armazenamento local do dispositivo e registrar com o hub de notificação, sempre que o usuário alterar a seleção de categorias.
@@ -241,10 +241,4 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

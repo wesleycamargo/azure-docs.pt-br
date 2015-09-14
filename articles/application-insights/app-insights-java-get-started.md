@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Introdução ao Application Insights em um projeto Web Java" 
-	description="Monitorar o desempenho e o uso de seu site Java com o Application Insights" 
-	services="application-insights" 
-    documentationCenter="java"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Introdução ao Application Insights em um projeto Web Java | Microsoft Azure"
+	description="Monitorar o desempenho e o uso de seu site Java com o Application Insights"
+	services="application-insights"
+	documentationCenter="java"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/30/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/30/2015"
 	ms.author="awills"/>
- 
+
 # Introdução ao Application Insights em um projeto Web Java
 
 *O Application Insights está em modo de visualização.*
@@ -37,7 +37,7 @@ Você precisará de:
 
 ## 1\. Obter uma chave de instrumentação do Application Insights
 
-1. Faça logon no [Portal do Microsoft Azure](https://portal.azure.com).
+1. Entre no [Portal do Microsoft Azure](https://portal.azure.com).
 2. Criar um novo recurso do Application Insights
 
     ![Clique em + e escolha Application Insights](./media/app-insights-java-get-started/01-create.png)
@@ -58,7 +58,7 @@ Use o [plug-in SDK do Application Insights para Java][eclipse].
 
 #### Se você estiver usando o Maven...
 
-Se o seu projeto já estiver configurado para usar o Maven para compilação, realize a mesclagem do trecho de código a seguir ao seu arquivo pom.xml.
+Se o seu projeto já estiver configurado para usar o Maven para compilação, realize a mesclagem do código a seguir ao seu arquivo pom.xml.
 
 Em seguida, atualize as dependências do projeto para obter os binários baixados.
 
@@ -80,9 +80,8 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
     </dependencies>
 
 
-* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `<version>1.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](app-insights-release-notes-java.md) ou nos nossos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Para atualizar para um novo SDK*
- * Atualize as dependências do seu projeto.
+* *Erros de validação de soma de verificação ou compilação?* Tente usar uma versão específica, como: `<version>1.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](app-insights-release-notes-java.md) ou nos nossos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Precisa atualizar para um novo SDK?* Atualize as dependências do seu projeto.
 
 #### Se você estiver usando o Gradle...
 
@@ -99,7 +98,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
       // or applicationinsights-core for bare API
     }
 
-* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](app-insights-release-notes-java.md).* 
+* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](app-insights-release-notes-java.md).*
 * *Para atualizar para um novo SDK*
  * Atualize as dependências do seu projeto.
 
@@ -107,7 +106,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 
 Adicione manualmente o SDK:
 
-1. Baixe o [SDK do Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)
+1. Baixe o [Application Insights SDK para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
 2. Extraia os binários do arquivo de zip e adicione-os ao projeto.
 
 ### Perguntas...
@@ -115,17 +114,17 @@ Adicione manualmente o SDK:
 * *Qual é a relação entre `-core` e os componentes `-web` no zip?*
 
  * `applicationinsights-core` fornece a API básica. isso é sempre útil.
- * `applicationinsights-web` fornece métricas que rastreiam as contagens de solicitação de HTTP e tempos de resposta. Isso pode ser omitido se você não quiser que essa telemetria seja coletada automaticamente - por exemplo, se quiser escrever a sua própria.
+ * `applicationinsights-web` fornece métricas que rastreiam as contagens de solicitação de HTTP e tempos de resposta. Você pode omitir isso se não quiser que essa telemetria seja coletada automaticamente. Por exemplo, se quiser escrevê-la você mesmo.
 
 * *Para atualizar o SDK ao publicar alterações*
- * Baixe o [SDK do Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) mais recente e substitua os antigos.
+ * Baixe o [Application Insights SDK para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) mais recente e substitua os antigos.
  * As alterações descritas nas [notas de versão do SDK](app-insights-release-notes-java.md).
 
 
 
 ## 3\. Adicione um arquivo xml do Application Insights
 
-Adicionar o ApplicationInsights.xml à pasta de recursos em seu projeto, caso contrário, verifique se que ele é adicionado ao caminho de classe de implantação do projeto. Copie o XML a seguir para dentro dela.
+Adicione o ApplicationInsights.xml à pasta de recursos em seu projeto; caso contrário, verifique se ele é adicionado ao caminho de classe de implantação do projeto. Copie o XML a seguir nele.
 
 Substitua a chave de instrumentação que você obteve no Portal do Azure.
 
@@ -168,7 +167,7 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
 
 A última etapa de configuração permite que o componente de solicitação HTTP registre cada solicitação da Web. (Não obrigatório se você quiser apenas a API vazia.)
 
-Localize e abra o arquivo web.xml em seu projeto, então mescle o trecho de código a seguir sob o nó do aplicativo Web, no qual seus filtros de aplicativo estão configurados.
+Localize e abra o arquivo web.xml em seu projeto. Em seguida, mescle o código a seguir com o nó do aplicativo Web no qual seus filtros de aplicativo estão configurados.
 
 Para obter os resultados mais precisos, o filtro deve ser mapeado antes de todos os outros filtros.
 
@@ -226,16 +225,16 @@ Retorne para seu recurso do Application Insights no [Portal do Microsoft Azure](
 Dados de solicitações HTTP aparecerão na folha de visão geral. (Se não estiverem lá, aguarde alguns segundos e, em seguida, clique em Atualizar.)
 
 ![dados de exemplo](./media/app-insights-java-get-started/5-results.png)
- 
+
 
 Clique em qualquer gráfico para ver métricas mais detalhadas.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
- 
+
 
 Ao exibir as propriedades de uma solicitação, você pode ver os eventos de telemetria associados a ela, como solicitações e exceções.
- 
+
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
@@ -270,20 +269,20 @@ Para coletar dados em outras exceções, você tem duas opções:
 
 ## Contadores de desempenho
 
-Clique no bloco Servidores e você verá uma variedade de contadores de desempenho.
+Clique no bloco **Servidores** e você verá uma variedade de contadores de desempenho.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
 
-### Personalizando a coleta do contador de desempenho
+### Personalizar a coleta do contador de desempenho
 
-Para desabilitar a coleta do conjunto padrão de contadores de desempenho, adicione o seguinte trecho sob o nó raiz do arquivo ApplicationInsights.xml:
+Para desabilitar a coleta do conjunto padrão de contadores de desempenho, adicione o seguinte trecho no nó raiz do arquivo ApplicationInsights.xml:
 
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
 
-### Coleta de contadores de desempenho adicionais
+### Coletar contadores de desempenho adicionais
 
 Você pode especificar contadores de desempenho adicionais a serem coletados.
 
@@ -306,7 +305,7 @@ Você pode especificar contadores de desempenho adicionais a serem coletados.
 
 
 
-#### Contadores de desempenho do Windows 
+#### Contadores de desempenho do Windows
 
 Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) é membro de uma categoria (do mesmo modo que um campo é um membro de uma classe). Categorias podem ser globais, ou podem ter instâncias numeradas ou nomeadas.
 
@@ -317,8 +316,8 @@ Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/wind
       </Windows>
     </PerformanceCounters>
 
-*	displayName – o nome exibido no portal do Application Insights.
-*	categoryName – a categoria de contador de desempenho (objeto de desempenho) com o qual este contador de desempenho está associado
+*	displayName - o nome exibido no portal do Application Insights.
+*	categoryName – a categoria de contador de desempenho (objeto de desempenho) a qual este contador de desempenho está associado
 *	counterName – o nome do contador de desempenho
 *	instanceName – o nome da instância da categoria do contador de desempenho ou uma cadeia de caracteres vazia (""), se a categoria contém uma única instância. Se categoryName é o processo, e o contador de desempenho que você gostaria de coletar faz parte do processo atual da JVM em que seu aplicativo está sendo executado, especifique `"__SELF__"`.
 
@@ -329,7 +328,7 @@ Seus contadores de desempenho são visíveis como métricas personalizadas em [M
 
 ### Contadores de desempenho do Unix
 
-* [Instale collectd com o plug-in do Application Insights](app-insights-java-collectd.md) para obter uma ampla variedade de dados de sistema e rede.
+* [Instale o collectd com o plug-in do Application Insights](app-insights-java-collectd.md) para obter uma ampla variedade de dados de sistema e rede.
 
 ## Obter dados de usuário e de sessão
 
@@ -371,6 +370,4 @@ Agora que você instalou o SDK, você pode usar a API para enviar sua próprias 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

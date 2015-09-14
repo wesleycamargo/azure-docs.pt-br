@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Contatar o Suporte da Microsoft | Microsoft Azure"
-   description="Saiba como criar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Saiba como criar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Contatar o Suporte da Microsoft
 
-Se tiver problemas com sua solução Microsoft Azure StorSimple, você poderá criar uma solicitação de serviço de Suporte Técnico. Em uma sessão online com seu Engenheiro de Suporte, talvez você precise iniciar uma sessão de suporte em seu dispositivo StorSimple. Este artigo o orienta durante o processo de criação de uma solicitação de suporte e também para iniciar uma sessão de suporte na interface do Windows PowerShell de seu dispositivo StorSimple.
+Se tiver problemas com sua solução Microsoft Azure StorSimple, você poderá criar uma solicitação de serviço de suporte técnico. Em uma sessão online com seu engenheiro de suporte, talvez você precise iniciar uma sessão de suporte em seu dispositivo StorSimple. Este artigo o orienta durante o processo de criação de uma solicitação de suporte e também para iniciar uma sessão de suporte na interface do Windows PowerShell de seu dispositivo StorSimple.
 
 ## Criar uma solicitação de suporte
 
@@ -71,4 +71,4 @@ Execute as seguintes etapas para iniciar uma sessão de suporte:
 
 > [AZURE.IMPORTANT]Você pode desabilitar o acesso ao suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desabilitar o acesso ao suporte oito horas após a sessão ser iniciada. É uma prática recomendada alterar as credenciais de seu dispositivo StorSimple após iniciar uma sessão de suporte.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

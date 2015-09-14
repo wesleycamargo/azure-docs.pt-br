@@ -1,24 +1,25 @@
 <properties 
-   pageTitle="Modificar as configurações de interface de rede DADOS 0 em seu dispositivo StorSimple"
-   description="Saiba como reconfigurar a interface de rede DADOS 0 em seu dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Modificar as configurações de DATA 0 em um dispositivo StorSimple | Microsoft Azure"
+	description="Saiba como usar o Windows PowerShell para StorSimple para reconfigurar a interface de rede DATA 0 em seu dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
 # Modificar as configurações de interface de rede DADOS 0 em seu dispositivo StorSimple
 
 ## Visão geral
-O dispositivo Microsoft Azure StorSimple tem seis interfaces de rede de DADOS 0 a DADOS 5. A interface de DADOS 0 é sempre configurada por meio da interface do Windows PowerShell ou do console serial e é habilitada para a nuvem automaticamente. A interface de DADOS 0 é configurada primeiro por meio do assistente de instalação durante a implantação inicial do dispositivo StorSimple. Quando o dispositivo está em modo operacional, talvez você precise redefinir as configurações de DADOS 0. Este tutorial fornece dois métodos para modificar as configurações de rede de DADOS 0; os dois por meio do Windows PowerShell para StorSimple.
+
+O dispositivo Microsoft Azure StorSimple tem seis interfaces de rede de DADOS 0 a DADOS 5. A interface de DADOS 0 é sempre configurada por meio da interface do Windows PowerShell ou do console serial e é habilitada para a nuvem automaticamente. A interface de DADOS 0 é configurada primeiro por meio do assistente de instalação durante a implantação inicial do dispositivo StorSimple. Quando o dispositivo está em modo operacional, talvez você precise redefinir as configurações de DADOS 0. Este tutorial fornece dois métodos para modificar as configurações de rede de DATA 0; os dois por meio do Windows PowerShell para StorSimple.
 
 Depois de ler este tutorial, você poderá:
 
@@ -33,12 +34,12 @@ Você pode reconfigurar as definições de rede de DADOS 0 conectando-se à inte
 
 1. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é `Password1`.
 
-1. No prompt de comando, digite:
+2. No prompt de comando, digite:
 
 
 	`Invoke-HcsSetupWizard`
 
-1. Um assistente de instalação aparecerá para lhe ajudar a configurar a interface dos DADOS 0 do seu dispositivo. Fornece novos valores para o endereço IP, gateway e máscara de rede.
+3. Um assistente de instalação aparecerá para lhe ajudar a configurar a interface dos DADOS 0 do seu dispositivo. Fornece novos valores para o endereço IP, gateway e máscara de rede.
 
 > [AZURE.NOTE]Os IPs de controladores fixos precisarão ser reconfigurados por meio da página **Configurar** do dispositivo StorSimple no Portal de Gerenciamento do Azure. Para obter mais informações, vá para [Modificar interfaces de rede](storsimple-modify-device-config.md#modify-network-interfaces).
 
@@ -70,4 +71,4 @@ Uma maneira alternativa de reconfigurar a interface de rede DADOS 0 é através 
 
 Para configurar as interfaces de rede que não sejam DATA 0, você pode usar a [página Configurar no Portal de Gerenciamento](storsimple-modify-device-config.md). Se você tiver problemas ao configurar suas interfaces de rede, consulte [Solucionar problemas de implantação](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

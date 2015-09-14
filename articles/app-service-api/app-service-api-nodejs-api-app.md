@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Criar e implantar um aplicativo de API do Node.js no Serviço de Aplicativo do Azure"
+	pageTitle="Criar e implantar um aplicativo de API do Node.js no Serviço de Aplicativo do Azure | Microsoft Azure"
 	description="Saiba como criar um pacote do aplicativo de API do Node.js e implantá-lo no Serviço de Aplicativo do Azure."
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-  manager="" 
-  editor=""/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -20,7 +20,7 @@
 
 Este tutorial mostra como criar um aplicativo [Node.js](http://nodejs.org) e implantá-lo em aplicativos de API do serviço de aplicativo do Azure usando [Git](http://git-scm.com). As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que seja capaz de executar o nó.
 
-Eis aqui uma captura de tela do aplicativo concluído:
+A captura de tela abaixo mostra o aplicativo concluído:
 
 ![][sample-api-app-page]
 
@@ -34,7 +34,7 @@ Eis aqui uma captura de tela do aplicativo concluído:
 
 2. Clique em **NOVO** na parte inferior esquerda do portal.
 
-3. Clique em **Web + Móvel > Aplicativo de API**.
+3. Clique em **Web + Móvel** > **Aplicativo de API**.
 
 	![][portal-quick-create]
 
@@ -50,7 +50,7 @@ Eis aqui uma captura de tela do aplicativo concluído:
 
 	Se você deixou a caixa de seleção **Adicionar ao quadro inicial** marcada, o portal abre automaticamente a folha de seu aplicativo de API após sua criação. Se você desmarcou a caixa de seleção, clique em **Notificações** na home page do portal para ver o status de criação do aplicativo de API e clique na notificação para ir até a folha do novo aplicativo de API.
 
-7. Clique em **Configurações > Configurações do aplicativo**.
+7. Clique em **Configurações** > **Configurações do aplicativo**.
 
 9. Defina o nível de acesso como **Público (anônimo)**.
 
@@ -171,7 +171,6 @@ Nesta seção você criará um repositório Git local e enviará por push a part
 
 		git init
 
-
 2. Insira os comandos a seguir para adicionar arquivos ao repositório:
 
 		git add .
@@ -243,6 +242,5 @@ Você implantou um aplicativo Web Node.js que usa um back-end do aplicativo de A
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

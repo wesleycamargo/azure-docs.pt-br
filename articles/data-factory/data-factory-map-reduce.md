@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Chamar o Programa MapReduce da Data Factory do Azure" 
-	description="Saiba como processar dados executando programas MapReduce em um cluster HDInsight do Azure em uma Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Chamar o Programa MapReduce da Data Factory do Azure"
+	description="Saiba como processar dados executando programas MapReduce em um cluster HDInsight do Azure em uma Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="spelluru"/>
 
 # Chamar Programas MapReduce da Data Factory
@@ -64,9 +64,9 @@ Na definição do JSON para a atividade de HDInsight:
 		            "-s",
 		            "SIMILARITY_LOGLIKELIHOOD",
 		            "--input",
-		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/input",
+		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Input/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
 		            "--output",
-		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/output/",
+		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Output/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
 		            "--maxSimilaritiesPerItem",
 		            "500",
 		            "--tempDir",
@@ -102,4 +102,4 @@ Você pode baixar um exemplo para usar a Atividade de HDInsight com a transforma
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

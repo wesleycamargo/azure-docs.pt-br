@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Como configurar um serviço de nuvem | Microsoft Azure" 
-	description="Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
+	pageTitle="Como configurar um serviço de nuvem | Microsoft Azure"
+	description="Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="adegeo"/>
 
@@ -85,8 +85,8 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
 
 ## Configurar o acesso remoto para instâncias de função
 
-O acesso remoto não pode ser configurado usando o **Portal de Visualização do Azure**, você só pode alterar essa configuração por meio de um [portal que não seja de visualização](http://manage.windowsazure.com/). Isso é detalhado [aqui](cloud-services-how-to-configure.md#configure-remote-access-to-role-instances).
+O acesso remoto não pode ser configurado usando o **Portal de Visualização do Azure**, você só pode alterar essa configuração por meio de um [portal que não seja de visualização](http://manage.windowsazure.com/). Isso é detalhado [aqui](cloud-services-role-enable-remote-desktop.md).
 			
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -79,7 +79,7 @@ A instalação do MSI configurará automaticamente regras de firewall do Windows
 
 Mas a instalação presume que as portas de saída mencionadas acima são permitidas por padrão no computador local e no firewall corporativo. Você precisa habilitar essas portas de saída, se esse não for o caso. Se você tiver substituído o firewall do Windows por um firewall de terceiros, talvez seja necessário abrir essas portas manualmente.
 
-Se sua empresa usa um servidor proxy, você precisa adicionar o Microsoft Azure à lista branca. Você pode baixar uma lista de endereços IP do Microsoft Azure válidos do [Centro de Download da Microsoft](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
+Se sua empresa usa um servidor proxy, você precisa adicionar o Microsoft Azure à lista de permissões. Você pode baixar uma lista de endereços IP do Microsoft Azure válidos do [Centro de Download da Microsoft](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
 
 ## Usando o Gateway de dados: tutorial passo a passo
 Neste passo a passo, você pode criar um data factory com um pipeline que move dados de um banco de dados SQL Server local para um blob do Azure.
@@ -520,7 +520,7 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. No Azure PowerShell, alterne para a pasta **C:\\Arquivos de Programas\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\** e execute o script **RegisterGateway.ps1** associado à variável local **$Key** conforme mostrado no seguinte comando para registrar o agente cliente instalado no computador com o gateway lógico criado anteriormente.
+4. No Azure PowerShell, alterne para a pasta **C:\\Arquivos de Programas\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\** e execute o script **RegisterGateway.ps1** associado à variável local **$Key** conforme mostrado no seguinte comando para registrar o agente cliente instalado no computador com o gateway lógico criado anteriormente.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -559,4 +559,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 	- 	Defina as [Configurações de firewall do Azure SQL](https://msdn.microsoft.com/library/azure/jj553530.aspx) para adicionar o **endereço IP do computador do gateway** aos **endereços IP permitidos**.
 5.	Ao copiar dados para/de um SQL Server local para qualquer destino quando os computadores do gateway e do SQL Server forem diferentes, faça o seguinte: [configure o Firewall do Windows](https://msdn.microsoft.com/library/ms175043.aspx) no computador do SQL Server para que o gateway possa acessar o banco de dados por meio de portas que a instância do SQL Server escuta. Para a instância padrão, é a porta 1433.
 
-<!---HONumber=August15_HO9-->
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
+
+<!---HONumber=September15_HO1-->

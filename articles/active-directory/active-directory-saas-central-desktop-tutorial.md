@@ -1,5 +1,7 @@
 <properties pageTitle="Tutorial: Integração do Active Directory do Azure ao Central Desktop | Microsoft Azure" description="Saiba como usar o Central Desktop com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
+
 #Tutorial: Integração do Active Directory do Azure ao Central Desktop
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=522411).
 
@@ -53,22 +55,20 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 Como parte deste procedimento, é necessário carregar um certificado codificado em base 64 no locatário do Desktop Central.  
 Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-Nase
-
 ###Para configurar o logon único, execute as seguintes etapas:
 
 1.  No portal do AD do Azure, na página de integração de aplicativos **Central Desktop**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "Configurar logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Central Desktop**, selecione **Logon único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-central-desktop-tutorial/IC777628.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-central-desktop-tutorial/IC777628.png "Configurar logon único")
 
-3.  Na página da caixa de diálogo **Configurar a URL do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
+3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
 
     -   Na caixa de texto **URL de Logon do Central Desktop**, digite a URL do seu locatário do Central Desktop (por exemplo: **http://contoso.centraldesktop.com*).
-    -   Na caixa de texto URL de Resposta do Central Desktop, digite a URL AssertionConsumerService do Central Desktop (por exemplo: https://contoso.centraldesktop.com/saml2-assertion.php).
+-   Na caixa de texto URL de Resposta do Central Desktop, digite a URL AssertionConsumerService do Central Desktop (por exemplo: https://contoso.centraldesktop.com/saml2-assertion.php).
 
     >[AZURE.NOTE]Você pode obter o valor nos metadados do Central Desktop (por exemplo: **http://contoso.centraldesktop.com*).
 
@@ -76,38 +76,38 @@ Nase
 
 4.  Na página **Configurar logon único no Central Desktop**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-central-desktop-tutorial/IC769562.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-central-desktop-tutorial/IC769562.png "Configurar o logon único")
 
 5.  Faça logon no seu locatário do **Central Desktop**.
 
-6.  Vá para **Configurações**, clique em **Avançado** e em **Logon Único**.
+6.  Vá para **Configurações**, clique em **Avançadas** e em **Logon Único**.
 
     ![Configuração — Avançada](./media/active-directory-saas-central-desktop-tutorial/IC769563.png "Configuração — Avançada")
 
-7.  Na página da caixa de diálogo **Configurações de Logon Único**, execute as seguintes etapas:
+7.  Na página **Configurações de Logon Único**, execute as seguintes etapas:
 
     ![Configurações de Logon Único](./media/active-directory-saas-central-desktop-tutorial/IC769564.png "Configurações de Logon Único")
 
     1.  Selecione **Habilitar Logon Único do SAML v2**.
-    2.  No portal do AD do Azure, na página **Configurar logon único no Central Desktop**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **URL de SSO**.
-    3.  No portal do AD do Azure, na página **Configurar logon único no Central Desktop**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon de SSO**.
-    4.  No portal do AD do Azure, na página **Configurar logon único no Central Desktop**, copie o valor de **URL de Serviço de Logoff Único ** e cole-o na caixa de texto **URL de Logoff de SSO**.
+    2.  No portal do AD do Azure, na página **Configurar logon único na área de trabalho Central**, copie o valor da **URL de Emissor** e, em seguida, cole-a na caixa de texto **URL SSO**.
+    3.  No portal do AD do Azure, na página **Configurar logon único no Central Desktop**, copie o valor da **URL de Logon Remoto** e, em seguida, cole-a na caixa de texto **URL SSO**.
+    4.  No portal do AD do Azure, na página **Configurar logon único no Central Desktop**, copie o valor da **URL do Serviço de Saída Única** e, em seguida, cole-a na caixa de texto **URL SSO**.
 
-8.  Na seção **Método de Verificação de Assinatura da Mensagem**, execute as seguintes etapas:
+8.  Na seção **Método de Verificação de Assinatura de Mensagem**, execute as seguintes etapas:
 
     ![Método de Verificação de Assinatura da Mensagem](./media/active-directory-saas-central-desktop-tutorial/IC769565.png "Método de Verificação de Assinatura da Mensagem")
 
     1.  Selecione **Certificado**.
-    2.  Na lista **Certificado de SSO**, selecione **RSH SHA256**.
-    3.  Crie um arquivo de texto usando o certificado baixado, copie o conteúdo do arquivo de texto e cole-o no campo **Certificado de SSO**.  
+    2.  Da lista do **Certificado SSO**, selecione **RSH SHA256**.
+    3.  Crie um arquivo de texto por meio do certificado baixado, copie o conteúdo do arquivo de texto e cole-o no campo de **Certificado SSO**.  
 
         >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-    4.  Selecione **Exibir um link para a página de logon SAMLv2**.
+    4.  Selecione **Exibir um link para a sua página de logon do SAMLv2**.
 
 9.  Clique em **Atualizar**.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+10. No portal do AD do Azure, selecione a confirmação de configuração de logon único e, em seguida, clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-central-desktop-tutorial/IC769566.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -124,11 +124,11 @@ Para que os usuários do AAD possam fazer logon, eles devem ser provisionados no
 
     ![Pessoas](./media/active-directory-saas-central-desktop-tutorial/IC781051.png "Pessoas")
 
-4.  Na caixa de texto **Endereço de Email do Novo Membro**, digite a conta que deseja provisionar e clique em **Avançar**.
+4.  Na caixa de texto **Endereço de Email dos Novos Membros**, digite uma conta do AAD a que você deseja provisionar e, em seguida, clique em **Avançar**.
 
     ![Endereços de Email dos Novos Membros](./media/active-directory-saas-central-desktop-tutorial/IC781052.png "Endereços de Email dos Novos Membros")
 
-5.  Clique em **Adicionar membros internos**.
+5.  Clique em **Adicionar membro(s) Interno(s)**.
 
     ![Adicionar Membro Interno](./media/active-directory-saas-central-desktop-tutorial/IC781053.png "Adicionar Membro Interno")
 
@@ -144,14 +144,14 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 1.  No portal do AD do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Central Desktop**, clique em **Atribuir usuários**.
+2.  Sobre a página de integração da aplicação **Central Desktop**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-central-desktop-tutorial/IC769567.png "Atribuir usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
 
     ![Sim](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Sim")
 
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

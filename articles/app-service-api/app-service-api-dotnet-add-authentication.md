@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Proteger um aplicativo de API do Azure" 
-	description="Saiba como proteger um aplicativo de API do Azure usando o Visual Studio." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Proteger um aplicativo de API do Azure"
+	description="Saiba como proteger um aplicativo de API do Azure usando o Visual Studio."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="tdykstra"/>
 
 # Proteger um aplicativo de API: adicionar autenticação do Active Directory do Azure ou do provedor social
@@ -229,7 +229,11 @@ Nesta seção, você altera o código no aplicativo de API ContactsList para que
 	* "twitter"
 	* "facebook". 
 
-2. No arquivo *ContactsController.cs*, substitua o código no método `Get` pelo código a seguir.
+3. No arquivo *ContactsController.cs*, adicione uma instrução `using` na parte superior do arquivo.
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+2. No método `Get`, substitua o código pelo seguinte:
 
 		var runtime = Runtime.FromAppSettings(Request);
 		var user = runtime.CurrentUser;
@@ -263,9 +267,9 @@ Nesta seção, você altera o código no aplicativo de API ContactsList para que
 
 ## Próximas etapas
 
-Você viu como proteger um aplicativo de API do Azure exigindo autenticação do Active Directory do Azure ou do provedor social. Para obter mais informações, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
+Você viu como proteger um aplicativo de API do Azure exigindo autenticação do Active Directory do Azure ou do provedor social. Para saber mais, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
 [Portal Azure]: https://manage.windowsazure.com/
 [Portal de visualização do Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

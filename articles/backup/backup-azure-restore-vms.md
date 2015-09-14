@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Backup do Azure - restaurar uma máquina virtual | Microsoft Azure"
 	description="Aprenda a restaurar uma máquina virtual do Azure"
@@ -12,7 +13,8 @@
 # Restaurar uma máquina virtual
 Você pode restaurar uma máquina virtual em uma nova VM por meio de backups armazenados no cofre de backup do Azure usando a ação de restauração.
 
-## Escolha um item para restaurar
+## Restaurar o fluxo de trabalho
+### 1\. Escolha um item para restaurar
 
 1. Navegue até a guia **Itens Protegidos** e selecione a máquina virtual que você deseja restaurar em uma nova VM.
 
@@ -24,7 +26,7 @@ Você pode restaurar uma máquina virtual em uma nova VM por meio de backups arm
 
     ![Restaurar um item](./media/backup-azure-restore-vms/restore-item.png)
 
-## Selecione um ponto de recuperação
+### 2\. Selecione um ponto de recuperação
 
 1. Na tela **Selecionar um ponto de recuperação**, você pode restaurar do ponto de recuperação mais recente ou de um ponto anterior no tempo. A opção padrão selecionada quando o assistente é aberto é *Ponto de Recuperação Mais Recente*.
 
@@ -40,16 +42,16 @@ Você pode restaurar uma máquina virtual em uma nova VM por meio de backups arm
 
 3. Selecione o ponto de recuperação na tabela **Pontos de Recuperação** e clique na seta Avançar para ir para a próxima tela.
 
-## Especifique um local de destino
+### 3\. Especifique um local de destino
 
 1. Na tela **Selecionar instância de restauração**, especifique os detalhes de onde restaurar a máquina virtual.
 
   - Especifique o nome da máquina virtual: em um determinado serviço de nuvem, o nome da máquina virtual deve ser exclusivo. Se você pretende substituir uma VM existente com o mesmo nome, primeiro exclua a máquina virtual existente e os discos de dados e, em seguida, restaure os dados do Backup do Azure.
   - Selecione um serviço de nuvem para a VM: isso é obrigatório para a criação de uma VM. Você pode optar por usar um serviço de nuvem existente ou criar um novo serviço de nuvem.
 
-        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
+        O nome do serviço de nuvem deve ser globalmente exclusivo. Geralmente, o nome do serviço de nuvem é associado a uma URL pública no formato [serviçodenuvem].cloudapp.net. O Azure não permitirá a criação de um novo serviço de nuvem se o nome já estiver em uso. Se você optar por criar, selecione Criar novo serviço de nuvem". O serviço receberá o mesmo nome que a máquina virtual, portanto, o nome escolhido para a VM deverá ser exclusivo o suficiente para ser aplicado ao serviço de nuvem associado.
 
-        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+        Só exibimos serviços de nuvem e redes virtuais que não estejam associados a nenhum grupo de afinidade nos detalhes da instância de restauração. [Saiba mais](https://msdn.microsoft.com/pt-br/library/azure/jj156085.aspx).
 
 2. Selecione uma conta de armazenamento para a VM: isso é obrigatório para a criação de uma VM. Você pode selecionar entre contas de armazenamento existentes na mesma região que o cofre de backup do Azure. Não há suporte para contas de armazenamento com redundância de zona ou do tipo de armazenamento Premium.
 
@@ -63,7 +65,7 @@ Você pode restaurar uma máquina virtual em uma nova VM por meio de backups arm
 
     ![Selecione uma rede virtual](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. Selecione uma sub-rede: no caso de a VNET ter sub-redes, por padrão, a primeira sub-rede será selecionada. Selecione a sub-rede de sua escolha entre as opções do menu suspenso. Para obter detalhes de sub-rede, acesse a extensão Redes na [home page do portal](https://manage.windowsazure.com/), vá para **Redes Virtuais**, selecione a rede virtual e detalhe em Configurar para ver os detalhes de sub-rede.
+4. Selecione uma sub-rede: no caso de a VNET ter sub-redes, por padrão, a primeira sub-rede será selecionada. Selecione a sub-rede de sua escolha entre as opções do menu suspenso. Para obter detalhes de sub-rede, acesse a extensão Redes na [home page do portal](https://manage.windowsazure.com/), vá para **Redes Virtuais**, selecione a rede virtual e faça uma busca detalhada em Configurar para ver os detalhes de sub-rede.
 
     ![Selecione uma sub-rede](./media/backup-azure-restore-vms/select-subnet.png)
 
@@ -82,16 +84,25 @@ Quando a operação de restauração for concluída, ela será marcada como conc
 
 ![Trabalho de restauração concluído](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Depois de restaurar a máquina virtual, talvez seja necessário reinstalar as extensões existentes na VM original e [modificar os pontos de extremidade](virtual-machines-set-up-endpoints) para a máquina virtual no Portal do Azure.
+Depois de restaurar a máquina virtual, talvez seja necessário reinstalar as extensões existentes na VM original e [modificar os pontos de extremidade](virtual-machines-set-up-endpoints) para a máquina virtual no portal do Azure.
 
-## Solucionar erros
-Para a maioria dos erros, siga a ação recomendada sugerida nos detalhes do erro. Aqui estão alguns pontos adicionais para ajudar com a solução de problemas:
+## Restaurando VMs do controlador de domínio
+O backup de máquinas virtuais de controlador de domínio (DC) é um cenário com suporte no Backup do Azure. No entanto, deve-se tomar algum cuidado durante o processo de restauração. A experiência de restauração é muito diferente para VMs do controlador de domínio em uma configuração de DC único em comparação a VMs em uma configuração de vários DCs.
 
-| Operação de backup | Detalhes do erro | Solução alternativa |
-| -------- | -------- | -------|
-| Restaurar | A restauração falhou com erro interno de nuvem | <ol><li>O serviço de nuvem no qual você está tentando restaurar está definido com configurações de DNS. Você pode verificar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se houver um endereço configurado, significa que as configurações de DNS estão definidas.<br> <li>O serviço de nuvem no qual você está tentando restaurar está configurado com IP Reservado e as VMs existentes no serviço de nuvem estão no estado “interrompido”.<br>Você pode verificar se um serviço de nuvem tem IP reservado usando os seguintes cmdlets do PowerShell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
+### DC único
+A VM pode ser restaurada (como qualquer outra VM) do portal do Azure ou usando o PowerShell.
+
+### Vários DCs
+Quando você tiver um ambiente com vários DCs, os controladores de domínio terão a sua própria maneira de manter os dados sincronizados. Quando um ponto de backup mais antigo for restaurado *sem as precauções adequadas*, o processo de reversão do USN poderá causar estragos em um ambiente de vários DCs. A maneira correta de recuperar tal VM é inicializá-la em modo DSRM.
+
+O desafio surge porque o modo DSRM não está presente no Azure. Então, para restaurar essa VM, você não poderá usar o portal do Azure. O único mecanismo de restauração com suporte é a restauração baseada em disco usando o PowerShell.
+
+>[AZURE.WARNING]Para VMs do controlador de domínio em um ambiente com vários DCs, não use o portal do Azure para a restauração! Somente a restauração baseada no PowerShell tem suporte
+
+Leia mais sobre o [problema de reversão de USN](https://technet.microsoft.com/library/dd363553) e as estratégias sugeridas para corrigi-lo.
 
 ## Próximas etapas
+- [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

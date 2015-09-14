@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Como configurar um serviço de nuvem | Microsoft Azure" 
-	description="Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
+	pageTitle="Como configurar um serviço de nuvem | Microsoft Azure"
+	description="Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="adegeo"/>
 
@@ -27,7 +27,7 @@
 
 Você pode definir as configurações usadas mais frequentemente para um Serviço de Nuvem no Portal de Gerenciamento do Azure. Ou então, se desejar atualizar diretamente seus arquivos de configuração, baixe um arquivo de configuração de serviço para atualizar e carregue o arquivo atualizado e atualize o serviço de nuvem com as alterações de configuração. De qualquer maneira, as atualizações da configuração são enviadas por push a todas as instâncias de função.
 
-Você também pode habilitar uma conexão de área de trabalho remota para uma ou todas as funções em execução no Serviço de Nuvem. A área de trabalho remota permite que você acesse área de trabalho do seu aplicativo durante a execução e solucione e diagnostique problemas. Você pode habilitar uma conexão de área de trabalho remota para sua função mesmo sem ter configurado um arquivo de definição de serviço (.csdef) para a área de trabalho remota durante o desenvolvimento do aplicativo. Não é necessário reimplantar seu aplicativo para habilitar uma conexão de área de trabalho remota.
+O Portal de Gerenciamento do Azure também permite que você [habilite a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](cloud-services-role-enable-remote-desktop.md)
 
 O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço durante as atualizações de configuração se você tiver, pelo menos, duas instâncias de função para cada função. Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada. Para obter mais informações, consulte [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
 
@@ -78,70 +78,8 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
     4. Clique em **OK** (marca de seleção).
 
 
-## Configurar o acesso remoto para instâncias de função
+## Recursos adicionais
 
-A área de trabalho remota permite que você acesse a área de trabalho de uma função em execução no Azure. Você pode usar a conexão da área de trabalho remota para solucionar e diagnosticar problemas com seu aplicativo durante a execução. Você pode habilitar uma conexão de área de trabalho remota em sua função durante a criação do aplicativo ou após a implantação do aplicativo no Azure (com a função em execução). Habilitar uma conexão de área de trabalho remota em uma função em execução através do Portal de Gerenciamento não exige a reimplantação do seu aplicativo. Para autenticar a conexão de área de trabalho remota você pode usar um certificado carregado anteriormente ou criar um novo certificado.
+[Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](cloud-services-role-enable-remote-desktop.md)
 
-Na página **Configurar** do seu Serviço de Nuvem, você pode habilitar a área de trabalho remota ou alterar a conta ou a senha do administrador local usada para conexão às máquinas virtuais, o certificado usado na autenticação ou a data de validade.
-
-### Para configurar o acesso remoto no novo arquivo de definição de serviço
-
-Adicione os elementos de **Importação** ao arquivo de definição de serviço (.csdef) para importar os módulos RemoteAccess e RemoteForwarder no modelo de serviço. Quando esses módulos estão presentes, o Azure adiciona as configurações da área de trabalho remota ao arquivo de configuração de serviço. Para concluir a configuração da área de trabalho remota, você precisará importar um certificado no Azure e especificar o certificado no arquivo de configuração de serviço. Para obter mais informações, consulte [Configuração de uma conexão de área de trabalho remota para uma função no Azure][].
-
-### Para habilitar ou modificar o acesso remoto para instâncias de função no Portal de Gerenciamento
-
-1. Clique em **Serviços de Nuvem**, no nome do serviço de nuvem e depois em **Configurar**.
-
-2. Clique em **Remoto**.
-    
-    ![Serviços de nuvem remotos](./media/cloud-services-how-to-configure/CloudServices_Remote.png)
-    
-    **Aviso:** todas as instâncias de função serão reiniciadas quando você habilitar a área de trabalho remota pela primeira vez e clicar em OK (marca de seleção). Para evitar a reinicialização, o certificado usado para criptografar a senha deve estar instalado na função.
-    
-    Para evitar uma reinicialização, instale um certificado e retorne para essa caixa de diálogo (consulte [Usando a área de trabalho remota com funções do Azure][] para obter mais informações). Se você escolher um certificado existente, uma atualização da configuração será enviada a todas as instâncias na função.
-
-3. Em **Funções**, selecione a função que você deseja atualizar ou selecione **Tudo** para todas as funções.
-
-4. Faça algumas das seguintes alterações:
-    
-    - Para habilitar a área de trabalho remota, marque a caixa de seleção de **Habilitar Área de Trabalho Remota**. Para desabilitar a área de trabalho remota, desmarque a caixa de seleção.
-    
-    - Crie uma conta para usar nas conexões de área de trabalho remota para as instâncias de função.
-    
-    - Atualize a senha da conta existente.
-    
-    - Selecione um certificado carregado para usar a autenticação (carregue o certificado usando **Carregar** na página **Certificados**) ou crie um novo certificado.
-    
-    - Altere a data de validade para a configuração da área de trabalho remota.
-
-5. Ao concluir as atualizações da configuração, clique em **OK** (marca de seleção).
-
-6. Para conectar-se a uma instância de função:
-    
-    1. Clique em **Instâncias** para abrir a página **Instâncias**.
-    
-    2. Selecione uma instância de função com a área de trabalho remota configurada.
-    
-    3. Clique em **Conectar** e siga as instruções para abrir a área de trabalho.
-    
-    4. Clique em **Abrir** e em **Conectar** para iniciar a conexão de área de trabalho remota.
-
-### Para desabilitar ou modificar o acesso remoto para instâncias de função no Portal de Gerenciamento
-
-1. Clique em **Serviços de Nuvem**, no nome do serviço de nuvem e depois em **Configurar**.
-
-2. Clique em **Remoto**.
-
-3. Em **Funções**, selecione a função que você deseja atualizar ou selecione **Tudo** para todas as funções.
-
-4. Desmarque ou limpe a caixa de seleção **Habilitar Conexão Remota**.
-
-5. Clique em **OK** (marca de seleção).
-
-[Configuração de uma conexão de área de trabalho remota para uma função no Azure]: https://msdn.microsoft.com/library/azure/hh124107.aspx
-
-[Usando a área de trabalho remota com funções do Azure]: https://msdn.microsoft.com/library/azure/gg443832.aspx
-			
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

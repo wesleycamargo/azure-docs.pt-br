@@ -1,20 +1,20 @@
 <properties
     pageTitle="O que é o Aprendizado de Máquina no Azure? | Microsoft Azure"
-    description="Explica conceitos básicos do serviço de Aprendizado de Máquina totalmente gerenciado, uma tecnologia de nuvem que você pode usar para criar, operacionalizar e lucrar com soluções."
+	description="Explica conceitos básicos do serviço de Aprendizado de Máquina totalmente gerenciado, uma tecnologia de nuvem que você pode usar para criar, operacionalizar e lucrar com soluções."
 	services="machine-learning"
-    documentationCenter=""
-    authors="cjgronlund"
-    manager="neerajkh"
-    editor="cgronlun"/>
+	documentationCenter=""
+	authors="cjgronlund"
+	manager="neerajkh"
+	editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/23/2015"
-    ms.author="cgronlun;tedway;olgali"/>
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
+	ms.author="cgronlun;tedway;olgali"/>
 
 
 # Introdução ao aprendizado de máquina no Microsoft Azure
@@ -47,12 +47,12 @@ O Aprendizado de Máquina do Azure tem tudo o que você precisa para criar solu�
 
 Crie modelos preditivos no [Estúdio de Aprendizado de Máquina](machine-learning-what-is-ml-studio.md), uma ferramenta baseada em navegador, arrastando, soltando e conectando módulos.
 
-![O que é análise preditiva: exemplo de um experimento de análise preditiva no Estúdio de Aprendizado de Máquina do Azure](./media/machine-learning-what-is-machine-learning/AzureMLStudio.png)
+![O que é análise preditiva: exemplo de um experimento de análise preditiva no Estúdio de Aprendizado de Máquina do Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Use uma ampla biblioteca de [algoritmos e módulos de aprendizado de máquina](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) no Estúdio de Aprendizado de Máquina para começar imediatamente seus modelos preditivos. Escolha em uma biblioteca de experimentos de exemplo, pacotes R e Python e algoritmos de ponta provenientes de empresas da Microsoft, como Xbox e Bing. Estenda os módulos do Estúdio com seus próprios scripts [R](machine-learning-r-quickstart.md) e [Python](machine-learning-execute-python-scripts.md) personalizados.
 * Na [Galeria da Comunidade de Aprendizado de Máquina](machine-learning-gallery-how-to-use-contribute-publish.md), você pode começar o Aprendizado da Máquina do Azure e aprender com outros participantes da comunidade. Teste experimentos criados por outros usuários, faça perguntas ou envie comentários sobre experimentos ou publique experimentos de sua própria autoria. Você também pode compartilhar links para experimentos por meio de redes sociais, como o LinkedIn e o Twitter.  
 
-	![Tente exemplos de experimento de previsão ou contribua com o seu próprio na Galeria de Aprendizado da Máquina do Azure](./media/machine-learning-what-is-machine-learning/AzureMLGallery.png)
+	![Tente exemplos de experimento de previsão ou contribua com o seu próprio na Galeria de Aprendizado da Máquina do Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
 
 ### Operacionalizar soluções de análise preditiva: comprar serviços Web ou publicar os seus próprios
 
@@ -115,4 +115,4 @@ Você pode aprender os fundamentos da análise de previsão e do aprendizado da 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

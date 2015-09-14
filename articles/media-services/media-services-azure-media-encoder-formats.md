@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="08/30/2015"
 	ms.author="juliako"/>
 
 #Codecs e formatos do Codificador de Mídia do Azure
@@ -141,4 +141,4 @@ Dados em formato YUV 211|Um formato YUV empacotado. Uma amostra Y a cada dois pi
 Formato Cirrus Logic Jr YUV 411|Formato Cirrus Logic Jr YUV 411 com menos de 8 bits por amostra Y, U e V. Uma amostra Y a cada pixel, uma amostra U e V a cada quatro pixels horizontais em cada linha; cada linha vertical de amostra.
 Formato YVU9 produzido em Indeo|Formato YVU9 produzido em Indeo com informações adicionais sobre as diferenças do último quadro. 9,5 bits por pixel, mas relatado como 9.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

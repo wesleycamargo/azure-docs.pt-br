@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Gerenciar seus modelos de largura de banda do StorSimple | Microsoft Azure"
-   description="Descreve como gerenciar modelos de largura do StorSimple, que permitem controlar o consumo da largura de banda."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Descreve como gerenciar modelos de largura do StorSimple, que permitem controlar o consumo da largura de banda."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Gerenciar os modelos de largura de banda do StorSimple
+# Usar o serviço StorSimple Manager para gerenciar modelos de largura de banda do StorSimple
 
 ## Visão geral
 
@@ -54,7 +54,7 @@ Execute as etapas a seguir para criar um novo modelo de largura de banda.
 
 #### Para adicionar um modelo de largura de banda
 
-1. Clique em **adicionar/editar modelo de largura de banda**.
+1. Na página **Configurar** do serviço StorSimple Manager, clique em **adicionar/editar modelo de largura de banda**.
 
 2. Na caixa de diálogo **Adicionar/Editar Modelo de Largura de Banda**:
 
@@ -176,4 +176,4 @@ Siga estas práticas recomendadas para seu dispositivo StorSimple:
 
 Leia mais sobre os [componentes do StorSimple](storsimple-components.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

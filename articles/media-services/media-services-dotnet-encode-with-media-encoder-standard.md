@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Visão geral
+#Como codificar um ativo usando o Media Encoder Standard
 
 Os trabalhos de codificação são uma das operações de processamento mais comuns nos serviços de mídia. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, você pode usar o codificador de mídia integrado dos serviços de mídia. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Os codificadores de terceiros estão disponíveis por meio do Azure Marketplace.
 
@@ -120,4 +120,4 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

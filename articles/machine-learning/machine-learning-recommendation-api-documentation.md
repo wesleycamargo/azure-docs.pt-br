@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Documentação da API de Recomendações do Aprendizado de Máquina | Microsoft Azure" 
-	description="Documentação da API de Recomendações de Aprendizado de Máquina do Azure para um mecanismo de recomendações disponível no Microsoft Azure Marketplace." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="AharonGumnik" 
-	manager="paulettm" 
+	pageTitle="Documentação da API de Recomendações do Aprendizado de Máquina | Microsoft Azure"
+	description="Documentação da API de Recomendações de Aprendizado de Máquina do Azure para um mecanismo de recomendações disponível no Microsoft Azure Marketplace."
+	services="machine-learning"
+	documentationCenter=""
+	authors="AharonGumnik"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="LuisCa"/>
 
 #Documentação da API de Recomendações do Aprendizado de Máquina do Azure
@@ -1586,7 +1586,7 @@ Recupera as informações de recurso, incluindo a classificação, para uma comp
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=%27<rankBuildId>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=%271000551%27&apiVersion=%271.0%27`
+|GET |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=<rankBuildId>&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=1000551&apiVersion=%271.0%27`
 
 | Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------			|
@@ -2861,4 +2861,4 @@ Código de status HTTP: 200
 Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br> Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br> Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br> © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

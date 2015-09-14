@@ -23,11 +23,17 @@
 
 > [AZURE.NOTE]É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual do Azure, ela tem um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. **Não use a unidade D para armazenar dados.** Como seu nome quer dizer, a unidade D oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque não reside no armazenamento do Azure.
 
+## Passo a passo em vídeo
+
+Veja um passo a passo deste tutorial.
+
+[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm]
+
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
 ## <a id="initializeinWS"></a>Como inicializar um novo disco de dados no Windows Server
 
-1. Conectar-se à máquina virtual. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server][logon].
+1. Conectar-se à máquina virtual. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que esteja executando o Windows Server][logon].
 
 2. Depois de entrar na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, selecione **Arquivos e serviços de armazenamento**.
 
@@ -35,7 +41,7 @@
 
 3. Expanda o menu e selecione **Discos**.
 
-4. A seção **Discos** lista disco 0, disco 1 e disco 2. Disco 0 é o disco do sistema operacional, disco 1 é o disco temporário (que não deve ser usado para armazenamento de dados) e o disco 2 é o disco de dados que você anexou à máquina virtual. O disco de dados tem uma capacidade de 5 GB, com base no que você especificou quando anexou o disco. Com o botão direito em disco 2 e selecione **Inicializar**.
+4. A seção **Discos** lista disco 0, disco 1 e disco 2. Disco 0 é o disco do sistema operacional, disco 1 é o disco temporário (que não deve ser usado para armazenamento de dados) e o disco 2 é o disco de dados que você anexou à máquina virtual. O disco de dados tem uma capacidade de 5 GB, com base no que você especificou quando anexou o disco. Clique com o botão direito do mouse em disco 2 e selecione **Inicializar**.
 
 5.	Você é notificado de que todos os dados serão apagados quando o disco for inicializado. Clique em **Sim** para confirmar o aviso e inicializar o disco. Em seguida, clique novamente em disco 2 e selecione **Novo Volume**.
 
@@ -53,4 +59,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

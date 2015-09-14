@@ -1,19 +1,20 @@
 <properties
- pageTitle="Introdução a nós de computação Linux em um cluster de HPC Pack | Microsoft Azure"
- description="Saiba como fazer um script de implantação de um cluster de HPC Pack no Azure que contenha um nó principal que executa o Windows Server com nós de computação Linux."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+ pageTitle="Usar VMs de computação do Linux em um cluster de HPC Pack | Microsoft Azure"
+	description="Saiba como fazer um script de implantação de um cluster de HPC Pack no Azure que contenha um nó principal que executa o Windows Server com nós de computação Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 <tags
-ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-multiple"
- ms.workload="big-compute"
- ms.date="07/27/2015"
- ms.author="danlep"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="big-compute"
+	ms.date="09/01/2015"
+	ms.author="danlep"/>
 
 # Introdução a nós de computação Linux em um cluster de HPC Pack no Azure
 
@@ -25,7 +26,7 @@ Em um alto nível, o diagrama a seguir mostra o cluster de HPC Pack que você cr
 
 ## Implantar um cluster de HPC Pack com nós de computação Linux
 
-Você usará o script de implantação do Microsoft HPC Pack IaaS (**New-HpcIaaSCluster.ps1**) para automatizar a implantação do cluster nos serviços de infraestrutura do Azure (IaaS). Esse script do Azure PowerShell usa uma imagem de VM do HPC Pack no Azure Marketplace para implantação rápida e fornece um conjunto abrangente de parâmetros de configuração para tornar a implantação fácil e flexível. Você pode usar o script para implantar a rede virtual do Azure, contas de armazenamento, serviços de nuvem, controlador de domínio, servidor de banco de dados do SQL Server separado opcional, nó principal do cluster, nós de computação, nós do agente, nós do Azure PaaS ("disparar") e nós de computação Linux (suporte para Linux introduzido no [HPC Pack 2012 R2 Atualização 2](https://technet.microsoft.com/library/mt269417.aspx)).
+Você usará o script de implantação do Microsoft HPC Pack IaaS (**New-HpcIaaSCluster.ps1**) para automatizar a implantação do cluster nos serviços de infraestrutura do Azure (IaaS). Esse script do Azure PowerShell usa uma imagem de VM do HPC Pack no Azure Marketplace para implantação rápida e fornece um conjunto abrangente de parâmetros de configuração para tornar a implantação fácil e flexível. O script implanta a rede virtual do Azure, as contas de armazenamento, os serviços de nuvem, o controlador de domínio, o servidor de banco de dados do SQL Server separado opcional, o nó principal do cluster, os nós de computação, os nós do agente, os nós do Azure PaaS ("intermitência") e os nós de computação Linux (suporte para Linux introduzido no [HPC Pack 2012 R2 Atualização 2](https://technet.microsoft.com/library/mt269417.aspx)).
 
 Para obter uma visão geral das opções de implantação de cluster do HPC Pack, consulte o [Guia de introdução do HPC Pack 2012 R2 e HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx).
 
@@ -66,9 +67,9 @@ O script de implantação do HPC Pack IaaS usa um arquivo de configuração XML 
   <HeadNode>
     <VMName>CentOS7RDMA-HN</VMName>
     <ServiceName>centos7rdma-je</ServiceName>
-<VMSize>A4</VMSize>
-<EnableRESTAPI />
-    <EnableWebPortal />
+  <VMSize>A4</VMSize>
+  <EnableRESTAPI />
+  <EnableWebPortal />
   </HeadNode>
   <LinuxComputeNodes>
     <VMNamePattern>CentOS7RDMA-LN%1%</VMNamePattern>
@@ -98,7 +99,7 @@ Aqui estão as breves descrições dos elementos no arquivo de configuração.
 
 * **VNet** - Configurações de rede virtual e sub-rede onde o cluster HPC será criado. Você pode criar a rede virtual e sub-redes por conta própria antes de executar esse script ou o script cria uma rede virtual com espaço de endereço 192.168.0.0/20 e sub-rede com espaço de endereço 192.168.0.0/23. Neste exemplo, o script cria a rede virtual centos7rdmavnetje e a sub-rede CentOS7RDMACluster.
 
-* **Domínio** - Configurações de domínio do Active Directory para o cluste HPC Pack. Todas as VMs do Windows criadas pelo script ingressarão no domínio. Atualmente, o script oferece suporte a três opções de domínio: ExistingDC, NewDC e HeadNodeAsDC. Neste exemplo, configuraremos o nó principal como controlador de domínio. O nome de domínio totalmente qualificado é hpc.local.
+* **Domínio** - Configurações de domínio do Active Directory para o cluste HPC Pack. Todas as VMs do Windows criadas pelo script ingressarão no domínio. Atualmente, o script oferece suporte a três opções de domínio: ExistingDC, NewDC e HeadNodeAsDC. Neste exemplo, configuraremos o nó principal como o controlador de domínio com um nome de domínio totalmente qualificado de hpc.local.
 
 * **Banco de dados** - Configurações do banco de dados para o cluster de HPC Pack. Atualmente, o script oferece suporte a três opções de banco de dados: ExistingDB, NewRemoteDB e LocalDB. Neste exemplo, criaremos um banco de dados local no nó principal.
 
@@ -116,8 +117,7 @@ Aqui estão as breves descrições dos elementos no arquivo de configuração.
 
     Encontre o necessário e substitua o valor **ImageName** no arquivo de configuração.
 
-* Imagens do Linux que oferecem suporte à conectividade RDMA para VMs de tamanho A8 e A9 estão disponíveis. Se você especificar uma imagem com drivers de RDMA Linux instalados e habilitados, o script de implantação do HPC Pack IaaS irá implantá-los. Por exemplo, você pode especificar o nome da imagem `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` para o SUSE Linux Enterprise Server 12 atual – otimizado para imagem de computação de alto desempenho no Marketplace.
-
+* Imagens do Linux que oferecem suporte à conectividade RDMA para VMs de tamanho A8 e A9 estão disponíveis. Se você especificar uma imagem com drivers de RDMA Linux instalados e habilitados, o script de implantação do HPC Pack IaaS irá implantá-los. Por exemplo, especifique o nome da imagem `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` para o SUSE Linux Enterprise Server 12 atual – otimizado para imagem de computação de alto desempenho no Marketplace.
 
 * Para habilitar o RDMA Linux nas VMs do Linux criadas a partir de imagens compatíveis para executar trabalhos MPI, instale e configure uma biblioteca específica de MPI em nós do Linux, após a implantação de cluster de acordo com o que o seu aplicativo precisa. Para obter mais informações sobre como usar o RDMA em nós do Linux no Azure, consulte [Configurar um cluster do RDMA Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md).
 
@@ -131,14 +131,14 @@ Aqui estão as breves descrições dos elementos no arquivo de configuração.
 2. Altere o diretório para a pasta de scripts (E:\\IaaSClusterScript neste exemplo).
 
     ```
-cd E:\IaaSClusterScript
-```
+    cd E:\IaaSClusterScript
+    ```
 
 3. Execute o comando a seguir para implantar o cluster de HPC Pack. Este exemplo supõe que o arquivo de configuração esteja localizado em E:\\HPCDemoConfig.xml.
 
     ```
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
-```
+    ```
 
     O script gera um arquivo de log automaticamente, pois o parâmetro **-LogFile** não está especificado. Os logs não são gravados em tempo real, mas coletados no final da validação e da implantação. Portanto, se o processo do PowerShell for interrompido enquanto o script está sendo executado, alguns registros serão perdidos.
 
@@ -152,7 +152,7 @@ cd E:\IaaSClusterScript
 
     ![Recursos][resources]
 
-    d. Em seguida, o script começa a implantar o cluster de HPC Pack e concluirá a configuração sem mais etapas manuais. Isso pode levar vários minutos.
+    d. O script começa a implantar o cluster de HPC Pack e concluirá a configuração sem outras etapas manuais. Isso pode levar vários minutos.
 
     ![Implantar][deploy]
 
@@ -201,7 +201,7 @@ PS > clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.n
 
 O primeiro comando cria uma pasta chamada /rdma em todos os nós do grupo LinuxNodes. O segundo comando monta a pasta allvhdsjw.file.core.windows.net/rdma de compartilhamento de Arquivos do Azure para a pasta /rdma com dir e bits de modo de arquivo definido como 777. No segundo comando, allvhdsje é o nome da sua conta de armazenamento e storageaccountkey é a chave da conta de armazenamento.
 
->[AZURE.NOTE]O símbolo "`" no segundo comando é um símbolo de escape para o PowerShell. "`," significa que "," (uma vírgula) é uma parte do comando.
+>[AZURE.NOTE]O símbolo "`" no segundo comando é um símbolo de escape para o PowerShell. "`," significa que "," (o caractere de vírgula) é uma parte do comando.
 
 ### Compartilhamento do nó principal
 
@@ -218,12 +218,12 @@ Como alternativa, você pode montar uma pasta compartilhada do nó principal em 
 ```
 PS > clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
 
-PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>,password='<password>’,dir_mode=0777`,file_mode=0777
+PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
 ```
 
-O primeiro comando cria uma pasta chamada /openfoam em todos os nós do grupo LinuxNodes. O segundo comando monta a pasta compartilhada //CentOS7RDMA-HN/OpenFOAM para a pasta com dir e bits de modo de arquivo definido como 777. O nome de usuário e a senha no comando devem ser o nome de usuário e a senha de um usuário no nó principal.
+O primeiro comando cria uma pasta chamada /openfoam em todos os nós do grupo LinuxNodes. O segundo comando monta a pasta compartilhada //CentOS7RDMA-HN/OpenFOAM para a pasta com dir e bits de modo de arquivo definido como 777. O nome de usuário e a senha no comando devem ser o nome de usuário e a senha de um usuário de cluster no nó principal.
 
->[AZURE.NOTE]O símbolo "`" no segundo comando é um símbolo de escape para o PowerShell. "`," significa que "," (uma vírgula) é uma parte do comando.
+>[AZURE.NOTE]O símbolo "`" no segundo comando é um símbolo de escape para o PowerShell. "`," significa que "," (o caractere de vírgula) é uma parte do comando.
 
 
 ### Servidor NFS
@@ -268,34 +268,33 @@ Para enviar trabalhos por meio da API REST, consulte [Criar e enviar trabalhos u
 
 A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em nós Linux por meio de uma janela Comando ou do Gerenciador de Cluster de HPC. Estes são alguns exemplos:
 
-* Mostrar nomes de usuário atuais de todos os nós no cluster
+* Mostrar os nomes de usuário atuais em todos os nós no cluster
 
     ```
-> clusrun whoami
-```
+    > clusrun whoami
+    ```
 
 * Instalar a ferramenta de depuração **gdb** de **yum** em todos os nós do grupo linuxnodes e reiniciá-los após 10 minutos
 
     ```
-> clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
-```
+    > clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
+    ```
 
-* Crie um script de shell exibindo 1 a 10 por segundo em nós de cluster, execute-o e mostre as saídas de cada nó imediatamente.
+* Criar um script de shell exibindo cada número de 1 a 10 durante um segundo em cada nó no cluster, executá-lo e mostrar imediatamente a saída dos nós.
 
     ```
-> clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh```
+    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    ```
 
->[AZURE.NOTE]Você pode precisa usar determinados caracteres de escape em comandos clusrun. Use ^ em uma janela de Comando e ` no PowerShell para transformar caracteres especiais. Por exemplo, no PowerShell, os caracteres de vírgula e ponto e vírgula precisam ser transformado por ', e ', respectivamente. Esses caracteres não necessitam de transformação em uma janela de Comando.
-
-
-
+>[AZURE.NOTE]Talvez seja necessário usar determinados caracteres de escape em comandos **clusrun**. Conforme mostra este exemplo, use ^ em uma janela de comando para escapar o símbolo ">".
 
 ## Próximas etapas
 
-* Use **clusrun** para instalar seu aplicativo Linux nos nós de computação Linux e enviar um trabalho para o cluster de HPC Pack.
+* Tente executar uma carga de trabalho do Linux no cluster. Para obter um exemplo, consulte [Executar NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
 
-* Tente escalar verticalmente o cluster para um número maior de nós ou implantar tamanho de nós de computação [A8 ou A9](virtual-machines-a8-a9-a10-a11-specs.md) para executar cargas de trabalho MPI.
+* Tente escalar verticalmente o cluster para uma quantidade maior de nós ou implante nós de computação no tamanho [A8 ou A9](virtual-machines-a8-a9-a10-a11-specs.md) a fim de executar cargas de trabalho de MPI.
 
+* Experimente um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) com o Gerenciador de Recursos do Azure para acelerar as implantações do HPC Pack com um número maior de nós de computação do Linux.
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-linux-cluster-hpcpack/scenario.png
@@ -311,4 +310,4 @@ A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em n�
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

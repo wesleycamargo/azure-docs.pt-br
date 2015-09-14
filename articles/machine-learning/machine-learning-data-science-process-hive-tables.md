@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 #<a name="heading"></a> Enviar consultas de Hive para clusters do Hadoop do HDInsight no processo e tecnologia de análise avançada 
 
 Este documento descreve várias maneiras de enviar consultas de Hive para clusters de Hadoop gerenciados por um serviço do HDInsight no Azure. Essa tarefa faz parte do ADAPT (Processo e Tecnologia de Análise Avançada) fornecido pelo Aprendizado de Máquina do Azure. Várias tarefas de wrangling de dados são discutidas: exploração de dados e geração de recursos. Consultas genéricas de Hive que mostram como explorar dados ou gerar recursos usando o Hive em um cluster do Hadoop do Azure HDInsight. Essas consultas de Hive usam UDFs (Funções Definidas pelo Usuário) de Hive incorporadas que são fornecidas.
 
-Exemplos de consultas que são específicas para cenários de <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">Dados de Viagens de Táxi em NYC</a> também são fornecidos no <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">repositório Github</a>. Essas consultas já tem o esquema de dados especificado e estão prontas para ser enviadas para execução.
+Exemplos de consultas que são específicas para cenários de [Dados de Viagens de Táxi em NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) também são fornecidos no [repositório Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Essas consultas já tem o esquema de dados especificado e estão prontas para ser enviadas para execução.
 
 Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
 
@@ -226,14 +226,14 @@ O Hive vem com um conjunto de UDFs para processar campos datetime. No Hive, o fo
     	select day(<datetime field>), month(<datetime field>)
 		from <databasename>.<tablename>;
 
-Essa consulta de Hive pressupõe que o *&\#60;campo datetime>* esteja no formato datetime padrão.
+Essa consulta de Hive pressupõe que o *&#60;campo datetime>* esteja no formato datetime padrão.
 
 Se um campo datetime não estiver no formato padrão, é necessário primeiro converter o campo datetime em carimbo de data/hora de Unix e, em seguida, converter o carimbo de data/hora do Unix em uma cadeia de caracteres datetime no formato padrão. Quando o datetime estiver no formato padrão, os usuários poderão aplicar UDFs datetime incorporadas para extrair recursos.
 
 		select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
 		from <databasename>.<tablename>;
 
-Nesta consulta, se o *&\#60;campo datetime>* tem o padrão *03/26/2015 12:04:39*, o *'&\#60;padrão do campo datetime >'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testá-lo, os usuários podem executar
+Nesta consulta, se o *&#60;campo datetime>* tem o padrão *03/26/2015 12:04:39*, o *'&#60;padrão do campo datetime >'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testá-lo, os usuários podem executar
 
 		select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
 		from hivesampletable limit 1;
@@ -319,4 +319,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

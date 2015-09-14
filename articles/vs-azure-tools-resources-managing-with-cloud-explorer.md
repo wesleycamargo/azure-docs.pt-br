@@ -30,9 +30,9 @@ O Cloud Explorer é instalado como parte das Ferramentas do Visual Studio para o
 - Visual Studio 2015 RTM.
 
 - Ferramentas do Visual Studio para o SDK do Azure.
-- Você também deve ter uma conta do Azure e estar conectado a ela para exibir recursos do Azure no Cloud Explorer. Consulte [Criar uma conta do Azure e habilitar os recursos de visualização](../php-create-account/) para obter mais informações.
+- Você também deve ter uma conta do Azure e estar conectado a ela para exibir recursos do Azure no Cloud Explorer. Se você não tiver uma, poderá criar uma conta em apenas alguns minutos. Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, consulte [criar uma conta de avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- Se o Cloud Explorer não está visível, você pode exibi-lo escolhendo **Exibição**, **Outras Janelas** e **Cloud Explorer** na barra de menus.
+- Se o Cloud Explorer não estiver visível, você poderá exibi-lo escolhendo **Exibir**, **Outras Janelas** e **Cloud Explorer** na barra de menus.
 
 ## Gerenciar assinaturas e contas do Azure
 
@@ -44,7 +44,7 @@ Se você não usou o Azure antes ou não adicionou as contas necessárias ao Vis
 
 1. Escolha o ícone Configurações na barra de ferramentas do Cloud Explorer.
 
-1. Escolha o link **Adicionar uma Conta**. Faça logon na conta do Azure cujos recursos você deseja procurar. A conta que você acabou de adicionar deve ser selecionada na lista suspensa seletora de conta. As assinaturas para essa conta aparecem sob a entrada de conta.
+1. Escolha o link **Adicionar uma conta**. Faça logon na conta do Azure cujos recursos você deseja procurar. A conta que você acabou de adicionar deve ser selecionada na lista suspensa seletora de conta. As assinaturas para essa conta aparecem sob a entrada de conta.
 
     ![Adicionando assinaturas do Azure](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819514.png)
 
@@ -95,4 +95,4 @@ Para localizar recursos com um nome específico em assinaturas de sua conta do A
 
 Conforme você insere caracteres na caixa de Pesquisa, apenas os recursos que correspondem a esses caracteres são exibidos na árvore de recursos.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

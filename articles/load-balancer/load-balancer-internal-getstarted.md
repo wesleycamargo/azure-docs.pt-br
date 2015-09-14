@@ -1,19 +1,19 @@
 <properties
    pageTitle="Introdução ao balanceador de carga interno | Microsoft Azure"
-   description="Configurar o balanceador de carga interno e como implementá-los para máquinas virtuais e implantações de nuvem"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Configurar o balanceador de carga interno e como implementá-los para máquinas virtuais e implantações de nuvem"
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/01/2015"
+	ms.author="joaoma"/>
 
 # Introdução à configuração de um balanceador de carga interno
 
@@ -21,7 +21,7 @@
 - [Azure Classic steps](load-balancer-internal-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
-O ILB (Balanceamento de Carga Interno) do Azure fornece balanceamento de carga entre máquinas virtuais que residem em um serviço de nuvem ou em uma rede virtual com escopo regional. Para obter informações sobre o uso e a configuração de redes virtuais com escopo regional, consulte [Redes virtuais regionais](../regional-virtual-networks.md) no blog do Azure. Redes virtuais existentes configuradas para um grupo de afinidade não podem usar o ILB.
+O ILB (Balanceamento de Carga Interno) do Azure fornece balanceamento de carga entre máquinas virtuais que residem em um serviço de nuvem ou em uma rede virtual com escopo regional. Para obter informações sobre o uso e a configuração de redes virtuais com escopo regional, consulte [Redes virtuais regionais](virtual-networks-migrate-to-regional-vnet.md) no blog do Azure. Redes virtuais existentes configuradas para um grupo de afinidade não podem usar o ILB.
 
 
 
@@ -335,4 +335,4 @@ Para obter informações adicionais sobre cmdlets ILB, execute os comandos a seg
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

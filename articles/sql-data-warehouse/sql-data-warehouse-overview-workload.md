@@ -1,20 +1,20 @@
 <properties
    pageTitle="Carga de trabalho do data warehouse"
-   description="A elasticidade do SQL Data Warehouse permite expandir, reduzir ou pausar o poder da computação usando uma escala deslizante de DWUs (Unidades de Data Warehouse). Este artigo explica as métricas de data warehouse e como elas se relacionam às DWUs."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
-   editor=""/>
+	description="A elasticidade do SQL Data Warehouse permite expandir, reduzir ou pausar o poder da computação usando uma escala deslizante de DWUs (Unidades de Data Warehouse). Este artigo explica as métricas de data warehouse e como elas se relacionam às DWUs."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="barbkess"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="05/23/2015"
+	ms.author="barbkess;JRJ@BigBangData.co.uk"/>
 
 # Carga de trabalho do data warehouse
 Uma carga de trabalho do data warehouse refere-se a todas as operações que são realizadas em um data warehouse. A carga de trabalho em um data warehouse abrange todo o processo de carregamento de dados, a execução de análise e relatórios, o gerenciamento de dados e a exportação de dados. O detalhamento e a amplitude desses componentes, muitas vezes, são proporcionais ao nível de maturidade do data warehouse.
@@ -60,6 +60,9 @@ Uma maneira de disponibilizar dados para relatórios e análise é enviar os dad
 ## Próximas etapas
 Para começar a desenvolver seu data warehouse, consulte [visão geral de desenvolvimento][].
 
+## Livros
+[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) Karthik Ramachandran, Istvan Szededi e Richard L. Saltzer (Manning Publications). [Capítulo 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+
 <!--Image references-->
 
 <!--Article references-->
@@ -69,4 +72,4 @@ Para começar a desenvolver seu data warehouse, consulte [visão geral de desenv
 
 <!--Other web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

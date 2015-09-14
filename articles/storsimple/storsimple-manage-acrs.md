@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Gerenciar registros de controle de acesso no StorSimple | Microsoft Azure"
-   description="Descreve como usar os ACRs (registros de controle de acesso) para determinar quais hosts podem se conectar a um volume no dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+	description="Descreve como usar os ACRs (registros de controle de acesso) para determinar quais hosts podem se conectar a um volume no dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Gerenciar registros de controle de acesso no StorSimple
+# Usar o serviço StorSimple Manager para gerenciar registros de controle de acesso
 
 ## Visão geral
 
@@ -34,7 +34,7 @@ Este tutorial explica as seguintes tarefas comuns relacionadas ao ACR:
 
 ## Adicionar um registro de controle de acesso
 
-Use a página **Configurar** no Portal de Gerenciamento para adicionar ACRs. Normalmente, você associará um ACR a um volume.
+Use a página **Configurar** do serviço StorSimple Manager para adicionar ACRs. Normalmente, você associará um ACR a um volume.
 
 Execute as etapas a seguir para adicionar um ACR.
 
@@ -94,4 +94,4 @@ Leia mais sobre [como gerenciar volumes do StorSimple](storsimple-manage-volumes
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Failover e recuperação de desastre para o dispositivo StorSimple | Microsoft Azure"
-   description="Saiba como fazer o failover do dispositivo StorSimple para si mesmo, para outro dispositivo físico ou para um dispositivo virtual."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
+   pageTitle="Failover e recuperação de desastre do StorSimple | Microsoft Azure"
+	description="Saiba como fazer o failover do dispositivo StorSimple para si mesmo, para outro dispositivo físico ou para um dispositivo virtual."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/28/2015"
+	ms.author="alkohli"/>
 
 # Failover e recuperação de desastres para o seu dispositivo StorSimple
 
@@ -145,4 +145,4 @@ Depois de realizar o failover, talvez você precise:
 Para obter informações sobre como gerenciar seu dispositivo usando o serviço StorSimple Manager, acesse [Use o serviço StorSimple Manager para administrar o seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

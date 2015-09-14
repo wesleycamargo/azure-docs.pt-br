@@ -17,6 +17,8 @@
 	ms.author="spelluru"/>
 
 # Transformar e analisar usando o Azure Data Factory
+
+## Visão geral
 As atividades de transformação no Azure Data Factory transformam e processam os dados brutos em previsões e em informações. A atividade de transformação é executada em um ambiente de cálculo, como um cluster do Azure HDInsight ou um Lote do Azure. O Azure Data Factory dá suporte às seguintes atividades de transformação, que podem ser adicionadas aos [pipelines](data-factory-create-pipelines.md) individualmente ou encadeadas a outra atividade.
 
 
@@ -37,4 +39,7 @@ Atividade de transformação | Ambiente de computação
 
 Consulte o artigo [Serviços vinculados de computação](data-factory-compute-linked-services.md) para saber mais sobre os serviços vinculados de computação com suporte do Data Factory.
 
-<!---HONumber=August15_HO9-->
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md).
+
+<!---HONumber=September15_HO1-->

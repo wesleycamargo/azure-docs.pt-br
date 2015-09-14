@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Visão geral da CDN do Azure" 
-	description="Saiba o que é a CDN (Rede de Distribuição de Conteúdo) do Azure e como usá-la para fornecer conteúdo de alta largura de banda armazenando em cache blobs e conteúdo estático." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="zhangmanling" 
-	manager="dwrede" 
+	pageTitle="Visão geral da CDN do Azure"
+	description="Saiba o que é a CDN (Rede de Distribuição de Conteúdo) do Azure e como usá-la para fornecer conteúdo de alta largura de banda armazenando em cache blobs e conteúdo estático."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="zhangmanling"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mazha"/>
 
 #Visão geral da CDN (Rede de Distribuição de Conteúdo) do Azure
@@ -114,4 +114,4 @@ Para saber mais sobre como mapear um domínio personalizado, consulte [Como mape
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

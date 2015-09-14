@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/02/2015"
 	ms.author="mmercuri"/>
 
 # Compartilhando estado em modelos do Gerenciador de Recursos do Azure
 
-Este tópico descreve como gerenciar e compartilhar estado em um modelo do Gerenciador de Recursos do Azure e entre modelos vinculados.
+Este tópico mostra as práticas recomendadas para gerenciar e compartilhar estado dentro de um modelo do Gerenciador de Recursos do Azure entre modelos vinculados. Os parâmetros e variáveis mostrados neste tópico são exemplos dos tipos de objetos que você pode definir para organizar seus requisitos de implantação convenientemente. A partir desses exemplos, você pode implementar seus próprios objetos com valores de propriedade que façam sentido para o seu ambiente.
 
 ## Usando objetos complexos para compartilhar o estado
 
@@ -366,7 +366,7 @@ O exemplo a seguir mostra como passar o endereço IP privado gerado em um modelo
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
             "type": "string"
          }
     }
@@ -381,4 +381,4 @@ No modelo principal, você pode usar esses dados com a seguinte sintaxe:
 - [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
 
-<!---HONumber=06-->
+<!---HONumber=September15_HO1-->

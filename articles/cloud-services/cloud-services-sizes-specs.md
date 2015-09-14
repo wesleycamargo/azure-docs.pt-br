@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Tamanhos dos serviços de nuvem" 
- description="Lista os tamanhos diferentes para funções de web e de trabalho do serviço de nuvem do Azure." 
- services="cloud-services" 
- documentationCenter="" 
- authors="Thraka" 
- manager="timlt" 
- editor=""/>
+ pageTitle="Tamanhos dos serviços de nuvem"
+	description="Lista os tamanhos diferentes para funções de web e de trabalho do serviço de nuvem do Azure."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="cloud-services" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="na" 
- ms.workload="tbd"
- ms.date="06/04/2015" 
- ms.author="adegeo"/>
+ ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="09/01/2015"
+	ms.author="adegeo"/>
  
 # Tamanhos dos serviços de nuvem
 
@@ -76,4 +76,4 @@ Veja um exemplo de definição do tamanho da função como pequeno para uma inst
 
 [Configurar um serviço de nuvem para o Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

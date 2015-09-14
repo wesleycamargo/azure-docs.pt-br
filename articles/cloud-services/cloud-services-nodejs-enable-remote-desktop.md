@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Habilitar área de trabalho remota para serviços de nuvem (Node.js)" 
-	description="Saiba como habilitar o acesso à área de trabalho remota para as máquinas virtuais que hospedam o aplicativo Azure Node.js." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Habilitar área de trabalho remota para serviços de nuvem (Node.js)"
+	description="Saiba como habilitar o acesso à área de trabalho remota para as máquinas virtuais que hospedam o aplicativo Azure Node.js."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -116,4 +116,4 @@ Quando você não precisar mais de conexões de área de trabalho remota para as
   [Usando a Área de Trabalho Remota com as funções do Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

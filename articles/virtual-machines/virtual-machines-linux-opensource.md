@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/07/2015"
+	ms.date="09/02/2015"
 	ms.author="rasquill"/>
 
 
@@ -246,8 +246,11 @@ Execute cargas de trabalho do HPC em clusters de VM Linux criados com ferramenta
 
 1.	[Modelo de início rápido: criar um cluster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) (e [postagem de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
 2.	[Modelo de início rápido: criar um cluster de Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
-3.	[Tutorial: Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md)
-4.	[Tutorial: configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md)
+3.	[Modelo de início rápido: criar um cluster HPC com nós de computação Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+4.	[Tutorial: Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md)
+5.	[Tutorial: executar o NAMD com o Microsoft HPC Pack em nós de computação Linux no Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
+6.	[Tutorial: configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md)
+
 
 ## Desenvolvimentos, gerenciamento e otimização
 
@@ -304,4 +307,4 @@ Esta seção começa com uma entrada de blog que contém uma série de vídeos e
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

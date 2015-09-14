@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Mover e processar arquivos de log usando o Data Factory do Azure"
-	description="Este tutorial avançado descreve um cenário quase real e implementa o cenário usando o serviço Azure Data Factory."
+	pageTitle="Mover e processar arquivos de log usando o Data Factory do Azure (Azure PowerShell)"
+	description="Este tutorial avançado descreve um cenário quase real e implementa o cenário usando o serviço Azure Data Factory e Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -558,4 +558,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties pageTitle="Especificando uma versão de Node.js" description="Saiba como especificar a versão de Node.js usada pelos Sites e Serviços de Nuvem do Azure" services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
 
 
 
@@ -40,9 +40,11 @@ Se você estiver hospedando o aplicativo em um site, poderá definir a variável
 
 Se você estiver hospedando o aplicativo em um Serviço de Nuvem e estiver implantando o aplicativo usando o PowerShell do Azure, você pode substituir a versão padrão do Node.js, usando o cmdlet do PowerShell **Set-AzureServiceProjectRole**. Por exemplo:
 
-	Set-AzureServiceProjectRole WebRole1 node 0.8.4
+	Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
-Você também pode usar o **Get-AzureServiceProjectRoleRuntime** para recuperar uma lista de versões do Node.js disponíveis para aplicativos hospedados como um Serviço de Nuvem.
+Observe que os parâmetros na instrução acima diferenciam maiúsculas de minúsculas. Você pode verificar se a versão correta do Node.js foi selecionada verificando a propriedade **engines** no **package.json** de sua função.
+
+Você também pode usar o **Get-AzureServiceProjectRoleRuntime** para recuperar uma lista de versões do Node.js disponíveis para aplicativos hospedados como um Serviço de Nuvem. Sempre verifique se a versão do Node.js da qual seu projeto depende está nessa lista.
 
 ##Usando uma versão personalizada com Sites do Azure
 
@@ -93,4 +95,4 @@ Agora que você aprendeu como especificar a versão do Node.js usada pelo seu ap
 [trabalhar com módulos]: nodejs-use-node-modules-azure-apps.md
 [criar e implantar um Site no Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

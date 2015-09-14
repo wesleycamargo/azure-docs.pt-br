@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="08/21/2015"
+	ms.date="08/27/2015"
 	ms.author="tomfitz"/>
 
 # Criar várias instâncias de recursos no Gerenciador de Recursos do Azure
@@ -112,9 +112,11 @@ Use o modelo a seguir:
       } 
     ]
 
-## Próximas etapas
-- Para saber mais sobre as seções de um modelo, consulte [Criando modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
-- Para ver todas as funções que você pode usar em um modelo, consulte [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md).
-- Para saber mais sobre como implantar modelos, consulte, [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md).
+É claro que você define a contagem de cópias como um valor diferente do comprimento da matriz. Por exemplo, você poderia criar uma matriz com vários valores e, em seguida, passar um valor de parâmetro que especifique quantos dos elementos da matriz serão implantados. Nesse caso, você define a contagem de cópias como mostrado no primeiro exemplo.
 
-<!---HONumber=August15_HO9-->
+## Próximas etapas
+- Para saber mais sobre as seções de um modelo, confira [Criando modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
+- Para ver todas as funções que você pode usar em um modelo, confira [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md).
+- Para saber mais sobre como implantar modelos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md).
+
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Dados de exemplo no SQL Server no Azure| Microsoft Azure" 
-	description="Dados de exemplo no SQL Server no Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Dados de exemplo no SQL Server no Azure| Microsoft Azure"
+	description="Dados de exemplo no SQL Server no Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="fashah;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="fashah;garye;bradsev"/>
 
 #<a name="heading"></a>Dados de exemplo no SQL Server no Azure
 
@@ -44,8 +44,7 @@ TABLESAMPLE pode ser usado para amostragem conforme demonstrado a seguir. Isso p
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
-**Observação**
-> Você pode explorar e gerar recursos por meio desses dados amostrados armazenando-os em uma nova tabela
+>[AZURE.NOTE]Você pode explorar e gerar recursos por meio desses dados amostrados armazenando-os em uma nova tabela
 
 
 ###<a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
@@ -114,4 +113,4 @@ Para obter um exemplo passo a passo de ponta a ponta do ADAPT (Processo de Anál
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

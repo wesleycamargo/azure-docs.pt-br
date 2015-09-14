@@ -6,7 +6,7 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor=""
-	tags="mysql"/>
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,32 +14,28 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/22/2015"
+	ms.date="08/31/2015"
 	ms.author="kathydav"/>
 
 # Instalar MySQL em uma máquina virtual com o OpenSUSE Linux no Azure
 
-O [MySQL][MySQL] é um popular banco de dados SQL de software livre. Este tutorial mostra:
+O [MySQL][MySQL] é um popular banco de dados SQL de software livre. Este tutorial mostra como criar uma máquina virtual com o OpenSUSE Linux e instalar o MySQL.
 
-- Como usar o [Portal de Gerenciamento do Azure][AzurePortal] para criar uma máquina virtual OpenSUSE Linux por meio de uma imagem disponível pelo Azure.
-- Conectar-se a à máquina virtual usando o SSH ou o PuTTY.
-- Como instalar MySQL em uma máquina virtual.
-
-[AZURE.INCLUDE [antares-iaas-signup-iaas](../../includes/antares-iaas-signup-iaas.md)]
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Criar uma máquina virtual que executa o OpenSUSE Linux
 
 [AZURE.INCLUDE [create-and-configure-opensuse-vm-in-portal](../../includes/create-and-configure-opensuse-vm-in-portal.md)]
 
-##Instalar e executar MySQL na máquina virtual
+## Instalar e executar MySQL na máquina virtual
 
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
-##Resumo
-Neste tutorial, você aprendeu a criar uma máquina virtual com o OpenSUSE Linux e a se conectar remotamente usando SSH ou PuTTY. Você também aprendeu a instalar e configurar o MySQL na máquina virtual Linux. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][MySQLDocs].
+## Próximas etapas
+Para obter detalhes sobre o MySQL, consulte a [Documentação do MySQL][MySQLDocs].
 
-[MySQLDocs]: http://dev.mysql.com/doc/
+[MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

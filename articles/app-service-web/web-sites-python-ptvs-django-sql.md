@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Django e banco de dados SQL no Azure com Python Tools 2.1 para Visual Studio" 
-	description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Django que armazena dados em uma instância do banco de dados SQL e o implanta em Aplicativos Web do Serviço de Aplicativo do Azure." 
-	services="app-service\web" 
+	pageTitle="Django e Banco de Dados SQL no Azure com Ferramentas Python 2.2 para Visual Studio"
+	description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Django que armazena dados em uma instância do banco de dados SQL e o implanta em Aplicativos Web do Serviço de Aplicativo do Azure."
+	services="app-service\web"
 	tags="python"
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
 
 
-# Django e banco de dados SQL no Azure com Python Tools 2.1 para Visual Studio 
+# Django e Banco de Dados SQL no Azure com Ferramentas Python 2.2 para Visual Studio 
 
 Neste tutorial, usaremos o [Python Tools para Visual Studio] para criar um aplicativo Web de votação simples, usando um dos modelos de exemplo de PTVS. Este tutorial também está disponível como um [vídeo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
@@ -30,10 +30,10 @@ Confira o [Python Developer Center] para obter mais artigos que abrangem o desen
 
 ## Pré-requisitos
 
- - Visual Studio 2012 ou 2013
- - [Python Tools 2.1 para Visual Studio]
- - [Exemplos VSIX do Python Tools 2.1 para Visual Studio]
- - [Azure SDK Tools para VS 2013] ou [Azure SDK Tools para VS 2012]
+ - Visual Studio 2013 ou 2015
+ - [Ferramentas Python 2.2 para Visual Studio]
+ - [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]
+ - [Ferramentas do SDK do Azure para VS 2013] ou [Ferramentas do SDK do Azure para VS 2015]
  - [Python 2.7 de 32 bits]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -208,17 +208,16 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 <!--External Link references-->
 [Portal do Azure]: https://portal.azure.com
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Exemplos VSIX do Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Azure SDK Tools para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Ferramentas do SDK do Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
-[Ferramentas Python para documentação do Visual Studio]: http://pytools.codeplex.com/documentation
-[Depuração remota no Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[Projetos da Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Projetos do serviço de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs
+[Depuração remota no Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Projetos da Web]: http://go.microsoft.com/fwlink/?LinkId=624027
+[Projetos do serviço de nuvem]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Documentação do Django]: https://www.djangoproject.com/
 [Banco de Dados SQL]: /documentation/services/sql-database/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

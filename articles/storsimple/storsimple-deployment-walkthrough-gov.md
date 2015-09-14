@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Implantar seu dispositivo StorSimple local no Portal de Gerenciamento | Microsoft Azure"
-	description="Etapas e práticas recomendadas para implantar o dispositivo e serviço StorSimple Atualização 1 no portal do Governo do Azure."
+   pageTitle="Implantar o dispositivo StorSimple no Portal do Governo | Microsoft Azure"
+	description="Descreve as etapas e as práticas recomendadas para a implantação do dispositivo e do serviço StorSimple Atualização 1 no portal de Governo do Azure."
 	services="storsimple"
 	documentationCenter="NA"
 	authors="SharS"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="v-sharos"/>
 
 # Implantar seu dispositivo StorSimple local no Portal do governo
@@ -277,4 +277,4 @@ Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

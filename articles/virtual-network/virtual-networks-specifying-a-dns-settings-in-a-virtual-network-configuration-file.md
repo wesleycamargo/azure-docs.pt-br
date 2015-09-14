@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Especificando as configurações de DNS em um arquivo de configuração de Rede Virtual"
-	description="Descrição"
+   pageTitle="Especificando as configurações DNS em um arquivo de configuração de Rede Virtual | Microsoft Azure"
+	description="Como alterar as configurações do servidor DNS em uma rede virtual usando um arquivo de configuração de rede virtual"
 	services="virtual-network"
 	documentationCenter="na"
 	authors="joaoma"
@@ -53,4 +53,4 @@ O arquivo de configuração de rede pode conter os seguintes elementos. O títul
 
 [Esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

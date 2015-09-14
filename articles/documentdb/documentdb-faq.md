@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Perguntas frequentes sobre o Banco de Dados de Documentos | Microsoft Azure" 
-	description="Respostas para perguntas frequentes sobre o Banco de Dados de Documentos, um serviço de banco de dados de documentos NoSQL." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+	pageTitle="Perguntas frequentes sobre o Banco de Dados de Documentos | Microsoft Azure"
+	description="Respostas para perguntas frequentes sobre o Banco de Dados de Documentos, um serviço de banco de dados de documentos NoSQL."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mimig"/>
 
 
@@ -48,10 +48,10 @@ Contas do Banco de Dados de Documentos podem ser dimensionadas em termos de arma
 Consulte a página [Detalhes de preços do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=402317) para obter mais informações. Os encargos pelo uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, o número de horas em que as coleções estiveram online e o [nível de desempenho](documentdb-performance-levels.md) de cada coleção.
 
 ### Existe uma avaliação gratuita disponível?
-Se for novo no Azure, você pode se inscrever para uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá a você 30 dias e US $200 para experimentar todos os serviços do Azure. Se tiver uma assinatura do MSDN, você estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usar em qualquer serviço do Azure. Se você quiser experimentar o Banco de Dados de Documentos gratuitamente por 30 dias, sem precisar de nenhum cartão de crédito, envie um email para askdocdb@microsoft.com com o assunto ”Documentation FAQ, Azure Trial” e nós responderemos com um código de promoção enquanto os estoques durarem.
+Se for novo no Azure, você pode se inscrever para uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá a você 30 dias e US $200 para experimentar todos os serviços do Azure. Ou, se você tiver uma assinatura do MSDN, estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
 
 ### Como obter ajuda adicional com o Banco de Dados de Documentos?
-Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), nos [Fóruns de desenvolvedores do MSDN do Banco de Dados de Documentos do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou marque um [chat com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
+Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), nos [Fóruns de desenvolvedores do MSDN do Banco de Dados de Documentos do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou marque um [chat individual com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
 
 ## Configurar o Banco de Dados de Documentos do Microsoft Azure
 
@@ -111,4 +111,4 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

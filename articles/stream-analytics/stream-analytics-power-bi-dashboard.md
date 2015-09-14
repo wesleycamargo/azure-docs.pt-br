@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="O painel do Power BI na Stream Analytics | Microsoft Azure" 
-	description="Use um painel de Power BI de transmissão em tempo real para reunir inteligência comercial e analisar grandes volumes de dados de um trabalho de Stream Analytics." 
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	pageTitle="O painel do Power BI na Stream Analytics | Microsoft Azure"
+	description="Use um painel de Power BI de transmissão em tempo real para reunir inteligência comercial e analisar grandes volumes de dados de um trabalho de Stream Analytics."
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="08/03/2015" 
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="08/27/2015"
 	ms.author="jeffstok"/>
 	
 # Stream Analytics do Azure e Power BI: Painel Dinâmico em Análise em Tempo real de Dados de Streaming
@@ -184,10 +184,18 @@ Isso significa que mudaríamos a consulta original para:
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
+## Renovar Autorização
 
+Há uma limitação temporária em que o token de autenticação deve ser atualizado manualmente a cada 90 dias para todos os trabalhos com saída do Power BI. Você também precisará autenticar novamente sua conta do Power BI caso sua senha tenha sido alterada depois que seu trabalho tenha sido criado ou autenticado pela última vez. Um sintoma desse problema é nenhuma saída de trabalho e um "erro de Autenticar usuário" nos Logs de Operações:
+
+![elementográfico12][graphic12]
+
+Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Power BI. Clique no link "Renovar autorização" e reinicie o trabalho a partir da Hora da Última Interrupção para evitar a perda de dados.
+
+![elementográfico13][graphic13]
 
 ## Obter ajuda ##
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas ##
 
@@ -209,5 +217,7 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
+[graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
+[graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

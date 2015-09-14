@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="09/02/2015"
 	ms.author="larryfr"/>
 
 #Usar o Sqoop com Hadoop no HDInsight (SSH)
@@ -159,7 +159,7 @@ Você primeiro exportará **hivesampletable** para o banco de dados SQL do Azure
 
 2. Use o seguinte comando para criar um link para o driver JDBC do SQL Server do diretório lib Sqoop. Isso permite que o Sqoop use esse driver para se comunicar com o Banco de Dados SQL:
 
-        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
+        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /usr/hdp/current/sqoop-client/lib/sqljdbc41.jar
 
 3. Use o comando a seguir para verificar se o Sqoop pode ver seu Banco de Dados SQL:
 
@@ -208,7 +208,7 @@ Você também pode usar o Sqoop para importar e exportar dados do SQL Server, se
 
     > [AZURE.NOTE]Para redes virtuais **ponto a site**, o SQL Server deve estar executando o aplicativo de configuração de cliente VPN, que está disponível no **Painel** de configuração da rede virtual do Azure.
 
-    Para obter informações sobre como criar e configurar uma rede virtual, consulte [Tarefas de configuração de rede virtual](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+    Para obter informações sobre como criar e configurar uma rede virtual, consulte [Tarefas de configuração de rede virtual](../services/virtual-machines/).
 
 * O SQL Server também deve ser configurado para permitir autenticação do SQL. Para obter mais informações, consulte [Escolher um modo de autenticação](https://msdn.microsoft.com/ms144284.aspx)
 
@@ -263,4 +263,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

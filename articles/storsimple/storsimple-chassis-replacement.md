@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Substituir o chassi em seu dispositivo StorSimple | Microsoft Azure"
-   description="Descreve como remover e substituir o chassi em seu dispositivo StorSimple primário ou compartimento EBOD."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Substituir o chassi em um dispositivo StorSimple | Microsoft Azure"
+	description="Descreve como remover e substituir o chassi em seu dispositivo StorSimple primário ou compartimento EBOD."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Substituir o chassi em seu dispositivo StorSimple
 
 ## Visão geral
 
-Este tutorial explica como remover e substituir um chassi em um dispositivo StorSimple. O modelo 8100 é um dispositivo de compartimento único (um chassi), enquanto o 8600 é um dispositivo de compartimento duplo (dois chassis). No modelo 8600, existem potencialmente dois chassis que podem falhar no dispositivo: o chassi do compartimento primário ou o chassi do compartimento EBOD.
+Este tutorial explica como remover e substituir um chassi em um dispositivo StorSimple. O modelo StorSimple 8100 é um dispositivo de compartimento único (um chassi), enquanto o 8600 é um dispositivo de compartimento duplo (dois chassis). No modelo 8600, existem potencialmente dois chassis que podem falhar no dispositivo: o chassi do compartimento primário ou o chassi do compartimento EBOD.
 
 Em ambos os casos, o chassi de substituição enviado pela Microsoft estará vazio. Não será incluído nenhum módulos de energia e resfriamento (PCM), módulo de controlador, unidade de disco de estado sólido (SSD), unidade de disco rígido (HD) ou módulos EBOD.
 
@@ -63,4 +63,4 @@ Execute as seguintes etapas para instalar o chassi em um dispositivo Microsoft A
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

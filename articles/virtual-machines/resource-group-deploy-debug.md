@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="command-line-interface"
 	ms.workload="infrastructure"
-	ms.date="04/25/2015"
+	ms.date="08/26/2015"
 	ms.author="rasquill"/>
 
 # Solucionando problemas de implantações de grupos de recursos no Azure
@@ -231,7 +231,25 @@ Se você tentar implantar um modelo que crie mais de 4 núcleos para a região O
 
 Nesses casos, você deve ir para o portal e abrir um problema de suporte para aumentar a cota para a região na qual você deseja implantar.
 
-> [AZURE.NOTE]Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, será necessário pedir 30 núcleos do Gerenciador de Recursos no Oeste dos EUA. Se precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, você deverá solicitar 30 núcleos do Gerenciador de recursos em todas as regiões. <!-- --> Para ser específico sobre núcleos, por exemplo, você pode verificar as regiões para as quais deve solicitar o valor da cota apropriado usando o seguinte comando, que resulta em **jq** para análise json. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+> [AZURE.NOTE] Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, será necessário pedir 30 núcleos do Gerenciador de Recursos no Oeste dos EUA. Se precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, você deverá solicitar 30 núcleos do Gerenciador de recursos em todas as regiões.
+<!-- -->
+Para ser específico sobre núcleos, por exemplo, você pode verificar as regiões para as quais deve solicitar o valor da cota apropriado usando o seguinte comando, que resulta em **jq** para análise json.
+<!-- -->
+        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        {
+          "name": "virtualMachines",
+          "apiVersions": [
+            "2015-05-01-preview",
+            "2014-12-01-preview"
+          ],
+          "locations": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ]
+        }
 
 
 ## Problemas de modo PowerShell e CLI do Azure
@@ -373,17 +391,10 @@ Muitas vezes, convém usar um recurso de fora do grupo de recursos atual, onde u
 
 ## Próximas etapas
 
-Para dominar a criação de modelos, leia [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md) e navegue pelo [Repositório do AzureRMTemplates](https://github.com/azurermtemplates/azurermtemplates) para obter exemplos implantáveis. Um exemplo da propriedade **dependsOn** é o [Modelo de balanceador de carga com regra de NAT de entrada](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json).
+Para dominar a criação de modelos, leia [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md) e navegue pelo [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) para obter exemplos implantáveis. Um exemplo da propriedade **dependsOn** é [Criar uma máquina virtual com várias NICs e RDP acessíveis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-1-vm-loadbalancer-2-nics).
 
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/
-[yah]: http://search.yahoo.com/
-[msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

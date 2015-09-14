@@ -4,7 +4,7 @@
 
 Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do Azure]\:
 
-1. Faça logon no [Portal de Gerenciamento do Azure] e clique em **NOVO** na parte inferior da tela.
+1. Entre no [portal do Azure] e clique em **NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Dados**, em **Armazenamento**, em **Criação Rápida** e, em seguida, digite um nome para sua conta de armazenamento. Selecione a região desejada e, em seguida, clique em **Criar Conta de Armazenamento**.
 
@@ -28,7 +28,7 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 
     ![][13]
 
-	Isso faz o download, instala e adiciona uma referência ao <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Hub de Eventos do Barramento de Serviço do Azure - Pacote NuGet do EventProcessorHost</a>, com todas as suas dependências.
+	Isso baixa, instala e adiciona uma referência ao [Hub de Eventos do Barramento de Serviço do Azure - pacote NuGet do EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), com todas as suas dependências.
 
 7. Clique com o botão direito do mouse no projeto do **Receptor**, clique em **Adicionar** e, em seguida, clique em **Classe**. Nomeie a nova classe **SimpleEventProcessor**, em seguida, clique em **OK** para criar a classe.
 
@@ -112,12 +112,12 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 > [AZURE.NOTE]Este tutorial usa uma única instância do [EventProcessorHost]. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do [EventProcessorHost], conforme mostrado no exemplo de [Processamento de eventos em escala]. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup**. Ao receber eventos de máquinas diferentes, pode ser útil especificar nomes para instâncias de [EventProcessorHost] com base em máquinas (ou funções) nas quais eles foram implantados. Para obter mais informações sobre esses tópicos, confira a [Visão geral de Hubs de Eventos] e o [Guia de Programação de Hubs de Eventos].
 
 <!-- Links -->
-[Visão geral de Hubs de Eventos]: http://azure.microsoft.com/documentation/articles/event-hubs-overview/
+[Visão geral de Hubs de Eventos]: event-hubs-overview.md
 [Processamento de eventos em escala]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [processamento de eventos de escala horizontal]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Conta de armazenamento do Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[Conta de armazenamento do Azure]: storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+[portal do Azure]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -126,8 +126,8 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guia de Programação de Hubs de Eventos]: http://azure.microsoft.com/documentation/articles/event-hubs-programming-guide/
+[Guia de Programação de Hubs de Eventos]: event-hubs-programming-guide.md
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

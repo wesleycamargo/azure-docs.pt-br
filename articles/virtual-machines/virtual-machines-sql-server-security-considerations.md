@@ -56,6 +56,6 @@ Esta é uma lista de recomendações de segurança que deve ser considerada ao c
 
 Se você também estiver interessado em práticas recomendadas sobre desempenho, consulte [Práticas recomendadas de desempenho do SQL Server em máquinas virtuais Azure](virtual-machines-sql-server-performance-best-practices.md).
 
-Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
+Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

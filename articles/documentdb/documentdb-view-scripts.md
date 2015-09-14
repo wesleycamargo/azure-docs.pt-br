@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="06/10/2015"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="stbaro"/>
 
-# Exibir procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos
+# Exibir, editar e criar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos
 
 Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados de Documentos do Microsoft Azure](http://azure.microsoft.com/services/documentdb/), uma ferramenta do Portal de Visualização do Azure que permite exibir artefatos de programação do Banco de Dados de Documentos no servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário. Clique [aqui](documentdb-programming.md) para saber mais sobre programação do Banco de Dados de Documentos no servidor.
 
@@ -63,13 +63,29 @@ O Gerenciador de Script pode ser iniciado por meio de qualquer conta, banco de d
 	![Captura de tela do comando de atualização do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 
-## Exibir procedimentos armazenados, gatilhos e funções definidas pelo usuário com o Gerenciador de Script
+## Exibir, editar, criar e excluir procedimentos armazenados, disparadores e funções definidas pelo usuário com o Gerenciador de Script
 
-O Gerenciador de Script permite que você exiba facilmente os artefatos de programação do Banco de Dados de Documentos no servidor.
+O Gerenciador de Script permite que você execute facilmente operações de CRUD em artefatos de programação do Banco de Dados de Documentos do lado do servidor.
 
-- Basta clicar no script no qual cujo conteúdo você deseja exibir.
+- Para criar um script, basta clicar no comando criar aplicável no Explorador de script , fornecer uma id, inserir o conteúdo do script e clicar no comando **Salvar**.
+
+	![Captura de tela da opção de criação do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
+
+- Ao criar um disparador, você também deve especificar a operação e o tipo de gatilho
+
+	![Captura de tela da opção de disparo de do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorercreatetrigger.png)
+
+- Para exibir um script, basta clicar no script no qual você está interessado.
 
 	![Captura de tela da experiência de exibição de script do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerviewscript.png)
+
+- Para editar um script, basta fazer as alterações desejadas e clicar no comando **Salvar**.
+
+	![Captura de tela da experiência de exibição de script do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorereditscript.png)
+
+- Para descartar alterações pendentes em um script, basta clicar no comando **Descartar**.
+
+	![Captura de tela da experiência de descartar alterações do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerdiscardchanges.png)
 
 - Por fim, o Gerenciador de Script também permite que você exiba facilmente as propriedades de sistema do script carregado no momento clicando no comando **Propriedades**.
 
@@ -77,9 +93,17 @@ O Gerenciador de Script permite que você exiba facilmente os artefatos de progr
 
 	> [AZURE.NOTE]A propriedade (\_ts) de carimbo de data/hora é representada internamente como tempo de época, mas o Gerenciador de Script exibe o valor em um formato GMT legível.
 
+- Para excluir um script, selecione-o no Gerenciador de Script e clique no comando **Excluir**.
+
+	![Captura de tela do comando excluir do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerdeletescript1.png)
+
+- Confirme a ação de exclusão clicando em **Sim** ou cancele a ação de exclusão clicando em **Não**.
+
+	![Captura de tela do comando excluir do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
+
 ## Próximas etapas
 
 Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

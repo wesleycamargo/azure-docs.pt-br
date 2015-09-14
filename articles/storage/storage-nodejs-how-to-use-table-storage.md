@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar o Armazenamento de Tabela do Node.js | Microsoft Azure" 
-	description="Saiba como usar o serviço de armazenamento de tabela no Azure. As amostras de código são escritas usando a API do Node.js." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Como usar o Armazenamento de Tabela do Node.js | Microsoft Azure"
+	description="Saiba como usar o serviço de armazenamento de tabela no Azure. As amostras de código são escritas usando a API do Node.js."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -46,17 +46,18 @@ Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azu
 
 1.  Use uma interface de linha de comando, como **PowerShell** (Windows,) **Terminal** (Mac) ou **Bash** (Unix), e navegue até a pasta em que você criou o aplicativo.
 
-2.  Digite **npm install azure-storage** na janela de comando, que deve resultar na seguinte saída:
+2.  Digite **npm install azure-storage** na janela de comando. A saída do comando é semelhante ao exemplo a seguir.
 
-        azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
 3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
 
@@ -148,7 +149,7 @@ Se a operação for bem-sucedida, `result` conterá a [ETag](http://en.wikipedia
 
 Resposta de exemplo:
 
-	{ '.metadata': { etag: 'W/"datetime'2015-02-25T01%3A22%3A22.5Z'"' } }
+	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
 > [AZURE.NOTE]Por padrão, **insertEntity** não retorna a entidade inserida como parte da informação de `response`. Se você planeja executar outras operações nessa entidade ou se desejar armazenar as informações em cache, pode ser útil retorná-las como parte de `result`. Você pode fazer isso habilitando **echoContent** da seguinte maneira:
 >
@@ -184,7 +185,7 @@ O exemplo a seguir demonstra a atualização de uma entidade usando **updateEnti
 >    
 > 3. Realize a operação de atualização. Se a entidade foi modificada desde a recuperação do valor de ETag, como outra instância do seu aplicativo, um `error` será retornado informando que a condição da atualização especificada na solicitação não foi atendida.
     
-Com **updateEntity** e **mergeEntity**, se a entidade que está sendo atualizada não existir, haverá falha na operação de atualização. Portanto, se desejar armazenar uma entidade independentemente de sua existência, você deverá usar **insertOrReplaceEntity** ou **insertOrMergeEntity**.
+Com **updateEntity** e **mergeEntity**, se a entidade que está sendo atualizada não existir, haverá falha na operação de atualização. Portanto, se desejar armazenar uma entidade independentemente de sua existência, use **insertOrReplaceEntity** ou **insertOrMergeEntity**.
 
 O `result` para operações de atualização de sucesso conterá **Etag** da entidade atualizada.
 
@@ -275,9 +276,9 @@ Como **select** não é usado, todos os campos serão retornados. Para realizar 
 	  }
 	});
 
-Se for bem-sucedido, `result.entries` conterá uma matriz de entidades que correspondem à consulta. Se a consulta não tiver sido capaz de retornar todas as entidades, `result.continuationToken` não será *null* e poderá ser usado como terceiro parâmetro de **queryEntities** para recuperar mais resultados. Para a consulta inicial, o terceiro parâmetro deve ser *null*.
+Se for bem-sucedido, `result.entries` conterá uma matriz de entidades que correspondem à consulta. Se a consulta não tiver sido capaz de retornar todas as entidades, `result.continuationToken` não será *null* e poderá ser usado como terceiro parâmetro de **queryEntities** para recuperar mais resultados. Para a consulta inicial, use *null* como o terceiro parâmetro.
 
-### Como consultar um subconjunto de propriedades de entidade
+### Consultar um subconjunto de propriedades da entidade
 
 Uma consulta a uma tabela pode recuperar apenas alguns campos de uma entidade. Isso reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente em grandes entidades. Use a cláusula **select** e transmita os nomes dos campos a serem retornados. Por exemplo, a consulta a seguir retornará os campos **description** e **dueDate**.
 
@@ -286,7 +287,7 @@ Uma consulta a uma tabela pode recuperar apenas alguns campos de uma entidade. I
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
 
-## Como excluir uma entidade
+## Excluir uma entidade
 
 Você pode excluir uma entidade usando suas chaves de partição e de linha. Neste exemplo,o objeto **task1** contém os valores **RowKey** **ePartitionKey** da entidade a ser excluída. Depois o objeto é passado para o método **deleteEntity**.
 
@@ -301,9 +302,9 @@ Você pode excluir uma entidade usando suas chaves de partição e de linha. Nes
 	  }
 	});
 
-> [AZURE.NOTE]Você deve considerar o uso de ETags ao excluir itens, para garantir que o item não seja modificado por outro processo. Consulte [Como: Atualizar uma entidade][] para obter informações sobre o uso de ETags.
+> [AZURE.NOTE]Considere o uso de ETags ao excluir itens, para garantir que o item não seja modificado por outro processo. Consulte [Atualizar uma entidade](#update-an-entity) para obter informações sobre o uso de ETags.
 
-## Como excluir uma tabela
+## Excluir uma tabela
 
 O código a seguir exclui uma tabela de uma conta de armazenamento.
 
@@ -315,9 +316,9 @@ O código a seguir exclui uma tabela de uma conta de armazenamento.
 
 Se você não tiver certeza de que a tabela existe, use **deleteTableIfExists**.
 
-## Como: Usar tokens de continuação
+## Usar tokens de continuação
 
-Quando você estiver consultando tabelas com grandes quantidades de resultados, você deve procurar tokens de continuação. Pode haver grandes quantidades de dados disponíveis para a sua consulta dos quais talvez você não saiba, se não criá-la de modo a reconhecer quando um token de continuação está presente.
+Quando você estiver consultando tabelas com grandes quantidades de resultados, deverá procurar tokens de continuação. Pode haver grandes quantidades de dados disponíveis para a sua consulta dos quais talvez você não saiba, se não criá-la de modo a reconhecer quando um token de continuação está presente.
 
 Os resultados retornados ao consultar entidades define uma propriedade `continuationToken` quando esse token está presente. Você pode usar isso ao realizar uma consulta para continuar a mover-se pela partição e entidades de tabela.
 
@@ -344,7 +345,7 @@ Se você inspecionar o objeto `continuationToken`, encontrará propriedades como
 
 Também há um exemplo de continuação dentro do repositório Node.js de armazenamento do Azure no GitHub, procure por `examples/samples/continuationsample.js`.
 
-## Como: Trabalhar com assinaturas de acesso compartilhado
+## Trabalhar com assinaturas de acesso compartilhado
 
 Assinaturas de Acesso Compartilhado (SAS) são uma forma segura de fornecer acesso granular a tabelas sem fornecer o nome ou as chaves da conta de armazenamento. As SAS são muitas vezes usadas para fornecer acesso limitado aos seus dados, como permitir que um aplicativo móvel consulte registros.
 
@@ -449,4 +450,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga 
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

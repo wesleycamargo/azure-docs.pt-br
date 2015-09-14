@@ -261,15 +261,35 @@ Ela inclui um sistema de controle do código-fonte hospedado chamado Team Founda
 
 O Visual Studio Online fornece um serviço de teste de carga. Você pode executar testes de carga criados no Visual Studio nas VMs presentes na nuvem. Você especifica o número total de usuários com os quais você deseja realizar teste de carga, sendo que o Visual Studio Online determinará automaticamente quantos agentes são necessários, criar as máquinas virtuais necessárias e executar os seus testes de carga. Se você é um assinante do MSDN, você recebe milhares de minutos de usuário para teste de carga a cada mês.
 
-O Visual Studio Online também oferece um serviço chamado Application Insights, que fornece a você uma análise de todo o seu aplicativo. Ele fornece estatísticas sobre desempenho e sobre como o seu aplicativo está sendo utilizado. Se você já estiver usando o System Center Operations Manager, ele também pode conectar-se ao aplicativo e gerar alertas quando surgirem problemas. +O Visual Studio Online também oferece suporte para desenvolvimento ágil, com recursos como compilações de integração contínua, blocos Kanban e salas de equipe virtual.
-	
-Além disso, há suporte para desenvolvimento rápido com recursos como compilações de integração contínua, planilhas Kanban e locais para equipes virtuais.
+O Visual Studio Online também dá suporte para desenvolvimento rápido com recursos como compilações de integração contínua, quadros Kanban e salas das equipes virtuais.
 
 **Cenários do Visual Studio Online**
 
 O Visual Studio Online é uma boa opção para empresas que precisam colaborar por todo o mundo e ainda não têm pronta a infraestrutura necessária para fazê-lo. Você pode concluir a configuração em minutos, escolher um sistema de controle do código-fonte e iniciar a gravação do código e a compilação no mesmo dia. A nova equipe oferece um local para coordenação e colaboração, enquanto as ferramentas adicionais oferecem a análise necessária para testar e ajustar rapidamente o seu aplicativo.
 
 Porém, organizações que já têm um sistema local podem testar novos projetos no Visual Studio Online, para ver se desse modo o sistema é mais eficiente.
+
+### Application Insights
+
+![Application Insights](./media/fundamentals-introduction-to-azure/ApplicationInsights.png)
+
+*Figura: o Application Insights monitora o desempenho e o uso de seu aplicativo ativo da Web ou de dispositivo.*
+
+Ao publicar seu aplicativo, seja ele executado em dispositivos móveis, em desktops ou em navegadores da Web, o Application Insights informa o desempenho dele e o que os usuários estão fazendo com ele. Isso manterá uma contagem de falhas e de respostas lentas, alertará se os números cruzarem limites inaceitáveis e ajudará você a diagnosticar quaisquer problemas.
+
+Ao desenvolver um novo recurso, planeje a medição do êxito dele com os usuários. Analisando padrões de uso, você entende o que funciona melhor para seus clientes e aprimora seu aplicativo em todos os ciclos de desenvolvimento.
+
+Embora esteja hospedado no Azure, o Application Insights funciona para uma grande e crescente variedade de aplicativos, no Azure e fora dele. Ambos os aplicativos Web J2EE e ASP.NET são abordados, bem como aplicativos para iOS, para Android, para OSX e para o Windows. A telemetria é enviada de um SDK criado com o aplicativo, a ser analisada e exibida no serviço do Application Insights no Azure.
+
+Se você quiser uma análise mais especializada, exporte o fluxo de telemetria para um banco de dados ou para o Power BI ou para todas as outras ferramentas.
+
+**Cenários do Application Insights**
+
+Você está desenvolvendo um aplicativo. Pode ser um aplicativo Web ou um aplicativo de dispositivo ou um aplicativo de dispositivo com um back-end da Web.
+
+* Ajuste o desempenho do seu aplicativo depois que ele for publicado ou enquanto ele estiver no teste de carga. O Application Insights agrega a telemetria de todas as instâncias instaladas e apresenta gráficos de tempos de resposta, contagens de exceção e de solicitação, tempos de resposta de dependência e outros indicadores de desempenho. Isso ajudará você a ajustar o desempenho do aplicativo. Você pode inserir código para relatar dados mais específicos, se forem necessários.
+* Detecte e diagnostique problemas em seu aplicativo ativo. Você poderá receber alertas por email se os indicadores de desempenho cruzarem os limites aceitáveis. Você pode investigar sessões de usuário específicas, por exemplo, para ver a solicitação que causou uma exceção. 
+* Acompanhe o uso para avaliar o sucesso de cada novo recurso. Quando você projetar uma nova história de usuário, planeje medir o quanto ele será usado e se os usuários alcançarão suas metas estabelecidas. O Application Insights fornece dados de uso básicos, como modos de exibição de página da Web, e você pode inserir um código para acompanhar a experiência do usuário em mais detalhes.
 
 ### Automação
 Ninguém gosta de desperdiçar tempo realizando os mesmos processos manuais repetidamente. A Automação do Azure oferece um modo para você criar, monitorar, gerenciar e implantar recursos em seu ambiente Azure.
@@ -592,4 +612,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="09/01/2015"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -22,15 +22,15 @@
 
 ## Introdução
 
-Os Hubs de Eventos são um serviço que você pode usar para processar grandes quantidades de dados de eventos de aplicativos e dispositivos conectados. Depois de coletar dados para Hubs de Eventos, você pode armazenar os dados usando um cluster de armazenamento ou transformá-los usando um provedor de análise em tempo real. Essa funcionalidade de coleta e processamento de eventos em grande escala é um componente fundamental de arquiteturas de aplicativos modernas, incluindo a IoT (Internet das Coisas).
+Os Hubs de Eventos são um serviço que processa grandes quantidades de dados de eventos de aplicativos e dispositivos conectados. Depois de coletar dados para Hubs de Eventos, você pode armazenar os dados usando um cluster de armazenamento ou transformá-los usando um provedor de análise em tempo real. Essa funcionalidade de coleta e processamento de eventos em grande escala é um componente fundamental de arquiteturas de aplicativos modernas, incluindo a IoT (Internet das Coisas).
 
-Este tutorial mostra como usar o portal de gerenciamento do Azure para criar um Hub de Eventos. Ele também mostra como coletar mensagens em um Hub de Eventos usando um aplicativo de console escrito em C#, e como recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos] em C#.
+Este tutorial mostra como usar o portal do Azure para criar um Hub de Eventos. Ele também mostra como coletar mensagens em um Hub de Eventos usando um aplicativo de console escrito em C#, e como recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos] em C#.
 
 Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio 2013 ou Microsoft Visual Studio Express 2013 para Windows.
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
 
 ## Criar um Hub de Evento
 
@@ -86,6 +86,7 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 - Um [aplicativo de exemplo completo que usa os Hubs de Evento].
 - O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos].
 - Uma [solução de mensagens na fila] usando filas do Barramento de Serviço.
+- [Visão geral de Hubs de Evento]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub1.png
@@ -101,10 +102,10 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 <!-- Links -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Host do Processador de Eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Visão geral de Hubs de Evento]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

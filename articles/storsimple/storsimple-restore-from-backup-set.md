@@ -1,20 +1,19 @@
-﻿<properties 
-	pageTitle="Restaurar um volume StorSimplede um cojunto de backups |do Microsoft Azure." 
-	description="Explica como usar o catálogo de backup para restaurar um volume StorSimple de um conjunto de backups." 
-	services="storsimple" 
-	documentationCenter="NA" 
-	authors="SharS" 
-	manager="carolz" 
+<properties 
+   pageTitle="Restaurar um volume do StorSimple de um conjunto de backup | Microsoft Azure"
+	description="Explica como usar a página Catálogo de Backup do serviço StorSimple Manager para restaurar um volume do StorSimple de um conjunto de backup."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
 	editor=""/>
-
-<tags
+<tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="06/25/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/28/2015"
+	ms.author="v-sharos"/>
 
 # Restaurar um volume do StorSimple de um conjunto de backup
 
@@ -44,7 +43,7 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
 
 ## Como restaurar o volume StorSimple de um backup
 
-É possível usar a página **Catálogo de Backup** para restaurar o volume StorSimple de um backup específico. No entanto, tenha em mente que a restauração de um volume reverterá o volume ao estado em que ele estava quando o backup foi feito. Todos os dados adicionados após a operação de backup serão perdidos.
+É possível usar a página **Catálogo de Backup** para restaurar o volume do StorSimple de um backup específico. No entanto, tenha em mente que a restauração de um volume reverterá o volume ao estado em que ele estava quando o backup foi feito. Todos os dados adicionados após a operação de backup serão perdidos.
 
 > [AZURE.WARNING]A restauração de um backup substituirá os volumes existentes do backup. Isso pode causar a perda de todos os dados gravados depois que o backup tiver sido feito.
 
@@ -81,6 +80,6 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
 
 ## Próximas etapas
 
-Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes.md)
+Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

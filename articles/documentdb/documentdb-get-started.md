@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="05/19/2015"
+	ms.topic="hero-article"
+	ms.date="09/03/2015"
 	ms.author="anhoh"/>
 
 #Introdução ao SDK do .NET do Banco de Dados de Documentos  
@@ -33,6 +33,8 @@ Os cenários a seguir são abordados neste artigo:
 - Excluindo bancos de dados
 
 Não há tempo para concluir o tutorial e deseja apenas a solução de trabalho? Não se preocupe. A solução completa está disponível em [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Consulte [Obter a solução completa](#GetSolution) para as instruções rápidas.
+
+Depois de concluir o tutorial, use os botões de votação no início ou no fim do tópico para nos informar como nos saímos. Este tópico está sendo atualizado ativamente, por isso, queremos receber seus comentários sobre como melhorá-lo. Se quiser que entremos em contato com você, inclua seu endereço de email no comentário para acompanhamento.
 
 ## Pré-requisitos
 
@@ -454,6 +456,8 @@ Agora você verá a saída do aplicativo iniciado. A saída mostrará os resulta
 
 > [AZURE.NOTE]Se executar o aplicativo várias vezes sem remover o banco de dados, você poderá executar o problema da criação de um novo banco de dados com uma ID que já está em uso. Para evitar isso, é possível verificar se já existe um banco de dados, a coleção ou o documento com a mesma ID. Para obter uma referência sobre como isso pode ser obtido, visite a nossa [página GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).
 
+Parabéns! Você criou seu primeiro aplicativo do Banco de Dados de Documentos!
+
 ##<a id="GetSolution"></a> Obter a solução completa
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisará do seguinte:
 
@@ -463,6 +467,7 @@ Para criar a solução de Introdução que contém todos os exemplos neste artig
 Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no Visual Studio 2013, clique com o botão direito do mouse na solução **GetStarted** no Gerenciador de Soluções e, em seguida, clique em **Habilitar pacote de restauração NuGet**. Em seguida, no arquivo App.config, atualize os valores EndpointUrl e AuthorizationKey conforme descrito em [Conectar-se a uma conta do Banco de Dados de Documentos](#Connect).
 
 ## Próximas etapas
+
 -   Quer um exemplo mais complexo do ASP.NET MVC? Consulte [Criar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos](documentdb-dotnet-application.md).
 -	Saiba como [monitorar uma conta do Banco de Dados de Documentos](documentdb-monitor-accounts.md).
 -	Executar consultas em nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).
@@ -475,4 +480,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

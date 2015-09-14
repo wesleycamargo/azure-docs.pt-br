@@ -24,6 +24,8 @@ Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão d
 
 ## Como fazer logon
 
+[AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
+
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## Dicas de solução de problemas
@@ -36,4 +38,4 @@ Se houver problemas com sua senha, tente redefini-la no portal. No painel da má
 
 Se isso não funcionar, você precisará fazer uma solução de problemas mais ampla. Para obter instruções, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

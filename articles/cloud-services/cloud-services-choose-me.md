@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Os Serviço de Nuvem no Azure são a opção de computação que desejo?" 
-	description="Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais" 
+	pageTitle="Os Serviço de Nuvem no Azure são a opção de computação que desejo?"
+	description="Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais"
 	services="cloud-services"
-    documentationCenter=""
-	authors="Thraka" 
+	documentationCenter=""
+	authors="Thraka"
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="adegeo"/>
 
 # Devo escolher Serviços de Nuvem?
@@ -36,4 +36,4 @@ A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada
 [Máquinas virtuais]: ../virtual-machines-choose-me.md
 [Serviços de Nuvem]: #tellmecs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

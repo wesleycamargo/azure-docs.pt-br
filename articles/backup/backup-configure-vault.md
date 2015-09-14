@@ -7,7 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Configurar o Backup do Azure para prepará-lo para o backup do Windows Server
 
@@ -34,4 +34,4 @@ Para fazer backup de arquivos e de dados do seu Windows Server no Azure, primeir
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 - [Fórum de Backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

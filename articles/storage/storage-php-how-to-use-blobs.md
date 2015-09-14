@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="05/11/2015"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 # Como usar o armazenamento de blob no PHP
@@ -22,7 +22,7 @@
 
 ## Visão geral
 
-Este guia mostrará como executar cenários comuns usando o serviço Blob do Azure. As amostras são escritas em PHP e usam o [SDK do Azure para PHP][download]. Os cenários cobertos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#NextSteps).
+Este guia mostrará como executar cenários comuns usando o serviço Blob do Azure. As amostras são escritas em PHP e usam o [SDK do Azure para PHP][download]. Os cenários cobertos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs. Para saber mais sobre blobs, consulte a seção [Próximas etapas](#next-steps).
 
 [AZURE.INCLUDE [armazenamento-blob-conceitos-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -304,4 +304,4 @@ Agora que você aprendeu os conceitos básicos do serviço Blob do Azure, siga e
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

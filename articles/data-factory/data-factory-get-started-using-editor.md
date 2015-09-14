@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Tutorial: Copiar dados de um blob do Azure para o SQL do Azure"
-	description="Este tutorial mostra como criar um pipeline de dados de exemplo que copia dados de um blob para uma instância do banco de dados SQL do Azure."
+	pageTitle="Tutorial: Criar um pipeline com a Atividade de Cópia usando o Data Factory Editor"
+	description="Neste tutorial, você criará um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Data Factory Editor no Portal do Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
-# Tutorial: Criar e monitorar uma data factory usando o Editor Data Factory
+# Tutorial: Criar um pipeline com a Atividade de Cópia usando o Data Factory Editor
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -381,6 +381,9 @@ Para obter uma lista de atividades com suporte, consulte o tópico [Pipelines e 
  
 Para concluir este tutorial usando o PowerShell do Azure, consulte [Criar e monitorar uma data factory usando o PowerShell do Azure][monitor-manage-using-powershell].
 
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md).
+
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -498,4 +501,4 @@ Para concluir este tutorial usando o PowerShell do Azure, consulte [Criar e moni
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

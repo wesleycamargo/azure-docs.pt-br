@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun"  />
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="mohabib;xibingao;bradsev"/>
 
 # Configurar uma máquina virtual do Azure como um servidor do IPython Notebook para análises avançadas
 
@@ -77,13 +77,13 @@ Quando a instalação for concluída, o servidor do IPython Notebook será inici
 Quando solicitado, digite uma senha para o IPython Notebook e a senha de administrador do computador. Isso permite que o IPython Notebook seja executado como um serviço no computador.
 
 ## <a name="access"></a>Etapa 4: acesse o IPython Notebooks usando um navegador da Web
-Para acessar o servidor do IPython Notebook, abra um navegador da Web e insira *https://&#60;virtual nome DNS do computador>:&\#60;número da porta pública>* na caixa de texto da URL. Aqui, o *&\#60;número da porta pública>* deve ser o número da porta especificado quando o ponto de extremidade do IPython Notebook foi adicionado.
+Para acessar o servidor do IPython Notebook, abra um navegador da Web e insira *https://&#60;virtual nome DNS do computador>:&#60;número da porta pública>* na caixa de texto da URL. Aqui, o *&#60;número da porta pública>* deve ser o número da porta especificado quando o ponto de extremidade do IPython Notebook foi adicionado.
 
-O *&\#60;nome DNS da máquina virtual>* pode ser encontrado no portal de gerenciamento do Azure. Depois de fazer logon no portal de gerenciamento, clique em **MÁQUINAS VIRTUAIS**, selecione a máquina que você criou e, em seguida, selecione **PAINEL**, o nome DNS será mostrado da seguinte maneira:
+O *&#60;nome DNS da máquina virtual>* pode ser encontrado no portal de gerenciamento do Azure. Depois de fazer logon no portal de gerenciamento, clique em **MÁQUINAS VIRTUAIS**, selecione a máquina que você criou e, em seguida, selecione **PAINEL**, o nome DNS será mostrado da seguinte maneira:
 
 ![Criar espaço de trabalho][19]
 
-Você encontrará um aviso informando que _Há um problema com o certificado de segurança deste site_ (Internet Explorer) ou a _Sua conexão não é privada_ (Chrome), conforme mostrado nas figuras a seguir. Clique em **Continuar neste site (não recomendado)** (Internet Explorer) ou **Avançado** e **Continuar em &\#60;*Nome DNS*> (perigoso)** (Chrome) para continuar. Em seguida, insira a senha que você especificou anteriormente para acessar o IPython Notebooks.
+Você encontrará um aviso informando que _Há um problema com o certificado de segurança deste site_ (Internet Explorer) ou a _Sua conexão não é privada_ (Chrome), conforme mostrado nas figuras a seguir. Clique em **Continuar neste site (não recomendado)** (Internet Explorer) ou **Avançado** e **Continuar em &#60;*Nome DNS*> (perigoso)** (Chrome) para continuar. Em seguida, insira a senha que você especificou anteriormente para acessar o IPython Notebooks.
 
 Internet Explorer: ![Criar espaço de trabalho][20]
 
@@ -143,4 +143,4 @@ As próximas etapas no processo e tecnologia de análise avançada estão mapead
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

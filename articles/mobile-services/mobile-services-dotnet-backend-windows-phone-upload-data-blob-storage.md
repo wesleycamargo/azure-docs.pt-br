@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Use Serviços Móveis para carregar imagens no armazenamento de blob (Windows Phone) | Microsoft Azure" 
-	description="Aprenda a usar os Serviços Móveis para carregar imagens no Armazenamento de blobs do Azure." 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	services="mobile-services,storage" 
-	manager="dwrede" 
+<properties
+	pageTitle="Use Serviços Móveis para carregar imagens no armazenamento de blob (Windows Phone) | Microsoft Azure"
+	description="Aprenda a usar os Serviços Móveis para carregar imagens no Armazenamento de blobs do Azure."
+	documentationCenter="windows"
+	authors="ggailey777"
+	services="mobile-services,storage"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Fazer upload de imagens no Armazenamento do Azure usando Serviços Móveis
@@ -27,7 +27,7 @@ Você não pode distribuir as credenciais necessárias de maneira segura usando 
 
 Neste tutorial, você adicionará funcionalidade ao [projeto de aplicativo de exemplo GetStartedWithData](mobile-services-dotnet-backend-windows-phone-get-started-data.md) para tirar fotos e carregar as imagens no Azure usando uma SAS gerada pelos Serviços Móveis.
 
-##Pré-requisitos 
+##Pré-requisitos
 
 Este tutorial exige o seguinte:
 
@@ -54,7 +54,7 @@ Para poder usar um SAS para fazer upload de imagens de seu aplicativo no armazen
   	Isso adicionará a biblioteca de cliente para os serviços de armazenamento do Azure ao projeto.
 
 [AZURE.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
- 
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -78,7 +78,4 @@ Para poder usar um SAS para fazer upload de imagens de seu aplicativo no armazen
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [SDK do Windows Phone 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
-
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

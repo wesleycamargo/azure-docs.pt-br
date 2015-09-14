@@ -1,20 +1,20 @@
 <properties
    pageTitle="Processar eventos de Hubs de Eventos com o Storm no HDInsight | Microsoft Azure"
-   description="Saiba como processar dados de Hubs de Eventos com uma topologia Storm C# criada no Visual Studio usando as Ferramentas do HDInsight para Visual Studio."
-   services="hdinsight,notification hubs"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="Saiba como processar dados de Hubs de Eventos com uma topologia Storm C# criada no Visual Studio usando as Ferramentas do HDInsight para Visual Studio."
+	services="hdinsight,notification hubs"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/24/2015"
-   ms.author="larryfr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="09/02/2015"
+	ms.author="larryfr"/>
 
 # Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight
 
@@ -237,14 +237,14 @@ Neste ponto, você concluiu o **Program.cs**. A topologia foi definida, mas agor
 
 O bolt dos Hubs de Evento espera um valor único de cadeia de caracteres, que ele roteará para o Hub de Eventos. No exemplo a seguir, você modificará o arquivo padrão **Spout.cs** para produzir uma cadeia de caracteres JSON.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **EventHubWriter** e escolha **Gerenciar Pacotes Nuget**. Pesquise o pacote **Json.NET** e adicione-o à solução. Isso nos permitirá criar facilmente dados JSON que serão enviados aos Hubs de Eventos usando o bolt.
-
-1. Abra **Spout.cs** e adicione o seguinte à parte superior do arquivo:
+1. No **Gerenciador de Soluções**, abra **Spout.cs** e adicione o seguinte na parte superior do arquivo:
 
 		using Newtonsoft.Json;
 		using Newtonsoft.Json.Linq;
 
 	Isso permite que você trabalhe com mais facilidade com dados JSON.
+    
+    > [AZURE.NOTE]O pacote JSON.NET já deve estar instalado, conforme exigido pela estrutura SCP.NET usada para topologias C# Storm.
 
 3. Localize o código a seguir:
 
@@ -420,9 +420,7 @@ Ao gravar dados no armazenamento de Tabela, você deve criar uma classe que desc
 
 ### Modificar o bolt
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **EventHubReader** e escolha **Gerenciar Pacotes Nuget**. Pesquise o pacote **Json.Net** e adicione-o à solução. Isso nos permitirá processar com facilidade os dados JSON recebidos do spout. Adicione também o pacote **WindowsAzure.Storage**, que nos permitirá gravar para o armazenamento de tabela.
-
-1. Abra **Bolt.cs** e adicione o seguinte à parte superior do arquivo:
+1. No **Gerenciador de Soluções**, expanda o projeto **EventHubReader** e abra o arquivo **Bolt.cs**. Adicione o seguinte na parte superior do arquivo:
 
 		using Newtonsoft.Json.Linq;
 		using Microsoft.WindowsAzure.Storage;
@@ -557,4 +555,4 @@ Neste documento, você aprendeu a usar o Bolt e o Spout dos Hub de Eventos Java 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

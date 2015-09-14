@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Projeto de banco de dados SQL para continuidade de negócios" 
-   description="Diretrizes para escolher nesta seção, orientações serão fornecida para como escolher quais recursos de BCDR devem ser usados e quando. Isso inclui descrições de o que você obtém automaticamente usando o banco de dados SQL."
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="Projeto de banco de dados SQL para continuidade de negócios"
+	description="Diretrizes para escolher nesta seção, orientações serão fornecida para como escolher quais recursos de BCDR devem ser usados e quando. Isso inclui descrições de o que você obtém automaticamente usando o banco de dados SQL."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/14/2015"
+	ms.author="elfish"/>
 
 #Projeto para continuidade dos negócios
 
@@ -59,16 +59,19 @@ Você pode habilitar replicação geográfica usando o Portal do Azure ou chaman
 
 ###Portal do Azure
 
+[AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
+
 1. Faça logon no [Portal do Azure](https://portal.Azure.com).
 2. No lado esquerdo da tela, selecione **PROCURAR** e, em seguida, selecione **Bancos de Dados SQL**
 3. Navegue até a folha de banco de dados, selecione o **Mapa de replicação geográfica** e clique em **Configurar a replicação geográfica**.
 4. Navegue até a folha de replicação geográfica. Selecione a região de destino. 
 5. Navegue até a folha Criar Secundário. Selecione um servidor existente na região de destino ou crie um novo.
-6. Selecione o tipo de secundário (*legível* ou *não legível*)
+6. Selecione o tipo de secundário (*Legível* ou *Não legível*)
 7. Clique em **Criar** para concluir a configuração
 
-> [AZURE.NOTE]A região pareada de DR na folha de replicação geográfica será marcada como *recomendada*. Se você usar um banco de dados de camada Premium, pode escolher uma região diferente. Se você estiver usando um banco de dados padrão, não pode alterá-lo. O banco de dados Premium terá uma opção do tipo secundário (*legível* ou *não legível*). O banco de dados padrão só pode selecionar um secundário *não legível*.
- 
+> [AZURE.NOTE]A região pareada de DR na folha de replicação geográfica será marcada como *recomendada*. Se você usar um banco de dados de camada Premium, pode escolher uma região diferente. Se você estiver usando um banco de dados padrão, não pode alterá-lo. O banco de dados Premium terá uma opção do tipo secundário (*Legível* ou *Não legível*). O banco de dados padrão só pode selecionar um secundário *não legível*.
+
+
 ###PowerShell
 
 Use o cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) do PowerShell para automatizar a configuração de replicação geográfica.
@@ -99,4 +102,4 @@ Ao projetar seu aplicativo para continuidade dos negócios, você deve considera
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

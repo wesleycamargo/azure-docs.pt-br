@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exportação contínua de telemetria por meio do Application Insights" 
-	description="Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Exportação contínua de telemetria por meio do Application Insights"
+	description="Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
@@ -40,6 +40,7 @@ Escolha os tipos de eventos que você deseja exportar:
 
 Depois de criar sua exportação, ela começa a ser realizada. (Você só obtém os dados que chegam após a criação da exportação.)
 
+Pode haver um atraso de aproximadamente uma hora antes de os dados aparecem no blob.
 
 Se você quiser alterar os tipos de evento mais tarde, basta editar a exportação:
 
@@ -59,20 +60,23 @@ Os dados exportados são a telemetria bruta que recebemos de seu aplicativo, exc
 
 Outras métricas calculadas não são incluídas. Por exemplo, nós não exportamos a utilização média de CPU, mas exportamos a telemetria bruta por meio da qual a média é computada.
 
+Os dados também incluem os resultados de qualquer [teste de disponibilidade via Web](app-insights-monitor-web-app-availability.md) que você configurou.
+
 ## <a name="get"></a> Inspecionar os dados
 
-Ao abrir o repositório de blob com uma ferramenta como o [Gerenciador de Servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx), você verá um contêiner com um conjunto de arquivos de blob. O URI de cada arquivo é id-do-aplicativo/tipo-de-telemetria/data/hora.
+Para inspecionar o armazenamento do Azure no Visual Studio, abra **Exibir** e **Cloud Explorer**. (Se você não tiver esse comando de menu, precisará instalar o Azure SDK: abra o diálogo **Novo Projeto**, expanda Visual C# /Nuvem e escolha **Obter o Microsoft Azure SDK para .NET**.)
+
+Quando você abrir o armazenamento de blob, verá um contêiner com um conjunto de arquivos de blob. O URI de cada arquivo deriva o nome do recurso Application Insights, da chave de instrumentação e do tipo/data/hora de telemetria. (O nome do recurso está todo em letras minúsculas e a chave de instrumentação omite traços.)
 
 ![Inspecione o repositório de blob com uma ferramenta adequada](./media/app-insights-export-telemetry/04-data.png)
 
 A data e hora são em formato UTC, e referentes a quando a telemetria foi depositada no repositório - não à hora em que essa telemetria foi gerada. Então, se você escrever código para baixar os dados, ele pode percorrer os dados linearmente.
 
 
-
 ## <a name="format"></a> Formato dos dados
 
 * Cada blob é um arquivo de texto que contém várias linhas separadas por “ \\n”.
-* Cada linha é um documento JSON não formatado. Se você quiser ficar sentado e olhando para ele, tente usar um visualizador como o Bloco de notas++ com o plug-in JSON:
+* Cada linha é um documento JSON não formatado. Se você quiser ficar olhando para ele, abra-o no Visual Studio e escolha Editar, Avançado, Arquivo de Formato:
 
 ![Veja a telemetria com uma ferramenta adequada](./media/app-insights-export-telemetry/06-json.png)
 
@@ -198,4 +202,4 @@ Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/serv
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 
@@ -22,7 +22,7 @@
 
 # Como usar os tópicos/assinaturas do Barramento de Serviço
 
-Este guia mostrará como usar os tópicos e as assinaturas do Service Bus dos aplicativos Ruby. Os cenários abordados incluem a **criação de tópicos e assinaturas, a criação de filtros de assinatura, o envio de mensagens** para um tópico, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**. Para obter mais informações sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#NextSteps).
+Este guia mostrará como usar os tópicos e as assinaturas do Service Bus dos aplicativos Ruby. Os cenários abordados incluem a **criação de tópicos e assinaturas, a criação de filtros de assinatura, o envio de mensagens** para um tópico, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**. Para obter mais informações sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#next-steps).
 
 ## O que são tópicos e assinaturas do Barramento de Serviço
 
@@ -58,7 +58,7 @@ O cmdlet do PowerShell que você executou para criar o namespace do barramento d
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]Você também pode encontrar essa chave se você efetuar logon no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/) e navegar até as informações de conexão para seu namespace do barramento de serviço.
+> [AZURE.NOTE]Você também poderá encontrar essa chave se efetuar logon no [Portal do Azure](http://manage.windowsazure.com/) e navegar até as informações de conexão para seu namespace do barramento de serviço.
 
 ## Criar um aplicativo Ruby
 
@@ -201,7 +201,7 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 
 ## Como excluir tópicos e assinaturas
 
-Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado "test-topic".
+Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [Portal do Azure](https://manage.windowsazure.com) ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado "test-topic".
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -218,4 +218,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -	Visite o repositório [SDK do Azure para o nó](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

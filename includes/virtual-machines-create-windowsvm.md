@@ -12,7 +12,7 @@
 
 	- **Novo Nome de Usuário** se refere à conta administrativa que você usa para gerenciar o servidor. Crie uma senha exclusiva para essa conta e não se esqueça dela. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
 
-	- O tamanho de uma máquina virtual afeta o custo de usá-la, bem como as opções de configuração, como o número de discos de dados que é possível anexar. Para obter detalhes, consulte [Tamanhos para máquinas virtuais](../articles/virtual-machines-size-specs.md).
+	- O tamanho de uma máquina virtual afeta o custo de usá-la, bem como as opções de configuração, como quantos discos de dados é possível anexar. Para obter detalhes, consulte [Tamanhos para máquinas virtuais](../articles/virtual-machines-size-specs.md).
 
 6. A terceira tela permite configurar recursos para rede, armazenamento e disponibilidade. Aqui estão algumas dicas:
 
@@ -32,4 +32,4 @@
 
 	![Configurar Agente de VM e os pontos de extremidade da máquina virtual](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

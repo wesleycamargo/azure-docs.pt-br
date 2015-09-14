@@ -1,25 +1,23 @@
 <properties 
    pageTitle="Configurar o CHAP para seu dispositivo StorSimple | Microsoft Azure"
-   description="Descreve como configurar o Challenge Handshake Authentication Protocol em um dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Descreve como configurar o CHAP (Challenge Handshake Authentication Protocol) em um dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # Configure o CHAP para seu dispositivo StorSimple
 
-Este tutorial explica como configurar o CHAP para seu dispositivo StorSimple.
-
-CHAP significa Challenge Handshake Authentication Protocol. É um esquema de autenticação usado pelos servidores para validar a identidade de clientes remotos. A verificação baseia-se em uma senha ou segredo compartilhado.
+Este tutorial explica como configurar o CHAP para seu dispositivo StorSimple. CHAP significa Challenge Handshake Authentication Protocol. É um esquema de autenticação usado pelos servidores para validar a identidade de clientes remotos. A verificação baseia-se em uma senha ou segredo compartilhado.
 
 O protocolo CHAP pode ser unidirecional ou bidirecional (mútuo). O CHAP unidirecional é quando o destino autentica um iniciador. CHAP mútuo ou inverso, por outro lado, requer que o destino autentique o iniciador e, em seguida, o iniciador autentique o destino. A autenticação do iniciador pode ser implementada sem a autenticação do destino. No entanto, a autenticação do destino pode ser implementada somente se a autenticação do iniciador também for implementada.
 
@@ -45,7 +43,7 @@ Na autenticação unidirecional, o destino autentica o iniciador. Essa autentica
 
     ![Iniciador CHAP](./media/storsimple-configure-chap/IC740943.png)
 
-2. Role para baixo nessa página e, na seção **Iniciador CHAP**:
+2. Role para baixo nesta página e, na seção **Iniciador CHAP**:
 													
 	1. Forneça um nome de usuário para o iniciador CHAP.
 
@@ -57,7 +55,7 @@ Na autenticação unidirecional, o destino autentica o iniciador. Essa autentica
 
 1. No servidor de host do Windows, inicie o Iniciador iSCSI.
 
-2. Na janela **Propriedades do iniciador iSCSI**, execute as seguintes etapas:
+2. Na janela **Propriedades do Iniciador iSCSI**, execute as seguintes etapas:
 													
 	1. Clique na guia **Descoberta**.
 
@@ -75,21 +73,21 @@ Na autenticação unidirecional, o destino autentica o iniciador. Essa autentica
 
 4. Na caixa de diálogo **Configurações Avançadas**:
 													
-	1. Marque a caixa de seleção **Habilitar logon no CHAP**.
+	1. Marque a caixa de seleção **Habilitar logon CHAP**.
 
-	2. No campo **Nome**, forneça o nome de usuário especificado para o iniciador CHAP no Portal de Gerenciamento.
+	2. No campo **Nome**, forneça o nome de usuário especificado para o Iniciador CHAP no Portal de Gerenciamento.
 
-	3. No campo **Segredo de destino**, forneça a senha especificada para o iniciador CHAP no Portal de Gerenciamento.
+	3. No campo **Segredo de destino**, forneça a senha especificada para o Iniciador CHAP no Portal de Gerenciamento.
 
 	4. Clique em **OK**.
 
 		![Configurações gerais avançadas](./media/storsimple-configure-chap/IC740946.png)
 
-5. Na guia **Destinos** da janela **Propriedades do iniciador iSCSI**, o status do dispositivo deve aparecer como **Conectado**.
+5. Na guia **Destinos** da janela **Propriedades do Iniciador iSCSI**, o status do dispositivo deve aparecer como **Conectado**.
 
     > [AZURE.IMPORTANT]Se você alterar o nome iSCSI, o novo nome será usado para novas sessões do iSCSI. Novas configurações não são usadas para sessões existentes até que você faça logoff e logon novamente.
 
-Para obter mais informações sobre como configurar o CHAP no servidor de host do Windows, vá para [Considerações adicionais](#additional-considerations).
+Para saber mais sobre como configurar o CHAP no servidor de host do Windows, vá para [Considerações adicionais](#additional-considerations).
 
 
 ## Autenticação bidirecional ou mútua
@@ -102,11 +100,11 @@ Na autenticação bidirecional, o destino autentica o iniciador e, em seguida, o
 
     ![Destino do CHAP](./media/storsimple-configure-chap/IC740948.png)
 
-2. Role para baixo nessa página e, na seção **Destino do CHAP**:
+2. Role para baixo nesta página e, na seção **Destino de CHAP**:
 													
-	1. Forneça um **Nome de usuário do CHAP inverso** para seu dispositivo.
+	1. Forneça um **Nome de usuário de CHAP reverso** para seu dispositivo.
 
-	2. Forneça uma **Senha do CHAP inversa** para seu dispositivo.
+	2. Forneça uma **Senha de CHAP reversa** para seu dispositivo.
 
 	3. Confirme a senha.
 
@@ -128,9 +126,9 @@ Na autenticação bidirecional, o destino autentica o iniciador e, em seguida, o
 
 3. Clique em **CHAP**.
 
-4. Na caixa de diálogo **Segredo do CHAP mútuo do Iniciador iSCSI**:
+4. Na caixa de diálogo **Segredo do CHAP Mútuo do Iniciador iSCSI**:
 													
-	1. Digite a **Senha do CHAP inversa** configurada no Portal de Gerenciamento.
+	1. Digite a **Senha do CHAP Reversa** configurada no Portal de Gerenciamento.
 
 	2. Clique em **OK**.
 
@@ -144,27 +142,27 @@ Na autenticação bidirecional, o destino autentica o iniciador e, em seguida, o
 
 8. Na caixa de diálogo **Propriedades Avançadas**:
 													
-	1. Marque a caixa de seleção **Habilitar logon no CHAP**.
+	1. Marque a caixa de seleção **Habilitar logon CHAP**.
 
-	2. No campo **Nome**, forneça o nome de usuário especificado para o iniciador CHAP no Portal de Gerenciamento.
+	2. No campo **Nome**, forneça o nome de usuário especificado para o Iniciador CHAP no Portal de Gerenciamento.
 
-	3. No campo **Segredo de destino**, forneça a senha especificada para o iniciador CHAP no Portal de Gerenciamento.
+	3. No campo **Segredo de destino**, forneça a senha especificada para o Iniciador CHAP no Portal de Gerenciamento.
 
 	4. Marque a caixa de seleção **Executar a autenticação mútua**.
 
 		![Configurações avançadas de autenticação mútua](./media/storsimple-configure-chap/IC740950.png)
 
-	5. Clique em **OK** para concluir a configuração do CHAP.
+	5. Clique em **OK** para concluir a configuração CHAP.
 
-Para obter mais informações sobre como configurar o CHAP no servidor de host do Windows, vá para [Considerações adicionais](#additional-considerations).
+Para saber mais sobre como configurar o CHAP no servidor de host do Windows, vá para [Considerações adicionais](#additional-considerations).
 
 ## Considerações adicionais
 
-O recurso **Conexão rápida** não dá suporte a conexões com o CHAP habilitado. Quando o CHAP está habilitado, certifique-se de usar o botão **Conectar** disponível na guia **Destinos** para se conectar a um destino.
+O recurso **Conexão Rápida** não dá suporte a conexões com o CHAP habilitado. Quando o CHAP estiver habilitado, use o botão **Conectar** disponível na guia **Destinos** para se conectar a um destino.
 
 ![Conectar-se ao destino](./media/storsimple-configure-chap/IC740947.png)
 
-Na caixa de diálogo **Conectar-se ao Destino** exibida, marque a caixa de seleção **Adicionar esta conexão à lista de destinos favoritos**. Isso garante que sempre que o computador for reiniciado, seja feita uma tentativa de restaurar a conexão com os destinos favoritos do iSCSI.
+Na caixa de diálogo **Conectar-se ao Destino** apresentada, marque a caixa de seleção **Adicionar esta conexão à lista de Destinos Favoritos**. Isso garante que sempre que o computador for reiniciado, seja feita uma tentativa de restaurar a conexão com os destinos favoritos do iSCSI.
 
 ## Erros durante a configuração
 
@@ -192,4 +190,4 @@ Você pode verificar se o CHAP está sendo usado executando as etapas a seguir.
 
 Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

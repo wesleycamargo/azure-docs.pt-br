@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Substituir o módulo de bateria de backup em seu dispositivo StorSimples | Microsoft Azure"
-   description="Descreve como remover, substituir e realizar manutenção no módulo de bateria de backup do dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Substituir a bateria em um dispositivo StorSimple | Microsoft Azure"
+	description="Descreve como remover, substituir e realizar manutenção no módulo de bateria de backup do dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Substitua o módulo de bateria de backup no dispositivo StorSimple
 
@@ -27,7 +27,7 @@ Este tutorial explica como:
 - Instalar um novo módulo de bateria de backup
 - Realizar manutenção no módulo de bateria de backup
 
->[AZURE.IMPORTANT]Antes de remover e substituir um módulo de bateria de backup, examine as informações de segurança em [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT]Antes de remover e de substituir um módulo de bateria de backup, examine as informações de segurança em [Introdução à substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Remover o módulo de bateria de backup
 
@@ -115,4 +115,4 @@ Se o estado **DEGRADADO** for exibido, recomendamos o seguinte curso de ação:
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple ](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

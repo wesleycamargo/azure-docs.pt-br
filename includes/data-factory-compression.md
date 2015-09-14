@@ -1,7 +1,7 @@
-### Compression support  
-Processing large data sets can cause I/O and network bottlenecks. Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. At this time, compression is supported for file-based data stores such as Azure Blob or On-premises File System.  
+### Suporte à compactação  
+O processamento de grandes conjuntos de dados pode causar afunilamentos de E/S e de rede. Portanto, os dados compactados em repositórios não apenas aceleram a transferência de dados pela rede e economizam espaço em disco, mas também oferecem aprimoramentos consideráveis de desempenho no processamento de Big Data. No momento, a compactação tem suporte para armazenamentos de dados baseados em arquivo, por exemplo, Blob do Azure ou o Sistema de arquivos local.
 
-To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   
+Para especificar a compactação de um conjunto de dados, use a propriedade **compactação** no conjunto de dados JSON, como no exemplo a seguir:
 
 	{  
 		"name": "AzureBlobDataSet",  
@@ -23,19 +23,21 @@ To specify compression for a dataset, use the **compression** property in the da
 	  	}  
 	}  
  
-Note that the **compression** section has two properties:  
+Observe que a seção **compactação** tem duas propriedades:
   
-- **Type:** the compression codec, which can be **GZIP**, **Deflate** or **BZIP2**.  
-- **Level:** the compression ratio, which can be **Optimal** or **Fastest**. 
-	- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed. 
-	- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. 
+- **Tipo:** o codec de compactação, que pode ser **GZIP**, **Deflate** ou **BZIP2**.  
+- **Nível:** a taxa de compactação, que pode ser **Ideal** ou **Mais rápida**. 
+	- **Mais rápida:** a operação de compactação deve ser concluída o mais rápido possível, mesmo se o arquivo resultante não for compactado da maneira ideal. 
+	- **Ideal**: a operação de compactação deve ser concluída da maneira ideal, mesmo se a operação demorar mais tempo para ser concluída. 
 	
-	See [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic for more information. 
+	Consulte o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) para saber mais.
 
-Suppose the above sample dataset is used as the output of a copy activity, the copy activity will compresses the output data with GZIP codec using optimal ratio and then write the compressed data into a file named pagecounts.csv.gz in the Azure Blob Storage.   
+Vamos supor que o exemplo de conjunto de dados acima seja usado como a saída de uma atividade de cópia. A atividade de cópia compactará os dados de saída com o codec GZIP usando a melhor taxa e, em seguida, gravará os dados compactados em um arquivo chamado pagecounts.csv.gz no Armazenamento de Blob do Azure.
 
-When you specify compression property in an input dataset JSON, the pipeline can read compressed data from the source and when you specify the property in an output dataset JSON, the copy activity can write compressed data to the destination. Here are a few sample scenarios: 
+Quando você especifica a propriedade de compactação em um conjunto de dados de entrada JSON, o pipeline pode ler os dados compactados da origem e, quando você especifica a propriedade em um conjunto de dados de saída JSON, a atividade de cópia pode gravar dados compactados no destino. Aqui estão alguns exemplos de cenários:
 
-- Read GZIP compressed data from an Azure blob, decompress it, and write result data to an Azure SQL database. You define the input Azure Blob dataset with the compression JSON property in this case. 
-- Read data from a plain-text file from on-premises File System, compress it using GZip format, and write the compressed data to an Azure blob. You define an output Azure Blob dataset with the compression JSON property in this case.  
-- Read a GZIP-compressed data from an Azure blob, decompress it, compress it using BZIP2, and write result data to an Azure blob. You define the input Azure Blob dataset with compression type set to GZIP and the output dataset with compression type set to BZIP2 in this case.   
+- Ler dados compactados em GZIP de um blob do Azure, descompactá-los e gravar os dados resultantes em um banco de dados do SQL Azure. Nesse caso, você define o conjunto de dados de entrada do Blob do Azure com a propriedade de compactação JSON. 
+- Ler dados de um arquivo de texto sem formatação do Sistema de arquivos local, compactá-los usando o formato GZip e gravar os dados compactados em um blob do Azure. Nesse caso, você define um conjunto de dados do Blob do Azure com a propriedade de compactação JSON.  
+- Ler dados compactados em GZIP de um blob do Azure, descompactá-los, compactá-los usando BZIP2 e gravar os dados de resultado em um blob do Azure. Nesse caso, você define o conjunto de dados de entrada do Blob do Azure com o tipo de compactação definido como GZIP, e o conjunto de dados de saída com o tipo de compactação definido como BZIP2.   
+
+<!---HONumber=September15_HO1-->

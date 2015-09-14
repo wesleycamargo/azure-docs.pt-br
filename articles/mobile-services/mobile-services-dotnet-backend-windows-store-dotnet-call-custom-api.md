@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Chamar uma API personalizada de um cliente da Windows Store - Serviços Móveis" 
-	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo da Windows Store que usa serviços móveis do Azure." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Chamar uma API personalizada de um cliente da Windows Store - Serviços Móveis"
+	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo da Windows Store que usa serviços móveis do Azure."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Chamar uma API personalizada do cliente
@@ -60,6 +60,5 @@ Além disso, considere a possibilidade de obter mais informações sobre os segu
 
 [Definir uma API personalizada que ofereça suporte a notificações periódicas]: mobile-services-windows-store-dotnet-create-pull-notifications.md
 [Scripts de servidor de armazenamento no controle do código-fonte]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

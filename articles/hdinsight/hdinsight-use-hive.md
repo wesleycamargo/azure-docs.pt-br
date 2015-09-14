@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/21/2015"
+	ms.date="08/28/2015"
 	ms.author="larryfr"/>
 
 # Usar o Hive e o HiveQL com o Hadoop no HDInsight para analisar um arquivo log4j do Apache de exemplo
@@ -65,7 +65,7 @@ As seguintes instruções HiveQL vão projetar colunas em dados delimitados arma
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
 No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 
@@ -74,6 +74,7 @@ No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 * **ROW FORMAT**: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 * **STORED AS TEXTFILE LOCATION**: informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto. Os dados podem estar em um arquivo ou distribuídos em vários arquivos dentro do diretório.
 * **SELECT**: seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
+* **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe a pesquisa ao arquivo sample.log que contém os dados e impede que ela retorne dados de outros arquivos de dados de exemplo que não correspondem ao esquema que definimos.
 
 > [AZURE.NOTE]As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa, como um processo automático de carregamento de dados, ou outra operação MapReduce, mas sempre quer que as consultas Hive utilizem os dados mais recentes.
 >
@@ -84,7 +85,7 @@ Depois de criar a tabela externa, as instruções a seguir são usadas para cria
 	CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
 	STORED AS ORC;
 	INSERT OVERWRITE TABLE errorLogs
-	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
 As instruções executam as seguintes ações:
 
@@ -96,11 +97,15 @@ As instruções executam as seguintes ações:
 
 ##<a id="usetez"></a>Usar o Apache Tez para desempenho aprimorado
 
-O [Apache Tez](http://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. Na versão mais recente do HDInsight, o Hive tem suporte para a execução no Tez. No momento, isso está desativado por padrão e deve ser habilitado. Para aproveitar o Tez, o seguinte valor deve ser definido para uma consulta Hive:
+O [Apache Tez](http://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. Na versão mais recente do HDInsight, o Hive tem suporte para a execução no Tez.
+
+Atualmente o Tez está desativado por padrão para clusters baseados no Windows HDInsight e deve ser habilitado. Para aproveitar o Tez, o seguinte valor deve ser definido para uma consulta Hive:
 
 	set hive.execution.engine=tez;
 
 Isso pode ser enviado por consulta colocando-o no início da sua consulta. Também é possível definir esse recurso para estar ativado por padrão definindo o valor de configuração no momento da criação do cluster. Você pode encontrar mais detalhes em [Provisionamento de clusters do HDInsight](hdinsight-provision-clusters.md).
+
+O Tez está ativado como padrão para clusters HDInsight baseados em Linux.
 
 Os [documentos de design do Hive no Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contêm vários detalhes das escolhas de implantação e configurações de ajuste.
 
@@ -115,7 +120,6 @@ O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tab
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux ou Windows | Linux, Unix, Mac OS X ou Windows |
 | [Console de consulta](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | Baseado em navegador |
 | [Ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
-| [SDK .NET para Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md) | &nbsp; | ✔ | Linux ou Windows | Windows (por enquanto) |
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
 | [Área de Trabalho Remota](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
@@ -179,4 +183,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

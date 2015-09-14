@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Tecnologia e processo de análise avançada em ação: usar clusters do Hadoop | Microsoft Azure" 
-	description="Usando o ADAPT (Processo e Tecnologia de Análises Avançadas) para um cenário de ponta a ponta empregando um cluster Hadoop do HDInsight para criar e implantar um modelo usando um conjunto de dados disponível publicamente."  
-	services="machine-learning,hdinsight" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Tecnologia e processo de análise avançada em ação: usar clusters do Hadoop | Microsoft Azure"
+	description="Usando o ADAPT (Processo e Tecnologia de Análises Avançadas) para um cenário de ponta a ponta empregando um cluster Hadoop do HDInsight para criar e implantar um modelo usando um conjunto de dados disponível publicamente."
+	services="machine-learning,hdinsight"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="hangzh;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
                 
 # Processo e Tecnologia de Análise Avançada em Ação: uso de clusters HDInsight Hadoop
@@ -111,10 +111,10 @@ Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que cont�
 
 Nos comandos de AzCopy a seguir, substitua os seguintes parâmetros pelos valores reais especificados ao criar o cluster de Hadoop e extrair os arquivos de dados.
 
-* ***& \#60; path\_to\_data\_folder >*** o diretório (juntamente com o caminho) no computador que contêm os arquivos de dados descompactados  
-* ***&\#60;nome da conta de armazenamento do cluster do Hadoop>*** a conta de armazenamento associada ao cluster HDInsight
-* ***&\#60;contêiner padrão do cluster do Hadoop>*** o contêiner padrão usado pelo seu cluster. Observe que o nome do contêiner padrão geralmente é o mesmo nome que o do cluster em si. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
-* ***&\#60;chave de conta de armazenamento>*** a chave para a conta de armazenamento usada pelo cluster
+* ***& #60; path\_to\_data\_folder >*** o diretório (juntamente com o caminho) no computador que contêm os arquivos de dados descompactados  
+* ***&#60;nome da conta de armazenamento do cluster do Hadoop>*** a conta de armazenamento associada ao cluster HDInsight
+* ***&#60;contêiner padrão do cluster do Hadoop>*** o contêiner padrão usado pelo seu cluster. Observe que o nome do contêiner padrão geralmente é o mesmo nome que o do cluster em si. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
+* ***&#60;chave de conta de armazenamento>*** a chave para a conta de armazenamento usada pelo cluster
 
 Em um Prompt de Comando ou uma janela do Windows PowerShell no seu computador, execute estes dois comandos de AzCopy.
 
@@ -142,7 +142,7 @@ Para preparar o cluster para análise exploratória de dados, podemos baixar os 
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Esses dois comandos baixarão todos os arquivos .hql necessários neste passo a passo para o diretório local ***C:\\temp & \#92;*** no nó principal.
+Esses dois comandos baixarão todos os arquivos .hql necessários neste passo a passo para o diretório local ***C:\\temp & #92;*** no nó principal.
 
 ## <a name="#hive-db-tables"></a>Criar banco de dados e tabelas Hive particionadas por mês
 
@@ -809,4 +809,4 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

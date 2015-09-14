@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Atividade de Hive" 
-	description="Saiba como usar a atividade de Hive em uma Azure Data Factory para executar consultas de Hive em um cluster sob demanda/próprio de HDInsight." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Atividade de Hive"
+	description="Saiba como usar a atividade de Hive em uma Azure Data Factory para executar consultas de Hive em um cluster sob demanda/próprio de HDInsight."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
 
 # Atividade de Hive
@@ -142,7 +142,7 @@ Para executar esse script de Hive em um pipeline de Data Factory, você precisa 
 		  }
 		}
 
-6.	Implante o pipeline. Consulte o artigo [Creating pipelines (Criando pipelines)](data-factory-create-pipelines.md) para obter detalhes.
+6.	Implante o pipeline. Consulte o artigo [Criando pipelines](data-factory-create-pipelines.md) para obter detalhes.
 7.	Monitore o pipeline usando as exibições de gerenciamento e monitoramento de data factory. Consulte o artigo [Monitorando e gerenciando pipelines da Data Factory](data-factory-monitor-manage-pipelines.md) para obter detalhes. 
 
 
@@ -176,8 +176,8 @@ Para usar os scripts de Hive parametrizados, faça o seguinte
 		          		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
 		          		"scriptLinkedService": "StorageLinkedService",
 		          		"defines": {
-		            		"Input": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            		"Output": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+		            		"Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
+		            		"Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
 		          		},
        					"scheduler": {
           					"frequency": "Hour",
@@ -214,4 +214,9 @@ Para usar os scripts de Hive parametrizados, faça o seguinte
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=August15_HO6-->
+
+
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-hive-activity.md).
+
+<!---HONumber=September15_HO1-->

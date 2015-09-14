@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 # Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure.
@@ -98,4 +98,4 @@ Use as etapas a seguir para comprar os nomes de domínio e atribuir ao seu aplic
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao aplicativo Web.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

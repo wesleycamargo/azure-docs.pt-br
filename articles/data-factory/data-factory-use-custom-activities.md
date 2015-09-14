@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="08/28/2015"
 	ms.author="spelluru"/>
 
 # Usar atividades personalizadas em um pipeline do Data Factory do Azure
@@ -213,7 +213,9 @@ Este passo a passo fornece instruções passo a passo para criar uma atividade p
 10. Compile o projeto. Clique em **Compilar** no menu e clique em **Compilar Solução**.
 11. Inicie o **Windows Explorer** e navegue até a pasta **bin\\debug** ou **bin\\release** dependendo do tipo da compilação.
 12. Crie um arquivo zip **MyDotNetActivity.zip** que contém todos os binários na pasta <project folder>\\bin\\Debug. Convém incluir o arquivo MyDotNetActivity.pdb para que você obtenha detalhes adicionais, como por exemplo, em caso de falha, o número de linha no código-fonte que causou o problema. 
-13. Carregue **MyDotNetActivity.zip** como um blob para o contêiner de blob: **customactvitycontainer** no armazenamento de Blob do Azure que o serviço vinculado **StorageLinkedService** em **ADFTutorialDataFactory** utiliza. Crie o contêiner de blob **customactivitycontainer** se ele ainda não existir. 
+13. Carregue **MyDotNetActivity.zip** como um blob para o contêiner de blob: **customactvitycontainer** no armazenamento de Blob do Azure que o serviço vinculado **StorageLinkedService** em **ADFTutorialDataFactory** utiliza. Crie o contêiner de blob **customactivitycontainer** se ele ainda não existir.
+
+> [AZURE.NOTE]Se você adicionar esse projeto de atividade do .NET para uma solução no Visual Studio que contenha um projeto de Data Factory, não será necessário executar as duas últimas etapas de criação do arquivo zip e carregá-lo manualmente para o armazenamento de blobs do Azure. Quando você publica entidades de Data Factory usando o Visual Studio, essas etapas são executadas automaticamente pelo processo de publicação. Consulte os artigos [Criar seu primeiro pipeline usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiar dados do Blob do Azure para o Azure SQL](data-factory-get-started-using-vs.md) para saber mais sobre a criação e a publicação de entidades de Data Factory usando o Visual Studio.
 
 
 ## Etapa 2: Usar a atividade personalizada em um pipeline
@@ -465,4 +467,4 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

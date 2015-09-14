@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Controle de acesso baseado em função nos Serviços Móveis e Active Directory do Azure (Windows Store) | Microsoft Azure" 
-	description="Saiba como controlar o acesso com base em funções do Active Directory do Azure em seu aplicativo da Windows Store." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Controle de acesso baseado em função nos Serviços Móveis e Active Directory do Azure (Windows Store) | Microsoft Azure"
+	description="Saiba como controlar o acesso com base em funções do Active Directory do Azure em seu aplicativo da Windows Store."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Controle de acesso baseado em função nos Serviços Móveis e Active Directory do Azure
@@ -392,4 +392,4 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 [Acessar informações de Gráfico do Active Directory do Azure]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Aplicativo local com armazenamento de blob
@@ -26,8 +26,8 @@ O exemplo a seguir mostra como você pode usar o armazenamento do Azure paraarma
 
 - Um JDK (Java Developer Kit) versão 1.6 ou posterior deve estar instalado.
 - O SDK do Azure deve estar instalado.
-- O JAR das bibliotecas do Azure para Java e todos os JARs de dependência aplicáveis devem estar instalados e no caminho de compilação usado por seu compilador Java. Para obter informações sobre como instalar as bibliotecas do Azure para Java, confira [Baixar o SDK do Azure para Java].
-- Uma conta de armazenamento do Azure deve ter sido configurada. O nome e a chave da conta de armazenamento serão usados pelo código deste artigo. Confira [Como criar uma conta de armazenamento] para obter informações sobre como criar uma conta de armazenamento e [Como gerenciar contas de armazenamento] para obter informações sobre como recuperar a chave da conta.
+- O JAR das bibliotecas do Azure para Java e todos os JARs de dependência aplicáveis devem estar instalados e no caminho de compilação usado por seu compilador Java. Para saber mais sobre como instalar as bibliotecas do Azure para Java, consulte [Baixar o SDK do Azure para Java][].
+- Uma conta de armazenamento do Azure deve ter sido configurada. O nome e a chave da conta de armazenamento serão usados pelo código deste artigo. Confira [Como criar uma conta de armazenamento] para obter informações sobre como criar uma conta de armazenamento e [Como gerenciar contas de armazenamento][] para obter informações sobre como recuperar a chave da conta.
 - Você criou um arquivo de imagem local armazenado no caminho c:\\minhasimagens\\image1.jpg. Como alternativa, modifique o construtor **FileInputStream** no exemplo para usar um caminho de imagem e um nome de arquivo diferentes.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -353,12 +353,12 @@ Para obter uma visão geral de outras classes e outros métodos de armazenamento
 
 Siga estes links para saber mais sobre as tarefas mais complexas de armazenamento.
 
-- [SDK de Armazenamento do Azure para Java]
-- [Referência de SDK do Cliente de Armazenamento do Azure]
-- [API REST de Armazenamento do Azure]
-- [Blog da equipe de Armazenamento do Azure]
+- [SDK de Armazenamento do Azure para Java][]
+- [Referência de SDK do Cliente de Armazenamento do Azure][]
+- [API REST de Armazenamento do Azure][]
+- [Blog da equipe de Armazenamento do Azure][]
 
-  [Download the Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Como criar uma conta de armazenamento]: storage-create-storage-account.md#create-a-storage-account
   [Como gerenciar contas de armazenamento]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Como usar o serviço de armazenamento de blobs no Java]: storage-java-how-to-use-blob-storage.md
@@ -367,4 +367,4 @@ Siga estes links para saber mais sobre as tarefas mais complexas de armazenament
   [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

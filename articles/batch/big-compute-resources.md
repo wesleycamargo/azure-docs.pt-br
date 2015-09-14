@@ -1,20 +1,20 @@
 <properties
    pageTitle="Big Compute: recursos técnicos para Lote e HPC (Computação de Alto Desempenho) | Microsoft Azure"
-   description="Lista os recursos técnicos que podem ajudá-lo a executar suas cargas de trabalho paralelas de grande escala, de lote e de HPC no Azure."
-   services="batch, cloud-services, virtual-machines"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="Lista os recursos técnicos que podem ajudá-lo a executar suas cargas de trabalho paralelas de grande escala, de lote e de HPC no Azure."
+	services="batch, cloud-services, virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="multiple"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="big-compute"
-   ms.date="07/28/2015"
-   ms.author="danlep"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="big-compute"
+	ms.date="09/02/2015"
+	ms.author="danlep"/>
 
 # Big Compute no Azure: recursos técnicos para lote e HPC (Computação de Alto Desempenho)
 Este é um guia para recursos técnicos para ajudá-lo a executar suas cargas de trabalho paralelas de grande escala, de lote e de HPC no Azure. Amplie suas cargas de trabalho de lote ou HPC existentes para a nuvem do Azure ou crie novas soluções Big Compute no Azure usando diversos serviços do Azure.
@@ -50,7 +50,7 @@ Implante ou amplie seu cluster HPC existente do Windows ou Linux para executar c
 
 HPC Pack é a solução HPC gratuita da Microsoft fundamentada em tecnologias Microsoft Azure e o Windows Server.
 
-* [Baixe a atualização 2 do HPC Pack 2012 R2](https://www.microsoft.com/pt-br/download/details.aspx?id=47755)
+* [Baixe a atualização 2 do HPC Pack 2012 R2](https://www.microsoft.com/pt-BR/download/details.aspx?id=47755)
 
 * [Documentação](https://technet.microsoft.com/library/jj899572.aspx)
 
@@ -68,11 +68,15 @@ HPC Pack é a solução HPC gratuita da Microsoft fundamentada em tecnologias Mi
 
     * [Criar um cluster de HPC com a imagem de um nó de computação personalizado](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
+    * [Implantar um cluster de HPC Pack com nós de computação Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+
     * [Script do PowerShell de implantação do HPC Pack IaaS](https://www.microsoft.com/download/details.aspx?id=44949)
 
 * **Tutoriais do Azure**
 
     * [Tutorial: Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+
+    * [Tutorial: executar o NAMD com o Microsoft HPC Pack em nós de computação Linux no Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
 
     * [Tutorial: Introdução com um cluster de HPC Pack no Azure para executar cargas de trabalho do Excel e SOA](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
 
@@ -146,4 +150,4 @@ O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Consulte também [o que há de novo no Lote](http://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

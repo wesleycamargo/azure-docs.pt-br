@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Exemplos de aplicativos de aprendizado de máquina no Azure Marketplace | Microsoft Azure" 
-	description="Os exemplos de aplicativos de aprendizado de máquina do Azure Marketplace mostram como você pode publicar seus serviços de aprendizado de máquina no Azure Marketplace para assinantes pagantes usarem os seus aplicativos." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	pageTitle="Exemplos de aplicativos de aprendizado de máquina no Azure Marketplace | Microsoft Azure"
+	description="Os exemplos de aplicativos de aprendizado de máquina do Azure Marketplace mostram como você pode publicar seus serviços de aprendizado de máquina no Azure Marketplace para assinantes pagantes usarem os seus aplicativos."
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 # Aplicativos de aprendizado de máquina no Azure Marketplace
@@ -57,6 +57,10 @@ Essa API pode ser usada para analisar texto não estruturado para tarefas como a
 [Documentação](machine-learning-apps-text-analytics.md)
 
  
- 
+ ##Previsão de Variação de Cliente## A Previsão de Variação de Cliente é um serviço de análise de variação criado com o Aprendizado de Máquina do Azure. Ele foi projetado para prever quando um cliente (jogador, assinante, usuário etc.) tem probabilidade de encerrar sua relação com uma empresa ou um serviço. A capacidade de prever quais clientes têm um alto risco de deixar a relação com uma empresa fornece à empresa uma janela de oportunidade para abordá-los e reduzir a probabilidade de que eles partam.
 
-<!---HONumber=August15_HO6-->
+[Link do mercado de dados](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
+
+[Documentação](https://churn.cloudapp.net/documentation)
+
+<!---HONumber=September15_HO1-->

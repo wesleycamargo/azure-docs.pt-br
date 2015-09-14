@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Como migrar de grupos de afinidades para uma rede virtual regional (VNet)"
-   description="Saiba como migrar de grupos de afinidades para VNets regionais"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Saiba como migrar de grupos de afinidades para VNets regionais"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/02/2015"
+	ms.author="telmos"/>
 
 # Como migrar de grupos de afinidades para uma rede virtual regional (VNet)
 
-Você pode usar um grupo de afinidades para garantir que recursos criados dentro do mesmo grupo de afinidades sejam hosts fisicamente por servidores que estejam próximos uns dos outros, permitindo que esses recursos se comuniquem mais rapidamente. Antigamente, os grupos de afinidades eram um requisito para a criação de redes virtuais (VNets). Na época, o serviço gerenciador de rede que gerenciava as VNets podia funcionar somente dentro de um conjunto de servidores físicos ou unidade de escala. Melhorias de arquitetura recentes aumentaram o escopo de gerenciamento de rede para uma região.
+Você pode usar um grupo de afinidades para garantir que recursos criados dentro do mesmo grupo de afinidades sejam fisicamente hospedados por servidores que estejam próximos uns dos outros, permitindo que esses recursos se comuniquem mais rapidamente. Antigamente, os grupos de afinidades eram um requisito para a criação de redes virtuais (VNets). Na época, o serviço gerenciador de rede que gerenciava as VNets podia funcionar somente dentro de um conjunto de servidores físicos ou unidade de escala. As melhorias de arquitetura aumentaram o escopo de gerenciamento de rede para uma região.
 
 Como resultado dessas melhorias na arquitetura, os grupos de afinidade não são mais recomendados ou obrigatórios para redes virtuais. O uso de grupos de afinidades para VNets está sendo substituído por regiões. As VNets que estão associadas a regiões são chamadas de VNets regionais.
 
@@ -47,6 +47,8 @@ As redes virtuais que estão associadas a grupos de afinidades serão habilitada
 
 1. Salve suas alterações e [importe](../virtual-networks-using-network-configuration-file/) a configuração de rede para o Azure.
 
+>[AZURE.INFO]Esta migração NÃO gera tempo de inatividade para seus serviços.
+
 ## Grupos de afinidades e VMs
 
 Conforme mencionado anteriormente, os grupos de afinidades geralmente não são recomendados para máquinas virtuais. Você somente deve usar um grupo de afinidades quando um conjunto de VMs tiver que ter a menor latência de rede possível entre as máquinas virtuais. Ao colocar VMs em um grupo de afinidades, as VMs estarão todas na mesma unidade de escala ou cluster de computação.
@@ -64,4 +66,4 @@ Máquinas virtuais que estão atualmente em um grupo de afinidades não precisam
 Quando uma máquina virtual é implantada, ela é implantada em uma única unidade de escala. Os grupos de afinidades pode restringir o conjunto de tamanhos de VM disponíveis para uma nova implantação de VM, mas qualquer VM existente já implantada fica restrita ao conjunto de tamanhos de VM disponíveis na unidade de escala em que a VM estiver implantada. Por isso, a remoção de uma máquina virtual do grupo de afinidades não terá consequências.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

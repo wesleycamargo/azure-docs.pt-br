@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Analisar padrões de uso do CDN" 
-	description="Você pode exibir os padrões de uso do CDN usando os seguintes relatórios: Largura de Banda, Dados Transferidos, Acertos, Status do Cache, Taxa de Acertos de Cache, Dados IPV4/IPV6 Transferidos." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Analisar padrões de uso do CDN"
+	description="Você pode exibir os padrões de uso do CDN usando os seguintes relatórios: Largura de Banda, Dados Transferidos, Acertos, Status do Cache, Taxa de Acertos de Cache, Dados IPV4/IPV6 Transferidos."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #Analisar padrões de uso do CDN 
@@ -139,4 +139,4 @@ Esse relatório mostra a distribuição de uso de tráfego em IPV4 versus IPV6.
 
 Os relatórios só podem ser gerados com informações dos últimos 18 meses.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

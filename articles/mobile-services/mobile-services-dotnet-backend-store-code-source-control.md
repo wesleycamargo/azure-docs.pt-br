@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Armazenar código de projeto no controle do código-fonte | Microsoft Azure" 
-	description="Saiba como armazenar seu projeto de back-end do .NET no e publicar por meio de um repositório Git local no computador." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Armazenar código de projeto no controle do código-fonte | Microsoft Azure"
+	description="Saiba como armazenar seu projeto de back-end do .NET no e publicar por meio de um repositório Git local no computador."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Armazenar código de projeto no controle do código-fonte
@@ -36,7 +36,8 @@ Para concluir este tutorial, você deve já ter criado um serviço móvel ao con
 
 	As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
 
-	> [AZURE.NOTE]Em alguns sistemas operacionais, uma versão da linha de comando e uma versão da GUI do Git estão disponíveis. As instruções fornecidas neste artigo usam a versão de linha de comando.
+	> [AZURE.NOTE]
+	> Em alguns sistemas operacionais, uma versão da linha de comando e uma versão da GUI do Git estão disponíveis. As instruções fornecidas neste artigo usam a versão de linha de comando.
 
 2. Abra uma linha de comando, como **GitBash** (Windows) ou **Bash** (shell Unix). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal**.
 
@@ -100,6 +101,5 @@ Agora, seu projeto de serviço móvel é mantido no controle de origem e você p
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

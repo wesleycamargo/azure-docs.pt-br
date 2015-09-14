@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Registrar o usuário atual para notificações por push usando a API da Web | Microsoft Azure" 
-	description="Saiba como solicitar registro de notificação por push em um aplicativo iOS com Hubs de notificação do Azure quando o registro é executado pela API Web ASP.NET." 
-	services="notification-hubs" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Registrar o usuário atual para notificações por push usando a API da Web | Microsoft Azure"
+	description="Saiba como solicitar registro de notificação por push em um aplicativo iOS com Hubs de notificação do Azure quando o registro é executado pela API Web ASP.NET."
+	services="notification-hubs"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 # Registrar o usuário atual para notificações por push usando o ASP.NET
 
@@ -238,6 +238,5 @@ Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuár
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Introdução aos Hubs de Notificação]: /manage/services/notification-hubs/get-started-notification-hubs-ios
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

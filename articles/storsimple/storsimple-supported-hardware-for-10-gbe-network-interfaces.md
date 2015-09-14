@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple"
-   description="Descreve os transceptores, cabos e switches para interfaces de rede de 10 GbE em seu dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Hardware para interfaces de 10 GbE do StorSimple | Microsoft Azure"
+	description="Descreve os transceptores, cabos e switches SPF (small form-factor pluggable) com suporte para interfaces de rede de 10 GbE em seu dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/17/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="alkohli"/>
 
 # Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple
 
@@ -112,4 +112,4 @@ A tabela a seguir lista as opções compatíveis com Mellanox. Não foram testad
 
 [Saiba mais sobre os componentes de hardware e o status do StorSimple](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

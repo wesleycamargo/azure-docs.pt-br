@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Mover e processar arquivos de log usando o Data Factory do Azure"
-	description="Este tutorial avançado descreve um cenário quase real e implementa o cenário usando o serviço Azure Data Factory e Editor Data Factory."
+	pageTitle="Mover e processar arquivos de log usando o Azure Data Factory (Portal do Azure)"
+	description="Este tutorial avançado descreve um cenário quase real e implementa o cenário usando o serviço Azure Data Factory e Editor Data Factory no Portal do Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -418,6 +418,8 @@ Para copiar dados de eficácia de campanha de marketing do Blob do Azure para o 
 
 Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremises] para aprender a criar um pipeline para copiar dados de eficácia de campanha de marketing para um banco de dados do SQL Server local.
 
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md).
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -526,4 +528,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

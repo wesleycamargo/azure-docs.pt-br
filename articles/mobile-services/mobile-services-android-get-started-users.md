@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução à autenticação (Android) | Microsoft Azure" 
-	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo Android por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introdução à autenticação (Android) | Microsoft Azure"
+	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo Android por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 # Adicionar autenticação ao seu aplicativo Android dos Serviços Móveis
@@ -22,17 +22,9 @@
 
 ## Resumo
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
 
-
-
-<p>Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.</p>
-
-</div>
-
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir o vídeo</span></a><span class="time">10:42</span></div>
-</div>
+> [AZURE.VIDEO android-getting-started-with-authentication-in-windows-azure-mobile-services]
 
 Este tutorial explica as etapas básicas para habilitar a autenticação em seu aplicativo.
 
@@ -49,7 +41,7 @@ Este tutorial explica as etapas básicas para habilitar a autenticação em seu 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-1. No Android Studio, abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis]. 
+1. No Android Studio, abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis].
 
 2. No menu **Executar**, clique em **Executar aplicativo**. Verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é acionada depois que o aplicativo é iniciado.
 
@@ -115,6 +107,5 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Autorizar usuários com scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-android
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,19 @@
 <properties 
-	pageTitle="Exemplos de serviços Web de Aprendizado de Máquina criados com R | Microsoft Azure" 
-	description="Encontre um conjunto útil de exemplos de serviços Web criados com código R e Aprendizado de Máquina e publicado no Azure Marketplace." 
-	keywords="csharp,r code,web services examples"
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Exemplos de serviços Web de Aprendizado de Máquina criados com R | Microsoft Azure"
+	description="Encontre um conjunto útil de exemplos de serviços Web criados com código R e Aprendizado de Máquina e publicado no Azure Marketplace."
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
 
@@ -74,4 +73,4 @@ Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no M
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

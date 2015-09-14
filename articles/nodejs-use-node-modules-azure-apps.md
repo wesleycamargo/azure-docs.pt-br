@@ -1,6 +1,6 @@
 <properties pageTitle="Trabalhando com módulos de Node.js" description="Aprenda a trabalhar com os módulos de Node.js ao usar Sites ou Serviços de Nuvem do Azure." services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
 
 
 
@@ -76,4 +76,4 @@ Agora que você aprendeu como usar os módulos no Node.js com o Azure, aprenda c
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Scripts de implantação de site personalizado com o Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

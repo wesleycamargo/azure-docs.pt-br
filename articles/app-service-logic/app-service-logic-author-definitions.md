@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Criar definições de Aplicativo Lógico" 
-	description="Aprenda a escrever a definição JSON para Aplicativos lógicos." 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="Criar definições de Aplicativo Lógico"
+	description="Aprenda a escrever a definição JSON para Aplicativos lógicos."
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="06/16/2015"
 	ms.author="stepsic"/>
 	
 #Criar definições de Aplicativo Lógico
@@ -99,7 +99,7 @@ Em seguida, digamos que desejamos obter conteúdo completamente diferente depend
         "destinationMap": {
             "defaultValue": {
                 "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/pt-br/default.aspx",
+                "microsoft": "https://www.microsoft.com/pt-BR/default.aspx",
                 "google": "https://www.google.com",
                 "robots": "https://en.wikipedia.org/wiki/Robot",
                 "NSA": "https://www.nsa.gov/"
@@ -234,7 +234,7 @@ Em seguida, no aplicativo lógico filho, você usará a função [`triggerBody()
 }
 ```
 
-Você pode ler sobre a [ação de tipo Aplicativo lógico no MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx).
+Você pode ler sobre a [ação de tipo Aplicativo lógico no MSDN](https://msdn.microsoft.com/pt-BR/library/azure/dn948511.aspx).
 
 >[AZURE.NOTE]O designer de Aplicativo lógico não oferece suporte a ações de tipo Aplicativo lógico, portanto, você precisará editar a definição manualmente.
 
@@ -250,7 +250,7 @@ Normalmente você deseja ser capaz de gravar uma *etapa de correção* – algum
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/pt-br/default.aspx",
+                "https://www.microsoft.com/pt-BR/default.aspx",
                 "https://gibberish.gibberish/"
             ],
             "type": "Array"
@@ -306,7 +306,7 @@ Para ter a execução de várias ações em paralelo e não em sequência, você
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/pt-br/default.aspx",
+                "https://www.microsoft.com/pt-BR/default.aspx",
                 "https://office.live.com/start/default.aspx"
             ],
             "type": "Array"
@@ -688,4 +688,4 @@ Então, na verdadeira solicitação `PUT` para o Aplicativo lógico, você pode 
 
 Em cada ambiente, você pode fornecer então um valor diferente para o parâmetro `connection`. Consulte a [documentação da API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para todas as opções que você tem para criar e gerenciar Aplicativos lógicos.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

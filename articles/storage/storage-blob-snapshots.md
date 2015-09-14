@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Criando um instantâneo de um Blob" 
-	description="Um guia de introdução para a criação de instantâneos de Blob de Armazenamento do Azure" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	pageTitle="Criando um instantâneo de um Blob"
+	description="Um guia de introdução para a criação de instantâneos de Blob de Armazenamento do Azure"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tamram"/>
 
 # Criar um instantâneo de blob
@@ -125,4 +125,4 @@ No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum do
 
 ![Recursos de Armazenamento do Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

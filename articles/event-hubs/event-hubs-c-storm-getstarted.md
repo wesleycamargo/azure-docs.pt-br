@@ -12,8 +12,8 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
-	ms.topic="article" 
-	ms.date="07/21/2015"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -24,7 +24,7 @@
 
 Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode receber milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
 
-Para obter mais informações, consulte [Visão geral de Hubs de Evento].
+Para saber mais, confira [Visão geral de Hubs de Eventos].
 
 Neste tutorial, você aprenderá como receber mensagens em um Hub de Eventos usando um aplicativo de console em C e recuperá-los em paralelo usando Apache Storm.
 
@@ -38,7 +38,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Criar um Hub de Evento
 
-1. Faça logon no [Portal de Gerenciamento do Azure] e clique em **NOVO** na parte inferior da tela.
+1. Entre no [portal do Azure] e clique em **NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Aplicativos**, em **Barramento de Serviço**, em **Hub de Eventos** e em **Criação Rápida**.
 
@@ -101,9 +101,9 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[portal do Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Visão geral de Hubs de Evento]: event-hubs-overview.md
+[Visão geral de Hubs de Eventos]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
 [Visão geral do HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md/
@@ -111,4 +111,4 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

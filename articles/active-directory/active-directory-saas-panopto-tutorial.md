@@ -1,5 +1,7 @@
 <properties pageTitle="Tutorial: Integração do Active Directory do Azure com o Panopto | Microsoft Azure" description="Saiba como usar o Panopto com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
+
 #Tutorial: Integração do Active Directory do Azure com o Panopto
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=524766).
   
@@ -51,17 +53,17 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Panopto](./media/active-directory-saas-panopto-tutorial/IC782936.png "Panopto")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Panopto com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Panopto com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
 1.  No portal do AD do Azure, na página de integração de aplicativos do **Panopto**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-panopto-tutorial/IC777667.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-panopto-tutorial/IC777667.png "Configurar logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Panopto**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-panopto-tutorial/IC777668.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-panopto-tutorial/IC777668.png "Configurar logon único")
 
 3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Logon no Panopto**, digite sua URL usando o seguinte padrão: "*https://\<nome-do-locatário>. Panopto.com*" e clique em **Avançar**.
 
@@ -69,7 +71,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar logon único no Panopto**, para baixar seu certificado, clique em **Baixar certificado** e, em seguida, salve o arquivo do certificado em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-panopto-tutorial/IC777669.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-panopto-tutorial/IC777669.png "Configurar o logon único")
 
 5.  Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do Panopto como administrador.
 
@@ -122,6 +124,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-panopto-tutorial/IC767830.png "Sim")
   
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="08/28/2015"
 	ms.author="kathydav"/>
 
 # Como redefinir uma senha ou SSH para máquinas virtuais Linux #
 
-Se você não pode se conectar a uma máquina virtual Linux devido a uma senha esquecida, uma chave do Secure Shell (SSH) incorreta ou um problema com a configuração do SSH, use o Portal de Visualização do Azure ou a extensão de VMAccessForLinux para redefinir a senha ou chave SSH ou corrigir a configuração do SSH.
+Se você não pode se conectar a uma máquina virtual Linux devido a uma senha esquecida, uma chave do Secure Shell (SSH) incorreta ou um problema com a configuração do SSH, use o Portal de Visualização do Azure ou a extensão de VMAccessForLinux para redefinir a senha ou chave SSH ou corrigir a configuração do SSH. Observe que este artigo se refere às máquinas virtuais criadas usando o modelo de implantação **Clássica**.
 
 ## Portal de visualização do Azure
 
@@ -261,6 +262,5 @@ Para exibir o status da extensão VMAccess, execute este comando.
 [Como instalar e configurar o PowerShell do Azure]: ../install-configure-powershell.md
 [Recursos e extensões de VM do Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

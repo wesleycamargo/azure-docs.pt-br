@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar o Armazenamento de Fila do Node.js | Microsoft Azure" 
-	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Como usar o Armazenamento de Fila do Node.js | Microsoft Azure"
+	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -41,17 +41,18 @@ Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azu
 
 1.  Use uma interface de linha de comando, como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix), e navegue até a pasta onde você criou o aplicativo de exemplo.
 
-2.  Digite **npm install azure-storage** na janela de comando, que deve resultar na seguinte saída:
+2.  Digite **npm install azure-storage** na janela de comando. A saída do comando é semelhante ao exemplo a seguir.
 
-        azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
 3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
 
@@ -116,7 +117,7 @@ Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila c
 
 	queueSvc.peekMessages('myqueue', function(error, result, response){
 	  if(!error){
-		// Messages peeked
+		// Message text is in messages[0].messagetext
 	  }
 	});
 
@@ -132,11 +133,11 @@ O processamento de uma mensagem é um processo de duas fases:
 
 2. Excluir a mensagem.
 
-Para remover uma mensagem da fila, use **getMessage**. Isso torna a mensagem invisível na fila, para que outros clientes não possam processá-la. Depois que seu aplicativo processar a mensagem, chame **deleteMessage** para excluí-la da fila. O exemplo a seguir obtém uma mensagem e, em seguida, a exclui:
+Para remover uma mensagem da fila, use **getMessages**. Isso torna as mensagens invisíveis na fila, de forma que nenhum outro cliente possa processá-las. Depois que seu aplicativo tiver processado uma mensagem, chame **deleteMessage** para excluí-la da fila. O exemplo a seguir obtém uma mensagem e, em seguida, a exclui:
 
 	queueSvc.getMessages('myqueue', function(error, result, response){
       if(!error){
-	    // message dequed
+	    // Message text is in messages[0].messagetext
         var message = result[0];
         queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
 	      if(!error){
@@ -148,7 +149,7 @@ Para remover uma mensagem da fila, use **getMessage**. Isso torna a mensagem inv
 
 > [AZURE.NOTE]Por padrão, uma mensagem só é oculta por 30 segundos; depois disso, fica visível para os outros clientes. Você pode especificar um valor diferente usando `options.visibilityTimeout` com **getMessages**.
 
-> [AZURE.NOTE]Usar <b>getMessages</b> quando não existirem mensagens na fila não retornará um erro; no entanto, nenhuma mensagem será retornada.
+> [AZURE.NOTE]Usar **getMessages** quando não existirem mensagens na fila não retornará um erro; no entanto, nenhuma mensagem será retornada.
 
 ## Como: alterar o conteúdo de uma mensagem em fila
 
@@ -170,8 +171,8 @@ Você pode alterar o conteúdo de uma mensagem na fila usando **updateMessage**.
 
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila:
 
-* `options.numOfMessages` - Recuperar um lote de mensagens (até 32.)
-* `options.visibilityTimeout` - Definir um tempo limite de invisibilidade mais longo ou mais curto.
+* `options.numOfMessages` - recuperar um lote de mensagens (até 32).
+* `options.visibilityTimeout` - definir um tempo limite de invisibilidade mais longo ou mais curto.
 
 O seguinte exemplo usa o método **getMessages** para receber 15 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem retornada por este método.
 
@@ -332,4 +333,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
  [Site com o WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

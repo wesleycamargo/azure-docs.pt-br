@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory | Azure" 
-	description="Configure um pipeline do ADF que compõe duas atividades de migração de dados que movem os dados juntos diariamente entre bancos de dados locais e na nuvem." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="jacob.spoelstra" 
-	editor="" />
+	pageTitle="Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory | Azure"
+	description="Configure um pipeline do ADF que compõe duas atividades de migração de dados que movem os dados juntos diariamente entre bancos de dados locais e na nuvem."
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="jacob.spoelstra"
+	editor=""/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="fashah;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="fashah;bradsev"/>
 
 
 # Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory
@@ -299,4 +299,4 @@ Depois que o pipeline é executado, você poderá ver os dados aparecerem no con
 
 Observe que não utilizamos a funcionalidade fornecida pelo ADF para dados de pipe incrementalmente. Para obter mais detalhes sobre como fazer isso e outros recursos fornecidos pelo ADF, consulte a [documentação do ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Usando o Armazenamento do Azure com uma solução de integração contínua Jenkins | Microsoft Azure" 
-	description="Este tutorial mostra como usar o serviço Blob do Azure como um repositório para artefatos de compilação criados por uma solução de integração contínua Jenkins." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe" />
+	pageTitle="Usando o Armazenamento do Azure com uma solução de integração contínua Jenkins | Microsoft Azure"
+	description="Este tutorial mostra como usar o serviço Blob do Azure como um repositório para artefatos de compilação criados por uma solução de integração contínua Jenkins."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="robmcm"/>
 
 # Usando o Armazenamento do Azure com uma solução de Integração Contínua Jenkins
@@ -165,4 +165,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
   [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -341,7 +341,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 		    	    "typeProperties": {
 		    	    	"source": {
 		            		"type": "SqlSource",
-			            	"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+			            	"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 		          		},
 		          		"sink": {
 		            		"type": "BlobSink"
@@ -383,6 +383,7 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | fileName | <p>Nome do fileName de blob é opcional. </p><p>Se você especificar um nome de arquivo, a atividade (incluindo cópia) funciona no Blob específico.</p><p>Quando fileName não for especificado, a cópia incluirá todos os Blobs em folderPath para o conjunto de dados de entrada.</p><p>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estaria no seguinte formato: Data.<Guid>.txt (por exemplo: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | Não |
 | partitionedBy | partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. Consulte a seção da propriedade Utilizar partitionedBy abaixo para obter detalhes e exemplos. | Não
 | formato | Há suporte para dois tipos de formatos: **TextFormat**, **AvroFormat**. Você precisa definir a propriedade de tipo em formato para qualquer um desses valores. Quando o formato for TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Consulte a seção [Especificando TextFormat](#specifying-textformat) abaixo para obter mais detalhes. | Não
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: GZip, Deflate e BZip2. Os níveis com suporte são: Melhor e Mais rápido. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
 
 ### Utilizando a propriedade partitionedBy
 Conforme mencionado acima, você pode especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal com a seção **partitionedBy**, macros de Data Factory e variáveis do sistema: SliceStart e SliceEnd, que indicam as horas de início e término para uma fatia de dados determinada.
@@ -424,7 +425,7 @@ Se o formato é definido como **TextFormat**você pode especificar as seguintes 
 | escapeChar | <p>O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.</p><p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), você pode definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na fonte.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não | 
 | quoteChar | <p>O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.</p><p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas deseja ter caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte Essa propriedade é aplicável às tabelas de entrada e saída.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não |
 | nullValue | <p>Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. Essa marca é opcional. O valor padrão é "\\N".</p><p>Por exemplo, com base no exemplo acima, "NaN" no blob será convertido como valor nulo, enquanto for copiado no, por exemplo, SQL Server.</p> | Não |
-| encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8. | Não | 
+| encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: [Propriedade Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8. | Não | 
 
 #### Exemplos
 O exemplo a seguir mostra algumas das propriedades de formato para TextFormat.
@@ -457,6 +458,9 @@ Se o formato é definido como AvroFormat, não é necessário especificar nenhum
 
 Para usar o formato Avro em uma tabela de Hive, consulte [Tutorial do Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
+
+
 ## Propriedades de tipo de atividade de cópia de Blob do Azure  
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
 
@@ -476,10 +480,16 @@ Propriedades disponíveis na seção typeProperties da atividade, por outro lado
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | Especifica se deseja adicionar o cabeçalho de definições de coluna. | TRUE<br/>FALSE (padrão) | Não |
 
+
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+
+
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
+
+<!---HONumber=September15_HO1-->

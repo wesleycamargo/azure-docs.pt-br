@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Como gerenciar a expiração do conteúdo de blob na CDN (Rede de Distribuição de Conteúdo) do Azure" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="zhangmanling" 
- manager="dwrede" 
- editor=""/>
+ pageTitle="Como gerenciar a expiração do conteúdo de blob na CDN (Rede de Distribuição de Conteúdo) do Azure"
+	description=""
+	services="cdn"
+	documentationCenter=".NET"
+	authors="zhangmanling"
+	manager="dwrede"
+	editor=""/>
 <tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="04/25/2015" 
- ms.author="mazha"/>
+ ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="mazha"/>
 
 
 #Como gerenciar a expiração do conteúdo de blob na CDN (Rede de Distribuição de Conteúdo) do Azure  
@@ -96,4 +96,4 @@ Se desejar, você poderá usar uma ferramenta como **wget** ou Fiddler para exam
 
 [Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

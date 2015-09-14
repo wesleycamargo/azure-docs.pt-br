@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao armazenamento de fila do Azure e serviços conectados do Visual Studio"
+	pageTitle="Introdução ao Armazenamento de Fila do Azure e aos serviços conectados do Visual Studio | Microsoft Azure"
 	description="Como começar a usar o armazenamento de fila do Azure em um projeto ASP.NET no Visual Studio"
 	services="storage"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="08/04/2015"
 	ms.author="patshea123"/>
 
-# Introdução ao armazenamento de fila do Azure e serviços conectados do Visual Studio
+# Introdução ao armazenamento de Fila do Azure e serviços conectados do Visual Studio
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-aspnet-getting-started-queues.md)
@@ -27,17 +27,17 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
-##Visão geral
+## Visão geral
 
-Este artigo descreve como começar a usar o armazenamento de fila do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto ASP.NET usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio.
+Este artigo descreve como começar a usar o armazenamento de Fila do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto ASP.NET usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio.
 
-Mostraremos como criar e acessar uma fila do Azure em sua conta de armazenamento. Também mostraremos como realizar operações básicas de fila, como adicionar, modificar, ler e remover entidades de fila. Os exemplos são escritos em C# e usam a [biblioteca do cliente de armazenamento do Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para saber mais sobre ASP.NET, confira [ASP.NET](http://www.asp.net).
+Mostraremos como criar e acessar uma Fila do Azure em sua conta de armazenamento. Também mostraremos como realizar operações básicas de fila, como adicionar, modificar, ler e remover entidades de fila. Os exemplos são escritos em C# e usam a [biblioteca do cliente de armazenamento do Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para saber mais sobre ASP.NET, confira [ASP.NET](http://www.asp.net).
 
 O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento.
 
-##Acessar filas em código
+## Acessar filas em código
 
-Para acessar filas em projetos do ASP.NET, você precisa incluir os itens a seguir para qualquer arquivo de origem C# que acesse o armazenamento de fila do Azure.
+Para acessar filas em projetos do ASP.NET, você precisa incluir os itens a seguir para qualquer arquivo de origem C# que acesse o armazenamento de Fila do Azure.
 
 1. Verifique se as declarações de namespace na parte superior do arquivo de C# incluem estas instruções `using`.
 
@@ -52,7 +52,7 @@ Para acessar filas em projetos do ASP.NET, você precisa incluir os itens a segu
 
 3. Obtenha um objeto `CloudQueueClient` para fazer referência aos objetos de fila em sua conta de armazenamento.
 
-	    // Create the queue client.
+	    // Create the queueclient.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 4. Obtenha um objeto `CloudQueue` para fazer referência a uma fila específica.
@@ -61,16 +61,16 @@ Para acessar filas em projetos do ASP.NET, você precisa incluir os itens a segu
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**OBSERVAÇÃO:** use todo esse código antes do código nos exemplos a seguir.
+**OBSERVAÇÃO** Use todos os códigos acima antes do código dos exemplos a seguir.
 
-##Criar uma fila em código
+## Criar uma fila em código
 
 Para criar uma fila do Azure no código, basta adicionar uma chamada para `CreateIfNotExists` ao código acima.
 
 	// Create the CloudQuecClient  if it does not exist
 	messageQueue.CreateIfNotExists();
 
-##Adicionar uma mensagem a uma fila
+## Adicionar uma mensagem a uma fila
 
 Para inserir uma mensagem em uma fila existente, crie primeiramente um novo objeto `CloudQueueMessage` e chame o método `AddMessage`.
 
@@ -84,7 +84,7 @@ Aqui está um exemplo que insere a mensagem “Hello, World”.
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	messageQueue.AddMessage(message);
 
-##Ler uma mensagem em uma fila
+## Ler uma mensagem em uma fila
 
 Você pode espiar a mensagem na frente de uma fila sem removê-la da fila, chamando o método PeekMessage().
 
@@ -93,7 +93,7 @@ Você pode espiar a mensagem na frente de uma fila sem removê-la da fila, chama
 	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
-##Ler e remover uma mensagem em uma fila
+## Ler e remover uma mensagem em uma fila
 
 Seu código pode remover uma mensagem de uma fila em duas etapas. 1. Chame GetMessage() para obter a próxima mensagem em uma fila. As mensagens retornadas de GetMessage() tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. 2. Para concluir a remoção da mensagem da fila, chame `DeleteMessage`.
 
@@ -110,7 +110,7 @@ Este processo de duas etapas de remover uma mensagem garante que quando o códig
 	await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## Aproveitar opções adicionais para remover mensagens da fila
+## Use opções adicionais para remover mensagens da fila
 
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método `GetMessages` para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop `foreach`. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de 5 minutos desde a chamada para `GetMessages`, todas as mensagens que não tenham sido excluídas se tornarão visíveis novamente.
 
@@ -130,7 +130,7 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Prime
 
 ## Obter o tamanho da fila
 
-Você pode obter uma estimativa do número de mensagens em uma fila. O método `FetchAttributes` solicita que o serviço Fila recupere os atributos da fila, incluindo a contagem de mensagens. A propriedade `ApproximateMethodCount` retorna o último valor recuperado pelo método `FetchAttributes`, sem chamar o serviço Fila.
+Você pode obter uma estimativa do número de mensagens em uma fila. O método `FetchAttributes` solicita que o serviço de fila recupere os atributos da fila, incluindo a contagem de mensagens. A propriedade `ApproximateMethodCount` retorna o último valor recuperado pelo método `FetchAttributes` sem chamar o serviço de fila.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -175,9 +175,8 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método `Del
 
 
 
-##Próximas etapas
+## Próximas etapas
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-			
 
-<!---HONumber=06-->
+<!---HONumber=September15_HO1-->

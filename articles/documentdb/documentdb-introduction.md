@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introdução ao Banco de Dados de Documentos do Microsoft Azure - avaliação gratuita | Microsoft Azure" 
-	description="Saiba mais sobre o Banco de Dados de Documentos do Microsoft Azure, um banco de dados de documentos NoSQL e seu valor para a nuvem e aplicativos móveis. Saiba como ele gerencia dados e como você pode usá-lo no desenvolvimento de aplicativos." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+	pageTitle="Introdução ao Banco de Dados de Documentos do Microsoft Azure - avaliação gratuita | Microsoft Azure"
+	description="Saiba mais sobre o Banco de Dados de Documentos do Microsoft Azure, um banco de dados de documentos NoSQL e seu valor para a nuvem e aplicativos móveis. Saiba como ele gerencia dados e como você pode usá-lo no desenvolvimento de aplicativos."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mimig"/>
 
 # Introdução ao Banco de Dados de Documentos do Microsoft Azure
@@ -103,7 +103,6 @@ Se você não tiver uma conta do Azure, poderá:
 
 - Inscrever-se em uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que oferece a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. 
 - Se você tiver uma assinatura do MSDN, estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure. 
-- Ou, se você quiser experimentar Banco de Dados de Documentos gratuitamente por 30 dias sem precisar de nenhum cartão de crédito, envie um email para askdocdb@microsoft.com com a linha do assunto ”Documentation Introduction, Azure Trial” e nós responderemos com um código de promoção enquanto os estoques durarem.
 
 Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro de aprendizagem](http://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos os recursos de aprendizado disponíveis para você.
 
@@ -111,4 +110,4 @@ Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro d
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

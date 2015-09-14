@@ -3,7 +3,7 @@
 	description="Siga este tutorial para começar a usar os Aplicativos Móveis do Azure para desenvolvimento do Xamarin.Forms"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -30,17 +30,17 @@ A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais 
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 Aplicativos Móveis gratuitos, que você pode continuar a usar mesmo após o fim do seu período de avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 aplicativos móveis gratuitos que você pode continuar a usar mesmo após o fim do seu período de avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
  
-* [Visual Studio Community 2013] ou posterior. Se você instalar o Visual Studio Comunidade 2013, instale [Xamarin] separadamente. Você pode instalar as ferramentas Xamarin quando você instala o Visual Studio de 2015.
+* [Visual Studio Community 2013] ou posterior. Se você instalar o Visual Studio Community 2013, instale o [Xamarin] separadamente. Você pode instalar as ferramentas Xamarin quando você instala o Visual Studio de 2015.
 
 * Um Mac com [Xcode] v7.0 ou posterior e [Xamarin Studio] instalados.
  
      >[AZURE.NOTE]Se você planeja criar seu aplicativo em um computador com Windows usando o Visual Studio, você ainda precisará acessar um Mac em rede para fazê-lo.
  
->[AZURE.NOTE]Se você deseja começar com o serviço de aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), onde você pode criar imediatamente um Aplicativo Móvel inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar com o serviço de aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá até [Experimentar o serviço de aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), onde você pode criar imediatamente um aplicativo móvel inicial de curta duração no serviço de aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-## Criar um novo back-end de Aplicativo Móvel do Azure
+## Criar um novo back-end de aplicativo móvel do Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
@@ -174,4 +174,4 @@ Isso envia uma solicitação de POST para o novo back-end de aplicativo móvel h
 [Instalando Xamarin.iOS no Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

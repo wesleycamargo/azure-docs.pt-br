@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Atividade Pig" 
-	description="Saiba como usar a Atividade Pig em uma data factory do Azure para executar scripts Pig em um cluster sob demanda/próprio do HDInsight." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Atividade Pig"
+	description="Saiba como usar a Atividade Pig em uma data factory do Azure para executar scripts Pig em um cluster sob demanda/próprio do HDInsight."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
 
 # Atividade Pig
@@ -66,7 +66,7 @@ description | Texto que descreve qual a utilidade da atividade | Não
 type | HDinsightPig | Sim
 inputs | Entradas consumidas pela atividade Pig | Não
 outputs | Saídas produzidas pela atividade Pig | Sim
-linkedServiceName | Referência ao cluster HDInsight registrado como um serviço vinculado no Data Factory | Sim
+linkedServiceName | Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory | Sim
 script | Especificar o script de Pig embutido | Não
 caminho do script | Armazenar o script de Pig em um armazenamento de blob do Azure e fornecer o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas | Não
 define | Especificar parâmetros como pares chave/valor para referenciar dentro do script de Pig | Não
@@ -166,8 +166,8 @@ Para usar os scripts Pig, faça o seguinte:
 		          		"scriptPath": "adfwalkthrough\\scripts\\samplepig.hql",
 		          		"scriptLinkedService": "StorageLinkedService",
 		          		"defines": {
-		            		"Input": "$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
-				            "Output": "Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+		            		"Input": "$$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
+				            "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
 		          		}
 		        	},
        				"scheduler": {
@@ -188,5 +188,7 @@ Para usar os scripts Pig, faça o seguinte:
 
 
  
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-pig-activity.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

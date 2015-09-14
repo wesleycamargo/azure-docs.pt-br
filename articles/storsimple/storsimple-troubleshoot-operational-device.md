@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Solucionar problemas de um dispositivo StorSimple operacional | Microsoft Azure"
-   description="Descreve como diagnosticar e corrigir os erros que ocorrem em um dispositivo StorSimple que esteja operacional."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="Solucionar problemas de um dispositivo StorSimple implantado | Microsoft Azure"
+	description="Descreve como diagnosticar e corrigir os erros que ocorrem em um dispositivo StorSimple que esteja implantado e operacional."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/19/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos"/>
 
 # Solucionar problemas de um dispositivo operacional do StorSimple
 
 ## Visão geral
 
-Este artigo oferece orientações úteis de solução de problemas para resolver problemas de configuração que você poderá encontrar depois que seu dispositivo StorSimple estiver implantado e operacional. Descreve problemas comuns, possíveis causas e etapas recomendadas para ajudá-lo a resolver problemas que podem ocorrer durante a execução do StorSimple. Essas informações se aplicam ao dispositivo físico local StorSimple e ao dispositivo virtual StorSimple.
+Este artigo oferece orientações úteis de solução de problemas para resolver problemas de configuração que você poderá encontrar depois que seu dispositivo StorSimple estiver implantado e operacional. Descreve problemas comuns, possíveis causas e etapas recomendadas para ajudá-lo a resolver problemas que podem ocorrer durante a execução do Microsoft Azure StorSimple. Essas informações se aplicam ao dispositivo físico local StorSimple e ao dispositivo virtual StorSimple.
 
 No final deste artigo, há uma lista de códigos de erro que você pode encontrar durante a operação do Microsoft Azure StorSimple, bem como procedimentos que você pode seguir para resolver os erros.
 
@@ -64,7 +64,7 @@ Os erros estão listados em ordem numérica.
 Se não for possível resolver o problema, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter assistência.
 
 
-[1]: https://technet.microsoft.com/pt-br/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/pt-br/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/pt-BR/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/pt-BR/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

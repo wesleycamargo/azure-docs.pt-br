@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aplicativo Web com Express (Node.js) | Microsoft Azure" 
-	description="Um tutorial que complementa o tutorial de serviço de nuvem e demonstra como usar o módulo Express." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Aplicativo Web com Express (Node.js) | Microsoft Azure"
+	description="Um tutorial que complementa o tutorial de serviço de nuvem e demonstra como usar o módulo Express."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -43,9 +43,9 @@ Execute as seguintes etapas para criar um novo projeto de serviço de nuvem cham
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
-		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
+		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
 
-	> [AZURE.NOTE]Por padrão, o **Add-AzureNodeWebRole** usa uma versão mais antiga do Node.js. A instrução **Set-AzureServiceProjectRole** acima instrui o Azure usar a versão 1021 do Nó.
+	> [AZURE.NOTE]Por padrão, o **Add-AzureNodeWebRole** usa uma versão mais antiga do Node.js. A instrução **Set-AzureServiceProjectRole** acima instrui o Azure usar a versão 1021 do Nó. Observe que os parâmetros diferenciam maiúsculas de minúsculas. Você pode verificar se a versão correta do Node.js foi selecionada verificando a propriedade **engines** em **WebRole1\\package.json**.
 
 ##Instalar o Express
 
@@ -88,7 +88,7 @@ Execute as seguintes etapas para criar um novo projeto de serviço de nuvem cham
 
 	Esta alteração é requerida porque movemos o arquivo (anteriormente **bin/www**,) ao mesmo diretório conforme o arquivo do aplicativo seja requerido. Após fazer de fazer essa alteração, salve o arquivo **server.js**.
 
-8.  Use o seguinte comando para executar o aplicativo no emulador do Windows Azure:
+8.  Use o seguinte comando para executar o aplicativo no emulador do Azure:
 
         PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
 
@@ -135,4 +135,4 @@ Quando a operação de implantação estiver concluída, o navegador será abert
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

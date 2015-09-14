@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criar um aplicativo com um celular e cliente da web no Serviço de Aplicativo do Azure"
+	pageTitle="Criar um aplicativo com cliente Web e móvel no Serviço de Aplicativo do Azure | Microsoft Azure"
 	description="Criar um aplicativo de vários canais com um site e cliente móvel no Serviço de Aplicativo do Azure."
 	services="app-service\mobile"
 	documentationCenter=".net"
@@ -19,6 +19,5 @@
 # Criar um aplicativo com um celular e cliente da web no Serviço de Aplicativo do Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução ao Armazenamento do Azure" 
-	description="Descreve o que aconteceu durante a criação de um armazenamento do Azure em um projeto de Visual Studio ASP.NET 5" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Introdução ao Armazenamento do Azure | Microsoft Azure"
+	description="Descreve o que aconteceu durante a criação de um armazenamento do Azure em um projeto de Visual Studio ASP.NET 5"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/22/2015"
 	ms.author="patshea"/>
 
 # O que aconteceu com meu projeto?
@@ -27,9 +27,9 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###O que aconteceu com meu projeto?
+### O que aconteceu com meu projeto?
 
-##### Referências adicionadas
+#### Referências adicionadas
 
 O pacote do NuGet do armazenamento do Azure foi adicionado ao seu projeto do Visual Studio. Esse pacote adiciona as referências de .NET a seguir:
 
@@ -44,10 +44,9 @@ O pacote do NuGet do armazenamento do Azure foi adicionado ao seu projeto do Vis
 
 Além disso, o pacote NuGet **Microsoft.Framework.Configuration.Json** foi adicionado.
 
-#####Cadeia de conexão do Armazenamento do Azure adicionada 
+#### Cadeia de conexão do Armazenamento do Azure adicionada
 No arquivo config.json do seu projeto, foi criado um elemento com a cadeia de conexão e chave da conta de armazenamento selecionada.
 
 Para obter mais informações, consulte [ASP.NET 5](http://www.asp.net/vnext).
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

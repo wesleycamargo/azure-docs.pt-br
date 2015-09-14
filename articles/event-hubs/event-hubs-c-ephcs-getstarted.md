@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="09/01/2015"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -34,11 +34,11 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio Express 2013 para Windows
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
 
 ## Criar um Hub de Evento
 
-1. Faça logon no [Portal de Gerenciamento do Azure] e clique em **NOVO** na parte inferior da tela.
+1. Entre no [portal do Azure] e clique em **NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Aplicativos**, em seguida, **Barramento de Serviço**, em seguida, **Hub de eventos** e, em seguida, **Criação rápida**.
 
@@ -94,6 +94,7 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 - Um [aplicativo de exemplo completo que usa os Hubs de Evento].
 - O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos].
 - Uma [solução de mensagens na fila] usando filas do Barramento de Serviço.
+- [Visão geral de Hubs de Evento]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png
@@ -109,11 +110,11 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[portal do Azure]: https://manage.windowsazure.com/
 [Host do Processador de Eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Visão geral de Hubs de Evento]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Visão geral de Hubs de Evento]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

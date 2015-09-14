@@ -1,26 +1,30 @@
 <properties 
-	pageTitle="Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure" 
-	description="Saiba como rastrear chamadas usando o Inspetor de API no Gerenciamento de API do Azure." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure"
+	description="Saiba como rastrear chamadas usando o Inspetor de API no Gerenciamento de API do Azure."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="sdanie"/>
 
 # Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
 
-O Gerenciamento de API oferece uma ferramenta de Inspetor de API para ajudá-lo a depurar e solucionar problemas de suas APIs. O Inspetor de API pode ser usado de forma programática por meio de seus aplicativos e pode também ser usado diretamente no portal do desenvolvedor. Este guia fornece uma explicação da utilização do Inspetor de API.
+O Gerenciamento de API oferece uma ferramenta de Inspetor de API para ajudá-lo a depurar e solucionar problemas de suas APIs. O Inspetor de API pode ser usado de forma programática e pode também ser usado diretamente do portal do desenvolvedor.
 
->[AZURE.NOTE]Além das operações de rastreamento, o Inspetor de API também rastreia as avaliações de [expressão de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). Para assistir a uma demonstração, confira o [Episódio 177 do Cloud Cover: mais recursos de Gerenciamento de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance até 21:00.
+Além das operações de rastreamento, o Inspetor de API também rastreia as avaliações de [expressão de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). Para assistir a uma demonstração, confira o [Episódio 177 do Cloud Cover: mais recursos de Gerenciamento de API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance até 21:00.
+
+Este guia fornece uma explicação da utilização do Inspetor de API.
+
+>[AZURE.NOTE]Os rastreamentos do Inspetor de API somente estão disponíveis para os [administradores](api-management-howto-create-groups.md) da sua instância do serviço Gerenciamento de API. Os rastreamentos do Inspetor de API somente são retornados ao fazer chamadas para um [produto protegido](api-management-howto-add-products.md) que requer uma chave de assinatura.
 
 ## <a name="trace-call"> </a> Usar o Inspetor de API para rastrear uma chamada
 
@@ -226,7 +230,7 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 ## <a name="next-steps"> </a>Próximas etapas
 
 -	Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][].
--	Assista a uma demonstração das expressões da política de rastreamento no [Episódio 177 do Cloud Cover: mais recursos de Gerenciamento de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avance até 21:00 para assistir à demonstração.
+-	Assista a uma demonstração das expressões da política de rastreamento no [Episódio 177 do Cloud Cover: mais recursos de Gerenciamento de API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avance até 21:00 para assistir à demonstração.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
 
@@ -257,4 +261,4 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Acessando informações do Azure Active Directory Graph (Windows Store) | Microsoft Azure" 
-	description="Saiba como acessar informações do Active Directory do Azure usando a Graph API em seu aplicativo da Windows Store." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Acessando informações do Azure Active Directory Graph (Windows Store) | Microsoft Azure"
+	description="Saiba como acessar informações do Active Directory do Azure usando a Graph API em seu aplicativo da Windows Store."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Acessando informações do Azure Active Directory Graph
@@ -34,7 +34,7 @@ Para obter mais informações sobre a API do Azure AD Graph, consulte o [Blog da
 
 
 
-##Pré-requisitos 
+##Pré-requisitos
 
 Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais dos Serviços Móveis:
 
@@ -84,7 +84,7 @@ Se você nunca usou APIs personalizadas com Serviços Móveis, consulte o [Tutor
 	        public String postalCode { get; set; }
 	        public String mail { get; set; }
 	        public String[] otherMails { get; set; }
-	
+
 	        public override string ToString()
 	        {
 	            return "displayName : " + displayName + "\n" +
@@ -206,7 +206,7 @@ Se você nunca usou APIs personalizadas com Serviços Móveis, consulte o [Tutor
         }
 
 9. Salve suas alterações e compile o serviço para verificar se não existem erros de sintaxe.
-10. Publique o projeto do serviço móvel em sua conta do Azure. 
+10. Publique o projeto do serviço móvel em sua conta do Azure.
 
 
 ## <a name="update-app"></a>Atualizar o aplicativo para usar GetUserInfo
@@ -214,7 +214,7 @@ Se você nunca usou APIs personalizadas com Serviços Móveis, consulte o [Tutor
 Nesta seção você atualizará o método `AuthenticateAsync` implementado no tutorial [Adicionar autenticação ao seu aplicativo] para chamar a API personalizada e retornar informações adicionais sobre o usuário por meio do AAD.
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../../includes/mobile-services-aad-graph-info-update-app.md)]
-  
+
 
 
 ## <a name="test-app"></a>Testar o aplicativo
@@ -253,6 +253,5 @@ No próximo tutorial, [Controle de acesso baseado em função com o AAD em Servi
 [Blog da equipe do Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Controle de acesso baseado em função com o AAD em Serviços Móveis]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

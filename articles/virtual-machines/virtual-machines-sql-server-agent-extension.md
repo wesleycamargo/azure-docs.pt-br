@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Extensão do agente IaaS do SQL Server" 
-	description="Descreve a extensão do agente do SQL Server, que permite que máquinas virtuais executando o SQL Server na nuvem no Azure usem recursos de automação, e como instalar o agente, se ele não tiver sido instalado automaticamente." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
+	pageTitle="Extensão do agente IaaS do SQL Server"
+	description="Descreve a extensão do agente do SQL Server, que permite que máquinas virtuais executando o SQL Server na nuvem no Azure usem recursos de automação, e como instalar o agente, se ele não tiver sido instalado automaticamente."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="jeffgoll"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -12,7 +12,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
+	ms.workload="infrastructure-services"
 	ms.date="06/17/2015"
 	ms.author="jeffreyg"/>
 
@@ -33,8 +33,8 @@ Requisitos para uso da extensão em sua VM:
  
 ## Serviços disponíveis com a extensão
 
-- **Backup automatizado SQL**: este serviço automatiza o agendamento de backups para todos os bancos de dados da instância padrão do SQL Server na VM. Para saber mais sobre esse serviço, consulte [Backup automatizado para o SQL Server em máquinas virtuais Azure](https://msdn.microsoft.com/library/azure/dn906091.aspx).
-- **Correção automatizada de SQL**: este serviço permite que você configure um período de manutenção durante o qual as atualizações para sua VM podem ocorrer, para que você possa evitar atualizações durante horários de pico em sua carga de trabalho. Para ver mais informações sobre este serviço, consulte [Correção automatizada para SQL Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/dn961166.aspx).
+- **Backup automatizado SQL**: este serviço automatiza o agendamento de backups para todos os bancos de dados da instância padrão do SQL Server na VM. Para saber mais sobre esse serviço, consulte [Backup automatizado para o SQL Server em máquinas virtuais Azure](virtual-machines-sql-server-automated-backup.md).
+- **Correção automatizada de SQL**: este serviço permite que você configure um período de manutenção durante o qual as atualizações para sua VM podem ocorrer, para que você possa evitar atualizações durante horários de pico em sua carga de trabalho. Para ver mais informações sobre este serviço, consulte [Correção automatizada para SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-automated-patching.md).
 
 ## Adicionar a extensão com o Powershell
 Se você provisionar sua VM do SQL Server usando o [Portal de Visualização do Azure](https://portal.azure.com/), a extensão será instalada automaticamente. Para VMs do SQL Server configuradas com o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), ou para VMs as quais você traz sua própria licença do SQL, é possível adicionar essa extensão a uma VM existente usando o seguinte cmdlet do PowerShell do Azure.
@@ -74,4 +74,4 @@ Se você quiser remover essa extensão de sua VM, usar o seguinte cmdlet do Powe
 ### Sintaxe
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Adicionar um certificado ao repositório Java CA | Microsoft Azure" 
-	description="Saiba como adicionar um certificado de autoridade de certificação (AC) para o armazenamento de certificado CA (cacerts) do Java para serviço Twilio ou barramento de serviço do Azure." 
-	services="" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Adicionar um certificado ao repositório Java CA | Microsoft Azure"
+	description="Saiba como adicionar um certificado de autoridade de certificação (AC) para o armazenamento de certificado CA (cacerts) do Java para serviço Twilio ou barramento de serviço do Azure."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Adicionar um certificado ao repositório de certificados Java CA
@@ -52,4 +52,4 @@ Se você precisar adicionar o Baltimore CyberTrust Root, ele possui número de s
 
 Para obter mais informações sobre os certificados raiz usados pelo Azure, consulte [Migração de Certificados raiz do Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Recuperação de desastres do Banco de Dados SQL" 
-   description="Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Replicação geográfica e Restauração geográfica do Banco de Dados SQL do Azure." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="Recuperação de desastres do Banco de Dados SQL"
+	description="Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Replicação geográfica e Restauração geográfica do Banco de Dados SQL do Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/14/2015"
+	ms.author="elfish"/>
 
 # Recuperar um Banco de Dados SQL do Azure de uma interrupção
 
@@ -68,6 +68,8 @@ Use REST para executar a recuperação do banco de dados de forma programática.
 
 Caso ocorra uma interrupção de um banco de dados, você poderá recuperar o banco de dados a partir de seu backup redundante geograficamente mais recente usando a Restauração Geográfica.
 
+> [AZURE.NOTE]A recuperação de um banco de dados cria um novo banco de dados. É importante garantir que o servidor que você está recuperando tenha capacidade de DTU suficiente para o novo banco de dados. Você pode solicitar um aumento dessa cota [contatando o suporte](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+
 ###Portal do Azure
 1. Faça logon no [Portal do Azure](https://portal.Azure.com)
 2. No lado esquerdo da tela, selecione **NOVO** e selecione **Dados e Armazenamento** e selecione **Banco de Dados SQL**
@@ -101,4 +103,4 @@ Use REST para executar a recuperação do banco de dados de forma programática.
 Após a recuperação do banco de dados, você poderá configurá-lo para uso seguindo o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

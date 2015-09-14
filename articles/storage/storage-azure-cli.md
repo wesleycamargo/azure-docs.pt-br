@@ -1,19 +1,19 @@
 <properties
     pageTitle="Usando a CLI do Azure com o Armazenamento do Azure | Microsoft Azure"
-    description="Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure."
-    services="storage"
-    documentationCenter="na"
-    authors="tamram"
-    manager="jdial"/>
+	description="Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure."
+	services="storage"
+	documentationCenter="na"
+	authors="tamram"
+	manager="jdial"/>
 
 <tags
     ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article" 
-    ms.date="05/27/2015"
-    ms.author="chungli;jiyang;yaxia;tamram"/>
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Usando a CLI do Azure com o Armazenamento do Azure
 
@@ -80,9 +80,9 @@ Consulte [Gerenciar contas, assinaturas e funções administrativas](https://msd
 
     - **<container_name>** Use o nome fornecido no script ou insira um novo nome para o contêiner.
 
-    - **<image_to_upload>** Insira um caminho para uma imagem no computador local, como: "\~/images/HelloWorld.png".
+    - **<image_to_upload>** Insira um caminho para uma imagem no computador local, como: "~/images/HelloWorld.png".
 
-    - **<destination_folder>** Insira um caminho para um diretório local onde armazenar arquivos baixados do Armazenamento do Azure, como: “\~/downloadImages”.
+    - **<destination_folder>** Insira um caminho para um diretório local onde armazenar arquivos baixados do Armazenamento do Azure, como: “~/downloadImages”.
 
 7. Depois de atualizar as variáveis necessárias no vim, pressione as combinações de teclas “Esc, : , wq!” para salvar o script.
 
@@ -189,7 +189,7 @@ Observe que esse caminho de diretório pode incluir vários níveis, *por exempl
 
 ### Carregar um arquivo local no diretório
 
-O exemplo a seguir carrega um arquivo de **\~/temp/samplefile.txt** no diretório **myDir**. Edite o caminho do arquivo para que ele aponte para um arquivo válido em seu computador local:
+O exemplo a seguir carrega um arquivo de **~/temp/samplefile.txt** no diretório **myDir**. Edite o caminho do arquivo para que ele aponte para um arquivo válido em seu computador local:
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -203,6 +203,16 @@ Observe que um arquivo no compartilhamento pode ter até 1 TB.
 
 Observe que o nome do diretório é opcional para a operação de listagem. Se omitido, o comando listará o conteúdo do diretório raiz do compartilhamento.
 
+### Copiar arquivos
+
+A partir da versão 0.9.8 da CLI do Azure, você pode copiar um arquivo para outro arquivo, um arquivo para um blob ou um blob para um arquivo. A seguir, demonstramos como executar essas operações de cópia usando comandos CLI. Para copiar um arquivo para o novo diretório:
+
+	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+	
+Para copiar um blob para um diretório de arquivos:
+
+	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+
 ## Próximas etapas
 
 Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Armazenamento do Azure.
@@ -214,4 +224,4 @@ Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Arm
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Usar o serviço StorSimple Manager para alterar suas senhas StorSimple | Microsoft Azure" 
-   description="Descreve como usar o serviço StorSimple Manager para alterar suas senhas de administrador do dispositivo e do StorSimple Snapshot Manager." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="Gerenciar suas senhas do StorSimple | Microsoft Azure"
+	description="Descreve como usar o serviço StorSimple Manager para alterar suas senhas de administrador do dispositivo e do StorSimple Snapshot Manager."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/11/2015"
-   ms.author="v-sharos@microsoft.com"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos@microsoft.com"/>
 
 # Usar o serviço StorSimple Manager para alterar suas senhas StorSimple
 
@@ -66,4 +66,4 @@ A senha do administrador do dispositivo agora deve estar atualizada. Você pode 
 
 [Saiba mais sobre como modificar a configuração do dispositivo](storsimple-modify-device-config.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

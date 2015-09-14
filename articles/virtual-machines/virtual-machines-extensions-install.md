@@ -1,25 +1,25 @@
 <properties 
- pageTitle="Gerenciar extensões de máquina virtual | Microsoft Azure" 
- description="Descreve como adicionar, localizar, atualizar e remover extensões." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
+ pageTitle="Gerenciar extensões de máquina virtual | Microsoft Azure"
+	description="Descreve como adicionar, localizar, atualizar e remover extensões."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
- ms.author="rasquill"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="rasquill"/>
 #Gerenciar extensões de máquina virtual
 Descreve como localizar, adicionar, modificar ou remover extensões de VM com máquinas virtuais Windows ou Linux no Azure.
 
 ##Usando extensões de VM
 
-As Extensões de VM do Azure implementam comportamentos ou recursos que ajudam outros programas a funcionarem em VMs do Azure (por exemplo, a extensão **WebDeployForVSDevTest** permite o Visual Studio para soluções de implantação da Web em sua VM do Azure) ou fornecer a capacidade de interagir com a máquina virtual para dar suporte a alguns outros comportamentos (por exemplo, você pode usar as extensões de acesso da máquina virtual do Powershell, o xplat-cli e clientes REST para redefinir ou modificar os valores de acesso remoto na sua VM do Azure).
+As Extensões de VM do Azure implementam comportamentos ou recursos que ajudam outros programas a funcionarem em VMs do Azure (por exemplo, a extensão **WebDeployForVSDevTest** permite o Visual Studio para soluções de implantação da Web em sua VM do Azure) ou fornecer a capacidade de interagir com a máquina virtual para dar suporte a alguns outros comportamentos (por exemplo, você pode usar as extensões de acesso da máquina virtual do Powershell, a CLI do Azure e clientes REST para redefinir ou modificar os valores de acesso remoto na sua VM do Azure).
 
 >[AZURE.IMPORTANT]Para obter uma lista completa das extensões pelos recursos que oferecem suporte, consulte [Extensões de VM do Azure e recursos](https://msdn.microsoft.com/library/dn606311.aspx). Como cada extensão de VM dá suporte a um recurso específico, exatamente o que você pode e não pode fazer com uma extensão depende da extensão. Portanto, antes de modificar a sua VM, verifique se que você leu a documentação para a extensão de VM que deseja usar. Não há suporte para remover algumas extensões de VM; outras têm propriedades que podem ser definidas e que alteram radicalmente o comportamento da VM.
 
@@ -38,7 +38,7 @@ As tarefas mais comuns são:
 As Extensões de VM do Azure são (para obter uma lista completa das extensões pelos recursos que oferecem suporte, consulte [Extensões de VM do Azure e recursos](https://msdn.microsoft.com/library/dn606311.aspx).) Você pode localizar a extensão e as informações estendidas usando:
 
 -   PowerShell
--   Interface de plataforma cruzada do Azure (xplat-cli)
+-   Interface de Plataforma Cruzada do Azure (CLI do Azure)
 -   API REST de gerenciamento de serviço
 
 quaisquer cmdlets [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) ou [APIs REST do Gerenciamento de serviço](https://msdn.microsoft.com/library/ee460799.aspx) para localizar informações sobre extensões disponíveis.
@@ -78,13 +78,13 @@ Você pode usar os cmdlets a seguir para obter informações sobre as extensões
         CompanyName                 :
 
 
-###Interface de linha de comando do Azure (xplat-cli)
+###Interface de Linha de Comando do Azure (CLI do Azure)
 
-Algumas extensões têm os comandos xplat-cli que são específicos a eles (a extensão de VM Docker é um exemplo), que podem facilitar suas configurações; mas os comandos a seguir funcionam para todas as extensões de VM.
+Algumas extensões têm os comandos da CLI do Azure específicos a elas (a Extensão de VM do Docker é um exemplo), que podem facilitar suas configurações; mas os comandos a seguir funcionam para todas as extensões de VM.
 
 Você pode usar o comando **lista de extensão de VM do Azure** para obter informações sobre as extensões disponíveis e usar a opção **–-json** para exibir todas as informações disponíveis sobre uma ou mais extensões. Se você não usar um nome de extensão, o comando retorna uma descrição json de todas as extensões disponíveis.
 
-Por exemplo, o exemplo de código a seguir mostra como listar as informações para a extensão **IaaSDiagnostics** usando o comando xplat-cli **lista de extensão de VM do Azure** e usa a opção **–-json** para retornar informações completas.
+Por exemplo, o exemplo de código a seguir mostra como listar as informações para a extensão **IaaSDiagnostics** usando o comando **azure vm extension list** da CLI do Azure e usa a opção **–-json** para retornar informações completas.
 
 
     $ azure vm extension list -n IaaSDiagnostics --json
@@ -137,4 +137,4 @@ Você pode usar as APIs REST a seguir para saber se uma extensão requer uma con
 
 >[AZURE.NOTE]As extensões também podem usar as configurações que são definidas com JSON. Quando esses tipos de extensões são usados, apenas o elemento **SampleConfig** é usado.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

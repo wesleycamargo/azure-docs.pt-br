@@ -1,10 +1,10 @@
 <properties
    pageTitle="Notas de versão do Catálogo de Dados do Azure"
-	description="Notas de versão para a versão de 13 de julho de 2015 de visualização pública do Catálogo de Dados do Azure"
+	description="Notas de versão para a versão de 28 de agosto de 2015 de visualização pública do Catálogo de Dados do Azure"
 	services="data-catalog"
 	documentationCenter=""
-	authors="dvana"
-	manager="mblythe"
+	authors="steelanddata"
+	manager="NA"
 	editor=""
 	tags=""/>
 <tags
@@ -13,12 +13,28 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+	ms.date="08/28/2015"
+	ms.author="maroche"/>
 
-# Notas para a versão de 13 de julho de 2015 do Catálogo de Dados do Azure
+# Notas de versão do Catálogo de Dados do Azure
 
-## Registro e conexão ao banco de dados Oracle
+## Notas para a versão de 28 de agosto de 2015 do Catálogo de Dados do Azure
+
+### Perfil de dados ausente para alguns ativos de dados registrados
+
+Ao registrar fontes de dados com a opção de criação de perfil de dados selecionada na ferramenta de registro de fonte de dados, as informações de perfil de dados podem não ser incluídas nos seguintes cenários:
+
+* Tabelas de Banco de Dados SQL do Azure
+* Tabelas e exibições do SQL Server em que há vários objetos com o mesmo nome em diferentes esquemas
+* Tabelas e exibições do SQL Server com nomes de colunas com mais de 118 caracteres
+* Tabelas e exibições Oracle com nomes de colunas com mais de 20 caracteres
+* Tabelas e exibições Oracle com espaços ou caracteres multibyte nos nomes de colunas
+
+Essas restrições ocorrem devido a um problema conhecido na versão de 28 de agosto e serão tratadas em uma atualização futura do Catálogo de Dados do Azure.
+
+## Notas para a versão de 13 de julho de 2015 do Catálogo de Dados do Azure
+
+### Registro e conexão ao banco de dados Oracle
 
 Ao conectar-se às fontes de dados do banco de dados Oracle, os usuários devem ter instalado os drivers corretos do Oracle que correspondem ao número de bits (32 bits ou 64 bits) do software que está sendo usado.
 
@@ -27,21 +43,21 @@ Ao conectar-se às fontes de dados do banco de dados Oracle, os usuários devem 
 -	Ao conectar-se às fontes de dados Oracle usando o Excel em um computador executando a versão de 32 bits do Microsoft Office, inclusive no Windows de 64 bits, os drivers do Oracle de 32 bits serão usados
 -	Ao conectar-se às fontes de dados Oracle usando o Excel em um computador executando a versão de 64 bits do Microsoft Office, os drivers do Oracle de 64 bits serão usados
 
-## Registro e conexão ao SQL Server Reporting Services
+### Registro e conexão ao SQL Server Reporting Services
 
 O suporte para fontes de dados do SQL Server Reporting Services (SSRS) na versão de teste inicial do Catálogo de Dados do Azure está limitado somente aos servidores de modo nativo. O suporte para o SSRS no modo SharePoint será adicionado em uma versão posterior.
 
-## Abrindo ativos de dados no Excel
+### Abrindo ativos de dados no Excel
 
 Ao abrir ativos de dados no Microsoft Excel no portal do Catálogo de Dados do Azure, uma caixa de diálogo **Aviso de segurança do Microsoft Excel** pode ser exibida aos usuários. Esse é um comportamento padrão e esperado, e os usuários podem selecionar **Habilitar** para continuar.
 
 Para obter mais informações, consulte [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/pt-BR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
-## Colunas BLOB e UDT não encontradas nas visualizações
+### Colunas BLOB e UDT não encontradas nas visualizações
 
 Ao registrar tabelas e exibições que contêm BLOB (objeto binário grande) e colunas de UDT (tipo de dados definido pelo usuário) e ao selecionar incluir visualização dos ativos de dados, essas colunas não serão incluídas na visualização.
 
-## Registro da fonte de dados e configuração de proxy e política
+### Registro da fonte de dados e configuração de proxy e política
 
 Os usuários podem encontrar uma situação em que podem acessar o portal do Catálogo de Dados do Azure, mas quando tentam fazer logon na ferramenta de registro da fonte de dados encontram uma mensagem de erro que impede o logon.
 
@@ -67,4 +83,4 @@ Para obter mais informações, consulte [Configurando autenticação baseada em 
 
 Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

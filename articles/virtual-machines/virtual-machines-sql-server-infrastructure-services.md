@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
 # Visão geral do SQL Server em máquinas virtuais do Azure
@@ -29,24 +29,21 @@ Para criar uma máquina virtual do SQL Server no Azure, você deve primeiro obte
 
 Após obter uma assinatura, a maneira mais fácil de implantar uma máquina virtual do SQL Server no Azure é [provisionar uma imagem de galeria de máquina do SQL Server no Portal de Gerenciamento do Azure](virtual-machines-provision-sql-server.md). Essas imagens incluem o licenciamento do SQL Server nos preços para a VM.
 
-Você pode executar cargas de trabalho comuns do SQL Server em Máquinas Virtuais do Azure. O SQL Server tem várias imagens de máquinas virtuais otimizadas disponíveis na galeria. Para saber mais sobre cargas de trabalho específicas, consulte:
-
-- [Business Intelligence do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-business-intelligence.md)
-- [Cargas de trabalho transacionais e data warehouse do SQL Server nas máquinas virtuais do Azure](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 A tabela a seguir fornece uma matriz de imagens do SQL Server disponíveis na galeria de máquinas virtuais.
 
 |Versão do SQL Server|Sistema operacional|Edição do SQL Server|
 |---|---|---|
-|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard e Web|
-|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard e Web|
-|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web, OLTP (Enterprise) e Data Warehouse (Enterprise)|
-|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise) e Data Warehouse (Enterprise)|
-|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise) e Data Warehouse (Enterprise)|
-|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise) e Data Warehouse (Enterprise)|
+|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard, Web|
+|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard, Web|
+|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web|
+|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|Avaliação|
 
-Além dessas imagens pré-configuradas, você também pode [criar uma máquina virtual do Azure](virtual-machines-windows-tutorial.md) sem o SQL Server pré-instalado. Você pode instalar qualquer instância do SQL Server para a qual tenha uma licença. Migre sua licença do Azure para executar o SQL Server em uma Máquina Virtual do Azure usando a [Mobilidade de Licença por meio do Software Assurance no Azure](http://azure.microsoft.com/pricing/license-mobility/). Nesse cenário, você paga apenas pelos [custos](http://azure.microsoft.com/pricing/details/virtual-machines) de computação e armazenamento do Azure associados com a máquina virtual.
+>[AZURE.NOTE]As imagens da galeria de máquinas virtuais para data warehousing e cargas de trabalho transacionais (não mostradas acima) foram preteridas e serão removidas da galeria em breve. Use as imagens padrão na tabela anterior e otimizar o desempenho de sua carga de trabalho específica, seguindo as recomendações em [práticas recomendadas de desempenho para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md).
+
+Além dessas imagens pré-configuradas, você também pode [criar uma máquina virtual do Azure](virtual-machines-windows-tutorial.md) sem o SQL Server pré-instalado. Você pode instalar qualquer instância do SQL Server para a qual tenha uma licença. Migre sua licença do Azure para executar o SQL Server em uma Máquina Virtual do Azure usando a [Mobilidade de Licença por meio do Software Assurance no Azure](http://azure.microsoft.com/pricing/license-mobility/). Neste cenário, você paga apenas pelos [custos](http://azure.microsoft.com/pricing/details/virtual-machines) de computação e de armazenamento do Azure associados à máquina virtual.
 
 Durante esses estágios iniciais de provisionamento e configuração, as tarefas comuns incluem:
 
@@ -56,7 +53,7 @@ Durante esses estágios iniciais de provisionamento e configuração, as tarefas
 
 ### Migrar seus dados
 
-Depois que sua máquina virtual do SQL Server estiver em execução, talvez você queira migrar bancos de dados existentes para a máquina. Há várias técnicas, mas o assistente de implantação no SQL Server Management Studio funciona bem para a maioria dos cenários. Para consultar uma discussão sobre os cenários e um tutorial do assistente, acesse [Migrando um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-migrate-onpremises-database.md).
+Depois que sua máquina virtual do SQL Server estiver em execução, talvez você queira migrar bancos de dados existentes para a máquina. Há várias técnicas, mas o assistente de implantação no SQL Server Management Studio funciona bem para a maioria dos cenários. Para consultar uma discussão sobre os cenários e um tutorial do assistente, consulte [Migrando um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-migrate-onpremises-database.md).
 
 ## Alta disponibilidade
 
@@ -66,12 +63,13 @@ Para configurar manualmente o grupo de disponibilidade e escuta associado, consu
 
 - [Configurar os Grupos de Disponibilidade AlwaysOn no Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [Configurar um ouvinte de ILB para grupos de disponibilidade do AlwaysOn no Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Implantar o SQL Server AlwaysOn com um modelo do Gerenciador de Recursos do Azure](virtual-machines-workload-template-sql-alwayson.md)
 - [Estender Grupos de Disponibilidade AlwaysOn locais para o Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 Para outras considerações sobre alta disponibilidade, consulte [alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## Backup e restauração
-Para bancos de dados locais, o Azure pode agir como um data center secundário para armazenar arquivos de backup do SQL Server. Para obter uma visão geral das opções de backup e restauração, consulte [Backup e restauração do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-backup-and-restore.md).
+Para bancos de dados locais, o Azure pode agir como um data center secundário para armazenar arquivos de backup do SQL Server. Para obter uma visão geral das opções de backup e restauração, consulte [Backup e restauração do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-backup-and-restore.md).
 
 O [Backup do SQL Server para URL](https://msdn.microsoft.com/library/dn435916.aspx) armazena arquivos de backup do Azure no armazenamento de blob do Azure. O [Backup Gerenciado do SQL Server](https://msdn.microsoft.com/library/dn449496.aspx) permite agendar o backup e a retenção no Azure. Esses serviços podem ser usados com instâncias locais do SQL Server ou com o SQL Server em execução em VMs do Azure. As VMs do Azure também podem tirar proveito do [Backup Automatizado](virtual-machines-sql-server-automated-backup.md) e de [Patches Automatizados](virtual-machines-sql-server-automated-patching.md) para o SQL Server.
 
@@ -110,7 +108,7 @@ A instalação do SQL Server na imagem da plataforma contém as seguintes config
 |Serviços de qualidade de dados|Instalado (somente SQL Server 2012 ou posterior)|
 |Serviços de dados mestre|Instalado (somente SQL Server 2012 ou posterior). Exige [configuração e componentes adicionais](https://msdn.microsoft.com/library/ee633752.aspx)
 |PowerPivot para SharePoint|Disponível (somente SQL Server 2012 ou posterior). Exige configuração e componentes adicionais (incluindo o SharePoint)|
-|Distributed Replay Client|Disponível (somente SQL Server 2012 ou posterior), mas não instalado. Consulte [Executando a instalação do SQL Server pela imagem do SQL Server fornecida pela plataforma](#running-sql-server-setup-from-the-platform-provided-sql-server-image)|
+|Distributed Replay Client|Disponível (somente SQL Server 2012 ou posterior), mas não instalado. Consulte [Executando a instalação do SQL Server da imagem do SQL Server fornecida pela plataforma](#run-sql-server-setup-from-the-platform-provided-sql-server-image)|
 |Ferramentas|Todas as ferramentas, incluindo o SQL Server Management Studio, o SQL Server Configuration Manager, o Business Intelligence Development Studio, a instalação do SQL Server, a Conectividade das Ferramentas de Cliente, o SDK de Ferramentas de Cliente, o SDK de Conectividade de Cliente SQL e as ferramentas de atualização e migração, como aplicativos da camada de dados (DAC), backup, restauração, anexar e desanexar|
 |Manuais Online do SQL Server|Instalado, mas exige configuração usando o Visualizador da Ajuda|
 
@@ -128,9 +126,11 @@ As seguintes configurações do mecanismo de banco de dados são definidas. Para
 |Idioma padrão|Inglês|
 |Encadeamento de propriedade de bancos de dados|Desativar|
 
+### Programa de Aperfeiçoamento da Experiência do Usuário (CEIP)
+
 O [Programa de Aperfeiçoamento da Experiência do Usuário (CEIP)](https://technet.microsoft.com/library/cc730757.aspx) está habilitado. Você pode desabilitar o CEIP por meio do utilitário de Relatório de Erro e Uso do SQL Server. Para iniciar o utilitário de Relatório de Erro e Uso do SQL Server, no menu Iniciar, clique em Todos os Programas, em Microsoft SQL Server versão, em Ferramentas de Configuração e, em seguida, clique em Relatório de Erro e Uso do SQL Server. Se não quiser usar uma instância do SQL Server com o CEIP habilitado, também é possível implantar sua própria imagem de máquina virtual no Azure. Para saber mais, consulte [Criando e carregando um Disco Rígido Virtual que contém o sistema operacional Windows Server](virtual-machines-create-upload-vhd-windows-server.md).
 
-### Executando a instalação do SQL Server pela imagem do SQL Server fornecida pela plataforma
+## Execute a instalação do SQL Server da imagem do SQL Server fornecida pela plataforma
 
 Se criar uma máquina virtual usando uma imagem do SQL Server fornecida pela plataforma, você pode encontrar a mídia de instalação do SQL Server salva na máquina virtual, no diretório **C:\\SqlServer\_SQLMajorVersion.SQLMinorVersion\_Full**. Você pode executar a instalação desse diretório para realizar qualquer ação de instalação, inclusive adicionar ou remover recursos, adicionar uma nova instância ou reparar a instância se o espaço em disco permitir.
 
@@ -144,4 +144,4 @@ Se criar uma máquina virtual usando uma imagem do SQL Server fornecida pela pla
 - [Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Máquinas Virtuais do Azure](virtual-machines-about.md) 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

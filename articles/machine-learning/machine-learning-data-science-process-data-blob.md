@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="Processar dados de blob do Azure com análises avançadas | Microsoft Azure" 
-	description="Processar dados no Armazenamento de Blob do Azure." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Processar dados de blob do Azure com análises avançadas | Microsoft Azure"
+	description="Processar dados no Armazenamento de Blob do Azure."
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>Processar dados de blob do Azure com análises avançadas
 
-Este documento aborda a exploração de dados e a geração de recursos por meio dos dados armazenados no Armazenamento de Blob do Azure. Para fazer isso, os dados devem ser baixados da fonte de blob para um arquivo local que pode então ser carregado em um quadro de dados Pandas para exploração e manipulação. Siga essas etapas:
+Este documento aborda a exploração de dados e a geração de recursos por meio dos dados armazenados no Armazenamento de Blob do Azure.
+
+## Carregar os dados em um quadro de dados Pandas
+Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um quadro de dados Pandas. Aqui estão as etapas para este procedimento:
 
 1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo pelos valores específicos: 
 
@@ -185,4 +188,4 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

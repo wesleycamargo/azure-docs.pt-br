@@ -259,6 +259,8 @@ Ao fazer backup de uma fonte de dados pela primeira vez, o DPM precisa criar uma
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
+### Alterando o tamanho da réplica do DPM e o volume de ponto de recuperação
+Você também pode alterar o tamanho do volume de réplica do DPM, bem como o volume de cópia de sombra usando o cmdlet [Set-DPMDatasourceDiskAllocation] (https://technet.microsoft.com/pt-BR/library/hh881618(v=sc.20).aspx), como no exemplo abaixo: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### Confirmando as alterações ao Grupo de Proteção
 Por último, as alterações precisam ser confirmadas antes que o DPM possa fazer o backup de acordo com a nova configuração do Grupo de Proteção. Isso é feito usando o cmdlet [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758).
@@ -266,7 +268,6 @@ Por último, as alterações precisam ser confirmadas antes que o DPM possa faze
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
-
 ## Exibir os pontos de backup
 Você pode usar o cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) para obter uma lista de todos os pontos de recuperação para uma fonte de dados. Neste exemplo, vamos: buscar todos os GPs no servidor DPM que serão armazenados em uma matriz ```$PG```; obter as fontes de dados que correspondem a ```$PG[0]```; obter todos os pontos de recuperação para uma fonte de dados.
 
@@ -300,4 +301,4 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 ## Próximas etapas
 Para obter mais informações sobre o Backup do Azure para DPM, consulte [Introdução ao Backup de DPM do Azure](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

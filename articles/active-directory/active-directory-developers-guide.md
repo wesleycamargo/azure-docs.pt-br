@@ -1,20 +1,20 @@
 <properties
    pageTitle="Guia do desenvolvedor do Active Directory do Azure | Microsoft Azure"
-   description="Este artigo fornece um guia abrangente para recursos para desenvolvedores do Active Directory do Azure."
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Este artigo fornece um guia abrangente para recursos para desenvolvedores do Active Directory do Azure."
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/12/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/12/2015"
+	ms.author="mbaldwin"/>
 
 
 # Guia do desenvolvedor do Active Directory do Azure
@@ -40,19 +40,24 @@ Para exibir as visões gerais do Active Directory do Azure apresentadas na confe
 
 Esses tutoriais são adaptados para várias plataformas e permitem que você comece a desenvolver rapidamente com o Active Directory do Azure. Como um pré-requisito, você deve [Obter um locatário do Active Directory do Azure](active-directory-howto-tenant.md).
 
-### Guias de início rápido de aplicativo móvel ou para PC
+### Guias de início rápido para aplicativo móvel ou PC
 
 |[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![Windows Store](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
 
-### Guias de início rápido para aplicativos Web ou API da Web
+### Guias de início rápido para aplicativos Web ou API Web
 
 |[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
 |:--:|:--:|:--:|:--:
 |[Aplicativo Web .NET](active-directory-devquickstarts-webapp-dotnet.md)|[API da Web .NET](active-directory-devquickstarts-webapi-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
+### Consultando o guia de início rápido do diretório
+
+| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)|
+|:--:|
+|[API gráfica](active-directory-graph-api-quickstart.md)|
 
 ## Instruções
 
@@ -70,36 +75,36 @@ Esses artigos descrevem como executar tarefas específicas usando o Active Direc
 Esses artigos fornecem referências básicas para REST e biblioteca de autenticação APIs, protocolos, erros, exemplos de código e pontos de extremidade.
 
 ###  Suporte
-- [Perguntas marcadas](http://stackoverflow.com/questions/tagged/azure-active-directory): Localize soluções em Stack Overflow no Azure Active do Azure procurando pelas guias [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) e [adal](http://stackoverflow.com/questions/tagged/adal).
+- [Perguntas marcadas](http://stackoverflow.com/questions/tagged/azure-active-directory): localize soluções em Stack Overflow no Active Directory do Azure procurando pelas marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) e [adal](http://stackoverflow.com/questions/tagged/adal).
 
 ### Código
 
-- [Bibliotecas de código livre do Active Directory do Azure](http://github.com/AzureAD): A maneira mais fácil de localizar o código-fonte de uma biblioteca é usando nossa [lista de bibliotecas](active-directory-authentication-libraries.md).
+- [Bibliotecas de código aberto do Active Directory do Azure](http://github.com/AzureAD): a maneira mais fácil de localizar o código aberto de uma biblioteca é usando nossa [lista de bibliotecas](active-directory-authentication-libraries.md).
 
-- [Exemplos do Active Directory do Azure](http://github.com/AzureADSamples): A maneira mais fácil para navegar pela lista de exemplos é usando o [índice de exemplos de código](active-directory-code-samples.md).
+- [Exemplos do Active Directory do Azure](http://github.com/AzureADSamples): a maneira mais fácil para navegar pela lista de exemplos é usando o [índice de exemplos de código](active-directory-code-samples.md).
 
 
 ### API gráfica
 
 - [Referência da Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx): referência REST para a Graph API do Active Directory do Azure. [Exiba a experiência de referência da Graph API interativa](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Escopos de permissão da Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): Os escopos de permissão do OAuth 2.0 que são usados para controlar o acesso que um aplicativo tem aos dados do diretório em um locatário.
+- [Escopos de permissão da Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): os escopos de permissão do OAuth 2.0 que são usados para controlar o acesso que um aplicativo tem aos dados do diretório em um locatário.
 
 
 ### Protocolos de autenticação
 
-- [Referência de protocolo do SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx): O protocolo do SAML 2.0 permite que os aplicativos forneçam uma experiência de logon único para seus usuários.
+- [Referência de protocolo do SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx): o protocolo do SAML 2.0 permite que os aplicativos forneçam uma experiência de logon único para seus usuários.
 
 
-- [Referência de protocolo do OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx): Vocês pode usar o protocolo do OAuth 2.0 para autorizar o acesso a aplicativos Web e APIs da Web em seu locatário do Active Directory do Azure.
+- [Referência de protocolo do OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx): você pode usar o protocolo do OAuth 2.0 para autorizar o acesso a aplicativos Web e APIs Web em seu locatário do Active Directory do Azure.
 
 
-- [Referência de protocolo do OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx): O protocolo do OpenID Connect 1.0 estende o OAuth 2.0 para uso como um protocolo de autenticação.
+- [Referência de protocolo do OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx): o protocolo do OpenID Connect 1.0 estende o OAuth 2.0 para uso como um protocolo de autenticação.
 
 
-- [Referência de protocolo do WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): O protocolo do WS-Federation 1.2 é descrito na Especificação Web Services Federation Versão 1.2.
+- [Referência de protocolo do WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): o protocolo do WS-Federation 1.2 é descrito na Especificação Web Services Federation Versão 1.2.
 
-- [Suporte para tipos de token e declaração](active-directory-token-and-claims.md): Você pode usar esta guia para compreender e avaliar as declarações em tokens SAML 2.0 e JSON Web Tokens (JWT).
+- [Suporte para tipos de token e declaração](active-directory-token-and-claims.md): você pode usar este guia para compreender e avaliar as declarações em tokens SAML 2.0 e Tokens JSON Web (JWT).
 
 ## Vídeos
 
@@ -112,7 +117,7 @@ Essas apresentações de visão geral sobre o desenvolvimento de aplicativos usa
 - [Desenvolva aplicativos nativos modernos com o Active Directory do Azure](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) é uma série de vídeos introdutórios periódicos com o objetivo de oferecer entrevistas curtas de 10 a 15 minutos com especialistas sobre uma variedade de tópicos do Azure. Use o recurso de filtro de serviços na página para ver todos os vídeos do Azure Active Directory.
+O [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) é uma série de vídeos introdutórios periódicos com o objetivo de oferecer entrevistas curtas de 10 a 15 minutos com especialistas sobre uma variedade de tópicos do Azure. Use o recurso de filtro de serviços na página para ver todos os vídeos do Azure Active Directory.
 
 - [Identidade do Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Identidade do Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -120,12 +125,12 @@ Essas apresentações de visão geral sobre o desenvolvimento de aplicativos usa
 
 ## Redes sociais
 
-- [Blog da Equipe do Active Directory](http://blogs.technet.com/b/ad/): Os desenvolvimentos mais recentes no mundo do Active Directory do Azure.
+- [Blog da Equipe do Active Directory](http://blogs.technet.com/b/ad/): os desenvolvimentos mais recentes no mundo do Active Directory do Azure.
 
-- [Blog da Equipe do Active Directory do Azure Graph](http://blogs.msdn.com/b/aadgraphteam): Informações do Active Directory do Azure que são específicas à Graph API.
+- [Blog da Equipe do Active Directory do Azure Graph](http://blogs.msdn.com/b/aadgraphteam): informações do Active Directory do Azure que são específicas à Graph API.
 
-- [Identidade em Nuvem](http://www.cloudidentity.net): Considerações sobre gerenciamento de identidades como um serviço de um PM principal do Active Directory do Azure.
+- [Identidade em Nuvem](http://www.cloudidentity.net): considerações sobre gerenciamento de identidades como um serviço de um PM principal do Active Directory do Azure.
 
-- [Active Directory do Azure no Twitter](https://twitter.com/azuread): Avisos do Active Directory do Azure em 140 caracteres ou menos.
+- [Active Directory do Azure no Twitter](https://twitter.com/azuread): avisos do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

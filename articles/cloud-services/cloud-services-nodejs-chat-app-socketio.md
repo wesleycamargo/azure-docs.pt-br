@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Aplicativo Node.js usando Socket.io | Microsoft Azure" 
-	description="Saiba como usar socket.io em um aplicativo node.js hospedado no Azure." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Aplicativo Node.js usando Socket.io | Microsoft Azure"
+	description="Saiba como usar socket.io em um aplicativo node.js hospedado no Azure."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="TomArcher"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="tarcher"/>
 
 
 
@@ -28,6 +28,14 @@ A seguinte é uma captura de tela do aplicativo concluído:
 
 ![Uma janela do navegador exibindo o serviço hospedado no Azure][completed-app]
 
+## Pré-requisitos
+
+Verifique se os seguintes produtos e versões estão instalados para concluir com êxito o exemplo deste artigo:
+
+* Instale o [Visual Studio 2013](https://www.visualstudio.com/pt-BR/downloads/download-visual-studio-vs.aspx)
+* Instale o [Node.js](https://nodejs.org/download/)
+* Instale o [Python versão 2.7.10](https://www.python.org/)
+
 ## Criar um projeto de Serviço de Nuvem
 
 As etapas a seguir criam o projeto de serviço de nuvem que hospedará o aplicativo Socket.IO.
@@ -36,11 +44,15 @@ As etapas a seguir criam o projeto de serviço de nuvem que hospedará o aplicat
 
 	![Ícone PowerShell do Azure][powershell-menu]
 
-	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
+2. Crie um diretório chamado **c:\\node**.
+ 
+		PS C:\> md node
 
+3. Altere os diretórios para o diretório **c:\\node**
+ 
+		PS C:\> cd node
 
-
-2. Altere os diretórios para o diretório **c:\\node** e digite os seguintes comandos para criar uma nova solução denominada **chatapp** e uma função de trabalho denominada **WorkerRole1**:
+4. Digite os seguintes comandos para criar uma nova solução denominada **chatapp** e uma função de trabalho denominada **WorkerRole1**:
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -69,7 +81,7 @@ Para este projeto, usaremos o exemplo de chat do repositório [Socket.IO GitHub]
 
 Antes de testar o aplicativo no emulador do Windows Azure, é necessário fazer algumas modificações secundárias. Execute as seguintes etapas para o arquivo server.js:
 
-1.  Abra o arquivo server.js no Bloco de Notas ou em outro editor de texto.
+1.  Abra o arquivo **server.js** no Visual Studio ou em qualquer editor de texto.
 
 2.  Encontrar as **dependências do módulo** seção no início de app.js e altere a linha que contém **sio = require('..//..//lib//socket.io')** para **sio = require('socket.io')** como mostrado abaixo:
 
@@ -87,7 +99,7 @@ Antes de testar o aplicativo no emulador do Windows Azure, é necessário fazer 
 		  console.log('   app listening on http://' + addr.address + ':' + addr.port);
 		});
 
-Depois de salvar as alterações no server.js, use as seguintes etapas para instalar os módulos necessários e testar o aplicativo no emulador do Azure:
+Depois de salvar as alterações no **server.js**, use as seguintes etapas para instalar os módulos necessários e testar o aplicativo no emulador do Azure:
 
 1.  Usando o **PowerShell do Azure**, altere os diretórios para o diretório **C:\\node\\chatapp\\WorkerRole1** e use o seguinte comando para instalar os módulos necessários por esse aplicativo:
 
@@ -107,7 +119,9 @@ Depois de salvar as alterações no server.js, use as seguintes etapas para inst
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  Quando a janela do navegador for aberta, digite um apelido e, em seguida, pressione enter. Isso permitirá que você poste mensagens como um apelido específico. Para testar a funcionalidade de vários usuários, abra janelas adicionais do navegador usando a mesma URL e digite apelidos diferentes.
+2.  Abra o navegador da Web e acesse ****http://127.0.0.1**.
+
+3.  Quando a janela do navegador for aberta, digite um apelido e, em seguida, pressione enter. Isso permitirá que você poste mensagens como um apelido específico. Para testar a funcionalidade de vários usuários, abra janelas adicionais do navegador usando a mesma URL e digite apelidos diferentes.
 
     ![Duas janelas de navegador exibindo mensagens de chat do Usuário1 e do Usuário2](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 
@@ -158,4 +172,4 @@ Neste tutorial, você aprendeu como criar um aplicativo de chat básico hospedad
   
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

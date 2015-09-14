@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Chamar uma API personalizada em um cliente HTML - Serviços Móveis" 
-	description="Saiba como definir uma API personalizada e chamá-la de um aplicativo HTML que usa os Serviços Móveis do Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="bureado"  
-	manager="dwrede" 
+<properties
+	pageTitle="Chamar uma API personalizada em um cliente HTML - Serviços Móveis"
+	description="Saiba como definir uma API personalizada e chamá-la de um aplicativo HTML que usa os Serviços Móveis do Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Chamar uma API personalizada a partir de um aplicativo HTML
@@ -32,9 +32,9 @@ Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de inici
 
 ##<a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
 
-1. Usando seu editor de texto, abra o arquivo index.html, localize o elemento **botão** chamado `buttonRefresh` e adicione o novo elemento abaixo logo depois dele: 
+1. Usando seu editor de texto, abra o arquivo index.html, localize o elemento **botão** chamado `buttonRefresh` e adicione o novo elemento abaixo logo depois dele:
 
-		<button id="buttonCompleteAll">Complete All</button> 
+		<button id="buttonCompleteAll">Complete All</button>
 
 	Isso adiciona um novo botão à página.
 
@@ -92,4 +92,4 @@ Além disso, considere a possibilidade de obter mais informações sobre os segu
 [Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-html-get-started-data.md
 [Scripts de servidor de armazenamento no controle do código-fonte]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

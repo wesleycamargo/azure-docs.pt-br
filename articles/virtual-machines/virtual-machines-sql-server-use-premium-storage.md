@@ -41,7 +41,7 @@ Existem vários pré-requisitos para o uso do Armazenamento Premium.
 
 ### Tamanho da máquina
 
-Para usar o Armazenamento Premium, você precisará usar máquinas virtuais (VM) da série DS. Se você não usou máquinas da série DS no seu serviço de nuvem antes, exclua a VM existente, mantenha os discos anexados e, em seguida, crie um novo serviço de nuvem antes de recriar a VM conforme o tamanho da função DS *. Para saber mais sobre tamanhos de máquinas virtuais, confira [Tamanhos de máquina virtual e serviço de nuvem para o Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) (a página pode estar em inglês).
+Para usar o Armazenamento Premium, você precisará usar máquinas virtuais (VM) da série DS. Se você não usou máquinas da série DS no seu serviço de nuvem antes, exclua a VM existente, mantenha os discos anexados e, em seguida, crie um novo serviço de nuvem antes de recriar a VM conforme o tamanho da função DS *. Para saber mais sobre tamanhos de máquinas virtuais, confira [Tamanhos de máquina virtual e serviço de nuvem para o Azure](virtual-machines-size-specs.md) (a página pode estar em inglês).
 
 ### Serviços de Nuvem
 
@@ -141,7 +141,7 @@ Após o mapeamento de VHDs para discos físicos nos pools de armazenamento, voc�
 
 ### Largura de banda de armazenamento de VM e taxa de transferência de armazenamento de VHD 
 
-O desempenho de armazenamento depende do tamanho da VM DS* especificado e dos tamanhos de VHD. As VMs têm concessões diferentes para o número de VHDs que podem ser anexados e a largura de banda máxima que aceitarão (MB/s). Para obter os números de largura de banda específicos, consulte [Máquina virtual e tamanhos de serviço de nuvem do Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+O desempenho de armazenamento depende do tamanho da VM DS* especificado e dos tamanhos de VHD. As VMs têm concessões diferentes para o número de VHDs que podem ser anexados e a largura de banda máxima que aceitarão (MB/s). Para obter os números de largura de banda específicos, consulte [Máquina virtual e tamanhos de serviço de nuvem do Azure](virtual-machines-size-specs.md).
 
 Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e tipos de disco](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-bring-premium-storage).
 
@@ -1143,4 +1143,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

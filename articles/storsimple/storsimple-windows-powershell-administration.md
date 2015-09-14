@@ -1,35 +1,35 @@
 <properties 
-   pageTitle="Usar o Windows PowerShell para StorSimple para administrar seu dispositivo StorSimple | Microsoft Azure"
-   description="Aprenda a gerenciar o seu dispositivo StorSimple usando o Windows PowerShell para StorSimple"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Gerenciamento de dispositivos do PowerShell para StorSimple | Microsoft Azure"
+	description="Saiba como usar o Windows PowerShell para StorSimple para administrar seu dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/19/2015"
-   ms.author="alkohli@microsoft.com" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/28/2015"
+	ms.author="alkohli@microsoft.com"/>
 
 # Usar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
 ## Visão geral
+
 O Windows PowerShell para StorSimple oferece uma interface de linha de comando que você pode usar para gerenciar o seu dispositivo Microsoft Azure StorSimple. Como o nome sugere, é uma interface de linha de comando baseada no Windows PowerShell criada em um espaço de execução restrito. Da perspectiva do usuário na linha de comando, um espaço de execução restrito aparece como uma versão restrita do Windows PowerShell. Mantendo alguns dos recursos básicos do Windows PowerShell, essa interface possui cmdlets dedicados adicionais que se destinam a gerenciar seu dispositivo Microsoft Azure StorSimple.
 
-Este artigo descreve os recursos do Windows PowerShell para StorSimple, incluindo como você pode se conectar a essa interface e links para procedimentos passo a passo de fluxos de trabalho que podem ser executados usando esta interface. Os fluxos de trabalho incluem como registrar seu dispositivo, configurar a interface de rede em seu dispositivo, instalar atualizações que exigem o dispositivo esteja no modo de manutenção, alterar o estado do dispositivo e solucionar quaisquer problemas que possam ocorrer.
+Este artigo descreve os recursos do Windows PowerShell para StorSimple, incluindo como você pode se conectar a essa interface, e contém links para procedimentos passo a passo de fluxos de trabalho que podem ser executados usando esta interface. Os fluxos de trabalho incluem como registrar seu dispositivo, configurar a interface de rede em seu dispositivo, instalar atualizações que exigem o dispositivo esteja no modo de manutenção, alterar o estado do dispositivo e solucionar quaisquer problemas que possam ocorrer.
 
 Neste artigo, você aprenderá a:
 
+- Conecte-se ao seu dispositivo StorSimple usando o Windows PowerShell para StorSimple.
 
-- Conectar o seu dispositivo StorSimple usando o Windows PowerShell para StorSimple
+- Administre o seu dispositivo StorSimple usando o Windows PowerShell para StorSimple.
 
-- Administrar o seu dispositivo StorSimple usando o Windows PowerShell para StorSimple
-
-- Obter ajuda no Windows PowerShell para StorSimple
+- Obtenha ajuda no Windows PowerShell para StorSimple.
 
 >[AZURE.NOTE]
 
@@ -95,7 +95,7 @@ Certifique-se de usar as seguintes configurações de PuTTY para conectar-se à 
  	|---|---|
  	|Tecla BACKSPACE|Control-? (127)|
 	|Teclas Home e End|Padrão|
-	|Teclado numérico e teclas de função|ESC[n\~|
+	|Teclado numérico e teclas de função|ESC[n~|
 	|Estado inicial das teclas de cursor|Normal|
 	|Estado inicial do teclado numérico|Normal|
 	|Habilitar recursos adicionais do teclado|Control-Alt é diferente de AltGr|
@@ -197,4 +197,4 @@ Você pode atualizar facilmente a Ajuda na interface do Windows PowerShell. Exec
 ## Próximas etapas
 Se você tiver problemas com seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima, consulte [Ferramentas para solucionar problemas em implantações de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

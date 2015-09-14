@@ -1,20 +1,20 @@
 <properties
    pageTitle="Criando uma identidade corporativa ou de estudante no Active Directory do Azure"
-   description="Descreve como criar uma identidade corporativa ou de estudante com sua identidade pessoal para ser usada com modelos de grupo de recursos ou acesso baseado em função, entre outros recursos."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+	description="Descreve como criar uma identidade corporativa ou de estudante com sua identidade pessoal para ser usada com modelos de grupo de recursos ou acesso baseado em função, entre outros recursos."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure"
-   ms.date="05/05/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure"
+	ms.date="09/01/2015"
+	ms.author="rasquill"/>
 
 # Criando uma identidade corporativa ou de estudante no Active Directory do Azure
 
@@ -140,4 +140,4 @@ Você agora pode aproveitar a sua nova identidade do Active Directory do Azure p
     data:
     info:    group create command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

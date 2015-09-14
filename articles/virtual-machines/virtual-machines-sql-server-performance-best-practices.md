@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
 # Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
@@ -29,45 +29,13 @@ Para obter um recurso complementar sobre este tópico, [baixe o white paper a se
 
 Veja a seguir uma lista de verificação rápida para obter o melhor desempenho do SQL Server em máquinas virtuais do Azure:
 
-- Use o [Armazenamento Premium](../storage/storage-premium-storage-preview-portal.md).
-
-- Use um [tamanho de VM](virtual-machines-size-specs.md) DS3 ou superior para a edição SQL Enterprise e DS2 ou superior para a edição SQL Standard.
-
-- Usar no mínimo dois [discos P30](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-whpt-BRing-premium-storage) (um para arquivos de log; um para arquivos de dados e o TempDB).
-
-- Mantenha a [conta de armazenamento](../storage/storage-create-storage-account.md) e a VM do SQL Server na mesma região.
-
-- Desabilite o [armazenamento com redundância geográfica](../storage/storage-redundancy.md) do Azure (replicação geográfica) na conta de armazenamento.
-
-- Evite usar o sistema operacional ou discos temporários para armazenamento de banco de dados ou registro em log.
-
-- Habilite o caching nos discos que hospedam os arquivos de dados e o TempDB.
-
-- Não habilite o caching em discos que hospedam o arquivo de log.
-
-- Particione vários discos de dados do Azure para obter maior taxa de transferência de E/S.
-
-- Formate com tamanhos de alocação documentados.
-
-- Habilite a compactação de página do banco de dados.
-
-- Habilite a inicialização instantânea de arquivos para arquivos de dados.
-
-- Limite ou desabilite o crescimento automático no banco de dados.
-
-- Desabilite a redução automática no banco de dados.
-
-- Mova todos os bancos de dados para discos de dados, incluindo bancos de dados do sistema.
-
-- Mova o log de erros do SQL Server e os diretórios de arquivos de rastreamento para discos de dados
-
-- Aplique correções de desempenho do SQL Server.
-
-- Configure os locais padrão.
-
-- Habilite as páginas bloqueadas.
-
-- Faça backup diretamente no armazenamento de blob.
+|Área|Otimizações|
+|---|---|
+|**Tamanho da VM**|[DS3](virtual-machines-size-specs.md#standard-tier-ds-series) ou superior para a edição SQL Enterprise.<br/><br/>[DS2](virtual-machines-size-specs.md#standard-tier-ds-series) ou superior para as edições SQL Standard e Web.|
+|**Armazenamento**|Use o [Armazenamento Premium](../storage/storage-premium-storage-preview-portal.md).<br/><br/>Mantenha a [conta de armazenamento](../storage/storage-create-storage-account.md) e a VM do SQL Server na mesma região.<br/><br/>Desabilite o [armazenamento com redundância geográfica](../storage/storage-redundancy.md) (replicação geográfica) do Azure na conta de armazenamento.|
+|**Discos**|Use no mínimo 2 [discos P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-BRing-premium-storage) (1 para arquivos de log; 1 para arquivos de dados e TempDB).<br/><br/>Evite usar o sistema operacional ou discos temporários para armazenamento de banco de dados ou log.<br/><br/>Habilite o cache de leitura no disco que hospeda os arquivos de dados e TempDB.<br/><br/>Não habilite o cache em discos que hospedam o arquivo de log.<br/><br/>Distribua vários discos de dados do Azure para obter maior rendimento de ES.<br/><br/>Formate com tamanhos de alocação documentados.|
+|**E/S**|Habilite a compactação de página do banco de dados.<br/><br/>Habilite a inicialização instantânea de arquivo para arquivos de dados.<br/><br/>Limite ou desabilite o crescimento automático no banco de dados.<br/><br/>Desative a redução automática do banco de dados.<br/><br/>Mova todos os bancos de dados para os discos de dados, incluindo bancos de dados do sistema.<br/><br/>Mova o log de erros do SQL Server e os diretórios de arquivos de rastreamento para discos de dados.<br/><br/>Configure os locais padrão de arquivos de backup e de banco de dados.<br/><br/>Habilite as páginas bloqueadas.<br/><br/>Aplique correções de desempenho do SQL Server.|
+|**Recursos específicos**|Faça backup diretamente no armazenamento de blob.|
 
 Para saber mais, siga as diretrizes fornecidas nas subseções a seguir.
 
@@ -77,7 +45,7 @@ Para aplicativos sensíveis ao desempenho, recomenda-se o uso dos seguintes tama
 
 - **SQL Server Enterprise Edition**: DS3 ou superior
 
-- **SQL Server Standard Edition**: DS2 ou superior
+- **SQL Server Standard e Web Editions**: DS2 ou superior
 
 Para obter informações atualizadas sobre os tamanhos de máquina virtual com suporte, consulte [Tamanhos de máquinas virtuais](virtual-machines-size-specs.md).
 
@@ -101,7 +69,7 @@ Armazene somente o TempDB e/ou Extensões do Pool de Buffer na unidade **D** ao 
 
 ### Disco de dados
 
-- **Número de discos de dados para arquivos de dados e de log**: no mínimo, use dois [discos P30](../storage/storage-premium-storage-preview-portal.md), sendo que um deles contém os arquivos de log e o outro contém os arquivos de dados e o TempDB. Para obter uma taxa de transferência superior, talvez seja necessário mais discos de dados. Para determinar o número de discos de dados, você precisa analisar o número de IOPS disponível para seus discos de dados e de log. Para obter essas informações, consulte as tabelas sobre IOPS por [tamanho da VM](virtual-machines-size-specs.md) e tamanho de disco no seguinte artigo: [Usando o Armazenamento Premium para discos](../storage/storage-premium-storage-preview-portal.md). Se você precisar de mais largura de banda, anexe outros discos usando o Particionamento de Disco. Se você não estiver usando o Armazenamento Premium, a recomendação será adicionar o número máximo de discos de dados suportados pelo [Tamanho da VM](virtual-machines-size-specs.md) e usar a Distribuição de disco. Para saber mais sobre Distribuição de disco, consulte a seção relacionada abaixo.
+- **Número de discos de dados para arquivos de dados e de log**: no mínimo, use dois [discos P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-BRing-premium-storage), sendo que um deles contém os arquivos de log e o outro contém os arquivos de dados e o TempDB. Para obter uma taxa de transferência superior, talvez seja necessário mais discos de dados. Para determinar o número de discos de dados, você precisa analisar o número de IOPS disponível para seus discos de dados e de log. Para obter essas informações, consulte as tabelas sobre IOPS por [tamanho da VM](virtual-machines-size-specs.md) e tamanho de disco no seguinte artigo: [Usando o Armazenamento Premium para discos](../storage/storage-premium-storage-preview-portal.md). Se você precisar de mais largura de banda, anexe outros discos usando o Particionamento de Disco. Se você não estiver usando o Armazenamento Premium, a recomendação será adicionar o número máximo de discos de dados suportados pelo [Tamanho da VM](virtual-machines-size-specs.md) e usar a Distribuição de disco. Para saber mais sobre Distribuição de disco, consulte a seção relacionada abaixo.
 
 - **Política de caching**: habilite o caching nos discos de dados que hospedam seus arquivos de dados e TempDB. Se você não estiver usando o Armazenamento Premium, não habilite o caching em discos de dados. Para obter instruções sobre como configurar o caching de disco, consulte os tópicos a seguir: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
@@ -161,4 +129,4 @@ Para conferir as práticas recomendadas de segurança, consulte [Considerações
 
 Revise outros tópicos sobre máquina virtual do SQL Server em [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

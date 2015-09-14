@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Registrar-se para autenticação do Google | Microsoft Azure" 
-	description="Saiba como registrar seus aplicativos para usar o Google para autenticar com os Serviços Móveis do Azure." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="ggailey777" 
-	manager="dwrede" 
+	pageTitle="Registrar-se para autenticação do Google | Microsoft Azure"
+	description="Saiba como registrar seus aplicativos para usar o Google para autenticar com os Serviços Móveis do Azure."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/27/2015"
 	ms.author="glenga"/>
 
 # Registrar seus aplicativos para logon no Google com os Serviços Móveis
@@ -26,27 +26,21 @@ Este tópico mostra a você como registrar seus aplicativos para poder usar o Go
 
 Para concluir o procedimento neste tópico, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-1. Vá até o site <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Apis do Google</a>, faça logon com suas credenciais de conta do Google, clique em **Criar projeto**, forneça um **Nome do projeto** e clique em **Criar**.
+3. Vá até o site [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) faça logon com suas credenciais de conta do Google, clique em **Criar projeto**, forneça um **Nome do projeto** e clique em **Criar**.
 
-   	![Novo projeto de API do Google](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png)
+4. Na barra de navegação à esquerda, clique em **API e Autenticação**, clique em **APIs Sociais** e clique em **API do Google+** > **Habilitar API**.
 
-2. Clique em **Tela de consentimento**, selecione seu **Endereço de Email**, insira um **Nome do Produto** e clique em **Salvar**.
+5. Clique em **API e Autenticação** > **Credenciais** > **Tela de consentimento de OAuth**, selecione seu **Endereço de email**, insira um **Nome do Produto** e clique em **Salvar**.
 
-3. Clique em **API & Auth** > **Credenciais** > **Criar nova ID de cliente**.
+6. Na guia **Credenciais**, clique em **Adicionar credenciais** > **ID do cliente OAuth 2.0** e selecione **Aplicativo Web**.
 
-   	![Criar nova ID de cliente](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png)
-
-4. Selecione **Aplicativo Web**, digite a URL de serviço móvel em **Origens de JavaScript Autorizadas**, substitua a URL gerada em **URI de Redirecionamento Autorizado** com a URL do seu serviço móvel anexada ao caminho `/login/google` e, em seguida, clique em **Criar ID do Cliente**.
+7. Digite a URL de serviço móvel em **Origens de JavaScript Autorizadas**, substitua a URL gerada em **URI de Redirecionamento Autorizado** com a URL do seu serviço móvel anexada ao caminho `/login/google` e, em seguida, clique em **Criar ID do Cliente**.
 
 	>[AZURE.NOTE]Para um serviço móvel de back-end do .NET publicado no Azure usando o Visual Studio, a URL de redirecionamento é a URL do seu serviço móvel acrescentada ao caminho _signin-google_ e o seu serviço móvel é um serviço .NET, como `https://todolist.azure-mobile.net/signin-google`. &nbsp;
+	
+8. Na próxima tela, anote os valores de ID do cliente e de segredo do cliente.
 
-   	![](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png)
-
-5. Em **ID do Cliente para aplicativos web**, anote os valores da **ID do Cliente** e do **Segredo do cliente**.
-
-   	![Credenciais do cliente](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png)
-
-    >[AZURE.IMPORTANT]O segredo do cliente é uma credencial de segurança importante. Não compartilhe esse segredo com ninguém nem o distribua com seu aplicativo.
+    > [AZURE.IMPORTANT]O segredo do cliente é uma credencial de segurança importante. Não compartilhe essa senha com ninguém nem distribua-a em um aplicativo cliente.
 
 Agora você está pronto para configurar seu serviço móvel para usar o logon do Google para autenticação em seu aplicativo.
 
@@ -62,4 +56,4 @@ Agora você está pronto para configurar seu serviço móvel para usar o logon d
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

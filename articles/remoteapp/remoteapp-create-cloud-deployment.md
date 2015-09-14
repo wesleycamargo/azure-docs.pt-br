@@ -1,34 +1,36 @@
 <properties 
-	pageTitle="Como criar uma coleção na nuvem do Azure RemoteApp" 
-	description="Saiba como criar uma implantação de nuvem do RemoteApp do Azure que salva dados na nuvem do Azure." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+	pageTitle="Como criar uma coleção na nuvem do Azure RemoteApp"
+	description="Saiba como criar uma implantação de nuvem do RemoteApp do Azure que salva dados na nuvem do Azure."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="elizapo"/>
 
 # Como criar uma coleção na nuvem do Azure RemoteApp
 
 Há dois tipos de coleções do Azure RemoteApp:
 
-- Nuvem: reside completamente no Azure e é criada usando a opção **Criação rápida** no Portal de Gerenciamento do Azure.  
-- Híbrido: inclui uma rede virtual para acesso local e é criado usando a opção **Criar com VNET** no Portal de Gerenciamento.
+- Nuvem: reside completamente no Azure. Você pode optar por salvar todos os dados na nuvem (para uma coleção somente da nuvem) ou conectar sua coleção a uma VNET e salvar os dados lá.   
+- Híbrido: inclui uma rede virtual para acesso local - isso requer o uso do Azure AD e um ambiente do Active Directory local.
 
 Este tutorial explica o processo de criação de uma implantação de nuvem. Há quatro etapas:
 
 1.	Criar uma coleção de RemoteApp.
-2.	Opcionalmente, configure a sincronização do diretório. O RemoteApp exige esta sincronização de usuários, grupos, contatos e senhas do seu Active Directory local para o seu locatário do Active Directory do Azure.
+2.	Opcionalmente, configure a sincronização do diretório. Se você estiver usando o Azure AD e o Active Directory, você precisa sincronizar usuários, contatos e senhas a partir do Active Directory local para o seu locatário do Azure AD.
 5.	Publicar aplicativos do RemoteApp.
 6.	Configurar o acesso do usuário.
+
+**Observação:** *este tópico está sendo reformulado. Atualizei as etapas para refletir a nova interface do usuário, mas ainda não consigo republicar o tópico inteiro. Estou trabalhando em alguns dos novos artigos que facilitará muito mais a detecção das opções de autenticação e coleção. Portanto, se você estiver confuso, saiba que eu o sei, e estou trabalhando o mais rápido possível para obter mais informações para você. Obrigado.*
 
 **Antes de começar**
 
@@ -37,11 +39,15 @@ Você precisa fazer o seguinte antes de criar a coleção:
 - [Inscreva-se](http://azure.microsoft.com/services/remoteapp/) no RemoteApp do Azure. 
 - Colete informações sobre os usuários aos quais deseja conceder acesso. Podem ser informações da conta da Microsoft ou da conta corporativa do Active Directory para usuários ou grupos.
 - Este procedimento pressupõe que usará ou uma das imagens de modelo fornecidas como parte de sua assinatura ou que você já carregou a imagem do modelo que deseja usar. Se desejar fazer o upload da imagem do modelo, é possível fazer isso na página Imagens do modelo. Apenas clique em **Fazer o upload de uma imagem do modelo** e siga as etapas do assistente. 
+- Deseja usar a imagem do Office 365 ProPlus? Verifique as informações [aqui](remoteapp-officesubscription.md).
 - Deseja fornecer aplicativos personalizados ou programas LOB? Crie uma nova [imagem](remoteapp-imageoptions.md) e use-a em sua coleção de nuvem.
+- Descubra se você precisa conectar-se a uma VNET. Se você optar por conectar-se a uma VNET, verifique se ele atende às diretrizes de dimensionamento e se ela pode se conectar ao RemoteApp.
+- Se você estiver usando uma VNET, decida se deseja colocá-la em seu domínio do Active Directory local.
 
-## Etapa 1: criar uma coleção ##
+## Etapa 1: criar uma coleção na nuvem, com ou sem uma VNET##
 
 
+Use as seguintes etapas para **criar uma coleção somente na nuvem**:
 
 1. No portal de gerenciamento, vá para a página do RemoteApp.
 2. Clique em **Novo > Criação Rápida**.
@@ -58,10 +64,20 @@ Você precisa fazer o seguinte antes de criar a coleção:
 
 Após sua coleção do RemoteApp ter sido criada, clique duas vezes no nome da coleção. Isso abrirá a página **Início Rápido** - é nela que você terminará de configurar a coleção.
 
+Use as seguintes etapas para criar uma **coleção VNET + nuvem**:
+
+1. No portal de gerenciamento, vá para a página do RemoteApp.
+2. Clique em **Novo** > **Criar com VNET**.
+3. Digite um nome para a sua coleção.
+4. Escolha o plano que você deseja usar - standard ou basic.
+5. Escolha a VNET que você já criou. Não sabe como fazer isso? Por enquanto, as etapas estão no tópico [híbrido](remoteapp-create-hybrid-deployment.md).
+6. Decida se você deseja associar sua coleção ao seu domínio. Em caso afirmativo, você precisará usar a AD Connect para integrar o Azure AD e o ambiente do Active Directory. Isso é explicado abaixo na **Etapa 2**.
+6. Clique em **Criar coleção de RemoteApp**.
+
 
 ## Etapa 2: Configurar a sincronização de diretório do Active Directory (opcional) ##
 
-Se desejar usar o Active Directory, o RemoteApp exige a sincronização de diretório entre o Active Directory do Azure e o Active Directory local para sincronizar usuários, grupos, contatos e senhas com o seu locatário do Active Directory do Azure. Consulte [Configurando o Active Directory para o RemoteApp do Azure](remoteapp-ad.md) para obter informações de planejamento.
+Se desejar usar o Active Directory, o RemoteApp exige a sincronização de diretório entre o Active Directory do Azure e o Active Directory local para sincronizar usuários, grupos, contatos e senhas com o seu locatário do Active Directory do Azure. Consulte [Configurando o Active Directory para o RemoteApp do Azure](remoteapp-ad.md) para obter informações de planejamento. Você também pode ir diretamente para [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) para obter informações.
 
 ## Etapa 3: Publicar aplicativos do RemoteApp ##
 
@@ -93,4 +109,4 @@ Agora que você criou sua coleção de RemoteApp, você precisa adicionar os usu
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Como usar o Armazenamento de Blob do Ruby | Microsoft Azure" 
-	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir o conteúdo de blob. Exemplos gravados no Ruby." 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Como usar o Armazenamento de Blob do Ruby | Microsoft Azure"
+	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir o conteúdo de blob. Exemplos gravados no Ruby."
+	services="storage"
+	documentationCenter="ruby"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 
@@ -31,11 +31,11 @@ Este guia mostra como executar cenários comuns usando o serviço Blob do Azure.
 
 ## Criar um aplicativo Ruby
 
-Crie um aplicativo Ruby. Para obter instruções, consulte [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Crie um aplicativo Ruby. Para obter instruções, consulte [Criar um aplicativo Ruby no Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
-## Configurar seu aplicativo para acessar o armazenamento
+## Configurar seu aplicativo para acessar o Armazenamento
 
-Para usar o armazenamento do Azure, você deverá baixar e usar o pacote do Azure do Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST do armazenamento.
+Para usar o Armazenamento do Azure, você deverá baixar e usar o pacote do Azure do Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST do armazenamento.
 
 ### Usar RubyGems para obter o pacote
 
@@ -60,17 +60,17 @@ O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e
 Para obter esses valores:
 
 1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/).
-2. Navegue até a conta de armazenamento que você deseja usar
+2. Navegue até a conta de armazenamento que você deseja usar.
 3. Clique em **GERENCIAR CHAVES** na parte inferior do painel de navegação.
 4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a chave de acesso primária e a chave de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária.
 
-## Como criar um contêiner
+## Criar um contêiner
 
 [AZURE.INCLUDE [armazenamento-contêiner-nomeando-regras-include](../../includes/storage-container-naming-rules-include.md)]
 
 O objeto **Azure::BlobService** permite que você trabalhe com contêineres e blobs. Para criar um contêiner, use o método **create\_container()**.
 
-O seguinte exemplo cria um contêiner ou imprime o erro, se houver algum.
+O exemplo de código a seguir cria um contêiner ou imprime o erro, se houver algum.
 
 	azure_blob_service = Azure::BlobService.new
 	begin
@@ -83,7 +83,7 @@ Se desejar tornar públicos os arquivos do contêiner, você pode definir as per
 
 Você pode modificar apenas a chamada <strong>create\_container()</strong> para passar a opção **:public\_access\_level**:
 
-	container = azure_blob_service.create_container("test-container", 
+	container = azure_blob_service.create_container("test-container",
 	  :public_access_level => "<public access level>")
 
 
@@ -94,23 +94,23 @@ Os valores válidos da opção **:public\_access\_level** são:
 * **contêiner:** Especifica o acesso de leitura público de blobs. Os dados do blob nesse contêiner podem ser lidos por meio de solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner por meio de uma solicitação anônima.
 
 Você também pode modificar o nível de acesso público de um contêiner usando **set\_container\_acl()** para especificar o nível de acesso público.
- 
+
 O exemplo a seguir altera o nível de acesso público para **contêiner**:
 
 	azure_blob_service.set_container_acl('test-container', "container")
 
-## Como carregar um blob em um contêiner
+## Carregar um blob em um contêiner
 
 Para carregar o conteúdo em um blob, use o método **create\_block\_blob()** para criar o blob e use um arquivo ou uma cadeia como o conteúdo de blob.
 
-O código a seguir carregará o arquivo **test.png** como um novo blob chamado "image-blob" no contêiner.
+O código a seguir carrega o arquivo **test.png** como um novo blob chamado "image-blob" no contêiner.
 
 	content = File.open("test.png", "rb") { |file| file.read }
 	blob = azure_blob_service.create_block_blob(container.name,
 	  "image-blob", content)
 	puts blob.name
 
-## Como listar os blobs em um contêiner
+## Listar os blobs em um contêiner
 
 Para listar os contêineres, use o método **list\_containers()**. Para listar os blobs em um contêiner, use o método **list\_blobs()**.
 
@@ -124,27 +124,26 @@ Ele envia as urls de todos os blobs em todos os contêineres à conta.
 	  end
 	end
 
-## Como baixar blobs
+## Baixar blobs
 
 Para baixar blobs, use o método **get\_blob()** para recuperar o conteúdo.
 
-O exemplo a seguir demonstra o uso do **get\_blob()** para baixar o conteúdo de "image-blob" e gravá-lo em um arquivo local.
+O exemplo a seguir demonstra o uso de **get\_blob()** para baixar o conteúdo de "image-blob" e gravá-lo em um arquivo local.
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
-## Como: excluir um blob
-Finalmente, para excluir um blob, use o método **delete\_blob()**. O exemplo a seguir demonstra como excluir um blob.
+## Excluir um blob
+Finalmente, para excluir um blob, use o método **delete\_blob()**. O exemplo de código a seguir demonstra como excluir um blob.
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 
 ## Próximas etapas
 
-Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
+Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
 
-- Consulte a Referência do MSDN: [Armazenamento do Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- Visite o [Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-- Visite o repositório [SDK do Azure para o nó](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
- 
+- Referência MSDN: [Armazenamento do Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+- [SDK do Azure para repositório Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

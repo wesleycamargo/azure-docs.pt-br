@@ -98,7 +98,7 @@ A tabela a seguir resume os recursos de Business Intelligence instalados nas ima
 	
 	- A unidade **D**: é uma unidade temporária usada principalmente pelo arquivo de paginação. A unidade **D**: não é persistente e não é salva no armazenamento de blob. As tarefas de gerenciamento, como uma alteração no tamanho da máquina virtual, redefinem a unidade **D**:. Recomenda-se **NÃO** usar a unidade **D**: para arquivos de banco de dados, incluindo o tempdb.
 
-	Para saber mais sobre como criar e anexar discos, consulte [Como anexar um disco de dados a uma máquina Virtual](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/).
+	Para saber mais sobre como criar e anexar discos, consulte [Como anexar um disco de dados a uma máquina Virtual](storage-windows-attach-disk.md).
 
 - Pare ou desinstale os serviços que você não planeja usar. Por exemplo, se a máquina virtual for usada apenas para o Reporting Services, pare ou desinstale o Analysis Services e o SQL Server Integration Services. A imagem a seguir é um exemplo de como os serviços são iniciados por padrão.
 
@@ -427,4 +427,4 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Conectar remotamente ao seu dispositivo StorSimple | Microsoft Azure"
-   description="Explica como usar o Windows PowerShell remotamente e HTTP ou HTTPS para se conectar remotamente ao seu dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Explica como configurar seu dispositivo para o gerenciamento remoto e como se conectar ao Windows PowerShell para StorSimple via HTTP ou HTTPS."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/28/2015"
+	ms.author="alkohli"/>
 
 # Conectar remotamente ao seu dispositivo StorSimple
 
@@ -81,7 +81,7 @@ Execute as seguintes etapas no console serial do dispositivo para habilitar o ge
 
 5. Verifique se o campo **RemoteManagementMode** mostra **HttpsAndHttpEnabled**. A ilustração a seguir mostra essas configurações em PuTTY.
 
-     ![Http e Https serial habilitados](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
+     ![HTTPS serial e HTTP habilitados](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
 ### Preparar o cliente para a conexão remota
 
@@ -116,7 +116,7 @@ Execute as seguintes etapas no cliente para habilitar o gerenciamento remoto.
 
      Neste momento, uma sessão do Windows PowerShell remota já deve estar ativa para o dispositivo.
 
-    ![PS remoto usando HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
+    ![PowerShell remoto usando HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
 ## Conectar-se por meio de HTTPS
 
@@ -172,7 +172,7 @@ Execute as seguintes etapas no console serial do dispositivo para habilitar o ge
 
     Certifique-se de que o campo **RemoteManagementMode** mostre **Https Enabled**. A ilustração a seguir mostra essas configurações em PuTTY.
 
-     ![Https serial habilitado](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
+     ![HTTPS serial habilitado](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
 
 4. Na saída de `Get-HcsSystem`, copie o número de série do dispositivo e salve-o para usar depois.
 
@@ -224,7 +224,7 @@ Cada um desses procedimentos é descrito abaixo.
 
 3. Insira o número de série do dispositivo que você salvou anteriormente. Mapeie-o para o endereço IP conforme mostrado na imagem a seguir. Em controlador 0 e controlador 1, acrescente **Controller0** e **Controller1** no final do número de série (nome CN).
 
-    ![Adicionando nome CN ao arquivo hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+    ![Adicionando um Nome CN ao arquivo hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
 
 4. Salve o arquivo hosts.
 
@@ -264,10 +264,10 @@ Execute o procedimento a seguir no computador do qual você deseja fazer a conex
 
 6. Você precisará aguardar alguns minutos e, em seguida, será conectado ao dispositivo via HTTPS por SSL. Você verá uma mensagem que indica que está conectado ao dispositivo.
 
-    ![PS remoto usando HTTPS e SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![PowerShell remoto usando HTTPS e SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## Próximas etapas
 
 [Saiba mais sobre como usar o Windows PowerShell para administrar o seu dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

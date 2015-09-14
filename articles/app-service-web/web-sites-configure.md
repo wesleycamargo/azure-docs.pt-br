@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configurar aplicativos Web no Serviço de Aplicativo do Azure" 
-	description="Como configurar um aplicativo Web nos Serviços de Aplicativos do Azure" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Configurar aplicativos Web no Serviço de Aplicativo do Azure"
+	description="Como configurar um aplicativo Web nos Serviços de Aplicativos do Azure"
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
-	ms.author="mwasson"/>
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
+	ms.author="erikre"/>
 
 
 # Configurar aplicativos Web no Serviço de Aplicativo do Azure #
@@ -176,4 +176,4 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

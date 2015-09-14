@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Usar a Twilio para obter recursos de voz e SMS | Microsoft Azure" 
-	description="Saiba como executar tarefas comuns usando a API do Twilio com serviços móveis do Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="devinrader" 
-	manager="twilio" 
+<properties
+	pageTitle="Usar a Twilio para obter recursos de voz e SMS | Microsoft Azure"
+	description="Saiba como executar tarefas comuns usando a API do Twilio com serviços móveis do Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="devinrader"
+	manager="twilio"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="devinrader"/>
 
 
@@ -84,7 +84,7 @@ Para usar a biblioteca do node.js da Twilio em seu Serviço Móvel, você precis
 2. Depois de configurar o controle do código-fonte para o seu Serviço Móvel, abra o repositório no computador local, navegue até a subpasta `\services`, abra o arquivo package.json em um editor de texto e adicione o seguinte campo ao objeto **dependências**:
 
 		"twilio": "~1.7.0"
- 
+
 3. Depois de adicionar a referência do pacote Twilio ao objeto **dependências**, o arquivo package.json deve ter a seguinte aparência:
 
 		{
@@ -96,7 +96,7 @@ Para usar a biblioteca do node.js da Twilio em seu Serviço Móvel, você precis
 		    "node": ">= 0.8.19"
 		  },
 		  "dependencies": {
-			"twilio": "~1.7.0" 
+			"twilio": "~1.7.0"
 		  },
 		  "devDependencies": {},
 		  "scripts": {},
@@ -105,12 +105,12 @@ Para usar a biblioteca do node.js da Twilio em seu Serviço Móvel, você precis
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]A dependência para a Twilio deve ser adicionada `"twilio": "~1.7.0"`, com um (\~). Não há suporte para uma referência com um acento circunflexo (^).
+	>[AZURE.NOTE]A dependência para a Twilio deve ser adicionada `"twilio": "~1.7.0"`, com um (~). Não há suporte para uma referência com um acento circunflexo (^).
 
 4. Confirme essa atualização de arquivo e envie a atualização de volta por push para o serviço móvel.
 
 	Essa atualização para o arquivo package.json reiniciará o serviço móvel.
-	
+
 O serviço móvel agora instala e carrega o pacote da Twilio, então você pode referenciar e usar a biblioteca da Twilio em sua API personalizada e scripts de tabela.
 
 ## <a id="howto_make_call"></a>Como fazer uma chamada externa
@@ -123,12 +123,12 @@ O script a seguir mostra como iniciar uma chamada de saída do seu Serviço Móv
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
 
         client.makeCall({
-            to:'+16515556677', 
+            to:'+16515556677',
             from: '+14506667788',
-            url: 'http://www.example.com/twiml.php' 
+            url: 'http://www.example.com/twiml.php'
 
         }, function(err, responseData) {
-            console.log(responseData.from); 
+            console.log(responseData.from);
             response.send(200, '');
         });
     };
@@ -145,13 +145,13 @@ O código a seguir mostra como enviar uma mensagem SMS usando a função **sendS
     exports.post = function(request, response) {
 
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
- 
+
         client.sendSms({
             to:'[]',
             from:'[]',
             body:'ahoy hoy! Testing Twilio and node.js'
         }, function(error, message) {
-    
+
             // The "error" variable will contain error information, if any.
             // If the request was successful, this value will be "false"
             if (!error) {
@@ -188,7 +188,7 @@ O script a seguir resulta em uma resposta TwiML que diz Hello World na chamada.
 Para obter mais informações sobre TwiML, consulte [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml).
 
 Depois de ter configurado uma maneira de fornecer respostas TwiML, você pode passar essa URL para o método **client.makeCall**, conforme mostrado no exemplo de código a seguir:
-    
+
     var twilio = require('twilio');
 
     exports.post = function(request, response) {
@@ -196,9 +196,9 @@ Depois de ter configurado uma maneira de fornecer respostas TwiML, você pode pa
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
 
         client.makeCall({
-            to:'+16515556677', 
+            to:'+16515556677',
             from: '+14506667788',
-            url: 'http://<your_mobile_service>.azure-mobile.net/api/makeCall' 
+            url: 'http://<your_mobile_service>.azure-mobile.net/api/makeCall'
 
         }, function(err, responseData) {
 
@@ -228,6 +228,5 @@ Depois de ter configurado uma maneira de fornecer respostas TwiML, você pode pa
 [azure_twilio_howto_ruby]: /develop/ruby/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_python]: /develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

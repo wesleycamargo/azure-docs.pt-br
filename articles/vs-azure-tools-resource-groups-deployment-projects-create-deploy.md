@@ -85,7 +85,7 @@ Quando você implanta um projeto do Grupo de Recursos do Azure, você o implanta
 
     ![Caixa de diálogo Implantar no Grupo de Recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. Na caixa suspensa **Grupo de Recursos**, escolha um grupo de recursos existente ou crie um novo. Para criar um grupo de recursos, abra a caixa suspensa **Grupo de Recursos** e escolha **<Create New...>**.
+1. Na caixa suspensa de **Grupo de recursos**, escolha um grupo de recursos existente ou crie um novo. Para criar um grupo de recursos, abra a caixa suspensa **Grupo de Recursos** e escolha **<Create New...>**.
 
     A caixa de diálogo **Criar Grupo de Recursos** é exibida.
 
@@ -195,4 +195,4 @@ Também foram feitos ajustes em alguns nomes de variáveis e tarefas de compila�
 
 Para saber como adicionar recursos ao seu Grupo de Recursos do Azure no Visual Studio, consulte [Adicionar recursos a um Grupo de Recursos do Azure](https://msdn.microsoft.com/library/azure/mt125415.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

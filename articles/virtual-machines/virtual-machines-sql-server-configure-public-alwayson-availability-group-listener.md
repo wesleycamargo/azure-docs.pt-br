@@ -23,7 +23,7 @@
 
 Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade do AlwaysOn está acessível externamente na Internet. Isso se tornou possível associando o endereço do serviço de nuvem **IP Virtual público (VIP)** ao ouvinte.
 
-O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](https://msdn.microsoft.com/library/azure/dn249504.aspx), mas não configurou um ouvinte.
+O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](virtual-machines-sql-server-alwayson-availability-groups-gui.md), mas não configurou um ouvinte.
 
 Observe as seguintes limitações no ouvinte do grupo de disponibilidade no Azure ao implantar usando o endereço VIP público do serviço de nuvem:
 
@@ -124,4 +124,4 @@ Se as réplicas do AlwaysOn estiverem em sub-redes diferentes, os clientes dever
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

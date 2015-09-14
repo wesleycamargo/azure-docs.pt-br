@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Pacote de serviço Web de distribuição normal | Microsoft Azure" 
-	description="Pacote de serviço Web de distribuição normal" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Pacote de serviço Web de distribuição normal | Microsoft Azure"
+	description="Pacote de serviço Web de distribuição normal"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
 #Pacote de distribuição normal
@@ -265,4 +265,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

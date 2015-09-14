@@ -1,20 +1,20 @@
 <properties
    pageTitle="Usando modelos vinculados com o Gerenciador de Recursos do Azure"
-   description="Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="tomfitz"/>
 
 # Usando modelos vinculados com o Gerenciador de Recursos do Azure
 
@@ -44,6 +44,14 @@ Para criar um vínculo entre dois modelos, adicione um recurso de implantação 
       } 
     ] 
 
+O Gerenciador de Recursos deve ser capaz de acessar o modelo vinculado, o que significa que você não pode especificar um arquivo local para o modelo vinculado. Você só pode fornecer um valor de URI que inclua **http** ou **https**. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item, conforme mostrado abaixo.
+
+    "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0",
+    }
+
+
 ## Vinculando a um arquivo de parâmetro
 
 O exemplo a seguir usa a propriedade **parametersLink** para vincular a um arquivo de parâmetro.
@@ -66,6 +74,8 @@ O exemplo a seguir usa a propriedade **parametersLink** para vincular a um arqui
          } 
       } 
     ] 
+
+O valor do URI para o arquivo de parâmetro vinculado não pode ser um arquivo local e deve incluir **http** ou **https**.
 
 ## Usando variáveis para vincular modelos
 
@@ -94,10 +104,10 @@ O exemplo a seguir mostra como usar uma URL base para criar duas URLs para model
 
 ## Passando valores de um modelo vinculado
 
-Se você precisar passar um valor de modelo vinculado para o modelo principal, poderá criar um valor na seção **outputs** do modelo vinculado. Para obter um exemplo, consulte [Compartilhando o estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
+Se você precisar passar um valor de modelo vinculado para o modelo principal, poderá criar um valor na seção **saídas** do modelo vinculado. Para obter um exemplo, confira [Compartilhando o estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 
 ## Próximas etapas
 - [Criação de modelos](./resource-group-authoring-templates.md)
 - [Implantação de modelos](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=06-->
+<!---HONumber=September15_HO1-->

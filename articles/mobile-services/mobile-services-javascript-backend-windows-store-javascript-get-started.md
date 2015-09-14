@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução aos Serviços Móveis para aplicativos da Windows Store | Microsoft Azure" 
-	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento da Windows Store em C# ou JavaScript." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introdução aos Serviços Móveis para aplicativos da Windows Store | Microsoft Azure"
+	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento da Windows Store em C# ou JavaScript."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
@@ -29,7 +29,7 @@ Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *T
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
-* [Visual Studio 2013 Express para Windows] 
+* [Visual Studio 2013 Express para Windows]
 
 ## Criar um novo serviço móvel
 
@@ -43,7 +43,7 @@ Nesta seção, você criará um novo aplicativo universal do Windows conectado a
 
 1.  No Portal de Gerenciamento, clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
 
-   
+
 2. Na guia de início rápido, clique em **Windows** em **Escolher plataforma** e expanda **Criar um novo aplicativo da Windows Store**.
 
    	![](./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png)
@@ -91,6 +91,5 @@ Para obter mais informações sobre os aplicativos universais do Windows, consul
 [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

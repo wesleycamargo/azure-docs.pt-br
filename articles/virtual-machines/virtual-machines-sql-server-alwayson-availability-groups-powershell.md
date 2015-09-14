@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/14/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Configurar Grupos de Disponibilidade AlwaysOn no Azure (PowerShell)
 
@@ -528,7 +528,7 @@ Agora você está pronto para configurar o grupo de disponibilidade. Você usar�
 		$svc2.Start(); 
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Baixe **CreateAzureFailoverCluster.ps1** em [Criar o cluster WSFC para Grupos de Disponibilidade AlwaysOn em uma VM do Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) para o diretório de trabalho local. Você usará esse script para ajudá-lo a criar um cluster WSFC funcional. Para obter informações importantes sobre como o WSFC interage com a rede do Azure, consulte [Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure](https://msdn.microsoft.com/pt-br/library/azure/jj870962.aspx).
+1. Baixe **CreateAzureFailoverCluster.ps1** em [Criar o cluster WSFC para Grupos de Disponibilidade AlwaysOn em uma VM do Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) para o diretório de trabalho local. Você usará esse script para ajudá-lo a criar um cluster WSFC funcional. Para obter informações importantes sobre como o WSFC interage com a rede do Azure, consulte [Alta disponibilidade e recuperação de desastre para SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 1. Altere para o diretório de trabalho e crie o cluster WSFC com o script baixado.
 
@@ -623,4 +623,4 @@ Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de dis
 
 Para obter outras informações sobre como usar o SQL Server no Azure, consulte [SQL Server em Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

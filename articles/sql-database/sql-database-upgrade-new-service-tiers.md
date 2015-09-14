@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Atualizar bancos de dados SQL de negócios ou da Web para novas camadas de serviço" 
-	description="Atualize bancos de dados da Web de banco de dados do SQL Azure ou Business para as novas camadas de serviço do Azure SQL Database Basic, Standard e Premium e níveis de desempenho." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	pageTitle="Atualizar bancos de dados SQL de negócios ou da Web para novas camadas de serviço"
+	description="Atualize bancos de dados da Web de banco de dados do SQL Azure ou Business para as novas camadas de serviço do Azure SQL Database Basic, Standard e Premium e níveis de desempenho."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="06/18/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -67,8 +67,7 @@ A camada ‘Basic’ é usada principalmente para bancos de dados muito pequenos
 
 Os novos recursos da camada de serviço e níveis desempenho são resumidos e comparados na tabela a seguir:
 
-![Comparação de recursos de nível de serviço][1]
-
+[AZURE.INCLUDE [Tabela de camadas de serviço do Banco de Dados SQL](../../includes/sql-database-service-tiers-table.md)]
 
 **Recursos adicionais para comparar as camadas de serviço e níveis de desempenho:**
 
@@ -127,7 +126,7 @@ Também vale a pena observar é que esses dados são a média das amostras que s
 
 ![Dados da porcentagem DTU][2]
 
-Observe que os dados no exemplo acima mostram um uso médio de aproximadamente 10 DTUs (19,23% de 50) e uma porcentagem DTU máxima de DTUs \~ 28 (% 55,83 x 50). Supondo que esses dados representavam minha carga de trabalho típica eu provavelmente selecionaria a Standard (S1) para minha atualização inicial. A Standard (S0) fornece 10 DTUs que é meu uso médio, mas isso significaria que meu banco de dados em média seria executado 100% da capacidade, o que nunca é um bom plano. Embora a S1 provavelmente seria uma boa escolha para meu uso médio, e quanto aos horários em que eu estou atingindo o máximo? Talvez eu saiba que os picos de algum processo de manutenção noturno e uso do cliente real não é afetado, posso ficar satisfeito com o desempenho reduzido durante esse período de tempo. Mas talvez não saiba quando o máximo será atingido para que o consumo de porcentagem DTU possa exigir análise mais detalhada.
+Observe que os dados no exemplo acima mostram um uso médio de aproximadamente 10 DTUs (19,23% de 50) e uma porcentagem DTU máxima de DTUs ~ 28 (% 55,83 x 50). Supondo que esses dados representavam minha carga de trabalho típica eu provavelmente selecionaria a Standard (S1) para minha atualização inicial. A Standard (S0) fornece 10 DTUs que é meu uso médio, mas isso significaria que meu banco de dados em média seria executado 100% da capacidade, o que nunca é um bom plano. Embora a S1 provavelmente seria uma boa escolha para meu uso médio, e quanto aos horários em que eu estou atingindo o máximo? Talvez eu saiba que os picos de algum processo de manutenção noturno e uso do cliente real não é afetado, posso ficar satisfeito com o desempenho reduzido durante esse período de tempo. Mas talvez não saiba quando o máximo será atingido para que o consumo de porcentagem DTU possa exigir análise mais detalhada.
 
 Para analisar os detalhes de consumo de recursos do banco de dados, você pode usar as exibições do sistema fornecida.
 
@@ -302,11 +301,10 @@ O serviço de banco de dados SQL do Azure fornece os dados e ferramentas de tele
 
 
 <!--Image references-->
-[1]: ./media/sql-database-upgrade-new-service-tiers/service-tier-features.png
 [2]: ./media/sql-database-upgrade-new-service-tiers/portal-dtus.JPG
 [3]: ./media/sql-database-upgrade-new-service-tiers/web-business-noisy-neighbor.png
 [4]: ./media/sql-database-upgrade-new-service-tiers/resource_consumption.png
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

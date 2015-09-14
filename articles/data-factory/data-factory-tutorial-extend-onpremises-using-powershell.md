@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copiar dados de saída do tutorial para um banco de dados SQL Server local"
-	description="O passo a passo neste tutorial estende o tutorial do data factory para copiar dados de eficácia de campanha de marketing para um banco de dados SQL Server local."
+	pageTitle="Copiar dados de saída para um banco de dados do SQL Server local (Azure PowerShell)"
+	description="Este passo a passo estende o tutorial sobre como usar o Azure PowerShell, de modo que o pipeline copie dados de saída para um banco de dados do SQL Server."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -170,4 +170,4 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

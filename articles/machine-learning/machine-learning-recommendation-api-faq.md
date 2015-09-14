@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Configurar e usar a API de recomendações de Aprendizado de Máquina | Microsoft Azure" 
-	description="API de RECOMENDAÇÕES da Microsoft criada com as perguntas Frequentes do aprendizado de máquina do Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Configurar e usar a API de recomendações de Aprendizado de Máquina | Microsoft Azure"
+	description="API de RECOMENDAÇÕES da Microsoft criada com as perguntas Frequentes do aprendizado de máquina do Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 #Perguntas frequentes sobre configuração e uso da API de Recomendações do Aprendizado de Máquina
@@ -31,7 +31,7 @@ RECOMENDAÇÕES utiliza como entrada um item ou um conjunto de itens e retorna u
 
 **Há limitações de uso?**
 
-As recomendações têm as seguintes limitações de uso: * Número máximo de modelos por assinatura: 10 * Número máximo de itens que um catálogo pode conter: 100.000 * O número máximo de pontos de uso que são mantidos é de \~ 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados. * O número máximo de dados que podem ser enviados por email (por exemplo, importar dados de catálogo, importar dados de uso) é de 200 MB * O número de TPS (transações por segundo) para uma compilação de modelo de Recomendações que não esteja ativa é de \~2 TPS. Uma compilação de modelo de Recomendação ativa pode conter até 20 TPS.
+As recomendações têm as seguintes limitações de uso: * Número máximo de modelos por assinatura: 10 * Número máximo de itens que um catálogo pode conter: 100.000 * O número máximo de pontos de uso que são mantidos é de ~ 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados. * O número máximo de dados que podem ser enviados por email (por exemplo, importar dados de catálogo, importar dados de uso) é de 200 MB * O número de TPS (transações por segundo) para uma compilação de modelo de Recomendações que não esteja ativa é de ~2 TPS. Uma compilação de modelo de Recomendação ativa pode conter até 20 TPS.
 
 ##Compra e cobrança 
 
@@ -130,4 +130,4 @@ O suporte técnico está disponível no site de [Suporte do Microsoft Azure](htt
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

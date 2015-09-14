@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Aplicativo Web com armazenamento de tabela (Node.js) | Microsoft Azure" 
-	description="Um tutorial que tem como base o tutorial Aplicativo Web com o Express adicionando os serviços de Armazenamento do Azure e o módulo Azure." 
-	services="cloud-services, storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Aplicativo Web com armazenamento de tabela (Node.js) | Microsoft Azure"
+	description="Um tutorial que tem como base o tutorial Aplicativo Web com o Express adicionando os serviços de Armazenamento do Azure e o módulo Azure."
+	services="cloud-services, storage"
+	documentationCenter="nodejs"
+	authors="TomArcher"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="tarcher"/>
 
 
 
@@ -25,7 +25,7 @@
 
 ## Visão geral
 
-Neste tutorial, você ampliará o aplicativo criado no tutorial [Aplicativo Web do Node.js usando o Express] usando as bibliotecas de clientes do Microsoft Azure para o Node.js para trabalhar com serviços de gerenciamento de dados. Você ampliará seu aplicativo para criar um aplicativo de lista de tarefas com base na Web que pode ser implantado no Azure. A lista de tarefas permite que um usuário recupere tarefas, adicione novas tarefas e marque tarefas como concluídas.
+Neste tutorial, você ampliará o aplicativo criado no tutorial [Aplicativo Web do Node.js usando o Express] usando as Bibliotecas de Clientes do Microsoft Azure para o Node.js para trabalhar com serviços de gerenciamento de dados. Você ampliará seu aplicativo para criar um aplicativo de lista de tarefas com base na Web que pode ser implantado no Azure. A lista de tarefas permite que um usuário recupere tarefas, adicione novas tarefas e marque tarefas como concluídas.
 
 Os itens da tarefa são armazenados no Armazenamento do Azure. O Armazenamento do Azure fornece um armazenamento de dados não estruturado altamente disponível e tolerante a falhas. O Armazenamento do Azure inclui diversas estruturas de dados, em que você pode armazenar e acessar dados, além de poder utilizar os serviços de armazenamento das APIs incluídos no SDK do Azure para Node.js ou por meio de APIs REST. Para obter mais informações, consulte [Armazenando e acessando dados no Azure (a página pode estar em inglês)].
 
@@ -408,4 +408,4 @@ As etapas a seguir mostram como parar e excluir o aplicativo.
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

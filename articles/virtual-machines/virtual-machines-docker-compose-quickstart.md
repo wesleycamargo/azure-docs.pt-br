@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introdução ao Docker e ao Redigir em uma máquina virtual do Azure"
-   description="Introdução rápida ao trabalho com o Redigir e o Docker no Azure"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="Introdução rápida ao trabalho com o Redigir e o Docker no Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
-   ms.author="danlep"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="08/07/2015"
+	ms.author="danlep"/>
 
 # Introdução ao Docker e ao Redigir em uma máquina virtual do Azure
 
@@ -24,7 +24,7 @@ Se você não está familiarizado com o Docker e contêineres, consulte o [Quadr
 
 ## Etapa 1: Configurar uma VM do Linux como um host do Docker
 
-Você pode usar vários procedimentos do Azure e imagens disponíveis no Azure Markeplace para criar uma VM do Linux e configurá-la como um host do Docker. Por exemplo, confira [Usando a extensão de VM do Docker da Interface de Linha de Comando do Azure](virtual-machines-docker-with-xplat-cli) para um procedimento rápido para criar uma VM Ubuntu com a extensão de VM do Docker. Quando você usa a extensão de VM do Docker, sua VM é definida automaticamente como um host do Docker. O exemplo nesse artigo mostra a você como usar a [interface de linha de comando do Azure para Mac, Linux e Windows](xplat-cli.md) (a CLI do Azure) no modo de Gerenciamento de Serviços para criar a VM.
+Você pode usar vários procedimentos do Azure e imagens disponíveis no Azure Markeplace para criar uma VM do Linux e configurá-la como um host do Docker. Por exemplo, consulte [Usando a Extensão de VM do Docker da Interface de Linha de Comando do Azure](virtual-machines-docker-with-xplat-cli.md) para obter um procedimento rápido para criar uma VM Ubuntu com a extensão de VM do Docker. Quando você usa a extensão de VM do Docker, sua VM é definida automaticamente como um host do Docker. O exemplo neste artigo mostra a você como usar a [interface de linha de comando do Azure para Mac, Linux e Windows](../xplat-cli.md) (a CLI do Azure) no modo de Gerenciamento de Serviços para criar a VM.
 
 ## Etapa 2: Instalar o Redigir
 
@@ -112,4 +112,4 @@ Agora você deve ver a tela inicial do WordPress, na qual você pode concluir a 
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

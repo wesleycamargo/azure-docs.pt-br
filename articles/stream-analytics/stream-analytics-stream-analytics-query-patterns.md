@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/03/2015"
+	ms.date="08/19/2015"
 	ms.author="jeffstok"/>
 
 
@@ -259,22 +259,22 @@ As consultas na Stream Analytics do Azure são expressas em uma linguagem de con
 
 **Entrada**:
 
-| Placa de carro | Faça | Hora |
+| PlacaDeCarro | Faça | Hora |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Saída**:
 
-| Placa de carro | Faça | Hora |
+| PlacaDeCarro | Faça | Hora |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
 
 **Solução**:
 
@@ -289,13 +289,13 @@ As consultas na Stream Analytics do Azure são expressas em uma linguagem de con
 
 Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca em cada intervalo de 10 minutos.
 
-| Placa de carro | Faça | Hora |
+| PlacaDeCarro | Faça | Hora |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| YZK 5704 | Ford | 2015-07-27T07:02:17.000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:06:00.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Solução**:
 
@@ -313,22 +313,22 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 
 **Entrada**:
 
-| Placa de carro | Faça | Hora |
+| PlacaDeCarro | Faça | Hora |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Saída**:
 
-| Placa de carro | Faça | Hora |
+| PlacaDeCarro | Faça | Hora |
 | --- | --- | --- |
-| VFE 1616 | Toyota | 2015-07-27T07:09:31.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Solução**:
 
@@ -358,7 +358,7 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 
 **Entrada**:
 
-| Faça | Placa de carro | Hora |
+| Faça | PlacaDeCarro | Hora |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -443,7 +443,7 @@ Ao usar o que aprendemos em "Associação exterior ESQUERDA para incluir valores
 Componha esses juntos e podemos obter correto -> incorreto -> correto com nenhum outro evento correto entre os dois. Agora, podemos calcular a duração entre os eventos corretos inicial e final que nos dá a duração do bug.
 
 ## Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
 
@@ -454,4 +454,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

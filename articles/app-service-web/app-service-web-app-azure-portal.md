@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/17/2015"
 	ms.author="jaime-espinosa"/>
 
 # Referência para navegar no portal do Azure
@@ -86,4 +86,4 @@ Com exceção do nome da marca, alguns itens no portal foram renomeados ou agrup
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no novo portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

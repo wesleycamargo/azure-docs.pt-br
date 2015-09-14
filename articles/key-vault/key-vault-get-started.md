@@ -179,6 +179,11 @@ Por exemplo, se o nome do cofre for **ContosoKeyVault** e o aplicativo que você
 
 
 	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+	
+Se você deseja autorizar que o mesmo aplicativo leia segredos em seu cofre, execute o seguinte:
+
+
+	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
 ## <a id="HSM"></a>Se quiser usar um HSM (módulo de segurança de hardware) ##
 
@@ -194,7 +199,7 @@ Quando criar o cofre, adicione o parâmetro **-SKU**:
 
 
 
-Você pode adicionar chaves protegidas por software (conforme mostrado anteriormente) e por HSM a este cofre. Para criar uma chave protegida por HSM, defina o parâmetro de **-Destino** como “HSM”:
+Você pode adicionar chaves protegidas por software (conforme mostrado anteriormente) e por HSM a este cofre. Para criar uma chave protegida por HSM, defina o parâmetro **-Destination** como 'HSM':
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -239,4 +244,4 @@ Para obter uma lista dos cmdlets do Windows PowerShell para o Cofre da Chave do 
 
 Para referências de programação, consulte [Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903625.aspx) na biblioteca de documentação do Microsoft Azure no MSDN.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

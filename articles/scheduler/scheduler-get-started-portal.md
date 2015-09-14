@@ -1,47 +1,47 @@
 <properties
- pageTitle="Introdução à utilização do Agendador no Portal de Gerenciamento"
- description=""
- services="scheduler"
- documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
- editor=""/>
+ pageTitle="Introdução à utilização do Agendador do Azure no Portal do Azure | Microsoft Azure"
+	description=""
+	services="scheduler"
+	documentationCenter=".NET"
+	authors="krisragh"
+	manager="dwrede"
+	editor=""/>
 <tags
  ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="hero-article" 
- ms.date="08/04/2015"
- ms.author="krisragh"/>
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="08/18/2015"
+	ms.author="krisragh"/>
 
-# Introdução à utilização do Agendador no Portal de Gerenciamento
+# Introdução à utilização do Agendador do Azure no Portal do Azure
 
-## Configurar o Agendador do Azure usando o Portal de Gerenciamento para criar trabalhos de forma rápida e fácil
+## Configurar o Agendador usando o portal do Azure para criar trabalhos de forma rápida e fácil
 
-Para concluir este tutorial, você precisa de uma conta do Azure com o recurso Agendador do Azure habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://msdn.microsoft.com/library/)
+Para concluir este tutorial, você precisa de uma conta do Azure com o recurso Agendador do Azure habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
 
 ## Introdução
 
-É fácil criar trabalhos e coleções de trabalhos no Agendador do Azure usando o Portal de Gerenciamento do Azure. Este tutorial vai orientá-lo durante a criação da coleção de trabalhos você usará para armazenar trabalhos, a criação de um trabalho em uma coleção de trabalhos e uma visão geral das tarefas de gerenciamento e monitoramento do trabalho disponíveis por meio do portal de gerenciamento. Não é necessário experiência anterior com o Azure para usar este tutorial.
+É fácil criar trabalhos e coleções de trabalhos no Agendador do Azure usando o Portal do Azure. Este tutorial orienta você durante a criação da coleção de trabalhos você usará para armazenar trabalhos, a criação de um trabalho em uma coleção de trabalhos e uma visão geral das tarefas de gerenciamento e monitoramento do trabalho disponíveis por meio do portal. Não é necessário experiência anterior com o Azure para usar este tutorial.
 
-Na primeira vez que você abre o Portal de Gerenciamento do Azure, você é levado automaticamente para a guia **TODOS OS ITENS**. As colunas da guia **TODOS OS ITENS** podem ser classificadas. Para exibir seus trabalhos do Agendador e coleções de trabalhos, clique na guia **AGENDADOR**.
+Na primeira vez que você abre o Portal do Azure, você é levado automaticamente para a guia **TODOS OS ITENS**. As colunas da guia **TODOS OS ITENS** podem ser classificadas. Para exibir seus trabalhos do Agendador e coleções de trabalhos, clique na guia **AGENDADOR**.
 
 ![][1]
 
 ## Criar um conjunto de trabalhos e um trabalho
 
-1.  Entre no [Portal de Gerenciamento](https://manage.windowsazure.com/).  
+1.  Entre no [Portal do Azure](https://manage.windowsazure.com/).  
 
-2.  Clique em **Serviços de Aplicativos**, em seguida, clique em **Criar novo**, aponte para **Agendador**, e, em seguida, clique em **Criação personalizada**. <br /><br /> ![][2]
+2.  Clique em **Serviços de Aplicativos** > **Criar Novo** > **Agendador** e clique em **Criação Personalizada**. <br /><br /> ![][2]
 
-3.  Em **Coleção de trabalhos**, selecione uma coleção de trabalhos existente se você já tiver criado uma coleção de trabalhos e deseja adicionar esse trabalho a essa coleção de trabalhos, selecionando o nome da coleção de trabalhos existentes na lista suspensa **Coleção de trabalhos**. Se você não tiver uma coleção de trabalhos existente à qual você gostaria de adicionar o trabalho, selecione **Criar novo** e digite um nome para identificar a nova coleção de trabalhos.<br /><br /> ![][3]
+3.  Em **Coleção de Trabalhos**, selecione o nome da coleção de trabalho existente no menu suspenso **Coleção de Trabalhos**. Se você não tiver uma coleção de trabalhos existente à qual você gostaria de adicionar o trabalho, selecione **Criar novo** e digite um nome para identificar a nova coleção de trabalhos.<br /><br /> ![][3]
 
 4.  Em **Região**, selecione a região geográfica para a coleção de trabalhos.
 
 5.  Clique na seta para criar a coleção de trabalhos e prosseguir para a próxima fase – criando um trabalho.
 
-6.  Vamos criar um trabalho que simplesmente visita http://www.microsoft.com/ com uma solicitação GET. Na tela Ação do trabalho, defina os seguintes valores para os campos solicitados do formulário:
+6.  Vamos criar um trabalho que simplesmente visita http://www.microsoft.com/ com uma solicitação GET. Na tela **Ação do trabalho**, defina os seguintes valores para os campos solicitados do formulário:
 
     1.  **Nome:** ` getmicrosoft`  
 
@@ -53,7 +53,7 @@ Na primeira vez que você abre o Portal de Gerenciamento do Azure, você é leva
 
    	![][4]
 
-7.  Na etapa seguinte, defina uma agenda. O trabalho pode ser definido como um único trabalho, mas convém escolher uma agenda de recorrência. Algumas capturas de tela neste tutorial mostram uma recorrência de 1 minuto somente para fins ilustrativos, mas escolha uma recorrência de 12 horas.
+7.  Depois de criar um trabalho, defina uma agenda. O trabalho pode ser definido como um único trabalho, mas convém escolher uma agenda de recorrência. Algumas capturas de tela neste tutorial mostram uma recorrência de 1 minuto somente para fins ilustrativos, mas escolha uma recorrência de 12 horas.
 
     1.  **Repetir a cada:** ` 12 Hours`  
 
@@ -63,17 +63,15 @@ Na primeira vez que você abre o Portal de Gerenciamento do Azure, você é leva
 
    	![][5]
 
-8.  Por fim, clique em Ok.
-
-9.  Pode levar algum tempo para que a coleção de trabalhos e o trabalho sejam criados. Para verificar o status, você pode monitorar as notificações na parte inferior do portal.
+8.  Clique em **OK**. Pode levar algum tempo para criar o trabalho e a coleção de trabalhos. Para verificar o status, você pode monitorar as notificações na parte inferior do portal.
 
    	![][6]
 
-   	Após os trabalhos e a coleção de trabalhos terem sido criados, uma mensagem indicará que o trabalho ou a coleção de trabalhos foi criado(a) com êxito. O trabalho será listado na seção Trabalhos da seção Agendador e a coleção de trabalhos será listada na seção Coleções de trabalhos. Para configurar as configurações adicionais no trabalho, consulte a seção "Configurar um trabalho" abaixo.
+   	Depois de criar o trabalho e a coleção de trabalhos, uma mensagem informa que o trabalho ou a coleção de trabalhos foi criada com êxito. O trabalho será listado na seção Trabalhos da seção Agendador e a coleção de trabalhos será listada na seção Coleções de trabalhos. Para configurar as configurações adicionais no trabalho, consulte a seção "Configurar um trabalho" abaixo.
 
    	![][7]
 
-## Gerenciando e monitorando Coleções de trabalhos e Trabalhos
+## Gerenciar e monitorar Coleções de trabalhos e Trabalhos
 
 Quando uma Coleção de trabalhos é criada, ela aparece na tela principal de gerenciamento do Agendador.
 
@@ -89,11 +87,11 @@ Clique em uma coleção de trabalhos para abrir uma nova janela com as seguintes
 
 4.  Trabalhos
 
-Os tópicos a seguir descrevem essas guias mais detalhadamente
+Os tópicos a seguir descrevem essas guias mais detalhadamente.
 
 ### Painel
 
-Quando você clica no nome da coleção de trabalhos, a guia de Painel é exibida. O Painel exibe as seguintes informações:
+Quando você clica no nome da coleção de trabalhos, a guia de **Painel** é exibida. O Painel exibe as seguintes informações:
 
 ![][9]
 
@@ -129,7 +127,7 @@ Uma tabela que mostra uma lista fixa de status e métricas de configuração. Es
 
 ### Escala
 
-Na guia Escala, você pode alterar as configurações e a camada de serviço usada pelo seu Agendador.
+Na guia **Escala**, você pode alterar as configurações e a camada de serviço usada pelo seu Agendador.
 
 ![][10]
 
@@ -149,7 +147,7 @@ O Agendador do Azure implementa cotas com base em várias condições. Esta seç
 
 ### Histórico
 
-A guia Histórico exibe as seguintes informações para o trabalho selecionado:
+A guia **Histórico** exibe as seguintes informações para o trabalho selecionado:
 
 ![][11]
 
@@ -171,7 +169,7 @@ As contagens/métricas de desempenho a seguir estão disponíveis:
 
 5.  Carimbo de hora de execução
 
-Você pode clicar em **Exibir detalhes de histórico** para examinar a resposta inteira para cada execução. Essa caixa de diálogo também permitirá que você copie a resposta para a área de transferência.
+Você pode clicar em **Exibir detalhes de histórico** para examinar a resposta inteira para cada execução. Essa caixa de diálogo também permite que você copie a resposta para a área de transferência.
 
 ![][12]
 
@@ -187,7 +185,7 @@ Uma tabela que exibe a métrica selecionada para cada trabalho no sistema. Essas
 
 #### Desabilitar, habilitar ou excluir um trabalho
 
-Clicar em um nome de trabalho oferece a opção para habilitar, desabilitar ou excluir o trabalho. Trabalhos excluídos talvez não sejam recuperáveis.
+Clicar no nome de um trabalho oferece a opção para habilitar, desabilitar ou excluir o trabalho. Trabalhos excluídos talvez não sejam recuperáveis.
 
 #### Métricas disponíveis
 
@@ -213,7 +211,7 @@ As contagens/métricas de desempenho a seguir estão disponíveis:
 
 ### Configurar um trabalho
 
-Clicar em um trabalho na tela "Trabalhos" permite que você configure esse trabalho. Isso permite que você defina configurações avançadas adicionais além do que está disponível no assistente de criação rápida. Para configurar um trabalho, clique na seta à direita ao lado do nome do trabalho na tela "Trabalhos".
+Clicar em um trabalho na tela **Trabalhos** permite que você configure esse trabalho. Isso permite que você defina configurações avançadas adicionais além do que está disponível no assistente de criação rápida. Para configurar um trabalho, clique na seta à direita ao lado do nome do trabalho na tela **Trabalhos**.
 
 A página de configuração de trabalho permite atualizar as configurações do trabalho. A página de configuração de trabalho é mostrada abaixo para trabalhos HTTP e HTTPS. Para tipos de ação do trabalho HTTP e HTTPS, você pode alterar o método para qualquer verbo HTTP permitido. Você também pode adicionar, excluir ou alterar os cabeçalhos e informações de autenticação básica.
 
@@ -223,7 +221,7 @@ A página de configuração do trabalho aparece como mostrado abaixo para trabal
 
 ![][15]
 
-Por fim, para todos os tipos de ação, você pode alterar o agendamento em si e seu comportamento de recorrência. Você pode alterar a data e hora de início, o agendamento de recorrência e a data e hora de término (se o trabalho é recorrente). Depois de fazer as alterações, você pode salvar as alterações, clicando em 'Salvar' ou descartar as alterações, clicando em 'Descartar'.
+Por fim, para todos os tipos de ação, você pode alterar o agendamento em si e seu comportamento de recorrência. Você pode alterar a data e hora de início, o agendamento de recorrência e a data e hora de término (se o trabalho é recorrente). Depois de fazer as alterações, você pode salvar as alterações, clicando em **Salvar** ou descartar as alterações, clicando em **Descartar**.
 
 ## Consulte também
 
@@ -231,7 +229,7 @@ Por fim, para todos os tipos de ação, você pode alterar o agendamento em si e
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador](scheduler-concepts-terms.md)
 
- [Planos e cobrança no Agendador do Azure](scheduler-plans-billing.md)
+ [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 
  [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
 
@@ -262,6 +260,5 @@ Por fim, para todos os tipos de ação, você pode alterar o agendamento em si e
 [13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -55,7 +55,7 @@ Você pode provisionar clusters HDInsight no portal do Azure executando as segui
 
 3. Insira um __Nome de Cluster__ e selecione o __Tipo de Cluster__ que você deseja criar. Uma marca de seleção verde será exibida ao lado do __Nome de Cluster__, se ele estiver disponível.
 
-	![Nome de cluster, tipo de cluster e tipo de sistema operacional](./media/hdinsight-administer-use-portal-linux/clustername.png)
+	![Nome do cluster, tipo de cluster e tipo de sistema operacional](./media/hdinsight-administer-use-portal-linux/clustername.png)
 	
 	> [AZURE.NOTE]Somente o tipo de cluster Hadoop está disponível para a visualização do HDInsight baseado em Linux.
 
@@ -93,7 +93,7 @@ Você pode provisionar clusters HDInsight no portal do Azure executando as segui
 		
 	- __Selecionar__: use essa opção para salvar a configuração da fonte de dados.
 	
-7. Selecione __Camadas de Preços de Nó__ para exibir informações sobre os nós que serão criados para esse cluster. Por padrão, o número de nós de trabalho será definido como __4__. Defina essa opção como __1__, pois isso será suficiente para este tutorial e reduzirá o custo do cluster. Você também pode alterar o número de nós em um cluster depois que ele é provisionado.
+7. Selecione __Camadas de Preços de Nó__ para exibir informações sobre os nós que serão criados para esse cluster. Por padrão, o número de nós de trabalho será definido como __4__.
 
 	O custo estimado do cluster será mostrado na parte inferior da folha.
 
@@ -101,7 +101,7 @@ Você pode provisionar clusters HDInsight no portal do Azure executando as segui
 	
 	Use o botão __Selecionar__ para salvar as informações de __Camadas de Preços de Nó__.
 
-8. Selecione __Configuração Opcional__. Essa folha permite configurar os seguintes itens:
+8. Selecione __Configuração opcional__. Essa folha permite configurar os seguintes itens:
 
 	* __Versão do HDInsight__: a versão do HDInsight usada para o cluster. Para obter mais informações sobre o controle de versão do HDInsight, consulte [Controle de versão de componente do HDInsight](hdinsight-component-versioning.md)
 	* __Metastores Externos__: essa opção permite que você selecione um Banco de Dados SQL, que será usado para armazenar informações de configuração para o Oozie e o Hive. Isso permite reutilizar a configuração ao excluir e recriar um cluster, em vez de sempre precisar recriar a configuração do Hive e do Oozie. **__Chaves de Armazenamento do Azure__: essa opção permite associar contas de armazenamento adicionais ao servidor HDInsight.
@@ -110,7 +110,7 @@ Você pode provisionar clusters HDInsight no portal do Azure executando as segui
 
 	![Folha de configuração opcional](./media/hdinsight-administer-use-portal-linux/optionalconfiguration.png)
 
-9. Verifique se a opção __Fixar no Quadro Inicial__ está selecionada e selecione __Criar__. Isso criará o cluster e adicionará um bloco para ele no Quadro Inicial do Portal do Azure. O ícone indica que o cluster está executando o provisionamento, e ele será alterado para exibir o ícone do HDInsight após a conclusão do provisionamento.
+9. Verifique se a opção __Fixar no quadro inicial__ está selecionada e selecione __Criar__. Isso criará o cluster e adicionará um bloco para o mesmo para o Quadro inicial do seu Portal do Azure. O ícone indica que o cluster está provisionando e será alterado para exibir o ícone de HDInsight após a conclusão da configuração.
 
 	| Durante o provisionamento | Provisionamento concluído |
 	| ------------------ | --------------------- |
@@ -124,7 +124,7 @@ Se um cluster for selecionado no portal de visualização do Azure, serão exibi
 
 ![Detalhes do cluster](./media/hdinsight-administer-use-portal-linux/clusterdetails.png)
 
-Use o seguinte para entender os ícones na parte superior dessa folha e nas seções __Noções básicas__ e __Links rápidos__:
+Use o seguinte para entender os ícones na parte superior dessa folha e nas seções __Essentials__ e __Links rápidos__:
 
 * __Configurações__ e __Todas as Configurações__: exibem a folha __Configurações__ do cluster, o que permite acessar informações de configuração detalhadas do cluster.
 
@@ -132,21 +132,21 @@ Use o seguinte para entender os ícones na parte superior dessa folha e nas seç
 
 * __Secure Shell__: informações necessárias para acessar o cluster usando SSH.
 
-* __Cluster em Escala__: permite alterar o número de nós de trabalho para o cluster.
+* __Cluster em escala__: permite alterar o número de nós de trabalho para o cluster.
 
 * __Excluir__: exclui o cluster HDInsight.
 
-* __Início Rápido (![ícone de nuvem e raio = início rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png))__: exibe informações que o ajudarão a começar a usar o HDInsight.
+* __Início Rápido__ (![ícone de nuvem e raio = início rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png)): exibe informações que o ajudarão a começar a usar o HDInsight.
 
-* __Usuários (![ícone de usuários](./media/hdinsight-administer-use-portal-linux/users.png))__: permite definir permissões para o _gerenciamento de portal_ do cluster para outros usuários em sua assinatura do Azure.
+* __Usuários__ (![ícone de usuários](./media/hdinsight-administer-use-portal-linux/users.png)): permite definir permissões para o _gerenciamento de portal_ do cluster para outros usuários em sua assinatura do Azure.
 
 	> [AZURE.IMPORTANT]Isso _só_ afeta o acesso e as permissões para o cluster no portal de visualização do Azure e não afeta quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
 
-* __Marcas (![ícone de marca](./media/hdinsight-administer-use-portal-linux/tags.png))__: as marcas permitem definir pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada __projeto__ e usar um valor comum para todos os serviços associados a um projeto específico.
+* __Marcas__ (![ícone de marca](./media/hdinsight-administer-use-portal-linux/tags.png)): as marcas permitem definir pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada __projeto__ e usar um valor comum para todos os serviços associados a um projeto específico.
 
 * __Documentação__: links para a documentação do Azure HDInsight.
 
-> [AZURE.IMPORTANT]Para gerenciar os serviços fornecidos pelo cluster HDInsight, você deve usar o Ambari Web ou a API REST do Ambari. Para obter mais informações sobre como usar o Ambari, consulte [Gerenciar clusters HDInsight usando Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.IMPORTANT]Para gerenciar os serviços fornecidos pelo cluster HDInsight, você deve usar o Ambari Web ou a API REST do Ambari. Para obter mais informações sobre como usar o Ambari, consulte [Gerenciar clusters HDInsight usando Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ##Monitorar um cluster
 
@@ -168,4 +168,4 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o portal do 
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

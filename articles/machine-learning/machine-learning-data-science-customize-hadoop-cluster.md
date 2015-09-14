@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Personalizar os clusters do Hadoop para Processo e Tecnologia de Análise Avançada | Microsoft Azure" 
+	pageTitle="Personalizar os clusters do Hadoop para Processo e Tecnologia de Análise Avançada | Microsoft Azure"
 	description="Módulos de Python populares disponibilizados em clusters do Hadoop do Azure HDInsight personalizados."
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="hangzh-msft" 
-	manager="paulettm" 
-	editor="cgronlun"  />
+	services="machine-learning"
+	documentationCenter=""
+	authors="hangzh-msft"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="hangzh;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 # Personalizar os clusters do Hadoop do Azure HDInsight para Processo e Tecnologia de Análise Avançada
 
@@ -98,4 +98,4 @@ Consulte [Enviar consultas de Hive para clusters do Hadoop do HDInsight no proce
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

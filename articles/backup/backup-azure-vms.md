@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="07/30/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/01/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Fazer backup de máquinas virtuais do Azure
@@ -17,10 +17,10 @@ Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 
 ![Três etapas para fazer o backup de uma máquina virtual do Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## 1\. Descobrir máquinas virtuais do Azure
-O processo de descoberta consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do Serviço de Nuvem e a Região.
+>[AZURE.NOTE]O backup de máquina virtual é local. O cofre de backup de uma região do Azure especificada não permitirá que você faça o backup de máquinas virtuais de outra região do Azure. Assim, pelo menos 1 cofre de backup deve ser criado para cada região do Azure com VMs que precisam de backup.
 
-> [AZURE.NOTE]O processo de descoberta sempre deve ser executado como a primeira etapa. Isso é para garantir que quaisquer novas máquinas virtuais adicionadas à assinatura sejam identificadas.
+## 1\. Descobrir máquinas virtuais do Azure
+O processo de descoberta consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do Serviço de Nuvem e a Região. O processo de descoberta sempre deve ser executado como a primeira etapa. Isso é para garantir que quaisquer novas máquinas virtuais adicionadas à assinatura sejam identificadas.
 
 ### Para disparar o processo de descoberta
 
@@ -41,19 +41,15 @@ O processo de descoberta consulta o Azure quanto à lista de máquinas virtuais 
     ![discover-done](./media/backup-azure-vms/discovery-complete.png)
 
 ##  2\. Registre as máquinas virtuais do Azure
-Antes que uma máquina virtual possa ser protegida, ela precisa ser registrada com o serviço de Backup do Azure. O processo de registro tem dois objetivos principais:
+Antes que uma máquina virtual possa ser protegida, ela precisa ser registrada com o serviço de Backup do Azure. O objetivo principal do processo de registro é associar a máquina virtual ao de serviço de Backup do Azure. Normalmente, o registro é uma atividade realizada uma única vez.
 
-1. Para conectar a extensão de backup ao agente de VM na máquina virtual.
-
-2. Para associar a máquina virtual ao serviço de Backup do Azure.
-
-Normalmente, o registro é uma atividade realizada uma única vez. O serviço de Backup do Azure manipula perfeitamente a atualização e aplicação de patches da extensão de backup sem a necessidade de nenhuma intervenção complicada pelo usuário. Isso libera o usuário da "sobrecarga de gerenciamento do agente" que é geralmente associada a produtos de backup.
+>[AZURE.NOTE]A extensão de backup não é instalada durante a etapa de Registro. A instalação e atualização do agente de backup agora fazem parte do trabalho de backup agendado.
 
 ### Para registrar as máquinas virtuais
 
 1. Navegue até o cofre de backup, que pode ser encontrado em **Serviços de Recuperação** no portal do Azure e clique na guia **Itens Registrados**
 
-2. Escolha o tipo de carga de trabalho no menu suspenso como **Máquina Virtual do Azure** e clique no botão de seleção.
+2. Escolha o tipo de carga de trabalho no menu suspenso como **Máquina Virtual do Azure** e clique no botão Selecionar.
 
     ![selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
@@ -63,7 +59,6 @@ Normalmente, o registro é uma atividade realizada uma única vez. O serviço de
 
     A operação **registrar** pode ser feita em grande escala, o que significa que várias máquinas virtuais podem ser selecionadas ao mesmo tempo para serem registradas. Isso reduz consideravelmente o esforço feito uma única vez na preparação da máquina virtual para backup.
 
-    >[AZURE.NOTE]Somente as máquinas virtuais que não estão registradas e estão na mesma região que o Cofre de backup serão exibidas.
 
 5. Um trabalho é criado para cada máquina virtual que deve ser registrada. A notificação do sistema mostra o status dessa atividade. Clique em **Exibir Trabalho** para ir para a página **Trabalhos**.
 
@@ -77,10 +72,9 @@ Normalmente, o registro é uma atividade realizada uma única vez. O serviço de
 
     ![Status de registro 2](./media/backup-azure-vms/register-status02.png)
 
-## 3\. Proteção: Fazer backup de máquinas virtuais do Azure
-Essa etapa envolve configurar uma política de backup e de retenção para a máquina virtual. Para proteger uma máquina virtual, execute as etapas a seguir.
+## 3\. Proteger: Fazer backup de máquinas virtuais do Azure
+Essa etapa envolve configurar uma política de backup e de retenção para a máquina virtual. Para proteger uma máquina virtual, execute as seguintes etapas:
 
-### Para fazer backup de máquinas virtuais do Azure
 1. Navegue até o cofre de backup, que pode ser encontrado em **Serviços de Recuperação** no portal do Azure e clique na guia **Itens Registrados**.
 2. Escolha o tipo de carga de trabalho no menu suspenso como **Máquina Virtual do Azure** e clique no botão **Selecionar**.
 
@@ -92,11 +86,7 @@ Essa etapa envolve configurar uma política de backup e de retenção para a má
 
     A operação **Proteger** pode ser feita em grande escala, o que significa que várias máquinas virtuais podem ser selecionadas ao mesmo tempo para serem registradas. Isso reduz consideravelmente o esforço feito para proteger a máquina virtual.
 
-    >[AZURE.NOTE]Somente as máquinas virtuais que foram registradas corretamente com o serviço de backup do Azure e estão na mesma região que o Cofre de backup são exibidas aqui.
-
 5. Na segunda tela do assistente **Proteger Itens**, escolha uma política de backup e retenção para fazer backup das máquinas virtuais selecionadas. Escolha entre um conjunto existente de políticas ou defina um novo.
-
-    >[AZURE.NOTE]Para visualizar, há suporte para retenção por até 30 dias e para backup no máximo uma vez por dia.
 
     Em cada cofre de backup, você pode ter várias políticas de backup. As políticas refletem os detalhes sobre como o backup deve ser agendado e mantido. Por exemplo, uma política de backup poderia ser um backup diário às 22h, enquanto outra política de backup poderia ser um backup semanal às 6h. Múltiplas políticas de backup permitem flexibilidade ao programar backups para sua infraestrutura de máquina virtual.
 
@@ -106,75 +96,32 @@ Essa etapa envolve configurar uma política de backup e de retenção para a má
 
     ![Configurar o trabalho de proteção](./media/backup-azure-vms/protect-configureprotection.png)
 
-7. Depois de concluído, as máquinas virtuais são protegidas com uma política e precisam esperar até que o tempo de backup agendado para o backup inicial seja concluído. A máquina virtual será exibida na guia **itens protegidos** e terá um Status de Proteção de *Protegido* (pendente do backup inicial).
-    >[AZURE.NOTE]Atualmente, começar o backup inicial imediatamente após a configuração de proteção não está disponível como uma opção.
 
-8. No horário agendado, o serviço de Backup do Azure cria um trabalho de backup para cada máquina virtual da qual é necessário fazer backup. Clique na guia **Trabalhos** para exibir a lista de trabalhos de **Backup**. Como parte da operação de backup, o serviço de Backup do Azure emite um comando para a extensão de backup em cada máquina virtual para limpar todas as gravações e capturar um instantâneo consistente.
+## Atividades pós-proteção
 
-    ![Backup em andamento](./media/backup-azure-vms/protect-inprogress.png)
+### Instalação da extensão de backup
 
-9. Uma vez concluído, o Status de Proteção da máquina virtual na guia **Itens Protegidos** será exibido como *Protegido*.
+O serviço de Backup do Azure manipula perfeitamente a atualização e aplicação de patches da extensão de backup sem a necessidade de nenhuma intervenção complicada pelo usuário. Isso libera o usuário da ï¿½sobrecarga de gerenciamento do agenteï¿½ que é geralmente associada a produtos de backup.
 
-    ![O backup da máquina virtual é realizado com ponto de recuperação](./media/backup-azure-vms/protect-backedupvm.png)
+#### VMs offline
+A extensão de backup será instalada se a VM estiver em execução. Uma VM em execução também fornece a maior chance de obter um ponto consistente com o aplicativo. O serviço de Backup do Azure continuará a realizar o backup da VM, no entanto, mesmo que a VM esteja desativada e a extensão não possa ser instalada (caso também conhecido como VM Offline). O impacto é visto na consistência - nesse caso, o ponto de recuperação será *consistente com o sistema de arquivos*.
 
-## Exibindo detalhes e status do backup
+### Backup inicial
+Uma vez protegida com uma política, a máquina virtual será exibida na guia **Itens Protegidos** com o status *Protegida (pendente de backup inicial)*. Por padrão, o primeiro backup agendado é o backup inicial. Para disparar o backup inicial imediatamente após a configuração de proteção, use o botão **Fazer Backup Agora** na parte inferior da página Itens Protegidos.
+
+O serviço de Backup do Azure cria um trabalho de backup para a operação de backup inicial. Clique na guia **Trabalhos** para exibir a lista de trabalhos. Como parte da operação de backup, o serviço de Backup do Azure emite um comando para a extensão de backup em cada máquina virtual para limpar todas as gravações e capturar um instantâneo consistente.
+
+![Backup em andamento](./media/backup-azure-vms/protect-inprogress.png)
+
+Uma vez que o backup inicial esteja concluído, o Status de Proteção da máquina virtual na guia **Itens Protegidos** será exibido como *Protegido*.
+
+![O backup da máquina virtual é realizado com ponto de recuperação](./media/backup-azure-vms/protect-backedupvm.png)
+
+
+### Exibindo detalhes e status do backup
 Depois de protegido, a contagem de máquina virtual também aumenta no resumo da página **Painel**. Além disso, a página **Painel** mostra o número de trabalhos das últimas 24 horas que obtiveram êxito, que falharam e que ainda estão em andamento. Clicar em qualquer categoria detalhará tal categoria na página **Trabalhos**.
 
 ![Status do backup na página Painel](./media/backup-azure-vms/dashboard-protectedvms.png)
-
-## Solucionar erros
-Você pode solucionar os erros encontrados durante a utilização do Backup do Azure com as informações listadas na tabela a seguir.
-
-| Operação de backup | Detalhes do erro | Solução alternativa |
-| -------- | -------- | -------|
-| Descoberta | Falha ao descobrir novos itens - o Backup do Microsoft Azure encontrou um erro interno. Aguarde alguns minutos e repita a operação. | Repita o processo de descoberta após 15 minutos.
-| Descoberta | Falha ao descobrir novos itens – outra operação de descoberta já está em andamento. Aguarde até que a operação de Descoberta atual seja concluída. | Nenhum. |
-| Registrar | A função VM do Azure não está em um estado que permite instalar a extensão – verifique se a VM está no estado Em Execução. A extensão Serviços de Recuperação do Azure requer que a VM esteja Em Execução. | Inicie a máquina virtual e quando ele estiver no estado Em Execução, então repita a operação de registro.|
-| Registrar | O número de discos de dados anexados à máquina virtual excedeu o limite com suporte. Retire alguns discos de dados dos anexos nesta máquina virtual e repita a operação. O backup do Azure dá suporte a até cinco discos de dados anexados a uma máquina virtual do Azure para backup. | Nenhum. |
-| Registrar | O Backup do Microsoft Azure encontrou um erro interno. Aguarde alguns minutos e tente a operação novamente. Se o problema persistir, contate o Suporte da Microsoft. | Você poderá obter esse erro devido a uma das seguintes configurações sem suporte: <ol><li>LRS Premium. <li>Várias NICs. <li>Balanceador de carga. </ol> |
-| Registrar | Certificado do Agente Convidado da VM não encontrado. | Siga estas instruções para resolver o erro: <ol><li>Baixar a versão mais recente do agente de VM [aqui](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Verifique se a versão do agente baixado é 2.6.1198.718 ou mais recente. <li>Instale o agente de VM na máquina virtual.</ol> [Saiba](#validating-vm-agent-installation) como verificar a versão do Agente de VM. |
-| Registrar | Falha no registro com tempo limite da operação Instalar Agente. | Verifique se a versão do sistema operacional da máquina virtual tem suporte. |
-| Registrar | A execução do comando falhou - há outra operação em andamento neste item. Aguarde até que a operação anterior seja concluída. | Nenhum. |
-| Backup | A cópia de VHDs do Cofre de backup atingiu o tempo limite - tente a operação novamente dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. | Isso ocorre quando há muitos dados a serem copiados. Verifique se você tem menos de seis discos de dados. |
-| Backup | A subtarefa VM Instantânea atingiu o seu tempo limite - tente a operação novamente dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. | Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. <ul><li>Saiba mais sobre a [depuração de problemas do Agente de VM](#Troubleshooting-vm-agent-related-issues). <li>Saiba mais sobre a [depuração de problemas de rede](#troubleshooting-networking-issues). </ul> |
-| Backup | Falha no backup com um erro interno - tente novamente a operação dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. | Você pode obter esse erro por duas razões: <ol><li> há muitos dados a serem copiados. Verifique se você tem menos de seis discos. <li>A máquina virtual original foi excluída e, portanto, o backup não pode ser feito. Para manter os dados de backup de uma VM excluída, mas parar os erros de backup, desproteja a VM e escolha a opção para manter os dados. Isso interromperá o agendamento de backup e também as mensagens de erro recorrentes. |
-| Backup | Falha ao instalar a extensão dos Serviços de Recuperação do Azure no item selecionado - o Agente de VM é um pré-requisito para a Extensão de Serviços de Recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro. | <ol> <li>Verifique se o agente de VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> [Leia mais](#validating-vm-agent-installation) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
-| Backup | A execução do comando falhou - outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída e tente novamente. | Está em execução um backup existente ou um trabalho de restauração para a máquina virtual e não é possível iniciar um novo trabalho enquanto o trabalho existente estiver sendo executado. <br><br>Se você quiser a opção de cancelar um trabalho em andamento, adicione seu voto ao [Fórum de comentários do Azure](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
-
-### Solução de problemas relacionados ao agente de VM
-
-#### Configurando o agente de VM
-Normalmente, o agente de VM já está presente em máquinas virtuais que são criadas na Galeria do Azure. No entanto, as máquinas virtuais que são migradas de datacenters locais não teriam o Agente de VM instalado. Para essas VMs, o Agente de VM precisa ser instalado explicitamente. Leia mais sobre [Instalando o Agente de VM em uma VM existente](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
-
-Para VMs do Windows:
-
-- Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação.
-- [Atualizar a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado.
-
-
-#### Atualizar o Agente de VM
-Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). No entanto, você precisa garantir que nenhuma operação de backup esteja em execução enquanto o Agente de VM estiver sendo atualizado.
-
-
-#### Validando a instalação do Agente de VM
-Como verificar a versão do Agente de VM em VMs do Windows:
-
-1. Faça logon na máquina virtual do Azure e navegue até a pasta *C:\\WindowsAzure\\Packages*. Você deve encontrar o arquivo WaAppAgent.exe na pasta Pacotes.
-2. Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do Produto deve ser 2.6.1198.718 ou posterior.
-
-### Solucionando problemas de rede
-Como todas as extensões, a extensão de Backup precisa acessar a Internet pública para funcionar. A falta de acesso à Internet pública pode se manifestar de inúmeras formas:
-
-- A instalação da extensão pode falhar.
-- As operações de backup (como instantâneo de disco) podem falhar.
-- A exibição do status da operação de backup pode falhar.
-
-A necessidade de resolução de endereços de Internet pública foi articulada [aqui](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Você precisará verificar as configurações de DNS para o VNET e certificar-se de que os URIs do Azure possam ser resolvidos.
-
-Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure também deve ser fornecido. Para desbloquear o acesso à infraestrutura do Azure, siga estas etapas:
-
-1. Obtenha a lista de [IPs do datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) que sejam IPs seguros.
-2. Desbloquear o IPs usando o commandlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Executar este commandlet na VM do Azure em uma janela do PowerShell com privilégios elevados (Executar como administrador).
 
 
 ## Consistência de pontos de recuperação
@@ -190,13 +137,51 @@ A tabela a seguir explica os tipos de consistência encontrados durante o backup
 | Consistência | Baseado em VSS | Explicação e detalhes |
 |-------------|-----------|---------|
 | Consistência de aplicativo | Sim | Este é o lugar ideal para cargas de trabalho da Microsoft porque garante:<ol><li> que a VM *será iniciada*. <li>Não há *corrupção*. <li>Não há *perda de dados*.<li> Os dados são consistentes com o aplicativo que usa os dados, envolvendo o aplicativo no momento do backup - usando o VSS.</ol> O VSS (Serviço de Instantâneo de Volume) garante que os dados sejam gravados corretamente para o armazenamento. A maioria das cargas de trabalho Microsoft têm gravadores VSS que executam ações específicas de carga de trabalho relacionadas a consistência dos dados. Por exemplo, o Microsoft SQL Server tem um gravador VSS que garante que as gravações no arquivo de log de transações e no banco de dados sejam realizadas corretamente.<br><br> Para backup da VM do Azure, obter um ponto de recuperação consistente no aplicativo significa que a extensão de backup foi capaz de invocar o fluxo de trabalho do VSS e ser concluída *corretamente* antes que o instantâneo da VM fosse tirado. Naturalmente, isso significa que os gravadores VSS de todos os aplicativos na VM do Azure também são chamados.<br><br>Aprenda as [noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e aprofunde-se nos detalhes de [como ele funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
-| Consistência do sistema de arquivos | Sim - para computadores executando Windows | Há dois cenários em que o ponto de recuperação pode ser consistente com o sistema de arquivos:<ul><li>Backup de VMs do Linux no Azure, já que o Linux não tem uma plataforma equivalente ao VSS.<li>Falha do VSS durante o backup de máquinas virtuais do Windows no Azure.</li></ul> Em ambos os casos, o melhor que você pode fazer é garantir que: <ol><li> a VM *seja iniciada*. <li>Não há *corrupção*.<li>Não há *perda de dados*.</ol> Os aplicativos precisam implementar seu próprio mecanismo de "correção" nos dados restaurados.|
-| Consistência de falhas | Não | Essa situação é equivalente a um computador tendo uma "falha" (por meio de uma reinicialização forçada ou flexível). Isso geralmente acontece quando a máquina virtual do Azure está desligada no momento do backup. Para backup da máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no meio de armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup. <br/><br/> Embora não haja garantia, na maioria dos casos o sistema operacional será inicializado. Normalmente, isso é seguido por um procedimento de verificação de disco, como chkdsk, para corrigir qualquer erro de corrupção. Quaisquer dados na memória ou gravações que não tenham sido totalmente liberadas para o disco serão perdidas. O aplicativo geralmente segue com seu próprio mecanismo de verificação, caso seja necessário realizar reversão de dados. Para backup de máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Isso geralmente acontece quando a VM do Azure é desligada no momento do backup.<br><br>Por exemplo, se o log de transações tiver entradas que não estejam presentes no banco de dados, o software de banco de dados fará uma reversão até que os dados estejam consistentes. Ao lidar com dados distribuídos em vários discos virtuais (como volumes estendidos), um ponto de recuperação consistente quanto a falhas não garante a exatidão dos dados.|
+| Consistência do sistema de arquivos | Sim - para computadores executando Windows | Há dois cenários em que o ponto de recuperação pode ser consistente com o sistema de arquivos:<ul><li>Backup de VMs do Linux no Azure, já que o Linux não tem uma plataforma equivalente ao VSS.<li>Falha do VSS durante o backup de máquinas virtuais do Windows no Azure.</li></ul> Em ambos os casos, o melhor que você pode fazer é garantir que: <ol><li> a VM *seja iniciada*. <li>Não haja *corrupção*.<li>Não haja *perda de dados*.</ol> Os aplicativos precisam implementar seu próprio mecanismo de "correção" nos dados restaurados.|
+| Consistência de falhas | Não | Essa situação é equivalente a um computador tendo uma "falha" (por meio de uma reinicialização forçada ou flexível). Isso geralmente acontece quando a máquina virtual do Azure está desligada no momento do backup. Para backup da máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no meio de armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup. <br/> <br/> Embora não haja garantia, na maioria dos casos o sistema operacional será inicializado. Normalmente, isso é seguido por um procedimento de verificação de disco, como chkdsk, para corrigir qualquer erro de corrupção. Quaisquer dados na memória ou gravações que não tenham sido totalmente liberadas para o disco serão perdidas. O aplicativo geralmente segue com seu próprio mecanismo de verificação, caso seja necessário realizar reversão de dados. Para backup de máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Isso geralmente acontece quando a VM do Azure é desligada no momento do backup.<br><br>Por exemplo, se o log de transações tiver entradas que não estejam presentes no banco de dados, o software de banco de dados fará uma reversão até que os dados estejam consistentes. Ao lidar com dados distribuídos em vários discos virtuais (como volumes estendidos), um ponto de recuperação consistente quanto a falhas não garante a exatidão dos dados.|
+
+
+## Desempenho e utilização de recursos
+Como o software de backup que é implantado localmente, o backup de VMs no Azure também precisa ser planejado quanto à capacidade e à utilização de recursos. Os [limites de Armazenamento do Azure](azure-subscription-service-limits.md#storage-limits) definirão como as implantações de VM serão estruturadas para obter o máximo de desempenho com o mínimo de impacto para executar cargas de trabalho. Existem dois limites principais de Armazenamento do Azure que têm impacto sobre o desempenho do backup:
+
++ Egresso máximo por conta de armazenamento
++ Taxa de solicitação total por conta de armazenamento
+
+Quando os dados de backup são copiados da conta de armazenamento do cliente, eles contam na direção das métricas de IOPS e Egresso (taxa de transferência de armazenamento) da conta de armazenamento. Ao mesmo tempo, as máquinas virtuais também estão em execução e consumindo IOPS e taxa de transferência. O objetivo é garantir que o tráfego total - backup e máquina virtual - não exceda os limites da conta de armazenamento.
+
+O backup é ávido e tenta consumir tantos recursos quanto possível, com o objetivo de concluir o backup o mais rápido que puder. No entanto, todas as operações de E/S são limitadas pelo *Rendimento de destino por Blob único*, que tem um limite de *60 MB por segundo*. Para acelerar o processo de backup, tenta-se realizar o backup de cada disco da VM *em paralelo*. Portanto, se uma VM tem 4 discos, o Azure Backup tentará fazer o backup de todos os 4 discos em paralelo. Assim, o único fator mais importante que determina o tráfego de backup em saída de uma conta de armazenamento do cliente é o **número de discos** cujo backup está sendo feito da conta de armazenamento.
+
+Um outro fator que afeta o desempenho é o **agendamento de backup**. Se você configurar todas as VMs para backup simultâneo, o número de discos cujo backup está sendo feito *em paralelo* aumentará - já que o Backup do Azure tenta realizar o backup do máximo possível de discos. Portanto, uma maneira de reduzir o tráfego de backup de uma conta de armazenamento é garantir que o backup das VMs diferentes seja feito em diferentes momentos do dia, sem sobreposição.
+
+### Planejamento da capacidade
+Reunir todos esses fatores significa que o uso da conta de armazenamento precisa ser planejado corretamente. Baixe a [planilha do Excel para planejamento de capacidade de backup de VMs](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) para ver o impacto de suas escolhas relativas a disco e agendamento de backup.
+
+### Taxa de transferência de backup
+Para cada disco cujo backup está sendo feito, o Backup do Azure lê os blocos no disco e armazena somente os dados alterados (backup incremental). A tabela a seguir mostra os valores de taxa de transferência média que podem ser esperados do Backup do Azure:
+
+| Operação de backup | Melhor taxa de transferência possível |
+| ---------------- | ---------- |
+| Backup inicial | 160 Mbps |
+| Backup incremental (DR) | 640 Mbps <br><br> Essa taxa de transferência pode cair significativamente se houver muita variação dispersa no disco cujo backup precisa ser feito. |
+
+Usando isso, você pode estimar a quantidade de tempo que leva para fazer o backup de um disco de um determinado tamanho.
+
+### Tempo total de backup da VM
+Embora a maioria do tempo é gasto na leitura e cópia de dados, existem outras operações que contribuem para o tempo total gasto para fazer o backup de uma VM:
+
+1. Tempo necessário para [instalar ou atualizar a extensão de backup](backup-azure-vms.md#offline-vms)
+2. Tempo de espera de fila: uma vez que o serviço estiver processando backups de vários clientes, a operação de backup não será iniciada imediatamente. O tempo de espera médio de uma VM é de 15 a 30 minutos.
+
+
+## Solucionar erros
+Obtenha uma lista completa das soluções alternativas para os erros enfrentados durante o backup de máquinas virtuais: [Solução de problemas em backup de máquinas virtuais](backup-azure-vms-troubleshoot.md)
+
 
 ## Próximas etapas
+
 Para saber mais sobre a introdução ao Backup do Azure, consulte:
 
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

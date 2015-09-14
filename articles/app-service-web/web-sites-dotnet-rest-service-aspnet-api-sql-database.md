@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Criar um serviço REST usando a API Web ASP.NET e o Banco de Dados SQL no Serviço de Aplicativo do Azure" 
-	description="Um tutorial que ensina como implantar um aplicativo que usa a API Web ASP.NET em um aplicativo Web do Azure usando o Visual Studio." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="Rick-Anderson" 
-	manager="wpickett" 
+	pageTitle="Criar um serviço REST usando a API Web ASP.NET e o Banco de Dados SQL no Serviço de Aplicativo do Azure"
+	description="Um tutorial que ensina como implantar um aplicativo que usa a API Web ASP.NET em um aplicativo Web do Azure usando o Visual Studio."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="Rick-Anderson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="riande"/>
 
 # Criar um serviço REST usando a API Web ASP.NET e o Banco de Dados SQL no Serviço de Aplicativo do Azure
@@ -810,4 +810,4 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

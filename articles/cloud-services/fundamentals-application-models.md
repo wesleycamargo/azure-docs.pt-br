@@ -1,20 +1,18 @@
 <properties 
-	pageTitle="Opções de hospedagem de computação fornecidas pelo Azure" 
-	description="Saiba mais sobre as opções de hospedagem de computação do Azure e como elas funcionam: Serviços de Aplicativo, Serviços de Nuvem, Máquinas Virtuais entre outros" 
-	headerExpose="" 
-	footerExpose="" 
+	pageTitle="Opções de hospedagem de computação fornecidas pelo Azure"
+	description="Saiba mais sobre as opções de hospedagem de computação do Azure e como elas funcionam: Serviços de Aplicativo, Serviços de Nuvem, Máquinas Virtuais entre outros"
 	services="cloud-services,virtual-machines"
-	authors="Thraka" 
+	authors="Thraka"
 	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="adegeo;cephalin;kathydav"/>
 
 
@@ -55,7 +53,7 @@ O Serviço de Aplicativo é a melhor opção para a maioria dos aplicativos Web.
 
 Se precisar de mais controle sobre o ambiente do servidor Web, como a capacidade de acessar remotamente seu servidor ou configurar as tarefas de inicialização do servidor, os Serviços de Nuvem do Azure geralmente são a melhor opção.
 
-Se você tiver um aplicativo existente que necessitaria de modificações substanciais para ser executado em Websites do Azure ou nos Serviços de Nuvem do Azure, você pode escolher as Máquinas Virtuais do Azure para simplificar a migração para a nuvem. No entanto, configurar, proteger e manter as máquinas virtuais corretamente requer muito tempo e conhecimento de TI em comparação aos Websites do Azure e aos Serviços de Nuvem. Se estiver considerando as Máquinas Virtuais do Azure, assegure-se de levar em conta o esforço contínuo de manutenção necessário para corrigir, atualizar e gerenciar seu ambiente de máquinas virtuais. Se você tiver um aplicativo existente que necessitaria de modificações substanciais para ser executado no Serviço de Aplicativo ou nos Serviços de nuvem do Azure, você pode escolher as Máquinas Virtuais do Azure para simplificar a migração para a nuvem. No entanto, configurar, proteger e manter as máquinas virtuais corretamente requer muito tempo e conhecimento de TI em comparação ao Serviço de Aplicativo e aos Serviços de Nuvem. Se estiver considerando as Máquinas Virtuais do Azure, assegure-se de levar em conta o esforço contínuo de manutenção necessário para corrigir, atualizar e gerenciar seu ambiente de máquinas virtuais.
+Se você tiver um aplicativo existente que necessitaria de modificações substanciais para ser executado em Websites do Azure ou nos Serviços de Nuvem do Azure, você pode escolher as Máquinas Virtuais do Azure para simplificar a migração para a nuvem. No entanto, configurar, proteger e manter as máquinas virtuais corretamente requer muito tempo e conhecimento de TI em comparação aos Websites do Azure e aos Serviços de Nuvem. Se estiver considerando as Máquinas Virtuais do Azure, assegure-se de levar em conta o contínuo esforço de manutenção necessário para corrigir, atualizar e gerenciar seu ambiente de máquinas virtuais.
 
 Às vezes, nenhuma opção única é certa. Em situações como essa, é perfeitamente legal combinar as opções. Por exemplo, suponha que você esteja criando um aplicativo onde deseja os benefícios de gerenciamento das funções Web dos Serviços de Nuvem, mas também precisa usar o SQL Server padrão hospedado em uma Máquina Virtual por motivos de compatibilidade ou desempenho.
 
@@ -81,4 +79,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * Saiba mais sobre [Serviço de Nuvem](services/cloud-services/)
 * Saiba mais sobre [Máquinas virtuais](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

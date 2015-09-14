@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Push Seguro dos Hubs de Notificação do Azure" 
-	description="Saiba como enviar notificações por push seguro para um aplicativo Android do Azure. Exemplos de códigos escritos em Java e c#." 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Push Seguro dos Hubs de Notificação do Azure"
+	description="Saiba como enviar notificações por push seguro para um aplicativo Android do Azure. Exemplos de códigos escritos em Java e c#."
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Push Seguro dos Hubs de Notificação do Azure
@@ -22,7 +22,7 @@
 - [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
 - [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
 - [Android](notification-hubs-aspnet-backend-android-secure-push.md)
-    
+
 ##Visão geral
 
 O suporte à notificação por push no Microsoft Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis.
@@ -64,10 +64,10 @@ Agora, modificaremos o fluxo de *logon* para salvar o valor do cabeçalho de aut
     		EditText password = (EditText) findViewById(R.id.passwordText);
     		String basicAuthHeader = username.getText().toString()+":"+password.getText().toString();
     		basicAuthHeader = Base64.encodeToString(basicAuthHeader.getBytes("UTF-8"), Base64.NO_WRAP);
-    	
+
     		SharedPreferences sp = getSharedPreferences(NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
     		sp.edit().putString(AUTHORIZATION_HEADER_PROPERTY, basicAuthHeader).commit();
-    	
+
     		return basicAuthHeader;
 		}
 
@@ -80,7 +80,7 @@ Agora, alteraremos o manipulador que é chamado quando a notificação é recebi
 4. Na classe **MyHandler**, altere o método `OnReceive()` para conter:
 
 		public void onReceive(Context context, Bundle bundle) {
-	    	ctx = context;   
+	    	ctx = context;
 	    	String secureMessageId = bundle.getString("secureId");
 	    	retrieveNotification(secureMessageId);
 		}
@@ -90,7 +90,7 @@ Agora, alteraremos o manipulador que é chamado quando a notificação é recebi
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
     		final String authorizationHeader = sp.getString(MainActivity.AUTHORIZATION_HEADER_PROPERTY, null);
-		
+
 			new AsyncTask<Object, Object, Object>() {
 				@Override
 				protected Object doInBackground(Object... params) {
@@ -113,7 +113,7 @@ Agora, alteraremos o manipulador que é chamado quando a notificação é recebi
 				}
 			}.execute(null, null, null);
 		}
-		
+
 
 Esse método chama o back-end do seu aplicativo para recuperar o conteúdo da notificação usando as credenciais armazenadas nas preferências compartilhadas e o exibe como uma notificação normal. Para o usuário do aplicativo, a notificação tem exatamente a mesma aparência que qualquer outra notificação por push.
 
@@ -130,6 +130,5 @@ Para executar o aplicativo, faça o seguinte:
 3. Na interface do usuário do aplicativo Android, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
 
 4. Na interface do usuário do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

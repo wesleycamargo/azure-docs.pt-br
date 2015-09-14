@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Tutorial de início rápido para a linguagem R para Aprendizado de Máquina | Microsoft Azure"
 	description="Use este tutorial de programação R para começar a usar rapidamente a linguagem R com Studio de Aprendizado de Máquina do Azure para criar uma solução de previsão."
-	keywords="quickstart,r language,r programming language,r programming tutorial"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/26/2015"
+	ms.date="09/02/2015"
 	ms.author="larryfr"/>
 
 # Tutorial de início rápido para a linguagem de programação R para o Aprendizado de Máquina do Azure
@@ -1117,4 +1116,4 @@ Alguns ótimos recursos na Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=06-->
+<!---HONumber=September15_HO1-->

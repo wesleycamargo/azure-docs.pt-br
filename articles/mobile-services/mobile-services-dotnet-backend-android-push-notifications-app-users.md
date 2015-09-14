@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Enviar notificações por push para usuários autenticados" 
-	description="Saiba como enviar notificações por push para especificar" 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Enviar notificações por push para usuários autenticados"
+	description="Saiba como enviar notificações por push para especificar"
+	services="mobile-services,notification-hubs"
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="notification-hubs" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="notification-hubs"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Enviar notificações por push para usuários autenticados
@@ -27,7 +27,7 @@ Este tópico mostra como enviar notificações por push a um usuário autenticad
 
 Este tutorial oferece suporte para aplicativos Android.
 
-##Pré-requisitos 
+##Pré-requisitos
 
 Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais dos Serviços Móveis:
 
@@ -62,6 +62,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

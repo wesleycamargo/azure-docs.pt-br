@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Dispositivo virtual StorSimple | Microsoft Azure"
-	description="Saiba como criar, configurar, implantar e gerenciar o dispositivo virtual StorSimple executando a Atualização 1.0."
+   pageTitle="Dispositivo virtual StorSimple Atualização 1 | Microsoft Azure"
+	description="Saiba como criar, implantar e gerenciar um dispositivo virtual StorSimple em uma rede virtual do Microsoft Azure. (Aplica-se ao StorSimple Atualização 1)."
 	services="storsimple"
 	documentationCenter=""
 	authors="alkohli"
@@ -12,10 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# Dispositivo virtual StorSimple
+# Implantar e gerenciar um dispositivo virtual StorSimple no Azure
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
@@ -383,4 +383,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

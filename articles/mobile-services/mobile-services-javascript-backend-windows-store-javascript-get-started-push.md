@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Adicionar notificações por push para seu aplicativo de Serviços Móveis (Windows Store) | Microsoft Azure" 
-	description="Saiba como usar serviços móveis do Azure e Hubs de notificação para enviar notificações por push para seu aplicativo da Windows Store." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Adicionar notificações por push para seu aplicativo de Serviços Móveis (Windows Store) | Microsoft Azure"
+	description="Saiba como usar serviços móveis do Azure e Hubs de notificação para enviar notificações por push para seu aplicativo da Windows Store."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="windows" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="windows"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 
@@ -52,8 +52,8 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
             .createPushNotificationChannelForApplicationAsync()
             .then(function (channel) {
                 // Register for notifications using the new channel
-                client.push.registerNative(channel.uri);                    
-            });      
+                client.push.registerNative(channel.uri);
+            });
 
 	Esse código recupera o ChannelURI do aplicativo nos WNS e registra esse ChannelURI para notificações por push.
 
@@ -126,6 +126,5 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [O que são Hubs de Notificação?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-localized-breaking-news.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

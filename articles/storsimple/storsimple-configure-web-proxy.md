@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Configurar o proxy Web para o seu dispositivo | Microsoft Azure"
-   description="Aprenda a configurar o proxy Web para seu dispositivo StorSimple usando o Windows PowerShell para StorSimple"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Configurar o proxy Web para um dispositivo StorSimple | Microsoft Azure"
+	description="Saiba como usar o Windows PowerShell para StorSimple para definir configurações do proxy Web para seu dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/29/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
-# Configurar o proxy Web para seu dispositivo
+# Configurar proxy da web para seu dispositivo StorSimple
 
 ## Visão geral
 
@@ -148,4 +148,4 @@ Se as configurações de proxy Web tiverem sido definidas incorretamente, mensag
 ## Próximas etapas
 Se você tiver problemas ao implantar seu dispositivo ou definir as configurações de proxy Web, consulte [Solucionar problemas de implantação do dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

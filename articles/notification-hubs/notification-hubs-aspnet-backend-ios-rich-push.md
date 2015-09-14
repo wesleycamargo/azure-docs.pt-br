@@ -7,13 +7,13 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Push Avançado dos Hubs de Notificação do Azure
@@ -26,7 +26,7 @@ Para atrair os usuários com conteúdo elaborado instantâneo, um aplicativo tal
 
 Este tutorial é compatível com iOS 7 e 8.
 
-    ![][IOS1]
+  ![][IOS1]
 
 Em um alto nível:
 
@@ -380,6 +380,5 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

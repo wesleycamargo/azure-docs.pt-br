@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Componentes de hardware e status do StorSimple | Microsoft Azure"
-   description="Saiba como monitorar os componentes de hardware do dispositivo StorSimple por meio do serviço StorSimple Manager."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Saiba como monitorar os componentes de hardware do dispositivo StorSimple por meio do serviço StorSimple Manager."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
-# Status e componentes de hardware do StorSimple
+# Usar o serviço StorSimple Manager para monitorar componentes e status de hardware
 
 ## Visão geral
 
@@ -131,4 +131,4 @@ Para substituir um componente de hardware com falha, consulte [Substituição de
 
 Se você continuar tendo problemas de dispositivo, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

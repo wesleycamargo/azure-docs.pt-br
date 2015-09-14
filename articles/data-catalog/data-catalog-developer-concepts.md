@@ -115,13 +115,40 @@ Tipos de anotação representam tipos de metadados que podem ser atribuídos a o
 <tr><td></td><td>Tipo MIME</td><td>cadeia de caracteres</td><td>O tipo mime do conteúdo.</td></tr>
 <tr><td></td><td>conteúdo</td><td>cadeia de caracteres</td><td>As instruções para obter acesso a esse ativo de dados. Pode ser uma URL, um endereço de email ou um conjunto de instruções.</td></tr>
 
+<tr><td>TableDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>numberOfRows</td></td><td>int</td><td>O número de linhas no conjunto de dados</td></tr>
+<tr><td></td><td>tamanho</td><td>longo</td><td>O tamanho em bytes do conjunto de dados.  </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>string</td><td>A hora da última modificação do esquema</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>string</td><td>A hora da última modificação do conjunto de dados (dados foram adicionados, modificados ou excluídos)</td></tr>
+
+<tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>colunas</td></td><td>ColumnDataProfile[]</td><td>O número de linhas no conjunto de dados</td></tr>
+
+
 </table>
 
 ### Tipos comuns
 
 Tipos comuns podem ser usados como os tipos de propriedades, mas não são Itens.
 
-<table><tr><td><b>Tipo Comum</b></td><td><b>Propriedades</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>Descreve o tipo de fonte de dados como, por exemplo, SQL Server, Oracle Database, etc...  </td></tr><tr><td></td><td>objectType</td><td>string</td><td>Descreve o tipo de objeto da fonte de dados como, por exemplo, Tabela, Exibição do SQL Server.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>Descreve a estrutura dos dados. Os valores atuais são estruturados ou não estruturados.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>Endereço de email exclusivo do usuário.</td></tr><tr><td></td><td>firstName</td><td>string</td><td>Nome do usuário (para fins de exibição).</td></tr><tr><td></td><td>lastName</td><td>string</td><td>Sobrenome do usuário (para fins de exibição).</td></tr><tr><td>Coluna</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>Nome da coluna ou do atributo.</td></tr><tr><td></td><td>type</td><td>string</td><td>Tipo de dados da coluna ou do atributo. Os tipos permitidos dependem sourceType de dados do ativo. Há suporte para apenas um subconjunto de tipos.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>O comprimento máximo permitido para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>Precisão</td><td>byte</td><td>A precisão para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>isNullable</td><td>Booliano</td><td>Se a coluna tem permissão para ter um valor nulo ou não. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>expressão</td><td>string</td><td>Se o valor for uma coluna calculada, esse campo contém a expressão que expresse este valor. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>defaultValue</td><td>objeto</td><td>O valor padrão inserido se não for especificado na instrução insert do objeto. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>marcas</td><td>string[]</td><td>Uma matriz de marcas que descreve a coluna.</td></tr><tr><td></td><td>description</td><td>string</td><td>Uma descrição que descreve a coluna.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>O nome da coluna à qual essas informações se referem.</td></tr>
+<table><tr><td><b>Tipo Comum</b></td><td><b>Propriedades</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>Descreve o tipo de fonte de dados como, por exemplo, SQL Server, Oracle Database, etc...  </td></tr><tr><td></td><td>objectType</td><td>string</td><td>Descreve o tipo de objeto da fonte de dados como, por exemplo, Tabela, Exibição do SQL Server.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>Descreve a estrutura dos dados. Os valores atuais são estruturados ou não estruturados.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>Endereço de email exclusivo do usuário.</td></tr><tr><td></td><td>firstName</td><td>string</td><td>Nome do usuário (para fins de exibição).</td></tr><tr><td></td><td>lastName</td><td>string</td><td>Sobrenome do usuário (para fins de exibição).</td></tr><tr><td>Coluna</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>Nome da coluna ou do atributo.</td></tr><tr><td></td><td>type</td><td>string</td><td>Tipo de dados da coluna ou do atributo. Os tipos permitidos dependem sourceType de dados do ativo. Há suporte para apenas um subconjunto de tipos.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>O comprimento máximo permitido para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>Precisão</td><td>byte</td><td>A precisão para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>isNullable</td><td>Booliano</td><td>Se a coluna tem permissão para ter um valor nulo ou não. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>expressão</td><td>string</td><td>Se o valor for uma coluna calculada, esse campo contém a expressão que expresse este valor. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr><tr><td></td><td>defaultValue</td><td>objeto</td><td>O valor padrão inserido se não for especificado na instrução insert do objeto. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td>
+
+</tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>marcas</td><td>string[]</td><td>Uma matriz de marcas que descreve a coluna.</td></tr>
+<tr><td></td><td>description</td><td>string</td><td>Uma descrição que descreve a coluna.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>O nome da coluna à qual essas informações se referem.</td></tr>
+
+</tr><tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnName </td><td>string</td><td>O nome da coluna</td></tr>
+<tr><td></td><td>type </td><td>string</td><td>O tipo da coluna</td></tr>
+<tr><td></td><td>min </td><td>string</td><td>O valor mínimo no conjunto de dados</td></tr>
+<tr><td></td><td>max </td><td>string</td><td>O valor máximo do conjunto de dados</td></tr>
+<tr><td></td><td>avg </td><td>double</td><td>O valor médio do conjunto de dados</td></tr>
+<tr><td></td><td>stdev </td><td>double</td><td>O desvio padrão para o conjunto de dados</td></tr>
+<tr><td></td><td>nullCount </td><td>int</td><td>A contagem de valores nulos no conjunto de dados</td></tr>
+<tr><td></td><td>distinctCount  </td><td>int</td><td>A contagem de valores distintos no conjunto de dados</td></tr>
+
+
+
 </table>
 
 ## Funções e autorização
@@ -229,6 +256,6 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 > [AZURE.NOTE]Em PUT, não é obrigatório especificar uma carga de item no corpo. PUT pode ser usado para atualizar apenas funções e/ou permissões.
 
 <!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept.png
+[1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

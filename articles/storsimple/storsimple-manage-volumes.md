@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gerenciar seus volumes do StorSimple | Microsoft Azure"
-	description="Explica como adicionar, modificar e monitorar os volumes StorSimple e como colocá-los offline, se necessário."
+	description="Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário."
 	services="storsimple"
 	documentationCenter="NA"
 	authors="SharS"
@@ -12,10 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="08/27/2015"
 	ms.author="v-sharos"/>
 
-# Gerenciamento dos seus volumes do StorSimple
+# Usar o serviço StorSimple Manager para gerenciar volumes
 
 ## Visão geral
 
@@ -31,7 +31,7 @@ O serviço StorSimple Manager é uma extensão do Portal do Azure que permite ge
 
 A página **Volumes** página permite que você gerencie os volumes de armazenamento provisionados no dispositivo Microsoft Azure StorSimple para os iniciadores (servidores). Ela exibe a lista de volumes no seu dispositivo StorSimple.
 
- ![página volumes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
+ ![Página Volumes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
 
 Um volume consiste em uma série de atributos:
 
@@ -65,22 +65,22 @@ Você [criou um volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-
 
 3. Clique em **Adicionar** na parte inferior da página. Isso inicia o assistente Adicionar um volume.
 
-     ![adicionar volume](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![Configurações básicas do assistente para Adicionar volume](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
 
 4. No assistente Adicionar um volume, em **Configurações Básicas**, faça o seguinte:
 
   1. Digite um **Nome** para o seu volume.
   2. Especifique a **Capacidade Provisionada** para o seu volume em GB ou TB. A capacidade deve ser entre 1 GB e 64 TB para um dispositivo físico. A capacidade máxima que pode ser provisionada para um volume em um dispositivo virtual StorSimple é de 30 TB.
   3. Na lista suspensa, selecione o **Tipo de Uso** para o seu volume. Escolha **Volume de arquivamento** se você estiver trabalhando com dados de arquivamento acessados com menos frequência. Para todos os outros casos de uso, selecione **Volume em camadas**. (Volumes em camadas eram chamados anteriormente de volumes primários).
-  5. Clique no ícone de seta ![ícone de seta](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)para ir para a página **Configurações Adicionais**.
+  5. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)para ir para a página **Configurações Adicionais**.
 
-     ![adicionar volume](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+     ![Configurações adicionais do assistente para Adicionar volume](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
    
 5. Em **Configurações Adicionais**, adicione um novo registro de controle de acesso (ACR):
   
   1. Selecione um registro de controle de acesso (ACR) na lista suspensa. Como opção, você também pode abrir um novo ACR. ACRs determinam quais hosts podem acessar os volumes fazendo a correspondência do IQN do host com aqueles listados no registro.
   2. Em **Backup padrão para este volume**, recomendamos que você habilite um backup padrão marcando a caixa de seleção **Habilitar**.
-   3. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para criar o volume com as configurações especificadas.
+   3. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para criar o volume com as configurações especificadas.
 
 O seu novo volume agora está pronto para uso.
 
@@ -172,7 +172,7 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
 5. No Assistente Modificar Volume, em **Configurações Básicas**, selecione **Habilitar** ou **Desabilitar** da lista suspensa **Monitoramento**.
 
-    ![monitorar um volume](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
+    ![Modificar as Configurações Básicas de um volume](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
 ## Próximas etapas
 
@@ -181,4 +181,4 @@ Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

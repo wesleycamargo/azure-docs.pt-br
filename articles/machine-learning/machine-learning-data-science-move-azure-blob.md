@@ -1,33 +1,33 @@
 <properties 
-	pageTitle="Mover dados de e para o Armazenamento de Blobs do Azure | Microsoft Azure" 
-	description="Mover dados de e para o Armazenamento de Blobs do Azure" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Mover dados de e para o Armazenamento de Blobs do Azure | Microsoft Azure"
+	description="Mover dados de e para o Armazenamento de Blobs do Azure"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;sachouks;mohabib;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;sachouks;mohabib;bradsev"/>
 
 # Mover dados de e para o Armazenamento de Blobs do Azure
 
-O artigo [Cenários para ADAPT (Processo e Tecnologia de Análise Avançada) no Aprendizado de Máquina do Azure](../machine-learning-data-science-plan-sample-scenarios.md) o ajudará a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados usados no processo de análise avançada. Se você precisar mover os dados de e para o armazenamento de Blobs do Azure com base no seu cenário, use um dos seguintes métodos:
+Este tópico descreve três métodos para mover dados de e para o armazenamento de BLOBs do Azure:
 
 - [Usando o Gerenciador de Armazenamento do Azure](#explorer)
 - [Usando o utilitário de linha de comando AzCopy](#AzCopy)
 - [Usando o SDK do Azure em Python](#PythonSDK)
 
+O melhor método para você depende de seu cenário. O artigo [Cenários para ADAPT (Processo e Tecnologia de Análise Avançada) no Aprendizado de Máquina do Azure](../machine-learning-data-science-plan-sample-scenarios.md) o ajudará a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados usados no processo de análise avançada.
 
-> [AZURE.TIP]Como alternativa, você pode usar o [Azure Data Factory](https://azure.microsoft.com/pt-br/services/data-factory/) para criar e agendar um pipeline que baixará os dados do armazenamento de Blob do Azure, os passará para um serviço Web publicado do Aprendizado de Máquina do Azure, receberá os resultados de análise preditiva e carregará os resultados no armazenamento. Para obter mais informações, consulte [Criar pipelines preditivos usando o Azure Data Factory e o Aprendizado de Máquina do Azure](../data-factory/data-factory-create-predictive-pipelines.md).
+> [AZURE.TIP]Como alternativa, você pode usar o [Azure Data Factory](https://azure.microsoft.com/pt-BR/services/data-factory/) para criar e agendar um pipeline que baixará os dados do armazenamento de Blob do Azure, os passará para um serviço Web publicado do Aprendizado de Máquina do Azure, receberá os resultados de análise preditiva e carregará os resultados no armazenamento. Para obter mais informações, consulte [Criar pipelines preditivos usando o Azure Data Factory e o Aprendizado de Máquina do Azure](../data-factory/data-factory-create-predictive-pipelines.md).
 
-<para></para>
 
 > [AZURE.NOTE]Para obter uma introdução completa ao armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
@@ -181,4 +181,4 @@ O código de exemplo a seguir baixa todos os blobs de um contêiner. Ele usa lis
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

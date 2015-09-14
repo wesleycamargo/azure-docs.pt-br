@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/21/2015"
+	ms.date="08/25/2015"
 	ms.author="maroche"/>
 
 # Perguntas frequentes sobre o Catálogo de Dados do Azure
@@ -69,6 +69,8 @@ Durante a visualização, o Catálogo de Dados do Azure dá suporte aos seguinte
 - Exibição do Oracle Database
 - Blob de Armazenamento do Azure
 - Diretório de Armazenamento do Azure
+- Arquivo do HDFS
+- Diretório do HDSF
 
 ## P.: Como posso solicitar suporte para outra fonte de dados?
 
@@ -97,7 +99,7 @@ As propriedades específicas serão diferentes conforme a fonte de dados, porém
 
 <br/>
 
-> [AZURE.NOTE]Para fontes de dados como o SQL Server Analysis Services que têm uma propriedade **Descrição** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor desta propriedade. Para bancos de dados relacionais do SQL Server, que não têm uma propriedade **Descrição** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor da propriedade estendida ms\_description para objetos e colunas. Para obter mais informações, consulte o TechNet [Usando propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE]Para fontes de dados como o SQL Server Analysis Services que têm uma propriedade **Descrição** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor desta propriedade. Para bancos de dados relacionais do SQL Server, que não têm uma propriedade **Descrição** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor da propriedade estendida ms\_description para objetos e colunas. Para obter mais informações, confira o TechNet [Usando propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## P.: Quanto tempo levará para recursos recém-registrados aparecem no Catálogo de Dados do Azure?
 
@@ -107,7 +109,7 @@ Depois de registrar os ativos com o **Catálogo de Dados do Azure**, pode haver 
 
 A maneira mais simples de fornecer metadados para ativos registrados é selecionar o ativo no portal do **Catálogo de Dados do Azure** e inserir os valores de metadados no painel de propriedades ou no painel de esquema do objeto selecionado.
 
-Você também pode fornecer alguns metadados, como marcas e especialistas, durante o processo de registro. Os valores fornecidos no serviço de publicação do **Catálogo de Dados do Azure** serão aplicadas a todos os ativos que estiverem sendo registrados no momento. Para exibir os objetos recém-registrados no portal para anotação adicional, selecione o botão **Exibir Portal** na tela final do aplicativo de publicação do **Catálogo de Dados do Azure**.
+Você também pode fornecer alguns metadados, como marcas e especialistas, durante o processo de registro. Os valores fornecidos no serviço de publicação do **Catálogo de Dados do Azure** serão aplicados a todos os ativos que estiverem sendo registrados no momento. Para exibir os objetos recém-registrados no portal para anotação adicional, selecione o botão **Exibir Portal** na tela final do aplicativo de publicação do **Catálogo de Dados do Azure**.
 
 ## P.: Como posso excluir meus objetos de dados registrados?
 
@@ -123,7 +125,7 @@ Durante a visualização do **Catálogo de Dados do Azure**, não há nenhum con
 
 ## P.: Como posso compartilhar informações com a equipe do Catálogo de Dados do Azure se eu encontrar problemas?
 
-Use o fórum do **Catálogo de Dados do Azure** para relatar problemas, compartilhar informações e fazer perguntas. Ele se encontra em http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
+Use o fórum do **Catálogo de Dados do Azure** para relatar problemas, compartilhar informações e fazer perguntas. O fórum pode ser encontrado em http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
 ##P.: O Catálogo de Dados do Azure funciona com essa outra fonte de dados na qual estou interessado?
 Estamos trabalhando ativamente para adicionar mais fontes de dados ao **Catálogo de Dados do Azure**. Se houver uma fonte de dados que você gostaria que tivesse suporte, sugira-a (ou apoie a sugestão, caso já exista) no [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
@@ -160,4 +162,4 @@ Se você tiver problemas ou precisar de ajuda com a visualização do Catálogo 
 
 Vá diretamente para o [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

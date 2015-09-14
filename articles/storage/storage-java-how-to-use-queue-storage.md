@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar o Armazenamento de Fila do Java | Microsoft Azure" 
-	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Como usar o Armazenamento de Fila do Java | Microsoft Azure"
+	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Como usar o Armazenamento de Fila no Java
@@ -379,17 +379,16 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **dele
 
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
-- [SDK de Armazenamento do Azure para Java]
-- [Referência de SDK do Cliente de Armazenamento do Azure]
-- [API REST de Armazenamento do Azure]
-- [Blog da equipe de Armazenamento do Azure]
+- [SDK de Armazenamento do Azure para Java][]
+- [Referência de SDK do Cliente de Armazenamento do Azure][]
+- [API REST de Armazenamento do Azure][]
+- [Blog da equipe de Armazenamento do Azure][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [SDK de Armazenamento do Azure para Java]: https://github.com/azure/azure-storage-java
 [SDK de Armazenamento do Azure para Android]: https://github.com/azure/azure-storage-android
 [Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

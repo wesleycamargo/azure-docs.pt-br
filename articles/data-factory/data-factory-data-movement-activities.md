@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Atividades de movimentação de dados" 
-	description="Aprenda sobre as entidades da Data Factory que você pode usar em pipelines de Data Factory para mover dados." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Atividades de movimentação de dados"
+	description="Aprenda sobre as entidades da Data Factory que você pode usar em pipelines de Data Factory para mover dados."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="spelluru"/>
 
 # Atividades de movimentação de dados
@@ -93,4 +93,8 @@ Propriedades, como nome, descrição, tabelas de entrada e saída, várias polí
 
 No caso da atividade de cópia, a seção **typeProperties** varia de acordo com os tipos de fontes e coletores. Cada uma das páginas especificas do armazenamento de dados listadas acima documenta essas propriedades específicas para o tipo de armazenamento de dados.
 
-<!---HONumber=August15_HO7-->
+
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
+
+<!---HONumber=September15_HO1-->

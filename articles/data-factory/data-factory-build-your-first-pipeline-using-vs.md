@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Crie seu primeiro pipeline usando o Azure Data Factory"
-	description="Este tutorial mostra como criar um pipeline de dados de exemplo que transforma os dados usando o Azure HDInsight usando o Visual Studio"
+	pageTitle="Criar seu primeiro pipeline do Azure Data Factory usando o Visual Studio"
+	description="Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando o Visual Studio."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="08/18/2015"
 	ms.author="spelluru"/>
 
-# Crie seu primeiro pipeline usando o Azure Data Factory
+# Criar seu primeiro pipeline do Azure Data Factory usando o Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -249,5 +249,7 @@ Confira [Monitorar conjuntos de dados e pipeline](data-factory-monitor-manage-pi
 ## Próximas etapas
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, consulte [Tutorial: Copiar dados de um Blob do Azure para o SQL do Azure](data-factory-get-started.md).
   
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Crie seu primeiro pipeline usando o Azure Data Factory"
-	description="Este tutorial mostra como criar um pipeline de dados de exemplo que transforma os dados usando o Azure HDInsight usando o Data Factory Editor"
+	pageTitle="Criar seu primeiro pipeline do Azure Data Factory usando o Data Factory Editor"
+	description="Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando o Data Factory Editor no Portal do Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Crie seu primeiro pipeline usando o Azure Data Factory
+# Criar seu primeiro pipeline do Azure Data Factory usando o Data Factory Editor (Portal do Azure)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -65,7 +65,7 @@ Este artigo não fornece uma visão geral conceitual do serviço Azure Data Fact
 Nas etapas subsequentes, você aprenderá a criar serviços vinculados, conjuntos de dados e o pipeline que você usará neste tutorial.
 
 ## Etapa 2: Criação de serviços vinculados e conjuntos de dados
-Nesta etapa, você vinculará sua conta do Armazenamento do Azure e um cluster do Azure HDInsight sob demanda à sua data factory e, em seguida, criará um conjunto de dados para representar os dados de saída do processamento do Hive.
+Nesta etapa, você vinculará sua conta de Armazenamento do Azure e um cluster do Azure HDInsight sob demanda ao data factory e criará um conjunto de dados para representar os dados de saída do processamento do Hive.
 
 ### Criar o serviço vinculado do armazenamento do Azure
 1.	Clique em **Criar e implantar** na folha **DATA FACTORY** para **DataFactoryFirstPipeline**. Isso inicia o Data Factory Editor. 
@@ -230,4 +230,7 @@ Nesta etapa, você criará seu primeiro pipelines.
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de cópia para copiar dados de um Blob do Azure para o SQL Azure, consulte [Tutorial: Copiar dados de um blob do Azure para o SQL Azure](./data-factory-get-started.md).
   
 
-<!---HONumber=August15_HO7-->
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
+
+<!---HONumber=September15_HO1-->

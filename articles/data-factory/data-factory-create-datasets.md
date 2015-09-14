@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Criando conjuntos de dados" 
-	description="Entenda os conjuntos de dados do Azure Data Factory e aprenda como criá-los." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Criando conjuntos de dados"
+	description="Entenda os conjuntos de dados do Azure Data Factory e aprenda como criá-los."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="spelluru"/>
 
 # Conjunto de dados
@@ -182,16 +182,34 @@ Conjuntos de dados externos são aqueles que não são produzidos por um pipelin
 
 | Nome | Descrição | Obrigatório | Valor Padrão |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | Tempo para esperar a verificação na disponibilidade dos dados externos de uma determinada divisão. Por exemplo, se os dados tiverem que estar disponíveis por hora, para verificar se os dados externos estão realmente disponíveis e se a divisão correspondente preparada pode ser atrasada por dataDelay.<p>Só se aplica a hora atual. Por exemplo, se for 13h agora e esse valor for 10 minutos, a validação será iniciada em 13h10.</p><p>Essa configuração não afeta divisões no passado (divisões com a hora de término da fatia + dataDelay < agora serão processadas sem atraso).</p> | Não | 0 |
-| retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <p>Se for 13h agora, começaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação falhou, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. </p><p>Para divisões no passado, não haverá nenhum atraso. A repetição acontecerá imediatamente.</p> | Não | 00:01:00 (1 minuto) | 
+| dataDelay | <p>Tempo para esperar a verificação na disponibilidade dos dados externos de uma determinada divisão. Por exemplo, se os dados tiverem que estar disponíveis por hora, para verificar se os dados externos estão realmente disponíveis e se a divisão correspondente preparada pode ser atrasada por dataDelay.</p><p>Só se aplica a hora atual. Por exemplo, se for 13h agora e esse valor for 10 minutos, a validação será iniciada em 13h10.</p><p>Essa configuração não afeta divisões no passado (divisões com a hora de término da fatia + dataDelay < agora serão processadas sem atraso).</p> <p>Um período de tempo maior que 23:59 horas precisa ser especificado usando o formato dia.horas:minutos:segundos. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1.00:00:00. Se você usar 24:00:00, esse valor será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. </p>| Não | 0 |
+| retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <p>Se forem 13h agora, começaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação falhou, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. </p><p>Para divisões no passado, não haverá nenhum atraso. A repetição acontecerá imediatamente.</p> | Não | 00:01:00 (1 minuto) | 
 | retryTimeout | O tempo limite para cada tentativa de repetição.<p>Se for definido como 10 minutos, a validação deve ser concluída em 10 minutos. Se demorar mais de 10 minutos para executar a validação, a repetição atingirá o tempo limite.</p><p>Se todas as tentativas para a validação excederem o tempo limite, a divisão será marcada como TimedOut.</p> | Não | 00:10:00 (10 minutos) |
 | maximumRetry | Número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. | Não | 3 | 
 
+#### Mais exemplos
 
+Se precisar executar um pipeline mensalmente em uma data e hora específicas (digamos que seja no dia 3 de cada mês às 8h), você poderá usar a marca **offset** para definir a data e a hora de execução.
 
+	{
+	  "name": "MyDataset",
+	  "properties": {
+	    "type": "AzureSqlTable",
+	    "linkedServiceName": "AzureSqlLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyTable"
+	    },
+	    "availability": {
+	      "frequency": "Month",
+	      "interval": 1,
+	      "offset": "3.08:10:00",
+	      "style": "StartOfInterval"
+	    }
+	  }
+	}
 
-
-
+## Enviar comentários
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md).
 
 
 
@@ -199,4 +217,4 @@ Conjuntos de dados externos são aqueles que não são produzidos por um pipelin
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

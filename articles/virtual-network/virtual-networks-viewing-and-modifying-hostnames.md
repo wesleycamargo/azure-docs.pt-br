@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Exibindo e modificando os nomes do host"
-	description="Descrição"
+   pageTitle="Exibindo e modificando nomes do host | Microsoft Azure"
+	description="Como exibir e alterar os nomes de host para máquinas virtuais do Azure, funções Web e de trabalho para a resolução de nomes"
 	services="virtual-network"
 	documentationCenter="na"
 	authors="joaoma"
@@ -51,7 +51,7 @@ Em um cliente REST, siga estas instruções:
 
 1. Defina uma entrada de cabeçalho chamada x-ms-version com um valor de 2013-11-01.
 
-1. Envie uma solicitação no seguinte formato: https://management.core.windows.net/<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
+1. Envie uma solicitação no seguinte formato: https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
 
 1. Procure o elemento **HostName** para cada elemento **RoleInstance**.
 
@@ -71,4 +71,4 @@ Você pode modificar o nome de host para qualquer máquina virtual ou instância
 
 [Especificar configurações de DNS usando arquivos de configuração de rede](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

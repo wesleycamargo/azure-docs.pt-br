@@ -10,10 +10,10 @@
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/01/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 
@@ -41,7 +41,7 @@ O aplicativo é um aplicativo simples "hello world":
 > [AZURE.NOTE]Este tutorial usa o PowerShell do Azure, que requer o Windows.
 
 - Instalar e configurar o [Powershell do Azure](../install-configure-powershell.md).
-- Baixar e instalar o [SDK do Azure para .NET 2.5](http://go.microsoft.com/fwlink/?linkid=518091) Na configuração da instalação, selecione:
+- Baixe e instale o [SDK do Azure para .NET 2.7](http://www.microsoft.com/pt-BR/download/details.aspx?id=48178). Na configuração da instalação, selecione:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -53,7 +53,8 @@ Execute as tarefas a seguir para criar um novo projeto do Serviço de Nuvem do A
 
 1. Execute o **PowerShell do Azure** como Administrador. (No **menu Iniciar** ou **tela Iniciar**, pesquise por **PowerShell do Azure**.)
 
-2.  Insira o seguinte cmdlet do PowerShell para criar o projeto:
+2.  [Conecte o PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) à sua assinatura.
+3.  Insira o seguinte cmdlet do PowerShell para criar o projeto:
 
         New-AzureServiceProject helloworld
 
@@ -116,11 +117,12 @@ Para implantar seu aplicativo do Azure, você deve primeiro baixar as definiçõ
 
 ### Publicar o aplicativo
 
-Para publicar, execute o cmdlet **Publish-AzureServiceProject** da seguinte maneira:
+Para publicar, execute os seguintes comandos:
 
-    Publish-AzureServiceProject -ServiceName NodeHelloWorld -Location "East US" -Launch
+  	$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+	Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
-- **-ServiceName** especifica o nome para a implantação. Esse deve ser um nome exclusivo, caso contrário, o processo de publicação falhará.
+- **-ServiceName** especifica o nome para a implantação. Esse deve ser um nome exclusivo, caso contrário, o processo de publicação falhará. O comando **Get-Date** usa uma cadeia de caracteres de data/hora que deve tornar o nome exclusivo.
 
 - **-Location** especifica o datacenter no qual o aplicativo será hospedado. Para ver uma lista dos centros de dados disponíveis, use o cmdlet **Get-AzureLocation**.
 
@@ -192,4 +194,4 @@ Depois de implantar seu aplicativo, convém desativá-lo para que você possa ev
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -20,30 +20,11 @@
 
 ## Quais relatórios geram notificações por email
 
-Neste momento, somente o relatório de Atividade de Entrada Anômala e os usuários com o relatório de Atividade de Entrada Anômala estão usando o sistema de notificação por email.
+Neste momento, apenas o relatório de atividade de entrada irregular dispara as notificações por email.
 
-## O que faz com que a notificação por email seja enviada?
+## O que é uma "Entrada irregular"?
 
-Por padrão, o Active Directory do Azure é configurado para enviar notificações por email automaticamente para todos os administradores globais. O email é enviado sob as condições a seguir, para cada relatório.
-
-Para o relatório de Atividade de Entrada Anômala:
-
-- Fontes desconhecidas: 10 eventos
-- Várias falhas: 10 eventos
-- Endereços IP com atividade suspeita: 10 eventos
-- Dispositivos infectados: 10 eventos
-
-Para os usuários com relatório de Atividade de Entrada Anômala:
-
-- Fontes desconhecidas: 10 eventos
-- Várias falhas: 10 eventos
-- Endereços IP com atividade suspeita: 10 eventos
-- Dispositivos infectados: 5 eventos
-- Relatório de entradas anômalas: 15 eventos
-
-O email é enviado se qualquer uma das condições anteriores for atendida dentro de 30 dias, ou desde o envio do último email se for um período inferior a 30 dias.
-
-As Entradas Anômalas são aquelas identificadas como "anômalas" por nossos algoritmos de Aprendizado de Máquina, com base em locais de entrada inesperados, hora do dia e locais de entrada inesperados ou uma combinação desses elementos. Isso pode indicar que um hacker tentou entrar usando essa conta. Mais informações sobre esse relatório podem ser encontradas na tabela acima.
+Entradas irregulares são aquelas que foram identificadas por nossos algoritmos de aprendizado de máquina, com base em uma condição de "viagem impossível" combinada a um dispositivo e um local de entrada anômalas. Isso pode indicar que um hacker tentou entrar usando essa conta.
 
 ## Quem recebe as notificações por email?
 
@@ -51,7 +32,9 @@ O email é enviado para todos os administradores globais as quais foi atribuída
 
 ## Com que frequência esses emails são enviados?
 
-Depois que um email é enviado, o outro será enviado somente quando forem encontrados 10 ou mais novos eventos de entrada anômala dentro de 30 dias a partir do envio de email. Como acessar o relatório mencionado no email?
+O email será enviado se 10 novas atividades de entrada irregular ocorrerem nos últimos 30 dias, ou desde que o último email foi enviado, o que for menor.
+
+## Como acessar o relatório mencionado no email?
 
 Quando você clica no link, será redirecionado à página do relatório no Portal de Gerenciamento do Azure. Para acessar o relatório, você precisa ser ambos:
 
@@ -67,4 +50,4 @@ Sim, para desativar as notificações relacionadas a entradas anômalas no Porta
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

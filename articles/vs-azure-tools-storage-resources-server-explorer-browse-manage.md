@@ -205,7 +205,7 @@ A tabela é organizada por entidades (mostradas nas linhas) e propriedades (most
 
     - Você não pode criar uma propriedade chamada Timestamp, os serviços de armazenamento do Azure usam uma propriedade com esse nome.
 
-    - Se você inserir um valor DateTime, deve seguir o formato apropriado para as configurações de região e idioma do seu computador (por exemplo, MM/DD/AAAA HH:MM:SS [AM|PM] para o inglês dos EUA ).
+    - Se você inserir um valor datetime, você deve seguir um formato apropriado para as configurações de região e idioma do seu computador (por exemplo, DD/MM/AAAA HH [AM| PM] para Inglês&nbsp;E.U.A.).
 
 ### Para adicionar entidades
 
@@ -319,4 +319,4 @@ Há duas maneiras de adicionar contas de armazenamento usando o Gerenciador de S
 
 [Acessando os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

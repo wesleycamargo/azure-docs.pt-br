@@ -1,25 +1,26 @@
 <properties 
-	pageTitle="Dados de exemplo no Armazenamento de Blobs do Azure| Microsoft Azure" 
-	description="Dados de exemplo no Armazenamento de Blobs do Azure" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Dados de exemplo no Armazenamento de Blobs do Azure| Microsoft Azure"
+	description="Dados de exemplo no Armazenamento de Blobs do Azure"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>Dados de exemplo no Armazenamento de Blob do Azure
 
 Este documento aborda os dados de amostragem armazenados no Armazenamento do Blobs do Azure, baixando-o por meio de programação e realizando amostragem com um código Python de exemplo. As etapas para isso são os seguintes:
 
+## Baixar e reduzir os dados de exemplo
 1. Baixe os dados do Armazenamento do Blobs do Azure usando o serviço blob com o código Python de exemplo a seguir: 
 
 	    from azure.storage import BlobService
@@ -45,7 +46,7 @@ Este documento aborda os dados de amostragem armazenados no Armazenamento do Blo
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Exemplo de dados usando o `random.choice` da `numpy`, da seguinte maneira:
+3. Reduza os dados usando o `random.choice` da `numpy`, da seguinte maneira:
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -55,7 +56,7 @@ Este documento aborda os dados de amostragem armazenados no Armazenamento do Blo
 
 	Agora você pode trabalhar com o quadro de dados acima com a amostra de 1 por cento para exploração e geração de recursos adicional.
 
-##<a name="heading"></a>Conectar ao Aprendizado de Máquina do Azure
+##<a name="heading"></a>Carregar os dados e lê-los no Aprendizado de Máquina do Azure
 
 Você pode usar o seguinte código de exemplo para os reduzir os dados de exemplo e usá-los diretamente no AM do Azure:
 
@@ -96,4 +97,4 @@ Você pode usar o seguinte código de exemplo para os reduzir os dados de exempl
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -6,7 +6,6 @@ Núcleos por [assinatura](http://msdn.microsoft.com/library/azure/hh531793.aspx)
 [Serviços de nuvem](cloud-services-what-is.md) por assinatura|20|200
 [Redes locais](http://msdn.microsoft.com/library/jj157100.aspx) por assinatura|10|500
 Servidores de banco de dados SQL por assinatura|6|150
-Bancos de dados SQL por servidor|150|500
 Servidores DNS por assinatura|9|100
 IPs reservados por assinatura|20|100
 Circuitos dedicados da Rota Expressa por assinatura|10|25
@@ -17,4 +16,4 @@ Regras de alerta por assinatura|250|250
 
 <sup>1</sup>Instâncias muito pequenas contam como um núcleo para o limite de núcleos, apesar de utilizarem um núcleo parcial.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

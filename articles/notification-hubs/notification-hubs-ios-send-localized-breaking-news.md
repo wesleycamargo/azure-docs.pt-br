@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Tutorial de últimas notícias localizadas de Hubs de Notificação para iOS" 
-	description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações localizadas de últimas notícias (iOS)." 
-	services="notification-hubs" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Tutorial de últimas notícias localizadas de Hubs de Notificação para iOS"
+	description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações localizadas de últimas notícias (iOS)."
+	services="notification-hubs"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 # Usar Hubs de Notificação para enviar últimas notícias localizadas para dispositivos iOS
 
@@ -220,6 +220,5 @@ Uma referência à linguagem de expressão do modelo por ser encontrada em [Inst
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Instruções sobre Hubs de Notificação para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

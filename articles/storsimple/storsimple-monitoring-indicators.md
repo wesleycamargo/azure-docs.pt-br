@@ -1,21 +1,21 @@
 <properties 
-    pageTitle="Indicadores de monitoramento do StorSimple | Microsoft Azure" 
-    description="Descreve os LEDs e alarmes usados para monitorar o status do dispositivo StorSimple."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="adinah"
-    editor="" />
+    pageTitle="Indicadores de monitoramento do StorSimple | Microsoft Azure"
+	description="Descreve os LEDs e os alarmes usados para monitorar o status do dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
  <tags 
     ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="08/14/2015"
-    ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos"/>
 
-# Indicadores de monitoramento do StorSimple   
+# Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo   
 
 ## Visão geral
 
@@ -33,9 +33,7 @@ O restante deste artigo descreve os vários LEDs indicadores de monitoramento, s
 
 O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status agregado de todos os módulos no sistema. O painel frontal é idêntico no dispositivo StorSimple e o compartimento EBOD é ilustrado abaixo.
 
-   ![][1]
-
-**Figura 1: Painel frontal do dispositivo**
+   ![Painel frontal do dispositivo][1]
  
 O painel frontal contém os seguintes indicadores:
 
@@ -72,10 +70,8 @@ LEDs indicadores de refrigeração do módulo de energia (PCM) podem ser encontr
 
 O dispositivo StorSimple tem um módulo PCM de 764W com uma bateria adicional. A ilustração a seguir mostra o painel de LED para o dispositivo.
 
-   ![][2]
+   ![LEDs de PCM no compartimento principal][2]
 
-**Figura 2: LEDs de PCM no compartimento principal**
- 
 Legenda do LED:
 
 1. Falha de energia CA
@@ -114,9 +110,7 @@ O status do PCM é indicado no painel do LED O painel do LED do PCM do dispositv
 
 O compartimento EBOD possui um PCM de 580W e nenhuma bateria adicional. O painel do PCM para o compartimento EBOD possui LEDs indicadores para as fontes de energia e para o ventilador. A ilustração a seguir mostra estes LEDs.
 
-   ![][3]
-
-**Figura 3: LEDs de PCM no compartimento EBOD**
+   ![LEDs de PCM no compartimento EBOD][3]
  
 Você pode usar a tabela a seguir para determinar o status do PCM.
 
@@ -138,17 +132,15 @@ O dispositivo StorSimple contém LEDs para o controlador primário e para os mó
 ### LEDs de monitoramento para o controlador primário.
 A ilustração a seguir ajuda a identificar os LEDs no controlador primário. (Todos os componentes são listados para ajudar na orientação.)
 
-   ![][4]
+   ![LEDs de monitoramento - controlador primário][4]
  
-**Figura 4: LEDs de monitoramento para o controlador primário**
-
 Use a tabela a seguir para determinar se o módulo do controlador está operando corretamente.
 
 ### LEDs indicadores do controlador  
 
 | LED | Descrição                                                                            
 |---- | ----------- |
-| LED de ID (azul) | Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para obter mais informações, consulte [Identificar um controlador ativo no seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| LED de ID (azul) | Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para saber mais, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de falha (âmbar) | Indica uma falha no controlador.        
 | LED de OK (verde) | Um verde estável indica que o controlador está OK. Verde piscando indica um erro de configuração de VPD do controlador. |
 | LEDs de atividade de SAS (verde) | Verde estável indica uma conexão sem atividade. Verde piscando indica que a conexão possui atividade em andamento. |
@@ -162,10 +154,8 @@ Use a tabela a seguir para determinar se o módulo do controlador está operando
 
 Cada um dos controladores EBOD de SAS de 6 Gb/s possui LEDs que indicam o seu status conforme mostrado na ilustração a seguir.
 
-  ![][5]
+  ![LEDs de monitoramento - compartimento EBOD][5]
 
-**Figura 5: LEDs de monitoramento - compartimento EBOD**
- 
 Use a tabela a seguir para determinar se o módulo do controlador EBOD está operando normalmente.
 
 ### LEDs indicadores do módulo do controlador EBOD  
@@ -180,9 +170,7 @@ O dispositivo StorSimple possui drives de disco localizados no compartimento pri
 
 Para os drives de disco, o status do drive é indicado por um LED verde e um LED vermelho-âmbar montado na parte da frente de cada módulo portador do drive. A ilustração a seguir mostra estes LEDs.
 
-  ![][6]
-
-**Figura 6: LEDs de unidade de disco**
+  ![LEDs de unidade de disco][6]
  
 Use a tabela a seguir para determinar o estado de cada drive de disco que, por sua vez, afeta o status geral do LED do painel frontal.
 
@@ -257,7 +245,7 @@ A tabela a seguir descreve as várias condições de alarme.
 
 ## Próximas etapas
 
-Saiba mais sobre os [componentes de hardware e o status do StorSimple](storsimple-monitor-hardware-status.md).
+Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimple-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
@@ -268,4 +256,4 @@ Saiba mais sobre os [componentes de hardware e o status do StorSimple](storsimpl
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

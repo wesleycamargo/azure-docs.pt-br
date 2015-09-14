@@ -77,7 +77,7 @@ Uma conta de armazenamento fornece acesso aos serviços de blob, fila e tabela. 
 1. Selecione ou insira as seguintes informações para a nova conta de armazenamento na caixa de diálogo **Criar Conta de Armazenamento**.
     - A assinatura do Azure à qual você deseja adicionar a conta de armazenamento.
     - O nome que você deseja usar para a nova conta de armazenamento.
-    - A região ou o grupo de afinidades (como Oeste dos EUA ou Leste Asiático).
+    - A região ou o grupo de afinidade (como Oeste dos EUA ou Leste Asiático).
     - O tipo de replicação que você deseja usar para a conta de armazenamento, como redundância geográfica.
 
 1. Quando terminar, escolha **Criar**. A nova conta de armazenamento aparece na lista **Armazenamento** no Gerenciador de Servidores.
@@ -153,4 +153,4 @@ Configure qualquer função que acessa os serviços de armazenamento para usar o
 
 [Publicando em um Serviço de Nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

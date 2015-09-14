@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Análise de sobrevivência com o Aprendizado de Máquina do Azure | Microsoft Azure" 
-	description="Probabilidade de ocorrência de evento de análise de sobrevivência" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Análise de sobrevivência com o Aprendizado de Máquina do Azure | Microsoft Azure"
+	description="Probabilidade de ocorrência de evento de análise de sobrevivência"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
 
@@ -207,4 +207,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

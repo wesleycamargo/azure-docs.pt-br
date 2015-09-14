@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/25/2015"
 	ms.author="heidist"/>
 
 # Como usar o Chrome Postman com a Pesquisa do Azure #
@@ -108,7 +108,7 @@ Agora que já descrevemos os fundamentos básicos do uso da Pesquisa do Azure co
 
 Documentação da API REST pode ser encontrada no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-Você também pode visitar a [Lista de tutoriais e vídeos](https://msdn.microsoft.com/library/azure/dn818681.aspx) para obter mais exemplos.
+Você também pode visitar a [Lista de tutoriais e vídeos](search-video-demo-tutorial-list.md) para obter mais exemplos.
 
 <!-- Image References -->
 [1]: ./media/search-chrome-postman/full_postman_client.png
@@ -118,4 +118,4 @@ Você também pode visitar a [Lista de tutoriais e vídeos](https://msdn.microso
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Use os Serviços Móveis do Azure e os Hubs de Notificação para enviar notificações por push para seu aplicativo do Windows Phone." 
-	description="Saiba como usar os Hubs de Notificação com os Serviços Móveis do Azure e para enviar notificações por push para o seu aplicativo Windows Phone." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Use os Serviços Móveis do Azure e os Hubs de Notificação para enviar notificações por push para seu aplicativo do Windows Phone."
+	description="Saiba como usar os Hubs de Notificação com os Serviços Móveis do Azure e para enviar notificações por push para o seu aplicativo Windows Phone."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
@@ -38,8 +38,8 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
 
 2. Adicione o método `AcquirePushChannel` a seguir à classe `App`:
 
-        public static HttpNotificationChannel CurrentChannel { get; private set; }	
-        
+        public static HttpNotificationChannel CurrentChannel { get; private set; }
+
         private void AcquirePushChannel()
         {
             CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
@@ -68,13 +68,13 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
                     {
                         Deployment.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            MessageBox.Show(exception.Message, 
+                            MessageBox.Show(exception.Message,
                                             "Registering for Push Notifications",
                                             MessageBoxButton.OK);
                         });
                     }
             });
-            CurrentChannel.ShellToastNotificationReceived += 
+            CurrentChannel.ShellToastNotificationReceived +=
                 new EventHandler<NotificationEventArgs>((o, args) =>
                 {
                     string message = "";
@@ -90,7 +90,7 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
         }
 
     Este código recupera o URI do canal para o aplicativo, se ele existir. Caso contrário, ele será criado. O URI do canal será aberto e vinculado para notificações de toast. Quando o URI do canal estiver totalmente aberto, o manipulador do método `ChannelUriUpdated` é chamado e o canal é registrado para receber notificações por push. Se o registro falhar, o canal será fechado para que as execuções subsequentes do aplicativo possam tentar o registro novamente. O manipulador `ShellToastNotificationReceived` está configurado para que o aplicativo possa receber e manipular as notificações por push durante a execução.
-    
+
 4. No manipulador de eventos `Application_Launching` no App.xaml.cs, adicione a seguinte chamada para o novo método `AcquirePushChannel`:
 
         AcquirePushChannel();
@@ -98,7 +98,7 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
 	Isso garante que o registro seja solicitado sempre que o aplicativo for carregado. Em seu aplicativo, convém fazer esse registro periodicamente apenas para garantir que o registro seja atual.
 
 5. Pressione a tecla **F5** para executar o aplicativo. Uma caixa de diálogo pop-up com a chave do registro é exibida.
-  
+
 6. No Visual Studio, abra o arquivo Package.appxmanifest e verifique se **Compatível com Toast**, está definido como **Sim** na guia **Interface do Usuário do Aplicativo**.
 
    	![][1]
@@ -202,6 +202,5 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
 [Referência conceitual do tutorial do .NET de Serviços Móveis]: mobile-services-html-how-to-use-client-library.md
 [aplicativos do Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

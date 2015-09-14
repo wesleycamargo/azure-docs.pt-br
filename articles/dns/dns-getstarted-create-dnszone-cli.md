@@ -13,10 +13,11 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="07/28/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # Introdução ao DNS do Azure
+
 
 
 > [AZURE.SELECTOR]
@@ -38,6 +39,9 @@ Instalar a CLI do Azure. Você pode instalar a CLI do Azure para Windows, Linux 
 
 	Azure network
 
+
+>[AZURE.IMPORTANT]Os comandos DNS exigem a CLI do Azure versão 0.9.8 ou superior. Digite `azure -v`para verificar qual versão da CLI do Azure está instalada atualmente em seu computador.
+ 
 ### Etapa 2
 
 O DNS do Azure usa o Gerenciador de Recursos do Azure. Configure a alternar CLI para usar comandos ARM e DNS.
@@ -77,13 +81,13 @@ O serviço de DNS do Azure é gerenciado pelo provedor de recursos Microsoft.Net
 
 Marcas são diferentes das Etags. As marcas são uma lista de pares nome-valor e são usadas pelo Gerenciador de Recursos do Azure para fins de cobrança ou agrupamentos. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](resource-group-using-tags.md). A CLI do DNS do Azure dá suporte a marcas em zonas e conjuntos de registros especificados usando o parâmetro opcional “-Tag”. O exemplo a seguir mostra como criar uma zona DNS com duas marcas, “project = demo” e “env = test”:
 
-	Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 ## Criar uma zona DNS
 
-Uma zona DNS é criada usando o comando "azure network dns-zone create". No exemplo a seguir, é possível criar uma zona DNS chamada "contoso.com" no grupo de recursos chamado 'MyResourceGroup':
+Uma zona DNS é criada usando o comando `azure network dns zone create`. No exemplo a seguir, é possível criar uma zona DNS chamada "contoso.com" no grupo de recursos chamado 'MyResourceGroup':
 
-    Azure network dns-zone create -n contoso.com -g myresourcegroup
+    Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
 >[AZURE.NOTE]No DNS do Azure, os nomes de zona devem ser especificados sem um encerramento '.', por exemplo, como "contoso.com", em vez de "contoso.com".
@@ -96,13 +100,13 @@ A zona DNS foi criada no DNS do Azure. Criar uma zona DNS também cria os seguin
 
 Para exibir esses registros, use "azure network dns-record-set show":
 
-	Usage: network dns-record-set show <resource-group> <dns-zone-name> <name> <type>
+	Usage: network dns record-set show <resource-group> <dns-zone-name> <name> <type>
 
 
 No exemplo abaixo, executando o comando com o grupo de recursos "myresourcegroup", registre de nome do conjunto como "@" (para um registro raiz) e o tipo "SOA" produzirá a saída a seguir:
  
 
-	azure network dns-record-set show myresourcegroup "contoso.com" "@" SOA
+	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
@@ -120,7 +124,7 @@ No exemplo abaixo, executando o comando com o grupo de recursos "myresourcegroup
 	data:                                    :
 <BR> Para exibir os registros de NS criados, use o seguinte comando:
 
-	azure network dns-record-set show myresourcegroup "contoso.com" "@" NS
+	azure network dns record-set show myresourcegroup "contoso.com" "@" NS
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
@@ -169,4 +173,4 @@ O exemplo a seguir usa DIG para consultar o domínio contoso.com usando os servi
 
 [Começar a criar conjuntos de registro e registros](dns-getstarted-create-recordset-cli.md)<BR> [Como gerenciar as zonas DNS](dns-operations-dnszones-cli.md)<BR> [Como gerenciar registros DNS](dns-operations-recordsets-cli.md)<BR> [Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)<BR> [Referência da API REST do DNS do Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

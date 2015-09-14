@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Criar e carregar um VHD FreeBSD para o Azure" 
-   description="Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional FreeBSD" 
-   services="virtual-machines" 
-   documentationCenter="" 
-   authors="KylieLiang" 
-   manager="timlt" 
-   editor=""/>
+   pageTitle="Criar e carregar um VHD FreeBSD para o Azure"
+	description="Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional FreeBSD"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KylieLiang"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services" 
-   ms.date="05/19/2015"
-   ms.author="kyliel"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="05/19/2015"
+	ms.author="kyliel"/>
 
 # Criar e carregar um VHD FreeBSD para o Azure 
 
@@ -23,7 +23,7 @@ Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que cont
 ##Pré-requisitos##
 Este artigo pressupõe que você tenha os seguintes itens:
 
-- **Uma assinatura do Azure** - Se você não tiver uma, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Criar uma conta do Azure](../php-create-account.md). 
+- **Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta em apenas alguns minutos. Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, consulte [criar uma conta de avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).  
 
 - **Ferramentas Azure PowerShell** - Você tem o módulo do Microsoft Azure PowerShell instalado e configurado para usar sua assinatura. Para baixar o módulo, consulte [Downloads do Azure](http://azure.microsoft.com/downloads/) (a página pode estar em inglês). Um tutorial para instalar e configurar o módulo está disponível aqui. Você usará o cmdlet [Downloads do Azure](http://azure.microsoft.com/downloads/) para carregar o VHD.
 
@@ -143,7 +143,7 @@ Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .v
 
 Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segura entre seu computador e sua assinatura do Azure. No entanto, você pode usar o método Active Directory do Microsoft Azure ou o método de certificado para realizar esse tipo de trabalho.
 
-<h3>Use o método do AD do Microsoft Azure</h3>
+###Use o método do AD do Microsoft Azure
 
 1. Abra o console do PowerShell do Azure.
 
@@ -155,7 +155,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 3. O Azure autentica e salva as informações de credenciais e, em seguida, fecha a janela.
 
-<h3>Usar o método de certificado</h3>
+###Usar o método de certificado
 
 1. Abra o console do PowerShell do Azure. 
 
@@ -206,4 +206,4 @@ Depois de carregar o VHD, você pode adicioná-lo como uma imagem à lista de im
 	![imagem freebsd no azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

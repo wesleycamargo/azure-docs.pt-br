@@ -29,7 +29,7 @@ As tarefas de inicialização são ações executadas antes do início de suas f
 
 As variáveis de ambiente passam informações para uma tarefa de inicialização e o armazenamento local pode ser usado para transmitir informações para fora de uma tarefa de inicialização. Por exemplo, uma variável de ambiente pode especificar o caminho para um programa que você deseja instalar e arquivos podem ser gravados no armazenamento local que poderá então ser lido posteriormente por suas funções.
 
-Sua tarefa de inicialização pode registrar informações e erros no diretório especificado pela variável de ambiente **TEMP**. Durante a tarefa de inicialização, a variável de ambiente **TEMP** é resolvida para o diretório *C:\\Resources\\temp\[guid].[nomedafunção]\\RoleTemp* durante a execução na nuvem.
+Sua tarefa de inicialização pode registrar informações e erros no diretório especificado pela variável de ambiente **TEMP**. Durante a tarefa de inicialização, a variável de ambiente **TEMP** é resolvida para o diretório *C:\\Resources\\temp\\[guid].[nomedafunção]\\RoleTemp* durante a execução na nuvem.
 
 As tarefas de inicialização também podem ser executadas várias vezes entre as reinicializações. Por exemplo, a tarefa de inicialização será executada sempre que a função for reciclada, e as reciclagens de função nem sempre incluirão uma reinicialização. As tarefas de inicialização devem ser gravadas de uma maneira que permita que sejam executadas diversas vezes sem problemas.
 
@@ -68,9 +68,9 @@ Neste exemplo, uma variável de ambiente, **MyVersionNumber**, é criada para a 
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" >
-    <Environment>
-        <Variable name="MyVersionNumber" value="1.0.0.0" />
-    </Environment>
+        <Environment>
+            <Variable name="MyVersionNumber" value="1.0.0.0" />
+        </Environment>
     </Task>
 </Startup>
 ```
@@ -132,24 +132,24 @@ Por exemplo, para criar uma variável de ambiente que seja "**true**" quando a i
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple">
-    <Environment>
-
-        <!-- Create the environment variable that informs the startup task whether it is running
-            in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
-            running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
-            in the cloud. -->
-
-        <Variable name="ComputeEmulatorRunning">
-            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
-        </Variable>
-
-    </Environment>
+        <Environment>
+    
+            <!-- Create the environment variable that informs the startup task whether it is running
+                in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
+                running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
+                in the cloud. -->
+    
+            <Variable name="ComputeEmulatorRunning">
+                <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+            </Variable>
+    
+        </Environment>
     </Task>
 </Startup>
 ```
 
 ## Próximas etapas
-Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-common-startup-tasks.md) com seu Serviço de Nuvem.
+Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-startup-tasks-common.md) com seu Serviço de Nuvem.
 
 [Empacote](cloud-services-model-and-package.md) seu Serviço de Nuvem.
 
@@ -163,4 +163,4 @@ Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-c
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

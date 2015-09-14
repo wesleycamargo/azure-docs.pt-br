@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Compilar um serviço usando um banco de dados SQL existente com o back-end do .NET dos Serviços Móveis | Microsoft Azure" 
-	description="Aprenda a usar uma nuvem existente ou banco de dados SQL local com seu serviço móvel baseado em .NET" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Compilar um serviço usando um banco de dados SQL existente com o back-end do .NET dos Serviços Móveis | Microsoft Azure"
+	description="Aprenda a usar uma nuvem existente ou banco de dados SQL local com seu serviço móvel baseado em .NET"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 
@@ -39,7 +39,7 @@ Para esse tutorial, usaremos o banco de dados que foi criado com seu serviço m�
             {
                 [Key]
                 public int CustomerId { get; set; }
-                
+
                 public string Name { get; set; }
 
                 public virtual ICollection<Order> Orders { get; set; }
@@ -48,7 +48,7 @@ Para esse tutorial, usaremos o banco de dados que foi criado com seu serviço m�
         }
 
 3. Crie um arquivo **Order.cs** dentro da pasta **Modelos** e use a implementação a seguir:
-    
+
         using System.ComponentModel.DataAnnotations;
 
         namespace ShoppingService.Models
@@ -65,7 +65,7 @@ Para esse tutorial, usaremos o banco de dados que foi criado com seu serviço m�
                 public bool Completed { get; set; }
 
                 public int CustomerId { get; set; }
-              
+
                 public virtual Customer Customer { get; set; }
 
             }
@@ -144,7 +144,7 @@ O modelo de dados que você deseja usar com o seu serviço móvel pode ser arbit
     A propriedade de relação do **Cliente** foi substituída pelo nome do **Cliente** e uma propriedade **MobileCustomerId** que pode ser usada para modelar manualmente a relação no cliente. Por enquanto, você pode ignorar a propriedade **CustomerId**, ela só será usada mais tarde.
 
 3. Você pode observar que com a adição das propriedades do sistema na classe base **EntityData**, nossos DTOs agora possuem mais propriedades do que os tipos de modelo. Precisamos claramente de um lugar para armazenar essas propriedades, de forma que adicionaremos algumas colunas extras ao banco de dados original. Enquanto fazemos essa mudança no banco de dados, não haverá uma pausa nos aplicativos existentes, visto que as alterações são puramente aditivas (adicionar novas colunas ao esquema). Para isso, adicione as seguintes instruções na parte superior de **Customer.cs** e **Order.cs**:
-    
+
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.ComponentModel.DataAnnotations;
@@ -174,7 +174,7 @@ O modelo de dados que você deseja usar com o seu serviço móvel pode ser arbit
         public byte[] Version { get; set; }
 
 4. As propriedades do sistema simplesmente adicionam alguns comportamentos integrados (por exemplo, a atualização automática de criados/atualizados em) que ocorrem de maneira transparente nas operações de banco de dados. Para habilitar esses comportamentos, precisamos fazer uma mudança em **ExistingContext.cs**. Na parte superior do arquivo, adicione o seguinte:
-    
+
         using System.Data.Entity.ModelConfiguration.Conventions;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
@@ -188,7 +188,7 @@ O modelo de dados que você deseja usar com o seu serviço móvel pode ser arbit
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
 
             base.OnModelCreating(modelBuilder);
-        } 
+        }
 
 5. Vamos preencher o banco de dados com alguns dados de exemplo. Abra o arquivo **WebApiConfig.cs**. Crie um novo [**IDatabaseInitializer**](http://msdn.microsoft.com/library/gg696323.aspx) e configure-o no método do **Registro** como mostrado abaixo.
 
@@ -227,11 +227,11 @@ O modelo de dados que você deseja usar com o seu serviço móvel pode ser arbit
 
                     List<Customer> customers = new List<Customer>
                     {
-                        new Customer { CustomerId = 1, Name = "John", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 1, Name = "John", Orders = new Collection<Order> {
                             orders[0]}, Id = Guid.NewGuid().ToString()},
-                        new Customer { CustomerId = 2, Name = "Paul", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 2, Name = "Paul", Orders = new Collection<Order> {
                             orders[1]}, Id = Guid.NewGuid().ToString()},
-                        new Customer { CustomerId = 3, Name = "Ringo", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 3, Name = "Ringo", Orders = new Collection<Order> {
                             orders[2]}, Id = Guid.NewGuid().ToString()},
                     };
 
@@ -318,7 +318,7 @@ A próxima etapa é implementar um [**MappedEntityDomainManager**](http://msdn.m
                 {
                     return (T)(object)GetKey(mobileCustomerId, this.context.Customers, this.Request);
                 }
-                
+
                 public override SingleResult<MobileCustomer> Lookup(string mobileCustomerId)
                 {
                     int customerId = GetKey<int>(mobileCustomerId);
@@ -605,7 +605,7 @@ Observe que as duas implementações do controlador tornam exclusivo o uso dos D
             public DateTimeOffset? UpdatedAt { get; set; }
 
             public bool Deleted { get; set; }
-            
+
             [Version]
             public string Version { get; set; }
 
@@ -615,4 +615,4 @@ Observe que as duas implementações do controlador tornam exclusivo o uso dos D
 
 Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço. Para saber mais, consulte [Adicionar Serviços Móveis a um aplicativo existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

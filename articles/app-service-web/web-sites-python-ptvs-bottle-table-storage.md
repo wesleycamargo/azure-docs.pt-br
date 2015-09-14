@@ -1,25 +1,23 @@
 <properties 
-	pageTitle="Bottle e Armazenamento de Tabela do Azure com Python Tools 2.1 para Visual Studio" 
-	description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Bottle que armazena dados no Armazenamento de Tabelas do Azure e implante o aplicativo Web em Aplicativos Web do Serviço de Aplicativo do Azure." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	pageTitle="Bottle e Armazenamento de Tabela do Azure com Ferramentas Python 2.2 para Visual Studio"
+	description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Bottle que armazena dados no Armazenamento de Tabelas do Azure e implante o aplicativo Web em Aplicativos Web do Serviço de Aplicativo do Azure."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
-
-
-# Bottle e Armazenamento de Tabela do Azure com Python Tools 2.1 para Visual Studio 
+# Bottle e Armazenamento de Tabela do Azure com Ferramentas Python 2.2 para Visual Studio 
 
 Neste tutorial, usaremos o [Python Tools para Visual Studio] para criar um aplicativo Web de votação simples, usando um dos modelos de exemplo de PTVS. Este tutorial também está disponível como um [vídeo](https://www.youtube.com/watch?v=GJXDGaEPy94).
 
@@ -31,10 +29,10 @@ Confira o [Python Developer Center] para obter mais artigos que abrangem o desen
 
 ## Pré-requisitos
 
- - Visual Studio 2012 ou 2013
- - [Python Tools 2.1 para Visual Studio]
- - [Exemplos VSIX do Python Tools 2.1 para Visual Studio]
- - [Azure SDK Tools para VS 2013] ou [Azure SDK Tools para VS 2012]
+ - Visual Studio 2013 ou 2015
+ - [Ferramentas Python 2.2 para Visual Studio]
+ - [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]
+ - [Ferramentas do SDK do Azure para VS 2013] ou [Ferramentas do SDK do Azure para VS 2015]
  - [Python 2.7 de 32 bits] ou [Python 3.4 de 32 bits]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -73,9 +71,7 @@ Para usar as operações de armazenamento, você precisa de uma conta de armazen
 
 2. Clique no ícone **Novo** na parte inferior esquerda do portal e clique em **Dados + Armazenamento** > **Armazenamento**. Dê um nome exclusivo à conta de armazenamento e crie um novo [grupo de recursos](../resource-group-overview.md) para ela.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	Quando a conta de armazenamento tiver sido criada, o botão **Notificações** piscará **ÊXITO** em verde e a folha da conta de armazenamento será aberta para mostrar que ela pertence ao novo grupo de recursos que você criou.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->Quando a conta de armazenamento tiver sido criada, o botão **Notificações** piscará **ÊXITO** em verde e a folha da conta de armazenamento será aberta para mostrar que ela pertence ao novo grupo de recursos que você criou.
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
@@ -160,7 +156,7 @@ Nesta seção, configuraremos variáveis do ambiente para a instância de Aplica
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  Role para baixo até a seção **configurações do aplicativo** e defina os valores para **REPOSITORY_NAME**, **STORAGE_NAME** e **STORAGE_KEY** conforme descrito na seção **Configure o projeto**.
+1.  Role para baixo até a seção **configurações do aplicativo** e defina os valores para **REPOSITORY\_NAME**, **STORAGE\_NAME** e **STORAGE\_KEY** conforme descrito na seção **Configure o projeto**.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
@@ -202,19 +198,19 @@ Siga estes links para aprender mais sobre o Python Tools para Visual Studio, Bot
 [Portal do Azure]: https://portal.azure.com
 [SDK do Azure para .NET]: http://azure.microsoft.com/downloads/
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Exemplos VSIX do Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Azure SDK Tools para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
+[VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
+[Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Ferramentas do SDK do Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Ferramentas Python para documentação do Visual Studio]: http://pytools.codeplex.com/documentation
+[Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs
 [Documentação do Bottle]: http://bottlepy.org/docs/dev/index.html
-[Depuração remota no Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[Projetos da Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Projetos do serviço de nuvem]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Depuração remota no Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Projetos da Web]: http://go.microsoft.com/fwlink/?LinkId=624027
+[Projetos do serviço de nuvem]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Armazenamento do Azure]: http://azure.microsoft.com/documentation/services/storage/
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

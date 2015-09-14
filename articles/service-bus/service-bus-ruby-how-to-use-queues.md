@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 
@@ -57,7 +57,7 @@ O cmdlet do PowerShell que você executou para criar o namespace do barramento d
 
 ![Copiar chave](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]Você também pode encontrar essa chave se você efetuar logon no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/) e navegar até as informações de conexão para seu namespace do barramento de serviço.
+> [AZURE.NOTE]Você também poderá encontrar essa chave se efetuar logon no [Portal do Azure](http://manage.windowsazure.com/) e navegar até as informações de conexão para seu namespace do barramento de serviço.
 
 ## Criar um aplicativo Ruby
 
@@ -152,4 +152,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 Para fazer uma comparação entre as filas de Service Bus do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o serviço Fila do Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

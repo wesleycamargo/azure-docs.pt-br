@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ação da Possibilidade de Teste."
+   pageTitle="Ação de capacidade de teste | Microsoft Azure"
 	description="Este artigo fala sobre as ações da Possibilidade de Teste encontradas na Malha de Serviço do Microsoft Azure."
 	services="service-fabric"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="03/17/2015"
+	ms.date="08/31/2015"
 	ms.author="heeldin;motanv"/>
 
 # Ações da Possibilidade de Teste
@@ -234,4 +234,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Falhas de comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -4,8 +4,8 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 # Dados de exemplo nas tabelas Hive do Azure HDInsight
 
 Se o conjunto de dados que você deseja analisar for grande, geralmente é uma boa ideia reduzir a amostra de dados para reduzi-la a um tamanho menor, porém representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no ADAPT (Processo e Tecnologia de Análise Avançada) do Aprendizado de Máquina do Azure é habilitar a criação rápida de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
-Neste artigo, descreveremos como reduzir os dados de exemplo nas tabelas Hive do Azure HDInsight usando consultas de Hive. Abordaremos três métodos de amostragem popularmente usados: amostragem aleatória uniforme, amostragem aleatória por grupos e amostragem estratificada.
+Neste artigo, descreveremos como reduzir os dados de exemplo nas tabelas Hive do Azure HDInsight usando consultas de Hive. Abordaremos três métodos de amostragem popularmente usados:
+
+* Amostragem aleatória uniforme 
+* amostragem aleatória por grupos 
+* amostragem estratificada
 
 Você deve enviar as consultas de Hive pelo Console de Linha de Comando do Hadoop no nó principal do cluster do Hadoop. Para isso, faça logon no nó principal do cluster do Hadoop, abra o Console de Linha de Comando do Hadoop e envie as consultas de Hive dele. Para obter instruções sobre como enviar consultas de Hive no Console de Linha de Comando do Hadoop, consulte [Como enviar consultas de Hive](machine-learning-data-science-process-hive-tables.md#submit).
 
@@ -95,4 +99,4 @@ Veja um exemplo de consulta:
 Para obter informações sobre os métodos de amostragem mais avançados disponíveis no Hive, consulte [Amostragem LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

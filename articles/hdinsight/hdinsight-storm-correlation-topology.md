@@ -1,21 +1,21 @@
 <properties
  pageTitle="Correlacionar eventos ao longo do tempo com o Storm e o HBase no HDInsight"
- description="Saiba como correlacionar eventos que chegam em momentos diferentes usando o Storm e HBase no HDInsight."
- services="hdinsight"
- documentationCenter=""
- authors="Blackmist"
- manager="paulettm"
- editor="cgronlun"
+	description="Saiba como correlacionar eventos que chegam em momentos diferentes usando o Storm e HBase no HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
- ms.devlang="dotnet"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="big-data"
- ms.date="06/05/2015"
- ms.author="larryfr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="09/02/2015"
+	ms.author="larryfr"/>
 
 # Correlacionar eventos ao longo do tempo com o Storm e o HBase no HDInsight
 
@@ -198,4 +198,4 @@ Quando você estiver pronto para parar a topologia, volte para o projeto **Corre
 Para obter mais exemplos de topologias Storm, consulte [Exemplo de topologias para Storm no HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

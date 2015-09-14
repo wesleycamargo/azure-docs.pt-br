@@ -1,19 +1,19 @@
 <properties
  pageTitle="Introdução a um cluster de HPC Pack para executar cargas de trabalho do Excel e SOA | Microsoft Azure"
- description="."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-windows"
- ms.workload="big-compute"
- ms.date="08/18/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="08/18/2015"
+	ms.author="danlep"/>
 
 # Introdução com um cluster de HPC Pack no Azure para executar cargas de trabalho do Excel e SOA
 
@@ -60,7 +60,7 @@ Use um modelo de início rápido do Azure para implantar de maneira rápida e f�
     >
     >Serão criadas VMs do nó de computação a partir da imagem mais recente da família do nó de computação selecionado. Selecione a opção **ComputeNode** para a mais recente imagem de computação do HPC Pack 2012 R2 Update 2 para fins gerais. Selecione a opção **ComputeNodeWithExcel**para a imagem do nó de computação HPC Pack que inclui uma versão de avaliação do Microsoft Excel Professional Plus 2013. Se quiser implantar um cluster para sessões SOA gerais ou para o descarregamento de Excel UDF, escolha a opção **ComputeNode** (sem o Excel instalado).
     >
-    >Quando usar **ComputeNodeWithExcel** para cargas de trabalho de produção, você precisará fornecer uma licença válida do Excel para ativar o Excel em nós de computação. Caso contrário, a versão de avaliação do Excel expira após 30 dias e a execução de todas as cargas de trabalho do Excel falhará nessa ocasião.
+    >Ao usar **ComputeNodeWithExcel** para cargas de trabalho de produção, será necessário fornecer uma licença válida do Excel para ativar o Excel em nós de computação. Caso contrário, a versão de avaliação do Excel poderá expirar em 30 dias e a execução da pasta de trabalho do Excel falharia constantemente com a exceção COMExeption (0x800AC472). Se isso acontecer, você poderá fazer logon no nó principal para executar clusrun “%ProgramFiles(x86)%\\Microsoft Office\\Office15\\OSPPREARM.exe” em todos os nós de computação do Excel por meio do console do Gerenciador de Cluster de HPC a fim de reativar o Excel para mais 30 dias de avaliação. A quantidade máxima de rearmações do período de carência é de 2, depois disso talvez seja necessário fornecer uma licença válida do Excel.
 
     c. Selecione a assinatura.
 
@@ -222,7 +222,7 @@ Siga estas etapas para descarregar uma planilha do Excel para executar no cluste
 ```
 4.	Baixe a [instalação total do HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47755) e instale o cliente do HPC Pack, ou baixe e instale os [utilitários de cliente do HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754) e o Visual C++ 2010 redistribuível apropriado do computador ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
-5.	Neste exemplo, podemos usar uma pasta de trabalho do Excel de exemplo chamada ConvertiblePricing\_Complete.xlsb, disponível para download [aqui](https://www.microsoft.com/pt-br/download/details.aspx?id=2939).
+5.	Neste exemplo, podemos usar uma pasta de trabalho do Excel de exemplo chamada ConvertiblePricing\_Complete.xlsb, disponível para download [aqui](https://www.microsoft.com/pt-BR/download/details.aspx?id=2939).
 
 6.	Copie a pasta de trabalho do Excel para uma pasta de trabalho, como D:\\Excel\\Run.
 
@@ -259,15 +259,15 @@ Siga estas etapas para descarregar uma planilha do Excel para executar no cluste
 
 Para executar UDFs do Excel, siga as etapas de 1 a 3 acima para configurar o computador cliente. Para UDFs do Excel, você não precisa ter o aplicativo do Excel instalado em nós de computação, assim você pode escolher a imagem de um nó de computação normal na Etapa 1 em vez de a imagem do nó de computação com o Excel.
 
->[AZURE.NOTE]Há um limite de 34 caracteres no Excel 2010 e a caixa de diálogo do conector de cluster 2013. Se o nome completo do cluster for maior, por exemplo, hpcexcelhn01.southeastasia.cloudapp.azure.com, ele não se ajustará e os UDFs não serão executados. A solução alternativa é usar o script de implantação de IaaS para implantar um cluster com um nome mais curto, como hpcexcelhn01.cloudapp.net. Esse problema será corrigido em uma versão posterior da API de Sessão SOA.
+>[AZURE.NOTE]Há um limite de 34 caracteres no Excel 2010 e a caixa de diálogo do conector de cluster 2013. Se o nome completo do cluster for maior, por exemplo, hpcexcelhn01.southeastasia.cloudapp.azure.com, ele não caberá na caixa de diálogo. A solução alternativa é aplicar a Atualização 2 QFE KB3085833 (baixe [aqui](http://www.microsoft.com/pt-BR/download/details.aspx?id=48725)) para a API de Sessão SOA na máquina cliente, em seguida definir uma variável para toda a máquina, por exemplo, *CCP\_IAASHN* com o valor do nome do cluster longo e a entrada *%CCP\_IAASHN %* na caixa de diálogo como o nome do nó principal do cluster.
 
-Depois que o cluster for implantado com êxito, continue com as etapas a seguir para executar um exemplo interno do UDF do Excel. Para UDFs personalizado do Excel, consulte estes [recursos](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para compilar os XLLs e implantá-los no cluster IaaS.
+Depois que o cluster for implantado com êxito, continue com as etapas a seguir para executar um exemplo interno do UDF do Excel. Para UDFs personalizados do Excel, consulte estes [recursos](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para compilar os XLLs e implantá-los no cluster IaaS.
 
 1.	Abra uma nova pasta de trabalho do Excel. Na faixa de opções **Desenvolver**, clique em **Suplementos**. Na caixa de diálogo, clique em **Procurar**, navegue até a pasta %CCP\_HOME%Bin\\XLL32 e selecione o exemplo ClusterUDF32.xll.
 
     ![Selecionar o UDF][udf]
 
-2.	Clique em **Arquivo** > **Opções** > **Avançado**. Em **Fórmulas**, marque **Permitir que as funções XLL definidas pelo usuário executem um cluster de cálculo**. Em seguida, clique em **Opções** e digite o nome completo do cluster em **Nome de nó principal do cluster**. Conforme observado anteriormente, essa caixa de entrada é limitada a 34 caracteres, de modo que um nome de cluster longo pode não caber. Você pode configurar um nome completo mais curto quando implantar um cluster via script de implantação IaaS.
+2.	Clique em **Arquivo** > **Opções** > **Avançado**. Em **Fórmulas**, marque **Permitir que as funções XLL definidas pelo usuário executem um cluster de cálculo**. Em seguida, clique em **Opções** e digite o nome completo do cluster em **Nome do nó principal do cluster**. Conforme observado anteriormente, essa caixa de entrada é limitada a 34 caracteres, de modo que um nome de cluster longo pode não caber. Você pode configurar um nome completo mais curto quando implantar um cluster via script de implantação IaaS.
 
     ![Configurar o UDF][options]
 
@@ -283,7 +283,7 @@ Para executar aplicativos SOA gerais no cluster de HPC Pack IaaS, primeiro use u
 
 1. Após receber o certificado do cluster, importe-o para o computador cliente em Cert:\\CurrentUser\\Root.
 
-2. Instale o [SDK do HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47756) e [Utilitários de cliente do HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754) para desenvolver e executar aplicativos cliente SOA.
+2. Instale o [SDK do HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47756) e [Utilitários de cliente do HPC Pack 2012 R2 Atualização 2](https://www.microsoft.com/download/details.aspx?id=47754) para desenvolver e executar aplicativos cliente SOA.
 
 3. Baixe o [código de exemplo](https://www.microsoft.com/download/details.aspx?id=41633) HellowWorldR2. Abra o HelloWorldR2.sln no Visual Studio 2010 ou 2012.
 
@@ -357,9 +357,9 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 
 ## Próximas etapas
 
-* Consulte [estes recursos](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para obter mais informações sobre como executar cargas de trabalho do Excel com o HPC Pack.
+* Consulte [estes recursos](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para saber mais sobre como executar cargas de trabalho do Excel com o HPC Pack.
 
-* Consulte [Gerenciamento de serviços SOA no Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) para obter mais informações sobre como implantar e gerenciar serviços SOA com HPC Pack.
+* Consulte [Gerenciamento de serviços SOA no Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) para saber mais sobre como implantar e gerenciar serviços SOA com HPC Pack.
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-excel-cluster-hpcpack/scenario.png
@@ -376,4 +376,4 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

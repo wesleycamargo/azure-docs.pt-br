@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="07/29/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 
@@ -61,9 +61,9 @@ No exemplo a seguir, mostraremos como criar um conjunto de registros e registros
 
 Crie registro definido usando a CLI:
 
-	Usage: network dns-record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
+	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
-	azure network dns-record-set create myresourcegroup  contoso.com  www A  60
+	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
 O conjunto de registros tem o nome relativo “www” na zona DNS "contoso.com", então, o nome totalmente qualificado dos registros será “www.contoso.com”. O tipo de registro é “A” e o TTL é 60 segundos.
 
@@ -75,15 +75,15 @@ O conjunto de registros está vazio e precisamos adicionar registros para poder 
 
 Adicione os registros do IPv4 ao conjunto de registros "www" usando o seguinte comando:
 
-	Usage: network dns-record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
+	Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
 
-	azure network dns-record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
+	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 	
 
 As alterações foram concluídas. Você pode recuperar o conjunto de registros do DNS do Azure usando "azure network dns-record-set show":
 
 
-	azure network dns-record-set show myresourcegroup "contoso.com" www A
+	azure network dns record-set show myresourcegroup "contoso.com" www A
 	
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "www"
@@ -95,7 +95,7 @@ As alterações foram concluídas. Você pode recuperar o conjunto de registros 
 	data:    A records:
 	data:        IPv4 address                : 134.170.185.46
 	data:
-	info:    network dns-record-set show command OK
+	info:    network dns record-set show command OK
 
 
 Você também pode usar nslookup ou outras ferramentas DNS para consultar o novo conjunto de registros.
@@ -122,4 +122,4 @@ Você também pode usar nslookup ou outras ferramentas DNS para consultar o novo
 [Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

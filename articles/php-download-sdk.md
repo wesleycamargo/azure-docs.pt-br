@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 #Baixar o SDK do Azure para PHP
@@ -103,18 +103,10 @@ Para obter informações sobre como usar o PowerShell do Azure, consulte [Como u
 
 ##CLI do Azure
 
-O CLI do Azure é um conjunto de ferramentas de linha de comando para implantar e gerenciar serviços do Azure, como os Sites do Azure e Máquinas Virtuais do Azure. A lista a seguir descreve como instalar o CLI do Azure, dependendo do sistema operacional:
-
-* **Mac**: baixe o instalador do SDK do Azure aqui: [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Abra o arquivo .pkg baixado e conclua as etapas de instalação quando for solicitado.
-
-* **Linux**: instale a versão mais recente do [Node.js][nodejs-org] (confira [Instalar o Node.js por meio do Gerenciador de Pacotes][install-node-linux]) e execute o seguinte comando:
-
-		npm install azure-cli -g
-
-	> [AZURE.NOTE]Talvez seja necessário executar esse comando com privilégios elevados: `sudo npm install azure-cli -g`
+O CLI do Azure é um conjunto de ferramentas de linha de comando para implantar e gerenciar serviços do Azure, como os Sites do Azure e Máquinas Virtuais do Azure. Para obter informações sobre como instalar a CLI do Azure, consulte [Instalar a CLI do Azure](xplat-cli-install.md).
 
 
-Para informações sobre como usar o CLI do Azure, confira [Como Usar a Interface de Linha de Comando do Azure para Mac, Linux e Windows][azure cli].
+
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
@@ -136,4 +128,4 @@ Para informações sobre como usar o CLI do Azure, confira [Como Usar a Interfac
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

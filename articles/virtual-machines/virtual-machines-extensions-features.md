@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Sobre os recursos e extensões de Máquina Virtual | Microsoft Azure" 
- description="Descreve várias das extensões de máquina virtual, agrupadas pelo que elas fornecem ou melhoram, como conectividade e o gerenciamento básico." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
+ pageTitle="Sobre os recursos e extensões de Máquina Virtual | Microsoft Azure"
+	description="Descreve várias das extensões de máquina virtual, agrupadas pelo que elas fornecem ou melhoram, como conectividade e o gerenciamento básico."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="10/31/2014" 
- ms.author="rasquill"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="rasquill"/>
 #Sobre os recursos e extensões de máquina virtual
 O Microsoft Azure fornece extensões de VM criadas pela Microsoft e pelos provedores de terceiros confiáveis para habilitar a segurança, o tempo de execução, a depuração, o gerenciamento e outros recursos que você pode aproveitar para aumentar sua produtividade com as máquinas virtuais do Azure. Este tópico descreve os vários recursos que as extensões de VM do Azure fornecem às máquinas virtuais Windows e Linux para o seu uso e aponta em direção à documentação para cada uma delas.
 
@@ -96,4 +96,4 @@ Essas extensões dão suporte para outros recursos VM que podem ser úteis.
 |**BGInfo**|Apresenta uma visão consolidada útil das informações do servidor na área de trabalho ao usar o RDP.|[Extensão BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Instala, configura e mantém os seguintes drivers de dispositivo de rede em um tamanho A8 ou A9 de VM para que a máquina virtual possa acessar a rede de acesso remoto direto de memória do Azure (RDMA).|[Extensão HpcVmDrivers](https://msdn.microsoft.com/library/dn690126.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

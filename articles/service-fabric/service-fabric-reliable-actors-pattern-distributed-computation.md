@@ -1,20 +1,20 @@
 <properties
    pageTitle="Padrão de computação distribuída de Atores Confiáveis"
-   description="Os Atores Confiáveis do Service Fabric funcionam bem com mensagens assíncronas paralelas, estado distribuído facilmente gerenciado e computação paralela."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="jessebenson"
-   manager="timlt"
-   editor=""/>
+	description="Os Atores Confiáveis do Service Fabric funcionam bem com mensagens assíncronas paralelas, estado distribuído facilmente gerenciado e computação paralela."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="jessebenson"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/05/2015"
-   ms.author="claudioc"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/05/2015"
+	ms.author="claudioc"/>
 
 # Padrão de design de Atores Confiáveis: computação distribuída
 Devemos isso, em parte, ao fato de termos observado um cliente real produzir rapidamente um cálculo financeiro nos Atores Confiáveis do Service Fabric em um tempo absurdamente pequeno, para ser mais exato, o cálculo de risco de uma simulação de Monte Carlo.
@@ -82,7 +82,7 @@ public class PooledTask : Actor, IPooledTask
                 pi.InCircle++;
         }
 
-        var agg = ActorProxy.Create<IAggregator>(0);
+        var agg = ActorProxy.Create<IAggregator>(ActorId.NewId());
         return agg.AggregateAsync(pi);
     }
 }
@@ -203,4 +203,4 @@ Não estamos de forma alguma afirmando que a Malha de Serviço do Azure seja uma
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

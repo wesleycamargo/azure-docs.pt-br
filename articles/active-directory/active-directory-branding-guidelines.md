@@ -1,20 +1,20 @@
 <properties
    pageTitle="Diretrizes de identidade visual para aplicativos"
-   description="Um guia abrangente para recursos para desenvolvedores do Azure Active Directory"
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Um guia abrangente para recursos para desenvolvedores do Azure Active Directory"
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/30/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/25/2015"
+	ms.author="mbaldwin"/>
 
 
 # Diretrizes de identidade visual para aplicativos
@@ -53,12 +53,12 @@ Seu aplicativo pode apresentar caminhos separados para inscrição e login, e as
 
 ## Orientação visual para aquisição de aplicativo
 
-O link "obtenha o aplicativo" deve redirecionar o usuário para a página de concessão de acesso (autorização) Azure AD, para permitir que o administrador da organização autorize seu aplicativo para ter acesso aos dados de sua organização que são hospedados pela Microsoft. Detalhes sobre como solicitar acesso são discutidos no tópico [Adicionar, atualizar e remover um aplicativo](https://msdn.microsoft.com/library/azure/dn132599.aspx).
+O link "obtenha o aplicativo" deve redirecionar o usuário para a página de concessão de acesso (autorização) Azure AD, para permitir que o administrador da organização autorize seu aplicativo para ter acesso aos dados de sua organização que são hospedados pela Microsoft. Os detalhes sobre como solicitar acesso são debatidos no artigo [Integração de aplicativos com o Active Directory do Azure](active-directory-integrating-applications.md).
 
 Depois que os administradores derem consentimento ao seu aplicativo, eles podem optar por adicioná-lo à experiência do inicializador de aplicativos do Office 365 de seus usuários (acessível a partir do waffle e em [https://portal.office.com/myapps](https://portal.office.com/myapps)). Se você deseja anunciar esse recurso, você pode usar termos como "Adicione esse aplicativo para sua organização" e mostrar um botão como este:
 
 ![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/add-to-my-org.png)
-  
+
 No entanto, recomendamos que você escreva um texto explicativo em vez de depender de botões. Por exemplo:
 > *Se você já usa o Office 365 ou outro serviço corporativo da Microsoft, você pode simplesmente conceder <your_app_name> acesso aos dados da sua organização. Isso permitirá que os usuários obtenham acesso <your_app_name> com suas contas de trabalho existentes.*
 
@@ -66,9 +66,9 @@ No entanto, recomendamos que você escreva um texto explicativo em vez de depend
 ## Orientação visual para logon
 Seu aplicativo deve exibir um botão de logon que redireciona os usuários ao ponto de extremidade de login, que corresponde ao protocolo que você usa para integrar com o Azure AD. A seção a seguir fornece detalhes sobre como deve ser esse botão.
 
-### Imagem e "conta comercial ou de estudante" 
+### Imagem e "conta comercial ou de estudante"
 É a associação do logotipo da Microsoft e dos termos genéricos "comercial ou de estudante" que representa exclusivamente o Azure AD entre outros provedores de identidade aos quais seu aplicativo pode oferecer suporte. Se você não tiver espaço suficiente para "contas comerciais ou de estudante", não tem problema reduzir o termo para "conta comercial".
- 
+
 ![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/work-or-school-account.png)
 
 ![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/work-account.png)
@@ -76,7 +76,7 @@ Seu aplicativo deve exibir um botão de logon que redireciona os usuários ao po
 Você também pode fornecer uma explicação adicional para ajudar os usuários finais a reconhecer se eles podem usar esse botão:
 
 ![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/work-account-with-explaination.png)
- 
+
 ## Regras de identidade visual
 **USE** "conta comercial ou de estudante" em combinação com o logotipo da Microsoft para representar logons no Azure AD. Se o espaço for um fator determinante, não tem problema usar o termo "conta comercial", mas **NÃO** use outros termos como "conta empresarial", "conta de negócios" ou "conta corporativa".
 
@@ -94,6 +94,4 @@ Você também pode fornecer uma explicação adicional para ajudar os usuários 
 
 Se seu aplicativo oferecer suporte ao Azure AD e a contas da Microsoft, você precisa incluir dois botões de login separados em seu aplicativo. Estamos trabalhando ativamente em uma atualização que permitirá que você integre uma vez e ofereça suporte a contas pessoais e comerciais da Microsoft. Quando isso estiver disponível, você poderá mostrar um único botão de "login na Microsoft" em seu aplicativo.
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

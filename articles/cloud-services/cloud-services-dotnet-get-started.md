@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/08/2015"
+	ms.date="09/01/2015"
 	ms.author="tdykstra"/>
 
 # Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
@@ -409,6 +409,8 @@ Após a solução ser criada, você revisará o código exclusivo dos projetos d
 
 16. Encontre o pacote NuGet do *EntityFramework* e instale-o em todos os três projetos.
 
+17. Encontre o pacote NuGet *Microsoft.WindowsAzure.ConfigurationManager* e instale-o no projeto de função de trabalho.
+
 ### Definir referências de projeto
 
 10. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique com o botão direito no projeto ContosoAdsWeb e depois clique em **Referências** - **Adicionar Referências**. Na caixa de diálogo **Gerenciador de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e depois clique em **OK**.
@@ -466,7 +468,7 @@ Para adicionar arquivos a um projeto ou pasta, clique com o botão direito do mo
 3. No projeto ContosoAdsCommon, exclua o arquivo *Class1.cs* e substitua-o pelos arquivos *Ad.cs* e *ContosoAdscontext.cs* do projeto baixado.
 
 3. No projeto ContosoAdsWeb, adicione os seguintes arquivos do projeto baixado.
-	- *Global.asax.cs*.  
+	- *Global.asax.cs*  
 	- Na pasta *Views\\Shared*: <em>\_Layout.cshtml</em>.
 	- Na pasta *Views\\Home*: *Index.cshtml*.
 	- Na pasta *Controllers*: *AdController.cs*.
@@ -811,4 +813,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
 * [Armazenamento do Azure](/documentation/services/storage/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -39,8 +39,8 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 |	------												|	-----																						|
 |	**Relatórios de atividades anômalas**
 |	[Entradas de fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md) |	Pode indicar uma tentativa de conexão sem rastreamento. |
-|	[Entradas após várias falhas](active-directory-sign-ins-after-multiple-failures.md) |	Pode indicar um ataque de força bruta com êxito. |
-|	[Entradas de várias regiões geográficas](active-directory-sign-ins-from-multiple-geographies.md) |	Pode indicar que vários usuários estão se conectando com a mesma conta. |
+|	[Entradas após várias falhas](active-directory-reporting-sign-ins-after-multiple-failures.md) |	Pode indicar um ataque de força bruta com êxito. |
+|	[Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md) |	Pode indicar que vários usuários estão se conectando com a mesma conta. |
 |	[Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md) |	Pode indicar uma conexão bem-sucedida após uma tentativa de invasão prolongada. |
 |	[Entradas de dispositivos possivelmente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |	Pode indicar uma tentativa de conexão de dispositivos possivelmente infectados. |
 |	[Atividade de conexão anômala](active-directory-reporting-irregular-sign-in-activity.md) |	Pode indicar eventos anormais para padrões de conexão dos usuários. |
@@ -76,7 +76,7 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 |	Usuários com atividade de entrada anômala | | |	✓ |
 |	Usuários com credenciais insuficientes | | |	✓ |
 |	**Logs de atividade**
-|	Relatório de auditoria | | |	✓ |
+|	Relatório de auditoria |	✓ | | |
 |	Atividade de redefinição de senha | | |	✓ |
 |	Atividade de registro de redefinição de senha | | |	✓ |
 |	Atividade de grupos de autoatendimento | | |	✓ |
@@ -100,7 +100,9 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 
 
 ## Relatórios de atividades anômalas
-Os relatórios de atividade de entrada anômala contêm atividade de entrada suspeita para o Portal de Gerenciamento do Azure, o Painel de Acesso do AD do Azure, o Office365, o Sharepoint Online, o Dynamics CRM Online e outros serviços online da Microsoft, independentemente do provedor de federação. <p>Os seguintes relatórios estão disponíveis: </p><ul> <li>[Entradas de fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Entradas após várias falhas](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Atividade de entrada irregular](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Entradas de dispositivos possivelmente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuários com atividade de entrada anômala](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuários com credenciais insuficientes</li></ul>
+<p>Os relatórios de atividade de entrada anômala contêm atividade de entrada suspeita para o Portal de Gerenciamento do Azure, o Painel de Acesso do AD do Azure, o Office365, o Sharepoint Online, o Dynamics CRM Online e outros serviços online da Microsoft.</p>
+<p>Todos esses relatórios, exceto o relatório "Entradas após várias falhas", também sinalizam entradas <i>federadas</i> suspeitas nos serviços mencionados anteriormente, independentemente do provedor de federação. </p>
+<p>Os seguintes relatórios estão disponíveis: </p><ul> <li>[Entradas de fontes desconhecidas](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Entradas após várias falhas](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Atividade de conexão anômala](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Entradas de dispositivos possivelmente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuários com atividade de entrada anômala](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuários com credenciais insuficientes</li></ul>
 
 
 
@@ -267,11 +269,11 @@ Se você estiver exibindo os relatórios de anomalias, perceba que você pode ig
 
 ## Notificações automáticas por email
 
-Para obter mais informações sobre as notificações de relatórios do AD do Azure, verifique [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
+Para saber mais sobre as notificações de relatórios do Azure AD, confira [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
 
 ## O que vem a seguir
 
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

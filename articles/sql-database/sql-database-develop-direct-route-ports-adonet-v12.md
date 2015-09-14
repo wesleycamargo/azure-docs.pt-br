@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Portas além da 1433 para ADO.NET 4.5, ODBC 11 e Banco de Dados SQL V12 | Microsoft Azure"
+	pageTitle="Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL V12 | Microsoft Azure"
 	description="Às vezes, as conexões de cliente para o Banco de Dados SQL do Azure V12 ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor="" />
+	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="genemi"/>
 
 
-# Portas além da 1433 para ADO.NET 4.5, ODBC 11 e Banco de Dados SQL V12
+# Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL V12
 
 
 Este tópico descreve as mudanças trazidas pelo Banco de Dados SQL do Azure V12 ao comportamento de conexão de clientes que usam ADO.NET 4.5 ou uma versão mais recente.
@@ -122,13 +122,17 @@ As diferenças de conexão do cliente entre o Banco de Dados SQL V11 e V12 são 
 
 - [Novidades no Banco de Dados SQL V12](sql-database-v12-whats-new.md)
 
-- Considerações sobre a lógica de repetição: [seção "O gateway não fornece mais lógica de repetição em V12" do tópico "Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design"](sql-database-connect-central-recommendations.md#gatewaynoretry)
+
+- [Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design](sql-database-connect-central-recommendations.md)
+
 
 - O ADO.NET 4.6 foi lançado em 20 de julho de 2015. Um comunicado do blog da equipe do .NET está disponível [aqui](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+
 
 - O ADO.NET 4.5 foi lançado em 15 de agosto de 2012. Um comunicado do blog da equipe do .NET está disponível [aqui](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
  - Uma postagem no blog sobre o ADO.NET 4.5.1 está disponível [aqui](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
+
 - [Lista de versões do protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

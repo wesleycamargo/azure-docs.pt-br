@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Processo e Tecnologia de Análise Avançada em ação: usando o SQL Server | Microsoft Azure" 
-	description="Processo e Tecnologia de Análise Avançada em ação"  
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Processo e Tecnologia de Análise Avançada em ação: usando o SQL Server | Microsoft Azure"
+	description="Processo e Tecnologia de Análise Avançada em ação"
+	services="machine-learning"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mohabib;fashah;bradsev"/>
 
                 
 # Processo e Tecnologia de Análise Avançada em ação: usando o SQL Server
 
-Neste tutorial, você seguirá o guia do ADAPT (Processo e Tecnologia de Análise Avançada) do Azure de ponta a ponta para criar e implantar um modelo usando um conjunto de dados disponível ao público — o conjunto de dados [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/).
+Neste tutorial, você obtém uma explicação passo a passo sobre como criar e implantar um modelo usando um conjunto de dados disponível publicamente -- o conjunto de dados [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). O procedimento segue o guia ADAPT (Azure Advanced Analytics Process and Technology).
 
 
 ## <a name="dataset"></a>Descrição do conjunto de dados Corridas de Táxi em NYC
@@ -715,4 +715,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

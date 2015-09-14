@@ -1,19 +1,21 @@
 
-1. Para escalonar privilégios, execute:
+1. Para escalonar privilégios, digite:
 
 		sudo -s
-	
+
 	Digite sua senha.
 
-2. Execute o seguinte comando para instalar o MySQL Community Server edition:
+2. Para instalar o MySQL Community Server edition, digite:
 
 		# zypper install mysql-community-server
 
 	Aguarde enquanto o MySQL é baixado e instalado.
-3. Para definir o MySQL para iniciar quando o sistema for inicializado, execute o seguinte comando:
+
+3. Para definir o MySQL para ser iniciado quando o sistema for inicializado, digite:
 
 		# insserv mysql
-4. Agora você pode iniciar manualmente o daemon do MySQL (mysqld) com o seguinte comando:
+
+4. Inicie manualmente o daemon do MySQL (mysqld) com este comando:
 
 		# rcmysql start
 
@@ -21,11 +23,13 @@
 
 		# rcmysql status
 
-	Se você deseja parar o daemon do MySQL, execute:
+	Para interromper o daemon do MySQL, digite:
 
 		# rcmysql stop
 
-5. Aviso! Após a instalação, a senha da raiz do MySQL é vazia por padrão. É recomendável executar o **mysql\_secure\_installation**, um script que ajuda a proteger o MySQL. Ao executar o **mysql\_secure\_installation**, você será solicitado a alterar a senha raiz do MySQL, remover as contas anônimas de usuários, desabilitar os logins de raiz remota, remover bancos de dados de teste e recarregar a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz. Execute o comando a seguir para executar o script:
+	> [AZURE.IMPORTANT]Após a instalação, a senha da raiz do MySQL é vazia por padrão. É recomendável executar o **mysql\_secure\_installation**, um script que ajuda a proteger o MySQL. O script solicita que você altere a senha raiz do MySQL, remova as contas anônimas de usuários, desabilite os logins de raiz remota, remova bancos de dados de teste e recarregue a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz.
+
+5. Digite isto para executar o script de instalação do MySQL:
 
 		$ mysql_secure_installation
 
@@ -48,37 +52,33 @@
 
 	Observe que as senhas e nomes de usuário do banco de dados só são usadas pelos scripts de conexão com o banco de dados. Nomes de conta de usuário do banco de dados não representam, necessariamente, contas de usuário reais no sistema.
 
-9. Para fazer logon em outro computador, execute o seguinte:
+9. Para fazer logon em outro computador, digite:
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
 	em que `ip-address` é o endereço IP do computador do qual você se conectará ao MySQL.
-	
-10. Para sair do utilitário de administração de banco de dados MySQL, emita o seguinte comando:
+
+10. Para sair do utilitário de administração de banco de dados MySQL, digite:
 
 		quit
 
-11. Após o MySQL estar instalado, será necessário configurar um ponto de extremidade para que o MySQL possa ser acessado remotamente. Faça logon no [Portal de Gerenciamento do Azure][AzurePreviewPortal]. No portal do Azure, clique em **Máquinas Virtuais**, clique no nome de sua nova VM e clique em **Pontos de extremidade**.
+11. Após a instalação do MySQL, você precisará configurar um ponto de extremidade para acessar remotamente o MySQL. Faça logon no [Portal do Azure][AzurePortal]. Clique em **Máquinas Virtuais**, em seguida clique no nome da sua nova máquina virtual e em **Pontos de Extremidade**.
 
-	![Endpoints][Image7]
+12. Clique em **Adicionar** na parte inferior da página.
 
-12. Clique em **Adicionar** na parte inferior da página. ![Endpoints][Image8]
+13. Adicione um ponto de extremidade chamado "MySQL" com protocolo **TCP** e portas **Pública** e **Privada** configuradas como "3306".
 
-13. Adicione um ponto de extremidade chamado "MySQL" com protocolo **TCP** e portas **Pública** e **Privada** configuradas como "3306". Isso permite o acesso remoto ao MySQL. ![Pontos de extremidade][Image9]
-
-14. Para se conectar remotamente ao MySQL em execução na máquina virtual OpenSUSE no Azure, execute o seguinte comando no computador local:
+14. Para conectar-se remotamente à máquina virtual do seu computador, digite:
 
 		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
 
-	Por exemplo, usando a máquina virtual criada neste tutorial, o comando seria:
+	Por exemplo, usando a máquina virtual criada neste tutorial, digite este comando:
 
 		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. Você configurou com êxito o MySQL, criou um banco de dados e um novo usuário. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][MySQLDocs].
-
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePreviewPortal]: http://manage.windowsazure.com
+[AzurePortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

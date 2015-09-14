@@ -399,7 +399,7 @@ Os dados são copiados para um novo arquivo a cada hora com o caminho do blob re
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd}\' AND timestampcolumn < \'{1:yyyy-MM-dd}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "FileSystemSink"
@@ -477,6 +477,7 @@ fileName | Especifique o nome do arquivo no **folderPath** se você deseja que a
 partitionedBy | partitionedBy pode utilizado para especificar um filename, folderPath dinâmico para dados de série temporal. Por exemplo, folderPathparametrizado para cada hora dos dados. | Não
 Formatar | Há suporte para dois tipos de formatos: **TextFormat**, **AvroFormat**. Você precisa definir a propriedade type no formato para qualquer um desses valores. Quando o forAvroFormatmat é TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Consulte a seção abaixo para obter mais detalhes. | Não
 fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <p>Os valores permitidos são: * (vários caracteres) e ? (um único caractere).</p><p>Exemplo 1: "fileFilter": "*.log"</p>Exemplo 2: "fileFilter": 2014-1-?.txt"</p><p>**Observação: fileFilter é aplicável a um conjunto de dados FileShare de entrada</p> | Não
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: GZip, Deflate e BZip2. Os níveis com suporte são: Melhor e Mais rápido. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
 
 > [AZURE.NOTE]filename e fileFilter não podem ser usados simultaneamente.
 
@@ -484,7 +485,7 @@ fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de
 
 Conforme mencionado acima, você pode especificar um filename, folderPath dinâmico para dados de série temporal com partitionedBy. Você pode fazer isso com as macros de Data Factory e as variáveis de sistema SliceStart e SliceEnd que indicam o período de tempo lógico para uma determinada fatia de dados.
 
-Consulte os artigos [Creating datasets (Criando conjuntos de dados)](data-factory-create-datasets.md), [Scheduling & Execution (Agendamento e execução)](data-factory-scheduling-and-execution.md) e [Creating Pipelines (Criando pipelines)](data-factory-create-pipelines.md) para saber mais detalhes sobre conjuntos de dados de série temporal, agendamentos e fatias.
+Consulte os artigos [Criando conjuntos de dados](data-factory-create-datasets.md), [Agendamento e execução](data-factory-scheduling-and-execution.md) e [Criando pipelines](data-factory-create-pipelines.md) para saber mais detalhes sobre conjuntos de dados de série temporal, agendamentos e fatias.
 
 #### Exemplo 1:
 
@@ -521,7 +522,7 @@ rowDelimiter | Os caracteres usados como um separador bruto no arquivo. O valor 
 escapeChar | O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), você pode definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na fonte.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
 quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<p>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas deseja ter caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte Essa propriedade é aplicável às tabelas de entrada e saída.</p><p>Observe que não é possível especificar escapeChar e quoteChar para uma tabela.</p> | Não
 nullValue | Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. O valor padrão é “\\N”.> | Não
-encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. <p>Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8.</p> | Não
+encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. <p>Por exemplo: windows-1250 ou shift\_jis. O valor padrão é: UTF-8.</p> | Não
 
 #### Exemplos:
 
@@ -547,7 +548,7 @@ Para usar um escapeChar em vez de quoteChar, substitua a linha com quoteChar pel
 
 ### Especificando AvroFormat
 
-Se o formato é definido como **AvroFormat**, não é necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:
+Se o formato for definido como **AvroFormat**, não será necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:
 
 	"format":
 	{
@@ -555,6 +556,8 @@ Se o formato é definido como **AvroFormat**, não é necessário especificar ne
 	}
 	
 Para usar o formato Avro em uma tabela de Hive subsequente, consulte o [Tutorial do Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## Propriedades de tipo da atividade de cópia do compartilhamento de arquivos
 
@@ -573,4 +576,4 @@ No momento, **FileSystemSource** e **FileSystemSink** não dão suporte a nenhum
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

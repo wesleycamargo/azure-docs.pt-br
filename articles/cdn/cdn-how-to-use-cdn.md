@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar a CDN | Microsoft Azure" 
-	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="zhangmanling" 
-	manager="dwrede" 
+	pageTitle="Como usar a CDN | Microsoft Azure"
+	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático."
+	services="cdn"
+	documentationCenter=".net"
+	authors="zhangmanling"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/19/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/01/2015"
 	ms.author="mazha"/>
 
 
@@ -54,4 +54,4 @@ Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornec
 [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](cdn-overview.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

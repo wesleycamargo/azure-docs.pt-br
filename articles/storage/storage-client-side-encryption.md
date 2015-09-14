@@ -1,27 +1,27 @@
 <properties 
-	pageTitle="Introdução à criptografia do lado do cliente para o Armazenamento do Microsoft Azure | Microsoft Azure" 
-	description="A Biblioteca de cliente do Armazenamento do Azure para .NET oferece suporte à criptografia do lado do cliente e à integração com o Cofre da Chave do Azure. A criptografia do lado do cliente oferece o máximo de segurança para seus aplicativos do Armazenamento do Azure, uma vez que suas chaves de acesso nunca ficam disponíveis para o serviço. A criptografia do lado do cliente está disponível para blobs, filas e tabelas." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
+	pageTitle="Criptografia do lado do cliente para o Armazenamento do Microsoft Azure | Microsoft Azure"
+	description="A Biblioteca de Clientes do Armazenamento do Azure para .NET oferece suporte à criptografia do lado do cliente e à integração com o Cofre da Chave do Azure para segurança máxima para seus aplicativos do Armazenamento do Azure."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carolz"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="tamram"/>
 
 
-# Introdução à criptografia do lado do cliente para o Armazenamento do Microsoft Azure
+# Criptografia do lado do cliente e o Cofre da Chave do Azure para o Armazenamento do Microsoft Azure
 
 ## Visão geral
 
-A [Biblioteca de cliente do Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) contém funcionalidades para ajudar os desenvolvedores a criptografar dados nos aplicativos de cliente antes de carregar no Armazenamento do Azure, e a descriptografar os dados durante o download. A biblioteca também oferece suporte à integração com o [Cofre da Chave](http://azure.microsoft.com/services/key-vault/) do Azure para gerenciamento de chaves de contas de armazenamento.
+A [Biblioteca de Clientes do Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) oferece suporte à criptografia de dados em aplicativos clientes antes de carregar no Armazenamento do Azure e à descriptografia de dados durante o download para o cliente. A biblioteca também oferece suporte à integração com o [Cofre da Chave do Azure](http://azure.microsoft.com/services/key-vault/) para gerenciamento de chaves de contas de armazenamento.
 
 ## Criptografia e descriptografia com a técnica de envelope
 
@@ -242,4 +242,4 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 
 Baixar a [Biblioteca de cliente do Armazenamento do Azure para pacote .NET NuGet](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Baixar a [Biblioteca de cliente do Armazenamento do Azure para código-fonte .NET](https://github.com/Azure/azure-storage-net) do GitHub Baixar os pacotes NuGet de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre da Chave Visite a [Documentação do Cofre da Chave do Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

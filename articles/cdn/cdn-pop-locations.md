@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure" 
-	description="Este tópico lista os locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure" 
-	services="cdn" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure"
+	description="Este tópico lista os locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure"
+	services="cdn"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 
@@ -71,4 +71,4 @@ Este tópico lista os locais atuais de POP (ponto de presença) da CDN do Micros
 - Melbourne
 - Sydney 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

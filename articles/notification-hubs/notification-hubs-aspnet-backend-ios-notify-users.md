@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Notificação de Usuários nos Hubs de Notificação do Azure" 
-	description="Saiba como enviar notificações por push para usuários no Azure. Amostras de código escritas em Objective-C e a API do .NET para o back-end." 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Notificação de Usuários nos Hubs de Notificação do Azure"
+	description="Saiba como enviar notificações por push para usuários no Azure. Amostras de código escritas em Objective-C e a API do .NET para o back-end."
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="05/31/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Notificação de Usuários nos Hubs de Notificação do Azure
@@ -39,15 +39,15 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 2. Em seu Main.storyboard, adicione os componentes mostrados na captura de tela abaixo da biblioteca de objetos.
 
     ![][1]
- 
-	+ **Nome de usuário**: um UITextField com texto de espaço reservado, *Inserir nome de usuário*, imediatamente abaixo de enviar rótulo de resultados e restrito às margens esquerda e direita e abaixo do rótulo de resultados de envio. 
+
+	+ **Nome de usuário**: um UITextField com texto de espaço reservado, *Inserir nome de usuário*, imediatamente abaixo de enviar rótulo de resultados e restrito às margens esquerda e direita e abaixo do rótulo de resultados de envio.
 	+ **Senha**: um UITextField com texto de espaço reservado, *Digite a senha*, imediatamente abaixo do campo de texto Nome de usuário e restrito às margens esquerda e direita e abaixo do campo de texto Nome de usuário. Verifique a opção **Entrada de texto seguro** no Inspetor de atributo, em *Retornar chave*.
 	+ **Log on**: um UIButton chamado imediatamente abaixo do campo de texto de senha e desmarque a opção **Habilitado** no Inspetor de atributos, em *Conteúdo de controle*
 	+ **WNS**: o rótulo e o comutador para habilitar o envio da notificação do Serviço de Notificação do Windows, se ele tiver sido configurado no hub. Consulte o tutorial [Introdução ao Windows](notification-hubs-windows-store-dotnet-get-started.md).
 	+ **GCM**: o rótulo e a opção para habilitar o envio da notificação para o Google Cloud Messaging, se ele tiver sido configurado no hub. Consulte o tutorial [Introdução ao Android](notification-hubs-android-get-started.md).
 	+ **APNS**: o rótulo e a opção para habilitar o envio da notificação ao Apple Platform Notification Service.
 	+ **Nome do Usuário do Destinatário**: um UITextField com texto de espaço reservado *marca de nome de usuário do destinatário*, imediatamente abaixo do rótulo GCM e restrita às margens esquerda e direita e abaixo do rótulo do GCM.
-	
+
 
 	Alguns componentes foram adicionados ao tutorial [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md).
 
@@ -67,7 +67,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		@property (weak, nonatomic) IBOutlet UISwitch *GCMSwitch;
 		@property (weak, nonatomic) IBOutlet UISwitch *APNSSwitch;
 
-		- (IBAction)LogInAction:(id)sender;		
+		- (IBAction)LogInAction:(id)sender;
 
 4. No ViewController.h, adicione o seguinte `#define` logo abaixo das instruções de importação. Substitua o espaço reservado *< Inserir o seu ponto de extremidade do back-end >* pela URL de destino que você usou para implantar o back-end do aplicativo na seção anterior. Por exemplo, **http://you_backend.azurewebsites.net*.
 
@@ -78,7 +78,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		@interface RegisterClient : NSObject
 
 		@property (strong, nonatomic) NSString* authenticationHeader;
-		
+
 		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags
 			andCompletion:(void(^)(NSError*))completion;
 
@@ -93,11 +93,11 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		@property (strong, nonatomic) NSURLSession* session;
 		@property (strong, nonatomic) NSURLSession* endpoint;
 
-		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry 
+		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry
 					andCompletion:(void(^)(NSError*))completion;
-		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token 
+		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token
 					completion:(void(^)(NSString*, NSError*))completion;
-		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSString*)token 
+		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSString*)token
 					tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion;
 
 		@end
@@ -108,7 +108,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		@implementation RegisterClient
 
 		// Globals used by RegisterClient
-		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";		
+		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";
 
 		-(instancetype) initWithEndpoint:(NSString*)Endpoint
 		{
@@ -121,23 +121,23 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		    return self;
 		}
 
-		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags 
+		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags
 					andCompletion:(void(^)(NSError*))completion
 		{
 		    [self tryToRegisterWithDeviceToken:token tags:tags retry:YES andCompletion:completion];
 		}
 
-		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry 
+		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry
 					andCompletion:(void(^)(NSError*))completion
 		{
 		    NSSet* tagsSet = tags?tags:[[NSSet alloc] init];
 
-		    NSString *deviceTokenString = [[token description] 
+		    NSString *deviceTokenString = [[token description]
 				stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-		    deviceTokenString = [[deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""] 
+		    deviceTokenString = [[deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""]
 									uppercaseString];
 
-		    [self retrieveOrRequestRegistrationIdWithDeviceToken: deviceTokenString 
+		    [self retrieveOrRequestRegistrationIdWithDeviceToken: deviceTokenString
 				completion:^(NSString* registrationId, NSError *error) {
 		        NSLog(@"regId: %@", registrationId);
 		        if (error) {
@@ -145,7 +145,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		            return;
 		        }
 
-		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:deviceTokenString 
+		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:deviceTokenString
 					tags:tagsSet andCompletion:^(NSURLResponse * response, NSError *error) {
 		            if (error) {
 		                completion(error);
@@ -160,7 +160,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		            } else {
 		                NSLog(@"Registration error with response status: %ld", (long)httpResponse.statusCode);
 
-		                completion([NSError errorWithDomain:@"Registration" code:httpResponse.statusCode 
+		                completion([NSError errorWithDomain:@"Registration" code:httpResponse.statusCode
 									userInfo:nil]);
 		            }
 
@@ -168,30 +168,30 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		    }];
 		}
 
-		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSData*)token 
+		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSData*)token
 					tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion
 		{
-		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": token, 
+		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": token,
 													@"Tags": [tags allObjects]};
-		    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:deviceRegistration 
+		    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:deviceRegistration
 								options:NSJSONWritingPrettyPrinted error:nil];
 
-		    NSLog(@"JSON registration: %@", [[NSString alloc] initWithData:jsonData 
+		    NSLog(@"JSON registration: %@", [[NSString alloc] initWithData:jsonData
 												encoding:NSUTF8StringEncoding]);
 
-		    NSString* endpoint = [NSString stringWithFormat:@"%@/api/register/%@", _endpoint, 
+		    NSString* endpoint = [NSString stringWithFormat:@"%@/api/register/%@", _endpoint,
 									registrationId];
 		    NSURL* requestURL = [NSURL URLWithString:endpoint];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"PUT"];
 		    [request setHTTPBody:jsonData];
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",
 													self.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 		    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
-		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request 
-				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        if (!error)
 		        {
@@ -206,10 +206,10 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		    [dataTask resume];
 		}
 
-		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token 
+		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token
 					completion:(void(^)(NSString*, NSError*))completion
 		{
-		    NSString* registrationId = [[NSUserDefaults standardUserDefaults] 
+		    NSString* registrationId = [[NSUserDefaults standardUserDefaults]
 										objectForKey:RegistrationIdLocalStorageKey];
 
 		    if (registrationId)
@@ -219,28 +219,28 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		    }
 
 		    // request new one & save
-		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/register?handle=%@", 
+		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/register?handle=%@",
 									_endpoint, token]];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",
 													self.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
-		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request 
-				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (!error && httpResponse.statusCode == 200)
 		        {
-		            NSString* registrationId = [[NSString alloc] initWithData:data 
+		            NSString* registrationId = [[NSString alloc] initWithData:data
 						encoding:NSUTF8StringEncoding];
 
 		            // remove quotes
-		            registrationId = [registrationId substringWithRange:NSMakeRange(1, 
+		            registrationId = [registrationId substringWithRange:NSMakeRange(1,
 										[registrationId length]-2)];
 
-		            [[NSUserDefaults standardUserDefaults] setObject:registrationId 
+		            [[NSUserDefaults standardUserDefaults] setObject:registrationId
 						forKey:RegistrationIdLocalStorageKey];
 		            [[NSUserDefaults standardUserDefaults] synchronize];
 
@@ -252,7 +252,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		            if (error)
 		                completion(nil, error);
 		            else {
-		                completion(nil, [NSError errorWithDomain:@"Registration" code:httpResponse.statusCode 
+		                completion(nil, [NSError errorWithDomain:@"Registration" code:httpResponse.statusCode
 									userInfo:nil]);
 		            }
 		        }
@@ -278,14 +278,14 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		@interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
 
 		// create the Authorization header to perform Basic authentication with your app back-end
-		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username 
+		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username
 						AndPassword:(NSString*)password;
 
 		@end
 
 > [AZURE.NOTE]O trecho a seguir não é um esquema de autenticação seguro, você deve substituir a implementação de **createAndSetAuthenticationHeaderWithUsername:AndPassword:** pelo seu mecanismo de autenticação específico que gera um token de autenticação a ser consumido pela classe de cliente do registro, por exemplo, OAuth, Active Directory.
 
-9. Em seguida, na seção `@implementation` do ViewController.m, adicione o seguinte código que adiciona a implementação para definir o cabeçalho de autenticação e o token do dispositivo. 
+9. Em seguida, na seção `@implementation` do ViewController.m, adicione o seguinte código que adiciona a implementação para definir o cabeçalho de autenticação e o token do dispositivo.
 
 		-(void) setDeviceToken: (NSData*) deviceToken
 		{
@@ -293,14 +293,14 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		    self.LogInButton.enabled = YES;
 		}
 
-		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username 
+		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username
 						AndPassword:(NSString*)password;
 		{
 		    NSString* headerValue = [NSString stringWithFormat:@"%@:%@", username, password];
 
 		    NSData* encodedData = [[headerValue dataUsingEncoding:NSUTF8StringEncoding] base64EncodedDataWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
 
-		    self.registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData 
+		    self.registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData
 														encoding:NSUTF8StringEncoding];
 		}
 
@@ -322,10 +322,10 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		    [self createAndSetAuthenticationHeaderWithUsername:username AndPassword:password];
 
 		    __weak ViewController* selfie = self;
-		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil 
+		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil
 				andCompletion:^(NSError* error) {
 		        if (!error) {
-		            dispatch_async(dispatch_get_main_queue(), 
+		            dispatch_async(dispatch_get_main_queue(),
 					^{
 		                selfie.SendNotificationButton.enabled = YES;
 		                [self MessageBox:@"Success" message:@"Registered successfully!"];
@@ -335,38 +335,38 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		}
 
 
-		- (void)SendNotificationASPNETBackend:(NSString*)pns UsernameTag:(NSString*)usernameTag 
+		- (void)SendNotificationASPNETBackend:(NSString*)pns UsernameTag:(NSString*)usernameTag
 					Message:(NSString*)message
 		{
 		    NSURLSession* session = [NSURLSession
 		    	sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil
 		        delegateQueue:nil];
-		    
+
 			// Pass the pns and username tag as parameters with the REST URL to the ASP.NET backend
-		    NSURL* requestURL = [NSURL URLWithString:[NSString 
-				stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns, 
+		    NSURL* requestURL = [NSURL URLWithString:[NSString
+				stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns,
 				usernameTag]];
 
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
 
 			// Get the mock authenticationheader from the register client
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",
 				self.registerClient.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
-		    
+
 		    //Add the notification message body
 		    [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 		    [request setHTTPBody:[message dataUsingEncoding:NSUTF8StringEncoding]];
-		    
+
 			// Execute the send notification REST API on the ASP.NET Backend
-		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request 
-				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (error || httpResponse.statusCode != 200)
 		        {
-		            NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n", 
+		            NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n",
 										pns, httpResponse.statusCode, error];
 		            dispatch_async(dispatch_get_main_queue(),
 		            ^{
@@ -375,13 +375,13 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		            });
 		            NSLog(status);
 		        }
-		        
+
 		        if (data != NULL)
 		        {
 		            xmlParser = [[NSXMLParser alloc] initWithData:data];
 		            [xmlParser setDelegate:self];
 		            [xmlParser parse];
-		        }		    
+		        }
 			}];
 		    [dataTask resume];
 		}
@@ -400,20 +400,20 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		-(void)SendToEnabledPlatforms
 		{
 		    NSString* json = [NSString stringWithFormat:@""%@"",self.notificationMessage.text];
-		    
+
 			[self.sendResults setText:@""];
 
 		    if ([self.WNSSwitch isOn])
 		        [self SendNotificationASPNETBackend:@"wns" UsernameTag:self.RecipientField.text Message:json];
-		
+
 		    if ([self.GCMSwitch isOn])
 		        [self SendNotificationASPNETBackend:@"gcm" UsernameTag:self.RecipientField.text Message:json];
-		
+
 		    if ([self.APNSSwitch isOn])
 		        [self SendNotificationASPNETBackend:@"apns" UsernameTag:self.RecipientField.text Message:json];
 		}
-		
-		
+
+
 
 11. Na função **ViewDidLoad**, adicione o código a seguir para instanciar a instância RegisterClient e definir o delegado para os seus campos de texto.
 
@@ -427,8 +427,8 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 		// Add import to the top of the file
 		#import "ViewController.h"
 
-	    - (void)application:(UIApplication *)application 
-	    			didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken 
+	    - (void)application:(UIApplication *)application
+	    			didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 	    {
 		    ViewController* rvc = (ViewController*) self.window.rootViewController;
 		    rvc.deviceToken = deviceToken;
@@ -464,6 +464,5 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

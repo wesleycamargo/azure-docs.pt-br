@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/02/2015"
 	ms.author="larryfr"/>
 
 #Gerar recomendações de filmes usando o Apache Mahout com o Hadoop para Linux no HDInsight (visualização)
@@ -256,4 +256,4 @@ Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalh
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

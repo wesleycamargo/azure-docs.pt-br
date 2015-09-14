@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar um aplicativo lógico"
-	description="Introdução à criação de um aplicativo lógico básico"
+	pageTitle="Criar um aplicativo lógico | Microsoft Azure"
+	description="Saiba como criar um aplicativo lógico básico dos Serviços de Aplicativos"
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
@@ -17,6 +17,13 @@
 	ms.author="stepsic"/>
 
 # Criar um novo aplicativo lógico
+
+| Referência rápida |
+| --------------- |
+| [Linguagem de definição de aplicativos lógicos](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
+| [Documentação do conector de aplicativos lógicos](https://azure.microsoft.com/pt-BR/documentation/articles/app-service-logic-connectors-list/) |
+| [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurelogicapps) |
+
 Este tópico demonstra como, em apenas alguns minutos, você pode começar a usar os [Aplicativos Lógicos dos Serviços de Aplicativos](app-service-logic-what-are-logic-apps.md). Vamos percorrer um fluxo de trabalho que permite fornecer um conjunto de tweets em que você está interessado a uma pasta do Dropbox.
 
 Para usar esse cenário, você precisará de:
@@ -27,49 +34,49 @@ Para usar esse cenário, você precisará de:
 
 <!--- TODO: Add try it now information here -->
 
-## Obtendo seus conectores
+## Obtenha os conectores
 
-Primeiro, você precisa criar os dois conectores que usará: [**Conector do Dropbox**](app-service-logic-connector-dropbox.md) e [**Conector do Twitter**](app-service-logic-connector-twitter.md). Devido a restrições na API do Twitter, também precisamos nos registrar para um aplicativo gratuito com o Twitter. Para criá-los:
+Primeiro, você precisa criar os dois conectores que usará: [Conector do Dropbox](app-service-logic-connector-dropbox.md) e [Conector do Twitter](app-service-logic-connector-twitter.md). Devido a restrições na API do Twitter, também precisamos nos registrar para um aplicativo gratuito com o Twitter. Para criá-los:
 
-0. Entre no Portal do Azure.
+1. Entre no Portal do Azure.
 
-1. Clique em [**Marketplace** ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) na tela inicial e pesquise pelo **Twitter** (ou [clique aqui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
+2. Clique em [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) na tela inicial e pesquise por Twitter (ou [clique aqui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
 
-2. Selecione o Conector do Twitter e clique no botão Criar. Você obterá uma exibição com todas as suas configurações. Você pode deixar o nome como **Conector do Twitter**.
-3. Selecione as ‘Configurações do pacote’ – aqui você terá de inserir as informações de seu aplicativo do Twitter. Você pode configurar um aplicativo gratuito com estas etapas:
-	1. Vá para a [página de registro do aplicativo do Twitter](http://apps.twitter.com)
-	2. Criar um novo aplicativo
+3. Selecione o **Conector do Twitter** e clique em **Criar**. Você obterá uma exibição com todas as suas configurações. Você pode deixar o nome como **Conector do Twitter**.
+4. Selecione as **Configurações do pacote**: aqui, você terá de inserir as informações de seu aplicativo Twitter. Você pode configurar um aplicativo gratuito com estas etapas:
+	1. Vá para a [página de registro do aplicativo Twitter](http://apps.twitter.com)
+	2. Crie um novo aplicativo
 	3. Dê um nome e uma descrição. Você pode inserir qualquer URL do site e deixar a URL de retorno de chamada em branco.
-	4. Depois de registrado, copie a 'chave do consumidor' do Twitter no campo 'clientId' no Azure e o 'segredo do consumidor' do Twitter para o 'clientSecret'.
-	5. Clique em 'Ok', no painel do Azure para retornar às configurações de API
+	4. Depois de registrado, copie a **chave do consumidor** do Twitter no campo **clientId** no Azure e o **segredo do consumidor** do Twitter no **clientSecret**.
+	5. Clique em **OK** no painel do Azure para retornar às configurações de API
 
-3. Digite um nome do plano em **Criar novo plano de serviço de aplicativo**.
+5. Digite um nome do plano em **Criar novo plano de serviço de aplicativo**.
 
 	>[AZURE.NOTE]As etapas nesta seção pressupõem que você esteja criando um novo plano de serviço de aplicativo. Se estiver usando um plano de serviço de aplicativo existente, clique em **Selecionar Existente**, selecione o plano existente e vá para a última etapa desta seção. Você precisa de um plano para hospedar todos os seus aplicativos.
 
-4.  Selecione uma **Camada de Preços** para seu novo plano.
+6.  Selecione uma **Camada de Preços** para seu novo plano.
 
 	>[AZURE.NOTE]Por padrão, somente planos recomendados para aplicativos lógicos serão exibidos. Clique em **Exibir Tudo** para ver todos os planos disponíveis. Quando executa um aplicativo lógico na camada Gratuito, você pode executar apenas de hora em hora e usar até 1.000 ações por mês.
 
-5. Crie um **Grupo de recursos** para o fluxo.
+7. Crie um **Grupo de recursos** para o fluxo.
 
 	Grupos de recursos atuam como contêineres para seus aplicativos. Todos os recursos para seu aplicativo ficarão no mesmo grupo de recursos.
 
-6. Se tiver mais de uma assinatura do Azure, escolha aquela que você usará.
+8. Se tiver mais de uma assinatura do Azure, escolha aquela que você usará.
 
-7. Escolha o **Local** onde o aplicativo lógico será executado.
+9. Escolha o **Local** onde o aplicativo lógico será executado.
 
 	![Criar exibição de aplicativo de API](./media/app-service-logic-create-a-logic-app/gallery.png)
 
-8. Clique em **Criar**. A etapa de provisionamento pode levar um ou dois minutos.
+10. Clique em **Criar**. A etapa de provisionamento pode levar um ou dois minutos.
 
-9. Agora, repita o processo com o [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
+11. Agora, repita o processo com o [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
 
-## Iniciando o aplicativo lógico
+## Inicie o aplicativo lógico
 
 Agora, você precisa criar um novo aplicativo lógico:
 
-1. Clique no botão **+Novo** na parte inferior esquerda da tela, expanda **Web + Móvel** e clique em **Aplicativo Lógico**.
+1. Clique no botão **+ Novo** na parte inferior esquerda da tela, expanda **Web + Móvel** e clique em **Aplicativo Lógico**.
 
  	Isso mostra a exibição Criar aplicativo lógico, em que você fornece algumas configurações básicas para começar.
 
@@ -81,7 +88,7 @@ Agora, você precisa criar um novo aplicativo lógico:
 
 Isso cuida das configurações básicas, mas não clique em **Criar** ainda. Em seguida, você adicionará gatilhos e ações ao fluxo de trabalho.
 
-## Adicionando um gatilho
+## Adicionar um gatilho
 
 São os gatilhos que fazem seu aplicativo lógico ser executado. Em seguida, você adicionará um gatilho de recorrência, que inicia o fluxo de trabalho em um cronograma predefinido.
 
@@ -95,25 +102,23 @@ São os gatilhos que fazem seu aplicativo lógico ser executado. Em seguida, voc
 
 	![Recorrência](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-
-4.  Escolha uma **Frequência** e um **Intervalo** de recorrência (como a cada 1 hora) e clique na marca de seleção verde.
+3.  Escolha uma **Frequência** e um **Intervalo** de recorrência (como a cada 1 hora) e clique na marca de seleção verde.
 
 Agora, você adicionará uma ação ao fluxo.
 
-## Adicionando uma ação do Twitter
+## Adicionar uma ação do Twitter
 
 As ações são o que seu fluxo de trabalho faz. Você pode ter qualquer quantidade de ações e organizá-las para que as informações de uma ação sejam passadas para a ação seguinte.
 
-1. No painel direito, localize o **Conector do Twitter** e clique nele.
+1. No painel direito, clique em **Conector do Twitter**.
 
-
-2. Após ele ser carregado, clique no botão **Autorizar**, entre sua conta do Twitter e clique em **Autorizar aplicativo**.
+2. Depois de ser carregado, clique em **Autorizar**, entre em sua conta do Twitter e clique em **Autorizar aplicativo**.
 
 	Isso concede ao conector acesso à sua conta do Twitter. Uma lista de possíveis operações fornecidas pelo conector do Twitter é exibida.
 
 	![Ações](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE]O botão **Autorizar** usa segurança OAUTH para se conectar aos serviços SaaS, como o Twitter. Mais informações sobre OAuth em [OAUTH Security (Segurança OAuth)](app-service-logic-oauth-security.md).
+	> [AZURE.NOTE]O botão **Autorizar** usa segurança OAUTH para se conectar aos serviços SaaS, como o Twitter. Mais informações sobre OAUTH em [Segurança OAUTH](app-service-logic-oauth-security.md).
 
 3. Clique em **Pesquisar tweets**, e em **Especificar uma consulta**, digite algo como `#MicrosoftAzure` e clique na marca de seleção verde.
 
@@ -160,7 +165,7 @@ A etapa final é adicionar uma ação que carrega um tweet em um arquivo do Drop
 
 	Isso cria um novo aplicativo lógico.
 
-## Gerenciando seu aplicativo lógico após a criação
+## Gerenciar seu aplicativo lógico após a criação
 
 Agora seu aplicativo lógico está em execução. Sempre que o fluxo de trabalho agendado é executado, ele procura tweets com a hashtag específica. Quando encontra uma tweet correspondente, ele o coloca no seu Dropbox. Por fim, você verá como desabilitar o aplicativo ou como está seu desempenho.
 
@@ -178,6 +183,5 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Azure portal]: https://portal.azure.com
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usar os recursos de aplicativos lógicos]: app-service-logic-use-logic-app-features.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

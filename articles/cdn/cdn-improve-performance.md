@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN - melhorar o desempenho ao compactar arquivos" 
-	description="Você pode aumentar a velocidade de transferência de arquivos e melhorar o desempenho do carregamento de páginas ao compactar seus arquivos." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="CDN - melhorar o desempenho ao compactar arquivos"
+	description="Você pode aumentar a velocidade de transferência de arquivos e melhorar o desempenho do carregamento de páginas ao compactar seus arquivos."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #Melhorar o desempenho ao compactar arquivos
@@ -54,4 +54,4 @@ Há duas maneiras de a CDN poder oferecer suporte à compactação:
 1. Para pontos de extremidade de streaming habilitado para a CDN de Serviços de Mídia, a compactação está habilitada por padrão para os seguintes tipos de conteúdo: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Você não pode habilitar/desabilitar a compactação para os tipos mencionados usando o portal do Azure.  
 2. Somente uma versão de arquivo (compactado ou não compactado) será armazenada em cache no servidor de borda. Uma solicitação para uma versão diferente resultará na transcodificação do conteúdo no servidor de borda.  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -12,13 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # Conectar seu aplicativo móvel a APIs de SaaS
 
-Neste tutorial, você conectará seu aplicativo móvel a uma solução de SaaS (software como serviço) empresarial. Você vai atualizar o aplicativo em [Autenticar seu Aplicativo com o Logon Único da Biblioteca do Active Directory] para criar um documento do Word no SharePoint Online sempre que um novo TodoItem for adicionado.
+Neste tutorial, você conectará seu aplicativo móvel a uma solução de SaaS (software como serviço) empresarial. Você vai atualizar o aplicativo em [Autenticar seu aplicativo com o logon único da Biblioteca de Autenticação do Active Directory do Azure] para criar um documento do Word no SharePoint Online sempre que um novo TodoItem for adicionado.
 
 Este tutorial exige o seguinte:
 
@@ -35,19 +35,19 @@ Por padrão, o token que você recebe do AAD tem permissões limitadas. Para ace
 
     ![][1]
 
-Você já configurou o AAD para emitir um token de acesso do SharePoint para o Serviço de Aplicativo.
+Você já configurou o Azure AD para emitir um token de acesso do SharePoint para o Serviço de Aplicativo.
 
 ## <a name="store-credentials"></a>Adicionar informações do SharePoint ao seu Aplicativo Móvel
 
-Para fazer uma chamada para o SharePoint, é necessário especificar os pontos de extremidade que o aplicativo móvel precisa percorrer. Você também precisa ser capaz de provar a identidade do seu serviço de aplicativo. Isso é obtido usando um par de ID do cliente e Segredo do cliente. Você já obteve e armazenou a ID do cliente para o serviço de aplicativo durante a configuração de logon do AAD. Como essas credenciais são sigilosas, você não deve armazená-las como texto simples em seu código. Em vez disso, você vai definir esses valores como configurações de aplicativo para nosso site de Código de Aplicativo Móvel.
+Para fazer uma chamada para o SharePoint, é necessário especificar os pontos de extremidade que o aplicativo móvel precisa percorrer. Você também precisa ser capaz de provar a identidade do seu serviço de aplicativo. Isso é obtido usando um par de ID do cliente e Segredo do cliente. Você já obteve e armazenou a ID do cliente para o serviço de aplicativo durante a configuração de logon do AAD. Como essas credenciais são sigilosas, você não deve armazená-las como texto sem formatação em nosso código. Em vez disso, você vai definir esses valores como configurações de aplicativo para nosso site de Código de Aplicativo Móvel.
 
 1. Retorne à guia Aplicativos AAD para seu locatário e selecione o aplicativo Web de seu serviço de aplicativo.
 
-2. Em Configurar, role para baixo para Chaves. Você obterá um Segredo do cliente gerando uma nova chave. Observe que depois de criar uma chave e sair da página, não haverá mais como obtê-la no portal novamente. Mediante a criação, você deve copiar e salvar esse valor em um local seguro. Selecione uma duração para sua chave, em seguida, clique em salvar e copie o valor resultante.
+2. Em Configurar, role para baixo para Chaves. Você obterá um segredo do cliente gerando uma nova chave. Observe que depois de criar uma chave e sair da página, não haverá mais como obtê-la no portal novamente. Mediante a criação, você deve copiar e salvar esse valor em um local seguro. Selecione uma duração para sua chave, em seguida, clique em salvar e copie o valor resultante.
 
 3. Na seção Código do Aplicativo Móvel do Portal de Gerenciamento, navegue até a guia Configurar e role para baixo até as Configurações do Aplicativo. Aqui você pode fornecer um par chave-valor para ajudá-lo a ter referências das credenciais necessárias.
 
-* Configure SP\_Authority para ser o ponto de extremidade de autoridade para seu locatário AAD. Esse deve ser o mesmo que o valor de autoridade usado para seu aplicativo cliente. Ele será do formato `https://login.windows.net/contoso.onmicrosoft.com`
+* Configure SP\_Authority para ser o ponto de extremidade de autoridade para seu locatário AAD. Esse deve ser o mesmo que o valor de autoridade usado para seu aplicativo cliente. Ele terá o formato `https://login.windows.net/contoso.onmicrosoft.com`
 
 * Configure SP\_ClientSecret para ser o valor do segredo do cliente que você obteve anteriormente.
 
@@ -57,7 +57,7 @@ Você poderá obter esses valores novamente no seu código usando ApiServices.Se
 
 ## <a name="obtain-token"></a>Obter um token de acesso e chamar a API do SharePoint
 
-Para acessar o SharePoint, é necessário ter um token de acesso especial com o SharePoint como o público de destino. Para obter esse token, será necessário chamar novamente o AAD com a identidade do Serviço de Aplicativo e o token emitido para o usuário.
+Para acessar o SharePoint, é necessário ter um token de acesso especial com o SharePoint como o público de destino. Para obter esse token, será necessário chamar novamente o Azure AD com a identidade do Serviço de Aplicativo e o token emitido para o usuário.
 
 1. Abra o projeto de Código de Aplicativo Móvel no Visual Studio.
 
@@ -182,10 +182,8 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/pt-br/sharepoint/
-[Autenticar seu Aplicativo com o Logon Único da Biblioteca do Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[SharePoint Online]: http://office.microsoft.com/pt-BR/sharepoint/
 [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Extensão de Serviço de Aplicativo do back-end .NET de aplicativos móveis]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->
