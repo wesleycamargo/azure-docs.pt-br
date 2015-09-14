@@ -1,19 +1,21 @@
-<properties
-	pageTitle="Replicação do Armazenamento do Azure | Microsoft Azure"
-	description="Os dados na sua conta de Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura)." 
-	services="storage" 
-	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
-	editor=""/>
 
-<tagsms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="tamram"/>
+<properties 
+  pageTitle="Replicação de armazenamento do Azure | Microsoft Azure" 
+  description="Os dados na sua conta de Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura)." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
+
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="09/01/2015" 
+  ms.author="tamram"/>
 
 # Replicação de Armazenamento do Azure
 
