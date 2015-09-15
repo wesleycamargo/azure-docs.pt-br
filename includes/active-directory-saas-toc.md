@@ -18,4 +18,4 @@ Este artigo faz parte de uma série sobre como gerenciar aplicativos SaaS com o 
 	- [Como integrar o Workday](https://msdn.microsoft.com/pt-br/library/azure/dn510972.aspx) 
 	- [Mais tutoriais de aplicativo SaaS...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO6-->
