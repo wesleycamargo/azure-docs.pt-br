@@ -28,7 +28,7 @@ Ao abrir o Portal de Gerenciamento do Azure, você será levado automaticamente 
 Isso abre uma nova janela com as guias a seguir. Este tópico descreve essas guias.
 
 ## Início Rápido (![Início rápido][QuickStart])
-Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as opções listadas estejam disponíveis.
+Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as opções listadas estejam disponíveis. 
 <table border="1"> <tr> <td><strong>Obtenha as ferramentas</strong></td>
 <table border="1">
     <tr>
@@ -369,4 +369,4 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!----HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->
