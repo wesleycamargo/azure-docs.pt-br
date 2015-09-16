@@ -299,4 +299,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e os serviços existentes do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para a navegação no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) .
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->
