@@ -73,7 +73,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Ou pelo portal de visualização, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -158,4 +158,4 @@ Para obter informações sobre como conectar redes virtuais de diferentes modelo
 - Para saber mais sobre como criar modelos de implantação declarativa, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
