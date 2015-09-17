@@ -68,7 +68,7 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
 3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
 
     -   Na caixa de texto **URL de Logon do Central Desktop**, digite a URL do seu locatário do Central Desktop (por exemplo: **http://contoso.centraldesktop.com*).
--   Na caixa de texto URL de Resposta do Central Desktop, digite a URL AssertionConsumerService do Central Desktop (por exemplo: https://contoso.centraldesktop.com/saml2-assertion.php).
+    -   Na caixa de texto URL de Resposta do Central Desktop, digite a URL AssertionConsumerService do Central Desktop (por exemplo: https://contoso.centraldesktop.com/saml2-assertion.php).
 
     >[AZURE.NOTE]Você pode obter o valor nos metadados do Central Desktop (por exemplo: **http://contoso.centraldesktop.com*).
 
@@ -154,4 +154,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

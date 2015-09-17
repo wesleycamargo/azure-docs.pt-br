@@ -358,7 +358,7 @@ Siga estes links para saber mais sobre as tarefas mais complexas de armazenament
 - [API REST de Armazenamento do Azure][]
 - [Blog da equipe de Armazenamento do Azure][]
 
-  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+  [Baixar o SDK do Azure para Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Como criar uma conta de armazenamento]: storage-create-storage-account.md#create-a-storage-account
   [Como gerenciar contas de armazenamento]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Como usar o serviço de armazenamento de blobs no Java]: storage-java-how-to-use-blob-storage.md
@@ -367,4 +367,4 @@ Siga estes links para saber mais sobre as tarefas mais complexas de armazenament
   [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
