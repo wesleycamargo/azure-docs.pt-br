@@ -188,10 +188,15 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 7.	Na folha **Credenciais**, clique em **Clique aqui para definir credenciais**.
 8.	Na caixa de diálogo **Configurando Credenciais**, faça o seguinte:
 
-	![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Selecione a **autenticação** que você deseja que o serviço de Data Factory use para se conectar ao banco de dados. 2. Digite o nome do usuário que tem acesso ao banco de dados para a configuração **NOME DE USUÁRIO**. 3. Digite a senha do usuário para a configuração **SENHA**. 4. Clique em **OK** para fechar a caixa de diálogo. 
+	![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 
+	1.	Selecione a **autenticação** que você deseja que o serviço de Data Factory use para se conectar ao banco de dados. 
+	2.	Digite o nome do usuário que tem acesso ao banco de dados para a configuração **NOME DE USUÁRIO**. 
+	3.	Digite a senha do usuário para a configuração **SENHA**. 
+	4. Clique em **OK** para fechar a caixa de diálogo. 
 4. Clique em **OK** para fechar a folha **Credentials**. 
 5. Clique em **OK** na folha **Novo armazenamento de dados**. 	
-6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.
+	![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Consulte a seção [Definir credenciais e segurança](#setting-credentials-and-security) para obter mais detalhes sobre definição de credenciais.
 
@@ -562,4 +567,4 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->
