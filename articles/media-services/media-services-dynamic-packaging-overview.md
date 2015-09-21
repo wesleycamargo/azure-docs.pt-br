@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -95,6 +95,16 @@ Publicar ativos (pela criação de localizadores) usando o **Portal de Gerenciam
 Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento dinâmico.
 
 - Arquivos mp4 Dolby digital plus.
-- Dolby digital mais arquivos smooth. 
+- Dolby digital mais arquivos smooth.
 
-<!---HONumber=August15_HO7-->
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+ 
+
+<!---HONumber=Sept15_HO2-->

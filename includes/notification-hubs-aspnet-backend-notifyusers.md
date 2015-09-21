@@ -109,18 +109,18 @@ Nesta seção, você criará uma nova classe de manipulador de mensagens denomin
 
 ## Registrar-se nas Notificações usando o backup-end da API Web
 
-Nesta seção, adicionaremos um novo controlador ao back-end de API Web para manipular solicitações para registrar um usuário e um dispositivo para notificações usando a biblioteca de clientes para hubs de notificação, que é a biblioteca de cliente do Barramento de Serviço do Azure. O controlador adicionará uma marca de usuário ao usuário que foi autenticado e anexado a HttpContext pelo `AuthenticationTestHandler`. A marca terá o formato de cadeia de caracteres, `"username:<actual username>"`.
+Nesta seção, adicionaremos um novo controlador ao back-end da API Web para manipular solicitações para registrar um usuário e um dispositivo para notificações usando a biblioteca de cliente dos hubs de notificação. O controlador adicionará uma marca de usuário ao usuário que foi autenticado e anexado a HttpContext pelo `AuthenticationTestHandler`. A marca terá o formato de cadeia de caracteres, `"username:<actual username>"`.
 
 
  
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **AppBackend** e clique em **Gerenciar Pacotes NuGet**.
 
-2. No lado esquerdo, clique em **Online** e procure **servicebus** na caixa **Pesquisar**.
+2. No lado esquerdo, clique em **Online** e procure **Microsoft.Azure.NotificationHubs** na caixa **Pesquisar**.
 
-3. Na lista de resultados, clique em **Barramento de Serviço do Microsoft Azure** e, em seguida, clique em **Instalar**. Conclua a instalação e, por fim, feche a janela do gerenciador de pacotes NuGet.
+3. Na lista de resultados, clique em **Biblioteca de Gerenciamento de Serviços dos Hubs de Notificações do Microsoft Azure** e depois em **Instalar**. Conclua a instalação e, por fim, feche a janela do gerenciador de pacotes NuGet.
 
-	![][B14]
+	Isso adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacote NuGet Microsoft.Azure.Notification Hubs</a>.
 
 4. Agora criaremos um novo arquivo de classe que representa as diferentes notificações seguras que serão enviadas. Em uma implementação completa, as notificações são armazenadas em um banco de dados. Para simplificar, este tutorial armazena-os na memória. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Modelos**, clique em **Adicionar** e, em seguida, em **Classe**. Nomeie a nova classe como **Notifications.cs**, então clique em **Adicionar** para gerar a classe.
 
@@ -128,7 +128,7 @@ Nesta seção, adicionaremos um novo controlador ao back-end de API Web para man
 
 5. Em Notifications.cs, adicione a seguinte instrução `using` à parte superior do arquivo:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. Substitua a definição da classe `Notifications` pelo seguinte e certifique-se de substituir os dois espaços reservados pela cadeia de conexão (com acesso completo) para o hub de notificação e o nome do hub (disponível no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com)):
 
@@ -269,7 +269,7 @@ Nesta seção, adicionaremos um novo controlador ao back-end de API Web para man
 
 ## Enviando notificações do back-end da API Web
 
-Nesta seção, você adiciona um novo controlador que expõe uma maneira para dispositivos clientes enviarem uma notificação com base na marca de nome de usuário usando a biblioteca de clientes do Barramento de Serviço do Azure no back-end da API Web ASP.NET.
+Nesta seção, você adiciona um novo controlador que expõe uma maneira para dispositivos clientes enviarem uma notificação com base na marca de nome de usuário usando a Biblioteca de Gerenciamento de Serviços dos Hubs de Notificação do Azure no back-end da API Web no ASP.NET.
 
 
 1. Crie outro novo controlador chamado **NotificationsController**. Crie-o da mesma maneira como você criou o **RegisterController** na seção anterior.
@@ -359,4 +359,4 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira para di
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

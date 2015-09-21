@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Análise de sentimento baseada em léxico | Microsoft Azure"
-	description="Análise de sentimento baseada em léxico"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Análise de sentimento baseada em léxico | Microsoft Azure" 
+	description="Análise de sentimento baseada em léxico" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="pengxia" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="pengxia"/>
 
 
 
@@ -153,4 +153,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

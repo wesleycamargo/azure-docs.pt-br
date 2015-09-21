@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
+   ms.date="08/26/2015"
    ms.author="rsinha"/>
 
 # Arquitetura da malha do serviço
@@ -62,4 +62,4 @@ Esse subsistema fornece um sistema de mensagens confiável dentro do cluster e d
 Capacidade de teste é um conjunto de ferramentas desenvolvidas especificamente para testar serviços criados com base na malha de serviço. As ferramentas permitem que você induza com facilidade falhas significativas e execute cenários de teste para praticar e validar os diferentes estados e transições pelos quais seus serviços passam durante o tempo de vida, tudo de maneira segura e controlada. A capacidade de teste também fornece um mecanismo para executar testes de execução demorada que podem iterar por meio de vários possíveis falhas sem perder a disponibilidade fornecendo aos usuários um ambiente de teste em produção.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

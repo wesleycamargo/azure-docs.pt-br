@@ -1,20 +1,20 @@
 <properties
     pageTitle="Como usar os tópicos de Barramento de Serviço (.NET) | Microsoft Azure"
-	description="Aprenda a usar assinaturas e tópicos do barramento de serviço no Azure. Os códigos de exemplo são escritos para aplicativos .NET."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="Aprenda a usar assinaturas e tópicos do barramento de serviço no Azure. Os códigos de exemplo são escritos para aplicativos .NET."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # Como usar tópicos e assinaturas do Barramento de Serviço do Azure
 
@@ -46,7 +46,7 @@ Agora você está pronto para escrever código para o Barramento de Serviço.
 O Barramento de Serviço usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais. Você pode colocar a cadeia de conexão em um arquivo de configuração, em vez de embuti-la no código:
 
 - Ao usar os Serviços de Nuvem do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração de serviço do Azure (arquivos .csdef e .cscfg).
-- Ao usar Sites do Azure ou Máquinas Virtuais do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração .NET (por exemplo, o arquivo Web.config).
+- Ao usar sites do Azure ou Máquinas Virtuais do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração do .NET (por exemplo, o arquivo Web.config).
 
 Nos dois casos, você pode recuperar a cadeia de conexão usando o método `CloudConfigurationManager.GetSetting`, conforme mostrado mais adiante neste artigo.
 
@@ -284,20 +284,19 @@ A exclusão de um tópico também exclui todas as assinaturas registradas com o 
 
 Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
 
--   Consulte a Referência do MSDN: [Filas, Tópicos e Assinaturas][].
+-   Confira [Filas, tópicos e assinaturas][].
 -   Referência da API para [SqlFilter][].
 -   Compile um aplicativo de trabalho que envia e recebe mensagens de e para uma fila do Barramento de Serviço: [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço][].
--   Exemplos de Barramento de Serviço: baixe em [Exemplos do Azure][] ou consulte a visão geral no [MSDN][].
+-   Exemplos do Barramento de Serviço: baixe em [Exemplos do Azure][] ou confira [visão geral](service-bus-samples.md).
 
   [Azure portal]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [Filas, Tópicos e Assinaturas]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Exemplos do Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

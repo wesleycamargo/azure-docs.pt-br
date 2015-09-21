@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Executar Tarefas de Inicialização nos Serviços de Nuvem do Azure | Microsoft Azure"
-	description="As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso mostra o funcionamento das tarefas de inicialização e como criá-las"
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+pageTitle="Executar Tarefas de Inicialização nos Serviços de Nuvem do Azure | Microsoft Azure" 
+description="As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso mostra o funcionamento das tarefas de inicialização e como criá-las" 
+services="cloud-services" 
+documentationCenter="" 
+authors="Thraka" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/11/2015"
-	ms.author="adegeo"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="09/08/2015" 
+ms.author="adegeo"/>
 
 
 
@@ -163,4 +163,4 @@ Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-s
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

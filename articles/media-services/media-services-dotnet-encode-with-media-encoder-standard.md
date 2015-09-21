@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como codificar um ativo usando o Media Encoder Standard"
-	description="Este tópico mostra como usar o .NET para codificar um ativo com o Media Encoder Standard."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Como codificar um ativo usando o Media Encoder Standard" 
+	description="Este tópico mostra como usar o .NET para codificar um ativo com o Media Encoder Standard." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"    
 	ms.author="juliako"/>
 
 
@@ -116,8 +116,16 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 		    return processor;
 		}
 
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##Consulte também 
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

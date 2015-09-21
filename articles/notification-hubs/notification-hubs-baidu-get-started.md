@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introdução aos Hubs de Notificação do Azure | Microsoft Azure"
-	description="Neste tutorial, você aprende a usar os Hubs de Notificação do Azure para enviar notificações por push a dispositivos Android."
+	pageTitle="Introdução aos Hubs de Notificação do Azure usando o Baidu | Microsoft Azure"
+	description="Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure para enviar notificações por push aos dispositivos Android que usam o Baidu."
 	services="notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -13,10 +13,10 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Introdução aos Hubs de Notificação
+# Introdução aos Hubs de Notificação usando o Baidu
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -137,7 +137,7 @@ Quando você cria um projeto de envio na nuvem Baidu, você recebe sua ID de apl
 
 	![][33]
 
-Você verá a mensagem **保存成功！** (**Salvo com êxito!**)
+Você verá a mensagem **保存成功!** (**Salvo com êxito!**).
 
 ##Configurar seu Hub de Notificação
 
@@ -480,4 +480,4 @@ Para enviar uma notificação de teste quando estiver usando um aplicativo de co
 [portal do Azure]: https://manage.windowsazure.com/
 [portal do Baidu]: http://www.baidu.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

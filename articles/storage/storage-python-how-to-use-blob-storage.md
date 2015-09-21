@@ -114,4 +114,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga es
 [pacote do Python Azure]: https://pypi.python.org/pypi/azure
 [pacote de armazenamento do Python Azure]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure"
+	pageTitle="Lista de verificação de desempenho e escalabilidade do Armazenamento do Azure | Microsoft Azure"
 	description="Uma lista de verificação de práticas comprovadas para uso com o Armazenamento do Azure no desenvolvimento de aplicativos de alto desempenho."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
+	manager="carolz"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
@@ -104,7 +104,7 @@ Se seu aplicativo estiver lidando com metas de escalabilidade de uma única cont
 -	Se seu aplicativo alcançar as metas de escalabilidade, você deve usar a retirada exponencial para novas tentativas (confira [Novas tentativas](#subheading14)). O mais recomendado é nunca alcançar as metas de escalabilidade, o que é possível garantir por meio de um dos métodos acima. Porém, isso garante que o aplicativo não faça novas tentativas rapidamente, piorando o problema de restrição.  
 
 ####Recursos úteis
-Os links a seguir fornecem detalhes adicionais sobre metas de escalabilidade: -Você pode exibir os destinos de escalabilidade atuais na página [Metas de desempenho e escalabilidade do Armazenamento do Azure no MSDN](http://msdn.microsoft.com/library/azure/dn249410.aspx). - Você pode aprender mais sobre opções de redundância de armazenamento na postagem do blog [Opções de redundância de armazenamento do Azure e armazenamento do acesso de leitura geograficamente redundante](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) – consulte a próxima seção para obter mais detalhes. - Para obter informações atualizadas sobre os preços para os serviços do Azure, consulte [Azure na visão geral de preços](http://azure.microsoft.com/pricing/overview/).
+Os links a seguir fornecem detalhes adicionais sobre metas de escalabilidade: - consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para obter informações sobre metas de escalabilidade. - Consulte [Replicação de Armazenamento do Azure](storage-redundancy.md) e a postagem no blog [Opções de redundância de Armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) para obter informações sobre opções de redundância de armazenamento. - Para obter informações atuais sobre o preço de serviços do Azure, consulte [Preços do Azure](http://azure.microsoft.com/pricing/overview/).
 
 ###Rede
 Embora as chamadas de API sejam importantes, muitas vezes as limitações físicas da rede do aplicativo têm impacto considerável no desempenho. A seção a seguir descreve algumas das limitações que os usuários podem enfrentar.
@@ -117,7 +117,7 @@ No caso da largura de banda, muitas vezes o problema está relacionado às funci
 Como é necessário com qualquer uso de rede, as condições de rede que resultam em erros e na perda de pacote desaceleram a taxa de transferência. Usar WireShark ou NetMon pode ajudar a identificar esse problema.
 
 #####Recursos úteis
-Para obter mais informações sobre o tamanho das máquinas virtuais e a largura de banda alocada, confira [Práticas recomendadas para a criação de serviços em larga escala nos serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx) no MSDN.
+Para saber mais sobre os tamanhos de máquina virtual e a largura de banda alocada, consulte [Tamanhos de máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md).
 
 ####<a name="subheading4"></a>Local
 Em todos os ambientes, colocar o cliente próximo ao servidor proporciona o melhor desempenho. Para acessar o armazenamento do Azure com o mínimo de latência, o melhor local para o cliente é a região na qual o Azure se encontra. Por exemplo, se você tem um site do Azure que usa o armazenamento do Azure, ambos devem estar na mesma região (por exemplo, no oeste dos EUA ou no sudeste asiático). Isso diminui a latência e o custo. No momento da edição, o uso da largura de banda em uma única região é gratuito.
@@ -132,24 +132,24 @@ Para obter mais informações, confira [CDN do Azure](http://azure.microsoft.com
 ###<a name="subheading6"></a>Usando SAS e CORS
 Quando você precisar autorizar o código como JavaScript no navegador da Web de um usuário ou um aplicativo de telefone celular para acessar dados no armazenamento do Azure, uma abordagem é usar um aplicativo em função da web como um proxy: autentica o dispositivo do usuário com a função web, que por sua vez é autenticado com o serviço de armazenamento. Dessa forma, você pode evitar a exposição das chaves de conta de armazenamento em dispositivos que não são seguros. No entanto, isso gera uma grande sobrecarga na função web porque todos os dados transferidos entre os dispositivos do usuário e o serviço de armazenamento devem ser transmitidos por meio de uma função web. Você pode evitar o uso da função web como um proxy para o serviço de armazenamento. Para isso, use SAS (assinaturas de acesso compartilhado), que podem ser combinadas a cabeçalhos de CORS (compartilhamento de recursos entre origens). Por meio das SAS, você pode permitir que o dispositivo do usuário faça solicitações diretamente a um serviço de armazenamento por meio de um token de acesso limitado. Por exemplo, se o usuário quiser carregar uma foto no seu aplicativo, sua função web pode gerar e enviar um token SAS que conceda permissão de edição a um blob ou contêiner específico pela próxima meia hora ao dispositivo do usuário. Após esse período, o token expira.
 
-Normalmente, o navegador não permite o uso de JavaScript em páginas hospedadas por um site em um domínio para executar operações especificas, como um "PUT" em outro domínio. Por exemplo, se você hospedar uma função web em "contosomarketing.cloudapp.net" e quiser usar o JavaScript do cliente para carregar um blob em sua conta de armazenamento, em "contosoproducts.blob.core.windows.net", a "política de mesma origem” proibirá a operação. O CORS é um recurso do navegador que permite que o domínio alvo (neste caso, a conta de armazenamento) comunique-se com o navegador ao qual confia as solicitações que se originam no domínio de origem (neste caso, a função web).
+Normalmente, o navegador não permite o uso de JavaScript em páginas hospedadas por um site em um domínio para executar operações especificas, como um "PUT" em outro domínio. Por exemplo, se você hospedar uma função web em "contosomarketing.cloudapp.net" e quiser usar o JavaScript do cliente para carregar um blob em sua conta de armazenamento, em "contosoproducts.blob.core.windows.net", a "política de mesma origem" proibirá a operação. O CORS é um recurso do navegador que permite que o domínio alvo (neste caso, a conta de armazenamento) comunique-se com o navegador ao qual confia as solicitações que se originam no domínio de origem (neste caso, a função web).
 
 As duas tecnologias podem ajudar você a evitar cargas e gargalos desnecessários no seu aplicativo Web.
 
 ####Recursos úteis
 Para obter mais informações sobre SAS, consulte [Assinaturas de acesso compartilhado, parte 1: entendendo o modelo SAS](../storage-dotnet-shared-access-signature-part-1/).
 
-Para obter mais informações sobre o CORS, confira [Suporte a CORS (Compartilhamento de recursos entre origens) para os serviços de armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx) no MSDN.
+Para saber mais sobre o CORS, consulte [Suporte a CORS (Compartilhamento de Recursos entre Origens) para os serviços de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
-###Caching
+###Cache
 ####<a name="subheading7"></a>Obtenção de dados
-Em geral, obter os dados de um serviço uma única vez é melhor do que obtê-los duas vezes. Tome como exemplo um aplicativo Web MVC em execução em uma função web que já recuperou um blob de 50 MB do serviço de armazenamento para apresentar ao usuário como conteúdo. O aplicativo pode recuperar esse mesmo blob sempre que o usuário o solicitar, ou pode armazená-lo em cache localmente e reutilizar esse conteúdo em outras solicitações dos usuários. Além disso, sempre que um usuário solicitar os dados, o aplicativo pode emitir um GET com um cabeçalho condicional para tempo de modificação, o que evita obter todo o bob se ele não foi modificado. Você pode aplicar esse mesmo padrão ao trabalho com entidades em tabela.
+Em geral, obter os dados de um serviço uma única vez é melhor do que obtê-los duas vezes. Tome como exemplo um aplicativo Web MVC em execução em uma função web que já recuperou um blob de 50 MB do serviço de armazenamento para apresentar ao usuário como conteúdo. O aplicativo pode recuperar esse mesmo blob sempre que o usuário o solicitar, ou pode armazená-lo em cache localmente e reutilizar esse conteúdo em outras solicitações dos usuários. Além disso, sempre que um usuário solicitar os dados, o aplicativo pode emitir um GET com um cabeçalho condicional para tempo de modificação, o que evita obter todo o blob se ele não foi modificado. Você pode aplicar esse mesmo padrão ao trabalho com entidades em tabela.
 
 Em alguns casos, você pode determinar que seu aplicativo parta do pressuposto de que o blob permanece válido por um curto período após a recuperação e que, durante esse período, o aplicativo não precisa verificar se o blob foi modificado.
 
 O armazenamento em cache é ótimo para configurações, pesquisas e outros dados que são sempre usados pelo aplicativo.
 
-Para ver como obter as propriedades de um blob e descobrir a data da última modificação por meio de .NET, confira [Definição e recuperação de propriedades e metadados](http://msdn.microsoft.com/library/azure/hh225342.aspx) no MSDN. Para obter mais informações sobre downloads condicionais, confira [Atualização condicional de uma cópia local de um blob](http://msdn.microsoft.com/library/azure/dd179371.aspx) no MSDN.
+Para saber como obter as propriedades de um blob e descobrir a data da última modificação usando o .NET, consulte [Definir e recuperar as propriedades e os metadados](storage-properties-metadata.md). Para saber mais sobre downloads condicionais, consulte [Atualização condicional de uma cópia local de um blob](http://msdn.microsoft.com/library/azure/dd179371.aspx).
 
 ####<a name="subheading8"></a>Carregamento de dados em lotes
 Em algumas situações nos aplicativos, é possível agregar dados localmente e carregá-los em lotes em vez de carregar cada dado imediatamente. Por exemplo, um aplicativo Web deve manter um arquivo de registro de atividades: o aplicativo pode enviar os detalhes de cada atividade assim que elas acontecem, como uma entidade de tabela (que requer muitas operações de armazenamento), ou pode salvar os detalhes da atividade em um arquivo de log local para carregar os detalhes de todas as atividades periodicamente, como um arquivo delimitado, em um blob. Se cada entrada de log tiver 1 KB, você pode carrega milhares de transações de uma só vez (é possível carregar um blob para transações com até 64 MB). É claro que, se o computador local falhar antes do carregamento, potencialmente perderá alguns dados de log: o desenvolvedor do aplicativo deve criar a possibilidade de dispositivo cliente ou falhas de carregamento. Se for necessário carregar os dados das atividades para timespans (não apenas por atividade), os blobs são mais indicados do que as tabelas.
@@ -166,19 +166,19 @@ Você deve definir o limite da conexão antes de abrir as conexões.
 
 No caso de outras linguagens de programação, confira a documentação da linguagem para verificar como definir o limite da conexão.
 
-Para obter informações adicionais, consulte a postagem [Serviços Web: conexões simultâneas](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx) no MSDN.
+Para saber mais, consulte a postagem no blog [Serviços Web: conexões simultâneas](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).
 
 ####<a name="subheading10"></a>Aumentar o mínimo dos Threads de ThreadPool, caso esteja usando código síncrono com tarefas assíncronas
 Este código aumenta o mínimo de threads do pool de threads:
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-Para obter mais informações, confira [ThreadPool.SetMinThreads Method](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx) no MSDN.
+Para saber mais, consulte [ThreadPool.SetMinThreads Method](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx).
 
 ####<a name="subheading11"></a>Aproveitar a coleta de lixo do .NET 4.5
 Use a versão 4.5 ou posterior do .NET para que o aplicativo cliente aproveite as melhorias de desempenho na coleta de lixo do servidor.
 
-Para obter mais informações, confira o artigo [Uma visão geral dos aprimoramentos de desempenho no .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx) no MSDN.
+Para saber mais, consulte o artigo [Uma visão geral dos aprimoramentos de desempenho no .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).
 
 ###<a name="subheading12"></a>Paralelismo não associado
 Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado ao usar o paralelismo não associado (no qual não há limites para a quantidade de threads e/ou de solicitações paralelas) para carregar ou baixar dados, usando diversas funções de trabalho para acessar diversas partições (contêineres, filas ou tabelas) na mesma conta de armazenamento ou para acessar diversos itens na mesma partição. Se o paralelismo não estiver associado, o aplicativo pode ultrapassar as funcionalidades do dispositivo cliente ou as metas de escalabilidade da conta de armazenamento, o que resulta em latências mais longas e restrições.
@@ -199,23 +199,23 @@ As bibliotecas cliente sabem quais erros admitem novas tentativas ou não. No en
 Para obter mais informações sobre os códigos de erro de armazenamento, confira [Status e códigos de erro](http://msdn.microsoft.com/library/azure/dd179382.aspx) no site do Microsoft Azure.
 
 ##Blobs
-Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço de blob.
+Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço blob.
 
 ###Metas de escalabilidade específicas do blob
 ####<a name="subheading16"></a>Largura de banda e operações por blob
 Você pode ler ou editar um único blob a no máximo 60 MB/segundo, o que equivale a 480 Mbps e ultrapassa a capacidade de muitas redes dos clientes, inclusive do NIC físico no dispositivo do cliente. Além disso, um único blob comporta 500 solicitações por segundo. Se vários dos seus clientes precisarem ler os mesmo blob e você talvez ultrapasse esses limites, é possível usar uma CDN para distribuir o blob.
 
-Para obter informações sobre a taxa de transferência alvo para os blobs, confira [Escalabilidade e metas de desempenho do armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx) no MSDN.
+Para saber mais sobre a taxa de transferência alvo para os blobs, consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md).
 
 ###Copiando e movendo blobs
 ####<a name="subheading17"></a>Copiar blob
 A versão 2012-02-12 da API REST do armazenamento introduziu a capacidade útil para copiar blobs entre contas: um aplicativo cliente pode instruir o serviço de armazenamento para copiar um blob de outra origem (possivelmente em outra conta de armazenamento) e permitir que o serviço de realizar a cópia de forma assíncrona. Isso pode diminuir consideravelmente a largura de banda necessária para o aplicativo quando você estiver migrando dados de outras contas de armazenamento, porque você não precisará baixar nem carregar dados.
 
-No entanto, não é possível garantir em quanto tempo a cópia será concluída, ao se realizar cópias entre contas de armazenamento. Se o aplicativo precisar copiar um bob completo rapidamente com a sua supervisão, pode ser melhor baixar o blob para uma máquina virtual e carregá-lo no destino. Para que seja possível prever toda a situação, a cópia deve ser feita por uma máquina virtual em execução na mesma região do Azure, ou as condições da rede podem (e provavelmente irão) afetar o desempenho da cópia. Além disso, você pode monitorar o progresso de uma cópia assíncrona de modo programático.
+No entanto, não é possível garantir em quanto tempo a cópia será concluída, ao se realizar cópias entre contas de armazenamento. Se o aplicativo precisar copiar um blob completo rapidamente com a sua supervisão, pode ser melhor baixar o blob para uma máquina virtual e carregá-lo no destino. Para que seja possível prever toda a situação, a cópia deve ser feita por uma máquina virtual em execução na mesma região do Azure, ou as condições da rede podem (e provavelmente irão) afetar o desempenho da cópia. Além disso, você pode monitorar o progresso de uma cópia assíncrona de modo programático.
 
 As cópias da mesma conta de armazenamento geralmente são rápidas.
 
-Para obter mais informações, confira [Copiar blob](http://msdn.microsoft.com/library/azure/dd894037.aspx) no MSDN.
+Para saber mais, consulte [Copiar Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 ####<a name="subheading18"></a>Usar AzCopy
 A equipe de armazenamento do Azure lançou a ferramenta de linha de comando "AzCopy", que deve ajudar na transferência em massa de muitos blobs para, de e entre as contas de armazenamento. Essa ferramenta foi otimizada para esse cenário e pode alcançar altas taxas de transferência. Ela deve ser usada para baixar e carregar itens, bem como para copiar cenários, em massa. Você pode saber mais sobre ela e baixá-la [aqui](storage-use-azcopy.md).
@@ -224,9 +224,9 @@ A equipe de armazenamento do Azure lançou a ferramenta de linha de comando "AzC
 Para grandes volumes de dados (superiores a 1 TB), o armazenamento do Azure oferece o serviço de Importação/Exportação, que permite o carregamento e o download do armazenamento do blob por meio de discos rígidos. Você pode colocar os dados em um disco rígido e enviá-lo à Microsoft para que possamos carregar esses dados ou enviar um disco rígido vazio para que baixemos os dados. Saiba mais sobre isso [aqui](storage-import-export-service.md). Essa ação pode ser muito mais eficiente do que o envio/carregamento desse volume de dados pela rede.
 
 ###<a name="subheading20"></a>Uso de metadados
-O serviço Blob dá suporte às principais solicitações, o que pode incluir metadados sobre o blob. Por exemplo, se o aplicativo precisar remover os dados EXIF de uma fotografia, é possível recuperá-la e extrair esses dados. Para economizar largura de banda e melhorar o desempenho, seu aplicativo pode armazenar os dados EXIF nos metadados do blob quando o aplicativo tiver carregado a foto: você pode então recuperar os dados EXIF nos metadados usando apenas uma solicitação HEAD, economizando o tempo de processamento e largura de banda significativa necessários para extrair os dados EXIF cada vez o blob for lido. Isso é útil quando você precisa apenas dos metadados, não do conteúdo completo de um blob. Observe que é possível armazenar apenas 8 KB de metadados por blob. O serviço não aceita solicitações para armazenar volumes maiores. Se esse tamanhão não for suficiente, talvez não seja possível usar essa abordagem.
+O serviço Blob dá suporte às principais solicitações, o que pode incluir metadados sobre o blob. Por exemplo, se o aplicativo precisar remover os dados EXIF de uma fotografia, é possível recuperá-la e extrair esses dados. Para economizar largura de banda e melhorar o desempenho, seu aplicativo pode armazenar os dados EXIF nos metadados do blob quando o aplicativo tiver carregado a foto: você pode então recuperar os dados EXIF nos metadados usando apenas uma solicitação HEAD, economizando o tempo de processamento e largura de banda significativa necessários para extrair os dados EXIF cada vez o blob for lido. Isso é útil quando você precisa apenas dos metadados, não do conteúdo completo de um blob. Observe que é possível armazenar apenas 8 KB de metadados por blob (o serviço não aceita solicitações para armazenar volumes maiores). Se esse tamanho não for suficiente, talvez não seja possível usar essa abordagem.
 
-Para ver como obter os metadados de um blob por meio de .NET, confira [Definição e recuperação de propriedades e metadados](http://msdn.microsoft.com/library/azure/hh225342.aspx) no MSDN.
+Para ver como obter os metadados de um blob usando .NET, consulte [Definir e recuperar as propriedades e os metadados](storage-properties-metadata.md).
 
 ###Carregamento rápido
 Para carregar blobs de forma rápida, a primeira pergunta a responder é: você está carregando um blob ou muitos? Use as informações abaixo para identificar o método de uso correto de acordo com o seu cenário.
@@ -237,7 +237,7 @@ Para carregar um único blob grande com rapidez, seu aplicativo cliente deve car
 -	.NET: defina ParallelOperationThreadCount em um objeto BlobRequestOptions a ser usado.
 -	Java/Android: usar BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js: use parallelOperationThreadCount nas opções da solicitação ou no serviço Blob.
--	C++: use o método blob_request_options::set_parallelism_factor.
+-	C++: use o método blob\_request\_options::set\_parallelism\_factor.
 
 ####<a name="subheading22"></a>Carregamento rápido de diversos blobs
 Para carregar diversos blobs com rapidez, carregue-os paralelamente. Esse tipo de carregamento é mais rápido do que o carregamento de um único blob por vez com carregamento paralelo de blocos porque a carga é dividida em diversas partições do serviço de armazenamento. Cada blob dá suporte a uma taxa de transferência de 60 MB/segundo (aproximadamente, 480 Mbps). No momento da edição, uma conta LRS baseada em US dá suporte a até 20 Gbps de entrada, valor muito superior à entrada com suporte por um único blob. O [AzCopy](#subheading18) executa os carregamentos em paralelo por padrão e é a opção recomendada nesse caso.
@@ -245,7 +245,7 @@ Para carregar diversos blobs com rapidez, carregue-os paralelamente. Esse tipo d
 ###<a name="subheading23"></a>Escolhendo o tipo de blob certo
 O armazenamento do Azure oferece suporte a dois tipos de blob: blobs de *página* e blobs de *bloco*. Em um determinado cenário de uso, o tipo de blob escolhido afeta o desempenho e a escalabilidade da solução. Os Blobs de bloco são apropriados quando você deseja carregar grandes quantidades de dados com eficiência: por exemplo, um aplicativo cliente pode precisar carregar fotos ou vídeo no armazenamento de blob. Os Blobs de página são apropriados, se o aplicativo precisa executar gravações aleatórias em dados: por exemplo, os VHDs do Azure são armazenados como blobs de página.
 
-Para obter mais informações, confira [Noções básicas sobre blobs de bloco e blobs de página](http://msdn.microsoft.com/library/azure/ee691964.aspx) no MSDN.
+Para saber mais, confira [Noções básicas sobre blobs de blocos e blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ##Tabelas
 Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço de tabela.
@@ -265,7 +265,7 @@ Esta seção lista diversas configurações rápidas que você pode usar para fa
 ####<a name="subheading25"></a>Usar JSON
 Começando na versão 2013-08-15 do serviço de armazenamento, o serviço Tabela dá suporte ao uso de JSON, em vez do formato AtomPub baseado em XML, para transferir dados de tabela. Isso pode reduzir o tamanho da carga em até 75% e pode melhorar consideravelmente o desempenho do seu aplicativo.
 
-Para obter mais informações, consulte a postagem [Tabelas do Microsoft Azure: Introdução ao JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [Formato de carga útil para operações do serviço tabela](http://msdn.microsoft.com/library/azure/dn535600.aspx) no MSDN.
+Para saber mais, consulte a postagem [Tabelas do Microsoft Azure: introdução ao JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [Formato de carga para operações do serviço Tabela](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 ####<a name="subheading26"></a>Desativação do Nagle
 O algoritmo de Nagle é implementado largamente em redes TCP/IP como meio de melhorar o desempeno das redes. No entanto, ele não é ideal em todas as circunstâncias (como em ambientes altamente interativos). No caso do armazenamento do Azure, o algoritmo do Nagle tem um impacto negativo sobre o desempenho das solicitações para a tabela e os serviços de fila. Por isso, desabilite-o, se possível.
@@ -353,7 +353,7 @@ Como alternativa, o aplicativo pode armazenar o uso da CPU para cada hora como u
 ###<a name=subheading39"></a>Limites de escalabilidade
 Uma única fila pode processar aproximadamente 2.000 mensagens (1 KB cada) por segundo (cada contagem AddMessage, GetMessage e DeleteMessage como uma mensagem aqui). Se isso for insuficiente para seu aplicativo, você deve utilizar várias filas e distribuir as mensagens entre elas.
 
-Para exibir as metas de escalabilidade atuais, acesse a página Escalabilidade e [Metas de Desempenho do Armazenamento do Azure no MSDN](http://msdn.microsoft.com/library/azure/dn249410.aspx).
+Exiba as metas atuais de escalabilidade em [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md).
 
 ###<a name=subheading40"></a>Desativação do Nagle
 Consulte a seção de configuração da tabela que fala sobre o algoritmo de Nagle. O uso desse algoritmo geralmente não é uma boa opção para o desempenho das solicitações de fila, e você deve desabilitá-lo.
@@ -384,4 +384,4 @@ Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A 
 Este artigo falou sobre algumas das práticas comprovadas mais comuns para otimizar o desempenho com o uso do armazenamento do Azure. Nós recomendamos que cada desenvolvedor avalie seu aplicativo com base nas práticas descritas acima e considere seguir as recomendações para obter desempenho excelente para seus aplicativos que usam o Armazenamento do Azure.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

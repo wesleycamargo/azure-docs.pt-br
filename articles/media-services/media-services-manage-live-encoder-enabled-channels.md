@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure"
-	description="Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com taxa de bits única de um codificador local e, em seguida, executa a codificação ao vivo para fluxo de taxa de bits adaptável com os Serviços de Mídia. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure" 
+	description="Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com taxa de bits única de um codificador local e, em seguida, executa a codificação ao vivo para fluxo de taxa de bits adaptável com os Serviços de Mídia. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure (Visualização)
@@ -419,6 +419,14 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##Tópicos relacionados
 
 [Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure](media-services-live-streaming-workflow.md)
@@ -430,4 +438,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

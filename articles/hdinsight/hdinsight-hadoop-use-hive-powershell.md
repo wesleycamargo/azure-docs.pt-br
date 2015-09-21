@@ -14,26 +14,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="09/03/2015"
    ms.author="larryfr"/>
 
 #Executar consultas Hive usando o PowerShell
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Este documento fornece um exemplo de uso do PowerShell do Azure para executar consultas do Hive em um Hadoop no cluster HDInsight.
+Este documento fornece um exemplo de como usar o Azure PowerShell no modo de Grupo de Recursos do Azure para executar consultas do Hive em um Hadoop no cluster HDInsight. Para usar o Azure PowerShell no modo de Serviço do Azure, veja [Executar consultas do Hive usando o modo ASM do PowerShell](hdinsight-hadoop-use-hive-powershell-v1.md).
 
-> [AZURE.NOTE]Esse documento não fornece uma descrição detalhada do que as instruções HiveQL que usadas nos exemplos fazem. Para obter informações sobre o HiveQL usado neste exemplo, consulte [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md).
+> [AZURE.NOTE]Esse documento não fornece uma descrição detalhada do que as instruções HiveQL que usadas nos exemplos fazem. Para obter informações sobre o HiveQL usado neste exemplo, veja [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
 
 
-##<a id="prereq"></a>Pré-requisitos
+**Pré-requisitos**
 
 Para concluir as etapas neste artigo, você precisará do seguinte.
 
 - **Um cluster do Azure HDInsight (Hadoop no HDInsight, baseado em Windows ou Linux)**
 - **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-##<a id="powershell"></a>Executar consultas Hive usando o PowerShell do Azure
+##Executar consultas do Hive usando o Azure PowerShell
 
 O PowerShell do Azure fornece *cmdlets* que lhe permitem executar remotamente as consultas Hive no HDInsight. Internamente, isso é feito por meio de chamadas REST para [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anteriormente chamado de Templeton) em execução no cluster HDInsight.
 
@@ -49,7 +49,7 @@ Os cmdlets a seguir são usados ao executar consultas do Hive em um cluster HDIn
 
 * **Get-AzureHDInsightJobOutput**: usado para recuperar a saída do trabalho
 
-* **Invoke-Hive**: usado para executar instruções HiveQL. Isso bloqueará a consulta até que seja concluída e, em seguida, retornará os resultados
+* **Invoke-AzureHDInsightHiveJob**: usado para executar instruções HiveQL. Isso bloqueará a consulta até que seja concluída e, em seguida, retornará os resultados
 
 * **Use-AzureHDInsightCluster**: define o cluster atual a ser usado para o comando **Invoke-Hive**
 
@@ -57,7 +57,16 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 
 1. Usando um editor, salve o código a seguir como **hivejob.ps1**. Você deve substituir **CLUSTERNAME** pelo nome do seu cluster HDInsight.
 
-		#Login to your Azure subscription
+		#Specify the values
+		$clusterName = "CLUSTERNAME"
+		$resourceGroupName = "RESOURCEGROUPNAME"
+		$httpUsername = "HTTPUSERNAME"
+		$httpUserPassword  = "HTTPUSERPASSWORD"
+
+		# Switch to the ARM mode
+		Switch-AzureMode -Name AzureResourceManager
+		
+		# Login to your Azure subscription
 		# Is there an active Azure subscription?
 		$sub = Get-AzureSubscription -ErrorAction SilentlyContinue
 		if(-not($sub))
@@ -65,28 +74,29 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 		    Add-AzureAccount
 		}
 
-		#Specify the cluster name
-		$clusterName = "CLUSTERNAME"
-
 		#HiveQL
 		$queryString = "DROP TABLE log4jLogs;" +
 				       "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb:///example/data/';" +
-				       "SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;"
+				       "SELECT * FROM log4jLogs WHERE t4 = '[ERROR]';"
 
 		#Create an HDInsight Hive job definition
-		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString
+		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString 
 
 		#Submit the job to the cluster
 		Write-Host "Start the Hive job..." -ForegroundColor Green
-		$hiveJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $hiveJobDefinition
+
+		$passwd = ConvertTo-SecureString $httpUserPassword -AsPlainText -Force
+		$creds = New-Object System.Management.Automation.PSCredential ($httpUsername, $passwd)
+		$hiveJob = Start-AzureHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $creds
+
 
 		#Wait for the Hive job to complete
 		Write-Host "Wait for the job to complete..." -ForegroundColor Green
-		Wait-AzureHDInsightJob -Job $hiveJob -WaitTimeoutInSeconds 3600
+		Wait-AzureHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $creds
 
 		# Print the output
 		Write-Host "Display the standard output..." -ForegroundColor Green
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
+		Get-AzureHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -StandardOutput 
 
 2. Abra um novo prompt de comando do **PowerShell do Azure**. Altere os diretórios para o local do arquivo **hivejob.ps1** e use o seguinte comando para executar o script:
 
@@ -118,7 +128,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 	>
 	> Para obter mais informações sobre **Here-Strings**, consulte <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Usando Here-Strings do Windows PowerShell</a>.
 
-##<a id="troubleshooting"></a>Solucionar problemas
+##Solucionar problemas
 
 Se nenhuma informação for retornada quando o trabalho for concluído, um erro pode ter ocorrido durante o processamento. Para exibir informações de erro para esse trabalho, adicione o seguinte ao final do arquivo **hivejob.ps1**, salve-o e execute-o novamente.
 
@@ -128,11 +138,11 @@ Se nenhuma informação for retornada quando o trabalho for concluído, um erro 
 
 Isso retorna as informações gravadas em STDERR para o servidor ao executar o trabalho e pode ajudar a determinar por que o trabalho está falhando.
 
-##<a id="summary"></a>Resumo
+##Resumo
 
 Como você pode ver, o PowerShell do Azure fornece uma maneira fácil de executar consultas do Hive em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
 
-##<a id="nextsteps"></a>Próximas etapas
+##Próximas etapas
 
 Para obter informações gerais sobre o Hive no HDInsight:
 
@@ -144,4 +154,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -222,10 +222,10 @@ A principal maneira de excluir tópicos e assinaturas é usar um objeto **Servic
 
 ## Próximas etapas
 
-Agora que você aprendeu as noções básicas sobre filas do Barramento de Serviço, confira o tópico do MSDN [Filas, tópicos e assinaturas do Barramento de Serviço][] para saber mais.
+Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas do Barramento de Serviço][] para obter mais informações.
 
   [SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
-  [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/pt-br/library/azure/hh694271.aspx
+  [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/pt-BR/library/azure/hh694271.aspx
   [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -244,7 +244,7 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [Filas, tópicos e assinaturas do Barramento de Serviço]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Filas, tópicos e assinaturas do Barramento de Serviço]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

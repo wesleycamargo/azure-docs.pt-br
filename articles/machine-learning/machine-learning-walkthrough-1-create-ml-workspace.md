@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Etapa 1: Criar um espaço de trabalho de Aprendizado de Máquina | Microsoft Azure" 
-	description="Etapa 1 - desenvolver um passo a passo de solução de previsão: Saiba como configurar um novo espaço de trabalho do Estúdio de Aprendizado de Máquina do Azure." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Etapa 1: Criar um espaço de trabalho de Aprendizado de Máquina | Microsoft Azure"
+	description="Etapa 1 - desenvolver um passo a passo de solução de previsão: Saiba como configurar um novo espaço de trabalho do Estúdio de Aprendizado de Máquina do Azure."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ Esta é a primeira etapa do passo a passo, [Desenvolver uma solução de previs�
 2.	[Carregar dados existentes](machine-learning-walkthrough-2-upload-data.md)
 3.	[Criar um novo teste](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[Treinar e avaliar os modelos](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Publicar o serviço Web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Implantar o serviço Web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Acessar o serviço Web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -54,6 +54,5 @@ Para obter mais informações, consulte [Gerenciar um espaço de trabalho de Apr
 **Em seguida: [Carregar dados existentes](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

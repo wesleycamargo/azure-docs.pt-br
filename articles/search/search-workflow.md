@@ -62,7 +62,7 @@ Os dados que você carrega um índice devem estar de acordo com o esquema defini
 
 Há várias maneiras de carregar documentos, porém até o presente momento todas exigem uma API. Para a maioria dos protótipos, esta etapa pode ser a mais demorada devido a um requisito de codificação. As opções são descritas posteriormente neste artigo.
 
-> [AZURE.NOTE]Lembre-se de que o serviço compartilhado está limitado a 10 mil documentos por índice. Certifique-se de reduzir o seu conjunto de dados para que ele fique abaixo dos limites. Consulte [Limites e restrições](https://msdn.microsoft.com/library/dn798934.aspx) para obter mais informações.
+> [AZURE.NOTE]Lembre-se de que o serviço compartilhado está limitado a 10 mil documentos por índice. Certifique-se de reduzir o seu conjunto de dados para que ele fique abaixo dos limites. Consulte [Limites e restrições](search-limits-quotas-capacity.md) para obter mais informações.
 
 #### Como carregar dados para um índice
 
@@ -190,4 +190,4 @@ Lembre-se de que somente a camada de preços Standard pode ser escalada ou reduz
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

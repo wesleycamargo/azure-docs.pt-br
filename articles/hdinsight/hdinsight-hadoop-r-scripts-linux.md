@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Usar o R no HDInsight para personalizar clusters| Microsoft Azure"
 	description="Saiba como instalar e usar R para personalizar os clusters do Hadoop."
 	services="hdinsight"
@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -20,7 +20,7 @@
 
 Você pode instalar R em qualquer tipo de cluster no Hadoop no HDInsight usando a personalização de cluster **Ação de Script**. Isso permite que os analistas e cientistas de dados usem R para implantar a eficiente estrutura de programação MapReduce/YARN para processar grandes quantidades de dados em clusters Hadoop implantados no HDInsight.
 
-> [AZURE.NOTE]As etapas deste documento exigem um cluster HDInsight baseado em Linux. Para obter informações sobre como usar o R com um cluster baseado no Windows, consulte [Instalar e usar o R em clusters do Hadoop do HDinsight (Windows)](hdinsight-hadoop-r-scripts.md)
+> [AZURE.NOTE]As etapas deste documento exigem um cluster HDInsight baseado em Linux. Para obter informações sobre como usar o R com um cluster baseado no Windows, veja [Instalar e usar o R em clusters do Hadoop no HDinsight (Windows)](hdinsight-hadoop-r-scripts.md).
 
 ## O que é R?
 
@@ -84,11 +84,11 @@ Após a conclusão do provisionamento do cluster, use as seguintes etapas para u
 1. Conecte-se ao cluster HDInsight usando SSH:
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
-	Para saber mais sobre como usar SSH com o HDInsight, consulte o seguinte:
-	
+
+	Para obter mais informações sobre como usar SSH com o HDInsight, consulte o seguinte:
+
 	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-	
+
 	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Do prompt `username@headnode1:~$`, digite o seguinte comando para iniciar uma sessão interativa de R:
@@ -100,24 +100,24 @@ Após a conclusão do provisionamento do cluster, use as seguintes etapas para u
 		library(rmr2)
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
-		
+
 
 	A primeira linha chama o rmr2 da biblioteca do RHadoop, que é usado para operações de MapReduce.
-	
+
 	A segunda linha gera valores de 1 a 100 e armazena-os no sistema de arquivos do Hadoop usando o `to.dfs`.
-	
+
 	A terceira linha cria um processo MapReduce usando a funcionalidade fornecida pelo rmr2 e começa o processamento. Você verá várias linhas rolarem à medida que o processamento começar.
-	
+
 4. Em seguida, use o seguinte para ver o caminho temporário no qual a saída do MapReduce foi adicionada:
 
 		print(calc())
-		
+
 	Isso deve ser algo semelhante a `/tmp/file5f615d870ad2`. Para exibir a saída real, use o seguinte:
-	
+
 		print(from.dfs(calc))
-	
+
 	O resultado deve ser assim:
-	
+
 		[1,]  1 2
 		[2,]  2 4
 		.
@@ -126,7 +126,7 @@ Após a conclusão do provisionamento do cluster, use as seguintes etapas para u
 		[98,]  98 196
 		[99,]  99 198
 		[100,] 100 200
-		
+
 5. Para sair do R, digite o seguinte:
 
 		q()
@@ -142,12 +142,11 @@ Após a conclusão do provisionamento do cluster, use as seguintes etapas para u
 
 - [Instalar o Solr em clusters HDInsight](../hdinsight-hadoop-solr-install). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite que você execute operações de pesquisa poderosas nos dados armazenados.
 
-- [Instalar a Matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar a Matiz em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
+- [Instalar a Matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar o Hue em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
 
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # Usar o Power BI com o SQL Data Warehouse
@@ -51,17 +51,15 @@ Além de usar o botão Abrir no Power BI, os usuários também podem se conectar
 ## Localizando valores de parâmetro
 O nome de servidor totalmente qualificado e o nome do banco de dados podem ser encontrados no Portal do Azure. Observe que o SQL Data Warehouse tem apenas uma presença no Portal de Visualização do Azure neste momento.
 
-## Próximas etapas
-Para obter uma visão geral da integração, consulte [Visão geral de integração do SQL Data Warehouse][]. Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
-[Visão geral de integração do SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integration/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

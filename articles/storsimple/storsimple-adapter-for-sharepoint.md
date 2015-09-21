@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Adaptador do StorSimple para SharePoint | Microsoft Azure"
-	description="Descreve como instalar e configurar o Adaptador StorSimple para o SharePoint em um farm de servidores do SharePoint."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Descreve como instalar e configurar ou remover o Adaptador StorSimple para SharePoint em um farm de servidores do SharePoint."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/03/2015"
+   ms.author="v-sharos" />
 
 # Instalar e configurar o Adaptador StorSimple para o SharePoint
 
@@ -43,7 +43,7 @@ A implementação de RBS do Microsoft Azure StorSimple fornece os seguintes bene
 
 - O Azure StorSimple usa eliminação de duplicação e compactação para reduzir o tamanho dos dados.
 
-- O Azure StorSimple fornece proteção de dados na forma de instantâneos locais e em nuvem. Além disso, se você colocar o banco de dados no dispositivo StorSimple, pode fazer backup do banco de dados de conteúdo e BLOBs juntos de uma forma consistente de falha. (Mover o banco de dados de conteúdo para o dispositivo tem suporte apenas para o dispositivo de séries StorSimple 8000. Esse recurso não tem suporte para a série 5000 ou 7000.)
+- O Azure StorSimple fornece proteção de dados na forma de instantâneos locais e em nuvem. Além disso, se você colocar o banco de dados no dispositivo StorSimple, pode fazer backup do banco de dados de conteúdo e BLOBs juntos de uma forma consistente de falha. (Mover o banco de dados de conteúdo para o dispositivo tem suporte apenas para o dispositivo de StorSimple 8000 Series. Esse recurso não tem suporte para a série 5000 ou 7000.)
 
 - O Azure StorSimple inclui recursos de recuperação de desastres, inclusive failover, recuperação de arquivo e volume (incluindo recuperação de teste) e restauração rápida de dados.
 
@@ -55,7 +55,7 @@ Mover o conteúdo BLOB para o sistema de arquivos pode proporcionar outras econo
 
 ### Limites de capacidade e desempenho
 
-Antes de considerar o uso de RBS em sua solução do SharePoint, conheça os limites de desempenho e capacidade testados do SharePoint Server 2010 e do SharePoint Server 2013 e como esses limites se relacionam com desempenho aceitável. Para obter mais informações, consulte Limites de software e limites para o SharePoint 2013.
+Antes de considerar o uso de RBS em sua solução do SharePoint, conheça os limites de desempenho e capacidade testados do SharePoint Server 2010 e do SharePoint Server 2013 e como esses limites se relacionam com desempenho aceitável. Para saber mais, consulte [Limites de software e limites para o SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
 
 Examina o seguinte antes de configurar o RBS:
 
@@ -109,7 +109,7 @@ O Adaptador StorSimple para SharePoint funciona com os produtos de hardware e so
 
 - Versões do SQL Server com suporte – SQL Server 2008 Enterprise Edition, SQL Server 2008 R2 Enterprise Edition ou SQL Server 2012 Enterprise Edition
 
-- Dispositivos do StorSimple Versões do SQL Server com suporte – StorSimple 8000 series, StorSimple 7000 series ou StorSimple 5000 series.
+- Dispositivos do StorSimple com suporte – StorSimple 8000 Series, StorSimple 7000 Series ou StorSimple 5000 Series.
 
 ### Pré-requisitos de configuração do dispositivo StorSimple
 
@@ -157,9 +157,9 @@ Certifique-se de que seu farm do SharePoint Server esteja configurado corretamen
 
     3. No painel esquerdo, clique em **Servidor Local**.
 
-    4. No painel direito, próximo a **Configuração de Segurança Reforçada do IE**, clique em **Ligado**.
+    4. No painel direito, ao lado de **Configuração de Segurança Aprimorada do IE**, clique em **Ativado**.
 
-    5. Em **Administradores**, clique em **Desligado**.
+    5. Em **Administradores**, clique em **Desativado**.
 
     6. Clique em **OK**.
 
@@ -197,9 +197,9 @@ Depois de instalar o Adaptador StorSimple para SharePoint, configure RBS conform
 
 Quando objetos são excluídos de um site do SharePoint, eles não são automaticamente excluídos do volume de armazenamento RBS. Em vez disso, um programa assíncrono de manutenção em segundo plano exclui os BLOBs órfãos do repositório de arquivo. Os administradores do sistema podem agendar esse processo para ser executado periodicamente ou iniciá-lo sempre que necessário.
 
-Este programa de manutenção (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) é instalado automaticamente em todos os servidores SharePoint WFE e servidores de aplicativos quando você habilita RBS. O programa é instalado no seguinte local: <boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
+Este programa de manutenção (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) é instalado automaticamente em todos os servidores SharePoint WFE e servidores de aplicativos quando você habilita RBS. O programa é instalado no seguinte local: <boot drive>:\\Arquivos de Programas\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
-Para obter informações sobre como configurar e usar o programa de manutenção, consulte [Manter RBS em SharePoint Server 2013][8].
+Para saber mais sobre como configurar e usar o programa de manutenção, consulte [Manter RBS no SharePoint Server 2013][8].
 
 >[AZURE.IMPORTANT]O programa de manutenção do RBS utiliza muitos recursos. Você deve agendá-lo para execução apenas durante períodos de atividade leve no farm do SharePoint.
 
@@ -224,9 +224,77 @@ Use o procedimento a seguir para atualizar o servidor do SharePoint e, em seguid
 >
 >- O tempo necessário para atualizar/reinstalar pode variar conforme o número total de bancos de dados do SharePoint no farm de servidores do SharePoint.
 >
->- Após a conclusão da reinstalação/atualização, você precisa habilitar o RBS para os bancos de dados de conteúdo. Consulte [Configurar RBS](#configure-rbs) para obter mais informações.
+>- Após a conclusão da reinstalação/atualização, você precisa habilitar o RBS para os bancos de dados de conteúdo. Consulte [Configurar RBS](#configure-rbs) para saber mais.
 >
 >- Se você estiver configurando um RBS para um farm do SharePoint que tenha um número muito grande de bancos de dados (mais de 200), a página **Administração Central do SharePoint** poderá atingir o tempo limite. Se isso ocorrer, atualize a página. Isso não afeta o processo de configuração.
+
+[AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
+ 
+## Remoção do Adaptador StorSimple para SharePoint
+
+Os procedimentos a seguir descrevem como mover os BLOBs de volta para os bancos de dados de conteúdo do SQL Server e desinstalar o Adaptador StorSimple para SharePoint.
+
+>[AZURE.IMPORTANT]Você precisa mover os BLOBs de volta para os bancos de dados de conteúdo antes de desinstalar o software do adaptador.
+
+### Antes de começar 
+
+Colete as seguintes informações antes de mover os dados de volta para os bancos de dados de conteúdo do SQL Server e iniciar o processo de remoção do adaptador:
+
+- Os nomes de todos os bancos de dados para os quais o RBS está habilitado
+- O caminho UNC do armazenamento de BLOB configurado
+
+### Mover os BLOBs de volta para os bancos de dados de conteúdo
+
+Antes de desinstalar o software Adaptador StorSimple para SharePoint, é necessário migrar todos os BLOBs que foram externalizados de volta para os bancos de dados de conteúdo do SQL Server. Se você tentar desinstalar o Adaptador StorSimple para SharePoint antes de mover todos os BLOBs de volta para os bancos de dados de conteúdo, a mensagem de aviso a seguir será exibida.
+
+![Mensagem de aviso](./media/storsimple-adapter-for-sharepoint/sasp1.png)
+ 
+####Para mover os BLOBs de volta para os bancos de dados de conteúdo 
+
+1. Baixe cada um dos objetos externalizados.
+
+2. Abra a página **Administração Central do SharePoint** e navegue até **Configurações do Sistema**.
+
+3. Em **Azure StorSimple**, clique em **Configurar Adaptador StorSimple**.
+
+4. Na página **Configurar Adaptador StorSimple**, clique no botão **Desabilitar** abaixo de cada um dos bancos de dados de conteúdo que deseja remover do armazenamento de BLOB externo.
+
+5. Exclua os objetos do SharePoint e depois os carregue novamente.
+
+Se preferir, você pode usar o cmdlet ` RBS Migrate()` do Microsoft PowerShell incluído com o SharePoint. Para saber mais, consulte [Migrar o conteúdo para dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx).
+
+Depois de mover os BLOBs de volta para o banco de dados de conteúdo, vá para a próxima etapa: [Desinstalar o adaptador](#uninstall-the-adapter).
+
+### Desinstalar o adaptador
+
+Depois de mover os BLOBs de volta para os bancos de dados de conteúdo do SQL Server, use uma das opções a seguir para desinstalar o Adaptador StorSimple para SharePoint.
+
+#### Para usar o programa de instalação para desinstalar o adaptador 
+
+1. Use uma conta com privilégios de administrador para fazer logon no servidor WFE (front-end da Web).
+2. Clique duas vezes no instalador do Adaptador StorSimple para SharePoint. O Assistente de Instalação é iniciado.
+
+![Assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+
+3. Clique em **Próximo**. A página a seguir será exibida.
+
+![Página de remoção do assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+
+4. Clique em **Remover** para selecionar o processo de remoção. A página a seguir será exibida.
+
+![Página de confirmação do assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+
+5. Clique em **Remover** para confirmar a remoção. A página de andamento a seguir é exibida.
+
+![Página de progresso do assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+
+6. Quando a remoção estiver concluída, a página de conclusão será exibida. Clique em **Concluir** para fechar o Assistente de Instalação.
+
+#### Para usar o Painel de Controle de modo a desinstalar o adaptador 
+
+1. Abra o Painel de Controle e clique em **Programas e Recursos**.
+
+2. Selecione **Adaptador StorSimple para SharePoint** e clique em **Desinstalar**.
 
 ## Próximas etapas
 
@@ -240,4 +308,4 @@ Use o procedimento a seguir para atualizar o servidor do SharePoint e, em seguid
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/pt-BR/library/ff943565.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

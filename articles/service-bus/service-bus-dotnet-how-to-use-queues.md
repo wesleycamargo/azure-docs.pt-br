@@ -1,20 +1,20 @@
 <properties
     pageTitle="Como usar as filas do Barramento de Serviço (.NET) | Microsoft Azure"
-	description="Aprenda a usar as filas do barramento de serviço no Azure. Amostras de código escrito em C# usando a API .NET."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="Aprenda a usar as filas do barramento de serviço no Azure. Amostras de código escrito em C# usando a API .NET."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # Como usar as filas do Barramento de Serviço do Azure
 
@@ -223,9 +223,9 @@ Se houver falha do aplicativo após o processamento da mensagem, mas antes que a
 
 Agora que você já sabe as noções básicas das filas de Barramento de Serviço, siga estes links para saber mais.
 
--   Consulte a visão geral do MSDN: [Filas, Tópicos e Assinaturas.][]
+-   Confira [Filas, tópicos e assinaturas][].
 -   Compile um aplicativo de trabalho que envia e recebe mensagens de e para uma fila do Barramento de Serviço: [Tutorial do .NET do Sistema de Mensagens Agenciado do Barramento de Serviço].
--   Exemplos de Barramento de Serviço: Baixe de [Exemplos do Azure][] ou consulte a visão geral no [MSDN][].
+-   Exemplos do Barramento de Serviço: baixe em [Exemplos do Azure][] ou confira [visão geral][].
 
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace
@@ -239,9 +239,9 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Azure portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Filas, Tópicos e Assinaturas.]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [Tutorial do .NET do Sistema de Mensagens Agenciado do Barramento de Serviço]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Exemplos do Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
+  [visão geral]: service-bus-samples.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

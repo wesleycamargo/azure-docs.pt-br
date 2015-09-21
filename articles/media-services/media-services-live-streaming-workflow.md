@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Fornecendo mídia sob demanda com os Serviços de Mídia do Azure"
-	description="Este tópico fornece uma visão geral dos principais componentes envolvidos na transmissão ao vivo."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Fornecendo mídia sob demanda com os Serviços de Mídia do Azure" 
+	description="Este tópico fornece uma visão geral dos principais componentes envolvidos na transmissão ao vivo." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -70,6 +70,13 @@ O diagrama a seguir mostra as partes principais da plataforma AMS que estão env
 Para obter mais informações, consulte [Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md).
 
 
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##Tópicos relacionados
 
 [Conceitos de Serviços de Mídia](media-services-concepts.md)
@@ -85,4 +92,4 @@ Para obter mais informações, consulte [Trabalhando com Canais que recebam tran
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

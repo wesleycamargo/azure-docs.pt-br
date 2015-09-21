@@ -2,7 +2,7 @@
 	pageTitle="Monitorar a disponibilidade e a capacidade de resposta de qualquer site da Web | Microsoft Azure"
 	description="Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente."
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="awills"/>
 
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
@@ -218,7 +218,7 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 
 * *Posso chamar o código através do meu teste na Web?*
 
-    Não. As etapas do teste devem estar no arquivo .webtest.
+    Não. As etapas do teste devem estar no arquivo .webtest. Há uma série de plug-ins que podem ser úteis.
 
 ## <a name="video"></a>Vídeo
 
@@ -240,4 +240,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

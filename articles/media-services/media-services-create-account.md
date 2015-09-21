@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -67,6 +67,13 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
 	Além disso, você pode exibir o código que usa o SDK dos Serviços de Mídia do Azure para realizar as seguintes tarefas: carregar, codificar e publicar vídeos. Você pode clicar em um dos links na seção **ESCREVER UM CÓDIGO**, copiar o código e usá-lo em seu aplicativo.
 
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ## Próximas etapas
 
 - [Introdução ao fornecimento de conteúdo VoD (Vídeo sob Demanda) usando o SDK .NET](media-services-dotnet-get-started.md)
@@ -85,4 +92,4 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
   [portal do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

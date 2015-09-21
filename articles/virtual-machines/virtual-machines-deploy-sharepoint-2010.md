@@ -26,7 +26,7 @@ Embora as máquinas virtuais do Azure deem suporte a várias cargas de trabalho,
 
 As máquinas virtuais do Azure reduzem a necessidade de softwares para que as organizações não se preocupem com complexidade e altos custos de manuseio e sim com a criação e o gerenciamento de infraestruturas em escala. Isso significa que elas podem inovar, experimentar e iterar por horas em vez de dias e semanas, como acontece em implantações tradicionais.
 
-> [AZURE.NOTE]Para saber mais sobre como implantar o SharePoint 2013 no Azure, consulte [Planejando o SharePoint 2013 nos serviços de infraestrutura do Azure](https://msdn.microsoft.com/library/dn275958.aspx) e [farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md).
+> [AZURE.NOTE]Para obter informações sobre como implantar o SharePoint 2013 no Azure, consulte [Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) e [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md).
 
 ## SharePoint em máquinas virtuais do Azure
 
@@ -58,20 +58,24 @@ As máquinas virtuais do Azure fornecem aos desenvolvedores a flexibilidade de e
 
 A biblioteca de imagens no Azure fornece a lista de máquinas virtuais pré-configuradas disponíveis. Os usuários podem publicar o SharePoint Server, SQL Server, Windows Server e outros ISO/VHDs à biblioteca de imagens. Para simplificar a criação de máquinas virtuais, as imagens base são criadas e publicadas na biblioteca. Os usuários autorizados podem usar essas imagens para gerar a máquina virtual desejada. Para saber mais, consulte [Criar uma máquina virtual executando o Windows no portal de visualização do Azure](virtual-machines-windows-tutorial.md). A Figura 1 mostra as etapas básicas para criar uma máquina virtual usando o portal do Azure.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
+
 **Figura 1: visão geral das etapas de criação de uma máquina virtual**
 
 Os usuários também podem carregar uma imagem do SysPrep no Portal de Gerenciamento do Azure. Para saber mais, confira [Criar e carregar um VHD do Windows Server no Azure](virtual-machines-create-upload-vhd-windows-server.md). A figura 2 mostra as etapas básicas para carregar uma imagem para criar uma VM.
 
 No portal do Azure, os usuários também podem carregar uma imagem na qual a ferramenta SysPrep já foi executada. Para saber mais, confira [Criar e carregar um VHD do Windows Server no Azure](virtual-machines-create-upload-vhd-windows-server.md). A Figura 2 mostra as etapas básicas para carregar uma imagem para criar uma máquina virtual.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png)
+
 **Figura 2: visão geral das etapas de carregamento de imagem**
 
 ## Implantando o SharePoint 2010 no Azure 
 
-Você pode implantar o SharePoint 2010 no Azure seguindo estas etapas:
+Você pode implantar o SharePoint 2010 no Azure usando o modelo de implantação clássica seguindo estas etapas:
 
 1. Entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/) usando a conta da sua assinatura do Azure. Se você não tiver uma conta do Azure, [inscreva-se para obter uma versão gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
-2. Para criar uma máquina virtual com o sistema operacional base, no portal do Azure, clique **Novo > Computação > Máquina Virtual > Da Galeria**.
+2. Para criar uma máquina virtual com o sistema operacional base, no portal do Azure, clique em **Novo > Computação > Máquina Virtual > Da Galeria**.
 3. A caixa de diálogo **Escolher uma imagem** será exibida. Clique na imagem da plataforma **Windows Server 2008 R2 SP1**. Em seguida, clique na seta para a direita.
 4. A caixa de diálogo **Configuração da máquina virtual** será exibida. Forneça as seguintes informações:
 	- Digite um **Nome de máquina virtual**.
@@ -81,21 +85,21 @@ Você pode implantar o SharePoint 2010 no Azure seguindo estas etapas:
 	- Em **Confirmar**, digite a senha novamente e clique na seta para a direita.
 5. A segunda caixa de diálogo **Configuração de máquina virtual** é exibida. Forneça as seguintes informações:
 	- Em **Serviço de Nuvem**, selecione **Criar um novo serviço de nuvem**. Nesse caso, você também deve fornecer um nome DNS do serviço de nuvem ou selecionar um serviço de nuvem existente.
-	- Em caixa **Região/Grupo de Afinidades/Rede Virtual**, selecione a região onde a imagem virtual será hospedada.
-	- Em **Conta de armazenamento**, clique em **Usar uma conta de armazenamento gerada automaticamente** ou selecione o nome de uma conta de armazenamento existente. Apenas uma conta de armazenamento por região será criada automaticamente. Todas as outras máquinas virtuais criadas com essa configuração estarão localizadas nessa conta de Armazenamento. Você está limitado a 20 contas de armazenamento. Para saber mais, consulte [Criar uma conta de Armazenamento no Azure](virtual-machines-create-upload-vhd-windows-server.md#step-2-create-a-storage-account-in-azure).
+	- Em caixa **Região/Grupo de Afinidade/Rede Virtual**, selecione a região onde a imagem virtual será hospedada.
+	- Em **Conta de armazenamento**, clique em **Usar uma conta de armazenamento gerada automaticamente** ou selecione o nome de uma conta de armazenamento existente. Apenas uma conta de armazenamento por região será criada automaticamente. Todas as outras máquinas virtuais criadas com essa configuração estarão localizadas nessa conta de Armazenamento. Você está limitado a 20 contas de armazenamento. Para saber mais, consulte [Criar uma conta de armazenamento no Azure](virtual-machines-create-upload-vhd-windows-server.md#step-2-create-a-storage-account-in-azure).
 	- Em **Conjunto de Disponibilidade**, selecione **(nenhum)** e clique na seta para a direita.
 6. Na terceira caixa de diálogo **Configuração de máquina virtual**, clique na marca de seleção para criar a máquina virtual.
 
-Para se conectar à máquina virtual, consulte [Como entrar em uma máquina virtual executando o Windows Server](virtual-machines-log-on-windows-server.md).
+Para se conectar à máquina virtual, consulte [Como fazer logon em uma máquina virtual executando o Windows Server](virtual-machines-log-on-windows-server.md).
 
 Crie a máquina virtual do SQL Server usando uma das opções a seguir:
 
 - Crie uma máquina virtual do SQL Server 2012 seguindo as etapas 1 a 7 acima, mas, na etapa 3, use a imagem do SQL Server 2012 em vez da imagem do Windows Server 2008 R2 SP1. Para saber mais, consulte [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-provision-sql-server.md).
 	- Ao clicar nessa opção, o processo de provisionamento manterá uma cópia dos arquivos de instalação do SQL Server 2012 no caminho de diretório C:\\SQLServer\_11.0\_Full para que você possa personalizar a instalação. Por exemplo, é possível converter a instalação de avaliação do SQL Server 2012 a uma versão licenciada usando sua chave de licença.
 
-- Use a ferramenta de Preparação do Sistema do SQL Server (SysPrep) para instalar o SQL Server na máquina virtual com o sistema operacional base (como exibido acima nas etapas 1 a 7). Para saber mais, acesse [Instalar o SQL Server 2012 usando SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
+- Use a ferramenta de Preparação do Sistema do SQL Server (SysPrep) para instalar o SQL Server na máquina virtual com o sistema operacional base (como exibido acima nas etapas 1 a 7). Para saber mais, confira [Instalar o SQL Server 2012 usando SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 
-- Use o prompt de comando para instalar o SQL Server. Para saber mais, consulte [Instalar o SQL Server 2012 do prompt de comando](http://msdn.microsoft.com/library/ms144259.aspx#SysPrep).
+- Use o prompt de comando para instalar o SQL Server. Para saber mais, confira [Instalar o SQL Server 2012 do prompt de comando](http://msdn.microsoft.com/library/ms144259.aspx#SysPrep).
 
 - Use a mídia com suporte do SQL Server e a sua chave de licença para instalar o SQL Server na máquina virtual com o sistema operacional base (como exibido acima nas etapas 1 a 7).
 
@@ -106,18 +110,18 @@ Etapa 1. Configure a assinatura do Azure usando arquivos de script.
 Etapa 2. Provisione os servidores do SharePoint criando outra máquina virtual com o sistema operacional base (como mostrado acima nas etapas 1 a 6). Para criar um servidor do SharePoint nessa máquina virtual, escolha uma das seguintes opções:
 
 - Provisione usando a GUI do SharePoint:
-	- Para criar e provisionar um farm do SharePoint, consulte [Criar um farm de servidores do Microsoft SharePoint](http://technet.microsoft.com/library/ee805948.aspx#CreateConfigure).
-	- Para adicionar uma rede ou um servidor de aplicativos, consulte [Adicionar servidores de aplicativos ou da Web a farms](http://technet.microsoft.com/library/cc261752.aspx).
-	- Para adicionar um servidor de banco de dados a um farm existente, consulte [Adicionar um servidor de banco de dados a um farm existente](http://technet.microsoft.com/library/cc262781).
+	- Para criar e provisionar um farm do SharePoint, leia [Criar um farm de servidores do Microsoft SharePoint](http://technet.microsoft.com/library/ee805948.aspx#CreateConfigure).
+	- Para adicionar um servidor Web ou de aplicativos ao farm, leia [Adicionar um servidor Web ou de aplicativos ao farm](http://technet.microsoft.com/library/cc261752.aspx).
+	- Para adicionar um servidor de banco de dados a um farm existente, leia [Adicionar um servidor de banco de dados a um farm existente](http://technet.microsoft.com/library/cc262781).
 	- Para usar o SQL Server 2012 no seu farm do SharePoint, é necessário baixar e instalar o Service Pack 1 para o SharePoint Server 2010 depois de instalar o aplicativo e escolher não configurar o servidor. Para obter mais informações, consulte [Service Pack 1 para SharePoint Server 2010](http://www.microsoft.com/download/details.aspx?id=26623).
-	- Para aproveitar os recursos do SQL Server BI, é recomendável instalar o SharePoint Server como um farm de servidores em vez de um servidor autônomo. Para saber mais, consulte [Instalar os recursos de business intelligence do SQL Server 2012](http://technet.microsoft.com/library/hh231681.aspx).
+	- Para aproveitar os recursos do SQL Server BI, é recomendável instalar o SharePoint Server como um farm de servidores em vez de um servidor autônomo. Para saber mais, confira [Instalar os recursos de business intelligence do SQL Server 2012](http://technet.microsoft.com/library/hh231681.aspx).
 
-- Provisionamento usando o Windows PowerShell: você pode usar a ferramenta de linha de comando Psconfig como uma interface alternativa para executar várias opções de controlam a forma como os produtos do SharePoint 2010 são provisionados. Para saber mais, consulte [Referência da linha de comando Psconfig](http://technet.microsoft.com/library/cc263093.aspx).
+- Provisionamento usando o Windows PowerShell: você pode usar a ferramenta de linha de comando Psconfig como uma interface alternativa para executar várias opções de controlam a forma como os produtos do SharePoint 2010 são provisionados. Para saber mais, confira [Referência da linha de comando Psconfig](http://technet.microsoft.com/library/cc263093.aspx).
 
 Etapa 3. Configure o SharePoint. Depois que cada máquina virtual do SharePoint estiver no estado Pronto, configure o SharePoint Server em cada servidor usando as seguintes opções:
 
 - Configure o SharePoint a partir da GUI.
-- Configure o SharePoint usando o Windows PowerShell. Para saber mais, consulte [Instalar o SharePoint Server 2010 usando o Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx).
+- Configure o SharePoint usando o Windows PowerShell. Para saber mais, confira [Instalar o SharePoint Server 2010 usando o Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx).
 - Também é possível usar o AutoSPInstaller do CodePlex Project, que consiste em scripts do Windows PowerShell, um arquivo de entrada XML e um arquivo em lotes padrão do Microsoft Windows. O AutoSPInstaller fornece uma estrutura para um script de instalação do SharePoint 2010 baseada no Windows PowerShell. Para saber mais, confira [CodePlex: AutoSPInstaller (a página pode estar em inglês)](http://autospinstaller.codeplex.com/).
 
 Etapa 4. Depois que o script for concluído, conecte-se à máquina virtual usando o Painel da Máquina Virtual.
@@ -144,18 +148,20 @@ Para utilizar os computadores de carga e teste completamente, as organizações 
 
 A Figura 3 mostra uma implantação e um ambiente de teste do SharePoint na máquina virtual do Azure. Para criar essa implantação, comece usando localmente o mesmo ambiente de teste e desenvolvimento do SharePoint usado para desenvolver aplicativos. Em seguida, carregue e implante os aplicativos na máquina virtual do Azure para teste e desenvolvimento. Se a sua organização decidir retornar o aplicativo para o local físico, poderá fazê-lo sem precisar modificar o aplicativo.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png)
+
 **Figura 3: ambiente de teste e desenvolvimento do SharePoint nas máquinas virtuais do Azure**
 
 Para implementar um ambiente de teste e desenvolvimento do SharePoint no Azure, siga estas etapas:
 
-1. Provisionar: primeiro, provisione uma conexão de VPN entre o local físico e o Azure usando a Rede Virtual do Azure. (Como o Active Directory não será usado aqui, um túnel VPN será necessário.) Para saber mais, consulte [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md). Em seguida, use o portal do Azure para provisionar uma nova máquina virtual usando uma imagem de estoque da biblioteca de imagens.
+1. Provisionar: primeiro, provisione uma conexão de VPN entre o local físico e o Azure usando a Rede Virtual do Azure. (Como o Active Directory não será usado aqui, um túnel VPN será necessário.) Para saber mais, confira [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md). Em seguida, use o portal do Azure para provisionar uma nova máquina virtual usando uma imagem de estoque da biblioteca de imagens.
 	- Você pode carregar as máquinas virtuais de teste e desenvolvimento locais do SharePoint na sua conta de armazenamento do Azure e fazer referência a elas pela biblioteca de imagens para criar o ambiente necessário.
-	- Você pode usar a imagem do SQL Server 2012 em vez da imagem do Windows Server 2008 R2 SP1. Para saber mais, consulte [Provisionar uma máquina virtual do SQL Server no Azure](virtual-machines-provision-sql-server.md).
+	- Você pode usar a imagem do SQL Server 2012 em vez da imagem do Windows Server 2008 R2 SP1. Para saber mais, confira [Provisionar uma máquina virtual do SQL Server no Azure](virtual-machines-provision-sql-server.md).
 
 2. Instalar: Instale o SharePoint Server, o Visual Studio e o SQL Server nas máquinas virtuais usando uma conexão de Área de Trabalho Remota.
-	- Use o SharePoint 2010 Easy Setup Script para criar um computador de desenvolvedor do SharePoint. Para obter mais informações, consulte [SharePoint 2010 Easy Setup Script (a página pode estar em inglês)](http://www.microsoft.com/download/details.aspx?id=23415). Use o Windows PowerShell. Para saber mais, consulte [Instalar o SharePoint Server 2010 usando o Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx). Use o AutoSPInstaller do CodePlex Project. Para saber mais, confira [CodePlex: AutoSPInstaller (a página pode estar em inglês)](http://autospinstaller.codeplex.com/).
-	- Instalar Visual Studio. Para saber mais, consulte [Instalação do Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
-	- Instale o SQL Server. Para saber mais, consulte [Instalar o SQL Server 2012 usando SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
+	- Use o SharePoint 2010 Easy Setup Script para criar um computador de desenvolvedor do SharePoint. Para saber mais, consulte [SharePoint 2010 Easy Setup Script (a página pode estar em inglês)](http://www.microsoft.com/download/details.aspx?id=23415). Use o Windows PowerShell. Para saber mais, confira [Instalar o SharePoint Server 2010 usando o Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx). Use o AutoSPInstaller do CodePlex Project. Para saber mais, confira [CodePlex: AutoSPInstaller (a página pode estar em inglês)](http://autospinstaller.codeplex.com/).
+	- Instalar Visual Studio. Para saber mais, confira [Instalação do Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+	- Instale o SQL Server. Para saber mais, confira [Instalar o SQL Server usando SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 3. Desenvolver pacotes de implantação e scripts para aplicativos e bancos de dados: se você planeja usar uma máquina virtual disponível da biblioteca de imagens, os aplicativos e bancos de dados locais desejados poderão ser implantados nas máquinas virtuais do Azure:
 	- Crie pacotes de implantação para os aplicativos e bancos de dados locais usando o SQL Server Data Tools e o Visual Studio.
 	- Use esses pacotes para implantar os aplicativos e bancos de dados nas máquinas virtuais do Azure.
@@ -186,9 +192,9 @@ Neste cenário, mais servidores front-end da Web para o SharePoint Server devem 
 
 Para implementar um farm do SharePoint voltado para o público no Azure, siga estas etapas:
 
-1. Implantar o Active Directory: os requisitos fundamentais para implantar o Active Directory nas máquinas virtuais do Azure são semelhantes, mas não idênticos, aos da implantação em máquinas virtuais (e, até certo ponto, máquinas físicas) no local. Para saber mais sobre as diferenças, diretrizes e outras considerações, consulte [Diretrizes para implantação do Active Directory do Windows Server em Máquinas Virtuais do Azure](http://msdn.microsoft.com/library/jj156090). Para implantar o Active Directory no Azure:
+1. Implantar o Active Directory: os requisitos fundamentais para implantar o Active Directory nas máquinas virtuais do Azure são semelhantes, mas não idênticos, aos da implantação em máquinas virtuais (e, até certo ponto, máquinas físicas) no local. Para saber mais sobre as diferenças, diretrizes e outras considerações, leia [Diretrizes para a implantação do Active Directory em máquinas virtuais do Azure](http://msdn.microsoft.com/library/jj156090). Para implantar o Active Directory no Azure:
 	- Defina e crie uma rede virtual na qual as máquinas virtuais podem ser atribuídas a sub-redes específicas.
-	- Use o portal do Azure para criar e implantar o controlador do domínio em uma nova máquina virtual no Azure. Você também pode consultar o script do Windows PowerShell para implantar um domínio autônomo na nuvem usando as Máquinas Virtuais e a Rede Virtual do Azure. Para saber mais sobre como criar uma nova floresta do Active Directory em uma Rede Virtual do Azure, consulte [Instalar uma nova floresta do Ative Directory no Azure](active-directory-new-forest-virtual-machine.md).
+	- Use o portal do Azure para criar e implantar o controlador do domínio em uma nova máquina virtual no Azure. Você também pode consultar o script do Windows PowerShell para implantar um domínio autônomo na nuvem usando as Máquinas Virtuais e a Rede Virtual do Azure. Para saber mais sobre como criar uma nova floresta do Active Directory em uma máquina virtual na Rede Virtual do Azure, leia [Instalar uma nova floresta do Ative Directory no Azure](active-directory-new-forest-virtual-machine.md).
 2. Provisione uma máquina virtual: use o portal do Azure para provisionar uma nova máquina virtual usando uma imagem de estoque da biblioteca de imagens.
 3. Implantar um farm do SharePoint.
 	- Use o portal do Azure para configurar o balanceamento de carga. Configure os pontos de extremidade da máquina virtual, selecione a opção para balancear a carga do tráfego em um ponto de extremidade existente e especifique o nome da máquina virtual com carga balanceada.
@@ -218,7 +224,7 @@ Para escalar horizontalmente um ambiente de BI no Azure, siga estas etapas:
 	- Use o portal do Azure para provisionar uma nova máquina virtual usando uma imagem de estoque da biblioteca de imagens. Você pode carregar as imagens de carga de trabalho de BI do SharePoint Server ou do SQL Server à biblioteca de imagens, e qualquer usuário autorizado poderá escolher essas máquinas virtuais do componente de BI para criar o ambiente expandido.
 2. Instalar: 
 	- Se a sua organização não tiver imagens predefinidas dos componentes de BI do SharePoint Server ou do SQL Server, instale o SharePoint Server e o SQL Server nas máquinas virtuais usando uma conexão de Área de Trabalho Remota.
-	- Para saber mais sobre como instalar o SharePoint Server, consulte [Instalar o SharePoint Server 2010 usando o Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) ou [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
+	- Para saber mais sobre como instalar o SharePoint, leia [Instalar o SharePoint Server 2010 usando o Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) ou [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
 	- Para obter mais informações sobre como instalar o SQL Server, consulte [Instalar o SQL Server usando SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 3. Adicionar a máquina virtual de BI:
 	- Configure a segurança no ponto de extremidade do portal do Azure e defina uma porta de dados de entrada no Firewall do Windows da máquina virtual.
@@ -244,19 +250,19 @@ Para implantar um site do SharePoint totalmente personalizável no Azure, a orga
 
 As etapas a seguir mostram como criar um ambiente de farm do SharePoint personalizado de imagens predefinidas disponíveis na biblioteca de imagens. No entanto, também é possível carregar as máquinas virtuais do farm do SharePoint na biblioteca de imagens. Dessa forma, os usuários autorizados podem escolher essas máquinas virtuais para criar o farm do SharePoint necessário no Azure.
 
-1. Implantar o Active Directory: os requisitos fundamentais para implantar o Active Directory nas máquinas virtuais do Azure são semelhantes, mas não idênticos, aos da implantação em máquinas virtuais (e, até certo ponto, máquinas físicas) no local. Para saber mais sobre as diferenças, diretrizes e outras considerações, consulte [Diretrizes para implantação do Active Directory do Windows Server em máquinas virtuais do Azure](http://msdn.microsoft.com/library/jj156090). Para implantar o Active Directory no Azure:
+1. Implantar o Active Directory: os requisitos fundamentais para implantar o Active Directory nas máquinas virtuais do Azure são semelhantes, mas não idênticos, aos da implantação em máquinas virtuais (e, até certo ponto, máquinas físicas) no local. Para saber mais sobre as diferenças, diretrizes e outras considerações, leia [Diretrizes para a implantação do Active Directory em máquinas virtuais do Azure](http://msdn.microsoft.com/library/jj156090). Para implantar o Active Directory no Azure:
 	- Defina e crie uma rede virtual na qual as máquinas virtuais podem ser atribuídas a sub-redes específicas.
 	- Use o Portal do Azure para criar e implantar o controlador do domínio em uma nova máquina virtual no Azure.
-	- Para saber mais sobre como criar uma nova floresta do Active Directory em uma Rede Virtual do Azure, consulte [Instalar uma nova floresta do Ative Directory no Azure](active-directory-new-forest-virtual-machine).
+	- Para saber mais sobre como criar uma nova floresta do Active Directory em uma máquina virtual na Rede Virtual do Azure, leia [Instalar uma nova floresta do Ative Directory no Azure](active-directory-new-forest-virtual-machine).
 2. Implantar o SQL Server:
 	- Use o portal do Azure para provisionar uma nova máquina virtual usando uma imagem de estoque da biblioteca de imagens.
-	- Configure o SQL Server na máquina virtual. Para saber mais, consulte [Instalar o SQL Server 2012 usando SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
+	- Configure o SQL Server na máquina virtual. Para saber mais, confira [Instalar o SQL Server usando SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 	- Adicione a máquina virtual ao domínio do Active Directory recém-criado.
 3. Implantar um farm de multisservidor do SharePoint:
-	- Crie uma rede virtual. Para saber mais, consulte [Visão geral da Rede Virtual](http://msdn.microsoft.com/library/jj156007.aspx).
+	- Crie uma rede virtual. Para saber mais, confira [Visão geral da rede virtual](http://msdn.microsoft.com/library/jj156007.aspx).
 	- Ao implantar as máquinas virtuais do SharePoint, você precisará das sub-redes fornecidas para o SharePoint Server. Dessa forma, os endereços de DNS na caixa do Active Directory local estarão disponíveis durante o provisionamento.
 	- Use o portal do Azure para criar uma máquina virtual.
-	- Instale o SharePoint Server nessa máquina virtual e gere uma imagem reutilizável. Para saber mais sobre como instalar o SharePoint Server, consulte [Instalar e configurar o SharePoint Server 2010 usando o Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) ou [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
+	- Instale o SharePoint Server nessa máquina virtual e gere uma imagem reutilizável. Para saber mais sobre como instalar o SharePoint Server, leia [Instalar e configurar o SharePoint Server 2010 usando o Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) ou [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
 	- Configure a máquina virtual do SharePoint para criar e conectar-se ao farm do SharePoint usando o comando [Join-SharePointFarm](http://technet.microsoft.com/library/ff607979.aspx).
 	- Use o portal do Azure para configurar o balanceamento de carga: configure os pontos de extremidade da máquina virtual, selecione a opção para balancear a carga do tráfego em um ponto de extremidade existente e especifique o nome da máquina virtual com carga balanceada.
 4. Gerencie o farm do SharePoint através do System Center:
@@ -271,12 +277,12 @@ Uma implantação bem-sucedida do SharePoint Server nas máquinas virtuais do Az
 
 ## Recursos adicionais
 
-[SharePoint em máquinas virtuais do Azure](http://msdn.microsoft.com/library/dn275955.aspx)
-
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint na Intranet](virtual-machines-workload-intranet-sharepoint-farm)
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO9-->
+[Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
+
+<!---HONumber=Sept15_HO2-->

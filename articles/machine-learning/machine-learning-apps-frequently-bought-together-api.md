@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.date="09/07/2015" 
 	ms.author="luisca"/>
 
 # Aplicativo de exemplo de Aprendizado de Máquina: Frequentemente comprados juntos
@@ -39,4 +39,4 @@ Este serviço contém APIs para criar modelos de Frequentemente comprados juntos
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

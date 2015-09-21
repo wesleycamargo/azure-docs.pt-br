@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/10/2015"
 	ms.author="sdanie"/>
 
 # Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure
 
 O Gerenciamento de API dá suporte à implantação multirregião, que permite a editores de API distribuir um único serviço de gerenciamento de API por qualquer número desejado de regiões do Azure. Isso ajuda a reduzir a solicitação de latência percebida pelos consumidores de API distribuídos geograficamente e também melhora a disponibilidade do serviço se uma região ficar offline.
 
-Quando um serviço de Gerenciamento de API é inicialmente criado, ele contém apenas uma [unidade][] e reside em uma única região do Azure, que é designada como a Região Primária. Regiões adicionais podem ser facilmente adicionados por meio do Portal do Azure. Um servidor proxy de Gerenciamento de API é implantado em cada região e o tráfego de chamada será roteado para o proxy mais próximo. Quando uma região fica offline, o tráfego é automaticamente redirecionado para o proxy mais próximo entre os demais.
+Quando um serviço de Gerenciamento de API é inicialmente criado, ele contém apenas uma [unidade][] e reside em uma única região do Azure, que é designada como a Região Primária. Regiões adicionais podem ser facilmente adicionados por meio do Portal do Azure. Um servidor proxy de Gerenciamento de API é implantado em cada região e o tráfego de chamada será roteado para o proxy mais próximo. Se uma região fica offline, o tráfego é automaticamente redirecionado para o proxy mais próximo entre os demais.
 
 > [AZURE.IMPORTANT]A implantação multirregião só está disponível na camada **[Premium][]**.
 
@@ -75,4 +75,4 @@ Depois que as regiões desejadas forem removidas, clique em **Salvar**.
 [unidade]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

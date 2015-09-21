@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Provisionar clusters do Hadoop de forma personalizada no HDInsight | Microsoft Azure"
-	description="Saiba como provisionar de forma personalizada clusters do Azure HDInsight usando o Portal do Azure, o PowerShell do Azure, uma linha de comando ou o SDK do .NET."
-	services="hdinsight"
-	documentationCenter=""
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+   pageTitle="Provisionar clusters do Hadoop de forma personalizada no HDInsight | Microsoft Azure" 
+   description="Saiba como provisionar de forma personalizada clusters do Azure HDInsight usando o Portal do Azure, o PowerShell do Azure, uma linha de comando ou o SDK do .NET." 
+   services="hdinsight" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="08/07/2015"
+   ms.author="jgao"/>
 
 #Provisionar clusters do Hadoop no HDInsight
 
@@ -224,10 +224,10 @@ Para obter mais informações sobre os recursos, benefícios e capacidades das r
 
 > [AZURE.NOTE]Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, consulte [Tarefas de configuração de rede virtual](../services/virtual-machines/).
 >
->[AZURE.NOTE]O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade. Use o cmdlet Get-AzureVNetConfig do Azure PowerShell para verificar se uma rede virtual do Azure existente é baseada no local. Se sua rede virtual não for baseada no local, você tem as seguintes opções:
+> O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade. Use o cmdlet Get-AzureVNetConfig do Azure PowerShell para verificar se uma rede virtual do Azure existente é baseada no local. Se sua rede virtual não for baseada no local, você tem as seguintes opções:
 >
 > - Exportar a configuração de rede virtual existente e criar uma nova rede virtual. Todas as novas redes virtuais são baseadas em local por padrão.
-> - Migrar para uma rede virtual baseada em local. Confira [Migrar serviços existentes para o escopo regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
+> - Migrar para uma rede virtual baseada em local. Veja [Migrar serviços existentes para o escopo regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
 >
 > É altamente recomendado designar uma única sub-rede para um cluster.
 
@@ -268,7 +268,7 @@ Você pode consultar as [opções de configuração básica] e as [opções de c
 	- Habilitar área de trabalho remota para o cluster
 	- Inserir como metastore do Hive/Oozie
 
-6. Se você optar por inserir o metastore Hive/Oozie na tela anterior, na página **Configurar Metastore Hive/Oozie**, forneça os seguintes valores:
+6. Se você optar por inserir o metastore do Hive/Oozie na tela anterior, na página **Configurar Metastore do Hive/Oozie**, forneça os seguintes valores:
 
 	- Banco de dados do metastore do Hive
 	- Usuário do banco de dados
@@ -289,7 +289,7 @@ Você pode consultar as [opções de configuração básica] e as [opções de c
 	- Nome: especifique um nome para a ação de script
 	- URI do script: especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster.
 	- Tipo de nó: especifique os nós em que o script de personalização deve ser executado. Você pode escolher <b>Todos os Nós</b>, <b>Somente nós de cabeçalho</b> ou <b>Somente nós de dados</b>.
-	- Parâmetros: especifique os parâmetros, se exigidos pelo script.</td></tr>
+	- Parâmetros: especifique os parâmetros, se exigido pelo script.</td></tr>
 
 	Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para iniciar o provisionamento do cluster.
 
@@ -786,4 +786,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

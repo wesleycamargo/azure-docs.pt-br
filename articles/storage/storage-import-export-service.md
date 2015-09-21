@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 
@@ -269,4 +269,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO2-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Ver dados do Application Insights no Power BI"
-	description="Use o Power BI para monitorar o desempenho e o uso de seu aplicativo."
-	services="application-insights"
-	documentationCenter=""
-	authors="noamben"
+	pageTitle="Ver dados do Application Insights no Power BI" 
+	description="Use o Power BI para monitorar o desempenho e o uso de seu aplicativo." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Exibições do Power BI dos dados do Application Insights
@@ -24,6 +24,9 @@ O [Microsoft Power BI](https://powerbi.microsoft.com/) apresenta seus dados em e
 Neste artigo, mostraremos como exportar dados do Application Insights e usar o Stream Analytics para mover os dados para o Power BI. O [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) é um serviço do Azure que usaremos como um adaptador.
 
 ![Exemplo de exibição do Power BI de dados de uso do Application Insights](./media/app-insights-export-power-bi/020.png)
+
+
+> [AZURE.NOTE]Você precisa de uma conta corporativa ou de estudante (conta organizacional do MSDN) para enviar dados do Stream Analytics para o Power BI.
 
 ## Vídeo
 
@@ -140,13 +143,15 @@ Confirme o formato de serialização:
 
 Feche o assistente e aguarde até que a instalação seja concluída.
 
+> [AZURE.TIP]Use o comando Sample para baixar alguns dados. Mantenha-os como exemplo de teste para depurar sua consulta.
+
 ## Definir a saída
 
 Agora, selecione seu trabalho e defina a saída.
 
 ![Selecione o novo canal, clique em Saídas, Adicionar, Power BI](./media/app-insights-export-power-bi/160.png)
 
-Autorize o Stream Analytics a acessar o recurso do Power BI e, em seguida, crie um nome para a saída e para a tabela e para o conjunto de dados do Power BI de destino.
+Forneça sua **conta corporativa ou de estudante** para autorizar o Stream Analytics a acessar seu recurso Power BI. Em seguida, crie um nome para a saída, bem como para a tabela e o conjunto de dados do Power BI de destino.
 
 ![Crie três nomes](./media/app-insights-export-power-bi/170.png)
 
@@ -155,6 +160,11 @@ Autorize o Stream Analytics a acessar o recurso do Power BI e, em seguida, crie 
 A consulta controla a conversão de entrada para a saída.
 
 ![Selecione o trabalho e clique em Consulta. Cole o exemplo a seguir.](./media/app-insights-export-power-bi/180.png)
+
+
+Use a função Test para verificar se você obteve a saída certa. Atribua a ela os exemplos de dados que você obteve da página de entradas.
+
+#### Consulta para exibir contagens de eventos
 
 Cole esta consulta:
 
@@ -173,7 +183,29 @@ Cole esta consulta:
 
 * export-input é o alias que atribuímos à entrada do fluxo
 * pbi-output é o alias de saída que definimos
-* Usamos GetElements porque o nome do evento está em uma matriz JSON aninhada. Em seguida, o Select seleciona o nome do evento, juntamente com uma contagem do número de instâncias com esse nome no período de tempo. A cláusula Group By agrupa os elementos em períodos de tempo de 1 minuto.
+* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque o nome do evento está em uma matriz JSON aninhada. Em seguida, o Select seleciona o nome do evento, juntamente com uma contagem do número de instâncias com esse nome no período de tempo. A cláusula [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa os elementos em períodos de tempo de 1 minuto.
+
+
+#### Consulta para exibir valores de métricas
+
+
+```SQL
+
+    SELECT
+      A.context.data.eventtime,
+      avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
+    INTO
+      [pbi-output]
+    FROM
+      [export-input] A
+    OUTER APPLY GetElements(A.context.custom.metrics) as flat
+    GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
+
+``` 
+
+* Essa consulta detalha a telemetria de métricas para obter a hora do evento e o valor da métrica. Os valores de métrica estão dentro de uma matriz, por isso usamos o padrão OUTER APPLY GetElements para extrair as linhas. "myMetric" é o nome da métrica nesse caso. 
+
+
 
 ## Executar o trabalho
 
@@ -185,7 +217,7 @@ Aguarde até o trabalho estar Em execução.
 
 ## Ver os resultados no Power BI
 
-Abra o Power BI e selecione o conjunto de dados e a tabela que você definiu como a saída do trabalho do Stream Analytics.
+Abra o Power BI com sua conta corporativa ou de estudante e selecione o conjunto de dados e a tabela que você definiu como a saída do trabalho do Stream Analytics.
 
 ![No Power BI, selecione o conjunto de dados e os campos.](./media/app-insights-export-power-bi/200.png)
 
@@ -207,4 +239,4 @@ Noam Ben Zeev mostra como exportar para o Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

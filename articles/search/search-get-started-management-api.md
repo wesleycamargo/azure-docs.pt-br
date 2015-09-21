@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Introdução à API REST de Gerenciamento de Pesquisa do Azure
@@ -204,4 +204,4 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

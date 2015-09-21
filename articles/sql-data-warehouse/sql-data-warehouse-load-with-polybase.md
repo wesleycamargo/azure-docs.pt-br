@@ -1,20 +1,20 @@
 <properties
    pageTitle="Tutorial do PolyBase no SQL Data Warehouse | Microsoft Azure"
-	description="Saiba o que é o PolyBase e como usá-lo em cenários de data warehouse."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor="jrowlandjones"/>
+   description="Saiba o que é o PolyBase e como usá-lo em cenários de data warehouse."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/09/2015"
-	ms.author="sahajs;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/02/2015"
+   ms.author="sahajs;barbkess"/>
 
 
 # Carregar dados com o PolyBase
@@ -137,6 +137,8 @@ A definição de tabela externa é semelhante a uma definição de tabela relaci
 
 A opção LOCATION especifica o caminho para os dados a partir da raiz da fonte de dados. Neste exemplo, os dados estão localizados em 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'. Todos os arquivos para a mesma tabela precisam estar na mesma pasta lógica no BLOB do Azure.
 
+Como alternativa, você também pode especificar opções de rejeitar (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE) que determinam como o PolyBase manipulará os registros sujos recebidos da fonte de dados externa.
+
 ```
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
@@ -170,11 +172,11 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]Ao soltar uma tabela externa, você deve usar `DROP EXTERNAL TABLE`, e **não pode** usar `DROP TABLE`.
+> [AZURE.NOTE]Ao soltar uma tabela externa, você deve usar `DROP EXTERNAL TABLE`. **Não** é possível usar `DROP TABLE`.
 
 Tópico de referência: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
-Também vale a pena observar que as tabelas externas estão visíveis no `sys.tables` e, mais especificamente, nas exibições do catálogo `sys.external_tables`.
+Também vale a pena lembrar que as tabelas externas estão visíveis nos dois `sys.tables` e, mais especificamente, nas exibições do catálogo `sys.external_tables`.
 
 ## Rotação de chaves de armazenamento
 
@@ -197,21 +199,17 @@ Depois de migrar todas as tabelas externas para a nova fonte de dados externa, v
 ## Consultar dados de armazenamento de blob do Azure
 As consultas em tabelas externas simplesmente usam o nome da tabela como se ele fosse uma tabela relacional.
 
-Esta é uma consulta ad hoc que une dados de seguros de clientes no SQL Data Warehouse com dados de sensor de automóveis armazenados no blob de armazenamento do Azure. O resultado mostra os motoristas que dirigem mais rapidamente que outros.
 
 ```
--- Join SQL Data Warehouse relational data with Azure storage data. 
-SELECT 
-      [Insured_Customers].[FirstName]
-,     [Insured_Customers].[LastName]
-,     [Insured_Customers].[YearlyIncome]
-,     [CarSensor_Data].[Speed]
-FROM  [dbo].[Insured_Customers] 
-JOIN  [ext].[CarSensor_Data]         ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
-WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] DESC
+
+-- Query Azure storage resident data via external table. 
+SELECT * FROM [ext].[CarSensor_Data]
 ;
+
 ```
+
+> [AZURE.NOTE]Uma consulta em uma tabela externa pode falhar com o erro *“Consulta anulada – o limite de rejeição máximo foi atingido durante a leitura de uma fonte externa”*. Isso indica que os dados externos contêm registros *sujos*. Um registro de dados é considerado “sujo” se os tipos de dados/número de colunas reais não correspondem às definições de coluna da tabela externa ou se os dados não são compatíveis com o formato de arquivo externo especificado. Para corrigir esse problema, verifique se a tabela externa e as definições de formato de arquivo externo estão corretas e se os dados externos são compatíveis com essas definições. Caso um subconjunto de registros de dados externos esteja sujo, é possível rejeitar esses registros para suas consultas usando as opções de rejeição em CREATE EXTERNAL TABLE DDL.
+
 
 ## Carregar dados do armazenamento de blob do Azure
 Este exemplo carrega dados do armazenamento de blob do Azure no banco de dados do SQL Data Warehouse.
@@ -327,4 +325,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189450.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

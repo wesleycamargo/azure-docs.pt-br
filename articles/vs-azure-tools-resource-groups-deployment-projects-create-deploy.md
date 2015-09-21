@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Criando e implantando projetos de implantação de Grupo de Recursos do Azure"
-	description="Criando e implantando projetos de implantação de Grupo de Recursos do Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Criando e implantando projetos de implantação de Grupo de Recursos do Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="azure-resource-manager"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Criando e implantando projetos de implantação de Grupo de Recursos do Azure
 
 O modelo de projeto de implantação de **grupo de recursos do Azure** está disponível no Visual Studio quando o Azure SDK 2.6 está instalado. Os projetos do grupo de recursos do Azure permitem agrupar e publicar vários recursos do Azure relacionados em uma única operação de implantação. Os projetos do grupo de recursos do Azure usam uma tecnologia chamada **Gerenciador de Recursos do Azure** para realizar seu trabalho. O **Gerenciador de Recursos do Azure** é um serviço de API REST que permite que você defina grupos de recursos do Azure, que contêm vários recursos do Azure que normalmente são usados juntos e têm um ciclo de vida semelhante. Usando grupos de recursos, você pode operar em todos os recursos em um grupo com uma única chamada de função, em vez de chamar funções diferentes para cada recurso individual. Para saber mais sobre grupos de recursos do Azure, consulte [Usando grupos de recursos para gerenciar seus recursos do Azure](./azure-portal/azure-preview-portal-using-resource-groups/).
 
-Os projetos de grupo de recursos contêm modelos JSON do Gerenciador de Recursos do Azure, que definem os elementos que são implantados em um grupo de recursos. Para obter mais informações, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Os projetos de grupo de recursos contêm modelos JSON do Gerenciador de Recursos do Azure, que definem os elementos que são implantados em um grupo de recursos. Veja [Linguagem de modelo do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md) para obter mais informações.
 
 O Gerenciador de Recursos do Azure tem muitos diferentes provedores de recursos disponíveis que podem ser usados para implantar recursos como o Ubuntu Server e o Windows Server 2012 R2. Este tópico usa um recurso **Aplicativos Web**, que implanta um site básico e vazio no Azure.
 
@@ -85,7 +85,7 @@ Quando você implanta um projeto do Grupo de Recursos do Azure, você o implanta
 
     ![Caixa de diálogo Implantar no Grupo de Recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. Na caixa suspensa de **Grupo de recursos**, escolha um grupo de recursos existente ou crie um novo. Para criar um grupo de recursos, abra a caixa suspensa **Grupo de Recursos** e escolha **<Create New...>**.
+1. Na caixa suspensa **Grupo de Recursos**, escolha um grupo de recursos existente ou crie um novo. Para criar um grupo de recursos, abra a caixa suspensa **Grupo de Recursos** e escolha **<Create New...>**.
 
     A caixa de diálogo **Criar Grupo de Recursos** é exibida.
 
@@ -195,4 +195,4 @@ Também foram feitos ajustes em alguns nomes de variáveis e tarefas de compila�
 
 Para saber como adicionar recursos ao seu Grupo de Recursos do Azure no Visual Studio, consulte [Adicionar recursos a um Grupo de Recursos do Azure](https://msdn.microsoft.com/library/azure/mt125415.aspx).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

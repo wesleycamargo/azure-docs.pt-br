@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como dimensionar o Cache Redis do Azure"
-	description="Saiba como dimensionar suas instâncias do Cache Redis do Azure"
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Como dimensionar o Cache Redis do Azure" 
+	description="Saiba como dimensionar suas instâncias do Cache Redis do Azure" 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Como dimensionar o Cache Redis do Azure
@@ -21,8 +21,6 @@
 >[AZURE.NOTE]O recurso de dimensionamento do Cache Redis do Azure está atualmente na visualização.
 
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho do cache usando a folha **Alterar camada de preços** no [portal de visualização do Azure](https://portal.azure.com).
-
->[AZURE.NOTE]Ao dimensionar um Cache Redis do Azure, você pode alterar o tamanho, mas não pode mudar de um cache Padrão para um cache Básico e vice-versa.
 
 ## Quando dimensionar
 
@@ -38,7 +36,9 @@ Você pode monitorar as métricas a seguir para ajudá-lo a determinar se é pre
 Se determinar que o cache não atende mais aos requisitos de seu aplicativo, você poderá mudar para uma camada de preços cache maior ou menor que seja adequada ao aplicativo. Para obter mais informações sobre como determinar qual camada de preços de cache usar, consulte [Qual oferta e tamanho do Cache Redis devo usar](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Dimensionar um cache
-Para dimensionar o cache, [navegue até o cache](cache-configure.md#configure-redis-cache-settings) no [portal de visualização do Azure](https://portal.azure.com) e clique na **Camada standard** ou na **Camada básica** na folha do **Cache Redis**.
+Para dimensionar seu cache, [navegue até o cache](cache-configure.md#configure-redis-cache-settings) no [portal de visualização](https://portal.azure.com) e clique em **Configurações**, **Camada de preços**.
+
+Você também pode clicar na parte **Camada padrão** ou **Camada básica** na folha **Cache Redis**.
 
 ![Camada de preços][redis-cache-pricing-tier-part]
 
@@ -46,7 +46,11 @@ Selecione a camada de preços desejada na folha **Camada de preços** e clique e
 
 ![Camada de preços][redis-cache-pricing-tier-blade]
 
->[AZURE.NOTE]Os caches não podem alterar os planos de Básico para Padrão ou vice-versa, e você não pode reduzir verticalmente um cache de um dos tamanhos maiores para 250 MB. Você pode escalar verticalmente de um cache de 250 MB para um tamanho maior, mas não poderá dimensionar de volta para a camada de preços de 250 MB. Se precisar alterar de Básico para Padrão ou reduzir verticalmente para o tamanho de 250 MB, você deverá criar um novo cache.
+>[AZURE.NOTE]Você pode dimensionar para uma camada de preços diferente com as restrições a seguir.
+>
+>-	Não é possível dimensionar de um cache **Padrão** para um cache **Básico**.
+>-	Você pode dimensionar de um cache **Básico** para um cache **Padrão**, mas não pode alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
+>-	Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)**.
 
 Enquanto o cache é dimensionado para a nova camada de preços, um status **Dimensionando** é exibido na folha do **Cache Redis**.
 
@@ -54,11 +58,9 @@ Enquanto o cache é dimensionado para a nova camada de preços, um status **Dime
 
 Quando o dimensionamento for concluído, o status será alterado de **Dimensionando** para **Executando**.
 
->[AZURE.IMPORTANT]Durante operações de dimensionamento, os caches Básicos ficam offline, e todos os dados em cache são perdidos. Uma vez concluída a operação de dimensionamento, o cache Básico estará online novamente, sem dados. Os caches Padrão permanecem online durante uma operação de dimensionamento, e normalmente nenhum dado é perdido ao se dimensionar um cache Padrão para um tamanho maior. Ao se dimensionar um cache Padrão para um tamanho menor, alguns dados poderão ser perdidos se o novo tamanho for menor do que a quantidade de dados armazenados em cache. Se dados forem perdidos ao se reduzir, as chaves serão removidas usando a política de remoção [allkeys lru](http://redis.io/topics/lru-cache). Observe que, embora os caches Padrão tenham um SLA de 99,9% de disponibilidade, não há SLA para perda de dados.
-
 ## Como automatizar uma operação de dimensionamento
 
-Além de dimensionar sua instância de Cache Redis do Azure no portal de visualização, você pode dimensionar usando [MAML (Bibliotecas de Gerenciamento do Microsoft Azure)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Para dimensionar seu cache, chame o método `IRedisOperations.CreateOrUpdate` e passeo novo tamanho para `RedisProperties.SKU.Capacity`.
+Além de dimensionar sua instância do Cache Redis do Azure no portal de visualização, você pode dimensionar usando [MAML (Bibliotecas de Gerenciamento do Microsoft Azure)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Para dimensionar seu cache, chame o método `IRedisOperations.CreateOrUpdate` e passeo novo tamanho para `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -90,25 +92,33 @@ Não, o nome do cache e as chaves permanecem inalterados durante uma operação 
 
 ## Como funciona o dimensionamento?
 
-Quando um cache **Básico** é dimensionado, ele é desligado e um novo cache é provisionado com o novo tamanho. Durante esse tempo, o cache não está disponível e todos os dados em cache são perdidos.
+Quando um cache **Básico** é dimensionado para um tamanho diferente, ele é desligado e um novo cache é provisionado com o novo tamanho. Durante esse tempo, o cache não está disponível e todos os dados em cache são perdidos.
 
-Quando um cache **Padrão** é dimensionado, uma das réplicas é desligada e provisionada novamente para o novo tamanho, os dados são transferidos e a outra réplica realiza um failover antes de ser provisionada novamente, de forma semelhante ao processo que ocorre durante uma falha de um dos nós de cache.
+Quando um cache **Básico** é dimensionado para um cache **Padrão**, um cache de réplica é provisionado e os dados são copiados do cache principal no cache de réplica. O cache permanece disponível durante o processo de dimensionamento.
+
+Quando um cache **Padrão** é dimensionado para um tamanho diferente, uma das réplicas é desligada e provisionada novamente para o novo tamanho, os dados são transferidos e a outra réplica realiza um failover antes de ser provisionada novamente, de forma semelhante ao processo que ocorre durante uma falha de um dos nós de cache.
 
 ## Perderei dados de meu cache durante o dimensionamento?
 
-Quando um cache **Básico** é dimensionado, todos os dados são perdidos, e o cache fica indisponível durante a operação de dimensionamento.
+Quando um cache **Básico** é dimensionado para um novo tamanho, todos os dados são perdidos, e o cache fica indisponível durante a operação de dimensionamento.
 
-Quando um cache **Padrão** é dimensionado para um tamanho maior, normalmente todos os dados são preservados. Ao se dimensionar um cache **Padrão** para um tamanho menor, dados podem ser perdidos, dependendo da quantidade de dados no cache em relação ao novo tamanho quando ele for dimensionado. Se dados forem perdidos ao se reduzir, as chaves serão removidas usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache). Observe que, embora os caches Padrão tenham um SLA de 99,9% de disponibilidade, não há SLA para perda de dados.
+Quando um cache **Básico** é dimensionado para um cache **Padrão**, os dados no cache geralmente são preservados.
+
+Quando um cache **Padrão** é dimensionado para um tamanho maior, normalmente todos os dados são preservados. Ao se dimensionar um cache **Padrão** para um tamanho menor, dados podem ser perdidos, dependendo da quantidade de dados no cache em relação ao novo tamanho quando ele for dimensionado. Se dados forem perdidos ao se reduzir, as chaves serão removidas usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache).
+
+Observe que, embora os caches Padrão tenham um SLA de 99,9% de disponibilidade, não há SLA para perda de dados.
 
 ## O cache estará disponível durante o dimensionamento?
 
 Caches **Padrão** permanecem disponíveis durante a operação de dimensionamento.
 
-Caches **Básicos** ficam offline durante a operação de dimensionamento.
+Os caches **Básicos** ficam offline durante as operações de dimensionamento para um tamanho diferente, mas permanecem disponíveis durante o dimensionamento de **Básico** para **Padrão**.
 
 ## Operações que não têm suporte
 
-Você não pode alterar de um cache **Básico** para um **Padrão** ou vice-versa durante uma operação de dimensionamento.
+Não é possível alterar de um cache **Padrão** para um **Básico**.
+
+Você pode dimensionar de um cache **Básico** para um cache **Padrão**, mas não pode alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
 
 Você pode escalar verticalmente de um cache **C0** (250 MB) para um tamanho maior, mas não pode dimensionar de um tamanho maior para um cache **C0**.
 
@@ -138,4 +148,4 @@ Estamos lançando esse recurso para obter comentários. Com base nos comentário
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

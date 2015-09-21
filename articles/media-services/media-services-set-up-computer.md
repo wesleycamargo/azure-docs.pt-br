@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 # Configure seu ambiente
@@ -44,9 +44,12 @@ Escolha .NET ou a API REST para conectar-se aos serviços de mídia do Azure por
 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
-## Próximas etapas
 
-- [Introdução ao fornecimento de conteúdo VoD (Vídeo sob Demanda) usando o SDK .NET](media-services-dotnet-get-started.md)
-- [Usar o SDK do .NET para criar canais que realizam codificação ao vivo de um fluxo com taxa de bits única para fluxo múltiplas taxas de bits (Visualização)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+##Próximas etapas: roteiros de aprendizagem do AMS
 
-<!---HONumber=September15_HO1-->
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

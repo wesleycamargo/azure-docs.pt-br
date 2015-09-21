@@ -1,7 +1,5 @@
 <properties pageTitle="Tutorial: Integração do Active Directory do Azure ao Central Desktop | Microsoft Azure" description="Saiba como usar o Central Desktop com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
-
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Tutorial: Integração do Active Directory do Azure ao Central Desktop
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=522411).
 
@@ -55,6 +53,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 Como parte deste procedimento, é necessário carregar um certificado codificado em base 64 no locatário do Desktop Central.  
 Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
+
+
 ###Para configurar o logon único, execute as seguintes etapas:
 
 1.  No portal do AD do Azure, na página de integração de aplicativos **Central Desktop**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
@@ -68,7 +68,7 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
 3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
 
     -   Na caixa de texto **URL de Logon do Central Desktop**, digite a URL do seu locatário do Central Desktop (por exemplo: **http://contoso.centraldesktop.com*).
-    -   Na caixa de texto URL de Resposta do Central Desktop, digite a URL AssertionConsumerService do Central Desktop (por exemplo: https://contoso.centraldesktop.com/saml2-assertion.php).
+-   Na caixa de texto URL de Resposta do Central Desktop, digite a URL AssertionConsumerService do Central Desktop (por exemplo: https://contoso.centraldesktop.com/saml2-assertion.php).
 
     >[AZURE.NOTE]Você pode obter o valor nos metadados do Central Desktop (por exemplo: **http://contoso.centraldesktop.com*).
 
@@ -154,4 +154,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

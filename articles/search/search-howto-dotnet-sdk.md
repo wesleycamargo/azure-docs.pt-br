@@ -396,7 +396,7 @@ Essa etapa conclui o tutorial, mas não pare aqui. **Próximas etapas** fornece 
 
 ## Próximas etapas ##
 
-- Aprofunde seus conhecimentos por meio de [vídeos e outros exemplos e tutoriais](https://msdn.microsoft.com/library/azure/dn818681.aspx).
+- Aprofunde seus conhecimentos por meio de [vídeos e outros exemplos e tutoriais](search-video-demo-tutorial-list.md).
 - Leia sobre os recursos nesta versão do SDK da Pesquisa do Azure: [Visão geral da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798933.aspx)
 - Revise as [convenções de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para saber as regras de nomeação de vários objetos.
 - Examine os [tipos de dados com suporte](https://msdn.microsoft.com/library/azure/dn798938.aspx) na Pesquisa do Azure.
@@ -625,4 +625,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

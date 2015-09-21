@@ -41,7 +41,7 @@ Você pode obter os valores para o nome da chave e valor de SAS nas informaçõe
 
 	bus_service.create_topic('mytopic')
 
-**create\\\_topic** também oferece suporte para opções adicionais, que permitem a substituição de configurações padrão do tópico, como a vida útil da mensagem ou o tamanho máximo do tópico. O exemplo a seguir define o tamanho máximo do tópico como 5 GB, e a vida útil como um minuto:
+**create\\_topic** também oferece suporte para opções adicionais, que permitem a substituição de configurações padrão do tópico, como a vida útil da mensagem ou o tamanho máximo do tópico. O exemplo a seguir define o tamanho máximo do tópico como 5 GB, e a vida útil como um minuto:
 
 	topic_options = Topic()
 	topic_options.max_size_in_megabytes = '5120'
@@ -67,9 +67,9 @@ Você também pode definir filtros que permitem especificar quais mensagens envi
 
 O tipo de filtro mais flexível compatível com as assinaturas é o **SqlFilter**, que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, confira a sintaxe [SqlFilter.SqlExpression][].
 
-Os filtros podem ser adicionados a uma assinatura usando o método **create\\\_rule** do objeto **ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
+Os filtros podem ser adicionados a uma assinatura usando o método **create\\_rule** do objeto **ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
 
-**Observação**: já que o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, ou o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **delete\\\_rule** do objeto **ServiceBusService**.
+**Observação**: já que o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, ou o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **delete\\_rule** do objeto **ServiceBusService**.
 
 O exemplo abaixo cria uma assinatura denominada `HighMessages` com um **SqlFilter** que seleciona apenas as mensagens que tenham uma propriedade **messagenumber** personalizada maior do que 3:
 
@@ -97,7 +97,7 @@ Agora, quando uma mensagem for enviada para `mytopic`, ela sempre será fornecid
 
 ## Como enviar mensagens a um tópico
 
-Para enviar uma mensagem a um tópico do Barramento de Serviço, o aplicativo deve usar o método **send\\\_topic\\\_message** do objeto **ServiceBusService**.
+Para enviar uma mensagem a um tópico do Barramento de Serviço, o aplicativo deve usar o método **send\\_topic\\_message** do objeto **ServiceBusService**.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste para `mytopic`. Observe que o valor da propriedade **messagenumber** de cada mensagem varia de acordo com a iteração do loop (isso determina qual assinatura o receberá):
 
@@ -109,12 +109,12 @@ Os tópicos de Service Bus oferecem suporte a um tamanho máximo de mensagem de 
 
 ## Como receber mensagens de uma assinatura
 
-As mensagens são recebidas de uma assinatura usando o método **receive\\\_subscription\\\_message** no objeto **ServiceBusService**:
+As mensagens são recebidas de uma assinatura usando o método **receive\\_subscription\\_message** no objeto **ServiceBusService**:
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 	print(msg.body)
 
-As mensagens são excluídas da assinatura conforme elas são lidas quando o parâmetro **peek\_lock** é definido como **False**. Você pode ler (peek) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro **peek\\\_lock** como **True**.
+As mensagens são excluídas da assinatura conforme elas são lidas quando o parâmetro **peek\_lock** é definido como **False**. Você pode ler (peek) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro **peek\\_lock** como **True**.
 
 O comportamento da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
@@ -149,13 +149,13 @@ A exclusão de um tópico também exclui todas as assinaturas registradas com o 
 
 Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
 
--   Confira a Referência do MSDN: [Filas, tópicos e assinaturas][].
+-   Confira [Filas, tópicos e assinaturas][].
 -   Referência para [Sqlfilter.Sqlexpression][].
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [pacote do Python Azure]: https://pypi.python.org/pypi/azure
-[Filas, tópicos e assinaturas]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

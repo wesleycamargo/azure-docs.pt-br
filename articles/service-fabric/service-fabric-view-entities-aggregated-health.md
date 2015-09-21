@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # Como exibir relatórios de integridade da Malha do Serviço
@@ -174,7 +174,7 @@ HealthEvents            : None
 O cmdlet do Powershell a seguir obtém a integridade do cluster com política de aplicativo personalizada. Ele filtra os resultados para obter apenas os aplicativos e nós com Erro ou Aviso. Consequentemente, nenhum nó será retornado, pois todos eles estão íntegros. Somente o aplicativo fabric:/WordCount respeita o filtro de aplicativos. Como a política personalizada especifica considerar aviso como erro para o aplicativo fabric:/WordCount, o aplicativo é avaliado em Erro, assim como o cluster.
 
 ```powershell
-PS C:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS c:> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
@@ -326,7 +326,7 @@ O cmdlet para obter a integridade do aplicativos é Get-ServiceFabricApplication
 O cmdlet a seguir retorna a integridade do aplicativo fabric:/WordCount.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
@@ -836,4 +836,4 @@ Sempre que houver um problema no cluster ou aplicativo, observe a integridade do
 [Atualização de aplicativo da Malha de Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

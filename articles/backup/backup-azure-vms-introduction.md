@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao backup de máquinas virtuais do Azure"
+	pageTitle="Introdução ao backup de máquinas virtuais do Azure | Microsoft Azure"
 	description="Uma introdução ao backup de máquinas virtuais no Azure usando o serviço de Backup do Azure"
 	services="backup"
 	documentationCenter=""
@@ -7,16 +7,9 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
-# Backup de máquina virtual do Azure - Introdução
+# Backup de máquinas virtuais do Azure
 
 Esta seção fornece uma introdução ao uso do Backup do Microsoft Azure para proteger as máquinas virtuais do Azure. Lendo-o, você aprenderá sobre:
 
@@ -100,23 +93,25 @@ A imagem abaixo mostra os relacionamentos entre as várias entidades do Backup d
 
 
 ### 2\. Agente de VM
-Antes de iniciar o backup da máquina virtual do Azure, certifique-se de que o agente de VM do Azure esteja instalado corretamente na máquina virtual. Para fazer backup da máquina virtual, o serviço de Backup do Azure instala uma extensão para o agente de VM. Como o agente de VM é um componente opcional no momento em que a máquina virtual é criada, você precisa garantir que a caixa de seleção do agente de VM esteja marcada antes de a máquina virtual ser provisionada.
+Antes de iniciar o backup da máquina virtual do Azure, verifique se o agente de VM do Azure está instalado corretamente na máquina virtual. Para fazer backup da máquina virtual, o serviço de Backup do Azure instala uma extensão para o Agente de VM. Como o agente de VM é um componente opcional no momento em que a máquina virtual é criada, você precisa garantir que a caixa de seleção do agente de VM esteja marcada antes de a máquina virtual ser provisionada.
 
 Saiba mais sobre o [Agente de VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e [como instalá-lo](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ## Limitações
 
-- Não há suporte para o backup de máquinas virtuais IaaS (V2).
+- Não há suporte para o backup de máquinas virtuais baseadas no Gerenciador de Recursos do Azure (também conhecido como IaaS V2).
 - Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
 - Não há suporte para o backup de máquinas virtuais usando o armazenamento Premium.
+- Não há suporte para o backup de máquinas virtuais com vários IPs reservados.
+- Não há suporte para o backup de máquinas virtuais com um IP reservado e nenhum ponto de extremidade definido.
 - Não há suporte para o backup de máquinas virtuais usando várias NICs ou em uma configuração de balanceamento de carga.
 - Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Primeiro, exclua a máquina virtual existente e todos os discos associados e, em seguida, restaure os dados do backup.
 - Não há suporte para backup e restauração entre regiões.
-- O backup de máquinas virtuais com o serviço de Backup do Azure tem suporte somente em algumas regiões. Consulte a lista de [regiões com suporte](http://azure.microsoft.com/regions/#services). Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
+- Há suporte para o backup de máquinas virtuais com o serviço de Backup do Azure em todas as regiões públicas do Azure. Veja aqui uma [lista de verificação](http://azure.microsoft.com/regions/#services) das regiões com suporte. Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
 - O backup de máquinas virtuais com o serviço de Backup do Azure tem suporte somente para as versões selecionadas de sistema operacional:
   - **Linux**: a lista de distribuições aprovadas pelo Azure está disponível [aqui](../virtual-machines-linux-endorsed-distributions.md). Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual.
   - **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
-- A restauração de uma VM controladora de domínio que é parte de uma configuração multi-DC tem suporte somente através do PowerShell. Leia mais sobre [a restauração de um controlador de domínio multi-DC](backup-azure-restore-vms.md#multiple-dcs)
+- A restauração de uma VM controladora de domínio que é parte de uma configuração multi-DC tem suporte somente através do PowerShell. Leia mais sobre [como restaurar um controlador de domínio com vários DCs](backup-azure-restore-vms.md#multiple-dcs)
 
 Se houver algum recurso que você gostaria de ver incluído, [envie-nos comentários](http://aka.ms/azurebackup_feedback).
 
@@ -124,9 +119,7 @@ Se houver algum recurso que você gostaria de ver incluído, [envie-nos comentá
 Para começar a usar o backup de máquinas virtuais, saiba como:
 
 - [Máquinas virtuais de backup](backup-azure-vms.md)
-
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
-
 - [Gerenciar o backup de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

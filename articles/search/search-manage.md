@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Gerenciar seu serviço de Pesquisa no Microsoft Azure
@@ -36,7 +36,7 @@ A pesquisa padrão é cobrada porque você se inscreverá para usar infraestrutu
 
 Para se planejar quanto à capacidade e compreender o impacto da cobrança, recomendamos estes links:
 
-+	[Limites e restrições](http://msdn.microsoft.com/library/dn798934.aspx)
++	[Limites e restrições](search-limits-quotas-capacity.md)
 +	[Detalhes de preços](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 Quando você estiver pronto para se inscrever, confira [Criar um serviço de Pesquisa no portal](search-create-service-portal.md).
@@ -100,7 +100,7 @@ Nesta visualização pública, o monitoramento de recursos é limitado às infor
 
 No painel do serviço, na seção Uso, é possível determinar rapidamente se os níveis de recurso da partição estão adequados para o seu aplicativo.
 
-Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Consulte [Limites e restrições](http://msdn.microsoft.com/library/dn798934.aspx) para obter detalhes.
+Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Consulte [Limites e restrições](search-limits-quotas-capacity.md) para obter detalhes.
 
 +	[Obter estatísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Contar documentos](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -193,4 +193,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Notas de versão da Atualização 0.3 do StorSimple série 8000 – fevereiro de 2015 | Microsoft Azure"
-    description="Descreve os novos recursos, problemas e soluções alternativas da versão de Fevereiro de 2015 do StorSimple."
+    pageTitle="Notas da versão do StorSimple 8000 Atualização 0.3 | Microsoft Azure"
+    description="Descreve os novos recursos e correções, problemas em aberto e as soluções alternativas disponíveis para a versão de fevereiro de 2015 do Microsoft Azure StorSimple (Atualização 0.3)."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/19/2015"
+    ms.date="09/04/2015"
     ms.author="v-sharos" />
 
 # Notas de versão da Atualização 0.3 do StorSimple série 8000 - fevereiro de 2015
@@ -86,4 +86,4 @@ Esta versão não contém nenhuma atualização para o controlador SCSI (SAS) an
 Esta versão não contém nenhuma atualização para o dispositivo virtual. Aplicar esta atualização não alterará a versão do software de um dispositivo virtual.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

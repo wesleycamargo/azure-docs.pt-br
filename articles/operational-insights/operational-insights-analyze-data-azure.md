@@ -47,7 +47,7 @@ O agente é automaticamente instalado e configurado para o seu espaço de trabal
 
 ![Imagem da página Servidores de Insights Operacionais](./media/operational-insights-analyze-data-azure/servers.png)
 
- >[AZURE.NOTE]O [Agente de VM do Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) deve estar instalado para instalar automaticamente o agente para Insights Operacionais.
+ >[AZURE.NOTE]O [Agente de VM do Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) deve estar instalado para instalar automaticamente o agente para Insights Operacionais. Se você tiver uma máquina virtual do Gerenciador de Recursos do Azure, ela não será mostrada na lista e você deverá usar o PowerShell ou criar um modelo do ARM para instalar o agente.
 
 
 
@@ -55,7 +55,9 @@ O agente é automaticamente instalado e configurado para o seu espaço de trabal
 
 Se você preferir que o script faça alterações em suas máquinas virtuais do Azure, habilite o Microsoft Monitoring Agent usando o PowerShell.
 
-O Microsoft Monitoring Agent é uma [extensão de máquina virtual do Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) e você pode gerenciá-lo usando o PowerShell, conforme mostrado no exemplo abaixo.
+O Microsoft Monitoring Agent é uma [extensão de máquina virtual do Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) e você pode gerenciá-lo usando o PowerShell, como mostrado no exemplo abaixo.
+
+Para as máquinas virtuais “clássicas” do Azure, use este PowerShell:
 
 ```powershell
 Add-AzureAccount
@@ -66,6 +68,24 @@ $hostedService="enter hosted service here"
 
 $vm = Get-AzureVM –ServiceName $hostedService
 Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
+```
+Para máquinas virtuais do Gerenciador de Recursos do Azure, use este PowerShell:
+
+```powershell
+Add-AzureAccount
+Switch-AzureMode -Name AzureResourceManager
+
+$workspaceId="enter workspace here"
+$workspaceKey="enter workspace key here"
+
+$resourcegroup = "enter resource group"
+$resourcename = "enter resource group"
+
+$vm = Get-AzureVM -ResourceGroupName $resourcegroup -Name $resourcename
+$location = $vm.Location
+
+Set-AzureVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+
 ```
 
 Ao configurar usando o PowerShell, você precisa fornecer a ID do espaço de trabalho e a Chave Primária. Você pode encontrar a ID do Espaço de Trabalho e a Chave Primária na página **Configurações** do portal de Insights Operacionais.
@@ -96,7 +116,7 @@ Log de eventos do Windows|Informações enviadas ao sistema de registro de event
 Contadores de desempenho|Sistema Operacional e contadores de desempenho personalizados.
 Despejos de falhas|Informações sobre o estado do processo no evento de uma falha do aplicativo.
 Logs de erros personalizados|Logs criados por seu aplicativo ou serviço.
-NET EventSource|Os eventos gerados pelo seu código usando .NET [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)
+NET EventSource|Eventos gerados pelo código usando o .NET [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)
 Manifesto com base no ETW|Eventos ETW gerados por qualquer processo.
 Syslog|Eventos enviados para os daemons Syslog ou Rsyslog
 
@@ -121,7 +141,7 @@ Você pode nos ajudar a priorizar logs adicionais para os Insights Operacionais 
 
 ## Habilitar diagnóstico do Azure em uma função web para coleta de eventos e log do IIS
 
-Consulte [Como habilitar o diagnóstico em um Serviço de Nuvem](https://msdn.microsoft.com/library/azure/dn482131.aspx). Você usa as informações básicas de lá e personaliza as etapas aqui para usar com o Insights Operacionais do Microsoft Azure.
+Consulte [Como habilitar o diagnóstico em um serviço de nuvem](https://msdn.microsoft.com/library/azure/dn482131.aspx). Você usa as informações básicas de lá e personaliza as etapas aqui para usar com o Insights Operacionais do Microsoft Azure.
 
 Com o diagnóstico do Azure habilitado:
 
@@ -131,7 +151,7 @@ Com o diagnóstico do Azure habilitado:
 
 ### Para habilitar o diagnóstico
 
-Para habilitar Logs de Eventos do Windows ou para alterar o scheduledTransferPeriod, configure os Diagnósticos do Azure usando o arquivo de configuração XML (diagnostics.wadcfg), conforme mostrado na [Etapa 2: adicionar o arquivo diagnostics.wadcfg à sua solução do Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) e na [Etapa 3: configurar o diagnóstico para seu aplicativo](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) no tópico Como habilitar os diagnósticos em um Serviço de Nuvem. O arquivo de configuração de exemplo a seguir coleta Logs do IIS e todos os Eventos dos logs do aplicativo e do sistema:
+Para habilitar Logs de Eventos do Windows ou para alterar o scheduledTransferPeriod, configure o Diagnóstico do Azure usando o arquivo de configuração XML (diagnostics.wadcfg), como mostrado na [Etapa 2: adicionar o arquivo diagnostics.wadcfg à sua solução do Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) e na [Etapa 3: configurar o diagnóstico para seu aplicativo](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) no tópico Como habilitar o diagnóstico em um serviço de nuvem. O seguinte arquivo de configuração de exemplo coleta Logs do IIS e todos os Eventos dos logs do Aplicativo e do Sistema:
 
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
@@ -154,7 +174,7 @@ Para habilitar Logs de Eventos do Windows ou para alterar o scheduledTransferPer
     </DiagnosticMonitorConfiguration>
 
 
-Na [Etapa 4: configurar o armazenamento dos seus dados de diagnóstico](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) do tópico Como habilitar o diagnóstico em um Serviço de Nuvem, certifique-se de que seu ConfigurationSettings especifique uma conta de armazenamento, como mostrado no exemplo a seguir:
+Na [Etapa 4: configurar o armazenamento dos dados de diagnóstico](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) do tópico Como habilitar o diagnóstico em um serviço de nuvem, verifique se ConfigurationSettings especifica uma conta de armazenamento, como mostrado no seguinte exemplo:
 
 
     <ConfigurationSettings>
@@ -173,8 +193,8 @@ Use o procedimento a seguir para habilitar os diagnósticos do Azure em uma máq
 ### Para habilitar os diagnósticos do Azure em uma máquina virtual com o Portal de Gerenciamento do Azure
 
 1. Instale o Agente de VM quando criar uma máquina virtual. Se a máquina virtual já existir, verifique se o Agente de VM já está instalado.
-	- Se você usar o Portal de Gerenciamento do Azure padrão para criar a máquina virtual, execute uma **Criação Personalizada** e selecione **Instalar o Agente de VM**.
-	- Se você usar o novo Portal de Gerenciamento do Azure para criar uma máquina virtual, selecione **Configuração Opcional**, **Diagnóstico** e defina o **Status** como **Ativo**.
+	- Se você usar o portal de gerenciamento do Azure padrão para criar a máquina virtual, execute uma **Criação Personalizada** e selecione **Instalar o Agente de VM**.
+	- Se você usar o novo portal de gerenciamento do Azure para criar uma máquina virtual, selecione **Configuração Opcional**, **Diagnóstico** e defina o **Status** como **Ativo**.
 
 	Após a conclusão, a VM terá automaticamente a extensão de diagnóstico do Azure instalada e em execução, que será responsável por coletar os dados de diagnóstico.
 
@@ -231,10 +251,10 @@ Use o procedimento a seguir para habilitar a análise de armazenamento e configu
 
 ### Para habilitar a análise de Insights Operacionais
 
-1. No portal padrão do Azure, navegue para seu espaço de trabalho de Insights Operacionais e selecione a guia **Armazenamento**. ![guia armazenamento do espaço de trabalho](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
+1. No portal do Azure padrão, navegue até seu espaço de trabalho do Operational Insights e selecione a guia **Armazenamento**. ![guia armazenamento do espaço de trabalho](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
 2. Clique em **Adicionar uma Conta de Armazenamento** para abrir a caixa **Adicionar Conta de Armazenamento**.
 3. Selecione a conta de armazenamento que você deseja usar.
-4. Na lista **Tipo de Dados**, selecione um tipo de dados: **Eventos**, **Logs de IIS** ou **Syslog (Linux)**.
+4. Na lista **Tipo de Dados**, selecione um tipo de dados: **Eventos**, **Logs do IIS** ou **Syslog (Linux)**.
 5. Clique na imagem **OK**. <br> ![caixa conta de armazenamento](./media/operational-insights-analyze-data-azure/storage-account.png)
 6. Repita as etapas acima para cada combinação de tipo de dados e conta de armazenamento que deseja coletar.
 
@@ -249,4 +269,4 @@ Em aproximadamente 1 hora, você começará a ver os dados da conta de armazenam
 
 [Definir as configurações de Proxy e Firewall (opcional)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO2-->

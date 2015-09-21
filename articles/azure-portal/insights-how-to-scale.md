@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Dimensionar a contagem de instância manualmente ou automaticamente
@@ -137,4 +137,4 @@ No entanto, você talvez queira ter um dimensionamento mais agressivo durante o 
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

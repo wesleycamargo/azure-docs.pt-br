@@ -2,7 +2,7 @@
 	pageTitle="Application Insights: linguagens e plataformas | Microsoft Azure"
 	description="Linguagens e plataformas disponíveis para o Application Insights"
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -48,6 +48,7 @@
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
++ [Orchard](https://orchardazureappinsights.codeplex.com) 
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
@@ -61,7 +62,7 @@
 
 +	[Log4Net, NLog ou System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J ou Logback](app-insights-java-trace-logs.md)
-+   [Registro semântico](https://github.com/fidmor89/SLAB_AppInsights)&#151; integra-se ao [Bloco de aplicativos do registro semântico](https://msdn.microsoft.com/library/dn440729.aspx)
++   [Registro semântico](https://github.com/fidmor89/SLAB_AppInsights)&#151; é integrado com o [Bloco de aplicativos do registro semântico](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Teste de carga baseado em nuvem](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> Criar seu próprio SDK
@@ -77,4 +78,4 @@ Se não há ainda um SDK para sua linguagem ou plataforma, talvez você deseje c
 
 <!--Link references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

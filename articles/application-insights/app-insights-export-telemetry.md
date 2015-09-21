@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exportação contínua de telemetria por meio do Application Insights"
-	description="Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Exportação contínua de telemetria por meio do Application Insights" 
+	description="Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
@@ -64,7 +64,9 @@ Os dados também incluem os resultados de qualquer [teste de disponibilidade via
 
 ## <a name="get"></a> Inspecionar os dados
 
-Para inspecionar o armazenamento do Azure no Visual Studio, abra **Exibir** e **Cloud Explorer**. (Se você não tiver esse comando de menu, precisará instalar o Azure SDK: abra o diálogo **Novo Projeto**, expanda Visual C# /Nuvem e escolha **Obter o Microsoft Azure SDK para .NET**.)
+Você pode inspecionar o armazenamento diretamente no portal. Clique em **Procurar**, selecione sua conta de armazenamento e abra **Contêineres**.
+
+Para inspecionar o armazenamento do Azure no Visual Studio, abra **Exibir** e **Cloud Explorer**. (Se você não tiver esse comando de menu, precisará instalar o SDK do Azure: abra o diálogo **Novo Projeto**, expanda Visual C#/Nuvem e escolha **Obter o SDK do Microsoft Azure para .NET**.)
 
 Quando você abrir o armazenamento de blob, verá um contêiner com um conjunto de arquivos de blob. O URI de cada arquivo deriva o nome do recurso Application Insights, da chave de instrumentação e do tipo/data/hora de telemetria. (O nome do recurso está todo em letras minúsculas e a chave de instrumentação omite traços.)
 
@@ -202,4 +204,4 @@ Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/serv
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

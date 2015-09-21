@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Hubs de Notificação do Azure | Microsoft Azure"
+	pageTitle="Introdução aos Hubs de Notificação do Azure para Windows Phone | Microsoft Azure"
 	description="Neste tutorial, você aprende a usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo Silverlight do Windows Phone 8 ou Windows Phone 8.1."
 	services="notification-hubs"
 	documentationCenter="windows"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="wesmc"/>
 
-# Introdução aos Hubs de Notificação
+# Introdução aos Hubs de Notificação para Windows Phone
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -137,17 +137,17 @@ Você pode enviar notificações usando Hubs de Notificação de qualquer back-e
 
 4. Clique com o botão direito do mouse em **Ferramentas**, clique em **Gerenciador de Pacotes da Biblioteca** e em **Console do Gerenciador de Pacotes**.
 
-	Isso exibe o Console do Gerenciador de Pacotes.
+	Isso exibe a Console do Gerenciador de Pacotes.
 
-6. Na janela do console, defina **Projeto padrão** para seu novo projeto de aplicativo de console e, na janela do console, execute o seguinte comando:
+5.  Na janela do Console do Gerenciador de Pacotes, defina o **Projeto padrão** para o seu novo projeto de aplicativo de console e execute o seguinte comando na janela do console:
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
-	Isso adiciona uma referência ao SDK do Barramento de Serviço do Azure com o <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">pacote NuGet do WindowsAzure.ServiceBus</a>.
+	Isso adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacote NuGet Microsoft.Azure.Notification Hubs</a>.
 
-5. Abra o arquivo Program.cs e adicione a seguinte instrução `using`:
+6. Abra o arquivo Program.cs e adicione a seguinte instrução `using`:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. Na classe **Programa**, adicione o seguinte método:
 
@@ -215,4 +215,4 @@ Neste exemplo simples, você transmite notificações para todos os seus disposi
 [catálogo de blocos]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

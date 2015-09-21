@@ -7,13 +7,17 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 
 		Switch-AzureMode AzureResourceManager
 	
+	Este é o resultado esperado para o comando descrito acima:
+
 		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING]O cmdlet Switch-AzureMode será preterido em breve. Quando isso acontecer, todos os cmdlets do Gerenciador de Recursos serão renomeados.
 	
-3. Se necessário, execute o cmdlet **New-AzureResourceGroup** para criar um novo grupo de recursos, como mostrado abaixo. Para nosso cenário, crie um grupo de recursos denominado *TestRG*. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
+3. Se necessário, execute o cmdlet **New-AzureResourceGroup** para criar um novo grupo de recursos, como mostrado abaixo. Para o nosso cenário, crie um grupo de recursos chamado *TestRG*. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
+
+	Este é o resultado esperado para o comando descrito acima:
 	
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -31,6 +35,8 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
+	Este é o resultado esperado para o comando descrito acima:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -49,17 +55,19 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 		NetworkInterfaces : null
 		Subnets           : []
 
-5. Execute o cmdlet **Get-AzureVirtualNetwork** para armazenar o objeto de rede virtual em uma variável, como mostrado abaixo.
+5. Execute o cmdlet **Get-AzureVirtualNetwork** para armazenar o objeto de rede virtual em uma variável, conforme mostrado abaixo.
 
 		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
 	>[AZURE.TIP]Você pode combinar as etapas 4 e 5 executando **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
-6. Execute o cmdlet **Add-AzureVirtualNetworkSubnetConfig** para adicionar uma sub-rede à nova Rede Virtual, como mostrado abaixo.
+6. Execute o cmdlet **Add-AzureVirtualNetworkSubnetConfig** para adicionar uma sub-rede à nova Vnet, como mostrado abaixo.
 
 		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
+	Este é o resultado esperado para o comando descrito acima:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -89,15 +97,17 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 		                      }
 		                    ]
 
-7. Repita a etapa 6 acima para cada sub-rede que você deseja criar. O comando a seguir cria a sub-rede *BackEnd* para nosso cenário.
+7. Repita a etapa 6 acima para cada sub-rede que você deseja criar. O comando a seguir cria a sub-rede *BackEnd* para o nosso cenário.
 
 		Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
 
-8. Embora você crie sub-redes, elas atualmente só existem na variável local usada para recuperar a VNet criada na etapa 4 acima. Para salvar as alterações no Azure, execute o cmdlet **Set-AzureVirtualNetwork** como mostrado abaixo.
+8. Embora você crie sub-redes, elas atualmente só existem na variável local usada para recuperar a VNet criada na etapa 4 acima. Para salvar as alterações no Azure, execute o cmdlet **Set-AzureVirtualNetwork**, como mostrado abaixo.
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
+	Este é o resultado esperado para o comando descrito acima:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -137,4 +147,4 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 		                      }
 		                    ]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

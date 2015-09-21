@@ -19,7 +19,7 @@
 
 #Configurando o AD do Azure para gerenciamento de acesso de aplicativos de autoatendimento
 
-O gerenciamento de grupo de autoatendimento permite aos usuários criar e gerenciar grupos de segurança no Microsoft Azure Active Directory (AD) e oferece aos usuários a possibilidade de associações de grupo de segurança à solicitação, que podem ser subsequentemente aprovadas ou negadas pelo proprietário do grupo. Usando recursos de gerenciamento de grupo de autoatendimento, o controle diário de associação de grupo pode ser delegado à pessoa que compreender o contexto dos negócios naquela associação.
+O gerenciamento de grupo de autoatendimento permite aos usuários criar e gerenciar grupos de segurança no Microsoft Azure Active Directory (AD) e oferece aos usuários a possibilidade de associações de grupo de segurança à solicitação, que podem ser subsequentemente aprovadas ou negadas pelo proprietário do grupo. Usando recursos de gerenciamento de grupo de autoatendimento, o controle diário de associação de grupo pode ser delegado à pessoa que compreender o contexto dos negócios naquela associação. É importante lembrar que os recursos de gerenciamento de grupo de autoatendimento só estão disponíveis para grupos de segurança e para grupos do Office 365, não para grupos de segurança habilitados para email ou listas de distribuição.
 
 O gerenciamento de grupo de autoatendimento atualmente está composto de dois cenários essenciais:gerenciamento de grupo delegado e gerenciamento de grupo de autoatendimento.
 
@@ -49,4 +49,4 @@ Estes são alguns tópicos que fornecem informações adicionais sobre o Active 
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

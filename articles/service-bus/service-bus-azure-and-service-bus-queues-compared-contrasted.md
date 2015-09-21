@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Filas do Azure e filas do Barramento de Serviço — comparações e contrastes"
-	description="Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure."
-	services="service-bus"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor="tysonn"/>
+   description="Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure."
+   services="service-bus"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="tysonn" />
 <tags 
    ms.service="service-bus"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/25/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="09/09/2015"
+   ms.author="sethm" />
 
 # Filas do Azure e filas do Barramento de Serviço — comparações e contrastes
 
@@ -257,7 +257,7 @@ Esta seção aborda os recursos de autenticação e autorização com suporte na
 |Critérios de comparação|Filas do Azure|Filas de barramento de serviço|
 |---|---|---|
 |Autenticação|**Chave simétrica**|**Chave simétrica**|
-|Modelo de controle de acesso|Acesso delegado via tokens de SAS.|RBAC por meio de ACS|
+|Modelo de segurança|Acesso delegado via tokens de SAS.|SAS|
 |Federação do provedor de identidade|**Não**|**Sim**|
 
 ### Informações adicionais
@@ -265,10 +265,6 @@ Esta seção aborda os recursos de autenticação e autorização com suporte na
 - Cada solicitação de ambas as tecnologias de enfileiramento deve ser autenticada. Não há suporte para filas públicas com acesso anônimo. Usando SAS, você pode tratar esse cenário publicando uma SAS somente gravação, SAS somente leitura ou até mesmo uma SAS de acesso completo.
 
 - O esquema de autenticação fornecido pelas Filas do Azure envolve o uso de uma chave simétrica, que é um HMAC (Message Authentication Code) baseado em hash, calculado com o algoritmo SHA-256 e codificado como uma cadeia de caracteres **Base64**. Para obter mais informações sobre o respectivo protocolo, consulte [Autenticando o acesso à sua conta de armazenamento](https://msdn.microsoft.com/library/hh225339.aspx). As filas do Barramento de Serviço oferecem suporte a um modelo semelhante usando chaves simétricas. Para obter mais informações, consulte [Autenticação de Assinatura de Acesso Compartilhado com Barramento de Serviço](https://msdn.microsoft.com/library/dn170477.aspx).
-
-- O Controle de Acesso do Active Directory do Microsoft Azure (também conhecido como Serviço de Controle de Acesso ou ACS) com suporte do Barramento de Serviço oferece três funções distintas: **Admin**, **Remetente** e **Receptor**, que não tem suporte no momento das Filas do Azure.
-
-- Como o Barramento de Serviço oferece integração do ACS, ele permite a federação com o Active Directory (usando ADFS) e outros provedores de identidade comuns da Web.
 
 ## Custo
 
@@ -315,4 +311,4 @@ Os artigos a seguir fornecem mais orientação e informações sobre como usar a
 - [Noções básicas sobre a cobrança de armazenamento do Azure — largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

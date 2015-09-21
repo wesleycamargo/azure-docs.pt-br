@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Como usar os perfis de pontuação na Pesquisa do Azure
@@ -126,4 +126,4 @@ Precisa voltar atrás e aprender mais sobre a criação de índice? [Assista a e
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

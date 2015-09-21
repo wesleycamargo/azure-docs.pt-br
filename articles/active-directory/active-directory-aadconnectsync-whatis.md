@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="09/08/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -34,9 +34,10 @@ O que você deseja fazer em seguida?
 - Para saber mais sobre sincronização de senha, consulte [Implementar a sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md).
 - Para saber mais sobre os usuários e contatos no Azure AD Connect Sync, consulte [Noções básicas sobre usuários e contatos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 - Se você quiser alterar a configuração padrão, consulte as [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
-- Se você quiser explorar os atributos sincronizados com o AD do Azure, consulte [Atributos sincronizados com o Active Directory do Azure](active-directory-aadconnectsync-attributes-synchronized.md)
-- Para saber mais sobre provisionamento declarativo, consulte [Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-- Para explorar funções de provisionamento declarativo, consulte [Referência de funções](active-directory-aadconnectsync-functions-reference.md)
+- Se quiser saber mais sobre como operar o servidor de sincronização, confira [Considerações e tarefas operacionais](active-directory-aadconnectsync-operations.md)
+- Se quiser explorar os atributos sincronizados com o AD do Azure, confira [Atributos sincronizados com o Active Directory do Azure](active-directory-aadconnectsync-attributes-synchronized.md)
+- Para saber mais sobre provisionamento declarativo, confira [Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
+- Para explorar as funções de provisionamento declarativo, confira [Referência de funções](active-directory-aadconnectsync-functions-reference.md)
 
 
 
@@ -48,4 +49,4 @@ O que você deseja fazer em seguida?
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

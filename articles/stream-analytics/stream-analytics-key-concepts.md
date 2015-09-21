@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Saiba mais sobre conceitos principais do Stream Analytics | Microsoft Azure" 
 	description="Conheça os conceitos principais do Azure Stream Analytics: os componentes de um trabalho do Stream Analytics, inclusive com entradas e saídas com suporte, configuração do trabalho e métricas." 
+	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok" />
 
 
@@ -92,12 +93,12 @@ Dependendo do tipo de entrada usado no trabalho, alguns campos adicionais com me
 	</tr>
 </table>
 
-###Partições com pouca ou nenhuma entrada de dados
+### Partições com pouca ou nenhuma entrada de dados
 Ao ler por meio de fontes de entrada que têm várias partições e uma ou mais partições se atrasar ou não tiver dados, o trabalho de streaming precisará decidir como lidar com essa situação para manter os eventos que fluem através do sistema. A configuração de entrada 'Máximo permitido de atraso de chegada' controla esse comportamento e é definida por padrão para aguardar indefinidamente pelos dados, o que significa que os carimbos de data/hora dos eventos não serão alterados, mas também aqueles eventos fluirão com base na partição de entrada mais lenta e pararão de fluir se uma ou mais partições de entrada não tiverem dados de entrada. Isso é útil se os dados forem distribuídos uniformemente entre as partições de entrada e a consistência de tempo entre os eventos for crítica.
 
 Você também pode optar por esperar apenas por um período limitado: o “Atraso de chegada máximo permitido” determina o intervalo após o qual o trabalho decidirá avançar, deixando as partições de intervalo de entrada para trás e atuando em eventos de acordo com a configuração de “Ação para eventos tardios”, descartando seus eventos ou ajustando os carimbos de data/hora de seus eventos se os dados chegarem mais tarde. Isso será útil se a latência for crítica e a mudança de carimbo de data/hora for tolerada, mas a entrada não puder ser distribuída uniformemente.
 
-###Partições com eventos fora de ordem
+### Partições com eventos fora de ordem
 Quando a consulta de trabalho de streaming usa a palavra-chave TIMESTAMP BY, não há nenhuma garantia sobre a ordem na qual os eventos chegam para a entrada, alguns eventos na mesma partição de entrada podem estar atrasando, o parâmetro 'Máximo permitido de desordem dentro de uma entrada' faz com que o trabalho de streaming atue em eventos que estão fora da tolerância de ordem, de acordo com a configuração de 'Ação para eventos tardios', soltando seus eventos ou ajustando os carimbos de data/hora de seus eventos.
 
 ### Recursos adicionais
@@ -138,7 +139,7 @@ O destino de saída é onde os resultados do trabalho de Stream Analytics serão
 - Armazenamento de tabela do Azure - o armazenamento de tabela do Azure é um repositório de dados estruturado com menos restrições no esquema. Entidades com esquemas diferentes e diferentes tipos podem ser armazenadas na mesma tabela do Azure. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente. Para obter mais informações, consulte [Introdução ao Armazenamento do Azure](../storage/storage-introduction.md) e [Criando uma estratégia de particionamento escalonável para o Armazenamento de tabela do Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Banco de dados SQL do Azure - Esse destino de saída é apropriado para dados relacionais por natureza ou para aplicativos que dependem do conteúdo que está sendo hospedado em um banco de dados.
 
-## Unidades de streaming ##
+## Unidades de streaming
 Como parte do processo de oferecer uma experiência de desempenho mais previsível aos clientes, o Stream Analytics do Azure usa SUs (Unidades de Streaming) para representar os recursos e a capacidade de executar um trabalho. As SUs fornecem uma maneira de descrever a capacidade de processamento de evento relativa, com base em uma medida combinada de CPU, memória e taxas de leitura e gravação. Cada unidade de streaming corresponde a aproximadamente 1MB/segundo de transferência. Cada trabalho do Stream Analytics do Azure requer um mínimo de uma unidade de streaming, o que é o padrão para todos os trabalhos. Para saber mais sobre como selecionar o número correto de SUs para um trabalho, consulte [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 
 ## Trabalhos de escala
@@ -167,7 +168,7 @@ As métricas a seguir estão disponíveis para monitorar o uso e o desempenho do
 - Erros de conversão de dados - O número de erros de conversão de dados gerado por um trabalho de Stream Analytics.
 
 ### Logs de operação
-É a melhor abordagem para depuração ou um trabalho de Stream Analytics de solução de problemas por meio de logs de operação do Azure. Os logs de operação podem ser acessados na seção **Serviços de Gerenciamento** do portal. Para inspecionar os logs do seu trabalho, defina o **Tipo de serviço** para **Stream Analytics** e o **Nome do serviço** para o nome do seu trabalho.
+É a melhor abordagem para depuração ou um trabalho de Análise de fluxo de solução de problemas por meio de Logs de operação do Azure. Os Logs de operação podem ser acessados na seção **Serviços de gerenciamento** do portal. Para inspecionar os logs do seu trabalho, defina o **Tipo de serviço** para **Stream Analytics** e o **Nome do serviço** para o nome do seu trabalho.
 
 
 ## Gerenciar trabalhos 
@@ -181,7 +182,7 @@ Você pode ajustar as seguintes configurações de nível superior para um traba
 - **Iniciar saída** - Use essa configuração para especificar quando esta tarefa começará a produzir saída resultante. Se a consulta associada inclui uma janela, o trabalho começará a pegar a entrada por meio de fontes de entrada no início da duração da janela necessárias para produzir o primeiro evento de saída na hora especificada. Há duas opções, **Hora de início do trabalho** e **Personalizado**. A configuração padrão é a **Hora de início do trabalho**. Para a opção **Personalizada**, você deve especificar data e hora. Essa configuração é útil para especificar quantos dados históricos nas fontes de entrada para consumir ou para pegar a inclusão de dados de uma hora específica, como quando um trabalho foi passado interrompido. 
 - **Política de fora de ordem** - As configurações para manipular eventos que não chegam ao trabalho de Stream Analytics em sequência. Você pode designar um limite de tempo para reordenar eventos, especificando uma janela de tolerância a falhas e também determinando uma ação em eventos fora essa janela: **Remover** ou **Ajustar**. **Remover** removerá todos os eventos recebidos fora de ordem e **Ajustar** alterará o Sistema. O carimbo de data/hora de eventos fora de ordem para o carimbo de data/hora do evento ordenado recebido mais recentemente. 
 - **Política de entrada tardia** - Ao ler por meio de fontes de entrada que têm várias partições e uma ou mais partições se atrasar ou não tiver dados, o trabalho de streaming precisará decidir como lidar com essa situação para manter os eventos que fluem através do sistema. A configuração de entrada 'Máximo permitido de atraso de chegada' controla esse comportamento e é definida por padrão para aguardar indefinidamente pelos dados, o que significa que os carimbos de data/hora dos eventos não serão alterados, mas também aqueles eventos fluirão com base na partição de entrada mais lenta e pararão de fluir se uma ou mais partições de entrada não tiverem dados de entrada. Isso é útil se os dados forem distribuídos uniformemente entre as partições de entrada e a consistência de tempo entre os eventos for crítica. O usuário também pode optar por apenas esperar por um período limitado, o 'Máximo permitido de atraso de chegada' determina o intervalo após o qual o trabalho decidirá avançar, deixando as partições de intervalo de entrada para trás e atuando em eventos de acordo com a configuração de 'Ação para eventos tardios’, descartando seus eventos ou ajustando os carimbos de data/hora de seus eventos se os dados chegarem mais tarde. Isso será útil se a latência for crítica e a mudança de carimbo de data/hora for tolerada, mas a entrada não puder ser distribuída uniformemente.
-- **Localidade** - Use essa configuração para especificar a preferência de internacionalização para o trabalho de Stream Analytics. Enquanto carimbos de dados de localidade neutra, configurações que afetam como o trabalho será analisado, comparar e classificar dados. Para a versão de visualização, há suporte apenas para **en-US**.
+- **Localidade** - Use essa configuração para especificar a preferência de internacionalização para o trabalho de Stream Analytics. Enquanto carimbos de dados de localidade neutra, configurações que afetam como o trabalho será analisado, comparar e classificar dados. Para a versão de visualização, há suporte apenas para **pt-BR**.
 
 ### Status
 
@@ -192,7 +193,7 @@ O status dos trabalhos de Stream Analytics pode ser inspecionado no portal do Az
 
 
 ## Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 
 ## Próximas etapas
@@ -206,4 +207,4 @@ Agora que você está familiarizado com os principais conceitos do Stream Analyt
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

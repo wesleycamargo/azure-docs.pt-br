@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Hubs de Notificação do Azure | Microsoft Azure"
+	pageTitle="Introdução aos Hubs de Notificação do Azure para aplicativos da Windows Store | Microsoft Azure"
 	description="Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo da Windows Store ou do Windows Phone 8.1 (não Silverlight)."
 	services="notification-hubs"
 	documentationCenter="windows"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/24/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Introdução aos Hubs de Notificação
+# Introdução aos Hubs de Notificação para aplicativos da Windows Store
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -191,7 +191,7 @@ Você pode enviar notificações usando Hubs de Notificação de qualquer back-e
 
 	Isso exibe o Console do Gerenciador de Pacotes no Visual Studio.
 
-6. Na janela do Console do Gerenciador de Pacotes, defina o **Projeto padrão** para seu novo projeto de aplicativo de console e execute o seguinte comando na janela de console:
+6. Na janela do Console do Gerenciador de Pacotes, defina o **Projeto padrão** para o seu novo projeto de aplicativo de console e execute o seguinte comando na janela do console:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
@@ -264,4 +264,4 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 [catálogo de blocos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [visão geral de emblema]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

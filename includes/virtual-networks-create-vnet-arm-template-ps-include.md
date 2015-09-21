@@ -5,16 +5,20 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 1. Se você nunca tiver usado o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o final para entrar no Azure e selecionar sua assinatura.
 2. Execute o cmdlet **Switch-AzureMode** para alternar para modo Gerenciador de Recursos, como mostrado abaixo.
 
-	Switch-AzureMode AzureResourceManager
+		Switch-AzureMode AzureResourceManager
 
-	AVISO: O cmdlet Switch-AzureMode foi preterido e será removido em uma versão futura.
+	Este é o resultado esperado para o comando descrito acima:
+
+		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING]O cmdlet Switch-AzureMode será preterido em breve. Quando isso acontecer, todos os cmdlets do Gerenciador de Recursos serão renomeados.
 
-3. Se necessário, execute o cmdlet **New-AzureResourceGroup** para criar um novo grupo de recursos. O comando a seguir cria um grupo de recursos denominado *TestRG* na região do azure do *Centro dos EUA*. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
+3. Se necessário, execute o cmdlet **New-AzureResourceGroup** para criar um novo grupo de recursos. O comando abaixo cria um grupo de recursos chamado *TestRG* na região do Azure do *Centro dos EUA*. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
+	Este é o resultado esperado para o comando descrito acima:
+
 		ResourceGroupName : TestRG
 		Location          : centralus
 		ProvisioningState : Succeeded
@@ -29,7 +33,8 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
 		New-AzureResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-		
+			
+	Este é o resultado esperado para o comando descrito acima:
 		
 		DeploymentName    : TestVNetDeployment
 		ResourceGroupName : TestRG
@@ -55,6 +60,7 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
 		Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
+	Este é o resultado esperado para o comando descrito acima:
 		
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -95,4 +101,4 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		                      }
 		                    ]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

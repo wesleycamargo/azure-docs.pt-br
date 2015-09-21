@@ -1,22 +1,23 @@
-<properties 
+<properties
 	pageTitle="Processo e Tecnologia de Análise Avançada em ação: usando o SQL Server | Microsoft Azure"
-	description="Processo e Tecnologia de Análise Avançada em ação"
+	description="Processo e Tecnologia de Análise Avançada em ação"  
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
-<tags 
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/09/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
-                
+
 # Processo e Tecnologia de Análise Avançada em ação: usando o SQL Server
 
 Neste tutorial, você obtém uma explicação passo a passo sobre como criar e implantar um modelo usando um conjunto de dados disponível publicamente -- o conjunto de dados [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). O procedimento segue o guia ADAPT (Azure Advanced Analytics Process and Technology).
@@ -53,7 +54,7 @@ Reformularemos três problemas de previsão com base em *tip\_amount*, sendo ele
 1. Classificação binária: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo de positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo de negativo.
 
 2. Classificação multiclasse: prever o intervalo da gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
-	
+
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
 		Class 2 : tip_amount > $5 and tip_amount <= $10
@@ -126,7 +127,7 @@ O desempenho do carregamento/transferência de grandes volumes de dados para um 
 	- Selecione **Configurações de Banco de Dados** na lista **Selecionar uma página** à esquerda.
 
 	- Verifique e/ou altere os **Locais padrão de banco de dados** para os locais de **Disco de Dados** de sua escolha. Este é o local onde residem os novos bancos de dados se criados com as configurações de local padrão.
-	
+
 		![Padrões de banco de dados SQL][15]
 
 5. Para criar um novo banco de dados e um conjunto de grupos de arquivos para conter as tabelas particionadas, abra o script de exemplo **create\_db\_default.sql**. O script criará um novo banco de dados denominado **TaxiNYC** e 12 grupos de arquivos no local de dados padrão. Cada grupo de arquivos conterá um mês de dados trip\_data e trip\_fare. Modifique o nome do banco de dados, se desejado. Clique em **!Executar** para executar o script.
@@ -173,7 +174,7 @@ Neste exercício, você vai:
 
 Quando você estiver pronto para prosseguir para o Aprendizado de Máquina do Azure, você pode:
 
-1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo de [Leitor][reader] no Aprendizado de Máquina do Azure ou 
+1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo de [Leitor][reader] no Aprendizado de Máquina do Azure ou
 2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela de banco de dados e use a nova tabela no módulo [Leitor][reader] no Aprendizado de Máquina do Azure.
 
 Nesta seção, salvaremos a consulta final para extrair e coletar amostras dos dados. O segundo método é demonstrado na seção [Exploração de dados e engenharia de recursos no IPython Notebook](#ipnb).
@@ -184,7 +185,7 @@ Para uma verificação rápida do número de linhas e colunas nas tabelas preenc
 	SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
 
 	-- Report number of columns in table nyctaxi_trip
-	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip' 
+	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
 #### Exploração: distribuição de corridas por licença
 
@@ -232,12 +233,12 @@ Este exemplo localiza o número de corridas que receberam gorjetas em comparaç�
 Esse exemplo calcula a distribuição dos intervalos de gorjetas em um determinado período de tempo (ou no conjunto de dados completo se abrangendo todo o ano). Essa é a distribuição das classes de rótulo que serão usados posteriormente para a modelagem de classificação multiclasse.
 
 	SELECT tip_class, COUNT(*) AS tip_freq FROM (
-		SELECT CASE 
+		SELECT CASE
 			WHEN (tip_amount = 0) THEN 0
 			WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
 			WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
 			WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-			ELSE 4 
+			ELSE 4
 		END AS tip_class
 	FROM nyctaxi_fare
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
@@ -247,7 +248,7 @@ Esse exemplo calcula a distribuição dos intervalos de gorjetas em um determina
 
 Este exemplo converte a longitude e latitude de saída e chegada para pontos geográficos do SQL, calcula a distância de viagem usando a diferença de pontos geográficos do SQL e retorna uma amostra aleatória dos resultados de comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
 
-	SELECT 
+	SELECT
 	pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
 	,dropoff_location=geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326)
 	,trip_distance
@@ -290,7 +291,7 @@ A sequência recomendada ao trabalhar com grandes volumes de dados é a seguinte
 
 - Leia em uma pequena amostra dos dados em um quadro de dados na memória.
 - Execute algumas visualizações e explorações usando os dados de amostrados.
-- Experimente a engenharia de recursos usando os dados amostrados. 
+- Experimente a engenharia de recursos usando os dados amostrados.
 - Para exploração de dados maiores, manipulação de dados e engenharia de recursos, use o Python para emitir consultas SQL diretamente no banco de dados do SQL Server na VM do Azure.
 - Decida o tamanho da amostra a ser usado para criação de modelo do Aprendizado de Máquina do Azure.
 
@@ -319,45 +320,45 @@ Inicialize as configurações de conexão de banco de dados nas seguintes variá
 #### Relatar o número de linhas e colunas na tabela nyctaxi\_trip
 
     nrows = pd.read_sql('''
-		SELECT SUM(rows) FROM sys.partitions 
+		SELECT SUM(rows) FROM sys.partitions
 		WHERE object_id = OBJECT_ID('nyctaxi_trip')
 	''', conn)
-    
+
 	print 'Total number of rows = %d' % nrows.iloc[0,0]
-    
+
     ncols = pd.read_sql('''
-		SELECT COUNT(*) FROM information_schema.columns 
+		SELECT COUNT(*) FROM information_schema.columns
 		WHERE table_name = ('nyctaxi_trip')
 	''', conn)
-    
+
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
 - Número total de linhas = 173179759  
 - Número total de colunas = 14
-    
+
 #### Leitura de uma pequena amostra de dados do Banco de Dados do SQL Server
 
     t0 = time.time()
-    
+
 	query = '''
-		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, 
-			f.tolls_amount, f.total_amount, f.tip_amount 
-		FROM nyctaxi_trip t, nyctaxi_fare f 
+		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
+			f.tolls_amount, f.total_amount, f.tip_amount
+		FROM nyctaxi_trip t, nyctaxi_fare f
 		TABLESAMPLE (0.05 PERCENT)
-		WHERE t.medallion = f.medallion 
-		AND   t.hack_license = f.hack_license 
+		WHERE t.medallion = f.medallion
+		AND   t.hack_license = f.hack_license
 		AND   t.pickup_datetime = f.pickup_datetime
 	'''
 
     df1 = pd.read_sql(query, conn)
-    
+
     t1 = time.time()
     print 'Time to read the sample table is %f seconds' % (t1-t0)
-    
+
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
 O tempo para ler a tabela de exemplo é de 6.492000 segundos Número de linhas e colunas recuperadas = (84952, 21)
-    
+
 #### Estatísticas Descritivas
 
 Agora está tudo pronto para explorar os dados amostrados. Começamos observando as estatísticas descritivas para o campo **trip\_distance** (ou qualquer outro):
@@ -426,14 +427,14 @@ Nesta seção, criaremos uma nova tabela para armazenar os dados amostrados e en
 Nesta seção, unimos as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, extraímos uma amostra aleatória de 1% e mantemos os dados de amostra em uma nova tabela chamada **nyctaxi\_one\_percent**:
 
     cursor = conn.cursor()
-    
+
     drop_table_if_exists = '''
         IF OBJECT_ID('nyctaxi_one_percent', 'U') IS NOT NULL DROP TABLE nyctaxi_one_percent
     '''
-    
+
     nyctaxi_one_percent_insert = '''
         SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount
-		INTO nyctaxi_one_percent 
+		INTO nyctaxi_one_percent
 		FROM nyctaxi_trip t, nyctaxi_fare f
 		TABLESAMPLE (1 PERCENT)
 		WHERE t.medallion = f.medallion
@@ -441,11 +442,11 @@ Nesta seção, unimos as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, extraím
 		AND   t.pickup_datetime = f.pickup_datetime
 		AND   pickup_longitude <> '0' AND dropoff_longitude <> '0'
     '''
-    
+
     cursor.execute(drop_table_if_exists)
     cursor.execute(nyctaxi_one_percent_insert)
     cursor.commit()
-    
+
 ### Exploração de dados usando consultas SQL em IPython Notebook
 
 Nesta seção, exploraremos distribuições de dados usando os dados de amostra de 1% que são mantidos na nova tabela criada acima. Observe que explorações semelhantes podem ser executadas usando as tabelas originais, opcionalmente usando **TABLESAMPLE** para limitar a exploração de amostras ou limitando os resultados em um período de tempo determinado usando as partições **pickup\_datetime**, conforme ilustrado na seção [Exploração de dados e engenharia de recursos no SQL Server](#dbexplore).
@@ -453,8 +454,8 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
 #### Exploração: distribuição diária de corridas
 
     query = '''
-		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c 
-		FROM nyctaxi_one_percent 
+		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
+		FROM nyctaxi_one_percent
 		GROUP BY CONVERT(date, dropoff_datetime)
 	'''
 
@@ -463,11 +464,11 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
 #### Exploração: distribuição de corridas por licença
 
     query = '''
-		SELECT medallion,count(*) AS c 
-		FROM nyctaxi_one_percent 
+		SELECT medallion,count(*) AS c
+		FROM nyctaxi_one_percent
 		GROUP BY medallion
 	'''
-    
+
 	pd.read_sql(query,conn)
 
 ### Geração de recursos usando consultas SQL no IPython Notebook
@@ -484,13 +485,13 @@ No exemplo a seguir, geramos dois conjuntos de rótulos a serem utilizados para 
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
 		'''
-		
+
 		cursor.execute(nyctaxi_one_percent_add_col)
 		cursor.commit()
-    
+
     	nyctaxi_one_percent_update_col = '''
-        	UPDATE nyctaxi_one_percent 
-            SET 
+        	UPDATE nyctaxi_one_percent
+            SET
                tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
                tip_class = CASE WHEN (tip_amount = 0) THEN 0
                                 WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
@@ -515,22 +516,22 @@ Este exemplo transforma um campo de categoria em um campo numérico, substituind
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		WITH B AS 
+		WITH B AS
 		(
-			SELECT medallion, hack_license, 
+			SELECT medallion, hack_license,
 				SUM(CASE WHEN vendor_id = 'cmt' THEN 1 ELSE 0 END) AS cmt_count,
 				SUM(CASE WHEN vendor_id = 'vts' THEN 1 ELSE 0 END) AS vts_count
-			FROM nyctaxi_one_percent 
+			FROM nyctaxi_one_percent
 			GROUP BY medallion, hack_license
-		) 
-    
-		UPDATE nyctaxi_one_percent 
+		)
+
+		UPDATE nyctaxi_one_percent
 		SET nyctaxi_one_percent.cmt_count = B.cmt_count,
 			nyctaxi_one_percent.vts_count = B.vts_count
-		FROM nyctaxi_one_percent A INNER JOIN B 
+		FROM nyctaxi_one_percent A INNER JOIN B
 		ON A.medallion = B.medallion AND A.hack_license = B.hack_license
 	'''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -546,20 +547,20 @@ Este exemplo transforma um campo numérico contínuo em intervalos de categoria 
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS 
+		WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS
 		(
-			SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs, 
+			SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs,
 			NTILE(5) OVER (ORDER BY trip_time_in_secs) AS BinNumber from nyctaxi_one_percent
 		)
-    
-		UPDATE nyctaxi_one_percent 
+
+		UPDATE nyctaxi_one_percent
 		SET trip_time_bin = B.BinNumber
-		FROM nyctaxi_one_percent A INNER JOIN B 
+		FROM nyctaxi_one_percent A INNER JOIN B
 		ON A.medallion = B.medallion
 		AND A.hack_license = B.hack_license
 		AND A.pickup_datetime = B.pickup_datetime
 	'''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -568,7 +569,7 @@ Este exemplo transforma um campo numérico contínuo em intervalos de categoria 
 Este exemplo divide a representação decimal de um campo de latitude e/ou longitude em vários campos de região de granularidade diferente, como país, estado, cidade, bloco, etc. Observe que os novos campos geográficos não são mapeados para os locais reais. Para obter informações sobre o mapeamento de locais de codificação geográfica, consulte [Serviços REST do Bing Mapas](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
-		ALTER TABLE nyctaxi_one_percent 
+		ALTER TABLE nyctaxi_one_percent
 		ADD l1 varchar(6), l2 varchar(3), l3 varchar(3), l4 varchar(3),
 			l5 varchar(3), l6 varchar(3), l7 varchar(3)
 	'''
@@ -578,13 +579,13 @@ Este exemplo divide a representação decimal de um campo de latitude e/ou longi
 
     nyctaxi_one_percent_update_col = '''
 		UPDATE nyctaxi_one_percent
-		SET l1=round(pickup_longitude,0) 
+		SET l1=round(pickup_longitude,0)
 			, l2 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 1 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),1,1) ELSE '0' END     
 			, l3 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 2 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),2,1) ELSE '0' END     
 			, l4 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 3 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),3,1) ELSE '0' END     
 			, l5 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 4 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),4,1) ELSE '0' END     
 			, l6 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 5 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),5,1) ELSE '0' END     
-			, l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END 
+			, l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END
 	'''
 
     cursor.execute(nyctaxi_one_percent_update_col)
@@ -655,12 +656,12 @@ Um exemplo de um experimento de classificação binária lendo dados diretamente
 
 ## <a name="mldeploy"></a>Implantando modelos no Aprendizado de Máquina do Azure
 
-Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para saber mais sobre a publicação de serviços Web de AM do Azure, consulte [Publicar um serviço Web do Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md).
+Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do AM do Azure, veja [Implantar um serviço Web do Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md).
 
 Para implantar um novo serviço Web, você precisa:
 
 1. Criar um experimento de pontuação.
-2. Publicar o serviço Web.
+2. Implantar o serviço Web.
 
 Para criar um experimento de pontuação por meio de um experimento de treinamento **Concluído**, clique em **CRIAR EXPERIMENTO DE PONTUAÇÃO** na barra de ação inferior.
 
@@ -674,11 +675,11 @@ O Aprendizado de Máquina do Azure tentará criar um experimento de pontuação 
 
 Quando o experimento de pontuação for criado, revise-o e ajuste conforme necessário. Um ajuste típico é substituir o conjunto de dados de entrada e/ou a consulta por uma exclua os campos de rótulo, pois eles não estarão disponíveis quando o serviço for chamado. Também é uma prática recomendada reduzir o tamanho do conjunto de dados de entrada e/ou da consulta a apenas alguns registros, suficientes para indicar o esquema de entrada. Para a porta de saída, é comum excluir todos os campos de entrada e incluir apenas os **Rótulos Pontuados** e **Possibilidades Pontuadas** na saída usando o módulo [Colunas de Projeto][project-columns].
 
-Um exemplo de experimento de pontuação é mostrado na figura abaixo. Quando estiver pronto para publicar, clique no botão **PUBLICAR SERVIÇO WEB** na barra de ação inferior.
+Um exemplo de experimento de pontuação é mostrado na figura abaixo. Quando estiver pronto para implantar, clique no botão **PUBLICAR SERVIÇO WEB** na barra de ação inferior.
 
 ![Publicação do AM do Azure][11]
 
-Para recapitular, neste tutorial passo a passo você criou um ambiente de ciência de dados do Azure, trabalhou com um grande conjunto de dados públicos até a aquisição dos dados para treinamento de modelo e publicação de um serviço Web de Aprendizado de Máquina do Azure.
+Para recapitular, neste tutorial passo a passo, você criou um ambiente de ciência de dados do Azure, trabalhou com um grande conjunto de dados públicos até a aquisição dos dados para o treinamento de modelo e a implantação de um serviço Web do Aprendizado de Máquina do Azure.
 
 ### Informações de Licença
 
@@ -713,6 +714,5 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

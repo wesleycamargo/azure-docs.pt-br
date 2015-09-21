@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -156,9 +156,18 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 	Console.WriteLine(smoothStreamingUri);
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
- 
+
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Consulte também
 
 [Baixar ativos](media-services-deliver-asset-download.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

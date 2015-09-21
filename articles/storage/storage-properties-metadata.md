@@ -1,7 +1,7 @@
 
 <properties 
-  pageTitle="Definir e Recuperar as Propriedades e os Metadados para Recursos de Armazenamento | Microsoft Azure" 
-  description="Saiba como definir e recuperar propriedades e metadados para recursos de Armazenamento do Azure." 
+  pageTitle="Definir e recuperar as propriedades e os metadados para objetos no Armazenamento do Azure | Microsoft Azure" 
+  description="Armazene metadados personalizados em objetos no Armazenamento do Azure e defina e recupere propriedades do sistema." 
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="08/04/2015" 
+  ms.date="09/03/2015" 
   ms.author="tamram"/>
 
 
@@ -106,4 +106,4 @@ O exemplo de código a seguir cria um novo contêiner e define metadados para el
 - [Introdução ao Armazenamento de Blobs para o .NET](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO2-->

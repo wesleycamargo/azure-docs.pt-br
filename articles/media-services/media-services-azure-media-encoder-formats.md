@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Codecs e formatos do Codificador de Mídia do Azure"
-	description="Este tópico fornece uma visão geral dos codecs e formatos do Codificador de Mídia do Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Codecs e formatos do Codificador de Mídia do Azure" 
+	description="Este tópico fornece uma visão geral dos codecs e formatos do Codificador de Mídia do Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/05/2015" 
 	ms.author="juliako"/>
 
 #Codecs e formatos do Codificador de Mídia do Azure
@@ -21,7 +21,7 @@
 Este documento contém uma lista dos formatos e codecs de arquivo de entrada e saída mais comuns que você pode usar com o Codificador de Mídia do Azure.
 
 
-##Formatos de arquivo de entrada de vídeo (contêineres)
+##Formatos de arquivo de entrada (contêineres)
  
 Formato de arquivo (extensões de arquivo)|Suportado
 ---|---
@@ -33,32 +33,25 @@ Câmera de vídeo digital MPEG-2 (MOD) (.mod) |Sim
 Arquivo TS (fluxo de transporte) de DVD (.ts) |Sim
 Arquivo VOB (objeto de vídeo) de DVD (.vob) |Sim
 Arquivo de codec do Expression Encoder Screen Capture (.xesc) |Sim
-MP4 (.mp4) |Sim
+MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Sim
 Fluxo de sistema MPEG-1 (.mpeg, .mpg) |Sim
 Arquivo de vídeo MPEG-2 (.m2v) |Sim
-Formato de arquivo do Smooth Streaming (PIFF 1.3) (.ismv) |Sim
 Vídeo do Windows Media (WMV) (.wmv) |Sim
+Áudio AC-3 (Dolby Digital) (.ac3)|Sim
+Formato AIFF (.aiff)|Sim
+Broadcast Wave Format (.bwf)|Sim
+MP3 (MPEG-1 Audio Layer 3) (.mp3)|Sim
+Audiolivro MPEG-4 (.m4b)|Sim
+Arquivo WAVE (.wav)|Sim
+Áudio do Windows Media (.wma)|Sim
 Adobe® Flash® F4V |Não		
 MXF/SMPTE 377M |Limitado 
 GXF |Não		 
 [Gravação (DVR-MS) de vídeo Digital da Microsoft](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Não
 Matroska/WebM |Não
 
-Há suporte para alguns formatos descompactados. Para saber mais, consulte [Formatos de vídeo descompactado compatíveis](#uncompressed)
 
-##Formatos de arquivo de áudio de entrada
-
-Formato de arquivo (extensões de arquivo)|Suportado
----|---
-Áudio AC-3 (Dolby Digital) (.ac3)|Sim
-Formato AIFF (.aiff)|Sim
-Broadcast Wave Format (.bwf)|Sim
-MP3 (MPEG-1 Audio Layer 3) (.mp3)|Sim
-Áudio MP4 (.m4A)|Sim
-Audiolivro MPEG-4 (.m4b)|Sim
-Arquivo WAVE (.wav)|Sim
-Áudio do Windows Media (.wma)|Sim
-
+Há suporte para alguns formatos descompactados. Para saber mais, veja [Formatos de vídeo descompactado compatíveis](#uncompressed)
 
 ##Codecs de vídeo de entrada
 
@@ -119,11 +112,11 @@ Formato de arquivo|Codec de vídeo|Codec de áudio
 ---|---|---
 Windows Media (* .wmv; * .wma)|VC-1 (Perfis Avançado, Principal e Simples)|Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio Lossless
 MP4 (* .mp4)|H.264 (Perfis Alto, Principal e Linha de base)|AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus
-Formato de arquivo do Smooth Streaming (PIFF 1.1) (* .ismv; * .isma)|VC-1 (Perfil Avançado)<p>H.264 (Perfis Alto, Principal e Linha de base) |Windows Media Audio Standard, Windows Media Audio Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
+Formato de arquivo do Smooth Streaming (PIFF 1.1) (* .ismv; * .isma)|VC-1 (Perfil Avançado)<p>H.264 (Perfis Alto, Principal e de Linha de base) |Windows Media Audio Standard, Windows Media Audio Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
 
-Para obter os outros codecs e filtros com suporte nos Serviços de Mídia, consulte [Filtros do Windows DirectShow](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
+Para obter os outros codecs e filtros compatíveis nos Serviços de Mídia, veja [Filtros do Windows DirectShow](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
-##<a id="uncompressed"></a>Formatos de vídeo descompactado com suporte 
+##<a id="uncompressed"></a>Formatos de vídeo descompactado compatíveis 
 
 Os Serviços de Mídia do Azure dão suporte à importação de dados de vídeos descompactados.
 
@@ -141,4 +134,12 @@ Dados em formato YUV 211|Um formato YUV empacotado. Uma amostra Y a cada dois pi
 Formato Cirrus Logic Jr YUV 411|Formato Cirrus Logic Jr YUV 411 com menos de 8 bits por amostra Y, U e V. Uma amostra Y a cada pixel, uma amostra U e V a cada quatro pixels horizontais em cada linha; cada linha vertical de amostra.
 Formato YVU9 produzido em Indeo|Formato YVU9 produzido em Indeo com informações adicionais sobre as diferenças do último quadro. 9,5 bits por pixel, mas relatado como 9.
 
-<!---HONumber=September15_HO1-->
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Controle de acesso baseado em função nos Serviços Móveis e Active Directory do Azure (Windows Store) | Microsoft Azure" 
-	description="Saiba como controlar o acesso com base em funções do Active Directory do Azure em seu aplicativo da Windows Store." 
+	pageTitle="Controle de acesso baseado em função nos Serviços Móveis usando o JavaScript e o Active Directory do Azure (Windows Store) | Microsoft Azure" 
+	description="Saiba como controlar o acesso baseado em funções do Active Directory do Azure em seu aplicativo da Windows Store usando um Serviço Móvel com um back-end do JavaScript." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# Controle de acesso baseado em função nos Serviços Móveis e Active Directory do Azure
+# Controle de acesso baseado em função nos Serviços Móveis usando o .NET e o Active Directory do Azure
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -24,7 +24,7 @@
 
 O controle de acesso baseado em funções (RBAC) é a prática de atribuir permissões a funções que seus usuários podem ter, com limites bem definidos sobre o que determinadas classes de usuários podem e não podem fazer. Este tutorial o orientará durante a adição de RBAC básica para os Serviços Móveis do Azure.
 
-Este tutorial demonstrará o controle de acesso baseado em função, verificando cada associação de usuário ao grupo de Vendas definido no Active Directory do Azure (AAD). A verificação de acesso será feita com JavaScript no back-end do serviço móvel usando a [Graph API] do Active Directory do Azure. Somente usuários que pertencem à função Vendas podem consultar os dados.
+Este tutorial demonstrará o controle de acesso baseado em função, verificando cada associação de usuário ao grupo de Vendas definido no Active Directory do Azure (AAD). A verificação de acesso será feita com o JavaScript no back-end do Serviço Móvel usando a [Graph API] do Active Directory do Azure. Somente usuários que pertencem à função Vendas podem consultar os dados.
 
 
 >[AZURE.NOTE]O objetivo deste tutorial é ampliar o seu conhecimento de autenticação para incluir práticas de autorização. É esperado que você conclua primeiro o tutorial [Adicionar Autenticação a seu aplicativo de Serviço Móvel] usando o provedor de autenticação do Active Directory do Azure. Este tutorial continua a atualizar o aplicativo TodoItem usado no tutorial [Adicionar autenticação ao aplicativo].
@@ -288,4 +288,4 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Acessar informações de Gráfico do Active Directory do Azure]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

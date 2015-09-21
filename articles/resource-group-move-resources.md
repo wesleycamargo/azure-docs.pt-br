@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mover recursos para um novo grupo de recursos"
-	description="Use o Azure PowerShell ou a API REST para mover recursos para um novo grupo de recursos do Gerenciador de Recursos do Azure."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="wpickett"
+	pageTitle="Mover recursos para um novo grupo de recursos" 
+	description="Use o Azure PowerShell ou a API REST para mover recursos para um novo grupo de recursos do Gerenciador de Recursos do Azure." 
+	services="azure-resource-manager" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -39,12 +39,13 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 
 - Gerenciamento da API
 - Pesquisa do Azure
+- Aplicativos Web do Azure (algumas [limitações](app-service-web/app-service-move-resources.md) se aplicam)
 - Data Factory
 - Cofre da Chave
 - Mobile Engagement
 - Insights Operacionais
 - Cache Redis
-- Aplicativos Web do Azure (algumas [limitações](app-service-web/app-service-move-resources.md) se aplicam)
+- Banco de dados SQL
 
 Os serviços que dão suporte à transferência para um novo grupo de recursos, mas não para uma nova assinatura são:
 
@@ -62,7 +63,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 ## Usando o PowerShell para mover recursos
 
-Para mover recursos existentes para outra assinatura ou grupo de recursos, use o comando **Move-AzureResource**.
+Para mover os recursos existentes para outra assinatura ou grupo de recursos, use o comando **Move-AzureResource**.
 
 O primeiro exemplo mostra como mover um recurso para um novo grupo de recursos.
 
@@ -101,4 +102,4 @@ Na solicitação, inclua um objeto JSON que define o grupo de recursos de destin
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

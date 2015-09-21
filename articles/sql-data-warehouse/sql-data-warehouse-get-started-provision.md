@@ -13,12 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Introdução: provisionar um SQL Data Warehouse #
 
-Este artigo é um guia acelerado para ajudá-lo a provisionar um SQL Data Warehouse no Azure. Ao seguir este guia, você executará essas tarefas:
+Este artigo é um guia para ajudar você a provisionar um SQL Data Warehouse no Azure. Ao seguir este guia, você executará essas tarefas:
 
 1. Criar um novo banco de dados do SQL Data Warehouse.
 2. Configurar um novo servidor lógico.
@@ -27,7 +27,7 @@ Este artigo é um guia acelerado para ajudá-lo a provisionar um SQL Data Wareho
 ## Avaliação gratuita do Azure ##
 Você precisará ter uma assinatura do Azure para concluir as tarefas abaixo. Se você não tiver acesso a uma assinatura do Azure, resolva isso, pois é a primeira etapa!
 
-Você pode obter acesso a uma [avaliação gratuita][] que permite que você experimente os serviços no Azure, incluindo o SQL Data Warehouse.
+Você pode obter uma [avaliação gratuita][] que permite experimentar os serviços do Azure, incluindo o SQL Data Warehouse.
 
 
 ## Faça logon no Portal do Azure ##
@@ -76,7 +76,7 @@ A primeira configuração é para nomear o banco de dados.
 
 A opção de desempenho é *importante*. O SQL Data Warehouse fornece sua capacidade escalonável por esse controle deslizante. Você pode aumentar ou diminuir o desempenho a qualquer momento, não apenas quando configurar o data warehouse. Quanto mais você desliza para a direita maior os recursos à sua disposição. Se esses recursos não são mais necessários, então você pode mover o controle deslizante; assim, você poupa nos custos. O SQL Data Warehouse permite alterar o perfil de desempenho sob demanda sem a necessidade de recriar o data warehouse ou mover dados.
 
-- Use o controle deslizante agora para ver como as unidades de data warehouse aumentam à medida que você desliza para a direita e diminuem a medida que você volta para a esquerda.
+- Agora, use o controle deslizante para ver como as unidades de data warehouse (DWU) aumentam à medida que você desliza para a direita e diminuem à medida que você volta para a esquerda.
 
 - Antes de sair dessa etapa, não se esqueça de retornar o controle deslizante para a esquerda. Seu novo data warehouse é, portanto não é necessário muito. Salve os recursos para o restante de sua avaliação!
 
@@ -151,22 +151,20 @@ Agora que você configurou o firewall poderá fazer conexões da área de trabal
 
 ## Próximas etapas
 
-Agora que o serviço SQL Data Warehouse foi provisionado com êxito, podemos avançar para aprender a usá-lo.
+Agora que o serviço SQL Data Warehouse foi provisionado com êxito, podemos avançar para aprender a usá-lo. Próximas etapas:
 
-As próximas etapas são, portanto, para saber como:
-
-1. [Conectar e consultar][] o data warehouse.
-2. Carregar os [dados da amostra].
+1. [Conecte e consulte][] o data warehouse.
+2. Carregue os [dados de exemplo].
 
 <!--Image references-->
 
 
 <!-- Articles -->
-[Conectar e consultar]: sql-data-warehouse-get-started-connect-query.md
-[dados da amostra]: ./sql-data-warehouse-get-started-load-samples.md
+[Conecte e consulte]: sql-data-warehouse-get-started-connect-query.md
+[dados de exemplo]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
-[avaliação gratuita]: https://azure.microsoft.com/pt-br/pricing/free-trial/
+[avaliação gratuita]: https://azure.microsoft.com/pt-BR/pricing/free-trial/
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

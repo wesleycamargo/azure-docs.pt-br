@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Monitore o desempenho em aplicativos da web
@@ -22,23 +22,26 @@
 
 Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. O [Application Insights][start] vai lhe dizer sobre quaisquer problemas de desempenho e exceções, e o ajudará a localizar e diagnosticar as causas raízes.
 
-O Application Insights pode monitorar os aplicativos da web ASP.NET e serviços WCF hospedados no local ou em máquinas virtuais, bem como em sites do Microsoft Azure.
+O Application Insights pode monitorar serviços e aplicativos Web Java e ASP.NET e serviços WCF. Eles podem ser hospedados no local, em máquinas virtuais ou como sites do Microsoft Azure.
+
+No lado do cliente, o Application Insights pode realizar a telemetria de páginas da Web e de uma grande variedade de dispositivos, incluindo iOS, Android e aplicativos da Windows Store.
 
 
 ## <a name="setup"></a>Configurar o monitoramento de desempenho
 
 Se você ainda não tem o Application Insights adicionado ao seu projeto (ou seja, não tem o ApplicationInsights.config), escolha uma destas formas para começar:
 
-* [Adicione o Application Insights ao seu projeto de aplicativo no Visual Studio][greenbrown] - Recomendado. Além do monitoramento de desempenho passivo, você pode inserir o registro em log do diagnóstico e acompanhar o uso.
-* [Monitorar o desempenho de um site ao vivo agora][redfield] - Dessa forma, você não precisa atualizar o projeto do aplicativo ou reimplantar o site da web.
-* [Para um site do Microsoft Azure](../insights-how-to-customize-monitoring.md) você já pode ver as métricas na lente de Monitoramento do site. 
-
-Usando qualquer um desses métodos, você verá rapidamente os dados na lâmina de visão geral do Application Insights.
+* [Aplicativos Web ASP.NET](app-insights-asp-net.md)
+* [Aplicativos Web J2EE](app-insights-java-get-started.md)
 
 
-## <a name="view"></a>Explorando métricas
+## <a name="view"></a>Explorando métricas de desempenho
 
-Clique em qualquer bloco para ver mais detalhes, e para ver os resultados por um período mais longo. Por exemplo, clique no bloco Solicitações e, em seguida, selecione um intervalo de tempo:
+No [portal do Azure](https://portal.azure.com), navegue até o recurso do Application Insights que você criou para seu aplicativo. A folha de visão geral mostra os dados de desempenho básicos:
+
+
+
+Clique em qualquer gráfico para ver mais detalhes e para ver os resultados por um período mais longo. Por exemplo, clique no bloco Solicitações e, em seguida, selecione um intervalo de tempo:
 
 
 ![Clique por mais dados e selecione um intervalo de tempo](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
@@ -106,7 +109,7 @@ Ao selecionar qualquer métrica, desabilitará as outras que não podem aparecer
 
 Algumas das métricas dentre as quais você pode escolher são [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). O Windows fornece uma ampla variedade deles, mas você também pode definir seus próprios contadores de desempenho.
 
-Este exemplo mostra os contadores de desempenho que estão disponíveis por padrão. [Adicionamos um gráfico separado ](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador e nomeamos o gráfico [salvando-o como um favorito](app-insights-metrics-explorer.md#editing-charts-and-grids):
+Este exemplo mostra os contadores de desempenho que estão disponíveis por padrão. [Adicionamos um gráfico separado](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador e nomeamos o gráfico [salvando-o como um favorito](app-insights-metrics-explorer.md#editing-charts-and-grids):
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
@@ -120,7 +123,7 @@ Se os contadores que deseja não estiverem na lista de propriedades, você poder
       </Counters>
     </Add>
 
-O formato é `\Category(instance)\Counter"`, ou apenas `\Category\Counter` para categorias que não têm instâncias. Para saber quais contadores estão disponíveis em seu sistema, leia [esta introdução](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
+O formato é `\Category(instance)\Counter"`, ou apenas `\Category\Counter` para categorias que não têm instâncias. Para saber quais contadores estão disponíveis no sistema, leia [esta introdução](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 `ReportAs` é necessário para os nomes de contadores que contêm caracteres além dos seguintes: letras, colchetes arredondados, barras "/", hifens, sublinhados, espaços e pontos.
 
@@ -183,4 +186,4 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

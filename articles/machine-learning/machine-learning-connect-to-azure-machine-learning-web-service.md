@@ -1,44 +1,44 @@
-<properties 
-	pageTitle="Conectar a um Serviço Web de Aprendizado de Máquina | Microsoft Azure" 
-	description="Com C# ou Python, conecte a um serviço Web de Aprendizado de Máquina do Azure usando uma chave de autorização." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Conectar a um Serviço Web de Aprendizado de Máquina | Microsoft Azure"
+	description="Com C# ou Python, conecte a um serviço Web de Aprendizado de Máquina do Azure usando uma chave de autorização."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/17/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/09/2015" 
 	ms.author="derrickv" />
 
 
-# Conectar a um Serviço Web de Aprendizado de Máquina do Azure 
-A experiência do desenvolvedor de Aprendizado de Máquina do Azure é uma API de serviço Web para fazer previsões de dados de entrada em tempo real ou em modo de lote. Você pode usar o Estúdio de Aprendizado de Máquina do Azure para criar previsões e publicar um serviço Web do Aprendizado de Máquina do Azure.
+# Conectar a um Serviço Web de Aprendizado de Máquina do Azure
+A experiência do desenvolvedor de Aprendizado de Máquina do Azure é uma API de serviço Web para fazer previsões de dados de entrada em tempo real ou em modo de lote. Você pode usar o Estúdio de Aprendizado de Máquina do Azure para criar previsões e implantar um serviço Web do Aprendizado de Máquina do Azure.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Para obter informações sobre como criar e publicar um serviço Web de Aprendizado de Máquina do Azure usando o Estúdio:
+Para saber como criar e implantar um serviço Web do Aprendizado de Máquina do Azure usando o Estúdio:
 
-- [Publicar um serviço Web de Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md)
+- [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md)
 - [Introdução ao Estúdio AM](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Visualização de Aprendizado de Máquina do Azure](https://studio.azureml.net/)
 - [Centro de Documentação do Aprendizado de Máquina](http://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Serviço Web de Aprendizado de Máquina do Azure ##
 
-Com o serviço Web de Aprendizado de Máquina do Azure (AM), um aplicativo externo se comunica com um modelo de pontuação do fluxo de trabalho de AM em tempo real. Uma chamada de serviço Web AM retorna resultados de previsão para um aplicativo externo. Para fazer uma chamada de serviço Web AM, passe uma chave de API que é criada quando você publica uma previsão. O serviço Web AM baseia-se em REST, uma opção popular de arquitetura para projetos de programação da Web.
+Com o serviço Web de Aprendizado de Máquina do Azure (AM), um aplicativo externo se comunica com um modelo de pontuação do fluxo de trabalho de AM em tempo real. Uma chamada de serviço Web AM retorna resultados de previsão para um aplicativo externo. Para fazer uma chamada de serviço Web do AM, transmita uma chave de API que é criada quando você implanta uma previsão. O serviço Web AM baseia-se em REST, uma opção popular de arquitetura para projetos de programação da Web.
 
 O Aprendizado de Máquina do Azure tem dois tipos de serviços:
 
-- Serviço de Solicitação-Resposta (RR) – Um serviço de baixa latência e altamente escalável que fornece uma interface para os modelos sem monitoração de estado criados e publicados no Estúdio AM.
+- Serviço de Solicitação-Resposta (RRS) – Um serviço de baixa latência e altamente escalonável que fornece uma interface para os modelos sem monitoração de estado criados e implantados no Estúdio AM.
 - Serviço de Execução de Lote (BES) – Um serviço assíncrono que pontua um lote de registros de dados.
 
-Para obter mais informações sobre serviços Web de Aprendizado de Máquina do Azure, consulte [Publicar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md).
+Para obter mais informações sobre os serviços Web do Aprendizado de Máquina do Azure, veja [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Obtenha uma chave de autorização de Aprendizado de Máquina do Azure ##
 Você pode obter uma chave de API do serviço Web de um serviço Web AM. Você pode obtê-la no Estúdio de Aprendizado de Máquina do Microsoft Azure ou no Portal de Gerenciamento do Azure.
@@ -59,7 +59,7 @@ Você pode obter uma chave de API do serviço Web de um serviço Web AM. Você p
 Você pode conectar a um serviço Web de Aprendizado de Máquina do Azure usando qualquer linguagem de programação que dá suporte à resposta e solicitação HTTP. Você pode exibir exemplos em C#, Python e R de uma página de Ajuda do serviço Web do AM do Azure.
 
 ### Para exibir uma página de Ajuda da API do serviço Web do AM do Azure ###
-Uma página de Ajuda da API do AM do Azure é criada quando você publica um serviço Web. Consulte [Passo a passo de Aprendizado de Máquina do Azure - Publicar Serviço Web](machine-learning-walkthrough-5-publish-web-service.md).
+Uma página de ajuda da API do AM do Azure é criada quando você implanta um serviço Web. Confira [Passo a passo do Aprendizado de Máquina do Azure – Implantar serviço Web](machine-learning-walkthrough-5-publish-web-service.md).
 
 
 **Para exibir uma página de Ajuda da API do AM do Azure** no Estúdio de Aprendizado de Máquina do Microsoft Azure:
@@ -89,7 +89,7 @@ Para se conectar a um serviço Web de AM, o pacote de Nuget **Microsoft.AspNet.W
 
 1. Publique o experimento “Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2”, parte da coleção de exemplos do AM do Azure.
 2. Atribua apiKey com a chave de um serviço Web. Veja como obter uma chave de autorização AM do Azure.
-3. Atribua serviceUri com o URI de solicitação. 
+3. Atribua serviceUri com o URI de solicitação.
 
 
 ### Exemplo de Python ###
@@ -103,7 +103,4 @@ Para se conectar a um serviço Web do AM do Azure, use a biblioteca **urllib2** 
 2. Atribua apiKey com a chave de um serviço Web. Veja como obter uma chave de autorização AM do Azure.
 3. Atribua serviceUri com o URI de solicitação. Veja como obter um URI de solicitação.
 
-	
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Execute qualquer aplicativo do Windows em qualquer dispositivo com o Azure RemoteApp"
-	description="Saiba como compartilhar qualquer aplicativo do Windows com os usuários usando o Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
-	editor=""/>
+   pageTitle="Execute qualquer aplicativo do Windows em qualquer dispositivo com o Azure RemoteApp | Microsoft Azure"
+   description="Saiba como compartilhar qualquer aplicativo do Windows com os usuários usando o Azure RemoteApp."
+   services="remoteapp"
+   documentationCenter=""
+   authors="lizap"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="remoteapp"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="compute"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="compute"
+   ms.date="09/02/2015"
+   ms.author="elizapo"/>
 
 # Execute qualquer aplicativo do Windows em qualquer dispositivo com o Azure RemoteApp
 
@@ -109,4 +109,4 @@ Agora que você já dominou a criação de uma coleção, tente criar uma [cole�
 
 <!--Image references-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

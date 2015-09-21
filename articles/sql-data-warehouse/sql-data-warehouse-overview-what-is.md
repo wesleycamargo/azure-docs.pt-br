@@ -1,9 +1,9 @@
 <properties
-   pageTitle="O que é o SQL Data Warehouse | Microsoft Azure"
-   description="Banco de dados distribuído de nível corporativo na nuvem do Azure com capacidade de processar volumes de petabytes de dados relacionais e não relacionais. Ele é o primeiro data warehouse de nuvem do setor que pode ser expandido, reduzido e pausado questão de segundos."
+   pageTitle="O que é o SQL Data Warehouse do Azure | Microsoft Azure"
+   description="Banco de dados distribuído de nível corporativo com capacidade de processar volumes de petabytes de dados relacionais e não relacionais. Ele é o primeiro data warehouse de nuvem do setor que pode ser expandido, reduzido e pausado questão de segundos."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="twounder"
    manager="jhubbard"
    editor=""/>
 
@@ -13,17 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="09/09/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
-# O que é o SQL Data Warehouse?
+# O que é o SQL Data Warehouse do Azure?
 
-O SQL Data Warehouse é um banco de dados distribuído de nível corporativo na nuvem do Azure com capacidade de processar volumes de petabytes de dados relacionais e não relacionais. Ele é o primeiro data warehouse de nuvem do setor que pode ser expandido, reduzido e pausado questão de segundos.
+O SQL Data Warehouse do Azure é um banco de dados distribuído de nível corporativo com capacidade de processar volumes de petabytes de dados relacionais e não relacionais. Ele é o primeiro data warehouse de nuvem do setor que pode ser expandido, reduzido e pausado em questão de segundos com recursos SQL comprovados.
 
 O SQL Data Warehouse combina o que há de melhor em confiabilidade e qualidade de banco de dados relacional de nível corporativo com computação em nuvem. Leia mais sobre os componentes principais de design do SQL Data Warehouse.
 
 ## Expandir, reduzir ou pausar recursos de computação
-Com o SQL Data Warehouse, os dados são armazenados no armazenamento de escala em nuvem e a computação é escalonada de modo independente, permitindo que você pague pelo desempenho de consulta conforme a necessidade. Agora, você pode implantar, expandir, reduzir e, até mesmo, pausar a computação dinamicamente. Aproveite o armazenamento em escala de nuvem e aplique a computação de consulta com base nas necessidades sazonais. Quando em pausa, você paga apenas pelo armazenamento.
+O SQL Data Warehouse apresenta armazenamento e computação separados, permitindo que cada um seja dimensionado independentemente. Usando o armazenamento de escala em nuvem e a computação do Azure, o SQL Data Warehouse permite pagar pelo desempenho da consulta à medida que você precisar dela e quando precisar dela. Agora, você pode implantar, expandir, reduzir e até mesmo pausar dinamicamente a computação em questão de segundos, o que permite comprar as informações que sua empresa precisa. Alterar o volume de computação é tão simples como mover um controle deslizante para a esquerda ou para a direita.
+
+Com a capacidade de controlar totalmente o volume de computação independentemente do armazenamento, o SQL Data Warehouse permite pausar a computação. Enquanto mantém o armazenamento in-loco, a computação é enviada ao pool central, o que gera economia. Quando necessário, basta retomar a computação e ter seu dados e computação disponíveis para sua carga de trabalho.
 
 > [AZURE.NOTE]As DWUs (Unidades de Data Warehouse) são as unidades de escala para recursos de computação no SQL Data Warehouse.
 
@@ -76,4 +78,4 @@ Saiba mais sobre a [carga de trabalho do data warehouse]. [Provisione] e carregu
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

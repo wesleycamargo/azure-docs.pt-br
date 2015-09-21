@@ -7,11 +7,16 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
 		azure config mode arm
 
+	Este é o resultado esperado para o comando descrito acima:
+
 		info:    New mode is arm
 
-3. Se necessário, execute **azure group create** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
+3. Se necessário, execute **azure group create** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
+
+	Este é o resultado esperado para o comando descrito acima:
+
 		info:    Executing command group create
 		+ Getting resource group TestRG
 		+ Creating resource group TestRG
@@ -30,6 +35,8 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 4. Execute o cmdlet **azure group deployment create** para implantar a nova Rede Virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+
+	Este é o resultado esperado para o comando descrito acima:
 
 		info:    Executing command group deployment create
 		+ Initializing template configurations and parameters
@@ -58,9 +65,11 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 	- **-f (ou --template-file)**. Caminho para o arquivo de modelo ARM.
 	- **-e (ou --parameters-file)**. Caminho para o arquivo de parâmetros ARM.
 
-5. Execute o comando **azure network vnet show** para exibir as propriedades de nova vnet, como mostrado abaixo.
+5. Execute o comando **azure network vnet show** para exibir as propriedades da nova rede virtual, como mostrado abaixo.
 
 		azure network vnet show -g TestRG -n TestVNet
+
+	Este é o resultado esperado para o comando descrito acima:
 
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"
@@ -80,4 +89,4 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -48,7 +48,20 @@ Armazenamento de dados secundário | Servidor VMM único | Replique as máquinas
 
 As tecnologias de replicação de ASR são compatíveis com qualquer aplicativo em execução em uma máquina virtual. Conduzimos testes adicionais em parceria com as equipes de produto do aplicativo a fim de dar mais suporte a cada aplicativo.
 
-**Cargas de trabalho** | <p>**Replicar máquinas virtuais Hyper-V**</p><p>**(para o site secundário)**</p>|<p>**Replicar máquinas virtuais Hyper-V**</p><p>**(para o Azure)**</p>|<p>**Replicar máquinas virtuais VMware**</p><p>**(para o site secundário)**</p>|<p>**Replicar máquinas virtuais VMware**</p><p>**(para o Azure)****</p>---|---|---|---|---Active Directory, DNS | Y | Y | Y | Em breve, aplicativos Web (IIS, SQL) | Y | Y | Y | Em breve, SCOM | Y | Y | Y | Em breve, Sharepoint | Y | Y | Y | Em breve, <p>SAP</p><p>Replicar site SAP para o Azure para não cluster</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Em breve, Exchange (não DAG) | Y | Em breve | Y | Em breve, VDI/Área de Trabalho Remota | Y | Y | Y | Em breve, <p>Linux</p><p>(sistema operacional e aplicativos)</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Em breve, Dynamics AX | Y | Y | Y | Em breve Dynamics CRM | Em breve | Em breve | Y | Em breve, Oracle | Em breve | Em breve | Y (testado pela Microsoft) | Em breve
+**Carga de trabalho** | <p>**Replicar máquinas virtuais Hyper-V**</p> <p>**(para o site secundário)**</p> | <p>**Replicar máquinas virtuais Hyper-V**</p><p>**(para o Azure)**</p> | <p>**Replicar máquinas virtuais VMware**</p> <p>**(para o site secundário)**</p> | <p>**Replicar máquinas virtuais VMware**</p><p>**(para o Azure)**</p>
+---|---|---|---|---
+Active Directory, DNS | Y | Y | Y | Y 
+Aplicativos Web (IIS, SQL) | Y | Y | Y | Y
+SCOM | Y | Y | Y | Y
+Sharepoint | Y | Y | Y | Y
+<p>SAP</p><p>Replicar site do SAP para o Azure para não cluster</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft)
+Exchange (não DAG) | Y | Em breve | Y | Y
+Área de Trabalho Remota/VDI | Y | Y | Y | N/D 
+<p>Linux</p> <p>(sistema operacional e aplicativos)</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) 
+Dynamics AX | Y | Y | Y | Y
+Dynamics CRM | Y | Em breve | Y | Em breve
+Oracle | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft)
+Windows File Server | Y | Y | Y | Y
 
 
 ## Recursos e requisitos 
@@ -77,4 +90,4 @@ Mapeamento de armazenamento|Não aplicável|Mapeia classificações de armazenam
 Depois de concluir esta visão geral, [leia as práticas recomendadas](site-recovery-best-practices.md) para começar a planejar a implantação.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use o StorSimple Snapshot Manager para conectar e gerenciar dispositivos StorSimple | Microsoft Azure"
+   pageTitle="Gerenciar dispositivos com o StorSimple Snapshot Manager | Microsoft Azure"
    description="Descreve como usar o snap-in StorSimple Snapshot Manager MMC para conectar e gerenciar dispositivos StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos StorSimple
@@ -262,4 +262,4 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo em esp
 
 [Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

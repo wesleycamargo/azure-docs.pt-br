@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.date="09/03/2015"
 	ms.author="tamram"/>
 
 # Análise de Armazenamento
@@ -62,7 +62,7 @@ Os seguintes tipos de solicitações anônimas são registrados:
 
 - Solicitações GET com falha com o código de erro 304 (não modificado).
 
-Todas as outras solicitações anônimas com falha não estão conectadas. Uma lista completa dos dados registrados está documentada nos tópicos [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx) e [Formato do log de análise de armazenamento](https://msdn.microsoft.com/library/hh343259.aspx)).
+Todas as outras solicitações anônimas com falha não estão conectadas. Uma lista completa dos dados registrados está documentada nos tópicos [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx) e Formato do log de análise de armazenamento](](https://msdn.microsoft.com/library/hh343259.aspx)).
 
 ### Como os logs são armazenados
 Todos os logs são armazenados em blobs de bloco em um contêiner denominado $logs, que é criado automaticamente quando a análise de armazenamento é habilitada para uma conta de armazenamento. O contêiner $logs está localizado no namespace de blob da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Este contêiner não pode ser excluído quando a análise de armazenamento tiver sido habilitada, embora seu conteúdo possa ser excluído.
@@ -206,4 +206,4 @@ Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no
 - [Esquema da tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

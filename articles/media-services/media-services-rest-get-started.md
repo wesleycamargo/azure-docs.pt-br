@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Introdução ao fornecimento de VoD (Vídeo sob Demanda) usando APIs REST 
@@ -1189,6 +1189,16 @@ Para o fluxo de vídeo, use [Player dos Serviços de Mídia do Azure](http://ams
 Para testar o download progressivo, cole uma URL em um navegador (por exemplo, IE, Chrome, Safari).
 
 
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Recursos adicionais
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Serviços de Mídia do Azure 101 - Coloque seu vídeo online agora!</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Serviços de Mídia do Azure 102 - pacotes Dinâmicos e Dispositivos Móveis</a>
@@ -1201,4 +1211,4 @@ Para testar o download progressivo, cole uma URL em um navegador (por exemplo, I
 
  
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

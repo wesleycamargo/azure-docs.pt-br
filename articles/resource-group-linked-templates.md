@@ -1,20 +1,20 @@
 <properties
    pageTitle="Usando modelos vinculados com o Gerenciador de Recursos do Azure"
-	description="Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/04/2015"
+   ms.author="tomfitz"/>
 
 # Usando modelos vinculados com o Gerenciador de Recursos do Azure
 
@@ -44,7 +44,7 @@ Para criar um vínculo entre dois modelos, adicione um recurso de implantação 
       } 
     ] 
 
-O Gerenciador de Recursos deve ser capaz de acessar o modelo vinculado, o que significa que você não pode especificar um arquivo local para o modelo vinculado. Você só pode fornecer um valor de URI que inclua **http** ou **https**. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item, conforme mostrado abaixo.
+O serviço do Gerenciador de Recursos deve ser capaz de acessar o modelo vinculado, o que significa que você não pode especificar um arquivo local ou um arquivo que só está disponível em sua rede local para o modelo vinculado. Você só pode fornecer um valor de URI que inclua **http** ou **https**. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item, conforme mostrado abaixo.
 
     "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -110,4 +110,4 @@ Se você precisar passar um valor de modelo vinculado para o modelo principal, p
 - [Criação de modelos](./resource-group-authoring-templates.md)
 - [Implantação de modelos](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Criando modelos com extensões de VM do Azure | Microsoft Azure"
-	description="Saiba mais sobre como criar modelos com extensões"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="Saiba mais sobre como criar modelos com extensões"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure com extensões de VM
 
@@ -22,10 +22,10 @@
 
 O Modelo do Gerenciador de Recursos do Azure permite que você especifique declarativamente a infraestrutura IaaS do Azure em linguagem Json definindo as dependências entre os recursos. Para obter uma visão geral detalhada dos Modelos do Gerenciador de Recursos do Azure, consulte os artigos abaixo:
 
-<a href="https://azure.microsoft.com/pt-BR/documentation/articles/resource-group-overview/" target="_blank">Visão geral do grupo de recursos</a>. <br/> <a href="https://azure.microsoft.com/pt-BR/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Implantação de modelos com a CLI do Azure</a>. <br/> <a href="https://azure.microsoft.com/pt-BR/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Implantação de modelos com o Azure Powershell</a>.
+[Visão geral do Grupo de Recursos](../resource-group-overview.md)
 
 ## Trecho do exemplo de modelo para Extensões de VM.
-O trecho do modelo para a implantação de extensões é o seguinte:
+Implantar a Extensão de VM como parte do modelo do Gerenciador de Recursos do Azure requer que você especifique de forma declarativa a configuração da Extensão no modelo. Veja abaixo o formato para especificar a configuração da extensão.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -43,6 +43,11 @@ O trecho do modelo para a implantação de extensões é o seguinte:
       }
       }
       }
+
+Como você pode ver no exemplo acima, o modelo de extensão contém duas partes principais:
+
+1. Nome da extensão, editor e versão.
+2. Configuração da Extensão.
 
 ## Identificando o editor, o tipo e a typeHandlerVersion de qualquer extensão.
 
@@ -68,14 +73,16 @@ Essas três propriedades são mapeadas como "publisher”, "type" e "typeHandler
 
 A próxima etapa da criação do modelo de extensão é identificar o formato a fim de fornecer os parâmetros de configuração. Cada extensão dá suporte a seu próprio conjunto de parâmetros.
 
-Para ver um exemplo de configuração de extensões do Windows, clique na documentação dos [exemplos de extensões do Windows](virtual-machines-extensions-configuration-samples-windows.md).
+Para ver um exemplo de configuração das Extensões do Windows, clique na documentação [Exemplos de Extensões do Windows](virtual-machines-extensions-configuration-samples-windows.md).
 
-Para ver um exemplo de configuração de extensões do Linux, clique na documentação dos [exemplos de extensões do Linux](virtual-machines-extensions-configuration-samples-linux.md).
+Para ver um exemplo de configuração das Extensões do Linux, clique na documentação [Exemplos de Extensões do Linux](virtual-machines-extensions-configuration-samples-linux.md).
 
 Consulte o seguinte com relação aos modelos de VM para obter um modelo completo com extensões de VM.
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensão de script personalizado em uma VM Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensão de script personalizado em uma VM do Windows</a>.
+[Extensão de script personalizado em uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+[Extensão de script personalizado em uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
 Depois de criar o modelo, você poderá implantá-lo usando a CLI do Azure ou o Azure Powershell.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

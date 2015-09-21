@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 
@@ -117,4 +117,4 @@ Por exemplo, você pode usar o seguinte URI para acessar um formulário da Web p
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Como mapear o conteúdo da CDN para um domínio personalizado</a>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

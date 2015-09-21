@@ -1,20 +1,20 @@
 
 <properties 
-    pageTitle="Como usar sua assinatura do Office 365 com o Azure RemoteApp"
+    pageTitle="Como usar sua assinatura do Office 365 com o Azure RemoteApp | Microsoft Azure"
 	description="Saiba como usar sua assinatura do Office 365 no Azure RemoteApp para compartilhar aplicativos do Office."
 	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/09/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -35,6 +35,8 @@ Quais planos do Office 365 incluem o Office 365 ProPlus? Confira a tabela de [Di
 ## OK. Como as minhas licenças do Office 365 ProPlus são usadas com o Azure RemoteApp?
 
 Cada licença de usuário para o Office 365 ProPlus permite que um único usuário ative os aplicativos do Office em até cinco computadores, além de tablets e telefones. Cada ativação é registrada com o usuário até que ele desative o Office no dispositivo. (Os usuários podem gerenciar seus dispositivos no [portal do Office 365](https://portal.office365.com/).)
+
+Com o Azure RemoteApp, um único usuário pode fazer logon em vários computadores no mesmo dia sem perceber. Isso ocorre porque o serviço gerencia e dimensiona automaticamente os recursos na nuvem, enquanto o usuário vê apenas os aplicativos e programas que você compartilhou. Para este cenário, o Office 365 ProPlus oferece um modo de ativação do computador compartilhado – isso significa que o usuário não precisa realizar nenhum gerenciamento de licenças para acessar esses recursos e que os computadores individuais não contam para o limite de ativação de cinco computadores.
 
 Contanto que você (o administrador) atribua licenças do Office 365 ProPlus aos seus usuários, eles podem usar o Office em seus dispositivos pessoais, bem como por meio de sua coleção do Azure RemoteApp.
 
@@ -69,7 +71,7 @@ A maneira mais fácil de implantar o Office 365 ProPlus em uma coleção é [com
 
 ### Usar uma imagem personalizada
 
-Sempre é possível criar uma imagem personalizada – você pode criar uma [VM do Azure](remoteapp-image-on-azurevm.md) ou [criar a imagem localmente](remoteapp-create-custom-image.md) e carregá-la no Azure. Em ambos os casos, lembre-se de instalar o Office 365 ProPlus usando o nó de ativação de computador compartilhado. Use a [Ferramenta de implantação do Office](http://blogs.technet.com/b/odsupport/archive/2014/07/11/using-the-office-deployment-tool.aspx) e siga as [instruções](https://technet.microsoft.com/library/Dn782858.aspx) para a instalação.
+Sempre é possível criar uma imagem personalizada – você pode criar uma [VM do Azure](remoteapp-image-on-azurevm.md) ou [criar a imagem localmente](remoteapp-create-custom-image.md) e carregá-la no Azure. Em ambos os casos, lembre-se de instalar o Office 365 ProPlus usando o nó de ativação de computador compartilhado. Use a [Ferramenta de Implantação do Office](http://blogs.technet.com/b/odsupport/archive/2014/07/11/using-the-office-deployment-tool.aspx) e siga as [instruções](https://technet.microsoft.com/library/Dn782858.aspx) para a instalação.
 
 ### Desabilitar atualizações automáticas para o Office 365 ProPlus na imagem personalizada – IMPORTANTE
 
@@ -112,7 +114,7 @@ Com essa opção, você pode usar as ferramentas padrão do Windows para aplicar
 Precisa de mais informações sobre como usar a Ferramenta de implantação do Office para atualizações?
 
 - [Implantar Clique para Executar para os produtos do Office 365 usando a Ferramenta de implantação do Office](https://technet.microsoft.com/library/JJ219423.aspx)
-- [Implantando e atualizando o Office 365 ProPlus usando a Ferramenta de implantação do Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
+- [Implantando e atualizando o Office 365 ProPlus usando a Ferramenta de Implantação do Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Definir configurações de atualização para o Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

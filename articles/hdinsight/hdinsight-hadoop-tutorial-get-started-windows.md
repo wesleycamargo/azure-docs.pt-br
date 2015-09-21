@@ -1,21 +1,22 @@
 <properties
    pageTitle="Tutorial do Hadoop: Introdução ao Hadoop no Windows | Microsoft Azure"
-	description="Introdução ao Hadoop no HDInsight. Saiba como provisionar clusters Hadoop no Windows, executar uma consulta de Hive nos dados e analisar a saída no Excel."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+   description="Introdução ao Hadoop no HDInsight. Saiba como provisionar clusters Hadoop no Windows, executar uma consulta de Hive nos dados e analisar a saída no Excel."
+   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
+   editor="cgronlun"
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="nitinme"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/03/2015"
+   ms.author="nitinme"/>
 
 
 # Tutorial do Hadoop: Introdução ao Hadoop e uma consulta de Hive no HDInsight no Windows
@@ -84,7 +85,7 @@ Ao provisionar um cluster, você provisiona recursos de computação do Azure qu
 
 	![Folha de fonte de dados](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.4.png "Forneça a configuração da fonte de dados")
 	
-	No momento, você pode selecionar uma conta de armazenamento do Azure como a fonte de dados para um cluster HDInsight. Use o item a seguir para entender as entradas na folha **Fonte de Dados**.
+	No momento, você pode selecionar uma Conta de Armazenamento do Azure como fonte de dados para um cluster HDInsight. Use o item a seguir para entender as entradas na folha **Fonte de Dados**.
 	
 	- **Método de seleção**: defina essa opção para **De todas as assinaturas** para habilitar a procura de contas de armazenamento de todas as suas assinaturas. Defina essa opção para **Tecla de Acesso** se você deseja inserir o **Nome de armazenamento** e **Tecla de Acesso** de uma conta de armazenamento existente.
 	
@@ -110,7 +111,7 @@ Ao provisionar um cluster, você provisiona recursos de computação do Azure qu
 	| ------------------ | --------------------- |
 	| ![Indicador de provisionamento no quadro inicial](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioning.png) | ![Bloco de cluster provisionado](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioned.png) |
 
-	> [AZURE.NOTE]Levará algum tempo para o cluster ser criado, geralmente cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de provisionamento.
+	> [AZURE.NOTE]Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de provisionamento.
 
 10. Quando o provisionamento for concluído, clique no bloco para o cluster a partir do quadro inicial para iniciar a folha de cluster.
 
@@ -144,10 +145,11 @@ Agora que você provisionou um cluster HDInsight, a próxima etapa é executar u
 
 **Para executar um trabalho do Hive pelo painel do cluster**
 
-1. Entre no [Portal do Azure][azure-management-portal].
-2. Clique em **HDINSIGHT** a partir do painel esquerdo. Você verá uma lista de clusters, incluindo o cluster que você criou na seção anterior.
-3. Clique no nome do cluster que deseja usar para executar o trabalho do Hive e clique em **CONSOLE DE CONSULTA**, na parte inferior da página.
-4. Uma página da Web é aberta em uma guia diferente do navegador. Insira a conta e a senha do usuário do Hadoop. O nome de usuário padrão é **admin**; a senha é a que você digitou durante o provisionamento do cluster. O painel tem esta aparência:
+1. Entre no [Portal de Visualização do Azure](https://ms.portal.azure.com/).
+2. Clique em **PROCURAR TUDO** e em **Clusters HDInsight** para ver uma lista de clusters, incluindo o cluster que você criou na seção anterior.
+3. Clique no nome do cluster que deseja usar para executar o trabalho do Hive e clique em **Painel** na parte superior da folha.
+4. Uma página da Web é aberta em uma guia diferente do navegador. Insira a conta e a senha do usuário do Hadoop. O nome de usuário padrão é **admin**; a senha é a que você digitou durante o provisionamento do cluster.
+5. No painel, clique na guia **Editor do Hive**. A página da Web mostrada abaixo é aberta.
 
 	![Guia Editor do Hive no painel do cluster HDInsight.][img-hdi-dashboard]
 
@@ -280,4 +282,4 @@ Neste tutorial do Hadoop, você aprendeu a provisionar um cluster Hadoop no Wind
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

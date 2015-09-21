@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Design da tabela no SQL Data Warehouse #
-SQL Data Warehouse é um sistema de banco de dados distribuído de processamento extremamente paralelo (MPP). Consequentemente, ele armazena dados em vários locais diferentes, conhecidos como **distribuições**. Cada **distribuição** é como um bucket, armazenando um único subconjunto de dados no data warehouse. Ao distribuir os dados e os recursos de processamento em vários nós, o SQL Data Warehouse é capaz de oferecer grande escalabilidade, muito além de qualquer sistema individual.
+SQL Data Warehouse é um sistema de banco de dados distribuído de processamento extremamente paralelo (MPP). Ele armazena dados em vários locais diferentes, conhecidos como **distribuições**. Cada **distribuição** é como um bucket, armazenando um único subconjunto de dados no data warehouse. Ao distribuir os dados e a funcionalidade de processamento em vários nós, o SQL Data Warehouse pode oferecer uma enorme escalabilidade, muito além de qualquer sistema individual.
 
 Quando uma tabela é criada no SQL Data Warehouse, na verdade ela é espalhada por todas as distribuições.
 
@@ -92,9 +92,9 @@ OR  y.[is_user_defined] = 1
 
 ```
 
-A consulta inclui todos os tipos de dados definidos pelo usuário que também não têm suporte.
+A consulta inclui todos os tipos de dados definidos pelo usuário que não têm suporte.
 
-Caso você tenha tipos sem suporte no seu banco de dados, não se preocupe. Veja abaixo algumas alternativas propostas.
+Veja abaixo algumas alternativas que você pode usar no lugar de tipos de dados sem suporte.
 
 Em vez de:
 
@@ -126,7 +126,7 @@ Há duas opções de distribuição de dados no SQL Data Warehouse:
 1. Distribuir os dados com base nos valores de hash de uma única coluna
 2. Distribuir os dados uniformemente, mas aleatoriamente  
 
-A distribuição de dados é decidida ao nível da tabela. Todas as tabelas são distribuídas para que você tenha a oportunidade de tomar essa decisão para cada tabela no seu banco de dados do SQL Data Warehouse.
+A distribuição de dados é decidida ao nível da tabela. Todas as tabelas são distribuídas. Você atribuirá a distribuição a cada tabela no banco de dados do SQL Data Warehouse.
 
 A primeira opção é conhecida como distribuição do tipo **round robin**, às vezes conhecida como hash aleatório. Pense nela como a opção padrão ou mais segura.
 
@@ -134,7 +134,7 @@ A segunda opção é conhecida como distribuição de **hash**. Você pode consi
 
 ## Distribuição round robin
 
-A distribuição round robin é um método de propagação de dados de máxima uniformidade em todas as distribuições. Os buffers que contêm linhas de dados são alocados em turnos (daí o nome round robin, algo como “por turnos”) para cada distribuição. O processo é repetido até que todos os buffers de dados sejam alocados. Em nenhum estágio os dados são classificados ou ordenados em uma tabela distribuída por round robin. Uma distribuição round robin é chamada às vezes de hash aleatório por esse motivo. Os dados são simplesmente distribuídos com o máximo de uniformidade possível entre as distribuições.
+A distribuição round robin é um método de propagação de dados de máxima uniformidade em todas as distribuições. Os buffers que contêm linhas de dados são alocados em turnos (daí o nome round robin, algo como “por turnos”) para cada distribuição. O processo é repetido até que todos os buffers de dados sejam alocados. Em nenhum estágio os dados são classificados ou ordenados em uma tabela distribuída por round robin. Uma distribuição round robin é chamada às vezes de hash aleatório por esse motivo. Os dados são distribuídos com o máximo de uniformidade possível entre as distribuições.
 
 Veja abaixo um exemplo de tabela distribuída por round robin:
 
@@ -306,4 +306,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

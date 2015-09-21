@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Visão geral e cenários comuns do Serviços de Mídia do Azure"
-	description="Este tópico oferece uma visão geral dos Serviços de Mídia do Azure"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Visão geral e cenários comuns do Serviços de Mídia do Azure" 
+	description="Este tópico oferece uma visão geral dos Serviços de Mídia do Azure" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Visão geral e cenários comuns do Serviços de Mídia do Azure
@@ -36,20 +36,28 @@ Para compilar soluções de serviços de mídia, você pode usar:
 - Ferramentas existentes: [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/) ou [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Pré-requisitos
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
  
 3. Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](azure.microsoft.com).
-2. Uma conta de Serviços de Mídia do Azure. Use Portal de gerenciamento do Azure, .NET ou API REST para criar a conta do Serviços de Mídia do Azure. Para obter mais informações, consulte [Criar uma Conta](media-services-create-account.md).
-3. (Opcional) Configure o ambiente de desenvolvimento. Escolha .NET ou API REST para seu ambiente de desenvolvimento. Para obter mais informações, consulte [Configurar o ambiente](media-services-dotnet-how-to-use.md). 
+2. Uma conta de Serviços de Mídia do Azure. Use Portal de gerenciamento do Azure, .NET ou API REST para criar a conta do Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-create-account.md).
+3. (Opcional) Configure o ambiente de desenvolvimento. Escolha .NET ou API REST para seu ambiente de desenvolvimento. Para obter mais informações, veja [Configurar o ambiente](media-services-dotnet-how-to-use.md). 
 
-	Além disso, saiba como conectar por meio de programação [Conectar](media-services-dotnet-connect_programmatically.md).
-4. (Recomendado) Aloque uma ou mais unidades de escala. É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. Para obter mais informações, consulte [Gerenciamento de pontos de extremidade de streaming](media-services-manage-origins.md).
+	Além disso, saiba como conectar programaticamente [Conectar](media-services-dotnet-connect_programmatically.md).
+4. (Recomendado) Aloque uma ou mais unidades de escala. É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. Para obter mais informações, veja [Gerenciamento de pontos de extremidade de streaming](media-services-manage-origins.md).
 
 ##Conceitos
 
-Para obter mais informações, consulte [Conceitos](media-services-concepts.md).
+Para obter mais informações, veja [Conceitos](media-services-concepts.md).
 
 
 ##<a id="vod_scenarios"></a>Fornecendo Mídia sob Demanda com os Serviços de Mídia do Azure: cenários e tarefas comuns
@@ -124,7 +132,7 @@ Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos
 - [Como proteger publicação](media-services-manage-content.md#publish)
 - [Como dimensionar a codificação](media-services-portal-encoding-units.md)
 
-##<a id="live_scenarios"></a>Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure
+##<a id="live_scenarios"></a>Trabalhando com Eventos de streaming ao vivo com os Serviços de Mídia do Azure
 
 Ao trabalhar com a transmissão ao vivo, normalmente os seguintes componentes estão envolvidos:
 
@@ -140,13 +148,13 @@ Ao trabalhar com a transmissão ao vivo, normalmente os seguintes componentes es
 	- fornecimento do conteúdo por meio de protocolos de transmissão comuns (por exemplo, MPEG DASH, Smooth, HLS, HDS) diretamente aos seus clientes ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior. 
 	
 		
-Os **Serviços de Mídia do Microsoft Azure** (AMS) fornecem a capacidade de incluir, codificar, visualizar, armazenar e fornecer o conteúdo de transmissão ao vivo.
+Os **Serviços de Mídia do Microsoft Azure** (AMS) fornecem a capacidade de ingerir, codificar, visualizar, armazenar e fornecer o conteúdo de transmissão ao vivo.
 
-Ao fornecer conteúdo aos clientes, sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para tratar da qualidade e das condições de rede, use os codificadores ao vivo para codificar seu fluxo para transmissão de vídeo com múltiplas taxas de bits (taxa de bits adaptável). Para tratar da transmissão de dispositivos diferentes, use o [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos serviços de mídia para reempacotar dinamicamente seu fluxo em protocolos diferentes. Os serviços de mídia oferecem suporte ao fornecimento das seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
+Ao fornecer conteúdo aos clientes, sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para tratar da qualidade e das condições de rede, use os codificadores ao vivo para codificar seu fluxo para transmissão de vídeo com múltiplas taxas de bits (taxa de bits adaptável). Para lidar com streaming em diferentes dispositivos, use o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Serviços de Mídia para reempacotar dinamicamente seu fluxo para diferentes protocolos. Os serviços de mídia oferecem suporte ao fornecimento das seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
 
 No Serviços de Mídia do Azure, **Canais**, **Programas** e **StreamingEndpoints** tratam de todas as funcionalidades de transmissão ao vivo, incluindo ingestão, formatação, DVR, segurança, escalabilidade e redundância.
 
-Um **Canal** representa um pipeline para processamento de conteúdo de transmissão ao vivo. Atualmente, um Canal pode receber fluxos de entrada ao vivo da seguinte maneira:
+Um **Canal** representa um pipeline para o processamento de conteúdo de streaming ao vivo. Atualmente, um Canal pode receber fluxos de entrada ao vivo da seguinte maneira:
 
 
 - Um codificador ao vivo local envia um fluxo de taxa de bits adaptável única para o Canal que é habilitado para realizar a codificação ao vico com os serviços de mídia em um dos seguintes formatos: RTP (MPEG-TS), RTMP oi Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
@@ -162,7 +170,7 @@ O diagrama a seguir mostra as partes principais da plataforma AMS envolvidas no 
 
 ![Fluxo de trabalho ao vivo][live-overview1]
 
-Para obter mais informações, consulte [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ###Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais
@@ -194,11 +202,11 @@ Você também pode dimensionar sua conta dos Serviços de Mídia adicionando con
 
 ##Suporte
 
-[Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opções de suporte do Azure, incluindo serviços de mídia.
+O [Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opções de suporte do Azure, incluindo os Serviços de Mídia.
 
 ##Padrões e práticas de orientação
 
-[Padrões e práticas de orientação](https://wamsg.codeplex.com/) [Documentação online](https://msdn.microsoft.com/library/dn735912.aspx) [Livro eletrônico para download](https://www.microsoft.com/download/details.aspx?id=42629)
+[Diretrizes de padrões e práticas](https://wamsg.codeplex.com/) [Documentação online](https://msdn.microsoft.com/library/dn735912.aspx) [Livro eletrônico para download](https://www.microsoft.com/download/details.aspx?id=42629)
 
 
 ##Contrato de nível de serviço (SLA)
@@ -209,9 +217,7 @@ Você também pode dimensionar sua conta dos Serviços de Mídia adicionando con
 - Para proteção de conteúdo, garantimos que atenderemos com êxito a solicitações de chave em, no mínimo, 99,9% do tempo.
 - Para o indexador, podemos atenderemos com êxito às solicitações de tarefa do indexador processadas com uma unidade reservada para codificação em 99,9% do tempo.
 
-	Para obter mais informações, consulte [SLA do Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
-
-
+	Para obter mais informações, veja [SLA do Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -220,4 +226,4 @@ Você também pode dimensionar sua conta dos Serviços de Mídia adicionando con
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

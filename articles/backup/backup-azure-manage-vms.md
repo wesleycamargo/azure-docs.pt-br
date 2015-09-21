@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Backup do Azure - gerenciar máquinas virtuais"
+	pageTitle="Backup do Azure - gerenciar máquinas virtuais | Microsoft Azure"
 	description="Saiba como gerenciar uma máquina virtual do Azure"
 	services="backup"
 	documentationCenter=""
@@ -8,26 +8,27 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
 
 # Gerenciar máquinas virtuais
 
-
 ## Gerenciar máquinas virtuais protegidas
+
+Para gerenciar máquinas virtuais protegidas:
 
 1. Para exibir e gerenciar as configurações de backup de uma máquina virtual, clique na guia **Itens Protegidos**.
 
-  - Clique no nome de um item protegido para ver a guia **Detalhes de Backup**, que mostra informações sobre o último backup.
+2. Clique no nome de um item protegido para ver a guia **Detalhes de Backup**, que mostra informações sobre o último backup.
 
-        ![Virtual machine backup](./media/backup-azure-manage-vms/backup-vmdetails.png)
+    ![Backup de máquinas virtuais](./media/backup-azure-manage-vms/backup-vmdetails.png)
 
-2. Para exibir e gerenciar as configurações de política de backup de uma máquina virtual, clique na guia **Políticas**.
+3. Para exibir e gerenciar as configurações de política de backup de uma máquina virtual, clique na guia **Políticas**.
 
-  - A guia **Políticas de Backup** exibe a política existente. Você pode modificar conforme necessário. Se você precisar criar uma nova política, clique em **Criar** na página **Políticas**. Se você quiser remover uma política, ela não deve ter nenhuma máquina virtual associada a ela.
+    A guia **Políticas de Backup** exibe a política existente. Você pode modificar conforme necessário. Se você precisar criar uma nova política, clique em **Criar** na página **Políticas**. Se você quiser remover uma política, ela não deve ter nenhuma máquina virtual associada a ela.
 
-        ![Virtual machine policy](./media/backup-azure-manage-vms/backup-vmpolicy.png)
+    ![Política de máquina virtual](./media/backup-azure-manage-vms/backup-vmpolicy.png)
 
-3. Você pode obter mais informações sobre ações ou status de uma máquina virtual na página **Trabalhos**. Clique em um trabalho na lista para obter mais detalhes ou filtrar trabalhos para uma máquina virtual específica.
+4. Você pode obter mais informações sobre ações ou status de uma máquina virtual na página **Trabalhos**. Clique em um trabalho na lista para obter mais detalhes ou filtrar trabalhos para uma máquina virtual específica.
 
     ![Trabalhos](./media/backup-azure-manage-vms/backup-job.png)
 
@@ -62,11 +63,11 @@ Você pode optar por parar os futuros backups de uma máquina virtual com as seg
 - Reter dados de backup associados à máquina virtual no cofre de Backup do Azure
 - Excluir dados de backup associados à máquina virtual
 
-Se tiver selecionado a primeira opção, você poderá usar os dados de backup para restaurar a máquina virtual. Para obter detalhes de preço dessas máquinas virtuais, clique [aqui](http://azure.microsoft.com/pricing/details/backup/).
+Se você tiver optado por reter dados de backup associados à máquina virtual, você pode usar os dados de backup para restaurá-la. Para obter detalhes de preço dessas máquinas virtuais, clique [aqui](http://azure.microsoft.com/pricing/details/backup/).
 
 Para interromper a proteção para uma máquina virtual:
 
-1. Navegue até a página **Itens protegidos** e selecione **Máquina virtual do Azure** como o tipo de filtro (se ainda não estiver selecionada) e clique no botão **Selecionar**.
+1. Navegue até a página **Itens protegidos**, selecione **Máquina virtual do Azure** como o tipo de filtro (se ainda não estiver selecionada) e clique no botão **Selecionar**.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -92,14 +93,14 @@ Para interromper a proteção para uma máquina virtual:
 
     ![Proteção interrompida](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
-    Se você tiver selecionado a opção **Excluir dados de backup associados**, uma máquina virtual não fará parte da página **Itens protegidos**.
+    Se você tiver selecionado a opção **Excluir dados de backup associados**, a máquina virtual não fará parte da página **Itens protegidos**.
 
 ## Proteger novamente a Máquina virtual
 Se você não selecionou a opção **Excluir dados de backup associados** em **Parar proteção**, você pode proteger novamente a máquina virtual seguindo as etapas semelhantes para fazer backup de máquinas virtuais registradas. Depois de protegida, essa máquina virtual terá os dados de backup retidos antes da interrupção da proteção e os pontos de recuperação serão criados após a nova proteção.
 
 Após proteger novamente, o status de proteção da máquina virtual será alterado para **Protegido** se houver pontos de recuperação anteriores a **Parar proteção**.
 
-  ![Máquina virtual protegida novamente](./media/backup-azure-manage-vms/reprotected-status.png)
+    ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
 
 >[AZURE.NOTE]Ao proteger novamente a máquina virtual, você pode escolher uma política diferente da política com a qual a máquina virtual foi inicialmente protegida.
 
@@ -121,9 +122,9 @@ Você pode excluir os dados de backup associados a uma máquina virtual, ou:
 - Durante a interrupção do trabalho da proteção
 - Após uma interrupção no trabalho de proteção ser concluída em uma máquina virtual
 
-Para excluir dados de backup em uma máquina virtual, que está no estado "Proteção interrompida", poste a conclusão bem-sucedida do trabalho em **Parar Backup**:
+Para excluir dados de backup em uma máquina virtual, que está no estado *Proteção Interrompida*, poste a conclusão bem-sucedida do trabalho em **Parar Backup**:
 
-1. Navegue até a página **Itens protegidos** e selecione **Máquina Virtual do Azure** como o tipo e clique no botão **Selecionar**.
+1. Navegue até a página **Itens protegidos** e selecione **Máquina Virtual do Azure** como o *tipo* e clique no botão **Selecionar**.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -145,11 +146,103 @@ Para excluir dados de backup em uma máquina virtual, que está no estado "Prote
 
     Depois que o trabalho for concluído, a entrada correspondente à máquina virtual será removida da página **Itens protegidos**.
 
-
-###Painel
-
+## Painel
 Na página **Painel**, você pode examinar informações sobre máquinas virtuais do Azure, seu armazenamento e trabalhos associados a elas nas últimas 24 horas. Você pode exibir o status de backup e quaisquer erros de backup associados.
 
-  ![Painel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+    ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
-<!---HONumber=August15_HO6-->
+## Operações de auditoria
+O backup do Azure oferece análise dos “logs de operação” das operações de backup disparadas pelo cliente que facilita ver exatamente quais operações de gerenciamento foram realizadas no cofre de backup. Os logs de operações permitem um ótimo suporte a auditoria e análise posterior das operações de backup.
+
+As seguintes operações são registradas nos logs de operação:
+
+- Registrar
+- Cancelar o registro
+- Configurar a proteção
+- Backup (tanto as agendadas quanto as sob demanda por meio do BackupNow)
+- Restaurar
+- Parar a proteção
+- Excluir dados de backup
+- Adicionar política
+- Excluir política
+- Atualizar política
+- Cancelar trabalho
+
+Para exibir logs de operação correspondentes a um cofre de backup:
+
+1. Navegue até **Serviços de gerenciamento** no portal do Azure e clique na guia **Logs de Operação**.
+
+    ![Logs de operação](./media/backup-azure-manage-vms/ops-logs.png)
+
+2. Em filtros, selecione **Backup** como *Tipo*, especifique o nome do cofre de backup em *nome do serviço* e clique em **Enviar**.
+
+    ![Filtro de logs de operação](./media/backup-azure-manage-vms/ops-logs-filter.png)
+
+3. Nos logs de operações, selecione qualquer operação e clique em **Detalhes** para ver os detalhes de uma operação correspondente.
+
+    ![Detalhes de busca de logs de operação](./media/backup-azure-manage-vms/ops-logs-details.png)
+
+    O **Assistente de detalhes** contém informações sobre a operação disparada, o Id do trabalho, o recurso em que essa operação é disparada e a hora de início da operação.
+
+    ![Detalhes da Operação](./media/backup-azure-manage-vms/ops-logs-details-window.png)
+
+## Notificações de alerta
+Você pode obter notificações de alerta personalizadas para os trabalhos no portal. Isso é feito definindo regras de alerta do PowerShell baseadas em eventos de logs operacionais.
+
+Os alertas baseados em eventos funcionam no modo de recurso do Azure. Alterne para modo de recurso do Azure executando o seguinte cmdlet no modo de comando com privilégios elevados:
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
+Para definir uma notificação personalizada para o alerta de falhas de backup, um comando de exemplo terá a seguinte aparência:
+
+```
+PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
+```
+
+**ResourceId**: você pode obter isso do pop-up Logs de operações, conforme descrito na seção acima. O ResourceUri na janela pop-up de detalhes de uma operação é a ResourceId a ser fornecida para esse cmdlet.
+
+**EventName**: para alertas sobre o backup da VM IaaS, os valores com suporte são: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+
+**Level**: os valores com suporte são - Informational, Error. Para alertas de falha na ação, use Error, e para alertas em trabalhos com êxito, use Informational.
+
+**OperationName**: esse terá o formato "Microsoft.Backup/backupvault/<EventName>", em que EventName é conforme descrito acima.
+
+**Status**: os valores com suporte são - Started, Succeeded e Failed. É aconselhável manter Informational como nível de status de êxito.
+
+**SubStatus**: o mesmo que o status de operações de backup
+
+**RuleType**: mantenha-o como *Event*, já que os alertas de backup são baseados em eventos.
+
+**ResourceGroup**: ResourceGroup do recurso em que a operação é disparada. Você pode obter isso do valor ResourceId. O valor entre os campos */resourceGroups/* e */providers/* em um valor ResourceId é o valor para ResourceGroup.
+
+**Name**: nome da regra de alerta.
+
+**Description**: descrição da regra de alerta.
+
+**CustomEmails**: especifique o endereço de email personalizado para o qual você deseja enviar a notificação de alerta
+
+**SendToServiceOwners**: essa opção envia a notificação de alerta para todos os administradores e coadministradores da assinatura.
+
+Uma mensagem de alerta de exemplo tem a seguinte aparência:
+
+Cabeçalho de exemplo:
+
+![Cabeçalho de alerta](./media/backup-azure-manage-vms/alert-header.png)
+
+Exemplo de corpo do email de alerta:
+
+![Corpo de alerta](./media/backup-azure-manage-vms/alert-body.png)
+
+### Limitações sobre alertas
+Os alertas baseados em eventos em estão sujeitos às seguintes limitações:
+
+1. Os alertas são disparados em todas as máquinas virtuais no cofre de backup. Você não pode personalizá-lo para obter alertas de um conjunto específico de máquinas virtuais em um cofre de backup.
+2. Os alertas são automaticamente resolvidos se não há nenhum evento correspondente de alerta disparado no próximo intervalo do alerta. Use o parâmetro *WindowSize* no cmdlet Add-AlertRule para definir a duração de acionamento de alerta.
+
+## Próximas etapas
+
+- [Restaurar máquinas virtuais do Azure](backup-azure-restore-vms.md)
+
+<!---HONumber=Sept15_HO2-->

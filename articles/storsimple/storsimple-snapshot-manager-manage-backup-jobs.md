@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup | Microsoft Azure"
+   pageTitle="Trabalhos de backup do StorSimple Snapshot Manager | Microsoft Azure"
    description="Descreve como usar o snap-in StorSimple Snapshot Manager MMC para exibir e gerenciar trabalhos de backup agendados, em execução e concluídos."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/05/2015"
    ms.author="v-sharos" />
 
 
@@ -129,4 +129,4 @@ Use o procedimento a seguir para exibir os trabalhos que estão sendo executados
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

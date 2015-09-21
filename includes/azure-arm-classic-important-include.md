@@ -1,0 +1,3 @@
+>[AZURE.IMPORTANT]Antes de trabalhar com os recursos do Azure, é importante entender que o Azure funciona atualmente com dois modelos de implantação: Gerenciador de Recursos e o clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes clicando nas guias na parte superior deste artigo.
+
+<!---HONumber=Sept15_HO2-->

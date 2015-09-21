@@ -145,9 +145,10 @@ PHP | [Aplicativo de exemplo PHP para Graph API do Azure AD](http://code.msdn.mi
 
 ##### Outros recursos
 
+[Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 
 [Biblioteca auxiliar da Graph API do Azure AD](http://code.msdn.microsoft.com/Windows-Azure-AD-Graph-API-a8c72e18)
 
 [Desenvolvendo aplicativos modernos com OAuth e Serviços de Federação do Active Directory](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

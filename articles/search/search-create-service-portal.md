@@ -84,7 +84,7 @@ Cada serviço de Pesquisa na camada padrão é criado com uma réplica e uma par
 
 Réplicas e partições adicionais são cobradas segundo as unidades de pesquisa. O total de unidades de pesquisa necessárias para dar suporte a qualquer configuração de recursos em particular é mostrado na página, conforme você adiciona recursos.
 
-Você pode verificar os [Detalhes de Preços](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obter as informações de cobrança por unidade. Consulte [Limites e restrições](http://msdn.microsoft.com/library/azure/dn798934.aspx) para ajudá-lo a decidir como configurar combinações de partição e de réplica.
+Você pode verificar os [Detalhes de Preços](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obter as informações de cobrança por unidade. Consulte [Limites e restrições](search-limits-quotas-capacity.md) para ajudá-lo a decidir como configurar combinações de partição e de réplica.
 
 <a id="sub-4"></a>
 ##Testar operações de serviço
@@ -120,4 +120,4 @@ Os materiais adicionais a seguir que mostram como compilar e gerenciar aplicativ
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

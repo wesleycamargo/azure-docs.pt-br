@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 #Codificando sua mídia com Dolby Digital Plus
@@ -651,4 +651,11 @@ Cada atributo é descrito abaixo.
 **TruePeak**: esse resultado contém o maior valor absoluto true‐peak em qualquer canal desde que a medição foi redefinida. Para obter uma descrição de true-peak, consulte ITU‐R BS.1770‐2. Os valores podem variar de -70 a 12.04 dBTP.
  
 
-<!---HONumber=August15_HO7-->
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

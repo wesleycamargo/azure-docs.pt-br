@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/06/2015"
+	ms.date="09/03/2015"
 	ms.author="bwren"/>
 
 # O que é Automação do Azure?
@@ -58,11 +58,11 @@ Uma variedade de recursos está disponível para você aprender mais sobre a Aut
 
 - A **Biblioteca da Automação do Azure** é onde você está agora. Os artigos nessa biblioteca fornecem a documentação completa sobre a configuração e administração da Automação do Azure e para a criação de seus próprios runbooks.
 - [Cmdlets do Azure PowerShell](http://msdn.microsoft.com/library/jj156055.aspx) fornece informações para automatizar operações do Azure usando o Windows PowerShell. Os runbooks usam esses cmdlets para trabalhar com recursos do Azure.
-- [Blog de Automação do Azure](http://azure.microsoft.com/blog/tag/azure-automation) fornece as informações mais recentes sobre a Automação do Azure da Microsoft. Você deve assinar esse blog para se manter atualizado com o que há de mais recente da equipe de Automação do Azure.
+- O [Blog de gerenciamento](http://azure.microsoft.com/blog/topics/management) fornece as informações mais recentes sobre a Automação do Azure e outras tecnologias de gerenciamento da Microsoft. Você deve assinar esse blog para se manter atualizado com o que há de mais recente da equipe de Automação do Azure.
 - [Fórum de automação](http://go.microsoft.com/fwlink/p/?LinkId=390561) permite que você poste dúvidas sobre a Automação do Azure a serem resolvidas pela Microsoft e pela comunidade de automação.
 
 ## Posso fornecer comentários?
 
 **Envie-nos comentários!** Se você estiver procurando por uma solução de runbook de Automação do Azure ou por um módulo de integração, poste uma Solicitação de script no Script Center. Se você tiver comentários ou solicitações de recurso para a Automação do Azure, poste-os em [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Obrigado!
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

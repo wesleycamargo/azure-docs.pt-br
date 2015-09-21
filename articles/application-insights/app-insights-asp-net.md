@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
 
 
@@ -95,7 +95,7 @@ Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobr
 Agora implante seu aplicativo e assista a acumulação dos dados.
 
 
-Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc\~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
+Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
 
 #### Não há dados?
 
@@ -154,17 +154,19 @@ Em um aplicativo importante, é aconselhável enviar dados de telemetria da depu
 
 
 
-## Adicionar acompanhamento de dependência
+## Adicionar acompanhamento de dependência e contadores de desempenho do sistema
 
 As [métricas de dependência](app-insights-dependencies.md) podem ser valiosas para ajudar com o diagnóstico de problemas de desempenho. Elas medem as chamadas do seu aplicativo aos bancos de dados, APIs REST e outros componentes externos.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
-#### Se seu aplicativo for executado no servidor IIS
+Esta etapa também habilita o [relatório de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como CPU, memória e ocupação de rede.
+
+#### Se seu aplicativo for executado em seu servidor IIS
 
 Faça logon no servidor com direitos de administrador e instale o [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(Você também pode usar o Status Monitor para [instrumentar um aplicativo que já esteja em execução](app-insights-monitor-performance-live-website-now.md), mesmo que não tenha sido criado com o SDK.)
+(Você também pode usar o Status Monitor para [instrumentar um aplicativo que já esteja em execução](app-insights-monitor-performance-live-website-now.md), mesmo que ele não tenha sido criado com o SDK.)
 
 #### Se seu aplicativo for um Aplicativo Web do Azure
 
@@ -173,6 +175,10 @@ No painel de controle do Aplicativo Web do Azure, adicione a extensão do Applic
 ![Em seu aplicativo Web, clique em Configurações, Extensões, Adicionar, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
 (A extensão apenas ajuda um aplicativo que foi criado com o SDK. Ao contrário do Status Monitor, ela não pode instrumentar um aplicativo existente.)
+
+#### Para monitorar funções de serviços de nuvem do Azure
+
+Há um [procedimento manual para adicionar o Status Monitor](app-insights-cloudservices.md).
 
 ## Testes de disponibilidade na Web
 
@@ -220,4 +226,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

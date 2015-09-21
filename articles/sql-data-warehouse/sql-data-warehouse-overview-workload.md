@@ -1,20 +1,20 @@
 <properties
    pageTitle="Carga de trabalho do data warehouse"
-	description="A elasticidade do SQL Data Warehouse permite expandir, reduzir ou pausar o poder da computação usando uma escala deslizante de DWUs (Unidades de Data Warehouse). Este artigo explica as métricas de data warehouse e como elas se relacionam às DWUs."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""/>
+   description="A elasticidade do SQL Data Warehouse permite expandir, reduzir ou pausar o poder da computação usando uma escala deslizante de DWUs (Unidades de Data Warehouse). Este artigo explica as métricas de data warehouse e como elas se relacionam às DWUs."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/23/2015"
-	ms.author="barbkess;JRJ@BigBangData.co.uk"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/04/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
 
 # Carga de trabalho do data warehouse
 Uma carga de trabalho do data warehouse refere-se a todas as operações que são realizadas em um data warehouse. A carga de trabalho em um data warehouse abrange todo o processo de carregamento de dados, a execução de análise e relatórios, o gerenciamento de dados e a exportação de dados. O detalhamento e a amplitude desses componentes, muitas vezes, são proporcionais ao nível de maturidade do data warehouse.
@@ -37,7 +37,7 @@ O carregamento de dados é uma grande parte da carga de trabalho do data warehou
 
 - Tradicionalmente, o processo de carregamento é chamado de ETL (Extração, Transformação e Carregamento). Geralmente, os dados precisam ser transformados para que sejam consistentes com outros dados no data warehouse. Anteriormente, as empresas usavam servidores ETL dedicados para realizar as transformações. Agora, com um processamento rápido massivamente paralelo, você pode carregar dados no SQL Data Warehouse primeiro e depois realizar as transformações. Esse processo é chamado ELT (Extração, Carregamento e Transformação) e está se tornando um novo padrão para a carga de trabalho do data warehouse.
 
-> [OBSERVAÇÃO DO AZURE] Com o SQL Server CTP2, agora você pode realizar análise em tempo real em uma tabela OLTP. Isso não substitui a necessidade de um data warehouse para armazenar e analisar dados, mas é uma maneira de realizar análise em tempo real.
+> [AZURE.NOTE]Com o SQL Server CTP2, agora você pode realizar a análise em tempo real em uma tabela OLTP. Isso não substitui a necessidade de um data warehouse para armazenar e analisar dados, mas é uma maneira de realizar análise em tempo real.
  
 ### Consultas de análise e relatórios
 As consultas de análise e relatórios muitas vezes são classificadas em pequenas, médias e grandes com base em vários critérios, mas normalmente se baseiam no tempo. Na maioria dos data warehouses, há uma carga de trabalho mista de consultas de execução rápida e execução longa. Em cada caso, é importante determinar essa combinação e determinar sua frequência (por hora, diariamente, fim do mês, fim do trimestre e assim por diante). É importante entender que a carga de trabalho de consultas mistas, aliada à simultaneidade, leva ao planejamento adequado da capacidade para um data warehouse.
@@ -61,15 +61,15 @@ Uma maneira de disponibilizar dados para relatórios e análise é enviar os dad
 Para começar a desenvolver seu data warehouse, consulte [visão geral de desenvolvimento][].
 
 ## Livros
-[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) Karthik Ramachandran, Istvan Szededi e Richard L. Saltzer (Manning Publications). [Capítulo 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) de Karthik Ramachandran, Istvan Szededi e Richard L. Saltzer (Manning Publications). [Capítulo 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
 
 <!--Image references-->
 
 <!--Article references-->
-[visão geral de desenvolvimento]: sql-data-warehouse-overview-development.md
+[visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

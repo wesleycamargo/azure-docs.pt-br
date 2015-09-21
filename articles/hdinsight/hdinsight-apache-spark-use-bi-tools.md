@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Usar as ferramentas de BI com o Apache Spark no HDInsight | Microsoft Azure"
-	description="Instruções passo a passo sobre como usar blocos de anotações com o Apache Spark para criar esquemas em dados brutos, salvá-los como tabelas Hive e, em seguida, usar ferramentas de BI na tabela Hive para análise de dados,"
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
+	pageTitle="Usar as ferramentas de BI com o Apache Spark no HDInsight | Microsoft Azure" 
+	description="Instruções passo a passo sobre como usar blocos de anotações com o Apache Spark para criar esquemas em dados brutos, salvá-los como tabelas Hive e, em seguida, usar ferramentas de BI na tabela Hive para análise de dados," 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015" 
 	ms.author="nitinme"/>
 
 
@@ -31,7 +31,7 @@ Você deve ter o seguinte:
 
 - Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Um cluster do Apache Spark. Para obter instruções, consulte [Provisionar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
-- Um computador com o driver ODBC do Microsoft Spark instalado. Você pode instalar o driver [aqui](http://go.microsoft.com/fwlink/?LinkId=616229).
+- Um computador com o driver ODBC do Microsoft Spark instalado (necessário para que o Spark no HDInsight funcione com o Tableau). Você pode instalar o driver [aqui](http://go.microsoft.com/fwlink/?LinkId=616229).
 - Ferramentas de BI como [Power BI](http://www.powerbi.com/) ou [Tableau Desktop](http://www.tableau.com/products/desktop). Você pode obter uma assinatura gratuita de visualização do Power BI em [http://www.powerbi.com/](http://www.powerbi.com/).
 
 ##<a name="hivetable"></a>Salvar dados brutos como uma tabela Hive
@@ -208,4 +208,4 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

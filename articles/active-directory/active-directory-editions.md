@@ -35,7 +35,7 @@ Para inscrever-se e começar a usar o Active Directory Premium hoje, consulte [I
 A Basic edition do Active Directory é uma oferta paga do Active Directory do Azure e inclui os seguintes recursos:
 
 - **Identidade visual da empresa** - para tornar a experiência do usuário final ainda melhor, você pode adicionar o logotipo e esquemas de cores de sua empresa às páginas Entrada e Painel de acesso da sua organização. Depois de adicionar o logotipo, você também tem a opção de adicionar versões localizadas do logotipo para diferentes idiomas e localidades. Para mais informações, consulte [Adicionar identidade visual da empresa às páginas Entrada e do Painel de acesso](active-directory-add-company-branding.md).
-- **Acesso de aplicativo com base no grupo** - use grupos para provisionar usuários e atribuir acesso de usuário em massa a milhares de aplicativos SaaS. Esses grupos podem ser criados somente na nuvem, ou então você pode aproveitar os grupos existentes que foram sincronizados a partir do seu Active Directory local. Para obter mais informações, consulte [Atribuir acesso a um aplicativo SaaS no AD do Azure para um grupo](https://msdn.microsoft.com/library/azure/dn621141.aspx).
+- **Acesso de aplicativo com base no grupo** - use grupos para provisionar usuários e atribuir acesso de usuário em massa a milhares de aplicativos SaaS. Esses grupos podem ser criados somente na nuvem, ou então você pode aproveitar os grupos existentes que foram sincronizados a partir do seu Active Directory local. Para obter mais informações, consulte [Atribuir acesso a um aplicativo SaaS no AD do Azure para um grupo](active-directory-accessmanagement-group-saasapps.md).
 - **Redefinição de senha por autoatendimento** -Azure sempre permitiu que os administradores do diretório redefinir senhas. Com o Active Directory Basic do Azure, você agora pode reduzir chamadas de assistência técnica quando seus usuários esquecerem a senha oferecendo a eles a possibilidade de redefinir sua senha, com a mesma experiência de logon utilizada por eles no Office 365. Para obter mais informações, consulte [Gerenciamento de senhas no AD do Azure](https://msdn.microsoft.com/library/azure/dn510386.aspx).
 - **SLA empresarial de 99,9%** - garantimos pelo menos 99,9% de disponibilidade do serviço no Active Directory Basic do Azure.
 - [**Proxy de aplicativo do Active Directory do Azure**](https://msdn.microsoft.com/library/azure/dn768214.aspx) - permite o acesso seguro de funcionários a aplicativos locais como o SharePoint e o Exchange/OWA da nuvem usando o Active Directory do Azure.
@@ -122,4 +122,4 @@ Os recursos a seguir estão atualmente em visualização pública e serão adici
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 - [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Instalação personalizada do Azure AD Connect"
-	description="Este documento fornece detalhes sobre as opções de instalação personalizada para o Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Instalação personalizada do Azure AD Connect" 
+	description="Este documento fornece detalhes sobre as opções de instalação personalizada para o Azure AD Connect." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="active-directory"  
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Instalação personalizada do Azure AD Connect
@@ -184,17 +184,6 @@ Com o modo de preparo, o processo para configurar um novo servidor de sincroniza
 
 No modo de preparo, é possível fazer as alterações necessárias no mecanismo de sincronização e examinar o que está prestes a ser exportado. Quando a configuração parecer adequada, execute novamente o assistente de instalação e desabilite o modo de preparo. Isso habilitará os dados a serem exportados para o AD do Azure. Desabilite o outro servidor ao mesmo tempo, para que somente um servidor esteja exportando ativamente.
 
-### Impedindo exclusões acidentais
-Ao se instalar o Azure AD Connect, o recurso para impedir exclusões acidentais será habilitado por padrão e configurado para não permitir uma exportação com mais de 500 exclusões. O valor 500 é um valor padrão e pode ser alterado. Com esse recurso habilitado, se houver um número excessivo de exclusões, a exportação não continuará, e você receberá um email como este:
-
-![Filtragem de sincronização](./media/active-directory-aadconnect-get-started-custom/email.png)
-
-
-Se isso for inesperado, investigue e tome ações corretivas.
-
-Para desabilitar temporariamente essa proteção e permitir que essas exclusões ocorram, execute: Disable-ADSyncExportDeletionThreshold
-
-Para habilitar novamente a proteção ou alterar a configuração de limite padrão, execute: Enable-ADSyncExportDeletionThreshold
 
 
 ## Configurando a federação com o AD FS
@@ -223,7 +212,7 @@ Aqui, você digitará os servidores específicos em que deseja instalar o AD FS.
 
  
 ### Especificar os servidores proxy de aplicativo Web
-Aqui você digitará os servidores específicos que deseja definir como os servidores proxy de aplicativo Web. O servidor proxy de aplicativo Web é implantado em sua rede de DMZ (voltada para a extranet) e dá suporte a solicitações de autenticação da extranet. Você pode adicionar um ou mais servidores com base em sua necessidades de planejamento de capacidade. É recomendável instalar um único servidor proxy de aplicativo Web para implantações de teste e piloto e implantar servidores adicionais abrindo o Azure AD Connect e implantando io Proxy de Aplicativo Web em servidores adicionais. Normalmente, é recomendável ter um número equivalente de servidores proxy para satisfazer à autenticação da intranet.
+Aqui você digitará os servidores específicos que deseja definir como os servidores proxy de aplicativo Web. O servidor proxy de aplicativo Web é implantado em sua rede de perímetro (voltada para a extranet) e dá suporte a solicitações de autenticação da extranet. Você pode adicionar um ou mais servidores com base em sua necessidades de planejamento de capacidade. É recomendável instalar um único servidor proxy de aplicativo Web para implantações de teste e piloto e implantar servidores adicionais abrindo o Azure AD Connect e implantando io Proxy de Aplicativo Web em servidores adicionais. Normalmente, é recomendável ter um número equivalente de servidores proxy para satisfazer à autenticação da intranet.
 
 > [AZURE.NOTE]<li>Se a conta que você está usando para instalar o Azure AD Connect não for administrador local nos servidores do AD FS, você será solicitado a fornecer credenciais para uma conta que tenha permissões suficientes.</li><li>Verifique se há conectividade HTTP/HTTPS entre o servidor do Azure AD Connect e o servidor proxy de aplicativo Web antes de configurar essa etapa.</li><li> Além disso, verifique se há conectividade HTTP/HTTPS entre o servidor de aplicativos Web e o servidor do AD FS para permitir solicitações de autenticação por meio de fluxo.</li>
 
@@ -279,4 +268,4 @@ Você pode personalizar a imagem do logotipo e a ilustração para as páginas d
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

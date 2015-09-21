@@ -1,6 +1,8 @@
 <properties
+	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico | Microsoft Azure"
 	description="Divisão e mesclagem com ferramenta de banco de dados elástico"
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
@@ -100,12 +102,12 @@ Vá para o [Portal de Visualização do Azure](https://portal.azure.com).
 
 ### Atualize o arquivo de configuração de serviço
 
-Cole a impressão digital do certificado copiado acima no atributo de impressão digital/valor dessas configurações. Para a função da web:
+Cole a impressão digital do certificado copiado acima no atributo de impressão digital/valor dessas configurações. Para a função de trabalho:
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Para a função de trabalho:
+Para a função da web:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
@@ -332,4 +334,4 @@ Nesse caso, verifique seu arquivo de configuração, em particular a configuraç
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

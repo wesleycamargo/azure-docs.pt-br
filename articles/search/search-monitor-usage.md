@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="07/08/2015"
+   ms.date="09/08/2015"
    ms.author="heidist"/>
 
 # Monitorar o uso e as estatísticas em um serviço de Pesquisa do Azure
@@ -45,7 +45,7 @@ A API REST da Pesquisa do Azure e o SDK do .NET fornecem acesso programático à
 
 ## Próximas etapas
 
-Revise [limites e capacidade](https://msdn.microsoft.com/library/azure/dn798934.aspx) para determinar a combinação de partições e réplicas que você precisará se a capacidade existente for insuficiente.
+Revise [limites e capacidade](search-limits-quotas-capacity.md) para determinar a combinação de partições e réplicas que você precisará se a capacidade existente for insuficiente.
 
 Visite [Gerenciar o serviço de pesquisa no Microsoft Azure](search-manage.md) para saber mais sobre a administração do serviço.
 
@@ -57,4 +57,4 @@ Visite [Gerenciar o serviço de pesquisa no Microsoft Azure](search-manage.md) p
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

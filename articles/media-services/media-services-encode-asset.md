@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure"
-	description="Este tópico fornece uma visão geral e oferece uma comparação dos codificadores de Mídia sob Demanda do Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure" 
+	description="Este tópico fornece uma visão geral e oferece uma comparação dos codificadores de Mídia sob Demanda do Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure
@@ -238,6 +238,14 @@ MPEG Layer 2|Não|Não|Sim
 MP3 (MPEG-1 Audio Layer 3)|Não|Não|Sim
 Áudio do Windows Media|Não|Sim|Sim
 
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##Artigos relacionados
 
 - [Cotas e limitações](media-services-quotas-and-limitations.md)
@@ -246,4 +254,4 @@ MP3 (MPEG-1 Audio Layer 3)|Não|Não|Sim
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

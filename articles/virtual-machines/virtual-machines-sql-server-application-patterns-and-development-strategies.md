@@ -3,7 +3,7 @@
 	description="Este artigo aborda uma série de padrões de aplicativos relacionados ao SQL Server em execução em Máquinas Virtuais do Azure. Ele fornece aos desenvolvedores e arquitetos de soluções uma base para design e arquitetura de aplicativos de qualidade."
 	services="virtual-machines"
 	documentationCenter="na"
-	authors="rothja"
+	authors="Selcin"
 	manager="jeffreyg"
 	editor="monicar" />
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/20/2015"
-	ms.author="jroth" />
+	ms.author="selcint" />
 
 # Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure
 
@@ -322,4 +322,4 @@ Para saber mais sobre como escolher entre esses métodos de programação, consu
 
 Para obter informações sobre a execução do SQL Server em máquinas virtuais do Azure, confira [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!------HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

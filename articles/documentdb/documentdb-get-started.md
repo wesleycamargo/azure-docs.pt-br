@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="hero-article" 
 	ms.date="09/03/2015"
 	ms.author="anhoh"/>
 
@@ -34,7 +34,7 @@ Os cenários a seguir são abordados neste artigo:
 
 Não há tempo para concluir o tutorial e deseja apenas a solução de trabalho? Não se preocupe. A solução completa está disponível em [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Consulte [Obter a solução completa](#GetSolution) para as instruções rápidas.
 
-Depois de concluir o tutorial, use os botões de votação no início ou no fim do tópico para nos informar como nos saímos. Este tópico está sendo atualizado ativamente, por isso, queremos receber seus comentários sobre como melhorá-lo. Se quiser que entremos em contato com você, inclua seu endereço de email no comentário para acompanhamento.
+Atualizamos e aperfeiçoamos este tópico com frequência, de acordo com seus comentários. Depois de concluir o tutorial, use os botões de votação nas partes superior e inferior desta página e lembre-se de incluir seus comentários sobre os aperfeiçoamentos que deseja ver. Se quiser que entremos em contato com você diretamente, inclua seu endereço de email em seu comentário.
 
 ## Pré-requisitos
 
@@ -480,4 +480,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

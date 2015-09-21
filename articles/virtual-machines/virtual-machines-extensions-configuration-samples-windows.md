@@ -1,24 +1,30 @@
 <properties
    pageTitle="Exemplo de configuração para as extensões de VM do Azure | Microsoft Azure"
-	description="Exemplo de configuração para a criação de modelos com extensões"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="Exemplo de configuração para a criação de modelos com extensões"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Exemplos de configuração de extensão de VM do Windows do Azure.
 
-Este artigo oferece um exemplo para a configuração das Extensões de VM do Azure para VMs do Windows de IaaS do Azure. Para saber mais sobre essas extensões, clique <a href="https://msdn.microsoft.com/pt-BR/library/azure/dn606311.aspx" target="_blank">aqui</a>.
+Este artigo oferece um exemplo para a configuração das Extensões de VM do Azure para VMs do Windows de IaaS do Azure.
+
+Para saber mais sobre estas extensões, clique aqui: [Visão geral de extensões de VM do Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+
+Para saber mais sobre a criação de modelos de extensão, clique aqui: [Criação de modelos de extensão.](virtual-machines-extensions-authoring-templates.md)
+
+Este artigo lista os valores de configuração esperados para algumas das Extensões do Windows.
 
 ## Trecho do exemplo de modelo para Extensões de VM.
 O trecho do modelo para Implantação de extensões tem a seguinte aparência:
@@ -268,6 +274,29 @@ Antes de implantar a extensão, verifique a versão mais recente da extensão e 
             }
           }
 
+### Diagnóstico do Azure
+
+Clique aqui para obter uma visão geral da [Extensão de diagnóstico do Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+
+          {
+            "publisher": "Microsoft.Azure.Diagnostics",
+            "type": "IaaSDiagnostics",
+            "typeHandlerVersion": "1.4",
+            "settings": {
+              "xmlCfg": "[base64(variables('wadcfgx'))]",
+              "storageAccount": "[parameters('diagnosticsStorageAccount')]"
+            },
+            "protectedSettings": {
+            "storageAccountName": "[parameters('diagnosticsStorageAccount')]",
+            "storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+            "storageAccountEndPoint": "https://core.windows.net"
+          }
+          }
+
 Nos exemplos acima, substitua o número de versão pelo número de versão mais recente.
 
-<!---HONumber=September15_HO1-->
+Veja abaixo um exemplo de um modelo de VM completo com uma Extensão de Script Personalizado.
+
+[Extensão de script personalizado em uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mover e processar arquivos de log usando o Azure Data Factory (Portal do Azure)"
-	description="Este tutorial avançado descreve um cenário quase real e implementa o cenário usando o serviço Azure Data Factory e Editor Data Factory no Portal do Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Mover e processar arquivos de log usando o Azure Data Factory (Portal do Azure)" 
+	description="Este tutorial avançado descreve um cenário quase real e implementa o cenário usando o serviço Azure Data Factory e Editor Data Factory no Portal do Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Medindo a eficiência de uma campanha de marketing  
@@ -441,7 +441,7 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
+[azure-sql-firewall]: https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings/
 
 
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
@@ -528,4 +528,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

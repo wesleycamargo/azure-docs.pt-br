@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Como adicionar operações a uma API no Gerenciamento de API do Azure
@@ -164,4 +164,4 @@ Após as operações serem adicionadas a uma API, a próxima etapa é associar a
 [Como criar e publicar um produto]: api-management-howto-add-products.md
 [Como armazenar em cache os resultados de operações no Gerenciamento de API do Azure]: api-management-howto-cache.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

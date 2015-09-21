@@ -146,10 +146,10 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 
 Agora que você já sabe as noções básicas das filas de Barramento de Serviço, siga estes links para saber mais.
 
--   Consulte a Referência do MSDN: [Filas, Tópicos e Assinaturas](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
+-   Visão geral de [filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md)
 -   Visite o repositório [SDK do Azure para o nó](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
 
-Para fazer uma comparação entre as filas de Service Bus do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o serviço Fila do Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
+Para fazer uma comparação entre as filas de Service Bus do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o serviço Fila do Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

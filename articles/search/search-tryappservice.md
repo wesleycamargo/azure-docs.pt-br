@@ -318,7 +318,7 @@ Usando o serviço de somente leitura fornecido no site [Experimentar o Serviço 
 
 Para executar todas essas tarefas, você terá uma assinatura do Azure para que possa criar e preencher índices em um serviço. Para obter mais informações sobre como se inscrever para uma avaliação gratuita, visite [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Para saber mais sobre a Pesquisa do Azure, visite nossa [página de documentação](http://azure.microsoft.com/documentation/services/search/) em [http://azure.microsoft.com](http://azure.microsoft.com) ou confira a os [exemplos e vídeos](https://msdn.microsoft.com/library/dn818681.aspx) que exploram a funcionalidade de intervalo completo de Pesquisa de Azure.
+Para saber mais sobre a Pesquisa do Azure, visite nossa [página de documentação](http://azure.microsoft.com/documentation/services/search/) em [http://azure.microsoft.com](http://azure.microsoft.com) ou confira os [exemplos e vídeos](search-video-demo-tutorial-list.md) que exploram a funcionalidade de gama completa da Pesquisa de Azure.
 
 <a name="Schema"></a>
 ##Sobre o esquema
@@ -529,4 +529,4 @@ A captura de tela a seguir mostra o esquema usado para criar o índice usado nes
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -3,7 +3,7 @@
    description="Especificando a descrição de um cluster para o Balanceador de Recursos"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Descrição de cluster
 
@@ -192,4 +192,4 @@ Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

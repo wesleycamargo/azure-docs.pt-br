@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/10/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stbaro"/>
 
 # Criar, editar e executar consultas SQL em uma coleção do Banco de Dados de Documentos usando o Gerenciador de Consultas #
@@ -78,4 +78,4 @@ O Gerenciador de Consultas permite criar, editar e executar consultas facilmente
 - Para saber mais sobre a gramática SQL do Banco de Dados de Documentos com suporte pelo Gerenciador de Consultas, clique [aqui](documentdb-sql-query.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

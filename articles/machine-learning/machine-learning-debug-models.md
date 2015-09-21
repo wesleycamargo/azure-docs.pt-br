@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="09/08/2015" 
 	ms.author="bradsev;garye" />
 
 # Depurar seu modelo no aprendizado de máquina do Azure
@@ -69,4 +69,4 @@ Isso pode ocorrer mesmo que o teste tenha sido bem-sucedido, o módulo [Modelo d
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

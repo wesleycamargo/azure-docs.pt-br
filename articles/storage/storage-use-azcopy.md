@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Introdução ao utilitário de linha de comando AzCopy
@@ -699,7 +699,7 @@ Se o arquivo de diário existir, o AzCopy verificará se a linha de comando inse
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 
-Se você omitir a opção `/Z` ou especificar a opção `/Z` sem o caminho da pasta, conforme mostrado acima, o AzCopy criará o arquivo de diário no local padrão, que é `%SystemDrive%\Users%username%\AppData\Local\Microsoft\Azure\AzCopy`. Se o arquivo de diário já existir, o AzCopy retomará a operação com base no arquivo de diário.
+Se você omitir a opção `/Z` ou especificar a opção `/Z` sem o caminho da pasta, conforme mostrado acima, o AzCopy criará o arquivo de diário no local padrão, que é `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. Se o arquivo de diário já existir, o AzCopy retomará a operação com base no arquivo de diário.
 
 **Especificar um local padrão para o arquivo de diário**
 
@@ -720,7 +720,7 @@ Este exemplo retoma a última operação, cuja conclusão pode ter falhado.
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 
-Se você especificar a opção `/V` sem fornecer um caminho de arquivo para o log detalhado, o AzCopy criará o arquivo de log no local padrão, que é `%SystemDrive%\Users%username%\AppData\Local\Microsoft\Azure\AzCopy`.
+Se você especificar a opção `/V` sem fornecer um caminho de arquivo para o log detalhado, o AzCopy criará o arquivo de log no local padrão, que é `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
 
 **Gravar o arquivo de log detalhado em um local personalizado**
 
@@ -972,4 +972,4 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 
  
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO2-->

@@ -1,21 +1,21 @@
 
 <properties
    pageTitle="Cenários de autenticação do AD do Azure"
-	description="Uma visão geral dos cinco cenários mais comuns de autenticação para o Azure Active Directory (AAD)"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Uma visão geral dos cinco cenários mais comuns de autenticação para o Azure Active Directory (AAD)"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/02/2015"
+   ms.author="mbaldwin"/>
 
 # Cenários de autenticação do AD do Azure
 
@@ -60,13 +60,13 @@ Com o diagrama acima em mente, aqui está o que você precisa saber sobre seus v
 - Os desenvolvedores podem usar as bibliotecas de autenticação de código aberto do Azure AD para facilitar a autenticação, manipulando os detalhes de protocolo por você. Consulte [Bibliotecas de autenticação do Azure Active Directory](active-directory-authentication-libraries.md) para obter mais informações.
 
 
-• Depois que um usuário foi autenticado, o aplicativo deve validar o token de segurança do usuário para garantir que a autenticação tenha sido bem-sucedida para as partes planejadas. Os desenvolvedores podem usar as bibliotecas de autenticação fornecidas para manipular a validação de qualquer token do Azure AD, incluindo o JSON Web Tokens (JWT) ou SAML 2.0. Se você quiser executar a validação manualmente, consulte a documentação [Manipulador de token JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
+• Depois que um usuário foi autenticado, o aplicativo deve validar o token de segurança do usuário para garantir que a autenticação tenha sido bem-sucedida para as partes planejadas. Os desenvolvedores podem usar as bibliotecas de autenticação fornecidas para manipular a validação de qualquer token do Azure AD, incluindo o JSON Web Tokens (JWT) ou SAML 2.0. Se você quiser executar a validação manualmente, veja a documentação [Manipulador de token JWT](https://msdn.microsoft.com/library/dn205065.aspx).
 
 
 > [AZURE.IMPORTANT]O Azure AD usa criptografia de chave pública para assinar tokens e verificar se eles são válidos. Consulte [Informações importantes sobre substituição de chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) para obter mais informações sobre a lógica necessária que você deve ter em seu aplicativo para garantir que ele esteja sempre atualizado com as últimas chaves.
 
 
-• O fluxo de solicitações e respostas para o processo de autenticação é determinado pelo protocolo de autenticação que foi usado, como OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Esses protocolos são discutidos em mais detalhes no tópico [Protocolos de autenticação do Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) e nas seções a seguir.
+• O fluxo de solicitações e respostas para o processo de autenticação é determinado pelo protocolo de autenticação que foi usado, como OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Esses protocolos são discutidos em mais detalhes no tópico [Protocolos de autenticação do Azure Active Directory](active-directory-authentication-protocols.md) e nas seções a seguir.
 
 > [AZURE.NOTE]O Azure AD oferece suporte aos padrões OAuth 2.0 e OpenID Connect que fazem uso extensivo de tokens de portador, incluindo tokens de portador representados como JWTs. Um token de portador é um token de segurança leve que concede ao "portador" acesso a um recurso protegido. Nesse sentido, o "portador" é qualquer parte que possa apresentar o token. Embora uma parte deva primeiro se autenticar no Azure AD para receber o token de portador, se as medidas necessárias não forem tomadas para proteger o token durante a transmissão e o armazenamento, ele pode ser interceptado e usado por uma parte não planejada. Embora alguns tokens de segurança tenham um mecanismo interno para impedir que partes não autorizadas os utilizem, tokens de portador não possuem esse mecanismo e devem ser transportados em um canal seguro, como segurança da camada de transporte (HTTPS). Se um token de portador for transmitido livremente, um ataque por parte de intermediários pode ser usado por uma parte mal-intencionada para adquirir o token e usá-lo para um acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou manter em cache tokens de portador para uso posterior. Sempre certifique-se de que seu aplicativo transmita e armazene tokens de portador de maneira segura. Para obter mais considerações de segurança sobre tokens de portador, consulte [RFC 6750 seção 5](http://tools.ietf.org/html/rfc6750).
 
@@ -134,7 +134,7 @@ Surgem algumas considerações adicionais ao desenvolver um aplicativo multiloca
 
 Se você está desenvolvendo atualmente um aplicativo de locatário único, mas deseja disponibilizá-lo para muitas organizações, você pode facilmente fazer alterações no aplicativo e em sua configuração no Azure AD para habilitá-lo a multilocatários. Além disso, o Azure AD usa a mesma chave de assinatura para todos os tokens em todos os diretórios, independentemente de você estar fornecendo autenticação em um aplicativo de locatário único ou multilocatário.
 
-Cada cenário listado neste documento inclui uma subseção que descreve seus requisitos de provisionamento. Para obter informações mais detalhadas sobre o provisionamento de um aplicativo no Azure AD e sobre as diferenças entre aplicativos de locatário único e multilocatário, confira [Integrando aplicativos ao Active Directory do Azure](active-directory-integrating-applications.md). Continue lendo para entender os cenários comuns de aplicativos no Azure AD.
+Cada cenário listado neste documento inclui uma subseção que descreve seus requisitos de provisionamento. Para obter informações mais detalhadas sobre o provisionamento de um aplicativo no AD do Azure e sobre as diferenças entre aplicativos de locatário único e multilocatário, confira [Integrando aplicativos com o Active Directory do Azure](active-directory-integrating-applications.md). Continue lendo para entender os cenários comuns de aplicativos no Azure AD.
 
 ## Cenários e tipos de aplicativos
 
@@ -338,7 +338,7 @@ A identidade do aplicativo e os tipos de identidade do usuário delegado são di
 
 ##### Identidade do aplicativo com concessão de credenciais do cliente OAuth 2.0
 
-1. Um usuário está conectado ao Azure AD no aplicativo Web (consulte a seção [Navegador da Web para aplicativo Web](#web-browser-to-web-application) acima).
+1. Um usuário está conectado ao AD do Azure no aplicativo Web (veja a seção [Navegador da Web para aplicativo Web](#web-browser-to-web-application) acima).
 
 
 2. O aplicativo Web precisa adquirir um token de acesso para que ele possa autenticar a API da Web e recuperar o recurso desejado. Ele faz uma solicitação ao ponto de extremidade do token do Azure AD, fornecendo a credencial, a ID do cliente e o URI de ID do aplicativo da API da Web.
@@ -351,7 +351,7 @@ A identidade do aplicativo e os tipos de identidade do usuário delegado são di
 
 ##### Identidade de usuário delegado com OpenID Connect
 
-1. Um usuário está conectado a um aplicativo Web usando o Azure AD (consulte [Navegador da Web para aplicativo Web](#web-browser-to-web-application) acima). Se o usuário do aplicativo Web ainda não tiver consentido para permitir que o aplicativo Web chame a API da Web em seu nome, o usuário precisará de consentimento. O aplicativo exibirá as permissões que ele exige e se qualquer uma dessas permissões for de nível administrativo, um usuário normal no diretório não poderá conceder a permissão. Esse processo de consentimento só se aplica a aplicativos multilocatários, não a aplicativos de locatário único, uma vez que o aplicativo já terá as permissões necessárias. Quando o usuário tiver feito login, o aplicativo terá recebido um token de ID com informações sobre o usuário, bem como um código de autorização.
+1. Um usuário está conectado a um aplicativo Web usando o AD do Azure (veja a seção [Navegador da Web para aplicativo Web](#web-browser-to-web-application) acima). Se o usuário do aplicativo Web ainda não tiver consentido para permitir que o aplicativo Web chame a API da Web em seu nome, o usuário precisará de consentimento. O aplicativo exibirá as permissões que ele exige e se qualquer uma dessas permissões for de nível administrativo, um usuário normal no diretório não poderá conceder a permissão. Esse processo de consentimento só se aplica a aplicativos multilocatários, não a aplicativos de locatário único, uma vez que o aplicativo já terá as permissões necessárias. Quando o usuário tiver feito login, o aplicativo terá recebido um token de ID com informações sobre o usuário, bem como um código de autorização.
 
 
 2. Usando o código de autorização emitido pelo Azure AD, o aplicativo Web envia uma solicitação para o ponto de extremidade do token do Azure AD que inclui o código de autorização, detalhes sobre o aplicativo cliente (ID do cliente e o URI de redirecionamento) e o recurso desejado (URI de ID do aplicativo para a API da Web).
@@ -459,10 +459,12 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 
 ## Consulte também
 
+[Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
+
 [Exemplos de código do Azure Active Directory](active-directory-code-samples.md)
 
 [Informações importantes sobre a substituição da chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
 
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

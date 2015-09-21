@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
@@ -273,4 +273,4 @@ Para obter mais informações sobre Armazenamento do Azure, consulte:
 
  
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO2-->

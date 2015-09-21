@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/11/2015" 
+ms.date="09/08/2015" 
 ms.author="adegeo"/>
 
 # Personalizar o ciclo de vida de uma função Web ou de trabalho no .NET
@@ -80,4 +80,4 @@ Você pode usar os métodos de ciclo de vida do ASP.NET além daqueles fornecido
 ## Próximas etapas
 Saiba como [criar um pacote de serviços de nuvem](cloud-services-model-and-package.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

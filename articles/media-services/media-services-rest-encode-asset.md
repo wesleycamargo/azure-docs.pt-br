@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -257,6 +257,15 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 	. . . 
 
 
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Próximas etapas
 Agora que você sabe como criar um trabalho para codificar um ativo, vá para o tópico [Como verificar o andamento do trabalho com os Serviços de Mídia](media-services-rest-check-job-progress.md).
 
@@ -265,4 +274,4 @@ Agora que você sabe como criar um trabalho para codificar um ativo, vá para o 
 
 [Obter processadores de mídia](media-services-rest-get-media-processor.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

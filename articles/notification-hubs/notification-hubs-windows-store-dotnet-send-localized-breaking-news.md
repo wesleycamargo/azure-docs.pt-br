@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Tutorial de últimas notícias localizadas dos Hubs de Notificação"
-	description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações localizadas de últimas notícias."
+	description="Saiba como usar os Hubs de Notificação do Azure para enviar notificações localizadas de últimas notícias."
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="09/08/2015" 
 	ms.author="wesmc"/>
 
 # Usar Hubs de Notificação para enviar últimas notícias localizadas
@@ -232,4 +232,4 @@ Para obter mais informações sobre como usar modelos, consulte [Notificar usuá
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

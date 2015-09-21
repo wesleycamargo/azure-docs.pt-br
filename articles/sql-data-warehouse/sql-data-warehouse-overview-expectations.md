@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2015"
-   ms.author="lvargas;barbkess"/>
+   ms.date="09/05/2015"
+   ms.author="lvargas;twounder;barbkess"/>
 
 # Expectativas de visualização do SQL Data Warehouse
 
@@ -29,7 +29,7 @@ Nós trabalharemos continuamente visando essas metas antes de promover o SQL Dat
 
 ## Desempenho previsível e dimensionável
 
-O SQL Data Warehouse do Azure apresenta unidades de dados de depósito (DWUs, Data Warehouse Units) como uma forma de medir os recursos de computação (CPUs, memória, E/S de armazenamento) disponíveis para o data warehouse. Aumentar o número de DWUs aumenta os recursos. À medida que aumenta o número de DWUs, o SQL Data Warehouse executa operações em paralelo (por exemplo, a consulta ou o carregamento de dados) em recursos mais distribuídos. Isso reduz a latência e melhora o desempenho.
+O SQL Data Warehouse do Azure apresenta Unidades de Data Warehouse (DWUs) como uma forma de medir os recursos de computação (CPUs, memória, E/S de armazenamento) disponíveis para o data warehouse. Aumentar o número de DWUs aumenta os recursos. À medida que aumenta o número de DWUs, o SQL Data Warehouse executa operações em paralelo (por exemplo, a consulta ou o carregamento de dados) em recursos mais distribuídos. Isso reduz a latência e melhora o desempenho.
 
 Qualquer data warehouse tem duas métricas de desempenho fundamentais:
 
@@ -78,4 +78,4 @@ Durante a visualização, o SQL Data Warehouse pode ter até 4 eventos de manute
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

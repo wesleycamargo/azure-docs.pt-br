@@ -1,63 +1,33 @@
 <properties
-   pageTitle="Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure"
-	services="azure-resource-manager"
-	description="Use o Gerenciador de recursos do Azure para implantar um aplicativo no Azure. Um modelo é um arquivo JSON e pode ser usado do Portal, PowerShell, a Interface de linha de comando do Azure para Mac, Linux e Windows ou REST."
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   pageTitle="Implantar recursos com o modelo do Gerenciador de Recursos | Microsoft Azure"
+   services="azure-resource-manager"
+   description="Use o Gerenciador de Recursos do Azure para implantar recursos no Azure. Um modelo é um arquivo JSON e pode ser usado do Portal, PowerShell, a Interface de linha de comando do Azure para Mac, Linux e Windows ou REST."
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/09/2015"
+   ms.author="tomfitz"/>
 
 # Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure
 
 Este tópico explica como usar modelos do Gerenciador de recursos do Azure para implantar seu aplicativo no Azure. Ele mostra como implantar seu aplicativo usando o PowerShell do Azure, a CLI do Azure, a API REST ou o portal de visualização do Microsoft Azure.
 
-Os modelos de Gerenciador de recursos do Azure permitem o provisionamento de forma rápida e fácil de seus aplicativos no Azure via JSON declarativa. Em um único modelo JSON, você pode implantar vários serviços, como máquinas virtuais, redes virtuais, armazenamento, serviços de aplicativos e bancos de dados. Use o mesmo modelo para implantar repetida e consistentemente seu aplicativo durante todos os estágios do ciclo de vida do aplicativo.
-
-Para simplificar o gerenciamento de seu aplicativo, você pode organizar todos os recursos que compartilham um ciclo de vida comum em um grupo único recurso. Os grupos de recursos tornam mais fácil de implantar, atualizar e excluir todos os recursos relacionados juntos. Na maioria dos casos, um grupo de recursos é mapeado para um único aplicativo ou uma camada de aplicativo (para aplicativos grandes). O recurso implantado por meio de um modelo ficará dentro de um único grupo de recurso, mas pode incluir dependências em outros grupos de recursos.
-
-Dentro de um grupo de recursos, você pode acompanhar a execução de uma implantação e ver o status da implantação e qualquer saída de execução do modelo.
+Para obter uma introdução ao Gerenciador de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Para saber mais sobre a criação de modelos, veja [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 Ao implantar um aplicativo com um modelo, você pode fornecer valores de parâmetro para personalizar como os recursos são criados. Você especifica valores para esses parâmetros embutidos ou em um arquivo de parâmetros.
-
-## Conceitos
-
-- Grupo de recursos - conjunto de entidades que compartilham um ciclo de vida comum
-- Modelo do Gerenciador de recursos - arquivo JSON declarativo que define o estado da meta de uma implantação
-- Implantação - operação que acompanha a execução de um modelo do Gerenciador de recursos
-- Parâmetros - valores fornecido pelo usuário que está executando a implantação para personalizar recursos implantados
-- Arquivo de parâmetro - arquivo JSON que armazena nomes e valores de parâmetros 
-
-## Cenários
-
-Com os modelos Gerenciador de recursos, você pode:
-
-- Implantar aplicativos complexos de várias camadas, como o Microsoft SharePoint.
-- Implantar, de forma consistente e repetida, seus aplicativos.
-- Suporte a ambientes de desenvolvimento, teste e produção.
-- Exibir o status das implantações.
-- Solucionar problemas de falhas de implantação usando os logs de auditoria de implantação.
-
-## Implantar com o portal de visualização
-
-E adivinhe? Todos os aplicativos que você cria por meio do [portal de visualização](https://portal.azure.com/) tem um modelo do Gerenciador de Recursos do Azure! Ao simplesmente criar uma Máquina Virtual, Rede Virtual, Conta de Armazenamento, Serviço de Aplicativo ou banco de dados por meio do portal, você já está colhendo os benefícios do Gerenciador de recursos do Azure sem muito esforço. Basta selecionar o ícone **Novo** e você estará a caminho da implantação de um aplicativo por meio do Gerenciador de Recursos do Azure.
-
-![Novo](./media/resource-group-template-deploy/new.png)
-
-Para obter mais informações sobre o uso do portal com o Gerenciador de Recursos do Azure, consulte [Como usar o Portal de Visualização do Azure para gerenciar os recursos do Azure](resource-group-portal.md).
 
 
 ## Implantação com o PowerShell
 
-Se você ainda não utilizou o PowerShell do Azure com o Gerenciador de recursos, consulte [Uso do PowerShell do Azure com o Gerenciador de recursos do Azure](../powershell-azure-resource-manager.md).
+Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
 1. Faça logon em sua conta do Azure. Depois de fornecer suas credenciais, o comando retornará informações sobre sua conta.
 
@@ -171,13 +141,13 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
    
      Você tem as seguintes opções para fornecer valores de parâmetro:
 
-     - Use parâmetros embutidos e um modelo local.
+     - Use parâmetros embutidos e um modelo local. Cada parâmetro está no formato: `"ParameterName": { "value": "ParameterValue" }`. O exemplo a seguir mostra os parâmetros com caracteres de escape.
 
-             azure group deployment create -f <PathToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - Use parâmetros embutidos e um link para um modelo.
 
-             azure group deployment create --template-uri <LinkToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create --template-uri <LinkToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - Use um arquivo de parâmetro. Para obter informações sobre o arquivo de modelo, consulte [Arquivo de parâmetro](./#parameter-file).
     
@@ -236,6 +206,15 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
+## Implantar com o portal de visualização
+
+E adivinhe? Todos os aplicativos que você cria por meio do [portal de visualização](https://portal.azure.com/) têm suporte de um modelo do Gerenciador de Recursos do Azure! Ao simplesmente criar uma Máquina Virtual, Rede Virtual, Conta de Armazenamento, Serviço de Aplicativo ou banco de dados por meio do portal, você já está colhendo os benefícios do Gerenciador de recursos do Azure sem muito esforço. Basta selecionar o ícone **Novo** para estar a caminho da implantação de um aplicativo por meio do Gerenciador de Recursos do Azure.
+
+![Novo](./media/resource-group-template-deploy/new.png)
+
+Para obter mais informações sobre o uso do portal com o Gerenciador de Recursos do Azure, confira [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](resource-group-portal.md).
+
+
 ## Arquivo de parâmetro.
 
 Se você usar um arquivo de parâmetro para passar os valores de parâmetro para seu modelo durante a implantação, será necessário criar um arquivo JSON com um formato semelhante ao exemplo a seguir.
@@ -259,11 +238,11 @@ Se você usar um arquivo de parâmetro para passar os valores de parâmetro para
 O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
 
 ## Próximas etapas
-- Para obter um exemplo da implantação de recursos por meio da biblioteca de cliente .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](../arm-template-deployment.md)
-- Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de modo previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para ver um exemplo da implantação de recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](../arm-template-deployment.md)
+- Para ver um exemplo detalhado da implantação de um aplicativo, confira [Provisionar e implantar microsserviços de modo previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
 - Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criando modelos](../resource-group-authoring-templates.md)
 - Para ver uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, confira [Funções do modelo](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

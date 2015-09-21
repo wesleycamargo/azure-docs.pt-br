@@ -1,24 +1,30 @@
 <properties
    pageTitle="Exemplo de configuração para as extensões de VM do Azure | Microsoft Azure"
-	description="Exemplo de configuração para a criação de modelos com extensões"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="Exemplo de configuração para a criação de modelos com extensões"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Exemplos de configuração de extensão de VM Linux do Azure.
 
-Este artigo fornece um exemplo de configuração das configurar extensões de VM do Azure para VMs Linux de IaaS do Azure. Para saber mais sobre essas extensões, clique <a href="https://msdn.microsoft.com/pt-BR/library/azure/dn606311.aspx" target="_blank">aqui</a>.
+Este artigo fornece um exemplo de configuração das configurar extensões de VM do Azure para VMs Linux de IaaS do Azure.
+
+Para saber mais sobre estas extensões, clique aqui: [Visão geral de extensões de VM do Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+
+Para saber mais sobre a criação de modelos de extensão, clique aqui: [Criação de modelos de extensão.](virtual-machines-extensions-authoring-templates.md)
+
+Este artigo lista os valores de configuração esperados para algumas das Extensões do Linux.
 
 ## Trecho do exemplo de modelo para Extensões de VM.
 O trecho do modelo para Implantação de extensões tem a seguinte aparência:
@@ -91,7 +97,7 @@ O restante do artigo fornece exemplos de configurações para extensões de VM L
         }
 
 ### Extensão de acesso a VM (redefinição de senha)
-Para obter um esquema atualizado, consulte o link <a href="https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess" target="_blank">aqui</a>.
+Para obter o esquema atualizado, consulte a [Documentação do VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
           "publisher": "Microsoft.OSTCExtensions",
@@ -107,7 +113,7 @@ Para obter um esquema atualizado, consulte o link <a href="https://github.com/Az
         }
 
 ### Aplicação de patches de SO
-Para obter um esquema atualizado, consulte o link <a href="https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching" target="_blank">aqui</a>.
+Para obter o esquema atualizado, consulte a [Documentação do OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -132,7 +138,7 @@ Para obter um esquema atualizado, consulte o link <a href="https://github.com/Az
         }
 
 ### Extensão do Docker
-Para obter um esquema atualizado, consulte o link <a href="https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema" target="_blank">aqui</a>.
+Para obter o esquema atualizado, consulte a [Documentação da Extensão do Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -155,6 +161,29 @@ Para obter um esquema atualizado, consulte o link <a href="https://github.com/Az
             }
             }
         }
+
+        ### Linux Diagnostics Extension
+        {
+        "storageAccountName": "storage account to receive data",
+        "storageAccountKey": "key of the account",
+        "perfCfg": [
+        {
+            "query": "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+            "table": "LinuxMemory"
+        }
+        ],
+        "fileCfg": [
+        {
+            "file": "/var/log/mysql.err",
+            "table": "mysqlerr"
+        }
+        ]
+        }
+
 Nos exemplos acima, substitua o número de versão pelo número de versão mais recente.
 
-<!---HONumber=September15_HO1-->
+Veja abaixo um modelo de VM completo para a criação de uma VM do Linux com uma extensão:
+
+[Extensão de script personalizado em uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
+
+<!---HONumber=Sept15_HO2-->

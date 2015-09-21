@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos Android"
-	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento Android."
+	pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos do Android (back-end JavaScript)"
+	description="Siga este tutorial para começar a usar os Serviços Móveis do Azure para o desenvolvimento Android (back-end do JavaScript)."
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/04/2015"
 	ms.author="ricksal"/>
 
-# Introdução aos Serviços Móveis
+# Introdução aos Serviços Móveis para Android (back-end do JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
@@ -117,4 +117,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

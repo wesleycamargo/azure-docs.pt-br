@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Habilitar monitoramento e diagnóstico
@@ -71,4 +71,4 @@ Observe que, neste momento, determinadas distribuições do Linux não têm supo
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho. 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -12,7 +12,7 @@ O restante deste documento fornece detalhes sobre como habilitar HTTPS para dom�
 
 ##<a name="bkmk_domainname"></a>Habilitar SSL para seu domínio personalizado
 
-Para habilitar HTTPS para um nome de domínio personalizado, como **contoso.com**, você deve primeiro registrar um nome de domínio personalizado com um registrador de nomes de domínio. Para obter mais informações sobre como configurar o nome de domínio de um aplicativo Web, consulte [Configurando um nome de domínio personalizado para um site do Azure](/pt-br/develop/net/common-tasks/custom-dns-web-site/). Depois de registrar o nome de domínio personalizado e configurar seu aplicativo Web para responder ao nome personalizado, você deve solicitar um certificado SSL para o domínio.
+Para habilitar HTTPS para um nome de domínio personalizado, como **contoso.com**, você deve primeiro registrar um nome de domínio personalizado com um registrador de nomes de domínio. Para obter mais informações sobre como configurar o nome de domínio de um aplicativo Web, consulte [Configurando um nome de domínio personalizado para um site do Azure](/pt-BR/develop/net/common-tasks/custom-dns-web-site/). Depois de registrar o nome de domínio personalizado e configurar seu aplicativo Web para responder ao nome personalizado, você deve solicitar um certificado SSL para o domínio.
 
 > [AZURE.NOTE]Para habilitar HTTPS para nomes de domínio personalizados, você deve configurar seu aplicativo Web em modo **Padrão**. Isso pode resultar em custos adicionais se você estiver usando modo Gratuito ou Compartilhado. Para obter mais informações sobre preços dos modos Compartilhado e **Padrão**, consulte [Detalhes de Preços][pricing].
 
@@ -60,12 +60,11 @@ O certreq.exe é um utilitário do Windows para criar solicitações de certific
 		MachineKeySet = True
 		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
 		ProviderType = 12
-		RequestType = CMC
 
 		[EnhancedKeyUsageExtension]
 		OID=1.3.6.1.5.5.7.3.1
 
-	Para obter mais informações sobre as opções especificadas acima, bem como outras opções disponíveis, consulte a [documentação de referência do CertReq](http://technet.microsoft.com/library/cc725793.aspx).
+	Para obter mais informações sobre as opções especificadas acima, bem como outras opções disponíveis, veja a [documentação de referência do Certreq](http://technet.microsoft.com/library/cc725793.aspx).
 
 2. Salve o arquivo de texto como **myrequest.txt**.
 
@@ -99,7 +98,7 @@ O certreq.exe é um utilitário do Windows para criar solicitações de certific
 
 	![Exporte a chave particular][certwiz1]
 
-10. Selecione **Troca de Informações Pessoais - PKCS \#12**, **Incluir Todos os Certificados na Cadeia de Certificados** e **Exportar Todas as Propriedades Estendidas**. Clique em **Próximo**.
+10. Selecione **Troca de Informações Pessoais - PKCS #12**, **Incluir Todos os Certificados na Cadeia de Certificados** e **Exportar Todas as Propriedades Estendidas**. Clique em **Próximo**.
 
 	![incluir todos os certificados e propriedades estendidas][certwiz2]
 
@@ -541,4 +540,4 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

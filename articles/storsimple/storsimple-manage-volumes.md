@@ -1,19 +1,19 @@
 <properties
    pageTitle="Gerenciar seus volumes do StorSimple | Microsoft Azure"
-	description="Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/09/2015"
+   ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes
 
@@ -88,8 +88,7 @@ O seu novo volume agora está pronto para uso.
 
 Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acessam o volume.
 
-> [AZURE.IMPORTANT]Se você modificar o tamanho do volume no dispositivo, o tamanho do volume precisa ser alterado no host também. Consulte as instruções do sistema operacional do host ao modificar o volume no host.
-
+> [AZURE.IMPORTANT]Se você modificar o tamanho do volume no dispositivo, o tamanho do volume precisa ser alterado no host também. As etapas do lado do host descritas aqui servem para o Windows Server 2012 (2012R2). Procedimentos para Linux ou para outros sistemas operacionais host serão diferentes. Consulte as instruções do sistema operacional host ao modificar o volume em um host que executa outro sistema operacional.
 
 ### Para modificar um volume
 
@@ -113,7 +112,14 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
  
     > [AZURE.NOTE]Você não pode alterar a opção **Habilitar um backup padrão** para o volume.
 
-6. Salve suas alterações, clicando no ícone de verificação ![ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png).
+6. Salve suas alterações, clicando no ícone de verificação ![ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png). O portal exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
+
+7. Se estiver expandindo um volume, conclua as seguintes etapas no computador host do Windows:
+
+   1. Vá para **Gerenciamento do Computador** ->**Gerenciamento de Disco**.
+   2. Clique com o botão direito do mouse em **Gerenciamento de Disco** e selecione **Examinar Discos Novamente**.
+   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Próximo**.
+   4. Conclua o assistente com a aceitação dos valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
 
 ## Colocar um volume offline
 
@@ -176,9 +182,11 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
 ## Próximas etapas
 
+Assista a um vídeo que mostra como [expandir um volume do StorSimple](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+
 Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

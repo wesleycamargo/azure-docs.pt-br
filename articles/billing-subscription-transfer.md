@@ -1,20 +1,20 @@
 <properties
    pageTitle="Transferindo uma assinatura do Azure | Microsoft Azure"
-	description="Como transferir uma assinatura do Azure para outro usuário e algumas Perguntas Frequentes (FAQ) sobre o processo"
-	services="billing"
-	documentationCenter=""
-	authors="curtand"
-	manager="msmStevenPo"
-	editor=""/>
+   description="Como transferir uma assinatura do Azure para outro usuário e algumas Perguntas Frequentes (FAQ) sobre o processo"
+   services="billing"
+   documentationCenter=""
+   authors="curtand"
+   manager="msmStevenPo"
+   editor=""/>
 
 <tags
    ms.service="billing"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="billing"
-	ms.date="08/19/2015"
-	ms.author="curtand;ruchic"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="billing"
+   ms.date="08/19/2015"
+   ms.author="curtand;ruchic"/>
 
 # Transferindo uma assinatura do Azure
 
@@ -94,4 +94,15 @@ Se sua conta estiver nos EUA, agora você pode fazer isso facilmente no Centro d
 
     Sim e, de fato, você pode usar esse mecanismo para alterar o método de pagamento em sua assinatura de fatura para cartão de crédito. Transfira apenas para outra conta que você possua e insira seu cartão de crédito ao receber a assinatura. Há limitações aqui: agora o histórico de cobrança da assinatura é dividido em duas contas. Mas a vantagem é que você pode fazer isso sem precisar [entrar em contato com o suporte](http://go.microsoft.com/fwlink/?LinkID=619338).
 
-<!---HONumber=September15_HO1-->
+## Próximas etapas depois de aceitar a posse de uma assinatura
+
+1. Agora, você é o Administrador da conta. Examine e atualize o Administrador de serviços e os Coadministradores. Gerencie os administradores no [portal de gerenciamento do Azure](https://manage.windowsazure.com) acessando Configurações. [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533293). 
+2. Você também pode usar o controle de acesso baseado em função (RBAC) para a sua assinatura e serviços. Visite o [portal de visualização do Azure](https://portal.azure.com) [Saiba mais sobre o RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
+3. Atualize as credenciais associadas aos serviços desta assinatura. Estão incluídos: 
+    -   Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para obter mais informações, veja [Criar e carregar um certificado de gerenciamento no Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
+    -	Teclas de acesso para serviços como Armazenamento. Para saber mais, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+    -	Credenciais de Acesso remoto para serviços como Máquinas Virtuais do Azure
+4. Atualize alertas de cobrança para esta assinatura no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533292)
+5. 	Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nesta assinatura. Você pode fazer isso no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions).
+
+<!---HONumber=Sept15_HO2-->

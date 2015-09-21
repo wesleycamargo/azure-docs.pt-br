@@ -198,7 +198,7 @@ Se houver falha do aplicativo após o processamento da mensagem, mas antes da so
 
 ## Próximas etapas
 
-Agora que você aprendeu as noções básicas sobre filas do Barramento de Serviço, confira o tópico do MSDN [Filas, tópicos e assinaturas][] para saber mais.
+Agora que você aprendeu as noções básicas sobre filas do Barramento de Serviço, confira o tópico [Filas, tópicos e assinaturas][] para obter mais informações.
 
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
@@ -208,9 +208,9 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
 [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
 [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
 [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
-[Filas, tópicos e assinaturas]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

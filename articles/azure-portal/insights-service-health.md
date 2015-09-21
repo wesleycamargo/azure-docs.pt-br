@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Controlar a integridade do serviço
@@ -53,4 +53,4 @@ O Azure publica sempre que há uma degradação no desempenho ou interrupção d
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

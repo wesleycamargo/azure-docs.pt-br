@@ -11,13 +11,13 @@ Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando conc
 
 2. No menu principal do Visual Studio, clique em **ferramentas**, **do Gerenciador de Pacotes de biblioteca**, e **Console do Gerenciador de Pacotes**, em seguida, na janela do console digite o seguinte e pressione **Enter**:
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
  	
-	Isso adiciona uma referência ao Azure Service Bus SDK usando o <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">pacote do WindowsAzure.ServiceBus NuGet</a>.
+	Isso adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacote NuGet Microsoft.Azure.Notification Hubs</a>.
 
 3. Abra o arquivo Program.cs e adicione a seguinte instrução `using`:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 4. Na classe `Program`, adicione o seguinte método ou substitua-o, se ele já existir:
 
@@ -100,4 +100,4 @@ Ignore as etapas 1-3, se você tiver criado um aplicativo de console quando conc
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

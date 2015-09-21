@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Visão geral das Assinaturas de acesso compartilhado"
+   pageTitle="Visão geral das Assinaturas de Acesso Compartilhado | Microsoft Azure"
    description="O que são Assinaturas de acesso compartilhado, como elas funcionam e como usá-las por meio do nó, PHP e C#."
    services="service-bus,event-hubs"
    documentationCenter="na"
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
+   ms.workload="na"
+   ms.date="09/04/2015"
    ms.author="darosa"/>
 
 # As Assinaturas de Acesso Compartilhado
@@ -24,7 +24,7 @@
 
 Assinaturas de acesso compartilhado são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. As SAS são um mecanismo extremamente poderoso usado por todos os serviços do Barramento de Serviço. Na utilização real, as SAS têm dois componentes: uma *Política de acesso Compartilhado* e uma *Assinatura de Acesso Compartilhado* (normalmente chamada de *token*).
 
-Você pode encontrar informações mais detalhadas sobre as Assinaturas de Acesso Compartilhado com Barramento de Serviço em [Autenticação SAS com Barramento de Serviço](https://msdn.microsoft.com/library/azure/dn170477.aspx).
+Você pode encontrar informações mais detalhadas sobre as Assinaturas de Acesso Compartilhado com o Barramento de Serviço em [Autenticação de Assinatura de Acesso Compartilhado com o Barramento de Serviço](service-bus-shared-access-signature-authentication.md).
 
 ## Política de acesso compartilhado
 
@@ -251,6 +251,8 @@ Depois de enviar o token SAS pelo link do remetente, o editor precisará ler a r
 
 Consulte a [Referência da API REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) para saber mais sobre o que você pode fazer com esses tokens SAS.
 
-Para saber mais sobre a SAS, consulte o nó [Autenticação do Barramento de Serviço](https://msdn.microsoft.com/library/azure/dn155925.aspx) no MSDN. Mais exemplos sobre SAS em C# e Java Script no [blog de Damir](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)
+Para obter mais informações sobre a autenticação do Barramento de Serviço, veja [Autenticação e autorização do Barramento de Serviço](service-bus-authentication-and-authorization.md).
 
-<!---HONumber=August15_HO7-->
+Encontre mais exemplos de SAS no C# e no JavaScript [nesta postagem no blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
+
+<!---HONumber=Sept15_HO2-->

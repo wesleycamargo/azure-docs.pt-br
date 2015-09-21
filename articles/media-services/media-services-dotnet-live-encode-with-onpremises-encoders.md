@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como executar a codificação ativa com codificadores locais"
-	description="Este tópico mostra como usar o .NET para executar a codificação ativa com codificadores locais."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Como executar a codificação ativa com codificadores locais" 
+	description="Este tópico mostra como usar o .NET para executar a codificação ativa com codificadores locais." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #Como executar a codificação ativa com codificadores locais
@@ -375,4 +375,12 @@ Para obter informações sobre como configurar um codificador ativo, consulte [S
 		    }
 		}
 
-<!---HONumber=August15_HO9-->
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

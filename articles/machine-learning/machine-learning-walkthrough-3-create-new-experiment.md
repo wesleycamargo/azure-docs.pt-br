@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Etapa 3: Criar um novo teste de Aprendizado de Máquina | Microsoft Azure" 
-	description="Etapa 3 do desenvolvimento de um passo a passo de solução de previsão: criar um novo teste de treinamento no Estúdio de Aprendizado de Máquina do Azure." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Etapa 3: Criar um novo teste de Aprendizado de Máquina | Microsoft Azure"
+	description="Etapa 3 do desenvolvimento de um passo a passo de solução de previsão: criar um novo teste de treinamento no Estúdio de Aprendizado de Máquina do Azure."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ Esta é a terceira etapa do passo a passo, [Desenvolvendo uma Solução Preditiv
 2.	[Carregar dados existentes](machine-learning-walkthrough-2-upload-data.md)
 3.	**Criar um novo teste**
 4.	[Treinar e avaliar os modelos](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Publicar o serviço Web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Implantar o serviço Web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Acessar o serviço Web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -54,10 +54,10 @@ Podemos adicionar títulos de coluna usando o módulo [Editor de metadados][meta
 4.	Com o [Editor de metadados][metadata-editor] ainda selecionado, no painel **Propriedades** à direita da tela, clique em **Iniciar seletor de colunas**.
 5.	Na caixa de diálogo **Selecionar colunas**, configure o campo **Começar com** para "Todas as colunas".
 6.	A linha abaixo **Começar com** permite incluir ou excluir colunas específicas para o [Editor de metadados][metadata-editor] modificar. Como queremos modificar todas as colunas, exclua essa linha clicando no sinal de menos ("-") à direita da linha. A caixa de diálogo deve ter esta aparência: ![Seletor de coluna com todas as colunas selecionadas][4]
-7.	Clique na marca de seleção **OK**. 
+7.	Clique na marca de seleção **OK**.
 8.	Volte ao painel **Propriedades**, procure o parâmetro **Novos nomes de coluna**. Neste campo, insira uma lista de nomes para as 21 colunas no conjunto de dados, separadas por vírgulas e na ordem da coluna. Você pode obter os nomes de colunas na documentação do conjunto de dados no site UCI ou, por conveniência, você pode copiar e colar o seguinte:  
 
-<!-- try the same thing without upper-case 
+<!-- try the same thing without upper-case
 		Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
 -->
 
@@ -72,14 +72,14 @@ O painel de Propriedades ficará semelhante a este:
 O teste deve se parecer como o seguinte:
 
 ![Adicionando Editor de metadados][2]
- 
+
 ##Criar conjuntos de dados de treinamento e teste
 A próxima etapa do teste é gerar conjuntos de dados separados que serão utilizados para treinamento e teste de nosso modelo. Para isso, usamos o módulo [Dividir][split].
 
 1.	Localize o módulo [Dividir][split], arraste-o nas telas e conecte-o ao último módulo do [Editor de metadados][metadata-editor].
 2.	Por padrão, a taxa de divisão é 0,5 e o parâmetro **Divisão aleatória** é definido. Isso significa que metade dos dados aleatórios sairá por uma porta do módulo de [Divisão][split], e a outra metade sairá por outra porta. Você pode ajustar isso, bem como o parâmetro **Semente aleatória**, para alterar a divisão entre dados de treinamento e de pontuação. Para este exemplo, deixaremos como está.
 	> [AZURE.TIP]A taxa de divisão determina essencialmente qual parcela dos dados sairá pela porta de saída à esquerda. Por exemplo, se você definir a taxa em 0,7, então, 70% dos dados sairão pela porta esquerda e 30% pela porta direita.  
-	
+
 Podemos usar as saídas do módulo [Divisão][split], entretanto, da forma como desejarmos, mas vamos escolher usar a saída à esquerda para dados de treinamento e a saída à direita para dados de pontuação.
 
 Como mencionado no site UCI, o custo de uma classificação incorreta de um risco de crédito alto como baixo é cinco vezes maior do que o custo da classificação incorreta de um risco baixo como alto. Para isso, iremos gerar um novo conjunto de dados que reflita essa função de custo. No novo conjunto de dados, cada exemplo de alto é replicado cinco vezes, enquanto cada exemplo de baixo não será replicado.
@@ -87,7 +87,7 @@ Como mencionado no site UCI, o custo de uma classificação incorreta de um risc
 Podemos fazer essa replicação usando o código R:
 
 1.	Localizar e arrastar o módulo [Executar Script R][execute-r-script] para a tela do experimento e conectar-se à porta de saída à esquerda do módulo [Dividir][split] para a primeira porta de entrada ("Dataset1") do módulo [Executar Script R][execute-r-script].
-2.	No painel **Propriedades**, exclua o texto padrão no parâmetro **Script** e insira esse script: 
+2.	No painel **Propriedades**, exclua o texto padrão no parâmetro **Script** e insira esse script:
 
 		dataset1 <- maml.mapInputPort(1)
 		data.set<-dataset1[dataset1[,21]==1,]
@@ -105,7 +105,7 @@ Precisamos fazer essa mesma operação de replicação para cada saída do módu
 > [AZURE.TIP]A cópia do módulo Executar script R contém o mesmo script que o módulo original. Quando você copia e cola um módulo nas telas, a cópia mantém todas as propriedades do original.
 >
 Nosso teste agora se parece com esse:
- 
+
 ![Adicionando módulo Divisão e Scripts R][3]
 
 Para obter mais informações sobre como usar scripts R em seus testes, consulte [Estender seu teste com R](machine-learning-extend-your-experiment-with-r.md).
@@ -123,6 +123,5 @@ Para obter mais informações sobre como usar scripts R em seus testes, consulte
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

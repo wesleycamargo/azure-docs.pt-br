@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/20/2015" 
+	ms.date="09/08/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de versão do Stream Analytic da Microsoft
+
+## Notas de versão de 10/09/2015 do Stream Analytics ##
+
+Esta versão contém as atualizações a seguir.
+
+Title|Descrição
+---|---
+Suporte para grupos do PowerBI|Para habilitar o compartilhamento de dados com outros usuários do Power BI, os trabalhos do Stream Analytics agora podem gravar grupos dentro de sua conta do Power BI.
 
 ## Notas de versão de 20/08/2015 do Stream Analytics ##
 
@@ -24,7 +32,7 @@ Esta versão contém as atualizações a seguir.
 
 Title|Descrição
 ---|---
-Função LAST adicionada |A função [LAST](http://msdn.microsoft.com/library/mt421186.aspx) agora está disponível em trabalhos do Stream Analytics, permitindo que você recupere o evento mais recente em um fluxo de eventos em um determinado período de tempo.
+Função LAST adicionada |A função [LAST](http://msdn.microsoft.com/library/mt421186.aspx) agora está disponível nos trabalhos do Stream Analytics, permitindo que você recupere o evento mais recente em um fluxo de eventos, em um determinado período de tempo.
 Novas funções de matriz|As funções de matriz [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) e [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) agora estão disponíveis.
 Novas funções de registro|As funções de registro [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) e [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) agora estão disponíveis.
 
@@ -34,9 +42,9 @@ Esta versão contém as atualizações a seguir.
 
 Title|Descrição
 ---|---
-Id da Org Power BI dissociada da Id do Azure|Esse recurso habilita a [saída do Power BI](stream-analytics-power-bi-dashboard.md) para trabalhos ASA em qualquer tipo de conta do Azure (Live Id ou Id da Org). Além disso, você pode ter uma Id da Org para sua conta do Azure e usar uma diferente para autorizar a saída do Power BI.
-Suporte para saída de filas do barramento de serviço|As saídas das [Filas do Barramento de Serviço](stream-analytics-connect-data-event-outputs.md#service-bus-queues) agora estão disponíveis em trabalhos do Stream Analytics.
-Suporte para saída de filas de tópicos do Barramento de Serviço|As saídas dos [Tópicos do Barramento de Serviço](stream-analytics-connect-data-event-outputs.md#service-bus-topics) agora estão disponíveis em trabalhos do Stream Analytics.
+Id da Org Power BI dissociada da Id do Azure|Este recurso habilita a [saída do Power BI](stream-analytics-power-bi-dashboard.md) para trabalhos de ASA em qualquer tipo de conta do Azure (Live ID ou Org ID). Além disso, você pode ter uma Id da Org para sua conta do Azure e usar uma diferente para autorizar a saída do Power BI.
+Suporte para saída de filas do barramento de serviço|As saídas das [Filas do Barramento de Serviço](stream-analytics-connect-data-event-outputs.md#service-bus-queues) agora estão disponíveis nos trabalhos do Stream Analytics.
+Suporte para saída de filas de tópicos do Barramento de Serviço|As saídas dos [Tópicos do Barramento de Serviço](stream-analytics-connect-data-event-outputs.md#service-bus-topics) agora estão disponíveis nos trabalhos do Stream Analytics.
 
 ## Notas de versão de 09/07/2015 do Stream Analytics ##
 
@@ -73,7 +81,7 @@ Limitação de volume de eventos de Banco de Dados SQL|Quando o Banco de Dados S
 Os conjuntos de dados do PowerBI só podem conter uma tabela|O PowerBI não oferece suporte a mais de uma tabela em um determinado conjunto de dados.
 
 ## Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-br/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
 
@@ -84,4 +92,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

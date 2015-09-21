@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introdução ao Azure | Microsoft Azure"
-	description="Novo no Microsoft Azure? Obtenha uma visão geral básica dos serviços que ele oferece com exemplos de como são úteis."
-	services=" "
-	documentationCenter=".net"
-	authors="Rboucher"
+	pageTitle="Introdução ao Azure | Microsoft Azure" 
+	description="Novo no Microsoft Azure? Obtenha uma visão geral básica dos serviços que ele oferece com exemplos de como são úteis." 
+	services=" " 
+	documentationCenter=".net" 
+	authors="Rboucher" 
 	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/30/2015"  
 	ms.author="robb"/>
 
 # Apresentando o Microsoft Azure
@@ -399,11 +399,11 @@ Toda empresa precisa fazer backup e restauração de dados. Você pode utilizar 
 
 ### Recuperação de Site
  
-Recuperação de Site do Azure (anteriormente Gerenciador de Recuperação Hyper-V) pode ajudar você a proteger aplicativos importantes, coordenando a replicação e recuperação de imagens Hyper-V pelos sites. Você pode fazer o backup para seu próprio site secundário, o site de um hoster ou então utilizar o Azure e evitar a despesa e a complexidade de criar e gerenciar seu próprio local secundário. O Azure criptografa os dados e comunicações e você tem a opção de habilitar a criptografia também para os dados em repouso.
+O Azure Site Recovery (anteriormente Gerenciador de Recuperação Hyper-V) pode ajudar você a proteger aplicativos importantes, coordenando a replicação e recuperação entre locais. O Site Recovery fornece a capacidade de proteger aplicativos com base em Hyper-V, VMware ou SAN em seu próprio local secundário, no local de um hoster ou no Azure, além de eliminar a despesa e a complexidade de criação e gerenciamento do seu próprio local secundário. O Azure criptografa os dados e comunicações e você tem a opção de habilitar a criptografia também para os dados em repouso.
 
 Ele monitora continuamente a condição de seus serviços e ajuda a automatizar a recuperação ordenada dos serviços no caso de interrupção no funcionamento do site no datacenter primário. Máquinas virtuais podem ser trazidas de modo organizado para ajudar a restaurar o serviço rapidamente, mesmo para cargas de trabalho complexas e multicamadas.
 
-A Recuperação de Site utiliza tecnologias existentes como Réplica do Hyper-V, System Center e SQL Server AlwaysOn.
+A Recuperação de Site utiliza tecnologias existentes como Réplica do Hyper-V, System Center e SQL Server AlwaysOn. Verifique [Visão geral do Azure Site Recovery](site-recovery/site-recovery-overview.md) para obter mais detalhes.
 
 ### Serviço de Backup do Azure
 ![Serviço de Backup do Azure](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)
@@ -612,4 +612,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

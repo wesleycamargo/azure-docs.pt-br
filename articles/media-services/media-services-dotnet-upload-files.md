@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -41,7 +41,7 @@ Se você especificar para o ativo a ser criptografado com uma opção **CommonEn
 
 Se você especificar que o ativo deve ser criptografado com uma opção **StorageEncrypted**, o SDK dos serviços de mídia para .NET criará um **StorateEncrypted** **ContentKey** para o ativo.
 
->[AZURE.NOTE]Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação de percentual. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%\#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+>[AZURE.NOTE]Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação de percentual. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 
 Este tópico mostra como usar o SDK do .NET dos Serviços de Mídia, bem como extensões do SDK do .NET dos Serviços de Mídia para carregar arquivos em um ativo dos serviços de mídia.
 
@@ -213,7 +213,7 @@ Você pode usar qualquer aplicativo de cliente de alta velocidade capaz de carre
 	        CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
 	        CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
 	
-	        string[] splitfilename = filename.Split('\');
+	        string[] splitfilename = filename.Split('\\');
 	        var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
 	
 	        using (var stream = System.IO.File.OpenRead(filename))
@@ -299,10 +299,19 @@ O exemplo a seguir chama a função UploadFile e especifica a criptografia de ar
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Próximas etapas
 Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico [Como obter um processador de mídia][].
 
 [Como obter um processador de mídia]: media-services-get-media-processor.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

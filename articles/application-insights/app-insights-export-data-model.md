@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Modelo de dados do Application Insights"
-	description="Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Modelo de dados do Application Insights" 
+	description="Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
 
 # Modelo de dados de exportação do Application Insights
@@ -680,6 +680,18 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * 
     Um identificador exclusivo que define uma conta no aplicativo. É fornecido pelo desenvolvedor. 
 
+### Métricas personalizadas
+
+    context.custom.metrics.<metric-name>
+
+      double value
+      double count
+      double min
+      double max
+      double stdDev
+      double sampledValue
+      double sum
+
 
 ## remotedependency
 
@@ -1069,4 +1081,4 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * [Exportação Contínua](app-insights-export-telemetry.md)
 * [Exemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

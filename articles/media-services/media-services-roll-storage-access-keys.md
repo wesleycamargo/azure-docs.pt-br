@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Como: Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento
@@ -43,7 +43,7 @@ Atualize os Serviços de Mídia para usar a chave de acesso de armazenamento sec
 
 - Use a API REST de gerenciamento dos Serviços de Mídia.
 
-	O exemplo de código a seguir mostra como criar a solicitação https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key para sincronizar a chave de armazenamento especificada com os Serviços de Mídia. Nesse caso, o valor da chave de armazenamento secundária é usado. Para obter mais informações, consulte [Como: Use a API REST de gerenciamento dos Serviços de Mídia](http://msdn.microsoft.com/pt-br/library/azure/dn167656.aspx).
+	O exemplo de código a seguir mostra como criar a solicitação https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key para sincronizar a chave de armazenamento especificada com os Serviços de Mídia. Nesse caso, o valor da chave de armazenamento secundária é usado. Para obter mais informações, consulte [Como: Use a API REST de gerenciamento dos Serviços de Mídia](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -106,6 +106,11 @@ Após 30 minutos, é possível atualizar os localizadores existentes para que el
 Para atualizar a data de validade em um localizador, use as APIs [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
 
  
- 
+##Roteiros de aprendizagem dos Serviços de Mídia
 
-<!---HONumber=August15_HO7-->
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

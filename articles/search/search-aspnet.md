@@ -20,20 +20,6 @@
 
 O ASP.NET é a estrutura predominante de aplicativos Web em soluções personalizadas que são integradas à Pesquisa do Azure. Neste artigo, você aprenderá como conectar seu aplicativo Web do ASP.NET à Pesquisa do Azure, entender os padrões de design para operações comuns e analisar algumas práticas de codificação que podem ajudá-lo a ter uma experiência de desenvolvimento sem problemas.
 
-##Organizar seu código
-
-Dividir as cargas de trabalho em projetos autônomos dentro da mesma solução do Visual Studio proporciona mais flexibilidade na forma como projetar, manter e executar cada programa. Recomendamos três:
-
-- Código de criação de índice
-- Código de ingestão de dados
-- Código de interação do usuário
-
-Na Pesquisa do Azure, as operações de indexação e de documentos – como adicionar ou atualizar documentos ou executar consultas – são totalmente independentes entre si. Isso significa que é possível desacoplar o gerenciamento de índice do seu código de interação do usuário do ASP.NET que formula as solicitações de pesquisa e renderiza os resultados.
-
-Na maioria dos nossos exemplos de código, o índice é criado e carregado em um projeto (mencionado como DataIndexer, CatalogIndexer ou DataCatalog em vários exemplos), enquanto o código que manipula as solicitações de pesquisa e as respostas é colocado em um projeto do aplicativo MVC do ASP.NET. Nos exemplos de código, é prático agrupar a criação de índice e o upload de documento em um projeto, mas o código de produção provavelmente isolaria essas operações. Quando um índice é criado, ele é raramente alterado (e se for alterado, ele precisará ser recompilado), enquanto que os documentos provavelmente serão atualizados com frequência.
-
-Separar as cargas de trabalho oferece outras vantagens na forma de diferentes níveis de permissões para a Pesquisa do Azure (direitos de administrador completos versus direitos somente consulta), uso de diferentes linguagens de programação, dependências mais específicas por programa, além da capacidade de revisar os programas de forma independente ou criar vários aplicativos front-end que todos operam no índice compilado e mantido por um aplicativo central de indexação.
-
 ##Exemplos e demonstrações que usam o ASP.NET e a Pesquisa do Azure
 
 Já existem vários exemplos de código que mostram como a Pesquisa é integrada ao ASP.NET. Você pode ir diretamente ao código ou a um aplicativo de demonstração visitando um destes links:
@@ -47,7 +33,7 @@ Já existem vários exemplos de código que mostram como a Pesquisa é integrada
 Para estabelecer uma conexão com as solicitações de serviço e de problemas, seu aplicativo Web precisa apenas de três coisas:
 
 - Uma URL para o serviço de Pesquisa do Azure provisionado, formatada como https://<service-name>.search.windows.net
-- Uma chave de API (GUID) que autentica a conexão com a Pesquisa do Azure
+- Uma chave de API (cadeia de caracteres) que autentica a conexão com a Pesquisa do Azure
 - Um HTTPClient ou SearchServiceClient para formular a solicitação de conexão
 
 ####URLs e chaves de API
@@ -62,16 +48,16 @@ Normalmente, a URL e a chave são colocadas no arquivo web.config do seu program
     	. . .
       </appSettings>
 
-O nome do serviço de Pesquisa pode ser o nome curto que você especificou durante o provisionamento, contanto que você acrescente o domínio (search.windows.net) na conexão, ou você pode especificar o nome totalmente qualificado (<service-name>.search.windows.net) no arquivo web.config, sem o prefixo HTTPS.
+O nome do serviço de Pesquisa pode ser o nome curto que você especificou durante o provisionamento, contanto que acrescente o domínio (search.windows.net) na conexão, ou você pode especificar o nome totalmente qualificado (<service-name>.search.windows.net) no arquivo web.config, sem o prefixo HTTPS.
 
 A chave de API é um token de autenticação gerado durante o provisionamento de serviço (somente chaves de administrador) ou gerado manualmente se você estiver criando chaves de consulta no portal. O tipo de chave determina quais operações de pesquisa estão disponíveis para o seu aplicativo:
 
 - chaves de administrador (permissões de leitura/gravação, duas por serviço)
 - chaves de consulta (somente leitura, até 50 por serviço)
 
-Todas as chaves de API são GUIDs. Visualmente, não há nenhuma distinção entre as chaves de administrador e de consulta. Você precisaria verificar o portal ou usar a API REST de Gerenciamento para determinar o tipo de chave.
+As chaves de API são cadeias de caracteres com 32 caracteres. Visualmente, não há nenhuma distinção entre as chaves de administrador e de consulta. Caso as perca, veja que tipo de chave especificou no código; você precisa verificar o portal ou usar a API REST de Gerenciamento para retornar o tipo de chave. Para saber mais sobre chaves, visite [API REST do serviço de Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-> [AZURE.TIP]Uma chave de consulta fornece uma experiência somente leitura para o cliente. Confira [TryAppService + Pesquisa do Azure](search-tryappservice.md) para testar as operações de Pesquisa do Azure que estão disponíveis em um serviço somente leitura. Vale lembrar que no TryAppService, o código do aplicativo Web pode ser totalmente modificado – você pode alterar qualquer parte do código C# no projeto do ASP.NET para modificar o layout da página da Web, pesquisar a construção de consulta ou pesquisar os resultados — apenas as operações de índice de serviço de Pesquisa do Azure e de carregamento de documento são somente leitura, de acordo com a inclusão de uma chave de API de consulta na conexão de serviço.
+> [AZURE.TIP]Uma chave de consulta fornece uma experiência somente leitura para o cliente. Consulte [TryAppService + Pesquisa do Azure](search-tryappservice.md) para testar as operações de Pesquisa do Azure que estão disponíveis em um serviço somente leitura. Vale lembrar que no TryAppService, o código do aplicativo Web pode ser totalmente modificado – você pode alterar qualquer parte do código C# no projeto do ASP.NET para modificar o layout da página da Web, pesquisar a construção de consulta ou pesquisar os resultados — apenas as operações de índice de serviço de Pesquisa do Azure e de carregamento de documento são somente leitura, de acordo com a inclusão de uma chave de API de consulta na conexão de serviço.
 
 ####Conexão do cliente
 
@@ -95,7 +81,7 @@ Os dois trechos de código a seguir configuram uma conexão com o serviço de Pe
             }
             catch (Exception e)
             {
-                errorMessage = e.Message.ToString();
+                errorMessage = e.Message;
             }
         }
 
@@ -119,7 +105,7 @@ Os dois trechos de código a seguir configuram uma conexão com o serviço de Pe
 
 ##Padrões de design
 
-Um aplicativo Web que é integrado à Pesquisa do Azure precisará formular consultas e renderizar os resultados. Esta seção fornece orientações sobre como estruturar o código para tarefas executadas em um programa que contém o código de interação do usuário. A definição de esquema, geração de índice e inclusão de dados são excluídos intencionalmente. Para obter orientações sobre como codificar essas operações, veja as explicações passo a passo e os exemplos listados em [Vídeos, exemplos e tutoriais na Pesquisa do Azure](search-video-demo-tutorial-list.md).
+Um aplicativo Web que é integrado à Pesquisa do Azure precisará formular consultas e renderizar os resultados. Esta seção fornece orientações sobre como estruturar o código para tarefas executadas em um programa que contém o código de interação do usuário. A definição de esquema, geração de índice e inclusão de dados são excluídos intencionalmente. Para obter orientações sobre como codificar essas operações, consulte as explicações passo a passo e os exemplos listados em [Vídeos, exemplos e tutoriais na Pesquisa do Azure](search-video-demo-tutorial-list.md).
 
 ###Formulação de consulta
 
@@ -129,7 +115,7 @@ Uma pesquisa de texto completo no índice é executada nos campos marcados como 
 
 Uma consulta de pesquisa envolve o termo de entrada fornecido pelo usuário em uma solicitação de Pesquisa que especifica o índice de destino, além dos parâmetros usados para filtrar ou refinar a solicitação. Os operadores incorporados na cadeia de caracteres de pesquisa, como +, - ou |, são manipulados automaticamente, o que significa que não existem requisitos de codificação para a análise de um termo de pesquisa. Qualquer análise é feita pelo mecanismo de pesquisa, como uma operação interna. Você pode supor que a cadeia de caracteres transmitida será analisada pelo mecanismo.
 
-Uma consulta de pesquisa é fornecida em dois tipos: **Pesquisa** ou **Sugestões**. Você deve definir métodos separados para cada tipo de consulta. **Pesquisa** é a pesquisa de texto completo nos campos do índice. **Sugestões** é o recurso de consulta de preenchimento automático na Pesquisa do Azure que cria uma lista de possíveis termos de pesquisa com base nos três primeiros caracteres da entrada do usuário. Na maioria dos casos, você deve restringir **Sugestões** apenas aos campos que contêm valores relativamente exclusivos ou distintivos (como um nome de produto ou de publicação), em vez de um campo que contém dados não diferenciados.
+Uma consulta de pesquisa é fornecida em dois tipos: **Pesquisa** ou **Sugestões**. Você deve definir métodos separados para cada tipo de consulta. **Pesquisa** é a pesquisa de texto completo nos campos do índice. **Sugestões** é o recurso de consulta de preenchimento automático na Pesquisa do Azure que cria uma lista de possíveis termos de pesquisa com base nos três primeiros caracteres da entrada do usuário. Na maioria dos casos, você deve restringir **Sugestões** apenas aos campos que contenham valores relativamente exclusivos ou distintivos (como um nome de produto ou de publicação), em vez de a campos que contenham dados não diferenciados.
 
 O trecho de código a seguir captura uma entrada de termo de pesquisa em um programa que usa a API REST. O termo de entrada é representado por uma cadeia de caracteres “q”, e os parâmetros restantes são usados para transmitir os valores de filtro de uma estrutura de navegação facetada na mesma página de pesquisa. O termo de entrada e os parâmetros de filtro são usados no método Pesquisa.
 
@@ -151,7 +137,7 @@ O trecho de código a seguir captura uma entrada de termo de pesquisa em um prog
 
             return View("Index", result);
         }
-O método **Pesquisa** que aceita essa consulta é definido da seguinte maneira. Observe que ele define os parâmetros na cadeia de caracteres de consulta, além da estrutura de navegação facetada (apoiada por meio de filtros que fazem o trabalho pesado de restringir os resultados da pesquisa) e da ordem de classificação.
+O método **Search** que aceita essa consulta é definido da maneira que se segue. Observe que ele define os parâmetros na cadeia de caracteres de consulta, além da estrutura de navegação facetada (apoiada por meio de filtros que fazem o trabalho pesado de restringir os resultados da pesquisa) e da ordem de classificação.
 
         public dynamic Search(string searchText, string sort, string color, string category, double? priceFrom, double? priceTo)
         {
@@ -202,7 +188,7 @@ Um método do .NET que constrói uma cadeia de caracteres de pesquisa poderia se
 
         });
 
-Um método do .NET para invocar **Pesquisa** pode ter a seguinte aparência, contido no programa C# principal que fornece a operação de conexão e pesquisa:
+Um método do .NET para invocar **Search** pode ter a seguinte aparência, contido no programa C# principal que fornece a operação de conexão e pesquisa:
 
         public DocumentSearchResponse Search(string searchText)
         {
@@ -311,7 +297,7 @@ No mesmo arquivo Index.cshmtl, você pode encontrar o HTML usado para criar uma 
 
 ###Realce de ocorrência
 
-Aplicar um estilo à instância do termo de pesquisa em um resultado de pesquisa é chamado de realce de ocorrência. Na Pesquisa do Azure, realces de ocorrência são especificados na consulta, por meio do parâmetro de pesquisa de realce, para o qual você fornece uma lista delimitada por vírgulas de campos para verificar se há termos correspondentes. Você pode escolhe o estilo real aplicado. Os três trechos de código a seguir são retirados do [tutorial do TryAppService + Pesquisa do Azure](search-tryappservice.md).
+Aplicar um estilo à instância do termo de pesquisa em um resultado de pesquisa é chamado de realce de ocorrência. Na Pesquisa do Azure, realces de ocorrência são especificados na consulta, por meio do parâmetro de pesquisa de realce, para o qual você fornece uma lista delimitada por vírgulas de campos para verificar se há termos correspondentes. Você pode escolhe o estilo real aplicado. Os três trechos de código a seguir são retirados do [tutorial TryAppService + Pesquisa do Azure](search-tryappservice.md).
 
 Primeiro, especifique os realces de ocorrência como um parâmetro de pesquisa e liste os campos para verificar se há termos correspondentes. Especifique o estilo HTML que será usado no realce de ocorrência.
 
@@ -454,6 +440,19 @@ O código para a serialização de JSON pode ser encontrado em vários exemplos,
 	    }
 	}
 
+###Organizar seu código
+
+Dividir as cargas de trabalho em projetos autônomos dentro da mesma solução do Visual Studio proporciona mais flexibilidade na forma como projetar, manter e executar cada programa. Recomendamos três:
+
+- Código de criação de índice
+- Código de ingestão de dados
+- Código de interação do usuário
+
+Na Pesquisa do Azure, as operações de indexação e de documentos – como adicionar ou atualizar documentos ou executar consultas – são totalmente independentes entre si. Isso significa que é possível desacoplar o gerenciamento de índice do seu código de interação do usuário do ASP.NET que formula as solicitações de pesquisa e renderiza os resultados.
+
+Na maioria dos nossos exemplos de código, o índice é criado e carregado em um projeto (mencionado como DataIndexer, CatalogIndexer ou DataCatalog em vários exemplos), enquanto o código que manipula as solicitações de pesquisa e as respostas é colocado em um projeto do aplicativo MVC do ASP.NET. Nos exemplos de código, é prático agrupar a criação de índice e o upload de documento em um projeto, mas o código de produção provavelmente isolaria essas operações. Quando um índice é criado, raramente ele é alterado (e dependendo da alteração, talvez precise ser recompilado), enquanto os documentos provavelmente serão atualizados com frequência.
+
+Separar as cargas de trabalho oferece outras vantagens na forma de diferentes níveis de permissões para a Pesquisa do Azure (direitos de administrador completos versus direitos somente consulta), uso de diferentes linguagens de programação, dependências mais específicas por programa, além da capacidade de revisar os programas de forma independente ou criar vários aplicativos front-end que todos operam no índice compilado e mantido por um aplicativo central de indexação.
 
 ##Próximas etapas
 
@@ -463,4 +462,4 @@ Para ampliar seu entendimento sobre a Pesquisa do Azure e a integração do ASP.
 - [Estudo de caso do desenvolvedor de Pesquisa do Azure](search-dev-case-study-whattopedia.md)
 - [Fluxo de trabalho típico para o desenvolvimento da Pesquisa do Azure](search-workflow.md) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

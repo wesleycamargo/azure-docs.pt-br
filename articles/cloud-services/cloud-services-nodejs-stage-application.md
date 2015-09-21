@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="mwasson"/>
 
 
@@ -24,18 +24,15 @@ Um aplicativo empacotado pode ser implantado no ambiente de preparo no Azure par
 
 > [AZURE.NOTE]As etapas deste artigo se aplicam somente a aplicativos de nó hospedados como um Serviço de Nuvem do Azure.
 
-Esta tarefa inclui as seguintes etapas:
-
--   [Etapa 1: Preparar um aplicativo]
--   [Etapa 2: Implantar um aplicativo na produção permutando VIPs]
-
 ## Etapa 1: Preparar um aplicativo
 
-Esta tarefa aborda como preparar um aplicativo usando o **PowerShell do Microsoft Azure**.
+Esta tarefa aborda como preparar um aplicativo usando o **Microsoft Azure PowerShell**.
 
 1.  Ao publicar um serviço, basta passar o parâmetro **-Slot** para o cmdlet **Publish-AzureServiceProject**.
 
-    **Preparo do Publish-AzureServiceProject -Slot**
+    ```powershell
+    Publish-AzureServiceProject -Slot staging
+    ```
 
 2.  Faça logon no [Portal de Gerenciamento do Azure] e selecione **Serviços de Nuvem**. Após o serviço de nuvem ser criado e o status da coluna **Preparo** ter sido atualizada para **Executando**, clique no nome de serviço.
 
@@ -50,8 +47,6 @@ Esta tarefa aborda como preparar um aplicativo usando o **PowerShell do Microsof
     ![url do site][cloud-service-staging-url]
 
 Agora você pode verificar que o aplicativo está funcionando corretamente no ambiente de preparo usando a URL do site de preparo.
-
-Para um cenário de atualização, no qual o aplicativo de preparo é uma versão atualizada de uma que já foi implantada na produção, você pode [atualizar o aplicativo no ambiente de produção trocando os VIPs][Step 2: Deploy an Application to Production by Swapping VIPs].
 
 ## Etapa 2: Atualizar um aplicativo em produção permutando VIPs
 
@@ -72,18 +67,12 @@ Você preparou uma implantação e atualizou uma implantação em produção com
 ## Recursos adicionais
 
 - [Como implantar um serviço atualizado na produção permutando VIPs no Azure]
-- [Visão geral do gerenciamento de implantações no Azure]
 
-  [Etapa 1: Preparar um aplicativo]: #step1
-  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-  [Etapa 2: Implantar um aplicativo na produção permutando VIPs]: #step2
-  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+[Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-  [Como implantar um serviço atualizado na produção permutando VIPs no Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-  [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
- 
+[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+[Como implantar um serviço atualizado na produção permutando VIPs no Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

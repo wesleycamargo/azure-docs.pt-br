@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -143,7 +143,7 @@ O portal e o PowerShell usam a [API REST do Gerenciador de Recursos](http://msdn
 
 Para serviços com suporte, você pode usar marcas para agrupar os dados de cobrança. Por exemplo, [Máquinas Virtuais integrado ao Gerenciador de Recursos do Azure](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) permitem definir e aplicar marcas para organizar o uso de cobrança para máquinas virtuais. Se você estiver executando várias VMs para organizações diferentes, poderá usar as marcas para o uso do grupo por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de tempo de execução, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
 
-Você pode recuperar informações sobre marcas por meio da [api de uso](billing-usage-rate-card-overview.md) ou o arquivo CSV de uso que pode ser baixado no [Portal de Contas do Azure](https://account.windowsazure.com/) ou [portal EA](https://ea.azure.com). Para obter mais informações sobre o acesso programático a informações de cobrança, consulte [Obtenha informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md).
+Você pode recuperar informações sobre marcas por meio das [APIs RateCard e de Uso de Recursos do Azure](billing-usage-rate-card-overview.md) ou do arquivo de uso (CSV) com valores separados por vírgula que pode ser baixado no [Portal de contas do Azure](https://account.windowsazure.com/) ou no [portal de EA](https://ea.azure.com). Para obter mais informações sobre o acesso programático a informações de cobrança, consulte [Obtenha informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md). Para operações de API REST, confira [Referência da API REST de cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 Quando você baixa o CSV de uso para serviços que dão suporte a marcas de cobrança, as marcas aparecerão na coluna **Marcas**. Para obter mais detalhes, consulte [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
 
@@ -151,11 +151,11 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcas de cobr
 
 ## Próximas etapas
 
-- Para uma introdução ao uso do Azure PowerShell ao implantar recursos, consulte [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md).
-- Para uma introdução ao uso da CLI do Azure ao implantar recursos, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
-- Para uma introdução ao uso do portal de visualização, consulte [Usando o portal de visualização do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
+- Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, veja [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md).
+- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, veja [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
+- Para obter uma introdução ao uso do portal de visualização, veja [Usando o portal de visualização do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
   
 
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

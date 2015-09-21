@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Como gerenciar pontos de extremidade de streaming em uma conta de Serviços de Mídia"
-	description="Este tópico mostra como gerenciar pontos de extremidade de Streaming usando o Portal de Gerenciamento do Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Como gerenciar pontos de extremidade de streaming em uma conta de Serviços de Mídia" 
+	description="Este tópico mostra como gerenciar pontos de extremidade de Streaming usando o Portal de Gerenciamento do Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	writer="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -134,10 +135,18 @@ Depois que ela for habilitada, as seguintes configurações serão desabilitadas
 Para obter mais informações, consulte [Anunciando a integração dos Serviços de Mídia do Azure com o CDN do Azure (Rede de Distribuição de Conteúdo)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
 
 
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 [streaming-endpoint-enable-cdn]: ./media/media-services-manage-origins/media-services-origins-enable-cdn.png
 [streaming-endpoint]: ./media/media-services-manage-origins/media-services-origins-page.png
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Usando o Conector do Salesforce em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
-	description="Como criar e configurar o Conector do Salesforce ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Como criar e configurar o Conector do Salesforce ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # Introdução ao Conector do Salesforce e à adição dele a seu Aplicativo Lógico
@@ -34,13 +34,13 @@ Como parte das configurações do pacote do conector, o usuário pode especifica
 Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode adicionar o Conector do Salesforce a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 
-## Criar um aplicativo de API do Conector do SalesForce
+## Criar um aplicativo de API do Conector do Salesforce
 1.	Abra o Azure Marketplace usando a opção + NOVO na parte inferior direita do Portal do Azure.
-2.	Navegue até “Web e Dispositivos Móveis > Aplicativos de API” e procure por “SalesForce”.
-3.	Configure o Conector do SalesForce fornecendo os detalhes do Plano de Hospedagem e o grupo de recursos e selecionando o nome do Aplicativo de API: ![][15]
-4. Configure as Entidades do SalesForce que você está interessado em ler/gravar nas “Configurações do Pacote”.
+2.	Navegue até “Web e Móvel > Aplicativos de API” e pesquise “Salesforce”.
+3.	Configure o Conector do Salesforce fornecendo os detalhes do Plano de hospedagem e do grupo de recursos e selecionando o nome do Aplicativo de API: ![][15]
+4. Configure as Entidades do Salesforce que você está interessado em ler/gravar nas “Configurações do Pacote”.
 
-Assim, agora você pode criar um Aplicativo de API do Conector do SalesForce.
+Assim, agora você pode criar um Aplicativo de API do Conector do Salesforce.
 
 
 ## Criar um aplicativo lógico
@@ -56,7 +56,7 @@ Vamos criar um aplicativo lógico simples que cria uma conta no Salesforce e atu
 
 5.	Expanda “Aplicativos de API” neste grupo de recursos na Galeria para ver todos os aplicativos de API disponíveis. Selecione ‘Salesforce’ na galeria e o ‘conector do Salesforce’ é adicionado ao fluxo: ![][5]
 
-8.	Para autorizar seu Aplicativo Lógico a acessar a conta do SalesForce, clique em ‘Autorizar’ para fornecer as credenciais de logon do SalesForce: ![][6]
+8.	Para autorizar seu Aplicativo Lógico a acessar a conta do Salesforce, clique em “Autorizar” para fornecer as credenciais de logon do Salesforce: ![][6]
 
 9.	Você será redirecionado à página de logon do Salesforce e poderá ser autenticado com suas credenciais do Salesforce: ![][7] ![][8]
 
@@ -104,4 +104,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

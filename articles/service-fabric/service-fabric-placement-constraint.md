@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="09/03/2015"
    ms.author="abhic"/>
 
 # Visão geral das Restrições de Posicionamento
@@ -39,4 +39,4 @@ NodeProperty — um mapa definido pelo usuário ou sistema de uma cadeia de cara
 Para obter mais informações: [Cenários de aplicativo](../service-fabric-application-scenarios).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

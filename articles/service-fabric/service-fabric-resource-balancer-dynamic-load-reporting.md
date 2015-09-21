@@ -3,7 +3,7 @@
    description="Uma visão geral do Relatório Dinâmico de Carga para o Balanceador de Recursos"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Visão geral do Relatório Dinâmico de Carga
 
@@ -36,4 +36,4 @@ Observe que quando um serviço relata carga, esses relatórios de carga substitu
 Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

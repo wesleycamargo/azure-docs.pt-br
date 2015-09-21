@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 
@@ -336,6 +336,15 @@ Nenhum fluxo de áudio na mídia de entrada.</td></tr>
 
 Atualmente, há suporte para os idiomas inglês e espanhol. Para obter mais informações, consulte [Indexador de Mídia do Azure em Espanhol](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Links relacionados
 
 [Usando arquivos AIB com o indexador de mídia do Azure e SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
@@ -346,4 +355,4 @@ Atualmente, há suporte para os idiomas inglês e espanhol. Para obter mais info
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

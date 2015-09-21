@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Ajuste exponencial de previsão | Microsoft Azure"
-	description="Serviço Web: ajuste exponencial de previsão"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Ajuste exponencial de previsão | Microsoft Azure" 
+	description="Serviço Web: ajuste exponencial de previsão" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="xueshanz" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="xueshzha"/>
 
 
 #Previsão - Ajuste exponencial 
@@ -138,4 +138,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

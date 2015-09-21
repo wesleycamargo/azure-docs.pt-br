@@ -1,20 +1,20 @@
 <properties
     pageTitle="Compilar um aplicativo Web com Python e Flask usando o Banco de Dados de Documentos | Microsoft Azure"
-	description="Saiba como usar o Banco de Dados de Documentos para armazenar e acessar dados de um aplicativo Web Python e Flask (MVC) hospedado no Azure."
-	services="documentdb"
-	documentationCenter="python"
-	authors="ryancrawcour"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    description="Saiba como usar o Banco de Dados de Documentos para armazenar e acessar dados de um aplicativo Web Python e Flask (MVC) hospedado no Azure."
+    services="documentdb"
+    documentationCenter="python"
+    authors="ryancrawcour"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
     ms.service="documentdb"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="hero-article"
-	ms.date="09/03/2015"
-	ms.author="ryancraw"/>
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="hero-article"
+    ms.date="09/03/2015"
+    ms.author="ryancraw"/>
 
 # Criar um aplicativo Web com Python e Flask (MVC) usando o Banco de Dados de Documentos
 
@@ -338,7 +338,7 @@ Agora que você possui o aplicativo completo funcionando corretamente no Banco d
 
 Parabéns! Você acaba de construir seu primeiro aplicativo Python usando o Banco de Dados de Documentos do Azure e publicá-lo nos Sites do Azure.
 
-Gostaríamos de saber se você achou este tutorial útil, então, use os botões de votação no início ou no fim do tópico para nos informar como nos saímos. Este tópico está sendo atualizado ativamente, por isso, queremos receber seus comentários sobre como melhorá-lo. Se quiser que entremos em contato com você, inclua seu endereço de email no comentário para acompanhamento.
+Atualizamos e aperfeiçoamos este tópico com frequência, de acordo com seus comentários. Depois de concluir o tutorial, use os botões de votação nas partes superior e inferior desta página e lembre-se de incluir seus comentários sobre os aperfeiçoamentos que deseja ver. Se quiser que entremos em contato com você diretamente, inclua seu endereço de email em seu comentário.
 
 Para adicionar funcionalidade adicional para seu aplicativo, examine as APIs disponíveis no [SDK Python do Banco de Dados de Documentos](https://pypi.python.org/pypi/pydocumentdb).
 
@@ -351,4 +351,4 @@ Para adicionar funcionalidade adicional para seu aplicativo, examine as APIs dis
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

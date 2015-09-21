@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Usar as ações do menu do MMC no StorSimple Snapshot Manager | Microsoft Azure"
-   description="Descreve como usar as ações do menu do MMC (Console de Gerenciamento Microsoft) no StorSimple Snapshot Manager."
+   pageTitle="Ações de menu do MMC do StorSimple Snapshot Manager | Microsoft Azure"
+   description="Descreve como usar as ações de menu padrão do Console de Gerenciamento Microsoft (MMC) no StorSimple Snapshot Manager."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Usar as ações de menu do MMC no StorSimple Snapshot Manager
@@ -127,4 +127,4 @@ Você pode usar o menu **Ajuda** para exibir a ajuda online disponível para o M
 
 [Saiba mais sobre a interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="v-dobett"/>
 
 # Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure 
@@ -915,4 +915,4 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

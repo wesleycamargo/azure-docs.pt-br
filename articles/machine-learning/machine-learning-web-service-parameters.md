@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/04/2015" 
 	ms.author="raymondl;garye"/>
 
 #Usar os parâmetros do serviço Web de Aprendizado de Máquina do Azure
@@ -22,7 +22,7 @@ Um serviço Web de Aprendizado de Máquina do Azure é criado pela publicação 
 
 Um exemplo comum é a configuração do módulo [Leitor][reader] para que o usuário do serviço Web publicado possa especificar outra fonte de dados quando o serviço Web é acessado. Ou então, configurar o módulo [Gravador][writer] para que um destino diferente possa ser especificado. Alguns exemplos incluem a alteração do número de bits para o módulo [Hash de Recurso][feature-hashing] ou o número de recursos desejados para o módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection].
 
-Você pode definir os Parâmetros do Serviço Web e associá-los a um ou mais parâmetros de módulo, podendo também especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode então fornecer valores para esses parâmetros quando o serviço é acessado e as ações de módulo serão modificadas em tempo de execução.
+Você pode definir os Parâmetros do Serviço Web e associá-los a um ou mais parâmetros de módulo no seu teste, podendo também especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode então fornecer valores para esses parâmetros quando chamar o serviço Web.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -91,4 +91,4 @@ Para obter mais informações sobre como acessar um serviço Web de Aprendizado 
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

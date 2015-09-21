@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Notas de versão dos Serviços de Mídia"
-	description="Notas de versão dos Serviços de Mídia"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Notas de versão dos Serviços de Mídia" 
+	description="Notas de versão dos Serviços de Mídia" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="media"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="media" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 
@@ -534,6 +534,14 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 
 	O suporte assíncrono foi adicionado a todos os métodos.
 
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 <!-- Anchors. -->
 
 <!-- Images. -->
@@ -574,4 +582,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

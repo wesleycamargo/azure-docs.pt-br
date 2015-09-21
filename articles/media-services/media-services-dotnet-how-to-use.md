@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Desenvolvimento de serviços de mídia com o .NET 
@@ -98,6 +98,14 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
 		using Microsoft.WindowsAzure.MediaServices.Client;
 
 Neste ponto, você está pronto para começar a desenvolver um aplicativo de Serviços de Mídia.
- 
 
-<!---HONumber=August15_HO7-->
+
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes| Microsoft Azure"
+   pageTitle="Grupos de volume do StorSimple Snapshot Manager | Microsoft Azure"
    description="Descreve como usar o snap-in StorSimple Snapshot Manager MMC para criar e gerenciar grupos de volumes."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes
@@ -142,4 +142,4 @@ Use o procedimento a seguir para excluir um grupo de volumes.
 
 [Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Encaminhamento IP e rotas definidas pelo usuário
@@ -90,4 +90,4 @@ Para saber como habilitar o Encaminhamento IP para uma máquina virtual no Azure
 - Saiba como [criar rotas](../virtual-networks-udr-how-to#How-to-manage-routes) e associá-las a sub-redes.
 - Saiba como [habilitar o encaminhamento IP](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding) para uma VM que executa um dispositivo virtual. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

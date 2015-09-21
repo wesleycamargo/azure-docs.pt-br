@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -173,15 +173,13 @@ Por exemplo:
 
 O arquivo App.config a seguir contém os valores de conexão necessárias. Os valores no elemento <appSettings> são os valores necessários que você obteve do processo de configuração de conta dos serviços de mídia.
 
+	<configuration>
+	  <appSettings>
+	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+	  </appSettings>
+	</configuration>
 
-<pre>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</pre>
 
 Para recuperar valores de conexão da configuração, você pode usar a classe **ConfigurationManager** e, em seguida, atribuir valores aos campos em seu código:
 	
@@ -189,9 +187,19 @@ Para recuperar valores de conexão da configuração, você pode usar a classe *
 	private static readonly string _accountKey = ConfigurationManager.AppSettings["MediaServicesAccountKey"];
 
 
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 <!-- Anchors. -->
 
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

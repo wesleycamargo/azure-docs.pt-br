@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Enviar notificações por push para usuários autenticados"
-	description="Saiba como enviar notificações por push para especificar"
+	pageTitle="Enviar notificações por push para usuários autenticados do seu aplicativo do Android (Back-end do JavaScript)"
+	description="Saiba como enviar notificações por push para usuários autenticados específicos de seu aplicativo do Android usando um Serviço Móvel com um back-end do JavaScript."
 	services="mobile-services, notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
 
-# Enviar notificações por push para usuários autenticados
+# Enviar notificações por push para usuários autenticados do seu aplicativo do Android
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
@@ -26,9 +26,9 @@
 
 Este tópico mostra como enviar notificações por push a um usuário autenticado em um dispositivo registrado. Diferente do tutorial anterior de [notificação por push][Get started with push notifications], este tutorial altera seu serviço móvel para exigir que um usuário seja autenticado antes que o cliente possa se registrar no hub de notificação para notificações por push. O registro também é modificado para adicionar uma marca com base na ID de usuário atribuída. Por fim, o script do servidor é atualizado para enviar a notificação apenas ao usuário autenticado, e não a todos os registros.
 
-Este tutorial oferece suporte para aplicativos Android.
+Este tutorial dá suporte aos aplicativos do Android que usam um Serviço Móvel do Azure com um back-end do JavaScript.
 
-##Pré-requisitos 
+##Pré-requisitos
 
 Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais dos Serviços Móveis:
 
@@ -46,21 +46,21 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 <pre><code>function insert(item, user, request) {
 
     // Defina uma carga para a notificação do sistema do Google Cloud Messaging.
-    var payload = 
+    var payload =
         '{"data":{"message" : "Oi dos Serviços Móveis! Foi inserido um item"}}';
 
     // Obter a ID do usuário conectado.
-    var userId = user.userId;		
+    var userId = user.userId;
 
     request.execute({
         success: function() {
-            // Se a inserção tiver êxito, envia uma notificação para todos os dispositivos 
+            // Se a inserção tiver êxito, envia uma notificação para todos os dispositivos
             // registrado para o usuário conectado como uma marca.
             push.gcm.send(userId, payload, {
                 success: function(pushResponse) {
                     console.log("Push enviado com " + userId + " marca:", pushResponse, payload);
 	    			request.respond();
-                    },              
+                    },
                     error: function (pushResponse) {
                             console.log("Erro ao enviar push:", pushResponse);
 	    				request.respond(500, { error: pushResponse });
@@ -97,4 +97,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

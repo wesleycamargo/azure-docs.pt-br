@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram;andtyler"/>
 
 # Suporte para o compartilhamento de recursos entre origens (CORS) para os serviços de armazenamento do Azure
@@ -196,4 +196,4 @@ Solicitações de simulação malsucedidas não serão cobradas.
 [Especificação de compartilhamento de recursos entre origens W3C](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO2-->

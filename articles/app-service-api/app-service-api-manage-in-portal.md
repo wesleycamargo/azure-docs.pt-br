@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gerenciar aplicativos de API"
-	description="Saiba como gerenciar aplicativos de API do Serviço de Aplicativo do Azure usando o portal do Azure e o Gerenciador de Servidores do Visual Studio."
-	services="app-service\api"
-	documentationCenter=""
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Gerenciar aplicativos de API" 
+	description="Saiba como gerenciar aplicativos de API do Serviço de Aplicativo do Azure usando o portal do Azure e o Gerenciador de Servidores do Visual Studio." 
+	services="app-service\api" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/17/2015"
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Gerenciar aplicativos de API no Serviço de Aplicativo do Azure
@@ -134,4 +134,4 @@ Este artigo mostra como usar o portal do Azure para executar tarefas de gerencia
 
 Para obter informações sobre como gerenciar aplicativos de API usando a linha de comando, consulte os artigos na seção **Automatizar** do menu que aparece no lado esquerdo do artigo (em janelas de navegador largas) ou na parte superior do artigo (em janelas de navegador estreitas).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

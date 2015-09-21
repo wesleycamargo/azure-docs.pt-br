@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="Configurar e registrar o dispositivo"
+   description="Explica como usar o Windows PowerShell para StorSimple para configurar e registrar seu dispositivo executando a Atualização 1."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/08/2015"
+   ms.author="alkohli" />
+
 
 ### Para configurar e registrar o dispositivo
 
@@ -29,7 +46,7 @@
    
       >[AZURE.NOTE]Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você receber a mensagem de erro "Verificar a conectividade de rede com Dados 0", verifique a conexão de rede física na interface de rede DADOS 0 de seu controlador ativo.
 
-8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md).
 
 9. Configure um servidor NTP primário para seu dispositivo. Os servidores NTP são necessários, pois seu dispositivo deve sincronizar a hora para que ele possa se autenticar com seus provedores de serviço de nuvem. Verifique se sua rede permite que o tráfego NTP passe do data center para a Internet. Se isso não for possível, especifique um servidor NTP interno.
  
@@ -64,4 +81,4 @@
      
        
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Criar uma experiência simples no Studio de Aprendizado de Máquina | Microsoft Azure"
 	description="Um primeiro tutorial de aprendizado de máquina para criar uma experiência simples para treinar e testar um modelo de regressão linear no Studio de Aprendizado de Máquina do Azure."
+	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/09/2015"
+	ms.date="09/09/2015"
 	ms.author="garye"/>
 
 #Tutorial de aprendizado de máquina: Crie sua primeira experiência no Studio de Aprendizado de Máquina do Azure
@@ -197,11 +198,11 @@ Agora que você concluiu um primeiro tutorial de aprendizado de máquina e o seu
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-Quando estiver satisfeito com seu modelo, será possível publicá-lo como um serviço Web a ser usado para prever preços de automóveis usando novos dados. Consulte [Publicar um serviço Web do Aprendizado de Máquina do Azure][publish] para obter mais detalhes.
+Quando estiver satisfeito com seu modelo, você poderá implantá-lo como um serviço Web a ser usado para prever preços de automóveis usando novos dados. Veja [Implantar um serviço Web do Aprendizado de Máquina do Azure][publish] para obter mais detalhes.
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Para obter uma explicação detalhada das técnicas de modelagem de previsão para criar, treinar, pontuar e publicar um modelo, consulte [Desenvolver uma solução de previsão usando o Aprendizado de Máquina do Azure][walkthrough].
+Para obter um passo a passo maior e detalhado das técnicas de modelagem de previsão para criar, treinar, pontuar e implantar um modelo, veja [Desenvolver uma solução preditiva usando o Aprendizado de Máquina do Azure][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -231,4 +232,4 @@ Para obter uma explicação detalhada das técnicas de modelagem de previsão pa
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

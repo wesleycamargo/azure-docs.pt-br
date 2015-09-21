@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Hubs de Notificação do Azure | Microsoft Azure"
+	pageTitle="Introdução aos Hubs de Notificação do Azure para aplicativos do Android | Microsoft Azure"
 	description="Neste tutorial, você aprende a usar os Hubs de Notificação do Azure para enviar notificações por push a dispositivos Android."
 	services="notification-hubs"
 	documentationCenter="android"
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Introdução aos Hubs de Notificação
+# Introdução aos Hubs de Notificação para aplicativos do Android
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -527,7 +527,7 @@ Neste simples exemplo, você envia notificações a todos os seus dispositivos A
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [portal do Azure]: https://manage.windowsazure.com/
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
-[Usar Hubs de Notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-android-notify-users.md
+[Usar Hubs de notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-android-notify-users.md
 [Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

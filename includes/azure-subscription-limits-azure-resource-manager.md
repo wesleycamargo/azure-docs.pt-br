@@ -4,7 +4,7 @@ Núcleos por [assinatura](http://msdn.microsoft.com/library/azure/hh531793.aspx)
 [Coadministradores](http://msdn.microsoft.com/library/azure/gg456328.aspx) por assinatura|Ilimitado|Ilimitado
 [Contas de armazenamento](storage-create-storage-account.md) por assinatura|100|100<sup>2</sup>
 [Grupos de Recursos](resource-group-overview.md) por assinatura|800|800
-Leituras de API do Gerenciador de Recursos|32\.000 por hora|32\.000 por hora
+Leituras de API do Gerenciador de Recursos|15\.000 por hora|15\.000 por hora
 Gravações de API do Gerenciador de Recursos|1\.200 por hora|1\.200 por hora
 Tamanho da solicitação de API do Gerenciador de Recursos|4194304 bytes|4194304 bytes
 [Serviços de nuvem](cloud-services-what-is.md) por assinatura|Preterido<sup>3</sup>|Preterido<sup>3</sup>
@@ -16,4 +16,4 @@ Tamanho da solicitação de API do Gerenciador de Recursos|4194304 bytes|4194304
 
 <sup>3</sup>Esses recursos não são mais necessários com os Grupos de Recursos do Azure e o Gerenciador de Recursos do Azure.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

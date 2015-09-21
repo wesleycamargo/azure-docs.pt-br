@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # Usando relatórios de integridade do sistema para solução de problemas
@@ -530,4 +530,4 @@ System.Hosting relatará Erro se a validação durante a atualização falhar ou
 [Atualização de aplicativo da Malha de Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -213,9 +213,9 @@ A exclusão de um tópico também excluirá todas as assinaturas registradas com
 
 Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
 
--   Consulte a Referência do MSDN: [Filas, Tópicos e Assinaturas](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
--   Referência da API para [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
--	Visite o repositório [SDK do Azure para o nó](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
+-   Confira [Filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md).
+-   Referência da API para [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
+-	Visite o repositório do [SDK do Azure para o Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

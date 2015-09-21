@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
-# Atualizar o dispositivo StorSimple
+# Atualizar seu dispositivo do StorSimple série 8000
 
 ## Visão geral
 
@@ -119,4 +119,4 @@ Se um dispositivo for redefinido para as configurações de fábrica, então tod
 [Aprenda a usar o Windows PowerShell para StorSimple para administrar seu dispositivo StorSimple](storsimple-windows-powershell-administration.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

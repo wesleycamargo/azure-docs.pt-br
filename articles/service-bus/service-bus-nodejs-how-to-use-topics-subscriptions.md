@@ -290,14 +290,14 @@ A exclusão de um tópico também excluirá todas as assinaturas registradas com
 
 Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
 
--   Consulte a Referência do MSDN: [Filas, Tópicos e Assinaturas][]
+-   Confira [Filas, tópicos e assinaturas][].
 -   Referência da API para [SqlFilter][].
 -   Visite o repositório [SDK do Azure para o nó] no GitHub.
 
   [SDK do Azure para o nó]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Azure Management Portal]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Filas, Tópicos e Assinaturas]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Criar e implantar um aplicativo Node.js em um site do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
@@ -305,4 +305,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Aplicativo Node.js na Web com armazenamento]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

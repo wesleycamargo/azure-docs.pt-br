@@ -1,20 +1,21 @@
 <properties
     pageTitle="O que é o Aprendizado de Máquina no Azure? | Microsoft Azure"
-	description="Explica conceitos básicos do serviço de Aprendizado de Máquina totalmente gerenciado, uma tecnologia de nuvem que você pode usar para criar, operacionalizar e lucrar com soluções."
+    description="Explica conceitos básicos do serviço de Aprendizado de Máquina totalmente gerenciado, uma tecnologia de nuvem que você pode usar para criar, operacionalizar e lucrar com soluções."
+	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
-	documentationCenter=""
-	authors="cjgronlund"
-	manager="neerajkh"
-	editor="cgronlun"/>
+    documentationCenter=""
+    authors="cjgronlund"
+    manager="neerajkh"
+    editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="cgronlun;tedway;olgali"/>
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2015"
+    ms.author="cgronlun;tedway;olgali"/>
 
 
 # Introdução ao aprendizado de máquina no Microsoft Azure
@@ -29,7 +30,7 @@ Essas estimativas ou previsões de aprendizado de máquina podem tornar aplicati
 
 O Aprendizado de Máquina do Azure é um serviço de análise de previsão poderoso baseado em nuvem que permite criar rapidamente modelos preditivos e implantá-los como soluções de análise.
 
-O Aprendizado de Máquina do Azure não apenas fornece ferramentas para criar modelos de análise preditiva, mas também fornece um serviço totalmente gerenciado que você pode usar para publicar seus modelos preditivos como serviços Web prontos para consumo. O Aprendizado de Máquina do Azure fornece ferramentas para criar soluções de análise preditiva completas na nuvem: criar, testar, operacionalizar e gerenciar modelos preditivos rapidamente. Você não precisa comprar nenhum hardware nem gerenciar máquinas virtuais manualmente.
+O Aprendizado de Máquina do Azure não apenas fornece ferramentas para criar modelos de análise preditiva, mas também fornece um serviço totalmente gerenciado que você pode usar para implantar seus modelos preditivos como serviços Web prontos para consumo. O Aprendizado de Máquina do Azure fornece ferramentas para criar soluções de análise preditiva completas na nuvem: criar, testar, operacionalizar e gerenciar modelos preditivos rapidamente. Você não precisa comprar nenhum hardware nem gerenciar máquinas virtuais manualmente.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -59,7 +60,7 @@ Crie modelos preditivos no [Estúdio de Aprendizado de Máquina](machine-learnin
 * Adquira no [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) serviços Web prontos para consumo, como Recomendações, Análise de texto e Detecção de anomalias.
 
 * Operacionalize seus modelos de análise preditiva:
-    * [Publicar serviços Web](machine-learning-publish-a-machine-learning-web-service.md)
+    * [Implantar serviços Web](machine-learning-publish-a-machine-learning-web-service.md)
     * [Treinar e repetir o treino de modelos por meio de APIs](machine-learning-retrain-models-programmatically.md)
     * [Gerenciar pontos de extremidade de serviço Web](machine-learning-create-endpoint.md)
     * [Dimensionar serviços Web](machine-learning-scaling-endpoints.md)
@@ -115,4 +116,4 @@ Você pode aprender os fundamentos da análise de previsão e do aprendizado da 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Recursos de documentação do Azure Webjobs
@@ -42,6 +42,7 @@ O painel de Trabalhos Web no portal de gerenciamento do Azure fornece recursos d
 * [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Como usar o barramento de serviço do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-service-bus.md)
 * [Guia de referência rápida do SDK de Trabalhos Web do Azure (download do PDF)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
+* [Documentação de configurações de Trabalhos Web no GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * Vídeos
 	* [WebJobs e SDK de Trabalhos Web](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
 	* [Série de vídeos de Trabalhos Web do Azure no Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
@@ -57,6 +58,7 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 * [Habilitando entrega de linha de comando ou contínua dos Trabalhos Web do Azure](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Implantando por Git um aplicativo de console .NET no Azure usando Trabalhos Web](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Implantando um WebJob F# para o Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
+* [Implantando serviços personalizados como Azure WebJobs](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
 * Vídeos
 	* [Apresentando as ferramentas de Trabalhos Web do Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Depuração remota e ferramentas de Trabalhos Web](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
@@ -65,6 +67,8 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 
 * [A caixa de diálogo Adicionar Trabalho Web do Azure](websites-dotnet-deploy-webjobs.md#configure)
 * [Criar um Trabalho Web agendado no Portal de Gerenciamento do Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Vinculando um trabalho do agendador a um WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
+* [Agendando Azure WebJobs com expressões cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
 ##<a name="debug"></a>Testando e depurando Trabalhos Web
 
@@ -90,7 +94,6 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 ##<a name="additional"></a>Recursos adicionais de Trabalhos Web
 
 * [Postagem no blog WebJobs GA do Azure de Magnus Mårtensson](http://magnusmartensson.com/azure-webjobs-ga)
-* [Documentação de configurações de Trabalhos Web no GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * [Executando Trabalhos Web do Powershell no Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Seja notificado quando os Trabalhos Web disparados pelo Azure forem concluídos](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
 * [Política de retenção de backup de site simples com Trabalhos Web](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
@@ -139,4 +142,4 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="heidist"/>
 
 # Criar um índice de Pesquisa do Azure no portal do Azure
@@ -100,4 +100,4 @@ Quando você estiver familiarizado com o índice básico, considere a possibilid
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

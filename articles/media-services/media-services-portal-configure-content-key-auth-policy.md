@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,15 @@ Ao proteger o conteúdo com **PlayReady**, uma das coisas que você precisa espe
 
 Você pode clicar no botão **Importar a política XML** e fornecer um XML diferente que está em conformidade com o esquema XML definido [aqui](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Próximas etapas
 Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como: usar o Portal de Gerenciamento do Azure para habilitar a criptografia](../media-services-manage-content#encrypt/).
 
@@ -93,4 +102,4 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

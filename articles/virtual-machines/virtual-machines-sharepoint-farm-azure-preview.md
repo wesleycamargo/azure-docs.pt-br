@@ -35,11 +35,13 @@ O farm do SharePoint de alta disponibilidade consiste em nove máquinas virtuais
 
 Para os detalhes de configuração de ambos os farms, consulte [Detalhes de configuração de farm no SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
+> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para obter mais informações, veja [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Percorrendo a configuração
 
 Para criar seu farm do SharePoint farm com o modelo de Farm do SharePoint Server, faça o seguinte:
 
-1. No [Portal de Visualização do Microsoft Azure](https://portal.azure.com/), clique em **Novo** > **Computação** > **Farm do SharePoint Server**. Se **Farm do SharePoint Server** não aparecer, clique em **Novo** > **Computação** > **Marketplace**, digite **SharePoint** em **Pesquisar Computação** e, em seguida, clique em **Farm do SharePoint Server**. No painel **Farm do SharePoint Server**, clique em **Criar**.
+1. No [Portal de Visualização do Microsoft Azure](https://portal.azure.com/), clique em **Novo** > **Computação** > **Farm do SharePoint Server**. Se **Farm do SharePoint Server** não aparecer, clique em **Novo** > **Computação** > **Marketplace**, digite **SharePoint** em **Pesquisar Computação** e depois clique em **Farm do SharePoint Server**. No painel **Farm do SharePoint Server**, clique em **Criar**.
 2. No painel **Criar um farm do SharePoint**, digite o nome de um grupo de recursos.
 3. Digite um nome de usuário e uma senha para uma conta de administrador local em cada máquina virtual em seu farm. Escolha um nome e uma senha difícil de adivinhar, grave-a e armazene-a em um local seguro.
 4. Se desejar um farm de alta disponibilidade, clique em **Habilitar alta disponibilidade**.
@@ -83,7 +85,7 @@ Observações:
 
 ## Gerenciador de Recursos do Azure
 
-O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria máquinas virtuais no Gerenciamento de Serviços. Para criar farms do SharePoint Server 2013 no Gerenciador de Recursos, consulte [Implantar farms do SharePoint com modelos de Gerenciador de Recursos do Azure](virtual-machines-workload-template-sharepoint.md).
+O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria máquinas virtuais com o modelo de implantação clássico. Para criar farms do SharePoint Server 2013 com o modelo de implantação do Gerenciador de Recursos do Azure, veja [Implantar farms do SharePoint com modelos do Gerenciador de Recursos do Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Recursos adicionais
 
@@ -95,4 +97,4 @@ O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria m�
 
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

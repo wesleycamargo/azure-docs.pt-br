@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Enviar notificações por push para usuários autenticados"
-	description="Saiba como enviar notificações por push para especificar"
+	pageTitle="Enviar notificações por push para usuários autenticados do seu aplicativo do Android (Back-end do .NET)"
+	description="Saiba como enviar notificações por push para usuários autenticados específicos de seu aplicativo do Android usando um Serviço Móvel com um back-end do .Net."
 	services="mobile-services,notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="notification-hubs"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# Enviar notificações por push para usuários autenticados
+# Enviar notificações por push para usuários autenticados do seu aplicativo do Android
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
@@ -25,7 +25,7 @@
 Este tópico mostra como enviar notificações por push a um usuário autenticado em um dispositivo registrado. Diferente do tutorial anterior de [notificação por push][Get started with push notifications], este tutorial altera seu serviço móvel para exigir que um usuário seja autenticado antes que o cliente possa se registrar no hub de notificação para notificações por push. O registro também é modificado para adicionar uma marca com base na ID de usuário atribuída. Por fim, o código do servidor é atualizado para enviar a notificação apenas ao usuário autenticado, e não a todos os registros.
 
 
-Este tutorial oferece suporte para aplicativos Android.
+Este tutorial dá suporte aos aplicativos do Android que usam um Serviço Móvel com um back-end do .Net.
 
 ##Pré-requisitos
 
@@ -63,4 +63,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

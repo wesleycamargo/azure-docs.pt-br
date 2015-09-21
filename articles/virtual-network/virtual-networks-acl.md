@@ -1,19 +1,19 @@
 <properties 
    pageTitle="O que é uma ACL (Lista de Controle de Acesso) de rede?"
-	description="Saiba mais sobre ACLs."
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Saiba mais sobre ACLs."
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/08/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/04/2015"
+   ms.author="telmos" />
 
 # O que é uma ACL (Lista de Controle de Acesso) de rede?
 
@@ -27,7 +27,7 @@ Com as ACLs de rede, você pode fazer o seguinte:
 
 - Permitir ou negar seletivamente o tráfego de entrada com base no intervalo de endereços IPv4 de sub-rede remota para um ponto de extremidade de entrada de máquina virtual.
 
-- Inserir endereços IP em uma lista negra
+- Inserir endereços IP em uma lista de bloqueios
 
 - Criar várias regras por ponto de extremidade de máquina virtual
 
@@ -99,4 +99,4 @@ As ACLs de rede podem ser especificadas em um ponto de extremidade com conjunto 
 
 [Como gerenciar ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

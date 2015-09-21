@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Acessando seus aplicativos"
+    pageTitle="Acessando seus aplicativos de qualquer dispositivo | Microsoft Azure"
     description="Saiba quais clientes têm suporte para o Azure RemoteApp e como acessar seus aplicativos."
     services="remoteapp"
 	documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/09/2015"
     ms.author="elizapo" />
 
 
@@ -41,10 +41,11 @@ Você pode acessar o RemoteApp usando as etapas a seguir se seu dispositivo esti
 
  E clientes finos? Há suporte para os seguintes clientes finos do Windows Embedded:
 
- - Windows Embedded Standard 7 com Service Pack 1
- - Windows Embedded POSReady7
- - Windows Embedded Thin PC
- - Windows Embedded 8.1 Industry
+- Windows Embedded Standard 7
+- Windows Embedded 8 Standard
+- Windows Embedded 8.1 Industry Pro
+- Windows 10 IoT Enterprise
+
 
 ## Baixar o cliente
 
@@ -207,4 +208,4 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 	![Feed de demonstração do Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

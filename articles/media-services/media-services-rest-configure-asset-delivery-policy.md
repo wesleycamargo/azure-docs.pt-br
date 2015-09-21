@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Como: configurar políticas de entrega de ativos
@@ -410,6 +410,16 @@ Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_a
         /// </summary>
         EnvelopeEncryptionIV,
     }
+
+
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

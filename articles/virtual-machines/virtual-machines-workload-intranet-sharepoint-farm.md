@@ -33,6 +33,8 @@ Hospedar um farm do SharePoint na Intranet nos serviços de infraestrutura do Az
 
 A próxima etapa é configurar um farm do SharePoint na Intranet para desenvolvimento/teste hospedado no Azure.
 
+> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para obter mais informações, veja [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Criar um farm do SharePoint na Intranet para desenvolvimento/teste hospedado no Azure
 
 Você tem duas opções para a criação de um ambiente de desenvolvimento/teste para um farm do SharePoint hospedado no Azure:
@@ -106,7 +108,7 @@ Para implantar essa configuração, use o seguinte processo:
 
 	Prepare os bancos de dados do SharePoint, crie um Grupo de Disponibilidade AlwaysOn e, em seguida, adicione bancos de dados a ele. Para obter as etapas de configuração detalhadas, consulte a [Fase 5](virtual-machines-workload-intranet-sharepoint-phase5.md).
 
-Uma vez configurado, você pode expandir esse farm do SharePoint com a orientação encontrada em [Arquiteturas do Microsoft Azure para SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
+Depois de configurado, você pode expandir esse farm do SharePoint com a orientação encontrada em [Arquiteturas do Microsoft Azure para SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
 
 ## Recursos adicionais
 
@@ -124,4 +126,4 @@ Uma vez configurado, você pode expandir esse farm do SharePoint com a orientaç
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

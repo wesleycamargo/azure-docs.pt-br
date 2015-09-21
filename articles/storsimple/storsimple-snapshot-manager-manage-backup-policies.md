@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup | Microsoft Azure"
+   pageTitle="Políticas de backup do StorSimple Snapshot Manager | Microsoft Azure"
    description="Descreve como usar o snap-in StorSimple Snapshot Manager MMC para criar e gerenciar as políticas de backup que controlam os backups agendados."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup
@@ -118,4 +118,4 @@ Use o procedimento a seguir para excluir uma política de backup.
 
 [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

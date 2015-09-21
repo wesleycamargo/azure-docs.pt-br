@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Como gerenciar listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell
@@ -97,4 +97,4 @@ Em determinados cenários, você talvez queira remover um objeto de ACL de rede 
 
 [Como configurar a comunicação com uma máquina virtual](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

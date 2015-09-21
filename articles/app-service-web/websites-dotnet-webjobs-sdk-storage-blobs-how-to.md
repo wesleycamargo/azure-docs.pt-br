@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web
 
 ## Visão geral
 
-Este guia fornece exemplos de código c\# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam o [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1.x.
+Este guia fornece exemplos de código c# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam o [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1.x.
 
 Para obter exemplos de código que mostram como criar blobs, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 		
@@ -232,4 +232,4 @@ Os tópicos relacionados abordados neste artigo incluem o seguinte:
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com blobs do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

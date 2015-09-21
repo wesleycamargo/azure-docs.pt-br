@@ -76,7 +76,7 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 |	Usuários com atividade de entrada anômala | | |	✓ |
 |	Usuários com credenciais insuficientes | | |	✓ |
 |	**Logs de atividade**
-|	Relatório de auditoria |	✓ | | |
+|	Relatório de auditoria |	✓ |	✓ |	✓ |
 |	Atividade de redefinição de senha | | |	✓ |
 |	Atividade de registro de redefinição de senha | | |	✓ |
 |	Atividade de grupos de autoatendimento | | |	✓ |
@@ -276,4 +276,4 @@ Para saber mais sobre as notificações de relatórios do Azure AD, confira [Not
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

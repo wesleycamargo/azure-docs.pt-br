@@ -24,9 +24,9 @@ Rendimento de destino por fila única (mensagens de 1 KB)|Até 2000 mensagens po
 Rendimento de destino por partição de tabela única (entidades de 1 KB)|Até 2000 entidades por segundo
 Taxa de transferência de destino por compartilhamento de arquivo único (Visualização)|Até 60 MB por segundo
 Entrada máxima<sup>3</sup> por conta de armazenamento (regiões dos EUA)|10 Gbps se o GRS/ZRS<sup>4</sup> estiver habilitado, 20 Gbps para LRS
-Egresso máximo<sup>3</sup> por conta de armazenamento (regiões dos EUA)|20 Gbps se o GRS/ZRS<sup>4</sup> estiver habilitado, 30 Gbps para LRS
+Egresso máximo<sup>3</sup> por conta de armazenamento (regiões dos EUA)|20 Gbps se o RA-GRS/GRS/ZRS<sup>4</sup> estiver habilitado, 30 Gbps para LRS
 Entrada máxima<sup>3</sup> por conta de armazenamento (regiões da Ásia e Europa)|5 Gbps se o GRS/ZRS<sup>4</sup> estiver habilitado, 10 Gbps para LRS
-Egresso máximo<sup>3</sup> por conta de armazenamento (regiões da Ásia e Europa)|10 Gbps se o GRS/ZRS<sup>4</sup> estiver habilitado, 15 Gbps para LRS
+Egresso máximo<sup>3</sup> por conta de armazenamento (regiões da Ásia e Europa)|10 Gbps se o RA-GRS/GRS/ZRS<sup>4</sup> estiver habilitado, 15 Gbps para LRS
 
 <sup>1</sup>Se você precisar de mais de 100 contas de armazenamento, entre em contato com o [Suporte do Azure](http://azure.microsoft.com/support/faq/) para obter ajuda.
 
@@ -36,6 +36,11 @@ Basicamente, você pode calcular o número de discos altamente utilizados com su
 
 <sup>3</sup>*Entrada* refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. *Saída* refere-se a todos os dados (respostas) que estão sendo recebidos de uma conta de armazenamento.
 
-<sup>4</sup>GRS refere-se ao armazenamento com redundância geográfica. ZRS refere-se ao armazenamento com redundância de zona, e está disponível somente para blobs de bloco. LRS refere-se ao armazenamento com redundância local.
+<sup>4</sup>As opções de replicação do Armazenamento do Azure incluem:
 
-<!---HONumber=September15_HO1-->
+- **RA-GRS**: armazenamento com redundância geográfica com acesso de leitura. Se o RA-GRS estiver habilitado, os destinos de saída para o local secundário serão idênticos àqueles para o local principal.
+- **GRS**: armazenamento com redundância geográfica. 
+- **ZRS**: armazenamento com redundância de zona. Disponível apenas para blobs de blocos. 
+- **LRS**: armazenamento com redundância local. 
+
+<!---HONumber=Sept15_HO2-->

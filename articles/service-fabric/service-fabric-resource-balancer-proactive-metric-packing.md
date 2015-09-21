@@ -3,7 +3,7 @@
    description="Uma visão geral de como usar o Empacotamento Proativo de Métricas no Balanceador de Recursos"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Empacotamento Proativo de Métricas
 
@@ -74,4 +74,4 @@ Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-
 [Image1]: media/service-fabric-resource-balancer-proactive-metric-packing/PMP.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

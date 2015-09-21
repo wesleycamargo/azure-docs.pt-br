@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="" 
-	description="Informações sobre a introdução ao assistente do Active Directory do Azure (projetos de API da Web)" 
-	services="active-directory" 
+	pageTitle="Introdução ao Active Directory do Azure e aos serviços conectados do Visual Studio (projetos da API Web) |Microsoft Azure" 
+	description="Como começar a usar o Active Directory do Azure em projetos da API Web após a conexão ou criação de um AD do Azure usando os serviços conectados do Visual Studio" 
+    services="active-directory"
 	documentationCenter="" 
 	authors="patshea123" 
 	manager="douge" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea123"/>
 
-# Introdução ao Azure Active Directory (Projetos de API da Web)
+# Introdução ao Active Directory do Azure e aos serviços conectados do Visual Studio (projetos da API Web)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
@@ -29,4 +29,4 @@ Todos os controladores em seu projeto foram marcados com o atributo **Autorizar*
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

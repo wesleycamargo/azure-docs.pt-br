@@ -1,5 +1,21 @@
+<properties 
+   pageTitle="Opção 1: Usar o Windows PowerShell para StorSimple para instalar a Atualização 1.2"
+   description="Explica como usar o Windows PowerShell para StorSimple para instalar a Atualização 1.2 do StorSimple 8000 Series."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/09/2015"
+   ms.author="v-sharos" />
 
-#### Para instalar a Atualização 1 do Windows PowerShell para StorSimple
+#### Para instalar a Atualização 1.2 do Windows PowerShell para StorSimple
 
 1. Execute as etapas a seguir para baixar a atualização do software.
 
@@ -12,7 +28,7 @@
 
         ![Pesquisar o catálogo](./media/storsimple-install-update-option-1/HCS_SearchCatalog-include.png)
 
-    4. Você verá o pacote **StorSimple Update 1.0 Appliance Update**. Clique em **Adicionar**. A atualização será adicionada ao carrinho de compras.
+    4. Você verá o pacote **StorSimple Update 1.2 Appliance Update**. Clique em **Adicionar**. A atualização será adicionada ao carrinho de compras.
 
         ![Atualizar o pacote](./media/storsimple-install-update-option-1/HCS_UpdateBundle-include.png)
 
@@ -20,11 +36,15 @@
  
         ![Exibir carrinho](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
 
-    6. Clique em **Download**. Especifique ou navegue até o local onde deseja que o download seja exibido. A atualização (all-hcsmdssoftwareupdate\_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) será baixada em uma pasta do pacote StorSimple Update 1.0 Appliance Update (KB3063418)" para o local escolhido. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
-        
-2. Para instalar a atualização do software, acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-serial-console).
+    6. Clique em **Download**. Especifique ou **navegue** até o local onde deseja que o download apareça. A atualização será baixada em uma pasta do **pacote de Atualização de Dispositivo do StorSimple Atualização 1.2** (KB3063418) no local escolhido. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
+    
+	Esse procedimento descreve como instalar a atualização do dispositivo de software como um hotfix, as atualizações de firmware de disco do servidor Microsoft Update, bem como o driver LSI e as Atualizações do Windows do Portal de Gerenciamento. No entanto, você pode optar por instalar as atualizações de software, driver e firmware de disco como hotfixes. Em seguida, você precisará baixar a Atualização do Controlador SAS do StorSimple 1.2 SAS (KB3043005) e a Atualização de Firmware de Disco do StorSimple 1.2 (KB3063416) e copiá-los para a mesma pasta compartilhada. Para instalar as atualizações de firmware de disco como um hotfix, siga as instruções em [instalando hotfixes do modo de manutenção por meio do Windows PowerShell para StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
+    
+	> [AZURE.NOTE]O hotfix deve estar acessível nos dois controladores para detectar possíveis mensagens de erro dos controladores pares.
+            
+2. Para instalar a atualização do software, acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-3. No prompt de comando, pressione Enter.
+3. No prompt de comando, pressione **Enter**.
 
 4. Selecione a **Opção 1** para fazer logon no dispositivo com acesso completo.
 
@@ -32,9 +52,11 @@
 
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-    O parâmetro credential é usado somente para acessar um compartilhamento autenticado.
+    Use o IP em vez do DNS no caminho de compartilhamento no comando acima. O parâmetro credential é usado somente para acessar um compartilhamento autenticado.
 
-    A saída de exemplo é mostrada a seguir.
+	É recomendável usar o parâmetro de credencial para acessar compartilhamentos. Até mesmo os compartilhamentos abertos para "todos" geralmente não são abertos para usuários não autenticados.
+
+    Um exemplo de saída é mostrado abaixo.
 
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -51,50 +73,58 @@
  
 6. Digite **Y** quando solicitado a confirmar a instalação do hotfix.
 
-7. Monitore a atualização usando o cmdlet Get-HcsUpdateStatus.
+7. Monitore a atualização usando o cmdlet `Get-HcsUpdateStatus`.
 
-    A saída de exemplo a seguir mostra a atualização em andamento.
+    A saída de exemplo a seguir mostra a atualização em andamento. O `RunInprogress` será `True` quando a atualização estiver em andamento.
 
         ````
         Controller0>Get-HcsUpdateStatus
         RunInprogress       : True
-        LastHotfixTimestamp : 4/13/2015 10:56:13 PM
-        LastUpdateTimestamp : 4/13/2015 10:35:25 PM
+        LastHotfixTimestamp : 9/02/2015 10:36:13 PM
+        LastUpdateTimestamp : 9/02/2015 10:35:25 PM
         Controller0Events   :
         Controller1Events   : 
         ````
  
-     A saída de exemplo a seguir indica que a atualização foi concluída.
+     A saída de exemplo a seguir indica que a atualização foi concluída. O `RunInProgress` será `False` quando a atualização estiver concluída.
 
         ````
         Controller1>Get-HcsUpdateStatus
 
         RunInprogress       : False
-        LastHotfixTimestamp : 4/13/2015 10:56:13 PM
-        LastUpdateTimestamp : 4/13/2015 10:35:25 PM
+        LastHotfixTimestamp : 9/02/2015 10:56:13 PM
+        LastUpdateTimestamp : 9/02/2015 10:35:25 PM
         Controller0Events   :
         Controller1Events   :
 
         ````
- 
-8. Depois que a atualização for concluída, vá para a página de Manutenção do Portal de Gerenciamento. Verifique se há atualizações disponíveis. Você deve ver que existem mais atualizações de software disponíveis.
+		
 
-9. Clique em **Instalar atualizações** para aplicar todas as atualizações de software disponíveis no portal.
-
-10. Depois que as atualizações de software estiverem concluídas, verifique as versões do software, do driver e do firmware do sistema. Digite o seguinte comando:
+	> [AZURE.NOTE]Ocasionalmente, o cmdlet relatará `False` quando a atualização ainda estiver em andamento. Para garantir que o hotfix seja concluído, aguarde alguns minutos, execute esse comando novamente e verifique se `RunInProgress` é `False`. Em caso positivo, o hotfix foi concluído.
+	
+8. Depois que a atualização do software estiver concluída, verifique as versões de software do sistema. Digite o seguinte comando:
 
     `Get-HcsSystem`
 
     Você deverá ver as seguintes versões:
 
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
+    - HcsSoftwareVersion: 6.3.9600.17584
+    - CisAgentVersion: 1.0.9049.0
     - MdsAgentVersion: 26.0.4696.1433 
+    
+	Se os números de versão não mudarem após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter mais ajuda.
+    
+9. Agora, você vai instalar as atualizações de firmware de disco que foram interrompidas e isso levará de 30 a 45 minutos. Você pode optar por instalá-las em uma janela de manutenção planejada conectando-se ao console serial do dispositivo. Para instalar atualizações do firmware de disco, siga as instruções em [Instalar atualizações do modo de manutenção por meio do Windows PowerShell para StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
+
+10. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao Portal de Gerenciamento. As atualizações do modo de manutenção são atualizadas no portal somente depois de 24 horas. Talvez seja preciso aguardar para aplicar as atualizações não interrompidas restantes no Portal de Gerenciamento.
+
+11. Quando estiver pronto para aplicar as atualizações, navegue até a página **Manutenção** e, na parte inferior da página, clique em **Verificar Atualizações**. Você será notificado que as atualizações estão disponíveis, que incluem o driver e as Atualizações do Windows. Clique em **Instalar Atualizações** para iniciar a instalação. Você termina depois que todas as atualizações forem instaladas com êxito.
+
+
+
+
+
  
-11. Para verificar se o firmware foi atualizado corretamente, digite:
+ 
 
-    `Start-HcsFirmwareCheck`
-
-    O status do firmware deve ser **UpToDate**.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

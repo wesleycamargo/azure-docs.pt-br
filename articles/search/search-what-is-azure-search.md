@@ -49,7 +49,7 @@ Os documentos são os dados detalhados retornados pelo mecanismo de pesquisa nos
 
 ##Veja esse recurso em ação
 
-Assista a nossos vídeos para aprender sobre os recursos e cenários. Visite [Pesquisa do Azure: exemplos, tutoriais e demonstrações em vídeo](https://msdn.microsoft.com/library/azure/dn818681.aspx) para obter links para o conteúdo de vídeo.
+Assista a nossos vídeos para aprender sobre os recursos e cenários. Visite [Pesquisa do Azure: tutoriais, demonstrações em vídeo e exemplos](search-video-demo-tutorial-list.md) para obter links para o conteúdo de vídeo.
 
 ##Busca detalhada do recurso
 
@@ -69,7 +69,7 @@ A Pesquisa do Azure passa automaticamente índices e documentos por meio das par
 
 Partições e réplicas são recursos de todo o serviço, com todos os índices em execução em todas as réplicas. Se você precisa isolar um índice ou talvez você precise de requisitos de dispersão geográfica de serviços e recursos em data centers diferentes, você pode criar um segundo serviço.
 
-Há limites no armazenamento e no número de índices e documentos carregados no serviço. O limite efetivo será o que ocorrer primeiro: esgotamento de armazenamento físico ou atingir o limite superior de índices e contagens de documentos. Consulte [Limites e restrições (Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798934.aspx) para obter detalhes.
+Há limites no armazenamento e no número de índices e documentos carregados no serviço. O limite efetivo será o que ocorrer primeiro: esgotamento de armazenamento físico ou atingir o limite superior de índices e contagens de documentos. Veja [Limites e restrições (Pesquisa do Azure)](search-limits-quotas-capacity.md) para obter mais detalhes.
 
 ###Programação
 
@@ -85,7 +85,7 @@ A autenticação de seu aplicativo de host para a Pesquisa do Azure é por meio 
 
 ###Índices e documentos
 
-Você pode ter vários índices (consulte [Limites e restrições (Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798934.aspx) para limites com base em faixas de preço). Observe que atualmente não existe suporte para ingressar em índices. Uma solicitação de pesquisa pode especificar um índice.
+Você pode ter vários índices (veja [Limites e restrições (Pesquisa do Azure)](search-limits-quotas-capacity.md) para obter os limites baseados em camadas de preços). Observe que atualmente não existe suporte para ingressar em índices. Uma solicitação de pesquisa pode especificar um índice.
 
 **Documentos** contêm campos e atributos associados. Os campos incluem texto pesquisável, principais valores utilizados (ou até mesmo exclusivamente) em filtros e perfis de pontuação, e muito provavelmente – URLs ou ponteiros para conteúdo, como imagens em outros armazenamentos de dados. Muitos aplicativos de pesquisa usam várias formas de armazenamento. Imagens ou vídeos podem ser armazenados de forma menos dispendiosa em outra mídia de armazenamento, como o armazenamento Blob do Azure.
 
@@ -129,6 +129,6 @@ Visite [Criar um Serviço de Pesquisa do Azure](search-create-service-portal.md)
 
 Você também pode tentar estes tutoriais:
 
-[Como usar a Pesquisa do Azure no .NET](search-howto-dotnet-sdk.md) [Introdução ao .NET da Pesquisa do Azure](search-get-started-dotnet.md) [Pesquisa do Azure: exemplos, tutoriais e demonstrações em vídeo](https://msdn.microsoft.com/library/azure/dn818681.aspx)
+[Como usar a Pesquisa do Azure no .NET](search-howto-dotnet-sdk.md) [Introdução ao .NET da Pesquisa do Azure](search-get-started-dotnet.md) [Pesquisa do Azure: tutoriais, demonstrações em vídeo e exemplos](search-video-demo-tutorial-list.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

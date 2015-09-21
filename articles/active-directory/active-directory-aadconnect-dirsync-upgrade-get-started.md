@@ -1,20 +1,20 @@
-<properties 
+<properties
    pageTitle="Microsoft Azure AD Connect - Atualizar a partir da ferramenta de sincronização do AD do Microsoft Azure (DirSync)"
-	description="Saiba como atualizar do DirSync para o Azure AD Connect. Este artigo descreve as etapas para atualizar sua atual ferramenta de sincronização do AD do Microsoft Azure (DirSync) ao Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="shoatman"
-	manager="terrylanfear"
-	editor="billmath"/>
+   description="Saiba como atualizar do DirSync para o Azure AD Connect. Este artigo descreve as etapas para atualizar sua atual ferramenta de sincronização do AD do Microsoft Azure (DirSync) ao Azure AD Connect."
+   services="active-directory"
+   documentationCenter=""
+   authors="shoatman"
+   manager="terrylanfear"
+   editor="billmath"/>
 
-<tags 
+<tags
    ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/26/2015"
-	ms.author="shoatman"/>
+   ms.workload="identity"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="09/02/2015" 
+   ms.author="shoatman"/>
 
 # Atualizando a sincronização do Active Directory do Microsoft Azure (DirSync) com o Azure Active Directory Connect
 
@@ -143,7 +143,7 @@ Consulte as opções na seguinte interface do usuário:
 
 ![Insira suas credenciais de AD do Azure](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
-7. Clique em Avançar. 
+7. Clique em Avançar.
 8. Na página "Pronto para configurar", mantenha marcada a opção "Iniciar o processo de sincronização assim que a configuração for concluída".[AZURE.NOTE]A sincronização entre o Active Directory do Windows Server e o Active Directory do Azure começará, mas nenhuma alteração será exportada para o AD do Azure. Apenas uma ferramenta de sincronização pode exportar ativamente alterações de cada vez.
 9. Clique em "Instalar".
 
@@ -204,6 +204,5 @@ A seguir, uma lista de pré-requisitos e componentes de suporte que o Azure AD C
 * [O que vem a seguir com o Azure AD Connect](active-directory-aadconnect-whats-next.md)
 * [Saiba mais](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect no MSDN](active-directory-aadconnect.md)
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

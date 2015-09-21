@@ -3,7 +3,7 @@
    description="Dicas para execução de loops do Transact_SQL e substituição de cursores no SQL Data Warehouse Azure para desenvolver soluções."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Executar loops no SQL Data Warehouse
 O SQL Data Warehouse oferece suporte a loop [WHILE][] para executar repetidamente blocos de instrução. Isso continuará enquanto as condições especificadas forem verdadeiras ou até que o código especificamente encerre o loop usando a palavra-chave `BREAK`. A execução de loops é particularmente útil para a substituição de cursores definidos no código SQL. Felizmente, quase todos os cursores que são escritos em código SQL são do tipo somente leitura de avanço rápido. Portanto, a execução de loops [WHILE] é uma ótima alternativa se você precisar substituir um.
 
 ## Aproveitando a execução de loops e substituindo cursores no SQL Data Warehouse
-No entanto, antes de mergulhar na memória, primeiro você deve fazer a seguinte pergunta: “Esse cursor poderia ser reescrito para usar operações baseadas em conjunto?”. Em muitos casos, a resposta será sim. Na maioria dos casos, a melhor abordagem é fazer exatamente isso. Uma operação definida com base em conjunto geralmente terá um desempenho significativamente mais rápido do que uma abordagem iterativa de linha por linha.
+No entanto, antes de mergulhar na memória, primeiro você deve fazer a seguinte pergunta: “Esse cursor poderia ser reescrito para usar operações baseadas em conjunto?”. Em muitos casos, a resposta será “Sim” e geralmente esta será a melhor abordagem. Uma operação baseada em conjunto geralmente terá um desempenho consideravelmente mais rápido do que uma abordagem iterativa de linha por linha.
 
-Os cursores somente leitura de avanço rápido podem ser facilmente substituídos por uma construção de loop. Abaixo está um exemplo simples para transmitir a abordagem. O exemplo de código atualiza as estatísticas para cada tabela no banco de dados. Iterando sobre as tabelas no loop somos capazes de executar cada comando em sequência.
+Os cursores somente leitura de avanço rápido podem ser facilmente substituídos por um constructo de looping. Veja abaixo um exemplo simples. Este exemplo de código atualiza as estatísticas para cada tabela no banco de dados. Iterando sobre as tabelas no loop somos capazes de executar cada comando em sequência.
 
-Em primeiro lugar, crie uma tabela temporária que contém um número de linha exclusivo usado para identificar as instruções individuais:
+Primeiro, crie uma tabela temporária que contém um número de linha exclusivo usado para identificar as instruções individuais:
   
 ```
 CREATE TABLE #tbl 
@@ -82,4 +82,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="09/03/2015"
 	ms.author="garye" />
 
 
-#Estender seu experimento com R 
+#Estender seu experimento com R
 
 Você pode estender a funcionalidade do Estúdio AM por meio da linguagem R usando o módulo [Executar o Script R][execute-r-script].
 
@@ -501,6 +501,5 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

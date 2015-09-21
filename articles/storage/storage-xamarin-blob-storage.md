@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Como usar o Armazenamento de Blob no Xamarin (visualização)
@@ -179,4 +179,4 @@ Saiba mais sobre blobs, tabelas e filas consultando os links a seguir:
 [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

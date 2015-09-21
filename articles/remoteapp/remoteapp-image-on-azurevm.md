@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Criar uma imagem do RemoteApp do Azure com base em uma VM do Azure"
+    pageTitle="Criar uma imagem do Azure RemoteApp baseada em uma VM do Azure | Microsoft Azure"
     description="Saiba como criar uma imagem para o RemoteApp do Azure começando com uma máquina virtual do Azure." 
     services="remoteapp" 
     documentationCenter="" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="09/02/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Há duas etapas para criar sua própria imagem com base em uma VM do Azure: cria
 
 Use estas etapas para criar uma imagem com base em uma VM do Azure.
 
-1. Crie uma máquina virtual do Azure. Você pode usar a imagem do "Host da Sessão de Área da Trabalho Remota do Windows Server" da galeria de imagens da máquina virtual do Azure. Essa imagem atende a todos os requisitos de imagem de modelo do Azure RemoteApp. 
+1. Crie uma máquina virtual do Azure. Você pode usar a imagem do “Host da Sessão de Área de Trabalho Remota do Windows Server” ou “Host da Sessão da Área de Trabalho Remota do Windows Server com o Microsoft Office 365 ProPlus” da galeria de imagens de máquinas virtuais do Azure. Essa imagem atende a todos os requisitos de imagem de modelo do Azure RemoteApp. 
 
 	Para obter detalhes, consulte [Criar uma VM que executa o Windows](virtual-machines-windows-tutorial.md).
 
@@ -35,7 +35,7 @@ Use estas etapas para criar uma imagem com base em uma VM do Azure.
 
 	Para mais detalhes, consulte [ Como fazer logon em uma máquina virtual executando o Windows Server](virtual-machines-log-on-windows-server.md).
 
-3. Se você estiver usando a imagem do Host da Sessão da Área de Trabalho Remota do Windows Server, há um script de validação incluído que garantirá a que sua VM cumpra os pré-requisitos do RemoteApp. Para executar o script, clique duas vezes em **ValidateRemoteAppImage** na área de trabalho. Certifique-se de que todos os erros relatados pelo script sejam corrigidos antes de prosseguir para a próxima etapa.
+3. Se estiver usando uma das imagens do Host da Sessão da Área de Trabalho Remota do Windows Server, haverá um script de validação incluído que garantirá que a sua VM atenda aos pré-requisitos do RemoteApp. Para executar o script, clique duas vezes em **ValidateRemoteAppImage** na área de trabalho. Certifique-se de que todos os erros relatados pelo script sejam corrigidos antes de prosseguir para a próxima etapa.
 
 4. O SYSPREP generaliza e captura a imagem. Consulte [Como capturar uma máquina virtual do Windows para usar como modelo](../virtual-machines-capture-image-windows-server.md) para obter instruções.
 
@@ -59,4 +59,4 @@ Use estas etapas para importar a nova imagem para o RemoteApp do Azure:
 Agora você está pronto para criar a nova coleção, uma coleção na [nuvem](remoteapp-create-cloud-deployment.md) ou [híbrida](remoteapp-create-hybrid-deployment.md), dependendo de suas necessidades.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

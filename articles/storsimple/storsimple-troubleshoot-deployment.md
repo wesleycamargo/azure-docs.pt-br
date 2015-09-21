@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Solucionar problemas de implantação de dispositivo StorSimple | Microsoft Azure"
+   pageTitle="Solucionar problemas de implantação do StorSimple | Microsoft Azure"
    description="Descreve como diagnosticar e corrigir os erros que ocorrem quando você implanta o StorSimple pela primeira vez."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="alkohli" />
 
 # Solucionar problemas de implantação do dispositivo StorSimple
@@ -575,4 +575,4 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

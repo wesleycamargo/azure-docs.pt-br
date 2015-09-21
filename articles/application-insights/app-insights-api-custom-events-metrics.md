@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="API do Application Insights para métricas e eventos personalizados"
-	description="Insira algumas linhas de código em seu aplicativo da área de trabalho ou de dispositivo, página da Web ou serviço para acompanhar o uso e diagnosticar problemas."
+	pageTitle="API do Application Insights para métricas e eventos personalizados" 
+	description="Insira algumas linhas de código em seu aplicativo da área de trabalho ou de dispositivo, página da Web ou serviço para acompanhar o uso e diagnosticar problemas." 
 	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+    documentationCenter="" 
+	authors="alancameronwills" 
 	manager="douge"/>
  
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/28/2015" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -82,9 +82,9 @@ TelemetryClient é thread-safe.
 
 ## Acompanhar evento
 
-Eventos podem ser exibidos no [Metrics Explorer][metrics] como uma contagem agregada, e você também pode exibir ocorrências individuais na [Pesquisa de Diagnóstico][diagnostic].
+No Application Insights, um *evento personalizado* é um ponto de dados que você pode exibir no [Metrics Explorer][metrics] como uma contagem agregada e também como ocorrências individuais na [Pesquisa de Diagnóstico][diagnostic]. (Ele não está relacionado ao MVC ou a outros “eventos” de estrutura.)
 
-Insira eventos em seu código para contar com que frequência eles usam determinado recurso e com que frequência atingem metas específicas ou fazem escolhas específicas.
+Insira chamadas TrackEvent em seu código para contar com que frequência os usuários escolhem um determinado recurso e com que frequência eles atingem metas específicas, ou talvez cometam tipos de erros específicos.
 
 Por exemplo, em um aplicativo de jogo, envie um evento sempre que um usuário ganhar o jogo:
 
@@ -105,14 +105,12 @@ Por exemplo, em um aplicativo de jogo, envie um evento sempre que um usuário ga
 
     telemetry.trackEvent("WinGame");
 
-
-Clique no bloco Eventos Personalizados na folha de visão geral:
+Aqui, “WinGame” é o nome que aparece no portal do Application Insights. Clique no bloco Eventos Personalizados na folha de visão geral:
 
 ![Navegue até o recurso do aplicativo em portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
-Clique para ver um gráfico de visão geral e uma lista completa.
 
-Selecione o gráfico e agrupe-o pelo Nome do evento para ver as contribuições relativas dos eventos mais importantes.
+O gráfico é agrupado pelo nome do Evento para que você possa ver as contribuições relativas dos eventos mais importantes. Para controlar isso, selecione o gráfico e use o controle de Agrupamento.
 
 ![Selecione o gráfico e defina o agrupamento](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -203,7 +201,7 @@ Há alguns [limites no número de propriedades, valores de propriedade e métric
 
 ![Abra o Metrics Explorer, selecione o gráfico e selecione a métrica](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-*Se sua métrica não for mostrada, feche a folha de seleção, aguarde um pouco e clique em Atualizar.*
+*Se a sua métrica não aparecer ou se o cabeçalho Personalizado não estiver lá, feche a folha de seleção e tente mais tarde. Às vezes, pode levar uma hora para que as métricas sejam agregadas por meio do pipeline.*
 
 **Se você usou propriedades e métricas**, segmente a métrica pela propriedade:
 
@@ -903,4 +901,4 @@ Há alguns limites no número de métricas você pode usar.
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

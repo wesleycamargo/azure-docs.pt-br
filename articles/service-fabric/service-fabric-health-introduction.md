@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # Introdução ao Monitoramento de Integridade da Malha do Serviço
@@ -336,4 +336,4 @@ O modelo de integridade é muito usado para monitoramento e diagnóstico, para a
 [Atualização de aplicativo da Malha do Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -497,10 +497,15 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 	}
 	
 
-	
-##Tópicos relacionados
 
-[Trabalhando com canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md)
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

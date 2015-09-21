@@ -12,8 +12,8 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.topic="get-started-article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Usando criptografia dinâmica AES-128 e serviço de distribuição de chaves
@@ -663,4 +663,12 @@ O código a seguir mostra como enviar uma solicitação ao serviço de distribui
 		    }
 		}
 
-<!---HONumber=August15_HO9-->
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

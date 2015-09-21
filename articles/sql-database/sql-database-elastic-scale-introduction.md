@@ -1,20 +1,20 @@
 <properties
     pageTitle="Banco de Dados SQL do Azure - ferramentas de bancos de dados elásticos"
-	description="Os desenvolvedores de SaaS (Software como um serviço) podem criar com facilidade bancos de dados elásticos e escalonáveis na nuvem usando estas ferramentas"
-	services="sql-database"
-	documentationCenter=""
-	manager="jeffreyg"
-	authors="ddove"
-	editor=""/>
+    description="Os desenvolvedores de SaaS (Software como um serviço) podem criar com facilidade bancos de dados elásticos e escalonáveis na nuvem usando estas ferramentas"
+    services="sql-database"
+    documentationCenter=""
+    manager="jeffreyg"
+    authors="ddove"
+    editor=""/>
 
 <tags
     ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/27/2015"
-	ms.author="sidneyh"/>
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/27/2015"
+    ms.author="sidneyh"/>
 
 # Visão geral dos recursos do Banco de Dados Elástico
 
@@ -97,6 +97,10 @@ Para ver os detalhes do pool do Banco de Dados Elástico, confira [Consideraçõ
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+### Comentários por favor!
+O que podemos aperfeiçoar? Este tópico explica o recurso de maneira clara? Ou você ficou confuso com alguma parte dele? Nosso objetivo é satisfazer nossos leitores, por isso use os botões de votação e nos conte no que falhamos (ou acertamos). E se quiser que entremos em contato com você, inclua seu email em seus comentários.
+
+
 <!--Anchors-->
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-introduction/tools.png
@@ -104,4 +108,4 @@ Para ver os detalhes do pool do Banco de Dados Elástico, confira [Consideraçõ
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

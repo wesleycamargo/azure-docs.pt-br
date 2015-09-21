@@ -3,7 +3,7 @@
 	description="Saiba como os planos do Serviço de Aplicativo para o Serviço de Aplicativo do Azure funcionam e como eles beneficiam sua experiência de gerenciamento." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="btardif" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/07/2015" 
 	ms.author="byvinyal"/>
 
 #Visão geral detalhada de planos de serviço de aplicativo do Azure#
@@ -50,17 +50,11 @@ Finalmente, se você desejar criar um novo aplicativo em uma região diferente, 
 
 Você não pode criar um plano de Serviço de Aplicativo vazio. No entanto, você pode criar um novo plano explicitamente durante a criação do aplicativo.
 
-Para fazer isso no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), clique em **NOVO**, selecione **Web + móvel** e selecione **Aplicativos Web**, **Aplicativos Móveis**, **Aplicativos Lógicos** ou **Aplicativos de API**. Você pode selecionar ou criar o plano de Serviço de Aplicativo para o novo aplicativo.
- 
-![Perguntas frequentes sobre o Plano do Serviço de Aplicativo](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
+Para fazer isso no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), clique em **NOVO**, selecione **Web + móvel** e depois selecione **Aplicativos Web**, **Aplicativos Móveis**, **Aplicativos Lógicos** ou **Aplicativos de API**. ![][createWebApp]
 
-##Atribuir um aplicativo a um plano de Serviço de Aplicativo
-
-Os aplicativos podem ser atribuídos a um plano existente durante o processo de criação.
-
-Para fazer isso no [Portal do Azure](http://portal.azure.com), clique em **NOVO**, selecione **Web + móvel** e selecione **Aplicativos Web**, **Aplicativos Móveis**, **Aplicativos Lógicos** ou **Aplicativos de API**. Você pode selecionar ou criar o plano de Serviço de Aplicativo para o novo aplicativo. Clicar em **Ou selecionar existente** fornecerá a lista de planos existentes dentre os quais você pode escolher.
-
-![Perguntas frequentes sobre o Plano do Serviço de Aplicativo](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
+Você pode selecionar ou criar o plano de Serviço de Aplicativo para o novo aplicativo.
+  
+ ![][createASP]
  
 ## Mover um aplicativo para um plano de Serviço de Aplicativo diferente
 
@@ -70,7 +64,7 @@ Para mover um aplicativo para outro plano, navegue até o aplicativo que você d
  
 Isso abrirá a folha do Plano de Serviço de Aplicativo. Nesse ponto, você poderá selecionar um plano existente ou criar um novo. Planos em uma localização geográfica diferente permanecem esmaecidos e não podem ser selecionados.
 
-![Perguntas frequentes sobre o Plano do Serviço de Aplicativo](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
+![][change]
 
 Observe que cada plano tem sua própria camada de preços. Quando você mover um site de uma camada **Grátis** para uma camada **Padrão**, seu aplicativo poderá aproveitar todos os recursos da camada **Padrão**.
 
@@ -84,7 +78,7 @@ Há três maneiras de dimensionar um plano:
 
 Na imagem abaixo, é possível ver a folha **Plano de Serviço de Aplicativo**, bem como a folha **Camada de Preços**. Clicar na parte de **Camada de preços** na folha **Plano do Serviço de Aplicativo** expande a folha **Camada de preços**, na qual você pode alterar a camada de preços e o tamanho de instância para o plano.
  
-![Perguntas frequentes sobre o Plano do Serviço de Aplicativo](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
+ ![][pricingtier]
 
 ##Resumo
 
@@ -93,7 +87,15 @@ Os planos de Serviço de Aplicativo representam um conjunto de recursos e capaci
 ## O que mudou
 
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
+ 
+ 
+ <!-- Images. -->
+[pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
+[assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
+[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
+[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
+[createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

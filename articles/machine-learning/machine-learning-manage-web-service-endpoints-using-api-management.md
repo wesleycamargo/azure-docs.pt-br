@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Saiba como gerenciar os serviços Web do AzureML usando o Gerenciamento de API | Microsoft Azure"
 	description="Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API."
+	keywords="machine learning,api management"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/09/2015"
 	ms.author="roalexan" />
 
 
@@ -37,7 +38,7 @@ Para concluir este guia, você precisa:
 
 * Uma conta do Azure. Se você não tiver uma conta do Azure, clique [aqui](http://azure.microsoft.com/pricing/free-trial/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
 * Uma conta do AzureML. Se você não tiver uma conta do AzureML, clique [aqui](https://studio.azureml.net/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
-* O espaço de trabalho, o serviço e a api\_key para um teste do AzureML publicada como um serviço Web. Clique [aqui](machine-learning/machine-learning-create-experiment.md) para obter detalhes sobre como criar um teste do AzureML. Clique [aqui](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como publicar um teste do AzureML como um serviço Web. Como alternativa, o apêndice A tem instruções sobre como criar e testar um teste simples do AzureML e publicá-la como um serviço Web.
+* O espaço de trabalho, o serviço e a api\_key para um teste do AM do Azure implantado como um serviço Web. Clique [aqui](machine-learning/machine-learning-create-experiment.md) para obter detalhes sobre como criar um teste do AzureML. Clique [aqui](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como implantar um teste do AM do Azure como um serviço Web. Como alternativa, o Apêndice A traz instruções sobre como criar e testar um teste simples do AM do Azure e implantá-lo como um serviço Web.
 
 ##Criar uma instância de Gerenciamento de API
 
@@ -147,7 +148,7 @@ Após invocar uma operação, o portal do desenvolvedor exibe a **URL solicitada
 
 ###Criando o teste
 
-A seguir estão as etapas para criar um teste simples do AzureML e publicá-lo como um serviço Web. O serviço Web assume como entrada uma coluna de texto arbitrário e retorna um conjunto de recursos representados como números inteiros. Por exemplo:
+Veja abaixo as etapas para criar um teste simples do AM do Azure e implantá-lo como um serviço Web. O serviço Web assume como entrada uma coluna de texto arbitrário e retorna um conjunto de recursos representados como números inteiros. Por exemplo:
 
 Texto | Texto marcado com sustenido
 --- | ---
@@ -383,4 +384,4 @@ Este guia mostra um exemplo de trabalho do Python. Você precisa modificar com o
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="09/07/2015" 
 	ms.author="robmcm"/>
 
 #Como usar os Serviços de Mídia com o Java
@@ -350,6 +350,16 @@ Se for necessário cancelar um trabalho que não concluiu o processamento, o có
 
     mediaService.action(Job.cancel(jobId));
 
+
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Recursos adicionais
 
 Para obter a documentação do Javadoc dos Serviços de Mídia, consulte a [Documentação das bibliotecas do Azure para Java][].
@@ -362,4 +372,4 @@ Para obter a documentação do Javadoc dos Serviços de Mídia, consulte a [Docu
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

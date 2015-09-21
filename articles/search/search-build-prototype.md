@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Criar um aplicativo de protótipo para a Pesquisa do Azure
@@ -80,7 +80,7 @@ Por padrão, esses arquivos estão localizados na pasta da solução:
 
 Se você pode obter os dados em arquivos JSON, você pode substituir os arquivos existentes pelos seus dados e, em seguida, executar o aplicativo para criar e carregar um índice. A distribuição de dados entre vários arquivos ajuda a demonstrar uma operação de carregamento em lote.
 
-Outras abordagens para carregar dados incluem o uso de um indexador (requer uma fonte de dados do Banco de Dados de Documentos do Azure ou uma fonte de dados do Banco de dados SQL do Azure). Um código de exemplo que demonstra maneiras adicionais de carregamento de dados pode ser encontrado no [Vídeo de Pesquisa do Azure e na Lista de Tutoriais](https://msdn.microsoft.com/library/azure/dn818681.aspx) no MSDN.
+Outras abordagens para carregar dados incluem o uso de um indexador (requer uma fonte de dados do Banco de Dados de Documentos do Azure ou uma fonte de dados do Banco de dados SQL do Azure). Um código de exemplo que demonstra maneiras adicionais de carregamento de dados pode ser encontrado em [Lista de tutoriais e vídeos da Pesquisa do Azure](search-video-demo-tutorial-list.md) no MSDN.
 
 ### Editar a consulta
 
@@ -133,4 +133,4 @@ Visite estes links para saber mais:
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

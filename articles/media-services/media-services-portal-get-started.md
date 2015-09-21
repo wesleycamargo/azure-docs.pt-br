@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/05/2015"
 	ms.author="juliako"/>
 
 
 # Introdução ao fornecimento de vídeo sob demanda (VoD) usando o portal do Azure
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
-
 
 
 Este tutorial o orienta ao longo das etapas de implementação de um aplicativo básico de fornecimento de conteúdo de VoD usando o Portal do Azure.
@@ -224,6 +222,13 @@ Algumas considerações se aplicam:
 
 
 
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ### Recursos adicionais
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Serviços de Mídia do Azure 101 - Coloque seu vídeo online agora!</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Serviços de Mídia do Azure 102 - pacotes Dinâmicos e Dispositivos Móveis</a>
@@ -249,4 +254,4 @@ Algumas considerações se aplicam:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/02/2015"
    ms.author="telmos" />
 
 # Como gerenciar as propriedades da rede virtual (VNet)
-Você pode exibir e modificar configurações da rede virtual usando o portal de gerenciamento.
+Você pode exibir e modificar as configurações da rede virtual usando o portal do Azure.
 
 ## Exibir configurações da rede virtual
 
@@ -100,4 +100,4 @@ Depois que você implantar sua rede virtual, somente determinadas configuraçõe
 
 [Como excluir uma rede virtual (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

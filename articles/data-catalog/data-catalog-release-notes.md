@@ -1,40 +1,34 @@
 <properties
    pageTitle="Notas de versão do Catálogo de Dados do Azure"
-	description="Notas de versão para a versão de 28 de agosto de 2015 de visualização pública do Catálogo de Dados do Azure"
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Notas de versão para a versão de 28 de agosto de 2015 de visualização pública do Catálogo de Dados do Azure"
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/28/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/04/2015"
+   ms.author="maroche"/>
 
 # Notas de versão do Catálogo de Dados do Azure
 
-## Notas para a versão de 28 de agosto de 2015 do Catálogo de Dados do Azure
+## Notas da versão de 4 de setembro de 2015 do Catálogo de Dados do Azure
 
-### Perfil de dados ausente para alguns ativos de dados registrados
+### O perfil de dados pode estar ausente em alguns ativos de dados registrados
 
-Ao registrar fontes de dados com a opção de criação de perfil de dados selecionada na ferramenta de registro de fonte de dados, as informações de perfil de dados podem não ser incluídas nos seguintes cenários:
+Ao registrar fontes de dados com a opção de criação de perfil de dados selecionada na ferramenta de registro de fonte de dados, as informações de perfil de dados podem não ser incluídas ao registrar as tabelas e modos de exibição do Oracle com caracteres de vários bytes em nomes de coluna.
 
-* Tabelas de Banco de Dados SQL do Azure
-* Tabelas e exibições do SQL Server em que há vários objetos com o mesmo nome em diferentes esquemas
-* Tabelas e exibições do SQL Server com nomes de colunas com mais de 118 caracteres
-* Tabelas e exibições Oracle com nomes de colunas com mais de 20 caracteres
-* Tabelas e exibições Oracle com espaços ou caracteres multibyte nos nomes de colunas
+Essas restrições ocorrem devido a um problema conhecido na versão de 4 de setembro e serão tratadas em uma atualização futura do Catálogo de Dados do Azure.
 
-Essas restrições ocorrem devido a um problema conhecido na versão de 28 de agosto e serão tratadas em uma atualização futura do Catálogo de Dados do Azure.
+## Notas da versão de 13 de julho de 2015 do Catálogo de Dados do Azure
 
-## Notas para a versão de 13 de julho de 2015 do Catálogo de Dados do Azure
-
-### Registro e conexão ao banco de dados Oracle
+### Registrando e conectando-se ao Banco de Dados do Oracle
 
 Ao conectar-se às fontes de dados do banco de dados Oracle, os usuários devem ter instalado os drivers corretos do Oracle que correspondem ao número de bits (32 bits ou 64 bits) do software que está sendo usado.
 
@@ -51,7 +45,7 @@ O suporte para fontes de dados do SQL Server Reporting Services (SSRS) na versã
 
 Ao abrir ativos de dados no Microsoft Excel no portal do Catálogo de Dados do Azure, uma caixa de diálogo **Aviso de segurança do Microsoft Excel** pode ser exibida aos usuários. Esse é um comportamento padrão e esperado, e os usuários podem selecionar **Habilitar** para continuar.
 
-Para obter mais informações, consulte [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/pt-BR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Para obter mais informações, veja [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/pt-BR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### Colunas BLOB e UDT não encontradas nas visualizações
 
@@ -63,13 +57,13 @@ Os usuários podem encontrar uma situação em que podem acessar o portal do Cat
 
 Há duas causas possíveis para esse comportamento de problema:
 
-**Causa 1: Configuração de Serviços de Federação do Active Directory** A ferramenta de registro da fonte de dados usa autenticação de formulários para validar logons de usuário no Active Directory. Para um logon bem-sucedido, a autenticação de formulários deve ser habilitada na Política de Autenticação Global por um administrador do Active Directory.
+**Causa 1: configuração dos Serviços de Federação do Active Directory** A ferramenta de registro de fonte de dados usa a Autenticação de formulários para validar logons de usuário no Active Directory. Para um logon bem-sucedido, a autenticação de formulários deve ser habilitada na Política de Autenticação Global por um administrador do Active Directory.
 
 Em algumas situações, esse comportamento de erro pode ocorrer apenas quando o usuário está na rede da empresa, ou quando está se conectando de fora da rede da empresa. A Política de Autenticação Global permite que os métodos de autenticação sejam habilitados separadamente para conexões intranet e extranet. Erros de logon poderão ocorrer se a autenticação de formulários não estiver habilitada para a rede por meio da qual o usuário está se conectando.
 
-Para obter mais informações, consulte [Configurando autenticação baseada em formulários de intranet para dispositivos que não oferecem suporte a WIA](https://technet.microsoft.com/library/dn727110.aspx).
+Para obter mais informações, veja [Configurando a autenticação baseada em formulários de intranet para dispositivos que não dão suporte à WIA](https://technet.microsoft.com/library/dn727110.aspx).
 
-**Causa 2: Configuração de proxy de rede** Se a rede corporativa usar um servidor proxy, a ferramenta de registro não poderá se conectar ao Active Directory do Azure por meio do proxy. Os usuários podem garantir a ferramenta de registro editando o arquivo de configuração da ferramenta, adicionando esta seção ao arquivo:
+**Causa 2: configuração de proxy da rede** Se a rede corporativa usar um servidor proxy, a ferramenta de registro não poderá se conectar ao Active Directory do Azure por meio do proxy. Os usuários podem garantir a ferramenta de registro editando o arquivo de configuração da ferramenta, adicionando esta seção ao arquivo:
 
 
 	  <system.net>
@@ -83,4 +77,4 @@ Para obter mais informações, consulte [Configurando autenticação baseada em 
 
 Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

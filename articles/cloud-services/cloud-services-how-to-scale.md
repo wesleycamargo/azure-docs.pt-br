@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Como dimensionar um serviço de nuvem | Microsoft Azure" 
-	description="Saiba como dimensionar um serviço de nuvem e os recursos vinculados no Azure." 
+	pageTitle="Configurar o dimensionamento automático para um serviço de nuvem | Microsoft Azure" 
+	description="Saiba como usar o portal para configurar regras de dimensionamento automático para um serviço de nuvem e recursos vinculados no Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="adegeo"/>
 
 
 
 
 
-# Como dimensionar um aplicativo
+# Como fazer o dimensionamento automático de um aplicativo
 
 Na página Escala do Portal de Gerenciamento do Azure, você pode dimensionar manualmente seu aplicativo ou definir parâmetros para dimensioná-lo automaticamente. Você pode dimensionar aplicativos executados em funções Web, funções de trabalho ou máquinas virtuais. Para dimensionar um aplicativo que esteja executando instâncias de funções Web ou funções de trabalho, você pode adicionar ou remover instâncias de função para acomodar a carga de trabalho.
 
@@ -227,4 +227,4 @@ Você pode agendar o dimensionamento automático de seu aplicativo configurando 
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

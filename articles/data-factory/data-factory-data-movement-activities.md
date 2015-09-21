@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Atividades de movimentação de dados"
-	description="Aprenda sobre as entidades da Data Factory que você pode usar em pipelines de Data Factory para mover dados."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Atividades de movimentação de dados" 
+	description="Saiba mais sobre as entidades do Data Factory que você pode usar em pipelines de um Data Factory para mover dados." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
 
 # Atividades de movimentação de dados
 A data factory tem um [serviço disponível globalmente](#global) para dar suporte à movimentação de dados com [atividade de cópia](#copyactivity) em uma variedade de armazenamentos de dados listados abaixo. A data factory também tem suporte interno para [mover dados entre pontos locais e a nuvem com segurança](#moveonpremtocloud) usando o gateway de gerenciamento de dados.
 
-## Armazenamentos de dados com suporte para a atividade de cópia
+## Repositórios de dados com suporte para a atividade de cópia
 A atividade de cópia copia os dados de um armazenamento de dados de **origem** para um armazenamento de dados **coletor**. A data factory dá suporte aos seguintes combinações de armazenamentos de dados, fonte e coletor. Clique em um armazenamento de dados para saber como copiar dados de/para ele.
 
 | **Fonte** | **Coletor** |
@@ -86,7 +86,7 @@ Armazenamentos de dados diferentes têm sistemas de tipo nativo diferentes. A at
 Você pode encontrar o mapeamento para um determinado sistema de tipo nativo para o .NET para o armazenamento de dados nos respectivos artigos de conector de armazenamento de dados. Você pode usar esses mapeamentos para determinar os tipos apropriados ao criar tabelas para que as conversões certas sejam executadas durante a atividade de cópia.
 
 ### Trabalhando com diferentes formatos de arquivo
-Para fontes baseadas em arquivos, a atividade de cópia dá suporte a uma variedade de formatos de arquivos, incluindo os formatos binário, texto e Avro.
+Para fontes baseadas em arquivos, a atividade de cópia dá suporte a uma variedade de formatos de arquivos, incluindo os formatos binário, texto e Avro. Você pode usar a atividade de cópia para a conversão de um formato para outro. Exemplo: texto (CSV) para Avro.
 
 ### Propriedades da atividade de cópia
 Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam com cada tipo de atividade.
@@ -97,4 +97,4 @@ No caso da atividade de cópia, a seção **typeProperties** varia de acordo com
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

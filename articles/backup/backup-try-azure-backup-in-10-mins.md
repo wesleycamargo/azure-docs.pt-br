@@ -1,19 +1,19 @@
 <properties
    pageTitle="Backup do Azure em 10 min | Microsoft Azure"
-	description="Comece a usar o Backup do Azure em 10 minutos"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Comece a usar o Backup do Azure em 10 minutos"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="09/03/2015" ms.author="aashishr"; "jimpark"/>
 
-# Experimente o Backup do Azure em 10 minutos
+# Introdução ao Backup do Azure
 É extremamente fácil configurar o Backup do Azure e os vídeos de instruções a seguir o ajudarão a dar os primeiros passos.
 
 ## Etapa 1: Obtenha uma assinatura do Azure
-- Se você não tiver uma assinatura do Azure, poderá começar com uma oferta de avaliação gratuita, que permite acessar qualquer serviço do Azure. Visite o link a seguir [http://azure.microsoft.com/en-in/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial) para saber mais.
+- Se não tiver uma assinatura do Azure, você poderá começar com uma oferta de avaliação gratuita, que permite acessar qualquer serviço do Azure. Visite o link a seguir [http://azure.microsoft.com/en-in/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial) para saber mais.
 - Se você já tem uma assinatura do Azure, ignore essa etapa.
 
 ## Etapa 2: Configure o serviço de Backup do Azure
@@ -46,4 +46,4 @@ Execute as etapas mencionadas no vídeo [Introdução ao Backup do Azure 3 de 3 
 - [Fazer backup de um servidor Windows](backup-azure-backup-windows-server.md)
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

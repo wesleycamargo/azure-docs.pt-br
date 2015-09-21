@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Site Recovery: perguntas frequentes"
-	description="Este artigo aborda dúvidas comuns sobre o uso do Azure Site Recovery."
-	services="site-recovery"
+	pageTitle="Azure Site Recovery: perguntas frequentes" 
+	description="Este artigo aborda dúvidas comuns sobre o uso do Azure Site Recovery." 
+	services="site-recovery" 
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="08/26/2015" 
 	ms.author="lauraa"/>
 
 
@@ -64,6 +64,17 @@ Não há suporte para isso. Envie seus comentários por meio do [Fórum de comen
 ### Posso propagar discos iniciais para Azure usando o mecanismo offline?
 Não há suporte para isso. Envie seus comentários por meio do [Fórum de comentários do Azure Site Recovery — suporte para replicação offline](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
+### Posso limitar a largura de banda alocada para o tráfego de replicação ao usar o Hyper-V como fonte?
+- Se estiver fazendo a replicação entre dois sites locais, você poderá usar a QoS do Windows para isso. Veja abaixo um exemplo de script: 
+
+    	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
+    	gpupdate.exe /force
+
+- Se estiver fazendo a replicação para o Azure, você poderá configurá-la usando o seguinte cmdlet do PowerShell de exemplo:
+
+    	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
+
+
 ## Suporte de versão
 
 ### Quais versões de hosts e clusters do Windows Server têm suporte?
@@ -79,7 +90,7 @@ Você não pode configurar o Hyper-V que está sendo executado em um sistema ope
 
 ### A Recuperação Automatizada do Sistema dá suporte à geração de 2 máquinas?
 
-Sim, o ASR dá suporte à replicação de máquinas virtuais de geração 2 no Hyper-V para Azure. A Recuperação Automatizada do Sistema se converte da geração 2 para a geração 1 durante o failover. Em failback, a máquina é convertida para a geração 1. [Leia mais](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) para saber mais.
+Sim, o ASR dá suporte à replicação de máquinas virtuais de geração 2 no Hyper-V para Azure. A Recuperação Automatizada do Sistema se converte da geração 2 para a geração 1 durante o failover. Em failback, a máquina é convertida para a geração 1. [Leia mais](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) para obter mais informações.
 
 
 ## Implantar entre os sites de provedores de serviço 
@@ -236,4 +247,4 @@ Para iniciar a implantação do ASR:
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

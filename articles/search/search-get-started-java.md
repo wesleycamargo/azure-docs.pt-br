@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/24/2015"
+	ms.date="09/08/2015"
 	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure em Java
@@ -38,7 +38,7 @@ Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos 
 
 Neste aplicativo, o programa **SearchServlet.java** cria e carrega o índice usando uma construção [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando o conjunto de dados filtrado do USGS por meio de um Banco de dados SQL do Azure público. Credenciais predefinidas e informações de conexão para a fonte de dados online são fornecidas no código do programa. Em termos de acesso a dados, nenhuma configuração adicional é necessária.
 
-> [AZURE.NOTE]Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplica e você pode modificar este código para usar um conjunto de dados maior. Para obter detalhes sobre a capacidade de cada camada de preços, consulte [Limites e restrições](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+> [AZURE.NOTE]Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplica e você pode modificar este código para usar um conjunto de dados maior. Para obter detalhes sobre a capacidade de cada camada de preços, consulte [Limites e restrições](search-limits-quotas-capacity.md).
 
 ## Sobre os arquivos de programa
 
@@ -213,9 +213,9 @@ Você também pode tentar qualquer um destes termos:
 
 Este é o primeiro tutorial da Pesquisa do Azure com base em Java e no conjunto de dados do USGS. Ao longo do tempo, ampliaremos este tutorial para demonstrar outros recursos de pesquisa que talvez você queira usar em suas soluções personalizadas.
 
-Se você já tiver um plano de fundo na Pesquisa do Azure, você pode usar este exemplo como um trampolim para experimentos adicionais, talvez aumentando a [página de pesquisa](search-pagination.md) ou implementando [navegação facetada](../search-faceted-navigation/). Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
+Se você já tiver um plano de fundo na Pesquisa do Azure, você pode usar este exemplo como um trampolim para experimentos adicionais, talvez aumentando a [página de pesquisa](search-pagination.md) ou implementando [navegação facetada](search-faceted-navigation.md). Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
 
-Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](http://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](https://msdn.microsoft.com/library/azure/dn798933.aspx) para acessar mais informações.
+Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](http://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](search-video-demo-tutorial-list.md) para acessar mais informações.
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG
@@ -231,4 +231,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

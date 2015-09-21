@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Como usar o Armazenamento de Blob do Java
@@ -161,11 +161,11 @@ Para listar os blobs em um contêiner, primeiro obtenha uma referência do cont�
         e.printStackTrace();
     }
 
-O serviço Blob também tem o conceito de diretórios dentro de contêineres. Isso é para que você possa organizar seus blobs em uma estrutura mais semelhante a uma pasta.
+Lembre-se de que você pode nomear blobs com informações de caminho em seus nomes. Isso cria uma estrutura de diretório virtual que você pode organizar e percorrer como faria com um sistema de arquivos tradicional. Observe que a estrutura do diretório é virtual apenas - os somente os recursos disponíveis no armazenamento de Blob são contêineres e blobs. No entanto, a biblioteca de cliente oferece um objeto **CloudBlobDirectory** para fazer referência a um diretório virtual e simplificar o processo de trabalhar com blobs que são organizados dessa forma.
 
 Por exemplo, você pode ter um contêiner denominado “photos”, no qual poderia carregar os blobs “rootphoto1”, “2010/photo1”, “2010/photo2” e “2011/photo1”. Isso criaria os diretórios virtuais "2010" e "2011" no contêiner “photos". Quando você chamar **listBlobs** no contêiner “photos”, a coleção retornada conterá os objetos **CloudBlobDirectory** e **CloudBlob** que representam os diretórios e os blobs contidos no nível superior. Nesse caso, os diretórios “2010” e “2011”, bem como “rootphoto1” de photo, seriam retornados. É possível usar o operador **instanceof** para distinguir esses objetos.
 
-Como alternativa, você pode transmitir parâmetros para o método **listBlobs** com o parâmetro **useFlatBlobListing** definido como true. Isso resultará no retorno de cada blob, independentemente do diretório. Para obter mais informações, consulte **CloudBlobContainer.listBlobs** na [Referência de SDK do cliente de armazenamento do Azure].
+Como alternativa, você pode transmitir os parâmetros para o método **listBlobs** com o parâmetro **useFlatBlobListing** definido como true. Isso resultará no retorno de cada blob, independentemente do diretório. Para obter mais informações, veja **CloudBlobContainer.listBlobs** na [Referência do SDK do Cliente do Armazenamento do Azure].
 
 ## Baixar um blob
 
@@ -262,7 +262,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
 [SDK de Armazenamento do Azure para Java]: https://github.com/azure/azure-storage-java
 [SDK de Armazenamento do Azure para Android]: https://github.com/azure/azure-storage-android
 [Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
+[Referência do SDK do Cliente do Armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

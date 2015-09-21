@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 
 
 <tags
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="08/28/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 
 # Limites de recursos do Banco de Dados SQL do Azure
@@ -49,7 +49,7 @@ Os limites reais de um banco de dados são definidos pelo nível de desempenho d
 
 [AZURE.INCLUDE [Tabela de camadas de serviço do Banco de Dados SQL](../../includes/sql-database-service-tiers-table.md)]
 
-## Cota de provisionamento do banco de dados
+## Cota de DTU por servidor
 
 Atualmente, o Banco de Dados SQL do Azure tem uma cota de DTU por servidor lógico de 2.000 DTUs. Essa cota representa as DTUs que podem ser hospedadas por um servidor lógico, com base na soma das DTUs se o nível de desempenho de cada banco de dados no servidor. Por exemplo, um servidor com cinco bancos de dados Básicos (máximo de 5 x 5 DTUs), dois bancos de dados Standard S1 (máximo de 2 X 20 DTUs) e três bancos de dados Premium P1 (máximo de 3 X 100 DTUs) consumiu 365 DTUs de sua cota de 2.000 DTUs.
 
@@ -63,4 +63,4 @@ Atualmente, o Banco de Dados SQL do Azure tem uma cota de DTU por servidor lógi
 
 [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

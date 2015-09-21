@@ -1,42 +1,42 @@
-<properties 
-	pageTitle="Converter um experimento de treinamento do Aprendizado de Máquina em um experimento de pontuação | Microsoft Azure" 
-	description="Como converter um experimento de treinamento do Aprendizado de Máquina, usado para treinar o modelo de análise preditiva, em um experimento de pontuação que pode ser publicado como um serviço Web." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Converter um teste de treinamento do Aprendizado de Máquina em um teste preditivo | Microsoft Azure"
+	description="Como converter um teste de treinamento do Aprendizado de Máquina, usado para treinar o modelo de análise preditiva, em um teste preditivo que pode ser implantado como um serviço Web."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/09/2015"
 	ms.author="garye"/>
 
-#Converter um experimento de treinamento do Aprendizado de Máquina em um experimento de pontuação
+# Converter um teste de treinamento do Aprendizado de Máquina em um teste preditivo
 
 O Aprendizado de Máquina do Azure permite compilar, testar e implantar soluções de análise preditiva.
 
-Depois de criá-las e iterá-las em um *experimento de treinamento* para treinar seu modelo de análise preditiva e estar pronto para usá-lo para pontuar novos dados, será necessário preparar e otimizar seu experimento de pontuação. Você pode publicar esse *experimento de pontuação* como um serviço Web do Azure para que os usuários possam enviar dados ao seu modelo e receber as previsões do modelo.
+Depois de criá-las e iterá-las em um *experimento de treinamento* para treinar seu modelo de análise preditiva e estar pronto para usá-lo para pontuar novos dados, será necessário preparar e otimizar seu experimento de pontuação. Você pode implantar esse *teste preditivo* como um serviço Web do Azure para que os usuários possam enviar dados ao seu modelo e receber as previsões do modelo.
 
-Convertendo um experimento pontuação, você estará preparando seu modelo para ser publicado como um serviço Web de pontuação. Os usuários do serviço Web enviarão dados de entrada para seu modelo e seu modelo enviará de volta os resultados da previsão. Assim, ao mudar para um experimento de pontuação, é recomendável ter em mente como você espera que seu modelo seja usado por outras pessoas.
+Ao converter em um teste preditivo, você estará preparando seu modelo para ser implantado como um serviço Web. Os usuários do serviço Web enviarão dados de entrada para seu modelo e seu modelo enviará de volta os resultados da previsão. Assim, à medida que converte em um teste preditivo, é recomendável ter em mente como você espera que seu modelo seja usado por outras pessoas.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-O processo de conversão de um experimento de treinamento em um experimento de pontuação envolve três etapas:
+O processo de conversão de um teste de treinamento em um teste preditivo envolve três etapas:
 
 1.	Salvar o modelo de aprendizado de máquina que você treinou e substituir o algoritmo de aprendizado de máquina e os módulos [Treinar Modelo][train-model] salvos com o seu modelo treinado.
 2.	Restrinja o experimento a somente os módulos necessários para pontuação. Um experimento de treinamento inclui vários módulos que são necessárias para treinamento, mas não são necessários quando o modelo está treinado e pronto para ser usado para pontuação.
 3.	Defina onde em seu experimento você aceitará dados do usuário do serviço Web e quais dados serão retornados.
 
-##Criar o botão Experimento de Pontuação
+## Botão Configurar Serviço Web
 
-O botão **Criar Experimento de Pontuação** na parte inferior da tela do experimento executará as três etapas da conversão do seu experimento de treinamento em um experimento de pontuação:
+Depois de executar seu teste (botão **EXECUTAR** na parte inferior da tela de teste), o botão **Configurar Serviço Web** (selecione a opção **Serviço Web Preditivo**) executará para você as três etapas de conversão do teste de treinamento em um teste preditivo:
 
-1.	Ele salva o modelo treinado como um módulo na seção **Modelos Treinados** da paleta do módulo (à esquerda da tela do experimento) e, em seguida, substitui o algoritmo de aprendizado de máquina e os módulos [Treinar Modelo][train-model] pelo modelo treinado salvo. 
+1.	Ele salva o modelo treinado como um módulo na seção **Modelos Treinados** da paleta do módulo (à esquerda da tela do experimento) e, em seguida, substitui o algoritmo de aprendizado de máquina e os módulos [Treinar Modelo][train-model] pelo modelo treinado salvo.
 2.	Ele remove módulos que claramente não são mais necessários. No nosso exemplo, isso inclui os módulos [Divisão][split], o segundo [Modelo de Pontuação][score-model] e [Avaliar Modelo][evaluate-model].
 3.	Ele cria a entrada do serviço Web e módulos de saída e adiciona-os nos locais padrão no seu experimento.
 
@@ -48,9 +48,9 @@ Os módulos nesse experimento executam basicamente quatro funções diferentes:
 
 ![Funções de módulo][figure2]
 
-Ao converter esse experimento de treinamento em um experimento pontuação, alguns desses módulos não são mais necessários ou têm uma finalidade diferente:
+Ao converter esse teste de treinamento em um teste preditivo, alguns desses módulos não serão mais necessários ou terão outra finalidade:
 
-- **Dados** – Os dados neste conjunto de dados de exemplo não são usados durante a pontuação. O usuário do serviço Web fornecerá os dados a serem pontuados. No entanto, os metadados desse conjunto de dados, tais como tipos de dados, são usados pelo modelo treinado. Portanto, é necessário manter o conjunto de dados no experimento da pontuação para que ele pode fornecer esses metadados.
+- **Dados** – Os dados neste conjunto de dados de exemplo não são usados durante a pontuação. O usuário do serviço Web fornecerá os dados a serem pontuados. No entanto, os metadados desse conjunto de dados, tais como tipos de dados, são usados pelo modelo treinado. Portanto, é necessário manter o conjunto de dados no teste preditivo para que ele possa fornecer esses metadados.
 
 - **Preparação** – Dependendo dos dados que serão enviados para pontuação, esses módulos podem ou não ser necessários para processar os dados de entrada.
 
@@ -58,43 +58,43 @@ Ao converter esse experimento de treinamento em um experimento pontuação, algu
 
 - **Treinar** – Após o modelo ser treinado com êxito, você pode salvá-lo como um módulo de modelo único treinado. Substitua esses módulos individuais pelo modelo treinado salvo.
 
-- **Pontuação** – Neste exemplo, o módulo Divisão é usado para dividir o fluxo de dados em um conjunto de dados de teste e de treinamento. No experimento de pontuação isso não é necessário e pode ser removido. Da mesma forma, o segundo módulo [Modelo de Pontuação][score-model] e o módulo [Avaliar Modelo][evaluate-model] são usados para comparar os resultados dos dados de teste, por isso, esses módulos também não são necessárias para o experimento de pontuação. O módulo [Modelo de Pontuação][score-model] restante, contudo, é necessário para retornar um resultado de pontuação por meio do serviço Web.
+- **Pontuação** – Neste exemplo, o módulo Divisão é usado para dividir o fluxo de dados em um conjunto de dados de teste e de treinamento. No teste preditivo, isso não é necessário e pode ser removido. Da mesma forma, o segundo módulo [Modelo de Pontuação][score-model] e o módulo [Avaliar Modelo][evaluate-model] são usados para comparar os resultados dos dados de teste, de modo que esses módulos também não são necessários no teste preditivo. O módulo [Modelo de Pontuação][score-model] restante, contudo, é necessário para retornar um resultado de pontuação por meio do serviço Web.
 
-Depois de clicar em **Criar Experimento de Pontuação**, nosso exemplo fica assim:
+Veja como fica nosso exemplo depois do clique em **Configurar Serviço Web**:
 
-![Experimento de pontuação convertido][figure3]
+![Teste preditivo convertido][figure3]
 
-Isso pode ser suficiente para preparar seu experimento para publicação como serviço Web. No entanto, convém trabalhar nos detalhes específicos do seu experimento.
+Isso pode ser suficiente para preparar seu teste para implantação como um serviço Web. No entanto, convém trabalhar nos detalhes específicos do seu experimento.
 
-###Ajustar os módulos de entrada e saída
+### Ajustar os módulos de entrada e saída
 
 No seu experimento de treinamento, você usou um conjunto de dados de treinamento, que foram processados para deixar os dados em um formato que o algoritmo de aprendizado de máquina necessitava. Se os dados que você espera receber por meio do serviço Web não necessitarão do processamento, você pode mover o **módulo de entrada de serviço Web** para um nó diferente no experimento.
 
-Por exemplo, **Criar Experimento de Pontuação** coloca o módulo **Entrada do serviço Web** na parte superior do fluxo de dados por padrão, como mostrado na figura acima. No entanto, se os dados de entrada não necessitarem de processamento, você poderá posicionar manualmente a **Entrada do serviço Web** após os módulos de processamento de dados:
+Por exemplo, por padrão, **Configurar Serviço Web** coloca o módulo **Entrada do serviço Web** na parte superior do fluxo de dados, como mostrado na figura acima. No entanto, se os dados de entrada não necessitarem de processamento, você poderá posicionar manualmente a **Entrada do serviço Web** após os módulos de processamento de dados:
 
 ![Movendo a entrada do serviço Web][figure4]
 
 Os dados de entrada fornecidos pelo serviço Web agora passarão diretamente para o módulo do Modelo de Pontuação sem qualquer pré-processamento.
 
-Da mesma forma, **Criar Experimento de Pontuação** coloca o módulo de saída do serviço Web na parte inferior do seu fluxo de dados por padrão. Neste exemplo, o serviço Web retornará ao usuário a saída do módulo do [Modelo de Pontuação][score-model], que inclui o vetor de dados de entrada completo, além dos resultados de pontuação.
+Da mesma forma, por padrão, **Configurar Serviço Web** coloca o módulo de saída do serviço Web na parte inferior do fluxo de dados. Neste exemplo, o serviço Web retornará ao usuário a saída do módulo do [Modelo de Pontuação][score-model], que inclui o vetor de dados de entrada completo, além dos resultados de pontuação.
 
 No entanto, se desejar retornar algo diferente, por exemplo, apenas os resultados da pontuação e não todo o vetor de dados de entrada, você pode inserir um módulo [Colunas do Projeto][project-columns] para excluir todas as colunas, exceto os resultados de pontuação. Mova o módulo **Saída do serviço Web** para a saída do módulo [Colunas do Projeto][project-columns]\:
 
 ![Movendo a saída do serviço Web][figure5]
 
-###Adicionar ou remover módulos de processamento de dados adicionais
+### Adicionar ou remover módulos de processamento de dados adicionais
 
-Se houver mais módulos no seu experimento que você sabe que não será necessário durante a pontuação, eles podem ser removidos. Por exemplo, como mudamos o módulo de **Entrada do serviço Web** para um ponto após os módulos de processamento de dados, podemos remover o módulo [Limpar Dados Ausentes][clean-missing-data] do experimento de pontuação.
+Se houver mais módulos no seu experimento que você sabe que não será necessário durante a pontuação, eles podem ser removidos. Por exemplo, como mudamos o módulo de **Entrada do serviço Web** para um ponto após os módulos de processamento de dados, podemos remover o módulo [Limpar Dados Ausentes][clean-missing-data] do teste preditivo.
 
-Agora, nosso experimento de pontuação ficou assim:
+Nosso teste preditivo ficou assim:
 
 ![Removendo o módulo adicional][figure6]
 
-###Adicionar parâmetros de serviço Web opcionais
+### Adicionar parâmetros de serviço Web opcionais
 
 Em alguns casos, talvez você queira permitir que o usuário do serviço Web altere o comportamento dos módulos quando o serviço é acessado. Os *Parâmetros de serviço Web* permitem que você faça isso.
 
-Um exemplo comum é a configuração do módulo [Leitor][reader] para que o usuário do serviço Web publicado possa especificar outra fonte de dados quando o serviço Web é acessado. Ou então, configurar o módulo [Gravador][writer] para que um destino diferente possa ser especificado.
+Um exemplo comum é a configuração do módulo [Leitor][reader] para que o usuário do serviço Web implantado possa especificar outra fonte de dados quando o serviço Web é acessado. Ou então, configurar o módulo [Gravador][writer] para que um destino diferente possa ser especificado.
 
 Você pode definir os Parâmetros do Serviço Web e associá-los a um ou mais parâmetros de módulo, podendo também especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode então fornecer valores para esses parâmetros quando o serviço é acessado e as ações de módulo serão modificadas de acordo.
 
@@ -103,13 +103,13 @@ Para obter mais informações sobre Parâmetros de Serviço Web, consulte [Usand
 [webserviceparameters]: machine-learning-web-service-parameters.md
 
 
-##Publicar o experimento de pontuação como um serviço Web
+## Implantar o teste preditivo como um serviço Web
 
-Agora que o experimento de pontuação foi devidamente preparado, você pode publicá-lo como um serviço Web do Azure. Usando o serviço Web, os usuários podem enviar dados para seu modelo e o modelo retornará suas previsões.
+Agora que o teste preditivo foi devidamente preparado, você pode implantá-lo como um serviço Web do Azure. Usando o serviço Web, os usuários podem enviar dados para seu modelo e o modelo retornará suas previsões.
 
-Para obter mais informações sobre o processo completo de publicação, consulte [Publicar um serviço Web de Aprendizado de Máquina do Azure][publish]
+Para saber mais sobre o processo completo de implantação, consulte [Implantar um serviço Web de Aprendizado de Máquina do Azure][deploy]
 
-[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[deploy]: machine-learning-publish-a-machine-learning-web-service.md
 
 
 <!-- Images -->
@@ -130,6 +130,5 @@ Para obter mais informações sobre o processo completo de publicação, consult
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

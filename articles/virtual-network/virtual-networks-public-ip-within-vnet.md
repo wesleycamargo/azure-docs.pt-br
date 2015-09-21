@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Espaço de endereço IP público em uma rede Virtual (VNet)
@@ -51,4 +51,4 @@ Há alguns intervalos de endereços IP que não são permitidos:
 
 [Como excluir uma rede virtual (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

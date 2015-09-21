@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2015"
+   ms.date="09/03/2015"
    ms.author="alanwar"/>
 
 # Funcionalidade de diagnóstico para Serviços Confiáveis com estado
@@ -46,4 +46,4 @@ StatefulRunAsyncFailure é emitido sempre que a tarefa RunAsync() do serviço la
 
 StatefulRunAsyncSlowCancellation é emitido sempre que uma solicitação de cancelamento da tarefa RunAsync leva mais de 4 segundos. Quando um serviço leva muito tempo para concluir o cancelamento, ele afeta a capacidade de o serviço ser reiniciado rapidamente em outro nó e pode afetar a disponibilidade geral do serviço.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

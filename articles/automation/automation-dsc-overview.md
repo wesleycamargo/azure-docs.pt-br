@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Visão geral da DSC da Automação do Azure"
-	description="Uma visão geral da DSC (Configuração do Estado Desejado) da Automação do Azure, seus termos e problemas conhecidos"
-	services="automation"
-	documentationCenter="dev-center-name"
-	authors="coreyp-at-msft"
-	manager="stevenka"
-	editor="tysonn"/>
+   pageTitle="Visão geral da DSC da Automação do Azure" 
+   description="Uma visão geral da DSC (Configuração do Estado Desejado) da Automação do Azure, seus termos e problemas conhecidos" 
+   services="automation" 
+   documentationCenter="dev-center-name" 
+   authors="coreyp-at-msft" 
+   manager="stevenka" 
+   editor="tysonn"/>
 
 <tags
    ms.service="automation"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="TBD"
-	ms.date="08/18/2015"
-	ms.author="coreyp"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="TBD" 
+   ms.date="09/04/2015"
+   ms.author="coreyp"/>
 
 # Visão geral da DSC da Automação do Azure #
 
@@ -193,6 +193,12 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 -	`Get-AzureAutomationDscCompilationJobOutput`
 -	`Start-AzureAutomationDscCompilationJob`
 
+
+##Ciclo de vida de DSC de Automação do Azure##
+Passar de uma conta de automação vazia para um conjunto gerenciado de nós configurados corretamente envolve um conjunto de processos para definir as configurações, transformá-las em configurações de nó e integrar os nós à DSC de Automação do Azure e a essas configurações de nó. O diagrama a seguir ilustra o ciclo de vida de DSC de Automação do Azure:
+
+![texto alt](./media/automation-dsc-overview/DSCLifecycle.png)
+
 ##Problemas gerais conhecidos:##
 
 - Como a DSC de Automação do Azure está em visualização, ao usar esse recurso pela primeira vez, você precisará inscrever-se usando os cmdlets do Azure PowerShell ou o portal de visualização do Azure. Você pode se inscrever chamando os dois seguintes cmdlets:
@@ -222,8 +228,8 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 
 - Ao se integrar uma VM do Azure para gerenciamento com a DSC da Automação do Azure usando `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` ou a extensão de VM da DSC da Automação do Azure no portal de visualização do Azure, se o registro falhar com **O nome do computador não foi especificado, e o diretório de configuração não tem nenhum arquivo de configuração**, isso é um alarme falso, e o registro da VM foi bem-sucedido. O registro bem-sucedido pode ser verificado usando-se o cmdlet `Get-AzureAutomationDscNode`.
 
-- Ao integrar uma VM do Azure para gerenciamento com a DSC da Automação do Azure usando `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` ou a extensão VM da DSC da Automação do Azure no portal de visualização do Azure, pode ser necessário até uma hora para que a VM seja mostrada como um nó DSC na Automação do Azure. Isso se deve à instalação do Windows Management Framework 5.0 na VM pela extensão DSC da VM do Azure, que precisa integrar a VM à DSC da Automação do Azure.
+- Ao integrar uma VM do Azure para gerenciamento com a DSC de Automação do Azure usando `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` ou a extensão de VM da DSC de Automação do Azure no portal de visualização do Azure, pode levar até uma hora para que a VM seja mostrada como um nó da DSC na Automação do Azure. Isso se deve à instalação do Windows Management Framework 5.0 na VM pela extensão DSC da VM do Azure, que precisa integrar a VM à DSC da Automação do Azure.
 
 - Os nós DSC integrados à DSC da Automação do Azure, inicialmente, mostrarão um status de conformidade, mesmo que eles não estejam de fato em conformidade com a configuração do nó DSC para o qual foram mapeados. Depois que um nó efetua seu primeiro pull e envia seu primeiro relatório DSC à DSC da Automação do Azure, o status do nó deve ser corrigido.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

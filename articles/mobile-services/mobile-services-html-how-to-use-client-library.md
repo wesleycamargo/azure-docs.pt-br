@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
 
@@ -33,7 +33,7 @@ A maneira de adicionar uma referência ao cliente Serviços Móveis depende da s
 
 - Para aplicativos baseados na Web, abra o arquivo HTML e adicione o seguinte às referências de script da página:
 
-        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
 
 - Para um aplicativo da Windows Store escrito em JavaScript/HTML, adicione o pacote NuGet **WindowsAzure.MobileServices.WinJS** ao seu projeto.
 
@@ -46,7 +46,7 @@ No editor, abra ou crie um arquivo JavaScript e adicione o código a seguir que 
 
 Você deve substituir o espaço reservado `AppUrl` pela URL do aplicativo do seu serviço móvel e `AppKey` pela chave do aplicativo. Para saber como obter a URL do aplicativo e a chave do aplicativo para o serviço móvel, confira o tutorial [Adicionar os Serviços Móveis a um aplicativo existente](mobile-services-html-get-started-data.md).
 
->[AZURE.IMPORTANT]A chave do aplicativo serve para filtrar solicitações aleatórias de seu serviço móvel e é distribuída com o aplicativo. Como essa chave não é criptografada, ela não pode ser considerado segura. Para realmente proteger o acesso aos seus dados de serviços móveis, você deve autenticar os usuários antes de permitir o acesso. Para saber mais, confira [Como autenticar usuários](#caching).
+>[AZURE.IMPORTANT]A chave do aplicativo serve para filtrar solicitações aleatórias de seu serviço móvel e é distribuída com o aplicativo. Como essa chave não é criptografada, ela não pode ser considerado segura. Para realmente proteger o acesso aos seus dados de serviços móveis, você deve autenticar os usuários antes de permitir o acesso. Para saber mais, confira [Como autenticar usuários](#authentication).
 
 ##<a name="querying"></a>Como consultar dados de um serviço móvel
 
@@ -385,7 +385,7 @@ Você chama uma API personalizada do cliente chamando o método [invokeApi](http
  
 Para exemplos mais realistas e uma discussão mais abrangente do **InvokeApi**, confira [API personalizada nos SDKs do cliente Serviços Móveis do Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-##<a name="caching"></a>Como autenticar usuários
+##<a name="authentication"></a>Como autenticar usuários
 
 Os Serviços Móveis oferecem suporte a autenticação e a autorização de usuários de aplicativos usando uma variedade de provedores de identidade externos: o Facebook, o Google, a Conta da Microsoft e o Twitter. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte o tutorial [Introdução à autenticação].
 
@@ -412,7 +412,7 @@ Se estiver usando um provedor de identidade diferente do Facebook, altere o valo
 
 Nesse caso, os Serviços Móveis gerenciam o fluxo de autenticação OAuth 2.0 exibindo a página de logon do provedor selecionado e gerando um token de autenticação dos Serviços Móveis depois de um logon bem-sucedido com o provedor de identidade. A função [login], quando concluída, retorna um objeto JSON (**user**) que expõe o ID do usuário e o token de autenticação dos Serviços Móveis nos campos **userId** e **authenticationToken**, respectivamente. Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte Armazenando o [token de autenticação em cache].
 
-> [AZURE.NOTE]**Aplicativo da Windows Store** Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote de aplicativos nos Serviços Móveis. Ao registrar as informações do pacote de aplicativos da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de login da conta da Microsoft para obter uma experiência de logon única. Se você não fizer isso, os usuários de login da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Após as informações do pacote serem registradas nos Serviços Móveis, chame o método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") fornecendo um valor de **true** para o parâmetro <em>useSingleSignOn</em> para reutilizar as credenciais.
+> [AZURE.NOTE]**Aplicativo da Windows Store** Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote de aplicativos nos Serviços Móveis. Ao registrar as informações do pacote de aplicativos da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de login da conta da Microsoft para obter uma experiência de logon única. Se você não fizer isso, os usuários de login da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Após as informações do pacote serem registradas nos Serviços Móveis, chame o método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") fornecendo um valor de **true** para o parâmetro *useSingleSignOn* para reutilizar as credenciais.
 
 ###Fluxo de cliente
 Seu aplicativo também pode entrar em contato independentemente com o provedor de identidade e fornecer o token retornado aos Serviços Móveis para autenticação. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade.
@@ -580,7 +580,7 @@ Para controlar quais sites podem interagir e enviar solicitações para o seu se
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Delete data in a mobile service]: #deleting
-[How to: Authenticate users]: #caching
+[How to: Authenticate users]: #authentication
 [How to: Handle errors]: #errors
 [How to: Use promises]: #promises
 [How to: Customize request headers]: #customizing
@@ -608,4 +608,4 @@ Para controlar quais sites podem interagir e enviar solicitações para o seu se
 [Chamar uma API personalizada do cliente]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

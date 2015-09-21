@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Como gerenciar contas de usuário no Gerenciamento de API do Azure
@@ -26,7 +26,7 @@ Para criar um novo desenvolvedor, clique em **Gerenciar** no Portal do Azure par
 
 ![Portal do editor][api-management-management-console]
 
-Clique em **Desenvolvedores** no menu **Gerenciamento de API** à esquerda e depois clique em **adicionar usuário**.
+Clique em **Usuários** no menu **Gerenciamento de API** à esquerda e depois clique em **adicionar usuário**.
 
 ![Criar desenvolvedor][api-management-create-developer]
 
@@ -42,7 +42,7 @@ As contas de desenvolvedor que estão com estado **ativa** podem ser utilizadas 
 
 ## <a name="invite-developer"> </a>Convidar um desenvolvedor
 
-Para convidar um desenvolvedor, clique em **Desenvolvedores** no menu **Gerenciamento de API** à esquerda e depois clique em **Convidar Usuário**.
+Para convidar um desenvolvedor, clique em **Usuários** no menu **Gerenciamento de API** à esquerda e depois clique em **Convidar Usuário**.
 
 ![Convidar desenvolvedor][api-management-invite-developer]
 
@@ -50,7 +50,7 @@ Insira o nome e o endereço de email do desenvolvedor e clique em **Convidar**.
 
 ![Convidar desenvolvedor][api-management-invite-developer-window]
 
-Uma mensagem de confirmação é exibida, mas o desenvolvedor recém-convidado não aparece na lista até que aceite o convite.
+Uma mensagem de confirmação é exibida, mas o desenvolvedor recém-convidado não aparecerá na lista até que ele aceite o convite.
 
 ![Confirmação de convite][api-management-invite-developer-confirmation]
 
@@ -91,4 +91,4 @@ Após criar uma conta de desenvolvedor, você pode associá-la a funções e ins
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [Configurar modelos de email]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

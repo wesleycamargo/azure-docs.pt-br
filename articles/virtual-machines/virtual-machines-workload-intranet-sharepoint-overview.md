@@ -19,7 +19,7 @@
 
 # Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure
 
-Este tópico contém links com instruções passo a passo para implantar um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server usando o Gerenciamento de Serviços do Azure. O farm contém estes computadores:
+Este tópico contém links com instruções passo a passo para implantar um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server com o modelo de implantação clássico. O farm contém estes computadores:
 
 - Dois servidores Web do SharePoint
 - Dois servidores de aplicativos do SharePoint
@@ -55,6 +55,8 @@ Para criar um ambiente de desenvolvimento/teste ou uma verificação de conceito
 
 Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server, consulte [Configurar Grupos de Disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
+> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para obter mais informações, veja [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Próxima etapa
 
 Para iniciar a configuração dessa carga de trabalho, vá para [Fase 1: configurar o Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
@@ -72,4 +74,4 @@ Para iniciar a configuração dessa carga de trabalho, vá para [Fase 1: configu
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

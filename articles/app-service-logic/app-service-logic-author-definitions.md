@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Criar definições de Aplicativo Lógico"
-	description="Aprenda a escrever a definição JSON para Aplicativos lógicos."
-	authors="stepsic-microsoft-com"
-	manager="dwrede"
-	editor=""
-	services="app-service\logic"
+	pageTitle="Criar definições de Aplicativo Lógico" 
+	description="Aprenda a escrever a definição JSON para Aplicativos lógicos." 
+	authors="stepsic-microsoft-com" 
+	manager="dwrede" 
+	editor="" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 	
 #Criar definições de Aplicativo Lógico
@@ -686,6 +686,41 @@ Então, na verdadeira solicitação `PUT` para o Aplicativo lógico, você pode 
 }
 ``` 
 
-Em cada ambiente, você pode fornecer então um valor diferente para o parâmetro `connection`. Consulte a [documentação da API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para todas as opções que você tem para criar e gerenciar Aplicativos lógicos.
+Em cada ambiente, você pode fornecer então um valor diferente para o parâmetro `connection`.
 
-<!---HONumber=September15_HO1-->
+## Executando uma etapa até que uma condição seja atendida
+
+Talvez você tenha uma API que esteja chamando e deseje aguardar uma determinada resposta antes de continuar. Por exemplo, imagine que deseja aguardar que alguém carregue um arquivo em um diretório antes de processar o arquivo. Você pode fazer isso com *do-until*:
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {},
+    "actions": {
+        "http0": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://mydomain/listfiles"
+            },
+            "until": {
+                "limit": {
+                    "timeout": "PT10M"
+                },
+                "conditions": [
+                    {
+                        "expression": "@greater(length(action().outputs.body),0)"
+                    }
+                ]
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+Consulte a [documentação da API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para todas as opções que você tem para criar e gerenciar Aplicativos lógicos.
+
+<!---HONumber=Sept15_HO2-->

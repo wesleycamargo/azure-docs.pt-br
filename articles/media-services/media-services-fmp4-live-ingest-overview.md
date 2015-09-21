@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure
@@ -196,6 +196,15 @@ Veja abaixo uma implementação recomendada para faixas de áudio redundantes:
 3. Use instâncias de servidor (codificador) separadas para codificar e enviar os fluxos redundantes mencionados em (1) e (2). 
 
 
+##Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
+
+- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
 [image2]: ./media/media-services-fmp4-live-ingest-overview/media-services-image2.png
 [image3]: ./media/media-services-fmp4-live-ingest-overview/media-services-image3.png
@@ -206,4 +215,4 @@ Veja abaixo uma implementação recomendada para faixas de áudio redundantes:
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

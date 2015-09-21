@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Hubs de Notificação do Azure | Microsoft Azure"
+	pageTitle="Introdução aos Hubs de Notificação do Azure para aplicativos do iOS | Microsoft Azure"
 	description="Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo do iOS."
 	services="notification-hubs"
 	documentationCenter="ios"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/02/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Introdução aos Hubs de Notificação
+# Introdução aos Hubs de Notificação para aplicativos do iOS
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -509,4 +509,4 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

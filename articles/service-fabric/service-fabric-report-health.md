@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # Adicionando relatórios de integridade personalizados da Malha de Serviço
@@ -274,4 +274,4 @@ Com base nos dados de integridade, os criadores de serviço e administradores de
 [Atualização de aplicativo da Malha de Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->
