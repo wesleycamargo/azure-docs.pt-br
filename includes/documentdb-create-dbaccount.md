@@ -1,7 +1,7 @@
 1.	Fazer logon no [Portal de Visualização do Microsoft Azure](https://portal.azure.com/) online.
 2.	Na barra de navegação, clique em **Novo**, em seguida, clique em **Dados + Armazenamento** e, em seguida, clique em **Banco de Dados de Documentos do Azure**. 
 
-	![Captura de tela do Portal do Azure][1]   
+	![Captura de tela do Portal do Azure][88]   
 
 	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
 	
@@ -37,7 +37,7 @@
     ![Captura de tela da lâmina Grupo de recursos][7]  
 
 <!--Image references-->
-[1]: media/documentdb-create-dbaccount/ca1.png
+[88]: media/documentdb-create-dbaccount/ca1.png
 [2]: media/documentdb-create-dbaccount/ca2.png
 [3]: media/documentdb-create-dbaccount/ca3.png
 [4]: media/documentdb-create-dbaccount/ca4.png
@@ -49,4 +49,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!----HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
