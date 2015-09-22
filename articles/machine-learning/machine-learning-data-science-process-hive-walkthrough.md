@@ -75,7 +75,7 @@ Ao abordar a dados, determinar o tipo de previsões que deseja fazer com base na
 
 ## <a name="setup"></a>Configurar um cluster Hadoop do HDInsight para análises avançadas
 
->[AZURE.NOTE]Essa normalmente é uma tarefa **Admin**.
+>[AZURE.NOTE] Essa normalmente é uma tarefa **Admin**.
 
 Você pode configurar um ambiente do Azure para análises avançadas que empregue um cluster HDInsight em três etapas:
 
@@ -91,7 +91,7 @@ Você pode configurar um ambiente do Azure para análises avançadas que empregu
 
 ## <a name="getdata"></a>Obter os dados de uma fonte de pública
 
->[AZURE.NOTE]Essa normalmente é uma tarefa **Admin**.
+>[AZURE.NOTE] Essa normalmente é uma tarefa **Admin**.
 
 Para obter o conjunto de dados [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/) do seu local público, você pode usar qualquer um dos métodos descritos em [Mover dados bidirecionalmente no Armazenamento de Blobs do Azure](machine-learning-data-science-move-azure-blob.md) para copiar os dados para o seu computador.
 
@@ -107,11 +107,11 @@ Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que cont�
 
 ## <a name="upload"></a>Carregar os dados para o contêiner padrão do cluster do Hadoop do Azure HDInsight
 
->[AZURE.NOTE]Essa normalmente é uma tarefa **Admin**.
+>[AZURE.NOTE] Essa normalmente é uma tarefa **Admin**.
 
 Nos comandos de AzCopy a seguir, substitua os seguintes parâmetros pelos valores reais especificados ao criar o cluster de Hadoop e extrair os arquivos de dados.
 
-* ***& #60; path\_to\_data\_folder >*** o diretório (juntamente com o caminho) no computador que contêm os arquivos de dados descompactados  
+* ***&#60; path\_to\_data\_folder >*** o diretório (juntamente com o caminho) no computador que contêm os arquivos de dados descompactados  
 * ***&#60;nome da conta de armazenamento do cluster do Hadoop>*** a conta de armazenamento associada ao cluster HDInsight
 * ***&#60;contêiner padrão do cluster do Hadoop>*** o contêiner padrão usado pelo seu cluster. Observe que o nome do contêiner padrão geralmente é o mesmo nome que o do cluster em si. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
 * ***&#60;chave de conta de armazenamento>*** a chave para a conta de armazenamento usada pelo cluster
@@ -130,7 +130,7 @@ Os dados agora devem estar no armazenamento de Blob do Azure e prontos para sere
 
 ## <a name="#download-hql-files"></a>Faça logon no nó principal do cluster Hadoop e prepare-se para análise exploratória de dados
 
->[AZURE.NOTE]Essa normalmente é uma tarefa **Admin**.
+>[AZURE.NOTE] Essa normalmente é uma tarefa **Admin**.
 
 Para acessar o nó principal do cluster para análise exploratória de dados e redução de dados, siga o procedimento descrito em [Acessar o nó principal do cluster do Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
@@ -146,13 +146,13 @@ Esses dois comandos baixarão todos os arquivos .hql necessários neste passo a 
 
 ## <a name="#hive-db-tables"></a>Criar banco de dados e tabelas Hive particionadas por mês
 
->[AZURE.NOTE]Essa normalmente é uma tarefa **Admin**.
+>[AZURE.NOTE] Essa normalmente é uma tarefa **Admin**.
 
 Agora estamos prontos para criar tabelas Hive para nosso conjunto de dados de táxi NYC. No nó principal do cluster do Hadoop, abra a ***Linha de Comando do Hadoop*** na área de trabalho do nó principal e entre no diretório de Hive digitando o comando
 
     cd %hive_home%\bin
 
->[AZURE.NOTE]**Execute todos os comandos do Hive neste passo a passo no prompt do diretório bin/ do Hive acima. Isso solucionará automaticamente quaisquer problemas de caminho. Usamos os termos "Prompt do diretório do Hive", "prompt do diretório bin/ do Hive" e "Linha de Comando do Hadoop" alternadamente. neste passo a passo.**
+>[AZURE.NOTE] **Execute todos os comandos do Hive neste passo a passo no prompt do diretório bin/ do Hive acima. Isso solucionará automaticamente quaisquer problemas de caminho. Usamos os termos "Prompt do diretório do Hive", "prompt do diretório bin/ do Hive" e "Linha de Comando do Hadoop" alternadamente. neste passo a passo.**
 
 No prompt do diretório Hive, digite o seguinte comando na linha de comando do Hadoop do nó principal para enviar a consulta Hive para criar as tabelas e o banco de dados Hive:
 	
@@ -208,7 +208,7 @@ Se precisar de qualquer assistência adicional com esses procedimentos ou deseja
 
 ## <a name="#load-data"></a>Carregar dados para tabelas Hive de partições
 
->[AZURE.NOTE]Essa normalmente é uma tarefa **Admin**.
+>[AZURE.NOTE] Essa normalmente é uma tarefa **Admin**.
 
 O conjunto de dados de táxi de NYC tem um particionamento natural por mês, que usamos para habilitar os tempos de processamento e consulta. Os comandos do PowerShell abaixo (emitidos no diretório Hive usando a **Linha de Comando do Hadoop**) carregam dados para as tabelas Hive "corrida" e "tarifa" particionadas por mês.
 
@@ -275,7 +275,7 @@ A saída esperada é mostrada abaixo:
    
 ## <a name="#explore-hive"></a>Exploração de dados e engenharia de recursos no Hive
 
->[AZURE.NOTE]Essa é normalmente é uma tarefa de **Cientista de Dados**.
+>[AZURE.NOTE] Essa é normalmente é uma tarefa de **Cientista de Dados**.
 
 As tarefas de exploração de dados e engenharia de recursos para os dados carregados nas tabelas Hive podem ser realizados usando consultas de Hive. Aqui estão exemplos de tais tarefas que percorreremos ao longo desta seção:
 
@@ -287,7 +287,7 @@ As tarefas de exploração de dados e engenharia de recursos para os dados carre
 
 ### Exploração: exibir os 10 principais registros na tabela de corridas
 
->[AZURE.NOTE]Essa é normalmente é uma tarefa de **Cientista de Dados**.
+>[AZURE.NOTE] Essa é normalmente é uma tarefa de **Cientista de Dados**.
 
 Para ver a aparência dos dados, examinamos 10 registros de cada tabela. Execute as duas consultas a seguintes separadamente no prompt do diretório Hive no console da linha de comando do Hadoop para inspecionar os registros.
 
@@ -305,7 +305,7 @@ Costuma ser útil salvar os registros em um arquivo para exibição conveniente.
 
 ### Exploração: exibir o número de registros em cada uma das 12 partições
 
->[AZURE.NOTE]Essa é normalmente é uma tarefa de **Cientista de Dados**.
+>[AZURE.NOTE] Essa é normalmente é uma tarefa de **Cientista de Dados**.
 
 É de interesse como o número de corridas varia durante o ano calendário. Agrupar por mês permite ver a aparência de distribuição de corridas.
 	
@@ -373,7 +373,7 @@ O número total de registros em ambas as tabelas também é o mesmo. Isso fornec
 
 ### Exploração: distribuição de corridas por licença
 
->[AZURE.NOTE]Essa é normalmente é uma tarefa de **Cientista de Dados**.
+>[AZURE.NOTE] Essa é normalmente é uma tarefa de **Cientista de Dados**.
 
 Este exemplo identifica o medalhão (número do táxi) com mais de 100 corridas dentro de um determinado período de tempo. A consulta aproveita o acesso à tabela particionada, já que ele está condicionada à variável de partição **mês**. Os resultados da consulta são gravados em um arquivo local queryoutput.tsv em `C:\temp` no nó principal.
 
@@ -405,7 +405,7 @@ No prompt da pasta Hive, emita o comando a seguir:
 
 ### Exploração: distribuição de corridas por medallion e hack\_license
 
->[AZURE.NOTE]Essa é normalmente é uma tarefa de **Cientista de Dados**.
+>[AZURE.NOTE] Essa é normalmente é uma tarefa de **Cientista de Dados**.
 
 Ao explorar um conjunto de dados, frequentemente queremos examinar o número de co-ocorrências de grupos de valores. Esta seção fornece um exemplo de como fazer isso para táxis e condutores.
 
@@ -428,7 +428,7 @@ Os resultados da consulta são gravados em um arquivo local C:\\temp\\queryoutpu
 
 ### Exploração: avaliar a qualidade dos dados através da verificação de registros de latitude/longitude inválidos
 
->[AZURE.NOTE]Essa é normalmente é uma tarefa de **Cientista de Dados**.
+>[AZURE.NOTE] Essa é normalmente é uma tarefa de **Cientista de Dados**.
 
 Um objetivo comum da análise exploratória de dados é eliminar registros inválidos ou incorretos. O exemplo nesta seção determina se os campos de latitude ou longitude contêm um valor muito fora da área de NYC. Uma vez que é provável que esses registros tenham valores incorretos de latitude de longitude, queremos eliminá-los de todos os dados a serem usados para modelagem.
 
@@ -794,9 +794,9 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 ## Referências
 
-• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) 
-• [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) 
-• [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•	[Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
+•	[FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•	[Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -811,4 +811,4 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!----HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

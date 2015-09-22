@@ -43,7 +43,8 @@ Você pode criar um clone no mesmo dispositivo, em outro dispositivo ou mesmo em
 
   1. Identificar um dispositivo de destino. Esse é o local onde o clone será criado. Você pode escolher o mesmo dispositivo ou especificar outro dispositivo. Se você escolher um volume associado com outros provedores de serviços de nuvem (não do Azure), a lista suspensa do dispositivo de destino mostrará apenas os dispositivos físicos. Não é possível clonar um volume associado a outros provedores de serviços de nuvem em um dispositivo virtual.
 
-        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
+        >  [AZURE.NOTE] Verifique se a capacidade necessária para o clone é menor que a capacidade disponível no dispositivo de destino.
+
   2. Especifique um nome de volume exclusivo para o clone. O nome deve conter entre 3 e 127 caracteres.
   3. Clique no ícone de seta ![ícone-de-seta](./media/storsimple-clone-volume/HCS_ArrowIcon.png)para prosseguir para a próxima página.
 
@@ -89,4 +90,4 @@ Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](s
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
