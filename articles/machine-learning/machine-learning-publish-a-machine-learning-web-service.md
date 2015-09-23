@@ -98,7 +98,7 @@ No Portal de Gerenciamento do Azure, você pode gerenciar seus serviços Web cli
 
 Para obter mais informações, consulte [Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md).
 <!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
+For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
 
@@ -112,4 +112,4 @@ Para atualizar o serviço Web, abra o teste preditivo original que você usou pa
 
 Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para obter mais informações, consulte [Treinar novamente os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
