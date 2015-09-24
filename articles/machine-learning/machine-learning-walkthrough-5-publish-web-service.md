@@ -89,7 +89,8 @@ Você pode estar se perguntando por que deixamos o conjunto de dados de Dados de
 
 Execute o teste uma última vez (clique em **Executar**). Se você deseja verificar se o modelo ainda está funcionando, clique na saída do módulo [Modelo de Pontuação][score-model] e selecione **Exibir Resultados**. Você verá os dados originais exibidos, juntamente com o valor de risco de crédito ("Rótulos de pontuação") e o valor de probabilidades de pontuação ("Probabilidades de pontuação").
 
-## Implantar o serviço Web
+##
+Implantar o serviço Web
 
 Para implantar um serviço Web derivado de nosso teste, clique em **Implantar Serviço Web** abaixo da tela. O Estúdio de Aprendizado de Máquina implanta o teste como um serviço Web e leva você até o painel de serviço.
 
@@ -126,4 +127,4 @@ Os resultados gerados pelo serviço Web são exibidos na parte inferior do paine
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

@@ -231,7 +231,7 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
 * [Sincronização de dados offline em Aplicativos Móveis do Azure]
 
-* [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure] (Observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
+* [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure] \(Observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
 
 <!-- URLs. -->
 
@@ -248,4 +248,4 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

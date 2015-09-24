@@ -44,7 +44,7 @@ Se você não tiver nenhum desses produtos, o Visual Studio 2013 Express para We
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## <a id="learn"></a>O que você vai aprender
 
@@ -98,7 +98,6 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 3. Entre utilizando suas credenciais do Azure.
 
 5. Clique com botão direito do mouse em **Armazenamento** sob o nó do Azure e, em seguida, clique em **Criar conta de armazenamento**.
-
 ![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Na caixa de diálogo **Criar conta de armazenamento**, digite um nome para a conta de armazenamento.
@@ -358,7 +357,7 @@ Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores
 
 	O botão **Função de Repetição**, nesta página, faz a estrutura do SDK de Trabalhos Web chamar a função novamente e dá uma chance de primeiro alterar os dados passados para a função.
 
->[AZURE.NOTE]Quando terminar os testes, exclua o aplicativo Web e a instância do Banco de Dados SQL. O aplicativo Web é gratuito, mas a instância do Banco de Dados SQL e a conta de armazenamento acumulam encargos (mínimos, devido ao tamanho reduzido). Além disso, se deixar o aplicativo Web em execução, qualquer pessoa que encontrar a URL poderá criar e exibir anúncios. No portal do Azure, acesse a guia **Painel** de seu aplicativo Web e clique no botão **Excluir** na parte inferior da página. Em seguida, é possível marcar uma caixa de seleção para excluir a instância do Banco de Dados SQL ao mesmo tempo. Se apenas deseja evitar que outros acessem temporariamente o aplicativo Web, em vez disso, clique em **Parar**. Nesse caso, os encargos continuarão acumulando para o Banco de Dados SQL e a conta de armazenamento. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
+>[AZURE.NOTE] Quando terminar os testes, exclua o aplicativo Web e a instância do Banco de Dados SQL. O aplicativo Web é gratuito, mas a instância do Banco de Dados SQL e a conta de armazenamento acumulam encargos (mínimos, devido ao tamanho reduzido). Além disso, se deixar o aplicativo Web em execução, qualquer pessoa que encontrar a URL poderá criar e exibir anúncios. No portal do Azure, acesse a guia **Painel** de seu aplicativo Web e clique no botão **Excluir** na parte inferior da página. Em seguida, é possível marcar uma caixa de seleção para excluir a instância do Banco de Dados SQL ao mesmo tempo. Se apenas deseja evitar que outros acessem temporariamente o aplicativo Web, em vez disso, clique em **Parar**. Nesse caso, os encargos continuarão acumulando para o Banco de Dados SQL e a conta de armazenamento. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
 
 ### Habilitar o AlwaysOn para processos de longa duração
 
@@ -479,7 +478,7 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 	- *Global.asax.cs*  
 	- Na pasta *Controllers*: *AdController.cs*
 	- Na pasta *Views\\Shared*: arquivo *\_Layout.cshtml*
-- Na pasta *Views\\Home*: *Index.cshtml*
+	- Na pasta *Views\\Home*: *Index.cshtml*
 	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*<br/><br/>
 
 3. No projeto ContosoAdsWebJob, adicione os seguintes arquivos do projeto baixado.
@@ -494,7 +493,7 @@ Agora é possível compilar, executar e implantar o aplicativo conforme instruí
 
 As seções a seguir explicam o código relacionado ao trabalho com os blobs e as filas do SDK de Trabalhos Web e do Armazenamento do Azure.
 
-> [AZURE.NOTE]Para o código específico do SDK do WebJobs, consulte [Program.cs e Functions.cs](#programcs).
+> [AZURE.NOTE] Para o código específico do SDK do WebJobs, consulte [Program.cs e Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -818,4 +817,4 @@ Para obter mais informações, consulte [Recursos recomendados para Trabalhos We
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obter um guia sobre a alteração do portal do Azure para o portal de visualização do Azure, consulte [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

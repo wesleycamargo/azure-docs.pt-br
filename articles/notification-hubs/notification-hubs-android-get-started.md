@@ -70,7 +70,9 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 
 
-	A documentação de referência para esses dois pacotes está localizada nos links abaixo: * [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html) * [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
+	A documentação de referência para esses dois pacotes está localizada nos links abaixo:
+	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
+	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
 
 
     > [AZURE.NOTE]Os números no fim do nome do arquivo podem ser alterados em versões subsequentes do SDK.
@@ -107,7 +109,10 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 	    private static Boolean isVisible = false;
 
 
-	Não se esqueça de atualizar os três espaços reservados: * **SENDER\_ID**: defina `SENDER_ID` como o número do projeto obtido anteriormente do projeto criado no [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: defina `HubListenConnectionString` como a cadeia de conexão **DefaultListenAccessSignature** para seu hub. Você pode copiar essa cadeia de conexão clicando em **Exibir Cadeia de Conexão** na guia **Painel** de seu hub no [portal do Azure]. * **HubName**: use o nome do seu hub de notificação que aparece na parte superior da página do Azure para o hub (**não** é a URL completa). Por exemplo, use `"myhub"`.
+	Não se esqueça de atualizar os três espaços reservados:
+	* **SENDER\_ID**: defina `SENDER_ID` como o número do projeto obtido anteriormente do projeto criado no [Google Cloud Console](http://cloud.google.com/console).
+	* **HubListenConnectionString**: defina `HubListenConnectionString` como a cadeia de conexão **DefaultListenAccessSignature** para seu hub. Você pode copiar essa cadeia de conexão clicando em **Exibir Cadeia de Conexão** na guia **Painel** de seu hub no [portal do Azure].
+	* **HubName**: use o nome do seu hub de notificação que aparece na parte superior da página do Azure para o hub (**não** é a URL completa). Por exemplo, use `"myhub"`.
 
 
 
@@ -530,4 +535,4 @@ Neste simples exemplo, você envia notificações a todos os seus dispositivos A
 [Usar Hubs de notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-android-notify-users.md
 [Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

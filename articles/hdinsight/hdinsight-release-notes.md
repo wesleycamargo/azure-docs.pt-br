@@ -354,7 +354,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>Corrigir a dependência de DLL</td>
 <td>Remove a dependência de HDInsight na estrutura de teste de unidade.</td>
-<td>.</td>
+<td>SDK</td>
 <td>O Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -362,7 +362,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>Correção de bug para condição de corrida</td>
 <td>Uma solicitação Criar cluster agora aguarda que a solicitação PUT seja aceita antes de realizar a sondagem do status</td>
-<td>.</td>
+<td>SDK</td>
 <td>O Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -425,7 +425,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>SDK 1.5.6 do .NET do HDInsight</td>
 <td>Atualizações para remover algumas classes internas para HDInsight no Linux.</td>
-<td>.</td>
+<td>SDK</td>
 <td>O Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -433,7 +433,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>Biblioteca de Avro 1.5.6</td>
 <td>Adicionado <b>KnownTypeAttribute</b> para o método <b>GetAllKnownTypes</b>. Corrigida NullReferenceException quando um tipo é null para o método GetAllKnownTypes.</td>
-<td>.</td>
+<td>SDK</td>
 <td>O Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -474,7 +474,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>Capacidade de habilitar/desabilitar as credenciais da área de trabalho remota em clusters do Windows via SDK do .NET</td>
 <td>Suporte programático para habilitar ou desabilitar as credenciais RDP em clusters do Windows.</td>
-<td>.</td>
+<td>SDK</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -482,7 +482,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>Capacidade de habilitar credenciais de área de trabalho remota em clusters enquanto eles estão sendo provisionados</td>
 <td>Suporte programático para habilitar as credenciais de área de trabalho remota enquanto o cluster está sendo criado. Isso remove o processo de duas etapas para provisionar primeiro o cluster e, em seguida, habilitar a área de trabalho remota.</td>
-<td>.</td>
+<td>SDK</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -950,7 +950,7 @@ Esta versão contém as seguintes atualizações de componentes.
 <tr>
 <td>Acesso a logs de aplicativos</td>
 <td>Capacidade para enumerar de modo programático aplicativos que foram executados em seus clusters e para baixar logs relevantes de aplicativos ou de contêineres específicos para ajudar a depurar aplicativos problemáticos.</td>
-<td>.</td>
+<td>SDK</td>
 <td>O Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -958,7 +958,7 @@ Esta versão contém as seguintes atualizações de componentes.
 <tr>
 <td>Capacidade para especificar o nome da região no IHdInsightClient.DeleteCluster </td>
 <td>O SDK do Azure HDInsight fornece a capacidade de especificar um nome de região ao usar o **DeleteCluster**. Isso ajuda a desbloquear clientes com dois recursos de mesmo nome em regiões diferentes que não conseguiam excluir nenhum deles.</td>
-<td>.</td>
+<td>SDK</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -966,7 +966,7 @@ Esta versão contém as seguintes atualizações de componentes.
 <tr>
 <td>ClusterDetails.DeploymentId</td>
 <td>O objeto ClusterDetails agora retorna um campo **DeploymentID** que representa um identificador exclusivo para o cluster. É garantida a exclusividade entre tentativas de criação de clusters com os mesmos nomes.</td>
-<td>.</td>
+<td>SDK</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -1069,7 +1069,7 @@ Esta versão contém as seguintes atualizações de componentes.
 <tr>
 <td>ID de Implantação de Cluster</td>
 <td>Iniciando pela versão 1.3.3.1.5426.29232 do SDK, os usuários podem acessar uma ID exclusiva para cada cluster, emitida pelo HDInsight. Isso permite que os clientes tomem conhecimento das instâncias exclusivas de clusters quando um dnsname está sendo reutilizado entre cenários de criação/cancelamento.</td>
-<td>.</td>
+<td>SDK</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -1089,7 +1089,7 @@ A liberação desse hotfix corrige um vazamento de memória no Templeton que afe
 
 * Fornecemos novas configurações de memória para a implantação padrão do cluster do HDInsight. As configurações de memória padrão anteriores não atentavam adequadamente às diretrizes referente ao número de núcleos de CPU implantados. Essas novas configurações de memória devem fornecer melhores padrões, de acordo com as recomendações da Hortonworks. Para alterá-las, consulte a documentação de referência do SDK sobre alteração da configuração de clusters. As novas configurações de memória usadas pelo cluster do HDInsight padrão com 4 núcleos de CPU (8 contêineres) são detalhadas na tabela a seguir. (Os valores usados anteriormente a essa versão também são fornecidos entre parênteses).
 
-<table border="1"> <tr><th>Componente</th><th>alocação de memória</th></tr> <tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (anteriormente 512 MB)</td></tr> <tr><td> yarn.scheduler.maximum-allocation</td><td>6.144 MB (inalterada)</td></tr> <tr><td>yarn.nodemanager.resource.memory</td><td>6.144 MB (inalterada)</td></tr> <tr><td>mapreduce.map.memory</td><td>768 MB (anteriormente 512MB)</td></tr> <tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (anteriormente -Xmx410m)</td></tr> <tr><td>mapreduce.reduce.memory</td><td>1.536 MB (anteriormente 1.024 MB)</td></tr> <tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (anteriormente -Xmx819m)</td></tr> <tr><td>yarn.app.mapreduce.am.resource</td><td>768 MB (anteriormente 1.024 MB)</td></tr> <tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (anteriormente -Xmx819m)</td></tr> <tr><td>mapreduce.task.io.sort</td><td>256 MB (anteriormente 200 MB)</td></tr> <tr><td>tez.am.resource.memory</td><td>1.536 MB (inalterada)</td></tr>
+<table border="1"> <tr><th>Componente</th><th>alocação de memória</th></tr> <tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (anteriormente 512 MB)</td></tr> <tr><td> yarn.scheduler.maximum-allocation</td><td>6144 MB (inalterada)</td></tr> <tr><td>yarn.nodemanager.resource.memory</td><td>6144 MB (inalterada)</td></tr> <tr><td>mapreduce.map.memory</td><td>768 MB (anteriormente 512MB)</td></tr> <tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (anteriormente -Xmx410m)</td></tr> <tr><td>mapreduce.reduce.memory</td><td>1536 MB (anteriormente 1024 MB)</td></tr> <tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (anteriormente -Xmx819m)</td></tr> <tr><td>yarn.app.mapreduce.am.resource</td><td>768 MB (anteriormente 1024 MB)</td></tr> <tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (anteriormente -Xmx819m)</td></tr> <tr><td>mapreduce.task.io.sort</td><td>256 MB (anteriormente 200 MB)</td></tr> <tr><td>tez.am.resource.memory</td><td>1536 MB (inalterada)</td></tr>
 
 </table><br>
 
@@ -1348,4 +1348,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
