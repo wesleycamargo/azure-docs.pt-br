@@ -39,8 +39,8 @@ O serviço Arquivos do Azure está na fase de visualização. Por isso, as prát
 ||Todos os serviços|	Rede|	[Dispositivos do lado cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#subheading2)
 ||Todos os serviços|	Rede|	[Os dispositivos do lado cliente têm um link de qualidade alta o suficiente?](#subheading3)
 ||Todos os serviços|	Rede|	[O aplicativo cliente está localizado perto da conta de armazenamento?](#subheading4)
-||Todos os serviços|	Distribuição|	[conteúdo Você está usando uma CDN para distribuição de conteúdo?](#subheading5)
-||Todos os serviços de|	Acesso|	[Direta do cliente Você está usando SAS e CORS para permitir acesso direto ao armazenamento, em vez de proxy?](#subheading6)
+||Todos os serviços|	Distribuição conteúdo|	[Você está usando uma CDN para distribuição de conteúdo?](#subheading5)
+||Todos os serviços de|	Acesso Direta do cliente|	[Você está usando SAS e CORS para permitir acesso direto ao armazenamento, em vez de proxy?](#subheading6)
 ||Todos os serviços|	Cache|	[Seu aplicativo em cache dados que são usados repetidamente e alterações raramente?](#subheading7)
 ||Todos os serviços|	Cache|	[O aplicativo de envio em lote atualizações (eles em cache do lado do cliente e, em seguida, carregar conjuntos maiores)?](#subheading8)
 ||Configuração de .NET todos os serviços|	.NET Configuração|	[Você configurou o cliente para usar um número suficiente de conexões simultâneas?](#subheading9)
@@ -387,4 +387,4 @@ Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A 
 Este artigo falou sobre algumas das práticas comprovadas mais comuns para otimizar o desempenho com o uso do armazenamento do Azure. Nós recomendamos que cada desenvolvedor avalie seu aplicativo com base nas práticas descritas acima e considere seguir as recomendações para obter desempenho excelente para seus aplicativos que usam o Armazenamento do Azure.
  
 
-<!-----HONumber=Sept15_HO2-->
+<!------HONumber=Sept15_HO2-->
