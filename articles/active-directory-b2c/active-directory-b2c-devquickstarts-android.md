@@ -15,9 +15,13 @@ Com o AD B2C do Azure, você pode adicionar recursos poderosos de gerenciamento 
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
-> [AZURE.NOTE]Este guia de início rápido tem o pré-requisito de que você deve ter uma API Web protegida pelo AD do Azure com B2C para funcionar totalmente. Criamos uma para .Net e node.js que você pode usar. Este passo a passo pressupõe que o exemplo de API Web do node.js está configurado. Consulte o [Tutorial da API Web do B2C do AD do Azure para Node.js](active-directory-b2c-devquickstarts-api-node.md).
+> [AZURE.NOTE]
+	Este guia de início rápido tem o pré-requisito de que você deve ter uma API Web protegida pelo AD do Azure com B2C para funcionar totalmente. Criamos uma para .Net e node.js que você pode usar. 
+	Este passo a passo pressupõe que o exemplo de API Web do node.js está configurado. Consulte o [Tutorial da API Web do B2C do AD do Azure para Node.js](active-directory-b2c-devquickstarts-api-node.md).
 
-> [AZURE.NOTE]Este artigo não aborda como implementar conexão, registro e gerenciamento de perfil com o Azure AD B2C. Ele se concentra na chamada a APIs Web depois que o usuário já está autenticado. Se não estiver, você deve começar com o [tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para saber mais sobre os conceitos básicos do Azure AD B2C.
+> [AZURE.NOTE]
+	Este artigo não aborda como implementar conexão, registro e gerenciamento de perfil com o Azure AD B2C. Ele se concentra na chamada a APIs Web depois que o usuário já está autenticado. 
+    Se não estiver, você deve começar com o [tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para saber mais sobre os conceitos básicos do Azure AD B2C.
 
 Para clientes Android que precisam acessar recursos protegidos, o AD do Azure fornece a biblioteca de autenticação do Active Directory, ou ADAL. A única finalidade da ADAL é tornar mais fácil para seu aplicativo obter tokens de acesso. Para demonstrar como é fácil, vamos compilar aqui um aplicativo de lista de tarefas pendentes para Android que:
 
@@ -377,8 +381,13 @@ private void getTasks() { if (Constants.CURRENT\_RESULT == null || Constants.CUR
  
  Também vamos escrever um método que inicializará nossas tabelas na primeira execução:
  
- ``` private void initAppTables() { try { // Get the Mobile Service Table instance to use // mToDoTable = mClient.getTable(WorkItem.class); // mToDoTable.TABvLES\_URL = "/api/"; //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
-
+ ```
+     private void initAppTables() {
+        try {
+            // Get the Mobile Service Table instance to use
+//            mToDoTable = mClient.getTable(WorkItem.class);
+//            mToDoTable.TABvLES_URL = "/api/";
+            //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
             // Create an adapter to bind the items with the view
             //mAdapter = new WorkItemAdapter(ToDoActivity.this, R.layout.listViewToDo);
             ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
@@ -492,7 +501,12 @@ ADAL encrypts the tokens and store in SharedPreferences by default. You can look
 
 Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
 ```java
-CookieSyncManager.createInstance(getApplicationContext()); CookieManager cookieManager = CookieManager.getInstance(); cookieManager.removeSessionCookie(); CookieSyncManager.getInstance().sync(); ``` Mais informações sobre cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+CookieSyncManager.createInstance(getApplicationContext());
+CookieManager cookieManager = CookieManager.getInstance();
+cookieManager.removeSessionCookie();
+CookieSyncManager.getInstance().sync();
+```
+Mais informações sobre cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
 <!---HONumber=Sept15_HO3-->
