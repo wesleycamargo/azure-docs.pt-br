@@ -50,23 +50,23 @@ O exemplo a seguir mostra como você pode criar uma máquina virtual (VM) com ba
 
 6.	Crie uma variável de ambiente denominada **ORACLE\_HOSTNAME** com o valor definido para o nome do computador da VM. Você pode criar uma variável de ambiente usando as seguintes etapas:
 
-	a. No Windows, clique em **Iniciar**, digite **Painel de Controle**, clique no ícone **Painel de Controle**, clique em **Sistema e Segurança**, clique em **Sistema** e, por fim, em **Configurações avançadas do sistema**.
+	a.	No Windows, clique em **Iniciar**, digite **Painel de Controle**, clique no ícone **Painel de Controle**, clique em **Sistema e Segurança**, clique em **Sistema** e, por fim, em **Configurações avançadas do sistema**.
 
-	b. Clique na guia **Avançado** e em **Variáveis de Ambiente**.
+	b.	Clique na guia **Avançado** e em **Variáveis de Ambiente**.
 
-	c. Na seção **Variáveis do sistema**, clique em **Novo** para criar a variável.
+	c.	Na seção **Variáveis do sistema**, clique em **Novo** para criar a variável.
 
-	d. Na caixa de diálogo **Nova variável de sistema**, digite **ORACLE\_HOSTNAME** para o nome da variável e digite o nome do computador da VM como o valor. Para determinar o nome do computador, abra um prompt de comando e execute **SET COMPUTERNAME** (a saída desse comando conterá o nome do computador).
+	d.	Na caixa de diálogo **Nova variável de sistema**, digite **ORACLE\_HOSTNAME** para o nome da variável e digite o nome do computador da VM como o valor. Para determinar o nome do computador, abra um prompt de comando e execute **SET COMPUTERNAME** (a saída desse comando conterá o nome do computador).
 
-	e. Clique em **OK** para salvar a nova variável de ambiente e feche a caixa de diálogo **Nova variável do sistema**.
+	e.	Clique em **OK** para salvar a nova variável de ambiente e feche a caixa de diálogo **Nova variável do sistema**.
 
-	f. Feche as outras caixas de diálogo que foram abertas pelo Painel de Controle.
+	f.	Feche as outras caixas de diálogo que foram abertas pelo Painel de Controle.
 
 7.	No Windows, clique em **Iniciar** e digite **Assistente de Configuração do Banco de Dados**. Clique no ícone **Assistente de Configuração do Banco de Dados**.
 
 8.	No **Assistente de Configuração do Banco de Dados**, forneça valores conforme necessário para cada etapa da caixa de diálogo:
 
-	a. **Etapa 1:** clique em **Criar Banco de Dados** e em **Avançar**.
+	a.	**Etapa 1:** clique em **Criar Banco de Dados** e em **Avançar**.
 
 		![](media/virtual-machines-creating-oracle-database-virtual-machine/image5.png)
 
@@ -110,7 +110,7 @@ Para permitir que o banco de dados seja acessado remotamente (por exemplo, de um
 
 		**lsnrctl start**
 
-> [AZURE.NOTE]Você pode executar **lsnrctl status** para verificar o status do ouvinte. Quando quiser interromper o ouvinte, você pode executar **lsnrctl stop**.
+> [AZURE.NOTE] Você pode executar **lsnrctl status** para verificar o status do ouvinte. Quando quiser interromper o ouvinte, você pode executar **lsnrctl stop**.
 
 ### Abrir a porta 1521 no firewall da máquina virtual
 
@@ -159,7 +159,7 @@ Para permitir que o banco de dados seja acessado remotamente (por exemplo, de um
 ##Habilitando o acesso remoto do Oracle Database Enterprise Manager
 Se você deseja habilitar o acesso remoto para o Oracle Database Enterprise Manager, abra a porta 5500 no firewall e crie um ponto de extremidade de máquina virtual para 5500 no portal do Azure (usando as etapas anteriores para abrir a porta 1521 e criar um ponto de extremidade para 1521). Em seguida, para executar o Oracle Enterprise Manager do computador remoto, abra um navegador para a URL na forma de `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE]Você pode determinar o valor de *<<nome\_exclusivo\_do\_domínio>>* dentro do [portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e selecionando a máquina virtual que está usando para executar o Banco de Dados Oracle).
+> [AZURE.NOTE]Você pode determinar o valor de *\<\<unique\_domain\_name\>\>* dentro do [portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e selecionando a máquina virtual que está usando para executar o Banco de Dados Oracle).
 
 ##Configurando opções populares e pacotes de opções avançadas
 Se você escolheu o **Banco de Dados Oracle com Opções Populares** ou **pacote Banco de Dados Oracle com Opções Avançadas**, a próxima etapa será configurar os recursos de complemento na instalação do Oracle. Consulte a documentação do Oracle para obter instruções sobre como configurá-los no Windows, já que as configurações podem variar amplamente com base nas necessidades de cada componente individual.
@@ -181,4 +181,4 @@ Agora que você configurou sua máquina virtual e criou o banco de dados, consul
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
