@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Provedor de recursos de rede"
-	description="Provedor de recursos de rede"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="adinah"
-	editor="tysonn"/>
+   pageTitle="Visão geral do Provedor de recursos de rede | Microsoft Azure"
+   description="Saiba mais sobre o novo Provedor de recursos de rede no Gerenciador de Recursos do Azure"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/14/2015"
+   ms.author="telmos" />
 
 # Provedor de recursos de rede
 Uma necessidade básica para sucesso nos negócios de hoje é a capacidade de compilar e gerenciar aplicativos com reconhecimento de rede de grande escala de uma maneira ágil, flexível, segura e repetível. O ARM (Gerenciador de Recursos do Azure) permite que você crie aplicativos como um único conjunto de recursos em grupos de recursos. Esses recursos são gerenciados por meio de vários provedores de recursos no ARM.
@@ -392,4 +392,4 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 
 [Implantações de modelo](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

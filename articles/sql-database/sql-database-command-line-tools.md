@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gerenciar recursos de banco de dados SQL do Azure com PowerShell" 
+	pageTitle="Gerenciar o Banco de Dados SQL do Azure com o PowerShell" 
 	description="Gerenciamento do Banco de Dados SQL do Azure com o PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="09/11/2015" 
 	ms.author="vinsonyu"/>
 
-# Gerenciar recursos de banco de dados SQL do Azure com PowerShell
+# Gerenciar o Banco de Dados SQL do Azure com o PowerShell
 
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 Este tópico fornece comandos do PowerShell para executar muitas tarefas do Banco de Dados SQL do Azure usando os cmdlets do Gerenciador de Recursos do Azure.
 
@@ -80,7 +85,7 @@ Ao executar esse comando, uma janela é aberta solicitando um **Nome de usuário
 
 ## Criar uma regra de firewall de servidor
 
-Para criar uma regra de firewall para acessar o servidor, use o comando [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx). Execute o comando a seguir substituindo os endereços IP inicial e final pelos valores válidos para o seu cliente.
+Para criar uma regra de firewall a fim de acessar o servidor, use o comando [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx). Execute o comando a seguir substituindo os endereços IP inicial e final pelos valores válidos para o seu cliente.
 
 Se o servidor precisar permitir o acesso a outros serviços do Azure, adicione a opção **- AllowAllAzureIPs** que adicionará uma regra de firewall especial e permitirá que todo o tráfego do azure acesse o servidor.
 
@@ -97,7 +102,7 @@ Para criar um banco de dados, use o comando [New-AzureSqlDatabase](https://msdn.
 
 ## Alterar o nível de desempenho do banco de dados SQL
 
-Você pode escalar o banco de dados verticalmente com o comando [Set-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125814.aspx). O exemplo a seguir escala verticalmente um banco de dados SQL denominado TestDB12 de seu nível de desempenho atual para um nível Padrão S3.
+Você pode dimensionar o banco de dados verticalmente com o comando [Set-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125814.aspx). O exemplo a seguir escala verticalmente um banco de dados SQL denominado TestDB12 de seu nível de desempenho atual para um nível Padrão S3.
 
 	Set-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S3"
 
@@ -123,7 +128,7 @@ Se você estiver criando novamente esses recursos do SQL do Azure ou semelhantes
 
 ## Próximas etapas
 
-Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre aspas, incluindo os caracteres < and > pelos seus valores para criar um servidor, uma regra de firewall e um banco de dados:
+Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre aspas, incluindo os caracteres < and >, por seus valores a fim de criar um servidor, uma regra de firewall e um banco de dados:
 
 
     New-AzureResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -137,4 +142,4 @@ Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre asp
 - [Cmdlets do Gerenciamento de Serviço do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO3-->

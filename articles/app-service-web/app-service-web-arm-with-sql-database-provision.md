@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/15/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionar um aplicativo Web com um banco de dados SQL
@@ -25,6 +25,8 @@ Para obter mais informações sobre a criação de modelos, consulte [Criação 
 Para obter mais informações sobre a implantação de aplicativos, consulte [Implantar um aplicativo complexo de maneira previsível no Azure](app-service-deploy-complex-application-predictably.md).
 
 Para obter o modelo completo, consulte [Modelo de aplicativo Web com banco de dados SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## O que você implantará
 
@@ -450,4 +452,4 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

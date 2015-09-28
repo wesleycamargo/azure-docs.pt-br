@@ -1,29 +1,29 @@
 <properties
    pageTitle="Use chaves SSH com Hadoop baseado em Linux do Linux, Unix ou OS X | Microsoft Azure"
-	description="Você pode acessar o HDInsight baseado em Linux usando o Secure Shell (SSH). Este documento fornece informações sobre como usar SSH com o HDInsight de clientes Linux, Unix ou OS X."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="Você pode acessar o HDInsight baseado em Linux usando o Secure Shell (SSH). Este documento fornece informações sobre como usar SSH com o HDInsight de clientes Linux, Unix ou OS X."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/24/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/15/2015"
+   ms.author="larryfr"/>
 
-#Usar SSH com Hadoop baseado em Linux no HDInsight por meio de Linux, Unix ou OS X (visualização)
+#Use SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X
 
 > [AZURE.SELECTOR]
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 - [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-Os clusters Azure HDInsight baseados em Linux oferecem a opção de usar acesso SSH por meio de uma senha ou chave SSH. Este documento fornece informações sobre como usar SSH com o HDInsight de clientes Linux, Unix ou OS X.
+O [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) permite executar remotamente operações em seus clusters HDInsight baseados em Linux usando uma interface de linha de comando. Este documento fornece informações sobre como usar SSH com o HDInsight de clientes Linux, Unix ou OS X.
 
 > [AZURE.NOTE]As etapas neste artigo presumem que você esteja usando um cliente Linux, Unix ou OS X. Embora essas etapas possam ser executadas em um cliente baseado em Windows, se você tiver instalado um pacote que forneça `ssh` e `ssh-keygen` (como o Git para Windows), nós recomendamos que os clientes baseados em Windows sigam as etapas em [Usar SSH com o HDInsight baseado em Linux (Hadoop) no Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -41,9 +41,25 @@ OU
 
 SSH é um utilitário para efetuar login e executar remotamente comandos em um servidor remoto. Com o HDInsight baseado em Linux, o SSH estabelece uma conexão criptografada para o nó de cabeçalho do cluster e fornece uma linha de comando que você usa para digitar comandos. Os comandos são executados diretamente no servidor.
 
-##Criar uma chave SSH (opcional)
+###Nome de usuário do SSH
 
-Ao criar um cluster HDInsight baseado em Linux, você tem a opção de usar uma senha ou uma chave SSH para autenticação no servidor, quando utiliza SSH. Chaves SSH são consideradas mais seguras, porque elas são baseadas em certificado. Use as informações a seguir se você planeja usar chaves SSH com o cluster.
+Um nome de usuário SSH é o nome usado para autenticação no cluster HDInsight. Quando você especifica um nome de usuário do SSH durante a criação do cluster, esse usuário é criado em todos os nós no cluster. Quando o cluster for criado, você poderá usar esse nome de usuário para conectar-se aos nós de cabeçalho do cluster HDInsight. Nos nós de cabeçalho, você então poderá se conectar aos nós de trabalho individuais.
+
+> [AZURE.NOTE]O nome de usuário SSH deve ser exclusivo. Como um nome de usuário SSH cria uma conta de usuário no cluster HDInsight, ele não pode entrar em conflito com os usuários existentes criados pelo HDInsight. Estes são os nomes reservados para uso por serviços em execução no cluster HDInsight e que não podem ser usados como o nome de usuário SSH:
+>
+> root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+
+###Senha ou chave pública SSH
+
+Um usuário SSH pode usar uma senha ou uma chave pública para autenticação. Uma senha é apenas uma cadeia de caracteres de texto composta por você, enquanto uma chave pública faz parte de um par de chaves criptográficas gerado para identificar você exclusivamente.
+
+Uma chave é mais segura do que uma senha, mas requer etapas adicionais para gerar a chave e você deve manter os arquivos com a chave em um local seguro. Se alguém obtiver acesso aos arquivos de chave, obterá acesso à sua conta. Ou, se você perder os arquivos de chave, não será capaz de fazer logon em sua conta.
+
+Um par de chaves consiste em uma chave pública (que é enviada para o servidor do HDInsight) e em uma chave privada (que é mantida no computador cliente). Quando você se conectar ao servidor do HDInsight usando o SSH, o cliente SSH usará a chave privada em seu computador para autenticar com o servidor.
+
+##Criar uma chave SSH
+
+Use as informações a seguir se você planeja usar chaves SSH com o cluster. Se você planeja usar uma senha, poderá ignorar esta seção.
 
 1. Abra uma sessão de terminal e use o comando a seguir para ver se há alguma chave SSH existente:
 
@@ -73,17 +89,17 @@ Ao criar um cluster HDInsight baseado em Linux, você tem a opção de usar uma 
 
 Ao criar um cluster HDInsight baseado em Linux, você deve fornecer a chave pública criada anteriormente. Para clientes Linux, Unix ou OS X, há duas maneiras de criar um cluster HDInsight:
 
-* **Portal de visualização do Azure** - Usa um portal baseado na Web para criar o cluster.
+* **Portal de visualização do azure** - Usa um portal baseado na Web para criar o cluster.
 
 * **CLI do Azure para Mac, Linux e Windows**: usa comandos de linha de comando para criar o cluster.
 
-Cada um desses métodos exigirá uma senha ou uma chave pública. Para obter informações completas sobre como criar um cluster HDInsight baseado em Linux, consulte [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md).
+Cada um desses métodos exigirá uma senha ou uma chave pública. Para obter informações completas sobre como criar um cluster HDInsight baseado em Linux, confira [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
 ###Portal de visualização do Azure
 
-Ao usar o [Portal de visualização do Azure][preview-portal] para criar um cluster HDInsight baseado em Linux, você deve inserir um **NOME DE USUÁRIO SSH** e optar por inserir uma **SENHA** ou **CHAVE PÚBLICA SSH**.
+Ao usar o [portal de visualização do Azure][preview-portal] para criar um cluster HDInsight baseado em Linux, você deverá inserir um **NOME DE USUÁRIO SSH** e optar por inserir uma **SENHA** ou uma **CHAVE PÚBLICA SSH**.
 
-Ao selecionar **CHAVE PÚBLICA SSH**, você pode colar a chave pública (contida no arquivo com a extensão **.pub**) para o campo __Chave Pública SSH__, ou selecionar __Selecionar um arquivo__ para procurar e selecionar o arquivo de chave pública.
+Se você selecionar **CHAVE PÚBLICA SSH**, poderá colar a chave pública (contida no arquivo com a extensão **.pub**) para o campo __Chave Pública SSH__ ou escolher __Selecionar um arquivo__ para procurar e selecionar o arquivo de chave pública.
 
 ![Imagem de formulário solicitando uma chave pública](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
@@ -97,7 +113,7 @@ Isso cria um logon para o usuário especificado, usando a senha ou a chave públ
 
 Você pode usar a [CLI do Azure para Mac, Linux e Windows](../xplat.md) para criar um novo cluster usando o comando `azure hdinsight cluster create`.
 
-Para obter mais informações sobre como usar esse comando, confira [Provisionar clusters Hadoop em Linux no HDInsight usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
+Para saber mais sobre como usar esse comando, confira [Provisionar clusters Linux Hadoop no HDInsight usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Conectar-se a um cluster HDInsight baseado em Linux
 
@@ -119,7 +135,7 @@ Se você usou uma chave SSH protegida por uma senha, você deverá inserir a sen
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Se nenhuma porta for especificada, o SSH padrão será a porta 22, que se conectará ao headnode0 no cluster HDInsight. Ao usar a porta 23, você se conectará ao headnode1. Para obter mais informações sobre nós de cabeçalho, confira [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
+Se nenhuma porta for especificada, o SSH padrão será a porta 22, que se conectará ao headnode0 no cluster HDInsight. Ao usar a porta 23, você se conectará ao headnode1. Para saber mais sobre nós de cabeçalho, confira [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conectar a nós de trabalho
 
@@ -144,7 +160,7 @@ Se usar uma chave SSH para autenticar a conta de usuário, você deverá conclui
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Se nada for retornado, isso indica que o **ssh-agent** não está em execução. Consulte a documentação do sistema operacional para ver as etapas específicas para instalar e configurar o **ssh-agent** ou confira [Usando ssh-agent com ssh](http://mah.everybody.org/docs/ssh).
+    Se nada for retornado, isso indica que o **ssh-agent** não está em execução. Consulte a documentação do sistema operacional para ver as etapas específicas de instalação e de configuração do **ssh-agent** ou confira [Usando ssh-agent com ssh](http://mah.everybody.org/docs/ssh).
 
 4. Após confirmar que o **ssh-agent** está em execução, use o seguinte para adicionar sua chave privada SSH ao agente:
 
@@ -210,85 +226,9 @@ Use as etapas a seguir para conectar-se a nós de trabalho de seu cluster.
 
 O SSH pode ser usado para criar um túnel de solicitações locais, como solicitações Web, para o cluster HDInsight. A solicitação será encaminhada para o recurso solicitado como se tivesse sido originada no nó principal do cluster HDInsight.
 
-> [AZURE.IMPORTANT]Um túnel SSH é um requisito para acessar a interface do usuário Web para alguns serviços do Hadoop. Por exemplo, a interface do usuário de Histórico de trabalho ou a interface do usuário do Gerenciador de Recursos só podem ser acessadas usando um túnel SSH.
+> [AZURE.IMPORTANT]Um túnel SSH é um requisito para acessar a interface do usuário da Web para alguns serviços do Hadoop. Por exemplo, a interface do usuário de Histórico de trabalho ou a interface do usuário do Gerenciador de Recursos só podem ser acessadas usando um túnel SSH.
 
-Use as seguintes etapas para criar um túnel SSH e configurar seu navegador para usá-lo para se conectar ao cluster.
-
-1. O comando a seguir pode ser usado para criar um túnel SSH para o nó de cabeçalho do cluster:
-
-		ssh -C2qTnNf -D 9876 username@clustername-ssh.azurehdinsight.net
-
-	Isso cria uma conexão que encaminha o tráfego para a porta local 9876 do cluster via SSH. As opções são:
-
-	* **D 8080**: a porta local que roteará o tráfego através do túnel.
-
-	* **C**: compactar todos os dados, porque o tráfego da Web é texto, em sua maioria.
-
-	* **2**: forçar o SSH para tentar somente a versão 2 do protocolo.
-
-	* **q**: modo silencioso.
-
-	* **T**: desabilitar alocação pseudo-tty, já que estamos apenas encaminhando uma porta.
-
-	* **n**: impede a leitura de STDIN, já que estamos apenas encaminhando uma porta.
-
-	* **N**: não executar um comando remoto, pois estamos apenas encaminhando uma porta.
-
-	* **f**: executar em segundo plano.
-
-	Se você tiver configurado o cluster com uma chave SSH, talvez seja necessário usar o parâmetro `-i` e especificar o caminho para a chave privada de SSH.
-
-	Quando o comando terminar, o tráfego enviado para a porta 9876 no computador local será roteado pelo protocolo SSL para o nó de cabeçalho do cluster e parecerá originar-se de lá .
-
-2. Configure o programa cliente, como o Firefox, para usar **localhost:9876** como proxy **SOCKS v5**. As configurações do Firefox serão semelhantes a estas:
-
-	![imagem das configurações do Firefox](./media/hdinsight-hadoop-linux-use-ssh-unix/socks.png)
-
-	> [AZURE.NOTE]Selecionar **DNS Remoto** resolverá as solicitações de DNS (Sistema de Nomes de Domínio) usando o cluster HDInsight. Se essa opção estiver desmarcada, o DNS será resolvido localmente.
-
-	Você pode confirmar que o tráfego está sendo roteado pelo túnel visitando um site como [http://www.whatismyip.com/](http://www.whatismyip.com/) com as configurações de proxy habilitadas e desabilitadas no Firefox. Embora as configurações estejam habilitadas, o endereço IP será de um computador no datacenter do Microsoft Azure.
-
-###Extensões do navegador
-
-Embora configurar o navegador para usar o túnel funcione, geralmente não deseja encaminhar todo o tráfego através do túnel. Extensões de navegador, como [FoxyProxy](http://getfoxyproxy.org/), aceitam correspondência de padrões para solicitações de URL (somente FoxyProxy Standard ou Plus); logo, apenas solicitações de URLs específicas serão enviadas pelo túnel.
-
-Se você tiver instalado o FoxyProxy padrão, use as etapas a seguir para configurá-lo para encaminhar somente tráfego do HDInsight pelo túnel:
-
-1. Abra a extensão FoxyProxy no seu navegador. Por exemplo, no Firefox, selecione o ícone FoxyProxy ao lado do campo de endereço.
-
-	![ícone do foxyproxy](./media/hdinsight-hadoop-linux-use-ssh-unix/foxyproxy.png)
-
-2. Selecione **Adicionar Novo Proxy**, clique na guia **Geral** e insira um nome de proxy de **HDInsightProxy**.
-
-	![foxyproxy geral](./media/hdinsight-hadoop-linux-use-ssh-unix/foxygeneral.png)
-
-3. Selecione a guia **Detalhes de Proxy** e preencha os campos a seguir:
-
-	* **Host ou Endereço IP**: é localhost, já que estamos usando um túnel SSH no computador local.
-
-	* **Porta**: é a porta usada para o túnel SSH.
-
-	* **Proxy SOCKS**: selecione esta opção para habilitar o navegador a usar o túnel como proxy.
-
-	* **SOCKS v5**: selecione esta opção para definir a versão necessária do proxy.
-
-	![proxy do foxyproxy](./media/hdinsight-hadoop-linux-use-ssh-unix/foxyproxyproxy.png)
-
-4. Clique na guia **Padrões de URL** e selecione **Adicionar Novo Padrão**. Use o seguinte para definir o padrão e clique em **OK**:
-
-	* **Nome do Padrão** - **headnode**: é apenas um nome amigável para o padrão.
-
-	* **Padrão de URL** - ***headnode***: define um padrão que corresponde a qualquer URL contendo a palavra **headnode**.
-
-	![padrão do foxyproxy](./media/hdinsight-hadoop-linux-use-ssh-unix/foxypattern.png)
-
-4. Clique em **OK** para adicionar o proxy e fechar **Configurações de Proxy**.
-
-5. Na parte superior da caixa de diálogo FoxyProxy, altere **Modo de Seleção** para **Usar proxies com base em seus padrões e prioridades predefinidos** e clique em **Fechar**.
-
-	![modo de seleção do foxyproxy](./media/hdinsight-hadoop-linux-use-ssh-unix/selectmode.png)
-
-Após a execução destas etapas, somente solicitações de URLs que contêm a cadeia de caracteres **headnode** serão roteadas pelo túnel SSL.
+Para saber mais sobre o uso de um túnel SSH, confira [Usar um túnel SSH para acessar a interface do usuário da Web Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Próximas etapas
 
@@ -302,4 +242,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

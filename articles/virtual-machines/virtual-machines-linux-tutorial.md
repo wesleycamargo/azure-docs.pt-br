@@ -303,9 +303,6 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [Implantar um aplicativo LAMP usando a extensão CustomScript do Azure para Linux](virtual-machines-linux-script-lamp.md)
 
-- [Sobre as definições de configuração da VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
-
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -21,18 +21,18 @@ Esta seção responde a perguntas frequentes sobre a estrutura de preços do Bar
 
 >[AZURE.NOTE]A estrutura de preços de Hubs de Eventos está descrita em [Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos](event-hubs-availability-and-support-faq.md), com mais informações no tópico [Preços de Hubs de Eventos](http://azure.microsoft.com/pricing/details/event-hubs/).
 
-- [Como é cobrado o Barramento de Serviço?](#How-do-you-charge-for-Service-Bus?)
-- [Quais usos do Barramento de Serviço estão sujeitos à transferência de dados? O que não está?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?)
-- [O que é exatamente uma "retransmissão" do Barramento de Serviço?](#What-exactly-is-a-Service-Bus-"relay"?)
-- [Como é calculado o medidor de horas de retransmissão?](#How-is-the-Relay-Hours-meter-calculated?)
-- [E se eu tiver mais de um ouvinte conectado a uma determinada retransmissão?](#What-if-I-have-more-than-one-listener-connected-to-a-given-relay?)
-- [Como é calculado o medidor mensagens para retransmissões?](#How-is-the-Messages-meter-calculated-for-relays?)
-- [O Barramento de Serviço cobra pelo armazenamento?](#Does-Service-Bus-charge-for-storage?)
-- [O Barramento de Serviço tem cotas de uso?](#Does-Service-Bus-have-any-usage-quotas?)
+- [Como é cobrado o Barramento de Serviço?](#how-do-you-charge-for-service-bus)
+- [Quais usos do Barramento de Serviço estão sujeitos à transferência de dados? O que não está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
+- [O que é exatamente uma "retransmissão" do Barramento de Serviço?](#what-exactly-is-a-service-bus-quotrelayquot)
+- [Como é calculado o medidor de horas de retransmissão?](#how-is-the-relay-hours-meter-calculated)
+- [E se eu tiver mais de um ouvinte conectado a uma determinada retransmissão?](#what-if-i-have-more-than-one-listener-connected-to-a-given-relay)
+- [Como é calculado o medidor mensagens para retransmissões?](#how-is-the-messages-meter-calculated-for-relays)
+- [O Barramento de Serviço cobra pelo armazenamento?](#does-service-bus-charge-for-storage)
+- [O Barramento de Serviço tem cotas de uso?](#does-service-bus-have-any-usage-quotas)
 
 ## Como é cobrado o Barramento de Serviço?
 
-Para obter informações completas sobre os preços de Barramento de Serviço, consulte [Preços de Barramento de Serviço e cobrança](https://msdn.microsoft.com/library/dn831889.aspx) e [Detalhes de preço de Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/). Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado. Você pode encontrar mais detalhes em [Quais usos do Barramento de Serviço estão sujeitos à transferência de dados? na seção O que não está?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?) abaixo.
+Para obter informações completas sobre os preços de Barramento de Serviço, consulte [Preços de Barramento de Serviço e cobrança](https://msdn.microsoft.com/library/dn831889.aspx) e [Detalhes de preço de Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/). Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado. Encontre mais detalhes em [Quais usos do Barramento de Serviço estão sujeitos à transferência de dados? na seção O que não está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) abaixo.
 
 ## Quais usos do barramento de serviço estão sujeitos à transferência de dados? O que é não está?
 
@@ -114,4 +114,4 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Visão geral da arquitetura de Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # O que é o StorSimple Snapshot Manager
@@ -144,8 +144,8 @@ Para saber mais sobre como monitorar trabalhos de backup, vá para [Usar o StorS
 
 ## Próximas etapas
 
-[Saiba mais sobre fluxos de trabalho e tarefas do StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
+- Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 
-[Fazer download do StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+- Baixe o [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

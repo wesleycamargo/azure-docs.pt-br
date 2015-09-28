@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Modelo e conceitos de recursos do Banco de Dados de Documentos | Microsoft Azure" 
-	description="O Banco de Dados de Documentos do Microsoft Azure é um banco de dados NoSQL totalmente gerenciado documento que usa um modelo hierárquico das contas de banco de dados, bancos de dados, coleções, procedimentos armazenados, gatilhos, UDFs, documentos, anexos, mídia, usuários e permissões para gerenciar recursos."  
+	pageTitle="Conceitos e modelo de recursos hierárquico do Banco de Dados de Documentos | Microsoft Azure" 
+	description="Saiba mais sobre modelo hierárquico de bancos de dados, coleções, UDF (função definida pelo usuário), documentos e permissões do Banco de Dados de Documentos para gerenciar recursos e muito mais."
+	keywords="Hierarchical Model, documentdb, azure, Microsoft azure"	
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -16,21 +17,21 @@
 	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
-#Modelo e conceitos de recursos do Banco de Dados de Documentos
+# Conceitos e modelo de recursos hierárquico do Banco de Dados de Documentos
 
 As entidades de banco de dados gerenciadas pelo Banco de Dados de Documentos são chamadas de **recursos**. Cada recurso é identificado de maneira exclusiva por um URI lógico. Você pode interagir com os recursos usando verbos de HTTP padrão, cabeçalhos de solicitação/resposta e códigos de status.
 
 Após ler este artigo, você poderá responder as perguntas a seguir:
 
 - Quais são os recursos do Banco de Dados de Documentos?
-- Qual é a hierarquia dos recursos do Banco de Dados de Documentos?
+- O que é modelo hierárquico de recursos do Banco de Dados de Documentos?
 - O que são recursos definidos pelo sistema versus recursos definidos pelo usuário?
 - Como eu acesso um recurso?
 - Como eu trabalho com coleções?
 - Como trabalhar com procedimentos armazenados, disparadores e UDFs (Funções Definidas pelo Usuário)?
 
 ##Modelo de recursos hierárquico
-Como o diagrama a seguir ilustra, o **modelo de recursos** do Banco de Dados de Documentos é formado por conjuntos de recursos em uma conta de banco de dados, cada um podendo ser acessado por meio de um URI lógico e estável. Neste artigo, um conjunto de recursos será chamado de **feed**.
+Como o diagrama a seguir ilustra, o **modelo de recursos** hierárquico do Banco de Dados de Documentos é formado por conjuntos de recursos em uma conta de banco de dados, cada um podendo ser acessado por meio de um URI lógico e estável. Neste artigo, um conjunto de recursos será chamado de **feed**.
 
 >[AZURE.NOTE] Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET.](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
@@ -224,7 +225,7 @@ Observe que, como o banco de dados compreende nativamente JSON e JavaScript, nã
 Os procedimentos armazenados e gatilhos interagem com uma coleção e os documentos em uma coleção por meio de um modelo de objeto bem-definido que expõe o contexto de coleção atual.
 
 Coleções no Banco de Dados de Documentos podem ser criadas, excluídas, lidas ou enumeradas facilmente usando [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou qualquer [SDK cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de uma coleção. Excluir uma coleção automaticamente garante que você não possa acessar qualquer documento, anexo, procedimento armazenado, gatilho e UDFs contidos nela.
-##Procedimentos armazenados, gatilhos e UDFs
+##Procedimentos armazenados, gatilhos e UDF (Funções Definidas pelo Usuário)
 Conforme descrito na seção anterior, você pode gravar a lógica do aplicativo para ser executada diretamente de uma transação no mecanismo de banco de dados. A lógica do aplicativo pode ser gravada inteiramente em JavaScript e pode ser modelada como um procedimento armazenado, um gatilho ou uma UDF. O código de JavaScript em um procedimento armazenado ou um gatilho pode inserir, substituir, excluir, ler ou consultar documentos dentro de uma coleção. Por outro lado, o JavaScript em uma UDF somente pode realizar cálculos sem efeitos colaterais ao enumerar os documentos do conjunto de resultados da consulta e produzir outro conjunto de resultados. Para multilocatários, o Banco de Dados de Documentos realiza uma rígida governança de recursos baseada em reserva. Cada procedimento armazenado, gatilho ou UDF obtém um quantum fixo de recursos do sistema operacional para realizar esse trabalho. Além disso, os procedimentos armazenados, gatilhos ou UDFs não podem ser vinculados a bibliotecas de JavaScript externas e são incluídos em listas negras se excederem os orçamentos de recursos alocados para eles. Você pode registrar e cancelar o registro de procedimentos armazenados, gatilhos ou UDFs com uma coleção por meio das APIs REST. Após o registro, um procedimento armazenado, gatilho ou UDF é pré-compilado e armazenado como um código de byte que é executado posteriormente. A seção a seguir ilustra como você pode usar o SDK JavaScript do Banco de Dados de Documentos para registrar, executar e cancelar o registro de um gatilho, UDF ou procedimento armazenado. O SDK do JavaScript é um wrapper simples sobre as [APIs REST do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ###Registrando um procedimento armazenado
@@ -414,4 +415,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [3]: media/documentdb-resources/resources3.png
  
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

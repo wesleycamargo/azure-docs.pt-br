@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="09/16/2015" 
 	ms.author="glenga"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
@@ -87,4 +87,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

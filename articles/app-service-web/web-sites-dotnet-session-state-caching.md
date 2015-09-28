@@ -3,17 +3,17 @@
 	description="Aprenda a usar o serviço de cache do Azure para dar suporte a cache de estado de sessão do ASP.NET." 
 	services="app-service\web" 
 	documentationCenter=".net" 
- 	authors="Rick-Anderson" 
+	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="09/16/2015" 
 	ms.author="riande"/>
 
 
@@ -24,10 +24,12 @@ Este tópico explica como usar o Serviço de Cache Redis do Azure para o estado 
 
 Se seu aplicativo web do ASP.NET usar o estado de sessão, você precisará configurar um provedor externo de estado de sessão (provedor de estado de sessão de Serviço de Cache Redis ou de SQL Server). Se você usar o estado de sessão, e não usar um provedor externo, você será limitado a uma instância do seu aplicativo web. O Serviço Cache Redis é o mais rápido e o mais simples de habilitar.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ##<a id="createcache"></a>Criar o cache
 Seguir [estas instruções](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) para criar o cache.
 
-##<a id="configureproject"></a>Adicionar o pacote NuGet RedisSessionStateProvider em seu aplicativo Web
+##<a id="configureproject"></a>Adicionar o pacote NuGet RedisSessionStateProvider ao aplicativo Web
 Instalar o pacote `RedisSessionStateProvider` NuGet. Use o seguinte comando para instalar a partir da console de gerenciador de pacotes (**Ferramentas** > **Gerenciador de pacotes NuGet** > **Console de gerenciador de pacotes**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -41,7 +43,7 @@ Além de realizar referências do assembly para o Cache, o pacote NuGet adiciona
 
 1. Abra o *web.config* e localize o elemento **sessionState**.
 
-1. Insira os valores de `host`, `accessKey`, `port` (a porta SSL deve ser 6380) e defina `SSL` como `true`. Você pode obter esses valores na folha do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) da sua instância de cache. Para saber mais, confira [Conectar ao cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Observe que a porta que não é do tipo SSL é desabilitada por padrão para novos caches. Para saber mais sobre como habilitar a porta que não é do tipo SSL, confira a seção [Portas de Acesso](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) no tópico [Configurar um cache no Cache Redis do Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). A marcação a seguir mostra as alterações do arquivo *Web. config*, especificamente as alterações na *porta*, *host*, accessKey* e *ssl*.
+1. Insira os valores de `host`, `accessKey`, `port` (a porta SSL deve ser 6380) e defina `SSL` como `true`. Você pode obter esses valores na folha do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) da sua instância de cache. Para saber mais, confira [Conectar ao cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Observe que a porta que não é do tipo SSL é desabilitada por padrão para novos caches. Para saber mais sobre como habilitar a porta que não é do tipo SSL, confira a seção [Portas de Acesso](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) no tópico [Configurar um cache no Cache Redis do Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). A marcação a seguir mostra as alterações no arquivo *Web.config*, especificamente as alterações na *porta*, no *host*, accessKey* e no *ssl*.
 
 		  <system.web>;
 		    <customErrors mode="Off" />;
@@ -107,4 +109,4 @@ Você também pode usar o Cache de Redis para armazenar em cache objetos no seu 
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

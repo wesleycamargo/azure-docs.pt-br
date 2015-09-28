@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Implante seu serviço do StorSimple Manager | Microsoft Azure"
-	description="Explica como criar e excluir o serviço StorSimple Manager no Portal de Gerenciamento, além de descrever como gerenciar a chave de registro de serviço."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explica como criar e excluir o serviço StorSimple Manager no Portal de Gerenciamento, além de descrever como gerenciar a chave de registro de serviço."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Implantar o serviço StorSimple Manager
 
@@ -107,10 +107,12 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
 ## Próximas etapas
 
-Saiba mais sobre o [processo de implantação do StorSimple](storsimple-deployment-walkthrough.md).
+- Saiba mais sobre o [processo de implantação do StorSimple](storsimple-deployment-walkthrough.md).
 
-[Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-manage-storage-accounts.md).
+- [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-manage-storage-accounts.md).
+
+- Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

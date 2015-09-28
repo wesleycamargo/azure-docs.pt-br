@@ -1,6 +1,7 @@
 <properties
-    pageTitle="Compilar um aplicativo Web com Python e Flask usando o Banco de Dados de Documentos | Microsoft Azure"
-    description="Saiba como usar o Banco de Dados de Documentos para armazenar e acessar dados de um aplicativo Web Python e Flask (MVC) hospedado no Azure."
+    pageTitle="Desenvolvimento de aplicativo Web Python Flask com Banco de Dados de Documentos | Microsoft Azure"
+    description="Analise um tutorial de banco de dados sobre como usar o Banco de Dados de Documentos para armazenar e acessar dados de um aplicativo Web Python Flask hospedado no Azure. Encontre soluções de desenvolvimento de aplicativo." 
+	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
     authors="ryancrawcour"
@@ -16,13 +17,13 @@
     ms.date="09/03/2015"
     ms.author="ryancraw"/>
 
-# Criar um aplicativo Web com Python e Flask (MVC) usando o Banco de Dados de Documentos
+# Desenvolvimento de aplicativo Web Python Flask com Banco de Dados de Documentos
 
-Para destacar como os clientes podem aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este documento fornece um tutorial completo sobre como compilar um aplicativo Web de votação usando o Banco de Dados de Documentos do Azure.
+Para destacar como os clientes podem aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este documento fornece um tutorial completo sobre aplicativo Web Python mostrando como compilar um aplicativo Web de votação usando o Banco de Dados de Documentos do Azure.
 
 Este tutorial mostra como usar o serviço do Banco de Dados de Documentos fornecido pelo Azure para armazenar e acessar dados de um aplicativo Web Python hospedado no Azure e supõe que você tenha experiência prévia com o uso do Python e os sites do Azure.
 
-Este tutorial abrange:
+Este tutorial de banco de dados aborda:
 
 1. Criar e provisionar uma conta de Banco de Dados de Documentos
 2. Criar um aplicativo Python MVC
@@ -31,10 +32,10 @@ Este tutorial abrange:
 
 Seguindo este tutorial, você criará um aplicativo simples de votação que permite que você vote em uma votação.
 
-![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial](./media/documentdb-python-application/image1.png)
+![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial de banco de dados](./media/documentdb-python-application/image1.png)
 
 
-## Pré-requisitos
+## Pré-requisitos do tutorial de banco de dados
 
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes itens instalados:
 
@@ -58,18 +59,18 @@ Vamos começar criando uma conta do Banco de Dados de Documentos. Se já tiver u
 
 1. Abra o Visual Studio, clique em **Arquivo** -> **Novo Projeto** -> **Python** ->, **Projeto Web Flask** e crie um novo projeto com o nome **tutorial**.
 
-	Para aqueles que não estão familiarizados com o Flask, ele é uma estrutura da Web que nos ajuda a compilar aplicativos Web no Python mais rapidamente. [Clique aqui para acessar os tutoriais do Flask][].
+	Para aqueles que não estão familiarizados com o Python Flask, trata-se de uma estrutura de desenvolvimento de aplicativos Web que nos ajuda a compilar aplicativos Web no Python mais rapidamente. [Clique aqui para acessar os tutoriais do Flask][].
 
-	![Captura de tela da janela Novo Projeto no Visual Studio com o Python realçado à esquerda, o Projeto Web do Flask selecionado no meio e o tutorial do nome na caixa Nome](./media/documentdb-python-application/image9.png)
+	![Captura de tela da janela Novo Projeto no Visual Studio com o Python realçado à esquerda, o Projeto Web do Python Flask selecionado no meio e o tutorial do nome na caixa Nome](./media/documentdb-python-application/image9.png)
 
 2. Será perguntado se você deseja instalar pacotes externos. Selecione **Instalar em um ambiente virtual**. Use o Python 2.7 como o ambiente base, pois o PyDocumentDB não dá suporte ao Python 3.x no momento. Isso configurará o ambiente virtual do Python necessário ao seu projeto.
 
-	![Captura de tela do tutorial - Ferramentas Python para a janela do Visual Studio](./media/documentdb-python-application/image10.png)
+	![Captura de tela do tutorial de banco de dados — janela Ferramentas Python para Visual Studio](./media/documentdb-python-application/image10.png)
 
 
 ## Etapa 3: Modificar o aplicativo Web Python Flask
 
-### Adicionar pacotes Flask ao seu projeto
+### Adicionar pacotes do Python Flask ao seu projeto
 
 Depois que seu projeto estiver configurado, você precisará adicionar alguns pacotes Flask necessários ao projeto, incluindo pydocumentdb, o pacote do Python para o Banco de Dados de Documentos.
 
@@ -100,7 +101,7 @@ Vamos garantir que tudo esteja instalado corretamente.
 
 - Inicie o site pressionando **F5**. Isso iniciará o servidor de desenvolvimento do Flask e iniciará o navegador da Web. Você deve ver a página a seguir.
 
-	![O projeto do Flask vazio exibido em um navegador](./media/documentdb-python-application/image12.png)
+	![O projeto de desenvolvimento da Web Python Flask vazio exibido em um navegador](./media/documentdb-python-application/image12.png)
 
 ### Criar definições de banco de dados, de coleção e de documentos
 
@@ -301,7 +302,7 @@ Na pasta de modelos, adicione os seguintes arquivos html: create.html, results.h
 	![Captura de tela da janela do Gerenciador de Soluções do Visual Studio](./media/documentdb-python-application/image15.png)
 
 
-## Etapa 4: Execute o seu aplicativo localmente
+## Etapa 4: executar o aplicativo localmente
 
 1. Pressione F5 ou clique no botão **Executar** no Visual Studio e você deverá ver a tela a seguir.
 
@@ -309,7 +310,7 @@ Na pasta de modelos, adicione os seguintes arquivos html: create.html, results.h
 
 2. Clique em **Criar/limpar o banco de dados de votação** para gerar o banco de dados.
 
-	![Captura de tela de Criar Página do aplicativo Web](./media/documentdb-python-application/image17.png)
+	![Captura de tela de Criar Página do aplicativo Web — detalhes de desenvolvimento](./media/documentdb-python-application/image17.png)
 
 3. Em seguida, clique em **Votar** e selecione sua opção.
 
@@ -320,7 +321,7 @@ Na pasta de modelos, adicione os seguintes arquivos html: create.html, results.h
 	![Captura de tela da página de Resultados da votação](./media/documentdb-python-application/image19.png)
 
 
-## Etapa 5: implantar o aplicativo nos Sites do Azure
+## Etapa 5: implantar o aplicativo Web nos sites do Azure
 
 Agora que você possui o aplicativo completo funcionando corretamente no Banco de Dados de Documentos, vamos implantá-lo nos sites do Azure.
 
@@ -336,11 +337,11 @@ Agora que você possui o aplicativo completo funcionando corretamente no Banco d
 
 ## Próximas etapas
 
-Parabéns! Você acaba de construir seu primeiro aplicativo Python usando o Banco de Dados de Documentos do Azure e publicá-lo nos Sites do Azure.
+Parabéns! Você acabou de concluir seu primeiro aplicativo Web Python usando o Banco de Dados de Documentos do Azure e o publicou nos Sites do Azure.
 
 Atualizamos e aperfeiçoamos este tópico com frequência, de acordo com seus comentários. Depois de concluir o tutorial, use os botões de votação nas partes superior e inferior desta página e lembre-se de incluir seus comentários sobre os aperfeiçoamentos que deseja ver. Se quiser que entremos em contato com você diretamente, inclua seu endereço de email em seu comentário.
 
-Para adicionar funcionalidade adicional para seu aplicativo, examine as APIs disponíveis no [SDK Python do Banco de Dados de Documentos](https://pypi.python.org/pypi/pydocumentdb).
+Para incluir funcionalidade adicional no aplicativo, examine as APIs disponíveis no [SDK Python do Banco de Dados de Documentos](https://pypi.python.org/pypi/pydocumentdb).
 
   [Clique aqui para acessar os tutoriais do Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
@@ -351,4 +352,4 @@ Para adicionar funcionalidade adicional para seu aplicativo, examine as APIs dis
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

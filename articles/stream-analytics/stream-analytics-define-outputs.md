@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/17/2015" 
 	ms.author="jeffstok"/>
 
 # Noções básicas sobre saídas do Stream Analytics
@@ -47,8 +47,8 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 <table>
 <tbody>
 <tr>
-<td>Nome da Propriedade</td>
-<td>Descrição</td>
+<td>NOME DA PROPRIEDADE</td>
+<td>DESCRIÇÃO</td>
 </tr>
 <tr>
 <td>Alias de saída</td>
@@ -232,4 +232,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

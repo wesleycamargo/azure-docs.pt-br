@@ -4,11 +4,11 @@
 	description="Saiba como gerenciar uma máquina virtual do Azure"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
 # Gerenciar máquinas virtuais
 
@@ -24,6 +24,8 @@ Para gerenciar máquinas virtuais protegidas:
 
 3. Para exibir e gerenciar as configurações de política de backup de uma máquina virtual, clique na guia **Políticas**.
 
+    ![Política de máquina virtual](./media/backup-azure-manage-vms/manage-policy-settings.png)
+
     A guia **Políticas de Backup** exibe a política existente. Você pode modificar conforme necessário. Se você precisar criar uma nova política, clique em **Criar** na página **Políticas**. Se você quiser remover uma política, ela não deve ter nenhuma máquina virtual associada a ela.
 
     ![Política de máquina virtual](./media/backup-azure-manage-vms/backup-vmpolicy.png)
@@ -37,7 +39,7 @@ Você pode obter um backup sob demanda de uma máquina virtual quando ela estive
 
 Para fazer backup sob demanda de uma máquina virtual:
 
-1. Navegue até a página **Itens protegidos** e selecione **Máquina Virtual do Azure** como **Tipo** (se ainda não estiver selecionada) e clique no botão **Selecionar**.
+1. Navegue até a página **Itens Protegidos** e selecione **Máquina Virtual do Azure** como **Tipo** (se ainda não estiver selecionada) e clique no botão **Selecionar**.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -67,7 +69,7 @@ Se você tiver optado por reter dados de backup associados à máquina virtual, 
 
 Para interromper a proteção para uma máquina virtual:
 
-1. Navegue até a página **Itens protegidos**, selecione **Máquina virtual do Azure** como o tipo de filtro (se ainda não estiver selecionada) e clique no botão **Selecionar**.
+1. Navegue até a página **Itens Protegidos**, selecione **Máquina virtual do Azure** como o tipo de filtro (se ainda não estiver selecionada) e clique no botão **Selecionar**.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -93,14 +95,14 @@ Para interromper a proteção para uma máquina virtual:
 
     ![Proteção interrompida](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
-    Se você tiver selecionado a opção **Excluir dados de backup associados**, a máquina virtual não fará parte da página **Itens protegidos**.
+    Se você tiver selecionado a opção **Excluir dados de backup associados**, a máquina virtual não fará parte da página **Itens Protegidos**.
 
 ## Proteger novamente a Máquina virtual
 Se você não selecionou a opção **Excluir dados de backup associados** em **Parar proteção**, você pode proteger novamente a máquina virtual seguindo as etapas semelhantes para fazer backup de máquinas virtuais registradas. Depois de protegida, essa máquina virtual terá os dados de backup retidos antes da interrupção da proteção e os pontos de recuperação serão criados após a nova proteção.
 
 Após proteger novamente, o status de proteção da máquina virtual será alterado para **Protegido** se houver pontos de recuperação anteriores a **Parar proteção**.
 
-    ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
+  ![Máquina virtual protegida novamente](./media/backup-azure-manage-vms/reprotected-status.png)
 
 >[AZURE.NOTE]Ao proteger novamente a máquina virtual, você pode escolher uma política diferente da política com a qual a máquina virtual foi inicialmente protegida.
 
@@ -124,7 +126,7 @@ Você pode excluir os dados de backup associados a uma máquina virtual, ou:
 
 Para excluir dados de backup em uma máquina virtual, que está no estado *Proteção Interrompida*, poste a conclusão bem-sucedida do trabalho em **Parar Backup**:
 
-1. Navegue até a página **Itens protegidos** e selecione **Máquina Virtual do Azure** como o *tipo* e clique no botão **Selecionar**.
+1. Navegue até a página **Itens Protegidos** e selecione **Máquina Virtual do Azure** como o *tipo* e clique no botão **Selecionar**.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -136,7 +138,7 @@ Para excluir dados de backup em uma máquina virtual, que está no estado *Prote
 
     ![Excluir backup](./media/backup-azure-manage-vms/delete-backup.png)
 
-4. No assistente **Excluir dados de backup**, selecione um motivo para a exclusão de dados de backup (recomendado) e clique em **Enviar**.
+4. No assistente **Excluir dados de backup**, selecione um motivo para a exclusão de dados de backup (altamente recomendado) e clique em **Enviar**.
 
     ![Excluir dados de backup](./media/backup-azure-manage-vms/delete-backup-data.png)
 
@@ -149,7 +151,9 @@ Para excluir dados de backup em uma máquina virtual, que está no estado *Prote
 ## Painel
 Na página **Painel**, você pode examinar informações sobre máquinas virtuais do Azure, seu armazenamento e trabalhos associados a elas nas últimas 24 horas. Você pode exibir o status de backup e quaisquer erros de backup associados.
 
-    ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+![Painel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+
+>[AZURE.NOTE]Os valores no painel são atualizados a cada 24 horas.
 
 ## Operações de auditoria
 O backup do Azure oferece análise dos “logs de operação” das operações de backup disparadas pelo cliente que facilita ver exatamente quais operações de gerenciamento foram realizadas no cofre de backup. Os logs de operações permitem um ótimo suporte a auditoria e análise posterior das operações de backup.
@@ -178,11 +182,11 @@ Para exibir logs de operação correspondentes a um cofre de backup:
 
     ![Filtro de logs de operação](./media/backup-azure-manage-vms/ops-logs-filter.png)
 
-3. Nos logs de operações, selecione qualquer operação e clique em **Detalhes** para ver os detalhes de uma operação correspondente.
+3. Nos logs de operações, selecione qualquer operação e clique em **Detalhes** para ver os detalhes correspondentes a uma operação.
 
     ![Detalhes de busca de logs de operação](./media/backup-azure-manage-vms/ops-logs-details.png)
 
-    O **Assistente de detalhes** contém informações sobre a operação disparada, o Id do trabalho, o recurso em que essa operação é disparada e a hora de início da operação.
+    O **Assistente de detalhes** contém informações sobre a operação disparada, a Id do trabalho, o recurso em que essa operação é disparada e a hora de início da operação.
 
     ![Detalhes da Operação](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
@@ -201,15 +205,15 @@ Para definir uma notificação personalizada para o alerta de falhas de backup, 
 PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
 ```
 
-**ResourceId**: você pode obter isso do pop-up Logs de operações, conforme descrito na seção acima. O ResourceUri na janela pop-up de detalhes de uma operação é a ResourceId a ser fornecida para esse cmdlet.
+**ResourceId**: você pode obter isso no pop-up Logs de Operações, conforme descrito na seção acima. O ResourceUri na janela pop-up de detalhes de uma operação é a ResourceId a ser fornecida para esse cmdlet.
 
 **EventName**: para alertas sobre o backup da VM IaaS, os valores com suporte são: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**Level**: os valores com suporte são - Informational, Error. Para alertas de falha na ação, use Error, e para alertas em trabalhos com êxito, use Informational.
+**Level**: os valores com suporte são Informational, Error. Para alertas de falha na ação, use Error, e para alertas em trabalhos com êxito, use Informational.
 
-**OperationName**: esse terá o formato "Microsoft.Backup/backupvault/<EventName>", em que EventName é conforme descrito acima.
+**OperationName**: terá o formato "Microsoft.Backup/backupvault/<EventName>", em que EventName é conforme descrito acima.
 
-**Status**: os valores com suporte são - Started, Succeeded e Failed. É aconselhável manter Informational como nível de status de êxito.
+**Status**: os valores com suporte são Started, Succeeded e Failed. É aconselhável manter Informational como nível de status de êxito.
 
 **SubStatus**: o mesmo que o status de operações de backup
 
@@ -239,10 +243,10 @@ Exemplo de corpo do email de alerta:
 Os alertas baseados em eventos em estão sujeitos às seguintes limitações:
 
 1. Os alertas são disparados em todas as máquinas virtuais no cofre de backup. Você não pode personalizá-lo para obter alertas de um conjunto específico de máquinas virtuais em um cofre de backup.
-2. Os alertas são automaticamente resolvidos se não há nenhum evento correspondente de alerta disparado no próximo intervalo do alerta. Use o parâmetro *WindowSize* no cmdlet Add-AlertRule para definir a duração de acionamento de alerta.
+2. Os alertas são automaticamente resolvidos se não há nenhum evento correspondente de alerta disparado no próximo intervalo do alerta. Use o parâmetro *WindowSize* no cmdlet Add-AlertRule para definir a duração de disparo do alerta.
 
 ## Próximas etapas
 
 - [Restaurar máquinas virtuais do Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

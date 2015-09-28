@@ -132,7 +132,6 @@ Antigamente chamado de SQL Azure, o Banco de Dados SQL do Azure fornece todos os
 
 Porém, o Banco de Dados SQL não é apenas um DBMS na nuvem: ele é um serviço PaaS. Você ainda controla os dados e quem os acessa, mas o Banco de Dados SQL cuida do enfadonho trabalho administrativo, como o gerenciamento da infraestrutura de hardware e a atualização automática do banco de dados e do software do sistema operacional. O Banco de Dados SQL também fornece uma alta disponibilidade, backups automáticos, capacidade de restauração a um ponto no tempo e também pode fazer a replicação de cópias através de regiões geográficas.
 
-Também há uma opção Premium pela qual você pode pagar um pouco mais, de modo que possa ter seu próprio servidor dedicado abaixo. Com a opção Padrão, o banco de dados é executado em hardware compartilhado, que pode limitar suas filas de banco de dados caso você esteja em um servidor especialmente ocupado.
 
 **Cenários para banco de dados SQL**
 
@@ -612,4 +611,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

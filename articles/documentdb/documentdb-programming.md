@@ -1,26 +1,27 @@
 <properties 
-	pageTitle="Programação no Banco de Dados de Documentos: UDFs, gatilhos e procedimentos armazenados| Microsoft Azure"
-	description="Saiba como usar o Banco de Dados de Documentos do Microsoft Azure para escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário (UDF) nativamente em JavaScript."
-	services="documentdb"
-	documentationCenter=""
-	authors="aliuy"
-	manager="jhubbard"
+	pageTitle="Programação do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados| Microsoft Azure" 
+	description="Saiba como usar o Banco de Dados de Documentos para escrever procedimentos armazenados, gatilhos de banco de dados e UDFs (funções definidas pelo usuário) em JavaScript. Obtenha dicas de programação de banco de dados e muito mais." 
+	keywords="Database triggers, stored procedure, stored procedure, database program, sproc, documentdb, azure, Microsoft azure"
+	services="documentdb" 
+	documentationCenter="" 
+	authors="aliuy" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/18/2015" 
 	ms.author="andrl"/>
 
-# Programação no Banco de Dados de Documentos no servidor: UDFs, gatilhos e procedimentos armazenados
+# Programação no servidor do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados
 
-Saiba como a execução transacional e integrada do JavaScript pelo Banco de Dados de Documentos permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente no JavaScript. Isso permite que você escreva uma lógica de aplicativo que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados.
+Saiba como a execução transacional e integrada do JavaScript pelo Banco de Dados de Documentos permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente no JavaScript. Isso permite que você escreva uma lógica de aplicativo de programa de banco de dados que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados.
 
-É recomendável começar assistindo ao vídeo a seguir, em que Andrew Liu fornece uma breve introdução ao modelo de programação do lado do servidor do Banco de Dados de Documentos.
+É recomendável começar assistindo ao vídeo a seguir, em que Andrew Liu fornece uma breve introdução ao modelo de programação de banco de dados do lado do servidor do Banco de Dados de Documentos.
 
 > [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
 
@@ -33,7 +34,7 @@ Em seguida, volte a este artigo, onde você aprenderá as respostas para as segu
 - Como eu registro e executo um procedimento armazenado, gatilho ou UDF de modo RESTful usando HTTP?
 - Que SDKs do Banco de Dados de Documentos estão disponíveis para criar e executar procedimentos armazenados, gatilhos e UDFs?
 
-## Introdução
+## Introdução ao procedimento armazenado e à programação UDF
 
 Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores de aplicativos das complexidades das incompatibilidades do sistema de tipos e tecnologias de mapeamento relacionais do objeto. Também possui uma série de vantagens intrínsecas que podem ser utilizadas para criar aplicativos ricos:
 
@@ -49,7 +50,7 @@ Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores
 	-	Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
 	-	Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
 
-A criação e execução de gatilhos, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e dos [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx) em diversas plataformas, incluindo .NET, Node.js e JavaScript. **Esse tutorial utiliza o [SDK Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.
+A criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e dos [SDKs de clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx) em diversas plataformas, incluindo .NET, Node.js e JavaScript. **Esse tutorial utiliza o [SDK Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.
 
 ## Procedimentos armazenados
 
@@ -147,7 +148,7 @@ Observe que esse procedimento armazenado pode ser modificado para assumir uma ma
 
 O exemplo descrito demonstra como usar procedimentos armazenados. Iremos discutir os gatilhos e funções definidas pelo usuário (UDFs) posteriormente no tutorial.
 
-## Transações
+## Transações do programa de banco de dados
 A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação oferece **garantias ACID**. ACID é um acrônimo bastante conhecido que indica quatro propriedades: Atomicidade, Consistência, Isolamento e Durabilidade.
 
 Em resumo, a atomicidade garante que todo o trabalho realizado dentro de uma transação seja tratado como uma única unidade em que tudo é confirmado ou não. A consistência garante que os dados estejam sempre em uma boa condição interna entre as transações. O isolamento garante que duas transações não interfiram uma com a outra; geralmente, a maioria dos sistemas comerciais oferece vários níveis de isolamento que podem ser usados com base nas necessidades do aplicativo. A durabilidade garante que qualquer alteração confirmada no banco de dados esteja sempre presente.
@@ -234,7 +235,7 @@ A fim de simplificar o desenvolvimento de procedimentos armazenados e gatilhos p
 
 Funções de JavaScript também são vinculadas quanto ao consumo de recursos. O Banco de Dados de Documentos reserva a produtividade por coleção com base no tamanho provisionado de uma conta do banco de dados. A produtividade é expressa em termos de uma unidade normalizada de consumo de CPU, memória e E/S chamada unidade de solicitação ou RU. Funções de JavaScript podem usar um grande número de RUs dentro de um curto período, e podem ter sua taxa limitada se o limite da coleção for atingido. Procedimentos armazenados ricos em recursos também podem ser postos em quarentena para garantir a disponibilidade das operações primitivas do banco de dados.
 
-### Exemplo: importação em massa de dados
+### Exemplo: importação de dados em massa em um programa de banco de dados
 Abaixo está um exemplo de um procedimento armazenado gravado para documentos de importação em massa em uma coleção. Observe como o procedimento armazenado lida com a execução vinculada verificando o valor de retorno booliano em createDocument, e depois utiliza a contagem de documentos inserida em cada invocação do procedimento armazenado para rastrear e retomar o progresso nos lotes.
 
 	function bulkImport(docs) {
@@ -286,8 +287,8 @@ Abaixo está um exemplo de um procedimento armazenado gravado para documentos de
 	    }
 	}
 
-## <a id="trigger"></a> Gatilhos
-### Pré-gatilhos
+## <a id="trigger"></a> Gatilhos de banco de dados
+### Pré-gatilhos de banco de dados
 O Banco de Dados de Documentos oferece gatilhos que são executados ou desencadeados por uma operação em um documento. Por exemplo, você pode especificar um pré-gatilho ao criar um documento; esse pré-gatilho será executado antes que o documento seja criado. A seguir está um exemplo de como os pré-gatilhos podem ser usados para validar as propriedades de um documento que está sendo criado:
 
 	var validateDocumentContentsTrigger = {
@@ -356,7 +357,7 @@ Quando os gatilhos são registrados, os usuários podem especificar as operaçõ
 	
 	// Fails, can’t use a create trigger in a replace operation
 
-### Pós-gatilhos
+### Pós-gatilhos de banco de dados
 Pós-gatilhos, assim como pré-gatilhos, são associados a uma operação em um documento e não assumem parâmetros de entrada. Eles são executados **após** a operação ter sido concluída, e possuem acesso à mensagem de resposta que é enviada ao cliente.
 
 O exemplo a seguir mostra pós-gatilhos em ação:
@@ -919,4 +920,4 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 -	[Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!-------HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

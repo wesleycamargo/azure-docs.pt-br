@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="09/10/2015" 
 	ms.author="awills"/>
  
 # Diagnosticar falhas e exceções em aplicativos ASP.NET com o Application Insights  
@@ -50,7 +50,7 @@ A partir daí, você pode examinar o rastreamento de pilha e as propriedades det
 
 Uma *dependência* é um serviço que o aplicativo chama, normalmente por meio de uma conexão de banco de dados ou pela API REST. [O Application Insights Status Monitor][redfield] monitora automaticamente uma variedade de tipos de chamada de dependência, medindo a duração da chamada e o êxito ou a falha.
 
-Para obter dados de dependência, você precisa [instalar o Monitor de Status][redfield] no servidor IIS, ou se seu aplicativo for um aplicativo da Web do Azure, use o [Application Insights Extension][azure]. Você pode fazer isso
+Para obter dados de dependência, você precisa [instalar o Monitor de Status][redfield] no servidor IIS, ou se seu aplicativo for um aplicativo da Web do Azure, use o [Application Insights Extension][azure].
 
 As falhas de chamadas para as dependências são listadas na folha de Falhas, pode também encontrá-los em itens relacionados nos detalhes da solicitação e nos detalhes da exceção.
 
@@ -426,7 +426,15 @@ Adicione o atributo para as implementações de serviço:
 
 [Amostra](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
+## Contadores de desempenho de exceção
 
+Se tiver [instalado o Monitor de Status][redfield] no seu servidor, você poderá obter um gráfico da taxa de exceções, medida pelo .NET. Isso inclui exceções .NET tradas e sem tratamento.
+
+Abra uma folha do Metrics Explorer, adicione um novo gráfico e selecione **Taxa de exceção**, listada em Contadores de Desempenho.
+
+O .NET Framework calcula a taxa contando o número de exceções em um intervalo e dividindo pelo comprimento do intervalo.
+
+Observe que ela será diferente da contagem 'Exceções' calculada pelo portal do Application Insights contando relatórios TrackException. Os intervalos de amostragem são diferentes, e o SDK não envia relatórios TrackException a todas as exceções tratadas e sem tratamento.
 
 <!--Link references-->
 
@@ -441,4 +449,4 @@ Adicione o atributo para as implementações de serviço:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

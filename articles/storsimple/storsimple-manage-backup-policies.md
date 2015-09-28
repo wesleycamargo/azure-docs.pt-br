@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gerenciar as políticas de backup StorSimple | Microsoft Azure"
-	description="Explica como você pode usar o serviço StorSimple Manager para criar e gerenciar backups manuais, agendas de backup e retenção de backup."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explica como você pode usar o serviço StorSimple Manager para criar e gerenciar backups manuais, agendas de backup e retenção de backup."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor=""/>
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos"/>
 
 # Usar o serviço StorSimple Manager para gerenciar políticas de backup
 
@@ -49,9 +49,13 @@ As operações usadas com frequência que podem ser executadas nessa página sã
 
 ## Adicionar uma política de backup
 
-Adicione uma política de backup para agendar automaticamente seus backups. Execute as etapas a seguir no Portal de Gerenciamento para adicionar uma política de backup ao seu dispositivo StorSimple. Depois de adicionar a política, você poderá definir um agendamento (confira [Adicionar ou modificar um agendamento](#add-or-modify-a-schedule).
+Adicione uma política de backup para agendar automaticamente seus backups. Execute as etapas a seguir no Portal de Gerenciamento para adicionar uma política de backup ao seu dispositivo StorSimple. Depois de adicionar a política, você poderá definir um agendamento (confira [Adicionar ou modificar um agendamento](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
+
+![Vídeo disponível](./media/storsimple-manage-backup-policies/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo que demonstra como criar um local ou a política de backup na nuvem, clique [aqui](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Adicionar ou modificar um agendamento
@@ -82,6 +86,6 @@ Execute as etapas a seguir no Portal de Gerenciamento para criar uma política d
 
 ## Próximas etapas
 
-Saiba como [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).
+- Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="09/15/2015"
 	ms.author="nitinme"/>
 
 
@@ -354,7 +354,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>Corrigir a dependência de DLL</td>
 <td>Remove a dependência de HDInsight na estrutura de teste de unidade.</td>
-<td>SDK</td>
+<td>.</td>
 <td>O Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -362,7 +362,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>Correção de bug para condição de corrida</td>
 <td>Uma solicitação Criar cluster agora aguarda que a solicitação PUT seja aceita antes de realizar a sondagem do status</td>
-<td>SDK</td>
+<td>.</td>
 <td>O Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -425,7 +425,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>SDK 1.5.6 do .NET do HDInsight</td>
 <td>Atualizações para remover algumas classes internas para HDInsight no Linux.</td>
-<td>SDK</td>
+<td>.</td>
 <td>O Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -433,7 +433,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>Biblioteca de Avro 1.5.6</td>
 <td>Adicionado <b>KnownTypeAttribute</b> para o método <b>GetAllKnownTypes</b>. Corrigida NullReferenceException quando um tipo é null para o método GetAllKnownTypes.</td>
-<td>SDK</td>
+<td>.</td>
 <td>O Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -474,7 +474,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>Capacidade de habilitar/desabilitar as credenciais da área de trabalho remota em clusters do Windows via SDK do .NET</td>
 <td>Suporte programático para habilitar ou desabilitar as credenciais RDP em clusters do Windows.</td>
-<td>SDK</td>
+<td>.</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -482,7 +482,7 @@ Esta versão contém as atualizações a seguir.
 <tr>
 <td>Capacidade de habilitar credenciais de área de trabalho remota em clusters enquanto eles estão sendo provisionados</td>
 <td>Suporte programático para habilitar as credenciais de área de trabalho remota enquanto o cluster está sendo criado. Isso remove o processo de duas etapas para provisionar primeiro o cluster e, em seguida, habilitar a área de trabalho remota.</td>
-<td>SDK</td>
+<td>.</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -950,7 +950,7 @@ Esta versão contém as seguintes atualizações de componentes.
 <tr>
 <td>Acesso a logs de aplicativos</td>
 <td>Capacidade para enumerar de modo programático aplicativos que foram executados em seus clusters e para baixar logs relevantes de aplicativos ou de contêineres específicos para ajudar a depurar aplicativos problemáticos.</td>
-<td>SDK</td>
+<td>.</td>
 <td>O Hadoop</td>
 <td>N/D</td>
 </tr>
@@ -958,7 +958,7 @@ Esta versão contém as seguintes atualizações de componentes.
 <tr>
 <td>Capacidade para especificar o nome da região no IHdInsightClient.DeleteCluster </td>
 <td>O SDK do Azure HDInsight fornece a capacidade de especificar um nome de região ao usar o **DeleteCluster**. Isso ajuda a desbloquear clientes com dois recursos de mesmo nome em regiões diferentes que não conseguiam excluir nenhum deles.</td>
-<td>SDK</td>
+<td>.</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -966,7 +966,7 @@ Esta versão contém as seguintes atualizações de componentes.
 <tr>
 <td>ClusterDetails.DeploymentId</td>
 <td>O objeto ClusterDetails agora retorna um campo **DeploymentID** que representa um identificador exclusivo para o cluster. É garantida a exclusividade entre tentativas de criação de clusters com os mesmos nomes.</td>
-<td>SDK</td>
+<td>.</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -1069,7 +1069,7 @@ Esta versão contém as seguintes atualizações de componentes.
 <tr>
 <td>ID de Implantação de Cluster</td>
 <td>Iniciando pela versão 1.3.3.1.5426.29232 do SDK, os usuários podem acessar uma ID exclusiva para cada cluster, emitida pelo HDInsight. Isso permite que os clientes tomem conhecimento das instâncias exclusivas de clusters quando um dnsname está sendo reutilizado entre cenários de criação/cancelamento.</td>
-<td>SDK</td>
+<td>.</td>
 <td>Todos</td>
 <td>N/D</td>
 </tr>
@@ -1089,7 +1089,7 @@ A liberação desse hotfix corrige um vazamento de memória no Templeton que afe
 
 * Fornecemos novas configurações de memória para a implantação padrão do cluster do HDInsight. As configurações de memória padrão anteriores não atentavam adequadamente às diretrizes referente ao número de núcleos de CPU implantados. Essas novas configurações de memória devem fornecer melhores padrões, de acordo com as recomendações da Hortonworks. Para alterá-las, consulte a documentação de referência do SDK sobre alteração da configuração de clusters. As novas configurações de memória usadas pelo cluster do HDInsight padrão com 4 núcleos de CPU (8 contêineres) são detalhadas na tabela a seguir. (Os valores usados anteriormente a essa versão também são fornecidos entre parênteses).
 
-<table border="1"> <tr><th>Componente</th><th>alocação de memória</th></tr> <tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (anteriormente 512 MB)</td></tr> <tr><td> yarn.scheduler.maximum-allocation</td><td>6144 MB (inalterada)</td></tr> <tr><td>yarn.nodemanager.resource.memory</td><td>6144 MB (inalterada)</td></tr> <tr><td>mapreduce.map.memory</td><td>768 MB (anteriormente 512MB)</td></tr> <tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (anteriormente -Xmx410m)</td></tr> <tr><td>mapreduce.reduce.memory</td><td>1536 MB (anteriormente 1024 MB)</td></tr> <tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (anteriormente -Xmx819m)</td></tr> <tr><td>yarn.app.mapreduce.am.resource</td><td>768 MB (anteriormente 1024 MB)</td></tr> <tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (anteriormente -Xmx819m)</td></tr> <tr><td>mapreduce.task.io.sort</td><td>256 MB (anteriormente 200 MB)</td></tr> <tr><td>tez.am.resource.memory</td><td>1536 MB (inalterada)</td></tr>
+<table border="1"> <tr><th>Componente</th><th>alocação de memória</th></tr> <tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (anteriormente 512 MB)</td></tr> <tr><td> yarn.scheduler.maximum-allocation</td><td>6.144 MB (inalterada)</td></tr> <tr><td>yarn.nodemanager.resource.memory</td><td>6.144 MB (inalterada)</td></tr> <tr><td>mapreduce.map.memory</td><td>768 MB (anteriormente 512MB)</td></tr> <tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (anteriormente -Xmx410m)</td></tr> <tr><td>mapreduce.reduce.memory</td><td>1.536 MB (anteriormente 1.024 MB)</td></tr> <tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (anteriormente -Xmx819m)</td></tr> <tr><td>yarn.app.mapreduce.am.resource</td><td>768 MB (anteriormente 1.024 MB)</td></tr> <tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (anteriormente -Xmx819m)</td></tr> <tr><td>mapreduce.task.io.sort</td><td>256 MB (anteriormente 200 MB)</td></tr> <tr><td>tez.am.resource.memory</td><td>1.536 MB (inalterada)</td></tr>
 
 </table><br>
 
@@ -1099,7 +1099,7 @@ Sobre a mensagem de erro do Azure PowerShell e do SDK do HDInsight: “*O cluste
 
 * Esse erro é um [problema de compatibilidade](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conhecido que pode ocorrer devido a uma diferença entre a versão do SDK do HDInsight ou PowerShell do Azure e a versão do cluster. Clusters criados a partir de 15/08 dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Mas essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK do HDInsight ou PowerShell do Azure. O resultado é uma falha em algumas operações de envio de trabalho. Se você usar APIs do SDK do HDInsight ou cmdlets do Azure PowerShell (**Use-AzureHDInsightCluster** ou **Invoke-Hive**) para enviar trabalhos, essas operações podem falhar com a mensagem de erro “*O cluster <clustername> não está configurado para acessar serviços HTTP*”. Ou, dependendo da operação, você pode receber outras mensagens de erro, como “*Não é possível se conectar ao cluster*”.
 
-* Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e às Ferramentas do PowerShell do Azure em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure/).
+* Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e às Ferramentas do PowerShell do Azure em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure/).
 
 
 
@@ -1143,11 +1143,7 @@ Esses problemas de compatibilidade são resolvidos nas versões mais recentes do
 * O HDInsight versão 1.6 (HDP 1.1 e Hadoop 1.0.3) e HDInsight versão 2.1 (HDP 1.3 e Hadoop 1.2) estão sendo removidos do portal do Azure. Você pode continuar a criar clusters Hadoop para essas versões usando o cmdlet do PowerShell do Azure ([New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) ou usando o [SDK do HDInsight](http://msdn.microsoft.com/library/azure/dn469975.aspx). Consulte a página [Controle de versão do componente HDInsight](../hdinsight-component-versioning/) para obter mais informações.
 * Alterações ao Hortonworks Data Platform (HDP) nesta versão:
 
-<table border="1">
-<tr><th>HDP</th><th>Alterações</th></tr>
-<tr><td>HDP 1.3 / HDI 2.1</td><td>Nenhuma alteração</td></tr>
-<tr><td>HDP 2.0 / HDI 3.0</td><td>Nenhuma alteração</td></tr>
-<tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ["3.4.5.2.1.3.0-1948"] -> ["3.4.5.2.1.3.2-0002"]</td></tr>
+<table border="1"> <tr><th>HDP</th><th>Alterações</th></tr> <tr><td>HDP 1.3 / HDI 2.1</td><td>Nenhuma alteração</td></tr> <tr><td>HDP 2.0 / HDI 3.0</td><td>Nenhuma alteração</td></tr> <tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ["3.4.5.2.1.3.0-1948"] -> ["3.4.5.2.1.3.2-0002"]</td></tr>
 
 
 </table><br>
@@ -1157,9 +1153,7 @@ Esses problemas de compatibilidade são resolvidos nas versões mais recentes do
 Essa versão contém aprimoramentos para o serviço HDInsight:
 
 * **Disponibilidade do HDP 2.1**: O HDInsight 3.1 (que contém o HDP 2.1) agora está disponível de modo geral e é a versão padrão para novos clusters.
-* **HBase - aprimoramentos do portal do Azure**: estamos tornando os clusters HBase disponíveis em modo de visualização. Você pode criar clusters HBase por meio do portal com três cliques:
-
-![](http://i.imgur.com/cmOl5fM.png)
+* **HBase - aprimoramentos do portal do Azure**: estamos tornando os clusters HBase disponíveis em modo de visualização. Você pode criar clusters HBase por meio do portal com apenas alguns cliques. 
 
 Com o HBase, você pode criar uma variedade de cargas de trabalho em tempo real no HDInsight, por meio de sites interativos que funcionem com conjuntos de dados grandes para dados para o sensor de armazenamento de serviços e dados de telemetria de milhões de pontos de extremidade. A próxima etapa seria analisar os dados nessas cargas de trabalho com trabalhos do Hadoop e isso é possível no HDInsight, por meio do PowerShell do Azure e do painel de cluster do Hive.
 
@@ -1352,4 +1346,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!-----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

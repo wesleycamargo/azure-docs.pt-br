@@ -1,21 +1,21 @@
 <properties
    pageTitle="Provedores de Computação, Rede e Armazenamento do Azure no Gerenciador de Recursos do Azure"
-	description="Visão geral conceitual dos Provedores de Recursos de Computação, Rede e Armazenamento (CRP, NRP e SRP)"
-	services="virtual-machines"
-	documentationCenter="dev-center-name"
-	authors="mahthi"
-	manager="timlt"
-	editor=""
+   description="Visão geral conceitual dos Provedores de Recursos de Computação, Rede e Armazenamento (CRP, NRP e SRP)"
+   services="virtual-machines"
+   documentationCenter="dev-center-name"
+   authors="mahthi"
+   manager="timlt"
+   editor=""
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="04/29/2015"
-	ms.author="mahthi"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="04/29/2015"
+   ms.author="mahthi"/>
 
 # Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure
 
@@ -108,6 +108,9 @@ Todos os scripts e a automação que você criou continuarão a funcionar para a
 **As Redes Virtuais criadas usando as novas APIs do Gerenciador de Recursos do Azure podem ser conectadas a meu circuito do Express Route?**
 
 Não há suporte para isso no momento. Você não pode conectar as Redes Virtuais criadas usando as novas APIs do Gerenciador de Recursos do Azure a um circuito do Express Route. Haverá suporte para isso no futuro.
- 
 
-<!---HONumber=August15_HO9-->
+**Onde posso encontrar exemplos de modelos do Gerenciador de Recursos do Azure?**
+
+Um conjunto abrangente de modelos iniciais pode ser encontrado em [modelos de início rápido do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
+
+<!---HONumber=Sept15_HO3-->

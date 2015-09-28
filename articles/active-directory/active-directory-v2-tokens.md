@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicativo v2 | Microsoft Azure"
+	pageTitle="Referência do token do modelo de aplicativo v2 | Microsoft Azure"
 	description="Os tipos de token e declaração emitidos pelo ponto de extremidade v2.0"
 	services="active-directory"
 	documentationCenter=""
@@ -163,4 +163,4 @@ Os tempos de vida do token a seguir são fornecidos puramente para fins de compr
 | Códigos de autorização (contas corporativas ou de estudante) | 10 minutos | Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para access\_tokens e refresh\_tokens quando eles são recebidos. |
 | Códigos de autorização (contas pessoais) | 5 minutos | Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para access\_tokens e refresh\_tokens quando eles são recebidos. Os códigos de autorização emitidos em nome de contas pessoais também são de uso ocasional. |
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

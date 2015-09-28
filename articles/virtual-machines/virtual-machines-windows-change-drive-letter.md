@@ -3,7 +3,8 @@
 	description="Descreve como remapear o disco temporário em uma VM baseada em Windows no Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn
+"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Como alterar a letra da unidade do disco temporário do Windows
 
@@ -65,4 +66,4 @@ Se você quiser usar um disco de dados existente na unidade D, verifique se que 
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

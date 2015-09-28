@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como criar uma coleção híbrida para o Azure RemoteApp"
-	description="Aprenda a criar uma implantação de RemoteApp que se conecta à sua rede interna."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
+	pageTitle="Como criar uma coleção híbrida para o Azure RemoteApp | Microsoft Azure" 
+	description="Aprenda a criar uma implantação de RemoteApp que se conecta à sua rede interna." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="elizapo"/>
 
 # Como criar uma coleção híbrida para o Azure RemoteApp
@@ -29,7 +29,7 @@ Há dois tipos de coleções de RemoteApp:
 Este tutorial explica o processo de criação de uma coleção híbrida. Há oito etapas:
 
 1.	Decida qual [imagem](remoteapp-imageoptions.md) usar para sua coleção. Você pode criar uma imagem personalizada ou usar uma das imagens da Microsoft incluídas em sua assinatura.
-2. Configurar a sua rede virtual.
+2. Configurar a sua rede virtual. Verifique as informações sobre [Planejamento VNET](remoteapp-planvpn.md) e [dimensionamento](remoteapp-vnetsizing.md).
 2.	Criar uma coleção de RemoteApp.
 2.	Associe sua coleção a seu domínio local.
 3.	Adicionar uma imagem de modelo à sua coleção.
@@ -45,8 +45,8 @@ Você precisa fazer o seguinte antes de criar a coleção:
 - Crie uma conta de usuário no Active Directory para usar como a conta de serviço do RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio.
 - Colete informações sobre a sua rede local: informações sobre endereço IP e detalhes do dispositivo VPN.
 - Instale o módulo [PowerShell do Azure](../install-configure-powershell.md).
-- Colete informações sobre os usuários aos quais deseja conceder acesso. Você precisará do nome UPN do Active Directory do Azure (por exemplo, name@contoso.com) para cada usuário. Verifique se o UPN faz a correspondência entre o Azure AD e o Active Directory.
-- Escolha sua imagem de modelo. Uma imagem de modelo do RemoteApp contém os aplicativos e programas que você deseja publicar para seus usuários. Consulte [Opções de imagem do RemoteApp](remoteapp-imageoptions.md) para obter mais informações. 
+- Colete informações sobre os usuários aos quais deseja conceder acesso. Você precisará do nome principal do Active Directory do Azure (por exemplo, name@contoso.com) para cada usuário. Verifique se o UPN faz a correspondência entre o Azure AD e o Active Directory.
+- Escolha sua imagem de modelo. Uma imagem de modelo do RemoteApp contém os aplicativos e programas que você deseja publicar para seus usuários. Consulte [Opções de imagem do RemoteApp](remoteapp-imageoptions.md) para saber mais. 
 - Deseja usar a imagem do Office 365 ProPlus? Verifique as informações [aqui](remoteapp-officesubscription.md).
 - [Configure o Active Directory para RemoteApp](remoteapp-ad.md).
 
@@ -55,7 +55,7 @@ Você precisa fazer o seguinte antes de criar a coleção:
 ## Etapa 1: Configurar a sua rede virtual
 Você pode implantar uma coleção RemoteApp híbrida que usa uma rede virtual existente do Azure, ou você pode criar uma nova rede virtual. Uma rede virtual permite que os seus usuários acessem os dados da sua rede local através dos recursos remotos do RemoteApp. Usar uma rede virtual do Azure fornece à sua coleção acesso direto à rede a outros serviços do Azure e máquinas virtuais implantadas naquela rede virtual.
 
-Examine as informações de [tamanho VNET](remoteapp-vnetsizing.md) antes de criar sua VNET.
+Examine as informações sobre [Planejamento de Rede Virtual](remoteapp-planvpn.md) e [Tamanho da Rede Virtual](remoteapp-vnetsizing.md) antes de criar sua Rede Virtual.
 
 ### Criar um VNET do Azure e associá-lo à sua implantação do Active Directory
 
@@ -78,7 +78,7 @@ Você pode encontrar mais informações sobre a criação de máquinas virtuais 
 
 
 
-1. No [Portal do Azure](http://manage.windowsazure.com), vá para a página do RemoteApp.
+1. No [portal do Azure](http://manage.windowsazure.com), vá para a página do RemoteApp.
 2. Clique em **Novo > Criar com VNET**.
 3. Digite um nome para a sua coleção.
 4. Escolha o plano que você deseja usar - standard ou basic.
@@ -91,7 +91,7 @@ Após sua coleção do RemoteApp ter sido criada, clique duas vezes no nome da c
 ## Etapa 3: Vincular sua coleção ao domínio local ##
 
  
-1. Voltando à página **Início rápido**, clique em **Ingressar em um domínio local**.
+1. Na página **Início Rápido**, clique em **ingressar em um domínio local**.
 2. Adicione a conta de serviço RemoteApp ao domínio do Active Directory local. Serão necessários o nome do domínio, a unidade organizacional, o nome do usuário da conta de serviço e a senha. 
 
 	Estas são as informações reunidas se você tiver seguido as etapas em [Configurar o Active Directory para o RemoteApp do Azure](remoteapp-ad.md).
@@ -111,7 +111,7 @@ Se estiver conectando-se a uma imagem do modelo existente, especifique o nome da
 
 O RemoteApp requer que você se integre ao Active Directory do Azure 1) configurando o Active Directory do Azure com a opção de sincronização de senha, ou 2) configurando o Active Directory do Azure sem a opção de sincronização de senha, mas usando um domínio federado ao AD FS.
 
-Consulte [Conectar o AD](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) - esse artigo ajuda a configurar a integração de diretórios em quatro etapas.
+Consulte [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) - este artigo ajuda a configurar a integração de diretórios em quatro etapas.
 
 Consulte o [Roteiro de sincronização do diretório](http://msdn.microsoft.com//library/azure/hh967642.aspx) para as informações de planejamento e etapas detalhadas.
 
@@ -121,7 +121,7 @@ Um aplicativo do RemoteApp é o aplicativo ou programa fornecido aos seus usuár
 
 Antes que os usuários possam acessar os aplicativos RemoteApp, você precisa publicá-los no feed do usuário final – uma lista dos aplicativos disponíveis que os usuários acessam por meio do cliente da área de trabalho remota.
  
-Você pode publicar vários aplicativos em sua coleção de RemoteApp. Na página de publicação do RemoteApp, clique em **Publicar** para adicionar um aplicativo. É possível publicar no menu Iniciar da imagem do modelo ou especificar o caminho na imagem do modelo para o aplicativo. Se optar por adicionar pelo menu Iniciar, escolha o programa para o aplicativo. Se você optar por fornecer o caminho para o aplicativo, forneça um nome para o aplicativo e o caminho para onde ele está instalado na imagem do modelo.
+Você pode publicar vários aplicativos em sua coleção de RemoteApp. Na página de publicação do RemoteApp, clique em **Publicar** para adicionar um aplicativo. É possível publicar no menu **Iniciar** da imagem do modelo ou especificar o caminho na imagem do modelo do aplicativo. Se você optar por adicionar do menu **Iniciar**, escolha o programa a ser adicionado. Se você optar por fornecer o caminho para o aplicativo, forneça um nome para o aplicativo e o caminho para onde ele está instalado na imagem do modelo.
 
 ## Etapa 7: Configurar o acesso do usuário ##
 
@@ -146,4 +146,4 @@ Agora que você criou sua coleção de RemoteApp, você precisa adicionar os usu
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

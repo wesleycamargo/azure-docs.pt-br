@@ -4,22 +4,23 @@
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
+	writer="cephalin"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
 
-Ao implantar seu aplicativo Web no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), você pode implantar em um slot de implantação separado em vez do slot de produção padrão ao ser executado no modo do plano de Serviço de Aplicativo **Padrão** ou **Premium**. Slots de implantação são, na verdade, aplicativos Web online com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo Web podem ser permutados entre dois slots de implantação, incluindo o slot de produção. Implantar o seu aplicativo em um slot de implantação tem os seguintes benefícios:
+Ao implantar seu aplicativo Web no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), você pode implantar em um slot de implantação separado em vez do slot de produção padrão ao ser executado no modo do plano do Serviço de Aplicativo **Padrão** ou **Premium**. Slots de implantação são, na verdade, aplicativos Web online com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo Web podem ser permutados entre dois slots de implantação, incluindo o slot de produção. Implantar o seu aplicativo em um slot de implantação tem os seguintes benefícios:
 
 - É possível validar as alterações no aplicativo Web em um slot de implantação de preparo antes de permutá-lo pelo slot de produção.
 
@@ -27,15 +28,16 @@ Ao implantar seu aplicativo Web no [Serviço de Aplicativo](http://go.microsoft.
 
 - Após uma permuta, o slot com o aplicativo Web preparado anteriormente tem agora o aplicativo Web de produção anterior. Se as alterações permutadas no slot de produção não forem o que você esperava, é possível fazer a mesma permuta imediatamente para ter o “último site bom” de volta.
 
-Cada modo de plano de Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Para descobrir o número de slots ao qual seu aplicativo Web dá suporte, consulte [Preços de Serviço de Aplicativo](/pricing/details/app-service/).
+Cada modo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Para descobrir o número de slots ao qual seu aplicativo Web dá suporte, consulte [Preços do Serviço de Aplicativo](/pricing/details/app-service/).
 
 - Quando seu aplicativo Web tem vários slots, você não pode alterar o modo.
 
 - O dimensionamento não está disponível para slots de não produção.
 
-- O gerenciamento de recurso vinculado não tem suporte para slots de não produção.
+- O gerenciamento de recurso vinculado não tem suporte para slots de não produção. Somente no [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) você pode evitar esse impacto potencial em um slot de produção, mudando temporariamente o slot de não produção para um modo de plano do Serviço de Aplicativo diferente. Observe que o slot de não produção deve uma vez mais compartilhar o mesmo modo com o slot de produção antes que você possa alternar os dois slots.
 
-	> [AZURE.NOTE]Somente no [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) você pode evitar esse impacto potencial em um slot de produção, mudando temporariamente o slot de não produção para um modo de plano de Serviço de Aplicativo diferente. Observe que o slot de não produção deve uma vez mais compartilhar o mesmo modo com o slot de produção antes que você possa alternar os dois slots.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="Add"></a>
 ## Adicionar um slot de implantação a um aplicativo Web ##
@@ -259,4 +261,4 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

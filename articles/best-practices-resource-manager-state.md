@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/10/2015"
 	ms.author="mmercuri"/>
 
 # Compartilhando estado em modelos do Gerenciador de Recursos do Azure
@@ -32,52 +32,54 @@ Com objetos complexos, você pode criar variáveis que contenham coleções de d
 
 O exemplo a seguir mostra como definir variáveis que contêm objetos complexos para representar coleções de dados. As coleções definem os valores que são usados para o tamanho da máquina virtual, as configurações de rede, as configurações de sistema operacional e as configurações de disponibilidade.
 
-    "tshirtSizeLarge": {
-      "vmSize": "Standard_A4",
-      "diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
-      "vmCount": 3,
-      "slaveCount": 2,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 2,
-        "pool": "db",
-        "map": [0,1,1],
-        "jumpbox": 0
-      }
-    },
-    "osSettings": {
-      "scripts": [
-        "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
-        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
-      ],
-      "imageReference": {
-				"publisher": "Canonical",
-        "offer": "UbuntuServer",
-        "sku": "14.04.2-LTS",
-        "version": "latest"
-      }
-    },
-    "networkSettings": {
-      "vnetName": "[parameters('virtualNetworkName')]",
-      "addressPrefix": "10.0.0.0/16",
-      "subnets": {
-        "dmz": {
-          "name": "dmz",
-          "prefix": "10.0.0.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
-        },
-        "data": {
-          "name": "data",
-          "prefix": "10.0.1.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
+    "variables": {
+      "tshirtSizeLarge": {
+        "vmSize": "Standard_A4",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
+        "vmCount": 3,
+        "slaveCount": 2,
+        "storage": {
+          "name": "[parameters('storageAccountNamePrefix')]",
+          "count": 2,
+          "pool": "db",
+          "map": [0,1,1],
+          "jumpbox": 0
         }
+      },
+      "osSettings": {
+        "scripts": [
+          "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
+          "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
+        ],
+        "imageReference": {
+	  "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "14.04.2-LTS",
+          "version": "latest"
+        }
+      },
+      "networkSettings": {
+        "vnetName": "[parameters('virtualNetworkName')]",
+        "addressPrefix": "10.0.0.0/16",
+        "subnets": {
+          "dmz": {
+            "name": "dmz",
+            "prefix": "10.0.0.0/24",
+            "vnet": "[parameters('virtualNetworkName')]"
+          },
+          "data": {
+            "name": "data",
+            "prefix": "10.0.1.0/24",
+            "vnet": "[parameters('virtualNetworkName')]"
+          }
+        }
+      },
+      "availabilitySetSettings": {
+        "name": "pgsqlAvailabilitySet",
+        "fdCount": 3,
+        "udCount": 5
       }
-    },
-    "availabilitySetSettings": {
-      "name": "pgsqlAvailabilitySet",
-      "fdCount": 3,
-      "udCount": 5
     }
 
 Você pode fazer referência a essas variáveis posteriormente no modelo. A capacidade de fazer referência a variáveis nomeadas e às suas propriedades simplifica a sintaxe de modelo e facilita o entendimento do contexto. O exemplo a seguir define um recurso para implantar usando os objetos mostrados acima para definir valores. Por exemplo, observe que o tamanho da VM é definido pela recuperação do valor de `variables('tshirtSize').vmSize`, enquanto o valor do tamanho do disco é recuperado de `variables('tshirtSize').diskSize`. Além disso, o URI de um modelo vinculado é definido com o valor de `variables('tshirtSize').vmTemplate`.
@@ -387,4 +389,4 @@ No modelo principal, você pode usar esses dados com a seguinte sintaxe:
 - [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

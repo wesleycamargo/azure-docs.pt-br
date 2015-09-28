@@ -5,34 +5,37 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Integrar um aplicativo Web a uma Rede Virtual do Azure #
+
 Este documento descreve o recurso de visualização de integração de rede virtual e mostra como configurá-lo com os aplicativos Web no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se você não está familiarizado como as Redes virtuais do Azure, esta é uma capacidade que permitirá que você desenvolva soluções híbridas com seus recursos locais e do Azure.
 
 Esta integração concede ao seu aplicativo Web acesso a recursos da sua rede virtual, mas não concede acesso ao seu aplicativo Web por meio da rede virtual. Alguns cenários padrão estão onde o seu aplicativo Web precisa de acesso a um banco de dados ou aos serviços Web que estão sendo executados em máquinas virtuais em sua rede virtual ou até em seu próprio data center. Ele não permite que você monte uma unidade. No momento, ele também não dá suporte para habilitar a integração com os sistemas de autenticação na sua rede virtual. O recurso está no modo de visualização e continuará a ser aperfeiçoado antes de alcançar a GA.
 
 Para obter mais detalhes sobre as Redes virtuais do Azure consulte a Visão geral da Rede Virtual do Azure sobre os casos de uso e benefícios de uma Rede virtual do Azure.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Introdução ##
 Veja aqui algumas coisas para se ter em mente antes de conectar seu aplicativo Web a uma rede virtual.
 
-1.	Os aplicativos Web podem apenas ser conectados a uma rede virtual se estiverem em execução em um Plano de Serviço de Aplicativo que esteja na camada **Standard**. Aplicativos Web nos planos Básico, Gratuito e Compartilhado não podem se conectar a uma rede virtual.
+1.	Os aplicativos Web só poderão ser conectados a uma rede virtual se estiverem em execução em um plano do Serviço de Aplicativo que esteja na camada **Standard**. Aplicativos Web nos planos Básico, Gratuito e Compartilhado não podem se conectar a uma rede virtual.
 2.	Se a sua rede virtual de destino já existe, ela deve ter a opção ponto a site habilitada com um gateway de roteamento dinâmico antes que possa ser conectada a um aplicativo Web. Você não pode habilitar a opção ponto a site da VPN (rede virtual privada) com se o gateway está configurado com roteamento estático.
-3.	Você pode ter apenas cinco redes configuradas no seu Plano de Serviço de Aplicativo. Um aplicativo Web só pode estar conectado a uma rede de cada vez. Estas cinco redes podem ser usadas por qualquer número de aplicativos Web no mesmo Plano de Serviço de Aplicativo.  
+3.	Você pode ter apenas cinco redes configuradas no seu Plano do Serviço de Aplicativo. Um aplicativo Web só pode estar conectado a uma rede de cada vez. Estas cinco redes podem ser usadas por qualquer número de aplicativos Web no mesmo Plano do Serviço de Aplicativo.  
 
 Você tem a opção de se conectar a uma rede virtual nova ou existente. Se você criar uma nova rede então um gateway será pré-configurado para você. Observe que ao criar e configurar uma nova rede virtual levará alguns minutos.
 
-Se seu aplicativo Web não estiver em um Plano de Serviço de Aplicativo da camada Standard, a interface do usuário informará isso e fornecerá acesso a camadas de preços caso você deseje fazer uma atualização.
+Se seu aplicativo Web não estiver em um Plano do Serviço de Aplicativo da camada Standard, a interface do usuário informará isso e fornecerá acesso a camadas de preços caso você deseje fazer uma atualização.
 
 ![](./media/web-sites-integrate-with-vnet/upgrade-to-standard.png)
 
@@ -50,7 +53,7 @@ Para se conectar um site a uma Rede Virtual vá para a folha do aplicativo Web, 
 
 ![](./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
  
-O sistema então criará um certificado para autenticar com sua rede virtual se for o primeiro aplicativo Web na sua assinatura a estabelecer uma conexão àquela rede. Para ver o certificado, acesse o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), navegue para Redes Virtuais, selecione a rede e selecione a guia Certificados.
+O sistema então criará um certificado para autenticar com sua rede virtual se for o primeiro aplicativo Web na sua assinatura a estabelecer uma conexão àquela rede. Para ver o certificado, acesse o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), navegue até Redes Virtuais, selecione a rede e a guia Certificados.
 
 Na imagem acima você pode ver uma rede chamada cantConnectVnet que está esmaecida e não pode ser selecionada. Há apenas dois motivos que este deve ser o caso. Significa que você não tem a VPN ponto a site habilitado na sua rede ou você não forneceu um gateway de roteamento dinâmico na sua rede virtual. Quando ambos os itens são satisfeitos então você poderá secionar a rede virtual para integração com seu aplicativo Web.
 
@@ -70,9 +73,9 @@ Depois de concluir com êxito a integração, o Portal do Azure exibirá informa
 ![](./media/web-sites-integrate-with-vnet/vnet-status-portal.png)
 
 ##Gerenciando a conexão de rede virtual##
-Você pode ver uma lista de todas as redes virtuais atualmente associadas a aplicativos Web em um Plano de Serviço de Aplicativo visitando a folha do Plano de Serviço de Aplicativo. Você pode ter no máximo 5 redes associadas a um Plano de Serviço de Aplicativo da camada Standard.
+Você pode ver uma lista de todas as redes virtuais atualmente associadas a aplicativos Web em um Plano do Serviço de Aplicativo visitando a folha do Plano do Serviço de Aplicativo. Você pode ter no máximo 5 redes associadas a um Plano do Serviço de Aplicativo da camada Standard.
 
-Caso o Plano de Serviço de Aplicativo seja reduzido a um plano inferior como o Gratuito, Compartilhado ou Básico, então as conexões de rede virtual que são usadas pelos aplicativos Web naquele plano serão desabilitadas. Caso o plano seja reduzido de volta para um plano Padrão então estas conexões de rede serão reestabelecidas.
+Caso o Plano do Serviço de Aplicativo seja reduzido a um plano inferior como o Gratuito, Compartilhado ou Básico, então as conexões de rede virtual que são usadas pelos aplicativos Web naquele plano serão desabilitadas. Caso o plano seja reduzido de volta para um plano Padrão então estas conexões de rede serão reestabelecidas.
 
 Neste momento não é possível no Azure pegar uma máquina virtual existente e movê-la para um rede virtual. A máquina virtual precisa ser fornecida para aquela rede virtual durante a criação.
 
@@ -106,4 +109,4 @@ Há também diferenças na faixa de preço neste momento entre os dois recursos.
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

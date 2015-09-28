@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Explorar os dados de segurança e auditoria do Insights Operacionais
@@ -100,4 +100,4 @@ Os dados de auditoria que você deseja coletar e enviar ao Insights Operacionais
 
 Além das configurações de política local, se você usar o AppLocker para coletar dados de auditoria, o Operacional Insights coletará os dados e, em seguida, você poderá exibí-los.
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO3-->

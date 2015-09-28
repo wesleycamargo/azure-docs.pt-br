@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Consulta com SQL do Banco de Dados de Documentos | Microsoft Azure" 
-	description="O Banco de Dados de Documentos, um serviço de banco de dados de documentos NoSQL, dá suporte a consultas que usam a gramática de tipo SQL hierárquica de documentos JSON sem a necessidade de explícita de um esquema ou da criação de índices secundários." 
+	pageTitle="Consultas SQL em um banco de dados do Banco de Dados de Documentos — consultar SQL | Microsoft Azure" 
+	description="Saiba como o Banco de Dados de Documentos oferece suporte a consultas SQL em documentos JSON hierárquicos para indexação automática. Descubra um ambiente de banco de dados de consulta SQL que seja realmente livre de esquema." 
+	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -16,7 +17,7 @@
 	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
-# Consulta ao Banco de Dados de Documentos
+# Consulta SQL no Banco de Dados de Documentos
 O Banco de Dados de Documentos do Microsoft Azure tem suporte para a realização da consulta de documentos utilizando uma SQL (Structured Query Language) em documentos hierárquicos JSON. O Banco de Dados de Documentos é verdadeiramente livre de esquemas. Em virtude de seu comprometimento com o modelo de dados JSON diretamente dentro do mecanismo do banco de dados, ele fornece a indexação automática de documentos JSON sem a necessidade de esquemas explícitos ou da criação de índices secundários.
 
 Ao criar a linguagem de consulta para o Banco de Dados de Documentos, tínhamos dois objetivos em mente:
@@ -30,9 +31,9 @@ Recomendamos que você comece assistindo ao vídeo a seguir, em que Aravind Rama
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-Em seguida, retorne a este artigo, em que vamos começar examinando algumas consultas e documentos JSON simples.
+Em seguida, retorne a este artigo, em que vamos começar examinando alguns documentos simples JSON e comandos SQL.
 
-## Introdução
+## Introdução a comandos SQL (Structured Query Language) no Banco de Dados de Documentos
 Para ver o Banco de Dados de Documentos SQL em funcionamento, vamos começar com alguns documentos JSON simples e percorreremos algumas consultas simples relacionadas a eles. Considere esses dois documentos JSON sobre duas famílias. Observe que com o Banco de Dados de Documentos, não precisamos criar nenhum esquema ou índice secundário explicitamente. Precisamos apenas inserir os documentos JSON em uma coleção do Banco de Dados de Documentos e, em seguida, realizar a consulta. Aqui, temos um documento JSON simples relacionado à família Andersen - os pais, filhos (e seus animais de estimação), endereço e informações de registro. O documento tem cadeias de caracteres, números, boolianos, matrizes e propriedades aninhadas.
 
 **Documento**
@@ -157,7 +158,7 @@ A próxima consulta retorna todos os nomes de determinado filhos na família, cu
 Gostaríamos de chamar atenção para alguns aspectos de destaque da linguagem de consulta do Banco de Dados de Documentos nos exemplos que vimos até agora:
  
 -	Como o Banco de Dados de Documentos SQL trabalha com valores JSON, ele lida com entidades com formato de árvore em vez de linhas e colunas. A linguagem, portanto, possibilita a referência a nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, de forma semelhante à SQL relacional relativa à referência bipartida de `<table>.<column>`.   
--	A linguagem trabalha com dados sem esquema. Portanto, o sistema de tipos precisa estar vinculado dinamicamente. A mesma expressão pode obter diferentes tipos em diferentes documentos. O resultado de uma consulta é um valor JSON válido, mas não há garantia de que seja de um esquema fixo.  
+-	A linguagem de consulta estruturada trabalha com dados com menos esquema. Portanto, o sistema de tipos precisa estar vinculado dinamicamente. A mesma expressão pode obter diferentes tipos em diferentes documentos. O resultado de uma consulta é um valor JSON válido, mas não há garantia de que seja de um esquema fixo.  
 -	O Banco de Dados de Documentos tem suporte apenas para documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.  
 -	Uma coleção do Banco de Dados de Documentos é um contêiner de documentos JSON sem esquemas. As relações nas entidades de dados dentro e entre documentos em uma coleção são capturadas implicitamente pela contenção e não pelas relações chave primária e chave estrangeira. Este é um importante aspecto que vale a pena destacar em virtude das junções intradocumentos abordadas mais adiante neste artigo.
 
@@ -182,7 +183,7 @@ Portanto, quando criamos o subsistema de indexação do Banco de Dados de Docume
 Consulte [amostras do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net) no MSDN para ver exemplos de como configurar a política de indexação para uma coleção. Agora, vejamos os detalhes da gramática da SQL do Banco de Dados de Documentos.
 
 
-## Noções básicas sobre a consulta do Banco de Dados de Documentos
+## Noções básicas de uma consulta SQL do Banco de Dados de Documentos
 Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, a fonte da cláusula FROM é enumerada. Então, o filtro da cláusula WHERE é aplicado para recuperar um subconjunto de documentos JSON. Por fim, a cláusula SELECT é usada para projetar os valores JSON solicitados na lista selecionada.
     
     SELECT <select_list> 
@@ -296,7 +297,7 @@ Vejamos algumas consultas que usam valores binários.
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-Os operadores unários +,-, \~ e NOT também têm suporte e podem ser usados dentro de consultas, como mostrado no exemplo a seguir:
+Os operadores unários +,-, ~ e NOT também têm suporte e podem ser usados dentro de consultas, como mostrado no exemplo a seguir:
 
 	SELECT *
 	FROM Families.children[0] c
@@ -704,7 +705,7 @@ E aqui está uma consulta que recupera famílias em ordem de data de criação, 
 	  }
 	]
 	
-## Conceitos avançados
+## Conceitos de banco de dados de consulta SQ avançada
 ### Iteração
 Uma nova construção por meio da palavra-chave **IN** na SQL do Banco de Dados de Documentos, para dar suporte à iteração em matrizes JSON. A fonte FROM dá suporte à iteração. Comecemos com o exemplo a seguir:
 
@@ -1055,7 +1056,7 @@ Na SQL do Banco de Dados de Documentos, ao contrário do que ocorre na SQL tradi
 
 A SQL do Banco de Dados de Documentos não realiza conversões implícitas, diferente do JavaScript. Por exemplo, uma consulta como `SELECT * FROM Person p WHERE p.Age = 21` corresponde a documentos que contêm a propriedade Age com valor 21. Qualquer outro documento cuja propriedade Age corresponder a “21” — ou a outras variações potencialmente infinitas como “021”, “21,0”, “0021”, “00021” etc. — não será correspondido. Isso ocorre em oposição ao JavaScript, que os valores das cadeias de caracteres são convertidos implicitamente em números (baseado em operador como, por exemplo: ==). Esta escolha é fundamental para uma correspondência eficiente de índices na SQL do Banco de Dados de Documentos.
 
-## SQL parametrizada
+## Consultas SQL parametrizadas
 O Banco de Dados de Documentos dá suporte a consultas com parâmetros expressados com a familiar notação @. A SQL parametrizada oferece recursos robustos de manuseio e saída das entradas de usuário, evitando a exposição acidental de dados por meio de uma injeção SQL.
 
 Por exemplo, você pode escrever uma consulta que define o sobrenome e o estado do endereço como parâmetros e executá-la para vários valores de sobrenome e estado de endereço, com base na entrada do usuário.
@@ -1487,7 +1488,7 @@ O LINQ é um modelo de programação .NET que expressa a computação como consu
 
 A imagem abaixo mostra a arquitetura do suporte a consultas do LINQ usando o Banco de Dados de Documentos. Usando o cliente do Banco de Dados de Documentos, os desenvolvedores podem criar um objeto **IQueryable** que consulta diretamente o provedor de consulta do Banco de Dados de Documentos que, por sua vez, traduz a consulta do LINQ para uma consulta de Banco de Dados de Documentos. A consulta é, então, passada ao servidor do Banco de Dados de Documentos para recuperar um conjunto de resultados no formato JSON. Os resultados retornados são desserializados em um fluxo de objetos .NET no lado do cliente.
 
-![][1]
+![Arquitetura do suporte a consultas do LINQ usando o Banco de Dados de Documentos.][1]
  
 
 
@@ -1603,7 +1604,7 @@ Primeiro, para o sistema de tipos, oferecemos suporte para todos os tipos de JSO
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-### Operadores de consulta
+### Operadores de consulta SQL
 Aqui, temos alguns exemplos que ilustram como alguns dos operadores de consulta padrão do LINQ são traduzidos para consultas do Banco de Dados de Documentos.
 
 #### Operador Select
@@ -1692,7 +1693,7 @@ A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que 
 	AND f.children[0].grade < 3
 
 
-### Consultas compostas
+### Consultas SQL composta
 Os operadores acima podem ser compostos para formar consultas mais poderosas. Como o Banco de Dados de Documentos oferece suporte para coleções aninhadas, a composição pode ser concatenada ou aninhada.
 
 #### Concatenação 
@@ -1797,7 +1798,7 @@ Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da col
 	WHERE c.familyName = f.parents[0].familyName
 
 
-## Executando consultas
+## Executando consultas SQL
 O Banco de Dados de Documentos expõe recursos pode meio de uma API REST que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Banco de Dados de Documentos oferece bibliotecas de programação para várias linguagens populares, como .NET, Node.js, JavaScript e Python. A API REST e as diversas bibliotecas suportam a consulta por meio de SQL. O SDK .NET oferece suporte para consultas no LINQ além da SQL.
 
 Os exemplos a seguir mostram como criar uma consulta e enviá-la a uma conta de banco de dados do Banco de Dados de Documentos.
@@ -2088,4 +2089,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

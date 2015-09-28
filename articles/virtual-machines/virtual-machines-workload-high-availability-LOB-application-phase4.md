@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Aplicativo de linha de negócios Fase 4 | Microsoft Azure"
-	description="Crie os servidores da Web e carregue seu aplicativo de linha de negócios na fase 4 do aplicativo de linha de negócios do Azure."
+	pageTitle="Aplicativo de linha de negócios Fase 4 | Microsoft Azure" 
+	description="Crie os servidores da Web e carregue seu aplicativo de linha de negócios na fase 4 do aplicativo de linha de negócios do Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 4: configurar os servidores Web
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo de implantação do Gerenciador de Recursos.
 
 Nesta fase de implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você criará os servidores Web e carregará seu aplicativo de linha de negócios neles.
 
@@ -66,7 +68,7 @@ Use o seguinte bloco de comandos do PowerShell para criar as máquinas virtuais 
 - Tabela ST para suas contas de armazenamento
 - Tabela A para os conjuntos de disponibilidade
 
-Lembre-se de que você definiu a Tabela M na [fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Lembre-se de que você definiu a Tabela M na [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
 Quando você tiver fornecido a todos os valores adequados, execute o bloco resultante no prompt do Azure PowerShell.
 
@@ -116,6 +118,8 @@ Quando você tiver fornecido a todos os valores adequados, execute o bloco resul
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]Como essas máquinas virtuais são para um aplicativo de intranet, elas não recebem um endereço IP público ou um rótulo de nome de domínio DNS e não são expostas na Internet. No entanto, isso também significa que você não poderá se conectar a elas do portal de Visualização do Azure. O botão **Conectar** não ficará disponível quando você exibir as propriedades da máquina virtual.
+
 Use o cliente de área de trabalho remota de sua preferência e crie uma conexão de área de trabalho remota para cada máquina virtual do servidor Web. Use seu nome DNS ou do computador da intranet e as credenciais da conta de administrador local.
 
 Em seguida, para cada máquina virtual do servidor Web, ingresse-os no domínio apropriado do Active Directory com esses comandos no prompt do Windows PowerShell.
@@ -131,11 +135,11 @@ Depois de reiniciar, reconecte-os usando uma conta que tenha privilégios de adm
 Em seguida, para cada servidor Web, instale e configure o IIS.
 
 1. Execute o Gerenciador do Servidor e clique em **Adicionar funções e recursos**.
-2. Na página Antes de começar, clique em **Avançar**.
+2. Na página Antes de Começar, clique em **Avançar**.
 3. Na página Selecionar tipo de instalação, clique em **Avançar**.
 4. Na página Selecionar servidor de destino, clique em **Avançar**.
 5. Na página Funções do servidor, clique em **Servidor Web (IIS)** na lista **Funções**.
-6. Quando solicitado, clique em **Adicionar Recursos** e depois em **Avançar**.
+6. Quando solicitado, clique em **Adicionar Recursos** e clique em **Avançar**.
 7. Na página Selecionar recursos, clique em **Avançar**.
 8. Na página Servidor Web (IIS), clique em **Avançar**.
 9. Na página Selecionar serviços da função, marque ou desmarque as caixas de seleção dos serviços que você precisa para testar seu aplicativo LOB e, em seguida, clique em **Avançar**. 10. Na página Confirmar seleções da instalação, clique em **Instalar**.
@@ -168,4 +172,4 @@ Para continuar com a configuração dessa carga de trabalho, vá para a [Fase 5:
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

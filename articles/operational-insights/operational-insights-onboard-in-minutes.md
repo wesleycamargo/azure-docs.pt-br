@@ -1,20 +1,20 @@
 <properties
     pageTitle="Integrado ao Insights Operacionais em minutos | Microsoft Azure"
-	description="Aprenda como colocar tudo em funcionamento com o Insights Operacionais em minutos"
-	services="operational-insights"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    description="Aprenda como colocar tudo em funcionamento com o Insights Operacionais em minutos"
+    services="operational-insights"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
     ms.service="operational-insights"
-	ms.workload="operational-insights"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/27/2015"
-	ms.author="banders"/>
+    ms.workload="operational-insights"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/10/2015"
+    ms.author="banders"/>
 
 # Integrado ao Insights Operacionais do Azure em minutos
 
@@ -101,4 +101,4 @@ Com o Operations Management Suite, você pode rapidamente pesquisar eventos e lo
 - Familiarize-se com a [pesquisa](operational-insights-search.md).
 - Use [painéis](operational-insights-use-dashboards.md) para salvar e exibir suas pesquisas personalizadas.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

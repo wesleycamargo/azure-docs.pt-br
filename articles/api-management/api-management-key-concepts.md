@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="09/15/2015" 
 	ms.author="sdanie"/>
 
 #O que é Gerenciamento de API?
@@ -114,4 +114,4 @@ Você pode personalizar a aparência do portal do desenvolvedor adicionando cont
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

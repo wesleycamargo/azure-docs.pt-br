@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução à autenticação (Windows Store) | Microsoft Azure" 
+	pageTitle="Adicionar autenticação ao seu aplicativo universal do Windows 8.1 | Serviços Móveis do Azure"
 	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo da Windows Store por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# Adicionar autenticação ao aplicativo de Serviços Móveis
+# Adicionar autenticação ao seu aplicativo universal do Windows 8.1
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo Windows universal. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
+Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo universal para Windows 8.1. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
 
 Este tutorial baseia-se no início rápido dos Serviços Móveis. Você também deve primeiro concluir os tutoriais [Introdução aos Serviços Móveis] ou [Adicionar os Serviços Móveis a um aplicativo existente](mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md).
 
@@ -84,4 +84,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

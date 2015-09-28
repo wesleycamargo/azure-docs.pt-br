@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configurar o proxy Web para um dispositivo StorSimple | Microsoft Azure"
-	description="Saiba como usar o Windows PowerShell para StorSimple para definir configurações do proxy Web para seu dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Saiba como usar o Windows PowerShell para StorSimple para definir configurações do proxy Web para seu dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Configurar proxy da web para seu dispositivo StorSimple
 
@@ -146,6 +146,9 @@ Se as configurações de proxy Web tiverem sido definidas incorretamente, mensag
 > - Erros relacionados às configurações de proxy Web não serão exibidos no Portal de Gerenciamento do serviço StorSimple Manager. Se houver um problema com o proxy Web depois que a configuração for concluída, o status do dispositivo será alterado para **Offline** no Portal de Gerenciamento.|
 
 ## Próximas etapas
-Se você tiver problemas ao implantar seu dispositivo ou definir as configurações de proxy Web, consulte [Solucionar problemas de implantação do dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=September15_HO1-->
+- Se você tiver problemas ao implantar seu dispositivo ou definir as configurações de proxy Web, consulte [Solucionar problemas de implantação do dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
+
+- Para saber como usar o serviço StorSimple Manager, acesse [Use o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

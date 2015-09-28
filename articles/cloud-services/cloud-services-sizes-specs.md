@@ -1,20 +1,20 @@
-<properties 
+<properties
  pageTitle="Tamanhos dos serviços de nuvem"
-	description="Lista os tamanhos diferentes para funções de web e de trabalho do serviço de nuvem do Azure."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
-<tags 
+ description="Lista os tamanhos diferentes para funções de web e de trabalho do serviço de nuvem do Azure."
+ services="cloud-services"
+ documentationCenter=""
+ authors="Thraka"
+ manager="timlt"
+ editor=""/>
+<tags
  ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="09/01/2015"
-	ms.author="adegeo"/>
- 
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="tbd"
+ ms.date="09/14/2015"
+ ms.author="adegeo"/>
+
 # Tamanhos dos serviços de nuvem
 
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função de Serviço de Nuvem (funções web e funções de trabalho). Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos.
@@ -41,26 +41,26 @@ As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
 |Tamanho|CPU<br>núcleos|Memória|Tamanhos do disco|
 |---|---|---|---|
-|ExtraSmall|1|768 MB|SO = tamanho do SO convidado<br/>Recurso local = 19 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Pequena|1|1,75 GB|SO = tamanho do SO convidado<br/>Recurso local = 224 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Média|2|3,5 GB|SO = tamanho do SO convidado<br/>Recurso local = 489 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Grande|4|7 GB|SO = tamanho do SO convidado<br/>Recurso local = 999 GB<br/>Aplicativos = aprox. 1,5 GB|
-|ExtraLarge|8|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 2.039 GB<br/>Aplicativos = aprox. 1,5 GB|
-|A5|2|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 489 GB<br/>Aplicativos = aprox. 1,5 GB|
-|A6|4|28 GB|SO = tamanho do SO convidado<br/>Recurso local = 999 GB<br/>Aplicativos = aprox. 1,5 GB|
-|A7|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 2.039 GB<br/>Aplicativos = aprox. 1,5 GB
-|A8|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 1,77 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
-|A9|16|112 GB|SO = tamanho do SO convidado<br/>Recurso local = 1,77 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
-|A10|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 1,77 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
-|A11|16|112 GB|SO = tamanho do SO convidado<br/>Recurso local = 1,77 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
-|Standard\_D1|1|3,5 GB|SO = tamanho do SO convidado<br/>Recurso local = 50 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard\_D2|2|7 GB|SO = tamanho do SO convidado<br/>Recurso local = 100 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard\_D3|4|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 200 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard\_D4|8|28 GB|SO = tamanho do SO convidado<br/>Recurso local = 400 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard\_D11|2|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 100 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard\_D12|4|28 GB|SO = tamanho do SO convidado<br/>Recurso local = 200 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard\_D13|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 400 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard\_D14|16|112 GB|SO = tamanho do SO convidado<br/>Recurso local = 800 GB<br/>Aplicativos = aprox. 1,5 GB|
+|ExtraSmall|1|768 MB|SO = tamanho do SO convidado<br/>Recurso local = 15384 MB<br/>Aplicativos = aprox. 1,5 GB|
+|Pequena|1|1,75 GB|SO = tamanho do SO convidado<br/>Recurso local = 225304 MB<br/>Aplicativos = aprox. 1,5 GB|
+|Média|2|3,5 GB|SO = tamanho do SO convidado<br/>Recurso local = 496664 MB<br/>Aplicativos = aprox. 1,5 GB|
+|Grande|4|7 GB|SO = tamanho do SO convidado<br/>Recurso local = 1018904 MB<br/>Aplicativos = aprox. 1,5 GB|
+|ExtraLarge|8|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 2083864 MB<br/>Aplicativos = aprox. 1,5 GB|
+|A5|2|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 496664 MB<br/>Aplicativos = aprox. 1,5 GB|
+|A6|4|28 GB|SO = tamanho do SO convidado<br/>Recurso local = 1018904 MB<br/>Aplicativos = aprox. 1,5 GB|
+|A7|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 2083864 MB<br/>Aplicativos = aprox. 1,5 GB
+|A8|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 1856172 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
+|A9|16|112 GB|SO = tamanho do SO convidado<br/>Recurso local = 1856172 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
+|A10|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 1856172 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
+|A11|16|112 GB|SO = tamanho do SO convidado<br/>Recurso local = 1856172 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
+|Standard\_D1|1|3,5 GB|SO = tamanho do SO convidado<br/>Recurso local = 46104 MB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D2|2|7 GB|SO = tamanho do SO convidado<br/>Recurso local = 97304 MB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D3|4|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 199704 MB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D4|8|28 GB|SO = tamanho do SO convidado<br/>Recurso local = 404504 MB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D11|2|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 97304 MB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D12|4|28 GB|SO = tamanho do SO convidado<br/>Recurso local = 199704 MB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D13|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 404504 MB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D14|16|112 GB|SO = tamanho do SO convidado<br/>Recurso local = 814104 MB<br/>Aplicativos = aprox. 1,5 GB|
 
 ## Configurar tamanhos para os Serviços de Nuvem
 
@@ -72,8 +72,10 @@ Veja um exemplo de definição do tamanho da função como pequeno para uma inst
     <WebRole name="WebRole1" vmsize="Small">
     …
     </WebRole>
+
+Assegure-se de que o tamanho do recurso local especificado seja menor ou igual ao tamanho do recurso local máximo na tabela acima.
 ## Próximas etapas
 
 [Configurar um serviço de nuvem para o Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

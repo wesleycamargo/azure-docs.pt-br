@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Fase 2 da carga de trabalho do farm da intranet do SharePoint: configurar controladores de domínio
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 Nesta fase de implantação de um farm do SharePoint 2013 apenas para intranet com Grupos de disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você configura dois controladores de domínio na rede virtual do Azure no Gerenciamento de Serviços. As solicitações da Web do cliente por recursos de farm do SharePoint podem ser autenticadas na rede virtual do Azure, em vez de enviar esse tráfego de autenticação pela conexão de VPN ou Rota Expressa do Azure à rede local.
 
@@ -113,7 +115,7 @@ Faça logon no primeiro computador do controlador de domínio usando as credenci
 5.	A caixa de diálogo do navegador será exibida com a pergunta: "Deseja abrir ou salvar ComputerName.rdp de manage.windowsazure.com?" Clique em **Abrir**.
 6.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Conectar**.
 7.	Na caixa de diálogo **Segurança do Windows**, clique em **Usar outra conta**.
-8.	Em **Nome de usuário**, digite o nome da VM e o nome de usuário da conta de administrador local criada com a máquina virtual (uma conta de máquina local). Use o seguinte formato: *NomeDoComputador**NomeDeContaDoAdministradorLocal*
+8.	Em **Nome de usuário**, digite o nome da VM e o nome de usuário da conta de administrador local criada com a máquina virtual (uma conta de máquina local). Use o seguinte formato: *NomeDoComputador*\*NomeDaContaDoAdministradorLocal*
 9.	Em **Senha**, digite a senha da conta de administrador local.
 10.	Clique em **OK**.
 11.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Sim**. A área de trabalho da nova máquina é exibida em uma janela de sessão de Área de Trabalho Remota.
@@ -203,14 +205,14 @@ Em seguida, execute as seguintes etapas para adicionar outras propriedades de co
 
 Em seguida, atualize os servidores DNS da sua rede virtual para que o Azure atribua às máquinas virtuais os endereços IP dos dois novos controladores de domínio para que eles sejam usados como seus servidores DNS. Observe que esse procedimento usa os valores da Tabela V (para as configurações da rede virtual).
 
-1.	No painel esquerdo do Portal do Azure, clique em **Redes** e, em seguida, clique no nome da sua rede virtual (Tabela V – Item 1 – coluna Valor).
+1.	No painel esquerdo do Portal do Azure, clique em **Redes** e, em seguida, clique no nome de sua rede virtual (Tabela V – Item 1 – coluna Valor).
 2.	Clique em **Configurar**.
 3.	Em **Servidores DNS**, remova as entradas correspondentes aos servidores DNS que estão na rede local.
 4.	Em **Servidores DNS**, adicione duas entradas com nomes amigáveis e os endereços IP dos seguintes itens de tabela:
  - Tabela V – Item 6 – coluna Valor
  - Tabela V – Item 7 – coluna Valor
 5.	Na barra de comandos na parte inferior, clique em **Salvar**.
-6.	No painel esquerdo do Portal do Azure, clique em **Máquinas Virtuais** e então na coluna **Status** ao lado do nome do seu primeiro controlador de domínio.
+6.	No painel esquerdo do Portal do Azure, clique em **Máquinas Virtuais** e clique na coluna **Status** ao lado do nome do seu primeiro controlador de domínio.
 7.	Na barra de comandos, clique em **Reiniciar**.
 8.	Quando o primeiro controlador de domínio for iniciado, clique na coluna **Status** ao lado do nome do seu segundo controlador de domínio.
 9.	Na barra de comandos, clique em **Reiniciar**. Aguarde até que o segundo controlador de domínio seja iniciado.
@@ -246,4 +248,4 @@ Para continuar a configuração dessa carga de trabalho, vá para a [Fase 3: con
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Restaurar um volume do StorSimple de um conjunto de backup | Microsoft Azure"
-	description="Explica como usar a página Catálogo de Backup do serviço StorSimple Manager para restaurar um volume do StorSimple de um conjunto de backup."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explica como usar a página Catálogo de Backup do serviço StorSimple Manager para restaurar um volume do StorSimple de um conjunto de backup."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Restaurar um volume do StorSimple de um conjunto de backup
 
@@ -78,8 +78,14 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
 
 8. Após a conclusão da restauração, você poderá verificar se o conteúdo de seus volumes foi substituído pelos volumes do backup.
 
+![Vídeo disponível](./media/storsimple-restore-from-backup-set/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo que demonstra como você pode usar os recursos de clonagem e restauração no StorSimple para recuperar arquivos excluídos, clique [aqui](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+
 ## Próximas etapas
 
-Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes.md).
+- Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes.md).
 
-<!---HONumber=September15_HO1-->
+- Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

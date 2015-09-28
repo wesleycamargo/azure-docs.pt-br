@@ -13,80 +13,81 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/12/2015"
+   ms.date="09/11/2015"
    ms.author="shkurhek"/>
 
 # Camadas de serviço
 
-O [Banco de Dados SQL](sql-database-technical-overview.md) está disponível nas camadas Basic, Standard e Premium. As três camadas de serviço têm um [SLA](http://azure.microsoft.com/support/legal/sla/) de tempo de atividade de 99,99% e oferecem desempenho previsível, opções de continuidade dos negócios flexíveis, recursos de segurança e cobrança por hora. Com vários níveis de desempenho em cada camada de serviço, você tem a flexibilidade de escolher o nível que melhor atende às suas demandas de carga de trabalho. Se precisar expandir ou reduzir, você poderá alterar as camadas do banco de dados com facilidade no Portal do Azure, sem tempo de inatividade dos aplicativos. Consulte [Alterando camadas de serviços e níveis de desempenho do banco de dados](https://msdn.microsoft.com/library/azure/dn369872.aspx) para obter detalhes.
+## Visão geral
+O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) fornece várias camadas de serviço para lidar com diferentes tipos de cargas de trabalho. Você tem a opção de criar um único banco de dados com características e preços definidos. Ou você pode criar vários bancos de dados em um pool de banco de dados elástico. Em ambos os casos, as camadas incluem **Basic**, **Standard** e **Premium**. Mas as características dessas camadas variam conforme você cria um banco de dados individual ou um pool de banco de dados elástico. Este artigo fornece uma visão geral das camadas de serviço em ambos os contextos.
 
-> [AZURE.IMPORTANT]As edições Web e Business estão sendo desativadas. Descubra como [atualizar as edições Web e Business](sql-database-upgrade-new-service-tiers.md). Leia [Perguntas frequentes sobre a descontinuação](http://azure.microsoft.com/pricing/details/sql-database/web-business/) se planeja continuar usando as edições Web e Business.
+## Camadas de serviço
+Todas as camadas de serviço, Basic, Standard e Premium têm um SLA de tempo de atividade de 99,99% e oferecem desempenho previsível, opções de continuidade dos negócios flexíveis, recursos de segurança e cobrança por hora. A tabela a seguir fornece exemplos das camadas mais adequadas para cargas de trabalho de aplicativos diferentes.
 
-## Basic
+| Camada de serviço | Cargas de trabalho de destino |
+|---|---|
+| **Básico** | Mais adequada para um banco de dados de tamanho pequeno, suporta normalmente uma única operação ativa em um determinado momento. Os exemplos incluem bancos de dados usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
+| **Standard** | A opção ideal para a maioria dos aplicativos em nuvem, permitindo várias consultas simultâneas. Os exemplos incluem aplicativos da web ou de grupo de trabalho. |
+| **Premium** | Projetado para alto volume transacional, permitindo um grande número de usuários simultâneos e exigindo o mais alto nível de recursos de continuidade de negócios. Os exemplos são bancos de dados com suporte a aplicativos de missão críticos. |
 
-A camada Basic foi desenvolvida para aplicativos com pouca carga de trabalho transacional. Um caso de uso típico é um aplicativo simples que precisa de um banco de dados pequeno com uma única operação em um determinado momento.
+>[AZURE.NOTE]As edições Web e Business estão sendo desativadas. Descubra como [atualizar as edições Web e Business](sql-database-upgrade-new-service-tiers.md). Leia [Perguntas frequentes sobre a descontinuação](http://azure.microsoft.com/pricing/details/sql-database/web-business/) se planeja continuar usando as edições Web e Business.
 
-**Desempenho, tamanho e recursos**
+### Camadas de serviço para bancos de dados individuais
+Para bancos de dados individuais existem vários níveis de desempenho em cada camada de serviço, você tem a flexibilidade de escolher o nível que melhor atende às suas demandas de carga de trabalho. Se precisar expandir ou reduzir, você poderá alterar as camadas do banco de dados com facilidade no Portal do Azure, sem tempo de inatividade dos aplicativos. Consulte [Alterando camadas de serviços e níveis de desempenho do banco de dados](sql-database-scale-up.md) para obter detalhes.
 
+As características de desempenho listadas aqui se aplicam a bancos de dados criados usando [Banco de Dados SQL V12](sql-database-v12-whats-new.md).
 
-| Camada de serviço | Basic |
-| :-- | :-- |
-| DTUs (Unidades de Taxa de Transferência de Banco de Dados) | 5 |
-| Tamanho máximo do banco de dados | 2 GB |
-| PITR (Restauração Pontual) | Até milissegundos nos últimos 7 dias |
-| Recuperação de desastre | Restauração geográfica, restauração em qualquer região do Azure |
-| Objetivos de desempenho | Taxa de transações por hora |
+[AZURE.INCLUDE [Tabela de camadas de serviço do Banco de Dados SQL](../../includes/sql-database-service-tiers-table.md)]
 
+### Camadas de serviço para pools de banco de dados elástico
+Além de criar e dimensionar um único banco de dados, você também tem a opção de gerenciar vários bancos de dados dentro de um [pool de banco de dados elástico](sql-database-elastic-pool.md). Todos os bancos de dados em um pool de banco de dados elástico compartilham um conjunto comum de recursos. As características de desempenho são medidas pelas *Unidades de Transação de Banco de Dados elástico* (eDTUs). Do mesmo jeito que ocorre com os bancos de dados individuais, os pools de banco de dados elástico possuem três camadas de desempenho: **Basic**, **Standard** e **Premium**. Para bancos de dados elásticos essas três camadas de serviço ainda definem os limites de desempenho geral e vários outros recursos.
 
-## Padrão
+Pools de banco de dados elástico permitem que esses bancos de dados compartilhem e consumam os recursos DTU sem a necessidade de atribuir um nível de desempenho específicos para os bancos de dados no pool. Por exemplo, um banco de dados individual em um pool Standard pode usar de 0 eDTUs até o máximo de banco de eDTU de banco de dados (qualquer um dos 100 eDTUs definidos pela camada de serviço ou um número personalizado configurado por você). Isso permite que vários bancos de dados com diferentes cargas de trabalho usem os recursos de eDTU disponíveis para todo o pool de forma eficiente.
 
-A camada Standard é a opção ideal para começar a lidar com cargas de trabalho transacionais. Ela oferece melhor desempenho e melhores recursos internos de continuidade dos negócios em comparação com a camada Basic. Um caso de uso típico é um aplicativo com várias transações simultâneas.
+A tabela a seguir descreve as características das camadas de serviço do pool de banco de dados elástico.
 
-**Desempenho e tamanho**
+[AZURE.INCLUDE [Tabela de níveis de serviço de BD SQL para bancos de dados elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
+>[AZURE.NOTE]Cada banco de dados dentro de um pool também cumpre as características do banco de dados individual para essa camada. Por exemplo, o pool Basic tem um limite máximo de sessões por pool de 2400 a 28800, mas um banco de dados individual dentro desse pool tem um limite de banco de dados de 300 sessões (o limite para um banco de dados Basic individual conforme especificado na seção anterior).
 
-| Camada de serviço | Padrão S0 | Padrão S1 | Padrão S2 | Padrão S3 |
-| :-- | :-- | :-- | :-- | :-- |
-| DTUs (Unidades de Taxa de Transferência de Banco de Dados) | 10 | 20 | 50 | 100 |
-| Tamanho máximo do banco de dados | 250 GB | 250 GB | 250 GB | 250 GB |
+## Noções básicas sobre DTUs
 
+[AZURE.INCLUDE [Descrição de DTU de Banco de Dados SQL](../../includes/sql-database-understanding-dtus.md)]
 
-**Recursos**
+## Monitoramento de desempenho
+O monitoramento do desempenho de um Banco de Dados SQL começa com o monitoramento da utilização de recursos em relação ao nível de desempenho escolhido para seu banco de dados. Esses dados relevantes são expostos das seguintes maneiras:
 
+1.	No Portal de Gerenciamento do Microsoft Azure.
 
-| Camada de serviço | Padrão (S0, S1, S2, S3) |
-| :-- | :-- |
-| PITR (Restauração Pontual) | Até milissegundos nos últimos 14 dias |
-| Recuperação de desastre | Replicação geográfica padrão, 1 secundária offline |
-| Objetivos de desempenho | Taxa de transações por minuto |
+2.	Nas Exibições de Gerenciamento Dinâmico no banco de dados do usuário e no banco de dados mestre do servidor que contém o banco de dados do usuário.
 
+No [Portal de Visualização do Azure](https://portal.azure.com/), você pode monitorar a utilização de um banco de dados individual selecionando-o e clicando no gráfico de **Monitoramento**. Isso abre uma janela de **Métricas** que pode ser alterada clicando no botão **Editar gráfico**. Adicione as seguintes métricas:
 
-## Premium
+- Porcentagem de CPU
+- Porcentagem de DTU
+- Porcentagem de E/S de dados
+- Porcentagem de armazenamento
 
-A camada Premium foi desenvolvida para aplicativos críticos. Ela oferece o melhor nível de desempenho e acesso aos recursos avançados de continuidade dos negócios, incluindo replicação geográfica ativa em até 4 regiões do Azure de sua escolha. Um caso de uso típico é um aplicativo crítico com alto volume transacional e muitos usuários simultâneos.
+Depois de adicionar essas métricas, você pode continuar a exibi-las no gráfico **Monitoramento** com mais detalhes na janela **Métrica**. Todas as quatro métricas mostram a porcentagem média de utilização relativa à **DTU** do seu banco de dados.
 
-**Desempenho e tamanho**
+![monitoramento da camada de serviço](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
 
+Você também pode configurar alertas nas métricas de desempenho. Clique no botão **Adicionar alerta** na janela **Métrica**. Siga o Assistente para configurar o alerta. Você tem a opção de alerta se a métrica exceder um limite determinado ou se ficar abaixo de um limite determinado.
 
-| Camada de serviço | Premium P1 | Premium P2 | Premium P4 | Premium P6 (anteriormente, P3) |
-| :-- | :-- | :-- | :-- | :-- |
-| DTUs (Unidades de Taxa de Transferência de Banco de Dados) | 125 | 250 | 500 | 1000 |
-| Tamanho máximo do banco de dados | 500 GB | 500 GB | 500 GB | 500 GB |
+Por exemplo, se você espera que a carga de trabalho em seu banco de dados cresça, você poderá configurar um alerta por email sempre que seu banco de dados atinge 80% em qualquer uma das métricas de desempenho. Você pode usar isso como um aviso antecipado para decidir quando precisará alternar para o próximo nível mais alto de desempenho.
 
+As métricas de desempenho podem ajudá-lo a determinar se você pode fazer downgrade para um nível de desempenho inferior. Suponha que você está usando um banco de dados Standard S2 e todas as métricas de desempenho mostram que o banco de dados em média não usa mais de 10% a qualquer momento. É provável que o banco de dados funcione bem em Standard S1. No entanto, tome cuidado com cargas de trabalho que apresentam picos ou oscilam antes de tomar a decisão de migrar para um nível de desempenho inferior.
 
-**Recursos**
+As mesmas métricas que são expostas no portal também estão disponíveis por meio de exibições do sistema: [resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados mestre lógico do seu servidor e [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) no banco de dados do usuário (**sys.dm\_db\_resource\_stats** é criado em cada banco de dados de usuário Basic, Standard e Premium. Bancos de dados das edições Web e Business retornam um conjunto de resultados vazio). Use **resource\_stats** se você precisar monitorar dados menos granulares em um período de tempo maior. Use **sys.dm\_db\_resource\_stats** se você precisar monitorar dados mais granulares em um período de tempo menor. Para saber mais, consulte [Diretrizes de desempenho de Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn369873.aspx).
 
+Para pools de banco de dados elástico, você pode monitorar bancos de dados individuais no pool com as técnicas descritas nesta seção. Mas você também pode monitorar o pool como um todo. Para obter informações, consulte [Monitorar e gerenciar um pool de banco de dados elástico](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool).
 
-| Camada de serviço | Premium (P1, P2, P4, P6) |
-| :-- | :-- |
-| PITR (Restauração Pontual) | Até milissegundos nos últimos 35 dias |
-| Recuperação de desastre | Replicação geográfica ativa, até 4 secundárias legíveis online |
-| Objetivos de desempenho | Taxa de transações por segundo |
-
-
+## Próximas etapas
 Saiba mais sobre os preços para essas camadas em [Preços de Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+
+Se você estiver interessado no gerenciamento de vários bancos de dados como um grupo, considere [pools de banco de dados elástico](sql-database-elastic-pool-guidance.md) com as considerações de [preço e desempenho para pools de banco de dados elástico](sql-database-elastic-pool-guidance.md) associadas.
 
 Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/09/2015"
+   ms.date="09/11/2015"
    ms.author="sethm" />
 
 # Filas do Azure e filas do Barramento de Serviço — comparações e contrastes
@@ -272,7 +272,7 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço de u
 
 |Critérios de comparação|Filas do Azure|Filas de barramento de serviço|
 |---|---|---|
-|Custo de transações da fila|**US$ 0,0005**<br/><br/>(por 10.000 transações)|**Camada básica**: **US$ 0,05**<br/><br/>(por milhões de operações)|
+|Custo de transações da fila|**$0,0036**<br/><br/>(a cada 100.000 transações)|**Camada básica**: **US$ 0,05**<br/><br/>(por milhões de operações)|
 |Operações faturáveis|**Todas**|**Apenas Enviar/Receber**<br/><br/>(sem cobrança para outras operações)|
 |Transações ociosas|**Faturáveis**<br/><br/>(a consulta de uma fila vazia é contada como transação faturável)|**Faturáveis**<br/><br/>(um recebimento em uma fila vazia é considerado uma mensagem faturável)|
 |Custo de armazenamento|**US$ 0,07**<br/><br/>(por GB/mês)|**US$ 0,00**|
@@ -288,7 +288,7 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço de u
 
 - Dado o suporte à sondagem longa, usar as filas do Barramento de Serviço pode ser econômico em situações em que a entrega de baixa latência é necessária.
 
->[AZURE.NOTE]Todos os custos estão sujeitos a alterações. Esta tabela reflete os preços atuais no momento da elaboração deste artigo e não inclui nenhuma oferta promocional que possa estar disponível no momento. Para obter informações atualizadas sobre os preços do Azure, consulte a página de [preços do Azure](http://azure.microsoft.com/pricing/). Para obter mais informações sobre o preço do Barramento de Serviço, consulte [Preço do Barramento de Serviço]((http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE]Todos os custos estão sujeitos a alterações. Esta tabela reflete os preços atuais no momento da elaboração deste artigo e não inclui nenhuma oferta promocional que possa estar disponível no momento. Para obter informações atualizadas sobre os preços do Azure, consulte a página de [preços do Azure](http://azure.microsoft.com/pricing/). Para saber mais sobre o preço do Barramento de Serviço, consulte [Preço do Barra de Serviço](http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusão
 
@@ -311,4 +311,4 @@ Os artigos a seguir fornecem mais orientação e informações sobre como usar a
 - [Noções básicas sobre a cobrança de armazenamento do Azure — largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

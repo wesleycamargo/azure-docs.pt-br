@@ -3,7 +3,7 @@
 	description="Use o Azure PowerShell para criar rapidamente uma nova máquina virtual baseada em Windows no Gerenciamento de Serviços e realizar funções de gerenciamento."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Criar e gerenciar uma máquina virtual baseada em Windows no Gerenciamento de Serviços usando o Azure PowerShell
 
@@ -209,4 +209,4 @@ Para anexar discos de dados de um arquivo .vhd existente no armazenamento de blo
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO3-->

@@ -74,7 +74,7 @@ Propriedade | Descrição
 | ------------- | -----------
 | ID do cliente | O identificador exclusivo lógico para seu aplicativo. Você precisa usar esse identificador em chamadas para o Graph API ou outras APIs Web registradas no AD do Azure. O AD do Azure gera automaticamente esse valor durante o registro do aplicativo e ele não pode ser alterado.<BR><BR>Para habilitar seu aplicativo a acessar o diretório (para acesso de leitura ou gravação) por meio do Graph API, você precisa de uma ID de Cliente e de uma chave (conhecida no OAuth 2.0 como um segredo do cliente). Seu aplicativo usa a ID do cliente e a chave para solicitar um token de acesso do ponto de extremidade de token OAuth do 2.0 do AD do Azure. (Para exibir todos os pontos de extremidade do AD do Azure, na barra de comandos, clique em **Exibir pontos de extremidade**.) Ao usar o Graph API para obter ou definir dados de diretório (alteração), seu aplicativo usa esse token de acesso no cabeçalho de Autorização da solicitação para o Graph API.
 | Chaves | Se seu aplicativo lê ou grava dados no AD do Azure, como dados que são disponibilizados por meio do Graph API, seu aplicativo precisa de uma chave. Quando você solicita um token de acesso para chamar o Graph API, seu aplicativo fornece sua **ID de cliente** e **Chave**. O ponto de extremidade do token usa a ID e a chave para autenticar seu aplicativo antes de emitir o token de acesso. Você pode criar várias chaves para lidar com cenários de substituição de chave. Além disso, pode excluir chaves expiradas, comprometidas ou não mais em uso.
-| Gerenciar acesso | Escolha um dos três diferentes níveis de acesso: SSO (logon único), SSO e dados de diretório de leitura ou SSO e dados de diretório de leitura/gravação. Você também pode remover o acesso. Para obter mais informações sobre o acesso ao diretório, consulte [Níveis de acesso do aplicativo](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels).<br><BR>**Observação**: as alterações no nível de acesso de diretório do aplicativo se aplicam somente ao seu diretório. As alterações não se aplicam aos clientes que têm acesso a seu aplicativo.
+| Gerenciar acesso | Escolha um dos três diferentes níveis de acesso: SSO (logon único), SSO e dados de diretório de leitura ou SSO e dados de diretório de leitura/gravação. Você também pode remover o acesso. <br><BR>**Observação**: as alterações no nível de acesso do diretório do seu aplicativo aplicam-se somente ao seu diretório. As alterações não se aplicam aos clientes que têm acesso a seu aplicativo.
 
 
 ### Clientes nativos
@@ -85,4 +85,4 @@ Propriedade | Descrição
 
 ##
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

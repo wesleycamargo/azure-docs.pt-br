@@ -3,7 +3,7 @@
 	description="Aprenda a criar uma máquina virtual personalizada que executa o Windows no Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Criar uma máquina virtual personalizada que executa o Windows no Azure
 
@@ -32,6 +32,6 @@ Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que vo
 
 ##Para criar a máquina virtual
 
-[AZURE.INCLUDE [virtual-machines-create-windowsvm](../../includes/virtual-machines-create-windowsvm.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -148,9 +148,18 @@ Ao entregar uma nova história de usuário, você desejará saber o quanto seus 
 
 Se você ainda não publicou seu aplicativo (já que adicionou o Application Insights), faça isso agora. Observe os dados aumentarem nos gráficos, à medida que as pessoas usam seu aplicativo.
 
+
+#### Nenhum dado depois de publicar no servidor?
+
+Abra estas portas para tráfego de saída no firewall do servidor:
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 ### Mantenha recursos separados para desenvolvimento, teste e lançamento
 
 Em um aplicativo importante, é aconselhável enviar dados de telemetria da depuração, teste e produção em [recursos separados](app-insights-separate-resources.md).
+
 
 
 
@@ -166,7 +175,7 @@ Esta etapa também habilita o [relatório de contadores de desempenho](app-insig
 
 Faça logon no servidor com direitos de administrador e instale o [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(Você também pode usar o Status Monitor para [instrumentar um aplicativo que já esteja em execução](app-insights-monitor-performance-live-website-now.md), mesmo que ele não tenha sido criado com o SDK.)
+Você precisa verificar se algumas [portas adicionais estão abertas no firewall do servidor](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
 #### Se seu aplicativo for um Aplicativo Web do Azure
 
@@ -178,7 +187,7 @@ No painel de controle do Aplicativo Web do Azure, adicione a extensão do Applic
 
 #### Para monitorar funções de serviços de nuvem do Azure
 
-Há um [procedimento manual para adicionar o Status Monitor](app-insights-cloudservices.md).
+Há um [procedimento manual para adicionar o monitor de status](app-insights-cloudservices.md).
 
 ## Testes de disponibilidade na Web
 
@@ -226,4 +235,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

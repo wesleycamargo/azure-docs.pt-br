@@ -3,7 +3,7 @@
 	description="Conheça o básico sobre máquinas virtuais no Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Sobre Máquinas Virtuais do Azure
 
@@ -49,4 +49,4 @@ Se você estiver começando a aprender sobre as máquinas virtuais do Azure, con
 [Máquinas virtuais]: #tellmevm
 [Serviços de Nuvem]: cloud-services-choose-me.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -131,7 +131,7 @@ Observe que você não pode usar funções codificadas em seus testes: as etapas
 
 #### 1\. Registrar um cenário
 
-Use o Visual Studio Ultimate para registrar uma sessão da Web.
+Use o Visual Studio Enterprise ou Ultimate para registrar uma sessão da Web.
 
 1. Crie um projeto de teste de desempenho na Web.
 
@@ -147,14 +147,18 @@ Use o Visual Studio Ultimate para registrar uma sessão da Web.
 
     Não crie um cenário longo. Há um limite de 100 etapas e 2 minutos.
 
-4. Execute o teste no Visual Studio para confirmar que ele funciona.
+4. Edite o teste para:
+ - Adicionar validações para verificar o texto recebido e os códigos de resposta.
+ - Remover todas as interações supérfluas. Você também pode remover solicitações dependentes de imagens, ou de sites de anúncio ou rastreamento.
+
+    Lembre-se de que você só pode editar o script de teste — não é possível adicionar código personalizado ou chamar outros testes da web. Não insira loops no teste. Você pode usar plug-ins de teste da Web padrão.
+
+5. Execute o teste no Visual Studio para confirmar que ele funciona.
 
     O executor do teste na Web abre um navegador da Web e repete as ações gravadas por você. Verifique se ele funciona conforme o esperado.
 
     ![No Visual Studio, abra o arquivo .webtest e clique em Executar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-
-(Não insira loops em seu teste na Web.)
 
 #### 2\. Carregar o teste na Web para o Application Insights
 
@@ -218,7 +222,7 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 
 * *Posso chamar o código através do meu teste na Web?*
 
-    Não. As etapas do teste devem estar no arquivo .webtest. Há uma série de plug-ins que podem ser úteis.
+    Não. As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Mas há uma série de plug-ins que você pode achar úteis.
 
 ## <a name="video"></a>Vídeo
 
@@ -240,4 +244,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

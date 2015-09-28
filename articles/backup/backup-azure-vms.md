@@ -3,11 +3,11 @@
 	description="Saiba como fazer backup de uma máquina virtual do Azure após o registro"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/14/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
 # Fazer backup de máquinas virtuais do Azure
@@ -89,7 +89,7 @@ Para proteger uma máquina virtual, execute as seguintes etapas:
 
 4. O assistente **Proteger Itens** é o local onde as máquinas virtuais a serem protegidas podem ser selecionadas. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para distinguir entre elas.
 
-    A operação **Proteger** pode ser feita em grande escala, o que significa que várias máquinas virtuais podem ser selecionadas ao mesmo tempo para serem registradas. Isso reduz consideravelmente o esforço feito para proteger a máquina virtual.
+    A operação **Protect** pode ser feita em escala, o que significa que várias máquinas virtuais podem ser selecionadas ao mesmo tempo para serem protegidas. Isso reduz consideravelmente o esforço feito para proteger a máquina virtual.
 
     ![Configurar proteção em escala](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -101,7 +101,7 @@ Para proteger uma máquina virtual, execute as seguintes etapas:
 
     ![Proteger com nova política](./media/backup-azure-vms/policy-schedule.png)
 
-6. Na terceira tela do assistente **Proteger itens**, escolha um período de retenção a ser associado com os backups. Essas telas dão suporte ao esquema de retenção baseado em GFS(Grandfather-Father-Son) padrão da indústria. Leia mais sobre [retenção de longo prazo] (backup-azure-vms-introduction.md#Long term retention).
+6. Na terceira tela do assistente **Proteger itens**, escolha um período de retenção a ser associado com os backups. Essa tela dá suporte ao esquema de retenção baseado em GFS(Grandfather-Father-Son) padrão do setor. Leia mais sobre [retenção de longo prazo](#long-term-retention).
 
     Uma política de backup também envolve o esquema de retenção dos backups agendados. A seleção de uma política de backup existente na tela anterior desabilita a modificação do esquema de retenção, e os backups seguem a política de retenção conforme definido na política.
 
@@ -136,13 +136,17 @@ Depois de protegido, a contagem de máquina virtual também aumenta no resumo da
 
 ![Status do backup na página Painel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
+>[AZURE.NOTE]Os valores no painel são atualizados a cada 24 horas.
+
 ### Retenção de longo prazo
 A política de retenção especifica durante quanto tempo o backup deverá ser armazenado. Em vez de especificar apenas uma “política simples” para todos os pontos de backup, os clientes podem especificar diferentes políticas de retenção com base em quando o backup é feito. Por exemplo, o ponto de backup criado no final de cada trimestre talvez precise ser preservado por mais tempo para fins de auditoria, enquanto o ponto de backup feito diariamente, que funciona como um ponto de recuperação operacional, deve ser preservado por 90 dias.
+
+![O backup da máquina virtual é realizado com ponto de recuperação](./media/backup-azure-vms/long-term-retention.png)
 
 1. **Política de retenção diária**: os backups diários são armazenados por 30 dias.
 2. **Política de retenção semanal**: os backups semanais aos domingos serão armazenados por 104 semanas
 3. **Política de retenção mensal**: os backups mensais no último domingo do mês serão armazenados por 120 meses
-4. **Política de retenção anual**: os backups feitos no primeiro domingo de cada mês de janeiro serão armazenados por 99 anos.
+4. **Política de retenção anual**: os backups no primeiro domingo de cada mês de janeiro serão armazenados por 99 anos.
 
 ## Consistência de pontos de recuperação
 Ao lidar com dados de backup, os clientes se preocupam com o comportamento da VM após ela ser restaurada. Perguntas típicas feitas pelos clientes são:
@@ -156,9 +160,9 @@ A tabela a seguir explica os tipos de consistência encontrados durante o backup
 
 | Consistência | Baseado em VSS | Explicação e detalhes |
 |-------------|-----------|---------|
-| Consistência de aplicativo | Sim | Este é o lugar ideal para cargas de trabalho da Microsoft porque garante:<ol><li> que a VM *será iniciada*. <li>Não há *corrupção*. <li>Não há *perda de dados*.<li> Os dados são consistentes com o aplicativo que usa os dados, envolvendo o aplicativo no momento do backup - usando o VSS.</ol> O VSS (Serviço de Instantâneo de Volume) garante que os dados sejam gravados corretamente para o armazenamento. A maioria das cargas de trabalho Microsoft têm gravadores VSS que executam ações específicas de carga de trabalho relacionadas a consistência dos dados. Por exemplo, o Microsoft SQL Server tem um gravador VSS que garante que as gravações no arquivo de log de transações e no banco de dados sejam realizadas corretamente.<br><br> Para backup da VM do Azure, obter um ponto de recuperação consistente no aplicativo significa que a extensão de backup foi capaz de invocar o fluxo de trabalho do VSS e ser concluída *corretamente* antes que o instantâneo da VM fosse tirado. Naturalmente, isso significa que os gravadores VSS de todos os aplicativos na VM do Azure também são chamados.<br><br>Aprenda as [noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e aprofunde-se nos detalhes de [como ele funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
+| Consistência de aplicativo | Sim | Este é o lugar ideal para cargas de trabalho da Microsoft porque garante:<ol><li> que a VM *será iniciada*. <li>Não há *corrupção*. <li>Não há *perda de dados*.<li> Os dados são consistentes com o aplicativo que usa os dados, envolvendo o aplicativo no momento do backup — usando o VSS.</ol> O VSS (Serviço de Instantâneo de Volume) garante que os dados sejam gravados corretamente para o armazenamento. A maioria das cargas de trabalho Microsoft têm gravadores VSS que executam ações específicas de carga de trabalho relacionadas a consistência dos dados. Por exemplo, o Microsoft SQL Server tem um gravador VSS que garante que as gravações no arquivo de log de transações e no banco de dados sejam realizadas corretamente.<br><br> Para backup da VM do Azure, obter um ponto de recuperação consistente no aplicativo significa que a extensão de backup foi capaz de invocar o fluxo de trabalho do VSS e ser concluída *corretamente* antes que o instantâneo da VM fosse tirado. Naturalmente, isso significa que os gravadores VSS de todos os aplicativos na VM do Azure também são chamados.<br><br>Aprenda as [noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e aprofunde-se nos detalhes de [como ele funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
 | Consistência do sistema de arquivos | Sim - para computadores executando Windows | Há dois cenários em que o ponto de recuperação pode ser consistente com o sistema de arquivos:<ul><li>Backup de VMs do Linux no Azure, já que o Linux não tem uma plataforma equivalente ao VSS.<li>Falha do VSS durante o backup de máquinas virtuais do Windows no Azure.</li></ul> Em ambos os casos, o melhor que você pode fazer é garantir que: <ol><li> a VM *seja iniciada*. <li>Não haja *corrupção*.<li>Não haja *perda de dados*.</ol> Os aplicativos precisam implementar seu próprio mecanismo de "correção" nos dados restaurados.|
-| Consistência de falhas | Não | Essa situação é equivalente a um computador tendo uma "falha" (por meio de uma reinicialização forçada ou flexível). Isso geralmente acontece quando a máquina virtual do Azure está desligada no momento do backup. Para backup da máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no meio de armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup. <br/> <br/> Embora não haja garantia, na maioria dos casos o sistema operacional será inicializado. Normalmente, isso é seguido por um procedimento de verificação de disco, como chkdsk, para corrigir qualquer erro de corrupção. Quaisquer dados na memória ou gravações que não tenham sido totalmente liberadas para o disco serão perdidas. O aplicativo geralmente segue com seu próprio mecanismo de verificação, caso seja necessário realizar reversão de dados. Para backup de máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Isso geralmente acontece quando a VM do Azure é desligada no momento do backup.<br><br>Por exemplo, se o log de transações tiver entradas que não estão presentes no banco de dados, o software de banco de dados fará uma reversão até que os dados estejam consistentes. Ao lidar com dados distribuídos em vários discos virtuais (como volumes estendidos), um ponto de recuperação consistente quanto a falhas não garante a exatidão dos dados.|
+| Consistência de falhas | Não | Essa situação é equivalente a um computador tendo uma "falha" (por meio de uma reinicialização forçada ou flexível). Isso geralmente acontece quando a máquina virtual do Azure está desligada no momento do backup. Para backup da máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no meio de armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup. <br/> <br/> Embora não haja garantia, na maioria dos casos, o sistema operacional será inicializado. Normalmente, isso é seguido por um procedimento de verificação de disco, como chkdsk, para corrigir qualquer erro de corrupção. Quaisquer dados na memória ou gravações que não tenham sido totalmente liberadas para o disco serão perdidas. O aplicativo geralmente segue com seu próprio mecanismo de verificação, caso seja necessário realizar reversão de dados. Para backup de máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Isso geralmente acontece quando a VM do Azure é desligada no momento do backup.<br><br>Por exemplo, se o log de transações tiver entradas que não estão presentes no banco de dados, o software de banco de dados fará uma reversão até que os dados estejam consistentes. Ao lidar com dados distribuídos em vários discos virtuais (como volumes estendidos), um ponto de recuperação consistente quanto a falhas não garante a exatidão dos dados.|
 
 
 ## Desempenho e utilização de recursos
@@ -169,12 +173,12 @@ Como o software de backup que é implantado localmente, o backup de VMs no Azure
 
 Quando os dados de backup são copiados da conta de armazenamento do cliente, eles contam na direção das métricas de IOPS e Egresso (taxa de transferência de armazenamento) da conta de armazenamento. Ao mesmo tempo, as máquinas virtuais também estão em execução e consumindo IOPS e taxa de transferência. O objetivo é garantir que o tráfego total - backup e máquina virtual - não exceda os limites da conta de armazenamento.
 
-O backup é ávido e tenta consumir tantos recursos quanto possível, com o objetivo de concluir o backup o mais rápido que puder. No entanto, todas as operações de E/S são limitadas pelo *Rendimento de destino por Blob único*, que tem um limite de *60 MB por segundo*. Para acelerar o processo de backup, tenta-se realizar o backup de cada disco da VM *em paralelo*. Portanto, se uma VM tem 4 discos, o Azure Backup tentará fazer o backup de todos os 4 discos em paralelo. Assim, o fator mais importante que determina o tráfego de backup em saída de uma conta de armazenamento do cliente é o **número de discos** cujo backup está sendo feito da conta de armazenamento.
+O backup é ávido e tenta consumir tantos recursos quanto possível, com o objetivo de concluir o backup o mais rápido que puder. No entanto, todas as operações de E/S são limitadas pela *Taxa de transferência de destino por blob único*, que tem um limite de *60 MB por segundo*. Para acelerar o processo de backup, são feitas tentativas de backup de cada disco da VM *paralelamente*. Portanto, se uma VM tem 4 discos, o Azure Backup tentará fazer o backup de todos os 4 discos em paralelo. Assim, o fator mais importante que determina o tráfego de backup em saída de uma conta de armazenamento do cliente é o **número de discos** cujo backup está sendo feito da conta de armazenamento.
 
 Um outro fator que afeta o desempenho é o **agendamento de backup**. Se você configurar todas as VMs para backup simultâneo, o número de discos cujo backup está sendo feito *em paralelo* aumentará, já que o Backup do Azure tenta realizar o backup do máximo possível de discos. Portanto, uma maneira de reduzir o tráfego de backup de uma conta de armazenamento é garantir que o backup das VMs diferentes seja feito em diferentes momentos do dia, sem sobreposição.
 
 ### Planejamento da capacidade
-Reunir todos esses fatores significa que o uso da conta de armazenamento precisa ser planejado corretamente. Baixe a [planilha do Excel para planejamento de capacidade de backup de VMs](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) para ver o impacto de suas escolhas relativas a disco e agendamento de backup.
+Reunir todos esses fatores significa que o uso da conta de armazenamento precisa ser planejado corretamente. Baixe a [planilha do Excel para planejamento de capacidade de backup de VMs](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) e veja o impacto de suas escolhas relativas a disco e agendamento de backup.
 
 ### Taxa de transferência de backup
 Para cada disco cujo backup está sendo feito, o Backup do Azure lê os blocos no disco e armazena somente os dados alterados (backup incremental). A tabela a seguir mostra os valores de taxa de transferência média que podem ser esperados do Backup do Azure:
@@ -203,4 +207,4 @@ Para saber mais sobre a introdução ao Backup do Azure, consulte:
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

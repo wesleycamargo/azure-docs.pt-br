@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Usar as ações de menu do MMC no StorSimple Snapshot Manager
@@ -125,6 +125,7 @@ Você pode usar o menu **Ajuda** para exibir a ajuda online disponível para o M
 
 ## Próximas etapas
 
-[Saiba mais sobre a interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
+- Saiba mais sobre [a interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
+- Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

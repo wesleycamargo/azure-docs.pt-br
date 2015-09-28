@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Agendar trabalhos recorrentes nos Serviços Móveis do Azure" 
-	description="Use o Agendador dos serviços móveis do Azure para agendar trabalhos para seu aplicativo móvel." 
+	pageTitle="Agendar tarefas de back-end em um serviço móvel de back-end .NET | Microsoft Azure"
+	description="Use o agendador nos Serviços Móveis do Azure para definir os trabalhos de back-end .NETE executados em uma agenda."
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
 # Agendar trabalhos recorrentes nos Serviços Móveis 
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
  
 Este tópico mostra como usar a funcionalidade de agendador de trabalhos do Portal de Gerenciamento para definir o código de script que é executado com base em uma agenda definida por você. Neste caso, o script verifica periodicamente com um serviço remoto, neste caso, o Twitter, e armazena os resultados em uma nova tabela. Algumas outras tarefas periódicas que podem ser agendadas incluem:
 
@@ -213,7 +213,7 @@ Em seguida, você pode criar o trabalho agendado que acessa o Twitter e armazena
 		    }
 		}
 
-	No código acima, você deve substituir as cadeias de caracteres _todolistService_ e _todolistContext_ pelo namespace e DbContext do projeto baixado, que são *mobile&\#95;service&\#95;name*Service e *mobile&\#95;service&\#95;name*Context, respectivamente.
+	No código acima, você deve substituir as cadeias de caracteres _todolistService_ e _todolistContext_ pelo namespace e DbContext do projeto baixado, que são *mobile&#95;service&#95;name*Service e *mobile&#95;service&#95;name*Context, respectivamente.
    	
 	No código acima, o método de substituição **ExecuteAsync** chama a API de consulta do Twitter usando as credenciais armazenadas para solicitar tweets recentes que contenham a hashtag `#mobileservices`. Respostas e tweets duplicados são removidos dos resultados antes de serem armazenados na tabela.
 
@@ -300,4 +300,4 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

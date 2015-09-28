@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/16/15-->
 
 #### Para cabear o recebimento de energia
 
@@ -23,4 +24,4 @@
 
 4. Para ativar o sistema, inverta os comutadores de energia em ambos os PCMs para a posição LIGADO.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

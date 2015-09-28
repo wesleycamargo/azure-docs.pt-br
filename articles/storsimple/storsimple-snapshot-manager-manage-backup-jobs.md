@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/05/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 
@@ -108,7 +108,8 @@ Use o procedimento a seguir para exibir os trabalhos que estão sendo executados
 
 ## Próximas etapas
 
-[Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup](storsimple-snapshot-manager-manage-backup-catalog.md).
+- Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
+- Saiba como [usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup](storsimple-snapshot-manager-manage-backup-catalog.md).
 
 
 
@@ -129,4 +130,4 @@ Use o procedimento a seguir para exibir os trabalhos que estão sendo executados
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

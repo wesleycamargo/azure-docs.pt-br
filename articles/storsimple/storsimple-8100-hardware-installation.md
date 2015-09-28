@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Instalar o dispositivo StorSimple 8100 | Microsoft Azure"
-	description="Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8100 antes de implantar e configurar o software."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8100 antes de implantar e configurar o software."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
 
@@ -275,4 +275,4 @@ Agora o dispositivo está cabeado para energia, acesso à rede e conectividade s
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

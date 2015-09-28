@@ -1,19 +1,19 @@
 <properties
    pageTitle="Locais da Rota Expressa | Microsoft Azure"
-	description="Este artigo fornece uma visão geral detalhada dos locais onde os serviços são oferecidos e de como se conectar a regiões do Azure."
-	services="expressroute"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Este artigo fornece uma visão geral detalhada dos locais onde os serviços são oferecidos e de como se conectar a regiões do Azure."
+   services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="tysonn" />
 <tags
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/06/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/06/2015"
+   ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa do Azure
 As tabelas neste artigo fornecem informações sobre provedores de conectividade da Rota Expressa (EXPs e NSPs), a cobertura geográfica da Rota Expressa, serviços de nuvem da Microsoft com suporte ao longo da Rota Expressa e SIs (integradores de serviço) da Rota Expressa.
@@ -77,7 +77,7 @@ Consulte [Configurar sua conexão EXP](expressroute-configuring-exps.md) para ve
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Suportado | Sem suporte | Cingapura |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Suportado | Em breve | Amsterdã, Chennai (Madras), Hong Kong, Londres, Mumbai +, Cingapura |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Suportado | Sem suporte | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Sem suporte | Londres, Hong Kong, Vale do Silício, Washington, D.C. |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Em breve | Londres, Hong Kong, Vale do Silício, Washington, D.C. |
 
  **+** indica que haverá em breve
 
@@ -115,4 +115,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Se você deseja configurar uma conexão Rota Expressa, consulte [Configurar sua conexão EXP](expressroute-configuring-exps.md) ou [Configurar sua conexão NSP](expressroute-configuring-nsps.md).
 - Se você deseja configurar uma conexão site a site VPN e uma Rota Expressa para a mesma rede virtual, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](expressroute-coexist.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

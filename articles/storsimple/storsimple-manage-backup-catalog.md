@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gerenciar catálogo de backup do StorSimple | Microsoft Azure"
-	description="Explica como usar a página Catálogo de Backup do serviço StorSimple Manager para listar, selecionar e excluir conjuntos de backup para um volume."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explica como usar a página Catálogo de Backup do serviço StorSimple Manager para listar, selecionar e excluir conjuntos de backup para um volume."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar o catálogo de backup
 
@@ -113,6 +113,8 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
 
 ## Próximas etapas
 
-Saiba como usar o catálogo de backup para [restaurar seu dispositivo por meio de um conjunto de backup](storsimple-restore-from-backup-set.md).
+- Saiba como [usar o catálogo de backup para restaurar seu dispositivo de um conjunto de backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=September15_HO1-->
+- Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

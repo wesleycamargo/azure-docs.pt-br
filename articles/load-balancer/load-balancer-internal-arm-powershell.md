@@ -93,11 +93,11 @@ No exemplo anterior, criamos um grupo de recursos denominado "NRP-RG" e o local 
 
 ### Etapa 1
 
-Criar uma rede virtual:
+Cria uma sub-rede para a rede virtual e atribui à variável $backendSubnet
 
 	$backendSubnet = New-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 
-Cria uma sub-rede para a rede virtual e atribui à variável $backendSubnet
+Criar uma rede virtual:
 
 	$vnet= New-AzurevirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
@@ -111,7 +111,7 @@ Configure um pool de IP front-end para o tráfego de rede do balanceador de carg
 
 ### Etapa 1 
 
-Crie um pool de IPs de front-end usando o endereço IP privado 10.0.2.6 para a sub-rede 10.0.2.0/24, que será o ponto de extremidade do tráfego de rede de entrada.
+Crie um pool de IPs de front-end usando o endereço IP privado 10.0.2.5 para a sub-rede 10.0.2.0/24, que será o ponto de extremidade do tráfego de rede de entrada.
 
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
 
@@ -245,4 +245,4 @@ Você pode encontrar o passo a passo para criar uma máquina virtual e atribuir 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

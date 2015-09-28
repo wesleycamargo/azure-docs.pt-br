@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Criar um aplicativo Web Java usando o Banco de Dados de Documentos | Microsoft Azure" 
-	description="Este tutorial mostra a você como usar o serviço do Banco de Dados de Documentos do Azure para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure." 
+	pageTitle="Tutorial de desenvolvimento de aplicativo Java usando o Banco de Dados de Documentos | Microsoft Azure"
+	description="Este tutorial de aplicativo Web Java mostra a você como usar o serviço de Banco de Dados de Documentos do Azure para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure."
+	keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="java" 
 	authors="aliuy" 
@@ -16,21 +17,21 @@
 	ms.date="07/21/2015" 
 	ms.author="andrl"/>
 
-# Criar um aplicativo Web Java usando o Banco de Dados de Documentos #
+# Criar um aplicativo Web Java usando o Banco de Dados de Documentos
 
-Este tutorial mostra a você como usar o serviço do [Banco de Dados de Documentos do Microsoft Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure. Neste tópico, você aprenderá:
+Este tutorial de aplicativo Web Java mostra a você como usar o serviço de [Banco de Dados de Documentos do Microsoft Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure. Neste tópico, você aprenderá:
 
 - Como criar um aplicativo básico do JSP no Eclipse.
 - Como trabalhar com o serviço do Banco de Dados de Documentos do Azure usando o [SDK Java do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-java).
 
-Este tutorial mostra como criar um aplicativo de gerenciamento de tarefas baseado na web que permite criar, recuperar e marcar tarefas como concluídas, conforme mostrado na imagem a seguir. Cada uma das tarefas na lista de tarefas é armazenada como documentos JSON no Banco de Dados de Documentos do Azure.
+Este tutorial de aplicativo Java mostra como criar um aplicativo de gerenciamento de tarefas baseado na web que permite criar, recuperar e marcar tarefas como concluídas, conforme mostrado na imagem a seguir. Cada uma das tarefas na lista de tarefas é armazenada como documentos JSON no Banco de Dados de Documentos do Azure.
 
-![Aplicativo Minha lista de tarefas](./media/documentdb-java-application/image1.png)
+![Aplicativo Java Minha lista de tarefas pendentes](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]Este tutorial presume que você tenha experiência anterior com o Java. Se você não estiver familiarizado com Java ou as [Ferramentas pré-requisito](#Prerequisites), recomendamos o download completo do projeto [tarefas](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) no [GitHub](https://github.com/Azure/azure-documentdb-java) e compilá-lo usando [as instruções no final deste artigo](#GetProject). Depois de compilá-lo, você poderá consultar o artigo para obter informações sobre o código no contexto do projeto.
+> [AZURE.TIP]Este tutorial de desenvolvimento de aplicativo presume que você tenha experiência anterior com o Java. Se você não estiver familiarizado com Java ou as [Ferramentas pré-requisito](#Prerequisites), recomendamos o download completo do projeto [tarefas](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) no [GitHub](https://github.com/Azure/azure-documentdb-java) e compilá-lo usando [as instruções no final deste artigo](#GetProject). Depois de compilá-lo, você poderá consultar o artigo para obter informações sobre o código no contexto do projeto.
 
-##<a id="Prerequisites"></a>Pré-requisitos ##
-Antes de começar este tutorial, você deve ter o seguinte:
+##<a id="Prerequisites"></a>Pré-requisitos para este tutorial de aplicativo Web Java
+Antes de começar este tutorial de desenvolvimento de aplicativo, você deve ter:
 
 - Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](../../pricing/free-trial/).
 - [Java Development Kit (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
@@ -39,28 +40,28 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 Se você estiver instalando essas ferramentas pela primeira vez, o coreservlets.com fornecerá um passo a passo do processo de instalação na seção de Início rápido do artigo [Tutorial: Instalar TomCat7 e usá-lo com o Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
-##<a id="CreateDB"></a>Etapa 1: criar uma conta de banco de dados do Banco de Dados de Documentos ##
+##<a id="CreateDB"></a>Etapa 1: criar uma conta de banco de dados do Banco de Dados de Documentos
 Para provisionar uma conta de banco de dados do Banco de Dados de Documentos no Azure:
 
 1. Se você ainda não tiver uma conta de banco de dados, crie uma seguindo as instruções em [Criar uma conta de banco de dados](documentdb-create-account.md). Se você já tiver uma conta, vá para a etapa 2.
 2. Usando a lâmina **Chaves** mostrada na ilustração a seguir, copie o seu ponto de extremidade **URI** e **CHAVE PRIMÁRIA** para a sua área de transferência e as mantenha à mão, pois usaremos esses valores no aplicativo Web que criaremos em seguida.
 
-![Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão Chaves realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][1]
+![Criar uma conta do Banco de Dados de Documentos — tutorial de banco de dados Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão Chaves realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][1]
 
 
-##<a id="CreateJSP"></a>Etapa 2: Criar o aplicativo JSP ##
+##<a id="CreateJSP"></a>Etapa 2: criar o aplicativo JSP Java
 
 Para criar o aplicativo JSP:
 
 1. Primeiro, começaremos criando um projeto Java. Inicie o Eclipse, clique em **Arquivo**, **Novo** e, em seguida, clique em **Projeto Web dinâmico**. Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível, faça o seguinte: clique em **Arquivo** > **Novo** > **Projeto**..., expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**. 
 
-	![](./media/documentdb-java-application/image10.png)
+	![Desenvolvimento de aplicativo Java JSP](./media/documentdb-java-application/image10.png)
 
 2. Digite um nome de projeto na caixa **Nome do projeto** e no menu suspenso **Tempo de execução de destino**, selecione, opcionalmente, um valor (por exemplo, Apache Tomcat v 7.0) e, em seguida, clique em **Concluir**. Selecione um tempo de execução de destino que permite que você execute seu projeto localmente por meio do Eclipse.
 3. No Eclipse, na exibição do Explorador de Projeto, expanda o seu projeto. Clique com o botão direito do mouse em **WebContent**, clique em **Novo** e, em seguida, clique em **Arquivo JSP**.
 4. Na caixa de diálogo **Novo arquivo JSP**, nomeie o arquivo **index.jsp**. Mantenha a pasta pai como **WebContent**, conforme mostrado na ilustração a seguir e clique em **Próximo**.
 
-	![](./media/documentdb-java-application/image11.png)
+	![Criar um novo arquivo JSP — tutorial de aplicativo Web Java](./media/documentdb-java-application/image11.png)
 
 5. Na caixa de diálogo **Selecionar modelo JSP**, selecione esse tutorial **Novo arquivo JSP (html)** e, em seguida, clique em **Concluir**.
 
@@ -73,7 +74,7 @@ Para criar o aplicativo JSP:
 8. Salve o arquivo index.jsp.
 9. Se definir um tempo de execução de destino na etapa 2, você pode clicar no **Projeto** e em **Executar** para executar o aplicativo JSP localmente:
 
-	![](./media/documentdb-java-application/image12.png)
+	![Hello World — tutorial de aplicativo Java](./media/documentdb-java-application/image12.png)
 
 ##<a id="InstallSDK"></a>Etapa 3: Instalar o SDK do Java do Banco de Dados de Documentos ##
 
@@ -90,7 +91,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
  - Na caixa **Id de artefato**, insira azure-documentdb.
  - Na caixa **Versão**, insira 1.1.0.
 
-	![](./media/documentdb-java-application/image13.png)
+	![Instalar o SDK do aplicativo Java para Banco de Dados de Documentos](./media/documentdb-java-application/image13.png)
 
 	Ou adicione a dependência de XML para o GroupId e ArtifactId diretamente no pom.xml por meio de um editor de texto:
 
@@ -103,7 +104,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 5. Clique em **Ok** e o Maven instalará o SDK do Java do Banco de Dados de Documentos.
 6. Salve o arquivo pom.xml.
 
-##<a id="UseService"></a>Etapa 4: Usando o serviço de Banco de Dados de Documentos em um aplicativo Java ##
+##<a id="UseService"></a>Etapa 4: Usando o serviço de Banco de Dados de Documentos em um aplicativo Java 
 
 1. Primeiro, vamos definir o objeto TodoItem:
 
@@ -357,7 +358,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 	    }
 
 
-##<a id="Wire"></a> Etapa 5: Conectando o restante do aplicativo ##
+##<a id="Wire"></a>Etapa 5: conectando por fio o restante do projeto de desenvolvimento de aplicativo Java
 
 Agora que concluímos a parte divertida - tudo que restou é criar uma interface de usuário rápida e conectá-la ao nosso DAO.
 
@@ -734,7 +735,7 @@ Agora que concluímos a parte divertida - tudo que restou é criar uma interface
 
 6. Quando o item for exibido, você poderá atualizar se ele está concluído alternando a caixa de seleção e clicando em **Atualizar tarefas**.
 
-##<a id="Deploy"></a>Etapa 6: Implantar seu aplicativo em sites do Azure ##
+##<a id="Deploy"></a>Etapa 6: implantar seu aplicativo Java em sites do Azure
 
 Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a exportação de seu aplicativo como um arquivo WAR e por carregamento ou por meio do controle de origem (por exemplo, GIT) ou FTP.
 
@@ -749,7 +750,7 @@ Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a 
 	Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de tempo de execução irá detectar que você o adicionou e o carregará automaticamente.
 4. Para exibir seu produto acabado, navegue até http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ e comece a adicionar suas tarefas!
 
-##<a id="GetProject"></a>Obtenha o projeto do GitHub##
+##<a id="GetProject"></a>Obtenha o projeto do GitHub
 
 Todos os exemplos neste tutorial são incluídos no projeto [tarefas](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) no GitHub, que faz parte do repositório [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java). Para importar o projeto de tarefas no Eclipse, certifique-se de ter o software e os recursos listados na seção [pré-requisitos](#Prerequisites) e, em seguida, faça o seguinte:
 
@@ -779,4 +780,4 @@ Todos os exemplos neste tutorial são incluídos no projeto [tarefas](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

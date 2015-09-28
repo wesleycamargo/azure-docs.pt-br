@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/15/2015"
 	ms.author="klam"/>
 
 # Usar modelos de aplicativos lógicos
 
 Os modelos de aplicativos lógicos são um conjunto de aplicativos lógicos pré-criados auxiliares para ajudá-lo a começar a criar seu próprio aplicativo de integração.
 
-Esses modelos mostram como usar alguns dos muitos conectores disponíveis no mercado, além de ser uma boa maneira de descobrir vários padrões que podem ser criados usando aplicativos lógicos. Você pode usá-los como estão ou modificá-los para ajustá-los a seu cenário. Para começar a usar um modelo de aplicativo lógico, vá para o mercado e selecione Aplicativos Lógicos. Escolha um dos modelos de aplicativos lógicos na lista auxiliar.
+Esses modelos mostram como usar alguns dos muitos conectores disponíveis no mercado, além de ser uma boa maneira de descobrir vários padrões que podem ser criados usando aplicativos lógicos. Você pode usá-los como estão ou modificá-los para ajustá-los a seu cenário. Para começar a usar um Modelo de Aplicativo Lógico, vá para Marketplace, procure por "Modelo de Aplicativo Lógico" e escolha um dos modelos de Aplicativo Lógico na lista auxiliar, ou quando um novo aplicativo lógico for criado, selecione "Gatilhos e ações" e escolha no conjunto de Modelos de Aplicativo Lógico no designer.
 
 ### Modelos de nuvem e SaaS
 Exemplos de como integrar em diferentes conectores do SaaS. Aqui você pode encontrar vários exemplos de integração do Salesforce, Box, SharePoint e outros serviços.
@@ -40,4 +40,4 @@ Modelos simples que se integram a serviços de mídia social, como Twitter, Yamm
 Após selecionar um dos modelos, conclua a implantação como você faria se criasse seu próprio aplicativo lógico. Consulte [Criar um aplicativo lógico](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

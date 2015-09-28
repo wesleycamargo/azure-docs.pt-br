@@ -3,18 +3,11 @@
 	description="Encontre informações sobre como solucionar problemas de backup e restauração de máquina virtual do Azure"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Solucionar erros
@@ -30,7 +23,6 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 ## Registrar
 | Operação de backup | Detalhes do erro | Solução alternativa |
 | -------- | -------- | -------|
-| Registrar | A função VM do Azure não está em um estado que permite instalar a extensão – verifique se a VM está no estado Em Execução. A extensão Serviços de Recuperação do Azure requer que a VM esteja Em Execução. | Inicie a máquina virtual e quando ele estiver no estado Em Execução, então repita a operação de registro.|
 | Registrar | O número de discos de dados anexados à máquina virtual excedeu o limite com suporte. Retire alguns discos de dados dos anexos nesta máquina virtual e repita a operação. O backup do Azure dá suporte a até 16 discos de dados anexados a uma máquina virtual do Azure para backup | Nenhum |
 | Registrar | O Backup do Microsoft Azure encontrou um erro interno. Aguarde alguns minutos e tente a operação novamente. Se o problema persistir, contate o Suporte da Microsoft. | Você pode obter esse erro devido a uma das seguintes configurações sem suporte: <ol><li>LRS Premium <li>múltiplas NIC <li>balanceador de carga </ol> |
 | Registrar | Falha no registro com o tempo limite da operação Instalar agente | Verifique se a versão do sistema operacional da máquina virtual tem suporte. |
@@ -43,7 +35,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Operação de backup | Detalhes do erro | Solução alternativa |
 | -------- | -------- | -------|
 | Backup | A cópia de VHDs do Cofre de backup atingiu o tempo limite - tente a operação novamente dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. | Isso ocorre quando há muitos dados a serem copiados. Verifique se você tem menos de 16 discos de dados. |
-| Backup | Não pôde se comunicar com o agente VM para status do instantâneo. A subtarefa VM instantâneo VM atingiu o tempo limite. - Consulte o guia de solução de problemas sobre como resolver esse problema. | Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. <ul><li>Saiba mais sobre [depuração de problemas do agente de VM](#vm-agent) <li>Saiba mais sobre [depuração de problemas de rede](#networking) </ul><br>se o agente de VM não está causando problemas, reinicie a VM. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
+| Backup | Não pôde se comunicar com o agente VM para status do instantâneo. A subtarefa VM instantâneo VM atingiu o tempo limite. - Consulte o guia de solução de problemas sobre como resolver esse problema. | Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. <ul><li>Saiba mais sobre [depuração de problemas do agente de VM](#vm-agent) <li>Saiba mais sobre [depuração de problemas de rede](#networking) </ul><br>Se o agente de VM não está causando problemas, reinicie a VM. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
 | Backup | Falha no backup com um erro interno - tente novamente a operação dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft | Você pode obter esse erro por duas razões: <ol><li> há muitos dados a serem copiados. <li>A máquina virtual original foi excluída e, portanto, o backup não pode ser feito. Para manter os dados de backup de uma VM excluída, mas parar os erros de backup, desproteja a VM e escolha a opção para manter os dados. Isso interromperá o agendamento de backup e também as mensagens de erro recorrentes. |
 | Backup | Falha ao instalar a extensão dos Serviços de Recuperação do Azure no item selecionado - o agente de VM é um pré-requisito para a extensão de Serviços de Recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro | <ol> <li>Verifique se o agente de VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> [Leia mais](#validating-vm-agent-installation) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
 | Backup | A execução do comando falhou - outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída e tente novamente | Está em execução um backup existente ou um trabalho de restauração para a máquina virtual e não é possível iniciar um novo trabalho enquanto o trabalho existente estiver sendo executado. |
@@ -52,14 +44,14 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Backup | Não há suporte para máquinas virtuais com discos rígidos virtuais no armazenamento Premium para backup | Nenhum |
 | Backup | Não há suporte para o backup de uma máquina virtual com uma configuração de balanceador de carga. | Nenhum |
 | Backup | Não há suporte para o backup de máquinas virtuais com mais de um NIC. | Nenhum |
-| Backup | Máquina Virtual do Azure não encontrada. | Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro: <ol><li>Recriar a máquina virtual com o mesmo nome e o mesmo nome de grupo de recursos [nome do serviço de nuvem], <br>(OU) <li> Desabilitar a proteção para esta VM para que os trabalhos de backup não sejam criados </ol> |
+| Backup | Máquina Virtual do Azure não encontrada. | Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro: <ol><li>Recrie a máquina virtual com o mesmo nome e o mesmo nome de grupo de recursos [nome do serviço de nuvem], <br>(OU) <li> Desabilite a proteção para esta VM para que os trabalhos de backup não sejam criados </ol> |
 | Backup | O agente de máquina virtual não está presente na máquina virtual - instale o pré-requisito necessário, agente de VM e reinicie a operação. | [Leia mais](#vm-agent) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
 
 ## Trabalhos
 | Operação | Detalhes do erro | Solução alternativa |
 | -------- | -------- | -------|
 | Cancelar trabalho | Não há suporte para cancelamento deste tipo de trabalho - Aguarde até que o trabalho seja concluído. | Nenhum |
-| Cancelar trabalho | O trabalho não está em um estado cancelável - Aguarde até que o trabalho seja concluído. <br>OU<br> o trabalho selecionado não está em um estado cancelável - Aguarde até que o trabalho seja concluído.| Muito provavelmente o trabalho está quase concluído; Aguarde até que o trabalho seja concluído |
+| Cancelar trabalho | O trabalho não está em um estado cancelável - Aguarde até que o trabalho seja concluído. <br>OU<br> o trabalho selecionado não está em um estado cancelável — Aguarde até que o trabalho seja concluído.| Muito provavelmente o trabalho está quase concluído; Aguarde até que o trabalho seja concluído |
 | Cancelar trabalho | Não é possível cancelar o trabalho porque ele não está em andamento - há suporte para cancelamento apenas de trabalhos que estão em andamento. Tente cancelar um trabalho em andamento. | Isso ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento |
 | Cancelar trabalho | Falha ao cancelar o trabalho - Aguarde até que o trabalho seja concluído. | Nenhum |
 
@@ -95,9 +87,20 @@ Para VMs do Windows:
 - Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação.
 - [Atualizar a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado.
 
+Para VMs do Linux:
+
+- Instale o [agente Linux](https://github.com/Azure/WALinuxAgent) mais recente do github. 
+- [Atualizar a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado.
+
 
 ### Atualizar o Agente de VM
-Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). No entanto, você precisa garantir que nenhuma operação de backup esteja em execução enquanto o Agente de VM estiver sendo atualizado.
+Para VMs do Windows:
+
+- Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). No entanto, você precisa garantir que nenhuma operação de backup esteja em execução enquanto o Agente de VM estiver sendo atualizado.
+
+Para VMs do Linux:
+
+- Siga as instruções em [Atualizando agente de VM do Linux](../virtual-machines-linux-update-agent.md). 
 
 
 ### Validando a instalação do Agente de VM
@@ -117,7 +120,7 @@ A necessidade de resolução de endereços de Internet pública foi articulada [
 
 Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure também deve ser fornecido. Para desbloquear o acesso à infraestrutura do Azure, siga estas etapas:
 
-1. Obter a lista de [IPs do datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx)a colocar na lista de permissões.
+1. Obter a lista de [IPs do datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) a colocar na lista branca.
 2. Desbloquear o IPs usando o commandlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Executar este commandlet na VM do Azure em uma janela do PowerShell com privilégios elevados (Executar como administrador).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

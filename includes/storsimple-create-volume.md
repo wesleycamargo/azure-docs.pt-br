@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/17/15-->
+
 #### Para criar um volume
 
 1. No página **Início Rápido** do dispositivo clique em **Adicionar um volume**. Isso inicia o assistente Adicionar um volume.
@@ -6,7 +8,7 @@
    1. Digite uma **Nome** para o seu volume.
    2. Especifique o **Capacidade Provisionada** para o seu volume. **A capacidade do volume deve estar entre 1 GB e 64 TB.**
    3. Na lista suspensa, selecione o **Tipo de Uso** para o seu volume. Para dados de arquivamento acessados com menos frequência, selecione um **Volume de arquivamento**. Para todos os outros tipos de dados, selecione **Volume em camadas**. (Volumes em camadas eram chamados anteriormente de volumes primários).
-   4. Clique no ícone de seta ![ícone-de-seta](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) para ir para a próxima página.
+   4. Clique no ícone de seta ![arrow-icon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) para ir para a próxima página.
 
      ![Adicionar volume](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
 
@@ -21,4 +23,8 @@
 
 4. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Será criado um volume com as configurações especificadas.
 
-<!---HONumber=August15_HO9-->
+![Vídeo disponível](./media/storsimple-create-volume/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo que demonstra como criar um volume do StorSimple, clique [aqui](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+
+<!---HONumber=Sept15_HO3-->

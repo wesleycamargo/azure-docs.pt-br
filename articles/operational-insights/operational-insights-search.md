@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Pesquisa de dados no Insights Operacionais
@@ -451,7 +451,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 Se você estiver familiarizado com o Microsoft System Center - Operations Manager, pode pensar no comando where em termos de pacote de gerenciamento de comando. Se o exemplo fosse uma regra, a primeira parte da consulta seria a fonte de dados e o comando where seria a detecção de condição.
 
-Você pode usar a consulta como um bloco em **Meu Painel**, como um monitor de classificações, para ver quando as CPUs do computador são utilizadas em excesso. Para saber mais sobre painéis, consulte [Painéis do Insights Operacionais](operational-insights-use-dashboards). Você também pode criar e usar painéis utilizando o aplicativo móvel. Para obter mais informações, consulte [Aplicativo móvel do Insights Operacionais do Azure ](http://www.windowsphone.com/pt-br/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). Nos dois blocos inferiores da imagem a seguir, você pode ver o monitor exibindo uma lista e como um número. No fundo, convém sempre ter o número como zero e a lista em branco. Caso contrário, isso indica uma condição de alerta. Se necessário, você pode usá-lo para dar uma olhada em quais computadores estão sob pressão.
+Você pode usar a consulta como um bloco em **Meu Painel**, como um monitor de classificações, para ver quando as CPUs do computador são utilizadas em excesso. Para saber mais sobre painéis, consulte [Painéis do Insights Operacionais](operational-insights-use-dashboards). Você também pode criar e usar painéis utilizando o aplicativo móvel. Para obter mais informações, consulte [Aplicativo móvel do Insights Operacionais do Azure ](http://www.windowsphone.com/pt-BR/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). Nos dois blocos inferiores da imagem a seguir, você pode ver o monitor exibindo uma lista e como um número. No fundo, convém sempre ter o número como zero e a lista em branco. Caso contrário, isso indica uma condição de alerta. Se necessário, você pode usá-lo para dar uma olhada em quais computadores estão sob pressão.
 
 ![painel móvel](./media/operational-insights-search/search-mobile.png)
 
@@ -615,7 +615,7 @@ Você pode encadear os operadores de cálculo de data/hora, por exemplo:
 A tabela a seguir lista as unidades com suporte de data/hora.
 
 Unidade de data/hora|Descrição
----|--- 
+---|---
 YEAR, YEARS|Arredonda para o ano atual ou desloca pelo número especificado de anos.
 MONTH, MONTHS|Arredonda para o mês atual ou desloca pelo número especificado de meses.
 DAY, DAYS, DATE|Arredonda para o dia do mês atual ou desloca pelo número especificado de dias.
@@ -2049,4 +2049,4 @@ Quando você usar Pesquisar para localizar dados, os resultados exibem vários c
 ## Outros recursos
 Stefan Roth criou uma cola muito prática. Confira o [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) para saber mais e baixar o roteiro.
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO3-->

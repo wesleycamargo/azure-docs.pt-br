@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -69,10 +69,12 @@ Esta é a sequência:
 3. As consultas são enviadas diretamente ao banco de dados, e os resultados são retornados diretamente ao cliente.
 
 
-Verifique se os intervalos de portas de 11000-11999 e 14000-14999 no computador cliente do Azure estão disponíveis para interações de cliente ADO.NET 4.5 com o banco de dados SQL V12.
+Verifique se os intervalos de portas de 11000-11999 e 14000-14999 no computador cliente do Azure estão disponíveis para interações de cliente ADO.NET 4.5 com o Banco de Dados SQL V12.
 
 - Em particular, as portas no intervalo devem estar livres de outros bloqueadores de saída.
-- O Firewall do Windows em sua VM do Azure controla as configurações de porta.
+
+- Em sua VM do Azure, o **Firewall do Windows com Segurança Avançada** controla as configurações de porta.
+ - Você pode usar a [interface de usuário do firewall](http://msdn.microsoft.com/library/cc646023.aspx) a fim de adicionar uma regra para a qual você especifica o protocolo **TCP** junto com um intervalo de portas com a sintaxe **11000 a 11999**.
 
 
 ## Esclarecimentos da versão
@@ -112,4 +114,4 @@ As diferenças de conexão do cliente entre o Banco de Dados SQL V11 e V12 são 
 
 - [Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

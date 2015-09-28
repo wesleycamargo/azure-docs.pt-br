@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/03/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -23,9 +23,11 @@ Um dos desafios do desenvolvimento de um aplicativo Web é como fornecer um disp
 
 > [AZURE.NOTE]Uma discussão completa das considerações sobre segurança para aplicativos Web está além do escopo deste documento. Como ponto de partida para mais diretrizes sobre como proteger aplicativos Web, consulte o [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page), mais especificamente o [o projeto das 10 mais](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), que lista as 10 principais falhas de segurança em aplicativos Web, conforme determinado pelos membros do OWASP.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ##<a name="https"></a> Comunicações seguras
 
-Se você usar o nome de domínio ****.azurewebsites.net** criado para o aplicativo Web, poderá usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio ****.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](web-sites-custom-domain-name.md), será possível carregar um certificado SSL para [habilitar o protocolo HTTPS](web-sites-configure-ssl-certificate.md) para o domínio personalizado.
+Se você usar o nome de domínio ****.azurewebsites.net** criado para o aplicativo Web, será possível usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio ****.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](web-sites-custom-domain-name.md), será possível carregar um certificado SSL para [habilitar o protocolo HTTPS](web-sites-configure-ssl-certificate.md) para o domínio personalizado.
 
 ##<a name="develop"></a> Desenvolvimento seguro
 
@@ -45,7 +47,7 @@ Durante o desenvolvimento de aplicativos, a realização de tarefas de gerenciam
 
 Se você usa um utilitário que utiliza configurações de publicação ou perfil de publicação, importe o arquivo que contém as configurações de publicação ou o perfil para o utilitário e **exclua** o arquivo. Se você precisar manter o arquivo para compartilhar com outros que trabalhem no projeto, por exemplo, armazene-o em um local seguro, como um diretório **criptografado** com permissões restritas.
 
-Além disso, você deve se certificar de que as credenciais importadas sejam seguras. Por exemplo, o **Azure PowerShell** e a **Interface da Linha de Comando do Azure (CLI do Azure)** ambos armazenam informações importadas no seu **diretório base** (*\~* em sistemas Linux ou OS X e em */usuários/seunomedeusuário* em sistemas Windows). Para ter segurança extra, convém **criptografar** esses locais usando as ferramentas de criptografia disponíveis para o sistema operacional.
+Além disso, você deve se certificar de que as credenciais importadas sejam seguras. Por exemplo, o **Azure PowerShell** e a **Interface da Linha de Comando do Azure (CLI do Azure)** armazenam informações importadas no seu **diretório base** (*~* em sistemas Linux ou OS X e em */usuários/seunomedeusuário* em sistemas Windows). Para ter segurança extra, convém **criptografar** esses locais usando as ferramentas de criptografia disponíveis para o sistema operacional.
 
 ### Definições de configuração e cadeias de conexão
 É uma prática comum armazenar cadeias de conexão, credenciais de autenticação e outras informações confidenciais em arquivos de configuração. Infelizmente, esses cookies podem ser expostos no site ou pode haver check-in deles em um repositório público, expondo essas informações.
@@ -86,4 +88,4 @@ Para obter informações sobre como registrar em log informações de aplicativo
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

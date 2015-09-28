@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Crie um Serviço que usa o armazenamento em tabela em vez de um Banco de Dados SQL | Microsoft Azure" 
+	pageTitle="Criar um serviço móvel de back-end .NET que usa o armazenamento de tabela | Serviços Móveis do Azure" 
 	description="Aprenda a usar o armazenamento de tabela do Azure com seu serviço móvel de back-end do .NET." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# Crie um Serviço Móvel de back-end .NET que usa o armazenamento em tabela em vez de um Banco de Dados SQL
+# Criar um serviço móvel de back-end .NET que usa o armazenamento de tabela
 
-Este tópico mostra como usar um armazenamento de dados não relacional para seu serviço móvel de back-end .NET. Neste tutorial, você modificará o projeto de início rápido de Serviços Móveis do Azure para usar o armazenamento em tabela do Azure no lugar do repositório de dados padrão do Banco de Dados SQL do Azure.
+Este tópico mostra como usar um repositório de dados não relacional para seu serviço móvel de back-end .NET. Neste tutorial, você modificará o projeto de início rápido de Serviços Móveis do Azure para usar o armazenamento em tabela do Azure no lugar do repositório de dados padrão do Banco de Dados SQL do Azure.
 
 Este tutorial exige a conclusão do tutorial [Introdução ao Serviços Móveis] ou [Adicionar Serviços Móveis a um aplicativo existente]. Também será necessário uma conta de armazenamento do Azure.
 
@@ -158,4 +158,4 @@ Agora que você viu como é fácil usar o armazenamento de tabela com o back-end
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

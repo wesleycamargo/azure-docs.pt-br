@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Visão geral do empacotamento dinâmico" 
-	description="O tópico apresenta uma visão geral do empacotamento dinâmico." 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
+<properties
+	pageTitle="Visão geral do empacotamento dinâmico"
+	description="O tópico apresenta uma visão geral do empacotamento dinâmico."
+	authors="Juliako"
+	manager="dwrede"
+	editor=""
+	services="media-services"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -95,7 +95,7 @@ Publicar ativos (pela criação de localizadores) usando o **Portal de Gerenciam
 Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento dinâmico.
 
 - Arquivos mp4 Dolby digital plus.
-- Dolby digital mais arquivos smooth.
+- Dolby digital mais arquivos smooth. 
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -105,6 +105,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

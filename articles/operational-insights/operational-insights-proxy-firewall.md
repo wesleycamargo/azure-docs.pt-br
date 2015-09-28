@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Definir as configurações de proxy e de firewall para Insights Operacionais
@@ -174,4 +174,4 @@ Use os procedimentos a seguir para registrar o seu grupo de gerenciamento do Ope
 3. Adicione todos os contadores que começam com **HTTP**. ![adicionar contadores](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Se a sua configuração do Operations Manager for boa, você verá a atividade dos contadores do Gerenciamento do Serviço de Integridade para eventos e outros itens de dados, com base nos pacotes de gerenciamento adicionados no Insights Operacionais e a política de coleta de logs configurada. ![Atividade de exibição de Monitor de desempenho](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!----HONumber=06-->
+<!---HONumber=Sept15_HO3-->

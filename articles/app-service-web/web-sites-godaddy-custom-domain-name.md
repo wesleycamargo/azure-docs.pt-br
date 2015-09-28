@@ -5,27 +5,26 @@
 	documentationCenter=""
 	authors="erikre"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="09/16/2015"
 	ms.author="erikre"/>
 
 # Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure (adquirido diretamente do GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
+[AZURE.INCLUDE [introdução](../../includes/custom-dns-web-site-intro.md)]
+
+Se você tiver adquirido o domínio por meio de Aplicativos Web do Serviço de Aplicativo do Azure e consulte a etapa final do artigo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Comprar domínio para aplicativos Web</a>.
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
-> [AZURE.NOTE]Se você tiver adquirido o domínio por meio de Aplicativos Web do Serviço de Aplicativo do Azure e consulte a etapa final do artigo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Comprar domínio para aplicativos Web</a>.
-
-[AZURE.INCLUDE [introdução](../../includes/custom-dns-web-site-intro.md)]
 
 Este artigo fornece instruções sobre como usar um nome de domínio personalizado adquirido diretamente de [GoDaddy](https://godaddy.com) com [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -35,7 +34,6 @@ Este artigo fornece instruções sobre como usar um nome de domínio personaliza
 ##Compreendendo os registros DNS
 
 [AZURE.INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-raw.md)]
-
 
 <a name="bkmk_configurecname"></a>
 ## Adicionar um registro DNS a seu domínio personalizado
@@ -89,4 +87,4 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/17/15-->
+
 #### Para montar, inicializar e formatar um volume
 
 1. Inicie o iniciador iSCSI da Microsoft.
@@ -26,7 +28,11 @@
   3. Especifique um tamanho de unidade de alocação com 64 KB. Esse tamanho de unidade de alocação funciona bem com os algoritmos de eliminação de duplicação usados na solução StorSimple.
   4. Realize uma formatação rápida.
 
+![Vídeo disponível](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo que demonstra como montar, inicializar e formatar um volume do StorSimple, clique [aqui](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
+
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

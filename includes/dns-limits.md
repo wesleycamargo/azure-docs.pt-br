@@ -5,4 +5,6 @@
 | Conjuntos de registros por zona| 1000
 | Registros por conjunto de registros| 20
 
-<!---HONumber=Sept15_HO2-->
+Contate o suporte para aumentar o limite padrão
+
+<!---HONumber=Sept15_HO3-->

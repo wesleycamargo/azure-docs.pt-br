@@ -3,7 +3,7 @@
    description="Uma visão geral de como configurar as descrições de serviço para uso do Balanceador de Recursos"
    services="service-fabric"
    documentationCenter=".net"
-   authors="GaugeField"
+   authors="masnider"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="09/15/2015"
    ms.author="masnider"/>
 
 # Visão geral da descrição do serviço
@@ -202,7 +202,9 @@ O exemplo de código mostra as definições ServiceTemplates por meio do manifes
    </StatefulService>
  </ServiceTemplates>
 ```
-O exemplo de código mostra as definições DefaultServices por meio do manifesto do aplicativo. ``` xml
+O exemplo de código mostra as definições DefaultServices por meio do manifesto do aplicativo.
+
+``` xml
 <DefaultServices>
   <Service Name="QueueServiceInstance">
     <StatefulService MinReplicaSetSize="3" ServiceTypeName="QueueService" TargetReplicaSetSize="3">
@@ -229,4 +231,4 @@ Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Interface do usuário do StorSimple Snapshot Manager
@@ -538,6 +538,7 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
  
 ## Próximas etapas
 
-[Saiba como usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
+- Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
+- Saiba como [usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

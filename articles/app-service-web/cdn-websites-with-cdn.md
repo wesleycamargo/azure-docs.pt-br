@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Usar o CDN do Azure no Serviço de Aplicativo do Azure"
-	description="Um tutorial que ensina como implantar um aplicativo Web para o Serviço de Aplicativo do Azure que fornece conteúdo de um ponto de extremidade CDN do Azure integrado"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Usar o CDN do Azure no Serviço de Aplicativo do Azure" 
+	description="Um tutorial que ensina como implantar um aplicativo Web para o Serviço de Aplicativo do Azure que fornece conteúdo de um ponto de extremidade CDN do Azure integrado" 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.service="app-service" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 
@@ -27,6 +27,8 @@ A integração de aplicativos Web à CDN do Azure oferece as seguintes vantagens
 - Atualizar facilmente os pacotes do NuGet em seu aplicativo Web no Serviço de Aplicativo do Azure, como versões de Bootstrap ou jQuery 
 - Gerenciar seu aplicativo Web e o conteúdo fornecido por CDN por meio da mesma interface do Visual Studio
 - Integrar agrupamento e minificação ASP.NET à CDN do Azure
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## O que você compilará ##
 
@@ -541,11 +543,11 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	...
 	```
 
-	Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade `CdnFallbackExpression` na linha:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Mas como a primeira parte da expressão || sempre retornará o valor verdadeiro (na linha diretamente acima), a função document.write() nunca será executada.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Para testar se o script de fallback está funcionando, vá até o painel de controle do ponto de extremidade da CDN e clique em **Desabilitar Ponto de Extremidade**.
 
@@ -563,6 +565,6 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

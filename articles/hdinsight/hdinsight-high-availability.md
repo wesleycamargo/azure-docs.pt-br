@@ -44,7 +44,7 @@ Implementações padrão de clusters Hadoop normalmente têm um único nó princ
 
 Nós [ZooKeeper](http://zookeeper.apache.org/) (ZKs) foram adicionados e são usados para eleição de líder de nós principais, e para assegurar que os nós de trabalho e gateways (GWS) saibam quando fazer failover no nó principal secundário (Nó Principal1) quando o nó principal ativo (Node0) tornar-se inativo.
 
-![Diagrama de nós principais altamente confiáveis na implementação do Hadoop HDInsight.](http://i.imgur.com/jrUmrH4.png)
+![Diagrama de nós principais altamente confiáveis na implementação do Hadoop HDInsight.](./media/hdinsight-high-availability/hadoop.high.availability.architecture.diagram.png)
 
 
 
@@ -98,4 +98,4 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 - [Conectar ao clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Usando o SDK .NET do HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

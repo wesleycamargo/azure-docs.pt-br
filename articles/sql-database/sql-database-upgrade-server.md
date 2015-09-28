@@ -84,12 +84,16 @@ Quando você executar este comando, o processo de atualização será iniciado. 
     # Adding the account
     #
     Add-AzureAccount
+    
+    # Switch mode
+    #
     Switch-AzureMode -Name AzureResourceManager
 
     # Setting the variables
     #
     $SubscriptionName = 'YOUR_SUBSCRIPTION' 
-    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' $ServerName = 'YOUR_SERVER' 
+    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' 
+    $ServerName = 'YOUR_SERVER' 
     
     # Selecting the right subscription 
     # 
@@ -101,8 +105,7 @@ Quando você executar este comando, o processo de atualização será iniciado. 
     
     # Starting the upgrade process 
     #
-    Start-AzureSqlServerUpgrade -ResourceGroupName 
-    $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 ## Mapeamento de atualização personalizada
@@ -122,7 +125,8 @@ Atualizar bancos de dados em um pool de banco de dados elástico:
 
 Atualize bancos de dados em um único banco de dados:
 
-    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  $databaseMap.Name = "DB2"
+    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  
+    $databaseMap.Name = "DB2"
     $databaseMap.TargetEdition = "Standard"
     $databaseMap.TargetServiceLevelObjective = "S0"
     Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
@@ -137,4 +141,4 @@ Atualize bancos de dados em um único banco de dados:
 - [Cmdlets do Gerenciamento de Serviço do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -96,7 +96,7 @@ Agora, você criará um serviço vinculado para um cluster HDInsight sob demanda
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
@@ -233,4 +233,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

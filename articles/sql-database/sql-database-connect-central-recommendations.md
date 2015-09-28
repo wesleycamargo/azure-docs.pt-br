@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design"
-	description="Um tópico de ponto de partida que reúne links e recomendações para programas cliente que se conectam ao Banco de Dados SQL do Azure a partir de tecnologias como ADO.NET e PHP."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	pageTitle="Conectar-se ao Banco de Dados SQL: práticas recomendadas | Microsoft Azure" 
+	description="Um tópico de ponto de partida que reúne links e recomendações de práticas recomendadas para programas cliente que se conectam ao Banco de Dados SQL do Azure a partir de tecnologias como ADO.NET e PHP." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jeffreyg" 
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
-# Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design
+# Conectando-se ao Banco de Dados SQL: práticas recomendadas e diretrizes de design
 
 
 Este tópico é um bom ponto de partida para a conectividade do cliente com o Banco de Dados SQL do Azure. Ele fornece links para exemplos de código de várias tecnologias que você pode usar para se conectar e interagir com o Banco de Dados SQL. As tecnologias incluem Enterprise Library, JDBC, PHP e muito mais. As informações fornecidas se aplicam independentemente de qual tecnologia específica você usar para se conectar ao banco de dados SQL.
@@ -77,13 +77,16 @@ Outras informações são fornecidas em - [Bancos de dados independentes](http:/
  - Você pode definir as configurações de firewall em um servidor de banco de dados SQL ou em um banco de dados individuais.
 
 
+- Se o seu programa cliente se conecta ao Banco de Dados SQL V12 enquanto seu cliente é executado em uma máquina virtual do Azure (VM), abra os seguintes intervalos de porta 11000-11999 e 14000-14999 na VM: Clique [aqui](sql-database-develop-direct-route-ports-adonet-v12.md) para obter detalhes.
+
+
 - Para tratar *falhas transitórias*, adicione a [lógica de *repetição*](#TransientFaultsAndRetryLogicGm) aos seus programas cliente que interagem com o Banco de Dados SQL do Azure.
 
 
 ### Pool de conexões
 
 
-Se você estiver usando um [pool de conexões](http://msdn.microsoft.com/library/8xx3tyca.aspx), feche a conexão no instante em que o programa não estiver usando-o ativamente e não estiver se preparando para reutilizá-lo.
+Se você estiver usando um [pool de conexões](http://msdn.microsoft.com/library/8xx3tyca.aspx), feche a conexão no instante em que o programa não estiver usando-a ativamente e não estiver se preparando para reutilizá-la.
 
 A menos que seu programa vá reutilizar a conexão de outra operação imediatamente, sem pausa, é recomendável seguinte padrão:
 
@@ -95,7 +98,7 @@ A menos que seu programa vá reutilizar a conexão de outra operação imediatam
 #### Exceção gerada ao usar um pool
 
 
-Quando o pool de conexões estiver habilitado e um erro de tempo limite ou outro erro de logon ocorrer, uma exceção será lançada. As tentativas de conexão subsequentes falharão pelos próximos 5 segundos, que é o chamado *período de bloqueio*.
+Quando o pool de conexões estiver habilitado e um erro de tempo limite ou outro erro de logon ocorrer, uma exceção será lançada. As tentativas de conexão subsequentes falharão pelos próximos cinco segundos, o que é o chamado de *período de bloqueio*.
 
 Se o aplicativo tenta se conectar dentro do período de bloqueio, a primeira exceção será lançada novamente. Após o término do período de bloqueio, as falhas subsequentes resultam em um novo período de bloqueio que dura o dobro do período de bloqueio anterior.
 
@@ -105,7 +108,7 @@ A duração máxima de um período de bloqueio é de 60 segundos.
 ### Outras portas diferentes apenas da 1433 em V12
 
 
-Às vezes, as conexões de cliente para o Banco de Dados SQL do Azure V12 ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes. Para obter detalhes, consulte:<br/> [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+Às vezes, as conexões de cliente para o Banco de Dados SQL do Azure V12 ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes. Para obter detalhes, consulte:<br/> [Portas além da 1433 para ADO.NET 4.5 e o Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 A próxima seção tem muito mais a dizer sobre o tratamento de falhas transitório e de lógica de repetição.
@@ -131,15 +134,15 @@ Para obter exemplos de código que demonstram a lógica de repetição, consulte
 ### Números de erro para falhas transitórias
 
 
-Quando ocorre um erro com o Banco de Dados SQL, uma [SqlException](http://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) é lançada. A **SqlException** contém um código de erro numérico em sua propriedade **Number**. Se o código de erro identificar um erro transitório, seu programa deverá repetir a chamada.
+Quando ocorre algum erro com o Banco de Dados SQL, uma [SqlException](http://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) é emitida. A **SqlException** contém um código de erro numérico em sua propriedade **Number**. Se o código de erro identificar um erro transitório, seu programa deverá repetir a chamada.
 
 
 - [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md#bkmk_connection_errors)
  - A seção **Erros transitórios, Erros de Perda de Conexão** é uma lista dos erros transitórios que garantem uma repetição automática.
- - Por exemplo, repita se o número de erro 40613 ocorrer, que informa algo semelhante a<br/>*O banco de dados 'mydatabase' no servidor 'theserver' não está disponível no momento.*
+ - Por exemplo, repita se o número de erro 40613 ocorrer, que informa algo semelhante a<br/>*O banco de dados 'meubancodedados' no servidor 'oservidor' não está disponível no momento.*
 
 
-Para saber mais, consulte:- [Desenvolvimento do Banco de Dados SQL do Azure: Tópicos de instruções](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Solucionar problemas de conexão com o Banco de Dados SQL do Azure](http://support.microsoft.com/kb/2980233/)
+Para saber mais, consulte:- [Desenvolvimento do Banco de Dados SQL do Azure: tópicos de tutoriais](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Solucionar problemas de conexão com o Banco de Dados SQL do Azure](http://support.microsoft.com/kb/2980233/)
 
 
 ## Tecnologias
@@ -164,4 +167,4 @@ Vários exemplos de código são fornecidos para clientes que são executados no
 
 - [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -4,7 +4,7 @@
 
 # Gerenciamento de API: versão 2014-07-31-Visualização
 
-Este documento descreve a versão **2014-07-31-Visualização** da API REST do Serviço de Pesquisa do Azure. Ela foi substituída pela versão disponível, a [API REST de Gerenciamento da Pesquisa do Azure 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) no MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Este documento descreve a versão **2014-07-31-Visualização** da API REST do Serviço de Pesquisa do Azure. Desde então, foi substituído por versões mais recentes. Para obter a versão mais recente, consulte [API REST de gerenciamento da Pesquisa do Azure 2015 08-19](https://msdn.microsoft.com/library/dn832684.aspx) no MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ## Operações de gerenciamento de serviço
 
@@ -26,7 +26,7 @@ Observe que todas as chamadas à API de gerenciamento devem incluir a ID da assi
 
 ### Versões
 
-A versão atual da API REST de Gerenciamento da Pesquisa do Azure é `api-version=2014-07-31-Preview`. É a única versão dessa API.
+A `api-version=2014-07-31-Preview` foi introduzida durante a visualização pública da Pesquisa do Azure. Para saber mais sobre as alterações de uma versão para outra, consulte [Novidades na Pesquisa do Azure](search-latest-updates.md).
 
 ### Autenticação e controle de acesso
 
@@ -815,4 +815,4 @@ Nenhum.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

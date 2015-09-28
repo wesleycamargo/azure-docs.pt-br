@@ -42,9 +42,11 @@ Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Gru
 - [RemoteApp do Azure](#azure-remoteapp-limits)
 - [Backup](#backup-limits)
 - [Batch](#batch-limits)
+- [Serviços do BizTalk](#biztalk-services-limits)
 - [CDN](#cdn-limits)
 - [Serviços de Nuvem](#cloud-services-limits)
 - [Fábrica de dados](#data-factory-limits)
+- [DNS](#dns-limits)
 - [Banco de Dados de Documentos](#documentdb-limits)
 - [Cofre da Chave](#key-vault-limits)
 - [Serviços de Mídia](#media-services-limits)
@@ -64,6 +66,7 @@ Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Gru
 - [Sistema StorSimple](#storsimple-system-limits)
 - [Análise de fluxo](#stream-analytics-limits)
 - [Assinatura](#subscription-limits)
+- [Gerenciador de Tráfego](#traffic-manager-limits)
 - [Máquinas virtuais](#virtual-machines-limits)
 
 
@@ -113,7 +116,7 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-Para mais detalhes sobre os limites da conta de armazenamento, consulte [Metas de desempenho e de escalabilidade do armazenamento do Azure](../articles/storage/storage-scalability-targets.md).
+Para obter mais detalhes sobre os limites da conta de armazenamento, consulte [Metas de desempenho e de escalabilidade do armazenamento do Azure](../articles/storage/storage-scalability-targets.md).
 
 
 #### Limites de Armazenamento Premium
@@ -143,6 +146,11 @@ Os limites de Serviço de Aplicativo a seguir incluem limites para Aplicativos W
 ### Limites de lote
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+
+###Limites dos serviços BizTalk
+A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
+
+[AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 
 ### Limites do Banco de Dados de Documentos
@@ -238,7 +246,7 @@ Para obter mais detalhes sobre os limites da Pesquisa do Azure, consulte [Limite
 
 ### Limites de banco de dados SQL
 
-Para limites de Banco de Dados SQL, consulte [Limites de recurso de Banco de Dados SQL](sql-database/sql-database-resource-limits.md).
+Para obter os limites de Banco de Dados SQL, consulte [Limites de recurso do Banco de Dados SQL](sql-database/sql-database-resource-limits.md).
 
 ## Consulte também
 
@@ -246,4 +254,4 @@ Para limites de Banco de Dados SQL, consulte [Limites de recurso de Banco de Dad
 
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

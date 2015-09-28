@@ -37,7 +37,9 @@ Este artigo não fornece uma visão geral conceitual do serviço Azure Data Fact
 
 ### Pré-requisitos
 
-Você deve ter os seguintes itens instalados no computador: - Visual Studio 2013 - Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [Página de Download do Azure](http://azure.microsoft.com/downloads/) e clique em **Instalação do VS 2013** na seção **.NET**.
+Você deve ter os seguintes itens instalados no computador: 
+- Visual Studio 2013
+- Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [página de download do Azure](http://azure.microsoft.com/downloads/) e clique em **instalar VS 2013** na seção **.NET**.
 
 
 ### Criar o projeto do Visual Studio 
@@ -82,7 +84,7 @@ Agora, você criará um serviço vinculado para um cluster HDInsight sob demanda
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "AzureStorageLinkedService1"
 		    }
 		  }
@@ -235,4 +237,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

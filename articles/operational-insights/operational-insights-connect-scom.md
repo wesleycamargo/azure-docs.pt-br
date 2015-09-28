@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/06/2015"
+   ms.date="09/10/2015"
    ms.author="lauracr"/>
 
 # Conectar-se a Insights Operacionais do System Center Operations Manager
@@ -46,4 +46,4 @@ Se você usar o Operations Manager para monitorar qualquer uma das seguintes car
 
 [Definir as configurações de Proxy e Firewall (opcional)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

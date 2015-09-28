@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Publish-WebApplicationWebSite (script do Windows PowerShell)"
-	description="Saiba como publicar um projeto Web em um site do Azure. Se os recursos necessários não existirem, este script criará tais recursos em sua assinatura do Azure."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Saiba como publicar um projeto Web em um site do Azure. Se os recursos necessários não existirem, este script criará tais recursos em sua assinatura do Azure."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Publish-WebApplicationWebSite (script do Windows PowerShell)
 
@@ -22,13 +22,13 @@
 Publica um projeto Web em um site do Azure. Se os recursos necessários não existirem, o script criará tais recursos em sua assinatura do Azure.
 
 	Publish-WebApplicationWebSite
-	–Configuration <configuration> 
+	–Configuration <configuration>
 	-SubscriptionName <subscriptionName>
 	-WebDeployPackage <packageName>
 	-DatabaseServerPassword @{Name = "name"; Password = "password"}
 	-SendHostMessagesToOutput
 	-Verbose
-	
+
 
 ## Configuração
 
@@ -68,14 +68,14 @@ O caminho para o pacote de implantação Web a publicar no site. Você pode cria
 |Valor padrão|nenhum|
 |Aceitar entrada do Pipeline?|false|
 |Aceitar caracteres curinga?|false|
-	
+
 ## DatabaseServerPassword
 
 O nome do administrador e a senha do Banco de Dados SQL no Azure.
 
 |Parâmetro|Valor padrão|
-|Aliases|nenhum|
 |---|---|
+|Aliases|nenhum|
 |Obrigatório?|false|
 |Position|nomeado|
 |Valor padrão|nenhum|
@@ -129,4 +129,4 @@ Você pode editar o arquivo de configuração JSON para alterar o que é implant
 
 [Publish-WebApplicationVM (script do Windows PowerShell)](https://msdn.microsoft.com/library/azure/dn689112.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

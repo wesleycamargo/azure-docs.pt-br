@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/22/2015"
+	ms.date="09/11/2015"
 	ms.author="cabailey"/>
 #Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -105,6 +105,7 @@ Vá para Centro de Download da Microsoft e [Baixe o conjunto de ferramentas BYOK
 |Europa|KeyVault-BYOK-Tools-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
 |Ásia|KeyVault-BYOK-Tools-AsiaPacific.zip|0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E|
 |América Latina|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
+|Japão|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
 
 Para validar a integridade do seu conjunto de ferramentas BYOK baixado, na sua sessão do Azure PowerShell, use o cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx).
 
@@ -112,8 +113,8 @@ Para validar a integridade do seu conjunto de ferramentas BYOK baixado, na sua s
 
 O conjunto de ferramentas inclui o seguinte:
 
-- Um pacote de Chave de Troca de Chaves (KEK) que tem um nome que começa com **BYOK-KEK-pkg-.**
-- Um pacote do Universo de segurança que tem um nome que começa com **BYOK-SecurityWorld-pkg-.**
+- Um pacote de Chave de Troca de Chave (KEK) que tem um nome que começa com **BYOK-KEK-pkg-.**
+- Um pacote de Universo de Segurança que tem um nome que começa com **BYOK-SecurityWorld-pkg-.**
 - Um script python chamado v**erifykeypackage.py.**
 - Um arquivo executável de linha de comando chamado **KeyTransferRemote.exe** e DLLs associadas.
 - Um pacote redistribuível do Visual C++, chamado **vcredist\_x64.exe.**
@@ -129,7 +130,7 @@ Para essa segunda etapa, siga os procedimentos a seguir na estação de trabalho
 
 Instale o software de suporte nCipher (Thales) em um computador Windows e, em seguida, anexe um HSM da Thales a esse computador.
 
-Certifique-se de que as ferramentas Thales estejam no caminho (**%nfast\_home%\\bin** e **%nfast\_home%\\python\\bin**). Por exemplo, digite o seguinte:
+Verifique se as ferramentas Thales estão no caminho (**%nfast\_home%\\bin** e **%nfast\_home%\\python\\bin**). Por exemplo, digite o seguinte:
 
 		set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 
@@ -153,7 +154,7 @@ Inicie um prompt de comando e execute o programa do novo universo da Thales.
 
 	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-Este programa cria um arquivo de **Universo de segurança** em %NFAST\_KMDATA%\\local\\world, que corresponde à pasta C:\\ProgramData\\nCipher\\Key Management Data\\local. É possível usar valores diferentes para o quorum, mas, no nosso exemplo, você será solicitado a inserir três cartões em branco e pins para cada um deles. Em seguida, os dois cartões darão acesso completo ao universo de segurança. Esses cartões se tornam o **Conjunto de cartões do administrador** para o novo universo de segurança.
+Este programa cria um arquivo **Universo de Segurança** em %NFAST\_KMDATA%\\local\\world, que corresponde à pasta C:\\ProgramData\\nCipher\\Key Management Data\\local. É possível usar valores diferentes para o quorum, mas, no nosso exemplo, você será solicitado a inserir três cartões em branco e pins para cada um deles. Em seguida, os dois cartões darão acesso completo ao universo de segurança. Esses cartões se tornam o **Conjunto de Cartões do Administrador** para o novo universo de segurança.
 
 Faremos o seguinte:
 
@@ -192,13 +193,13 @@ Para validar o pacote baixado:
 	
 2.	Confirme que você vê o seguinte, que indica a validação bem-sucedida: **Resultado: SUCCESS**
 
-Este script valida a cadeia do signatário até a chave-raiz da Thales. O hash dessa chave-raiz é inserido no script e o seu valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Você também pode confirmar esse valor separadamente visitando o [site da Thales](http://www.thalesesec.com/).
+Este script valida a cadeia do signatário até a chave-raiz da Thales. O hash dessa chave raiz é inserido no script e o seu valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Você também pode confirmar esse valor separadamente visitando o [site da Thales](http://www.thalesesec.com/).
 
 Agora você está pronto para criar uma nova chave.
 
 ###Etapa 3.3: Criar uma nova chave
 
-Gerar uma chave usando o programa **generatekey** da Thales.
+Gere uma chave usando o programa **generatekey** da Thales.
 
 Execute o seguinte comando para gerar a chave:
 
@@ -206,7 +207,7 @@ Execute o seguinte comando para gerar a chave:
 
 Quando você executar esse comando, use estas instruções:
 
-- Substitua o valor de *contosokey* para o **ident** e **plainname** por qualquer valor de cadeia de caracteres. Para minimizar os custos administrativos e reduzir o risco de erros, recomendamos que você use o mesmo valor para ambos. O valor **ident** deve conter somente números, traços, letras maiúsculas e minúsculas.
+- Substitua o valor de *contosokey* para a **ident** e **plainname** por qualquer valor de cadeia de caracteres. Para minimizar os custos administrativos e reduzir o risco de erros, recomendamos que você use o mesmo valor para ambos. O valor de **ident** deve conter somente números, traços, letras minúsculas.
 
 - O pubexp é deixado em branco (padrão) neste exemplo, mas você pode especificar valores específicos. Para obter mais informações, consulte a Documentação da Thales.
 
@@ -284,7 +285,7 @@ Quando você executar esse comando, use estas instruções:
 
 - Substitua *contosokey* pelo identificador usado para gerar a chave na **Etapa 3.3: Criar uma nova chave** na etapa [Gerar a sua chave](#step-3-generate-your-key).
 
-- Substitua *SubscriptionID* pela ID da assinatura do Azure que contém o seu Cofre da Chave. Esse valor foi recuperado anteriormente, na **Etapa 1.2: Obter a sua ID da assinatura do Azure** na etapa [Preparar a sua estação de trabalho conectada à Internet](#step-1-prepare-your-internet-connected-workstation).
+- Substitua *SubscriptionID* pela ID da assinatura do Azure que contém o seu cofre da chave. Esse valor foi recuperado anteriormente, na **Etapa 1.2: obter a sua ID da assinatura do Azure** na etapa [Preparar a sua estação de trabalho conectada à Internet](#step-1-prepare-your-internet-connected-workstation).
 
 - Substitua *ContosoFirstHSMKey* por um rótulo que será usado para o nome do arquivo de saída.
 
@@ -304,6 +305,6 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 ##Próximas etapas
 
-Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um Módulo de segurança de hardware (HSM)** no tutorial [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md).
+Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-get-started.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="09/16/2015" 
 	ms.author="ricksal"/>
 
 # Adicionar os Serviços Móveis a um aplicativo do Android existente (back-end do JavaScript)
@@ -156,4 +156,4 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

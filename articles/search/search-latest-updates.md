@@ -94,10 +94,20 @@ Esta versão foi a versão de visualização pública da Pesquisa do Azure, forn
 
 - Provisionamento na versão de visualização do [Portal de gerenciamento do Azure](https://portal.azure.com). A Pesquisa do Azure era um dos poucos serviços disponíveis apenas no novo portal.
 
+##API de gerenciamento versão 2015-08-19
+**Lançamento: 11 de setembro de 2015**
+
+A [API REST de gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx) inclui as seguintes atualizações.
+
+- checkNameAvailability verifica se o nome de um determinado serviço já está sendo usado.
+- O intervalo de réplica era de 1 a 6, e agora é de 1 a 12.
+- A propriedade SKU foi transferida do recipiente de propriedades para o nível superior da carga de serviço.
+- O corpo da resposta da operação Criar Serviço de Pesquisa foi atualizado a fim de acomodar a realocação da configuração do SKU.
+
 ##Gerenciamento da versão da api 2015-02-28
 **Lançamento: 5 de março de 2015**
 
-[API REST de gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx) marca a primeira versão da API de gerenciamento pertencente à versão disponível publicamente da Pesquisa do Azure. Não há qualquer diferença de recursos entre a visualização anterior e esta.
+[API REST de gerenciamento](search-management-api-2014-02-28.md) marca a primeira versão da API de gerenciamento pertencente à versão disponível publicamente da Pesquisa do Azure. Não há qualquer diferença de recursos entre a visualização anterior e esta.
 
 ##Gerenciamento da versão da api 2014-07-31-Preview
 **Lançamento: outubro de 2014**
@@ -107,4 +117,4 @@ A versão de visualização da [API REST de gerenciamento](search-management-api
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

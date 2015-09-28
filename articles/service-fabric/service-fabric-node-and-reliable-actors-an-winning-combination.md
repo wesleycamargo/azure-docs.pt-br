@@ -1,20 +1,20 @@
 <properties
    pageTitle="Node.js e atores confiáveis | Microsoft Azure"
-	description="Uma introdução passo a passo sobre como criar um aplicativo express do Node.js que usa Atores Confiáveis e é executado na plataforma da Service Fabric do Azure."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="clca"
-	manager="timlt"
-	editor=""/>
+   description="Uma introdução passo a passo sobre como criar um aplicativo express do Node.js que usa Atores Confiáveis e é executado na plataforma da Service Fabric do Azure."
+   services="service-fabric"
+   documentationCenter="nodejs"
+   authors="clca"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/17/2015"
-	ms.author="claudioc"/>
+   ms.devlang="nodejs"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/17/2015"
+   ms.author="claudioc"/>
 
 
 # Node.js e atores confiáveis: uma combinação vencedora
@@ -224,4 +224,4 @@ Você pode implantar o aplicativo (que incluirá o aplicativo do Node.js), usand
 [9]: ./media/service-fabric-node-and-reliable-actors-app/application-project-reference.PNG
 [10]: ./media/service-fabric-node-and-reliable-actors-app/solution-deploy.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

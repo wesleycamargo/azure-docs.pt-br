@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Painel do serviço do StorSimple Manager | Microsoft Azure"
-	description="Descreve o painel de serviço do StorSimple Manager e explica como usá-lo para monitorar a integridade de sua solução StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Descreve o painel de serviço do StorSimple Manager e explica como usá-lo para monitorar a integridade de sua solução StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/17/2015"
+   ms.author="v-sharos" />
 
 # Use o painel de serviço do StorSimple Manager
 
@@ -74,6 +74,8 @@ Você pode exibir os logs de operação clicando no link de logs de operação d
 
 ## Próximas etapas
 
-[Saiba como solucionar problemas de um dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
+- Saiba como [solucionar problemas com um dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=September15_HO1-->
+- Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 #### Para concluir a configuração mínima do dispositivo StorSimple
 
@@ -5,11 +6,11 @@
 
 	![Página de dispositivos com o dispositivo online](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png)
 
-2. Clique no início rápido do ícone ![Ícone de Inicialização Rápida](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) para acessar à página de início rápido do dispositivo. Clique em **Concluir a instalação do dispositivo** para iniciar o Assistente para **configurar o dispositivo**.
+2. Clique no início rápido do ícone ![Ícone de Inicialização Rápida](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) para acessar à página de início rápido do dispositivo. Clique em **Concluir a instalação do dispositivo** para iniciar o assistente de **Configuração do dispositivo**.
 
 	![Página de início rápido do dispositivo](./media/storsimple-complete-minimum-device-setup/Device_Quick_Start_page_1M.png)
 
-2. Sobre a página **Configurações básicas**, faça o seguinte:
+2. Na página **Configurações Básicas**, faça o seguinte:
   1. Forneça um **nome amigável** para seu dispositivo. O nome do dispositivo padrão reflete as informações, tais como, o número de série e o modelo do dispositivo. Você pode atribuir um nome amigável de até 64 caracteres para gerenciar o dispositivo.
   2. Defina o **fuso horário** com base na localização geográfica na qual o dispositivo está sendo implantado. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
   3. Em **Configurações DNS**, forneça um endereço para o **Servidor DNS Secundário**. Se você estiver usando o IPv6, o campo será preenchido com base no prefixo IPv6 fornecido na interface do Windows PowerShell. Se o servidor DNS secundário não estiver configurado, você não poderá salvar a configuração do dispositivo.
@@ -33,4 +34,8 @@
 
  >[AZURE.NOTE]Você pode modificar todas as outras configurações do dispositivo a qualquer momento acessando a página **Configurar**.
 
-<!---HONumber=August15_HO7-->
+![Vídeo disponível](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo que demonstra como concluir a configuração mínima do dispositivo, clique [aqui](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+
+<!---HONumber=Sept15_HO3-->

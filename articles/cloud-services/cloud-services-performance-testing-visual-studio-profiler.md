@@ -11,11 +11,11 @@
 
 <tags 
 	ms.service="cloud-services" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="09/14/2015" 
 	ms.author="patshea"/>
 
 # Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
@@ -25,11 +25,8 @@ Várias técnicas e ferramentas estão disponíveis para testar o desempenho de 
 Este artigo aborda o método de Amostragem de CPU de criação de perfil, que pode ser executado localmente no emulador. A Amostragem de CPU é um método de criação de perfil que não é muito invasivo. Em um intervalo de amostragem designado, o criador de perfis tira um instantâneo da pilha de chamadas. Os dados são coletados durante um período de tempo e mostrados em um relatório. Esse método de criação de perfis tende a indicar onde está sendo feita a maior parte do trabalho em um aplicativo que utiliza muitos recursos de computação. Isso oferece a oportunidade de focalizar o "afunilamento" onde seu aplicativo está gastando mais tempo.
 
 
-## Pré-requisitos
 
-É possível executar o criador de perfis localmente apenas se você tiver o Visual Studio Premium ou o Visual Studio Ultimate.
-
-## <a name="step1"> </a> Etapa 1: Configurar o Visual Studio para criação de perfis
+## Etapa 1: Configurar o Visual Studio para criação de perfis
 
 Em primeiro lugar, há algumas opções de configuração do Visual Studio que podem ser úteis ao criar perfis. Para compreender os relatórios de criação de perfis, você precisará de símbolos (arquivos .pdb) para seu aplicativo e também de símbolos para as bibliotecas do sistema. Você deve certificar-se de fazer referência aos servidores de símbolo disponíveis. Para fazer isso, no menu **Ferramentas** do Visual Studio, escolha **Opções**, escolha **Depuração** e, em seguida, **Símbolos**. Verifique se os Servidores de Símbolo da Microsoft estão listados em **Locais do arquivo de símbolos (.pdb)**. Você também pode consultar http://referencesource.microsoft.com/symbols, que pode ter arquivos de símbolos adicionais.
 
@@ -73,7 +70,7 @@ Chame esse código do método RunAsync na classe derivada de RoleEntryPoint da f
 
 Compile e execute seu serviço de nuvem localmente sem depuração (Ctrl+F5), com a configuração da solução definida como **Versão**. Isso garante que todos os arquivos e pastas sejam criados para executar o aplicativo localmente e garante que todos os emuladores estejam iniciados. Inicie a UI do Emulador de Computação na barra de tarefas para confirmar que sua função de trabalho esteja em execução.
 
-## <a name="step2"> </a> Etapa 2: Anexar a um processo
+## Etapa 2: Conectar a um processo
 
 Em vez de criar o perfil do aplicativo iniciando-o no IDE do Visual Studio 2010, você deve anexar o criador de perfis a um processo em execução.
 
@@ -107,7 +104,7 @@ Quando desejar parar a criação de perfis, escolha o link **Parar Criação de 
 
 ![][10]
 
-## <a name="step3"> </a> Etapa 3: Exibir relatórios de desempenho
+## Etapa 3: Exibir relatórios de desempenho
 
 O relatório de desempenho de seu aplicativo é exibido.
 
@@ -126,7 +123,7 @@ Se você adicionou o código de concatenação de cadeia de caracteres deste art
 
 ![][14]
 
-## <a name="step4"> </a> Etapa 4: Fazer alterações e comparar o desempenho
+## Etapa 4: Fazer alterações e comparar o desempenho
 
 Você também pode comparar o desempenho antes e depois de uma alteração no código. Interrompa o processo em execução e edite o código para substituir a operação de concatenação de cadeia de caracteres pelo uso de StringBuilder:
 
@@ -151,7 +148,7 @@ Os relatórios destacam as diferenças entre as duas execuções.
 
 Parabéns! Você começou a usar o criador de perfis.
 
-## <a name="troubleshooting"> </a> Solucionar problemas
+##  Solucionar problemas
 
 - Verifique se você está criando o perfil de uma compilação de versão e inicie sem depurar.
 
@@ -165,17 +162,11 @@ Parabéns! Você começou a usar o criador de perfis.
 
 - Se durante a amostragem você vir a mensagem "PRF0025: nenhum dado foi coletado", verifique se o processo ao qual você se conectou tem atividade de CPU. Os aplicativos que não estão fazendo nenhum trabalho de computação podem não produzir nenhum dado de amostragem. Também é possível que o processo tenha sido encerrado antes de qualquer amostra ter sido feita. Verifique se o método Run para uma função para a qual você esteja criando um perfil não é encerrado.
 
-## <a name="nextSteps"> </a> Próximas etapas
+## Próximas etapas
 
-A instrumentação de binários do Azure no emulador não tem suporte no criador de perfis do Visual Studio, mas para testar a alocação de memória, você poderá escolher essa opção ao criar um perfil. Você também pode escolher a criação de perfis simultânea, que ajuda a determinar se os threads estão perdendo tempo competindo por bloqueios, ou a criação de perfis de interação de camadas, que ajuda a rastrear problemas de desempenho ao interagir entre camadas de um aplicativo, mais frequentemente entre a camada de dados e uma função de trabalho. Você pode exibir as consultas do banco de dados que seu aplicativo gera e usar os dados da criação de perfis para melhorar o uso do banco de dados. Para obter informações sobre a criação de perfis de interação de camadas, consulte [Passo a passo: usando o criador de perfis de interação de camadas no Visual Studio Team System 2010][3].
+A instrumentação de binários do Azure no emulador não tem suporte no criador de perfis do Visual Studio, mas para testar a alocação de memória, você poderá escolher essa opção ao criar um perfil. Você também pode escolher a criação de perfis simultânea, que ajuda a determinar se os threads estão perdendo tempo competindo por bloqueios, ou a criação de perfis de interação de camadas, que ajuda a rastrear problemas de desempenho ao interagir entre camadas de um aplicativo, mais frequentemente entre a camada de dados e uma função de trabalho. Você pode exibir as consultas do banco de dados que seu aplicativo gera e usar os dados da criação de perfis para melhorar o uso do banco de dados. Para obter informações sobre a criação de perfis de interação de camadas, veja a postagem no blog [Passo a passo: usando o criador de perfis de interação de camadas no Visual Studio Team System 2010][3].
 
 
-[Step 1: Configure Visual Studio for Profiling]: #step1
-[Step 2: Attach to a Process]: #step2
-[Step 3: View Profiling Reports]: #step3
-[Step 4: Make Changes and Compare Performance]: #step4
-[Troubleshooting]: #troubleshooting
-[Next Steps]: #nextSteps
 
 [1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
@@ -195,4 +186,4 @@ A instrumentação de binários do Azure no emulador não tem suporte no criador
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Funções de modelo do Gerenciador de Recursos do Azure"
-	description="Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, cadeias de caracteres de formato e recuperar informações de implantação."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, cadeias de caracteres de formato e recuperar informações de implantação."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/21/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="tomfitz"/>
 
 # Funções de modelo do Gerenciador de Recursos do Azure
 
@@ -108,15 +108,34 @@ Retorna a divisão de inteiros dos dois inteiros fornecidos.
 | operand1 | Sim | Número que está sendo dividido.
 | operand2 | Sim | Número que é usado para dividir, deve ser diferente de 0.
 
+## int
+
+**int(valueToConvert)**
+
+Converte o valor especificado em Integer.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| valueToConvert | Sim | O valor a ser convertido em Integer. O tipo de valor pode ser apenas String ou Integer.
+
+O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em Integer.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
 ## length
 
 **length(array)**
 
-Retorna o número de elementos em uma matriz. Normalmente, é usado para especificar o número de iterações durante a criação de recursos. Para um exemplo do uso desta função, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+Retorna o número de elementos em uma matriz. Normalmente, é usado para especificar o número de iterações durante a criação de recursos. Para ver um exemplo de como usar essa função, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 
 ## listKeys
 
-**listKeys (resourceName or resourceIdentifier, [apiVersion])**
+**listKeys (resourceName ou resourceIdentifier, apiVersion)**
 
 Retorna as chaves para uma conta de armazenamento. A identificação de recurso pode ser especificada usando a [função resourceId](./#resourceid) ou usando o formato **providerNamespace/resourceType/resourceName**. Você pode usar a função para obter a primaryKey e secondaryKey.
   
@@ -129,7 +148,7 @@ O exemplo a seguir mostra como retornar as chaves de uma conta de armazenamento 
 
     "outputs": { 
       "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
         "type" : "object" 
       } 
     } 
@@ -206,9 +225,9 @@ O exemplo a seguir mostra um uso simplificado da função parâmetros.
        }
     ]
 
-## provider
+## providers
 
-**provider (providerNamespace, [resourceType])**
+**providers (providerNamespace, [resourceType])**
 
 Retorna informações sobre um provedor de recursos e seus tipos de recursos com suporte. Se nenhum tipo for fornecido, todos os tipos com suport são retornados.
 
@@ -384,6 +403,25 @@ O exemplo a seguir divide a cadeia de caracteres de entrada com uma vírgula.
         "stringPieces": "[split(parameters('inputString'), ',')]"
     }
 
+## string
+
+**string(valueToConvert)**
+
+Converte o valor especificado em String.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| valueToConvert | Sim | O valor a ser convertido em String. O tipo de valor pode ser apenas Boolean, Integer ou String.
+
+O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em String.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
+    }
+
 ## sub
 
 **sub(operand1, operand2)**
@@ -467,9 +505,9 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 
 
 ## Próximas etapas
-- Para ver uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, consulte [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
+- Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - Para mesclar diversos modelos, consulte [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
-- Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
+- Para iterar um número de vezes especificado ao criar um tipo de recurso, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

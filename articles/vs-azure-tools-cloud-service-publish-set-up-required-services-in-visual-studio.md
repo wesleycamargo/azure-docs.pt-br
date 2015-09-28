@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Configurando os serviços necessários para publicar um serviço de nuvem no Visual Studio"
-	description="Conheça os procedimentos para configurar serviços de conta de armazenamento e nuvem e configurar seu aplicativo do Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Conheça os procedimentos para configurar serviços de conta de armazenamento e nuvem e configurar seu aplicativo do Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="09/08/2015"
+   ms.author="kempb" />
 
 # Configurando os serviços necessários para publicar um serviço de nuvem no Visual Studio
 
-##Visão geral
+## Visão geral
 
 Antes de publicar um projeto de serviço de nuvem, você deve configurar os seguintes serviços:
 
@@ -143,7 +143,7 @@ Configure qualquer função que acessa os serviços de armazenamento para usar o
     1. Você deve selecionar uma das opções a seguir para determinar como o serviço acessará a conta de armazenamento:
         - **Usar HTTP**. Essa é a opção padrão. Por exemplo: `http://<account name>.blob.core.windows.net`.
         - **Usar HTTPS** para uma conexão segura. Por exemplo: `https://<accountname>.blob.core.windows.net`.
-        - **Especificar pontos de extremidade personalizados** para cada um dos três serviços. Em seguida, você pode digitar esses pontos de extremidade no campo para o serviço específico. 
+        - **Especificar pontos de extremidade personalizados** para cada um dos três serviços. Em seguida, você pode digitar esses pontos de extremidade no campo para o serviço específico.
 
         >[AZURE.NOTE]Se você criar pontos de extremidade personalizados, poderá criar uma cadeia de conexão mais complexa. Ao usar esse formato de cadeia de caracteres, você pode especificar pontos de extremidade de serviço de armazenamento que incluem um nome de domínio personalizado que você registrou para sua conta de armazenamento com o serviço Blob. Além disso, você pode conceder acesso apenas aos recursos de blob em um único contêiner por meio de uma assinatura de acesso compartilhado. Para obter mais informações sobre como criar pontos de extremidade, consulte [Configurar cadeias de conexão de armazenamento do Azure](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/).
 
@@ -153,4 +153,4 @@ Configure qualquer função que acessa os serviços de armazenamento para usar o
 
 [Publicando em um Serviço de Nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

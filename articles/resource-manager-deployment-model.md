@@ -1,20 +1,20 @@
 <properties
    pageTitle="Entender as diferenças entre os modelos do Gerenciador de Recursos e da implantação clássica"
-	description="Descreve as diferenças entre o modelo de implantação do Gerenciador de Recursos e o modelo de implantação clássica (ou do Gerenciamento de Serviços)."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Descreve as diferenças entre o modelo de implantação do Gerenciador de Recursos e o modelo de implantação clássica (ou do Gerenciamento de Serviços)."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="tomfitz"/>
 
 # Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica
 
@@ -101,7 +101,7 @@ O Gerenciador de Recursos adicionou o conceito do grupo de recursos. Cada recurs
 - Você pode aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
 
 
-Antes do Gerenciador de Recursos, cada recurso criado por meio da implantação clássica não existia dentro de um grupo de recursos. Quando o Gerenciador de Recursos foi adicionado, todos os recursos foram adicionados retroativamente aos grupos de recursos padrão. Se você criar um recurso por meio de implantação clássica agora, ele será criado automaticamente em um grupo de recursos vazio, mesmo que você não tenha especificado esse grupo de recursos na implantação. No entanto, existir apenas em um grupo de recursos não significa que o recurso tenha sido convertido no modelo do Gerenciador de Recursos. Se o recurso tiver sido criado por meio da implantação clássica, você deverá continuar operando nele de modo clássico.
+Antes do Gerenciador de Recursos, cada recurso criado por meio da implantação clássica não existia dentro de um grupo de recursos. Quando o Gerenciador de Recursos foi adicionado, todos os recursos foram adicionados retroativamente aos grupos de recursos padrão. Se você criar um recurso por meio da implantação clássica agora, ele será criado automaticamente em um grupo de recursos padrão para esse serviço, mesmo que você não tenha especificado esse grupo de recursos na implantação. No entanto, existir apenas em um grupo de recursos não significa que o recurso tenha sido convertido no modelo do Gerenciador de Recursos. Para Máquinas Virtuais, Armazenamento e Redes Virtuais, se o recurso tiver sido criado por meio da implantação clássica, você deverá continuar operando nele de modo clássico.
 
 É possível mover recursos para outro grupo de recursos, bem como adicionar novos recursos a um grupo existente. Desse modo, seu grupo de recursos pode conter uma mistura de recursos criados por meio da implantação clássica e do Gerenciador de Recursos. Essa combinação de recursos pode gerar resultados inesperados, pois os recursos não oferecem suporte às mesmas operações.
 
@@ -158,4 +158,4 @@ Para obter informações sobre como conectar redes virtuais de diferentes modelo
 - Para saber mais sobre como criar modelos de implantação declarativa, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

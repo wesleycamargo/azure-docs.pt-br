@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Fase 1 da carga de trabalho do farm da intranet do SharePoint: Configurar o Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 Nesta fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, crie a infraestrutura de rede e de armazenamento do Azure no Gerenciamento de Serviços do Azure. Conclua esta fase antes de passar para a [Fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Consulte [Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure](virtual-machines-workload-intranet-sharepoint-overview.md) para conhecer todas as fases.
 
@@ -78,7 +80,7 @@ Item | Espaço de endereço da rede local
 
 Para criar a rede virtual com as configurações das Tabelas V, S, D e L, use as instruções em [Criar uma rede virtual entre locais usando tabelas de configuração](virtual-machines-workload-deploy-vnet-config-tables.md).
 
-> [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar a Rota Expressa para sua conexão site a site, consulte [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md).
+> [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar o ExpressRoute para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](../expressroute/expressroute-introduction.md).
 
 Depois de criar a rede virtual do Azure, o Portal de Gerenciamento do Azure determinará:
 
@@ -93,7 +95,7 @@ Em seguida, crie a conexão VPN site a site entre a nova rede virtual e um dispo
 
 Em seguida, certifique-se de que o espaço de endereço da rede virtual possa ser acessado pela sua rede local. Geralmente, isso é feito adicionando uma rota correspondente ao espaço de endereço da rede virtual ao seu dispositivo VPN e, em seguida, anunciando essa rota para o restante da infraestrutura de roteamento da rede da sua organização. Trabalhe com o departamento de TI para determinar como fazer isso.
 
-Em seguida, use as instruções em [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para instalar o Azure PowerShell no computador local. Abra um prompt de comando do Azure PowerShell.
+Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Abra um prompt de comando do Azure PowerShell.
 
 Primeiro, selecione a assinatura correta do Azure com estes comandos. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
 
@@ -114,7 +116,7 @@ Item | Finalidade | Nome do serviço de nuvem
 
 Você deve escolher um nome exclusivo para cada serviço de nuvem. *O nome do serviço de nuvem pode conter apenas letras, números e hifens. O primeiro e o último caractere no campo devem ser uma letra ou um número.*
 
-Por exemplo, você poderia nomear o primeiro serviço de nuvem como DCs-*UniqueSequence*, onde *UniqueSequence* é uma abreviação da sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de DCs-Tailspin.
+Por exemplo, você poderia nomear o primeiro serviço de nuvem como DCs-*UniqueSequence*, em que *UniqueSequence* é uma abreviação da sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de DCs-Tailspin.
 
 Você pode testar a exclusividade do nome com o comando a seguir do Azure PowerShell em seu computador local.
 
@@ -171,4 +173,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 2: Conf
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

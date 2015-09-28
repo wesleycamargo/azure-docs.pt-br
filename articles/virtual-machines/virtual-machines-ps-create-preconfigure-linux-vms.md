@@ -3,7 +3,7 @@
 	description="Aprenda a usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais do Azure baseadas em Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Linux
 
@@ -260,4 +260,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO3-->

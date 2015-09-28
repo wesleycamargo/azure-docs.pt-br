@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Compilar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos | Microsoft Azure" 
+	pageTitle="Desenvolvimento de aplicativo Web com o ASP.NET MVC usando o Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba como usar o Banco de Dados de Documentos com o .NET para compilar um aplicativo Web de lista de tarefas pendentes. Você vai armazenar e acessar dados por meio de um aplicativo Web ASP.NET MVC hospedado nos Sites do Azure." 
+	keywords="Github, visual studio, web application development, application development, database tutorial, mvc applications, json data, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -17,7 +18,7 @@
 	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
-#<a name="_Toc395809351"></a>Compilar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos
+#<a name="_Toc395809351"></a>Desenvolvimento de aplicativo Web com ASP.NET MVC usando Banco de Dados de Documentos
 
 Para destacar como você pode aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este artigo fornece um passo a passo completo que mostra como compilar um aplicativo Web de lista de tarefas pendentes usando o Banco de Dados de Documentos do Azure. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos do Azure.
 
@@ -27,9 +28,9 @@ Este passo a passo mostra como usar o serviço Banco de Dados de Documentos forn
 
 > [AZURE.TIP]Este tutorial pressupõe que você tem experiência anterior com o ASP.NET MVC e com os Sites do Azure. Se estiver começando a usar o ASP.NET ou as [ferramentas que são pré-requisitos](#_Toc395637760), recomendamos baixar o projeto de tutorial [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) completo no [GitHub](https://github.com/Azure/azure-documentdb-net) e compilá-lo usando as [instruções do final deste artigo](#GetProject). Depois de compilá-lo, você poderá consultar o artigo para obter informações sobre o código no contexto do projeto.
 
-## <a name="_Toc395637760"></a>Pré-requisitos
+## <a name="_Toc395637760"></a>Pré-requisitos para esse tutorial de banco de dados
 
-Antes de seguir as instruções deste artigo, verifique se você tem o seguinte:
+Antes de seguir as instruções deste artigo, verifique se você possui o seguinte:
 
 - Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](../../pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) Atualização 4 ou mais recente.
@@ -64,7 +65,7 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 
   	A caixa de diálogo **Novo Projeto ASP.NET** aparecerá.
 
-  	![Captura de tela da caixa de diálogo Novo Projeto ASP.NET com o modelo MVC realçado e a caixa Hospedar na nuvem marcada](./media/documentdb-dotnet-application/image11.png)
+  	![Captura de tela da caixa de diálogo Novo Projeto ASP.NET com o modelo de aplicativo MVC realçado e a caixa Hospedar na nuvem marcada](./media/documentdb-dotnet-application/image11.png)
 
 5. No painel de modelos, selecione **MVC**.
 
@@ -76,7 +77,7 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 
   	Não escolhi "Servidor de banco de dados" aqui porque não estamos usando o Servidor do Banco de Dados SQL do Azure; vamos criar uma nova Conta de Banco de Dados de Documentos do Azure posteriormente no portal de Visualização do Azure.
 
-	Para obter mais informações sobre como escolher um **plano do Serviço de Aplicativo** e um **grupo de Recursos**, consulte [Visão geral dos planos de Serviço de Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Para obter mais informações sobre como escolher um **plano do Serviço de Aplicativo** e um **grupo de Recursos**, consulte [Visão geral dos planos do Serviço de Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
   	![Captura de tela da caixa de diálogo Configurar Site do Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -84,13 +85,13 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 
 	Vamos ignorar a execução local do projeto porque tenho certeza de que vimos o aplicativo "Hello World" do ASP.NET. Vamos passar direto para a adição do Banco de Dados de Documentos a este projeto e a criação de nosso aplicativo.
 
-## <a name="_Toc395637767"></a>Etapa 3: adicionar o Banco de Dados de Documentos ao seu projeto
+## <a name="_Toc395637767"></a>Etapa 3: adicionar o Banco de Dados de Documentos ao seu projeto de aplicativo Web
 
 Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários para esta solução, vamos para o verdadeiro propósito deste tutorial, que é adicionar o Banco de Dados de Documentos do Azure ao nosso aplicativo Web.
 
 1. O SDK .NET do Banco de Dados de Documentos é distribuído como um pacote NuGet. Para obter o pacote NuGet no Visual Studio, use o gerenciador de pacotes NuGet no Visual Studio ao clicar com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clicar em **Gerenciar Pacotes NuGet**.
 
-  	![Captura de tela das opções do botão direito do mouse para o projeto no Gerenciador de Soluções, com Gerenciar Pacotes NuGet realçado.](./media/documentdb-dotnet-application/image21.png)
+  	![Captura de tela das opções do botão direito do mouse para o projeto de aplicativo Web no Gerenciador de Soluções, com Gerenciar Pacotes NuGet realçado.](./media/documentdb-dotnet-application/image21.png)
 
     A caixa de diálogo **Gerenciar Pacotes NuGet** será exibida.
 
@@ -106,7 +107,7 @@ Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários
 
 3. Após o pacote ser instalado, sua solução do Visual Studio deverá se parecer com a seguinte, com duas novas referências adicionadas, Microsoft.Azure.Documents.Client e Newtonsoft.Json.
 
-  	![Captura de tela das duas referências adicionadas ao projeto no Gerenciador de Soluções](./media/documentdb-dotnet-application/image22.png)
+  	![Captura de tela das duas referências adicionadas ao projeto de dados JSON no Gerenciador de Soluções](./media/documentdb-dotnet-application/image22.png)
 
 
 ##<a name="_Toc395637763"></a>Etapa 4: configurar o aplicativo ASP.NET MVC
@@ -118,7 +119,7 @@ Agora vamos adicionar os modelos, as exibições e os controladores a este aplic
 - [Adicionar exibições](#_Toc395637766).
 
 
-### <a name="_Toc395637764"></a>Adicionar um modelo
+### <a name="_Toc395637764"></a>Adicionar um modelo de dados JSON
 
 Vamos começar criando o **M** no MVC, o modelo.
 
@@ -178,7 +179,7 @@ Isso cuida do **M**. Agora vamos criar o **C** no MVC, uma classe de controlador
 
 	Após o arquivo ser criado, sua solução do Visual Studio deverá se parecer com a seguinte, com o novo arquivo ItemController.cs no **Gerenciador de Soluções**. O novo arquivo Item.cs criado anteriormente também é mostrado.
 
-	![Captura de tela do Gerenciador de Soluções com o novo arquivo ItemController.cs e o arquivo Item.cs realçados](./media/documentdb-dotnet-application/image16.png)
+	![Captura de tela da solução do Visual Studio — Gerenciador de Soluções com o novo arquivo ItemController.cs e o arquivo Item.cs realçados](./media/documentdb-dotnet-application/image16.png)
 
 	Você pode fechar ItemController.cs, pois voltaremos a ele mais tarde.
 
@@ -195,14 +196,14 @@ Agora vamos criar o **V** no MVC, as exibições:
 
 1. No **Gerenciador de Soluções**, expanda a pasta **Exibições**, clique com o botão direito do mouse na pasta vazia **Item** que o Visual criou quando você adicionou **ItemController** anteriormente, clique em **Adicionar** e em **Exibição**.
 
-	![Captura de tela do Gerenciador de Soluções mostrando a pasta Item com os comandos Adicionar Exibição realçados](./media/documentdb-dotnet-application/image17.png)
+	![Captura de tela do Gerenciador de Soluções mostrando a pasta Item que o Visual Studio criou com os comandos Adicionar Exibição realçados](./media/documentdb-dotnet-application/image17.png)
 
 2. Na caixa de diálogo **Adicionar Exibição**, faça o seguinte:
 	- Na caixa **Nome da exibição**, digite ***Índice***.
 	- Na caixa **Modelo**, selecione ***Lista***.
 	- Na caixa **Classe de modelo**, selecione ***Item (todo.Models)***.
 	- Deixe a caixa **Classe de contexto de dados** vazia. 
-	- Na caixa da página de layout, digite ***\~/Views/Shared/\_Layout.cshtml***.
+	- Na caixa da página de layout, digite ***~/Views/Shared/\_Layout.cshtml***.
 	
 	![Captura de tela mostrando a caixa de diálogo Adicionar Exibição](./media/documentdb-dotnet-application/image18.png)
 
@@ -219,7 +220,7 @@ Semelhante à criação de uma exibição **Índice de Itens**, criaremos agora 
     - Na caixa **Modelo**, selecione ***Criar***.
     - Na caixa **Classe de modelo**, selecione ***Item (todo.Models)***.
     - Deixe a caixa **Classe de contexto de dados** vazia.
-    - Na caixa da página de layout, digite ***\~/Views/Shared/\_Layout.cshtml***.
+    - Na caixa da página de layout, digite ***~/Views/Shared/\_Layout.cshtml***.
     - Clique em **Adicionar**.
 
 #### <a name="_Toc395888515"></a>Adicionar uma exibição Editar Item
@@ -233,7 +234,7 @@ E, por fim, adicione uma última exibição para editar um **Item** da mesma man
     - Na caixa **Modelo**, selecione ***Editar***.
     - Na caixa **Classe de modelo**, selecione ***Item (todo.Models)***.
     - Deixe a caixa **Classe de contexto de dados** vazia. 
-    - Na caixa da página de layout, digite ***\~/Views/Shared/\_Layout.cshtml***.
+    - Na caixa da página de layout, digite ***~/Views/Shared/\_Layout.cshtml***.
     - Clique em **Adicionar**.
 
 Feito isso, feche todos os documentos cshtml no Visual Studio, pois voltaremos a essas exibições mais tarde.
@@ -248,7 +249,7 @@ Nesta seção, vamos adicionar código para tratar do seguinte:
 - [Adicionando itens](#_Toc395637771).
 - [Editando itens](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>Listando itens incompletos
+### <a name="_Toc395637770"></a>Listando itens incompletos no seu aplicativo Web
 
 A primeira coisa a fazer aqui é adicionar uma classe que contenha toda a lógica para conectar e usar o Banco de Dados de Documentos. Para este tutorial, vamos encapsular toda essa lógica em uma classe de repositório chamada DocumentDBRepository.
 
@@ -451,7 +452,7 @@ Agora, se você executar o aplicativo, ele chamará o **ItemController** que cha
 
 Se você compilar e executar esse projeto agora, deverá ver algo parecido com isto.
 
-![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial](./media/documentdb-dotnet-application/image23.png)
+![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial de banco de dados](./media/documentdb-dotnet-application/image23.png)
 
 ### <a name="_Toc395637771"></a>Adicionando itens
 
@@ -578,7 +579,7 @@ Para testar o aplicativo em seu computador local, faça o seguinte:
 
 1. Pressione F5 no Visual Studio para compilar o aplicativo no modo de depuração. Ele deve compilar o aplicativo e iniciar um navegador com a página de grade vazia que vimos anteriormente:
 
-	![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial](./media/documentdb-dotnet-application/image24.png)
+	![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial de banco de dados](./media/documentdb-dotnet-application/image24.png)
 
 	Se encontrar erros neste ponto, você poderá comparar seu código com o tutorial todo no [GitHub][].
 
@@ -608,7 +609,7 @@ Agora que você tem o aplicativo completo funcionando corretamente no Banco de D
 
 2. Tudo já deve estar configurado de acordo com suas credenciais; na verdade, o site já foi criado no Azure para você na **URL de Destino** mostrada. Basta clicar em **Publicar**.
 
-    ![Captura de tela da caixa de diálogo Publicar Web](./media/documentdb-dotnet-application/image29.png)
+    ![Captura de tela da caixa de diálogo Publicar Web no Visual Studio](./media/documentdb-dotnet-application/image29.png)
 
 Em poucos segundos, o Visual Studio terminará de publicar seu aplicativo Web e iniciará um navegador no qual você poderá ver seu trabalho sendo executado no Azure!
 
@@ -658,4 +659,4 @@ Se você prefere economizar tempo e deseja apenas compilar a solução de lista 
 [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

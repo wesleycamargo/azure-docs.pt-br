@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Substituir um controlador de dispositivo StorSimple | Microsoft Azure"
-	description="Explica como remover e substituir um ou ambos os módulos do dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Explica como remover e substituir um ou ambos os módulos do dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/10/2015"
+   ms.author="alkohli" />
 
 # Substituir um módulo de controlador em seu dispositivo StorSimple
 
@@ -32,14 +32,14 @@ A tabela a seguir mostra os cenários de substituição do controlador aceitos.
 
 |Caixa|Cenário de substituição|Procedimento aplicável|
 |:---|:-------------------|:-------------------|
-|1|Um controlador está em estado de falha, o outro controlador está íntegro e ativo.|[Substituição de controlador único](#replace-a-single-controller)|
-|2|Ambos os controladores falharam e exigem substituição. O chassi, os discos e o compartimento de disco estão íntegros.|[Substituição de controlador duplo](#replace-both-controllers)|
+|1|Um controlador está em estado de falha, o outro controlador está íntegro e ativo.|[Substituição de controlador único](#replace-a-single-controller), que descreve a [lógica por trás de uma substituição de controlador único](#single-controller-replacement-logic), bem como as [etapas de substituição](#single-controller-replacement-steps).|
+|2|Ambos os controladores falharam e exigem substituição. O chassi, os discos e o compartimento de disco estão íntegros.|[Substituição de controlador duplo](#replace-both-controllers), que descreve a [lógica por trás de uma substituição de controlador duplo](#dual-controller-replacement-logic), bem como as [etapas de substituição](#dual-controller-replacement-steps). |
 |3|Os controladores no mesmo dispositivo ou de dispositivos diferentes estão trocados. O chassi, os discos e os compartimentos de disco estão íntegros.|Será exibida uma mensagem de alerta de incompatibilidade do slot.|
-|4|Um controlador está ausente e o outro controlador falha.|[Substituição de controlador duplo](#replace-both-controllers)|
-|5|Um ou ambos os controladores falharam. Não é possível acessar o dispositivo por meio do console serial ou de comunicação remota do Windows PowerShell.|[Contate o suporte da Microsoft](storsimple-contact-microsoft-support.md) para saber como substituir o controlador manualmente.|
+|4|Um controlador está ausente e o outro controlador falha.|[Substituição de controlador duplo](#replace-both-controllers), que descreve a [lógica por trás de uma substituição de controlador duplo](#dual-controller-replacement-logic), bem como as [etapas de substituição](#dual-controller-replacement-steps).|
+|5|Um ou ambos os controladores falharam. Não é possível acessar o dispositivo por meio do console serial ou de comunicação remota do Windows PowerShell.|[Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para saber o procedimento manual de substituição do controlador.|
 |6|Os controladores têm uma versão de compilação diferente, o que pode ser devido a:<ul><li>Controladores com versão de software diferente.</li><li>Controladores com versão de firmware diferente.</li></ul>|Se as versões de software do controlador forem diferentes, a lógica de substituição detecta isso e atualiza a versão do software no controlador de substituição.<br><br>Se as versões de firmware do controlador forem diferentes e a versão antiga do firmware **não** for atualizável de forma automática, uma mensagem de alerta aparecerá no Portal de Gerenciamento. Você deve verificar se há atualizações e instalar as atualizações de firmware.</br></br>Se as versões do firmware do controlador forem diferentes e a versão do firmware antigo puder ser atualizada automaticamente, a lógica de substituição de controlador detecta isso e, depois que o controlador iniciar, o firmware será atualizado automaticamente.|
 
-Você precisa remover um módulo do controlador caso apresente falha. Um ou ambos os módulos de controlador podem falhar, o que pode resultar em substituição de controlador único ou substituição de controlador duplo. Para obter os procedimentos de substituição, consulte:
+Você precisa remover um módulo do controlador caso apresente falha. Um ou ambos os módulos de controlador podem falhar, o que pode resultar em substituição de controlador único ou substituição de controlador duplo. Para conhecer os procedimentos de substituição e a lógica por trás deles, consulte o seguinte:
 
 - [Substituir controlador único](#replace-a-single-controller)
 - [Substituir ambos os controladores](#replace-both-controllers)
@@ -47,7 +47,7 @@ Você precisa remover um módulo do controlador caso apresente falha. Um ou ambo
 - [Inserir um controlador](#insert-a-controller)
 - [Identificar o controlador ativo em seu dispositivo](#identify-the-active-controller-on-your-device)
 
->[AZURE.IMPORTANT]Antes de remover e substituir um controlador, examine as informações de segurança em [Substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT]Antes de remover e substituir um controlador, examine as informações de segurança em [Substituição do componente de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Substituir controlador único
 
@@ -98,7 +98,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 
 5. Siga as etapas em [Remover um controlador](#remove-a-controller) para remover o controlador com falha.
 
-6. Instale a peça de reposição de fábrica no mesmo slot do qual o controlador com falha foi removido. Isso aciona a lógica de substituição do controlador único Para obter mais informações, consulte [Lógica de substituição do controlador único](#single-controller-replacement-logic).
+6. Instale a peça de reposição de fábrica no mesmo slot do qual o controlador com falha foi removido. Isso aciona a lógica de substituição do controlador único Para saber mais, consulte [Lógica de substituição do controlador único](#single-controller-replacement-logic).
 
 7. Enquanto a lógica de substituição do controlador único continua no plano de fundo, reconecte os cabos. Tome cuidado para conectar todos os cabos exatamente da mesma maneira que estavam conectados antes da substituição.
 
@@ -128,11 +128,11 @@ Na substituição de um controlador duplo, primeiro remova os dois controladores
 
 3. Enquanto isso, o controlador no slot 1 aguarda controlador 0 concluir a criação de imagem e iniciar.
 
-4. Depois que o controlador 0 iniciar, o controlador 1 detecta o cluster criado pelo controlador 0, que dispara a lógica de substituição do controlador único. Para obter mais informações, consulte [Lógica de substituição do controlador único](#single-controller-replacement-logic).
+4. Depois que o controlador 0 iniciar, o controlador 1 detecta o cluster criado pelo controlador 0, que dispara a lógica de substituição do controlador único. Para saber mais, consulte [Lógica de substituição do controlador único](#single-controller-replacement-logic).
 
 5. Posteriormente, ambos os controladores estarão em execução e o cluster ficará online.
 
->[AZURE.IMPORTANT]Após substituição de um controlador duplo, depois que o dispositivo StorSimple estiver configurado, é essencial fazer um backup manual do dispositivo. Os backups diários da configuração do dispositivo não são acionados antes de 24 horas. Trabalhe com [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para fazer um backup manual de seu dispositivo.
+>[AZURE.IMPORTANT]Após substituição de um controlador duplo, depois que o dispositivo StorSimple estiver configurado, é essencial fazer um backup manual do dispositivo. Os backups diários da configuração do dispositivo não são acionados antes de 24 horas. Trabalhe com o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para fazer um backup manual de seu dispositivo.
 
 ### Etapas de substituição do controlador duplo
 
@@ -150,9 +150,9 @@ Esse fluxo de trabalho é necessário quando ambos os controladores em seu dispo
 
 2. Remova todos os cabos de rede conectados às portas de dados. Se você estiver usando um modelo 8600, também remova os cabos SAS que conectam o compartimento primário ao compartimento EBOD.
 
-3. Remova ambos os controladores do dispositivo StorSimple. Para obter mais informações, consulte [Remover um controlador](#remove-a-controller).
+3. Remova ambos os controladores do dispositivo StorSimple. Para saber mais, consulte [Remover um controlador](#remove-a-controller).
 
-4. Primeiro insira a peça de reposição de fábrica do Controlador 0 e, em seguida, insira o Controlador 1. Para obter mais informações, consulte [Inserir um controlador](#insert-a-controller). Isso aciona a lógica de substituição do controlador duplo Para obter mais informações, consulte Lógica de substituição do controlador duplo.
+4. Primeiro insira a peça de reposição de fábrica do Controlador 0 e, em seguida, insira o Controlador 1. Para saber mais, consulte [Inserir um controlador](#insert-a-controller). Isso aciona a lógica de substituição do controlador duplo Para saber mais, consulte [Lógica de substituição do controlador duplo](#dual-controller-replacement-logic).
 
 5. Enquanto a lógica de substituição do controlador continua no plano de fundo, reconecte os cabos. Tome cuidado para conectar todos os cabos exatamente da mesma maneira que estavam conectados antes da substituição. Consulte as instruções detalhadas do seu modelo na seção Cabeamento do seu dispositivo de [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
@@ -194,7 +194,7 @@ Use o procedimento a seguir para remover um módulo do controlador com falha do 
 
 Use o procedimento a seguir para instalar um módulo do controlador fornecido pela fábrica depois de remover um módulo com falha do seu dispositivo StorSimple.
 
-### Para instalar um módulo do controlador
+#### Para instalar um módulo do controlador
 
 1. Verifique se há danos aos conectores de interface. Não instale o módulo se algum pino do conector estiver danificado ou torto.
 
@@ -264,6 +264,6 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 ## Próximas etapas
 
-Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

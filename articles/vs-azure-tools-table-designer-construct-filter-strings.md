@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Construindo cadeias de caracteres de filtro para o designer de tabela"
-	description="Construindo cadeias de caracteres de filtro para o designer de tabela"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Construindo cadeias de caracteres de filtro para o designer de tabela"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Construindo cadeias de caracteres de filtro para o designer de tabela
 
-##Visão geral
+## Visão geral
 
 Para filtrar dados em uma tabela do Azure que é exibida no **Table Designer** do Visual Studio, construa uma cadeia de caracteres de filtro e insira no campo de filtro. A sintaxe de cadeia de caracteres de filtro é definida pelo WCF Data Services e é semelhante a uma cláusula SQL WHERE, mas é enviada para o serviço Tabela por meio de uma solicitação HTTP. O **Designer de tabela** lida com a codificação correta para você, portanto para filtrar um valor da propriedade desejada, você só precisa digitar o nome da propriedade, operador de comparação, valor dos critérios e, opcionalmente, o operador booliano no campo de filtro. Não é necessário incluir a opção de consulta $filter como você faria se estivesse criando uma URL para consultar a tabela por meio de [Referência de API de REST de serviços de armazenamento](http://go.microsoft.com/fwlink/p/?LinkId=400447).
 
@@ -55,11 +55,9 @@ O exemplo a seguir filtra as propriedades **PartitionKey** e **RowKey**; proprie
 
     PartitionKey eq 'Partition1' and RowKey eq '00001'
 
-
 Você pode colocar cada expressão de filtro entre parênteses, embora não seja necessário:
 
     (PartitionKey eq 'Partition1') and (RowKey eq '00001')
-
 
 Observe que o serviço Tabela não dá suporte a consultas de curingas e eles também não têm suporte no Designer de tabela. No entanto, você pode executar correspondência de prefixo usando os operadores de comparação no prefixo desejado. O exemplo a seguir retorna as entidades com a propriedade LastName começando com a letra 'A':
 
@@ -72,7 +70,6 @@ Para filtrar um número inteiro ou um número de ponto flutuante, especifique o 
 Este exemplo retorna todas as entidades com uma propriedade Idade cujo valor é maior que 30:
 
     Age gt 30
-
 
 Este exemplo retorna todas as entidades com uma propriedade AmountDue cujo valor é menor ou igual a 100,25:
 
@@ -88,18 +85,18 @@ O exemplo a seguir retorna todas as entidades em que a propriedade IsActive é d
 
 Você também pode escrever essa expressão de filtro sem o operador lógico. No exemplo a seguir, o serviço Tabela também retornará todas as entidades nas quais IsActive é **true**:
 
-[Cópia] (javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode\_3d6a191e-f389-447a-bbbb-ef8b163bc645');)
+    IsActive
 
 Para retornar todas as entidades nas quais IsActive for false, você pode usar o operador não:
 
-    IsActive
+    not IsActive
 
 ## Filtrando em Propriedades DateTime
 
-Para filtrar um valor DateTime, especifique a palavra-chave **datetime**, seguida pela constante de data/hora entre aspas. A constante de data/hora deve estar no formato UTC combinado, conforme descrito em [Formatação de valores de propriedade DateTime](http://go.microsoft.com/fwlink/p/?LinkId=400449).
+Para filtrar um valor DateTime, especifique a palavra-chave **datetime**, seguida pela constante de data/hora entre aspas. A constante de data/hora deve estar no formato UTC combinado, conforme descrito em [Formatando valores de propriedade DateTime](http://go.microsoft.com/fwlink/p/?LinkId=400449).
 
 O exemplo a seguir retorna entidades nas quais a propriedade CustomerSince é igual a 10 de julho de 2008:
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

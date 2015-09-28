@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="sdanie"/>
 
 # Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
@@ -28,7 +28,7 @@ Este guia mostra como autenticar solicitações do Gerenciador de Recursos do Az
 
 ## Autenticação de solicitações do gerenciador de recursos do Azure
 
->[AZURE.IMPORTANT]A API REST para backup e restauração usa o Gerenciador de Recursos do Azure e tem um mecanismo de autenticação diferentes das APIs REST para gerenciar suas entidades de Gerenciamento de API. As etapas desta seção descrevem como autenticar solicitações do Gerenciador de Recursos do Azure. Para mais informações, consulte [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/dn790557.aspx).
+>[AZURE.IMPORTANT]A API REST para backup e restauração usa o Gerenciador de Recursos do Azure e tem um mecanismo de autenticação diferentes das APIs REST para gerenciar suas entidades de Gerenciamento de API. As etapas desta seção descrevem como autenticar solicitações do Gerenciador de Recursos do Azure. Para mais informações, consulte [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Todas as tarefas que você faz em recursos usando o Gerenciador de Recursos do Azure devem ser autenticadas com o Active Directory do Azure usando as etapas a seguir.
 
@@ -189,4 +189,4 @@ Confira os seguintes blogs da Microsoft para duas diferentes orientações passo
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

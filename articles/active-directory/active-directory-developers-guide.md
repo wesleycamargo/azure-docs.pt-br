@@ -10,7 +10,7 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/02/2015"
@@ -23,29 +23,26 @@
 Como uma plataforma IDMaaS (Gerenciamento de Identidade como um Serviço), o Active Directory do Azure fornece aos desenvolvedores uma maneira eficiente de integrar o gerenciamento de identidades em seus aplicativos. Os artigos a seguir fornecem visões gerais sobre a implementação e os principais recursos do Active Directory do Azure. Sugerimos que você os leia na ordem ou pule para a [Introdução](#getting-started) se estiver pronto para se aprofundar.
 
 
-1. [Como integrar-se ao Active Directory do Azure](active-directory-how-to-integrate.md): Descubra por que a integração com o Active Directory do Azure oferece a melhor solução para autorização e entrada seguras.
+1. [Os benefícios da integração do Active Directory do Azure](active-directory-how-to-integrate.md): descubra por que a integração com o Active Directory do Azure oferece a melhor solução para entrada e autorização seguras.
 
 1. [Cenários de autenticação do Active Directory](active-directory-authentication-scenarios.md): Aproveite a autenticação simplificada do Active Directory do Azure para fornecer logon em seu aplicativo.
 
+1. [Integrando aplicativos ao Active Directory do Azure](active-directory-integrating-applications.md): saiba mais sobre como adicionar, atualizar e remover aplicativos do Active Directory do Azure e sobre as diretrizes de identidade visual para aplicativos integrados.
+
 1. [Graph API do Active Directory do Azure](active-directory-graph-api.md): use a Graph API do Active Directory do Azure para acessar programaticamente o Active Directory do Azure por meio de pontos de extremidade da API REST.
 
-1. [Integrar aplicações no Active Directory do Azure](active-directory-integrating-applications.md): Saiba mais sobre como registrar seu aplicativo e as diretrizes de identidade visual para aplicativos multilocatários.
-
 1. [Bibliotecas de Autenticação do Active Directory do Azure](active-directory-authentication-libraries.md): Autentique facilmente os usuários para obter tokens de acesso usando as bibliotecas de autenticação do Azure.
-
-Para exibir as visões gerais do Active Directory do Azure apresentadas na conferência Build 2015, consulte a seção abaixo [Vídeos](#videos).
 
 
 ## Introdução
 
-Esses tutoriais são adaptados para várias plataformas e permitem que você comece a desenvolver rapidamente com o Active Directory do Azure. Como um pré-requisito, você deve [Obter um locatário do Active Directory do Azure](active-directory-howto-tenant.md).
+Esses tutoriais são adaptados para várias plataformas e permitem que você comece a desenvolver rapidamente com o Active Directory do Azure. Como um pré-requisito, você deve [obter um locatário do Active Directory do Azure](active-directory-howto-tenant.md).
 
 ### Guias de início rápido para aplicativo móvel ou PC
 
 |[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![Windows Store](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
-
 
 ### Guias de início rápido de aplicativo Web
 
@@ -69,12 +66,13 @@ Esses tutoriais são adaptados para várias plataformas e permitem que você com
 
 Esses artigos descrevem como executar tarefas específicas usando o Active Directory do Azure.
 
-- [Como obter um locatário do Active Directory do Azure](active-directory-howto-tenant.md)
-- [Listando seu aplicativo na galeria de aplicativos do Azure Active Directory](active-directory-app-gallery-listing.md)
+- [Obter um locatário do Active Directory do Azure](active-directory-howto-tenant.md)
+- [Listar seu aplicativo na galeria de aplicativos do Active Directory do Azure](active-directory-app-gallery-listing.md)
+- [Noções básicas sobre o manifesto do aplicativo do Active Directory do Azure](active-directory-application-manifest.md)
 - [Criar um aplicativo com APIs do Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Enviar aplicativos Web para Office 365 para o Painel do Vendedor](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [Visualização: como criar aplicativos que conectam usuários com as contas pessoais e corporativas ou de estudante](active-directory-appmodel-v2-overview.md)
-
+- [Visualização: como criar aplicativos que registram e conectam consumidores](active-directory-b2c-overview.md)
 
 ## Referência
 
@@ -85,7 +83,7 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 
 ### Código
 
-- [Bibliotecas de código aberto do Active Directory do Azure](http://github.com/AzureAD): a maneira mais fácil de encontrar o código de uma biblioteca é usando nossa [lista de bibliotecas](active-directory-authentication-libraries.md).
+- [Bibliotecas de software livre do Active Directory do Azure](http://github.com/AzureAD): a maneira mais fácil de encontrar a fonte de uma biblioteca é usando nossa [lista de bibliotecas](active-directory-authentication-libraries.md).
 
 - [Exemplos do Active Directory do Azure](http://github.com/AzureADSamples): a maneira mais fácil de navegar pela lista de exemplos é usando o [índice de exemplos de código](active-directory-code-samples.md).
 
@@ -99,7 +97,7 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 
 ### Protocolos de autenticação
 
-- [Referência do protocolo SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx): o protocolo SAML 2.0 permite que os aplicativos forneçam uma experiência de logon único para seus usuários.
+- [Referência do protocolo SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx): o protocolo SAML 2.0 permite que os aplicativos forneçam uma experiência de logon único aos usuários.
 
 
 - [Referência do protocolo OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx): você pode usar o protocolo OAuth 2.0 para autorizar o acesso a aplicativos Web e a APIs Web em seu locatário do Active Directory do Azure.
@@ -110,7 +108,7 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 
 - [Referência do protocolo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): o protocolo WS-Federation 1.2 é descrito na Especificação Web Services Federation Versão 1.2.
 
-- [Tipos de token e declaração com suporte](active-directory-token-and-claims.md): você pode usar este guia para entender e avaliar as declarações nos tokens SAML 2.0 e JSON Web Tokens (JWT).
+- [Tipos de token e declaração com suporte](active-directory-token-and-claims.md): você pode usar este guia para entender e avaliar as declarações nos tokens SAML 2.0 e JWT (Tokens Web JSON).
 
 ## Vídeos
 
@@ -123,7 +121,7 @@ Essas apresentações de visão geral sobre o desenvolvimento de aplicativos usa
 - [Desenvolva aplicativos nativos modernos com o Active Directory do Azure](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-O [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) é uma série de vídeos introdutórios periódicos que tem como objetivo oferecer entrevistas breves de 10 a 15 minutos com especialistas sobre uma variedade de tópicos do Azure. Use o recurso de filtro de serviços na página para ver todos os vídeos do Azure Active Directory.
+O [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) é uma série de vídeos introdutórios periódicos que tem como objetivo oferecer entrevistas breves (10 a 15 minutos) com especialistas sobre uma variedade de tópicos do Azure. Use o recurso de filtro de serviços na página para ver todos os vídeos do Azure Active Directory.
 
 - [Identidade do Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Identidade do Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -139,4 +137,4 @@ O [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 
 
 - [Active Directory do Azure no Twitter](https://twitter.com/azuread): avisos do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

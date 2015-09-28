@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Criar uma rede virtual entre locais usando tabelas de configuração
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
 
 Este tópico explica o processo de criação de uma rede virtual entre locais usando as configurações previamente especificadas no seguinte conjunto de tabelas de configuração:
 
@@ -40,7 +42,7 @@ O procedimento a seguir faz referência às informações dessas tabelas para or
 	- Em **Nome**, digite o nome do Item 1 na Tabela V.
 	- Em **Local**, selecione a região do Item 2 na Tabela V.
 4. Clique na seta de avanço para continuar.
-5. Página **Conectividade de VPN e Servidores DNS**:
+5. Na página **Servidores DNS e Conectividade VPN**:
 	- Em **Servidores DNS**, para cada entrada da Tabela D, configure o nome amigável e o endereço IP dos servidores DNS locais.
 	- Em **Conectividade Site a Site**, selecione **Configurar uma VPN site a site**.
 	- Se você já tiver configurado uma rede local e desejar usá-la, selecione o nome dela em **Rede Local**. Se quiser criar uma nova rede local, selecione **Especificar uma Nova Rede Local** em **Rede Local**.
@@ -67,4 +69,4 @@ O procedimento a seguir faz referência às informações dessas tabelas para or
 
 [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

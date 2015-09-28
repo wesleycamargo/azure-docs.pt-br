@@ -3,7 +3,7 @@
 	description="Aprenda a criar uma máquina virtual do Azure que executa Windows, usando o Azure Marketplace no Portal de Visualização do Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Criar uma máquina virtual executando o Windows no portal de visualização do Azure#
 
@@ -107,4 +107,4 @@ Após criar a máquina virtual, você poderá fazer logon para gerenciar as conf
 * Use o Azure PowerShell e CLI do Azure para [localizar e selecionar imagens da máquina virtual](resource-groups-vm-searching.md).
 * Automatize a máquina virtual e a implantação e o gerenciamento da carga de trabalho usando o [Gerenciador de Recursos do Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e os [modelos do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

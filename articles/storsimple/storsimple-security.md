@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Segurança de StorSimple | Microsoft Azure"
-	description="Descreve os recursos de segurança e privacidade que protegem o serviço, os dispositivos e os dados do StorSimple no local e na nuvem."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="Carolz"
-	editor=""/>
+   pageTitle="Segurança de StorSimple | Microsoft Azure" 
+   description="Descreve os recursos de segurança e privacidade que protegem o serviço, os dispositivos e os dados do StorSimple no local e na nuvem." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="Carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/10/2015"
+   ms.author="v-sharos"/>
 
 # Proteção de dados e segurança de StorSimple
 
@@ -56,6 +56,7 @@ Para autorizar um dispositivo, registre-o com o serviço do Gerenciador do StorS
 > 
 > * Se a chave de registro do serviço for perdida depois de registrar o primeiro dispositivo, você pode gerar uma nova chave usando o serviço do Gerenciador do StorSimple. Isso não afetará a operação dos dispositivos existentes. 
 > * Depois que um dispositivo é registrado, ele usa tokens para se comunicar com o Microsoft Azure. A chave de registro de serviço não é usada depois do registro do dispositivo.
+> * Recomendamos a nova geração da chave de registro de serviço após cada utilização.
 
 ## Proteja sua solução StorSimple por meio de senhas
 
@@ -83,7 +84,7 @@ Depois de usar o Windows PowerShell para StorSimple para se conectar ao disposit
 
 ### Senhas do iniciador e de destino do protocolo CHAP
 
-O CHAP é um esquema de autenticação usado pelo dispositivo StorSimple para validar a identidade de clientes remotos. A verificação se baseia em uma senha compartilhada. O protocolo CHAP pode ser unidirecional ou bidirecional (mútuo). Com o CHAP unidirecional, o destino (o dispositivo StorSimple) autentica um iniciador (host). O CHAP mútuo requer que o destino autentique o iniciador e, em seguida, que o iniciador autentique o destino. O Azure StorSimple pode ser configurado para usar qualquer um dos métodos.
+O CHAP é um esquema de autenticação usado pelo dispositivo StorSimple para validar a identidade de clientes remotos. A verificação se baseia em uma senha compartilhada. O protocolo CHAP pode ser unidirecional ou bidirecional (mútuo). Com o CHAP unidirecional, o destino (o dispositivo StorSimple) autentica um iniciador (host). O CHAP mútuo ou reverso exige que o destino autentique o iniciador e, em seguida, que o iniciador autentique o destino. O StorSimple pode ser configurado para usar qualquer um dos métodos.
 
 > [AZURE.IMPORTANT]
 > 
@@ -92,7 +93,7 @@ O CHAP é um esquema de autenticação usado pelo dispositivo StorSimple para va
 > * Você não pode usar a mesma senha para o iniciador do CHAP e o destino do CHAP.
 > * Depois de definir a senha, ela pode ser alterada, mas não recuperada. Se a senha for alterada, certifique-se de notificar todos os usuários de acesso remoto para que eles possam se conectar com sucesso ao dispositivo StorSimple.
 
-Para obter mais informações e configurar o CHAP, acesse [Configurar o CHAP para seu dispositivo StorSimple](storsimple-configure-chap.md).
+Para saber como configurar o CHAP e outras informações, acesse [Configurar o CHAP para seu dispositivo StorSimple](storsimple-configure-chap.md).
 
 ### Senha do Gerenciador de instantâneos do StorSimple
 
@@ -107,8 +108,8 @@ Ao configurar um dispositivo para usar o Gerenciador de instantâneos do StorSim
 
 É recomendável usar as seguintes diretrizes para ajudar a garantir que as senhas do Azure StorSimple sejam fortes e bem protegidas:
 
-- Altere suas senhas a cada três meses.
-- Use uma senha forte. Para obter mais informações, acesse [Create stronger passwords and protect them (Criar senhas fortes e protegê-las)](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+- Altere suas senhas a cada três meses. A alteração das senhas é imposta anualmente.
+- Use uma senha forte. Para saber mais, acesse [Criar senhas fortes e protegê-las](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Sempre use senhas diferentes para diferentes mecanismos de acesso; cada uma das senhas especificadas deve ser exclusiva.
 - Não compartilhe senhas com ninguém que não esteja autorizado a acessar o dispositivo StorSimple.
 - Não fale sobre uma senha na frente de outras pessoas nem dê dicas do formato de uma senha.
@@ -135,10 +136,10 @@ Conforme descrito em outras seções, as senhas são usadas para autorizar e aut
 > [AZURE.IMPORTANT]
 > 
 > * A chave da criptografia de dados do serviço é gerada apenas no primeiro dispositivo registrado com o serviço. Todos os dispositivos subsequentes registrados com o serviço devem usar a mesma chave de criptografia de dados de serviço. É muito importante fazer uma cópia dessa chave e salvá-la em um local seguro. Uma cópia da chave de criptografia de dados de serviço deve ser armazenada de forma que possa ser acessada por uma pessoa autorizada e facilmente comunicada ao administrador do dispositivo.
-> * Você pode alterar a chave de criptografia de dados de serviço e o certificado de criptografia de dados correspondente selecionando a opção **Alterar chave de criptografia de dados de serviço** no painel de serviço. Alterar as chaves de criptografia requer que todos os dispositivos sejam atualizados com a nova chave. Portanto, é recomendável que você altere a chave quando todos os dispositivos estiverem online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. Os dispositivos com chaves desatualizadas ainda poderão executar backups, mas não poderão restaurar dados até que a chave seja atualizada. Para obter mais informações, acesse [Usar o painel de serviço do StorSimple Manager](storsimple-service-dashboard.md).
+> * Você pode alterar a chave de criptografia de dados de serviço e o certificado de criptografia de dados correspondente selecionando a opção **Alterar chave de criptografia de dados de serviço** no painel de serviço. Alterar as chaves de criptografia requer que todos os dispositivos sejam atualizados com a nova chave. Portanto, é recomendável que você altere a chave quando todos os dispositivos estiverem online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. Os dispositivos com chaves desatualizadas ainda poderão executar backups, mas não poderão restaurar dados até que a chave seja atualizada. Para saber mais, acesse [Usar o painel de serviço do StorSimple Manager](storsimple-service-dashboard.md).
 > * Para garantir que a segurança dos dados não seja comprometida, use um dispositivo StorSimple físico para alterar a chave de criptografia de dados de serviço.
 > * Se a chave de criptografia de dados de serviço for perdida, um profissional de suporte da Microsoft poderá ajudar a recuperá-la, desde que você tenha pelo menos um dispositivo no estado online. É recomendável alterar a chave de criptografia de dados de serviço depois de recuperá-la. Para obter instruções, acesse [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
-> * A chave de criptografia de dados de serviço e o certificado de criptografia de dados não expiram. No entanto, é recomendável alterar a chave de criptografia de dados de serviço regularmente para ajudar a impedir o comprometimento da chave.</li></ul>
+> * A chave de criptografia de dados de serviço e o certificado de criptografia de dados não expiram. No entanto, recomendamos a alteração anual da chave de criptografia de dados de serviço para ajudar a impedir o comprometimento da chave.</li></ul>
 
 
 ## Proteger dados em repouso
@@ -150,10 +151,9 @@ O dispositivo StorSimple gerencia dados armazenando-os em camadas localmente e n
 - Ao inserir a chave de criptografia de armazenamento em nuvem no serviço do Gerenciador do StorSimple, ela criptografada usando a parte pública da chave de criptografia de dados de serviço e, em seguida, enviada para o dispositivo.
 - A chave de criptografia de armazenamento em nuvem não é armazenada em qualquer lugar no serviço e é conhecida apenas para o dispositivo.
 - Especificar uma chave de criptografia de armazenamento em nuvem é opcional. Você pode enviar dados que foram criptografados no host para o dispositivo.
+- Recomendamos que você faça uma rotação trimestral da chave de criptografia de armazenamento em nuvem. A rotação dessas chaves não será imposta.
 
 ### Práticas recomendadas de segurança adicionais
-
-- Para implementar a redundância, use múltiplos caminhos (MPIO) para evitar um ponto único de falha na rede SAN do iSCSI. Para obter instruções detalhadas, consulte [Configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
 - Dividir o tráfego: isolar a rede SAN do iSCSI do tráfego do usuário em uma LAN corporativa implantando uma rede totalmente separada e usando VLANs em que o isolamento físico não é uma opção. Uma rede dedicada para o armazenamento iSCSI garantirá a segurança e o desempenho de seus dados essenciais aos negócios. Misturar o tráfego de armazenamento e o de usuário em uma LAN corporativa não é recomendado e pode aumentar a latência e causar falhas de rede.
 
@@ -253,4 +253,4 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 [Implantar o dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

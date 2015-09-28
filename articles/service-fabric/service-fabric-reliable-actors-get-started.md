@@ -146,7 +146,9 @@ As ferramentas para Visual Studio da Malha do Serviço oferecem suporte à depur
 
 ## Próximas etapas
 
-[Introdução aos Atores Confiáveis do Service Fabric](service-fabric-reliable-actors-introduction.md) [Documentação de referência de APIs de atores](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Código de exemplo](https://github.com/Azure/servicefabric-samples)
+- [Introdução aos Atores Confiáveis do Service Fabric](service-fabric-reliable-actors-introduction.md)
+- [Documentação de referência sobre as APIs de Atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+- [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +158,4 @@ As ferramentas para Visual Studio da Malha do Serviço oferecem suporte à depur
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/11/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # Configurar um ouvinte de ILB para grupos de disponibilidade do AlwaysOn no Azure
 
@@ -35,13 +35,11 @@ Observe as seguintes limitações no ouvinte do grupo de disponibilidade no Azur
 
 - Há suporte a somente um ouvinte de grupo de disponibilidade por serviço de nuvem porque o ouvinte é configurado para usar o endereço VIP de serviço de nuvem ou o endereço VIP do Balanceador de carga interno. Observe que essa limitação ainda está em vigor apesar de o Azure agora dá suporte à criação de vários endereços VIP em um determinado serviço de nuvem.
 
->[AZURE.NOTE]Este tutorial se concentra no uso do PowerShell para criar um ouvinte para um Grupo de disponibilidade que inclui réplicas do Azure. Para obter mais informações sobre como configurar ouvintes usando o SSMS ou o Transact-SQL, consulte [Criar ou configurar um Ouvinte de grupo de disponibilidade](https://msdn.microsoft.com/library/hh213080.aspx).
-
 ## Determinar a acessibilidade do Ouvinte
 
 [AZURE.INCLUDE [acessibilidade de ouvinte de grupo de disponibilidade](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Este artigo se concentra em criar um ouvinte que usa um **Balanceador de carga interno (ILB)**. Se você precisar de um ouvinte externo/público, consulte a versão deste artigo que fornece as etapas para configurar um [ouvinte externo](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
+Este artigo se concentra na criação de um ouvinte que usa um **Balanceador de Carga Interno (ILB)**. Se você precisar de um ouvinte externo/público, consulte a versão deste artigo que fornece as etapas para configurar um [ouvinte externo](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 ## Criar pontos de extremidade da VM com balanceamento de carga com retorno de servidor direto
 
@@ -49,19 +47,19 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 [AZURE.INCLUDE [pontos de extremidade com balanceamento de carga](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
 
-1. Para **ILB**, você deve atribuir um endereço IP estático. Em primeiro lugar, examine a configuração atual de VNet executando o seguinte comando:
+1. Para o **ILB**, atribua um endereço IP estático. Em primeiro lugar, examine a configuração atual de VNet executando o seguinte comando:
 
 		(Get-AzureVNetConfig).XMLConfiguration
 
-1. Observe o nome da **sub-rede** para a sub-rede que contém as máquinas virtuais que hospedam as réplicas. Isso será usado no parâmetro **$SubnetName** no script.
+1. Anote o nome da **Sub-rede** que contém as VMs que hospedam as réplicas. Ele será usado no parâmetro **$SubnetName** no script.
 
-1. Observe o nome do **VirtualNetworkSite** e a inicial do **AddressPrefix** para a sub-rede que contém as máquinas virtuais que hospedam as réplicas. Procure um endereço IP disponível, passando os dois valores para o comando **Test-AzureStaticVNetIP** e examinando os **AvailableAddresses**. Por exemplo, se o VNet fosse chamado de *MyVNet* e tivesse um intervalo de endereços de sub-rede iniciado em *172.16.0.128*, o comando a seguir listaria os endereços disponíveis:
+1. Em seguida, anote o nome do **VirtualNetworkSite** e do **AddressPrefix** inicial da sub-rede que contém as VMs que hospedam as réplicas. Procure um endereço IP disponível, passando os dois valores para o comando **Test-AzureStaticVNetIP** e examinando os **AvailableAddresses**. Por exemplo, se a Rede Virtual fosse chamada de *MinhaRedeVirtual* e tivesse um intervalo de endereços de sub-rede iniciado em *172.16.0.128*, o comando a seguir listaria os endereços disponíveis:
 
 		(Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 
 1. Escolha um dos endereços disponíveis e use-o no parâmetro **$ILBStaticIP** do script a seguir.
 
-3. Copie o script do PowerShell abaixo em um editor de texto e defina os valores de variáveis para se adequar ao seu ambiente (Observe que os padrões foram fornecidos para alguns parâmetros). Observe que as implantações existentes que usam grupos de afinidade não podem adicionar ILB. Para obter mais informações sobre os requisitos de ILB, consulte o [Balanceador de carga interno](../load-balancer/load-balancer-internal-overview.md). Além disso, se o seu grupo de disponibilidade abrange regiões do Azure, você deve executar o script uma vez em cada datacenter para o serviço de nuvem e os nós que residem naquele datacenter.
+3. Copie o script do PowerShell abaixo em um editor de texto e defina os valores de variáveis para se adequar ao seu ambiente (Observe que os padrões foram fornecidos para alguns parâmetros). Observe que as implantações existentes que usam grupos de afinidade não podem adicionar ILB. Para saber mais sobre os requisitos do ILB, consulte [Balanceador de Carga Interno](../load-balancer/load-balancer-internal-overview.md). Além disso, se o seu grupo de disponibilidade abrange regiões do Azure, você deve executar o script uma vez em cada datacenter para o serviço de nuvem e os nós que residem naquele datacenter.
 
 		# Define variables
 		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
@@ -81,7 +79,7 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 1. Depois de ter definido as variáveis, copie o script do editor de texto para a sua sessão do Azure PowerShell para executá-lo. Se o prompt ainda mostrar >>, digite ENTER novamente para certificar-se de que o script comece a ser executado. Observação
 
->[AZURE.NOTE]O Portal de Gerenciamento do Azure não oferece suporte ao Balanceador de carga interno neste momento; portanto, você não verá o ILB ou os pontos de extremidade no portal. No entanto, o **Get-AzureEndpoint** retorna um endereço IP interno se o Balanceador de carga estiver sendo executado nele. Caso contrário, retornará null.
+>[AZURE.NOTE]O Portal de Gerenciamento do Azure não oferece suporte ao Balanceador de carga interno neste momento; portanto, você não verá o ILB ou os pontos de extremidade no portal. No entanto, **Get-AzureEndpoint** retorna um endereço IP interno se o Balanceador de Carga estiver sendo executado nele. Caso contrário, retornará null.
 
 ## Verifique se KB2854082 está instalado, se necessário
 
@@ -135,4 +133,4 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

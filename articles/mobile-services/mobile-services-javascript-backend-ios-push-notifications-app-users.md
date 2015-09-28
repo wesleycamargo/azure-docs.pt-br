@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Enviar Notificações por Push para Usuários Autenticados"
+	pageTitle="Enviar notificações por push para usuários autenticados no iOS (back-end de JavaScript)"
 	description="Saiba como enviar notificações por push para usuários específicos"
 	services="mobile-services,notification-hubs"
 	documentationCenter="ios"
@@ -73,4 +73,4 @@ function insert(item, user, request) {
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

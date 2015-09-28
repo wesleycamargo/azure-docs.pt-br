@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure (Visualização)
@@ -41,22 +41,13 @@ O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que 
 
 ![Fluxo de trabalho ao vivo][live-overview]
 
->[AZURE.NOTE]Nem todos os data centers oferecem suporte à Codificação ao Vivo com os Serviços de Mídia do Azure.
->
->Se você estiver usando o Portal de gerenciamento do Azure para criar canais, terá duas opções de codificação tipo disponíveis de canal: **Nenhum** e **Padrão**. Se você vir somente a opção **Nenhum**, isso significa seu data center não oferece suporte à Codificação ao Vivo com o AMS.
->
->Se você estiver usando o SDK .NET ou API REST, faça o seguinte para verificar:
->
->1. Tente criar um Canal com o tipo de codificação definido como padrão. 
->2. Se o resultado retornado for HTTP Error Code 412 (Falha na pré-condição) com a seguinte mensagem: *"Codificação ao vivo não tem suporte nesta região; EncodingType deve ser definido como 'Nenhum'."*, seu data center não oferece suporte para Codificação ao Vivo.
-
 
 ##Neste tópico
 
 - Visão geral de um [Cenário comum de streaming ao vivo](media-services-manage-live-encoder-enabled-channels.md#scenario)
 - [Descrição de um Canal e seus componentes relacionados](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [Considerações](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [Tarefas relacionadas ao streaming ao vivo](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [Considerações](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>Cenário comum de streaming ao vivo
 
@@ -314,7 +305,7 @@ Uma ID exclusiva para o intervalo comercial, para ser usado pelo aplicativo down
 
 ###Mostrar slate
 
-Opcional. Sinaliza o codificador ao vivo para alternar para a imagem [fixa padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar a transmissão de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**.
+Opcional. Sinaliza o codificador dinâmico para alternar para a imagem [fixa padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar o feed de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**.
  
 A imagem usada será aquela especificada por meio da propriedade de ID do ativo de slate padrão no momento da criação do canal. O slate será estendido para ajustar-se ao tamanho da imagem de exibição.
 
@@ -337,7 +328,7 @@ Quando definida como true, essa configuração configura o codificador ao vivo p
 
 Opcional. Especifica a ID do ativo de Serviços de Mídia que contém a imagem do slate. O padrão é nulo.
 
-**Observação**: antes de criar o canal, a imagem fixa com as restrições a seguir deve ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo).
+**Observação**: antes de criar o canal, a imagem fixa com as restrições a seguir deverá ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo).
 
 - No máximo 1920x1080 na resolução.
 - No máximo 3 megabytes de tamanho.
@@ -397,6 +388,7 @@ Parada|Parada|Não
 
 ##<a id="Considerations"></a>Considerações
 
+- Quando um Canal do tipo de codificação **Padrão** perde um feed de fonte/contribuição de entrada, ele compensa isso substituindo o vídeo/áudio de origem por uma imagem fixa de erro e silêncio. O Canal continuará emitindo uma imagem fixa até que o feed de entrada/contribuição seja retomado. É recomendável que um canal ao vivo não seja deixado em tal estado por mais de 2 horas. Além desse ponto, o comportamento do canal na reconexão de entrada não será garantido, nem seu comportamento em resposta a um comando Reset. Será necessário parar o Canal, excluí-lo e criar um novo.
 - Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada. 
 - Sempre que você reconfigurar o codificador ao vivo, chame o método **Redefinir** no canal. Antes de redefinir o canal, você precisa interromper o programa. Antes de redefinir o canal, reinicie o programa. 
 - Um canal pode ser interrompido somente quando estiver no estado Executando e todos os programas no canal tiverem sido interrompidos.
@@ -407,7 +399,7 @@ Parada|Parada|Não
 ##Problemas conhecidos
 
 - A inicialização do canal pode levar mais de 20 minutos.
-- O suporte RTP é fornecido na para difusores profissionais. Leia as notas de RTP [neste](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- O suporte RTP é fornecido na para difusores profissionais. Leia as observações sobre RTP [neste](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - As imagens fixas devem estar de acordo com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um Canal com um slate padrão que seja maior que 1920 x 1080, a solicitação será um erro.
 
 ###Como criar canais que realizam codificação ativas, de um fluxo com taxa de bits única para fluxo com taxa de bits adaptável 
@@ -438,4 +430,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

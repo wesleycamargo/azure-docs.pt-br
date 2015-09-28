@@ -3,7 +3,7 @@
 	description="Crie uma máquina virtual do Windows no Portal do Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Criar uma máquina virtual executando o Windows no portal do Azure
 
@@ -52,8 +52,4 @@ Esta seção mostra como usar a opção **Da Galeria** no portal do Azure para c
 
 - Anexe um disco para armazenar dados. Você pode anexar tanto discos vazios como discos que contenham dados. Para obter instruções, consulte o [tutorial Anexar um disco de dados](storage-windows-attach-disk.md).
 
-## Recursos adicionais
-
-Para saber mais sobre o que você pode configurar para uma máquina virtual e quando pode fazê-lo, consulte [Sobre definições de configuração de VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

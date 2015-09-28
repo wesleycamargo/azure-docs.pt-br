@@ -20,7 +20,7 @@
 
 Atualmente, o cliente pode especificar o limite da capacidade do nó como uma restrição que o Balanceador de Recursos respeita com base na prioridade da restrição. Se a prioridade da restrição de capacidade for alta (a capacidade do nó não poderá ser violada) e se os nós de cluster forem altamente utilizados, o failover talvez não seja imediato ou a capacidade do nó seja violada.
 
-A análise do problema acontecerá se os nós com réplicas secundárias estiverem próximos da capacidade quando um nó com a réplica primária falhar. Nesse caso, se a carga primária for maior que a carga secundária, a réplica secundária não poderá ser imediatamente promovida sem superalocação do nó ou cópia da réplica.
+Os problemas acontecerão se os nós com réplicas secundárias estiverem próximos da capacidade quando um nó com a réplica primária falhar. Nesse caso, se a carga primária for maior que a carga secundária, a réplica secundária não poderá ser imediatamente promovida sem superalocação do nó ou cópia da réplica.
 
 Com a lógica de empacotamento proativo em execução, o número mais alto de nós de cluster estará mais próximo do limite da capacidade do nó. A Porcentagem de Buffer do Nó é um recurso que evita o aumento do tempo de failover ou a alocação excessiva do nó durante o failover, fornecendo aos clientes a possibilidade de especificar a porcentagem do nó que deve ser mantida livre. As réplicas dos novos serviços não devem ser adicionadas ao espaço do buffer do nó, mas o Balanceador de Recursos deve poder usar a capacidade total do nó (contabilizando o espaço do buffer) para failovers e adição de réplicas ausentes.
 
@@ -47,4 +47,4 @@ Se o valor não for especificado nessa seção, 0 será usado como o valor padr�
 Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

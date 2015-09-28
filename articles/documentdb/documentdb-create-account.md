@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Criar uma conta de banco de dados - versão de avaliação gratuita | Microsoft Azure" 
-	description="Saiba como criar contas de bancos de dados usando o portal de serviço online do Banco de Dados de Documentos do Azure, um banco de dados de documentos NoSQL gerenciado para JSON. Obtenha hoje mesmo uma avaliação gratuita."
+	description="Saiba como criar contas de bancos de dados usando o criador de bancos de dados online do Banco de Dados de Documentos do Azure, um banco de dados de documentos NoSQL gerenciado para JSON. Obtenha hoje mesmo uma avaliação gratuita."
+	keywords="Free trial, online database creator, create a database, create database, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -45,4 +46,4 @@ Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

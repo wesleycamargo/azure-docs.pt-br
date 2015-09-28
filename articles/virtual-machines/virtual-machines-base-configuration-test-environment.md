@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
@@ -19,12 +19,14 @@
 
 # Ambiente de teste de configuração básica
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação. Você também pode criar esses recursos com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-base-configuration-test-environment-resource-manager.md).
+
 Este artigo apresenta instruções passo a passo para criar o ambiente de teste com a configuração de base em uma Rede Virtual do Azure, usando máquinas virtuais criadas no Gerenciamento de Serviços.
 
 Você pode usar o ambiente de teste resultante:
 
 - Para testes e desenvolvimento de aplicativos.
-- Para o [ambiente de nuvem híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+- Para o [ambiente simulado de nuvem híbrida](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 - Para estendê-lo com máquinas virtuais e serviços do Azure adicionais para um ambiente de teste com seu próprio projeto.
 
 O ambiente de teste Configuração de Base consiste na sub-rede Corpnet em uma rede virtual do Azure somente de nuvem denominada TestLab, que simula uma intranet simplificada e privada conectada à Internet.
@@ -52,11 +54,6 @@ Há quatro fases para configurar a sub-rede Corpnet do ambiente de teste de Conf
 Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter uma avaliação gratuita em [Experimentar o Azure](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 > [AZURE.NOTE]As máquinas virtuais no Azure incorrem em um custo monetário contínuo quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para obter mais informações sobre os custos da execução de máquinas virtuais do Azure, consulte [Detalhes de preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Calculadora de preços do Azure](http://azure.microsoft.com/pricing/calculator/). Para reduzir os custos, consulte [Minimizando os custos de máquinas de virtuais do ambiente de teste no Azure](#costs).
-
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [Ambiente de teste Configuração de Base com o Gerenciador de Recursos do Azure](virtual-machines-base-configuration-test-environment-resource-manager.md)
-
 
 ## Fase 1: Criar a rede virtual
 
@@ -244,7 +241,7 @@ Verifique se que você pode acessar recursos Web e de compartilhamento de arquiv
 4.	Na tela Inicial, clique em **Internet Explorer** e em **OK**.
 5.	Na barra de endereços, digite ****http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1.
 6.	Na barra de tarefas da área de trabalho, clique no ícone do Gerenciador de Arquivos.
-7.	Na barra de endereços, digite **\\\\app1\\Files** e pressione ENTER.
+7.	Na barra de endereços, digite **\\\app1\\Files** e pressione ENTER.
 8.	Você deverá ver uma janela de pasta com o conteúdo da pasta compartilhada Arquivos.
 9.	Na janela de pasta compartilhada **Arquivos**, clique duas vezes no arquivo **Example.txt**. Você deverá ver o conteúdo do arquivo Example.txt.
 10.	Feche as janelas de **example.txt - Bloco de Notas** e da pasta compartilhada **Arquivos**.
@@ -253,7 +250,7 @@ Essa é a configuração final.
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
-A configuração básica no Azure agora está pronta para desenvolvimento e teste de aplicativos ou para ambientes de teste adicionais, como o [ambiente de nuvem híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+A configuração básica no Azure agora está pronta para desenvolvimento e teste de aplicativos ou para ambientes de teste adicionais, como o [ambiente simulado de nuvem híbrida](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 
 ## Recursos adicionais
 
@@ -289,4 +286,4 @@ Para iniciar as máquinas virtuais em ordem com o PowerShell do Azure, preencha 
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

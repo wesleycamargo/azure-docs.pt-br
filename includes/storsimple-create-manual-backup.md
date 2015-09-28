@@ -1,3 +1,7 @@
+
+<!--author=SharS last changed: 9/15/15-->
+
+
 #### Para criar um backup manual
 
 1. Na página **Dispositivos**, vá na guia **Políticas de Backup**. Essa guia lista todas as políticas de backup em um formato tabular, incluindo a política para o volume que você deseja fazer backup.
@@ -20,4 +24,4 @@
 
   O backup deve aparecer na lista de conjuntos de backup que é exibida no catálogo.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

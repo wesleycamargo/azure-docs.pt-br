@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/14/2015" 
 	ms.author="antonba"/>
 
 # Como delegar o registro de usuário e a assinatura do produto
@@ -90,7 +90,7 @@ A delegação de uma assinatura de produto funciona de forma semelhante à deleg
 1. O desenvolvedor selecione um produto no portal do desenvolvedor do Gerenciamento de API e clica no botão Assinar
 2. O navegador é redirecionado ao ponto de extremidade de delegação
 3. O ponto de extremidade de delegação realiza as etapas de assinatura de produto necessária - isso depende de você e pode envolver o redirecionamento para outra página para solicitar informações de cobrança, fazer perguntas adicionais ou simplesmente armazenar as informações sem precisar de ações do usuário
-4. Em caso de êxito, o usuário é redirecionado de volta para o portal do desenvolvedor do Gerenciamento de API onde começou
+
 
 Para habilitar a funcionalidade, na página **Delegação** clique em **Delegar assinatura do produto**.
 
@@ -114,8 +114,6 @@ Depois, certifique-se de que o ponto de extremidade de delegação realize as a�
 3. Faça o processamento de qualquer assinatura de produto com base no tipo de operação solicitada em **operation** - por exemplo, faturamento, perguntas etc.
 
 4. Após realizar com êxito a assinatura do produto pelo usuário pela sua parte, assine o usuário do produto do Gerenciamento de API [chamando a API REST para assinatura do produto].
-
-5. Redirecionar o usuário à **returnUrl** fornecida no momento do recebimento da solicitação.
 
 ## <a name="delegate-example-code"> </a> Código de exemplo ##
 
@@ -168,4 +166,4 @@ Para obter mais informações sobre delegação, consulte o vídeo a seguir.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

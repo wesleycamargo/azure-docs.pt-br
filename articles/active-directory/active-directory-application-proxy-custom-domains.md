@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Trabalhando com domínios personalizados no Proxy de Aplicativo do AD do Azure
-> [AZURE.NOTE]O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE]O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
 Usando um domínio padrão permite que você defina a mesma URL como URL interna e externa para acessar o aplicativo, para que seus usuários tenham que lembrar de apenas uma URL para acessar o aplicativo, independentemente de onde eles estejam acessando e isso permite que você crie um único atalho no Painel de Acesso para o aplicativo. Se você usar o domínio padrão fornecido pelo Proxy de Aplicativo do AD do Azure, não há nenhuma configuração adicional que seja necessária para habilitar o seu domínio. Se você usar um domínio personalizado, há algumas coisas que você precisa fazer para certificar-se de que o Proxy do Aplicativo reconheça seu domínio e valide seus certificados.
 
@@ -40,4 +40,4 @@ P: Posso selecionar um certificado já carregado sem carregá-lo novamente? <br>
 * [Inscrever-se no Azure como uma organização](..sign-up-organization.md)
 * [Identidade do Azure](..fundamentals-identity.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

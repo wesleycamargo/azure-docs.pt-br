@@ -38,6 +38,7 @@ Nem todos os serviços atualmente dão suporte à capacidade de mover recursos.
 Por enquanto, os serviços que dão suporte à transferência para um novo grupo de recursos e uma nova assinatura são:
 
 - Gerenciamento da API
+- Banco de Dados de Documentos do Azure
 - Pesquisa do Azure
 - Aplicativos Web do Azure (algumas [limitações](app-service-web/app-service-move-resources.md) se aplicam)
 - Data Factory
@@ -63,7 +64,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 ## Usando o PowerShell para mover recursos
 
-Para mover os recursos existentes para outra assinatura ou grupo de recursos, use o comando **Move-AzureResource**.
+Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando **Move-AzureResource**.
 
 O primeiro exemplo mostra como mover um recurso para um novo grupo de recursos.
 
@@ -83,7 +84,7 @@ Para mover recursos existentes para outro grupo de recursos ou outra assinatura,
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Substitua **{source-subscription-id}** e **{source-resource-group-name}** pela assinatura e pelo grupo de recursos que atualmente contêm os recursos que você deseja mover. Use **2015-01-01** para {api-version}.
+Substitua **{source-subscription-id}** e **{source-resource-group-name}** pela assinatura e pelo grupo de recursos que atualmente contêm os recursos que você deseja mover. Use **2015-01-01** em {api-version}.
 
 Na solicitação, inclua um objeto JSON que define o grupo de recursos de destino e os recursos que você deseja mover.
 
@@ -102,4 +103,4 @@ Na solicitação, inclua um objeto JSON que define o grupo de recursos de destin
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

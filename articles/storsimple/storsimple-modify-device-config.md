@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Modificar a configuração do dispositivo StorSimple | Microsoft Azure"
-	description="Descreve como usar o serviço StorSimple Manager para reconfigurar um dispositivo StorSimple que já foi implantado."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Modificar a configuração do dispositivo StorSimple | Microsoft Azure" 
+   description="Descreve como usar o serviço StorSimple Manager para reconfigurar um dispositivo StorSimple que já foi implantado." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/14/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/15/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple
 
@@ -124,8 +124,9 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
 
 ## Próximas etapas
 
-[Configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
- 
+- Saiba como [configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
+
+- Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

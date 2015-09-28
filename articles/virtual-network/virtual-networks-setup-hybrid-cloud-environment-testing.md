@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Ambiente de teste de nuvem híbrida | Microsoft Azure"
-	description="Aprenda a criar um ambiente de nuvem híbrida para testes profissionais de TI ou testes de desenvolvimento, completo com uma rede local simplificada."
-	services="virtual-network"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Ambiente de teste de nuvem híbrida | Microsoft Azure" 
+	description="Aprenda a criar um ambiente de nuvem híbrida para testes profissionais de TI ou testes de desenvolvimento, completo com uma rede local simplificada." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
 # Configurar um ambiente de nuvem híbrida para teste
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 Este tópico orienta a criação de um ambiente de nuvem híbrida com o Microsoft Azure para testes. Veja abaixo a configuração resultante.
 
@@ -57,8 +59,8 @@ Em seguida, faça logon em DC1 com as credenciais de CORP\\User1. Para configura
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
-	New-ADReplicationSubnet –Name "10.0.0.0/8" –Site "TestLab"
-	New-ADReplicationSubnet –Name "192.168.0.0/16" –Site "TestVNET
+	New-ADReplicationSubnet “Name "10.0.0.0/8" “Site "TestLab"
+	New-ADReplicationSubnet “Name "192.168.0.0/16" “Site "TestVNET
 
 Esta é a configuração atual.
 
@@ -85,15 +87,15 @@ Use estes comandos em um prompt de comando com nível de administrador do Window
 	$publicIPpreflength=<Prefix length of your public IP address>
 	[IPAddress]$publicDG="<Your ISP default gateway>"
 	[IPAddress]$publicDNS="<Your ISP DNS server(s)>"
-	Rename-NetAdapter –Name $corpnetAdapterName –NewName Corpnet
-	Rename-NetAdapter –Name $internetAdapterName –NewName Internet
-	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength –DefaultGateway $publicDG
+	Rename-NetAdapter -Name $corpnetAdapterName -NewName Corpnet
+	Rename-NetAdapter -Name $internetAdapterName -NewName Internet
+	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength “DefaultGateway $publicDG
 	Set-DnsClientServerAddress -InterfaceAlias Internet -ServerAddresses $publicDNS
 	New-NetIPAddress -InterfaceAlias "Corpnet" -IPAddress 10.0.0.2 -AddressFamily IPv4 -PrefixLength 24
 	Set-DnsClientServerAddress -InterfaceAlias "Corpnet" -ServerAddresses 10.0.0.1
 	Set-DnsClient -InterfaceAlias "Corpnet" -ConnectionSpecificSuffix corp.contoso.com
-	New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
-	New-NetFirewallRule –DisplayName “Allow ICMPv4-Out” –Protocol ICMPv4 –Direction Outbound
+	New-NetFirewallRule -DisplayName "Allow ICMPv4-Input" -Protocol ICMPv4
+	New-NetFirewallRule -DisplayName "Allow ICMPv4-Output" -Protocol ICMPv4 -Direction Outbound
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_msclient
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_server
 	ping dc1.corp.contoso.com
@@ -127,9 +129,9 @@ Primeiro, faça logon no [Portal de Gerenciamento do Azure](https://manage.windo
 	- Clique em **Adicionar Sub-rede de Gateway**.
 11.	Clique no ícone Concluído. Aguarde a rede virtual ser criada antes de continuar.
 
-Em seguida, use as instruções em [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para instalar o Azure PowerShell no computador local.
+Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para instalar o PowerShell do Azure no computador local.
 
-Em seguida, crie um novo serviço de nuvem para a rede virtual TestVNET. Você deve escolher um nome exclusivo. Por exemplo, você poderia nomeá-lo como TestVNET-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se a sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestVNET-Tailspin.
+Em seguida, crie um novo serviço de nuvem para a rede virtual TestVNET. Você deve escolher um nome exclusivo. Por exemplo, você poderia usar TestVNET-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se a sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestVNET-Tailspin.
 
 Você pode testar a exclusividade do nome com o comando a seguir do Azure PowerShell em seu computador local.
 
@@ -197,14 +199,14 @@ Em seguida, configure DC1, APP1 e CLIENT1 para usarem RRAS1 como seu gateway pad
  
 No DC1, execute estes comandos em um prompt de comando com nível de administrador do Windows PowerShell.
 
-	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
-	Set-DhcpServerv4OptionValue –Router 10.0.0.2
+	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
+	Set-DhcpServerv4OptionValue -Router 10.0.0.2
 
 Se o nome da interface não for Ethernet, use o comando **Get-NetAdapter** para determinar o nome da interface.
 
 No APP1, execute este comandos em um prompt de comando com nível de administrador do Windows PowerShell.
 
-	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
+	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
 
 No CLIENT1, execute este comandos em um prompt de comando com nível de administrador do Windows PowerShell.
 
@@ -223,13 +225,13 @@ Primeiro, crie uma máquina virtual do Azure para o DC2 com estes comandos no pr
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC2."
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC2."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 
 Em seguida, faça logon na nova máquina virtual DC2.
@@ -239,7 +241,7 @@ Em seguida, faça logon na nova máquina virtual DC2.
 3.	Quando solicitado a abrir DC2.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-	- Nome: **DC2**[Nome da conta de administrador local]
+	- Nome: **DC2\**[Nome da conta de administrador local]
 	- Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -326,4 +328,4 @@ Em seguida, faça logon no RRAS1 como administrador local e execute estes comand
 Em seguida, vá para o Portal de Gerenciamento do Azure em seu computador local e aguarde até que a rede virtual TestVNET mostre um status de Conectado.
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

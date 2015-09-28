@@ -5,28 +5,30 @@
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
 
 ## Visão geral
 
-O Azure oferece diagnóstico integrado para ajudar na depuração de um [aplicativo Web de Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, você saberá como habilitar o registro em log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
+O Azure oferece diagnóstico integrado para ajudar na depuração de um [aplicativo Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, você saberá como habilitar o registro em log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 
-> [AZURE.NOTE]Este artigo usa o [portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), o PowerShell do Azure e a interface de linha de comando do Azure (Azure CLI) para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Este artigo usa o [portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), o PowerShell do Azure e a interface de linha de comando do Azure (Azure CLI) para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="whatisdiag"></a>Diagnóstico de servidor Web e diagnóstico de aplicativos
 
-Os aplicativos Web de Serviço de Aplicativo oferecem funcionalidade de diagnóstico para registro em log tanto de informações do servidor Web quanto do aplicativo Web. Estes estão logicamente separados em **diagnóstico de servidor Web** e **diagnóstico de aplicativos**.
+Os aplicativos Web do Serviço de Aplicativo oferecem funcionalidade de diagnóstico para registro em log tanto de informações do servidor Web quanto do aplicativo Web. Estes estão logicamente separados em **diagnóstico de servidor Web** e **diagnóstico de aplicativos**.
 
 ### Diagnóstico de servidor Web
 
@@ -48,18 +50,18 @@ Os aplicativos Web do Serviço de Aplicativo também registram informações de 
 
 ## <a name="enablediag"></a>Como habilitar o diagnóstico
 
-Para habilitar o diagnóstico no [Portal de visualização do Azure](https://portal.azure.com), vá até a folha de seu aplicativo Web e clique em **Configurações > Logs de Diagnóstico**.
+Para habilitar o diagnóstico no [portal de visualização do Azure](https://portal.azure.com), vá até a folha de seu aplicativo Web e clique em **Configurações > Logs de diagnóstico**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte de logs](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Ao habilitar o **diagnóstico de aplicativo**, você também escolhe o **Nível**. Essa configuração permite que você filtre as informações capturadas como **informativas**, **de aviso** ou **de erro**. Configurar isto para **detalhado** fará o log de toda informação produzida pelo aplicativo.
+Ao habilitar o **diagnóstico de aplicativos**, você também escolhe o **Nível**. Essa configuração permite que você filtre as informações capturadas como **informativas**, **de aviso** ou **de erro**. Configurar isto para **detalhado** fará o log de toda informação produzida pelo aplicativo.
 
 > [AZURE.NOTE]Diferentemente de alterar o arquivo web.config, habilitar o diagnóstico de aplicativos ou alterar os níveis de log do diagnóstico não recicla o domínio do aplicativo em que este é executado.
 
 Na guia **Configurar** do aplicativo Web do [portal do Azure ](https://manage.windowsazure.com), você pode selecionar **armazenamento** ou **sistema de arquivos** para **log de servidor Web**. Selecionar **armazenamento** permite que você selecione uma conta de armazenamento e, em seguida, um contêiner de blob onde os logs estarão gravados. Todos os outros logs para **diagnóstico de site** serão gravados apenas no sistema de arquivos.
 
-A guia **Configurar** do aplicativo Web do [portal do Azure](https://manage.windowsazure.com) também apresenta configurações adicionais para diagnóstico de aplicativo:
+A guia **Configurar** do aplicativo Web do [portal do Azure](https://manage.windowsazure.com) também apresenta configurações adicionais para diagnóstico de aplicativos:
 
 * **Sistema de arquivos** - armazena as informações de diagnóstico de aplicativos no sistema de arquivos do aplicativo Web. Estes arquivos podem ser acessados por FTP ou baixados como um arquivo Zip usando o PowerShell do Azure ou a interface de linha de comando do Azure (CLI do Azure).
 * **Armazenamento de tabela** - armazena as informações de diagnóstico de aplicativo na Conta especificada de Armazenamento do Azure e no nome da tabela.
@@ -92,7 +94,7 @@ A estrutura de diretórios onde os logs estão armazenados é a seguinte:
 
 ### FTP
 
-Para acessar informações de diagnóstico usando FTP, visite o **Painel** do seu aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Na seção **visão rápida**, use o link **Logs de diagnóstico de FTP** para acessar os arquivos de log usando FTP. A entrada **Implantação/Usuário FTP** lista o nome de usuário que deve ser usado para acessar o site FTP.
+Para acessar informações de diagnóstico usando o FTP, visite o **Painel** do seu aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Na seção **visão rápida**, use o link **Logs de diagnóstico de FTP** para acessar os arquivos de log usando FTP. A entrada **Implantação/Usuário FTP** lista o nome de usuário que deve ser usado para acessar o site FTP.
 
 > [AZURE.NOTE]Se a entrada **Implantação/Usuário FTP** não estiver definida ou se você esqueceu a senha para este usuário, uma nova senha e nome de usuário poderão ser criados usando o link **Redefinir credenciais de implantação** na seção **visão rápida** do **Painel**.
 
@@ -205,7 +207,7 @@ Timestamp|A data e hora em que o evento ocorreu
 EventTickCount|A data e hora em que o evento ocorreu, em formato de escala (maior precisão)
 ApplicationName|O nome do aplicativo Web
 Nível|Nível de evento (por exemplo, erro, aviso ou informação)
-EventId|A ID deste evento<p><p>terá como padrão 0, caso nada seja especificado
+EventId|A ID deste evento<p><p>terá como padrão 0 caso nenhuma seja especificada
 InstanceId|A instância do aplicativo Web onde o evento ocorreu
 Pid|ID do Processo
 Tid|A ID do thread que produziu o evento
@@ -222,7 +224,7 @@ Nível|Nível de evento (por exemplo, erro, aviso ou informação)
 ApplicationName|O nome do aplicativo Web
 InstanceId|A instância do aplicativo Web onde o evento ocorreu
 EventTickCount|A data e hora em que o evento ocorreu, em formato de escala (maior precisão)
-EventId|A ID deste evento<p><p>terá como padrão 0, caso nada seja especificado
+EventId|A ID deste evento<p><p>terá como padrão 0 caso nenhuma seja especificada
 Pid|ID do Processo
 Tid|A ID do thread que produziu o evento
 Mensagem|A mensagem com detalhes do evento
@@ -252,7 +254,7 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 
 ##<a name="nextsteps"></a> Próximas etapas
 
-- [Como monitorar aplicativos Web](/pt-br/manage/services/web-sites/how-to-monitor-websites/)
+- [Como monitorar aplicativos Web](/pt-BR/manage/services/web-sites/how-to-monitor-websites/)
 - [Solucionando problemas de aplicativos Web do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analisar logs de aplicativos Web no HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
@@ -263,4 +265,4 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

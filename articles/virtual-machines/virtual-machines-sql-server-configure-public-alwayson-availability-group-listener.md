@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="mo	nicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # Configurar um ouvinte externo para grupos de disponibilidade do AlwaysOn no Azure
 
@@ -35,13 +35,11 @@ Observe as seguintes limitações no ouvinte do grupo de disponibilidade no Azur
 
 - Se você estiver criando um ouvinte para um ambiente híbrido, a rede local deve ter conectividade com a Internet pública além da VPN site a site com a rede virtual do Azure. Quando estiver na sub-rede do Azure, o ouvinte do grupo de disponibilidade será alcançável somente pelo endereço IP público do respectivo serviço de nuvem.
 
->[AZURE.NOTE]Este tutorial se concentra no uso do PowerShell para criar um ouvinte para um Grupo de disponibilidade que inclui réplicas do Azure. Para obter mais informações sobre como configurar ouvintes usando o SSMS ou o Transact-SQL, consulte [Criar ou configurar um Ouvinte de grupo de disponibilidade](https://msdn.microsoft.com/library/hh213080.aspx).
-
 ## Determinar a acessibilidade do Ouvinte
 
 [AZURE.INCLUDE [acessibilidade de ouvinte de grupo de disponibilidade](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Este artigo se concentra em criar um ouvinte que use **balanceamento de carga externo**. Se você quiser um ouvinte particular em sua rede virtual, consulte a versão deste artigo que fornece as etapas para configurar um [ouvinte com ILB](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+Este artigo se concentra na criação de um ouvinte que use o **balanceamento de carga externo**. Se você quiser um ouvinte privado em sua rede virtual, consulte a versão deste artigo que fornece as etapas para configurar um [ouvinte com ILB](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
 
 ## Criar pontos de extremidade da VM com balanceamento de carga com retorno de servidor direto
 
@@ -77,7 +75,7 @@ O Balanceamento de carga externo usa o endereço IP Virtual público do serviço
 
 1. Para o balanceamento de carga externo, você deve obter o endereço IP virtual público do serviço de nuvem que contém suas réplicas. Faça logon no portal do Azure. Navegue até o serviço de nuvem que contém o grupo de disponibilidade da VM. Abra a exibição **Painel**. 
 
-3. Observe o endereço mostrado em **Endereço IP Virtual público (VIP)**. Se a sua solução abrange VNets, repita essa etapa para cada serviço de nuvem que contém uma VM que hospeda uma réplica.
+3. Anote o endereço mostrado em **Endereço IP Virtual Público (VIP)**. Se a sua solução abrange VNets, repita essa etapa para cada serviço de nuvem que contém uma VM que hospeda uma réplica.
 
 4. Em uma das VMs, copie o script do PowerShell abaixo em um editor de texto e defina as variáveis para os valores que você anotou anteriormente.
 
@@ -112,11 +110,11 @@ O Balanceamento de carga externo usa o endereço IP Virtual público do serviço
 
 ## Testar o ouvinte de grupo de disponibilidade (pela Internet)
 
-Para acessar o ouvinte de fora da rede virtual, você deve estar usando balanceamento de carga externa/pública (descrito neste tópico), em vez de ILB, que é acessível somente dentro do mesmo VNet. Na cadeia de conexão, você deve especificar o nome do serviço de nuvem. Por exemplo, se você tiver um serviço de nuvem com o nome *mycloudservice*, a instrução sqlcmd seria a seguinte:
+Para acessar o ouvinte de fora da rede virtual, você deve estar usando balanceamento de carga externa/pública (descrito neste tópico), em vez de ILB, que é acessível somente dentro do mesmo VNet. Na cadeia de conexão, você deve especificar o nome do serviço de nuvem. Por exemplo, se você tiver um serviço de nuvem com o nome *meuserviçodenuvem*, a instrução sqlcmd seria a seguinte:
 
 	sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-Ao contrário do exemplo anterior, a autenticação do SQL deve ser usada, porque o chamador não pode usar a autenticação do Windows pela Internet. Para obter mais informações, consulte [Grupo de disponibilidade do AlwaysOn na VM do Azure: cenários de conectividade do cliente](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Ao usar a autenticação do SQL, certifique-se de que você crie o mesmo logon em ambas as réplicas. Para obter mais informações sobre como solucionar problemas de logons com Grupos de disponibilidade, consulte [Como mapear logons ou usar usuário de banco de dados SQL contido para se conectar às outras réplicas e mapear para bancos de dados de disponibilidade](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+Ao contrário do exemplo anterior, a autenticação do SQL deve ser usada, porque o chamador não pode usar a autenticação do Windows pela Internet. Para saber mais, consulte [Grupo de Disponibilidade AlwaysOn na VM do Azure: cenários de conectividade do cliente](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Ao usar a autenticação do SQL, certifique-se de que você crie o mesmo logon em ambas as réplicas. Para saber mais sobre como solucionar problemas de logons com Grupos de Disponibilidade, consulte [Como mapear logons ou usar um usuário de banco de dados SQL contido para se conectar a outras réplicas e mapear para bancos de dados de disponibilidade](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Se as réplicas do AlwaysOn estiverem em sub-redes diferentes, os clientes deverão especificar **MultisubnetFailover=True** na cadeia de conexão. Isso resulta em tentativas de conexão paralela para réplicas em sub-redes diferentes. Observe que esse cenário inclui uma implantação de grupo de disponibilidade do AlwaysOn entre regiões.
 
@@ -124,4 +122,4 @@ Se as réplicas do AlwaysOn estiverem em sub-redes diferentes, os clientes dever
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

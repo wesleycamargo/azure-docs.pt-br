@@ -1,4 +1,4 @@
-<properties title="Creating an Oracle WebLogic Server 12c Virtual Machine in Azure" pageTitle="Criando uma Máquina Virtual do Oracle WebLogic Server 12c no Azure" description="Veja um exemplo de como criar uma máquina virtual do Oracle WebLogic Server 12c executando o Windows Server 2012 no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties pageTitle="Criando uma Máquina Virtual do Oracle WebLogic Server 12c no Azure" description="Veja um exemplo de como criar uma máquina virtual do Oracle WebLogic Server 12c executando o Windows Server 2012 no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Criando uma Máquina Virtual do Oracle WebLogic Server 12c no Azure
 O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em uma imagem Oracle WebLogic Server 12c fornecida pela Microsoft em execução no Windows Server 2012 no Azure.
@@ -19,16 +19,16 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 7.	Escolha uma **Camada de Preços**. Observe que as camadas de preço recomendadas são exibidas por padrão. Para ver todas as opções de configuração, clique em **Exibir tudo** no canto superior direito.
 
-8.	Defina [Configuração Opcional](https://msdn.microsoft.com/library/azure/dn763935.aspx) conforme necessário com estas considerações:
+8.	Defina a configuração opcional conforme o necessário, levando em conta estas considerações:
 	1. Deixe **Conta de Armazenamento** como está para criar uma nova conta de armazenamento com o nome da VM.
-	2. Deixe **Conjunto de Disponibilidade** como "Não configurado".
-	3. Não adicione nenhum **ponto de extremidade** neste momento.
+	2. Deixe **Conjunto de Disponibilidade** como "Não Configurado".
+	3. Não adicione **pontos de extremidade** no momento.
 
-9.	Escolher ou criar um [Grupo de recursos](resource-group-portal.md)
+9.	Escolher ou criar um [Grupo de Recursos](resource-group-portal.md)
 
-10. Escolha uma **Assinatura**
+10. Escolher uma **Assinatura**
 
-11. Escolha um **Local**
+11. Escolher um **Local**
 
 
 ##Para configurar a sua Máquina Virtual do Oracle WebLogic Server 12c no Azure
@@ -43,7 +43,7 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 5.	Responda às solicitações conforme necessário para se conectar à Máquina Virtual. Quando for solicitado o nome do administrador e a senha, use os valores que você forneceu quando criou a Máquina Virtual.
 
-6.	Na caixa de diálogo **WebLogic Platform QuickStart**, clique em **Introdução ao WebLogic Server**. (Se a caixa de diálogo **WebLogic Platform QuickStart** ainda não estiver aberta, abra-a clicando em **Windows Iniciar**, digitando **Iniciar o servidor de administrador para o domínio do WebLogic Server** e, em seguida, clicando no ícone **Iniciar o servidor de administrador para o domínio do WebLogic Server**.)
+6.	Na caixa de diálogo **Início Rápido da Plataforma WebLogic**, clique em **Introdução ao Servidor WebLogic**. (Se a caixa de diálogo **WebLogic Platform QuickStart** ainda não estiver aberta, abra-a clicando em **Windows Iniciar**, digitando **Iniciar o servidor de administrador para o domínio do WebLogic Server** e, em seguida, clicando no ícone **Iniciar o servidor de administrador para o domínio do WebLogic Server**.)
 
 7.	Na caixa de diálogo **Boas-vindas**, selecione **Criar um novo domínio WebLogic** e, em seguida, clique em **Avançar**.
 
@@ -168,4 +168,4 @@ Agora que você configurou a Máquina Virtual executando o Oracle WebLogic Serve
 
 -	[Imagens de Máquina Virtual Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO3-->

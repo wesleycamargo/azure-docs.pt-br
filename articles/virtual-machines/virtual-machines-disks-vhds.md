@@ -3,7 +3,7 @@
 	description="Conheça o básico sobre discos e VHDs para máquinas virtuais no Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Sobre discos e VHDs para máquinas virtuais
 
@@ -65,4 +65,4 @@ Máquinas virtuais do Windows:
 -  [Capturar uma máquina virtual do Windows](virtual-machines-capture-image-windows-server.md)
 -  [Desanexar um disco](storage-windows-detach-disk.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

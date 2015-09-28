@@ -16,7 +16,6 @@
 	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
-
 # Como usar um cliente HTML/JavaScript para os Serviços Móveis do Azure
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
@@ -367,7 +366,7 @@ Em um aplicativo da Windows Store, os resultados de uma consulta podem ser usado
 
 ##<a name="#custom-api"></a>Chamar uma API personalizada
 
-Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para um exemplo completo, incluindo como criar uma API personalizada em seu serviço móvel, consulte [Chamar uma API personalizada do cliente].
+Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como definir um ponto de extremidade de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
 
 Você chama uma API personalizada do cliente chamando o método [invokeApi](https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L337) em **MobileServiceClient**. Por exemplo, a linha de código a seguir envia uma solicitação POST à API **completeAll** no serviço móvel local:
 
@@ -564,7 +563,7 @@ Os filtros são usados para muito mais do que cabeçalhos de solicitações pers
 
 ##<a name="hostnames"></a>Como usar o compartilhamento de recursos entre origens
 
-Para controlar quais sites podem interagir e enviar solicitações para o seu serviço móvel, não deixe de adicionar o nome do host do site que você usa para hospedá-lo na lista de permissões do CORS (Compartilhamento de Recursos entre Origens). Para um serviço móvel do back-end de JavaScript, você pode configurar a lista de permissões na guia Configurar no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Você pode usar caracteres curinga se necessário. Por padrão, os novos Serviços Móveis instruem os navegadores para permitirem acesso somente a partir do `localhost`, e o CORS (Compartilhamento de Recursos entre Origens) permite que o código em JavaScript em execução em um navegador em um nome de host externo interaja com o Serviço Móvel. Essa configuração não é necessária para aplicativos WinJS.
+Para controlar quais sites podem interagir e enviar solicitações para o seu serviço móvel, não deixe de adicionar o nome do host do site que você usa para hospedá-lo na lista branca do CORS (Compartilhamento de Recursos entre Origens). Para um serviço móvel do back-end de JavaScript, você pode configurar a lista de permissões na guia Configurar no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Você pode usar caracteres curinga se necessário. Por padrão, os novos Serviços Móveis instruem os navegadores para permitirem acesso somente a partir do `localhost`, e o CORS (Compartilhamento de Recursos entre Origens) permite que o código em JavaScript em execução em um navegador em um nome de host externo interaja com o Serviço Móvel. Essa configuração não é necessária para aplicativos WinJS.
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -605,7 +604,7 @@ Para controlar quais sites podem interagir e enviar solicitações para o seu se
 [Autenticar seu aplicativo com logon único]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-[Chamar uma API personalizada do cliente]: mobile-services-html-call-custom-api.md
+[Call a custom API from the client]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

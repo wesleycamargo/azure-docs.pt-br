@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Desativar e excluir um dispositivo StorSimple | Microsoft Azure"
-	description="Descreve como remover o dispositivo StorSimple do serviço primeiro desativando-o e então excluindo-o."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Descreve como remover o dispositivo StorSimple do serviço primeiro desativando-o e então excluindo-o."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Desativar e excluir um dispositivo StorSimple
 
@@ -87,8 +87,10 @@ Você pode excluir apenas os dispositivos que foram desativados. Excluir um disp
 Pode levar alguns minutos para o serviço ser excluído.
 
 ## Próximas etapas
-Para restaurar os dispositivos desativados para os padrões de fábrica, acesse [Redefinir o dispositivo para as configurações padrão de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+- Para restaurar os dispositivos desativados para os padrões de fábrica, acesse [Redefinir o dispositivo para as configurações padrão de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-Para obter assistência técnica, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+- Para obter assistência técnica, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=September15_HO1-->
+- Para saber como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

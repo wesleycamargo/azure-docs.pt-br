@@ -1,5 +1,5 @@
 
-##<a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
+###<a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
 
 1. Adicionaremos um botão rotulado como "Tudo Completo" ao lado do botão existente e moveremos ambos os botões abaixo de uma linha. No Android Studio, abra o arquivo *res\\layout\\activity\_to\_do.xml* do projeto quickstart, localize o elemento **LinearLayout** que contém o elemento **Botão** chamado `buttonAddToDo`. Copie o **LinearLayout** e cole-o logo depois do original. Exclua o elemento **Botão** do primeiro **LinearLayout**.
 
@@ -95,7 +95,7 @@
 	
 	Esse método identifica o evento **Click** do novo botão. O método **invokeApi** é chamado no cliente, que envia uma solicitação POST para a nova API personalizada. O resultado retornado pela API personalizada é exibido em uma caixa de diálogo de mensagem, se houver erros.
 
-## Testar o aplicativo
+### Testar o aplicativo
 
 1. No menu **Executar**, clique em **Executar aplicativo** para iniciar o projeto no emulador do Android, ou em um dispositivo Android conectado.
 
@@ -112,4 +112,4 @@
 
 	É exibida uma caixa de diálogo de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

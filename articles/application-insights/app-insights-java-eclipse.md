@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Introdução ao Application Insights com Java no Eclipse
@@ -116,7 +116,105 @@ As métricas de sessão, usuário e exibição de página serão exibidas na fol
 
 [Saiba mais sobre como configurar a telemetria do lado do cliente.][usage]
 
-## Testes de disponibilidade via Web
+## Publicar seu aplicativo
+
+Agora, publique seu aplicativo no servidor, permita que as pessoas o usem e observe a telemetria mostrada no portal.
+
+* Verifique se o firewall permite que seu aplicativo envie telemetria para estas portas:
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* Nos servidores Windows, instale:
+
+ * [Microsoft Visual C++ redistribuível](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (Isso habilita os contadores de desempenho.)
+
+## Falhas de solicitação e exceções
+
+Exceções sem tratamento são coletadas automaticamente:
+
+![](./media/app-insights-java-get-started/21-exceptions.png)
+
+Para coletar dados em outras exceções, você tem duas opções:
+
+* [Inserir chamadas a TrackException em seu código](app-insights-api-custom-events-metrics.md#track-exception). 
+* [Instalar o Agente Java em seu servidor](app-insights-java-agent.md). Especifique os métodos que deseja inspecionar.
+
+
+## Monitorar chamadas de método e dependências externas
+
+[Instale o Agente Java](app-insights-java-agent.md) para registrar métodos internos especificados e chamadas feitas por meio de JDBC, com dados de tempo.
+
+
+## Contadores de desempenho
+
+Clique no bloco **Servidores** e você verá uma variedade de contadores de desempenho.
+
+
+![](./media/app-insights-java-get-started/11-perf-counters.png)
+
+### Personalizar a coleta do contador de desempenho
+
+Para desabilitar a coleta do conjunto padrão de contadores de desempenho, adicione o seguinte trecho no nó raiz do arquivo ApplicationInsights.xml:
+
+    <PerformanceCounters>
+       <UseBuiltIn>False</UseBuiltIn>
+    </PerformanceCounters>
+
+### Coletar contadores de desempenho adicionais
+
+Você pode especificar contadores de desempenho adicionais a serem coletados.
+
+#### Contadores JMX (expostos pela Máquina Virtual Java)
+
+    <PerformanceCounters>
+      <Jmx>
+        <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
+        <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
+      </Jmx>
+    </PerformanceCounters>
+
+*	`displayName` – o nome exibido no portal do Application Insights.
+*	`objectName` – o nome do objeto JMX.
+*	`attribute` – o atributo do nome do objeto JMX a buscar
+*	`type` (opcional) - o tipo do atributo do objeto JMX:
+ *	Padrão: um tipo simples como “int” ou “long”.
+ *	`composite`: os dados do contador de desempenho estão no formato “Attribute.Data”
+ *	`tabular`: os dados do contador de desempenho estão no formato de uma linha de tabela
+
+
+
+#### Contadores de desempenho do Windows
+
+Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) é membro de uma categoria (do mesmo modo que um campo é um membro de uma classe). Categorias podem ser globais, ou podem ter instâncias numeradas ou nomeadas.
+
+    <PerformanceCounters>
+      <Windows>
+        <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
+        <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
+      </Windows>
+    </PerformanceCounters>
+
+*	displayName - o nome exibido no portal do Application Insights.
+*	categoryName – a categoria de contador de desempenho (objeto de desempenho) a qual este contador de desempenho está associado
+*	counterName – o nome do contador de desempenho
+*	instanceName – o nome da instância da categoria do contador de desempenho ou uma cadeia de caracteres vazia (""), se a categoria contém uma única instância. Se categoryName é o processo, e o contador de desempenho que você gostaria de coletar faz parte do processo atual da JVM em que seu aplicativo está sendo executado, especifique `"__SELF__"`.
+
+Seus contadores de desempenho são visíveis como métricas personalizadas em [Metrics Explorer][metrics].
+
+![](./media/app-insights-java-get-started/12-custom-perfs.png)
+
+
+### Contadores de desempenho do Unix
+
+* [Instale o collectd com o plug-in do Application Insights](app-insights-java-collectd.md) para obter uma ampla variedade de dados de sistema e rede.
+
+## Testes de disponibilidade na Web
 
 O Application Insights pode testar seu site em intervalos regulares para verificar ele está operante e respondendo bem. Para configurar, clique no gráfico vazio de testes da Web na folha de visão geral e forneça sua URL pública.
 
@@ -169,4 +267,4 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

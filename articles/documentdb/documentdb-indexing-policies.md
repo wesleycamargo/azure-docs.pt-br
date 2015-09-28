@@ -1,6 +1,7 @@
 <properties 
     pageTitle="Políticas de indexação do Banco de Dados de Documentos | Microsoft Azure" 
-    description="Compreenda como a indexação funciona no Banco de Dados de Documentos e saiba como configurar a política de indexação." 
+    description="Compreenda como a indexação funciona no Banco de Dados de Documentos e saiba como configurar e alterar a política de indexação. Configure a política de indexação no Banco de Dados de Documentos para indexação automática e mais desempenho." 
+	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -19,7 +20,7 @@
 
 # Políticas de indexação do Banco de Dados de Documentos
 
-Embora muitos clientes fiquem satisfeitos em deixar que o Banco de Dados de Documentos manipule automaticamente [todos os aspectos da indexação](documentdb-indexing.md), o Banco de Dados de Documentos também dá suporte à especificação de uma **política de indexação** personalizada para coleções durante a criação. As políticas de indexação do Banco de Dados de Documentos são mais flexíveis e poderosas do que os índices secundários oferecidos em outras plataformas de banco de dados, já que permitem o design e a personalização da forma do índice sem sacrificar a flexibilidade de esquema. Ao gerenciar a política de indexação, você poderá criar compensações refinadas entre a sobrecarga de armazenamento de índice, a taxa de transferência de gravação e de consulta e a consistência de consulta.
+Embora muitos clientes fiquem satisfeitos em deixar que o Banco de Dados de Documentos manipule automaticamente [todos os aspectos da indexação](documentdb-indexing.md), o Banco de Dados de Documentos também dá suporte à especificação de uma **política de indexação** personalizada para coleções durante a criação. As políticas de indexação do Banco de Dados de Documentos são mais flexíveis e poderosas do que os índices secundários oferecidos em outras plataformas de banco de dados de indexação, já que permitem o design e a personalização da forma do índice sem sacrificar a flexibilidade de esquema. Para saber como a indexação funciona no Banco de Dados de Documentos, é preciso entender que ao gerenciar a política de indexação, você poderá criar compensações refinadas entre a sobrecarga de armazenamento de índice, a taxa de transferência de gravação e de consulta e a consistência de consulta.
 
 Neste artigo, examinaremos em mais detalhes as políticas de indexação do Banco de Dados de Documentos, como podemos personalizar a política de indexação e as compensações associadas.
 
@@ -62,7 +63,7 @@ O seguinte trecho de código .NET mostra como definir uma política de indexaç�
 >
 >Por padrão, Banco de Dados de Documentos indexa todas as propriedades da cadeia de caracteres dentro de documentos de forma consistente com um índice de Hash e propriedades numéricas com um índice de intervalo.
 
-### Modos de Indexação
+### Modos de indexação do banco de dados
 
 O Banco de Dados de Documentos dá suporte a três modos de indexação, que podem ser configurados por meio da política de indexação em uma coleção do Banco de Dados de Documentos – Consistente, Lento e Nenhum.
 
@@ -600,7 +601,7 @@ O Banco de Dados de Documentos permite que você faça alterações na política
 
 **Transformações de índice online**
 
-![Transformações de índice online](media/documentdb-indexing-policies/index-transformations.png)
+![Como a indexação funciona – transformações de índice online do Banco de Dados de Documentos](media/documentdb-indexing-policies/index-transformations.png)
 
 As transformações de índice são feitas online, o que significa que os documentos indexados pela política anterior são transformados com eficiência de acordo com a nova política **sem afetar a disponibilidade de gravação ou a taxa de transferência provisionada** da coleção. A consistência de operações de leitura e de gravação realizadas usando a API REST, SDKs ou em procedimentos armazenados e gatilhos não é afetada durante a transformação de índice. Isso significa que não haverá degradação de desempenho ou tempo de inatividade em seus aplicativos quando você alterar uma política de indexação.
 
@@ -766,4 +767,4 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

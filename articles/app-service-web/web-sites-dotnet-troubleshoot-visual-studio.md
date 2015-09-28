@@ -5,15 +5,15 @@
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tdykstra"/>
 
 # Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio
@@ -22,7 +22,9 @@
 
 Este tutorial mostra como usar ferramentas do Visual Studio que ajudam a depurar um aplicativo Web enquanto ele é executado em um [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), seja executando-o no [modo de depuração](http://www.visualstudio.com/pt-br/get-started/debug-your-app-vs.aspx) remotamente ou então exibindo logs do aplicativo e do servidor Web.
 
-O que você aprenderá:
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+Você aprenderá a:
 
 * Quais funções de gerenciamento de aplicativo Web do Azure estão disponíveis no Visual Studio.
 * Como usar a exibição remota do Visual Studio para fazer alterações rápidas em um aplicativo Web remoto.
@@ -55,9 +57,9 @@ O Visual Studio fornece acesso a um subconjunto das funções de gerenciamento e
 
 	Para obter mais informações sobre como se conectar aos recursos do Azure no Visual Studio, consulte [Gerenciar contas, assinaturas e funções administrativas](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
-2. No **Gerenciador de Servidores**, expanda primeiro **Azure** e, em seguida, **Aplicativos Web**.
+2. No **Gerenciador de Servidores**, expanda **Azure** e **Serviço de Aplicativo**.
 
-3. Clique com o botão direito do mouse no nó do aplicativo Web que você criou em [Introdução ao Azure e ao ASP.NET][GetStarted] e clique em **Exibir Configurações**.
+3. Expanda o grupo de recursos que inclui o aplicativo Web que você criou em [Introdução ao Azure e ao ASP.NET][GetStarted], e clique com o botão direito do mouse no nó do aplicativo Web e clique em **Exibir Configurações**.
 
 	![Exibir Configurações no Gerenciador de Servidores](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -69,7 +71,7 @@ O Visual Studio fornece acesso a um subconjunto das funções de gerenciamento e
    
 	Para saber mais sobre as caixas Configurações do Aplicativo e Cadeias de Conexão nessa janela, confira [Aplicativos Web do Azure: como as cadeias de caracteres do aplicativo e as cadeias de conexão funcionam](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-	Se você desejar executar uma tarefa de gerenciamento de aplicativo Web que não possa ser executada nessa janela, pode clicar em **Configurações Completas de Aplicativos Web** para abrir uma janela do navegador para o portal de gerenciamento. Para saber mais, confira [Como configurar Aplicativos Web](/pt-br/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	Se desejar executar uma tarefa de gerenciamento do aplicativo Web que não possa ser concluída nessa janela, clique em **Abrir no Portal de Gerenciamento** para abrir uma janela do navegador para o portal de visualização do Azure. Para saber mais, confira [Como configurar Aplicativos Web](/pt-BR/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 ## <a name="remoteview"></a>Acessar arquivos de aplicativo Web no Gerenciador de Servidores
 
@@ -146,13 +148,13 @@ Esta seção mostra como depurar remotamente usando o projeto criado por você c
 
 4. Quando a implantação for concluída e o navegador abrir a URL do Azure do seu aplicativo Web, feche o navegador.
 
-5. Para o Visual Studio 2013: no **Gerenciador de Servidores**, expanda **Azure**, **Aplicativos Web**, clique com o botão direito do mouse no aplicativo Web e clique em **Anexar Depurador**.
+5. No Visual Studio 2013: no **Gerenciador de Servidores**, clique com o botão direito do mouse no seu aplicativo Web e clique em **Anexar Depurador**.
 
 	![Anexar depurador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
 	O navegador é aberto automaticamente na home page em execução no Azure. Convém aguardar cerca de 20 segundos enquanto o Azure configura o servidor para depuração. Esse atraso ocorre apenas na primeira execução que você realiza em modo de depuração em um aplicativo Web. Nas próximas vezes, durante as próximas 48 horas, quando você iniciar a depuração novamente não haverá atraso.
 
-6. Para o Visual Studio 2012 com atualização 4:<a id="vs2012"></a>
+6. Para o Visual Studio 2012 com a Atualização 4 ou posterior:<a id="vs2012"></a>
 
 	* No Portal de Gerenciamento do Azure, vá para **Configurações > Configurações do aplicativo** para seu aplicativo Web e role para baixo até a seção **Depuração**.
 
@@ -192,7 +194,7 @@ Esta seção mostra como depurar remotamente usando o projeto criado por você c
 
 ## <a name="remotedebugwj"></a> Trabalhos Web de depuração remota
 
-Esta seção mostra como depurar remotamente usando o projeto e o site que você criou na [Introdução ao SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk.md). Os recursos mostrados nesta seção estão disponíveis apenas no Visual Studio 2013 com Atualização 4. A depuração remota só funciona com Trabalhos Web contínuos. Trabalhos Web agendados e sob demanda não oferecem suporte a depuração.
+Esta seção mostra como depurar remotamente usando o projeto e o site que você criou na [Introdução ao SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk.md). Os recursos mostrados nesta seção só estão disponíveis no Visual Studio 2013 com a Atualização 4 ou posterior. A depuração remota só funciona com Trabalhos Web contínuos. Trabalhos Web agendados e sob demanda não oferecem suporte a depuração.
 
 1. Abra o projeto Web que você criou na [Introdução ao SDK de Trabalhos Web do Azure][GetStartedWJ].
 
@@ -210,7 +212,7 @@ Esta seção mostra como depurar remotamente usando o projeto e o site que você
 
 	O Visual Studio implanta os projetos Web e de Trabalho Web, e o seu navegador abre a URL do Azure do seu aplicativo Web.
 
-5. Em **Gerenciador de Servidores** expanda **Azure** > **Aplicativos Web** > seu aplicativo Web > **Trabalhos Web** > **Contínuo** e clique com o botão direito do mouse em **ContosoAdsWebJob**.
+5. Em **Gerenciador de Servidores**, expanda **Azure > Serviço de Aplicativo > seu grupo de recursos > seu aplicativo Web > WebJobs > Contínuo** e clique com o botão direito do mouse em **ContosoAdsWebJob**.
 
 7. Clique em **Anexar o depurador**.
 
@@ -567,9 +569,9 @@ As contas de armazenamento oferecem mais armazenamento e retenção por mais tem
 
     <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configurar o registro em log](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	Isso abre a guia **Configurar** no portal de gerenciamento do seu aplicativo Web. Outra maneira de fazer isso é clicar na guia **Aplicativos Web**, clicar em seu aplicativo Web e, em seguida, clicar na guia **Configurar**.
+	Isso abre a guia **Configurar** no portal do Azure para seu aplicativo Web.
 
-2. Na guia **Configurar** do portal de gerenciamento, role até a seção de diagnóstico do aplicativo e altere o **Registro em Log do Aplicativo (Armazenamento)** para **Ativado**.
+2. Na guia **Configurar** do portal, role até a seção de diagnóstico de aplicativos e altere o **Registro em Log do Aplicativo (Armazenamento de Tabela)** para **Ativado**.
 
 3. Altere o **Nível de Log** para **Informações**.
 
@@ -583,7 +585,7 @@ As contas de armazenamento oferecem mais armazenamento e retenção por mais tem
 
 6. Na caixa **Gerenciar armazenamento da tabela para diagnóstico de aplicativo**, clique na marca de seleção para fechar a caixa.
 
-6. Na guia **Configurar** do portal de gerenciamento, clique em **Salvar**.
+6. Na guia **Configurar** do portal, clique em **Salvar**.
 
 7. Na janela do navegador que exibe o aplicativo Web do aplicativo, clique em **Página Inicial**, clique em **Sobre** e, em seguida, clique em **Contato**.
 
@@ -635,15 +637,13 @@ Você pode exibir os logs de rastreamento de solicitação com falha em um naveg
 
 2. No Visual Studio, na guia **Configuração** da janela **Aplicativo Web do Azure**, clique em **Abrir no Portal de Gerenciamento**.
 
-3. Na folha do portal de gerenciamento para seu aplicativo Web, clique em **Todas as configurações > Credenciais de implantação** e, em seguida, clique em **Redefinir suas credenciais de implantação**.
-
-4. Digite um novo nome de usuário e uma senha.
+3. Na folha do portal de visualização do Azure do seu aplicativo Web, clique em **Configurações > Credenciais de implantação** e insira um novo nome de usuário e uma senha.
 
 	![Novo nome de usuário e senha FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-5. Na guia **Painel** do portal de gerenciamento, pressione F5 para atualizar a página e, em seguida, role para baixo até onde você pode ver **Implantação/Usuário FTP**. Observe que o nome de usuário tem o nome do aplicativo Web como prefixo. **Quando você faz logon, você precisa usar esse nome de usuário completo com o nome do aplicativo Web como prefixo, conforme mostrado aqui.**
+	****Quando você fizer logon, será preciso usar o nome de usuário completo com o nome do aplicativo Web como prefixo dele. Por exemplo, se você inserir "myid" como um nome de usuário e o site é "meuexemplo", fará logon como "meuexemplo\\myid".
 
-5. Em uma nova janela do navegador, vá para a URL que é mostrada em **Nome do Host FTP**, na guia **Painel** da página do portal de gerenciamento de seu aplicativo Web. O **Nome do Host FTP** está localizado próximo a **Implantação/Usuário FTP** na seção **Visão Rápida**.
+5. Em uma nova janela do navegador, vá para a URL mostrada em **Nome do host FTP** ou **Nome do host FTPS** na folha do portal **Aplicativo Web** do seu aplicativo Web.
 
 6. Faça logon usando as credenciais FTP que você criou anteriormente (incluindo o prefixo do nome do aplicativo Web para o nome de usuário).
 
@@ -702,9 +702,9 @@ Para obter mais informações sobre como usar o modo de depuração no Visual St
 
 Para saber mais sobre a depuração remota para aplicativos Web do Azure e Trabalhos Web, confira os seguintes recursos:
 
-* [Introdução à depuração remota em aplicativos Web de Serviço de Aplicativo do Azure](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Introdução à depuração remota em aplicativos Web de Serviço de Aplicativo do Azure parte 2 - Por dentro da depuração remota](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Introdução à depuração remota em aplicativos Web de Serviço de Aplicativo do Azure parte 3 - Ambiente de várias instâncias e GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Introdução à depuração remota em aplicativos Web do Serviço de Aplicativo do Azure](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
+* [Introdução à depuração remota em aplicativos Web do Serviço de Aplicativo do Azure parte 2 - Por dentro da depuração remota](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Introdução à depuração remota em aplicativos Web do Serviço de Aplicativo do Azure parte 3 - Ambiente de várias instâncias e GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Depuração de Trabalhos Web (vídeo)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 Se o aplicativo Web usar uma API Web do Azure ou um back-end de Serviços Móveis e você precisar depurá-lo, confira [Depurando back-end do .NET no Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
@@ -753,14 +753,12 @@ O site do Microsoft TechNet inclui uma seção [Usando rastreamento de solicita�
 
 Se você quiser depurar um serviço de nuvem do Azure em vez de um aplicativo Web, confira [Depurando serviços de nuvem](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

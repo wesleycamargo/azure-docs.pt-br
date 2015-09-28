@@ -1,13 +1,13 @@
 <properties
    pageTitle="Perguntas frequentes do Backup do Azure | Microsoft Azure"
-	description="Perguntas frequentes sobre o serviço de Backup do Azure"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Perguntas frequentes sobre o serviço de Backup do Azure"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Backup do Azure - Perguntas frequentes
 Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver perguntas adicionais sobre o Backup do Azure, vá para o [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e poste suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -40,7 +40,7 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P6. Devo considerar o cofre como uma entidade de cobrança?** <br/> R6. Embora seja possível obter uma fatura detalhada de cada cofre, é altamente recomendável que você considere uma assinatura do Azure como uma entidade de cobrança. Ela é consistente entre todos os serviços e é mais fácil de gerenciar.
 
-**P7. Há um limite para o número de servidores/computadores que podem ser registrados em cada cofre?** <br/> R7. Sim, você pode registrar até 50 computadores por cofre. Se você precisar registrar mais computadores, crie um novo cofre.
+**P7. Há um limite para o número de servidores/computadores que podem ser registrados em cada cofre?** <br/> R7. Sim, você pode registrar até 50 computadores por cofre. Para máquinas virtuais IaaS do Azure, o limite é 100 VMs por cofre. Se você precisar registrar mais computadores, crie um novo cofre.
 
 **P8. Há um limite em relação à quantidade de dados que pode ser incluída no backup de um servidor/cliente Windows ou em um servidor SCDPM?** <br/> R8. Nº
 
@@ -114,7 +114,7 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 |Microsoft Exchange|Soma de todos os bancos de dados do Exchange em um servidor Exchange do qual está sendo feito o backup|
 |Estado do Sistema/BMR|Cada cópia individual do BMR ou do estado do sistema da máquina da qual está sendo feito o backup|
 
-**P2. Há um limite para o número de vezes que um backup pode ser agendado por dia?**<br/> R2. Sim, o Backup do Azure permite três cópias de backup por dia com o Windows Server/cliente Windows e duas cópias de backup por dia com o SCDPM.
+**P2. Há um limite para o número de vezes que um backup pode ser agendado por dia?**<br/> R2. Sim, o Backup do Azure permite três cópias de backup por dia com o Windows Server/Client, duas cópias de backup por dia com o SCDPM e um backup por dia para VMs IaaS.
 
 **P3. Há uma diferença entre a política de agendamento de backup do DPM e do Backup do Azure (ou seja, no Windows Server sem o DPM)?** <br/> R3. Sim. Usando o DPM, você pode especificar as programações diária, semanal, mensal ou anual. Já em um Windows Server (sem o DPM), você pode especificar apenas as programações diária e semanal.
 
@@ -132,13 +132,9 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 **P9. Se cada ponto de recuperação é como um ponto completo, isso afeta o armazenamento de backup total cobrável?**<br/> R9. Os produtos típicos de ponto de retenção de longo prazo armazenam dados de backup como pontos completos. No entanto, eles não oferecem economia de armazenamento, mas são mais fáceis e rápidos de restaurar. As cópias incrementais oferecem economia de armazenamento, mas exigem que você restaure uma cadeia de dados, o que afeta o tempo de recuperação. A arquitetura de armazenamento exclusiva do Backup do Azure oferece o melhor dos dois recursos, armazenando dados de forma otimizada para restaurações rápidas e incorrendo em baixos custos de armazenamento. Essa abordagem garante que a largura de banda (de entrada e saída) seja usada com eficiência e que o armazenamento e o tempo de recuperação sejam mínimos.
 
-**P10. Há um limite para o número de pontos de recuperação que podem ser criados?**<br/> R10. Desde abril de 2015, você pode ter até 366 pontos de recuperação. Você pode usar qualquer permutação para chegar a um número que seja menor que 366. Por exemplo: os pontos de retenção na imagem abaixo totalizam 354. <br/>
+**P10. Há um limite para o número de pontos de recuperação que podem ser criados?**<br/> R10. Não. Eliminamos os limites nos pontos de recuperação. Você pode criar quantos pontos de recuperação desejar.
 
-![Tela de retenção](./media/backup-azure-backup-faq/RetentionScreen1.png)
-
-**P11. Depois que a Microsoft aumentar o limite de 366, será necessário atualizar o agente ou propagar novamente o backup inicial?** <br/> R11. Não. Depois que fizermos a alteração no nosso serviço, você será notificado por meio de nossos veículos de mídia social (blogs, anúncios do Azure, portal, etc.). Com base em suas necessidades, você precisará apenas alterar a política de retenção.
-
-**P12. Por que a quantidade de dados transferida no backup não é igual à quantidade de dados da qual fiz backup?**<br/> R12. Todos os dados que passam por backup são compactados e criptografados antes de serem transferidos. Você pode esperar benefícios de compactação de 30 a 40% dependendo do tipo de dados de backup.
+**P11. Por que a quantidade de dados transferida no backup não é igual à quantidade de dados da qual fiz backup?**<br/> A11. Todos os dados que passam por backup são compactados e criptografados antes de serem transferidos. Você pode esperar benefícios de compactação de 30 a 40% dependendo do tipo de dados de backup.
 
 ## Recuperação
 **P1. Quantas recuperações posso executar nos dados incluídos no backup no Azure?**<br/> R1. Não há limite para o número de recuperações do Backup do Azure.
@@ -169,8 +165,8 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 	| Caminho do registro | Chave do Registro | Valor |
 	| ------ | ------- | ------ |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Azure Backup\\Config | ScratchLocation | <i>Novo local da pasta de cache</i> |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>Novo local da pasta de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Novo local da pasta de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Novo local da pasta de cache</i> |
 
 
 + Inicie o OBEngine executando o comando abaixo em um prompt de comando elevado:
@@ -179,4 +175,4 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 Assim que os backups começarem a ser executados com êxito com o novo local de cache, você poderá remover a pasta de cache original.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

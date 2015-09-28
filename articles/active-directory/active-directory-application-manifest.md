@@ -17,7 +17,8 @@
    ms.author="dkershaw;bryanla"/>
 
 # Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure
-Os aplicativos que se integram com o Active Directory do Azure (AD) devem ser registrados em um locatário do Azure AD, fornecendo uma configuração persistente de identidade para o aplicativo. Essa configuração é consultada em tempo de execução, permitindo cenários que permitem que um aplicativo terceirize e agencie autenticação/autorização por meio do Azure AD. Para saber mais sobre o modelo de aplicativo do Azure AD, consulte o artigo [Adicionando, atualizando e removendo um aplicativo][ADD-UPD-RMV-APP].
+
+Os aplicativos que se integram com o Active Directory do Azure (AD) devem ser registrados em um locatário do Azure AD, fornecendo uma configuração persistente de identidade para o aplicativo. Essa configuração é consultada em tempo de execução, permitindo cenários que permitem que um aplicativo terceirize e agencie autenticação/autorização por meio do Azure AD. Para saber mais sobre o modelo de aplicativo Azure AD, consulte o artigo [Adicionando, atualizando e removendo um aplicativo][ADD-UPD-RMV-APP].
 
 ## Atualizando a configuração de identidade do aplicativo
 
@@ -25,7 +26,7 @@ Na verdade, várias opções estão disponíveis para atualizar propriedades de 
 
 - A **interface do usuário Web[do portal do Azure][AZURE-PORTAL]** permite que você atualize as propriedades mais comuns de um aplicativo. Essa é a maneira mais rápida e menos propensa a erro de atualizar as propriedades do aplicativo, mas não lhe dá acesso total a todas as propriedades como os dois métodos a seguir.
 - Para cenários mais avançados em que é necessário atualizar as propriedades que não são expostas no portal do Azure, você pode modificar o **manifesto do aplicativo**. Esse é o foco deste artigo e será discutido mais detalhadamente, começando na próxima seção.
-- Também é possível **gravar um aplicativo que usa o [Graph API][GRAPH-API]** para atualizar seu aplicativo, o que requer maior esforço. Isso pode ser uma opção atraente se você estiver gravando o software de gerenciamento ou precisar atualizar as propriedades do aplicativo regularmente de forma automática.
+- Também é possível **escrever um aplicativo que usa a [Graph API][GRAPH-API]** para atualizar seu aplicativo, o que requer maior esforço. Isso pode ser uma opção atraente se você estiver gravando o software de gerenciamento ou precisar atualizar as propriedades do aplicativo regularmente de forma automática.
 
 ## Usando o manifesto do aplicativo para atualizar a configuração de identidade do aplicativo
 Através do [Portal do Azure][AZURE-PORTAL], você pode gerenciar a configuração de identidade do aplicativo baixando e carregando uma representação de arquivo JSON, que é chamada de manifesto de aplicativo. Nenhum arquivo real é armazenado no diretório; o manifesto do aplicativo é meramente uma operação HTTP GET na entidade de aplicativo do Azure AD Graph API, e o carregamento é uma operação HTTP PATCH na entidade de aplicativo.
@@ -37,7 +38,7 @@ Como resultado, para entender o formato e as propriedades do manifesto do aplica
 - Declarar aplicativos clientes conhecidos.
 - Solicite ao Azure AD que emita uma declaração de associações de grupo para o usuário conectado. Observação: isso pode ser configurado para emitir adicionalmente declarações sobre as associações de funções de diretório do usuário. Consulte o artigo [Autorização em aplicativos na nuvem usando grupos do AD][AAD-GROUPS-FOR-AUTHORIZATION] para obter um exemplo de implementação.
 - Permitir que o aplicativo dê suporte a fluxos de concessão OAuth 2.0 implícita (para páginas da Web em JavaScript incorporadas ou aplicativos de página única (SPA))
-- Habilitar o uso dos certificados X509 como chave secreta. Consulte o artigo [Criar aplicativos de serviço e daemon no Office 365][O365-SERVICE-DAEMON-APPS] para obter um exemplo de implementação. 
+- Habilitar o uso dos certificados X509 como chave secreta. Consulte o artigo [Criar aplicativos de serviço e daemon no Office 365][O365-SERVICE-DAEMON-APPS] para obter um exemplo de implementação.
 
 O manifesto do aplicativo também fornece uma boa maneira de controlar o estado de seu registro de aplicativo. Porque ele está disponível no formato JSON, a representação de arquivo pode ser inserida no seu controle de origem, junto com o código-fonte do aplicativo.
 
@@ -94,14 +95,14 @@ Use a seção de comentários do DISQUS abaixo para fornecer seus comentários e
 
 <!--article references -->
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
-[ADD-UPD-RMV-APP]: https://msdn.microsoft.com/library/azure/dn132599.aspx
+[ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
 [AZURE-PORTAL]: https://manage.windowsazure.com
-[GRAPH-API]: https://msdn.microsoft.com/library/azure/hh974476.aspx
+[GRAPH-API]: active-directory-graph-api.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

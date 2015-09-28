@@ -26,6 +26,8 @@ Este tutorial exige o seguinte:
 * Uma assinatura ativa do [SharePoint Online]
 * Conclusão do tutorial [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]. Você deve usar o locatário fornecido por sua assinatura do SharePoint.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## <a name="configure-permissions"></a>Configurar seu aplicativo para acesso delegado ao SharePoint
 Por padrão, o token que você recebe do AAD tem permissões limitadas. Para acessar um recurso de terceiros ou aplicativo SaaS como o SharePoint Online, você deve permiti-lo explicitamente.
 
@@ -51,7 +53,7 @@ Para fazer uma chamada para o SharePoint, é necessário especificar os pontos d
 
 * Configure SP\_ClientSecret para ser o valor do segredo do cliente que você obteve anteriormente.
 
-* Configure SP\_SharePointURL para ser a URL de seu site do SharePoint. Ele deve ser do formato `https://contoso-my.sharepoint.com`
+* Configure SP\_SharePointURL para ser a URL de seu site do SharePoint. Ele estará no formulário `https://contoso-my.sharepoint.com`
 
 Você poderá obter esses valores novamente no seu código usando ApiServices.Settings.
 
@@ -186,4 +188,4 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Extensão de Serviço de Aplicativo do back-end .NET de aplicativos móveis]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

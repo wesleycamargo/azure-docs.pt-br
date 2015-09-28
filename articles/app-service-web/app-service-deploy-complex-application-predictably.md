@@ -5,15 +5,15 @@
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="09/15/2015"
 	ms.author="cephalin"/>
 
 
@@ -22,6 +22,8 @@
 Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupos de recursos JSON e scripts do PowerShell.
 
 Ao provisionar e implantar aplicativos em alta escala que são compostos por microsserviços totalmente separados, a repetitividade e a previsibilidade são essenciais para se obter êxito. O [Serviço de Aplicativo do Azure](/services/app-service/) permite criar microsserviços que incluem aplicativos Web, aplicativos móveis, aplicativos de API e aplicativos lógicos. O [Gerenciador de Recursos do Azure](../resource-group-overview.md) permite gerenciar todos os microsserviços como uma unidade, juntamente com as dependências de recurso, como as configurações de controle do código fonte e banco de dados. Agora, você também pode implantar esse aplicativo usando modelos JSON e scripts simples do PowerShell.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## O que você fará ##
 
@@ -38,7 +40,7 @@ Neste tutorial, você utilizará as ferramentas a seguir. Como não se trata de 
 
 ### Modelos do Gerenciador de Recursos do Azure (JSON) ###
  
-Sempre que você cria um aplicativo Web no Serviço de Aplicativo do Azure, por exemplo, o Gerenciador de Recursos do Azure usa um modelo JSON para criar todo o grupo de recursos com os recursos do componente. Um modelo complexo do [Azure Marketplace](/marketplace) como o aplicativo [WordPress Escalonável](/marketplace/partners/wordpress/scalablewordpress/) pode incluir o banco de dados MySQL, contas de armazenamento, o plano de Serviço de Aplicativo, o próprio aplicativo Web, regras de alerta, configurações do aplicativo, configurações de dimensionamento automático e muito mais, e todos esses modelos estão disponíveis para você por meio do PowerShell. Para obter informações sobre como baixar e usar esses modelos, consulte [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
+Sempre que você cria um aplicativo Web no Serviço de Aplicativo do Azure, por exemplo, o Gerenciador de Recursos do Azure usa um modelo JSON para criar todo o grupo de recursos com os recursos do componente. Um modelo complexo do [Azure Marketplace](/marketplace) como o aplicativo [WordPress Escalonável](/marketplace/partners/wordpress/scalablewordpress/) pode incluir o banco de dados MySQL, contas de armazenamento, o plano do Serviço de Aplicativo, o próprio aplicativo Web, regras de alerta, configurações do aplicativo, configurações de dimensionamento automático e muito mais, e todos esses modelos estão disponíveis para você por meio do PowerShell. Para obter informações sobre como baixar e usar esses modelos, consulte [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 
 Para obter mais informações sobre os modelos do Gerenciador de Recursos do Azure, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 
@@ -66,7 +68,7 @@ Se você usa GitHub para controle do código-fonte, você pode colocar um [botã
 
 Agora vamos direto ao ponto.
 
-1. 	Navegue até o exemplo de Serviço de Aplicativo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp).
+1. 	Navegue até o exemplo do Serviço de Aplicativo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp).
 
 2.	 Em readme.md, clique em **Implantar no Azure**.
  
@@ -117,15 +119,15 @@ Dê uma olhada na seção de parâmetros para ver que a maioria desses parâmetr
 
 ### Recursos ###
 
-No nó recursos, você pode ver que 4 recursos do nível mais alto estão definidos, incluindo uma instância do SQL Server, um plano de Serviço de Aplicativo e dois aplicativos Web.
+No nó recursos, você pode ver que 4 recursos do nível mais alto estão definidos, incluindo uma instância do SQL Server, um plano do Serviço de Aplicativo e dois aplicativos Web.
 
 #### Plano do Serviço de Aplicativo ####
 
-Vamos começar com um recurso simples de nível raiz em JSON. Na Estrutura de Tópicos JSON, clique no plano de Serviço de Aplicativo chamado **[hostingPlanName]** para realçar o código do JSON correspondente.
+Vamos começar com um recurso simples de nível raiz em JSON. Na Estrutura de Tópicos JSON, clique no plano do Serviço de Aplicativo chamado **[hostingPlanName]** para realçar o código do JSON correspondente.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
-Observe que o elemento `type` especifica a cadeia de caracteres em um plano de Serviço de Aplicativo (isso era chamado de farm de servidores, há muito tempo atrás) enquanto outros elementos e propriedades são preenchidos com os parâmetros definidos no arquivo JSON, sendo que este recurso não tem nenhum recurso aninhado.
+Observe que o elemento `type` especifica a cadeia de caracteres em um plano do Serviço de Aplicativo (isso era chamado de farm de servidores, há muito tempo atrás) enquanto outros elementos e propriedades são preenchidos com os parâmetros definidos no arquivo JSON, sendo que este recurso não tem nenhum recurso aninhado.
 
 >[AZURE.NOTE]Observe também que o valor de `apiVersion` informa ao Azure com qual versão da API REST usar a definição de recurso JSON, e ele pode afetar como o recurso deve ser formatado dentro do `{}`.
 
@@ -151,7 +153,7 @@ Agora, vamos passar para os aplicativos Web em si, que são mais complicados. Cl
 
 ##### Recurso raiz #####
 
-O aplicativo Web depende de dois recursos diferentes. Isso significa que o Gerenciador de Recursos do Azure criará o aplicativo Web somente depois que ambos o plano de Serviço de Aplicativo e a instância do SQL Server forem criados.
+O aplicativo Web depende de dois recursos diferentes. Isso significa que o Gerenciador de Recursos do Azure criará o aplicativo Web somente depois que ambos o plano do Serviço de Aplicativo e a instância do SQL Server forem criados.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
@@ -224,15 +226,15 @@ O botão **Implantar no Azure** é ótimo, mas só permite que você implante o 
 
 	![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
 
-7.	Selecione **Application Insights para Aplicativos Web**, certifique-se de que um aplicativo Web e um plano de Serviço de Aplicativo existentes estão selecionados e, em seguida, clique em **Adicionar**.
+7.	Selecione **Application Insights para Aplicativos Web**, certifique-se de que um aplicativo Web e um plano do Serviço de Aplicativo existentes estão selecionados e, em seguida, clique em **Adicionar**.
 
 	![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
 
-	Você será capaz de ver vários recursos novos que, dependendo do recurso e do que ele faz, têm dependências no plano de Serviço de Aplicativo ou então no aplicativo Web. Esses recursos não estão habilitados segundo sua definição existente e você vai mudar isso.
+	Você será capaz de ver vários recursos novos que, dependendo do recurso e do que ele faz, têm dependências no plano do Serviço de Aplicativo ou então no aplicativo Web. Esses recursos não estão habilitados segundo sua definição existente e você vai mudar isso.
 
 	![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
  
-8.	Na estrutura de tópicos JSON, clique em **appInsights AutoScale** para destacar seu código JSON. Essa é a configuração de dimensionamento para seu plano de Serviço de Aplicativo.
+8.	Na estrutura de tópicos JSON, clique em **appInsights AutoScale** para destacar seu código JSON. Essa é a configuração de dimensionamento para seu plano do Serviço de Aplicativo.
 
 9.	No código realçado JSON, localize as propriedades `location` e `enabled` e defina-as conforme mostrado abaixo.
 
@@ -286,7 +288,7 @@ No DevOps, repetitividade e previsibilidade são essenciais para qualquer implan
 
 ## Próximas etapas ##
 
-Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo de microsserviço com facilidade ](app-service-agile-software-development.md).
+Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo de microsserviços com facilidade ](app-service-agile-software-development.md).
 
 <a name="resources"></a>
 ## Mais recursos ##
@@ -303,4 +305,4 @@ Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gerenciar os controladores de dispositivo StorSimple | Microsoft Azure"
-	description="Saiba como parar, reiniciar, desligar ou redefinir os controladores de dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Saiba como parar, reiniciar, desligar ou redefinir os controladores de dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Gerenciar controladores de dispositivo StorSimple
 
@@ -220,6 +220,8 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 ## Próximas etapas
 
-Se você tiver algum problema com os controladores de dispositivo StorSimple que não possam ser resolvidos usando os procedimentos listados neste tutorial, [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+- Se você tiver algum problema com os controladores de dispositivo StorSimple que não possam ser resolvidos usando os procedimentos listados neste tutorial, [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=September15_HO1-->
+- Para saber mais sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

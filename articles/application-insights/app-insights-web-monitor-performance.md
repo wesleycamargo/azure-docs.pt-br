@@ -32,12 +32,15 @@ No lado do cliente, o Application Insights pode realizar a telemetria de página
 Se você ainda não tem o Application Insights adicionado ao seu projeto (ou seja, não tem o ApplicationInsights.config), escolha uma destas formas para começar:
 
 * [Aplicativos Web ASP.NET](app-insights-asp-net.md)
+ * [Adicionar monitoramento de exceção](app-insights-asp-net-exceptions.md)
+ * [Adicionar monitoramento de dependência](app-insights-monitor-performance-live-website-now.md)
 * [Aplicativos Web J2EE](app-insights-java-get-started.md)
+ * [Adicionar monitoramento de dependência](app-insights-java-agent.md)
 
 
 ## <a name="view"></a>Explorando métricas de desempenho
 
-No [portal do Azure](https://portal.azure.com), navegue até o recurso do Application Insights que você criou para seu aplicativo. A folha de visão geral mostra os dados de desempenho básicos:
+No [portal do Azure](https://portal.azure.com), navegue até o recurso do Application Insights que você configurou para seu aplicativo. A folha de visão geral mostra os dados de desempenho básicos:
 
 
 
@@ -138,7 +141,12 @@ Se preferir, você pode escrever código que tenha o mesmo efeito:
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
+### Contagens de exceção
 
+*Qual é a diferença entre a Taxa de exceções e as Métricas de exceções?*
+
+* *Taxa de exceções* é um contador de desempenho do sistema. O CLR conta todas as exceções tratadas e sem tratamento que são lançadas, e divide o total em um intervalo de amostragem pela duração do intervalo. O SDK do Application Insights coleta esse resultado e o envia para o portal.
+* *Exceções* é uma contagem dos relatórios TrackException recebida pelo portal no intervalo de amostragem do gráfico. Ele inclui apenas as exceções tratadas em que você tenha gravado chamadas TrackException em seu código e não inclui todas as [exceções sem tratamento](app-insights-asp-net-exceptions.md). 
 
 ## Definir alertas
 
@@ -186,4 +194,4 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

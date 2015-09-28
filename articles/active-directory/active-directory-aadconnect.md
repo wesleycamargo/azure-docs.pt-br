@@ -112,7 +112,7 @@ Antes de instalar o Azure AD Connect com configurações expressas, há algumas 
     		<defaultProxy>
       		<proxy
         	usesystemdefault="true"
-        	proxyaddress=http://<PROXYIP>:80"
+        	proxyaddress="http://<PROXYIP>:80"
         	bypassonlocal="true"
      		 />
     		</defaultProxy>
@@ -273,4 +273,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

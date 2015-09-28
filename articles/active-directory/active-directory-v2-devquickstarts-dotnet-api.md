@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de Aplicativo v2.0 | Microsoft Azure"
+	pageTitle="API Web .NET do modelo de aplicativo v2.0 | Microsoft Azure"
 	description="Agora você tem uma API da Web .NET MVC que aceita tokens de contas da Microsoft pessoais, e contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: proteger uma API da Web MVC
@@ -157,4 +157,4 @@ Agora você pode passar para tópicos adicionais. Você pode desejar experimenta
 
 Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

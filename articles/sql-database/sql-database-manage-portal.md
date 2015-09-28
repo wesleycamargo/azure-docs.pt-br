@@ -13,13 +13,19 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
-	ms.date="04/14/2015" 
+	ms.date="09/11/2015" 
 	ms.author="sstein"/>
 
 
 # Gerenciando Bancos de Dados SQL do Azure usando o Portal de Gerenciamento do Azure
 
-O [Portal de Gerenciamento do Azure][Management Portal] permite que você crie, monitore e gerencie servidores e bancos de dados SQL do Azure. Este artigo destacará as operações de banco de dados que podem ser realizadas usando o Portal de Gerenciamento. Saiba mais sobre as outras ferramentas de gerenciamento de banco de dados SQL do Azure [aqui][AzureDb management overview].
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
+
+O [Portal de Gerenciamento do Azure][Management Portal] permite que você crie, monitore e gerencie servidores e bancos de dados SQL do Azure. Este artigo destacará as operações de banco de dados que podem ser realizadas usando o Portal de Gerenciamento.
 
 >[AZURE.NOTE]Se você não estiver familiarizado com o Portal de Gerenciamento do Azure, este[tour em vídeo fornecerá uma visão geral][Azure Portal Tour] de seus recursos e conceitos gerais.
 
@@ -29,6 +35,10 @@ O [Portal de Gerenciamento do Azure][Management Portal] permite que você crie, 
 ![Ações de gerenciamento de banco de dados](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
 O Portal de Gerenciamento do Azure fornece um conjunto de ações comuns de banco de dados acessíveis na parte superior da folha de um banco de dados. Você pode restaurar um banco de dados para um ponto anterior no tempo, abrir um banco de dados no Visual Studio, copiar um banco de dados para um novo servidor e exportar o banco de dados para uma conta de armazenamento do Azure.
+
+- [Restaurar um banco de dados SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Abrir um banco de dados SQL no Visual Studio](sql-database-connect-query.md)
+- [Exportar um banco de dados SQL](sql-database-export.md)
 
 ## 2\. Monitoramento de banco de dados
 ![Monitoramento de banco de dados](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
@@ -40,18 +50,28 @@ Além disso, as regras de alerta podem ser configuradas para monitorar uma métr
 ## 3\. Segurança e auditoria de banco de dados
 ![Segurança de banco de dados](./media/sql-database-manage-portal/sqldatabase_security.png)
 
-Os Bancos de Dados SQL do Azure podem ser configurados para rastrear todos os eventos do banco de dados e gravá-los em um log de auditoria em sua conta de armazenamento do Azure. Esse recurso pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança. Para saber mais sobre auditoria de banco de dados SQL do Azure, clique [aqui][AzureDb Auditing]
+Os Bancos de Dados SQL do Azure podem ser configurados para rastrear todos os eventos do banco de dados e gravá-los em um log de auditoria em sua conta de armazenamento do Azure. Esse recurso pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
 
-Bancos de dados SQL do Azure também podem ser configurados para mascarar dados confidenciais a usuários não privilegiados. Saiba mais sobre os recursos de ocultação de dados dinâmicos de bancos de dados SQL do Azure clicando [aqui][AzureDb datamasking]
+- [Auditoria de Banco de Dados SQL do Azure](sql-database-auditing-get-started.md)
+
+Bancos de dados SQL do Azure também podem ser configurados para mascarar dados confidenciais a usuários não privilegiados.
+
+- [Mascaramento de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md)
+
 
 ## 4\. Replicação geográfica
 ![Replicação geográfica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-É possível configurar bancos de dados SQL do Azure para replicar de forma assíncrona as transações confirmadas para um banco de dados secundário. Parte de replicação geográfica no Portal de Gerenciamento permite que você selecione a região do Azure na qual gostaria de colocar o banco de dados secundário. Para saber mais sobre a replicação geográfica de banco de dados no Azure, clique [aqui][Database geo-replication]
+É possível configurar bancos de dados SQL do Azure para replicar de forma assíncrona as transações confirmadas para um banco de dados secundário. Parte de replicação geográfica no Portal de Gerenciamento permite que você selecione a região do Azure na qual gostaria de colocar o banco de dados secundário.
+
+- [Replicação Geográfica](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+
+
+
+
 
 ##Recursos adicionais
-* [Introdução ao Banco de Dados SQL][]   
-* [Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio][]   
+* [Banco de Dados SQL](sql-database-technical-overview.md)   
 * [Monitorando o Banco de Dados SQL Usando Exibições de Gerenciamento Dinâmico][]   
 * [Referência Transact-SQL (Banco de Dados SQL)][]
   
@@ -59,9 +79,9 @@ Bancos de dados SQL do Azure também podem ser configurados para mascarar dados 
   [Management Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
   [AzureDb management overview]: http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/
-  [Introdução ao Banco de Dados SQL]: http://azure.microsoft.com/services/sql-database
+  [Introducing SQL Database]: http://azure.microsoft.com/services/sql-database
   [Database geo-replication]: http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/
-  [Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio]: sql-database-manage-azure-ssms.md
+  [Managing Azure SQL Database using SQL Server Management Studio]: sql-database-manage-azure-ssms.md
   [Monitorando o Banco de Dados SQL Usando Exibições de Gerenciamento Dinâmico]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
   [Referência Transact-SQL (Banco de Dados SQL)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
@@ -70,4 +90,4 @@ Bancos de dados SQL do Azure também podem ser configurados para mascarar dados 
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

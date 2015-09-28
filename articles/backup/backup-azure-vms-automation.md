@@ -7,21 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2015" ms.author="trinadhk";"aashishr" />
 
 
 # Implantar e gerenciar o backup de VMs do Azure usando o PowerShell
 Este artigo mostra como usar o Azure PowerShell para backup e recuperação de VMs IaaS do Azure.
 
 ## Conceitos
-Seja [apresentado ao backup de VM IaaS do Azure](backup-azure-vms-introduction.md) na documentação do Backup do Azure. Ela aborda os conceitos básicos sobre por que você deve fazer backup de sua VM, pré-requisitos e limitações.
+[Comece com o backup de VM IaaS do Azure](backup-azure-vms-introduction.md) na documentação de backup do Azure. Ela aborda os conceitos básicos sobre por que você deve fazer backup de sua VM, pré-requisitos e limitações.
 
 Para usar efetivamente o PowerShell, é necessário compreender a hierarquia de objetos e de onde começar.
 
@@ -31,7 +24,11 @@ Os dois fluxos mais importantes são habilitar a proteção para uma VM e restau
 
 
 ## Configuração e registro
-Para começar, habilite os commandlets do Backup do Azure alternando para o modo *AzureResourceManager* usando o commandlet **Switch-AzureMode**:
+Para começar:
+
+1. [Baixe o PowerShell mais recente](https://github.com/Azure/azure-powershell/releases) (a versão mínima exigida é : 0.9.8)
+
+2. Habilite os commandlets do Backup do Azure alternando para o modo *AzureResourceManager* usando o commandlet **Switch-AzureMode**:
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
@@ -49,8 +46,8 @@ As seguintes tarefas de configuração e de registro podem ser automatizadas com
 Você pode criar um novo cofre de backup usando o commandlet **New-AzureRMBackupVault**. O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
 
 ```
-PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
 Você pode obter uma lista de todos os cofres de backup em uma determinada assinatura usando o commandlet **Get-AzureRMBackupVault**.
@@ -59,7 +56,7 @@ Você pode obter uma lista de todos os cofres de backup em uma determinada assin
 
 
 ### Registrando as VMs
-A primeira etapa para configurar o backup com o Backup do Azure é registrar seu computador ou VM em um cofre de Backup do Azure. O commandlet **Register-AzureRMBackupContainer** usa as informações de entrada de uma máquina virtual IaaS do Azure e registra com o cofre especificado. A operação de registro associa a máquina virtual do Azure com o Cofre de backup e controla a VM por meio do ciclo de vida do backup.
+A primeira etapa para configurar o backup com o Backup do Azure é registrar seu computador ou VM em um cofre de Backup do Azure. O commandlet **Register-AzureRMBackupContainer** usa as informações de entrada de uma máquina virtual IaaS do Azure e as registra no cofre especificado. A operação de registro associa a máquina virtual do Azure com o Cofre de backup e controla a VM por meio do ciclo de vida do backup.
 
 Registrar sua VM com o serviço de Backup do Azure cria um objeto de contêiner de nível superior. Um contêiner normalmente contém vários itens que podem ser copiados, mas no caso de VMs haverá apenas um item de backup para o contêiner.
 
@@ -101,7 +98,7 @@ PS C:\> Get-AzureRMBackupContainer -Type AzureVM -Status Registered -Vault $back
 ```
 
 ### Backup inicial
-O agendamento de backup se encarregará de fazer a cópia inicial completa do item e a cópia incremental para os backups subsequentes. No entanto, se você quiser forçar o backup inicial para ocorrer em determinado momento ou até mesmo imediatamente, em seguida, use o commandlet **Backup-AzureRMBackupItem**:
+O agendamento de backup se encarregará de fazer a cópia inicial completa do item e a cópia incremental para os backups subsequentes. No entanto, se você quiser forçar o backup inicial para ocorrer em determinado momento ou até mesmo imediatamente, use o commandlet **Backup-AzureRMBackupItem**:
 
 ```
 PS C:\> $container = Get-AzureRMBackupContainer -Vault $backupvault -type AzureVM -name "testvm"
@@ -127,7 +124,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-Em vez de sondar esses trabalhos para conclusão – o que é um código adicional desnecessário - é mais simples usar o commandlet **Wait-AzureRMBackupJob**. Quando usado em um script, o commandlet fará uma pausa na execução até que o trabalho seja concluído ou o valor de tempo limite especificado seja atingido.
+Em vez de sondar esses trabalhos para conclusão (o que é um código adicional desnecessário) é mais simples usar o commandlet **Wait-AzureRMBackupJob**. Quando usado em um script, o commandlet fará uma pausa na execução até que o trabalho seja concluído ou o valor de tempo limite especificado seja atingido.
 
 ```
 PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
@@ -234,4 +231,4 @@ Para obter mais informações sobre como criar uma VM por meio dos discos restau
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

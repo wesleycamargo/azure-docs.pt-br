@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
 # Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure
 
-> [AZURE.NOTE]O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE]O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-edition.md).
 
 Depois de habilitar o Proxy de Aplicativo do AD do Microsoft Azure, você pode publicar aplicativos para torná-los acessíveis aos usuários fora de sua rede privada.
 
@@ -79,4 +79,4 @@ Depois de publicar aplicativos usando o Proxy de Aplicativo do Active Directory 
 
 * [Sobre a delegação restrita de Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Fase 4 da carga de trabalho do farm de intranet do SharePoint: configurar servidores do SharePoint
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 Nesta fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você deve criar o aplicativo e as camadas Web do farm do SharePoint e criar o farm usando o Assistente de Configuração do SharePoint.
 
@@ -104,7 +106,7 @@ Use o [procedimento para testar a conectividade](virtual-machines-workload-intra
 
 Use estas etapas para configurar o primeiro servidor do SharePoint no farm:
 
-1.	Na área de trabalho do primeiro servidor de aplicativos do SharePoint, clique duas vezes em **Assistente de Configuração de Produtos do SharePoint 2013**. Quando receber uma solicitação para permitir que o programa faça alterações no computador, clique em **Sim**.
+1.	Na área de trabalho do primeiro servidor de aplicativos do SharePoint, clique duas vezes em **Assistente de Configuração de Produtos do SharePoint 2013**. Ao receber uma solicitação para permitir que o programa faça alterações no computador, clique em **Sim**.
 2.	Na página **Bem-vindo aos Produtos do SharePoint**, clique em **Avançar**.
 3.	A caixa de diálogo **Assistente de Configuração de Produtos do SharePoint** será exibida, avisando que os serviços (como o IIS) serão reiniciados ou redefinidos. Clique em **Sim**.
 4.	Na página **Conectar a um farm de servidores**, selecione **Criar um novo farm de servidores** e clique em **Avançar**.
@@ -122,7 +124,7 @@ Use estas etapas para configurar o primeiro servidor do SharePoint no farm:
 
 Execute o procedimento a seguir no segundo servidor de aplicativos do SharePoint e nos dois servidores Web front-end:
 
-1.	Na área de trabalho, clique duas vezes em **Assistente de Configuração de Produtos do SharePoint 2013**. Quando receber uma solicitação para permitir que o programa faça alterações no computador, clique em **Sim**.
+1.	Na área de trabalho, clique duas vezes em **Assistente de Configuração de Produtos do SharePoint 2013**. Ao receber uma solicitação para permitir que o programa faça alterações no computador, clique em **Sim**.
 2.	Na página **Bem-vindo aos Produtos do SharePoint**, clique em **Avançar**.
 3.	A caixa de diálogo **Assistente de Configuração de Produtos do SharePoint** será exibida, avisando que os serviços (como o IIS) serão reiniciados ou redefinidos. Clique em **Sim**.
 4.	Na página **Conectar a um farm de servidores**, clique em **Conectar-se a um farm de servidores existente** e clique em **Avançar**.
@@ -169,7 +171,7 @@ Execute os comandos a seguir no prompt de comando do Azure PowerShell em seu com
 	$vmname="<Table M – Item 9 – Virtual machine name column>"
 	Get-AzureVM –ServiceName $serviceName –Name $vmname | Add-AzureEndpoint -Name $epname -LBSetName $ilb -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
-Em seguida, adicione um registro de endereço DNS na infraestrutura de DNS da sua organização que resolva o nome de domínio totalmente qualificado do farm do SharePoint (como sp.corp.contoso.com) para o endereço IP atribuído à instância do balanceador de carga interna (o valor de **$IP** no bloco de comando anterior do Azure PowerShell).
+Em seguida, adicione um registro de endereço DNS na infraestrutura de DNS da sua organização que resolva o nome de domínio totalmente qualificado do farm do SharePoint (como sp.corp.contoso.com) para o endereço IP atribuído à instância do balanceador de carga interna (o valor de **$IP** no bloco de comando anterior do PowerShell do Azure).
 
 Esta é a configuração resultante da conclusão bem-sucedida desta fase:
 
@@ -193,4 +195,4 @@ Para continuar com a configuração dessa carga de trabalho, vá para a [Fase 5:
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

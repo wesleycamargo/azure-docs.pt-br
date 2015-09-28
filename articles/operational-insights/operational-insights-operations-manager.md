@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Considerações sobre o Operations Manager com Insights Operacionais
@@ -83,8 +83,8 @@ Por exemplo, se você presumir um tamanho de carregamento diário de 100 KB por 
 
 Número de agentes|Espaço estimado necessário para o grupo de gerenciamento
 ---|---
-5|\~2,5 MB (5 agentes x 100 KB dados/dia x 5 dias = 2.500 KB)
-50|\~25 MB (50 agentes x 100 KB dados/dia x 5 dias = 25.000 KB)
+5|~2,5 MB (5 agentes x 100 KB dados/dia x 5 dias = 2.500 KB)
+50|~25 MB (50 agentes x 100 KB dados/dia x 5 dias = 25.000 KB)
 
 ## Contas Executar como do Operations Manager para Insights Operacionais
 
@@ -215,4 +215,4 @@ Use as etapas a seguir para definir a conta ao conectar o Insights Operacionais 
 
 Se você deseja analisar os dados dos servidores em diferentes localizações geográficas, considere ter um grupo de gerenciamento por local. Isso pode melhorar o desempenho de transferência de dados do agente para o grupo de gerenciamento.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

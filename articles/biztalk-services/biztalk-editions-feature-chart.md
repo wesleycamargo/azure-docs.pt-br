@@ -209,7 +209,7 @@ Inclui NRR (não repúdio de recebimento) e o download de mensagens rastreadas</
 #### O que é uma Unidade do BizTalk?
 Uma “unidade” é o nível atômico de uma implantação dos Serviços BizTalk do Azure. Cada edição é fornecida com uma unidade que tem capacidade e memória de computação diferentes. Por exemplo, uma Unidade Básica tem mais computação do que a Developer, a Standard tem mais computação do que a Basic e assim por diante. Quando você dimensiona um Serviço BizTalk, você o faz em termos de Unidades.
 
-#### Qual é a diferença entre os Serviços do BizTalk e a VM do BizTalk do Azure?
+#### Qual é a diferença entre os Serviços BizTalk e a VM BizTalk do Azure?
 Os Serviços BizTalk fornecem uma arquitetura de PaaS (Plataforma como Serviço) verdadeira para criar soluções de integração na nuvem. Com o modelo de PaaS, você focaliza completamente na lógica do aplicativo e deixa toda a infraestrutura de gerenciamento para a Microsoft, incluindo:
 
 - Sem necessidade de gerenciar ou aplicar patches em máquinas virtuais
@@ -256,4 +256,4 @@ Para criar os Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, co
 - [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
 - [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

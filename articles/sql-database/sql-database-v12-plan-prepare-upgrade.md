@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Planejar e preparar a atualização para o Banco de Dados SQL V12"
+	pageTitle="Planejar sua atualização para o Banco de dados SQL V12 | Microsoft Azure"
 	description="Descreve as preparações e limitações envolvidas na atualização para a versão V12 do Banco de Dados SQL do Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/16/2015"
 	ms.author="genemi"/>
 
 
 # Planejar e preparar a atualização para o Banco de Dados SQL V12
 
 
-Este tópico descreve o planejamento e a preparação que devem ser executados para atualizar os bancos de dados SQL do Azure da versão V11 para V12 ([no status de visualização em algumas regiões](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+Este tópico descreve o planejamento e a preparação necessária para atualizar seus bancos de dados SQL do Azure da versão V11 para a V12.
 
 
 Um novo [portal de visualização do Azure](http://portal.azure.com/) está disponível para oferecer suporte à atualização para a V12.
@@ -107,6 +107,18 @@ A atualização para a V12 não pode ser executada se a replicação geográfica
 Após a conclusão da atualização, você pode configurar seu banco de dados para usar a replicação geográfica novamente.
 
 
+### Cliente em uma VM do Azure
+
+
+Se o seu programa cliente se conecta ao Banco de Dados SQL V12 enquanto seu cliente é executado em uma máquina virtual do Azure (VM), abra os seguintes intervalos de porta na VM:
+
+- 11000-11999
+- 14000-14999
+
+
+Clique [aqui](sql-database-develop-direct-route-ports-adonet-v12.md) para obter detalhes sobre as portas para o Banco de Dados SQL V12. As portas são exigidas por aprimoramentos de desempenho no Banco de Dados SQL V12.
+
+
 ##<a id="limitations"></a>Limitações durante e após a atualização para a V12
 
 
@@ -138,7 +150,7 @@ Incentivamos você a se conectar aos bancos de dados SQL do Azure com o Visual S
 - Para desenvolver um banco de dados online ou offline.
 
 
-Você pode se conectar ao [Visual Studio Community 2013](https://www.visualstudio.com/pt-br/news/vs2013-community-vs.aspx/), que é uma versão gratuita e completa em termos de recursos do VS2013.
+Você pode se conectar ao [Visual Studio Community 2013](https://www.visualstudio.com/pt-BR/news/vs2013-community-vs.aspx/), que é uma versão gratuita e completa em termos de recursos do VS2013.
 
 
 No antigo portal do Azure, na página de banco de dados, você pode clicar em **Abrir no Visual Studio** para iniciar o VS2013 no seu computador para conexão com o Banco de Dados SQL do Azure.
@@ -166,7 +178,7 @@ O banco de dados anterior à V11 continua disponível para acesso aos dados dura
 | :--- | :--- |
 | Não é possível reverter para V11 | Após um atualização no local, o resultado não pode ser revertido ou desfeito. |
 | Camada da Web ou Business | Depois que a atualização começa, o servidor do banco de dados novo V12 não pode mais reconhecer ou aceitar a camada de serviço Web ou Business. |
-| Um desconto de 50% não será refletido nos cartões de camada de preços no portal do Azure | Durante o período de visualização, há uma visualização de 50% de desconto * em bancos de dados inscritos na atualização mais recente de visualização de banco de dados SQL do Azure (V12). Mesmo que o desconto não seja mostrado na folha de camada de preços do serviço do portal de visualização, o desconto será válido.<br/><br/> O desconto de 50% permanece em vigor em todas as regiões geográficas até **31 de março de 2015**, quando expira em todas as regiões. O desconto é válido mesmo nas regiões que anunciaram o status de disponibilidade geral.<br/><br/> (* O uso do recurso mais recente de Atualização do Banco de Dados SQL V12 está sujeito aos termos de visualização do seu contrato de licença (por exemplo, o Enterprise Agreement, Contrato do Microsoft Azure ou Contrato de Assinatura do Microsoft Online ), bem como quaisquer [Termos de Uso Complementares para Visualizações do Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/) aplicáveis. Durante a visualização, a Microsoft irá cobrá-lo (ou seu revendedor, conforme aplicável) por todos os bancos de dados registrados nesta visualização na metade da taxa de disponibilidade geral (DG) para obter um desconto de 50% na visualização. A Microsoft fornecerá um aviso por email 30 dias antes da expiração do período de visualização e da taxa de visualização com desconto.) |
+
 
 
 ### Exportar e importar *após* a atualização para V12
@@ -244,4 +256,4 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

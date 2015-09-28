@@ -121,6 +121,13 @@ Agora, implante seu aplicativo no IIS ou no Azure e veja os dados se acumularem.
 
 Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
 
+#### Nenhum dado depois de publicar no servidor?
+
+Abra estas portas para tráfego de saída no firewall do servidor:
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 
 #### Problemas no servidor de compilação?
 
@@ -130,13 +137,13 @@ Consulte [este item de solução de problemas](app-insights-troubleshoot-faq.md#
 
 O SDK precisa de um pouco de ajuda para obter acesso a alguns dados. Especificamente, você precisará dessa etapa adicional para avaliar automaticamente as chamadas do seu aplicativo para bancos de dados, APIs REST e outros componentes externos. Essas métricas de dependência podem ser inestimáveis no diagnóstico de problemas de desempenho.
 
-Esta etapa também habilita o [relatório de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como CPU, memória e ocupação de rede.
-
 #### Se seu aplicativo for executado em seu servidor IIS
 
 Entre no servidor com direitos de administrador e instale o [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(Você também pode usar o Status Monitor para [instrumentar um aplicativo que já esteja em execução](app-insights-monitor-performance-live-website-now.md), mesmo que ele não tenha sido criado com o SDK.)
+Talvez você precise [abrir portas adicionais de saída no firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
+
+Esta etapa também habilita o [relatório de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como CPU, memória e ocupação de rede.
 
 #### Se seu aplicativo for um Aplicativo Web do Azure
 
@@ -248,4 +255,4 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

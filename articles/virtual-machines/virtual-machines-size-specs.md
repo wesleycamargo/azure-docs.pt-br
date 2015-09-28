@@ -1,21 +1,21 @@
 <properties
  pageTitle="Tamanhos de máquina virtual"
-	description="Lista os diferentes tamanhos de máquinas virtuais e suas capacidades."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="KBDAzure"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+ description="Lista os diferentes tamanhos de máquinas virtuais e suas capacidades."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="cynthn"
+ manager="timlt"
+ editor=""
+ tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="kathydav"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="infrastructure-services"
+ ms.date="09/02/2015"
+ ms.author="cynthn"/>
 
 # Tamanhos das máquinas virtuais
 
@@ -146,4 +146,4 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 
 [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

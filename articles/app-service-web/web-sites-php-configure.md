@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/16/2015"
 	ms.author="tomfitz"/>
 
 #Configurar o PHP em aplicativos Web do Serviço de Aplicativo do Azure
@@ -21,6 +21,8 @@
 ## Introdução
 
 Este guia mostrará como configurar o tempo de execução do PHP interno para aplicativos Web no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714), fornecer um tempo de execução personalizado do PHP e habilitar extensões. Para usar o Serviço de Aplicativo, inscreva-se para a [avaliação gratuita]. Para aproveitar ao máximo este guia, você deve primeiro criar um aplicativo Web do PHP no Serviço de Aplicativo.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Como: alterar a versão interna do PHP
 Por padrão, quando você cria um aplicativo Web do Serviço de Aplicativo, o PHP 5.4 é instalado e fica imediatamente disponível para uso. A melhor forma de visualizar a revisão da versão, sua configuração padrão e as extensões habilitadas é implantar um script que chame a função [phpinfo()].
@@ -177,4 +179,4 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

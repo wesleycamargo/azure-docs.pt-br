@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="09/10/2015"
 	ms.author="alfran"/>
 
 # Soluções no Insights Operacionais
@@ -129,4 +129,4 @@ Os resultados da pesquisa de servidor incluem:
 - Dias desde a última atualização
 - Versão do agente do Windows Update
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

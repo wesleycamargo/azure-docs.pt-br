@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Armazenar código de projeto no controle do código-fonte | Microsoft Azure"
+	pageTitle="Armazenar o código de seu projeto de back-end .NET no controle do código-fonte | Serviços Móveis do Azure"
 	description="Saiba como armazenar seu projeto de back-end do .NET no e publicar por meio de um repositório Git local no computador."
 	services="mobile-services"
 	documentationCenter=""
@@ -10,13 +10,13 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/15/2015"
 	ms.author="glenga"/>
 
-# Armazenar código de projeto no controle do código-fonte
+# Armazenar o código de seu projeto de serviço móvel no controle do código-fonte
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -98,8 +98,8 @@ Agora, seu projeto de serviço móvel é mantido no controle de origem e você p
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-ios-get-started.md
 [Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-dotnet-backend-ios-get-started-data.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes
@@ -265,9 +265,10 @@ Use o procedimento a seguir para configurar um volume espelhado dinâmico, em se
 
 ## Próximas etapas
 
-[Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes](storsimple-snapshot-manager-manage-volume-groups.md).
+- Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
+- Saiba como [usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volume](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

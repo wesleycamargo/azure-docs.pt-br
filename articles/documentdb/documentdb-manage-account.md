@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Gerenciar uma conta do Banco de Dados de Documentos | Microsoft Azure" 
-	description="Aprenda a gerenciar sua conta do Banco de Dados de Documentos." 
+	pageTitle="Gerenciar uma conta do Banco de Dados de Documentos usando o portal de visualização do Azure | Microsoft Azure" 
+	description="Saiba como gerenciar uma conta do Banco de Dados de Documentos pelo portal de visualização do Azure Encontre um guia sobre como usar o Portal de Visualização do Azure para exibir, copiar, excluir e acessar contas." 
+	keywords="Azure preview portal, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="stephbaron" 
@@ -16,9 +17,9 @@
 	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
-#Como gerenciar uma conta do Banco de Dados de Documentos
+# Como gerenciar uma conta do Banco de Dados de Documentos no portal de visualização do Azure
 
-Aprenda a trabalhar com chaves e configurações de consistência e saiba como excluir uma conta.
+Saiba como trabalhar com chaves e configurações de consistência e saiba como excluir uma conta no Portal de Visualização do Azure.
 
 ## <a id="keys"></a>Exibir, copiar e regenerar chaves de acesso
 Quando você cria uma conta do Banco de Dados de Documentos, o serviço gera duas chaves de acesso mestras que podem ser usadas para autenticação quando a conta do Banco de Dados de Documentos é acessada. Ao fornecer as duas chaves de acesso, o Banco de Dados de Documentos permite regenerar as chaves sem interrupção para a sua conta do Banco de Dados de Documentos.
@@ -27,7 +28,7 @@ No [portal de Visualização do Microsoft Azure](https://portal.azure.com/), ace
 
 ![](media/documentdb-manage-account/keys.png)
 
-### Exibir e copiar uma chave de acesso
+### Exibir e copiar uma tecla de acesso no portal de visualização do Azure
 
 1.      No [portal de Visualização do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
 
@@ -72,7 +73,7 @@ O Banco de Dados de Documentos dá suporte a quatro níveis de consistência de 
 
 *Observe que, por padrão, as contas do Banco de Dados de Documentos são provisionadas com consistência de nível Session. Para obter informações adicionais sobre configurações de consistência do Banco de Dados de Documentos, consulte a seção [Nível de Consistência](http://go.microsoft.com/fwlink/p/?LinkId=402365).*
 
-### Para especificar a consistência padrão para uma Conta DocumentDB
+### Para especificar a consistência padrão para uma conta do Banco de Dados de Documentos
 
 1.      No [portal de Visualização do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
 
@@ -90,8 +91,8 @@ O Banco de Dados de Documentos dá suporte a quatro níveis de consistência de 
 
 *Observe que levará alguns minutos antes que uma alteração nas configurações de consistência padrão entre em vigor em toda a sua conta do Banco de Dados de Documentos.*
 
-## <a id="delete"></a> Como: Excluir uma conta do Banco de Dados de Documentos
-Para remover uma conta DocumentDB que você não esteja mais usando, use o comando **Excluir** na folha de **Conta do Banco de Dados de Documentos**.
+## <a id="delete"></a> Como excluir uma conta do Banco de Dados de Documentos no portal de visualização do Azure
+Para remover uma conta do Banco de Dados de Documentos do portal de visualização do Azure que você não esteja mais usando, use o comando **Excluir** na folha **Conta do Banco de Dados de Documentos**.
 
 ![](./media/documentdb-manage-account/image009.png)
 
@@ -112,4 +113,4 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
  
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicativo v2.0 | Microsoft Azure"
+	pageTitle="Aplicativo Web .NET do modelo de aplicativo v2.0 | Microsoft Azure"
 	description="Como criar um aplicativo Web do .NET MVC que conecte usuários com a conta pessoal da Microsoft e as contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: Adicionar entrada para um aplicativo Web .NET MVC
@@ -55,7 +55,7 @@ Aqui, configuraremos middleware OWIN para usar o protocolo de autenticação Ope
     -	O `ida:ClientId`é a **Id de Aplicativo** atribuído ao seu aplicativo no portal de registro.
     -	O `ida:RedirectUri`é o **Uri de Redirecionamento** inserido no portal.
 
--	Em seguida, adicione o ADAL aos pacotes NuGet de middleware ao projeto usando o Console do Gerenciador de Pacotes.
+-    Em seguida, adicione o ADAL aos pacotes NuGet de middleware ao projeto usando o Console do Gerenciador de Pacotes.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
@@ -210,4 +210,4 @@ Para obter recursos adicionais, confira:
 - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

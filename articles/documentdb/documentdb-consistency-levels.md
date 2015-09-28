@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Níveis de consistência no Banco de Dados de Documentos | Microsoft Azure" 
-	description="O Banco de Dados de Documentos tem quatro níveis de consistência com níveis de desempenho associados para ajudar os desenvolvedores de aplicativos a tornar previsíveis vantagens e desvantagens de latência de disponibilidade de consistência." 
+	description="Analise como o Banco de Dados de Documentos tem quatro níveis de consistência com níveis de desempenho associados para ajudar a equilibrar as compensações eventuais entre consistência, disponibilidade e latência." 
+	keywords="eventual consistency, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -22,10 +23,10 @@ Muitas vezes, os desenvolvedores enfrentam o desafio de escolher entre dois extr
  
 Todos os recursos do sistema, incluindo contas de bancos de dados, bancos de dados, coleções, usuários e permissões são sempre fortemente consistentes para leituras e consultas. Os níveis de consistência são aplicáveis somente aos recursos definidos pelo usuário. Para consultas e operações de leitura em recursos definidos pelo usuário, incluindo documentos, anexos, procedimentos armazenados, disparadores e UDFs, o Banco de Dados de Documentos oferece quatro níveis distintos de consistência:
 
- - Strong
- - Bounded staleness 
- - Session
- - Eventual 
+ - Consistência de força
+ - Consistência de envelhecimento limitado
+ - Consistência de sessão
+ - Consistência eventual
 
 Esses níveis de consistência granulares e bem definidos permitem que você faça compensações seguras entre consistência, disponibilidade e desempenho. Esses níveis de consistência contam com o suporte dos níveis de desempenho previsível, garantindo resultados consistentes para seu aplicativo.
 
@@ -89,4 +90,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 -	Werner Vogels. Eventual Consistent - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

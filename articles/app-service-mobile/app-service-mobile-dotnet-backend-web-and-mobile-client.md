@@ -18,6 +18,8 @@
 
 # Criar um aplicativo com um celular e cliente da web no Serviço de Aplicativo do Azure
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

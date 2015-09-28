@@ -2,9 +2,9 @@
 	pageTitle="Diagnosticar problemas de desempenho em um site em execução | Microsoft Azure"
 	description="Monitore o desempenho do site sem implantá-lo novamente. Use um autônomo ou o SDK do Application Insights para obter a telemetria de dependência."
 	services="application-insights"
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills"
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/27/2015"
+	ms.date="09/10/2015"
 	ms.author="awills"/>
 
 
@@ -42,7 +42,7 @@ Você tem três maneiras de aplicar o Application Insights em seus aplicativos W
 
 
 
-> [AZURE.TIP]Seu aplicativo é um [aplicativo Web de Serviço de Aplicativo do Azure](../app-service-web/websites-learning-map.md)? [Adicionar o SDK do Application Insights][greenbrown] e [Adicionar a extensão do Application Insights](../insights-perf-analytics.md) do painel de controle do aplicativo no Microsoft Azure.
+> [AZURE.TIP]Seu aplicativo é um [aplicativo Web do Serviço de Aplicativo do Azure](../app-service-web/websites-learning-map.md)? [Adicionar o SDK do Application Insights][greenbrown] e [Adicionar a extensão do Application Insights](../insights-perf-analytics.md) do painel de controle do aplicativo no Microsoft Azure.
 
 
 ## Instalar o Application Insights Status Monitor em seu servidor Web do IIS
@@ -55,6 +55,8 @@ Você tem três maneiras de aplicar o Application Insights em seus aplicativos W
 4. No assistente de instalação, entre no Microsoft Azure.
 
     ![Entre no Azure com suas credenciais de Conta da Microsoft.](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
+
+    *Erros de conexão? Consulte [Solucionar problemas](#troubleshooting).*
 
 5. Selecione o aplicativo Web ou o site que deseja monitorar e configure o recurso no qual você deseja ver os resultados no Portal do Application Insights.
 
@@ -114,16 +116,42 @@ Clique em qualquer gráfico do contador de desempenho para alterar o que ele faz
 Você pode fazer busca detalhada até exceções específicas (dos últimos sete dias) e obter rastreamentos de pilha e dados de contexto.
 
 
+## Solucionar problemas
+
+### Erros de conexão
+
+Você precisa abrir algumas portas de saída no firewall do servidor para permitir que o Monitor de Status funcione:
+
++ Telemetria — elas são necessárias o tempo todo:
+ +	`dc.services.visualstudio.com:80`
+ +	`f5.services.visualstudio.com:80`
+ +	`dc.services.visualstudio.com:443`
+ +	`f5.services.visualstudio.com:443`
+ +	`dc.services.vsallin.net:443`
++ Configuração — necessária apenas ao fazer alterações:
+ -	`management.core.windows.net:443`
+ -	`management.azure.com:443`
+ -	`login.windows.net:443`
+ -	`login.microsoftonline.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
+ -	`auth.gfx.ms:443`
+ -	`login.live.com:443`
++ Instalação:
+ +	`packages.nuget.org:443`
+ +	`appinsightsstatusmonitor.blob.core.windows.net:80`
+
+Esta lista pode mudar de tempos em tempos.
+
 ### Sem telemetria?
 
   * Use seu site para gerar alguns dados.
-  * Aguarde alguns minutos para aguardar os dados chegarem e clique em **Atualizar**.
+  * Aguarde alguns minutos até que os dados cheguem e clique em **Atualizar**.
   * Abrir a Pesquisa de Diagnóstico (o bloco de Pesquisa) para ver os eventos individuais. Eventos geralmente são visíveis na Pesquisa de Diagnóstico antes de os dados agregados aparecem nos gráficos.
   * Abra o Monitor de Status e selecione seu aplicativo no painel esquerdo. Verifique se há mensagens de diagnóstico para este aplicativo na seção "Configuração de notificações":
 
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-  * Certifique-se de que o firewall do seu servidor permita tráfego de saída na porta 443 para dc.services.visualstudio.com.
+  * Verifique se o firewall do servidor permite o tráfego de saída nas portas listadas acima.
   * No servidor, se você encontrar uma mensagem sobre "permissões insuficientes", tente fazer o seguinte:
     * No Gerenciador do IIS, selecione o pool de aplicativos, abra as **Configurações Avançadas** e, em **Modelo de Processo**, observe a identidade.
     * No painel de controle de gerenciamento do computador, adicione essa identidade ao grupo Usuários do Monitor de Desempenho.
@@ -168,4 +196,4 @@ Suporte ao IIS: IIS 7, 7,5, 8 e 8.5 (o IIS é obrigatório)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

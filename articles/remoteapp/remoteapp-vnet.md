@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Validar o VNET do Azure para usar com o RemoteApp do Azure"
+    pageTitle="Validar o VNET do Azure para utilização com o Azure RemoteApp | Microsoft Azure"
     description="Saiba como verificar se o VNET do Azure está pronto para uso com o RemoteApp do Azure"
     services="remoteapp"
     documentationCenter=""
@@ -33,8 +33,9 @@ Se essa ação for bem-sucedida, o VNET do Azure está pronto para uso com o Rem
 
 Para obter mais informações sobre o fluxo de trabalho de coleção híbrido de ponta a ponta, consulte os seguintes artigos:
 
+- [Como planejar sua rede virtual para o RemoteApp do Azure](remoteapp-planvpn.md)
 - [Criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md)
 - [Implantar a coleção do RemoteApp do Azure à sua Rede Virtual do Azure (com suporte para Rota Expressa)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Como fornecer acesso remoto seguro a aplicativos locais
@@ -46,14 +46,14 @@ A configuração do Proxy de Aplicativo é realizada em duas etapas:
 Você pode fazer muito mais com o Proxy de Aplicativo:
 
 
-- [Publicar aplicativos usando seu próprio nome de domínio](https://msdn.microsoft.com/library/azure/mt210927.aspx)
-- [Habilitar o logon único](https://msdn.microsoft.com/library/azure/dn879065.aspx)
-- [Trabalho com aplicativos com reconhecimento de declaração](https://msdn.microsoft.com/library/azure/mt210926.aspx)
-- [Habilitar o acesso condicional](https://msdn.microsoft.com/library/azure/dn931796.aspx)
+- [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
+- [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
+- [Trabalho com aplicativos com reconhecimento de declaração](active-directory-application-proxy-claims-aware-apps.md)
+- [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
 
 
 ### Saiba mais sobre o Proxy de Aplicativo
-- [Veja nossa ajuda online](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+- [Veja nossa ajuda online](active-directory-application-proxy-enable.md)
 - [Confira o blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 - [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
@@ -61,4 +61,4 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 * [Inscrever-se no Azure como uma organização](../sign-up-organization.md)
 * [Identidade do Azure](../fundamentals-identity.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -2,26 +2,29 @@
 	pageTitle="Configurações avançadas e extensões de aplicativo Web do Serviço de Aplicativo do Azure"
 	description="Use as declarações de XDT (Transformação de documento XML) para transformar o arquivo ApplicationHost.config em seu aplicativo Web do Serviço de Aplicativo do Azure e adicionar extensões privadas para habilitar ações de administração personalizadas."
 	authors="cephalin"
+	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
 	services="app-service\web"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Configurações avançadas e extensões de aplicativo Web do Serviço de Aplicativo do Azure
 
 Usando declarações [XDT (Transformação de documento XML)](http://msdn.microsoft.com/library/dd465326.aspx), você pode transformar o arquivo [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) em seu aplicativo Web no Serviço de Aplicativo do Azure. Também é possível usar declarações XDT para adicionar extensões de site privadas a fim de habilitar ações de administração de aplicativo Web personalizadas. Este artigo inclui uma extensão de aplicativo Web do Gerenciador de PHP de exemplo, que habilita o gerenciamento das configurações de PHP por meio de uma interface da Web.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ##<a id="transform"></a>Configuração avançada por meio de ApplicationHost.config
-A plataforma de Serviço de Aplicativo fornece flexibilidade e controle para configuração de aplicativos Web. Embora o arquivo de configuração ApplicationHost.config do IIS padrão não esteja disponível para edição direta no Serviço de Aplicativo, a plataforma dá suporte a um modelo de transformação ApplicationHost.config declarativo com base em XDT (Transformação de documento XML).
+A plataforma do Serviço de Aplicativo fornece flexibilidade e controle para configuração de aplicativos Web. Embora o arquivo de configuração ApplicationHost.config do IIS padrão não esteja disponível para edição direta no Serviço de Aplicativo, a plataforma dá suporte a um modelo de transformação ApplicationHost.config declarativo com base em XDT (Transformação de documento XML).
 
 Para aproveitar essa funcionalidade de transformação, você cria um arquivo ApplicationHost.xdt com conteúdo XDT e o coloca na raiz do aplicativo Web. Talvez seja necessário reiniciar o aplicativo Web para que as alterações entrem em vigor.
 
@@ -179,4 +182,4 @@ Observe que a URL se parece com a URL do aplicativo Web, exceto por usar HTTPS e
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

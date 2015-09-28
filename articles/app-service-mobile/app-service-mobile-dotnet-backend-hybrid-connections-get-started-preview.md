@@ -23,6 +23,8 @@ Quando sua empresa muda para nuvem, talvez não seja possível migrar todos os s
 
 Neste tutorial, você aprenderá a modificar um back-end de aplicativos móveis do .NET para usar um banco de dados SQL Server local em vez do Banco de Dados SQL Azure padrão provisionado com seu serviço.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## Pré-requisitos ##
 
 Este tutorial exige que você tenha o seguinte:
@@ -57,7 +59,7 @@ Você precisa criar uma nova conexão híbrida e o serviço BizTalk para a parte
 
 4. Clique em **Serviço BizTalk** e digite um nome para o serviço BizTalk e clique em **OK** duas vezes.
 
-	Este tutorial usa **mobile1**. Você precisará fornecer um nome exclusivo para o novo Serviço BizTalk..
+	Este tutorial usa **mobile1**. Você precisará fornecer um nome exclusivo para o novo Serviço BizTalk.
 
 	Após a conclusão do processo, a área **Notificações** piscará **SUCESSO** em verde, e a folha **Conexão híbrida** mostrará a nova conexão híbrida com o status **Não conectado**.
 
@@ -162,4 +164,4 @@ Por fim, você precisa publicar o back-end de aplicativo móvel no Azure e verif
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

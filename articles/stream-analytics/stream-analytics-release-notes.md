@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de versão do Stream Analytic da Microsoft
@@ -24,7 +24,7 @@ Esta versão contém as atualizações a seguir.
 
 Title|Descrição
 ---|---
-Suporte para grupos do PowerBI|Para habilitar o compartilhamento de dados com outros usuários do Power BI, os trabalhos do Stream Analytics agora podem gravar grupos dentro de sua conta do Power BI.
+Suporte para grupos do PowerBI|Para habilitar o compartilhamento de dados com outros usuários do Power BI, os trabalhos do Stream Analytics agora podem ser gravados nos [grupos do PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de sua conta do Power BI.
 
 ## Notas de versão de 20/08/2015 do Stream Analytics ##
 
@@ -42,7 +42,7 @@ Esta versão contém as atualizações a seguir.
 
 Title|Descrição
 ---|---
-Id da Org Power BI dissociada da Id do Azure|Este recurso habilita a [saída do Power BI](stream-analytics-power-bi-dashboard.md) para trabalhos de ASA em qualquer tipo de conta do Azure (Live ID ou Org ID). Além disso, você pode ter uma Id da Org para sua conta do Azure e usar uma diferente para autorizar a saída do Power BI.
+Id da Org Power BI dissociada da Id do Azure|Esse recurso habilita a [saída do Power BI](stream-analytics-power-bi-dashboard.md) para trabalhos de ASA em qualquer tipo de conta do Azure (Live ID ou Org ID). Além disso, você pode ter uma Id da Org para sua conta do Azure e usar uma diferente para autorizar a saída do Power BI.
 Suporte para saída de filas do barramento de serviço|As saídas das [Filas do Barramento de Serviço](stream-analytics-connect-data-event-outputs.md#service-bus-queues) agora estão disponíveis nos trabalhos do Stream Analytics.
 Suporte para saída de filas de tópicos do Barramento de Serviço|As saídas dos [Tópicos do Barramento de Serviço](stream-analytics-connect-data-event-outputs.md#service-bus-topics) agora estão disponíveis nos trabalhos do Stream Analytics.
 
@@ -92,4 +92,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

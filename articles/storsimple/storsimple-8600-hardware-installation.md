@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Instalar o dispositivo StorSimple 8600 | Microsoft Azure"
-	description="Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8600 antes de implantar e configurar o software."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8600 antes de implantar e configurar o software."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/06/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
 
@@ -196,7 +196,7 @@ Antes de começar a cabear o dispositivo, você precisará dos seguintes itens:
 - Cabos seriais fornecidos
 - Conversor USB-serial com o driver apropriado instalado em seu computador (se necessário)
 - Adaptadores exclusivos QSFP para SFP+ fornecidos para serem usados com interfaces de rede de 10 GbE
-- [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces/) 
+- [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### Cabeamento de energia e SAS
 
@@ -289,4 +289,4 @@ Você concluiu o cabeamento do dispositivo para conexão serial, de energia e ac
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

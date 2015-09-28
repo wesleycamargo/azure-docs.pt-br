@@ -61,7 +61,7 @@ Há duas causas possíveis para esse comportamento de problema:
 
 Em algumas situações, esse comportamento de erro pode ocorrer apenas quando o usuário está na rede da empresa, ou quando está se conectando de fora da rede da empresa. A Política de Autenticação Global permite que os métodos de autenticação sejam habilitados separadamente para conexões intranet e extranet. Erros de logon poderão ocorrer se a autenticação de formulários não estiver habilitada para a rede por meio da qual o usuário está se conectando.
 
-Para obter mais informações, veja [Configurando a autenticação baseada em formulários de intranet para dispositivos que não dão suporte à WIA](https://technet.microsoft.com/library/dn727110.aspx).
+Para obter mais informações, consulte [Configurando políticas de autenticação](https://technet.microsoft.com/pt-BR/library/dn486781.aspx).
 
 **Causa 2: configuração de proxy da rede** Se a rede corporativa usar um servidor proxy, a ferramenta de registro não poderá se conectar ao Active Directory do Azure por meio do proxy. Os usuários podem garantir a ferramenta de registro editando o arquivo de configuração da ferramenta, adicionando esta seção ao arquivo:
 
@@ -77,4 +77,4 @@ Para obter mais informações, veja [Configurando a autenticação baseada em fo
 
 Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

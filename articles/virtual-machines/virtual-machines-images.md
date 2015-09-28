@@ -3,7 +3,7 @@
 	description="Saiba mais sobre como as imagens são usadas com máquinas virtuais no Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/13/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Sobre imagens de máquinas virtuais
 
@@ -57,4 +57,4 @@ Para obter exemplos de como usar as ferramentas em uma implantação clássica:
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

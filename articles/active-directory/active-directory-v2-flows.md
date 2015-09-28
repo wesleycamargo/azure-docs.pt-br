@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de Aplicativo v2.0 | Microsoft Azure"
+	pageTitle="Tipos de aplicativo do modelo de aplicativo v2.0 | Microsoft Azure"
 	description="Os tipos de aplicativos e cenários compatíveis com a visualização pública do modelo de aplicativo v2.0 do AD do Azure."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: Tipos de aplicativos
@@ -125,4 +125,4 @@ Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web d
 
 Este cenário de API da Web encadeado pode ter suporte com o uso da concessão OAuth 2.0 Jwt Bearer Credential, também conhecida como [Fluxo Em Nome De](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). No entanto, o fluxo Em Nome De não está implementado atualmente na visualização do modelo de aplicativo v2.0. Para ver como esse fluxo funciona no serviço do AD do Azure disponível ao público geral, confira o [exemplo de código Em Nome De no GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

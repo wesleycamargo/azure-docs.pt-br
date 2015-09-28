@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicativo v2.0 | Microsoft Azure"
+	pageTitle="Aplicativo universal do Windows do modelo de aplicativo v2.0 | Microsoft Azure"
 	description="Como criar um aplicativo universal do Windows que conecte usuários com a conta pessoal da Microsoft e as contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.topic="article"
   ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
   # Visualização do modelo de aplicativo v2.0: adicionar conexão a um aplicativo universal do Windows
@@ -22,4 +22,4 @@
 
   >[AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

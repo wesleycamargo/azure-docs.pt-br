@@ -1,4 +1,4 @@
-
+<!--author=SharS last changed: 9/16/15-->
 
 #### Para adicionar um contêiner de volume
 
@@ -22,4 +22,4 @@
 O contêiner de volume será salvo, e o contêiner de volume recém-criado será listado na página **Contêiner de volume**.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

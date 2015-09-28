@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup
@@ -205,6 +205,7 @@ Você deve fazer backup regularmente do banco de dados do StorSimple Snapshot Ma
 
 ## Próximas etapas
 
-[Saiba mais sobre fluxos de trabalho e tarefas do StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
+- Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
+- [Saiba mais sobre fluxos de trabalho e tarefas do StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -24,7 +24,6 @@ A documentação a seguir fornece informações sobre como usar a opção de ins
 Para obter informações sobre uma instalação expressa, consulte [Instalação expressa](active-directory-aadconnect.md#getting-started-with-azure-ad-connect). Para obter informações sobre como atualizar do DirSync para o Azure AD Connect, consulte [Atualizando o DirSync para o Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
-
 ## Instalar componentes necessários
 
 Quando você instala os serviços de sincronização, pode deixar a seção de configuração opcional desmarcada e o Azure AD Connect configurará tudo automaticamente. Isso inclui a configuração de uma instância do SQL Server 2012 Express, a criação de grupos apropriados e atribuição de permissões a eles. Para alterar os padrões, use a tabela a seguir para entender as opções de configuração opcionais disponíveis.
@@ -174,7 +173,7 @@ Antes de executar o cmdlet do PowerShell, ele deve ser importado primeiro.
 
 Para fazer isso, você precisará do Active Directory e do MSOnline PowerShell instalados localmente.
 
-
+Para saber mais, consulte [Habilitando write-back do dispositivo no Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md)
 
 ## Modo de preparo
 Com o modo de preparo, o processo para configurar um novo servidor de sincronização em paralelo com um servidor existente é possível. Há suporte apenas para ter um servidor de sincronização conectado a um diretório na nuvem. Porém, se quisermos mover de outro servidor, por exemplo, um que executa o DirSync, poderemos habilitar o Azure Connect AD no modo de preparo. Quando habilitado, o mecanismo de sincronização importará e sincronizará dados da maneira normal, mas não exportará nada para o AD do Azure e desativará a sincronização e o write-back de senha.
@@ -212,7 +211,7 @@ Aqui, você digitará os servidores específicos em que deseja instalar o AD FS.
 
  
 ### Especificar os servidores proxy de aplicativo Web
-Aqui você digitará os servidores específicos que deseja definir como os servidores proxy de aplicativo Web. O servidor proxy de aplicativo Web é implantado em sua rede de perímetro (voltada para a extranet) e dá suporte a solicitações de autenticação da extranet. Você pode adicionar um ou mais servidores com base em sua necessidades de planejamento de capacidade. É recomendável instalar um único servidor proxy de aplicativo Web para implantações de teste e piloto e implantar servidores adicionais abrindo o Azure AD Connect e implantando io Proxy de Aplicativo Web em servidores adicionais. Normalmente, é recomendável ter um número equivalente de servidores proxy para satisfazer à autenticação da intranet.
+Aqui você digitará os servidores específicos que deseja definir como os servidores proxy de aplicativo Web. O servidor proxy de aplicativo Web é implantado em sua rede de DMZ (voltada para a extranet) e dá suporte a solicitações de autenticação da extranet. Você pode adicionar um ou mais servidores com base em sua necessidades de planejamento de capacidade. É recomendável instalar um único servidor proxy de aplicativo Web para implantações de teste e piloto e implantar servidores adicionais abrindo o Azure AD Connect e implantando io Proxy de Aplicativo Web em servidores adicionais. Normalmente, é recomendável ter um número equivalente de servidores proxy para satisfazer à autenticação da intranet.
 
 > [AZURE.NOTE]<li>Se a conta que você está usando para instalar o Azure AD Connect não for administrador local nos servidores do AD FS, você será solicitado a fornecer credenciais para uma conta que tenha permissões suficientes.</li><li>Verifique se há conectividade HTTP/HTTPS entre o servidor do Azure AD Connect e o servidor proxy de aplicativo Web antes de configurar essa etapa.</li><li> Além disso, verifique se há conectividade HTTP/HTTPS entre o servidor de aplicativos Web e o servidor do AD FS para permitir solicitações de autenticação por meio de fluxo.</li>
 
@@ -268,4 +267,4 @@ Você pode personalizar a imagem do logotipo e a ilustração para as páginas d
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

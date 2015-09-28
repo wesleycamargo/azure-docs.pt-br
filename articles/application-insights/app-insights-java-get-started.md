@@ -2,7 +2,7 @@
 	pageTitle="Introdução ao Application Insights em um projeto Web Java | Microsoft Azure"
 	description="Monitorar o desempenho e o uso de seu site Java com o Application Insights"
 	services="application-insights"
-	documentationCenter="java"
+    documentationCenter="java"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/30/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 # Introdução ao Application Insights em um projeto Web Java
@@ -206,19 +206,13 @@ Adicione este item ao arquivo de configuração do Struts (geralmente chamado de
 
 (Se você tiver interceptores definidos em uma pilha padrão, o interceptador pode simplesmente ser adicionado àquela pilha.)
 
-## 5\. Instalar no servidor
 
-Nos servidores Windows, instale:
 
-* [Microsoft Visual C++ redistribuível](http://www.microsoft.com/download/details.aspx?id=40784)
-
-(Isso habilita os contadores de desempenho.)
-
-## 6\. Execute seu aplicativo.
+## 5\. Execute seu aplicativo.
 
 Execute-o no modo de depuração no computador de desenvolvimento ou publique em seu servidor.
 
-## 7\. Exibir sua telemetria no Application Insights
+## 6\. Exibir sua telemetria no Application Insights
 
 Retorne para seu recurso do Application Insights no [Portal do Microsoft Azure](https://portal.azure.com).
 
@@ -248,17 +242,36 @@ O Application Insights presume que o formato de solicitações HTTP para aplicat
 
 Por exemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` serão agrupados em `GET Home/Product`.
 
-Isso permite agregações significativas de solicitações, como o número de solicitações e o tempo médio de execução das solicitações.
+Isso permite agregações significativas de solicitações, como o número de solicitações e o tempo médio de execução para solicitações.
+
+
+## 5\. Instalar aplicativo no servidor
+
+Agora, publique seu aplicativo no servidor, permita que as pessoas o usem e observe a telemetria mostrada no portal.
+
+* Verifique se o firewall permite que seu aplicativo envie telemetria para estas portas:
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* Nos servidores Windows, instale:
+
+ * [Microsoft Visual C++ redistribuível](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (Isso habilita os contadores de desempenho.)
 
 ## Falhas de solicitação e exceções
 
-Exceções sem tratamento são coletadas:
+Exceções sem tratamento são coletadas automaticamente:
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
 Para coletar dados em outras exceções, você tem duas opções:
 
-* [Inserir chamadas a TrackException em seu código][apiexceptions].
+* [Inserir chamadas a TrackException em seu código][apiexceptions]. 
 * [Instalar o Agente Java em seu servidor](app-insights-java-agent.md). Especifique os métodos que deseja inspecionar.
 
 
@@ -349,6 +362,17 @@ Agora que você instalou o SDK, você pode usar a API para enviar sua próprias 
 * [Pesquise eventos e logs][diagnostic] para ajudar a diagnosticar problemas.
 
 
+## Testes de disponibilidade na Web
+
+O Application Insights pode testar seu site em intervalos regulares para verificar ele está operante e respondendo bem. Para configurar, clique no gráfico vazio de testes da Web na folha de visão geral e forneça sua URL pública.
+
+Se seu site ficar inativo, você obterá gráficos de tempos de resposta e também notificações por email.
+
+![Exemplo de teste da Web](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+
+[Saiba mais sobre testes de disponibilidade via web.][availability]
+
+
 
 
 
@@ -370,4 +394,4 @@ Agora que você instalou o SDK, você pode usar a API para enviar sua próprias 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

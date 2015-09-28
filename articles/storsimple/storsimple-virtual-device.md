@@ -1,19 +1,19 @@
 <properties
    pageTitle="Dispositivo virtual StorSimple no Azure | Microsoft Azure"
-	description="Saiba como criar, implantar e gerenciar um dispositivo virtual StorSimple em uma rede virtual do Microsoft Azure. (Aplica-se ao StorSimple versão 0.3 e anteriores)."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Saiba como criar, implantar e gerenciar um dispositivo virtual StorSimple em uma rede virtual do Microsoft Azure. (Aplica-se ao StorSimple versão 0.3 e anteriores)."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Implantar e gerenciar um dispositivo virtual StorSimple no Azure
 
@@ -114,8 +114,6 @@ Depois de concluir estes procedimentos, você estará pronto para [Trabalhar com
 Depois de ter criado uma rede virtual, configurado um serviço Gerenciador do StorSimple e registrado seu dispositivo StorSimple físico no serviço, você poderá usar as seguintes etapas para criar um dispositivo virtual StorSimple.
 
 Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
-
-
 
 1.  No Portal do Azure, vá até o serviço **StorSimple Manager**.
 
@@ -219,7 +217,6 @@ Você pode optar por conectar-se via HTTP ou HTTPS. Por motivos de segurança, r
 
 Execute as etapas a seguir para configurar o gerenciamento remoto para seu dispositivo virtual StorSimple.
 
-
 1. Em seu dispositivo virtual, vá para **Dispositivos > Configurar**.
 
 2. Role para baixo até a seção **Gerenciamento Remoto**.
@@ -232,6 +229,9 @@ Execute as etapas a seguir para configurar o gerenciamento remoto para seu dispo
 
 6. Na parte inferior da página, clique em **Salvar**.
 
+![Vídeo disponível](./media/storsimple-virtual-device/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo que descreve como criar um dispositivo StorSimple virtual na nuvem, clique [aqui](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
 
 ## Trabalhar com o dispositivo virtual StorSimple
 
@@ -345,7 +345,7 @@ A recuperação de desastres (RD) é um dos principais cenários para os quais o
 
 - Repita a etapa anterior para todos os contêineres de volume para os quais você gostaria de fazer o failover para outro dispositivo.
 
-- Na página **Dispositivo**, selecione o dispositivo para o qual você precisa fazer failover e, em seguida, clique em **Failover** para abrir o assistente **Failover de Dispositivo**.
+- Na página **Dispositivo**, selecione o dispositivo para o qual você precisa fazer failover e, em seguida, clique em **Failover** para abrir o assistente Failover de Dispositivo.
 
 - Em **Escolher o contêiner de volume para failover**, selecione o volume para o qual você gostaria de fazer failover. Para ser exibido nesta lista, o contêiner de volume deve conter um instantâneo de nuvem e deve estar offline. Se um contêiner de volume que você esperava ver não estiver presente, cancele o assistente e verifique se ele está offline.
 
@@ -353,9 +353,13 @@ A recuperação de desastres (RD) é um dos principais cenários para os quais o
 
 - Examine todas as configurações de failover na página **Confirmar failover**. Se estiverem corretas, clique no ícone de seleção.
 
-O processo de failover começará. Quando o failover estiver concluído, vá para a página Dispositivos e selecione o dispositivo virtual que foi usado como o destino para o processo de failover. Vá para a página Contêineres de Volume. Todos os contêineres de volume, juntamente com os volumes do antigo dispositivo, devem aparecer.
+O processo de failover começará. Quando o failover estiver concluído, vá para a página **Dispositivos** e selecione o dispositivo virtual que foi usado como o destino para o processo de failover. Vá para a página Contêineres de Volume. Todos os contêineres de volume, juntamente com os volumes do antigo dispositivo, devem aparecer.
 
 >[AZURE.NOTE]A quantidade de armazenamento com suporte no dispositivo virtual é de 30 TB.
+
+![Vídeo disponível](./media/storsimple-virtual-device/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo que descreve como é possível restaurar um dispositivo físico que passou por failover em um dispositivo virtual na nuvem, clique [aqui](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Desligar ou excluir o dispositivo virtual
 
@@ -384,4 +388,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 Para administrar o dispositivo virtual, confira a lista detalhada dos fluxos de trabalho em [Administrar o dispositivo StorSimple usando o serviço StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

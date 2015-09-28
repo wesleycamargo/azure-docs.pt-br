@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Como gerenciar perfis e configurações de serviço"
-	description="Saiba como trabalhar com arquivos de configuração de perfis e configurações de serviço| que armazenam as configurações para os ambientes de implantação e configurações de publicação para os serviços de nuvem."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Saiba como trabalhar com arquivos de configuração de perfis e configurações de serviço| que armazenam as configurações para os ambientes de implantação e configurações de publicação para os serviços de nuvem."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Como gerenciar perfis e configurações de serviço
 
-##Visão geral
+## Visão geral
 
 Quando você publica um serviço de nuvem, o Visual Studio armazena informações de configuração em dois tipos de arquivos de configuração: perfis e configurações de serviço. Configurações de serviço (arquivos .cscfg) armazenam configurações para os ambientes de implantação para um serviço de nuvem do Azure. O Azure usa esses arquivos de configuração ao gerenciar seus serviços de nuvem. Por outro lado, perfis (arquivos .azurePubxml) armazenam configurações de publicação para os serviços de nuvem. Essas configurações são um registro do que você escolhe quando utiliza o assistente de publicação e são usadas localmente pelo Visual Studio. Este tópico explica como trabalhar com ambos os tipos de arquivos de configuração.
 
@@ -33,7 +33,7 @@ Você também pode abrir a caixa de diálogo **Gerenciar Configurações** das p
 
 ### Para adicionar uma configuração de serviço
 
-1. No Gerenciador de Soluções, abra o menu de atalho para o projeto do Azure e clique em **Gerenciar Configurações**. 
+1. No Gerenciador de Soluções, abra o menu de atalho para o projeto do Azure e clique em **Gerenciar Configurações**.
 
     A caixa de diálogo **Gerenciar Configurações de Serviço** é exibida.
 
@@ -47,20 +47,20 @@ Você também pode abrir a caixa de diálogo **Gerenciar Configurações** das p
 ### Para excluir uma configuração de serviço
 
 1. No Gerenciador de Soluções, abra o menu de atalho para o projeto do Azure e clique em **Gerenciar Configurações**.
-    
+
     A caixa de diálogo **Gerenciar Configurações de Serviço** é exibida.
 
 1. Para excluir uma configuração de serviço, escolha a configuração que você deseja excluir na lista **Nome** e, em seguida, clique em **Remover**. Aparece uma caixa de diálogo para confirmar que você deseja excluir esta configuração.
 
 1. Clique em **Excluir**.
- 
+
      O arquivo de configuração de serviço é removido do projeto do Azure no Gerenciador de Soluções.
 
 
 ### Para renomear uma configuração de serviço
 
 1. No Gerenciador de Soluções, abra o menu de atalho para o projeto do Azure e clique em **Gerenciar Configurações**.
- 
+
     A caixa de diálogo **Gerenciar Configurações de Serviço** é exibida.
 
 1. Para renomear uma configuração de serviço, escolha a nova configuração de serviço na lista **Nome** e clique em **Renomear**. Na caixa de texto **Nome**, digite o nome que você deseja usar para essa configuração de serviço e, em seguida, clique em **OK**.
@@ -94,7 +94,7 @@ Quando você executa o assistente pela primeira vez, um perfil padrão é criado
 1. Na lista **Nome**, escolha um perfil e, em seguida, clique em **Criar Cópia**.
 
 1. Escolha o botão **Fechar**.
- 
+
     O novo perfil aparece na lista Perfil de destino.
 
 1. Na lista **Perfil de destino**, clique no perfil que você acabou de criar. As configurações do Assistente de Publicação são preenchidas com as opções do perfil selecionado.
@@ -131,4 +131,4 @@ Quando você executa o assistente pela primeira vez, um perfil padrão é criado
 
 Para obter informações sobre como configurar outras partes do seu projeto do Azure do Visual Studio, consulte [Configurando um projeto do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

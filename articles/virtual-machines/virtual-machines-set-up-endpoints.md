@@ -3,7 +3,7 @@
 	description="Saiba como configurar pontos de extremidade no portal para permitir a comunicação com uma máquina virtual no Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Como instalar pontos de extremidade em uma máquina virtual
 
@@ -96,4 +96,4 @@ Para usar um cmdlet do Azure PowerShell para configurar isso, consulte [Gerencia
 
 [Balanceamento de carga para serviços de infraestrutura do Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

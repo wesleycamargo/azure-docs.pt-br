@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -19,9 +19,13 @@
 
 # Fase 3 da carga de trabalho do farm da intranet do SharePoint: Configurar a infraestrutura do SQL Server
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+
 Nesta fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, crie e configure os dois computadores SQL Server e o computador do nó principal do cluster no Gerenciamento de Serviços e combine-os em um cluster do Windows Server.
 
 Conclua esta fase antes de passar para a [Fase 4](virtual-machines-workload-intranet-sharepoint-phase4.md). Consulte [Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure](virtual-machines-workload-intranet-sharepoint-overview.md) para conhecer todas as fases.
+
+> [AZURE.NOTE]Essas instruções usam uma imagem do SQL Server na galeria de imagens do Azure e você receberá cobranças contínuas pelo uso da licença do SQL Server. Também é possível criar máquinas virtuais no Azure e instalar suas próprias licenças do SQL Server, mas você deverá ter o Software Assurance e a Licença de Mobilidade para usar sua licença do SQL Server em uma máquina virtual, incluindo uma máquina virtual do Azure. Para saber mais sobre como instalar o SQL Server em uma máquina virtual, consulte [Instalação do SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Criar as máquinas virtuais do cluster do SQL Server no Azure
 
@@ -35,7 +39,7 @@ Use o seguinte bloco de comandos do PowerShell para criar as máquinas virtuais 
 - Tabela A para os conjuntos de disponibilidade.
 - Tabela C para os serviços de nuvem.
 
-Lembre-se de que você definiu a Tabela M na [Fase 2: configurar controladores de domínio](virtual-machines-workload-intranet-sharepoint-phase2.md) e as Tabelas V, S, A e C na [Fase 1: configurar o Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
+Lembre-se de que você definiu a tabela na [Fase 2: Configurar controladores de domínio](virtual-machines-workload-intranet-sharepoint-phase2.md) e as Tabelas V, S, A e C na [Fase 1: Configurar o Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 Quando você tiver fornecido a todos os valores adequados, execute o bloco resultante no prompt de comando do Azure PowerShell.
 
@@ -202,7 +206,7 @@ Use essas etapas para habilitar Grupos de Disponibilidade AlwaysOn no SQL Server
 3.	No painel esquerdo, clique em **Serviços do SQL Server**.
 4.	No painel de conteúdo, clique duas vezes em **SQL Server (MSSQLSERVER)**.
 5.	Em **Propriedades do SQL Server (MSSQLSERVER)**, clique na guia **Alta Disponibilidade AlwaysOn**, selecione **Habilitar Grupos de Disponibilidade AlwaysOn**, clique em **Aplicar** e, em seguida, clique em **OK** quando for solicitado. Não feche a janela de propriedades ainda.
-6.	Clique na guia virtual-machines-manage-availability e, em seguida, digite [Domínio]**\\sqlservice** em **Nome da Conta**. Digite a senha da conta do sqlservice em **Senha** e **Confirmar senha** e clique em **OK**.
+6.	Clique na guia virtual-machines-manage-availability e digite [Domínio]**\\sqlservice** em **Nome da Conta**. Digite a senha da conta sqlservice em **Senha** e em **Confirmar senha** e clique em **OK**.
 7.	Na janela de mensagem, clique em **Sim** para reiniciar o serviço do SQL Server.
 8.	Faça logon no SQL Server secundário e repita esse processo.
 
@@ -228,4 +232,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 4: conf
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

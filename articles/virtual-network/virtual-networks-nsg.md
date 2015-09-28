@@ -1,23 +1,23 @@
 <properties 
    pageTitle="O que é um NSG (grupo de segurança de rede)?"
-	description="Saiba mais sobre grupos de segurança de rede"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Saiba mais sobre grupos de segurança de rede"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/13/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/13/2015"
+   ms.author="telmos" />
 
 # O que é um NSG (grupo de segurança de rede)?
 
-Você pode usar um NSG para controlar o tráfego em uma ou mais instâncias de máquina virtual (VM) em sua rede virtual. Um grupo de segurança de rede é um objeto de nível superior que está associado à sua assinatura. Um NSG contém regras de controle de acesso que permitem ou negam o tráfego para instâncias de VM. As regras de um NSG podem ser alteradas a qualquer momento e as alterações se aplicam a todas as instâncias associadas. Para usar um NSG, você deve ter uma VNet associada a uma região (local).
+Você pode usar um NSG para controlar o tráfego em uma ou mais instâncias de máquina virtual (VM) em sua rede virtual. Um NSG contém regras de controle de acesso que permitem ou negam o tráfego com base na direção do tráfego, no protocolo, no endereço e porta de origem e no endereço e porta de destino. As regras de um NSG podem ser alteradas a qualquer momento e as alterações se aplicam a todas as instâncias associadas. Para usar um NSG, você deve ter uma VNet regional.
 
 >[AZURE.WARNING]Os NSGs não são compatíveis com VNets que estão associadas a um grupo de afinidades. Se você não tiver uma VNet regional e quiser controlar o tráfego para os pontos de extremidade, confira [O que é uma lista de controle de acesso (ACL) de rede?](./virtual-networks-acl.md). Você também pode [migrar sua VNet para uma VNet regional](./virtual-networks-migrate-to-regional-vnet.md).
 
@@ -249,4 +249,4 @@ Nesse momento, os NSGs somente podem ser configurados e modificados usando cmdle
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

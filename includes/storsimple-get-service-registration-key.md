@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 #### Para obter a chave de registro do serviço StorSimple
 
@@ -17,6 +18,8 @@
 
 > [AZURE.NOTE]A chave de registro de serviço é usada para registrar todos os dispositivos que precisam se registrar no serviço StorSimple Manager.
 
- 
+![Vídeo disponível](./media/storsimple-get-service-registration-key/Video_icon.png) **Vídeo disponível**
 
-<!---HONumber=August15_HO8-->
+Para assistir a um vídeo que demonstra como obter a chave de registro do serviço, clique [aqui](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
+
+<!---HONumber=Sept15_HO3-->

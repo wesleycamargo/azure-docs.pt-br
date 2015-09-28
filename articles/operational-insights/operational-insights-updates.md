@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Atualizar servidores com atualizações do sistema
@@ -36,4 +36,4 @@ Para poder usar as atualizações do sistema no Insights Operacionais do Microso
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

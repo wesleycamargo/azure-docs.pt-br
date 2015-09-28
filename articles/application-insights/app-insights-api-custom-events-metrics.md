@@ -74,10 +74,9 @@ Construa uma instância de TelemetryClient (exceto em JavaScript em páginas da 
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-É recomendável usar uma instância de `TelemetryClient` para cada solicitação em um aplicativo Web ou para cada sessão em outros aplicativos. Você pode definir propriedades como `TelemetryClient.Context.User.Id` para acompanhar usuários e sessões. Essas informações são anexadas a todos os eventos enviados pela instância.
-
 TelemetryClient é thread-safe.
 
+É recomendável usar uma instância de `TelemetryClient` para cada módulo do seu aplicativo. Por exemplo, você pode ter um `TelemetryClient` em seu serviço Web para relatar solicitações http de entrada e outro em uma classe de middleware para relatar eventos de lógica de negócios. Você pode definir propriedades como `TelemetryClient.Context.User.Id` para rastrear usuários e sessões ou `TelemetryClient.Context.Device.Id` para identificar o computador. Essas informações são anexadas a todos os eventos enviados pela instância.
 
 
 ## Acompanhar evento
@@ -440,9 +439,9 @@ Use essa chamada para acompanhar os tempos de resposta e taxas de êxito de cham
             }
 ```
 
-Lembre-se de que os SDKs de servidor incluem um [módulo de dependência](app-insights-dependencies.md) que descobre e acompanha automaticamente determinadas chamadas de dependência - por exemplo, em bancos de dados e APIs REST. Você precisa instalar um agente em seu servidor para fazer com que o módulo funcione. Se você desejar controlar chamadas que não são detectadas pelo acompanhamento automatizado, ou se você não quiser instalar o agente, você usaria essa chamada.
+Lembre-se de que os SDKs de servidor incluem um [módulo de dependência](app-insights-dependencies.md) que descobre e rastreia automaticamente determinadas chamadas de dependência; por exemplo, para bancos de dados e APIs REST. Você precisa instalar um agente em seu servidor para fazer com que o módulo funcione. Se você desejar controlar chamadas que não são detectadas pelo acompanhamento automatizado, ou se você não quiser instalar o agente, você usaria essa chamada.
 
-Para desativar o módulo padrão de acompanhamento de dependência, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) e exclua a referência a `DependencyCollector.DependencyTrackingTelemetryModule`.
+Para desativar o módulo padrão de rastreamento de dependência, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) e exclua a referência a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 
 ## Usuários autenticados
@@ -647,7 +646,7 @@ Insira um inicializador de telemetria logo após o código de inicialização qu
     </script>
 ```
 
-Para obter um resumo das propriedades personalizadas não disponíveis na telemetryItem, confira o [modelo de dados](app-insights-export-data-model.md/#lttelemetrytypegt).
+Para obter um resumo das propriedades não personalizadas disponíveis em telemetryItem, consulte [modelo de dados](app-insights-export-data-model.md/#lttelemetrytypegt).
 
 Você pode adicionar quantos inicializadores desejar.
 
@@ -735,11 +734,11 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 * **Local** identifica a localização geográfica do dispositivo.
 * **Operação** em aplicativos da web, a solicitação HTTP atual. Em outros tipos de aplicativos, você pode definir isso para agrupar eventos juntos.
  * **ID**: um valor gerado que correlaciona eventos diferentes, para que quando você inspecionar qualquer evento no diagnóstico de pesquisa, você pode localizar "itens relacionados"
- * **Nome**: um identificador, geralmente a URL da solicitação HTTP. 
+ * **Name**: um identificador, geralmente a URL da solicitação HTTP. 
  * **SyntheticSource**: se não for nula ou vazia, essa cadeia de caracteres indica que a origem da solicitação foi identificada como um teste de robô ou web. Por padrão, elas são excluídas de cálculos no Metrics Explorer.
 * As **Propriedades** que são enviadas com todos os dados de telemetria. Pode ser substituído nas chamadas individuais de Track*.
 * **Sessão** identifica a sessão do usuário. A ID é definida como um valor gerado, que é alterado quando o usuário não foi ativo por um tempo.
-* **Usuário** Informações do usuário. 
+* **User** Informações do usuário. 
 
 
 ## <a name="default-properties"></a>Inicializadores de contexto - definir propriedades padrão para toda a telemetria
@@ -748,7 +747,7 @@ Você pode configurar um inicializador universal para que todos os novos cliente
 
 Um uso típico é para identificar a telemetria provenientes de diferentes versões ou componentes de seu aplicativo. No portal, você pode filtrar ou agrupar resultados de acordo com a propriedade "Versão do aplicativo".
 
-Em geral, [recomendamos que você use inicializadores de telemetria em vez de inicializadores de contexto](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
+Em geral, [é recomendável usar inicializadores de telemetria em vez de inicializadores de contexto](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
 
 #### Definir um inicializador de contexto
 
@@ -901,4 +900,4 @@ Há alguns limites no número de métricas você pode usar.
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

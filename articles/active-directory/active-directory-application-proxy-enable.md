@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Habilitando o Proxy de Aplicativo do AD do Azure.
@@ -72,5 +72,6 @@ Se você deseja desinstalar o conector, depois de desinstalar o serviço de cone
 
 * [Inscrever-se no Azure como uma organização](..sign-up-organization.md)
 * [Identidade do Azure](..fundamentals-identity.md)
+* [Publicar os aplicativos com Proxy de Aplicativo](active-directory-application-proxy-publish.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

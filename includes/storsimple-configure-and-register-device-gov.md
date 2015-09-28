@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 ### Para configurar e registrar o dispositivo
 
@@ -35,7 +36,7 @@
 
       4. Opcionalmente, configure seu servidor proxy da Web.
 
-      >[AZURE.IMPORTANT]Embora a configuração do proxy da Web seja opcional, saiba que se você usar um proxy da Web, só poderá configurá-lo aqui. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+      >[AZURE.IMPORTANT]Embora a configuração do proxy da Web seja opcional, saiba que se você usar um proxy da Web, só poderá configurá-lo aqui. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](storsimple-configure-web-proxy.md).
 
 6. Pressione Ctrl + C para sair do assistente de instalação.
  
@@ -136,4 +137,4 @@
      
         
 
-<!--------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/11/2015"
 	ms.author="luisca"/>
 
 
@@ -135,7 +135,9 @@ Na resposta abaixo, você obtém a lista de pontuações associada às IDs do te
 		 {"Score":0.7767222,"Id":"2"},
 		 {"Score":0.8988889,"Id":"3"}
 		],  
-		"Errors":[] 
+		"Errors":[
+		   {"Id": "4", Message:"Record cannot be null/empty"}
+		]
 	}
 
 
@@ -191,7 +193,9 @@ Na resposta abaixo, você obtém a lista de frases-chave, associada às IDs do t
 		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
 		   {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
 		],
-		"Errors":[ ]
+		"Errors":[
+		   {"Id": "4", Message:"Record cannot be null/empty"}
+		]
 	}
 
 ---
@@ -201,4 +205,4 @@ Na resposta abaixo, você obtém a lista de frases-chave, associada às IDs do t
 As Ids inseridas no sistema são as Ids retornadas pelo sistema. O serviço Web não verifica se as Ids são exclusivas. É responsabilidade do chamador verificar a exclusividade.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

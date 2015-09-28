@@ -114,7 +114,7 @@ Os recursos a seguir estão atualmente em visualização pública e serão adici
 - Privileged Identity Management: o gerenciamento de identidades com privilégios fornece supervisão aprimorada para ajudar a atender aos requisitos de conformidade a normas e contratos de nível de serviço.
 - Solicitações de aplicativos de autoatendimento: os administradores podem fornecer uma lista de aplicativos SaaS para usuários de modo que os usuários possam escolher aqueles que desejam usar, e os aplicativos ou estarão disponíveis imediatamente ou depois da aprovação.
 - API de relatório do Azure: os dados para cada relatório de segurança do Active Directory do Azure estarão disponíveis para outras ferramentas SIEM ou de monitoramento.
-
+- [Active Directory B2C do Azure](http://azure.microsoft.com/services/active-directory-b2c/): um novo serviço abrangente, de larga escala e baseado na nuvem de gerenciamento de identidade e acesso e de diretório de consumidor desenvolvido para atender às crescentes necessidades de empresas que buscam se conectar diretamente com seus consumidores.
 
 ## O que vem a seguir
 
@@ -122,4 +122,4 @@ Os recursos a seguir estão atualmente em visualização pública e serão adici
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 - [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

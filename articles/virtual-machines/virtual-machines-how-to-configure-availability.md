@@ -3,7 +3,7 @@
 	description="Fornece as etapas para configurar um conjunto de disponibilidade para uma máquina virtual nova ou existente no Azure usando os comandos do Portal do Azure e do Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,9 +15,9 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
-#Como configurar um conjunto de disponibilidade para máquinas virtuais#
+# Como configurar um conjunto de disponibilidade para máquinas virtuais
 
 Os conjuntos de disponibilidade ajudam a manter as máquinas virtuais disponíveis em caso de tempo de inatividade (por exemplo, durante a manutenção). Ter duas ou mais máquinas virtuais com configurações parecidas em um conjunto de disponibilidade cria a redundância necessária para manter a disponibilidade dos aplicativos ou serviços executados em sua máquina virtual. Para ver detalhes sobre como isso funciona, consulte [Gerenciar a disponibilidade das máquinas virtuais][].
 
@@ -95,9 +95,9 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 
 >[AZURE.NOTE]A máquina virtual pode precisar ser reiniciada para concluir a adição ao conjunto de disponibilidade.
 
-##Recursos adicionais
+## Recursos adicionais
 
-[Sobre as definições de configuração de máquina virtual do Azure]
+[Artigos para máquinas virtuais no Gerenciamento de Serviços]
 
 <!-- LINKS -->
 [Opção 1: crie uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo.]: #createset
@@ -107,6 +107,6 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 [Gerenciar a disponibilidade das máquinas virtuais]: virtual-machines-manage-availability.md
 [Criar uma máquina virtual que execute o Windows]: virtual-machines-windows-tutorial.md
 [Visão geral da rede virtual]: virtual-networks-overview.md
-[Sobre as definições de configuração de máquina virtual do Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+[Artigos para máquinas virtuais no Gerenciamento de Serviços]: virtual-machines-service-management-articles.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

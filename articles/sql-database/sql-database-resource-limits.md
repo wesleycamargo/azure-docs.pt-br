@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="08/28/2015"
+	ms.date="09/11/2015"
 	ms.author="jroth" />
 
 
@@ -45,15 +45,27 @@ Por exemplo, o número de conexões a um Banco de Dados SQL, bem como o número 
 
 ## Camadas de serviço e níveis de desempenho
 
-Os limites reais de um banco de dados são definidos pelo nível de desempenho do banco de dados. Para obter uma explicação detalhada, veja [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn741336.aspx).
+Para um banco de dados individual, os limites são definidos pelo nível de serviço e de desempenho do banco de dados. A tabela a seguir descreve as características dos bancos de dados Basic, Standard e Premium em vários níveis de desempenho.
 
 [AZURE.INCLUDE [Tabela de camadas de serviço do Banco de Dados SQL](../../includes/sql-database-service-tiers-table.md)]
+
+[Pools de banco de dados elástico](sql-database-elastic-pool.md) compartilham recursos entre bancos de dados no pool. A tabela a seguir descreve as características dos pools de bancos de dados elásticos Basic, Standard e Premium.
+
+[AZURE.INCLUDE [Tabela de níveis de serviço de BD SQL para bancos de dados elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+
+Para obter uma discussão detalhada dos níveis de serviço, consulte [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
 
 ## Cota de DTU por servidor
 
 Atualmente, o Banco de Dados SQL do Azure tem uma cota de DTU por servidor lógico de 2.000 DTUs. Essa cota representa as DTUs que podem ser hospedadas por um servidor lógico, com base na soma das DTUs se o nível de desempenho de cada banco de dados no servidor. Por exemplo, um servidor com cinco bancos de dados Básicos (máximo de 5 x 5 DTUs), dois bancos de dados Standard S1 (máximo de 2 X 20 DTUs) e três bancos de dados Premium P1 (máximo de 3 X 100 DTUs) consumiu 365 DTUs de sua cota de 2.000 DTUs.
 
 >[AZURE.NOTE]Você pode solicitar um aumento dessa cota [entrando em contato com o suporte](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+
+## Outros limites de Banco de Dados SQL
+
+| Área | Limite | Descrição |
+|---|---|---|
+| Bancos de dados usando Exportação automatizada por assinatura | 10 | A exportação automatizada permite que você crie uma agenda personalizada para realização do backup de seus bancos de dados SQL. Para saber mais, consulte [Bancos de dados SQL: suporte a exportações automatizadas de Banco de Dados SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
 
 ## Recursos
 
@@ -63,4 +75,4 @@ Atualmente, o Banco de Dados SQL do Azure tem uma cota de DTU por servidor lógi
 
 [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

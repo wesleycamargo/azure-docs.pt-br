@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/16/15-->
+
 
 #### Para conectar seu dispositivo à alimentação
 
@@ -41,4 +43,4 @@
     |8|Compartimento EBOD|
     |9|PDUs|
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

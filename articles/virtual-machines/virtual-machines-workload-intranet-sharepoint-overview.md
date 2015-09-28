@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 Este tópico contém links com instruções passo a passo para implantar um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server com o modelo de implantação clássico. O farm contém estes computadores:
 
@@ -41,21 +43,21 @@ Implante essa configuração nas seguintes fases:
 - [Fase 4: configurar os servidores do SharePoint](virtual-machines-workload-intranet-sharepoint-phase4.md). Crie e configure as quatro máquinas virtuais do SharePoint.
 - [Fase 5: criar o grupo de disponibilidade e adicionar os bancos de dados do SharePoint](virtual-machines-workload-intranet-sharepoint-phase5.md). Prepare os bancos de dados e crie um grupos de disponibilidade AlwaysOn do SQL Server.
 
-Essa implantação do SharePoint com o SQL Server AlwaysOn foi projetada para acompanhar o [Infográfico do SharePoint com SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788) e incorporar as recomendações mais recentes.
+Esta implantação do SharePoint com o SQL Server AlwaysOn foi projetada para acompanhar o [Infográfico do SharePoint com SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788) e incorporar as recomendações mais recentes.
 
-Essa configuração é um guia prescritivo de cada fase cujo objetivo é desenvolver uma arquitetura predefinida para criar um farm do SharePoint de intranet funcional e altamente disponível nos serviços de infraestrutura do Azure. Para obter mais orientações de arquitetura sobre a implementação do SharePoint 2013 no Azure, consulte [Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx).
+Essa configuração é um guia prescritivo de cada fase cujo objetivo é desenvolver uma arquitetura predefinida para criar um farm do SharePoint de intranet funcional e altamente disponível nos serviços de infraestrutura do Azure. Para obter mais orientações de arquitetura sobre a implementação do SharePoint 2013 no Azure, consulte [Arquiteturas do Microsoft Azure para o SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx).
 
 Lembre-se:
 
 - Se você tiver experiência com o SharePoint, fique à vontade para adaptar as instruções das Fases 3 a 5 e criar o farm da maneira que melhor atenda às suas necessidades.
 - Se você já tiver uma implementação de nuvem híbrida do Azure, fique à vontade para adaptar ou ignorar as instruções das Fases 1 e 2 para hospedar o novo farm do SharePoint na sub-rede apropriada.
-- Todos os servidores estão localizados em uma só sub-rede da rede virtual do Azure. Se você quiser fornecer segurança adicional equivalente ao isolamento de sub-rede, é possível usar [grupos de segurança de rede](virtual-networks-nsg.md).
+- Todos os servidores estão localizados em uma só sub-rede da rede virtual do Azure. Se você quiser fornecer segurança adicional equivalente ao isolamento de sub-rede, será possível usar [grupos de segurança de rede](virtual-networks-nsg.md).
 
 Para criar um ambiente de desenvolvimento/teste ou uma verificação de conceito dessa configuração, consulte [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
 Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server, consulte [Configurar Grupos de Disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
-> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para obter mais informações, veja [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para saber mais, consulte [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Próxima etapa
 
@@ -74,4 +76,4 @@ Para iniciar a configuração dessa carga de trabalho, vá para [Fase 1: configu
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

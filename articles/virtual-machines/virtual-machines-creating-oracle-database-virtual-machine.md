@@ -1,7 +1,5 @@
 <properties pageTitle="Criando uma máquina virtual do Banco de Dados Oracle no Azure" description="Veja o exemplo de criação de uma máquina virtual Oracle no Microsoft Azure e como criar um banco de dados Oracle nela." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz"/>
-
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Criando uma máquina virtual do Banco de Dados Oracle no Azure
 O exemplo a seguir mostra como você pode criar uma máquina virtual (VM) com base em uma imagem do Banco de Dados Oracle fornecida pela Microsoft em execução no Windows Server 2012 no Azure. Há duas etapas. Primeiro, crie a VM e depois crie o Banco de Dados Oracle dentro da VM. O exemplo mostrado é a versão do Oracle Database 12c, mas as etapas são praticamente idênticas para a versão 11g.
 
@@ -21,13 +19,13 @@ O exemplo a seguir mostra como você pode criar uma máquina virtual (VM) com ba
 
 7.	Escolha uma **Camada de Preços**. Observe que as camadas de preço recomendadas são exibidas por padrão. Para ver todas as opções de configuração, clique em **Exibir tudo** no canto superior direito.
 
-8.	Defina [Configuração Opcional](https://msdn.microsoft.com/library/azure/dn763935.aspx) conforme necessário com estas considerações:
+8.	Defina a configuração opcional conforme o necessário, levando em conta estas considerações:
 
 	a. Deixe **Conta de Armazenamento** como está para criar uma nova conta de armazenamento com o nome da VM.
 
 	b. Deixe **Conjunto de Disponibilidade** como "Não Configurado".
 
-	c. Não adicione nenhum **ponto de extremidade** neste momento.
+	c. Não adicione **pontos de extremidade** no momento.
 
 9.	Escolha ou crie um grupo de recursos.
 
@@ -35,7 +33,7 @@ O exemplo a seguir mostra como você pode criar uma máquina virtual (VM) com ba
 
 11. Escolha um **Local**.
 
-12. Clique em **Criar**, e o processo de criação de uma VM será iniciado. Depois que a VM tiver o status de **Em execução**, prossiga para o próximo procedimento.
+12. Clique em **Criar** e o processo de criação de uma VM será iniciado. Depois que a VM tiver o status de **Em execução**, prossiga para o próximo procedimento.
 
 
 ##Para criar o banco de dados usando a VM do Banco de Dados Oracle no Azure
@@ -122,13 +120,13 @@ Para permitir que o banco de dados seja acessado remotamente (por exemplo, de um
 
 3.	Para o **Tipo de Regra**, selecione **Porta** e clique em **Avançar**.
 
-4.	Para **Protocolo e Porta**, selecione **TCP**, selecione **Portas locais específicas**, digite **1521** para a porta e clique em **Avançar**.
+4.	Para **Protocolo e Porta**, selecione **TCP**, selecione **Portas locais específicas**, digite **1521** para a porta e, em seguida, clique em **Avançar**.
 
 5.	Selecione **Permitir a conexão** e clique em **Avançar**.
 
-6.	Aceite os padrões para os perfis aos quais a regra se aplica e clique em **Avançar**.
+6.	Aceite os padrões para os perfis aos quais a regra se aplica e então clique em **Avançar**.
 
-7.	Especifique um nome para a regra e, se desejar, uma descrição, e clique em **Concluir**.
+7.	Especifique um nome para a regra e, opcionalmente, uma descrição e depois clique em **Concluir**.
 
 ### Criar um ponto de extremidade público para a porta 1521
 
@@ -148,11 +146,11 @@ Para permitir que o banco de dados seja acessado remotamente (por exemplo, de um
 
 8.	Especifique um nome para o ponto de extremidade:
 
-	a. Use **TCP** como o protocolo.
+	a. Use **TCP** para o protocolo.
 
-	b. Use **1521** como a porta pública.
+	b. Use **1521** para a porta pública.
 
-	c. Use **1521** como a porta privada.
+	c. Use **1521** para a porta privada.
 
 9.	Deixe o restante das opções como estão.
 
@@ -183,4 +181,4 @@ Agora que você configurou sua máquina virtual e criou o banco de dados, consul
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

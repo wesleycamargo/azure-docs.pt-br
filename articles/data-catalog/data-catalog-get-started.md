@@ -1,20 +1,20 @@
 <properties
    pageTitle="Catálogo de Dados do Azure: Introdução ao catálogo de dados"
-	description="Tutorial ponta a ponta dos cenários e recursos do Catálogo de Dados do Azure"
-	documentationCenter=""
-	services="data-catalog"
-	authors="dvana"
-	manager="mblythe"
-	editor=""
-	tags=""/>
+   description="Tutorial ponta a ponta dos cenários e recursos do Catálogo de Dados do Azure"
+   documentationCenter=""
+   services="data-catalog"
+   authors="dvana"
+   manager="mblythe"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/11/2015"
+   ms.author="derrickv"/>
 
 # Introdução ao Catálogo de Dados do Azure
 
@@ -148,9 +148,18 @@ Neste exercício, você trabalhará com outro usuário adicionar metadados a ati
 
 Peça a um colega para repetir o exercício **Anotando fontes de dados registradas** acima. Depois que seu colega adicionar uma descrição a um ativo de dados, como em ProductPhoto, você verá várias anotações.
 
-Neste exercício, você explorou os recursos do Catálogo de Dados do Azure para crowdsourcing de metadados, nos quis qualquer usuário do catálogo pode anotar os ativos de dados descobertos. Exercício: Conectando a fontes de dados Neste exercício, você usará o portal do **Catálogo de Dados do Azure** para se conectar a fontes de dados usando o Microsoft Excel.
 
-> [AZURE.NOTE]É importante lembrar que o **Catálogo de Dados do Azure** não concede aos usuários o acesso à fonte de dados real – ele simplesmente facilita sua descoberta e sua compreensão. Quando os usuários se conectam a uma fonte de dados, o aplicativo cliente escolhido usará as credenciais do Windows ou solicitará as credenciais conforme necessário. Se o usuário não tiver recebido acesso à fonte de dados previamente, ele precisará desse acesso para poder conectar.
+![crowdsource][13]
+
+Neste exercício, você explorou os recursos do Catálogo de Dados do Azure para crowdsourcing de metadados, nos quis qualquer usuário do catálogo pode anotar os ativos de dados descobertos.
+
+
+## Exercício 6: conectando-se às fontes de dados
+
+Neste exercício, você usará o portal do **Catálogo de Dados do Azure** para se conectar a fontes de dados usando o Microsoft Excel.
+
+
+> [AZURE.NOTE]É importante lembrar que o **Catálogo de Dados do Azure** não concede aos usuários acesso à fonte de dados real – ele simplesmente facilita sua descoberta e sua compreensão. Quando os usuários se conectam a uma fonte de dados, o aplicativo cliente escolhido usará as credenciais do Windows ou solicitará as credenciais conforme necessário. Se o usuário não tiver recebido acesso à fonte de dados previamente, ele precisará desse acesso para poder conectar.
 
 ### Veja como se conectar a uma fonte de dados do Excel
 
@@ -166,9 +175,9 @@ Neste exercício, você explorou os recursos do Catálogo de Dados do Azure para
 
     ![conectar2][11]
 
-Neste exercício, você se conectou às fontes de dados descobertas usando o Catálogo de Dados do Azure. O portal do **Catálogo de Dados do Azure** permite que os usuários se conectem diretamente aos aplicativos cliente integrados ao menu **Abrir no...** e permite que os usuários se conectem usando qualquer aplicativo que desejarem usando as informações de conexão local incluídas nos metadados do ativo.
+Neste exercício, você se conectou às fontes de dados descobertas usando o Catálogo de Dados do Azure. O portal do **Catálogo de Dados do Azure** permite que os usuários se conectem diretamente aos aplicativos cliente integrados ao menu **Abrir no...** e que se conectem usando qualquer aplicativo que desejarem usando as informações do local de conexão incluídas nos metadados do ativo.
 
-## Exercício 6: remover metadados da fonte de dados
+## Exercício 7: removendo metadados da fonte de dados
 
 Neste exercício, você usará o portal do **Catálogo de Dados do Azure** para remover dados de visualização de ativos de dados registrados e excluir ativos de dados do catálogo.
 
@@ -185,11 +194,11 @@ No **Catálogo de Dados do Azure**, você pode remover a visualização do ativo
 
 Neste exercício, você removeu ativos de dados registrado do catálogo.
 
-## Exercício 7: gerenciar fontes de dados registradas
+## Exercício 8: gerenciar fontes de dados registradas
 
-Neste exercício, você usará os recursos de gerenciamento do **Catálogo de Dados do Azure** para apropriar-se de ativos de dados e para controlar quais usuários poderão descobrir e gerenciar os ativos.
+Neste exercício, você usará os recursos de gerenciamento do **Catálogo de Dados do Azure** para se apropriar de ativos de dados e para controlar quais usuários poderão descobrir e gerenciar os ativos.
 
-Observação: os recursos de gerenciamento descritos neste exercício estão disponíveis apenas na Edição Standard do Catálogo de Dados do Azure e não na Edição Gratuita. No **Catálogo de Dados do Azure**, você pode apropriar-se de ativos de dados, adicionar coproprietários e definir a visibilidade dos ativos de dados.
+Observação: os recursos de gerenciamento descritos neste exercício estão disponíveis apenas na Edição Standard do Catálogo de Dados do Azure e não na Edição Gratuita. No **Catálogo de Dados do Azure**, você pode se apropriar de ativos de dados, adicionar coproprietários para ativos de dados e definir a visibilidade dos ativos de dados.
 
 ### Veja aqui como apropriar-se dos ativos de dados e restringir a visibilidade
 
@@ -205,7 +214,7 @@ Neste exercício, você explorou os recursos de gerenciamento do catálogo e a v
 
 ## Resumo
 
-Neste tutorial, você explorou recursos essenciais da visualização do **Catálogo de Dados do Azure**, incluindo o registro, a anotação, a descoberta e o gerenciamento de fontes de dados da empresa. Agora que você concluiu o tutorial, é hora de começar. Você pode começar hoje mesmo registrando as fontes de dados que você e sua equipe precisam e convidando colegas para usar o catálogo.
+Neste tutorial, você explorou recursos essenciais da visualização do **Catálogo de Dados do Azure**, incluindo o registro, a anotação, a descoberta e o gerenciamento de fontes de dados corporativas. Agora que você concluiu o tutorial, é hora de começar. Você pode começar hoje mesmo registrando as fontes de dados que você e sua equipe precisam e convidando colegas para usar o catálogo.
 
 
 <!--Image references-->
@@ -221,5 +230,6 @@ Neste tutorial, você explorou recursos essenciais da visualização do **Catál
 [10]: ./media/data-catalog-get-started/connect1.png
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
+[13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 ### Para fazer um backup
 
@@ -24,4 +25,8 @@
 
 Você concluiu a configuração do dispositivo.
 
-<!---HONumber=August15_HO6-->
+![Vídeo disponível](./media/storsimple-take-backup/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo que demonstra como realizar um backup do StorSimple, clique [aqui](http://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
+
+<!---HONumber=Sept15_HO3-->

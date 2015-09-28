@@ -1,23 +1,26 @@
 <properties 
-	pageTitle="Aplicativo de linha de negócios Fase 1 | Microsoft Azure"
-	description="Crie a rede virtual e outros elementos de infraestrutura do Azure na fase 1 do aplicativo de linha de negócios no Azure."
+	pageTitle="Aplicativo de linha de negócios Fase 1 | Microsoft Azure" 
+	description="Crie a rede virtual e outros elementos de infraestrutura do Azure na fase 1 do aplicativo de linha de negócios no Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""/>
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 1: configurar o Azure
-
+ 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo de implantação do Gerenciador de Recursos.
+ 
 Nesta fase de implantação de um aplicativo de linha de negócios de alta disponibilidade somente para intranet nos Serviços de Infraestrutura do Azure, você criará as infraestruturas de redes e armazenamento do Azure. Conclua esta fase antes de passar para a [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md). Consulte [Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) para todas as fases.
 
 O Azure deve ser provisionado com os seguintes componentes básicos de rede:
@@ -196,7 +199,7 @@ Em seguida, use estes comandos para criar gateways para a conexão VPN site a si
 	$vnetConnectionKey="<Table V – Item 8 – Value column>"
 	$vnetConnection=New-AzureVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
-Em seguida, configure o dispositivo VPN local para se conectar ao gateway de VPN do Azure. Para obter mais informações, consulte [Configurar seu dispositivo VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
+Em seguida, configure o dispositivo VPN local para se conectar ao gateway de VPN do Azure. Para saber mais, consulte [Configurar seu dispositivo VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
 
 Para configurar seu dispositivo VPN local, você precisará do seguinte:
 
@@ -248,4 +251,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 2: Conf
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

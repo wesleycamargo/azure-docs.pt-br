@@ -3,7 +3,7 @@
 	description="Saiba como criar uma máquina virtual personalizada no Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Como criar uma máquina virtual personalizada
 
@@ -29,6 +29,6 @@ Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que vo
 
 > [AZURE.IMPORTANT]Se você quiser que sua máquina virtual use uma rede virtual para que você possa se conectar a ela diretamente pelo nome do host ou estabelecer conexões entre locais, especifique a rede virtual ao criar a máquina virtual. Uma máquina virtual pode ser configurada para ingressar em uma rede virtual somente quando você criar a máquina virtual. Para mais detalhes sobre redes virtuais, consulte a seção [Visão geral da rede virtual do Azure](virtual-networks-overview.md).
 
-[AZURE.INCLUDE [virtual-machines-create-windowsvm](../../includes/virtual-machines-create-windowsvm.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

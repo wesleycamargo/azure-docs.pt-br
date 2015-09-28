@@ -8,12 +8,12 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tdykstra"/>
 
 # Executar tarefas em segundo plano com Trabalhos Web
@@ -25,6 +25,8 @@ Você pode executar programas ou scripts em Trabalhos Web em seu aplicativo Web 
 Este artigo mostra como implantar Trabalhos Web utilizando o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para obter informações sobre como implantar utilizando o Visual Studio ou um processo de entrega contínua, consulte [Como implantar Trabalhos Web do Azure em Aplicativos Web](websites-dotnet-deploy-webjobs.md).
 
 O SDK de Trabalhos Web do Azure simplifica muitas tarefas de programação de Trabalhos Web. Para obter mais informações, consulte [O que é o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="acceptablefiles"></a>Tipos de arquivo aceitáveis para scripts ou programas
 
@@ -209,4 +211,4 @@ Para obter mais informações, consulte [Recursos Recomendados para Trabalhos We
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

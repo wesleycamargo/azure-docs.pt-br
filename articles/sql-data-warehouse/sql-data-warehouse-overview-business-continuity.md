@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/15/2015"
    ms.author="sahajs"/>
 
 
 # Planejando a continuidade de negócios no SQL Data Warehouse
 
-Este artigo apresenta as noções básicas de planejamento de continuidade de negócios e recuperação de desastres com o SQL Data Warehouse. Os data warehouses são o repositório central de informações das empresas, tendo um papel fundamental nas operações diárias de análise e business intelligence em todos os níveis da organização. Portanto, é essencial que seu data warehouse seja confiável e permita a recuperação e a operação contínua. Este artigo mostrará, especificamente, como o SQL Data Warehouse permite a recuperação após desastres e erros de usuário usando a Recuperação Pontual e a Restauração Geográfica.
+Este artigo apresenta as noções básicas de planejamento de continuidade de negócios e recuperação de desastres com o SQL Data Warehouse. Os data warehouses são o repositório central de informações das empresas, tendo um papel fundamental nas operações diárias de análise e business intelligence em todos os níveis da organização. Portanto, é essencial que seu data warehouse seja confiável e permita a recuperação e a operação contínua. Este artigo mostrará, especificamente, como o SQL Data Warehouse permite a recuperação após desastres e erros de usuário usando a Restauração de Banco de dados e a Restauração Geográfica.
 
 ## Conceitos
 
@@ -78,4 +78,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

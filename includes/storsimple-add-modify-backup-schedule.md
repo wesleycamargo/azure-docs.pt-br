@@ -1,4 +1,6 @@
 
+<!--author=SharS last changed: 9/15/15-->
+
 #### Para adicionar ou modificar uma agenda de backup do StorSimple
 
 1. Na página **Início Rápido** do dispositivo, clique na guia **Políticas de Backup**. Isso o levará para a página **Políticas de Backup**.
@@ -28,4 +30,4 @@
 A página **Políticas de Backup** será atualizada para salvar as alterações na política.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

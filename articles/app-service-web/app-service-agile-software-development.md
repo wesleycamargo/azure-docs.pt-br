@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure"
 	description="Aprenda a criar aplicativos complexos de grande escala com o Serviço de Aplicativo do Azure, de forma a oferecer suporte ao desenvolvimento de software Agile."
-	services="app-service\web"
+	services="app-service\web,app-service\api,app-service\mobile"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -33,20 +33,22 @@ A tabela a seguir é uma breve lista que mostra os requisitos associados ao dese
 | - Exibir o resultado da compilação mais recente com facilidade | Com a implantação contínua no Azure a partir de um repositório, você pode testar o novo código em um aplicativo em tempo real, imediatamente após confirmar suas alterações. |
 | - Enviar confirmações diárias para a ramificação principal <br>- Automatizar a implantação | A integração contínua de um aplicativo de produção com a ramificação principal do repositório permite a implantação automática de cada confirmação/mesclagem na ramificação principal para a produção. |
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## O que você fará ##
 
-Você verá um fluxo de trabalho dev-test-stage-production típico para publicar novas alterações no aplicativo de exemplo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), que consiste em dois [aplicativos Web](/services/app-service/web/), sendo um front-end (FE) e um back-end (BE) da Web API, e um [banco de dados SQL](/services/sql-database/). Você trabalhará com a arquitetura de implantação mostrada abaixo:
+Você verá um fluxo de trabalho dev-test-stage-production típico para publicar novas alterações no aplicativo de exemplo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), que consiste em dois [aplicativos Web](/services/app-service/web/), sendo um front-end (FE) e um back-end (BE) da API Web, e um [banco de dados SQL](/services/sql-database/). Você trabalhará com a arquitetura de implantação mostrada abaixo:
 
 ![](./media/app-service-agile-software-development/what-1-architecture.png)
 
 Colocando em palavras:
 
--	A arquitetura de implantação é separada em três ambientes distintos (ou [grupos de recursos](resource-group-overview.md) no Azure), cada um com seu próprio [plano de Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md), configurações de [escala](web-sites-scale.md) e banco de dados SQL. 
+-	A arquitetura de implantação é separada em três ambientes distintos (ou [grupos de recursos](resource-group-overview.md) no Azure), cada um com seu próprio [plano do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md), configurações de [escala](web-sites-scale.md) e banco de dados SQL. 
 -	Cada ambiente pode ser gerenciado separadamente. Eles podem até mesmo existir em assinaturas diferentes.
 -	O preparo e a produção são implementados como dois slots do mesmo aplicativo de Serviço de Aplicativo. A ramificação mestre está configurada para integração contínua com o slot de preparo.
 -	Quando uma confirmação para a ramificação mestre é verificada no slot de preparo (com dados de produção), o aplicativo de preparo verificado é trocado no slot de produção [sem tempo de inatividade](web-sites-staged-publishing.md).
 
-O ambiente de produção e preparo é definido pelo modelo em [*&lt;raiz\_do\_repositório>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
+O ambiente de preparo e produção é definido pelo modelo em [*&lt;raiz\_do\_repositório>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
 
 Os ambientes de desenvolvimento e teste são definidos pelo modelo em [*&lt;raiz\_do\_repositório>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json).
 
@@ -58,7 +60,7 @@ Você também usará a estratégia de ramificação típica, com código movendo
 
 -	Uma conta do Azure
 -	Uma conta do [GitHub](https://github.com/)
--	Git Shell (instalado com [GitHub para Windows](https://windows.github.com/)) - permite que você execute comandos Git e do PowerShell na mesma sessão 
+-	Git Shell (instalado com [GitHub para Windows](https://windows.github.com/)) — permite que você execute comandos Git e do PowerShell na mesma sessão 
 -	Bits do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) mais recentes
 -	Noções básicas sobre:
 	-	Implantação do modelo do [Gerenciador de Recursos do Azure](resource-group-overview.md) (consulte também[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
@@ -97,7 +99,7 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]Dê uma olhada em *&lt;raiz\_do\_repositório>*\\ARMTemplates\\Deploy.ps1 para ver como ele gera recursos com IDs exclusivos. Você pode usar a mesma abordagem para criar clones da mesma implantação sem se preocupar com conflitos entre os nomes de recursos.
+	>[AZURE.TIP]Dê uma olhada em *&lt;raiz\_do\_repositório>*\\ARMTemplates\\Deploy.ps1 para ver como ele gera recursos com IDs exclusivas. Você pode usar a mesma abordagem para criar clones da mesma implantação sem se preocupar com conflitos entre os nomes de recursos.
  
 6.	De volta à sessão do Git Shell, execute:
 
@@ -164,7 +166,7 @@ E você deverá ter seis aplicativos Web (três conjuntos de dois) em três grup
 
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
  
->[AZURE.NOTE]Observe que ProdandStage.json especifica o ambiente de produção para usar a camada de preços **Standard**, que é adequada para a escalabilidade do aplicativo de produção.
+>[AZURE.NOTE]Observe que ProdandStage.json especifica o ambiente de produção para usar o tipo de preço **Standard**, que é adequada para a escalabilidade do aplicativo de produção.
 
 ## Compilar e testar cada confirmação ##
 
@@ -181,7 +183,7 @@ Os arquivos de modelo ProdAndStage.json e Dev.json já especificam os parâmetro
 	>[AZURE.NOTE]Se você não puder ler a imagem acima:
 	>
 	>- Na linha 18, altere `check-list` para `list-group`.
-	>- Na linha 19, altere `class="check-list-item"`para `class="list-group-item"`.
+	>- Na linha 19, altere `class="check-list-item"` para `class="list-group-item"`.
 
 3.	Salve a alteração. De volta ao Git Shell, execute os seguintes comandos:
 
@@ -190,9 +192,9 @@ Os arquivos de modelo ProdAndStage.json e Dev.json já especificam os parâmetro
 		git commit -m "changed to bootstrap style"
 		git push origin Dev
  
-	Esses comandos git são semelhantes à "verificação em seu código" em outro sistema de controle de origem, como o TFS. Quando você executa `git push`, a nova confirmação dispara um envio de código por push automático no Azure, que recompila o aplicativo para refletir a alteração no ambiente de desenvolvimento.
+	Esses comandos git são semelhantes à "verificação em seu código" em outro sistema de controle de origem, como o TFS. Quando você executa `git push`, a nova confirmação dispara um envio de código por push automático ao Azure, que recompila o aplicativo para refletir a alteração no ambiente de desenvolvimento.
 
-4.	Para verificar que esse código foi enviado por push ao ambiente de desenvolvimento, vá até a folha de aplicativo Web do ambiente de desenvolvimento e examine a parte **Implantação**. Você deverá ser capaz de ver a última mensagem de confirmação.
+4.	Para verificar se esse código foi enviado por push ao ambiente de desenvolvimento, vá até a folha de aplicativo Web do ambiente de desenvolvimento e examine a parte **Implantação**. Você deverá ser capaz de ver a última mensagem de confirmação.
 
 	![](./media/app-service-agile-software-development/commit-2-deployed.png)
 
@@ -202,7 +204,7 @@ Os arquivos de modelo ProdAndStage.json e Dev.json já especificam os parâmetro
 
 	Essa é uma alteração secundária no aplicativo. No entanto, muitas vezes, novas alterações em um aplicativo Web complexo têm efeitos colaterais não intencionais e indesejáveis. A capacidade de testar facilmente cada confirmação em compilações em tempo real permite capturar esses problemas antes que os clientes os vejam.
 
-Agora você já deve estar familiarizado com o conceito de que, como desenvolvedor do projeto **NewUpdate**, você poderá criar um ambiente de desenvolvimento para você mesmo com facilidade e, em seguida, compilar cada confirmação e testar cada compilação.
+Agora você já deve estar familiarizado com o conceito de que, como desenvolvedor do projeto **NewUpdate**, você poderá criar um ambiente de desenvolvimento para si mesmo com facilidade e, em seguida, compilar cada confirmação e testar cada compilação.
 
 ## Mesclar o código no ambiente de teste ##
 
@@ -279,4 +281,4 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 -	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015"
+	ms.date="09/09/2015"
 	ms.author="stbaro"/>
 
 # Exibir, editar, criar e carregar documentos JSON usando o Gerenciador de Documentos do Banco de Dados de Documentos #
@@ -26,7 +26,7 @@ Depois de concluir este tutorial, você poderá responder às seguintes pergunta
 -	Como posso exibir facilmente as propriedades do sistema de um documento no Banco de Dados de Documentos usando um navegador da Web?
 -	Como posso realizar facilmente a ingestão de documentos em massa no Banco de Dados de Documentos usando um navegador da Web?
 
-##<a id="Launch"></a>Iniciar e navegar pelo Gerenciador de Documentos##
+##<a id="Launch"></a>Iniciar Gerenciador de Documentos##
 
 O Gerenciador de Documentos pode ser iniciado por meio de qualquer conta, banco de dados ou lâmina de coleção do Banco de Dados de Documentos.
 
@@ -44,35 +44,6 @@ O Gerenciador de Documentos pode ser iniciado por meio de qualquer conta, banco 
 
 	![Captura do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
-3. Por padrão, o Gerenciador de Documentos carrega os 100 primeiros documentos na coleção selecionada, por sua data de criação, do antigo ao mais recente. Você pode carregar documentos adicionais (em lotes de 100), selecionando a opção **Carregar mais** na parte inferior da folha do Gerenciador de Documentos. Para modificar o comportamento padrão, clique no comando Configurações na parte superior da folha do Gerenciador de Documentos.
-
-	![Captura de tela da folha Configurações do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
-
-
-4. Na folha Configurações, você pode ajustar o número de itens a serem retornados por página, bem como fornecer uma cláusula WHERE para carregar documentos correspondentes na grade do Gerenciador de Documentos. Leia mais sobre a gramática SQL do Banco de Dados de Documentos [aqui](documentdb-sql-query.md).
-
-	![Captura de tela da folha Configurações do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
-
-	> [AZURE.NOTE]Depois de modificar as configurações do Gerenciador de Documentos, você deve clicar no comando **Atualizar** para aplicar as novas configurações. As configurações serão mantidas somente na sessão atual do navegador.
-	
-5. As caixas das listas suspensas **Banco de Dados** e **Coleção** podem ser usadas para alterar a coleção cujos documentos estão sendo exibidos sem precisar fechar e iniciar o Gerenciador de Documentos novamente.
-
-5. O Gerenciador de Documentos também dá suporte à filtragem do conjunto de documentos carregados atualmente segundo a propriedade de ID. Basta digitar na caixa de filtro.
-
-	![Captura de tela do Gerenciador de Documentos com filtro realçado](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
-
-	E os resultados da lista do Gerenciador de Documentos são filtrados com base nos critérios fornecidos.
-
-	![Captura de tela do Gerenciador de Documentos com resultados filtrados](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
-
-
-	> [AZURE.IMPORTANT]A funcionalidade de filtro do Gerenciador de Documentos filtra somente o conjunto de documentos carregado ***atualmente*** e não consulta a coleção selecionada.
-
-6. Para atualizar a lista de documentos carregada pelo Gerenciador de Documentos, basta clicar no comando **Atualizar** na parte superior da folha.
-
-	![Captura de tela do comando de atualização do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
-
-
 ##<a id="Create"></a>Exibir, criar e editar documentos com o Gerenciador de Documentos##
 
 O Gerenciador de Documentos permite criar, editar e excluir documentos com facilidade.
@@ -87,7 +58,7 @@ O Gerenciador de Documentos permite criar, editar e excluir documentos com facil
 
 	> [AZURE.NOTE]Se você não fornecer uma propriedade de "id", o Gerenciador de Documentos adiciona automaticamente uma propriedade de ID e gera um GUID como o valor da ID.
 
-- Se já tiver dados de arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabela do Azure ou outras coleções do Banco de Dados de Documentos, você poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do Banco de Dados de Documentos para importar rapidamente os dados.
+- Se já tiver dados de arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabela do Azure, Amazon DynamoDB, HBase ou de outras coleções do Banco de Dados de Documentos, você poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do Banco de Dados de Documentos para importar rapidamente os dados.
 
 - Para editar um documento existente, basta selecioná-lo no Gerenciador de Documentos, editar o documento como quiser e clicar no comando **Salvar**.
 
@@ -115,6 +86,38 @@ O Gerenciador de Documentos permite criar, editar e excluir documentos com facil
 
 	> [AZURE.NOTE]A propriedade do carimbo de data/hora (\_ts) é representada internamente como um tempo de época, mas o Gerenciador de Documentos exibe o valor em um formato GMT legível.
 
+##<a id="Navigate"></a>Opções de navegação e configurações avançadas do Gerenciador de Documentos##
+
+O Gerenciador de Documentos oferece suporte a várias opções de navegação e configurações avançadas
+
+1. Por padrão, o Gerenciador de Documentos carrega os 100 primeiros documentos na coleção selecionada, por sua data de criação, do antigo ao mais recente. Você pode carregar documentos adicionais (em lotes de 100), selecionando a opção **Carregar mais** na parte inferior da folha do Gerenciador de Documentos. Para modificar o comportamento padrão, clique no comando Configurações na parte superior da folha do Gerenciador de Documentos.
+
+	![Captura de tela da folha Configurações do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
+
+
+2. Na folha Configurações, você pode ajustar o número de itens a serem retornados por página, bem como fornecer uma cláusula WHERE para carregar documentos correspondentes na grade do Gerenciador de Documentos. Leia mais sobre a gramática SQL do Banco de Dados de Documentos [aqui](documentdb-sql-query.md).
+
+	![Captura de tela da folha Configurações do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
+
+	> [AZURE.NOTE]Depois de modificar as configurações do Gerenciador de Documentos, você deve clicar no comando **Atualizar** para aplicar as novas configurações. As configurações serão mantidas somente na sessão atual do navegador.
+	
+3. As caixas das listas suspensas **Banco de Dados** e **Coleção** podem ser usadas para alterar a coleção cujos documentos estão sendo exibidos sem precisar fechar e iniciar o Gerenciador de Documentos novamente.
+
+4. O Gerenciador de Documentos também dá suporte à filtragem do conjunto de documentos carregados atualmente segundo a propriedade de ID. Basta digitar na caixa de filtro.
+
+	![Captura de tela do Gerenciador de Documentos com filtro realçado](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
+
+	E os resultados da lista do Gerenciador de Documentos são filtrados com base nos critérios fornecidos.
+
+	![Captura de tela do Gerenciador de Documentos com resultados filtrados](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
+
+
+	> [AZURE.IMPORTANT]A funcionalidade de filtro do Gerenciador de Documentos filtra somente o conjunto de documentos carregado ***atualmente*** e não consulta a coleção selecionada.
+
+5. Para atualizar a lista de documentos carregada pelo Gerenciador de Documentos, basta clicar no comando **Atualizar** na parte superior da folha.
+
+	![Captura de tela do comando de atualização do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
+
 ##<a id="BulkAdd"></a>Adicionar documentos em massa com o Gerenciador de Documentos##
 
 O Gerenciador de Documentos dá suporte à ingestão em massa de um ou mais documentos JSON existentes.
@@ -137,7 +140,8 @@ O Gerenciador de Documentos dá suporte à ingestão em massa de um ou mais docu
 
 ##<a name="NextSteps"></a>Próximas etapas
 
-Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
+- Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

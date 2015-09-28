@@ -79,7 +79,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 | 9 | Interfaces de rede | Nas versões anteriores, um dispositivo StorSimple configurado com um gateway não roteável podia ficar offline. Nesta versão, a métrica de roteamento para Dados 0 foi feita a menor possível; portanto, mesmo que outras interfaces de rede estiverem habilitadas para a nuvem, todo o tráfego de nuvem do dispositivo será roteado por meio de Dados 0. | Atualização 1 | Sim | Sim | 
 | 10 | Backups | Um bug na Atualização 1 que causou a falha de backups depois de 24 dias foi corrigido na versão do patch Atualização 1.1. | Atualização 1.1 | Sim | Sim |
 | 11 | Backups | Um bug nas versões anteriores resultou em baixo desempenho dos instantâneos de nuvem com baixas taxas de alteração. Esse bug foi corrigido nesta versão do patch.| Atualização 1.2 | Sim | Sim |
-| 12 | Backups | Um bug na Atualização 1 que reportou uma falha de atualização e fez com que os controladores entrassem no Modo de recuperação foi corrigido nesta versão do patch.| Atualização 1.2 | Sim | Sim |
+| 12 | Atualizações | Um bug na Atualização 1 que reportou uma falha de atualização e fez com que os controladores entrassem no Modo de recuperação foi corrigido nesta versão do patch.| Atualização 1.2 | Sim | Sim |
 
 
 ## Problemas conhecidos na Atualização 1.2
@@ -124,4 +124,4 @@ Esta atualização não pode ser aplicada ao dispositivo virtual. Novos disposit
 - [Instalar a Atualização 1.2 no seu dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

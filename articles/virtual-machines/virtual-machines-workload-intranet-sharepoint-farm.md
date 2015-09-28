@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint na Intranet
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 Configure seu primeiro ou próximo farm do SharePoint no Microsoft Azure e aproveite a facilidade de configuração e a capacidade de expandir rapidamente o farm a fim de incluir a nova capacidade ou otimização da funcionalidade principal. Muitos farms do SharePoint crescem partindo de uma configuração padrão, de alta disponibilidade, com três camadas para um farm com possivelmente uma dúzia ou mais de servidores otimizados para desempenho ou funções separadas, como pesquisa ou cache distribuído.
 
@@ -108,7 +110,7 @@ Para implantar essa configuração, use o seguinte processo:
 
 	Prepare os bancos de dados do SharePoint, crie um Grupo de Disponibilidade AlwaysOn e, em seguida, adicione bancos de dados a ele. Para obter as etapas de configuração detalhadas, consulte a [Fase 5](virtual-machines-workload-intranet-sharepoint-phase5.md).
 
-Depois de configurado, você pode expandir esse farm do SharePoint com a orientação encontrada em [Arquiteturas do Microsoft Azure para SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
+Depois de configurado, você poderá expandir esse farm do SharePoint com a orientação encontrada em [Arquiteturas do Microsoft Azure para o SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
 
 ## Recursos adicionais
 
@@ -126,4 +128,4 @@ Depois de configurado, você pode expandir esse farm do SharePoint com a orienta
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

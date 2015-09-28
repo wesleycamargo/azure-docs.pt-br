@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Monitorar seu dispositivo StorSimple | Microsoft Azure"
-	description="Descreve como usar o serviço StorSimple Manager para monitorar o desempenho de E/S, utilização da capacidade, taxa de transferência de rede e desempenho do dispositivo."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Descreve como usar o serviço StorSimple Manager para monitorar o desempenho de E/S, utilização da capacidade, taxa de transferência de rede e desempenho do dispositivo."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple 
 
@@ -91,6 +91,8 @@ O **desempenho do dispositivo** acompanha métricas relacionadas ao desempenho d
 
 ## Próximas etapas
 
-[Aprenda a usar o painel de dispositivo do serviço StorSimple Manager](storsimple-device-dashboard.md).
+- Saiba como [usar o painel de dispositivo do serviço StorSimple Manager](storsimple-device-dashboard.md).
 
-<!---HONumber=September15_HO1-->
+- Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Documentação da API de Recomendações do Aprendizado de Máquina | Microsoft Azure"
-	description="Documentação da API de Recomendações de Aprendizado de Máquina do Azure para um mecanismo de recomendações disponível no Microsoft Azure Marketplace."
-	services="machine-learning"
-	documentationCenter=""
-	authors="AharonGumnik"
-	manager="paulettm"
+	pageTitle="Documentação da API de Recomendações do Aprendizado de Máquina | Microsoft Azure" 
+	description="Documentação da API de Recomendações de Aprendizado de Máquina do Azure para um mecanismo de recomendações disponível no Microsoft Azure Marketplace." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="AharonGumnik" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2015" 
 	ms.author="LuisCa"/>
 
 #Documentação da API de Recomendações do Aprendizado de Máquina do Azure
@@ -352,7 +352,7 @@ A tabela a seguir descreve o valor que cada chave representa.
 | MaxUserLength | Número máximo de itens distintos para um usuário. |
 | MinItemLength | Número máximo de usuários distintos para um item. |
 | MinUserLength | Número mínimo de itens distintos para um usuário. |
-| RawNumberOfItems | Número de itens antes da remoção dos itens que não podem ser modelados. |
+| RawNumberOfItems | Número de itens nos arquivos de uso. |
 | RawNumberOfUsers | Número de pontos de uso antes de qualquer remoção. |
 | RawNumberOfRecords | Número de pontos de uso antes de qualquer remoção. |
 | SamplingNumberOfItems | N/D |
@@ -848,6 +848,7 @@ XML de OData
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`|
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
@@ -939,17 +940,18 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 
 | Nome | Obrigatório | Tipo | Descrição |
 |:---|:---|:---|:---|
-| Id do item |Sim | [A-z], [a-z], [0-9] [\_]& #40; Sublinhado&#41;, [-] &#40;Traço&#41;<br>Comprimento máximo: 50 | Identificador exclusivo de um item. | | Nome do Item | Sim | Todos os caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item. | | Categoria do Item | Sim | Todos os caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual este item pertence (por exemplo, Livros de culinária, Drama...); pode estar vazio. | | Descrição | Não, a menos que existam recursos (mas pode estar vazio) | Todos os caracteres alfanuméricos <br> Comprimento máximo: 4000 | Descrição deste item. | | Lista de recursos | Não | Todos os caracteres alfanuméricos <br> Comprimento máximo: 4000 | Lista separada por vírgulas de nome do recurso=valor do recurso que pode ser usada para aprimorar a recomendação de modelo; consulte a seção [Tópicos avançados](#2-advanced-topics). |
+| Id do item |Sim | [A-z], [a-z], [0-9] [\_]& #40; Sublinhado&#41;, [-] &#40;Traço&#41;<br>Comprimento máximo: 50 | Identificador exclusivo de um item. | | Nome do Item | Sim | Todos os caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item. | | Categoria do Item | Sim | Todos os caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual este item pertence (por exemplo, Livros de culinária, Drama...); pode estar vazio. | | Descrição | Não, a menos que existam recursos (mas pode estar vazio) | Todos os caracteres alfanuméricos <br> Comprimento máximo: 4000 | Descrição deste item. | | Lista de recursos | Não | Todos os caracteres alfanuméricos <br> Comprimento máximo: 4000 | Lista separada por vírgulas de nome do recurso=valor do recurso que pode ser usado para aprimorar a recomendação de modelo; consulte a seção [Tópicos avançados](#2-advanced-topics). |
 
 
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`|
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
-| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | ||| | Corpo da Solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | ||| | Corpo da Solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Livro,descrição do livro,autor=Richard Wright,editora=Harper Flamingo Canada,ano=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Livro,,autor=Nick Bantock,editora=Harpercollins,ano=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Livro,,autor=Timothy Findley, editora=HarperFlamingo Canada, ano=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Bestas encurraladas,Livro,descrição do livro,autor=Magnus Mills, editora=Arcade Publishing, ano=1998</pre> |
 
 
 **Resposta**:
@@ -1148,7 +1150,7 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
-| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (_) são permitidos. <br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do usuário</td><td>Sim</td><td>[A-z], [a-z], [0-9], [_] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 255 </td><td>Identificador exclusivo de um usuário.</td></tr><tr><td>Id do Item</td><td>Sim</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 50</td><td>Identificador exclusivo de um item.</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo 2013/06/20T10:00:00)</td><td>Hora dos dados.</td></tr><tr><td>Evento</td><td>Não; caso seja fornecido também precisará da data</td><td>Um dos seguintes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (_).<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do usuário</td><td>Sim</td><td>[A-z], [a-z], [0-9], [_] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 255 </td><td>Identificador exclusivo de um usuário.</td></tr><tr><td>Id do Item</td><td>Sim</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 50</td><td>Identificador exclusivo de um item.</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo 2013/06/20T10:00:00)</td><td>Hora dos dados.</td></tr><tr><td>Evento</td><td>Não; caso seja fornecido também precisará da data</td><td>Um dos seguintes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -1189,6 +1191,7 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`|
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
@@ -1736,6 +1739,7 @@ A tabela a seguir descreve os parâmetros de compilação para uma compilação 
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"` (Se estiver enviando Corpo da Solicitação)|
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
@@ -1809,6 +1813,7 @@ XML de OData
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"` (Se estiver enviando Corpo da Solicitação)|
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
@@ -2861,4 +2866,4 @@ Código de status HTTP: 200
 Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br> Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br> Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br> © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

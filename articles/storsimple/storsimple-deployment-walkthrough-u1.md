@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/08/2015"
+   ms.date="09/17/2015"
    ms.author="alkohli" />
 
 # Implantar o dispositivo StorSimple no local (Atualização 1)
@@ -202,7 +202,7 @@ As etapas a seguir são executadas no host do Windows Server.
 
 > - Para obter instruções de instalação e configuração do MPIO e iSCSI no host do Windows Server, vá para [Configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md). Elas também incluirão as etapas para montar, inicializar e formatar volumes StorSimple.
 
-> - Para obter instruções de instalação e configuração do MPIO e iSCSI em um host do Linux, vá para [Configurar o MPIO para seu host do Linux do StorSimple](storsimple-configure-mpio-on-linux.md)
+> - Para obter instruções de instalação e configuração do MPIO e iSCSI em um host do Linux, vá para [Configurar o MPIO para seu host do Linux StorSimple](storsimple-configure-mpio-linux.md).
 
 Se você decidir não configurar o MPIO, execute as etapas a seguir para montar, inicializar e formatar os volumes StorSimple em um host do Windows Server.
 
@@ -241,7 +241,7 @@ Para se conectar ao Windows PowerShell para StorSimple, você precisa usar um so
 Atualizar seu dispositivo pode demorar várias horas. Execute as etapas a seguir para verificar e aplicar atualizações em seu dispositivo.
 <!-- > can take 1-4 hours-->
 
-<!-- > [AZURE.NOTE] Se você tiver um gateway configurado em uma interface de rede que não seja Data 0, você precisará desabilitar as interfaces de rede Data 2 e Data 3 antes de instalar a atualização. Vá para **Dispositivos > Configurar** e desabilite as interfaces Data 2 e Data 3. Você deve reabilitar essas interfaces depois que o dispositivo for atualizado.-->
+<!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### Para atualizar seu dispositivo
 
@@ -273,7 +273,7 @@ Execute as seguintes etapas no Portal de Gerenciamento para criar um backup manu
 
 Multipath I/O (MPIO) é um recurso opcional e não é instalado no Windows Server por padrão. Ele deve ser instalado como um recurso por meio do Gerenciador de Servidores. Para obter instruções de instalação de MPIO, vá para [Configurar MPIO para o seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
-Para obter instruções de instalação do MPIO para um dispositivo do StorSimple conectado a um host do Linux, vá para [Configurar o MPIO para seu host do Linux](storsimple-configure-mpio-on-linux.md).
+Para obter instruções de instalação do MPIO para um dispositivo StorSimple conectado a um host do Linux, vá para [Configurar o MPIO para seu host do Linux](storsimple-configure-mpio-linux.md).
 
 
 > [AZURE.NOTE]Não há suporte para MPIO em um dispositivo virtual StorSimple.
@@ -287,4 +287,4 @@ Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 Use o [Serviço StorSimple Manager](storsimple-manager-service-administration.md) para gerenciar o seu dispositivo StorSimple.
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

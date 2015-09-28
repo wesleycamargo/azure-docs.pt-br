@@ -27,7 +27,7 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 
 ## Configurações com suporte ##
 
-- **Quais são os limites de serviço?** Você pode aprender sobre as configurações padrão e os limites de serviço do RemoteApp do Azure em [Assinatura do Azure e limite de serviços, cotas e restrições](.\azure-subscription-service-limits.md). Avise-nos se você tiver mais dúvidas.
+- **Quais são os limites de serviço?** Você pode aprender sobre as configurações padrão e os limites de serviço do RemoteApp do Azure em [Assinatura do Azure e limite de serviços, cotas e restrições](azure-subscription-service-limits.md). Avise-nos se você tiver mais dúvidas.
 - **Quantos usuários é preciso ter?** Há um mínimo de 20 usuários. Vou repetir para que seja totalmente claro: o MÍNIMO é 20. Você será cobrado por 20. 
 - **Há suporte para aplicativos personalizados da linha de negócios (LOB)?** Sim. Para usar um aplicativo personalizado no RemoteApp do Azure, crie uma [imagem personalizada de modelo](remoteapp-create-custom-image.md) e, em seguida, carregue-a para a coleção do RemoteApp.
 - **Meu aplicativo de LOB personalizado funcionará no RemoteApp do Azure?** A melhor maneira de avaliar isso é testando-o. Examine os [requisitos de compatibilidade do aplicativo](http://www.microsoft.com/download/details.aspx?id=18704) e verifique o [Centro de compatibilidade de área de trabalho remota](http://www.rdcompatibility.com/compatibility/default.aspx).
@@ -82,4 +82,4 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

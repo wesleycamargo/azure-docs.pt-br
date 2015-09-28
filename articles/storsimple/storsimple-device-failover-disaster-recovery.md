@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Failover e recuperação de desastre do StorSimple | Microsoft Azure"
-	description="Saiba como fazer o failover do dispositivo StorSimple para si mesmo, para outro dispositivo físico ou para um dispositivo virtual."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="adinah"
-	editor=""/>
+   description="Saiba como fazer o failover do dispositivo StorSimple para si mesmo, para outro dispositivo físico ou para um dispositivo virtual."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="alkohli" />
 
 # Failover e recuperação de desastres para o seu dispositivo StorSimple
 
@@ -129,11 +129,16 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 	
 	b. Vá para a página **Contêineres de Volume**. Agora devem estar listados todos os contêineres de volume, juntamente com os volumes do antigo dispositivo.
 
+![Vídeo disponível](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo que demonstra como é possível restaurar um dispositivo físico que passou por failover em um dispositivo virtual na nuvem, clique [aqui](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+
 ## BCDR (recuperação de desastre de continuidade de negócios)
 
 Um cenário de BCDR (recuperação de desastre de continuidade de negócios) ocorre quando todo o datacenter do Azure para de funcionar. Isso pode afetar o serviço StorSimple Manager e os dispositivos StorSimple associados.
 
 Se houver dispositivos StorSimple que foram registrados antes da ocorrência de um desastre, talvez eles precisem passar por uma redefinição de fábrica. Após o desastre, o dispositivo StorSimple será mostrado como offline. O dispositivo StorSimple deve ser excluído do portal, e uma redefinição de fábrica deve ser feita, seguida de um novo registro.
+
 
 ## Próximas etapas
 
@@ -142,7 +147,7 @@ Depois de realizar o failover, talvez você precise:
 - [Desativar o dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Excluir seu dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-Para obter informações sobre como gerenciar seu dispositivo usando o serviço StorSimple Manager, acesse [Use o serviço StorSimple Manager para administrar o seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

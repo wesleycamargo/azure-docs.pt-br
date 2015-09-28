@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/10/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -41,8 +41,8 @@ O objetivo principal da V12 de Banco de dados SQL era melhorar a compatibilidade
 
 
 - [Assemblies do Common Language Runtime (CLR)](http://msdn.microsoft.com/library/ms189524.aspx)
-- [Funções de Janela](https://msdn.microsoft.com/library/bb934097.aspx), com [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
-- [Índices XML](https://msdn.microsoft.com/library/bb934097.aspx) e [índices XML seletivos](http://msdn.microsoft.com/library/jj670104.aspx)
+- [Funções de Janela](http://msdn.microsoft.com/library/bb934097.aspx), com [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Índices XML](http://msdn.microsoft.com/library/bb934097.aspx) e [índices XML seletivos](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Controle de alterações](http://msdn.microsoft.com/library/bb933875.aspx)
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
 - [Pesquisa de texto completo](http://msdn.microsoft.com/library/ms142571.aspx)
@@ -59,7 +59,19 @@ Na V12, aumentamos as unidades de taxa de transferência de banco de dados (DTUs
 
 - Suporte para memória [índices columnstore](http://msdn.microsoft.com/library/gg492153.aspx).
 - [Particionamento da tabela pelas linhas](http://msdn.microsoft.com/library/ms187802.aspx) com aprimoramentos relacionados [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
-- A disponibilidade da Exibição de gerenciamento dinâmico [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) e dos Eventos estendidos[(XEvents)](https://msdn.microsoft.com/library/bb630282.aspx) para ajudar a monitorar e ajustar o desempenho.
+- A disponibilidade das exibições de gerenciamento dinâmico [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) para ajudar a monitorar e ajustar o desempenho.
+
+
+### Desempenho confiável
+
+
+Se o seu programa cliente se conecta ao Banco de Dados SQL V12 enquanto seu cliente é executado em uma máquina virtual do Azure (VM), abra os seguintes intervalos de porta na VM:
+
+- 11000-11999
+- 14000-14999
+
+
+Clique [aqui](sql-database-develop-direct-route-ports-adonet-v12.md) para obter detalhes sobre as portas para o Banco de Dados SQL V12. As portas são exigidas por aprimoramentos de desempenho no Banco de Dados SQL V12.
 
 
 ## Melhor suporte para fornecedores de SaaS na nuvem
@@ -83,6 +95,8 @@ A segurança é uma preocupação para qualquer pessoa que execute os seus negó
 - [Bancos de dados independentes](http://msdn.microsoft.com/library/azure/ff394108.aspx)
 - [Funções de aplicativo](http://msdn.microsoft.com/library/ms190998.aspx) gerenciado com GRANT, DENY, REVOKE
 - [Criptografia transparente de dados](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
+- [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
+ - Agora, o Banco de Dados SQL oferece suporte à autenticação do Active Directory do Azure, um mecanismo de conexão com o Banco de Dados SQL usando identidades no Active Directory do Azure (Azure AD). Com a autenticação do Active Directory do Azure, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em um único local.
 
 
 ## Maior continuidade dos negócios quando a recuperação for necessária
@@ -98,7 +112,7 @@ A V12 oferece objetivos de ponto de recuperação (RPOs) significativamente apri
 | Replicação geográfica ativa | • RPO < 5 minutos.<br/>• ERT < 1 hora. | • RPO < 5 segundos.<br/>• ERT < 30 segundos. |
 
 
-Consulte [Continuidade de negócios do banco de dados SQL](https://msdn.microsoft.com/library/azure/hh852669.aspx) para obter mais informações.
+Consulte [Continuidade de negócios do banco de dados SQL](http://msdn.microsoft.com/library/azure/hh852669.aspx) para obter mais informações.
 
 
 ## Mais motivos para atualizar agora
@@ -147,4 +161,4 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 
 [Termos de Uso Adicionais para Visualizações do Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

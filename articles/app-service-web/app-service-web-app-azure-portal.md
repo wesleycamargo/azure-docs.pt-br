@@ -8,17 +8,19 @@
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="09/15/2015"
 	ms.author="jaime-espinosa"/>
 
 # Referência para navegar no portal do Azure
 
 Os Sites da Web do Azure agora são chamados de [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Estamos atualizando toda a nossa documentação para refletir essa alteração de nome e fornecer instruções para o novo Portal do Azure. Até que esse processo seja concluído, você poderá usar este documento como um guia para trabalhar com Aplicativos Web no novo portal do Azure.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
  
 ## O futuro do portal antigo
 
@@ -40,7 +42,7 @@ A criação de novos aplicativos Web é muito fácil. A imagem a seguir mostra o
 
 No novo portal, você pode escolher entre os tipos mais comuns de aplicativos Web, incluindo aplicativos de galerias populares, como o WordPress. Para obter uma lista completa de aplicativos disponíveis, visite o [Azure Marketplace].
 
-Ao criar um aplicativo Web, você especifica a URL, o plano de Serviço de Aplicativo e o local no novo portal, como faria no portal antigo.
+Ao criar um aplicativo Web, você especifica a URL, o plano do Serviço de Aplicativo e o local no novo portal, como faria no portal antigo.
 
 ![](./media/app-service-web-app-azure-portal/CreateWebAppSettings.png)
 
@@ -68,7 +70,7 @@ Para definir configurações de aplicativo, clique em **Configurações do aplic
 
 ![](./media/app-service-web-app-azure-portal/AppSettingsPreview.png)
 
-Com exceção do nome da marca, alguns itens no portal foram renomeados ou agrupados de modo diferente para que seja mais fácil encontrá-los. Por exemplo, a seguir está uma captura de tela da página correspondente de configurações de aplicativo (**Configurar**) no portal antigo.
+Com exceção do nome da marca, alguns itens no portal foram renomeados ou agrupados de modo diferente para que seja mais fácil encontrá-los. Por exemplo, veja a seguir uma captura de tela da página correspondente de configurações de aplicativo (**Configurar**) no portal antigo.
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
@@ -86,4 +88,4 @@ Com exceção do nome da marca, alguns itens no portal foram renomeados ou agrup
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no novo portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

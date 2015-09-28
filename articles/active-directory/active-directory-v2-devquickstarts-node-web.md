@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicativo v2.0 | Microsoft Azure"
+	pageTitle="Aplicativo Web do Node.js do modelo de aplicativo v2.0 | Microsoft Azure"
 	description="Como criar um aplicativo Web do Node JS que conecte usuários com a conta pessoal da Microsoft e as contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="09/11/2015"
 	ms.author="brandwe"/>
 
 # Visualização do modelo de aplicativo v2.0: adicionar conexão a um aplicativo Web do nodeJS
@@ -417,4 +417,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Substituição de componentes de hardware do StorSimple | Microsoft Azure"
-	description="Descreve como substituir com segurança PCMs, bateria, módulos de controlador, controladores do EBOD, unidades de disco e chassis de um dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Descreve como substituir com segurança PCMs, bateria, módulos de controlador, controladores do EBOD, unidades de disco e chassis de um dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Substituição de componentes de hardware do StorSimple
 
@@ -142,4 +142,4 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 
 Examine todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -8,17 +8,19 @@
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 #<a name="howtomonitor"></a>Monitorar aplicativos Web no Serviço de Aplicativo do Azure
 
-[Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) oferecem funcionalidade de monitoramento para planos de Serviço de Aplicativo Padrão e Premium, por meio da página de gerenciamento Monitoramento. A página de gerenciamento Monitoramento fornece estatísticas de desempenho para um aplicativo Web, conforme descrito abaixo.
+[Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) oferecem funcionalidade de monitoramento para planos do Serviço de Aplicativo Padrão e Premium, por meio da página de gerenciamento Monitoramento. A página de gerenciamento Monitoramento fornece estatísticas de desempenho para um aplicativo Web, conforme descrito abaixo.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a name="websitemetrics"></a>Como: adicionar métricas de aplicativo Web
 
@@ -50,7 +52,7 @@ Para determinar a extensão do impacto de um aplicativo Web sobre cotas de uso d
 1. Abra a página de gerenciamento **Painel** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com).
 2. Na seção **visão geral de uso**, as cotas de uso para seu respectivo plano de [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) são exibidas, as quais são um subconjunto dos seguintes itens:
 	-	**Saída de dados**, **Tempo de CPU** e **Memória** - quando a cota é excedida, o Azure interrompe o aplicativo Web para o restante do intervalo de cota atual. O Azure iniciará o aplicativo Web no início do próximo intervalo da cota.
-	-	**Armazenamento do sistema de arquivos** - quando essa cota é atingida o armazenamento do sistema de arquivos permanece acessível para operações de leitura, mas todas as operações de gravação, incluindo aquelas requeridas para atividade normal do aplicativo Web, são bloqueadas. As operações de gravação serão retomadas quando você reduzir o uso de arquivo ou mover o aplicativo Web para um Plano de Serviço de Aplicativo com uma cota mais alta.
+	-	**Armazenamento do sistema de arquivos** - quando essa cota é atingida o armazenamento do sistema de arquivos permanece acessível para operações de leitura, mas todas as operações de gravação, incluindo aquelas requeridas para atividade normal do aplicativo Web, são bloqueadas. As operações de gravação serão retomadas quando você reduzir o uso de arquivo ou mover o aplicativo Web para um Plano do Serviço de Aplicativo com uma cota mais alta.
 	-	**Recursos vinculados** - cotas para quaisquer recursos vinculados do aplicativo Web, como banco de dados ou armazenamento, são exibidas aqui também.
 
 	Algumas cotas podem ser aplicadas por plano de hospedagem da web, enquanto outas podem ser aplicadas por site. Para informações detalhadas sobre cotas de uso para cada plano de hospedagem da web, consulte [Limites de sites](azure-subscription-service-limits.md#websiteslimits).
@@ -59,7 +61,7 @@ Para determinar a extensão do impacto de um aplicativo Web sobre cotas de uso d
 
 As cotas não são uma questão de desempenho ou custo, mas a maneira como o Azure regula o uso de recursos em um ambiente multilocatário evitando que os locatários usem em excesso os recursos compartilhados. Uma vez que exceder suas cotas significa tempo de inatividade ou funcionalidade reduzida para seu aplicativo Web, considere o seguinte se desejar manter o site operando quando as cotas estiverem prestes a serem atingidas:
 
-- Mova seus aplicativos Web para um Plano de Serviço de Aplicativo de nível mais alto, para tirar proveito de uma cota maior. Por exemplo, a única cota para os planos **Básico** e **Padrão** é o Armazenamento de sistema de arquivos.
+- Mova seus aplicativos Web para um Plano do Serviço de Aplicativo de nível mais alto, para tirar proveito de uma cota maior. Por exemplo, a única cota para os planos **Básico** e **Padrão** é o Armazenamento de sistema de arquivos.
 - Conforme o número de instâncias de um aplicativo Web aumenta, o mesmo ocorre com a probabilidade de exceder as cotas de recursos compartilhados. Se adequado, considere redimensionar instâncias adicionais de um aplicativo Web quando as cotas de recursos compartilhados estiverem sendo excedidas.
 
 ##<a name="howtoconfigdiagnostics"></a>Como: configurar o diagnóstico e baixar para um aplicativo Web
@@ -98,7 +100,7 @@ O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usand
 
 > [AZURE.NOTE]O log de aplicativo se baseia em informações de log geradas pelo seu aplicativo. O método usado para gerar informações de log, bem como o formato das informações, é específico para o idioma em que seu aplicativo é gravado. Para obter informações específicas de idioma sobre o uso do log de aplicativo, consulte os seguintes artigos:
 >
-> - **.NET** — [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
+> - **.NET** - [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 > - **Node.js** - [Como depurar um aplicativo Node.js nos Sites do Azure](web-sites-nodejs-debug.md).
 >
 > Log de aplicativo para o armazenamento de tabela ou blob só é suportado para aplicativos .NET.
@@ -152,7 +154,7 @@ Os arquivos de log podem ser baixados usando FTP, PowerShell do Azure ou a CLI d
 
 **FTP**
 
-1. Abra a página de gerenciamento **Painel** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com) e anote o site FTP listado em **Logs de Diagnóstico** e a conta listada em **Usuário da Implantação**. O site FTP é onde os arquivos de log estão localizados e a conta listada no Usuário de Implantação é usada para autenticar o site FTP.
+1. Abra a página de gerenciamento **Painel** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com) e anote o site de FTP listado em **Logs de Diagnóstico** e a conta listada em **Usuário da Implantação**. O site FTP é onde os arquivos de log estão localizados e a conta listada no Usuário de Implantação é usada para autenticar o site FTP.
 2. Se você ainda não tiver criado credenciais de implantação, a conta listada em **Usuário de implantação** é listada como **Não definida**. Nesse caso, você deve criar credenciais de implantação conforme descrito na seção Redefinir credenciais de implantação do painel, pois essas credenciais devem ser usadas para autenticar o site FTP onde os arquivos de log são armazenados. O Azure não oferece suporte à autenticação para este site FTP usando credenciais do Live ID.
 3. Considere o uso de um cliente FTP como [FileZilla][fzilla] para se conectar ao site FTP. Um cliente de FTP oferece maior facilidade de uso para especificar as credenciais e exibir pastas em um site FTP, que é normalmente possível com um navegador.
 4. Copie os arquivos de log do site FTP no computador local.
@@ -277,4 +279,4 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

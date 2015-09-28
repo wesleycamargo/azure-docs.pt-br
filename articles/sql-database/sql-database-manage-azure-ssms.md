@@ -13,13 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/11/2015" 
 	ms.author="jeffreyg"/>
 
 
 # Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio 
 
-Você pode usar o SQL Server Management Studio (SSMS) para administrar servidores lógicos e bancos de dados do Banco de Dados SQL do Azure. Este tópico o orienta em tarefas comuns com o SSMS. Você já deve ter um servidor lógico e o banco de dados criados no Banco de Dados SQL do Azure antes de começar. Para começar, leia [Criar o seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md) e, em seguida, volte.
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
+
+Você pode usar o SQL Server Management Studio (SSMS) para administrar servidores lógicos e bancos de dados do Banco de Dados SQL do Azure. Este tópico o orienta em tarefas comuns com o SSMS. Você já deve ter um servidor lógico e o banco de dados criados no Banco de Dados SQL do Azure antes de começar. Para começar, leia [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md) e, em seguida, volte.
 
 É recomendável que você use a versão mais recente do SSMS sempre que trabalhar com o Banco de Dados SQL do Azure. Visite [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtê-lo.
 
@@ -186,4 +192,4 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
  
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

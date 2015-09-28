@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/17/15-->
+
 
 #### Para criar um novo serviço
 
@@ -20,6 +22,10 @@
 
   Você será direcionado para a página inicial **Serviço**. A criação do serviço levará alguns minutos. Depois que o serviço foi criado com êxito, você será notificado adequadamente e o status do serviço será alterado para **Ativo**.
  
-   ![criação de serviço](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+   ![Criação de serviço](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=August15_HO8-->
+![Vídeo disponível](./media/storsimple-create-new-service/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo que demonstra como criar um novo serviço do StorSimple Manager, clique [aqui](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+
+<!---HONumber=Sept15_HO3-->

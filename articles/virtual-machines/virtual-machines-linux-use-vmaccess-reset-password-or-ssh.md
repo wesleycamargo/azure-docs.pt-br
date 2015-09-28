@@ -3,7 +3,7 @@
 	description="Como usar o Portal de Visualização do Azure ou a extensão VMAccess para Linux para redefinir senhas e chaves de SSH para redefinir as configurações do SSH e excluir os usuários do Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Como redefinir uma senha ou SSH para máquinas virtuais Linux #
 
@@ -263,4 +263,4 @@ Para exibir o status da extensão VMAccess, execute este comando.
 [Recursos e extensões de VM do Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/07/2015"
+    ms.date="09/16/2015"
     ms.author="robb"/>
 
 # Melhorar a disponibilidade usando Pares da Região do Azure
@@ -31,7 +31,7 @@ Figura 1 – Diagrama do par da região do Azure
 
 
 
-| painel Geografia do app&#39;s selecionado | Regiões emparelhadas | |
+| painel Geografia do app's selecionado | Regiões emparelhadas | |
 | :-------------| :-------------   | :-------------   |
 | América do Norte | Centro-Norte dos EUA | Centro-Sul dos Estados Unidos |
 | América do Norte | Leste dos EUA | Oeste dos EUA |
@@ -84,4 +84,4 @@ Como mencionado na Figura 2.
 
 ![9Laranja](./media/best-practices-availability-paired-regions/9Orange.png) **Residência dados** – Uma região reside na mesma região geográfica que seu par (com exceção do Sul do Brasil) para atender aos requisitos de residência de dados para fins de jurisdição de vigência fiscal e legal.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicativo v2.0 | Microsoft Azure"
+	pageTitle="Visão geral do modelo de aplicativo v2.0 | Microsoft Azure"
 	description="Uma introdução à criação de aplicativos com conexão à conta da Microsoft e ao Active Directory do Azure."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Visualização do modelo de aplicativo v2.0: conectar usuários à conta da Microsoft e ao AD do Azure em um único aplicativo
@@ -57,4 +57,4 @@ Estes links serão úteis na exploração em profundidade da plataforma:
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

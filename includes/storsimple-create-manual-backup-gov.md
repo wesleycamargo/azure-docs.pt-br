@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para criar um backup manual
 
@@ -21,4 +22,4 @@
 
   O backup deve aparecer na lista de conjuntos de backup que é exibida no catálogo.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

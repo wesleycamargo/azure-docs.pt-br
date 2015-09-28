@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="09/14/2015"
    ms.author="telmos" />
 
 # Visão geral da Rede Virtual
@@ -85,7 +85,7 @@ Dispositivos virtuais dependem de [encaminhamento IP e rotas definidas pelo usu�
 
 ## Próximas etapas
 
-- [Criar uma VNet](../virtual-networks-create-a-vnet.md) e sub-redes.
+- [Criar uma VNet](../virtual-networks-create-vnet-arm-pportal.md) e sub-redes.
 - [Criar uma VM em uma VNet](../virtual-machines-windows-tutorial.md).
 - Saiba mais sobre [NSGs](../virtual-networks-nsg.md).
 - Saiba mais sobre [balanceadores de carga](../load-balancer-overview.md).
@@ -93,4 +93,4 @@ Dispositivos virtuais dependem de [encaminhamento IP e rotas definidas pelo usu�
 - [Reservar um endereço IP público](../virtual-networks-reserved-public-ip.md).
 - Saiba mais sobre [encaminhamento IP e rotas definidas pelo usuário](virtual-networks-udr-overview.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

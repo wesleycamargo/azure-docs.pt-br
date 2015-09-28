@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter="dev-center-name"
    authors="curtand"
-   manager="terrylan"
+   manager="msStevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="05/28/2015"
+   ms.date="09/10/2015"
    ms.author="curtand"/>
 
 # Atalhos de teclado do portal do Azure
@@ -39,7 +39,7 @@
 | L | Última folha aberta |
 | - | Minimizar folha ou restaurar de maximizada |
 | + | Maximizar a folha ou restaurar de minimizada |
-| \# | Fechar folha atual |
+| # | Fechar folha atual |
 | ¦ | Fechar todas as folhas |
 | , | Mover o foco para a barra de comandos |
 |. | Mover o foco para a barra de navegação |
@@ -49,6 +49,5 @@
 ## Próximas etapas
 
 Conheça melhor o Portal do Azure: http://azure.microsoft.com.
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 # Farm do SharePoint Server
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 Com o Farm do SharePoint Server, o Portal de visualização do Microsoft Azure cria um farm pré-configurado do SharePoint Server 2013. Isso pode economizar muito tempo quando necessitar de um farm SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento e teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
 
@@ -33,9 +35,9 @@ O farm do SharePoint de alta disponibilidade consiste em nove máquinas virtuais
 
 É possível usar esta configuração de farm para testar cargas de clientes maiores, alta disponibilidade do site externo do SharePoint e o SQL Server AlwaysOn para um farm do SharePoint. Também é possível usar esta configuração para a implementação do aplicativo SharePoint em um ambiente de alta disponibilidade.
 
-Para os detalhes de configuração de ambos os farms, consulte [Detalhes de configuração de farm no SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md).
+Para obter os detalhes de configuração de ambos os farms, consulte [Detalhes de configuração de farm no SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
-> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para obter mais informações, veja [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para saber mais, consulte [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Percorrendo a configuração
 
@@ -85,7 +87,7 @@ Observações:
 
 ## Gerenciador de Recursos do Azure
 
-O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria máquinas virtuais com o modelo de implantação clássico. Para criar farms do SharePoint Server 2013 com o modelo de implantação do Gerenciador de Recursos do Azure, veja [Implantar farms do SharePoint com modelos do Gerenciador de Recursos do Azure](virtual-machines-workload-template-sharepoint.md).
+O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria máquinas virtuais com o modelo de implantação clássico. Para criar farms do SharePoint Server 2013 com o modelo de implantação do Gerenciador de Recursos do Azure, consulte [Implantar farms do SharePoint com modelos do Gerenciador de Recursos do Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Recursos adicionais
 
@@ -97,4 +99,4 @@ O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria m�
 
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

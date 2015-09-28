@@ -8,25 +8,27 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure #
 
 Para aumentar o desempenho e a produtividade de seus aplicativos Web no Microsoft Azure, você pode usar o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) para dimensionar seu plano de [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) do modo **Gratuito** para **Compartilhado**, **Básico**, **Padrão** ou **Premium**.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 A expansão de Sites do Azure envolve duas ações relacionadas: mudar seu modo de plano do Serviço de Aplicativo para um nível mais alto de serviço e configurar determinados parâmetros depois de ter mudado para o nível mais alto de serviço. Os dois tópicos são abordados neste artigo. Níveis de serviço mais altos, como os modos **Padrão** e **Premium**, oferecem maior eficiência e flexibilidade para determinar como os recursos do Azure são usados.
 
-A alteração e a configuração dos modos são realizadas facilmente na guia Escala do portal de gerenciamento. Você pode expandir ou reduzir conforme necessário. Essas alterações terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos Web em seu plano de Serviço de Aplicativo. Não é necessário alterar seu código nem reimplantar seus aplicativos.
+A alteração e a configuração dos modos são realizadas facilmente na guia Escala do portal de gerenciamento. Você pode expandir ou reduzir conforme necessário. Essas alterações terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos Web em seu plano do Serviço de Aplicativo. Não é necessário alterar seu código nem reimplantar seus aplicativos.
 
-Para obter informações sobre planos de serviço de aplicativo, consulte [O que é um plano de Serviço de Aplicativo?](../web-sites-web-hosting-plan-overview.md) e [Visão geral aprofundada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obter informações sobre os preços e recursos de planos individuais de Serviço de Aplicativo, consulte [Detalhes de Preços de Serviços de Aplicativo](/pricing/details/web-sites/).
+Para obter informações sobre planos do serviço de aplicativo, consulte [O que é um plano do Serviço de Aplicativo?](../web-sites-web-hosting-plan-overview.md) e [Visão geral aprofundada de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](/pricing/details/web-sites/).
 
-> [AZURE.NOTE]Antes de alternar de um aplicativo Web do modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, primeiro você deve remover os limites de gastos em vigor para sua assinatura de Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE]Antes de alternar de um aplicativo Web do modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, primeiro você deve remover os limites de gastos em vigor para sua assinatura do Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
@@ -54,7 +56,7 @@ Para obter informações sobre planos de serviço de aplicativo, consulte [O que
 ## Dimensionando para o modo Standard ou Premium
 <!-- ================================= -->
 
-> [AZURE.NOTE]Antes de mudar um plano de Serviço de Aplicativo para o modo **Padrão** ou **Premium**, você deve remover os limites de gasto existentes para sua assinatura do Serviço de Aplicativo do Microsoft Azure. Caso contrário, seu aplicativo Web correrá o risco de se tornar indisponível se você atingir os limites antes do término do período de cobrança. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE]Antes de mudar um plano do Serviço de Aplicativo para o modo **Padrão** ou **Premium**, você deve remover os limites de gasto existentes para sua assinatura do Serviço de Aplicativo do Microsoft Azure. Caso contrário, seu aplicativo Web correrá o risco de se tornar indisponível se você atingir os limites antes do término do período de cobrança. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
 1. Para dimensionar para o modo **Padrão** ou **Premium**, execute as mesmas etapas iniciais executadas para dimensionar para **Compartilhado** ou **Básica** e, em seguida, escolha um modo **Padrão** ou **Premium** em **Escolha sua faixa de preço** e, depois clique em **Selecionar**. 
 	
@@ -68,7 +70,7 @@ Para obter informações sobre planos de serviço de aplicativo, consulte [O que
 	
 	![Modo de dimensionamento automático definido como Desempenho][Autoscale]
 	
-3. Em **Intervalo da Instância**, mova os dois controles deslizantes para definir o número mínimo e máximo de instâncias para dimensionar automaticamente para o plano de Serviço de Aplicativo. Para este tutorial, mova o controle deslizante máximo para **seis** instâncias.
+3. Em **Intervalo da Instância**, mova os dois controles deslizantes para definir o número mínimo e máximo de instâncias para dimensionar automaticamente para o plano do Serviço de Aplicativo. Para este tutorial, mova o controle deslizante máximo para **seis** instâncias.
 	
 4. Clique em **Salvar** na barra de comandos.
 	
@@ -105,7 +107,7 @@ Para obter informações sobre planos de serviço de aplicativo, consulte [O que
 
 <a name="ScalingSQLServer"></a>
 ##Dimensionando um Banco de Dados do SQL Server conectado ao seu aplicativo Web
-Se você tiver um ou mais Bancos de Dados SQL Server vinculados ao seu aplicativo Web (independentemente do modo de plano de Serviço de Aplicativo), você pode dimensionar com base em suas necessidades rapidamente.
+Se você tiver um ou mais Bancos de Dados SQL Server vinculados ao seu aplicativo Web (independentemente do modo de plano do Serviço de Aplicativo), você pode dimensionar com base em suas necessidades rapidamente.
 
 1. Para dimensionar um dos bancos de dados vinculados, abra a folha de seu aplicativo Web no [Portal do Azure][portal]. Na lista suspensa recolhível **Essentials**, clique no link **Grupo de Recursos**. Em seguida, na parte de **Resumo** da folha de grupo de recursos, clique em um dos bancos de dados vinculados.
 
@@ -130,8 +132,8 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 
 ### Suporte ao depurador ###
 
-- Suporte ao depurador está disponível para os modos **Gratuito**, **Compartilhado** e **Básico** em uma conexão simultânea por plano de Serviço de Aplicativo.
-- O suporte ao depurador está disponível para os modos **Padrão** e **Premium** em cinco conexões simultâneas por plano de Serviço de Aplicativo.
+- Suporte ao depurador está disponível para os modos **Gratuito**, **Compartilhado** e **Básico** em uma conexão simultânea por plano do Serviço de Aplicativo.
+- O suporte ao depurador está disponível para os modos **Padrão** e **Premium** em cinco conexões simultâneas por plano do Serviço de Aplicativo.
 
 <a name="OtherFeatures"></a>
 ## Outros recursos
@@ -199,4 +201,4 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/23/2015"
 	ms.author="josephd"/>
 
 # Ambiente de teste Configuração de Base com o Gerenciador de Recursos do Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo de implantação do Gerenciador de Recursos. Você também pode criar esses recursos com o [modelo de implantação clássico](virtual-machines-base-configuration-test-environment.md).
 
 Este artigo apresenta instruções passo a passo para criar o ambiente de teste Configuração de Base em uma Rede Virtual do Microsoft Azure usando máquinas virtuais criadas no Gerenciador de Recursos.
 
@@ -52,14 +54,9 @@ Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter um
 
 > [AZURE.NOTE]As máquinas virtuais no Azure incorrem em um custo monetário contínuo quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para obter mais informações sobre os custos da execução de máquinas virtuais do Azure, consulte [Detalhes de preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Calculadora de preços do Azure](http://azure.microsoft.com/pricing/calculator/). Para reduzir os custos, consulte [Minimizando os custos de máquinas de virtuais do ambiente de teste no Azure](#costs).
 
-[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
-
-- [Ambiente de teste Configuração de Base](virtual-machines-base-configuration-test-environment.md)
-
-
 ## Fase 1: Criar a rede virtual
 
-Em primeiro lugar, se necessário, use as instruções em [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para instalar o Azure PowerShell no computador local. Abra um prompt do Azure PowerShell.
+Em primeiro lugar, se for necessário, use as instruções em [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para instalar o Azure PowerShell no computador local. Abra um prompt do Azure PowerShell.
 
 Em seguida, selecione a assinatura correta do Azure com estes comandos. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelo nome correto.
 
@@ -96,7 +93,7 @@ Para testar se um nome de conta de armazenamento escolhido é globalmente exclus
 	Switch-AzureMode AzureServiceManagement
 	Test-AzureName -Storage <Proposed storage account name>
 
-Se o comando Test-AzureName exibir **False**, o nome proposto é exclusivo. Após encontrar um nome exclusivo, retorne o PowerShell do Azure de volta ao modo do Gerenciador de Recursos usando este comando.
+Se o comando Test-AzureName exibir **False**, o nome proposto será exclusivo. Após encontrar um nome exclusivo, retorne o PowerShell do Azure de volta ao modo do Gerenciador de Recursos usando este comando.
 
 	Switch-AzureMode AzureResourceManager 
 
@@ -149,7 +146,7 @@ Em seguida, conecte-se à máquina virtual DC1.
 3.	Quando solicitado, abra o arquivo DC1.rdp baixado.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC1\**[Nome da conta do administrador local]
+- Nome: **DC1\**[nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -178,7 +175,7 @@ Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **CORP\**[Nome da conta do administrador local]
+- Nome: **CORP\**[nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -291,7 +288,7 @@ Verifique se que você pode acessar recursos Web e de compartilhamento de arquiv
 4.	Na tela Inicial, clique em **Internet Explorer** e em **OK**.
 5.	Na barra de endereços, digite ****http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1.
 6.	Na barra de tarefas da área de trabalho, clique no ícone do Gerenciador de Arquivos.
-7.	Na barra de endereços, digite **\\\\app1\\Files** e pressione ENTER.
+7.	Na barra de endereços, digite **\\\app1\\Files** e pressione ENTER.
 8.	Você deverá ver uma janela de pasta com o conteúdo da pasta compartilhada Arquivos.
 9.	Na janela de pasta compartilhada **Arquivos**, clique duas vezes no arquivo **Example.txt**. Você deverá ver o conteúdo do arquivo Example.txt.
 10.	Feche as janelas de **example.txt - Bloco de Notas** e da pasta compartilhada **Arquivos**.
@@ -336,4 +333,4 @@ Para iniciar as máquinas virtuais na ordem com o Azure PowerShell, preencha o n
 	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO3-->

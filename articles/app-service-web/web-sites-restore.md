@@ -8,21 +8,23 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Restaurar um aplicativo Web no Serviço de Aplicativo do Azure
 
 Este artigo mostra como restaurar um aplicativo Web do qual você fez backup anteriormente usando o recurso de [Backup de Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Para obter mais informações, consulte [Backups de Aplicativos Web do Serviço de Aplicativo](web-sites-backup.md).
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 O recurso de restauração de aplicativos Web permite restaurar seu aplicativo Web sob demanda para um estado anterior, ou então criar um novo aplicativo Web com base em um dos backups do seu aplicativo Web original. A criação de um novo aplicativo Web que é executado em paralelo à versão mais recente pode ser útil para testes de A/B.
 
-O recurso Restauração de Aplicativos Web, disponível na folha **Backups** do [portal de visualização do Azure](http://portal.azure.com), está disponível somente nos modos Standard e Premium. Para obter informações sobre como escalar seu aplicativo usando o modo Standard ou Premium, consulte [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). Observe que o modo Premium permite a realização de um número maior de backups diários do que o modo Padrão.
+O recurso Restauração de Aplicativos Web, disponível na folha **Backups** do [portal de visualização do Azure](http://portal.azure.com), está disponível somente nos modos Standard e Premium. Para saber mais sobre como dimensionar seu aplicativo usando o modo Standard ou Premium, consulte [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). Observe que o modo Premium permite a realização de um número maior de backups diários do que o modo Padrão.
 
 <a name="PreviousBackup"></a>
 ## Para restaurar um aplicativo Web por meio de um backup feito anteriormente
@@ -96,4 +98,4 @@ A folha de detalhes exibirá as informações disponíveis relacionadas à opera
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

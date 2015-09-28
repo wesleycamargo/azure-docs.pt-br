@@ -3,11 +3,11 @@
 Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de comando de qualquer computador com Windows, Linux ou OSX. Para criar uma rede virtual usando a CLI do Azure, siga as etapas abaixo.
 
 1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que seleciona sua conta e assinatura do Azure.
-2. Execute o comando **azure network vnet create** para criar uma rede virtual e uma sub-rede, conforme mostrado abaixo. Observe a saída do comando da CLI. A lista exibida após a saída explicar os parâmetros usados.
+2. Execute o comando **azure network vnet create** para criar uma rede virtual e uma sub-rede, conforme mostrado abaixo. A lista exibida após a saída explicar os parâmetros usados.
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
-	Este é o resultado esperado para o comando descrito acima:
+	Saída esperada:
 
 			info:    Executing command network vnet create
 			+ Looking up network configuration
@@ -23,7 +23,7 @@ Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de 
 	- **-r (ou --subnet-cidr)**. Máscara de rede no formato CIDR para a sub-rede. Para o nosso cenário, *24*.
 	- **-l (ou --location)**. Região do Azure em que a rede virtual será criada. Para o nosso cenário, *Central US*.
 
-3. Execute o comando **azure network vnet subnet create** para criar uma sub-rede, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados.
+3. Execute o comando **azure network vnet subnet create** para criar uma sub-rede, como mostrado abaixo. A lista exibida após a saída explicar os parâmetros usados.
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
@@ -65,4 +65,4 @@ Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de 
 			data:
 			info:    network vnet show command OK
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

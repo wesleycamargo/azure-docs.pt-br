@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Configurar e registrar o dispositivo"
-   description="Explica como usar o Windows PowerShell para StorSimple para configurar e registrar seu dispositivo executando a Atualização 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="alkohli" />
+<!--author=alkohli last changed: 9/17/15-->
 
 
 ### Para configurar e registrar o dispositivo
@@ -78,7 +63,9 @@
         Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online. 
       
         Se o dispositivo ainda estiver offline após alguns minutos, você precisará verificar se a rede de firewall foi configurada como o descrito em [requisitos de rede para o dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Se você não tiver suporte a HTTP 1.1, verifique a porta 9354 para garantir que ela está aberta para comunicação de saída. Essa porta é usada para comunicação entre o serviço StorSimple Manager e seu dispositivo StorSimple.
+
+		If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
        
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

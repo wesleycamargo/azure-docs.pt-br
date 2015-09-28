@@ -3,7 +3,7 @@
 	description="Saiba como capturar uma imagem de uma máquina virtual do Azure que executa Windows Server."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,13 +15,13 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/16/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Como capturar uma máquina virtual Windows para usar como imagem#
 
 Esse artigo mostra como capturar uma máquina virtual do Azure executando Windows para que você a use como uma imagem para criar outras máquinas virtuais. Essa imagem inclui o disco do sistema operacional e discos de dados anexados à máquina virtual. Ele não inclui as configurações da rede, então você precisará configurá-la quando criar as outras máquinas virtuais que usam o modelo.
 
-O Azure armazena a imagem em **Minhas Imagens**. Esse é o mesmo local em que as imagens que você carregou são armazenadas. Para obter detalhes sobre imagens, consulte [Sobre imagens de máquinas virtuais no Azure][].
+O Azure armazena a imagem em **Minhas Imagens**. Esse é o mesmo local em que as imagens que você carregou são armazenadas. Para obter detalhes sobre imagens, consulte [Sobre as imagens de máquinas virtuais](virtual-machines-images.md).
 
 ##Antes de começar##
 
@@ -71,8 +71,6 @@ Essas etapas assumem que você já criou uma máquina virtual do Azure e já con
 ##Próximas etapas##
 A imagem está pronta para ser usada para criar máquinas virtuais. Para fazer isso, crie uma máquina virtual usando o item de menu **Da Galeria** e selecionando a imagem que você acabou de criar. Para obter instruções, consulte [Criar uma máquina virtual personalizada executando Windows][].
 
-
-[Sobre imagens de máquinas virtuais no Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Criar uma máquina virtual personalizada executando Windows]: virtual-machines-windows-create-custom.md
 [Como anexar um disco de dados à máquina virtual]: storage-windows-attach-disk.md
 [Como entrar em uma máquina virtual que executa o Windows Server]: virtual-machines-log-on-windows-server.md
@@ -85,4 +83,4 @@ A imagem está pronta para ser usada para criar máquinas virtuais. Para fazer i
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

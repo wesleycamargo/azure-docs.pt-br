@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/27/2015"
+	ms.topic="get-started-article" 
+	ms.date="09/10/2015"
 	ms.author="spelluru"/>
 
 # Crie seu primeiro pipeline usando o Azure Data Factory
@@ -64,12 +64,10 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 
 1. Inicie o bloco de notas, cole o texto a seguir e salve-o como **partitionweblogs.hql** na pasta C:\\adfgettingstarted no disco rígido. Esse script de Hive cria duas tabelas externas: **WebLogsRaw** e **WebLogsPartitioned**.
 
-	> [AZURE.IMPORTANT]Substitua **storageaccountname** na última linha com o nome da sua conta de armazenamento.
-
 		set hive.exec.dynamic.partition.mode=nonstrict;
-
+		
 		DROP TABLE IF EXISTS WebLogsRaw; 
-		CREATE EXTERNAL TABLE WebLogsRaw (
+		CREATE TABLE WebLogsRaw (
 		  date  date,
 		  time  string,
 		  ssitename string,
@@ -91,8 +89,9 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 		)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 		LINES TERMINATED BY '\n' 
-		LOCATION '/HdiSamples/WebsiteLogSampleData/SampleLog/'
 		tblproperties ("skip.header.line.count"="2");
+		
+		LOAD DATA INPATH '/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log' OVERWRITE INTO TABLE WebLogsRaw;
 		
 		DROP TABLE IF EXISTS WebLogsPartitioned ; 
 		create external table WebLogsPartitioned (  
@@ -119,7 +118,7 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
 		LOCATION '${hiveconf:partitionedtable}';
-
+		
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
 		  date,
@@ -143,8 +142,7 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-
-	 
+	
  
 2. Como preparar o armazenamento do Azure para o tutorial:
 	1. Baixe a [versão mais recente do **AzCopy**](http://aka.ms/downloadazcopy) ou a [última versão de visualização](http://aka.ms/downloadazcopypr). Consulte o artigo [Como usar o AzCopy](../storage/storage-use-azcopy.md) para obter instruções sobre o uso do utilitário.
@@ -153,7 +151,7 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 	
 
-	3. Navegue até a pasta c:\\adfgettingstarted e execute o seguinte comando para carregar o arquivo .HQL do Hive na conta de armazenamento. Substitua **< StorageAccountName >** pelo nome da sua conta de armazenamento, e **<Storage Key>** pela chave de conta de armazenamento.
+	3. Navegue até a pasta c:\\adfgettingstarted e execute o seguinte comando para carregar o arquivo .HQL do Hive na conta de armazenamento. Substitua ** StorageAccountName** pelo nome da sua conta de armazenamento, e **Storage Key** pela chave de armazenamento da conta.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 	4. Depois que o arquivo for carregado com êxito, você verá a seguinte saída de AzCopy.
@@ -174,6 +172,6 @@ Faça o seguinte:
 - Clique no link [Usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) na parte superior para executar o tutorial usando o Visual Studio. 
 
 ## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Interações RESTful com recursos do Banco de Dados de Documentos | Microsoft Azure" 
-	description="Saiba como executar as interações RESTful com os recursos do Banco de Dados de Documentos do Microsoft Azure usando verbos HTTP." 
+	description="Analise os métodos HTTP neste tutorial de serviços Web RESTful. Saiba como executar as interações RESTful com os recursos do Banco de Dados de Documentos do Microsoft Azure usando verbos HTTP."
+	keywords="http methods, restful services tutorial, restful web services tutorial, http verbs, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="h0n" 
 	manager="jhubbard" 
@@ -16,11 +17,11 @@
 	ms.date="08/03/2015" 
 	ms.author="h0n"/>
 
-# Interações RESTful com recursos do Banco de Dados de Documentos 
+# Tutorial de serviços Web RESTful: interações de RESTful com recursos do Banco de Dados de Documentos 
 
 O Banco de Dados de Documentos dá suporte ao uso de métodos HTTP para criar, ler, substituir, obter e excluir recursos do Banco de Dados de Documentos.
 
-Após ler este artigo, você poderá responder as perguntas a seguir:
+Ao ler este tutorial de serviços Web RESTful, você poderá responder às seguintes perguntas:
 
 - Como funcionam os métodos HTTP padrão com recursos do Banco de Dados de Documentos?
 - Como criar um novo recurso usando POST?
@@ -39,13 +40,13 @@ Os recursos do Banco de Dados de Documentos dão suporte aos seguintes verbos HT
 
 >[AZURE.NOTE]No futuro, pretendemos adicionar suporte para atualizações seletivas via PATCH.
 
-Conforme ilustrado no diagrama abaixo, POST só pode ser executado em um recurso feed; PUT e DELETE só podem ser executados em um recurso Item; GET e HEAD podem ser executados em recursos feed ou item.
+Conforme ilustrado no diagrama de verbos HTTP, POST só pode ser emitido em um recurso feed; PUT e DELETE só podem ser emitidos em um recurso item; GET e HEAD podem ser emitidos em recursos feed ou item.
 
-![][1]
+![Visão geral dos verbos HTTP neste tutorial de serviços RESTful][1]
 
 **Modelo de interação usando os métodos HTTP padrão**
 
-## Criar um novo recurso usando POST 
+## Criar um novo recurso usando o método POST HTTP 
 Para entender melhor o modelo de interação, vamos considerar o caso de criar um novo recurso (também conhecido como INSERT). Para criar um novo recurso, você precisa emitir uma solicitação HTTP POST com o corpo da solicitação contendo a representação do recurso em relação ao URI do feed do contêiner ao qual o recurso pertence. A única propriedade exigida para a solicitação é a ID do recurso.
 
 Por exemplo, para criar um novo banco de dados, você lança (POST) um recurso de banco de dados (definindo a propriedade id com um nome exclusivo) em /dbs. Da mesma forma, para criar uma nova coleção, POSTE um recurso de coleção em */dbs/\_rid/colls/* e assim por diante. A resposta contém o recurso totalmente confirmado com as propriedades geradas pelo sistema, incluindo o link *\_self* do recurso que você pode usar para navegar para outros recursos. Como exemplo do modelo de interação baseado no HTTP simples, um cliente pode emitir uma solicitação HTTP para criar um novo banco de dados dentro de uma conta.
@@ -74,7 +75,7 @@ The DocumentDB service responds with a successful response and a status code ind
 	}
 ```
   
-## Registrar um procedimento armazenado usando POST
+## Registrar um procedimento armazenado usando o método POST HTTP
 Como outro exemplo de criação e execução de um recurso, considere um simples procedimento “HelloWorld" armazenado gravado inteiramente em JavaScript.
 
 ```
@@ -125,7 +126,7 @@ O serviço do Banco de Dados de Documentos responde com uma resposta de êxito e
 	}
 ```
 
-## Executar um procedimento armazenado usando POST
+## Executar um procedimento armazenado usando o método POST HTTP
 Por fim, para executar o procedimento armazenado no exemplo acima, é necessário executar um POST no URI do recurso do procedimento armazenado (/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA==/) conforme ilustrado abaixo.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA== HTTP/1.1
@@ -136,7 +137,7 @@ O serviço do Banco de Dados de Documentos dá a resposta a seguir.
 	
 	"Hello World"
 
-Observe que o verbo POST é usado para criação de um novo recurso, para executar um procedimento armazenado e para emitir uma consulta SQL. Para ilustrar a execução da consulta SQL, considere o seguinte.
+Observe que o verbo POST HTTP é usado para criação de um novo recurso, execução de um procedimento armazenado e emissão de uma consulta SQL. Para ilustrar a execução da consulta SQL, considere o seguinte.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/docs HTTP/1.1
 	...
@@ -162,7 +163,7 @@ O serviço responde com os resultados da consulta SQL.
 ```
 
 
-## Usando PUT, GET e DELETE
+## Usando verbos HTTP PUT, GET e DELETE
 Substituir ou ler uma quantidade de recursos para emitir verbos PUT (com um corpo de solicitação válido) e GET no link *\_self* do recurso, respectivamente. Do mesmo modo, excluir uma quantidade de recursos para emitir um verbo DELETE no link *\_self* do recurso. É válido destacar que a organização hierárquica de recursos no modelo de recursos do Banco de Dados de Documentos necessita de suporte para exclusões em cascata, em que a exclusão do recurso proprietário causa a exclusão dos recursos dependentes. Os recursos dependentes podem ser distribuídos em outros nós diferentes dos recursos proprietários e, desse modo, a exclusão pode ocorrer lentamente. Independentemente da mecânica da coleta de lixo, ao excluir um recurso, a cota é liberada instantaneamente e fica disponível para uso. Observe que a integridade referencial é preservada pelo sistema. Por exemplo, você não pode inserir uma coleção em um banco de dados que é excluído ou substituído nem consultar um documento de uma coleção que não existe mais.
  
 A execução de um GET em um feed de recursos ou a consulta de uma coleção pode, potencialmente, resultar em milhões de itens, tornando impraticável para o servidor materializá-los e para os clientes consumi-los como parte de uma única viagem de ida e volta/solicitação e troca de resposta. Para lidar com isso, o Banco de Dados de Documentos permite aos clientes paginar pelo feed grande com uma página por vez. Os clientes podem usar o cabeçalho de resposta [x-ms-continuation] como um cursor para navegar até a próxima página.
@@ -204,4 +205,4 @@ Explore a [referência da API REST do Banco de Dados de Documentos do Azure](htt
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

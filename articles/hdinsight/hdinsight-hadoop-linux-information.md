@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="larryfr"/>
 
-# Informações sobre o uso do HDInsight no Linux (visualização)
+# Informações sobre o uso do HDInsight no Linux
 
 Os clusters Azure HDInsight baseados em Linux fornecem Hadoop em um ambiente Linux conhecido, executados na nuvem do Azure. Para a maioria da coisas, ele deve funcionar exatamente como qualquer outra instalação do Hadoop no Linux. Este documento indica diferenças específicas que você deve estar atento.
 
@@ -29,17 +29,13 @@ O FQDN (nome de domínio totalmente qualificado) a usar ao se conectar ao cluste
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
-	> [AZURE.NOTE]Autentique usando o usuário e a senha de administrador do cluster e faça logon no Ambari. Aqui também o usuário e a senha de administrador de cluster são usados.
+	Autentique usando o usuário e a senha de administrador do cluster e faça logon no Ambari. Aqui também o usuário e a senha de administrador de cluster são usados.
+
+	A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
+
+	> [AZURE.IMPORTANT]Enquanto o Ambari para seu cluster possa ser acessado diretamente pela Internet, algumas funcionalidades se baseiam no acesso de nós pelo nome de domínio interno usado pelo cluster. Como é um nome de domínio interno, e não público, você receberá erros de "servidor não encontrado" ao tentar acessar alguns recursos pela Internet.
 	>
-	> A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
-
-	Enquanto o Ambari para seu cluster possa ser acessado diretamente pela Internet, algumas funcionalidades se baseiam no acesso de nós pelo nome de domínio interno usado pelo cluster. Como é um nome de domínio interno, e não público, você receberá erros de "servidor não encontrado" ao tentar acessar alguns recursos pela Internet.
-
-	Para resolver esse problema, use um túnel SSH para tráfego do proxy da Web para o nó principal do cluster. Use a seção **Túnel SSH** dos artigos a seguir para criar um túnel SSH de uma porta no computador local até o cluster:
-
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight por meio de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md): etapas sobre como criar um túnel SSH usando o comando `ssh`.
-
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight por meio do Windows](hdinsight-hadoop-linux-use-ssh-windows): etapas sobre como usar PuTTY para criar um túnel SSH.
+	> Para usar a funcionalidade completa da interface do usuário do Ambari Web, use um túnel SSH para tráfego Web de proxy para nó de cabeçalho do cluster. Consulte [Usar o Túnel SSH para acessar a interface do usuário da Web do Ambari, ResourceManager, JobHistory, NameNode, Oozie, entre outras](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -61,8 +57,8 @@ O FQDN (nome de domínio totalmente qualificado) a usar ao se conectar ao cluste
 
 Arquivos relacionados ao Hadoop encontram-se nos nós de cluster em `/usr/hdp`. O diretório raiz contém os seguintes subdiretórios:
 
-* __2.2.4.9-1__: este diretório é nomeado de acordo com a versão do Hortonworks Data Platform usada pelo HDInsight e, portanto, o número em seu cluster pode ser diferente do listado aqui.
-* __atual__: este diretório contém links para diretórios sob o diretório __2.2.4.9-1__ e existe para que você não precise digitar um número de versão (que pode ser alterado) sempre que quiser acessar um arquivo.
+* __2.2.4.9-1__: este diretório é nomeado de acordo com a versão do Hortonworks Data Platform usada pelo HDInsight e, portanto, o número em seu cluster pode ser diferente daquele listado aqui.
+* __atual__: este diretório contém links para os diretórios sob o diretório __2.2.4.9-1__ e existe para que você não precise digitar um número de versão (que pode ser alterado) sempre que quiser acessar um arquivo.
 
 Dados de exemplo e arquivos JAR encontram-se no HDFS (Sistema de Arquivos Distribuído do Hadoop) ou no armazenamento de Blob do Azure em '/example' ou 'wasb:///example'.
 
@@ -101,17 +97,28 @@ Durante a criação do cluster, você optou por usar uma conta e um contêiner e
 	> [AZURE.TIP]Se você tiver instalado o [jq](http://stedolan.github.io/jq/), poderá usar o seguinte para retornar apenas a entrada `fs.defaultFS`:
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
-	
+
 3. Para localizar a chave usada para autenticar a conta de armazenamento ou para localizar quaisquer contas de armazenamento secundárias associadas ao cluster, use o seguinte:
 
 		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
-		
+
 4. Nos dados retornados do JSON, localize as entradas que começam com `fs.azure.account.key`. O restante do nome da entrada é o nome da conta de armazenamento. Por exemplo: `fs.azure.account.key.mystorage.blob.core.windows.net`. O valor armazenado nesta entrada é a chave usada para autenticar na conta de armazenamento.
 
 	> [AZURE.TIP]Se tiver instalado o [jq](http://stedolan.github.io/jq/), você poderá usar o seguinte para retornar uma lista das chaves e dos valores:
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
+Você também pode encontrar as informações de armazenamento usando o portal de visualização do Azure:
+
+1. No [Portal de Visualização do Azure](https://portal.azure.com/), selecione o cluster HDInsight.
+
+2. Na seção __Fundamentos__, selecione __Todas as configurações__.
+
+3. Em __Configurações__, selecione __Chaves de Armazenamento do Azure__.
+
+4. Em __Chaves de Armazenamento do Azure__, selecione uma das contas de armazenamento listadas. Isso exibirá informações sobre a conta de armazenamento.
+
+5. Selecione o ícone de chave. Isso exibirá as chaves para esta conta de armazenamento.
 
 ### Como acessar o armazenamento de Blob?
 
@@ -137,10 +144,80 @@ Diferente do comando Hadoop do cluster, há várias maneiras de acessar blobs:
 
 * [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
+##<a name="scaling"></a>Dimensionar o cluster
+
+O recurso de dimensionamento de clusters permite que você altere o número de nós de dados usado por um cluster em execução no Azure HDInsight sem precisar excluir e recriar o cluster.
+
+Você pode executar operações de dimensionamento enquanto outros trabalhos ou processos estão sendo executados em um cluster.
+
+Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte maneira:
+
+* __Hadoop__: ao reduzir o número de nós em um cluster, alguns dos serviços no cluster são reiniciados. Isso pode fazer com que todos os trabalhos em execução ou pendentes falhem após a conclusão da operação de dimensionamento. Você pode reenviar os trabalhos quando a operação for concluída.
+
+* __HBase__: servidores regionais são balanceados automaticamente em alguns minutos após o término da operação de dimensionamento. Para balancear manualmente servidores regionais, use as seguintes etapas:
+
+	1. Conecte-se ao cluster HDInsight usando SSH. Para obter mais informações sobre como usar SSH com o HDInsight, consulte um dos seguintes documentos:
+
+		* [Usar SSH com o HDInsight no Linux, Unix e Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+		* [Usar SSH com o HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+	1. Use o seguinte para iniciar o shell do HBase:
+
+			hbase shell
+
+	2. Depois que o shell do HBase tiver sido carregado, use o seguinte para balancear manualmente os servidores regionais:
+
+			balancer
+
+* __Storm__: deve rebalancear quaisquer topologias Storm em execução após uma operação de dimensionamento ter sido realizada. Isso permite que a topologia reajuste as configurações de paralelismo com base no novo número de nós no cluster. Para rebalancear topologias em execução, use uma das seguintes opções:
+
+	* __SSH__: conecte-se ao servidor e use o seguinte comando para rebalancear uma topologia:
+
+			storm rebalance TOPOLOGYNAME
+
+		Você também pode especificar parâmetros para substituir as dicas de paralelismo fornecidas originalmente pela topologia. Por exemplo, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` reconfigurará a topologia para 5 processos de trabalho, 3 executores para o componente do jato azul e 10 executores para o componente do raio amarelo.
+
+	* __Interface do usuário do Storm__: use as etapas a seguir para rebalancear uma topologia que usa a interface do usuário do Storm.
+
+		1. [Crie um túnel SSH para o cluster e abra a interface do usuário da Web do Ambari](hdinsight-linux-ambari-ssh-tunnel.md).
+
+		2. Na lista de serviços à esquerda da página, selecione __Storm__. Então, selecione __Interface do Usuário do Storm__ em __Links Rápidos__.
+
+			![Entrada de interface do usuário do Storm em links rápidos](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
+
+			Isso exibirá a interface do usuário do Storm:
+
+			![a interface do usuário do storm](./media/hdinsight-hadoop-linux-information/storm-ui.png)
+
+		3. Selecione a topologia que você deseja rebalancear e, em seguida, selecione o botão __Rebalancear__. Insira o atraso antes de a operação de rebalanceamento ser executada.
+
+Para obter informações específicas sobre como dimensionar o cluster HDInsight, consulte:
+
+* [Gerenciar clusters Hadoop no HDInsight usando o portal de visualização do Azure](hdinsight-administer-use-portal-linux.md#scaling)
+
+* [Gerenciar clusters Hadoop no HDInsight Usando o Azure PowerShell](hdinsight-administer-use-command-line.md#scaling)
+
+## Como instalo o Hue (ou outro componente do Hadoop)?
+
+HDInsight é um serviço gerenciado, o que significa que nós em um cluster poderão ser destruídos e reprovisionados automaticamente pelo Azure se um problema for detectado. Por isso, não é recomendável instalar manualmente os componentes em nós de cluster.
+
+Em vez disso, use as [Ações de Script HDInsight](hdinsight-hadoop-customize-cluster.md).
+
+Ações de Script são scripts Bash executados durante o provisionamento do cluster e que podem ser usados para instalar componentes adicionais no cluster. São fornecidos scripts de exemplo para instalar os seguintes componentes:
+
+* [Hue](hdinsight-hadoop-hue-linux.md)
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [R](hdinsight-hadoop-r-scripts-linux.md)
+* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Spark](hdinsight-hadoop-spark-install-linux.md)
+
+Para obter informações sobre como desenvolver suas próprias ações de Script, consulte [Desenvolvimento de Ação do Script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
 ## Próximas etapas
 
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

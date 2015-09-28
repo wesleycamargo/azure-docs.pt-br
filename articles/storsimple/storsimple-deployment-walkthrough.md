@@ -1,19 +1,19 @@
 <properties
    pageTitle="Implantar um dispositivo StorSimple local | Microsoft Azure"
-	description="Descreve as etapas e as práticas recomendadas para implantar o dispositivo e o serviço StorSimple. (Aplica-se ao Microsoft Azure StorSimple versão 0.3 e anteriores)."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="adinah"
-	editor=""/>
+   description="Descreve as etapas e as práticas recomendadas para implantar o dispositivo e o serviço StorSimple. (Aplica-se ao Microsoft Azure StorSimple versão 0.3 e anteriores)."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="" />
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/17/2015"
+   ms.author="alkohli" />
 
 # Implantação do seu dispositivo StorSimple local
 
@@ -290,4 +290,4 @@ Execute as etapas a seguir no portal do Azure para criar um backup manual sob de
 
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

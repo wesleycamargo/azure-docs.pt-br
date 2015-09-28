@@ -1,26 +1,29 @@
 <properties
    pageTitle="Integrando aplicativos ao Active Directory do Azure | Microsoft Azure"
-	description="Detalhes sobre como adicionar, atualizar ou remover um aplicativo no AD do Azure (Active Directory do Azure)."
-	services="active-directory"
-	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="Detalhes sobre como adicionar, atualizar ou remover um aplicativo no AD do Azure (Active Directory do Azure)."
+   services="active-directory"
+   documentationCenter=""
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin" />
 
 # Integrando aplicativos ao Active Directory do Azure
+
+[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+
 Os desenvolvedores corporativos e provedores de SaaS (software como serviço) podem desenvolver serviços de nuvem comerciais ou aplicativos de linha de negócios que podem ser integrados ao AD do Azure (Active Directory do Azure) para fornecer conexão segura e autorização para os respectivos serviços. Para integrar um aplicativo ou serviço ao AD do Azure, um desenvolvedor deve primeiramente registrar os detalhes sobre o aplicativo no AD do Azure usando o Portal de Gerenciamento do Azure.
 
 Este artigo mostra como adicionar, atualizar ou remover um aplicativo no AD do Azure. Você aprenderá sobre os diferentes tipos de aplicativo que podem ser integrados ao AD do Azure, como configurar aplicativos para acessar outros recursos, como APIs Web, e muito mais.
 
-Para obter mais informações sobre as propriedades do aplicativo, consulte [Objetos de aplicativo e de entidade de serviço](active-directory-application-objects.md); para saber mais sobre as diretrizes de identidade visual que você deve usar ao desenvolver aplicativos com o Active Directory do Azure, consulte [Diretrizes de identidade visual para aplicativos integrados](active-directory-branding-guidelines.md).
+Para saber mais sobre as propriedades do aplicativo, consulte [Objetos de aplicativo e de entidade de serviço](active-directory-application-objects.md); para saber mais sobre as diretrizes de identidade visual que você deve usar ao desenvolver aplicativos com o Active Directory do Azure, consulte [Diretrizes de identidade visual para aplicativos integrados](active-directory-branding-guidelines.md); manifestos de aplicativo são explicados em [Noções básicas do manifesto do aplicativo do Active Directory do Azure](active-directory-application-manifest.md).
 
 ## Adicionando um aplicativo
 
@@ -50,7 +53,7 @@ Se quer disponibilizar o aplicativo para outras organizações, você também pr
 
 ## Atualizando um aplicativo
 
-Depois que o aplicativo tiver sido registrado no AD do Azure, talvez ele tenha que ser atualizado para fornecer acesso a APIs Web, disponibilizado para outras organizações e muito mais. Esta seção descreve como realizar outras configurações no aplicativo. Para obter mais informações sobre como funciona a autenticação no AD do Azure, consulte [Cenários de autenticação do AD do Azure.](active-directory-authentication-scenarios.md).
+Depois que o aplicativo tiver sido registrado no AD do Azure, talvez ele tenha que ser atualizado para fornecer acesso a APIs Web, disponibilizado para outras organizações e muito mais. Esta seção descreve como realizar outras configurações no aplicativo. Para saber mais sobre como funciona a autenticação no Azure AD, consulte [Cenários de autenticação do Azure AD.](active-directory-authentication-scenarios.md).
 
 ### Visão geral da estrutura de consentimento
 
@@ -58,7 +61,7 @@ A nova estrutura de consentimento do AD do Azure facilita o desenvolvimento de a
 
 A estrutura de consentimento foi criada com base no OAuth 2.0 e seus vários fluxos, como concessão de código de autorização e concessão de credenciais de cliente, usando clientes públicos ou confidenciais. Com o OAuth 2.0, o AD do Azure permite criar muitos tipos diferentes de aplicativo cliente, como em um telefone, tablet, servidor, ou um aplicativo Web, assim como obter acesso aos recursos necessários.
 
-Para obter informações detalhadas sobre a estrutura de consentimento, consulte [OAuth 2.0 no AD do Azure](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Cenários de autenticação do AD do Azure](active-directory-authentication-scenarios.md) e o tópico [Autenticação e autorização usando a estrutura de consentimento comum](https://msdn.microsoft.com/library/office/dn605895(v=office.15).aspx) do Office 365.
+Para obter informações detalhadas sobre a estrutura de consentimento, consulte [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md) e o tópico [Autenticação e autorização usando a estrutura de consentimento comum](https://msdn.microsoft.com/library/office/dn605895(v=office.15).aspx) do Office 365.
 
 #### Exemplo da experiência de consentimento
 
@@ -106,7 +109,7 @@ Usando a estrutura de consentimento descrita acima, você pode configurar o apli
 
 ### Expondo APIs Web para outros aplicativos
 
-Você pode desenvolver uma API Web e disponibilizá-la para outras organizações expondo os escopos de permissão para outros desenvolvedores de aplicativo. Uma API Web corretamente configurada é disponibilizada assim como outras APIs Web da Microsoft, incluindo a Graph API e as APIs do Office 365 Sua API Web é disponibilizada pela configuração de um manifesto de aplicativo, que é um arquivo JSON que representa a configuração de identidade do seu aplicativo. Você pode expor os escopos de permissão navegando até o aplicativo no Portal de Gerenciamento do Azure e clicando no botão Manifesto do Aplicativo na barra de comandos.
+Você pode desenvolver uma API Web e disponibilizá-la para outras organizações expondo os escopos de permissão para outros desenvolvedores de aplicativo. Uma API Web corretamente configurada é disponibilizada assim como outras APIs Web da Microsoft, incluindo a Graph API e as APIs do Office 365 Sua API Web é disponibilizada pela configuração de um [manifesto de aplicativo](active-directory-application-manifest.md), que é um arquivo JSON que representa a configuração de identidade do seu aplicativo. Você pode expor os escopos de permissão navegando até o aplicativo no Portal de Gerenciamento do Azure e clicando no botão Manifesto do Aplicativo na barra de comandos. Para saber mais, consulte [Noções básicas sobre o manifesto do aplicativo do Active Directory do Azure](active-directory-application-manifest.md).
 
 #### Para expor uma API da Web para outros aplicativos
 
@@ -215,7 +218,7 @@ Como alternativa, o aplicativo Web também pode oferecer uma experiência que pe
 
 #### Habilitando a concessão implícita do OAuth 2.0 para Aplicativos de Uma Página
 
-Os Aplicativos de Uma Página (SPAs) normalmente são estruturados com um front-end pesado de JavaScript executado no navegador, que chama o back-end da API Web do aplicativo para executar sua lógica de negócios. Para SPAs hospedados no Azure AD, use concessão implícita do OAuth 2.0 para autenticar o usuário no Azure AD e obter um token que pode ser usado para proteger chamadas do cliente JavaScript do aplicativo para sua API Web de back-end. Depois que o usuário tiver dado consentimento, esse mesmo protocolo de autenticação poderá ser usado para obter tokens para proteger chamadas entre o cliente e outros recursos de API Web configurados para o aplicativo. Por padrão, a Concessão Implícita do OAuth 2.0 está desabilitada para aplicativos. Você pode habilitar a Concessão Implícita do OAuth 2.0 para seu aplicativo definindo o valor `oauth2AllowImplicitFlow`”` em seu manifesto de aplicativo, que é um arquivo JSON que representa a configuração da identidade do seu aplicativo.
+Os Aplicativos de Uma Página (SPAs) normalmente são estruturados com um front-end pesado de JavaScript executado no navegador, que chama o back-end da API Web do aplicativo para executar sua lógica de negócios. Para SPAs hospedados no Azure AD, use concessão implícita do OAuth 2.0 para autenticar o usuário no Azure AD e obter um token que pode ser usado para proteger chamadas do cliente JavaScript do aplicativo para sua API Web de back-end. Depois que o usuário tiver dado consentimento, esse mesmo protocolo de autenticação poderá ser usado para obter tokens para proteger chamadas entre o cliente e outros recursos de API Web configurados para o aplicativo. Por padrão, a Concessão Implícita do OAuth 2.0 está desabilitada para aplicativos. Você pode habilitar a Concessão Implícita do OAuth 2.0 para seu aplicativo definindo o valor `oauth2AllowImplicitFlow`”` em seu [manifesto do aplicativo](active-directory-application-manifest.md), que é um arquivo JSON que representa a configuração da identidade do seu aplicativo.
 
 ##### Para habilitar a Concessão Implícita do OAuth 2.0
 
@@ -226,7 +229,7 @@ Os Aplicativos de Uma Página (SPAs) normalmente são estruturados com um front-
 
        "oauth2AllowImplicitFlow": true,
 
-1. Salve o arquivo JSON atualizado e carregue-o clicando no botão **Gerenciar manifesto** na barra de comandos, selecionando **Carregar manifesto**, navegando até o arquivo de manifesto atualizado e selecionando-o. Uma vez carregada, a API Web agora está configurada para usar a Concessão Implícita do OAuth 2.0 para autenticar usuários.
+1. Salve o arquivo JSON atualizado e carregue-o clicando no botão **Gerenciar manifesto** na barra de comandos, selecionando **Carregar manifesto**, navegando até o arquivo do manifesto atualizado e selecionando-o. Uma vez carregada, a API Web agora está configurada para usar a Concessão Implícita do OAuth 2.0 para autenticar usuários.
 
 
 ### Experiências herdadas de concessão de acesso
@@ -243,7 +246,7 @@ Você pode seguir as etapas em [Desenvolvendo aplicativos Web multilocatários c
 
 #### Criando o link que concede acesso a usuários externos (herdado)
 
-Para que os usuários externos se inscrevam em seu aplicativo usando as respectivas contas organizacionais, você precisará atualizar o aplicativo para mostrar um botão que se vincule à página no AD do Azure e os permita conceder acesso. As diretrizes de identidade visual desse botão de inscrição são discutidas no tópico [Diretrizes de identidade visual para aplicativos integrados](active-directory-branding-guidelines.md). Depois que o usuário concede ou nega acesso, a página de concessão de acesso do AD do Azure redireciona o navegador de volta para seu aplicativo com uma resposta. Para saber mais sobre propriedades do aplicativo, consulte [Objetos do aplicativo e das entidades de serviço](active-directory-application-objects.md).
+Para que os usuários externos se inscrevam em seu aplicativo usando as respectivas contas organizacionais, você precisará atualizar o aplicativo para mostrar um botão que se vincule à página no AD do Azure e os permita conceder acesso. As diretrizes de identidade visual desse botão de registro são discutidas no tópico [Diretrizes de identidade visual para aplicativos integrados](active-directory-branding-guidelines.md). Depois que o usuário concede ou nega acesso, a página de concessão de acesso do AD do Azure redireciona o navegador de volta para seu aplicativo com uma resposta. Para saber mais sobre propriedades do aplicativo, consulte [Objetos de aplicativo e de entidades de serviço](active-directory-application-objects.md).
 
 A página de concessão de acesso é criada pelo AD do Azure, e você pode encontrar um link para ela na página Configuração do seu aplicativo no Portal de Gerenciamento. Para acessar a página Configuração, clique no link Aplicativos, no menu superior do seu locatário do AD Azure, clique no aplicativo que deseja configurar e, em Configurar, no menu superior da página Início Rápido.
 
@@ -294,7 +297,7 @@ Durante o tempo de vida do seu aplicativo, talvez seja necessário alterar as ch
 
 1. Em Chaves, clique no menu suspenso Selecionar duração e escolha 1 ou 2 anos. Clique em Salvar na barra de comandos. Isso gera uma nova chave de senha para o aplicativo. Copie essa nova chave de senha. Nesse ponto, tanto a chave existente quanto a nova podem ser usadas pelo aplicativo para obter um token de acesso do AD do Azure.
 
-1. Volte para o aplicativo e atualize a configuração para iniciar usando a nova chave de senha. Consulte [Usando o Graph API para consultar o Azure AD](https://msdn.microsoft.com/library/azure/dn151791.aspx) para obter um exemplo de onde essa atualização deverá acontecer.
+1. Volte para o aplicativo e atualize a configuração para iniciar usando a nova chave de senha. Consulte [Usando a Graph API para consultar o Azure AD](https://msdn.microsoft.com/library/azure/dn151791.aspx) para obter um exemplo de onde essa atualização deverá acontecer.
 
 1. Agora você deve implementar essa alteração no ambiente de produção — verificando-a primeiro em um nó de serviço, antes de implementá-la no restante.
 
@@ -344,6 +347,8 @@ Para um administrador de empresa remover o acesso de um aplicativo ao seu diret�
 
 - Saiba mais sobre [Objetos de aplicativo e de entidade de serviço](active-directory-application-objects.md)
 
+- Noções básicas sobre o [manifesto de aplicativo do Active Directory do Azure](active-directory-application-manifest.md)
+
 - Visite o [Guia do desenvolvedor do Active Directory](active-directory-developer's guide.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

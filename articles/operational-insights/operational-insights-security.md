@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Segurança de Insights operacionais
@@ -107,4 +107,4 @@ O serviço OMS processa os dados brutos e os dados processados agregados são ar
 
 Você pode entrar na OMS usando a conta configurada anteriormente. Todo o tráfego entre a OMS e o serviço OMS é enviado por um canal HTTPS seguro.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

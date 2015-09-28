@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos StorSimple
@@ -260,6 +260,7 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo em esp
 
 ## Próximas etapas
 
-[Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes](storsimple-snapshot-manager-manage-volumes.md).
+- Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
+- Saiba como [Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

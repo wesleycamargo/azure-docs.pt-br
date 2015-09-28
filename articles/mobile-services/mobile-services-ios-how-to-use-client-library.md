@@ -233,6 +233,12 @@ Como alternativa, exclua fornecendo uma ID de linha:
 
 No mínimo, o atributo `id` deve ser definido quando você faz exclusões.
 
+##<a name="#custom-api"></a>Chamar uma API personalizada
+
+Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como definir um ponto de extremidade de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
+
+[AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
+
 
 ##<a name="authentication"></a>Como autenticar usuários
 
@@ -326,4 +332,4 @@ O arquivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/az
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Manipulador de conflito]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,12 +1,10 @@
-# Implantação contínua usando GIT no Serviço de Aplicativo do Azure
-
 O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) dá suporte a implantação contínua para aplicativos Web por meio de ferramentas de repositório e de controle do código-fonte como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. Você pode usar essas ferramentas para manter o conteúdo e o código de seu aplicativo, e enviar as alterações de modo rápido e fácil ao seu aplicativo Web quando desejar.
 
 Neste artigo, você aprenderá a usar o Git para publicar diretamente do seu computador local em Aplicativos Web (no Azure, esse método de publicação é chamado de **Git Local**). Você também saberá como habilitar a implantação contínua de sites de repositório, como BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Para obter mais informações sobre como usar o TFS para implantação contínua, consulte [Envio contínuo ao Azure por meio do Visual Studio Online].
 
 > [AZURE.NOTE]Muitos dos comandos Git descritos neste artigo são executados automaticamente ao criar um aplicativo Web usando as [Ferramentas de Linha de Comando do Azure para Mac e Linux](/develop/nodejs/how-to-guides/command-line-tools/)
 
-## <a id="Step1"></a>Etapa 1: Instalando o Git
+## <a id="Step1"></a>Etapa 1: instalando o Git
 
 As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
 
@@ -66,7 +64,7 @@ Execute as seguintes etapas para habilitar um repositório Git em seu aplicativo
 
 	![Repositório Git local](./media/publishing-with-git/azure1-local-git.png)
 
-4. Se for a primeira vez que você configura um repositório no Azure, você precisa criar as credenciais de logon para ele. Você as usará para fazer logon no repositório do Azure e enviar por push as alterações do seu repositório Git Local. Na folha do seu aplicativo Web, clique em **Configurações > Credenciais de implantação** e, em seguida, configure o nome de usuário de implantação e a senha. Quando terminar, clique em **OK**.
+4. Se for a primeira vez que você configura um repositório no Azure, você precisa criar as credenciais de logon para ele. Você as usará para fazer logon no repositório do Azure e enviar por push as alterações do seu repositório Git Local. Na folha de seu aplicativo Web, clique em **Configurações > Credenciais de implantação** e, em seguida, configure o nome de usuário de implantação e a senha. Quando terminar, clique em **OK**.
 
 	![](./media/publishing-with-git/azure2-credentials.png)
 
@@ -82,7 +80,7 @@ Use as etapas a seguir para publicar o seu aplicativo Web no Azure usando o Git 
 
 	![](./media/publishing-with-git/azure3-repo-details.png)
 
-	A **URL do Git** é a referência remota à qual implantar por meio do seu repositório local. Você usará essa URL nas etapas a seguir.
+	A **URL do Git** é a referência remota para implantação a partir de seu repositório local. Você usará essa URL nas etapas a seguir.
 
 1. Usando a linha de comando, verifique se você está na raiz do seu repositório git local que contém o arquivo index.html criado anteriormente.
 
@@ -116,7 +114,7 @@ Use as etapas a seguir para publicar o seu aplicativo Web no Azure usando o Git 
 
 	![](./media/publishing-with-git/azure4-deployed.png)
 
-2. Clique no link em **URL** na parte superior da lâmina de aplicativo Web para verificar se o **index.html** foi implantado. Será exibida uma página contendo 'Hello Git!'.
+2. Clique no link em **URL** na parte superior da folha de aplicativo Web para verificar se o **index.html** foi implantado. Será exibida uma página contendo 'Hello Git!'.
 
 	![Uma página da Web contendo 'Hello Git!'][hello-git]
 
@@ -243,7 +241,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 ****
 
-**Sintoma**: erro - alterações confirmadas para o repositório remoto, mas o aplicativo Web não foi atualizado.
+**Sintoma**: erro - alterações confirmadas no repositório remoto, mas o aplicativo Web não foi atualizado.
 
 **Causa**: este erro pode ocorrer se você estiver implantando um aplicativo do Node. js que contém um arquivo package.json que especifica módulos adicionais necessários.
 
@@ -300,4 +298,4 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Usando o Dropbox para compartilhar repositórios do Git]: https://gist.github.com/trey/2722927
 [Envio contínuo ao Azure por meio do Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

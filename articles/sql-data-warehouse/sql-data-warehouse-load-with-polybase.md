@@ -83,7 +83,7 @@ CREATE EXTERNAL DATA SOURCE azure_storage
 WITH
 (
     TYPE = HADOOP
-,   LOCATION ='wasbs://mycontainer@ test.blob.core.windows.net/path'
+,   LOCATION ='wasbs://mycontainer@test.blob.core.windows.net'
 ,   CREDENTIAL = ASBSecret
 )
 ;
@@ -125,7 +125,7 @@ Tópico de referência: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
 Para remover um formato de arquivo externo, a sintaxe é a seguinte:
 
 ```
--- Dropping external file format...
+-- Dropping external file format
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
@@ -325,4 +325,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189450.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

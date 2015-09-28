@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Aplicativo de linha de negócios no Azure | Microsoft Azure"
-	description="Conheça o valor de um aplicativo de linha de negócios no Azure, configure um ambiente de teste e implante uma configuração de alta disponibilidade."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Aplicativo de linha de negócios no Azure | Microsoft Azure" 
+	description="Conheça o valor de um aplicativo de linha de negócios no Azure, configure um ambiente de teste e implante uma configuração de alta disponibilidade." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo de implantação do Gerenciador de Recursos.
 
 Configure seu primeiro ou próximo aplicativo de linha de negócios baseado na Web e somente para intranet no Microsoft Azure e aproveite a facilidade de configuração e a capacidade de expandir rapidamente o aplicativo para incluir novas capacidades.
  
@@ -33,7 +35,7 @@ Sua próxima etapa é configurar um aplicativo de linha de negócios de desenvol
 
 ## Criar um aplicativo de linha de negócios de desenvolvimento/teste hospedado no Azure
 
-Uma rede virtual entre locais é conectada a uma rede local com uma conexão VPN ou de Rota Expressa entre sites. Se você quiser criar um ambiente de desenvolvimento/teste que simule a configuração final e faça experiências com o acesso ao aplicativo e executar a administração remota em uma conexão VPN, consulte [Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
+Uma rede virtual entre locais é conectada a uma rede local com uma conexão VPN ou de Rota Expressa entre sites. Se você quiser criar um ambiente de desenvolvimento/teste que simule a configuração final e fazer experiências com o acesso ao aplicativo e executar a administração remota em uma conexão VPN, consulte [Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
  
@@ -103,4 +105,4 @@ Uma vez configurado, você pode expandir facilmente esse aplicativo de linha de 
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

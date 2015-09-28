@@ -3,7 +3,7 @@
 	description="Saiba como anexar um disco de dados a uma máquina virtual Azure e inicializá-lo para que ele fique pronto para uso."
 	services="virtual-machines, storage"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/16/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Como anexar um disco de dados a uma máquina virtual Windows
 
@@ -59,4 +59,4 @@ Veja um passo a passo deste tutorial.
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

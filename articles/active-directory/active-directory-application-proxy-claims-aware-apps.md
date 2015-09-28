@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -42,15 +42,11 @@ Antes de executar este procedimento, certifique-se de que o STS para o qual o ap
 1. Abra o **Gerenciamento de ADFS**.
 2. Acesse a guia **Objeto de confiança de terceira parte confiável**, clique com o botão direito do mouse no aplicativo que você está publicando com o Proxy de Aplicativo e escolha **Propriedades**.
 
-![Objeto de confiança de terceira parte confiável, clique com o botão direito do mouse no nome do aplicativo - captura de tela][1]
+![Objeto de confiança de terceira parte confiável, clique com o botão direito do mouse no nome do aplicativo - captura de tela](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)
 
 3. Na guia **Pontos de Extremidade**, em **Tipo de Ponto de Extremidade**, selecione **Web Services Federation**.
 4. Em **URL Confiável**, insira a URL que você inseriu no Proxy de Aplicativo em **URL Externa** e clique em **OK**.
 
-![Adicionar um ponto de extremidade - definir valor de URL Confiável - captura de tela][2]
+![Adicionar um ponto de extremidade - definir valor de URL Confiável - captura de tela](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
 
-<!--image references-->
-[1]: ./media/active-directory-application-proxy-claims-aware-apps/AppDropdown.jpg
-[2]: ./media/active-directory-application-proxy-claims-aware-apps/AddEndpoint.jpg
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

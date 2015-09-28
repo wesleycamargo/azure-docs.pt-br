@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Codecs e formatos padrão do codificador de mídia
@@ -36,7 +36,20 @@ MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Sim
 [Gravação (DVR-MS) de vídeo Digital da Microsoft](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sim 
 Matroska/WebM (.mkv) |Sim 
 WAVE/WAV (.wav) |Sim 
+QuickTime (.mov) |Sim
  
+###Formatos de áudio em contêineres de entrada 
+
+O Padrão do Codificador de Mídia oferece suporte à execução dos seguintes formatos de áudio em contêineres de entrada:
+
+- Arquivos do MXF, GXF e QuickTime que têm faixas de áudio com exemplos em estéreo intercalado ou de 5.1
+
+ou o
+
+- Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
+
+Observe que o suporte para mapeamento de canal explícito/fornecido pelo usuário será fornecido em um futuro próximo.
+
 
 ##Codecs de vídeo de entrada
 
@@ -53,6 +66,13 @@ Canopus HQ/HQX |Não
 MPEG-4, parte 2 |Sim 
 [Theora](https://en.wikipedia.org/wiki/Theora) |Sim 
 YUV420 descompactado, ou mezzanine |Sim
+Apple ProRes 422 |Sim
+Apple ProRes 422 LT |Sim
+Apple ProRes 422 HQ |Sim
+Apple ProRes Proxy|Sim
+Apple ProRes 4444 |Sim
+Apple ProRes 4444 XQ |Sim
+
 
 
 ##Codecs de áudio de entrada
@@ -81,7 +101,7 @@ A tabela a seguir lista os codecs e formatos de arquivo com suporte para exporta
 
 Formato de arquivo|Codec de vídeo|Codec de áudio
 ---|---|---
-MP4 <br/><br/>(incluindo contêineres de múltiplas taxas de bits MP4) |H.264 (Perfis Alto, Principal e Linha de base)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4 <br/><br/>(incluindo contêineres MP4 de múltiplas taxas de bits) |H.264 (Perfis Alto, Principal e Linha de base)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (Perfis Alto, Principal e Linha de base)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
 
@@ -98,4 +118,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 [Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

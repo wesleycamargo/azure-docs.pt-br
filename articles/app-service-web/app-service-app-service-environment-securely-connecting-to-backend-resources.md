@@ -1,38 +1,42 @@
 <properties 
-	pageTitle="Conexão segura a recursos de Back-end a partir de um ambiente de Serviço de Aplicativo"
-	description="Saiba como realizar conexão segura a recursos de back-end a partir de um ambiente de Serviço de Aplicativo."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="Conexão segura a recursos de Back-end a partir de um ambiente do Serviço de Aplicativo" 
+	description="Saiba como realizar conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
-# Conexão segura a recursos de back-end a partir de um ambiente de Serviço de Aplicativo #
+# Conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo #
 
 ## Visão geral ##
-Como um ambiente de serviço de aplicativo sempre é criado em uma sub-rede de uma [rede virtual][virtualnetwork] regional, conexões de saída de um ambiente de serviço de aplicativo para outros recursos de back-end podem fluir exclusivamente pela rede virtual.
+Como um Ambiente do Serviço de Aplicativo sempre é criado em uma sub-rede de uma [rede virtual][virtualnetwork] regional clássica "v1", as conexões de saída de um Ambiente do Serviço de Aplicativo com outros recursos de back-end podem fluir exclusivamente pela rede virtual.
+
+**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2".
 
 Por exemplo, pode haver um SQL Server em execução em um cluster de máquinas virtuais com a porta 1433 bloqueada. O ponto de extremidade pode ser ACLd, para permitir apenas acesso de outros recursos na mesma rede virtual.
 
 Como outro exemplo, pontos de extremidade confidenciais podem ser executados localmente e conectados ao Azure via conexões [Site a Site][SiteToSite] ou [Rota Expressa do Azure][ExpressRoute]. Como resultado, apenas os recursos nas redes virtuais conectadas a túneis Site a Site ou de rota expressa poderão acessar pontos de extremidade locais.
 
-Para todos esses cenários, aplicativos em execução em um ambiente de serviço de aplicativo serão capazes de se conectar com segurança aos diversos servidores e recursos. Tráfego de saída de aplicativos que são executados em um ambiente de serviço de aplicativo para pontos de extremidade privados na mesma rede virtual (ou conectados à mesma rede virtual) passará apenas pela rede virtual. O tráfego de saída para pontos de extremidade privados não passará pela Internet pública.
+Para todos esses cenários, aplicativos em execução em um ambiente do serviço de aplicativo serão capazes de se conectar com segurança aos diversos servidores e recursos. Tráfego de saída de aplicativos que são executados em um ambiente do serviço de aplicativo para pontos de extremidade privados na mesma rede virtual (ou conectados à mesma rede virtual) passará apenas pela rede virtual. O tráfego de saída para pontos de extremidade privados não passará pela Internet pública.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Requisitos de DNS e conectividade de saída ##
-Observe que para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele exige acesso de saída ao Armazenamento do Azure, bem como ao Banco de Dados SQL na mesma região do Azure. Se o acesso de saída à Internet for bloqueado na rede virtual, os Ambientes de Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
+Observe que, para um Ambiente do Serviço de Aplicativo funcionar corretamente, ele requer acesso de saída ao Armazenamento do Azure no mundo todo, bem como conectividade com o banco de dados SQL na mesma região do Azure. Se o acesso de saída à Internet for bloqueado na rede virtual, os Ambientes do Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
 
-O cliente também pode ter servidores DNS personalizados configurados na rede virtual. Os Ambientes de Serviço de Aplicativo precisam poder resolver pontos de extremidade do Azure em *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net.
+O cliente também pode ter servidores DNS personalizados configurados na rede virtual. Os Ambientes do Serviço de Aplicativo precisam poder resolver pontos de extremidade do Azure em *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net.
 
-Também é recomendável que todos os servidores DNS personalizados em uma rede virtual sejam configurados antes da criação de um Ambiente de Serviço de Aplicativo. Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente de Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente de Serviço de Aplicativo.
+Também é recomendável que todos os servidores DNS personalizados em uma rede virtual sejam configurados antes da criação de um Ambiente do Serviço de Aplicativo. Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente do Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente do Serviço de Aplicativo. Se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN e estiver inacessível ou indisponível, o processo de criação do Ambiente do Serviço de Aplicativo também falhará.
 
 ## Conectando-se a um SQL Server
 Uma configuração comum do SQL Server tem um ponto de extremidade escutando na porta 1433:
@@ -53,7 +57,7 @@ A porta 1433 pode ser protegida usando uma lista de controle de acesso de rede. 
 
 ![Exemplo de lista de controle de acesso de rede][NetworkAccessControlListExample]
 
-Quaisquer aplicativos em execução no ambiente de serviço de aplicativo na mesma rede virtual que o SQL Server serão capazes de se conectarem à instância do SQL Server usando o endereço IP **VNet interno** para a máquina virtual do SQL Server.
+Quaisquer aplicativos em execução no ambiente do serviço de aplicativo na mesma rede virtual que o SQL Server serão capazes de se conectarem à instância do SQL Server usando o endereço IP **VNet interno** para a máquina virtual do SQL Server.
 
 A cadeia de conexão de exemplo a seguir faz referência ao SQL Server usando seu endereço IP privado.
 
@@ -83,11 +87,11 @@ O resultado final é um conjunto de regras de segurança que bloqueiam o acesso 
 
 ## Introdução
 
-Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
+Para se familiarizar com os ambientes do serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
 
-Para obter detalhes sobre como controlar o tráfego de entrada para seu ambiente de serviço de aplicativo, consulte [Controlando o tráfego de entrada para um ambiente de serviço de aplicativo][ControlInboundASE]
+Para obter detalhes sobre como controlar o tráfego de entrada para seu ambiente do serviço de aplicativo, consulte [Controlando o tráfego de entrada para um ambiente do serviço de aplicativo][ControlInboundASE]
 
-Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
+Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -110,4 +114,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

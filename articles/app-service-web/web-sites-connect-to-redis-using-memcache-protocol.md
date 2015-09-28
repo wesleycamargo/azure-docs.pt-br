@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Conectar um aplicativo Web no Serviço de Aplicativo do Azure ao Cache Redis por meio do protocolo Memcache | Microsoft Azure"
+	pageTitle="Conectar um aplicativo Web no Serviço de Aplicativo do Azure ao Cache Redis por meio do protocolo Memcache | Microsoft Azure"
 	description="Conectar um aplicativo Web no Serviço de Aplicativo do Azure ao Cache Redis por meio do protocolo Memcache"
 	services="app-service\web"
 	documentationCenter="php"
@@ -8,12 +8,12 @@
 	editor="riande"/>
 
 <tags
-   ms.service="app-service-web"
+	ms.service="app-service"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="web"
-	ms.date="06/30/2015"
+	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
 # Conectar um aplicativo Web no Serviço de Aplicativo do Azure ao Cache Redis por meio do protocolo Memcache
@@ -21,6 +21,8 @@
 Neste artigo, você verá como conectar um aplicativo Web do WordPress no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) ao [Cache Redis do Azure][12] usando o protocolo [Memcache][13]. Se tiver um aplicativo Web existente que usa um servidor Memcached para cache na memória, você poderá migrá-lo para o Serviço de Aplicativo do Azure e usar a solução de cache de terceiros no Microsoft Azure com pouca ou nenhuma alteração no código do aplicativo. Além disso, você pode usar sua experiência com o Memcache para criar aplicativos distribuídos altamente escalonáveis no Serviço de Aplicativo do Azure com o Cache Redis do Azure para cache em memória, usando estruturas de aplicativos populares, como .NET, PHP, Node.js, Java e Python.
 
 Os aplicativos Web do Serviço de Aplicativo habilitam esse cenário de aplicativo com o shim do Memcache de aplicativos Web, que é um servidor Memcached local que atua como um proxy Memcache para armazenar em cache as chamadas ao Cache Redis do Azure. Isso habilita qualquer aplicativo que se comunica usando o protocolo Memcache a armazenar dados em cache com o Cache Redis. Esse shim do Memcache funciona no nível do protocolo; portanto, ele pode ser usado por qualquer aplicativo ou estrutura de aplicativo, desde que se comunique usando o protocolo Memcache.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Pré-requisitos
 
@@ -51,7 +53,7 @@ Defina a chave da configuração de aplicativo como **REDIS\_HOST** e o valor da
 
 ### Adicionar a configuração de aplicativo REDIS\_KEY
 
-A segunda configuração de aplicativo que você precisa criar é **REDIS\_KEY**. Essa configuração fornece o token de autenticação necessário para acessar com segurança a instância do Cache Redis. Você pode recuperar o valor necessário para a configuração de aplicativo REDIS\_KEY da folha **Chaves de acesso** da instância do Cache Redis.
+A segunda configuração de aplicativo que você precisa criar é **REDIS\_KEY**. Essa configuração fornece o token de autenticação necessário para acessar com segurança a instância do Cache Redis. Você pode recuperar o valor necessário para a configuração de aplicativo REDIS\_KEY na folha **Chaves de acesso** da instância do Cache Redis.
 
 ![Chave primária do Cache Redis do Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
@@ -73,7 +75,7 @@ Para que o aplicativo fale com o protocolo Memcache, é necessário instalar a e
 
 ### Baixar a extensão php\_memcache
 
-Navegue até [PECL][6]. Na categoria de armazenamento em cache, clique em [memcache][7]. Na coluna de downloads, clique no link DLL.
+Navegue até [PECL][6]. Na categoria de cache, clique em [memcache][7]. Na coluna de downloads, clique no link DLL.
 
 ![Site PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
@@ -94,7 +96,7 @@ Ao terminar, clique em **Salvar**.
 
 ## Instalar o plug-in do WordPress do Memcache
 
-> [AZURE.NOTE]Você também pode baixar o [Plug-in de Cache do Objeto Memcached](https://wordpress.org/plugins/memcached/) em WordPress.org.
+> [AZURE.NOTE]Você também pode baixar o [Plug-in do cache do objeto Memcached](https://wordpress.org/plugins/memcached/) em WordPress.org.
 
 Na página de plug-ins do WordPress, clique em **Adicionar Novo**.
 
@@ -112,7 +114,7 @@ Localize **Cache de Objeto Memcached** na lista e clique em **Instalar Agora**.
 
 >[AZURE.NOTE]Siga as instruções neste blog sobre [Como habilitar uma extensão de site em aplicativos Web][8] para instalar o Visual Studio Online.
 
-No arquivo `wp-config.php`, adicione o seguinte código acima do comentário de interrupção de edição próximo ao fim do arquivo.
+No arquivo `wp-config.php`, adicione o código a seguir acima do comentário de interrupção de edição próximo ao fim do arquivo.
 
 ```php
 $memcached_servers = array(
@@ -196,4 +198,4 @@ Parabéns! O aplicativo do WordPress agora tem um cache na memória centralizado
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

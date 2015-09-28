@@ -1,20 +1,22 @@
-<properties 
-	pageTitle="As máquinas virtuais no Azure são a opção de computação que eu quero?" 
-	description="Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais" 
+<properties
+	pageTitle="As máquinas virtuais no Azure são a opção de computação que eu quero?"
+	description="Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais"
+	headerExpose=""
+	footerExpose=""
 	services="virtual-machines"
-	authors="KBDAzure" 
+	authors="cynthn"
 	documentationCenter=""
 	manager="timlt"
 	tags=azure-resource-manager, azure-service-management/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/19/2015"
+	ms.author="cynthn"/>
 
 # Devo escolher Máquinas Virtuais do Azure?
 
@@ -29,4 +31,4 @@ Saiba mais sobre [máquinas virtuais](https://msdn.microsoft.com/library/azure/j
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

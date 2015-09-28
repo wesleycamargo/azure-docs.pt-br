@@ -16,17 +16,53 @@
    ms.date="07/17/2015"
    ms.author="shkurhek"/>
 
-# Visão geral do Banco de Dados SQL
+# Introdução ao Banco de dados SQL
 
-O Banco de Dados SQL é um serviço de banco de dados relacional na nuvem com base no mecanismo do Microsoft SQL Server que contém recursos internos críticos. O Banco de Dados SQL oferece desempenho previsível, escalabilidade, continuidade dos negócios, proteção de dados e quase não exige administração dos desenvolvedores de nuvem e arquitetos de solução. E o melhor de tudo é que o Banco de Dados SQL oferece suporte a ferramentas, bibliotecas e APIs existentes do SQL Server, facilitando a migração para a nuvem. Você pode colocar um Banco de Dados SQL [em funcionamento em questão de segundos](sql-database-get-started.md), sem a necessidade de gerenciar máquinas virtuais ou infraestrutura. A funcionalidade programática parecida com DBA permite DevOps eficiente e o autogerenciamento garante manutenção quase zero para os bancos de dados. Isso permite que você se concentre no desenvolvimento e gerenciamento de seus aplicativos.
+O Banco de Dados SQL é um serviço de banco de dados relacional na nuvem com base no mecanismo líder de mercado do Microsoft SQL Server que contém recursos internos críticos. O Banco de Dados SQL oferece desempenho previsível, escalabilidade sem tempo de inatividade, continuidade dos negócios e proteção de dados e quase não exige administração. Você pode se concentrar no desenvolvimento rápido de aplicativos e acelerar seu tempo de colocação no mercado, em vez de gerenciar máquinas virtuais e infraestrutura. Como ele se baseia no mecanismo [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), o Banco de Dados SQL oferece suporte a ferramentas do SQL Server, bibliotecas e APIs, o que torna mais fácil mover e estender para a nuvem.
 
-O Banco de Dados SQL lhe permite [expandir](sql-database-service-tiers.md) bancos de dados sem tempo de inatividade, e o desempenho previsível pode ser discado para cima ou para baixo, conforme necessário, enquanto você pode escolher [bancos de dados elásticos](sql-database-elastic-pool.md)para dimensionar para milhares de bancos de dados dentro de um orçamento controlado por você, aproveitando os recursos eficientes de gerenciamento de [trabalhos de banco de dados elástico](sql-database-elastic-jobs-overview.md) e os recursos de programação de [ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md).
+Este artigo apresenta os principais conceitos e recursos do Banco de Dados SQL relacionados ao desempenho, escalabilidade e gerenciabilidade, com links para explorar os detalhes. Se você estiver pronto para entrar, você poderá [Criar seu primeiro Banco de Dados SQL](sql-database-get-started.md) ou [Criar um pool de banco de dados elástico](sql-database-elastic-pool-portal.md) em minutos.
 
-Um [SLA](http://azure.microsoft.com/support/legal/sla/) de disponibilidade de 99,99% líder do setor garante que seus aplicativos quase não sofram tempo de inatividade. A proteção de dados interna por meio de auditoria, restauração e replicação geográfica garante que os dados estejam sempre protegidos. O Banco de Dados SQL tem a capacidade de fazer uma restauração pontual dos dados de qualquer transação de até 35 dias. Também é possível replicar os dados em uma região do Azure de sua escolha e implementar com facilidade uma política de recuperação de desastres geográfica desenvolvida para suas necessidades de negócios. A [versão mais recente do Banco de Dados SQL](sql-database-preview-whats-new.md), V12, fornece compatibilidade quase total com o mecanismo do SQL Server.
+## Ajuste de desempenho e dimensionamento sem tempo de inatividade
+Os Banco de Dados SQL está disponível nas *camadas de serviço* Basic, Standard e Premium. Cada camada de serviço oferece [diferentes níveis de desempenho e recursos](sql-database-service-tiers.md) para oferecer suporte para cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno com alguns dólares por mês, em seguida, [alterar a camada de serviço](sql-database-scale-up.md) manualmente ou por meio de programação a qualquer momento enquanto o aplicativo torna-se viral em todo o mundo, sem tempo de inatividade para seu aplicativo ou seus clientes.
 
-O Banco de Dados SQL está disponível nas [camadas de serviço](sql-database-service-tiers.md) Basic, Standard e Premium, que oferecem suporte a cargas de trabalho de banco de dados leves e pesadas, de modo que você pode mudar de camada ou combiná-las para obter designs inovadores de aplicativo. Com a potência e o alcance do Azure, você pode combinar e corresponder serviços do Azure com o Banco de Dados SQL para atender às suas necessidades exclusivas de design de aplicativo moderno, direcionar as eficiências de recursos e custo, bem como descobrir novas oportunidades de negócios.
+Para muitos negócios e aplicativos, ser capaz de criar bancos de dados e ajustar o desempenho do banco de dados individual sob demanda é o suficiente, especialmente se os padrões de uso são relativamente previsíveis. Mas se você tiver os padrões de uso imprevisíveis, pode ser difícil de gerenciar os custos e o seu modelo de negócios.
 
-Comece com uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [crie seu primeiro Banco de Dados SQL](sql-database-get-started.md) em apenas alguns minutos.
- 
+Os [pools de banco de dados elástico](sql-database-elastic-pool.md) no Banco de Dados SQL resolvem esse problema. O conceito é simples. Você alocar desempenho a um pool e paga pelo desempenho coletivo do pool em vez do desempenho do banco de dados individual. Você não precisa ajustar o desempenho de banco de dados. Os bancos de dados no pool, chamados de *bancos de dados elásticos*, automaticamente são dimensionados para cima e para baixo para atender à demanda. Os bancos de dados elásticos consomem, mas não excedem os limites do pool, então o custo permanece previsível, mesmo que o uso do banco de dados não. Além disso, você pode [adicionar e remover bancos de dados para o pool](sql-database-elastic-pool-portal.md), dimensionar seu aplicativo de alguns bancos de dados para milhares, com um orçamento que você pode controlar.
 
-<!---HONumber=August15_HO6-->
+Seja qual for a forma escolhida por você, individual ou elástico, você não fica limitado. Você pode misturar os bancos de dados individuais com pools de banco de dados elástico e alterar as camadas de serviço dos bancos de dados individuais e pools para criar designs inovadores. E mais, com a potência e o alcance do Azure, você pode combinar e corresponder serviços do Azure com o Banco de Dados SQL para atender às suas necessidades exclusivas de design de aplicativo moderno, direcionar as eficiências de recursos e custo, bem como descobrir novas oportunidades de negócios.
+
+Mas como você pode comparar o desempenho relativo de bancos de dados e pools de banco de dados? Como você sabe o momento certo de parar ao fazer o ajuste? A resposta é a unidade de transação do banco de dados (DTU) para bancos de dados individuais e DTU elástica (eDTU) para bancos de dados elásticos e pools de banco de dados.
+
+## Entenda as DTUs
+
+A Unidade de Transação de Banco de Dados (DTU) é a unidade de medida no Banco de Dados SQL que representa a potência relativa dos bancos de dados com base em uma medida real: a transação do banco de dados. Utilizamos um conjunto de operações comuns a uma solicitação de processamento de transação online (OLTP) e, em seguida, medimos quantas transações foram concluídas por segundo sob condições de carga total (essa é a versão curta, você pode ler os detalhes assustadores na [Visão geral de benchmark](https://msdn.microsoft.com/library/azure/dn741327.aspx)).
+
+Um banco de dados Básico tem cinco DTUs, o que significa que ele pode concluir cinco transações por segundo, enquanto um banco de dados Premium P11 tem 1750 DTUs.
+
+![DTUS de banco de dados individual](./media/sql-database-technical-overview/single_db_dtus.png)
+
+DTU para bancos de dados individuais é o mesmo que eDTU para bancos de dados elásticos. Por exemplo, um banco de dados em um pool de bancos de dados elásticos Basic oferece até cinco eDTUs. Esse é o mesmo desempenho de um banco de dados individual Basic. A diferença é que o banco de dados elástico não consumirá eDTUs do pool até que isso seja necessário.
+
+![Pools elásticos e eDTUs](./media/sql-database-technical-overview/sqldb_elastic_pools.png)
+
+Um exemplo simples pode ajudar: pegue um pool de banco de dados elástico Basic com 1000 DTUs e solte 800 bancos de dados nele. Contanto que apenas 200 bancos de dados, do total de 800, estejam sendo usados a qualquer momento (5 DTU X 200 = 1000), você não atingirá a capacidade do pool, e o desempenho do banco de dados não será afetado. Este exemplo foi simplificado para manter a clareza. O cálculo real é um pouco mais detalhado. O portal faz os cálculos para você e faz também uma recomendação com base no histórico de uso do banco de dados. Consulte [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md) para aprender como as recomendações funcionam ou para fazer os cálculos você mesmo.
+
+## Mantenha seus aplicativos e a continuidade dos negócios
+
+Os acordos de nível de serviço [(SLA)](http://azure.microsoft.com/support/legal/sla/) de disponibilidade de 99,99% de líderes do setor do Azure, alimentados por uma rede global de datacenters gerenciados pela Microsoft, ajuda a manter seu aplicativo em execução 24/7. Com cada banco de dados SQL, você tira proveito da proteção de dados, tolerância a falhas incorporadas e de uma proteção de dados que, em outras situações, você teria que projetar, comprar, criar e gerenciar. Mesmo assim, dependendo das demandas do seu negócio, você pode precisar de camadas adicionais de proteção para garantir que seu aplicativo e sua empresa possam recuperar-se rapidamente no caso de um desastre, um erro ou alguma outra situação. Com o banco de dados SQL, cada camada de serviço oferece um menu diferente dos recursos que você pode usar para colocar em funcionamento. Você pode usar a restauração para um ponto específico para retornar um banco de dados para um estado anterior, até 35 dias. Além disso, se o datacenter que hospeda os seus bancos de dados sofrer uma interrupção, você pode fazer failover para réplicas de banco de dados em uma região diferente. Ou você pode usar réplicas para upgrades ou realocação para diferentes regiões.
+
+![Replicação geográfica do Banco de Dados SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
+
+
+Consulte [Continuidade de negócios](sql-database-business-continuity.md) para obter detalhes sobre os diferentes recursos de continuidade de negócios disponíveis para diferentes camadas de serviço.
+
+## Proteja seus dados
+O SQL Server possui uma tradição de segurança de dados sólida que o banco de dados SQL mantém com recursos que limitam o acesso, protegem os dados e ajudam você a monitorar a atividade. Consulte [Protegendo o Banco de Dados SQL](sql-database-security.md) para um rápido resumo das opções de segurança em Banco de Dados SQL. Consulte a [Central de segurança para o Mecanismo de Banco de Dados SQL Server e Banco de Dados SQL](https://msdn.microsoft.com/library/bb510589) para uma visão mais abrangente dos recursos de segurança. E visite a [Central de Confiabilidade do Azure](http://azure.microsoft.com/support/trust-center/security/) para obter informações sobre segurança da plataforma do Azure.
+
+## Próximas etapas
+
+- Consulte a [página de preços](http://azure.microsoft.com/pricing/details/sql-database/) para obter os preços e cálculos do banco de dados individual e do banco de dados elástico.
+
+- Comece [Criando seu primeiro banco de dados](sql-database-get-started.md). Crie seu primeiro aplicativo em [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node. js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) ou [Ruby](sql-database-develop-ruby-simple-linux).
+
+<!---HONumber=Sept15_HO3-->

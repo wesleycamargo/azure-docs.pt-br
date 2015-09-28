@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/15/2015" 
 	ms.author="tomfitz"/>
 
 # Implantar um aplicativo Web vinculado a um repositório GitHub
@@ -23,6 +23,8 @@ Neste tópico, você aprenderá a criar um modelo do Gerenciador de Recursos do 
 Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 Para obter o modelo completo, consulte [Modelo de aplicativo Web vinculado ao GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## O que você implantará
 
@@ -108,4 +110,4 @@ O aplicativo Web também tem um recurso filho que é definido na seção de **re
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

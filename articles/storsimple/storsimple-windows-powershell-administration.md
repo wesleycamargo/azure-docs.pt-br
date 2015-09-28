@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gerenciamento de dispositivos do PowerShell para StorSimple | Microsoft Azure"
-	description="Saiba como usar o Windows PowerShell para StorSimple para administrar seu dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Saiba como usar o Windows PowerShell para StorSimple para administrar seu dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="alkohli@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/28/2015"
+   ms.author="alkohli@microsoft.com" />
 
 # Usar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
@@ -66,7 +66,7 @@ A imagem a seguir mostra as várias opções de espaço de execução disponíve
 
 É possível escolher um das seguintes configurações:
 
-1. **Efetuar login com acesso total** Essa opção permite que você se conecte (com as credenciais apropriadas) ao estaço de execução **SSAdminConsole** no controlador local. (O controlador local é o controlador sendo acessado por meio do console serial do dispositivo StorSimple.) Essa opção também pode ser usada para permitir que o Suporte da Microsoft acesse o espaço de execução irrestrito (uma sessão de suporte) para solucionar qualquer problema do dispositivo. Depois que você usar a opção 1 para fazer logon, pode permitir que o engenheiro do Suporte da Microsoft acesse o espaço de execução irrestrito ao executar um cmdlet específico. Para obter detalhes, consulte [Iniciar uma sessão de suporte](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple). Essa opção se conecta a um espaço de execução no controlador local.
+1. **Efetuar login com acesso total** Essa opção permite que você se conecte (com as credenciais apropriadas) ao estaço de execução **SSAdminConsole** no controlador local. (O controlador local é o controlador sendo acessado por meio do console serial do dispositivo StorSimple.) Essa opção também pode ser usada para permitir que o Suporte da Microsoft acesse o espaço de execução irrestrito (uma sessão de suporte) para solucionar qualquer problema do dispositivo. Depois que você usar a opção 1 para fazer logon, pode permitir que o engenheiro do Suporte da Microsoft acesse o espaço de execução irrestrito ao executar um cmdlet específico. Para obter detalhes, consulte [Iniciar uma sessão de suporte](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
 
 1. **Efetuar login no controlador de par com acesso completo** Essa opção equivale à opção 1, exceto pelo fato de você poder se conectar (com as credenciais apropriadas) ao espaço de execução **SSAdminConsole** no controlador de par. Como o dispositivo StorSimple é um dispositivo de alta disponibilidade com dois controladores em uma configuração ativo-passivo, par refere-se ao outro controlador no dispositivo que você está acessando por meio do console serial). Semelhante à opção 1, essa opção também pode ser usada para permitir que o Suporte da Microsoft acesse o espaço de execução irrestrito em um controlador de par.
 
@@ -123,7 +123,7 @@ Agora você pode usar o PuTTY para se conectar ao console serial do dispositivo 
 ## Conectar-se remotamente ao StorSimple usando o Windows PowerShell para StorSimple
 Você pode usar o Windows PowerShell remotamente para se conectar ao seu dispositivo StorSimple. Ao se conectar dessa maneira, você não verá um menu. (Você verá um menu apenas se usar o console serial no dispositivo para se conectar.) Com a comunicação remota do Windows PowerShell, você se conectar a um espaço de execução específico. Também é possível especificar o idioma de exibição.
 
-O idioma de exibição é independente da linguagem que você definir usando a opção Alterar Idioma no menu do console serial. O PowerShell remoto selecionará automaticamente a localidade do dispositivo do qual você está se conectando se nenhum for especificado.
+O idioma de exibição é independente do idioma definido usando a opção **Alterar Idioma** no menu do console serial. O PowerShell remoto selecionará automaticamente a localidade do dispositivo do qual você está se conectando se nenhum for especificado.
 
 >[AZURE.NOTE]Se você estiver trabalhando com hosts virtuais do Microsoft Azure e dispositivos virtuais StorSimple, poderá usar o Windows PowerShell remotamente e o host virtual para se conectar ao dispositivo virtual. Se você tiver configurado um local de compartilhamento no host no qual são salvas as informações de sessão do Windows PowerShell, deverá estar ciente de que a entidade Todos inclui somente os usuários autenticados. Portanto, se você configurou o compartilhamento para permitir o acesso por Todos e se conectar sem especificar credenciais, a entidade Anônima não autenticada será usada e um erro aparecerá. Para corrigir esse problema, no host de compartilhamento, você precisa ativar a conta de convidado e dar à conta de convidado acesso total ao compartilhamento ou especificar credenciais válidas, juntamente com o cmdlet do Windows PowerShell.
 
@@ -152,7 +152,7 @@ A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e
 |Se você quiser fazer isso...|Utilize este procedimento.|
 |---|---|
 |Registre seu dispositivo|[Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
-|Configurar o proxy da web</br>Exibir configurações de proxy da web|[Configurar proxy da web para seu dispositivo StorSimple](storsimple-configure-web-proxy.md)|
+|Configurar o proxy Web</br>Exibir configurações do proxy Web|[Configurar proxy da web para seu dispositivo StorSimple](storsimple-configure-web-proxy.md)|
 |Modificar as configurações de interface de rede DATA 0 em seu dispositivo StorSimple|[Modificar a interface de rede DATA 0 em seu dispositivo StorSimple](storsimple-modify-data-0.md)|
 |Parar um controlador </br> Reiniciar ou desligar um controlador </br> Desligar um dispositivo </br> Redefinir o dispositivo para as configurações padrão de fábrica|[Gerenciar os controladores do dispositivo](storsimple-manage-device-controller.md)|
 |Instalar atualizações e hotfixes no modo de manutenção|[Atualizar seu dispositivo](storsimple-update-device.md)|
@@ -165,17 +165,17 @@ A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e
 
 No Windows PowerShell para StorSimple, a Ajuda de cmdlet está disponível. Uma versão atualizada online da Ajuda também está disponível, a qual pode ser usada para atualizar a Ajuda em seu sistema.
 
-O Obtendo Ajuda nesta interface é semelhante ao do Windows PowerShell e a maioria dos cmdlets relacionados à Ajuda funcionará. Você pode encontrar Ajuda para o Windows PowerShell online na biblioteca do TechNet: [Scripts com o Windows PowerShell](http://go.microsoft.com/fwlink/?LinkID=108518).
+O Obtendo Ajuda nesta interface é semelhante ao do Windows PowerShell e a maioria dos cmdlets relacionados à Ajuda funcionará. Você pode encontrar Ajuda para o Windows PowerShell online na Biblioteca TechNet: [Scripts com Windows PowerShell](http://go.microsoft.com/fwlink/?LinkID=108518).
 
 A seguir é apresentada uma breve descrição dos tipos de Ajuda para essa interface do Windows PowerShell, incluindo como atualizar a Ajuda.
 
 #### Para obter ajuda para um cmdlet
 
-- Para obter ajuda para qualquer cmdlet ou função, use o seguinte comando: `Get-Help <cmdlet-name>`
+- Para obter ajuda com qualquer cmdlet ou função, use o seguinte comando: `Get-Help <cmdlet-name>`
 
-- Para obter ajuda on-line para qualquer cmdlet, use o cmdlet anterior com o parâmetro `-Online`: `Get-Help <cmdlet-name> -Online`
+- Para obter ajuda online para qualquer cmdlet, use o cmdlet anterior com o parâmetro `-Online`: `Get-Help <cmdlet-name> -Online`
 
-- Para obter ajuda completa, você pode usar –Parâmetro total e, para obter exemplos, usar o parâmetro `–Examples`.
+- Para obter ajuda completa, use o parâmetro –Full e, para obter exemplos, use o parâmetro `–Examples`.
 
 #### Para atualizar a Ajuda
 
@@ -189,7 +189,7 @@ Você pode atualizar facilmente a Ajuda na interface do Windows PowerShell. Exec
 
 1. Os arquivos de Ajuda atualizados serão instalados.
 
-1. Depois que os arquivos de ajuda forem instalados, digite: `Get-Help Get-Command`. Isso exibirá uma lista dos cmdlets para os quais a Ajuda está disponível.
+1. Após a instalação dos arquivos de ajuda, digite: `Get-Help Get-Command`. Isso exibirá uma lista dos cmdlets para os quais a Ajuda está disponível.
 
 
 >[AZURE.NOTE]Para obter uma lista de todos os cmdlets disponíveis em qualquer runspace, faça logon na opção de menu correspondente e execute o cmdlet `Get-Command`.
@@ -197,4 +197,4 @@ Você pode atualizar facilmente a Ajuda na interface do Windows PowerShell. Exec
 ## Próximas etapas
 Se você tiver problemas com seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima, consulte [Ferramentas para solucionar problemas em implantações de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introdução à autenticação para aplicativos móveis no Xamarin iOS"
-	description="Aprenda a usar os aplicativos móveis para autenticar usuários de seu aplicativo Xamarin iOS por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="mattchenderson"
-	manager="dwrede"
+	pageTitle="Introdução à autenticação para aplicativos móveis no Xamarin iOS" 
+	description="Aprenda a usar os aplicativos móveis para autenticar usuários de seu aplicativo Xamarin iOS por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft." 
+	services="app-service\mobile" 
+	documentationCenter="xamarin" 
+	authors="mattchenderson" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.service="app-service" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/27/2015" 
 	ms.author="mahender"/>
 
 # Adicionar autenticação ao aplicativo Xamarin.iOS
@@ -24,7 +24,9 @@ Este tópico mostra como autenticar usuários de um aplicativo móvel do Serviç
 
 Este tutorial baseia-se no início rápido do aplicativo móvel. Você também deve primeiro concluir o tutorial [Criar um aplicativo Xamarin.iOS]. Se você não usar o projeto baixado de início rápido do servidor, deve adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##<a name="create-gateway"></a>Criar um gateway de Serviço de Aplicativo
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
+##<a name="create-gateway"></a>Criar um gateway do Serviço de Aplicativo
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway-preview](../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md)]
 
@@ -116,4 +118,4 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

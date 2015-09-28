@@ -3,7 +3,7 @@
 	description="Fornece respostas para algumas das perguntas mais comuns sobre as máquinas virtuais do Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/17/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Perguntas frequentes sobre máquinas virtuais do Azure
 
@@ -148,4 +148,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

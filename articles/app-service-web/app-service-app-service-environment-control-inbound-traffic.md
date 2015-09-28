@@ -1,31 +1,33 @@
 <properties 
-	pageTitle="Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo"
-	description="Saiba mais sobre como configurar regras de segurança de rede para controlar o tráfego de entrada para um ambiente de serviço de aplicativo."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo" 
+	description="Saiba mais sobre como configurar regras de segurança de rede para controlar o tráfego de entrada para um ambiente de serviço de aplicativo." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
 
 ## Visão geral ##
-Um ambiente de serviço de aplicativo sempre é criado em uma sub-rede de uma [rede virtual][virtualnetwork] regional. Uma nova rede virtual regional e nova sub-rede podem ser definidas no momento em que um ambiente de serviço de aplicativo é criado. Como alternativa, um ambiente de serviço de aplicativo pode ser criado em uma rede virtual regional já existente e sub-rede preexistente. Para obter mais detalhes sobre a criação de um ambiente de serviço de aplicativo, consulte [Como criar um ambiente de serviço de aplicativo][HowToCreateAnAppServiceEnvironment].
+Um Ambiente do Serviço de Aplicativo sempre é criado em uma sub-rede de uma [rede virtual][virtualnetwork] regional clássica "v1". Uma nova rede virtual regional clássica "v1" e nova sub-rede podem ser definidas no momento em que um Ambiente do Serviço de Aplicativo é criado. Como alternativa, um Ambiente do Serviço de Aplicativo pode ser criado em uma rede virtual regional clássica "v1" existente e sub-rede preexistente. Para obter mais detalhes sobre a criação de um ambiente de serviço de aplicativo, consulte [Como criar um ambiente de serviço de aplicativo][HowToCreateAnAppServiceEnvironment].
 
 Um ambiente de serviço de aplicativo sempre deve ser criado em uma sub-rede, porque uma sub-rede fornece um limite de rede que pode ser usado para bloquear o tráfego de entrada por trás de dispositivos e serviços de upstream, de modo que o tráfego HTTP e HTTPS é aceito apenas de endereços IP upstream específicos.
 
 O tráfego de rede de entrada e saída em uma sub-rede é controlado usando um [grupo de segurança de rede][NetworkSecurityGroups]. Controlar o tráfego de entrada requer a criação de regras de segurança de rede em um grupo de segurança de rede, seguida da atribuição do grupo de segurança de rede à sub-rede que contém o ambiente de serviço de aplicativo.
 
 Quando um grupo de segurança de rede é atribuído a uma sub-rede, o tráfego de entrada para aplicativos no ambiente de serviço de aplicativo é permitido/bloqueado com base em regras de permissão e bloqueio definidas no grupo de segurança de rede.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Portas de rede usadas em um Ambiente de Serviço de Aplicativo ##
 Antes de bloquear o tráfego de rede de entrada com um grupo de segurança de rede, é importante saber o conjunto de portas de rede requeridas e opcionais usadas por um ambiente de serviço de aplicativo. Fechar acidentalmente o tráfego para algumas portas pode resultar em perda de funcionalidade em um ambiente de serviço de aplicativo.
@@ -37,20 +39,22 @@ A seguir está uma lista de portas usadas por um ambiente de serviço de aplicat
 - 80: Porta padrão para tráfego HTTP de entrada para aplicativos executados em planos de serviço de aplicativo em um ambiente de serviço de aplicativo
 - 443: Porta padrão para tráfego SSL de entrada para aplicativos executados em planos de serviço de aplicativo em um ambiente de serviço de aplicativo
 - 21: canal de controle para FTP. Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado.
-- 10001-10020: canais de dados para FTP. Assim como ocorre com o canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não está sendo usado (**Observação:** os canais de dados de FTP podem ser alterados durante a visualização.)
+- 10001-10020: canais de dados para FTP. Assim como ocorre com o canal de controle, essas portas poderão ser bloqueadas com segurança se o FTP não estiver sendo usado (**Observação:** os canais de dados de FTP podem ser alterados durante a visualização.)
 - 4016: usado para depuração remota com o Visual Studio 2012. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
 - 4018: usado para depuração remota com o Visual Studio 2013. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
 - 4020: usado para depuração remota com o Visual Studio 2015. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
 
 ## Requisitos de DNS e conectividade de saída ##
-Observe que, para um ambiente de Serviço de Aplicativo funcionar corretamente, ele também requer acesso de saída ao armazenamento do Azure, bem como ao banco de dados SQL na mesma região do Azure. Se o acesso de saída da Internet for bloqueado na rede virtual, os ambientes do Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
+Observe que, para um Ambiente do Serviço de Aplicativo funcionar corretamente, ele também requer acesso de saída ao Armazenamento do Azure no mundo todo, bem como ao banco de dados SQL na mesma região do Azure. Se o acesso de saída à Internet for bloqueado na rede virtual, os Ambientes de Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
 
 O cliente também pode ter servidores DNS personalizados configurados na rede virtual. Os Ambientes de Serviço de Aplicativo precisam poder resolver pontos de extremidade do Azure em *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net.
 
-Também é recomendável que todos os servidores DNS personalizados na rede virtual sejam configurados com antecedência antes da criação de um ambiente do Serviço de Aplicativo. Se a configuração de DNS da rede virtual for alterada durante a criação de um ambiente do Serviço de Aplicativo, isso resultará em falha no processo de criação do ambiente do Serviço de Aplicativo.
+Também é recomendável que todos os servidores DNS personalizados na rede virtual sejam configurados com antecedência antes da criação de um ambiente do Serviço de Aplicativo. Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente de Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente de Serviço de Aplicativo. Do mesmo modo, se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN e estiver inacessível ou indisponível, o processo de criação do Ambiente do Serviço de Aplicativo também falhará.
 
 ## Criando um grupo de segurança de rede ##
 Para obter detalhes completos sobre como funcionam os grupos de segurança de rede, consulte as seguintes [informações][NetworkSecurityGroups]. Os detalhes abaixo tocam em pontos de destaque dos grupos de segurança de rede, com foco em como configurar e aplicar um grupo de segurança de rede a uma sub-rede que contém um ambiente de serviço de aplicativo.
+
+**Observação**: os grupos de segurança de rede pode ser configurados somente usando o cmdlets do Powershell descritos abaixo. Os grupos de segurança de rede não podem ser configurados graficamente usando o novo portal (portal.azure.com) porque o novo portal permite apenas configuração gráfica de NSGs associados às redes virtuais "v2". No entanto, os Ambientes de Serviços de Aplicativo atualmente funcionam apenas com redes virtuais clássicas "v1". Consequentemente, apenas os cmdlets do Powershell podem ser usados para configurar grupos de segurança de rede associados às redes virtuais "v1".
 
 Grupos de segurança de rede são criados pela primeira vez como uma entidade autônoma associada a uma assinatura. Como os grupos de segurança de rede são criados em uma região do Azure, certifique-se de que o grupo de segurança de rede é criado na mesma região que o ambiente de serviço de aplicativo.
 
@@ -78,7 +82,7 @@ Se desejar suporte a FTP, as regras a seguir podem usadas como um modelo para co
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-(**Observação:** o intervalo de portas de canal de dados pode ser alterado durante o período de visualização.)
+(**Observação:** o intervalo de portas do canal de dados pode mudar durante o período de visualização.)
 
 Se a depuração remota com o Visual Studio é usada, as regras a seguir demonstram como conceder acesso. Há uma regra separada para cada versão do Visual Studio para a qual há suporte, já que cada versão usa uma porta diferente para a depuração remota. Assim como acontece com acesso ao FTP, o tráfego de depuração remota pode não fluir corretamente por meio de um dispositivo de proxy ou WAF tradicional. O *SourceAddressPrefix* pode ser definido, em vez disso, como o intervalo de endereços IP dos computadores de desenvolvedor executando o Visual Studio.
 
@@ -104,9 +108,9 @@ Para fins de exatidão, o exemplo a seguir mostra como remover e, portanto, diss
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## Considerações especiais para IP-SSL explícito ##
-Se um aplicativo for configurado com um endereço IP explícito em vez do endereço IP padrão do ambiente de serviço de aplicativo, o tráfego HTTP e HTTPS flui para a sub-rede em um conjunto de portas diferente das portas 80 e 443.
+Se um aplicativo for configurado com um endereço IP explícito em vez do endereço IP padrão do Ambiente do Serviço de Aplicativo, o tráfego HTTP e HTTPS fluirá para a sub-rede por um conjunto de portas diferente das portas 80 e 443.
 
-Durante a visualização inicial de ambientes de serviço de aplicativo, não é possível determinar as portas usadas por IP-SSL. No entanto, quando essas informações são expostas por meio do portal, de ferramentas de linha de comando e APIs REST, os desenvolvedores poderão configurar grupos de segurança de rede para controlar o tráfego também por essas portas.
+O par de portas individual usado para cada endereço IP-SSL pode ser encontrado clicando em "Todas as configurações --> "Endereços IP" em uma folha de interface de usuário do Ambiente do Serviço de Aplicativo. A folha "Endereços IP" mostra uma tabela de todos os endereços IP-SSL configurados explicitamente para o Ambiente do Serviço de Aplicativo, juntamente com o par de portas especial que é usado para rotear o tráfego HTTP e HTTPS associado a cada endereço IP-SSL. É esse par de portas que precisa ser usado para os parâmetros DestinationPortRange ao configurar regras em um grupo de segurança de rede.
 
 ## Introdução
 
@@ -130,4 +134,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="Perguntas frequentes sobre o Banco de Dados de Documentos | Microsoft Azure"
-	description="Respostas para perguntas frequentes sobre o Banco de Dados de Documentos, um serviço de banco de dados de documentos NoSQL."
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="Perguntas de banco de dados sobre o Banco de Dados de Documentos — perguntas frequentes | Microsoft Azure" 
+	description="Obtenha respostas para perguntas frequentes sobre o serviço de banco de dados de documento NoSql do Banco de Dados de Documentos do Azure. Responda perguntas de banco de dados sobre capacidade, níveis de desempenho e dimensionamento." 
+	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mimig"/>
 
 
 #Perguntas frequentes sobre o Banco de Dados de Documentos
 
-## Noções básicas sobre o Banco de Dados de Documentos do Microsoft Azure
+## Perguntas de banco de dados sobre as noções básicas do Banco de Dados de Documentos do Microsoft Azure
 
 ### O que é o Banco de Dados de Documentos do Microsoft Azure? 
 O Banco de Dados de Documentos do Microsoft Azure é um serviço de banco de dados de documentos NoSQL altamente escalonável que oferece consulta sofisticada de dados sem esquemas, ajuda a oferecer um desempenho confiável e configurável e habilita um desenvolvimento rápido – tudo isso por meio de uma plataforma gerenciada com o suporte e o alcance do Microsoft Azure. O Banco de Dados de Documentos é a solução certa para aplicativos Web e dispositivos móveis, nos quais taxa de transferência previsível, baixa latência e modelo de dados sem esquema são requisitos essenciais. O Banco de Dados de Documentos fornece flexibilidade de esquemas e indexação sofisticada por meio de um modelo de dados JSON nativo e inclui suporte de transações com diversos documentos com JavaScript integrado.
   
-Para obter instruções de como implantar e usar esse serviço, consulte a [página de documentação do Banco de Dados de Documentos](http://azure.microsoft.com/documentation/services/documentdb/).
+Para obter mais perguntas, respostas e instruções de banco de dados sobre como implantar e usar esse serviço, consulte a [página de documentação do Banco de Dados de Documentos](http://azure.microsoft.com/documentation/services/documentdb/).
 
 ### Que tipo de banco de dados é o Banco de Dados de Documentos?
 O Banco de Dados de Documentos é um banco de dados voltado a documentos NoSQL que armazena dados no formato JSON. O Banco de Dados de Documentos dá suporte a estruturas de dados autocontidos aninhados, que podem ser consultados com uma sofisticada [gramática de consulta SQL](documentdb-sql-query.md) do Banco de Dados de Documentos. O Banco de Dados de Documentos fornece processamento de transações de alto desempenho de JavaScript por parte do servidor com [procedimentos armazenados, gatilhos e funções definidas pelo usuário](documentdb-programming.md). O banco de dados dá suporte também a níveis de consistência ajustáveis pelo desenvolvedor, com [níveis de desempenho](documentdb-performance-levels.md) associados.
@@ -75,7 +76,7 @@ Cada coleção vem com uma alocação de armazenamento do banco de dados e uma t
 ### Como configuro usuários e permissões?
 Você pode criar usuários e permissões usando um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx) ou as [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
-## Desenvolver no Banco de Dados de Documentos do Microsoft Azure
+## Perguntas de banco de dados sobre como desenvolver no Banco de Dados de Documentos do Microsoft Azure
 
 ### Como começo a desenvolver no Banco de Dados de Documentos?
 Os [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) estão disponíveis para .NET, Python, Node.js, JavaScript e Java. Os desenvolvedores também podem aproveitar as [APIs HTTP RESTful](https://msdn.microsoft.com/library/azure/dn781481.aspx) para interagir com os recursos do Banco de Dados de Documentos em uma série de plataformas e linguagens.
@@ -111,4 +112,4 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

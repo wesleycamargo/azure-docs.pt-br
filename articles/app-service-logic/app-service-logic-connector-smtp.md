@@ -1,20 +1,20 @@
 <properties
    pageTitle="Usando o Conector SMTP em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
-	description="Como criar e configurar o Conector SMTP ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Como criar e configurar o Conector SMTP ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="andalmia"/>
 
 
 # Introdução ao Conector SMTP e à adição dele ao seu Aplicativo Lógico
@@ -54,6 +54,8 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 6. Selecione **Criar**.
 
+> [AZURE.IMPORTANT]Alguns servidores SMTP podem ter problemas com o funcionamento desse conector (SendGrid e Gmail). Se quiser enviar email do SendGrid, nosso [repositório GitHub](https://github.com/logicappsio/SendGridAPI) tem uma API personalizada que fará interface diretamente com as APIs do SendGrid.
+
 ## Usando o Conector de SMTP em seu aplicativo lógico
 Após a criação do conector, você poderá usar o conector de SMTP como uma ação para seu aplicativo lógico. Para fazer isso:
 
@@ -90,7 +92,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho 
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
@@ -100,4 +102,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

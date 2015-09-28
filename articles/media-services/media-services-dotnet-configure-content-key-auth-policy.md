@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 
@@ -204,8 +204,8 @@ Ao usar o **SDK dos serviços de mídia para .NET**, você pode usar a classe **
 	
 	    template.PrimaryVerificationKey = new SymmetricVerificationKey();
 	    template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
-	    template.Audience = _sampleAudience;
-	    template.Issuer = _sampleIssuer;
+            template.Audience = _sampleAudience.ToString();
+            template.Issuer = _sampleIssuer.ToString();
 	
 	    template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
 	
@@ -336,8 +336,8 @@ Para configurar a opção de restrição de token, você precisa usar um XML par
 	
 	    template.PrimaryVerificationKey = new SymmetricVerificationKey();
 	    template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
-	    template.Audience = _sampleAudience;
-	    template.Issuer = _sampleIssuer;
+            template.Audience = _sampleAudience.ToString();
+            template.Issuer = _sampleIssuer.ToString();
 	
 	
 	    template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
@@ -403,4 +403,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.date="09/08/2015"
@@ -19,9 +19,11 @@
 
 # Farms do SharePoint hospedados nos serviços de infraestrutura do Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
+
 Configure seu primeiro ou próximo farm do SharePoint de desenvolvimento/teste ou de produção nos serviços de infraestrutura do Microsoft Azure, em que você pode tirar proveito da facilidade de configuração e da capacidade de expandir rapidamente o farm para incluir a nova capacidade ou a otimização da funcionalidade de chave.
 
-> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para obter mais informações, veja [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE]A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para saber mais, consulte [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Farm de desenvolvimento/teste básico do SharePoint
 
@@ -29,7 +31,7 @@ Para máquinas virtuais criadas com o modelo de implantação clássico, use o r
 
 O ambiente criado automaticamente consiste em três servidores para um controlador de domínio, um servidor SQL e o servidor do SharePoint em uma rede virtual do Azure somente na nuvem.
 
-Para criar uma configuração semelhante com o modelo de implantação do Gerenciador de Recursos, use um modelo. Veja [Implantar um farm de três servidores do SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Para criar uma configuração semelhante com o modelo de implantação do Gerenciador de Recursos, use um modelo. Consulte [Implantar um farm de três servidores do SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
 ## Farm de desenvolvimento/teste do SharePoint de alta disponibilidade
 
@@ -37,7 +39,7 @@ Para máquinas virtuais clássicas, use o recurso [Farm do SharePoint Server](vi
 
 O ambiente criado automaticamente consiste em nove servidores em uma rede virtual do Azure somente na nuvem: dois para controladores de domínio, três para um cluster do SQL Server, dois servidores do SharePoint da camada de aplicativos e dois servidores do SharePoint da camada da Web.
 
-Para criar uma configuração semelhante com máquinas virtuais do Gerenciador de Recursos, use um modelo. Veja [Implantar um farm de nove servidores do SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
+Para criar uma configuração semelhante com máquinas virtuais do Gerenciador de Recursos, use um modelo. Consulte [Implantar um farm de nove servidores do SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
 ## Farm de desenvolvimento/teste de nuvem híbrida
 
@@ -65,4 +67,4 @@ Consulte estes recursos para obter configurações e informações adicionais do
 
 - [Implantar DirSync (Sincronização de Diretório) do Office 365 no Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

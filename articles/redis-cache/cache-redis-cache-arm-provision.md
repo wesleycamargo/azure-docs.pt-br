@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/15/2015" 
 	ms.author="tomfitz"/>
 
 # Criar um Cache Redis usando um modelo
 
-Neste tópico, você aprenderá a criar um modelo do Gerenciador de Recursos do Azure que implanta um aplicativo Cache Redis do Azure. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Neste tópico, você aprenderá a criar um modelo do Gerenciador de Recursos do Azure que implanta um aplicativo Cache Redis do Azure. O cache pode ser usado com uma conta de armazenamento existente para manter os dados de diagnóstico. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+
+Atualmente, as configurações de diagnóstico são compartilhadas por todos os caches na mesma região de uma assinatura. A atualização de um cache na região afetará todos os outros caches na região.
 
 Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
@@ -26,7 +28,7 @@ Para obter o modelo completo, confira [Modelo do Cache Redis](https://github.com
 
 ## O que você implantará
 
-Neste modelo, você implantará um Cache Redis do Azure.
+Neste modelo, você implantará um Cache Redis do Azure que usa uma conta de armazenamento existente para os dados de diagnóstico.
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
@@ -48,6 +50,34 @@ O local do Cache Redis. Para obter o melhor desempenho, use o mesmo local que o 
       "type": "string"
     }
 
+### diagnosticsStorageAccountName
+
+O nome da conta de armazenamento existente a ser usada para o diagnóstico.
+
+    "diagnosticsStorageAccountName": {
+      "type": "string"
+    }
+
+### enableNonSslPort
+
+Um valor booliano que indica a permissão de acesso por meio de portas não SSL.
+
+    "enableNonSslPort": {
+      "type": "bool"
+    }
+
+### diagnosticsStatus
+
+Um valor que indica se o diagnóstico está habilitado. Use ATIVAR ou DESATIVAR.
+
+    "diagnosticsStatus": {
+      "type": "string",
+      "defaultValue": "ON",
+      "allowedValues": [
+            "ON",
+            "OFF"
+        ]
+    }
     
 ## Recursos a implantar
 
@@ -56,23 +86,36 @@ O local do Cache Redis. Para obter o melhor desempenho, use o mesmo local que o 
 Cria o Cache Redis do Azure.
 
     {
-      "apiVersion": "2014-04-01-preview",
+      "apiVersion": "2015-08-01",
       "name": "[parameters('redisCacheName')]",
       "type": "Microsoft.Cache/Redis",
       "location": "[parameters('redisCacheLocation')]",
       "properties": {
-        "sku": {
-          "name": "[parameters('redisCacheSKU')]",
-          "family": "[parameters('redisCacheFamily')]",
-          "capacity": "[parameters('redisCacheCapacity')]"
-        },
+        "enableNonSslPort": "[parameters('enableNonSslPort')]",
         "redisVersion": "[parameters('redisCacheVersion')]",
-        "enableNonSslPort": true
-      }
+        "sku": {
+          "capacity": "[parameters('redisCacheCapacity')]",
+          "family": "[parameters('redisCacheFamily')]",
+          "name": "[parameters('redisCacheSKU')]"
+        }
+      },
+        "resources": [
+          {
+            "apiVersion": "2014-04-01",
+            "type": "diagnosticSettings",
+            "name": "service", 
+            "location": "[parameters('redisCacheLocation')]",
+            "dependsOn": [
+              "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
+            ],
+            "properties": {
+              "status": "[parameters('diagnosticsStatus')]",
+              "storageAccountName": "[parameters('diagnosticsStorageAccountName')]",
+              "retention": "30"
+            }
+          }
+        ]
     }
-     
-
-
 
 ## Comandos para executar a implantação
 
@@ -86,4 +129,4 @@ Cria o Cache Redis do Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

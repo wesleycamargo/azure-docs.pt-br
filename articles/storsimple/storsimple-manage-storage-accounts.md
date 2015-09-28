@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gerenciar sua conta de armazenamento do StorSimple | Microsoft Azure"
-	description="Explica como você pode usar a página Configurar do StorSimple Manager para adicionar, editar, excluir ou alternar entre as chaves de segurança para uma conta de armazenamento."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explica como você pode usar a página Configurar do StorSimple Manager para adicionar, editar, excluir ou alternar entre as chaves de segurança para uma conta de armazenamento."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar sua conta de armazenamento
 
@@ -148,6 +148,7 @@ Para informar o serviço StorSimple Manager da alteração, será necessário ac
 
 ## Próximas etapas
 
-Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
+- Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
+- Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Fase 5 da carga de trabalho da intranet do SharePoint: Criar o grupo de disponibilidade e adicionar os bancos de dados do SharePoint
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 Na última fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você deve criar um novo grupo de disponibilidade AlwaysOn e adicionar os bancos de dados do farm do SharePoint.
 
@@ -39,7 +41,7 @@ Para habilitar o backup e a restauração, certifique-se de que os arquivos de b
 1.	Faça logon no host do SQL Server primário como **[domínio]\\sp\_farm\_db**.
 2.	Navegue até o disco F:\\.
 3.	Clique com o botão direito na pasta **Backup**, clique em **Compartilhar com** e em **pessoas específicas**.
-4.	Na caixa de diálogo **Compartilhamento de arquivos**, digite **[domínio]\\sqlservice** e, em seguida, clique em **Adicionar**.
+4.	Na caixa de diálogo **Compartilhamento de arquivo**, digite **[domain]\\sqlservice** e clique em **Adicionar**.
 5.	Clique na coluna **Nível de permissão** para o nome da conta **sqlservice** e, em seguida, clique em **Leitura/Gravação**.
 6.	Clique em **Compartilhar** duas e em **Concluído**.
 
@@ -56,20 +58,20 @@ Use estas etapas para fazer backup de um banco de dados:
 3.	No painel esquerdo, expanda o nó **Banco de Dados**.
 4.	Clique com o botão direito no banco de dados que deseja armazenar em backup, aponte para **Tarefas**, e, em seguida, clique em **Fazer backup**.
 5.	Na seção **Destino**, clique em **Remover** para remover o caminho de arquivo padrão para o arquivo de backup.
-6.	Clique em **Adicionar**. Em **Nome do arquivo**, digite **\[NomeDaMáquina]\\backup[nomeDoBancoDeDados].bak**, em que nomeDaMáquina é o nome do computador do SQL Server primário e nomeDoBancoDeDados é o nome do banco de dados. Clique em **OK** e em **OK** novamente após a mensagem avisando que o backup foi bem-sucedido.
-7.	No painel esquerdo, clique com botão direito em **[NomeDoBancoDeDados]**, aponte para **Tarefas**, e, em seguida, clique em **Fazer Backup**.
+6.	Clique em **Adicionar**. Em **Nome do arquivo**, digite **\\[nomeDaMáquina]\\backup[nomeDoBancoDeDados].bak**, em que nomeDaMáquina é o nome do computador do SQL Server primário e nomeDoBancoDeDados é o nome do banco de dados. Clique em **OK** e em **OK** novamente após a mensagem avisando que o backup foi bem-sucedido.
+7.	No painel esquerdo, clique com o botão direito do mouse em **[nomeDoBancoDeDados]**, aponte para **Tarefas** e clique em **Fazer Backup**.
 8.	Em **Tipo de backup**, selecione **Log de Transações** e clique em **OK** duas vezes.
 9.	Mantenha essa sessão de área de trabalho remota aberta.
 
 Use estas etapas para restaurar um banco de dados:
 
-1.	Faça logon no computador do SQL Server secundário como **[NomeDoDomínio]\\sp\_farm\_db**.
+1.	Faça logon no computador do SQL Server secundário como **[nomeDoDomínio]\\sp\_farm\_db**.
 2.	Na tela inicial, digite **SQL Studio** e clique em **SQL Server Management Studio**.
 3.	Clique em **Conectar**.
 4.	No painel esquerdo, clique com botão direito em **Bancos de Dados** e clique em **Restaurar Banco de Dados**.
 5.	Na seção **Fonte**, selecione **Dispositivo** e clique no botão de reticências (...).
 6.	Em **Selecionar dispositivos de backup**, clique em **Adicionar**.
-7.	Em **Local do arquivo de backup**, digite **\[NomeDaMáquina]\\backup**, pressione Enter, selecione **[NomeDoBancoDeDados].bak** e, em seguida, clique em **OK** duas vezes. Agora você deverá ver o backup completo e o backup do log na seção **Conjuntos de backup a serem restaurados**.
+7.	Em **Local do arquivo de backup**, digite **\\[nomeDaMáquina]\\backup**, pressione Enter, selecione **[nomeDoBancoDeDados].bak** e, em seguida, clique em **OK** duas vezes. Agora você deverá ver o backup completo e o backup do log na seção **Conjuntos de backup a serem restaurados**.
 8.	Em **Selecionar uma página**, clique em **Opções**. Na seção **Opções de restauração**, em **Estado de recuperação**, selecione **RESTAURAR COM NORECOVERY** e, em seguida, clique em **OK**.
 9.	Quando solicitado, clique em **OK**.
 
@@ -96,7 +98,7 @@ Primário | Secundário Legível | Sim
 Secundário | Secundário Legível | Sim
 
 9.	Clique em **Próximo**.  
-10.	Na página **Selecionar Sincronização de Dados Inicial**, clique em **Somente união** e, em seguida, clique em **Avançar**. A sincronização de dados é executada manualmente ao restaurar os backups completo e de transações no servidor primário. Você também pode optar por selecionar **Completo** para permitir que o Assistente de Novo Grupo de Disponibilidade execute a sincronização de dados para você. No entanto, não recomendamos sincronização para os grandes bancos de dados que podem ser encontrados em algumas empresas.  
+10.	Na página **Selecionar Sincronização de Dados Inicial**, clique em **Somente união** e clique em **Avançar**. A sincronização de dados é executada manualmente ao restaurar os backups completo e de transações no servidor primário. Você também pode optar por selecionar **Completo** para permitir que o Assistente de Novo Grupo de Disponibilidade execute a sincronização de dados para você. No entanto, não recomendamos sincronização para os grandes bancos de dados que podem ser encontrados em algumas empresas.  
 11.	Na página **Validação**, clique em **Avançar**. Há um aviso de configuração de ouvinte ausente porque um ouvinte do grupo de disponibilidade não foi configurado.
 12.	Na página **Resumo**, clique em **Concluir**. Quando o assistente for concluído, inspecione a página **Resultados** para verificar se o grupo de disponibilidade foi criado com êxito. Nesse caso, clique em **Fechar** para sair do assistente.
 13.	Na tela inicial, digite **Failover** e clique em **Gerenciador de Cluster de Failover**. No painel esquerdo, abra o nome do cluster e clique em **Funções**. Uma nova função com o nome do seu grupo de disponibilidade deve estar presente.  
@@ -126,4 +128,4 @@ Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

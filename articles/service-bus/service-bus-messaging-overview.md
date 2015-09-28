@@ -50,9 +50,10 @@ Assim como na infraestrutura do sistema de mensagens de retransmissão, o recurs
 Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópicos a seguir.
 
 - [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
-- [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
+- [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
+- [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 - [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
 - [Como usar tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

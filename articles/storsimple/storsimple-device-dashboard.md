@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Use o painel do dispositivo StorSimple Manager | Microsoft Azure"
-	description="Descreve o painel do dispositivo do serviço StorSimple Manager e como usá-lo para exibir iniciadores conectados e métricas de armazenamento e localizar o número de série e o IQN."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Descreve o painel do dispositivo do serviço StorSimple Manager e como usá-lo para exibir iniciadores conectados e métricas de armazenamento e localizar o número de série e o IQN."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Usar o painel de dispositivo do StorSimple Manager
 
@@ -97,6 +97,7 @@ Talvez você precise do IQN de destino do dispositivo ao configurar o protocolo 
 
 ## Próximas etapas
 
-[Saiba mais sobre o painel de serviço StorSimple Manager](storsimple-service-dashboard.md).
+- Saiba mais sobre o [painel de serviços do StorSimple Manager](storsimple-service-dashboard.md).
+- Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

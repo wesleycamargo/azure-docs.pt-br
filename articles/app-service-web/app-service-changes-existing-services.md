@@ -2,24 +2,27 @@
 	pageTitle="Serviço de Aplicativo do Azure e seu impacto sobre os serviços existentes do Azure" 
 	description="Explica como o novo Serviço de Aplicativo do Azure e seus recursos afetam os serviços existentes no Azure." 
 	authors="yochayk" 
+	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
 	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="yochayk"/>
 
 
 # Serviço de Aplicativo do Azure e serviços existentes do Azure
 
 Este artigo descreve as alterações nos serviços existentes do Azure como parte da alteração para reunir vários serviços do Azure no [Serviço de Aplicativo do Azure](http://azure.microsoft.com/services/app-service/), uma nova oferta integrada.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Visão geral 
 
@@ -49,7 +52,7 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <td align="left"><li>Para Sites do Azure, o Serviço de Aplicativo limita-se estritamente à alteração do nome Sites para Aplicativos Web.
 <p><li>Todas as suas instâncias existentes de Sites agora são Aplicativos Web no Serviço de Aplicativo.</p>
 <p><li>Você pode acessar os sites existentes pelo <a href="http://go.microsoft.com/fwlink/?LinkId=529715">Portal do Azure</a>, onde encontrará todos os sites existentes em <em>Aplicativos Web</em>.</p>
-<p><li><em>Plano de hospedagem da Web</em> agora é <em>Plano do Serviço de Aplicativo</em>. Um <em>Plano do Serviço de Aplicativo</em> pode hospedar qualquer tipo de Serviço de Aplicativo, como aplicativos Web, Móveis, Lógicos ou de API.</p>
+<p><li><em>Plano de hospedagem da Web</em> agora é <em>Plano do Serviço de Aplicativo</em>. Um <em>Plano do Serviço de Aplicativo</em> pode hospedar qualquer tipo do Serviço de Aplicativo, como aplicativos Web, Móveis, Lógicos ou de API.</p>
 <p><li>Os aplicativos Web do Serviço de Aplicativo do Azure têm Disponibilidade Geral.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/web/">Saiba mais sobre Aplicativos Web</a>.</p></td>
 </tr>
@@ -90,4 +93,4 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 Para saber mais, acesse a documentação do [Serviço de Aplicativo](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

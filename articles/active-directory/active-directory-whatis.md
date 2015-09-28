@@ -1,19 +1,19 @@
-<properties 
-                pageTitle="O que é o Active Directory do Azure?" 
-                description="Use o Active Directory do Azure para estender suas identidades locais existentes para a nuvem ou desenvolva aplicativos integrados do AD do Azure." 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="swadhwa" 
+<properties
+                pageTitle="O que é o Active Directory do Azure?"
+                description="Use o Active Directory do Azure para estender suas identidades locais existentes para a nuvem ou desenvolva aplicativos integrados do AD do Azure."
+                services="active-directory"
+                documentationCenter=""
+                authors="markusvi"
+                manager="swadhwa"
                 editor=""/>
 
-<tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="08/10/2015" 
+<tags
+                ms.service="active-directory"
+                ms.workload="identity"
+                ms.tgt_pltfrm="na"
+                ms.devlang="na"
+                ms.topic="article"
+                ms.date="08/10/2015"
                 ms.author="markusvi"/>
 
 
@@ -56,7 +56,7 @@ Sua organização pode usar o AD do Azure para melhorar a produtividade dos func
 
 -	Adote rapidamente os serviços de nuvem, fornecendo aos funcionários e parceiros uma experiência de logon único fácil da plataforma dos recursos de serviços de provisionamento e gerenciamento de acesso a aplicativos SaaS totalmente automatizados do AD do Azure.
 -	Capacite os funcionários com acesso aos aplicativos na nuvem da mais alta qualidade e recursos de serviço e autoatendimento de onde quer que eles precisem para trabalharem nos dispositivos que adoram usar.
--	Gerencie com facilidade e segurança o acesso de funcionários e fornecedores a suas contas de mídia social corporativa. 
+-	Gerencie com facilidade e segurança o acesso de funcionários e fornecedores a suas contas de mídia social corporativa.
 -	Aprimore a segurança dos aplicativos com o acesso condicional e a autenticação multifator do AD do Azure.
 -	Implemente um gerenciamento de acesso de aplicativo de autoatendimento consistente, permitindo que os proprietários de negócios se movam rapidamente e também reduzindo a sobrecarga e os custos de TI.
 -	Monitore o uso dos aplicativos e proteja sua empresa contra ameaças avançadas com monitoramento e relatórios de segurança.
@@ -73,7 +73,7 @@ Sua organização pode usar o AD do Azure para melhorar a produtividade dos func
  - Leia nossa "Introdução ao AD do Azure" para obter dicas e truques sobre como colocar um locatário do AD do Azure em funcionamento rapidamente
 -	Se você for um desenvolvedor:
  - Confira nosso [Guia de desenvolvedores](https://msdn.microsoft.com/library/azure/ff800682.aspx) para o Active Directory do Azure <need link>
- - [Inicie uma avaliação](https://azure.microsoft.com/trial/get-started-active-directory/) – inscreva-se em uma avaliação gratuita de 30 dias hoje mesmo e comece a integrar seu aplicativo ao AD do Azure 
+ - [Inicie uma avaliação](https://azure.microsoft.com/trial/get-started-active-directory/) – inscreva-se em uma avaliação gratuita de 30 dias hoje mesmo e comece a integrar seu aplicativo ao AD do Azure
 
 
 
@@ -104,4 +104,4 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 
 - [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Como atualizar projetos para a versão atual das ferramentas do Azure"
-	description="Aprenda como atualizar um projeto do Azure no Visual Studio para a versão atual das ferramentas do Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Aprenda como atualizar um projeto do Azure no Visual Studio para a versão atual das ferramentas do Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Como atualizar projetos para a versão atual das ferramentas do Azure para Visual Studio
 
-##Visão geral
+## Visão geral
 
 Depois de instalar a versão atual das Ferramentas do Azure (ou uma versão anterior mais recente que a 1.6), todos os projetos criados usando as Ferramentas do Azure de versão anterior à 1.6 (novembro de 2011) serão atualizados automaticamente assim que você abri-los. Se você criou projetos usando a versão 1.6 (novembro de 2011) dessas ferramentas e você ainda tiver a versão instalada, pode abrir esses projetos na versão anterior e posteriormente decidir se deseja atualizá-los.
 
@@ -55,4 +55,4 @@ Se um projeto é atualizado automaticamente ou se você especificar que deseja a
 
 [Histórico de versões de ferramentas do Azure](http://go.microsoft.com/fwlink/p/?LinkId=623548)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

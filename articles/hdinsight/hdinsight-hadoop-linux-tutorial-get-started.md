@@ -1,21 +1,21 @@
 <properties
    	pageTitle="Tutorial do Linux: Introdução ao Hadoop e ao Hive | Microsoft Azure"
-	description="Siga este tutorial do Linux para começar a usar o Hadoop no HDInsight. Saiba como configurar clusters do Linux e consultar dados com o Hive."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
-	editor="cgronlun"
+   	description="Siga este tutorial do Linux para começar a usar o Hadoop no HDInsight. Saiba como configurar clusters do Linux e consultar dados com o Hive."
+   	services="hdinsight"
+   	documentationCenter=""
+   	authors="nitinme"
+   	manager="paulettm"
+   	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    	ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="nitinme"/>
+   	ms.devlang="na"
+   	ms.topic="hero-article"
+   	ms.tgt_pltfrm="na"
+   	ms.workload="big-data"
+   	ms.date="08/07/2015"
+   	ms.author="nitinme"/>
 
 # Tutorial do Hadoop: Introdução ao uso do Hadoop com o Hive no HDInsight no Linux (visualização)
 
@@ -75,23 +75,27 @@ Ao provisionar um cluster, você provisiona recursos de computação do Azure qu
 
 	![Forneça credenciais de cluster](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Forneça credenciais de cluster")
 
-	Para obter mais informações sobre como usar SSH com o HDInsight, consulte um dos seguintes artigos:
+    > [AZURE.NOTE]O SSH é usado para acessar remotamente o cluster HDInsight usando uma linha de comando. O nome de usuário e a senha ou chave pública usados aqui serão usados para se conectar ao cluster por meio do SSH. Além disso, o nome de usuário SSH deve ser exclusivo, pois ele cria uma conta de usuário em todos os nós de cluster HDInsight. Veja a seguir alguns dos nomes de conta reservados para uso pelos serviços no cluster e que não podem ser usados como o nome de usuário SSH:
+    >
+    > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+
+	Para obter mais informações sobre como usar SSH com o HDInsight, consulte um dos seguintes documentos:
 
 	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
-7. Clique em **Fonte de dados** para escolher uma fonte de dados existente para o cluster ou criar um novo. Ao provisionar um cluster Hadoop no HDInsight, você especifica uma conta de armazenamento do Azure. Um contêiner de armazenamento de blob específico dessa conta é designado como sistema de arquivos padrão, como no sistema de arquivos distribuído Hadoop (HDFS). Por padrão, o cluster HDInsight é provisionado no mesmo datacenter da conta de armazenamento que você especificou. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-use-blob-storage.md).
+7. Clique em **Fonte de Dados** para escolher uma fonte de dados existente para o cluster, ou crie uma nova. Ao provisionar um cluster Hadoop no HDInsight, você especifica uma conta de armazenamento do Azure. Um contêiner de armazenamento de blob específico dessa conta é designado como sistema de arquivos padrão, como no sistema de arquivos distribuído Hadoop (HDFS). Por padrão, o cluster HDInsight é provisionado no mesmo datacenter da conta de armazenamento que você especificou. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-use-blob-storage.md).
 
 	![Folha de fonte de dados](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "Forneça a configuração da fonte de dados")
 
-	No momento, você pode selecionar uma conta de armazenamento do Azure como a fonte de dados para um cluster HDInsight. Use o item a seguir para entender as entradas na folha **Fonte de Dados**.
+	No momento, você pode selecionar uma Conta de Armazenamento do Azure como fonte de dados para um cluster HDInsight. Use o item a seguir para entender as entradas na folha **Fonte de Dados**.
 
-	- **Método de seleção**: defina essa opção para **De todas as assinaturas** para habilitar a procura de contas de armazenamento de todas as suas assinaturas. Defina essa opção para **Tecla de Acesso** se você deseja inserir o **Nome de armazenamento** e **Tecla de Acesso** de uma conta de armazenamento existente.
+	- **Método de Seleção**: defina essa opção para **De todas as assinaturas** de modo a habilitar a procura de contas de armazenamento de todas as suas assinaturas. Defina essa opção para **Tecla de Acesso** se você deseja inserir o **Nome de Armazenamento** e a **Tecla de Acesso** de uma conta de armazenamento existente.
 
-	- **Selecionar conta de armazenamento / Criar nova**: clique em **Selecionar conta de armazenamento** para procurar e selecionar uma conta de armazenamento existente que você deseja associar com o cluster. Ou, clique em **Criar nova** para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde será exibida se o nome estiver disponível.
+	- **Selecionar conta de armazenamento/Criar Nova**: clique em **Selecionar conta de armazenamento** para procurar e selecionar uma conta de armazenamento existente que você deseja associar ao cluster. Ou clique em **Criar Nova** para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde será exibida se o nome estiver disponível.
 
-	- **Escolher contêiner padrão**: use essa opção para inserir o nome do contêiner padrão a ser usado para o cluster. Embora você possa inserir qualquer nome aqui, é recomendável usar o mesmo nome que o cluster para que você possa reconhecer facilmente que o contêiner é usado para este cluster específico.
+	- **Escolher Contêiner Padrão**: use essa opção para inserir o nome do contêiner padrão a ser usado para o cluster. Embora você possa inserir qualquer nome aqui, é recomendável usar o mesmo nome que o cluster para que você possa reconhecer facilmente que o contêiner é usado para este cluster específico.
 
 	- **Local**: a região geográfica na qual a conta de armazenamento está ou será criada.
 
@@ -99,19 +103,19 @@ Ao provisionar um cluster, você provisiona recursos de computação do Azure qu
 
 	Clique em **Selecionar** para salvar a configuração de fonte de dados.
 
-8. Clique em **Camadas de preços do nó** para exibir informações sobre os nós que serão criados para esse cluster. Defina o número de nós de trabalho que você precisa para o cluster. O custo estimado do cluster será mostrado na folha.
+8. Clique em **Tipos de Preço do Nó** para exibir informações sobre os nós que serão criados para esse cluster. Defina o número de nós de trabalho que você precisa para o cluster. O custo estimado do cluster será mostrado na folha.
 
 	![Folha de camadas de preços de nó](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Especifique o número de nós de cluster")
 
 	Clique em **Selecionar** para salvar a configuração de preço do nó.
 
-9. Na folha **Novo cluster HDInsight**, certifique-se de que **Fixar no quadro inicial** está selecionado e, em seguida, clique em **Criar**. Isso criará o cluster e adicionará um bloco para o mesmo para o quadro inicial do seu Portal do Azure. O ícone indica que o cluster está provisionando e será alterado para exibir o ícone de HDInsight após a conclusão da configuração.
+9. Na folha **Novo Cluster HDInsight**, certifique-se de que **Fixar no Quadro Inicial** está selecionada e clique em **Criar**. Isso criará o cluster e adicionará um bloco para o mesmo para o quadro inicial do seu Portal do Azure. O ícone indica que o cluster está provisionando e será alterado para exibir o ícone de HDInsight após a conclusão da configuração.
 
 Durante o provisionamento|Provisionamento concluído
 ------------------|---------------------
 	![Indicador de provisionamento no quadro inicial](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Bloco de cluster provisionado](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
-> [AZURE.NOTE]Levará algum tempo para o cluster ser criado, geralmente cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de provisionamento.
+> [AZURE.NOTE]Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de provisionamento.
 
 Quando o provisionamento for concluído, clique no bloco para o cluster a partir do quadro inicial para iniciar a folha de cluster.
 
@@ -239,14 +243,14 @@ Quando estiver conectado ao cluster via SSH, use os comandos a seguir para execu
 ## <a name="nextsteps"></a>Próximas etapas
 Neste tutorial do Linux, você aprendeu a provisionar um cluster do Hadoop no Linux com o HDInsight e a executar nele uma consulta do Hive usando SSH. Para saber mais, consulte os seguintes artigos:
 
-- [Gerenciar clusters HDInsight usando Ambari](hdinsight-hadoop-manage-ambari.md): clusters HDInsight baseados em Linux usam Ambari para gerenciamento e monitoramento de serviços do Hadoop. A interface do usuário da Ambari Web está disponível em cada cluster em https://CLUSTERNAME.azurehdinsight.net.
+- [Gerenciar clusters HDInsight usando Ambari](hdinsight-hadoop-manage-ambari.md): clusters HDInsight baseados em Linux usam Ambari para gerenciamento e monitoramento de serviços do Hadoop. A interface do usuário da Web Ambari está disponível em cada cluster em https://CLUSTERNAME.azurehdinsight.net.
 
 	> [AZURE.IMPORTANT]Enquanto muitas seções da Ambari Web estão diretamente acessíveis pela Internet, a interface do usuário Web para serviços Hadoop, como o Gerenciador de recursos ou o Histórico de trabalho exigem o uso de um túnel SSH. Para obter mais informações sobre o uso de um túnel SSH com o HDInsight, consulte os seguintes artigos:
 	>
 	> * [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
 	> * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
 
-- [HDInsight de provisão no Linux usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md): Saiba mais detalhes sobre como provisionar clusters HDInsight.
+- [Provisionar HDInsight no Linux usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md): saiba mais detalhes sobre como provisionar clusters HDInsight.
 
 - [Trabalhando com o HDInsight no Linux](hdinsight-hadoop-linux-information.md): se você já estiver familiarizado com o Hadoop nas plataformas Linux, este documento fornece orientação sobre informações específicas do Azure, tais como:
 
@@ -288,4 +292,4 @@ Neste tutorial do Linux, você aprendeu a provisionar um cluster do Hadoop no Li
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

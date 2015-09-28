@@ -4,23 +4,28 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
+	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Migrar um aplicativo Web corporativo para o Serviço de Aplicativo do Azure
 
-Você pode migrar facilmente seus sites existentes executados no IIS (Serviço de Informação de Internet) 6 ou posterior para [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). O [Assistente de migração de aplicativos Web](https://www.movemetothecloud.net/) pode analisar a instalação do seu servidor IIS, identificar quais sites podem ser migrados para o Serviço de Aplicativo, realçar quaisquer elementos que não possam ser migrados ou aos quais a plataforma não dá suporte e, em seguida, migrar seus sites e bancos de dados associados para o Azure.
+Você pode migrar facilmente seus sites existentes executados no IIS (Serviço de Informação de Internet) 6 ou posterior para [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 >[AZURE.IMPORTANT]O suporte ao Windows Server 2003 chegará ao fim em 14 de julho de 2015. Se atualmente você estiver hospedando sites em um servidor IIS que é o Windows Server 2003, o uso de Aplicativos Web é um modo de baixo risco, baixo custo e baixo atrito para manter seus sites online, e o Assistente de migração de aplicativos Web pode ajudar a automatizar o processo de migração para você.
+
+O [Assistente de migração de aplicativos Web](https://www.movemetothecloud.net/) pode analisar a instalação do seu servidor IIS, identificar quais sites podem ser migrados para o Serviço de Aplicativo, realçar quaisquer elementos que não possam ser migrados ou aos quais a plataforma não dá suporte e, em seguida, migrar seus sites e bancos de dados associados para o Azure.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Elementos verificados durante a análise de compatibilidade ##
 O Assistente de migração cria um relatório de prontidão para identificar quaisquer potenciais causas de preocupação ou problemas de bloqueio que podem impedir uma migração bem-sucedida do IIS local para aplicativos Web do Serviço de Aplicativo do Azure. Alguns dos principais itens aos quais você deve se atentar:
@@ -131,4 +136,4 @@ Esta seção percorre um exemplo para migrar alguns sites que usam um banco de d
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

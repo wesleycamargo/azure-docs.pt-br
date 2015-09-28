@@ -3,7 +3,7 @@
    description="Provisione um SQL Data Warehouse seguindo essas etapas e diretrizes."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -25,7 +25,7 @@ Este artigo é um guia para ajudar você a provisionar um SQL Data Warehouse no 
 3. Definir uma regra de firewall do Azure para habilitar o acesso para cliente externo.
 
 ## Avaliação gratuita do Azure ##
-Você precisará ter uma assinatura do Azure para concluir as tarefas abaixo. Se você não tiver acesso a uma assinatura do Azure, resolva isso, pois é a primeira etapa!
+Você precisará de uma assinatura e da aprovação do Azure para a Visualização do SQL Data Warehouse para concluir as tarefas a seguir. Se você não tiver acesso a uma assinatura do Azure, resolva isso, pois é a primeira etapa!
 
 Você pode obter uma [avaliação gratuita][] que permite experimentar os serviços do Azure, incluindo o SQL Data Warehouse.
 
@@ -40,13 +40,13 @@ Na próxima série de etapas iremos rapidamente criar um novo servidor lógico e
 
 A primeira coisa que precisamos fazer é localizar o serviço do SQL Data Warehouse no portal do Azure.
 
-O botão novo está no canto inferior esquerdo do Portal do Azure. O novo botão é o ponto inicial para a criação de qualquer novo serviço no Azure.
+O botão Novo fica no canto inferior esquerdo do Portal do Azure. O botão Novo é o ponto de partida para a criação de qualquer serviço novo no Azure.
 
 - Clique no botão novo agora.
 
 ### Dados + Armazenamento
 
-Clicar no botão novo abre todas as categorias de serviço no Azure. O SQL Data Warehouse encontra-se na categoria "Dados + Armazenamento".
+Clicar no botão Novo abre todas as categorias de serviço do Azure. O SQL Data Warehouse encontra-se na categoria "Dados + Armazenamento".
 
 - Clique em **Dados + Armazenamento** para analisar e ver os serviços oferecidos pelo Azure para essa categoria.
 
@@ -54,7 +54,12 @@ Clicar no botão novo abre todas as categorias de serviço no Azure. O SQL Data 
 
 Como você pode ver, o Azure oferece vários mecanismos de dados e armazenamento. No entanto, este guia de introdução é para o SQL Data Warehouse.
 
-- Vá em frente e selecione o **SQL Data Warehouse**.
+- Vá em frente e selecione o **SQL Data Warehouse**. 
+
+##Admissão à Visualização
+Antes de poder iniciar o processo de configuração, você precisa ser admitido no programa Visualização. Clique na inscrição da Visualização e envie. Você receberá uma notificação por email quando o envio tiver sido aprovado.
+
+Após a aprovação, prossiga para as próximas etapas. Observação: a aprovação pode demorar alguns dias para ser processada.
 
 ## Configurar o SQL Data Warehouse
 
@@ -117,7 +122,7 @@ Basta clicar no botão Criar para criar seu data warehouse.
 
 Parabéns! Você criou seu primeiro banco de dados do SQL Data Warehouse.
 
-Você agora deve voltar para a página inicial do [portal do Azure][]. Observe que seu banco de dados do SQL Data Warehouse foi adicionado à página.
+Agora você deverá retornar à página inicial do [portal do Azure][]. Observe que seu banco de dados do SQL Data Warehouse foi adicionado à página.
 
 
 Neste momento, ninguém pode acessar o banco de dados do SQL Data Warehouse. Para manter tudo seguro por padrão, o banco de dados ainda não foi configurado para os clientes poderem acessá-lo.
@@ -153,18 +158,18 @@ Agora que você configurou o firewall poderá fazer conexões da área de trabal
 
 Agora que o serviço SQL Data Warehouse foi provisionado com êxito, podemos avançar para aprender a usá-lo. Próximas etapas:
 
-1. [Conecte e consulte][] o data warehouse.
+1. [Conectar-se ao data warehouse e consultá-lo][].
 2. Carregue os [dados de exemplo].
 
 <!--Image references-->
 
 
 <!-- Articles -->
-[Conecte e consulte]: sql-data-warehouse-get-started-connect-query.md
+[Conectar-se ao data warehouse e consultá-lo]: sql-data-warehouse-get-started-connect-query.md
 [dados de exemplo]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
 [avaliação gratuita]: https://azure.microsoft.com/pt-BR/pricing/free-trial/
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

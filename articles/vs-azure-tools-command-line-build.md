@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Compilação de linha de comando do Azure"
-	description="Compilação de linha de comando do Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Compilação de linha de comando do Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Compilação de linha de comando do Azure
 
-##Visão geral
+## Visão geral
 
 Você pode criar um pacote para implantação do Azure executando o MSBuild a um prompt de comando. Você pode configurar e definir compilações para depuração, preparo e produção, além de automatizar parte do processo de compilação.
 
@@ -62,4 +62,4 @@ Se você quiser usar um diretório alternativo para o pacote armazenado e arquiv
 
 Depois que o pacote é compilado, você pode implantá-lo no Azure. Para obter um tutorial que demonstre esse processo, consulte o site do Azure. Para obter informações sobre como automatizar esse processo, consulte [Entrega contínua de serviços de nuvem no Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

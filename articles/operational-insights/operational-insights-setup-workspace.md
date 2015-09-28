@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/05/2015"
+    ms.date="09/10/2015"
     ms.author="banders"/>
 
 # Configurar seu espaço de trabalho e gerenciar as configurações
@@ -184,7 +184,7 @@ Cada espaço de trabalho pode ter várias contas de usuário associadas e cada c
 
 ## Atualizar o espaço de trabalho para um plano de dados pago
 
-Há três tipos de plano de dados de espaço de trabalho para o Insights Operacionais: **Gratuito**, **Standard** e **Premium**. Se você estiver usando um plano *gratuito*, poderá ter atingido o limite de dados de 500 MB. Você precisará atualizar seu espaço de trabalho para um '**plano pré-pago**' para coletar dados além desse limite. A qualquer momento, você pode converter seu tipo de plano. Para obter mais informações sobre os preços das Informações Operacionais, consulte [Detalhes dos Preços](http://azure.microsoft.com/pricing/operational-insights/)
+Há três tipos de plano de dados de espaço de trabalho para o Insights Operacionais: **Gratuito**, **Standard** e **Premium**. Se você estiver usando um plano *gratuito*, poderá ter atingido o limite de dados de 500 MB. Você precisará atualizar seu espaço de trabalho para um '**plano pré-pago**' para coletar dados além desse limite. A qualquer momento, você pode converter seu tipo de plano. Para obter mais informações sobre os preços das Informações Operacionais, consulte [Detalhes dos Preços](https://azure.microsoft.com/pt-BR/pricing/details/operational-insights/)
 
 >[AZURE.IMPORTANT]Os planos do espaço de trabalho podem ser alterados apenas se eles estiverem *vinculados* a uma assinatura do Azure. Se você criou seu espaço de trabalho no Azure ou se *já* vinculou seu espaço de trabalho, poderá ignorar essa mensagem. Se você criou seu espaço de trabalho a partir do [opinsights.azure.com](http://opinsights.azure.com), precisará seguir as etapas em [Vincular um espaço de trabalho existente a uma assinatura do Azure](#link-an-existing-workspace-to-an-Azure-subscription).
 
@@ -253,4 +253,4 @@ Se você for um administrador e houver vários usuários associados ao espaço d
 - [Requisitos de formato de Log do IIS no Insights Operacionais do Azure](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - Veja que outras fontes de dados e tipos de logs a comunidade está nos pedindo para implementar no [Fórum de comentários](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO3-->
