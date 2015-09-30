@@ -32,4 +32,4 @@
 
 	![Configurar Agente de VM e os pontos de extremidade da máquina virtual](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->
