@@ -57,7 +57,11 @@ A hierarquia de navegação para a interface do usuário do StorSimple Manager �
 |Página de aterrisagem|Páginas de nível de serviço|Páginas de nível de dispositivo|Páginas de nível de dispositivo|
 |---|---|---|---|
 |Serviço StorSimple Manager|Painel de serviço|Painel do dispositivo||
-||Dispositivos →|Monitor| ||Catálogo de backup|Contêineres de volume|Volumes| ||Configurar (Serviço)|Políticas de backup|| ||Trabalhos|Configurar (Dispositivo)| ||Alertas|Manutenção|
+||Dispositivos →|Monitor|| 
+||Catálogo de backup|Contêineres de volume|Volumes| 
+||Configurar (Serviço)|Políticas de backup|| 
+||Trabalhos|Configurar (Dispositivo)|| 
+||Alertas|Manutenção||
 
 
 ## Administrar o dispositivo StorSimple por meio do serviço StorSimple Manager
@@ -112,4 +116,4 @@ Se você não conseguir resolver os problemas e precisar criar uma solicitação
 
 -  [Contatar Suporte da Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

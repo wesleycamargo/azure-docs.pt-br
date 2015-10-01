@@ -54,7 +54,9 @@ Para criar uma VM denominada *DNS01* na sub-rede *Front-end* de uma VNet chamada
 
 6. Na folha **Configurações**, verifique se as seguintes propriedades são definidas são definidas com os valores abaixo e, em seguida, clique em **OK**.
 
-	-**Conta de armazenamento**: *vnetstorage* - **Rede**: *TestVNet* - **Sub-rede**: *FrontEnd*
+	-**Conta de armazenamento**: *vnetstorage*
+	- **Rede**: *TestVNet*
+	- **Sub-rede**: *FrontEnd*
 
 	![Escolha uma folha de tamanho](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 
@@ -95,4 +97,4 @@ Para remover o endereço IP privado estático da VM criada acima, siga a etapa a
 - Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](../virtual-networks-instance-level-public-ip).
 - Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

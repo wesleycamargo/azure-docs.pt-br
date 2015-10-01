@@ -38,7 +38,7 @@ O diagrama a seguir mostra o fluxo de trabalho de empacotamento dinâmico.
 
 ##Cenário comum
 
-1. Carrega um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista de formatos com suporte, consulte Formatos com suporte pelo codificador dos Serviços de Mídia).
+1. Carrega um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista de formatos com suporte, consulte [Formatos com suporte do Codificador dos Serviços de Mídia](media-services-azure-media-encoder-formats)).
  
 1. Codifique o arquivo de mezanino para conjuntos de taxa de bits adaptável MP4 H.264.
  
@@ -105,4 +105,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
