@@ -16,4 +16,4 @@ Regras de alerta por assinatura|250|250
 
 <sup>1</sup>Instâncias muito pequenas contam como um núcleo para o limite de núcleos, apesar de utilizarem um núcleo parcial.
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->
