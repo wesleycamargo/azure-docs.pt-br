@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: estrutura extensível de política
@@ -71,7 +71,7 @@ Para habilitar a inscrição de seu aplicativo, você precisará criar uma polí
 3. Clique em **+Adicionar**, na parte superior da folha.
 4. O **Nome** determina o nome da política de inscrição usado pelo seu aplicativo. Por exemplo, insira "SiUp".
 5. Clique em **Provedores de identidade** e selecione "Endereço de email". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
-6. Clique em **Atributos de inscrição**. Aqui você escolhe os atributos que você deseja coletar do consumidor durante a inscrição. Por exemplo, selecione "Cidade", "Nome de exibição" e "CEP". Clique em **OK**.
+6. Clique em **Atributos de inscrição**. Aqui você escolhe os atributos que você deseja coletar do consumidor durante a inscrição. Por exemplo, selecione "Cidade/região", "Nome de exibição" e "CEP". Clique em **OK**.
 7. Clique em **Declarações do aplicativo**. Aqui você pode escolher as declarações que quer retornar dos tokens de volta ao aplicativo após uma experiência de inscrição bem-sucedida. Por exemplo, selecione "Nome de exibição", "Provedor de identidade", "CEP", "Novo usuário" e "ID de objeto do usuário".
 8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SiUp**" (o fragmento **B2C\_1\_** torna-se automaticamente pré-pendente) na folha **Políticas de inscrição**.
 9. Abra a política clicando em "**B2C\_1\_SiUp**".
@@ -104,7 +104,7 @@ Para habilitar a edição de perfil no aplicativo, você precisará criar uma po
 3. Clique em **+Adicionar**, na parte superior da folha.
 4. O **Nome** determina o nome da política de edição de perfil usado pelo seu aplicativo. Por exemplo, insira "SiPe".
 5. Clique em **Provedores de identidade** e selecione "Endereço de email". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
-6. Clique em **Atributos do perfil**. Aqui você escolhe os atributos que o consumidor pode exibir e editar. Por exemplo, selecione "Cidade", "Nome de exibição" e "CEP". Clique em **OK**.
+6. Clique em **Atributos do perfil**. Aqui você escolhe os atributos que o consumidor pode exibir e editar. Por exemplo, selecione "Cidade/região", "Nome de exibição" e "CEP". Clique em **OK**.
 7. Clique em **Declarações do aplicativo**. Aqui você pode escolher as declarações que quer retornar dos tokens de volta ao aplicativo após uma experiência de edição de perfil bem-sucedida. Por exemplo, selecione "Nome de exibição" e "CEP".
 8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SiPe**" (o fragmento **B2C\_1\_** torna-se automaticamente pré-pendente) na folha **Políticas de edição de perfil**.
 9. Abra a política clicando em "**B2C\_1\_SiPe**".
@@ -112,4 +112,4 @@ Para habilitar a edição de perfil no aplicativo, você precisará criar uma po
 
     > [AZURE.NOTE]É necessário um minuto para que a criação de políticas e as atualizações entrem em vigor.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

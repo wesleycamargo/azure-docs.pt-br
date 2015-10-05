@@ -1,3 +1,3 @@
-> [AZURE.NOTE]Embora este artigo esteja relacionado a aplicativos móveis, ele também serve para aplicativos Web, aplicativos de API e aplicativos lógicos.
+> [AZURE.NOTE]Embora este artigo esteja relacionado a aplicativos móveis, ele também serve para aplicativos Web e aplicativos de API.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

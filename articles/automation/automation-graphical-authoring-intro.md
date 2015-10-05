@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="09/04/2015"
    ms.author="bwren" />
 
 # Criação gráfica na Automação do Azure
@@ -61,6 +61,17 @@ O controle de Configuração é onde você fornece detalhes para um objeto selec
 O controle de Teste não é exibido quando o editor gráfico é iniciado pela primeira vez. Ele é aberto quando você [testa um runbook gráfico](#graphical-runbook-procedures) interativamente.
 
 ## Procedimentos de runbook gráfico 
+
+### Exportar e importar um runbook gráfico
+
+Você pode exportar apenas a versão publicada de um runbook gráfico. Se o runbook ainda não foi publicado, o botão **Exportar publicado** estará desabilitado. Quando você clica no botão **Exportar publicado**, o runbook é baixado no computador local. O nome do arquivo corresponde ao nome do runbook com uma extensão *graphrunbook*.
+
+![Exportar publicado](media/automation-graphical-authoring-intro/runbook-export.png)
+
+Você pode importar um arquivo de runbook gráfico selecionando a opção **importar** ao adicionar um runbook. Quando você seleciona o arquivo a ser importado, você pode manter o mesmo **Nome** ou fornecer um novo.
+
+![Importar runbook](media/automation-graphical-authoring-intro/runbook-import.png)
+
 
 ### Testando um runbook gráfico
 
@@ -280,4 +291,4 @@ Os dados criados por qualquer atividade que não tenha um link de saída serão 
 - [Ativos de automação](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

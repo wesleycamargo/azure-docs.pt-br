@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Implantar um cluster Deis de três nós no Azure"
+   pageTitle="Implantar um cluster Deis de três nós | Microsoft Azure"
    description="Este artigo descreve como criar um cluster Deis de três nós no Azure usando um modelo do Gerenciador de Recursos do Azure"
    services="virtual-machines"
    documentationCenter=""
    authors="HaishiBai"
    manager="larar"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -20,15 +21,17 @@
 
 Este artigo percorre o provisionamento de um cluster [Deis](http://deis.io/) no Azure. Ele abrange todas as etapas, desde criar os certificados necessários até implantar e dimensionar uma aplicativo **Go** de exemplo no cluster provisionado.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos.
+
 O diagrama a seguir mostra a arquitetura do sistema implantado. Um administrador de sistema gerencia o cluster usando ferramentas do Deis como **deis** e **deisctl**. São estabelecidas conexões por meio de um balanceador de carga do Azure, que encaminha as conexões a um dos nós membro no cluster. Os clientes também acessam aplicativos implantados por meio do balanceador de carga. Nesse caso, o balanceador de carga encaminha o tráfego para um uma malha de roteadores Deis, que encaminha o tráfego a contêineres Docker correspondentes hospedados no cluster.
 
   ![Diagrama da arquitetura do cluster Deis implantado](media/virtual-machines-deis-cluster/architecture-overview.png)
 
 Para executar as etapas a seguir, você precisará de:
 
- * Uma assinatura ativa do Azure. Se não tiver uma, você pode obter uma versão de avaliação gratuita em [azure.com](https://azure.microsoft.com).
- * Uma ID de trabalho ou escolar para usar os grupos de recursos do Azure. Se tiver uma conta pessoal e fizer logon com uma ID da Microsoft, você precisará [criar uma ID de trabalho por meio da ID pessoal](resource-group-create-work-id-from-personal.md).
- * O [PowerShell do Azure](powershell-install-configure.md) ou a [CLI do Azure para Mac, Linux e Windows](xplat-cli-install.md), dependendo do sistema operacional cliente.
+ * Uma assinatura ativa do Azure. Se você não tiver uma, é possível obter uma avaliação gratuita em [azure.com](https://azure.microsoft.com).
+ * Uma ID de trabalho ou escolar para usar os grupos de recursos do Azure. Se você tiver uma conta pessoal e fizer logon com uma ID da Microsoft, você precisará [criar uma ID corporativa por meio da ID pessoal](resource-group-create-work-id-from-personal.md).
+ * O [Azure PowerShell](powershell-install-configure.md) ou a [CLI do Azure para Mac, Linux e Windows](xplat-cli-install.md), dependendo do sistema operacional cliente.
  * [OpenSSL](https://www.openssl.org/). O OpenSSL é usado para gerar os certificados necessários.
  * Um cliente Git como o [Git Bash](https://git-scm.com/).
  * Para testar o aplicativo de exemplo,você precisará também de um servidor DNS. Você pode usar quaisquer servidores DNS ou serviços que dão suporte a registros de curinga A.
@@ -57,7 +60,7 @@ Nesta seção, você usará um modelo do [Gerenciador de Recursos do Azure](../r
 5. Vá para [https://discovery.etcd.io/new](https://discovery.etcd.io/new) para gerar um novo token de cluster, que é semelhante a:
 
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
-<br /> Cada cluster CoreOS precisa ter um token exclusivo desse serviço gratuito. Consulte a [documentação do CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) para obter mais detalhes.
+<br /> Cada cluster CoreOS precisa ter um token exclusivo desse serviço gratuito. Veja a [documentação do CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) para obter mais detalhes.
 
 6. Modifique o arquivo **cloud-config.yaml** para substituir o token **discovery** existente pelo novo token:
 
@@ -70,11 +73,11 @@ Nesta seção, você usará um modelo do [Gerenciador de Recursos do Azure](../r
             discovery: https://discovery.etcd.io/3973057f670770a7628f917d58c2208a
         ...
 
-7. Modifique o arquivo **azuredeploy-parameters.json**: Abra o certificado criado na etapa 4 em um editor de texto. Copie todo o texto entre `----BEGIN CERTIFICATE-----` e `-----END CERTIFICATE-----` para o parâmetro **sshKeyData** (você precisará remover todos os caracteres de nova linha).
+7. Modifique o arquivo **azuredeploy-parameters.json**: abra o certificado criado na etapa 4 em um editor de texto. Copie todo o texto entre `----BEGIN CERTIFICATE-----` e `-----END CERTIFICATE-----` no parâmetro **sshKeyData** (você precisará remover todos os caracteres de nova linha).
 
 8. Modifique o parâmetro **newStorageAccountName**. Trata-se da conta de armazenamento para os discos do sistema operacional da VM. Este nome de conta precisa ser único globalmente.
 
-9. Modifique o parâmetro **publicDomainName**. Ele se tornará parte do nome DNS associado ao IP público do balanceador de carga. O FQDN final terá o formato _[valor desse parâmetro]_._[região]_.cloudapp.azure.com. Por exemplo, se você especificar o nome como deishbai32 e o grupo de recursos for implantado na região oeste dos EUA, o FQDN final do balanceador de carga será deishbai32.westus.cloudapp.azure.com.
+9. Modifique o parâmetro **publicDomainName**. Ele se tornará parte do nome DNS associado ao IP público do balanceador de carga. O FQDN final terá o formato _[valor deste parâmetro]_._[região]_.cloudapp.azure.com. Por exemplo, se você especificar o nome como deishbai32 e o grupo de recursos for implantado na região oeste dos EUA, o FQDN final do balanceador de carga será deishbai32.westus.cloudapp.azure.com.
 
 10. Salve o arquivo de parâmetro. Depois, você pode provisionar o cluster usando o PowerShell do Azure:
 
@@ -126,7 +129,7 @@ Agora você pode usar o deisctl para instalar e iniciar a plataforma Deis:
 
 > [AZURE.NOTE]Iniciar a plataforma leva algum tempo (até 10 minutos). Especialmente, iniciar o serviço de construtor pode levar muito tempo. Às vezes, são necessárias algumas tentativas para ter sucesso: se parecer que a operação parou, tente digitar `ctrl+c` para interromper a execução do comando e tentar novamente.
 
-Você pode usar `deisctl list` para verificar se todos os serviços estão em execução:
+É possível usar `deisctl list` para verificar se todos os serviços estão em execução:
 
     deisctl list
     UNIT                            MACHINE                 LOAD    ACTIVE          SUB
@@ -197,7 +200,7 @@ As etapas a seguir mostram como implantar um aplicativo Go do tipo "Hello World"
         deis create
         git push deis master
 <p />
-8. O git push disparará a construção e implantação de imagens do Docker, que o levará alguns minutos. Segundo a minha experiência, ocasionalmente, a Etapa 10 (fazer o push da imagem para o repositório privado) pode travar. Quando isso acontecer, você pode interromper o processo, remover o aplicativo usando `deis apps:destroy –a <application name>` e tentar novamente. Você pode usar `deis apps:list` para descobrir o nome do seu aplicativo. Se tudo funcionar, você verá algo semelhante ao seguinte no final das saídas de comando:
+8. O git push disparará a construção e implantação de imagens do Docker, que o levará alguns minutos. Segundo a minha experiência, ocasionalmente, a Etapa 10 (fazer o push da imagem para o repositório privado) pode travar. Quando isso acontecer, é possível interromper o processo, remover o aplicativo usando `deis apps:destroy –a <application name>` e tentar novamente. É possível pode usar `deis apps:list` para descobrir o nome do seu aplicativo. Se tudo funcionar, você verá algo semelhante ao seguinte no final das saídas de comando:
 
         -----> Launching...
                done, lambda-underdog:v2 deployed to Deis
@@ -254,4 +257,4 @@ Este artigo percorreu todas as etapas para provisionar um novo cluster Deis no A
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

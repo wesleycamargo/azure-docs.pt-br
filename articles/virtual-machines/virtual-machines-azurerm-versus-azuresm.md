@@ -1,25 +1,28 @@
 <properties
-   pageTitle="Provedores de Computação, Rede e Armazenamento do Azure no Gerenciador de Recursos do Azure"
-   description="Visão geral conceitual dos Provedores de Recursos de Computação, Rede e Armazenamento (CRP, NRP e SRP)"
+   pageTitle="Provedores de computação, rede e armazenamento | Microsoft Azure"
+   description="Visão geral conceitual dos Provedores de Recursos de Computação, Rede e Armazenamento (CRP, NRP e SRP) no Gerenciador de Recursos do Azure"
    services="virtual-machines"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="mahthi"
    manager="timlt"
    editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
    ms.date="04/29/2015"
    ms.author="mahthi"/>
 
-# Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure
+# Provedores de computação, rede e armazenamento do Azure no Gerenciador de Recursos do Azure
 
 A inclusão de recursos de Computação, Rede e Armazenamento no Gerenciador de Recursos do Azure simplificará fundamentalmente a implantação e o gerenciamento de aplicativos complexos em execução no IaaS. Muitos aplicativos exigem uma combinação de recursos, incluindo uma Rede Virtual, uma Conta de Armazenamento, uma Máquina Virtual e uma Interface de Rede. O Gerenciador de Recursos do Azure oferece a capacidade de criar um modelo JSON para implantar e gerenciar todos esses recursos juntos como um único aplicativo.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
+
 
 ## Vantagens da integração de Computação, Rede e Armazenamento no Gerenciador de Recursos do Azure
 
@@ -113,4 +116,4 @@ Não há suporte para isso no momento. Você não pode conectar as Redes Virtuai
 
 Um conjunto abrangente de modelos iniciais pode ser encontrado em [modelos de início rápido do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

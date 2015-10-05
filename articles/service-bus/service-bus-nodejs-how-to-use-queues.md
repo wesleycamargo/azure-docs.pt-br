@@ -163,12 +163,13 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 
 ## Próximas etapas
 
-Agora que você já sabe as noções básicas das filas de Barramento de Serviço, siga estes links para saber mais.
+Para saber mais, consulte os recursos a seguir.
 
--   Confira [Filas, tópicos e assinaturas][].
--   Visite o repositório [SDK do Azure para o nó][] no GitHub.
+-   [Filas, tópicos e assinaturas][]
+-   Repositório do [SDK do Azure para Node][] no GitHub.
+-   [Centro de desenvolvedores do Node. js](/develop/nodejs/)
 
-  [SDK do Azure para o nó]: https://github.com/Azure/azure-sdk-for-node
+  [SDK do Azure para Node]: https://github.com/Azure/azure-sdk-for-node
   [Próximas etapas]: #next-steps
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
@@ -189,4 +190,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [Aplicativo Node.js na Web com armazenamento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

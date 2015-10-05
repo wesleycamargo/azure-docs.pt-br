@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Introdução ao Active Directory do Azure e aos serviços conectados do Visual Studio (projetos da API Web)
 
@@ -29,4 +29,4 @@ Todos os controladores em seu projeto foram marcados com o atributo **Autorizar*
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

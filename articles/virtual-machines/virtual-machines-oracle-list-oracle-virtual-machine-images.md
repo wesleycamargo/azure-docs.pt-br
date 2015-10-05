@@ -1,23 +1,18 @@
-<properties title="List of Oracle virtual machine images"
-pageTitle="Lista de imagens de máquinas virtuais do Oracle"
-description="Obtenha a lista de imagens da Oracle na Galeria do Azure e aprenda a criar uma máquina virtual Oracle com base em uma delas."
-services="virtual-machines"
-documentationCenter=""
-authors="bbenz"
-manager=""
-editor=""
-tags=""/>
+<properties" pageTitle="title="Lista de imagens de VM Oracle | Microsoft Azure" description="Obtenha a lista de imagens Oracle na galeria do Azure e saiba como criar uma máquina virtual Oracle baseada em uma." services="virtual-machines" documentationCenter="" authors="bbenz" manager="" editor="" tags="azure-service-management, azure-resource-manager"/>
 
 <tags
 ms.service="virtual-machines"
 ms.devlang="na"
 ms.topic="article"
-ms.tgt_pltfrm="na"
+ms.tgt_pltfrm="vm-multiple"
 ms.workload="infrastructure-services"
 ms.date="06/22/2015"
 ms.author="bbenz" />
 
 #Lista de imagens de máquinas virtuais do Oracle
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
+
 Para criar máquinas virtuais baseadas em imagens Oracle, entre no [portal do Azure](https://ms.portal.azure.com/), clique em **Marketplace**, clique em **Computação** e digite **Oracle** na caixa Pesquisa. Selecione uma imagem e siga as instruções para configurar a imagem no Microsoft Azure. Observe que as imagens Oracle da Microsoft no [portal Azure](https://ms.portal.azure.com/) são executadas no Windows e imagens Oracle da Oracle são executadas no Oracle Linux.
 
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
@@ -67,4 +62,4 @@ Veja a seguir uma lista das imagens pré-configuradas de máquina virtual Oracle
 
 [Imagens de máquinas virtuais Oracle — diversas considerações](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

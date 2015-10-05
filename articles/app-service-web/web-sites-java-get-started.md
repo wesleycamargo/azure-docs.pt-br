@@ -17,6 +17,14 @@
 
 # Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 Este tutorial mostra como criar um aplicativo Web no Microsoft Azure usando Java, por meio do Azure Marketplace ou da interface de usuário de configuração no [recurso Aplicativos Web do Serviço de Aplicativo do Azure][].
 
 Se você não quiser usar nenhuma dessas técnicas, por exemplo, se você desejar personalizar seu contêiner de aplicativos, consulte [Carregar um aplicativo Web Java personalizado no Azure](web-sites-java-custom-upload.md).
@@ -81,10 +89,12 @@ Agora que você criou o aplicativo Web com um contêiner de aplicativos, consult
 
 Neste ponto, você tem um servidor de aplicativos Java executando como seu aplicativo Web em Java no Azure. Para adicionar em seu próprio aplicativo ou página da Web, consulte [Adicionar um aplicativo ou página da Web ao seu aplicativo Web em Java](web-sites-java-add-app.md).
 
+Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
+
 ## O que mudou
 
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e os serviços existentes do Azure][].
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para a navegação no portal do Azure][]
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e os serviços existentes do Azure][].
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para a navegação no portal do Azure][]
 
 <!-- External Links -->
 [ativar os benefícios de assinante MSDN]: http://go.microsoft.com/fwlink/?LinkId=623901
@@ -94,4 +104,4 @@ Neste ponto, você tem um servidor de aplicativos Java executando como seu aplic
 [Serviço de Aplicativo do Azure e os serviços existentes do Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Referência para a navegação no portal do Azure]: http://go.microsoft.com/fwlink/?LinkId=529715
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

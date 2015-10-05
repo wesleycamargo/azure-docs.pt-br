@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: permita a conexão e a inscrição de clientes com contas da Amazon
@@ -56,4 +56,4 @@ Para usar a Amazon como um provedor de identidade no Azure AD B2C, você primeir
 6. Clique em **Configurar esse provedor de identidade** e insira a **ID do cliente** e o **Segredo do cliente** do aplicativo Amazon que você criou anteriormente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração da Amazon.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fazer logon em uma máquina virtual executando o Windows Server"
-	description="Saiba como usar o portal do Azure para fazer logon em uma máquina virtual executando o Windows Server."
+	pageTitle="Fazer logon em uma VM | Microsoft Azure"
+	description="Use o portal para fazer logon na máquina virtual do Windows criada com o modelo clássico de implantação."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,11 +18,13 @@
 	ms.author="cynthn"/>
 
 
-# Como fazer logon em uma máquina virtual executando o Windows Server#
+# Efetue logon na máquina virtual do Windows criada com o modelo clássico de implantação
 
-Use o botão **Conectar** no portal de visualização do Azure para iniciar uma sessão da Área de Trabalho Remota. Primeiro, conecte-se à máquina virtual, em seguida faça logon.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o gerenciamento de recursos com o modelo clássico de implantação.
 
-Deseja conectar-se a uma VM Linux? Consulte [Como fazer logon em uma máquina virtual que esteja executando o Linux](virtual-machines-linux-how-to-log-on.md).
+Você usará o botão **Conectar** no portal de visualização do Azure para iniciar uma sessão de área de trabalho remota. Primeiro, conecte-se à máquina virtual, em seguida faça logon.
+
+Deseja conectar-se a uma VM do Linux? Consulte [Como fazer logon em uma máquina virtual que esteja executando o Linux](virtual-machines-linux-how-to-log-on.md).
 
 ## Conectar-se à máquina virtual
 
@@ -51,4 +53,4 @@ Veja algumas opções a serem experimentadas rapidamente no portal:
 
 Se essas dicas não funcionarem ou se não forem necessárias, consulte [Solucionar problemas de conexões da Área de Trabalho Remota com uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

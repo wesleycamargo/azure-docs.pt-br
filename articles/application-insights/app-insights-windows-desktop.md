@@ -104,6 +104,9 @@ Por exemplo, em um Aplicativo Windows Forms, você poderia escrever:
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps
+
+                // Allow time for flushing:
+                System.Threading.Thread.Sleep(1000);
             }
             base.OnClosing(e);
         }
@@ -174,7 +177,7 @@ Se você usou o TrackMetric ou o parâmetro de medidas do TrackEvent, abra o [Me
 
 Se seu aplicativo for executado onde não houver conexão à Internet sempre disponível ou for lenta, considere usar o canal de persistência em vez do canal de memória padrão.
 
-O canal de memória padrão perde qualquer telemetria que não tenha sido enviada no momento em que o aplicativo foi fechado. Embora você possa usar `Flush()` para tentar enviar os dados restantes no buffer, ele vai atingir o tempo limite se não houver nenhuma conexão com a Internet e atrasar o desligamento do aplicativo.
+O canal de memória padrão perde qualquer telemetria que não tenha sido enviada no momento em que o aplicativo foi fechado. Embora você possa usar `Flush()` para tentar enviar os dados restantes no buffer, ainda perderá dados se não houver uma conexão de internet ou se o aplicativo for desativado antes da conclusão da transmissão.
 
 Por outro lado, o canal de persistência armazena a telemetria em buffer em um arquivo antes de enviá-lo ao portal. O `Flush()` garante que os dados são armazenados no arquivo. Se os dados não são enviados quando o aplicativo é fechado, ele permanece no arquivo. Quando o aplicativo for reiniciado, os dados serão enviados se houver conexão com a Internet. Os dados ficarão acumulados no arquivo ou pelo tempo que for necessário até que uma conexão fique disponível.
 
@@ -294,4 +297,4 @@ O código do canal de persistência está no [github](https://github.com/Microso
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Configurar um novo dispositivo com o Azure AD por meio da experiência de primeira execução | Microsoft Azure" 
+	pageTitle="Visão geral do Microsoft Passport e detalhes sobre essa nova autenticação com base em certificação | Microsoft Azure" 
 	description="Um tópico que explica como os usuários podem configurar a Junção do Azure AD durante sua experiência de primeira execução." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Autenticando identidades sem senhas com o Microsoft Passport
@@ -66,7 +66,7 @@ No nível do usuário
 
 ## Informações adicionais
 
-* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
+* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-overview.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

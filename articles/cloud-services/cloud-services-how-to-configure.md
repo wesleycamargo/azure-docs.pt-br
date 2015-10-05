@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como configurar um serviço de nuvem | Microsoft Azure"
-	description="Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
+	pageTitle="Como configurar um serviço de nuvem | Microsoft Azure" 
+	description="Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -78,8 +78,12 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
     4. Clique em **OK** (marca de seleção).
 
 
-## Recursos adicionais
+## Próximas etapas
 
-[Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](cloud-services-role-enable-remote-desktop.md)
+* Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy.md).
+* Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name.md).
+* [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage.md).
+* [Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](cloud-services-role-enable-remote-desktop.md)
+* Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

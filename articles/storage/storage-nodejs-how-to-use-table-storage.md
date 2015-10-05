@@ -1,13 +1,13 @@
-<properties 
-	pageTitle="Como usar o Armazenamento de Tabela do Node.js | Microsoft Azure"
-	description="Saiba como usar o serviço de armazenamento de tabela no Azure. As amostras de código são escritas usando a API do Node.js."
+<properties
+	pageTitle="Como usar o armazenamento de Tabela do Azure por meio do Node.js | Microsoft Azure"
+	description="Saiba como usar o armazenamento de Tabela do Azure. As amostras de código são escritas usando a API do Node.js."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
 	manager="wpickett"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
@@ -17,7 +17,7 @@
 	ms.author="mwasson"/>
 
 
-# Como usar o Armazenamento de Tabela do Node.js
+# Como usar o armazenamento de Tabela do Azure por meio do Node.js
 
 [AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)]
 
@@ -26,11 +26,11 @@
 
 Este tópico mostra como executar cenários comuns usando o serviço Tabela do Azure em um aplicativo Node.js.
 
-Os exemplos de código neste tópico pressupõem que você já tenha um aplicativo Node.js. Para obter instruções sobre como criar um aplicativo do Node.js no Azure, consulte qualquer um destes tópicos:
+Os exemplos de código neste tópico pressupõem que você já tenha um aplicativo Node.js. Para obter informações sobre como criar um aplicativo do Node.js no Azure, confira um destes tópicos:
 
-- [Compilar e implantar um site do node.js no Azure][Create and deploy a Node.js application to an Azure Web Site]
-- [Criar e implantar um site do Node.js para o Azure usando WebMatrix][Web Site with WebMatrix].
-- [Criar e implantar um aplicativo Node.js para um serviço de nuvem do AzureServiço de nuvem do Node.js][Node.js Cloud Service] (usando o Windows PowerShell)
+- [Criar e implantar um site do Node.js no Azure] (Criar e implantar um aplicativo do Node.js em um site do Azure)
+- [Criar e implantar um site do Node.js no Azure usando o WebMatrix] (Criar e implantar um aplicativo do Node.js com o WebMatrix)
+- [Criar e implantar um aplicativo do Node.js em um Serviço de Nuvem do Azure] (Serviço de Nuvem do Node.js) (usando o Windows PowerShell)
 
 
 [AZURE.INCLUDE [armazenamento-tabela-conceitos-include](../../includes/storage-table-concepts-include.md)]
@@ -40,11 +40,11 @@ Os exemplos de código neste tópico pressupõem que você já tenha um aplicati
 
 ## Configurar seu aplicativo para acessar o Armazenamento de Blob
 
-Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST do armazenamento.
+Para usar o Armazenamento do Azure, você precisa do SDK do Armazenamento do Azure para Node.js, que inclui um conjunto de bibliotecas de conveniência que se comunicam com os serviços REST do armazenamento.
 
 ### Usar o NPM (Gerenciador de Pacotes de Nós) para obter o pacote
 
-1.  Use uma interface de linha de comando, como **PowerShell** (Windows,) **Terminal** (Mac) ou **Bash** (Unix), e navegue até a pasta em que você criou o aplicativo.
+1.  Use uma interface de linha de comando, como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix), e navegue até a pasta em que você criou o aplicativo.
 
 2.  Digite **npm install azure-storage** na janela de comando. A saída do comando é semelhante ao exemplo a seguir.
 
@@ -67,11 +67,11 @@ Adicione o código a seguir à parte superior do arquivo **server.js** em seu ap
 
     var azure = require('azure-storage');
 
-## Configurar uma conexão de armazenamento do Azure
+## Configurar uma conexão do Armazenamento do Azure
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **TableService**.
 
-Para obter um exemplo de como definir variáveis de ambiente no portal de gerenciamento de um Site do Azure, consulte [Aplicativo Node.js na Web com armazenamento].
+Para ver um exemplo de como definir variáveis de ambiente no portal do Azure para um Site do Azure, veja [Aplicativo Web do Node.js com armazenamento].
 
 ## Criar uma tabela
 
@@ -87,7 +87,7 @@ A chamada para **createTableIfNotExists** criará uma nova tabela com o nome esp
 		}
 	});
 
-O `result` será `true` se uma nova tabela for criada e `false` se a tabela já existir. `response` conterá informações sobre a solicitação.
+O `result` será `true` se uma nova tabela for criada e `false` se a tabela já existir. O `response` conterá informações sobre a solicitação.
 
 ### Filtros
 
@@ -95,11 +95,11 @@ O `result` será `true` se uma nova tabela for criada e `false` se a tabela já 
 
 		function handle (requestOptions, next)
 
-Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar "next", passando um retorno de chamada com a assinatura a seguir:
+Depois de fazer seu pré-processamento nas opções de solicitação, o método precisará chamar "next", transmitindo um retorno de chamada com a seguinte assinatura:
 
 		function (returnObject, finalCallback, next)
 
-Nesse retorno de chamada, e após processar o returnObject (a resposta da solicitação ao servidor), o retorno de chamada precisará invocar avançar, se ele existir, para continuar processando outros filtros ou simplesmente invocar finalCallback para terminar a invocação de serviço.
+Nesse retorno de chamada, e depois de processar o returnObject (a resposta da solicitação ao servidor), o retorno de chamada precisará invocar “next”, se ele existir, para continuar processando outros filtros ou simplesmente invocar finalCallback para terminar a invocação de serviço.
 
 Dois filtros que implementam a lógica de repetição estão incluídos no SDK do Azure para Node.js, **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O seguinte código cria um objeto **TableService** que usa o **ExponentialRetryPolicyFilter**:
 
@@ -110,15 +110,15 @@ Dois filtros que implementam a lógica de repetição estão incluídos no SDK d
 
 Para adicionar uma entidade, primeiro crie um objeto que defina as propriedades da entidade. Todas as entidades devem conter uma **PartitionKey** e **RowKey**, que são identificadores exclusivos da entidade.
 
-* **PartitionKey** – Determina a partição em que a entidade está armazenada.
+* **PartitionKey** – determina a partição em que a entidade está armazenada
 
-* **RowKey** – Identifica exclusivamente a entidade dentro da partição.
+* **RowKey** – identifica exclusivamente a entidade dentro da partição
 
-Ambos **PartitionKey** e **RowKey** devem ser valores de cadeia de caracteres. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Ambos **PartitionKey** e **RowKey** devem ser valores de cadeia de caracteres. Para obter informações, veja [Noções básicas sobre o modelo de dados do serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 A seguir, um exemplo de definição de uma entidade. Observe que **dueDate** é definido com um tipo de **Edm.DateTime**. A especificação do tipo é opcional, e os tipos serão inferidos se não especificados.
 
-	var task = { 
+	var task = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'take out the trash'},
@@ -159,13 +159,13 @@ Resposta de exemplo:
 
 Há vários métodos disponíveis para atualizar uma entidade existente:
 
-* **updateEntity** – Atualiza uma entidade existente ao substituí-la.
+* **updateEntity** – atualiza uma entidade existente substituindo-a
 
-* **mergeEntity** – Atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente.
+* **mergeEntity** – atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente
 
-* **insertOrReplaceEntity** – Atualiza uma entidade existente ao substituí-la. Se nenhuma entidade existir, uma nova será inserida.
+* **insertOrReplaceEntity** – Atualiza uma entidade existente substituindo-a. Se não existir nenhuma entidade, uma nova será inserida
 
-* **insertOrMergeEntity** – Atualiza uma entidade existente mesclando novos valores de propriedade á entidade existente. Se nenhuma entidade existir, uma nova será inserida.
+* **insertOrMergeEntity** – Atualiza uma entidade existente mesclando novos valores de propriedade à existente. Se não existir nenhuma entidade, uma nova será inserida
 
 O exemplo a seguir demonstra a atualização de uma entidade usando **updateEntity**:
 
@@ -176,16 +176,16 @@ O exemplo a seguir demonstra a atualização de uma entidade usando **updateEnti
     });
 
 > [AZURE.NOTE]Por padrão, a atualização de uma entidade não verifica se os dados que estão sendo atualizados foram modificados anteriormente por outro processo. Para suporte a atualizações simultâneas:
-> 
+>
 > 1. Obtenha a ETag do objeto que está sendo atualizado. Isso será retornado como parte de `response` para qualquer operação relacionada à entidade e pode ser recuperado através de `response['.metadata'].etag`.
-> 
+>
 > 2. Ao realizar uma operação de atualização em uma entidade, adicione as informações de ETag obtidas anteriormente para a nova entidade. Por exemplo:
-> 
+>
 >     `entity2['.metadata'].etag = currentEtag;`
 >    
 > 3. Realize a operação de atualização. Se a entidade foi modificada desde a recuperação do valor de ETag, como outra instância do seu aplicativo, um `error` será retornado informando que a condição da atualização especificada na solicitação não foi atendida.
-    
-Com **updateEntity** e **mergeEntity**, se a entidade que está sendo atualizada não existir, haverá falha na operação de atualização. Portanto, se desejar armazenar uma entidade independentemente de sua existência, use **insertOrReplaceEntity** ou **insertOrMergeEntity**.
+
+Com **updateEntity** e **mergeEntity**, se a entidade que estiver sendo atualizada não existir, a operação de atualização falhará. Portanto, se desejar armazenar uma entidade independentemente de sua existência, use **insertOrReplaceEntity** ou **insertOrMergeEntity**.
 
 O `result` para operações de atualização de sucesso conterá **Etag** da entidade atualizada.
 
@@ -195,13 +195,13 @@ O `result` para operações de atualização de sucesso conterá **Etag** da ent
 
  O exemplo a seguir demonstra o envio de duas entidades em um lote:
 
-    var task1 = { 
+    var task1 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'Take out the trash'},
 	  dueDate: {'_':new Date(2015, 6, 20)}
 	};
-	var task2 = { 
+	var task2 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '2'},
 	  description: {'_':'Wash the dishes'},
@@ -209,7 +209,7 @@ O `result` para operações de atualização de sucesso conterá **Etag** da ent
 	};
 
 	var batch = new azure.TableBatch();
-	
+
 	batch.insertEntity(task1, {echoContent: true});
 	batch.insertEntity(task2, {echoContent: true});
 
@@ -223,17 +223,17 @@ Para operações em lote bem-sucedidas, `result` conterá informações para cad
 
 ### Trabalhando com operações em lote
 
-Operações adicionadas ao lote podem ser inspecionadas ao exibir a propriedade `operations`. Você também pode utilizar os seguintes métodos para trabalhar com as operações.
+Operações adicionadas ao lote podem ser inspecionadas ao exibir a propriedade `operations`. Você também pode usar os seguintes métodos para trabalhar com as operações:
 
 * **clear** – limpa todas as operações de um lote.
 
-* **getOperations** – obtém uma operação do lote.
+* **getOperations** – obtém uma operação do lote
 
-* **hasOperations** – retorna verdadeiro se o lote contiver operações.
+* **hasOperations** – retorna true se o lote contiver operações
 
-* **removeOperations** – remove uma operação.
+* **removeOperations** – remove uma operação
 
-* **size** – retorna o número de operações no lote.
+* **size** – retorna o número de operações no lote
 
 ## Recuperar uma entidade por chave
 
@@ -251,18 +251,18 @@ Quando essa operação for concluída, `result` conterá a entidade.
 
 Para consultar uma tabela, utilize o objeto **TableQuery** para compilar uma expressão de consulta utilizando as seguintes cláusulas:
 
-* **select** – Os campos a serem retornados da consulta.
+* **select** – os campos a serem retornados da consulta
 
-* **where** – A cláusula where.
+* **where** – a cláusula “where”
 
-	* **and** - Uma condição where `and`.
+	* **and** – Uma condição “where” `and`.
 
-	* **or** - Uma condição where `or`.
+	* **or** - uma condição “where” `or`.
 
-* **top** – O número de itens a serem buscados.
+* **top** – o número de itens a serem buscados
 
 
-O exemplo a seguir compila uma consulta que irá retornar os 5 itens principais com uma PartitionKey ‘hometasks’.
+O exemplo a seguir compila uma consulta que retornará os cinco principais itens com uma PartitionKey de “hometasks”.
 
 	var query = new azure.TableQuery()
 	  .top(5)
@@ -278,9 +278,9 @@ Como **select** não é usado, todos os campos serão retornados. Para realizar 
 
 Se for bem-sucedido, `result.entries` conterá uma matriz de entidades que correspondem à consulta. Se a consulta não tiver sido capaz de retornar todas as entidades, `result.continuationToken` não será *null* e poderá ser usado como terceiro parâmetro de **queryEntities** para recuperar mais resultados. Para a consulta inicial, use *null* como o terceiro parâmetro.
 
-### Consultar um subconjunto de propriedades da entidade
+### consultar um subconjunto de propriedades da entidade
 
-Uma consulta a uma tabela pode recuperar apenas alguns campos de uma entidade. Isso reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente em grandes entidades. Use a cláusula **select** e transmita os nomes dos campos a serem retornados. Por exemplo, a consulta a seguir retornará os campos **description** e **dueDate**.
+Uma consulta a uma tabela pode recuperar apenas alguns campos de uma entidade. Isso reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente em grandes entidades. Use a cláusula **select** e transmita os nomes dos campos a serem retornados. Por exemplo, a consulta a seguir retornará apenas os campos **description** e **dueDate**.
 
 	var query = new azure.TableQuery()
 	  .select(['description', 'dueDate'])
@@ -291,7 +291,7 @@ Uma consulta a uma tabela pode recuperar apenas alguns campos de uma entidade. I
 
 Você pode excluir uma entidade usando suas chaves de partição e de linha. Neste exemplo,o objeto **task1** contém os valores **RowKey** **ePartitionKey** da entidade a ser excluída. Depois o objeto é passado para o método **deleteEntity**.
 
-	var task = { 
+	var task = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'}
 	};
@@ -302,7 +302,7 @@ Você pode excluir uma entidade usando suas chaves de partição e de linha. Nes
 	  }
 	});
 
-> [AZURE.NOTE]Considere o uso de ETags ao excluir itens, para garantir que o item não seja modificado por outro processo. Consulte [Atualizar uma entidade](#update-an-entity) para obter informações sobre o uso de ETags.
+> [AZURE.NOTE]Considere o uso de ETags ao excluir itens, para garantir que o item não seja modificado por outro processo. Veja [Atualizar uma entidade](#update-an-entity) para obter informações sobre o uso de ETags.
 
 ## Excluir uma tabela
 
@@ -320,7 +320,7 @@ Se você não tiver certeza de que a tabela existe, use **deleteTableIfExists**.
 
 Quando você estiver consultando tabelas com grandes quantidades de resultados, deverá procurar tokens de continuação. Pode haver grandes quantidades de dados disponíveis para a sua consulta dos quais talvez você não saiba, se não criá-la de modo a reconhecer quando um token de continuação está presente.
 
-Os resultados retornados ao consultar entidades define uma propriedade `continuationToken` quando esse token está presente. Você pode usar isso ao realizar uma consulta para continuar a mover-se pela partição e entidades de tabela.
+O objeto de resultados retornado durante a consulta de entidades define uma propriedade `continuationToken` quando esse token está presente. Você pode usar isso ao realizar uma consulta para continuar a mover-se pela partição e entidades de tabela.
 
 Ao consultar, um parâmetro continuationToken pode ser fornecido entre a instância do objeto de consulta e a função de retorno de chamada:
 
@@ -341,15 +341,15 @@ dc.table.queryEntities(tableName,
     });
 ```
 
-Se você inspecionar o objeto `continuationToken`, encontrará propriedades como `nextPartitionKey`, `nextRowKey` e `targetLocation` que podem ser usadas para iterar por todos os resultados.
+Se inspecionar o objeto `continuationToken`, você encontrará propriedades como `nextPartitionKey`, `nextRowKey` e `targetLocation`, que podem ser usadas para iterar por todos os resultados.
 
-Também há um exemplo de continuação dentro do repositório Node.js de armazenamento do Azure no GitHub, procure por `examples/samples/continuationsample.js`.
+Também há um exemplo de continuação dentro do repositório do Node.js do Armazenamento do Azure no GitHub. Procure `examples/samples/continuationsample.js`.
 
 ## Trabalhar com assinaturas de acesso compartilhado
 
-Assinaturas de Acesso Compartilhado (SAS) são uma forma segura de fornecer acesso granular a tabelas sem fornecer o nome ou as chaves da conta de armazenamento. As SAS são muitas vezes usadas para fornecer acesso limitado aos seus dados, como permitir que um aplicativo móvel consulte registros.
+SAS (Assinaturas de acesso compartilhado) são uma maneira segura de fornecer acesso granular a tabelas sem fornecer o nome ou as chaves da conta de armazenamento. As SAS são muitas vezes usadas para fornecer acesso limitado aos seus dados, como permitir que um aplicativo móvel consulte registros.
 
-Um aplicativo confiável, como um serviço baseado em nuvem, gera uma SAS usando o **generateSharedAccessSignature** de **TableService**, e o oferece a um aplicativo não confiável ou semiconfiável. Por exemplo, um aplicativo móvel. A SAS é gerada utilizando uma política que descreve as datas inicial e final durante as quais a SAS é válida, assim como o nível de acesso concedido ao titular da SAS.
+Um aplicativo confiável, como um serviço baseado em nuvem, gera uma SAS usando **generateSharedAccessSignature** de **TableService** e o fornece a um aplicativo não confiável ou semiconfiável, como um aplicativo móvel. A SAS é gerada utilizando uma política que descreve as datas inicial e final durante as quais a SAS é válida, assim como o nível de acesso concedido ao titular da SAS.
 
 O exemplo a seguir gera uma nova política de acesso compartilhado que permitirá que o titular da SAS consulte ('r') a tabela, e expira 100 minutos após o momento em que é criado.
 
@@ -357,7 +357,7 @@ O exemplo a seguir gera uma nova política de acesso compartilhado que permitir�
 	var expiryDate = new Date(startDate);
 	expiryDate.setMinutes(startDate.getMinutes() + 100);
 	startDate.setMinutes(startDate.getMinutes() - 100);
-		
+
 	var sharedAccessPolicy = {
 	  AccessPolicy: {
 	    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -376,7 +376,7 @@ O aplicativo cliente usa a SAS com **TableServiceWithSAS** para executar operaç
 	var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 	var query = azure.TableQuery()
 	  .where('PartitionKey eq ?', 'hometasks');
-		
+
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
 	  if(!error) {
 		// result contains the entities
@@ -385,11 +385,11 @@ O aplicativo cliente usa a SAS com **TableServiceWithSAS** para executar operaç
 
 Como a SAS foi gerada só com acesso de consulta, se for feita uma tentativa de inserir, atualizar ou excluir entidades, será retornado um erro.
 
-### Listas de controle de acesso
+### Listas de Controle de Acesso
 
 Você também pode usar uma ACL (Lista de Controle de Acesso) para definir a política de acesso para uma SAS. Isso é útil se você quiser permitir que vários clientes acessem a tabela, mas oferecem diferentes políticas de acesso para cada cliente.
 
-Uma ACL é implementada através de um conjunto de políticas de acesso, com uma ID associada a cada política. O exemplo a seguir define duas políticas; uma para 'user1' e um para 'user2':
+Uma ACL é implementada através de um conjunto de políticas de acesso, com uma ID associada a cada política. O seguinte exemplo define duas políticas: uma para “user1” e outra para “user2”:
 
 	var sharedAccessPolicy = [
 	  {
@@ -410,7 +410,7 @@ Uma ACL é implementada através de um conjunto de políticas de acesso, com uma
 	  }
 	];
 
-O exemplo a seguir obtém a ACL atual para a tabela **hometasks**, em seguida, adiciona as novas políticas usando **setTableAcl**. Essa abordagem permite:
+O exemplo a seguir obtém a ACL atual para a tabela **hometasks** e adiciona as novas políticas usando **setTableAcl**. Essa abordagem permite:
 
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
       if(!error){
@@ -430,24 +430,24 @@ Uma vez que a ACL foi definida, você pode criar uma SAS com base na ID de uma p
 
 ## Próximas etapas
 
-Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga estes links para saber como fazer tarefas de armazenamento mais complexas.
+Para obter mais informações, veja os recursos a seguir.
 
--   Consulte a referência do MSDN: [Armazenando e acessando dados no Azure][].
--   [Visite o Blog da equipe do Armazenamento do Azure][].
--   Visite o repositório [SDK de armazenamento do Azure para nó][] no GitHub.
+-   Referência do MSDN: [Armazenando e acessando dados no Azure][].
+-   [Blog da equipe do Armazenamento do Azure][].
+-   Repositório do [SDK do Armazenamento do Azure para Node][] no GitHub.
+-   [Centro de Desenvolvedores do Node.js](/develop/nodejs/)
 
-  [SDK de armazenamento do Azure para nó]: https://github.com/Azure/azure-storage-node
+  [SDK do Armazenamento do Azure para Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+  [Azure portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
   [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-  [Visite o Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Aplicativo Node.js na Web com armazenamento]: ../storage-nodejs-use-table-storage-web-site.md
-  [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
- 
+  [Aplicativo Web do Node.js com armazenamento]: ../storage-nodejs-use-table-storage-web-site.md
+  [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

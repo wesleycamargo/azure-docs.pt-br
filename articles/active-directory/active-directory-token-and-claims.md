@@ -1,5 +1,5 @@
  <properties
-   pageTitle="Tipos de declaração e token com suporte"
+   pageTitle="Tipos de declarações e tokens com suporte | Microsoft Azure"
    description="Um guia para compreender e avaliar as declarações em tokens SAML 2.0 e JSON Web Tokens (JWT) emitidos pelo AAD (Active Directory do Azure)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/12/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Tipos de declaração e token com suporte
@@ -412,4 +412,4 @@ Este é um exemplo de um típico JWT (JSON Web token) usado em um fluxo de Web d
 
 [Protocolos de autenticação do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

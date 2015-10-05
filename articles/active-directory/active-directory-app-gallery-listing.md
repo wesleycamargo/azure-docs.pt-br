@@ -1,6 +1,6 @@
 <properties
    pageTitle="Listando seu aplicativo na galeria de aplicativos do Azure Active Directory"
-   description="Um guia abrangente para recursos para desenvolvedores do Azure Active Directory"
+   description="Como listar um aplicativo que oferece suporte a logon único na galeria do Active Directory do Azure | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -56,6 +56,5 @@ Depois que o teste for concluído, o aplicativo poderá ser listado na galeria d
 > Anexe o ícone grande do aplicativo (arquivo PNG, 215px por 215px, cor de plano de fundo transparente):
 >
 > Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

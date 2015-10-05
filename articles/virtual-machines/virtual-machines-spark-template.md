@@ -1,17 +1,18 @@
 <properties
-	pageTitle="Spark no modelo do Gerenciador de Recursos do Ubuntu"
-	description="Saiba como implantar com facilidade um novo cluster Spark em VMs Ubuntu usando o PowerShell ou a CLI do Azure e um modelo do Gerenciador de Recursos"
+	pageTitle="Spark no modelo do Gerenciador de Recursos do Ubuntu | Microsoft Azure"
+	description="Como implantar um novo cluster Spark em VMs do Ubuntu usando o Azure PowerShell ou a CLI do Azure e um modelo do Gerenciador de Recursos"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="paolosalvatori"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="multiple"
 	ms.date="05/16/2015"
 	ms.author="paolosalvatori"/>
@@ -20,7 +21,10 @@
 
 Apache Spark é um mecanismo rápido para processamento de dados em grande escala. O Spark tem um mecanismo de execução DAG avançado que oferece suporte ao fluxo de dados cíclicos e computação na memória, e pode acessar várias fontes de dados, incluindo HDFS, Spark, HBase e S3.
 
-Além de executar nos gerenciadores de cluster Mesos ou YARN, o Spark fornece um modo simples de implantação autônoma. Este tutorial mostrará como usar um exemplo de modelo do Gerenciador de Recursos do Azure para implantar um cluster Spark em VMs Ubuntu por meio do [Azure PowerShell](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como implantar um recurso com o modelo de implantação do Gerenciador de Recursos. Não é possível implantar este recurso com o modelo de implantação clássico.
+
+
+Além de executar nos gerenciadores de cluster Mesos ou YARN, o Spark fornece um modo simples de implantação autônoma. Este tutorial mostrará como usar um exemplo de modelo do Gerenciador de Recursos do Azure para implantar um cluster Spark em VMs do Ubuntu por meio do [Azure PowerShell](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli.md).
 
 Esse modelo implanta um cluster Spark em máquinas virtuais Ubuntu. Também fornece uma conta de armazenamento, rede virtual, conjuntos de disponibilidade, endereços IP públicos e interfaces de rede necessários para a instalação. O cluster Spark é criado por trás de uma sub-rede e, portanto, não há acesso de IP público ao cluster. Como parte da implantação, uma "jump box" opcional pode ser implantada. Essa “jump box” é uma VM Ubuntu implantada na sub-rede, mas que *expõe* um endereço IP público com uma porta SSH aberta com qual você pode se conectar. Em seguida, da “jump box”, é possível executar SSH em todas as VMs Spark na sub-rede.
 
@@ -91,7 +95,7 @@ Clone todo o repositório de modelos usando um cliente Git de sua escolha, por e
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Quando a clonagem for concluída, procure a pasta **spark-on-ubuntu** no diretório C:\\Azure\\Templates.
+Depois de concluída a clonagem, procure a pasta **spark-on-ubuntu** no diretório C:\\Azure\\Templates.
 
 ### Etapa 2 (opcional): compreender os parâmetros do modelo
 
@@ -242,7 +246,7 @@ Cada parâmetro tem detalhes como tipo de dados e valores permitidos. Isso permi
 
 Prepare um arquivo de parâmetros para a sua implantação criando um arquivo JSON que contém os valores de tempo de execução para todos os parâmetros. Em seguida, esse arquivo será passado como uma única entidade para o comando de implantação. Se você não incluir um arquivo de parâmetros, o PowerShell do Azure usará qualquer valor padrão especificado no modelo e solicitará que você preencha os valores restantes.
 
-Veja um exemplo de conjunto de parâmetros do arquivo azuredeploy-parameters.json. Observe que você precisa fornecer valores válidos para os parâmetros **storageAccountName**, **adminUsername** e **adminPassword**, além de qualquer personalização para os outros parâmetros:
+Veja um exemplo de conjunto de parâmetros do arquivo azuredeploy-parameters.json. É importante lembrar que você precisará fornecer valores válidos para os parâmetros **storageAccountName**, **adminUsername** e **adminPassword**, além de quaisquer personalizações dos outros parâmetros:
 
 ```json
 {
@@ -377,11 +381,11 @@ Parameters        :
 
 Durante e após a implantação, você pode verificar todas as solicitações feitas durante o provisionamento, incluindo quaisquer erros ocorridos.
 
-Para fazer isso, acesse o [portal do Azure](https://portal.azure.com) e siga este procedimento:
+Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e faça o seguinte:
 
 - Clique em **Procurar** na barra de navegação à esquerda, role para baixo e clique em **Grupos de Recursos**.
 - Clique no grupo de recursos que você acabou de criar, o que exibirá a folha "Grupo de Recursos".
-- Clicando no gráfico de barras **Eventos** na parte **Monitoramento** da folha "Grupo de Recursos", será possível ver os eventos de sua implantação.
+- Ao clicar no gráfico de barras **Eventos** na parte **Monitoramento** da folha “Grupo de Recursos”, você poderá ver os eventos de sua implantação.
 - Ao clicar em eventos individuais, será possível fazer uma busca detalhada dos detalhes de cada operação individual feita em nome do modelo.
 
 ![portal-events](media/virtual-machines-spark-template/portal-events.png)
@@ -449,7 +453,7 @@ Veja a seguir um exemplo de um parâmetro para “tamanho de camiseta”:
 },
 ```
 
-> [AZURE.NOTE]Observe que **defaultValue** pode ser especificado, bem como **allowedValues**.
+> [AZURE.NOTE]É importante lembrar que **defaultValue** pode ser especificado, bem como **allowedValues**.
 
 ### Seção "variáveis"
 
@@ -486,16 +490,16 @@ A seção "variáveis" especifica variáveis que podem ser usadas em todo esse m
 },
 ```
 
-A variável **vmStorageAccountContainerName** é um exemplo de uma variável simples de nome/valor. **vnetID** é um exemplo de uma variável calculada durante a execução usando as funções **resourceId** e **parameters**. O valor das variáveis **numberOfMasterInstances** e **vmSize** é calculado durante a execução usando as funções **concat**, **variables** e **parameters**.
+A variável **vmStorageAccountContainerName** é um exemplo de uma variável de nome/valor simples. **vnetID** é um exemplo de uma variável que é calculada no tempo de execução com as funções **resourceId** e **parameters**. O valor das variáveis **numberOfMasterInstances** e **vmSize** é calculado no tempo de execução com as funções **concat**, **variables** e **parameters**.
 
-Se você quiser personalizar o tamanho da implantação do cluster Spark, altere as propriedades das variáveis **tshirtSizeS**, **tshirtSizeM** e **tshirtSizeL** no modelo azuredeploy.json.
+Se desejar personalizar o tamanho da implantação do cluster Spark, é possível alterar as propriedades das variáveis **tshirtSizeS**, **tshirtSizeM** e **tshirtSizeL** no modelo azuredeploy.json.
 
 Para saber mais sobre o idioma do modelo, consulte a MSDN em [Idioma do modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 
 ### Seção "recursos"
 
-A seção "recursos" é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes. O primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que essencialmente invoca uma implantação aninhada dentro do elemento principal. O segundo é a propriedade **templateLink** (e a propriedade **contentVersion** relacionada), que torna possível a especificação de um arquivo de modelo vinculado que será invocado, passando um conjunto de parâmetros como entrada. Eles podem ser vistos neste fragmento do modelo:
+A seção "recursos" é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes. O primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que basicamente invoca uma implantação aninhada dentro do elemento principal. O segundo é a propriedade **templateLink** (e a propriedade **contentVersion** relacionada), que possibilita a especificação de um arquivo de modelo vinculado que será invocado, pela transmissão de um conjunto de parâmetros como entrada. Eles podem ser vistos neste fragmento do modelo:
 
 ```json
 "resources": [
@@ -542,7 +546,7 @@ Em particular, os seguintes modelos vinculados serão usados para essa implanta�
 
 Depois de invocar esses dois modelos, o azuredeploy.json provisiona todas as VMs de nó do cluster Spark e os recursos conectados (adaptadores de rede, IPs privados etc.). Este modelo também implanta extensões de VM (scripts personalizados para Linux) e invoca um script bash (spark-cluster-install.sh) para instalar fisicamente e configurar o Spark em cada nó.
 
-Vamos detalhar *como* esse último modelo, azuredeploy.json, é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Este conceito é conhecido como **loop de recursos**.
+Vamos detalhar *como* esse último modelo, azuredeploy.json, é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Esse conceito é conhecido como **loop de recursos**.
 
 Um recurso que usa o elemento **copy** criará cópias de si mesmo de acordo com o número de vezes especificado no parâmetro **count** do elemento **copy**. Para todas as configurações em que é necessário especificar valores exclusivos entre diferentes instâncias do recurso implantado, a função **copyindex()** pode ser usada para obter um valor numérico que indica o índice atual nessa criação de loop de recursos específica. No fragmento a seguir do azuredeploy.json, é possível ver esse conceito aplicado a várias adaptadores de rede, VMs e extensões de VM que estão sendo criadas para o cluster Spark:
 
@@ -760,7 +764,7 @@ Um recurso que usa o elemento **copy** criará cópias de si mesmo de acordo com
 	}
 ```
 
-Outro conceito importante na criação de recursos é a capacidade de especificar dependências e precedências entre recursos, como você pode ver na matriz JSON **dependsOn**. Neste modelo específico, é possível ver que os nós do cluster Spark dependem dos recursos compartilhados e do recursos **networkInterfaces** que estão sendo criados primeiro.
+Outro conceito importante na criação de recursos é a capacidade de especificar dependências e precedências entre recursos, como você pode ver na matriz JSON **dependsOn**. Neste modelo específico, é possível ver que os nós do cluster Spark dependem dos recursos compartilhados e dos recursos **networkInterfaces** que estão sendo criados primeiro.
 
 Outro fragmento interessante a ser explorado é aquele relacionado às extensões de VM **CustomScriptForLinux**. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó do cluster. Neste caso, isso é usado para instalar e configurar o Spark em cada nó de VM. Vamos examinar um trecho do modelo azuredeploy.json que usa esses recursos:
 
@@ -817,9 +821,9 @@ Outro fragmento interessante a ser explorado é aquele relacionado às extensõe
 }
 ```
 
-Observe que a extensão dos recursos de nó mestre e subordinado executa comandos diferentes, definidos na propriedade **commandToExecute** como parte do processo de provisionamento.
+É importante lembrar que a extensão dos recursos dos nós mestre e subordinado executa comandos diferentes, definidos na propriedade **commandToExecute**, como parte do processo de provisionamento.
 
-Se você examinar o trecho JSON da extensão mais recente de máquina virtual, poderá ver que esse recurso depende do recurso da máquina virtual e sua interface de rede. Isso indica que esses dois recursos já precisam ser implantados antes de provisionar e executar essa extensão de VM. Observe também o uso da função **copyindex()** para repetir esta etapa para cada máquina virtual escrava.
+Se você examinar o trecho JSON da extensão mais recente de máquina virtual, poderá ver que esse recurso depende do recurso da máquina virtual e sua interface de rede. Isso indica que esses dois recursos já precisam ser implantados antes de provisionar e executar essa extensão de VM. Observe também o uso da função **copyindex()** para repetir esta etapa para cada máquina virtual subordinada.
 
 Familiarizando-se com os outros arquivos incluídos nessa implantação, você poderá compreender todos os detalhes e as práticas recomendadas necessárias para organizar e orquestrar estratégias de implantação complexas para soluções com vários nós, com base em qualquer tecnologia, utilizando modelos do Gerenciador de Recursos do Azure. Embora não seja obrigatório, uma abordagem recomendada é estruturar seus arquivos de modelos conforme realçado pelo seguinte diagrama:
 
@@ -843,4 +847,4 @@ Descubra mais [estruturas de aplicativo](virtual-machines-app-frameworks.md).
 
 [Solucionar problemas de implantações de modelo](resource-group-deploy-debug.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

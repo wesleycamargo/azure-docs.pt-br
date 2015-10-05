@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="O que é o Cofre da Chave do Azure? | Microsoft Azure" 
-	description="O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre da Chave do Azure, os clientes podem criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware)." 
-	services="key-vault" 
-	documentationCenter="" 
-	authors="cabailey" 
+<properties
+	pageTitle="O que é o Cofre da Chave do Azure? | Microsoft Azure"
+	description="O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre da Chave do Azure, os clientes podem criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware)."
+	services="key-vault"
+	documentationCenter=""
+	authors="cabailey"
 	manager="mbaldwin"
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="key-vault" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/22/2015"
 	ms.author="cabailey"/>
 
 
 
-# O que é o Cofre da Chave do Azure? 
+# O que é o Cofre da Chave do Azure?
 
 O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](../../../../pricing/details/key-vault/).
 
@@ -43,7 +43,7 @@ Use a tabela a seguir para entender melhor como o Cofre da Chave pode ajudar a a
 
 Qualquer pessoa com uma assinatura do Azure pode criar e usar cofres de chaves. Embora o Cofre da Chave beneficie desenvolvedores e administradores de segurança, ele pode ser implementado e gerenciado pelo administrador de uma organização que gerencie outros serviços do Azure para a organização. Por exemplo, esse administrador faria logon com uma assinatura do Azure, criaria um cofre para a organização na qual as chaves seriam armazenadas e seria responsável por tarefas operacionais, como:
 
-+ Criar ou importar uma chave ou segredo 
++ Criar ou importar uma chave ou segredo
 + Revogar ou excluir uma chave ou segredo
 + Autorizar usuários ou aplicativos a gerenciar ou usar chaves e segredos
 + Configurar o uso de chaves (por exemplo, assinar ou criptografar)
@@ -53,7 +53,7 @@ Esse administrador, então, forneceria aos desenvolvedores URIs a serem chamados
 
    ![Visão geral da o Cofre da Chave do Azure][1]
 
-Os desenvolvedores também podem gerenciar as chaves diretamente, por meio de APIs. Para obter mais informações, consulte [Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903625.aspx) na biblioteca de documentação do Microsoft Azure no MSDN.
+Os desenvolvedores também podem gerenciar as chaves diretamente, por meio de APIs. Para obter mais informações, consulte o [Guia do desenvolvedor do Cofre da Chave](key-vault-developers-guide.md).
 
 ## Próximas etapas
 
@@ -65,7 +65,4 @@ Para saber mais sobre o uso de chaves e segredos com o Cofre da Chave do Azure, 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-
- 
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

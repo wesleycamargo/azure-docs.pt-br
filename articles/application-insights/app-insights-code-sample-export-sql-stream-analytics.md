@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
@@ -59,13 +59,13 @@ Introdução:
 
 Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.
 
-1. Crie uma conta de armazenamento na sua assinatura do [Portal do Azure][portal].
+1. Crie uma conta de armazenamento “clássica” na sua assinatura do [Portal do Azure][portal].
 
-    ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![No portal do Azure, escolha Novo, Dados e Armazenamento. Selecione Clássica, escolha Criar. Forneça um nome de armazenamento.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
 2. Criar um contêiner
 
-    ![No novo armazenamento, selecione Contêineres e, em seguida, Adicionar](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![No novo armazenamento, selecione Contêineres, clique no bloco Contêineres e, em seguida, Adicionar](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
 3. Copie a chave de acesso de armazenamento
 
@@ -314,4 +314,4 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

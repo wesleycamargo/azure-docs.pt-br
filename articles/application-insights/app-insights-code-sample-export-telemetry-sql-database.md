@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exemplo de código: Exportar para SQL do Application Insights usando uma função de trabalho"
-	description="Codifique sua própria análise de telemetria no Application Insights usando o recurso de exportação contínua."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="Exemplo de código: Exportar para SQL do Application Insights usando uma função de trabalho" 
+	description="Codifique sua própria análise de telemetria no Application Insights usando o recurso de exportação contínua." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Exemplo de código: Exportar para SQL do Application Insights usando uma função de trabalho
@@ -51,13 +51,13 @@ Introdução:
 
 ## Criar armazenamento no Azure
 
-1. Crie uma conta de armazenamento na sua assinatura do [Portal do Azure][portal].
+1. Crie uma conta de armazenamento “clássica” na sua assinatura do [Portal do Azure][portal].
 
     ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
 2. Criar um contêiner
 
-    ![No novo armazenamento, selecione Contêineres e, em seguida, Adicionar](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
+    ![No novo armazenamento, selecione Contêineres, clique no bloco Contêineres e, em seguida, Adicionar](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
 ## Iniciar exportação contínua no armazenamento do Azure
@@ -539,4 +539,4 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

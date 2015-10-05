@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Cenários de uso e considerações de implantação para a Junção do Azure AD| Microsoft Azure" 
-	description="Um tópico que explica como os administradores podem configurar a Junção do Azure AD para seus usuários finais (funcionários, estudantes, outros usuários)." 
+	description="Lista e explica os diferentes cenários de implantação disponíveis para ingresso no AD do Azure." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Cenários de uso e considerações de implantação para a Junção do Azure AD 
@@ -82,7 +82,7 @@ Você pode configurar seus funcionários e usuários para usarem seus dispositiv
 
 
 ## Informações adicionais
-* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
+* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-overview.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

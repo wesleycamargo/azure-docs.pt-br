@@ -50,7 +50,7 @@ Não há suporte para a conexão de vários servidores do Azure AD Connect Sync 
 
 Muitas organizações têm ambientes que incluem várias florestas do Active Directory local. Há vários motivos para ter mais de uma floresta do Active Directory local implantada. Os exemplos típicos são designs com florestas de conta-recurso, florestas relacionadas a fusões e aquisições ou florestas usadas para terceirizar dados.
 
-Quando você tem várias florestas, todas elas devem ser acessíveis pelo único servidor do Azure AD Connect Sync. O servidor não precisa ser associado a um domínio e pode ser colocado em uma rede de perímetro se precisar ser capaz de acessar todas as florestas.
+Quando você tem várias florestas, todas elas devem ser acessíveis pelo único servidor do Azure AD Connect Sync. O servidor não precisa ser associado a um domínio e pode ser colocado em uma rede DMZ se precisar ser capaz de acessar todas as florestas.
 
 O assistente do Azure AD Connect oferece várias opções de como consolidar os usuários até que o mesmo usuário seja representado várias vezes em diferentes florestas, o usuário será representado apenas uma vez no AD do Azure. Algumas topologias comuns são descritas abaixo. Configure qual topologia você tem usando o caminho de instalação personalizada do assistente de instalação e selecione a opção correspondente na página "Identificar os usuários com exclusividade". A consolidação está ocorrendo somente para os usuários. Se os grupos são duplicados, eles não são consolidados com a configuração padrão.
 
@@ -162,4 +162,4 @@ Há suporte para o uso do FIM2010/MIM2016 local para usuários GALsync entre dua
 ## Próximas etapas
 Para saber como instalar o Azure AD Connect para esses cenários, veja [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Para saber mais sobre a configuração do Azure AD Connect Sync, veja [Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

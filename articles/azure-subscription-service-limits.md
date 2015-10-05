@@ -99,6 +99,9 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 
 
 ### Limites de rede
+
+[AZURE.INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
 #### Limites de rede
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
@@ -254,4 +257,4 @@ Para obter os limites de Banco de Dados SQL, consulte [Limites de recurso do Ban
 
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

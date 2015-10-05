@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Mapeamento de rede de Recuperação de Site"
-	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos locais para o Azure ou para um site local secundário."
+	pageTitle="Mapeamento de rede do Azure Site Recovery | Microsoft Azure"
+	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos situados localmente para o Azure ou para um site local secundário."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -17,10 +17,10 @@
 	ms.author="raynew"/>
 
 
-# Mapeamento de rede de Recuperação de Site
+# Mapeamento de rede do Azure Site Recovery
 
 
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) gerenciando replicação, failover e recuperação de máquinas virtuais em vários cenários de implantação. Leia sobre possíveis cenários de implantação na [Visão geral sobre a Recuperação de Site](site-recovery-overview.md).
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) gerenciando replicação, failover e recuperação de máquinas virtuais e servidores físicos. Leia sobre possíveis cenários de implantação na [Visão Geral sobre a Recuperação de Site](site-recovery-overview.md).
 
 
 ## Sobre este artigo
@@ -40,16 +40,16 @@ A maneira na qual você configura o mapeamento de rede depende de seu cenário d
 
 	- **Conectar máquinas virtuais após o failover**. garante que as máquinas virtuais serão conectadas às redes apropriadas após o failover. A máquina virtual de réplica será conectada à rede de destino mapeada para a rede de origem.
 	- **Colocar máquinas virtuais de réplica nos servidores host**: posiciona de forma ideal as máquinas virtuais de réplica em servidores host Hyper-V. As máquinas virtuais de réplica serão colocadas em hosts que podem acessar as redes VM mapeadas.
-	- **Nenhum mapeamento de rede**: se você não configurar o mapeamento de rede, as máquinas virtuais de réplica não serão conectadas às redes VM após o failover.
+	- **Nenhum mapeamento de rede**: se você não configurar o mapeamento de rede, as máquinas virtuais replicadas não serão conectadas às redes VM após o failover.
 
 - **Servidor VMM local para o Azure**: o mapeamento de rede realiza o mapeamento entre redes VM no servidor VMM de origem e redes do Azure destino, a fim de fazer o seguinte:
 	- **Conectar máquinas virtuais após o failover**: todos os computadores que forem submetidos a failover na mesma rede poderão se conectar entre si, independentemente do plano de recuperação em que estão.
-	- **Gateway de rede**. se um gateway de rede for configurado na rede Azure de destino, as máquinas virtuais poderão se conectar a outras máquinas virtuais locais.
-	- **Nenhum mapeamento de rede**: se você não configurar o mapeamento de rede, somente as máquinas virtuais com failover no mesmo plano de recuperação poderão se conectar entre si após o failover no Azure.
+	- **Gateway de rede**: se um gateway de rede for configurado na rede Azure de destino, as máquinas virtuais poderão conectar-se a outras máquinas virtuais locais.
+	- **Nenhum mapeamento de rede**: se você não configurar o mapeamento de rede, somente as máquinas virtuais com failover no mesmo plano de recuperação poderão conectar-se entre si após o failover no Azure.
 
 ## Redes VM
 
-A rede lógica VMM fornece uma exibição abstrata da infraestrutura de rede física. As redes VM fornecem uma interface de rede para que as máquinas virtuais possam se conectar a redes lógicas. Uma rede lógica precisa de pelo menos uma rede VM. Quando você coloca uma máquina virtual em uma nuvem para proteção, ela deve estar conectada a uma rede VM vinculada a uma rede lógica associada à nuvem. Saiba mais em:
+Uma rede lógica VMM fornece uma exibição abstrata da infraestrutura de rede física. As redes VM fornecem uma interface de rede para que as máquinas virtuais possam se conectar a redes lógicas. Uma rede lógica precisa de pelo menos uma rede VM. Quando você coloca uma máquina virtual em uma nuvem para proteção, ela deve estar conectada a uma rede VM que se vincula a uma rede lógica associada à nuvem. Saiba mais em:
 
 - [Redes lógicas (Parte 1)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
 - [Rede virtual no VMM 2012 SP1](http://blogs.technet.com/b/scvmm/archive/2013/01/08/virtual-networking-in-vmm-2012-sp1.aspx)
@@ -74,7 +74,7 @@ Neste exemplo:
 - Quando uma máquina virtual de réplica é criada para qualquer máquina virtual conectada a VMNetwork1-NewYork, ela é conectada a VMNetwork1-Chicago.
 - Quando uma máquina virtual de réplica é criada para VMNetwork2-NewYork ou VMNetwork2-Chicago, ele não é conectada a nenhuma rede.
 
-Veja como as nuvens do VMM são configuradas em nosso exemplo de organização, e como as redes lógicas são associadas às nuvens.
+Veja como as nuvens do VMM são configuradas em nosso exemplo de organização e como as redes lógicas são associadas às nuvens.
 
 ### Configurações de proteção de nuvem
 
@@ -108,7 +108,7 @@ VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Não disponível
 
 ## Várias sub-redes
 
-Se a rede de destino tiver várias sub-redes, e uma dessas sub-redes tiver o mesmo nome que a sub-rede em que a máquina virtual de origem está localizada, a máquina virtual de réplica será conectada à sub-rede de destino após o failover. Se não houver uma sub-rede de destino com um nome correspondente, a máquina virtual será conectada à primeira sub-rede na rede.
+Se a rede de destino tiver várias sub-redes e uma delas tiver o mesmo nome que a sub-rede em que a máquina virtual de origem está localizada, a máquina virtual de réplica será conectada a essa sub-rede de destino após o failover. Se não houver uma sub-rede de destino com um nome correspondente, a máquina virtual será conectada à primeira sub-rede na rede.
 
 
 ### Failback
@@ -125,15 +125,14 @@ Com essas configurações, vamos analisar o que acontece em alguns cenários pos
 
 **Cenário** | **Resultado**
 ---|---
-Nenhuma alteração nas propriedades de rede de VM-2 após o failover | A VM-1 permanece conectada à rede de origem.
-As propriedades de rede de VM-2 são alteradas após o failover, e é desconectada | VM-1 é desconectada
-As propriedades de rede de VM-2 são alteradas após o failover, e é conectada à VMNetwork2-Chicago | Se VMNetwork2-Chicago não estiver mapeada, a VM-1 será desconectada
-O mapeamento de rede de VMNetwork1-Chicago é alterado | A VM-1 será conectada à rede, agora mapeada para VMNetwork1-Chicago
+Nenhuma alteração nas propriedades de rede de VM-2 após o failover. | A VM-1 permanece conectada à rede de origem.
+As propriedades de rede de VM-2 são alteradas após o failover e ela é desconectada. | A VM-1 é desconectada.
+As propriedades de rede de VM-2 são alteradas após o failover e ela é conectada à VMNetwork2-Chicago. | Se a VMNetwork2-Chicago não estiver mapeada, a VM-1 será desconectada.
+O mapeamento de rede da VMNetwork1-Chicago é alterado. | A VM-1 será conectada à rede, agora mapeada para VMNetwork1-Chicago.
 
 
 ## Próximas etapas
 
 Agora que você compreende melhor o mapeamento de rede, comece a ler as [práticas recomendadas](site-recovery-best-practices.md) para se preparar para a implantação.
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

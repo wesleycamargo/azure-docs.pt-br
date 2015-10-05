@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/12/2015" 
+	ms.date="09/23/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -40,7 +40,7 @@ Pools de banco de dados elástico no Banco de Dados SQL do Azure permitem que IS
 
 Pools de banco de dados elástico também são indicados para um grande número de bancos de dados com padrões de utilização específicos. Para um determinado banco de dados, esse padrão é caracterizado por baixa utilização média com picos de utilização relativamente pouco frequentes.
 
-Quanto mais bancos de dados forem adicionados ao pool, maior será a economia, porém, dependendo do seu padrão de utilização do aplicativo, é possível observar economia em um mínimo de quatro bancos de dados S3.
+Quanto mais bancos de dados forem adicionados ao pool, maior será a economia; porém, dependendo do seu padrão de utilização do aplicativo, é possível observar uma economia em, no mínimo, dois bancos de dados S3.
 
 As seções a seguir ajudarão a compreender como avaliar se sua coleção específica de bancos de dados se beneficiará com o uso de um pool de banco de dados elástico. Os exemplos usam pools de banco de dados elástico Standard, mas os mesmos princípios também se aplicam aos pools Basic e Premium.
 
@@ -60,7 +60,7 @@ Considerando ainda o exemplo anterior, suponha que há outros bancos de dados co
 
    ![vinte bancos de dados][3]
 
-A utilização de DTU agregada em todos os 20 bancos de dados é ilustrada pela linha preta na figura acima. Ela mostra que a utilização de DTU agregada nunca excede 100 DTUs e indica que os 20 bancos de dados podem compartilhar 100 eDTUs durante esse período de tempo. Isso resulta em uma economia de 20x de DTUs e 6x no preço em comparação com a colocação de cada um dos bancos de dados nos níveis de desempenho S3 para bancos de dados individuais.
+A utilização de DTU agregada em todos os 20 bancos de dados é ilustrada pela linha preta na figura acima. Ela mostra que a utilização de DTU agregada nunca excede 100 DTUs e indica que os 20 bancos de dados podem compartilhar 100 eDTUs durante esse período de tempo. Isso resulta em uma redução de 20x em DTUs e em uma redução de 13x no preço quando comparado à colocação de cada um dos bancos de dados nos níveis de desempenho S3 para bancos de dados individuais.
 
 
 Este exemplo é ideal pelas seguintes razões:
@@ -70,38 +70,38 @@ Este exemplo é ideal pelas seguintes razões:
 - eDTUs são compartilhados entre vários bancos de dados.
 
 
-O preço de um pool de banco de dados elástico é uma função do pool de eDTUs e o número de bancos de dados nele presentes. Embora o preço unitário de eDTU para um pool considerando preços de GA seja três vezes maior que o preço unitário de DTU para um banco de dados individual, **as eDTUs em pool podem ser compartilhadas por vários bancos de dados, e em muitos casos menos eDTUs são necessárias no total**. Essas distinções no preço e compartilhamento de eDTU são a base do potencial de economia que os pools podem oferecer.
+O preço de um pool de banco de dados elástico é uma função das eDTUs do pool. Embora o preço unitário de eDTU para um pool seja 1,5x maior que o preço unitário de DTU para um banco de dados individual, **as eDTUs do pool podem ser compartilhadas por vários bancos de dados e, portanto, em muitos casos, menos eDTUs são necessárias no total**. Essas distinções no preço e compartilhamento de eDTU são a base do potencial de economia que os pools podem oferecer.
 
 <br>
 
-As seguintes regras básicas relacionadas à contagem e utilização de banco de dados ajudam a garantir que um pool de banco de dados elástico ofereça um custo reduzido em comparação ao uso de níveis de desempenho de bancos de dados individuais. As diretrizes são baseadas nos preços de disponibilidade geral (GA). Observe que os preços de GA tem desconto de 50% durante a visualização, por isso essas regras gerais devem ser consideradas relativamente moderadas.
+As seguintes regras básicas relacionadas à contagem e utilização de banco de dados ajudam a garantir que um pool de banco de dados elástico ofereça um custo reduzido em comparação ao uso de níveis de desempenho de bancos de dados individuais.
 
 
 ### Número mínimo de bancos de dados
 
-Com preços de GA, um pool de banco de dados elástico torna-se uma opção mais econômica de desempenho se 1 eDTU puder ser compartilhada por mais de três bancos de dados. Isso significa que a soma de DTUs dos níveis de desempenho para bancos de dados individuais é mais de três vezes as eDTUs do pool. Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools de banco de dados elásticos e bancos de dados elásticos](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Se a soma das DTUs dos níveis de desempenho para bancos de dados individuais for maior que 1,5x as eDTUs necessárias para o pool, um pool elástico será mais econômico. Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools de banco de dados elásticos e bancos de dados elásticos](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
-***Exemplo***<br> pelo menos quatro bancos de dados S3 ou bancos de dados, pelo menos, 36 S0 são necessários para um pool de banco de dados elástico de eDTU 100 ser mais econômico que usar níveis de desempenho para bancos de dados individuais. (Observe que com preços de visualização, o ponto de equilíbrio de preço com base na contagem de banco de dados fica reduzido a dois bancos de dados S3 ou 17 bancos de dados S0).
+***Exemplo***<br> Pelo menos dois bancos de dados S3 ou quinze bancos de dados S0 são necessários para que um pool de banco de dados elástico de 100 eDTUs seja mais econômico do que usar níveis de desempenho para bancos de dados individuais.
 
 
 
 ### Número máximo de banco de dados em pico simultaneamente
 
-Ao compartilhar eDTUs, nem todos os bancos de dados em um pool podem usar as eDTUs simultaneamente até o limite disponível ao usar níveis de desempenho de bancos de dados individuais. Quanto menos bancos de dados em pico simultaneamente, menor poderá ser o eDTU do pool e mais econômico ainda ele se torna. Em geral, no máximo 1/3 dos bancos de dados no pool devem estar em pico simultaneamente em seus limites de eDTU.
+Ao compartilhar eDTUs, nem todos os bancos de dados em um pool podem usar as eDTUs simultaneamente até o limite disponível ao usar níveis de desempenho de bancos de dados individuais. Quanto menos bancos de dados em pico simultaneamente, menor poderá ser o eDTU do pool e mais econômico ainda ele se torna. Em geral, no máximo 2/3 (ou 67%) dos bancos de dados no pool deve atingir o pico simultaneamente de seus limites de eDTU.
 
-***Exemplo***<br> Para reduzir os custos para quatro bancos de dados S3 em um pool com 200 eDTU, no máximo dois desses bancos de dados podem estar simultaneamente em sua utilização máxima. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. E se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os níveis de desempenho de bancos de dados individuais.
+***Exemplo***<br> Para reduzir os custos de três bancos de dados S3 em um pool com 200 eDTUs, no máximo dois desses bancos de dados podem atingir simultaneamente o pico em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. E se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os níveis de desempenho de bancos de dados individuais.
 
 
-Observe que esse exemplo não considera a utilização de outros bancos de dados no pool. Se todos os bancos de dados tiverem certa utilização em um dado momento, menos que 1/3 dos bancos de dados deve usar o máximo simultaneamente.
+Observe que esse exemplo não considera a utilização de outros bancos de dados no pool. Se todos os bancos de dados tiverem uma certa utilização em um determinado momento, menos de 2/3 (ou 67%) dos bancos de dados pode atingir o pico simultaneamente.
 
 
 ### Utilização de DTU por banco de dados
 
-Uma grande diferença entre o máximo e média de utilização de um banco de dados indica longos períodos de baixa utilização e curtos períodos de alta utilização. Esse padrão de utilização é ideal para compartilhar recursos entre bancos de dados. Um banco de dados deve ser considerado para um pool quando sua utilização máxima for aproximadamente três vezes maior que sua utilização média.
+Uma grande diferença entre o máximo e média de utilização de um banco de dados indica longos períodos de baixa utilização e curtos períodos de alta utilização. Esse padrão de utilização é ideal para compartilhar recursos entre bancos de dados. Um banco de dados deve ser considerado para um pool quando seu pico de utilização for aproximadamente 1,5 vez maior que sua utilização média.
 
     
-***Exemplo***<br> Um banco de dados S3 com picos de 100 DTUs que usa em média 30 DTUs ou menos é um bom candidato para o compartilhamento de eDTUs em um pool de banco de dados elástico. Outra opção de bom candidato para um pool de banco de dados elástico seria um banco de dados S1, com pico de 20 DTUs e média de uso se sete DTUs.
+***Exemplo***<br> Um banco de dados S3 com picos de 100 DTUs e que usa em média 67 DTUs ou menos é um bom candidato para o compartilhamento de eDTUs em um pool de banco de dados elástico. Como alternativa, um banco de dados S1, com pico de 20 DTUs e média de uso de 13 DTUs ou menos, é um bom candidato para um pool de banco de dados elástico.
     
 
 ## Heurística para comparar a diferença de preços entre um pool de banco de dados elástico e bancos de dados individuais 
@@ -117,9 +117,9 @@ A heurística a seguir pode ajudar a estimar se um pool de banco de dados elást
 
 3. Calcule o preço para o pool da seguinte maneira:
 
-    preço do pool = (*eDTUs do pool* * *preço unitário de eDTU do pool*) + (*número total de BDs* * *preço da unidade BD do pool*)
+    preço do pool = *eDTUs do pool* * *preço unitário de eDTU do pool*
 
-    Consulte [Preços de Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/) para obter informações sobre preços.
+    Veja [Preços do Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/) para obter informações sobre preços.
 
 
 4. Compare o preço do pool da etapa 3 com o preço de usar os níveis de desempenho adequados para bancos de dados individuais.
@@ -133,24 +133,16 @@ O melhor tamanho de um pool de banco de dados elástico depende das eDTUs e recu
 * DTUs máximo utilizadas por todos os bancos de dados no pool.
 * Bytes de armazenamento máximo utilizados por todos os bancos de dados no pool. 
 
-Observe que, para a camada de serviço Standard, 1 GB de armazenamento é alocado para cada 1 eDTU configurada para o pool. Por exemplo, se um pool for configurado com 200 DTUs, seu limite de armazenamento será 200 GB.
-
-A tabela a seguir mostra a quantidade de armazenamento por eDTU para cada camada de preços:
-
-| Camada | eDTU | Armazenamento |
-| :--- | :--- | :--- |
-| Basic | 1 | 100 MB |
-| Padrão | 1 | 1 GB |
-| Premium | 1 | 0,5 GB |
+Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools de banco de dados elásticos e bancos de dados elásticos](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
 ### Use o STA (Supervisor de Camadas do Serviço) e DMVs (Exibições de Gerenciamento Dinâmico) para obter recomendações de dimensionamento   
 
 O STA e DMVs fornecem diferentes opções de ferramentas e recursos para dimensionamento de um pool de banco de dados elástico. Independentemente da opção de ferramentas usada, a estimativa de dimensionamento deve ser usada somente como uma avaliação inicial e criação de pools de banco de dados elástico. Depois de um pool ter sido criado, seu uso de recursos deve ser monitorado com precisão e as configurações de desempenho do pool devem ser ajustadas conforme necessário.
 
-**STA**<br>STA é uma ferramenta interna no [Portal de Visualização](https://portal.azure.com) que avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor de Banco de Dados SQL existente e recomenda uma configuração de pool de banco de dados elástico apropriada. Para obter detalhes, consulte [Recomendações para camada de preços de pool de banco de dados elástico](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
+**STA**<br>O STA é uma ferramenta interna [no portal de visualização](https://portal.azure.com) que avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor do Banco de Dados SQL existente e recomenda uma configuração apropriada de pool de banco de dados elástico. Para obter detalhes, veja [Recomendações para camada de preços de pool de banco de dados elástico](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
-**Ferramenta de dimensionamento de DMV**<br>a ferramenta de dimensionamento de DMV é fornecida como um script do PowerShell e permite personalizar as estimativas de dimensionamento de um pool de banco de dados elástico para bancos de dados existentes em um servidor.
+**Ferramenta de dimensionamento de DMV**<br>A ferramenta de dimensionamento de DMV é fornecida como um script do PowerShell e permite personalizar as estimativas de dimensionamento de um pool de banco de dados elástico para bancos de dados existentes em um servidor.
 
 ### Escolhendo entre as ferramentas STA e DMV 
 
@@ -170,7 +162,7 @@ O Azure avalia o histórico de utilização dos bancos de dados e recomenda um p
 
 O STA está disponível no portal de visualização ao adicionar um pool de banco de dados elástico a um servidor existente. Se as recomendações para um pool de banco de dados elástico estiverem disponíveis para o servidor, elas serão exibidas na página de criação “Pool de Banco de Dados Elástico”. Os clientes sempre podem alterar as configurações recomendadas para criar seu próprio agrupamento de pool de banco de dados elástico.
 
-Para obter detalhes, consulte [Recomendações para camada de preços de pool de banco de dados elástico](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)
+Para obter detalhes, veja [Recomendações para camada de preços de pool de banco de dados elástico](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)
 
 ### Estimar o tamanho do pool elástico usando DMVs (Exibições de Gerenciamento Dinâmico) 
 
@@ -197,7 +189,7 @@ Instale o seguinte antes de executar o script:
 ### Detalhes do script
 
 
-Você pode executar o script do seu computador local ou uma VM na nuvem. Ao executá-lo em seu computador local, você pode incorrer em encargos de saída de dados, pois o script precisa baixar dados de seus bancos de dados de destino. Veja abaixo a estimativa de volume de dados com base no número de bancos de dados de destino e a duração da execução do script. Para ver os custos de transferência de dados do Azure, consulte os [Detalhes de Preços de Transferência de Dados](http://azure.microsoft.com/pricing/details/data-transfers/).
+Você pode executar o script do seu computador local ou uma VM na nuvem. Ao executá-lo em seu computador local, você pode incorrer em encargos de saída de dados, pois o script precisa baixar dados de seus bancos de dados de destino. Veja abaixo a estimativa de volume de dados com base no número de bancos de dados de destino e a duração da execução do script. Para ver os custos de transferência de dados do Azure, consulte [Detalhes de preços de transferência de dados](http://azure.microsoft.com/pricing/details/data-transfers/).
        
  -     Um banco de dados por hora = 38 KB
  -     Um banco de dados por dia = 900 KB
@@ -443,4 +435,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools de ba
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

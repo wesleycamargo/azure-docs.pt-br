@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="04/21/2015"
+	ms.date="09/17/2015"
 	ms.author="himad"/>
 
 
@@ -38,7 +38,7 @@ Isso permite que os usuários do Aprendizado de Máquina do Azure criem serviço
 - Clique no botão **Adicionar Ponto de Extremidade**, na parte inferior. Preencha com um nome e descrição, certifique-se de que não há nenhum outro ponto de extremidade com o mesmo nome neste serviço Web. Deixe a limitação com o valor padrão, a menos que você tenha requisitos especiais. Se você quiser saber mais sobre a limitação, visite a página [Escala de Pontos de extremidade de API](machine-learning-scaling-endpoints.md). ![Criar ponto de extremidade](./media/machine-learning-create-endpoint/figure-4.png)
 
 
-Quando o ponto de extremidade é criado, você pode consumi-lo por meio de APIs síncronas, APIs de lote e planilhas do Excel. Para obter mais informações sobre como utilizar serviços Web de Aprendizado de Máquina, consulte [Como consumir um serviço Web de Aprendizado de Máquina do Azure publicado](machine-learning-consume-web-services.md).
+Quando o ponto de extremidade é criado, você pode consumi-lo por meio de APIs síncronas, APIs de lote e planilhas do Excel. Além de adicionar pontos de extremidade com essa interface do usuário, você também pode usar as APIs de gerenciamento do ponto de extremidade programaticamente para adicionar pontos de extremidade. Para obter mais informações sobre como utilizar serviços Web de Aprendizado de Máquina, consulte [Como consumir um serviço Web de Aprendizado de Máquina do Azure publicado](machine-learning-consume-web-services.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -270,6 +270,8 @@ Neste documento, você aprendeu a desenvolver um trabalho MapReduce em Java. Con
 - [Usar o Pig com o HDInsight][hdinsight-use-pig]
 - [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
+Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](/develop/java/).
+
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -298,4 +300,4 @@ Neste documento, você aprendeu a desenvolver um trabalho MapReduce em Java. Con
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

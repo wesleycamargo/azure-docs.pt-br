@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/10/2015"
+	ms.date="09/22/2015"
 	ms.author="spelluru"/>
 
 # Crie seu primeiro pipeline usando o Azure Data Factory
@@ -148,13 +148,15 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 	1. Baixe a [versão mais recente do **AzCopy**](http://aka.ms/downloadazcopy) ou a [última versão de visualização](http://aka.ms/downloadazcopypr). Consulte o artigo [Como usar o AzCopy](../storage/storage-use-azcopy.md) para obter instruções sobre o uso do utilitário.
 	2. Após a instalação do AzCopy, você pode adicioná-lo ao caminho do sistema, executando o seguinte comando no prompt de comando. 
 	
-			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-	
+			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
 
 	3. Navegue até a pasta c:\\adfgettingstarted e execute o seguinte comando para carregar o arquivo .HQL do Hive na conta de armazenamento. Substitua ** StorageAccountName** pelo nome da sua conta de armazenamento, e **Storage Key** pela chave de armazenamento da conta.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
-	4. Depois que o arquivo for carregado com êxito, você verá a seguinte saída de AzCopy.
+
+		> [AZURE.NOTE]O comando acima cria um contêiner denominado **script** em seu armazenamento de blob do Azure e copia o arquivo **partitionweblogs.hql** para o contêiner.
+	>
+	5. Depois que o arquivo for carregado com êxito, você verá a seguinte saída de AzCopy.
 	
 			Finished 1 of total 1 file(s).
 			[2015/06/15 15:47:13] Transfer summary:
@@ -174,4 +176,4 @@ Faça o seguinte:
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

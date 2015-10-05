@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Como criar uma máquina Virtual do Azure com a CLI do Azure | Microsoft Azure"
+   pageTitle="Como criar uma VM do Azure com a CLI do Azure | Microsoft Azure"
    description="Este tópico descreve como instalar a CLI do Azure em qualquer plataforma, como usá-la para se conectar à sua conta do Azure e como criar uma VM a partir da CLI do Azure."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,9 @@
    ms.author="danlep"/>
 
 # Como criar uma VM usando a interface de linha de comando do Azure (CLI do Azure)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação. Você também pode criar um recurso com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-deploy-rmtemplates-azure-cli.md).
+
 A CLI do Azure é uma ótima maneira de gerenciar sua infraestrutura do Azure de qualquer plataforma.
 
 Instalar a CLI do Azure e ter uma assinatura do Azure impedirá você de criar uma VM imediatamente, portanto, vamos cuidar dessas etapas. Se você não tiver uma conta do Azure, [obtenha uma gratuitamente](http://azure.microsoft.com/pricing/free-trial/).
@@ -43,7 +47,7 @@ A criação de uma máquina virtual começa com a escolha (ou carregamento) de u
 
     A partir daqui, você pode escolher uma imagem e usar o comando `show` para exibir suas propriedades com mais detalhes:
 
-        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-pt-br-30GB
+        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-pt-BR-30GB
 
 2. Depois de escolher uma imagem de VM, use o comando `vm create` para criar a imagem. Este comando tem muitas opções que você pode listar com o comando `help`:
 
@@ -59,7 +63,7 @@ A criação de uma máquina virtual começa com a escolha (ou carregamento) de u
 
     The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
-        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-pt-br-30GB "myadminuser" "myAdm1n@passwd"
+        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-pt-BR-30GB "myadminuser" "myAdm1n@passwd"
 
 ## Próximas etapas
 
@@ -74,4 +78,4 @@ Um ótimo lugar para ver mais exemplos de como usar a CLI do Azure para gerencia
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

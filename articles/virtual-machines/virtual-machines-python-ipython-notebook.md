@@ -1,11 +1,12 @@
 <properties
-	pageTitle="IPython Notebook | Microsoft Azure"
-	description="Um tutorial que mostra como implantar o IPython Notebook no Azure, usando o Linux ou as máquinas virtuais (VMs) do Windows."
-	services="virtual-machines"
+	pageTitle="Criar um IPython Notebook | Microsoft Azure"
+	description="Saiba como implantar o IPython Notebook em uma máquina virtual do Linux ou do Windows criada com o modelo de implantação clássico no Azure."
+	services="virtua-lmachines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,8 +17,9 @@
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
-
 # IPython Notebook no Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como implantar um notebook em uma máquina virtual criada com o modelo de implantação clássico.
 
 O [projeto IPython](http://ipython.org) fornece uma coleção de ferramentas para computação científica que incluem shells interativos avançados, bibliotecas paralelas de alto desempenho e fáceis de usar e um ambiente baseado na Web chamado IPython Notebook. O Notebook fornece um ambiente de trabalho para computação interativa, que combina a execução de códigos com a criação de um ambiente computacional dinâmico. Esses arquivos de notebook podem conter textos arbitrários, fórmulas matemáticas, códigos de entrada, resultados, gráficos, vídeos e qualquer outro tipo de mídia que um navegador da Web moderno é capaz de exibir.
 
@@ -45,11 +47,11 @@ Siga as instruções fornecidas [aqui][portal-vm-windows] para criar uma máquin
 
 Esta etapa se aplica tanto a VMs Linux, quanto a VMs Windows. Mais adiante, configuraremos o IPython para executar seu servidor de notebook na porta 9999. Para tornar essa porta disponível publicamente, devemos criar um ponto de extremidade no Portal de Gerenciamento do Azure. Esse ponto de extremidade abre uma porta no firewall do Azure e mapeia a porta pública (HTTPS,443) para a porta privada na VM (9999).
 
-Para criar um ponto de extremidade, vá para o painel da VM, clique **Pontos de Extremidade**, em **Adicionar Ponto de Extremidade** e crie um novo ponto de extremidade (neste exemplo, chamado de `ipython_nb`). Escolha **TCP** para o protocolo, **443** para a porta pública e **9999** para a porta privada.
+Para criar um ponto de extremidade, vá para o painel da VM, clique em **Pontos de Extremidade**, em **Adicionar Ponto de Extremidade** e crie um novo ponto de extremidade (neste exemplo, chamado de `ipython_nb`). Escolha **TCP** para o protocolo, **443** para a porta pública e **9999** para a porta privada.
 
 ![Captura de tela](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png)
 
-Depois dessa etapa, a guia Painel dos **Pontos de Extremidade** se parecerá com a da próxima captura de tela.
+Depois dessa etapa, a guia Painel dos **Pontos de Extremidade** será semelhante a da próxima captura de tela.
 
 ![Captura de tela](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-006.png)
 
@@ -87,7 +89,7 @@ Instale [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] e outras de
 
 Para instalar o IPython e suas dependências na VM do Windows, use a Área de Trabalho Remota para se conectar à VM. Em seguida, siga as etapas abaixo usando o PowerShell do Windows para executar todas as ações da linha de comando.
 
-**Observação**: para baixar qualquer item usando o Internet Explorer, será necessário alterar algumas configurações de segurança. No **Gerenciador de Servidores**, clique em **Servidor Local**, clique em **Configuração de Segurança Aprimorada do IE** e desative-a para administradores. Você pode habilitá-la novamente após a instalação do IPython.
+**Observação**: para baixar qualquer item usando o Internet Explorer, será necessário alterar algumas configurações de segurança. No **Gerenciador do Servidor**, clique em **Servidor Local**, clique em **Configuração de Segurança Aprimorada do IE** e desative-a para administradores. Você pode habilitá-la novamente após a instalação do IPython.
 
 1.  Baixe e instale a versão de 32 bits mais recente do [Python 2.7][]. Você precisará adicionar `C:\Python27` e `C:\Python27\Scripts` para a variável de ambiente `PATH`.
 
@@ -112,7 +114,7 @@ Para instalar o IPython e suas dependências na VM do Windows, use a Área de Tr
 
 	* Você também precisará adicionar `C:\OpenSSL-Win32\bin` à sua variável de ambiente `PATH`.
 
-	> [AZURE.NOTE]Ao instalar o OpenSSL, use a versão 1.0.1g ou posterior, pois essas versões incluem uma correção para a vulnerabilidade de segurança Heartbleed.
+> [AZURE.NOTE] Ao instalar o OpenSSL, use a versão 1.0.1g ou posterior, pois essas versões incluem uma correção para a vulnerabilidade de segurança Heartbleed.
 
 1.  Instale o IPython usando o comando a seguir.
 
@@ -270,4 +272,4 @@ Os recursos principais do IPython também estão disponíveis no Visual Studio p
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

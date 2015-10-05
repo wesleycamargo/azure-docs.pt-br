@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Balanceamento de carga para serviços de infraestrutura do Azure"
+	pageTitle="Balanceamento de carga para serviços de infraestrutura | Microsoft Azure"
 	description="Descreve os dois tipos diferentes de balanceamento de carga com suporte do Azure: Balanceador de carga para serviços em nuvem e o Azure Traffic Manager para o tráfego do cliente."
 	services="virtual-machines"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -18,6 +18,7 @@
 
 
 # Balanceamento de carga para serviços de infraestrutura do Azure#
+
 
 Existem dois níveis de balanceamento de carga para serviços de infraestrutura do Azure:
 
@@ -83,4 +84,4 @@ Para obter mais informações sobre o balanceador de carga, confira [Balanceamen
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

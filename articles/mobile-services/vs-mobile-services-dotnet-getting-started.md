@@ -1,5 +1,5 @@
 <properties
-	pageTitle=""
+	pageTitle="Introdução com um projeto de serviços móveis do Visual Studio .NET (Serviços Conectados) | Microsoft Azure"
 	description="Como começar a trabalhar com os Serviços Móveis do Azure em um projeto .NET do Visual Studio"
 	services="mobile-services"
 	documentationCenter=""
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="patshea123"/>
+	ms.date="09/17/2015" 
+	ms.author="patshea"/>
 
 # Introdução aos serviços móveis (Projetos .NET)
 
@@ -85,4 +85,4 @@ Excluir uma linha no banco de dados. O item do parâmetro é o objeto TodoItem a
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

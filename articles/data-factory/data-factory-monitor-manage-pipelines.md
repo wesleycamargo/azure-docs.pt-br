@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Monitorar e gerenciar pipelines do Azure Data Factory"
-	description="Saiba como usar o Portal de Gerenciamento do Azure e o Azure PowerShell para monitorar e gerenciar as data factories do Azure que você criou."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Monitorar e gerenciar pipelines do Azure Data Factory" 
+	description="Saiba como usar o Portal de Gerenciamento do Azure e o Azure PowerShell para monitorar e gerenciar as data factories do Azure que você criou." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Monitorar e gerenciar pipelines do Azure Data Factory
@@ -287,12 +287,16 @@ Para especificar uma definição de alerta, você deve criar um arquivo JSON que
 
 Da definição do JSON acima, **subStatus** pode ser removido se você não desejar ser alertado sobre uma falha específica.
 
+O exemplo acima configura o alerta para todas as fábricas de dados em sua assinatura. Se você quiser que o alerta seja configurado para um data factory específico, você pode especificar data factory **resourceUri** no bloco **dataSource** como mostrado abaixo:
+
+	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+
 A tabela a seguir fornece a lista de operações e status (e substatus) disponíveis.
 
 Nome da operação | Status | Substatus
 -------------- | ------ | ----------
 RunStarted | Iniciado | Iniciando
-RunFinished | Falhou / Bem-sucedido | <p>FailedResourceAllocation</p><p>Bem-sucedido</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandonado</p>
+RunFinished | Falhou / Bem-sucedido | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
 SliceOnTime | Em Andamento | OnTime
 SliceDelayed | Em Andamento | Atrasado
 OnDemandClusterCreateStarted | Iniciado
@@ -469,6 +473,6 @@ Você verá a seguinte mensagem após a implantação bem-sucedida:
 
 
 ## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

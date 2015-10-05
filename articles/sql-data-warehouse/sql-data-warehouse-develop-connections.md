@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Conectar ao SQL Data Warehouse 
@@ -151,11 +151,11 @@ Uma vez conectado, você pode começar a criar suas tabelas. Consulte o artigo [
 <!--Image references-->
 
 <!--Azure.com references-->
-[conexão e consulta]: sql-data-warehouse-connect-query.md
+[conexão e consulta]: sql-data-warehouse-get-started-connect-query.md
 [design de tabelas]: sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

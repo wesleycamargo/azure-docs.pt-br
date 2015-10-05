@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar uma máquina virtual que executa MySQL no Azure"
-	description="Crie uma máquina virtual do Azure que execute Windows Server 2012 R2 e, em seguida, instale e configure um banco de dados MySQL na máquina virtual."
+	pageTitle="Criar uma VM que executa o MySQL | Microsoft Azure"
+	description="Crie uma máquina virtual do Azure com o modelo de implantação clássica e que executa o Windows Server 2012 R2 e instale e configure o banco de dados MySQL na máquina virtual."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,12 +18,13 @@
 	ms.author="cynthn"/>
 
 
-# Instalar o MySQL na máquina virtual executando o Windows Server 2012 R2 no Azure
+# Instalar o MySQL em uma máquina virtual criada com o modelo de implantação clássico que executa o Windows Server 2012 R2
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
-[MySQL](http://www.mysql.com) é um banco de dados SQL fonte aberto popular. Usando o [Portal do Azure](http://manage.windowsazure.com), você pode criar uma máquina virtual que execute o Windows Server 2012 R2 da galeria de imagens. Em seguida, você pode instalá-la e configurá-la como um servidor MySQL.
+[MySQL](http://www.mysql.com) é um banco de dados SQL fonte aberto popular. Usando o [portal do Azure](http://manage.windowsazure.com), é possível criar uma máquina virtual que executa o Windows Server 2012 R2 na Galeria de Imagens. Em seguida, você pode instalá-la e configurá-la como um servidor MySQL.
 
-Para obter instruções sobre como instalar o MySQL no Linux, consulte: [Como instalar o MySQL no Azure](virtual-machines-linux-install-mysql.md).
+Para obter instruções sobre como instalar o MySQL no Linux, veja: [Como instalar o MySQL no Azure](virtual-machines-linux-install-mysql.md).
 
 Este tutorial mostra como:
 
@@ -40,7 +41,7 @@ Este tutorial mostra como:
 
 Depois de criada a máquina virtual, você pode, opcionalmente, anexar um disco de dados adicional. Isso é recomendado para cargas de trabalho de produção e para evitar a falta de espaço na unidade do sistema operacional (C:), que inclui o sistema operacional.
 
-Consulte [Como anexar um disco de dados para uma máquina virtual do Windows](storage-windows-attach-disk.md) e siga as instruções para anexar um disco vazio. Defina a configuração de cache de host como **Nenhum** ou **Somente leitura**.
+Veja [Como anexar um disco de dados a uma máquina virtual do Windows](storage-windows-attach-disk.md) e siga as instruções para anexar um disco vazio. Defina a configuração de cache de host como **Nenhum** ou **Somente leitura**.
 
 ## Faça logon na máquina virtual
 
@@ -55,7 +56,7 @@ Siga estas etapas para instalar, configurar e executar a versão de comunidade d
 > [AZURE.NOTE]Estas etapas são para a versão Community 5.6.23.0 do MySQL e Windows Server 2012 R2. Sua experiência pode ser diferente em versões diferentes de servidor MySQL ou de servidor Windows.
 
 1.	Depois de se conectar à máquina virtual usando a Área de Trabalho Remota, clique em **Internet Explorer** no menu Iniciar.
-2.	Selecione o botão **Ferramentas** no canto superior direito (o ícone de engrenagem) e, em seguida, clique em **Opções da Internet**. Clique na guia **Segurança**, clique no ícone **Sites Confiáveis** e, em seguida, no botão **Sites**. Adicione http://*.mysql.com à lista de sites confiáveis. Clique em **Fechar** e, em seguida, em **OK**.
+2.	Selecione o botão **Ferramentas** no canto superior direito (o ícone de engrenagem) e clique em **Opções da Internet**. Clique na guia **Segurança**, clique no ícone **Sites Confiáveis** e, em seguida, no botão **Sites**. Adicione http://*.mysql.com à lista de sites confiáveis. Clique em **Fechar** e em **OK**.
 3.	Na barra de endereços do Internet Explorer, digite http://dev.mysql.com/downloads/mysql/.
 4.	Use o site do MySQL para localizar e baixar a versão mais recente do instalador do MySQL para Windows. Ao escolher o Instalador do MySQL, baixe a versão que tem o conjunto completo de arquivos (por exemplo, o mysql-instalador-comunidade-5.6.23.0.msi, com um tamanho do arquivo de 282,4 MB) e salve o arquivo do instalador na área de trabalho do Windows.
 5.	Na área de trabalho, clique duas vezes no arquivo do instalador para iniciar a instalação.
@@ -63,7 +64,7 @@ Siga estas etapas para instalar, configurar e executar a versão de comunidade d
 7.	Na página **Escolhendo um Tipo de Instalação**, clique no tipo de instalação desejada e clique em **Avançar**. As etapas a seguir pressupõem a seleção do tipo de instalação **Somente servidor**.
 8.	Na página **Instalação**, clique em **Executar**. Quando a instalação for concluída, clique em **Avançar**.
 9.	Na página **Configuração do Produto**, clique em **Avançar**.
-10.	Na página **Tipo e Rede**, especifique o tipo de configuração desejada e as opções de conectividade, inclusive a porta TCP, se necessário. Selecione **Mostrar Opções Avançadas** e clique em **Avançar**.
+10.	Na página **Tipo e Rede**, especifique o tipo de configuração desejada e as opções de conectividade, inclusive a porta TCP, se necessário. Selecione **Mostrar Opções Avançadas** e clique em **Próximo**.
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_TypeNetworking.png)
 
@@ -90,7 +91,7 @@ Siga estas etapas para instalar, configurar e executar a versão de comunidade d
 19.	Você também pode configurar definições padrão de configuração do servidor, como os diretórios e unidades básicos e de dados, com entradas no arquivo C:\\Arquivos de Programas (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini. Para obter mais informações, confira [5\.1.2 Padrões de configuração do servidor](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
 
-Se quiser que o serviço do servidor MySQL esteja disponível para computadores cliente MySQL na Internet, você deverá configurar um ponto de extremidade para a porta TCP na qual o serviço MySQL Server escutará e criará uma regra adicional do Firewall do Windows. É a porta TCP 3306, a menos que você tenha especificado uma porta diferente na página **Tipo e Rede** (etapa 10 do procedimento anterior).
+Se quiser que o serviço do servidor MySQL esteja disponível para computadores cliente MySQL na Internet, você deverá configurar um ponto de extremidade para a porta TCP na qual o serviço MySQL Server escutará e criará uma regra adicional do Firewall do Windows. Essa é a porta TCP 3306, a menos que você tenha especificado uma porta diferente na página **Tipo e Rede** (etapa 10 do procedimento anterior).
 
 
 > [AZURE.NOTE]Você deve considerar cuidadosamente as implicações de segurança de fazer isso, porque isso disponibilizará o serviço MySQL Server para todos os computadores na Internet. Você pode definir o conjunto de endereços IP de origem que têm permissão para usar o ponto de extremidade com uma lista de controle de acesso (ACL). Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
@@ -98,7 +99,7 @@ Se quiser que o serviço do servidor MySQL esteja disponível para computadores 
 
 Para configurar um ponto de extremidade para o serviço do servidor MySQL:
 
-1.	No Portal do Azure, clique em **Máquinas Virtuais**, clique no nome da sua máquina virtual MySQL e clique em **Pontos de Extremidade**.
+1.	No Portal do Azure, clique em **Máquinas Virtuais**, clique no nome de sua máquina virtual MySQL e clique em **Pontos de Extremidade**.
 2.	Na barra de comandos, clique em **Adicionar**.
 3.	Na página **Adicionar um ponto de extremidade a uma máquina virtual**, clique na seta para a direita.
 4.	Se você estiver usando a porta TCP 3306 padrão do MySQL, clique em **MySQL** em **Nome** e clique na marca de seleção.
@@ -128,4 +129,4 @@ Para testar sua conexão remota com o serviço do servidor MySQL em execução n
 
 Para obter informações sobre o MySQL, confira a [Documentação do MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

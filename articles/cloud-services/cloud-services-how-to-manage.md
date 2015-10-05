@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -156,6 +156,12 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
 > [AZURE.NOTE]Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para obter informações sobre onde encontrar as tabelas de métricas, consulte "Como: acessar dados detalhados de monitoramento fora do Portal de Gerenciamento" em <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Como monitorar serviços de nuvem</a>.
 
- 
 
-<!---HONumber=August15_HO7-->
+## Próximas etapas
+
+ * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure.md).
+* Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy.md).
+* Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name.md).
+* Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
+
+<!---HONumber=Sept15_HO4-->

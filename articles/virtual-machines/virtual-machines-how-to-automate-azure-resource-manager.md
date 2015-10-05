@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como automatizar com o Gerenciador de Recursos do Azure"
+	pageTitle="Automatizar com o Gerenciador de Recursos do Azure | Microsoft Azure"
 	description="Obtenha links para tópicos sobre como automatizar a criação e o gerenciamento de máquinas virtuais do Azure com o Gerenciador de Recursos."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,8 @@
 
 
 # Como automatizar com o Gerenciador de Recursos do Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos. Você não pode criar esse recurso com o modelo de implantação clássico.
 
 O Gerenciador de Recursos do Azure simplifica a implantação e o gerenciamento de aplicativos complexos em execução nos serviços de infraestrutura do Azure. Muitos aplicativos exigem uma combinação de recursos de computação, rede e armazenamento, como rede virtual, conta de armazenamento e máquinas virtuais com interfaces de rede. O Gerenciador de Recursos do Azure permite que você use ou crie um modelo JSON para implantar e gerenciar todos esses recursos juntos como um único aplicativo.
 
@@ -72,4 +74,4 @@ O Gerenciador de Recursos do Azure simplifica a implantação e o gerenciamento 
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,22 +1,27 @@
 <properties 
-	pageTitle="Tutorial: Criar uma rede virtual somente de nuvem"
-	description="Saiba como criar um exemplo apenas na nuvem da rede virtual do Azure neste tutorial."
-	services="virtual-machines, virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
-	editor=""/>
+	pageTitle="Criar uma rede virtual somente em nuvem | Microsoft Azure" 
+	description="Saiba como criar um exemplo apenas na nuvem da rede virtual do Azure neste tutorial." 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 # Tutorial: Criar uma rede virtual somente de nuvem no Azure
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos.
+
 
 Este tutorial explica as etapas no Portal de gerenciamento do Azure para criar um exemplo de rede virtual do Azure somente de nuvem que contenha duas sub-redes. A rede de virtual resultante terá a aparência a seguir:
 
@@ -118,4 +123,4 @@ Para obter procedimentos e definições da configuração Rede Virtual adicionai
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

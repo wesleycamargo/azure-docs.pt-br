@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # Use o Azure Data Factory com o SQL Data Warehouse
@@ -31,13 +31,11 @@ O Azure Data Factory permite a movimentação de dados entre fontes locais e dif
 
 Para obter informações sobre como configurar uma atividade de cópia de dados, consulte [Copiar dados com o Azure Data Factory][].
 
-> [AZURE.NOTE]Neste momento o Azure Data Factory não pode ser usado para transferir dados para colunas não nulas no SQL Data Warehouse.
-
 ## Procedimentos Armazenados
  Da mesma forma que ele pode ser usado para agendar a transferência de dados, o Azure Data Factory também pode ser usado para coordenar a execução de procedimentos armazenados. Isso permite que pipelines mais complexos sejam criados e estende a capacidade do Azure Data Factory de aproveitar o poder computacional do SQL Data Warehouse.
 
 ## Próximas etapas
-Para obter uma visão geral da integração, consulte [visão geral da integração do SQL Data Warehouse][]. Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][].
+Para obter uma visão geral da integração, consulte [Visão geral de integração do SQL Data Warehouse][]. Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -45,12 +43,12 @@ Para obter uma visão geral da integração, consulte [visão geral da integraç
 
 [Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
 [Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
-[visão geral da integração do SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
+[Visão geral de integração do SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [documentação do Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[Copiar dados com o Azure Data Factory]: https://azure.microsoft.com/pt-BR/documentation/articles/data-factory-data-movement-activities/
+[Copiar dados com o Azure Data Factory]: https://azure.microsoft.com/PT-BR/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

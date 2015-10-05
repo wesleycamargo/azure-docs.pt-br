@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 
@@ -156,10 +156,23 @@ Abra estas portas para tráfego de saída no firewall do servidor:
 + `dc.services.visualstudio.com:443`
 + `f5.services.visualstudio.com:443`
 
-### Mantenha recursos separados para desenvolvimento, teste e lançamento
 
-Em um aplicativo importante, é aconselhável enviar dados de telemetria da depuração, teste e produção em [recursos separados](app-insights-separate-resources.md).
+## Desenvolvimento, teste e lançamento
 
+Em um aplicativo importante, é aconselhável enviar dados de telemetria de diferentes carimbos (compilações de depuração, teste e produção) em [recursos separados](app-insights-separate-resources.md).
+
+## Acompanhar Versão do aplicativo
+
+Certifique-se que `buildinfo.config` é gerado pelo processo de compilação. No arquivo. csproj, adicione:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Quando ele tem as informações de compilação, o módulo da Web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite a você filtrar por versão ao executar [pesquisas de diagnóstico][diagnostic] ou ao [explorar métricas][metrics].
 
 
 
@@ -169,7 +182,7 @@ As [métricas de dependência](app-insights-dependencies.md) podem ser valiosas 
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
-Esta etapa também habilita o [relatório de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como CPU, memória e ocupação de rede.
+Esta etapa também habilita o [relatório de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como o uso de CPU, memória e a ocupação de rede.
 
 #### Se seu aplicativo for executado em seu servidor IIS
 
@@ -191,7 +204,7 @@ Há um [procedimento manual para adicionar o monitor de status](app-insights-clo
 
 ## Testes de disponibilidade na Web
 
-[Configure testes na Web][availability] para testar externamente se o aplicativo está ativo e responsivo.
+[Configure testes da Web][availability] para testar externamente se o aplicativo está ativo e responsivo.
 
 
 ![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
@@ -235,4 +248,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

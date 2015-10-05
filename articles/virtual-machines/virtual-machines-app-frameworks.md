@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Estruturas de Aplicativo"
+   pageTitle="Estruturas de aplicativos | Microsoft Azure"
    description="Descreve como criar estruturas de aplicativo populares usando modelos com o Gerenciador de Recursos do Azure. Exemplos incluem o LAMP Stack, SharePoint e SQL Server."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager" />
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # Criar estruturas de aplicativo usando modelos
 
 Use esse conteúdo para criar ótimos itens, rapidamente.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos.
 
 | Modelo | Descrição | Exibição do modelo | Implantá-lo agora mesmo |
 |:---|:---|:---:|:---:|
@@ -49,4 +52,4 @@ Descubra todos os modelos à sua disposição no [GitHub](https://github.com/Azu
 
 Saiba mais sobre o [Gerenciador de Recursos do Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO4-->

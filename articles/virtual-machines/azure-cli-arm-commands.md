@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure | Microsoft Azure"
-	description="Saiba como usar o CLI do Azure para Mac, Linux e Windows para gerenciar os recursos do Azure usando o modo arm da CLI do Azure."
+	pageTitle="Use a CLI do Azure com o Gerenciador de Recursos | Microsoft Azure"
+	description="Saiba como usar o CLI do Azure para Mac, Linux e Windows para gerenciar os recursos do Azure usando o modo de implantação do Gerenciador de Recursos."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-mangaer"/>
 
 <tags
 	ms.service="multiple"
@@ -16,7 +17,10 @@
 	ms.date="06/09/2015"
 	ms.author="danlep"/>
 
-# Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure
+# Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos. Você também pode criar um recurso com o [modelo de implantação clássico](virtual-machines-command-line-tools.md).
+
 
 Este tópico descreve como usar a interface de linha de comando do Azure (CLI do Azure) no modo **arm** para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. Você pode executar as mesmas tarefas usando várias bibliotecas dos SDKs do Azure, com o PowerShell e usando o Portal do Azure.
 
@@ -1735,6 +1739,5 @@ Opções de parâmetro:
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

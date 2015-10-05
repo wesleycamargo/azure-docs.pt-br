@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Quais são as próximas etapas que podem ser tomadas usando o AD do Azure?"
-	description="Abrange tarefas avançadas usando o AD do Azure."
+	pageTitle="Quais são as próximas etapas que podem ser executadas usando o Active Directory do Azure?"
+	description="Tarefas avançadas, como gerenciamento de senhas, gerenciamento de usuários, gerenciamento de grupos e acesso condicional usando o Active Directory do Azure"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Quais são as próximas etapas que podem ser tomadas usando o AD do Azure?
 
 
-###Outros artigos sobre este tópico
+### Outros artigos sobre este tópico
 [O que é o AD do Azure?](active-directory-whatis.md)<br> [Como ele funciona?](active-directory-works.md)<br> [Introdução](active-directory-get-started.md)<br> [Próximas etapas](active-directory-next-steps.md)<br> [Saiba mais](active-directory-learn-map.md)
 
 ## Gerenciar usuários no AD do Azure
@@ -41,4 +41,4 @@ O registro de dispositivos do AD do Azure provisiona dispositivos com uma identi
 * [Identidade do Azure](fundamentals-identity.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

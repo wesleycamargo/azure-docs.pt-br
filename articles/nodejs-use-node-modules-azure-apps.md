@@ -68,6 +68,8 @@ Quando seu aplicativo estiver pronto para produção, você poderá bloquear os 
 
 Agora que você aprendeu como usar os módulos no Node.js com o Azure, aprenda como [especificar a versão do Node.js], [criar e implantar um Site no Node.js] e [Como usar a Interface de Linha de Comando do Azure para Mac e Linux].
 
+Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+
 [especificar a versão do Node.js]: nodejs-specify-node-version-azure-apps.md
 [Como usar a Interface de Linha de Comando do Azure para Mac e Linux]: xplat-cli.md
 [criar e implantar um Site no Node.js]: web-sites-nodejs-develop-deploy-mac.md
@@ -76,4 +78,4 @@ Agora que você aprendeu como usar os módulos no Node.js com o Azure, aprenda c
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Scripts de implantação de site personalizado com o Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

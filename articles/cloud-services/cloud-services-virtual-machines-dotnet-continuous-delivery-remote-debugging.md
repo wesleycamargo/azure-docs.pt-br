@@ -28,8 +28,8 @@ Neste tópico:
 ## <a name="cloudservice"></a>Habilitando a depuração remota para serviços de nuvem
 
 1. No agente de compilação, configure o ambiente inicial para o Azure conforme descrito em [Compilação de linha de comando para Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. Como o tempo de execução de depuração remota (msvsmon.exe) é exigido para o pacote, instale as [Ferramentas Remotas para Visual Studio 2015](http://www.microsoft.com/download/details.aspx?id=46874) (ou [Ferramentas Remotas para Visual Studio 2013 Atualização 5 RC](https://www.microsoft.com/pt-br/download/details.aspx?id=46870) se estiver usando o Visual Studio 2013). Você pode, como alternativa, copiar os binários de depuração remota de um sistema que tiver o Visual Studio instalado.
-3. Crie um certificado conforme descrito em [Criar um certificado de serviço para o Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx). Mantenha o .pfx e a impressão digital do certificado RDP e carregue o certificado no serviço de nuvem alvo.
+2. Como o tempo de execução de depuração remota (msvsmon.exe) é exigido para o pacote, instale as [Ferramentas Remotas para Visual Studio 2015](http://www.microsoft.com/download/details.aspx?id=46874) (ou [Ferramentas Remotas para Visual Studio 2013 Atualização 5 RC](https://www.microsoft.com/PT-BR/download/details.aspx?id=46870) se estiver usando o Visual Studio 2013). Você pode, como alternativa, copiar os binários de depuração remota de um sistema que tiver o Visual Studio instalado.
+3. Crie um certificado conforme descrito em [Criar um certificado de serviço para o Azure](cloud-services-certs-create.md). Mantenha o .pfx e a impressão digital do certificado RDP e carregue o certificado no serviço de nuvem alvo.
 4. Utilize as opções a seguir na linha de comando do MSBuild para compilar e criar o pacote com a depuração remota habilitada. (Substitua os caminhos reais até seus arquivos do sistema e de projeto pelos itens entre colchetes angulares.)
 
 		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.6" "<path to your VS solution file>"
@@ -43,7 +43,7 @@ Neste tópico:
 
 1. Crie uma máquina virtual do Azure. Consulte [Criar uma máquina virtual executando o Windows Server](../virtual-machines-windows-tutorial.md) ou [Criando máquinas virtuais do Azure no Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
 2. Na [página do Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), consulte o painel da máquina virtual para ver a “Impressão digital do certificado RDP” da máquina virtual. Ele é usado como o valor de `ServerThumbprint` na configuração da extensão.
-3. Crie um certificado cliente conforme descrito em [Criar um certificado de serviço para o Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx) (mantenha o .pfx e a impressão digital do certificado RDP).
+3. Crie um certificado cliente conforme descrito em [Criar um certificado de serviço para o Azure](cloud-services-certs-create.md) (mantenha o .pfx e a impressão digital do certificado RDP).
 4. Instale o [PowerShell do Azure](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (versão 0.7.4 ou posterior) a partir do Centro de Download da Microsoft.
 5. Execute o script a seguir para habilitar a extensão RemoteDebug. Substitua os caminhos e dados pessoais pelos seus dados, como seu nome de inscrição, nome de serviço e impressão digital. (OBSERVAÇÃO: este script está configurado para Visual Studio 2015 RC. Se você estiver usando o Visual Studio 2013, use "RemoteDebugVS2013" para ReferenceName e ExtensionName.)
 
@@ -93,6 +93,5 @@ Neste tópico:
 	</pre>
 
 6. Importe o certificado (.pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado.
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

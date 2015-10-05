@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Criar um conjunto de registros e registros para uma zona DNS | Microsoft Azure"
-	description="Como criar registros de host para o DNS do Azure. Configuração dos conjuntos de registros e registros usando o PowerShell ou a CLI"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Criar um conjunto de registros e registros para uma zona DNS usando a CLI | Microsoft Azure"
+   description="Como criar registros de host para o DNS do Azure. Configuração dos conjuntos de registros e registros usando a CLI"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
-# Criar registros DNS
+# Criar registros DNS usando a CLI
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
@@ -52,14 +52,14 @@ O tempo de vida, ou TTL, especifica quanto tempo cada registro é armazenado em 
 
 
 
-## Criar conjuntos de registros e registros usando a CLI
+## Criar conjuntos de registros e registros 
 
 No exemplo a seguir, mostraremos como criar um conjunto de registros e registros. Vamos usar o tipo de registro de DNS 'A', para outros tipos de registro, consulte [Como gerenciar registros DNS](dns-operations-recordsets-cli.md)
 
 
 ### Etapa 1
 
-Crie registro definido usando a CLI:
+Criar conjunto de registros:
 
 	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
@@ -122,4 +122,4 @@ Você também pode usar nslookup ou outras ferramentas DNS para consultar o novo
 [Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

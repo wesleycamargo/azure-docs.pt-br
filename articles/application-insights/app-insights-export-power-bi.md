@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Exibições do Power BI dos dados do Application Insights
@@ -42,13 +42,13 @@ Se você nunca experimentou, agora é o momento para começar. O Application Ins
 
 Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.
 
-1. Crie uma conta de armazenamento na sua assinatura do [Portal do Azure](https://portal.azure.com).
+1. Crie uma conta de armazenamento “clássica” na sua assinatura do [Portal do Azure](https://portal.azure.com).
 
     ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-export-power-bi/030.png)
 
 2. Criar um contêiner
 
-    ![No novo armazenamento, selecione Contêineres e, em seguida, Adicionar](./media/app-insights-export-power-bi/040.png)
+    ![No novo armazenamento, selecione Contêineres, clique no bloco Contêineres e, em seguida, Adicionar](./media/app-insights-export-power-bi/040.png)
 
 3. Copie a chave de acesso de armazenamento
 
@@ -239,4 +239,4 @@ Noam Ben Zeev mostra como exportar para o Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

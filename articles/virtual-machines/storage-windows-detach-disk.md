@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Desanexar um disco de uma máquina virtual Windows | Microsoft Azure"
-	description="Saiba como desanexar um disco de uma máquina virtual no Azure."
-	services="virtual-machines, storage"
+	pageTitle="Desanexar um disco de uma VM do Windows | Microsoft Azure"
+	description="Saiba como desanexar um disco de uma máquina virtual no Azure usando o modelo de implantação clássico."
+	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -21,6 +21,9 @@
 
 # Como desanexar um disco de uma máquina virtual Windows
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como desanexar um disco usando o modelo de implantação clássico.
+
+
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
 ## Recursos adicionais
@@ -29,4 +32,4 @@
 
 [Como anexar um disco de dados a uma máquina virtual Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

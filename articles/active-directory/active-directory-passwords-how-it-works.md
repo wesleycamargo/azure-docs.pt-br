@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Como funciona: Gerenciamento de Senhas do AD do Azure | Microsoft Azure" 
-	description="Saiba mais sobre os diferentes componentes do Gerenciamento de Senhas do AD do Azure, incluindo onde os usuários se registram, redefinem e alteram suas senhas e onde os administradores configuram, relatam e habilitam o gerenciamento de senhas do Active Directory local." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Como funciona: Gerenciamento de Senhas do AD do Azure | Microsoft Azure"
+	description="Saiba mais sobre os diferentes componentes do Gerenciamento de Senhas do AD do Azure, incluindo onde os usuários se registram, redefinem e alteram suas senhas e onde os administradores configuram, relatam e habilitam o gerenciamento de senhas do Active Directory local."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Como funciona o gerenciamento de senhas
@@ -120,6 +120,5 @@ Para obter mais informações sobre o Azure AD Connect, consulte [Introdução: 
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

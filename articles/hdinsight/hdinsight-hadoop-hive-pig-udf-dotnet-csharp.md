@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/23/2015"
 	ms.author="larryfr"/>
 
 
@@ -52,7 +52,7 @@ Streaming envolve a passagem de dados do Hive e do Pig para um aplicativo extern
 
 Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo **Aplicativo de Console** deve ser usado para seus projetos em C#.
 
-##Hive e C&\#35;
+##Hive e C&#35;
 
 ###Criar o projeto em C#
 
@@ -153,7 +153,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 
 6. Clique em **Atualizar** para atualizar o resumo até que **Status do trabalho** mude para **Concluído**. Para exibir a saída do trabalho, clique em **Saída do trabalho**.
 
-##Pig e C&\#35;
+##Pig e C&#35;
 
 ###Criar o projeto em C#
 
@@ -241,4 +241,4 @@ Para outras maneiras de usar o Pig e o Hive e para saber como usar o MapReduce, 
 
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

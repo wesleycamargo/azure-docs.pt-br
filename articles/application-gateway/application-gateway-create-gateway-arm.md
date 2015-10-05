@@ -12,21 +12,34 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/07/2015"
+   ms.date="09/21/2015"
    ms.author="joaoma"/>
 
 
 # Criar, iniciar ou excluir um Application Gateway usando o Gerenciador de Recursos do Azure
 
-> [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-create-gateway.md)
-- [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+O Application Gateway é a camada 7 do balanceador de carga. Ele fornece o failover, realizando roteamento de solicitações HTTP entre diferentes servidores com alto desempenho, independentemente de estarem na nuvem ou no local. O Application Gateway tem os seguintes recursos de entrega de aplicativo: Balanceamento de carga HTTP, Afinidade de sessão baseadas em cookie, Descarregamento SSL.
 
-Nesta versão, você pode criar um Application Gateway usando o PowerShell ou chamadas à API REST. O suporte ao portal e à CLI será fornecido em uma versão futura. Este artigo orienta você pelas etapas para criar, configurar, iniciar e excluir um gateway de aplicativo.
+
+> [AZURE.SELECTOR]
+- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
+- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
+
+
+<BR>
+
+
+Este artigo orienta você pelas etapas para criar, configurar, iniciar e excluir um gateway de aplicativo.
+
+
+>[AZURE.IMPORTANT]Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Gerenciador de Recursos e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação de diferentes ferramentas clicando nas guias na parte superior deste artigo. Este documento abordará a criação de um Application Gateway usando o Gerenciador de Recursos do Azure. Para usar a versão clássica, vá para [criar uma implantação clássica de Application Gateway usando o PowerShell](application-gateway-create-gateway.md).
+
+
 
 ## Antes de começar
 
-1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página de download](http://azure.microsoft.com/downloads/).
+1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [Página de download](http://azure.microsoft.com/downloads/).
 2. Você criará uma rede virtual e uma sub-rede para o Application Gateway. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O Application Gateway deve estar sozinho em uma sub-rede de rede virtual.
 3. Os servidores que você configurará para usar o Application Gateway devem existir ou tem seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
 
@@ -35,9 +48,9 @@ Nesta versão, você pode criar um Application Gateway usando o PowerShell ou ch
 
 - **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público. 
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-- **Porta front-end:** essa porta é a porta pública aberta no Application Gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
+- **Porta front-end:** essa é a porta pública aberta no Application Gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 - **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). 
-- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic*. A regra *basic* é a distribuição de carga round robin.
+- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end o tráfego deve ser direcionado quando atingir um ouvinte específico. Atualmente, há suporte apenas para a regra *básica*. A regra *básica* é a distribuição de carga round robin.
 
 
  
@@ -200,9 +213,9 @@ Use o `Start-AzureApplicationGateway` para iniciar o Application Gateway:
 
 ## Verifique o status do Application Gateway
 
-Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* foi bem-sucedido na etapa anterior, o Estado deverá ser *Running*, e Vip e DnsName devem ter entradas válidas.
+Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* foi bem-sucedido na etapa anterior, o Estado deve ser *Running*, e Vip e DnsName devem ter entradas válidas.
 
-Este exemplo mostra um application gateway que está ativo, em execução e pronto para assumir o tráfego destinado a `http://<generated-dns-name>.cloudapp.net`.
+Este exemplo mostra um Application Gateway que está ativo, em execução e pronto para assumir o tráfego destinado a `http://<generated-dns-name>.cloudapp.net`.
 
 	Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
@@ -356,7 +369,7 @@ Para excluir um gateway de aplicativo, você precisará seguir este procedimento
 
 1. Use o cmdlet `Stop-AzureApplicationGateway` para interromper o gateway. 
 2. Use o cmdlet `Remove-AzureApplicationGateway` para remover o gateway.
-3. Verifique se o gateway foi removido usando o cmdlet `Get-AzureApplicationGateway`.
+3. Verifique, usando o cmdlet `Get-AzureApplicationGateway`, se o gateway foi removido.
 
 
 ### Etapa 1
@@ -367,12 +380,12 @@ Obtenha o objeto do Application Gateway e associe-o a uma variável de "$getgw":
 
 ### Etapa 2
 	 
-Use `Stop-AzureApplicationGateway` para interromper o Application Gateway:
+Use o `Stop-AzureApplicationGateway` para parar o Application Gateway:
 
 	Stop-AzureApplicationGateway -ApplicationGateway $getgw  
 
 
-Depois que o Application Gateway estiver em um estado Parado, use o cmdlet `Remove-AzureApplicationGateway` para remover o serviço.
+Depois que o Application Gateway estiver em um estado Stopped, use o cmdlet `Remove-AzureApplicationGateway` para remover o serviço.
 
 
 	Remove-AzureApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
@@ -392,7 +405,7 @@ Para verificar se o serviço foi removido, você pode usar o cmdlet `Get-AzureAp
 
 ## Próximas etapas
 
-Se desejar configurar o descarregamento SSL, confira [Configurar Application Gateway para descarregamento SSL](application-gateway-ssl.md).
+Se desejar configurar o descarregamento SSL, confira [Configurar um Application Gateway para descarregamento SSL](application-gateway-ssl.md).
 
 Se desejar configurar um Application Gateway para usar com o ILB, confira [Criar um Application Gateway com um ILB (Balanceador de Carga Interno)](application-gateway-ilb.md).
 
@@ -401,4 +414,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

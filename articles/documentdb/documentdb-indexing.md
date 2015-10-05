@@ -34,7 +34,7 @@ Com o objetivo de eliminar a incompatibilidade de impedância entre o banco de d
 
 A indexação do Banco de Dados de Documentos aproveita-se que a gramática JSON permite que os documentos sejam **representados como árvores**. Para um documento JSON ser representado como uma árvore, precisa ser criado um nó raiz fictício que seja pai do restante de nós reais no documento abaixo. Cada rótulo, inclusive os índices da matriz em um documento JSON torna-se um nó da árvore. A figura a seguir ilustra um documento JSON de exemplo e sua representação de árvore correspondente.
 
->[AZURE.NOTE]Como o JSON é autodescritivo, ou seja, cada documento inclui o esquema (metadados) e os dados; por exemplo, o `{"locationId", 5, "city": "Moscow"}` revela que há duas propriedades `locationId` e `city`, e que elas têm valores de propriedade numéricos e de cadeia de caracteres. O Banco de Dados de Documentos pode inferir o esquema de documentos e indexá-los quando inseridos ou substituídos, sem que seja necessário definir esquemas ou índices secundários.
+>[AZURE.NOTE]Como o JSON é autodescritivo, ou seja, cada documento inclui o esquema (metadados) e os dados; por exemplo, o `{"locationId": 5, "city": "Moscow"}` revela que há duas propriedades `locationId` e `city`, e que elas têm valores de propriedade numéricos e de cadeia de caracteres. O Banco de Dados de Documentos pode inferir o esquema de documentos e indexá-los quando inseridos ou substituídos, sem que seja necessário definir esquemas ou índices secundários.
 
 
 **Documentos JSON como árvores:**
@@ -67,4 +67,4 @@ A indexação do Banco de Dados de Documentos foi projetada para eficiência de 
 - Saiba mais sobre como personalizar o índice do Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

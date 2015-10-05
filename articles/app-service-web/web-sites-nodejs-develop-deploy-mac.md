@@ -18,6 +18,14 @@
 
 # Compilar e implantar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 Este tutorial mostra como criar um aplicativo [Nó][nodejs.org] e implantá-lo no [recurso Aplicativos Web no Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando [Git]. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que seja capaz de executar o nó.
 
 A seguinte é uma captura de tela do aplicativo concluído:
@@ -94,7 +102,7 @@ Nesta seção, você criará um arquivo **server.js** com o exemplo 'Hello World
 
 ##Publicar seu aplicativo
 
-1. Na linha de comando, altere para o diretório **helloworld** e insira o seguinte comando para inicializar um repositório Git local.
+1. Na linha de comando, altere para o diretório **helloworld** e insira o comando a seguir para inicializar um repositório Git local.
 
 		git init
 
@@ -132,12 +140,12 @@ Nesta seção, você criará um arquivo **server.js** com o exemplo 'Hello World
 		 * [new branch]      master -> master
 
 
-5. Para exibir seu aplicativo, clique no botão **Procurar** na parte **Aplicativo Web** contida no portal do Azure.
+5. Para exibir seu aplicativo, clique no botão **Procurar**, na parte **Aplicativo Web** contida no portal do Azure.
 
 ##Publicar alterações em seu aplicativo
 
 1. Abra o arquivo **Server.js** em um editor de texto e altere 'Hello World\\n' para 'Hello Azure\\n'. Salve o arquivo.
-2. Na linha de comando, altere para o diretório **helloworld** e execute os seguintes comandos:
+2. Na linha de comando, mude para o diretório **helloworld** e execute os seguintes comandos:
 
 		git add .
 		git commit -m "changing to hello azure"
@@ -168,10 +176,11 @@ Se você tiver problemas com seu aplicativo depois de implantá-lo no Azure, con
 
 * [PowerShell do Azure](../install-configure-powershell.md)
 * [Interface de linha de comando do Azure](../xplat-cli.md)
+* [Centro de Desenvolvedores do Node.js](/develop/nodejs/)
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e os serviços existentes do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para a navegação no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para a navegação no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 [nodejs.org]: http://nodejs.org
@@ -197,4 +206,4 @@ Se você tiver problemas com seu aplicativo depois de implantá-lo no Azure, con
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para entrar no modo de Manutenção
 
@@ -13,4 +14,4 @@
 
     Ambos os controladores serão reiniciados. Quando a reinicialização estiver concluída, outra mensagem será exibida indicando que o dispositivo está em modo de Manutenção.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

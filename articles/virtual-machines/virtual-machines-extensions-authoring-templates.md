@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="kundanap"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure com extensões de VM
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos.
 
 ## Visão geral dos Modelos do Gerenciador de Recursos do Azure.
 
@@ -85,4 +88,4 @@ Consulte o seguinte com relação aos modelos de VM para obter um modelo complet
 
 Depois de criar o modelo, você poderá implantá-lo usando a CLI do Azure ou o Azure Powershell.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

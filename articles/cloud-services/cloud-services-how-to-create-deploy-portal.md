@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como criar e implantar um serviço de nuvem | Microsoft Azure"
-	description="Saiba como criar e implantar um serviço de nuvem usando o método de Criação Rápida no Azure."
+	pageTitle="Como criar e implantar um serviço de nuvem (portal de visualização) | Microsoft Azure"
+	description="Saiba como criar e implantar um serviço de nuvem usando o método de Criação Rápida no Azure. Esses exemplos usam o portal de visualização do Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -107,4 +107,11 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
-<!---HONumber=August15_HO8-->
+## Próximas etapas
+
+* [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
+* Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
+* [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
+* Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
+
+<!---HONumber=Sept15_HO4-->

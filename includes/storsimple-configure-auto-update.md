@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para configurar a atualização automática
 
@@ -7,4 +8,4 @@
 
 3. Defina **Atualizações Automáticas** como **Sim**. Essa opção automaticamente verifica se há atualizações às 3:00, hora do dispositivo e instala as atualizações às 4:00 todos os dias.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

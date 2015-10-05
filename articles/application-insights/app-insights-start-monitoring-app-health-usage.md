@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 
@@ -133,17 +133,32 @@ Abra estas portas para tráfego de saída no firewall do servidor:
 
 Consulte [este item de solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+
+## Rastrear versão do aplicativo
+
+Verifique se `buildinfo.config` é gerado pelo processo de compilação. No arquivo. csproj, adicione:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico][diagnostic] ou ao [explorar métricas][metrics].
+
+
 ## 5\. Adicionar acompanhamento de dependência e contadores de desempenho
 
 O SDK precisa de um pouco de ajuda para obter acesso a alguns dados. Especificamente, você precisará dessa etapa adicional para avaliar automaticamente as chamadas do seu aplicativo para bancos de dados, APIs REST e outros componentes externos. Essas métricas de dependência podem ser inestimáveis no diagnóstico de problemas de desempenho.
 
 #### Se seu aplicativo for executado em seu servidor IIS
 
-Entre no servidor com direitos de administrador e instale o [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+Entre no seu servidor com direitos de administrador e instale o [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
 Talvez você precise [abrir portas adicionais de saída no firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
-Esta etapa também habilita o [relatório de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como CPU, memória e ocupação de rede.
+Essa etapa também habilita [relatórios de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como CPU, memória, ocupação de rede.
 
 #### Se seu aplicativo for um Aplicativo Web do Azure
 
@@ -156,6 +171,8 @@ No painel de controle do Aplicativo Web do Azure, adicione a extensão do Applic
 #### Se ele for um projeto de serviços de nuvem do Azure
 
 [Adicionar scripts a funções da Web e de trabalho](app-insights-cloudservices.md)
+
+
 
 ## 6\. Adicionar monitoramento do lado do cliente
 
@@ -175,7 +192,7 @@ Observe que o código contém a chave de instrumentação que identifica o recur
 
 #### Se seus clientes forem aplicativos de dispositivo
 
-Se seu aplicativo estiver atendendo a clientes como telefones ou outros dispositivos, adicione o [SDK apropriado](app-insights-platforms.md) ao aplicativo do dispositivo.
+Se seu aplicativo estiver atendendo a clientes, como telefones ou outros dispositivos, adicione o [SDK apropriado](app-insights-platforms.md) para o aplicativo do dispositivo.
 
 Se você configurar o SDK do cliente com a mesma chave de instrumentação do SDK do servidor, os dois fluxos serão integrados para que seja possível vê-los juntos.
 
@@ -192,11 +209,11 @@ Para obter a visão de 360 graus completa de seu aplicativo, há mais algumas ta
 
 Dissemos no início deste artigo que iriamos mostrar a forma manual de criar um recurso do Application Insights e, em seguida, instalar o SDK. Acreditamos que é bom entender as duas partes do procedimento. Mas há uma forma automatizada ainda mais rápida para os aplicativos em ASP.NET (e muitos outros).
 
-Você precisará do [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013, atualização 3 ou posterior) e de uma conta no [Microsoft Azure](http://azure.com).
+Você precisará do [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 atualização 3 ou posterior) e uma conta no [Microsoft Azure](http://azure.com).
 
 #### Se é um novo projeto...
 
-Quando criar um novo projeto no Visual Studio, verifique se a opção **Adicionar Application Insights** está marcada.
+Quando você criar um novo projeto no Visual Studio, certifique-se de que **Adicionar Application Insights** esteja selecionado.
 
 
 ![Criar um projeto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -207,7 +224,7 @@ Se o projeto tem páginas da Web, ele também adiciona o [SDK do JavaScript][cli
 
 #### ...ou então, se é um projeto existente
 
-Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, e selecione **Adicionar Application Insights**.
+Clique com o botão direito no projeto no Gerenciador de Soluções e escolha **Adicionar Application Insights**.
 
 ![Escolher Adicionar Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -255,4 +272,4 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

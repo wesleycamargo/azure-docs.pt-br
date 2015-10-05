@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Anexar um disco a uma máquina virtual | Microsoft Azure"
-	description="Saiba como anexar um disco de dados a uma máquina virtual Azure e inicializá-lo para que ele fique pronto para uso."
+	pageTitle="Anexar um disco a uma VM | Microsoft Azure"
+	description="Anexe um disco de dados a uma máquina virtual criada com o modelo de implantação clássico e inicialize-a."
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,9 @@
 	ms.date="07/16/2015"
 	ms.author="cynthn"/>
 
-# Como anexar um disco de dados a uma máquina virtual Windows
+# Anexe um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássico
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação. Você também pode criar recursos com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-attach-disk-preview.md).
 
 É possível anexar discos vazios e discos com dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo.
 
@@ -31,9 +33,9 @@ Veja um passo a passo deste tutorial.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>Como inicializar um novo disco de dados no Windows Server
+## <a id="initializeinWS"></a>Como: inicializar um novo disco de dados no Windows Server
 
-1. Conectar-se à máquina virtual. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que esteja executando o Windows Server][logon].
+1. Conectar-se à máquina virtual. Para obter instruções, veja [Como fazer logon em uma máquina virtual que executa o Windows Server][logon].
 
 2. Depois de entrar na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, selecione **Arquivos e serviços de armazenamento**.
 
@@ -43,7 +45,7 @@ Veja um passo a passo deste tutorial.
 
 4. A seção **Discos** lista disco 0, disco 1 e disco 2. Disco 0 é o disco do sistema operacional, disco 1 é o disco temporário (que não deve ser usado para armazenamento de dados) e o disco 2 é o disco de dados que você anexou à máquina virtual. O disco de dados tem uma capacidade de 5 GB, com base no que você especificou quando anexou o disco. Clique com o botão direito do mouse em disco 2 e selecione **Inicializar**.
 
-5.	Você é notificado de que todos os dados serão apagados quando o disco for inicializado. Clique em **Sim** para confirmar o aviso e inicializar o disco. Em seguida, clique novamente em disco 2 e selecione **Novo Volume**.
+5.	Você é notificado de que todos os dados serão apagados quando o disco for inicializado. Clique em **Sim** para confirmar o aviso e inicializar o disco. Em seguida, clique novamente com o botão direito do mouse em disco 2 e selecione **Novo Volume**.
 
 6.	Conclua o assistente usando os valores padrão. Quando o assistente for concluído, a seção **Volumes** listará o novo volume. Agora, o disco está online e pronto para armazenar dados.
 
@@ -59,4 +61,4 @@ Veja um passo a passo deste tutorial.
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

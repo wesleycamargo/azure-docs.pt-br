@@ -160,4 +160,4 @@ catch (Exception e)
 
 Agora que você aprendeu os conceitos básicos sobre filas, confira [Criar aplicativos que usam assinaturas e tópicos do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para continuar essa discussão usando os recursos de publicação/assinatura do sistema de mensagens agenciado do Barramento de Serviço.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="09/17/2015"
    ms.author="alkohli" />
 
 # Instalar a Atualização 1.2 no dispositivo StorSimple
@@ -153,4 +153,4 @@ Se você verificou que há conectividade e o problema continuar, contate o Supor
 
 Saiba mais sobre a [versão da Atualização 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

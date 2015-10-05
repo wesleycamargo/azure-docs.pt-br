@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="timwieman"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +18,8 @@
 	ms.author="twieman"/>
 
 # Cluster Redis com um modelo do Gerenciador de Recursos
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um cluster Redis com o modelo de implantação do Gerenciador de Recursos.
 
 O Redis é um cache e repositório de chave-valor de código aberto, onde as chaves podem conter estruturas de dados como, por exemplo, cadeias de caracteres, hashes, listas, conjuntos e conjuntos classificados. O Redis dá suporte a um conjunto de operações atômicas nesses tipos de dados. Com o lançamento da versão 3.0 do Redis, o Cluster Redis agora está disponível na versão mais recente e estável do Redis. O Cluster Redis é uma implementação distribuída do Redis na qual os dados são fragmentados automaticamente em vários nós do Redis, com a capacidade de continuar as operações quando um subconjunto de nós apresentar falhas.
 
@@ -96,7 +99,7 @@ Clone todo o repositório de modelos usando um cliente Git de sua escolha, por e
 git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 ```
 
-Quando terminar a clonagem, procure a pasta **redis-high-availability** no diretório C:\\Azure\\Templates.
+Depois de concluída a clonagem, procure a pasta **redis-high-availability** no diretório C:\\Azure\\Templates.
 
 ### Etapa 2 (opcional): compreender os parâmetros do modelo
 
@@ -258,7 +261,7 @@ A seguir, um exemplo que você pode encontrar no arquivo azuredeploy-parameters.
 }
 ```
 
->[AZURE.NOTE]O parâmetro `storageAccountName` deve ser um nome exclusivo de uma conta de Armazenamento inexistente que atenda aos requisitos de nomenclatura para uma conta de Armazenamento do Microsoft Azure (somente letras minúsculas e números). Essa conta de Armazenamento será criada como parte do processo de implantação.
+>[AZURE.NOTE]O parâmetro `storageAccountName` deve ser um nome exclusivo e inexistente de uma conta de Armazenamento que atenda aos requisitos de nomenclatura de uma conta do Armazenamento do Microsoft Azure (somente letras minúsculas e números). Essa conta de Armazenamento será criada como parte do processo de implantação.
 
 Preencha o nome da implantação do Azure, o nome do grupo de recursos, o local do Azure e a pasta dos arquivos JSON salvos. Em seguida, execute estes comandos:
 
@@ -344,11 +347,11 @@ Durante a implantação, você verá algo assim:
 
 Durante e após a implantação, você pode verificar todas as solicitações feitas durante o provisionamento, incluindo quaisquer erros ocorridos.
 
-Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e siga este procedimento:
+Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e faça o seguinte:
 
 - Na barra de navegação à esquerda, clique em **Procurar**, role para baixo e clique em **Grupos de Recursos**.
 - Selecione o grupo de recursos que você acabou de criar, o que exibirá a folha "Grupo de Recursos".
-- Na seção **Monitoramento**, selecione o gráfico de barras "Eventos". Isso exibirá os eventos para sua implantação.
+- Na seção **Monitoramento**, selecione o gráfico de barras “Eventos”. Isso exibirá os eventos para sua implantação.
 - Ao clicar em eventos individuais, você poderá fazer uma busca detalhada dos detalhes de cada operação feita em nome do modelo.
 
 Se precisar remover esse grupo de recursos e todos os seus recursos (a conta de Armazenamento, a máquina virtual e a rede virtual) após os testes, use este comando:
@@ -420,7 +423,7 @@ Veja a seguir um exemplo de um parâmetro para “tamanho de camiseta”:
 },
 ```
 
->[AZURE.NOTE]Observe que um `defaultValue` pode ser especificado, bem como um `allowedValues`.
+>[AZURE.NOTE]É importante lembrar que `defaultValue` pode ser especificado, bem como `allowedValues`.
 
 ### Seção "variáveis"
 
@@ -453,9 +456,9 @@ A seção "variáveis" especifica variáveis que podem ser usadas em todo esse m
 }
 ```
 
-As variáveis `vmStorageAccountContainerName` e `vmStorageAccountDomain` são exemplos de variáveis de nome/valor simples. `vnetID` é um exemplo de uma variável que é calculada em tempo de execução usando as funções `resourceId` e `parameters`. `machineSettings` aprimora esses conceitos ainda mais aninhando o objeto JSON `osImageReference` na variável `machineSettings`. `vmScripts` contém uma matriz JSON, `scriptsToDownload`, que é calculada em tempo de execução usando as funções `concat` e `variables`.
+As variáveis `vmStorageAccountContainerName` e `vmStorageAccountDomain` são exemplos de variáveis de nome/valor simples. `vnetID` é um exemplo de uma variável que é calculada no tempo de execução com as funções `resourceId` e `parameters`. `machineSettings` aprimora esses conceitos ainda mais aninhando o objeto JSON `osImageReference` na variável `machineSettings`. `vmScripts` contém uma matriz JSON, `scriptsToDownload`, que é calculada no tempo de execução com as funções `concat` e `variables`.
 
-Se quiser personalizar o tamanho da implantação do Cluster Redis, você pode alterar as propriedades das variáveis `tshirtSizeSmall`, `tshirtSizeMedium` e `tshirtSizeLarge` no modelo azuredeploy.json.
+Se desejar personalizar o tamanho da implantação do Cluster Redis, é possível alterar as propriedades das variáveis `tshirtSizeSmall`, `tshirtSizeMedium` e `tshirtSizeLarge` no modelo azuredeploy.json.
 
 ```json
 "tshirtSizeSmall": {
@@ -485,13 +488,13 @@ Se quiser personalizar o tamanho da implantação do Cluster Redis, você pode a
 },
 ```
 
-Observação: as propriedades `totalMemberCountExcludingLast` e `totalMemberCount` são necessárias porque o idioma do modelo atualmente não tem operações de "matemática".
+Observação: as propriedades `totalMemberCountExcludingLast` e `totalMemberCount` são necessárias, pois o idioma do modelo atualmente não tem operações de “matemática”.
 
 Para saber mais sobre o idioma do modelo, consulte a MSDN em [Idioma do modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 ### Seção "recursos"
 
-A seção "recursos" é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes. O primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que essencialmente invoca uma implantação aninhada dentro do elemento principal. O segundo é a propriedade `templateLink` (e a propriedade `contentVersion` relacionada), que torna possível a especificação de um arquivo de modelo vinculado que será invocado, passando um conjunto de parâmetros como entrada. Eles podem ser vistos neste fragmento do modelo:
+A seção "recursos" é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes. O primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que basicamente invoca uma implantação aninhada dentro do elemento principal. O segundo é a propriedade `templateLink` (e a propriedade `contentVersion` relacionada), que torna possível a especificação de um arquivo de modelo vinculado que será invocado, passando um conjunto de parâmetros como entrada. Eles podem ser vistos neste fragmento do modelo:
 
 ```json
 {
@@ -525,11 +528,11 @@ Em particular, os seguintes modelos vinculados serão usados para essa implanta�
 
 - **shared-resource.json**: contém a definição de todos os recursos que serão compartilhados na implantação. Os exemplos são contas de Armazenamento usadas para armazenar os discos do sistema operacional da VM, redes virtuais e conjuntos de disponibilidade.
 - **jumpbox-resources.json**: implanta a VM "jump box" e todos os recursos relacionados, como a interface de rede, o endereço IP público e o ponto de extremidade de entrada usados para executar SSH no ambiente.
-- **nodes-resources.json**: implanta todas as VMs de nós do Cluster Redis e os recursos conectados (adaptadores de rede, IPs privados etc.). Este modelo também implanta extensões de VM (scripts personalizados para Linux) e invoca um script bash para instalar fisicamente e configurar o Redis em cada nó. O script a ser invocado é passado para esse modelo na propriedade `commandToExecute` do parâmetro `machineSettings`. Todos os nós do Cluster Redis, exceto um, podem ser implantados e programados em paralelo. Um nó deve ser reservado até o final porque a configuração do Cluster Redis só pode ser executada em um nó, e isso deve ser feito depois que todos os nós estiverem executando o servidor Redis. Isso ocorre porque o script de execução é passado para esse modelo; o último nó precisa executar um script ligeiramente diferente que não apenas instalará o servidor Redis, mas também configurará o Cluster Redis.
+- **nodes-resources.json**: implanta todas as VMs de nós do Cluster Redis e os recursos conectados (adaptadores de rede, IPs privados, etc). Este modelo também implanta extensões de VM (scripts personalizados para Linux) e invoca um script bash para instalar fisicamente e configurar o Redis em cada nó. O script a ser invocado é transmitido para esse modelo no parâmetro `machineSettings` da propriedade `commandToExecute`. Todos os nós do Cluster Redis, exceto um, podem ser implantados e programados em paralelo. Um nó deve ser reservado até o final porque a configuração do Cluster Redis só pode ser executada em um nó, e isso deve ser feito depois que todos os nós estiverem executando o servidor Redis. Isso ocorre porque o script de execução é passado para esse modelo; o último nó precisa executar um script ligeiramente diferente que não apenas instalará o servidor Redis, mas também configurará o Cluster Redis.
 
 Vamos detalhar *como* esse último modelo, o node-resources.json é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Esse conceito é conhecido como **loop de recursos**.
 
-Quando node-resources.json for invocado no arquivo azuredeploy.json principal, ele será invocado de dentro de um recurso que use o elemento `copy` para criar um tipo de loop. Um recurso que usa o elemento `copy` criará cópias de si mesmo de acordo com o número de vezes especificado no parâmetro `count` do elemento `copy`. Para todas as configurações em que é necessário especificar valores exclusivos entre diferentes instâncias do recurso implantado, a função **copyindex()** pode ser usada para obter um valor numérico que indica o índice atual nessa criação de loop de recursos específica. No seguinte fragmento do azuredeploy.json, você pode ver esse conceito aplicado a várias VMs que estão sendo criadas para nós do Cluster Redis:
+Quando node-resources.json é invocado no arquivo principal azuredeploy.json, ele é invocado de dentro de um recurso que usa o elemento `copy` para criar um loop de tipos. Um recurso que usa o elemento `copy` criará cópias de si mesmo de acordo com o número de vezes especificado no parâmetro `count` do elemento `copy`. Para todas as configurações em que é necessário especificar valores exclusivos entre diferentes instâncias do recurso implantado, a função **copyindex()** pode ser usada para obter um valor numérico que indica o índice atual nessa criação de loop de recursos específica. No seguinte fragmento do azuredeploy.json, você pode ver esse conceito aplicado a várias VMs que estão sendo criadas para nós do Cluster Redis:
 
 ```json
 {
@@ -580,7 +583,7 @@ Quando node-resources.json for invocado no arquivo azuredeploy.json principal, e
 
 Outro conceito importante na criação de recursos é a capacidade de especificar dependências e precedências entre recursos, como você pode observar na matriz JSON `dependsOn`. Neste modelo específico, você pode ver que os nós do Cluster Redis dependem dos recursos compartilhados que estão sendo criados pela primeira vez.
 
-Como mencionado anteriormente, o último nó precisa aguardar até que todos os outros nós do Cluster Redis tenham sido provisionados com o servidor Redis em execução. Isso é feito no azuredeploy.json com um recurso chamado `lastnode-resources` que depende do loop `copy` chamado `memberNodesLoop` do trecho do modelo acima. Após o provisionamento de `memberNodesLoop` ser concluído, `lastnode-resources` pode ser provisionado:
+Como mencionado anteriormente, o último nó precisa aguardar até que todos os outros nós do Cluster Redis tenham sido provisionados com o servidor Redis em execução. Isso é feito no azuredeploy.json com um recurso chamado `lastnode-resources` que depende do loop `copy` chamado `memberNodesLoop` do trecho do modelo acima. Depois de concluído o provisionamento do `memberNodesLoop`, o `lastnode-resources` poderá ser provisionado:
 
 ```json
 {
@@ -627,7 +630,7 @@ Como mencionado anteriormente, o último nó precisa aguardar até que todos os 
 
 Observe como o recurso `lastnode-resources` passa um `machineSettings.commandToExecute` ligeiramente diferente ao modelo vinculado. Isso ocorre porque, para o último nó, além do servidor Redis instalado, ele precisa chamar um script para configurar o Cluster Redis (que deve ser feito apenas uma vez depois que todos os servidores Redis estiverem em execução).
 
-Outro fragmento interessante a explorar é o relacionado às extensões de VM `CustomScriptForLinux`. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó do cluster. Neste caso, isso é usado para instalar e configurar o Redis em cada nó de VM. Vamos examinar um trecho do modelo node-resources.json que usa esses recursos:
+Outro fragmento interessante a explorar é o relacionado às extensões de VM do `CustomScriptForLinux`. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó do cluster. Neste caso, isso é usado para instalar e configurar o Redis em cada nó de VM. Vamos examinar um trecho do modelo node-resources.json que usa esses recursos:
 
 ```json
 {
@@ -650,7 +653,7 @@ Outro fragmento interessante a explorar é o relacionado às extensões de VM `C
 }
 ```
 
-Você pode ver que esse recurso depende da VM de recurso que já está sendo implantada (`Microsoft.Compute/virtualMachines/vmMember<X>` em que `<X>` é o parâmetro `machineSettings.machineIndex`, que é o índice da VM que foi passado para esse script usando a função **copyindex()**).
+É possível ver que este recurso depende da VM de recurso que já está sendo implantada (`Microsoft.Compute/virtualMachines/vmMember<X>`, em que `<X>` é o parâmetro `machineSettings.machineIndex`, que é o índice da VM que foi transmitido para este script usando a função **copyindex()**).
 
 Familiarizando-se com os outros arquivos incluídos nessa implantação, você poderá compreender todos os detalhes e as práticas recomendadas necessárias para organizar e orquestrar estratégias de implantação complexas para soluções com vários nós, com base em qualquer tecnologia, utilizando modelos do Gerenciador de Recursos do Azure. Embora não seja obrigatório, uma abordagem recomendada é estruturar seus arquivos de modelos conforme realçado pelo seguinte diagrama:
 
@@ -666,4 +669,4 @@ Essencialmente, essa abordagem sugere o seguinte:
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

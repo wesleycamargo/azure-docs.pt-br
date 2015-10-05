@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Atalhos de teclado do portal do Azure"
+   pageTitle="Atalhos de teclado do portal do Azure | Microsoft Azure"
    description="Este artigo será sempre uma lista atualizada dos atalhos de teclado que funciona em todo o portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado especializados."
    services="cloud-services"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="curtand"
    manager="msStevenPo"
    editor=""/>
@@ -50,4 +50,4 @@
 
 Conheça melhor o Portal do Azure: http://azure.microsoft.com.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

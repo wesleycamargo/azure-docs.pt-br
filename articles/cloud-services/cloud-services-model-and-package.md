@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="O que é um modelo de serviço de nuvem e o pacote no Azure?" 
-    description="Descreve o modelo de serviço de nuvem (.csdef, .cscfg) e o pacote (.cspkg) no Azure" 
-    services="cloud-services" 
-    documentationCenter="" 
-    authors="Thraka" 
-    manager="timlt" 
+<properties
+    pageTitle="O que é um modelo de serviço de nuvem e o pacote no Azure?"
+    description="Descreve o modelo de serviço de nuvem (.csdef, .cscfg) e o pacote (.cspkg) no Azure"
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
     editor=""/>
-<tags 
-    ms.service="cloud-services" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/06/2015" 
+<tags
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/06/2015"
     ms.author="adegeo"/>
 
 # Qual é o modelo de serviço de nuvem e como empacotá-lo?
@@ -24,7 +24,7 @@ Quando o serviço de nuvem estiver em execução no Azure, você poderá reconfi
 
 * Quero saber mais sobre os arquivos [ServiceDefinition.csdef](#csdef) e [ServiceConfig.cscfg](#cscfg).
 * Já sei sobre isso, dê-me [alguns exemplos](#next-steps) sobre o que posso configurar.
-* Quero criar o [ServicePackage.cspkg](#cspkg). 
+* Quero criar o [ServicePackage.cspkg](#cspkg).
 * Estou usando o Visual Studio e desejo...
     * [Crie um novo serviço de nuvem][vs_create]
     * [Reconfigurar um serviço de nuvem existente][vs_reconfigure]
@@ -253,7 +253,7 @@ Estou criando um pacote de serviço de nuvem e desejo...
 
 <!--
 * [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://msdn.microsoft.com/library/azure/ee758708.aspx)
+* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
 -->
 
 * [Configurar área de trabalho remota para uma instância de serviço de nuvem][remotedesktop]
@@ -269,9 +269,9 @@ Estou usando o Visual Studio e desejo...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/pt-br/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/pt-br/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/PT-BR/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/PT-BR/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/pt-br/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/PT-BR/library/ee405487.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Implantar o SQL Server AlwaysOn com um modelo do Gerenciador de Recursos do Azure| Microsoft Azure"
+	pageTitle="SQL Server AlwaysOn com modelo do Gerenciador de Recursos do Azure| Microsoft Azure"
 	description="Implante facilmente cinco servidores que ofereçam suporte ao SQL Server AlwaysOn com um modelo do Gerenciador de Recursos do Azure e o portal de visualização do Azure, Azure PowerShell ou CLI do Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Implantar o SQL Server AlwaysOn com um modelo do Gerenciador de Recursos do Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos. Você não pode criar esse recurso com o modelo de implantação clássico.
 
 Use as instruções deste artigo para implantar o SQL Server AlwaysOn usando um modelo do Gerenciador de Recursos do Azure. Este modelo cria cinco máquinas virtuais em uma nova rede virtual em duas sub-redes diferentes.
 
@@ -65,7 +67,7 @@ Aqui está um exemplo.
 
 Em seguida, execute o bloco de comando no prompt do Azure PowerShell.
 
-Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois de especificar todos os valores de parâmetro, o **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
+Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois que você especificar todos os valores de parâmetro **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
 
 Quando a execução do modelo for concluída, você terá uma nova configuração de cinco servidores do SQL Server AlwaysOn no seu grupo de recursos novos.
 
@@ -103,6 +105,6 @@ Quando a execução do modelo for concluída, você terá uma nova configuraçã
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
+[Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

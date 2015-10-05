@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução aos dados no Android (back-end do JavaScript) | Microsoft Azure" 
-	description="Saiba como começar a usar os Serviços Móveis para aproveitar os dados em seu aplicativo do Android (back-end do JavaScript)." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introdução aos dados no Android (back-end do JavaScript) | Microsoft Azure"
+	description="Saiba como começar a usar os Serviços Móveis para aproveitar os dados em seu aplicativo do Android (back-end do JavaScript)."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/23/2015"
 	ms.author="ricksal"/>
 
 # Adicionar os Serviços Móveis a um aplicativo do Android existente (back-end do JavaScript)
@@ -46,6 +46,10 @@ Para concluir este tutorial, você precisará do seguinte:
 
 - o [SDK do Android dos Serviços Móveis do Azure];
 - o <a  href="https://developer.android.com/sdk/index.html" target="_blank">ambiente de desenvolvimento integrado do Android Studio</a>, que inclui o SDK do Android; e o Android 4.2 ou uma versão posterior. O projeto GetStartedWithData baixado requer o Android 4.2 ou uma versão posterior. No entanto, o SDK dos Serviços Móveis requer apenas o Android 2.2 ou uma versão mais recente.
+
+## Exemplo de código
+
+Para ver o código-fonte completo, clique <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">aqui</a>.
 
 ## Baixar o projeto GetStartedWithData
 
@@ -87,25 +91,18 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 4. Clique na guia **Dados** e, em seguida, clique em **Procurar**.
 
    	![][9]
-  
+
    	Observe que a tabela **TodoItem** agora contém dados com alguns valores gerados pelos Serviços Móveis, e que as colunas foram automaticamente adicionadas à tabela para coincidir com a classe TodoItem no aplicativo.
 
 Isso conclui o tutorial **Introdução aos dados** para Android.
 
 ## Solucionar problemas
 
-###Verificar Versão de SDK do Android
+### Verificar Versão de SDK do Android
 
 [AZURE.INCLUDE [Verifique o SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-## Versões mais antigas do código
-
-Para ver a versão Eclipse deste tutorial, vá para [Introdução aos dados usando o Eclipse](mobile-services-android-get-started-data-ec.md).
-
-Você pode ver uma versão completa do código-fonte em um projeto do Eclipse <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">aqui</a>.
-
-Se você deseja obter o arquivo de amostra usado na versão anterior do SDK Android dos Serviços Móveis do Azure, você pode obtê-lo [aqui](http://go.microsoft.com/fwlink/p/?LinkID=282122).
 
 ## Próximas etapas
 
@@ -145,7 +142,6 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 [Refinar consultas com paginação]: /develop/mobile/tutorials/add-paging-to-data-android
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
-[Get started with data (Eclipse)]: /documentation/articles/mobile-services-android-get-started-data-EC/
 [Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-android
 [Introdução às notificações por push]: /develop/mobile/tutorials/get-started-with-push-android
 
@@ -154,6 +150,5 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 [SDK do Android dos Serviços Móveis do Azure]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
- 
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

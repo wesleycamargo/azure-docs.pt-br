@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Introdução ao Application Gateway | Microsoft Azure"
-	description="Esta página fornece uma visão geral do serviço Application Gateway para balanceamento de carga de camada 7, incluindo tamanhos de gateway, balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL."
-	documentationCenter="na"
-	services="application-gateway"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Esta página fornece uma visão geral do serviço Application Gateway para balanceamento de carga de camada 7, incluindo tamanhos de gateway, balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL."
+   documentationCenter="na"
+   services="application-gateway"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/23/2015"
+   ms.author="joaoma"/>
 
 # O que é o Application Gateway?
 
@@ -36,7 +36,10 @@ O Azure fornece o balanceamento de carga de camada 4 por meio do balanceador de 
 
 O Application Gateway roteará o tráfego HTTP com base em sua configuração seja uma máquina virtual, serviço de nuvem, aplicativo Web ou um endereço IP externo.
 
-O diagrama abaixo explica como o tráfego flui para o Application Gateway: ![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
+O diagrama abaixo explica como o tráfego flui para o Application Gateway:
+
+ 
+![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
 
 O balanceamento de carga de camada 7 HTTP é útil para:
 
@@ -61,4 +64,4 @@ Criar um Application Gateway. Confira [Criar um Application Gateway](application
 
 Configurar o descarregamento SSL. Confira [Configurar o descarregamento de SSL com o Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

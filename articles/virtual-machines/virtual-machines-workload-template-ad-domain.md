@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Implantar um domínio altamente disponível dos Serviços de Domínio do Active Directory com um modelo do Gerenciador de Recursos do Azure"
+	pageTitle="Modelo ARM dos Serviços de Domínio do Active Directory altamente disponível | Microsoft Azure"
 	description="Implante com facilidade dois servidores que atuam como controladores de domínio dos Serviços de Domínio do Active Directory com um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, o Azure PowerShell ou a CLI do Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,8 @@
 
 
 # Implantar um domínio altamente disponível dos Serviços de Domínio do Active Directory com um modelo do Gerenciador de Recursos do Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos. Você não pode criar esse recurso com o modelo de implantação clássico.
 
 Use as instruções neste artigo para implantar um domínio do Active Directory altamente disponível usando um modelo do Gerenciador de Recursos. Este modelo cria duas máquinas virtuais em uma nova rede virtual na mesma subrrede.
 
@@ -66,7 +68,7 @@ Aqui está um exemplo.
 
 Em seguida, execute o bloco de comando no prompt do Azure PowerShell.
 
-Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois de especificar todos os valores de parâmetro, o **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
+Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois que você especificar todos os valores de parâmetro **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
 
 Quando a execução do modelo for concluída, você terá uma nova configuração de domínio do Active Directory com dois servidores no seu grupo de recursos novo.
 
@@ -106,4 +108,4 @@ Após a conclusão da execução do modelo, você terá uma nova configuração 
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

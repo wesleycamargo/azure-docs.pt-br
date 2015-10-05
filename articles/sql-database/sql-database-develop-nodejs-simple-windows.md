@@ -220,5 +220,8 @@ Para que este exemplo de código funcione, você deve primeiro ter ou criar um p
 	});
 
  
+## Próximas etapas
 
-<!---HONumber=August15_HO6-->
+Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+
+<!---HONumber=Sept15_HO4-->

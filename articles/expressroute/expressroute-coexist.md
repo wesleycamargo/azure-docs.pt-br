@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="09/17/2015"
    ms.author="cherylmc"/>
 
 # Configurar conexões de VPN Site a Site e de Rota Expressa do Azure que coexistam
@@ -150,7 +150,10 @@ Este procedimento orientará você na criação de uma rede virtual, bem como na
 
 	Use o exemplo a seguir, substituindo os valores existentes pelos seus.
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -Gatewayname MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
+
+	> [AZURE.IMPORTANT]Se sua rede local tiver várias rotas, você poderá passá-las como uma matriz. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+
 
 	Para obter as configurações de gateway de rede virtual, incluindo a ID do gateway e o IP público, use o cmdlet `Get-AzureVirtualNetworkGateway`. Veja os exemplos a seguir.
 
@@ -192,7 +195,7 @@ Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Exp
 2. Exporte o esquema da rede virtual. Use o cmdlet do PowerShell a seguir, substituindo os valores existentes pelos seus.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. Edite o esquema de arquivo de configuração de rede para que a sub-rede de gateway seja /27 (ou um prefixo mais curto). Veja os exemplos a seguir. Para obter mais informações sobre como trabalhar com o arquivo de configuração de rede, consulte [Como criar uma rede virtual usando um arquivo de configuração de rede](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Para obter mais informações sobre o esquema de configuração, consulte [Esquema de Configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Edite o esquema de arquivo de configuração de rede para que a sub-rede de gateway seja /27 ou menor (/26, /25 etc.). Veja os exemplos a seguir. Para obter mais informações sobre como trabalhar com o arquivo de configuração de rede, consulte [Como criar uma rede virtual usando um arquivo de configuração de rede](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Para obter mais informações sobre o esquema de configuração, consulte [Esquema de Configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 
           <Subnet name="GatewaySubnet">
@@ -217,4 +220,4 @@ Saiba mais sobre Rota Expressa. Consulte [Visão geral de Rota Expressa](express
 
 Saiba mais sobre gateways de VPN. Consulte [Sobre gateways de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

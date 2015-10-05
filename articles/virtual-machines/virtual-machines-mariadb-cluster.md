@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="sabbour"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,7 +19,9 @@
 
 # Cluster MariaDB (MySQL) - tutorial do Azure
 
-<p>Estamos criando um cluster [Galera] multimestre (http://galeracluster.com/products/) de [MariaDBs] (https://mariadb.org/en/about/), uma substituição robusta, escalável e confiável para que o MySQL funcione em um ambiente altamente disponível em Máquinas Virtuais do Azure.</p>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um cluster de MariaDB com o modelo clássico de implantação.
+
+Estamos criando um cluster [Galera](http://galeracluster.com/products/) multimestre de [MariaDBs](https://mariadb.org/en/about/), uma substituição robusta, escalonável e confiável para que o MySQL funcione em um ambiente altamente disponível em Máquinas Virtuais do Azure.
 
 ## Visão geral da arquitetura
 
@@ -368,6 +371,5 @@ Talvez você queira dar uma olhada em [outra maneira de clusterizar o MySQL no L
 [otimizar e testar o desempenho do MySQL nas VMs Linux do Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [problema #1268 na CLI do Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [outra maneira de clusterizar o MySQL no Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

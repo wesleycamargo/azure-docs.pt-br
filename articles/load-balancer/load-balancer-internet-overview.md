@@ -36,7 +36,7 @@ A figura a seguir mostra um ponto de extremidade de balanceamento de carga para 
 
 
 
-Quando os clientes da Internet enviam solicitações de página da Web para o endereço IP público do serviço de nuvem e a porta TCP 443, o balanceador de carga executa um balanceamento aleatório dessas solicitações entre as três máquinas virtuais no conjunto de balanceamento de carga.
+Quando os clientes da Internet enviam solicitações de página da Web para o endereço IP público do serviço de nuvem e a porta TCP 443, o balanceador de carga executa um balanceamento de carga baseado em hash dessas solicitações entre as três máquinas virtuais no conjunto de balanceamento de carga. Você pode obter mais informações sobre o algoritmo do balanceador de carga na [página de visão geral do balanceador de carga](load-balancer-overview#load-balancer-features).
 
 
 ## Próximas etapas
@@ -52,4 +52,4 @@ Quando os clientes da Internet enviam solicitações de página da Web para o en
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

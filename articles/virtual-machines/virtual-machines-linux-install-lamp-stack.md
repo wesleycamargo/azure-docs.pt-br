@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Instalar a pilha LAMP em uma máquina virtual Linux"
-	description="Saiba como instalar a pilha LAMP em uma VM (máquina virtual) Linux no Azure. Você pode instalar no Ubuntu ou no CentOS."
+	pageTitle="Instalar a pilha LAMP em uma máquina virtual do Linux | Microsoft Azure"
+	description="Saiba como instalar a pilha LAMP em uma VM (máquina virtual) Linux no Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 
 
 #Instalar a pilha LAMP em uma máquina virtual Linux no Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
 
 Uma pilha de LÂMPADA consiste nos seguintes elementos diferentes:
 
@@ -125,4 +128,4 @@ Há muitos outros recursos para configurar uma pilha LAMP no Ubuntu.
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

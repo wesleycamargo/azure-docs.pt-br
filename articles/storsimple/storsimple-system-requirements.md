@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Requisitos do sistema do StorSimple | Microsoft Azure"
-	description="Descreve os requisitos de sistema e práticas recomendadas para software, alta disponibilidade e rede para uma solução do Azure StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Requisitos do sistema do StorSimple | Microsoft Azure" 
+   description="Descreve os requisitos de sistema e práticas recomendadas para software, alta disponibilidade e rede para uma solução do Azure StorSimple." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="alkohli" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/21/2015"
+   ms.author="alkohli"/>
 
 # Software StorSimple, alta disponibilidade e requisitos de rede
 
@@ -154,7 +154,8 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 | UDP 123 (NTP) | Saída | WAN | Em alguns casos; consulte as observações. |Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet. |
 | TCP 9354 | Saída | WAN | Em alguns casos; consulte as observações. |A porta de saída é usada pelo serviço Gerenciador do StorSimple para se comunicar com o dispositivo. Esta porta é exigida se a rede atual não oferecer suporte ao uso de HTTP 1.1 para se conectar à Internet. Por exemplo, se você estiver usando um servidor proxy baseado em HTTP 1.0.<br> Se estiver se conectando através de um servidor proxy, consulte [requisitos de barramento de serviço](https://msdn.microsoft.com/library/azure/ee706729.aspx) para obter informações detalhadas. |
 | 3260 (iSCSI) | No | LAN | Não | Esta porta é usada para acessar dados em iSCSI.|
-| 5985 | No | LAN | Não | Porta de entrada é usada pelo Gerenciador de Instantâneos do StorSimple para se comunicar com o dispositivo StorSimple.<br>Essa porta também é usada quando você se conecta remotamente ao Windows PowerShell para StorSimple via HTTP ou HTTPS. |
+| 5985 | No | LAN | Não | Porta de entrada é usada pelo Gerenciador de Instantâneos do StorSimple para se comunicar com o dispositivo StorSimple.<br>Essa porta também é usada quando você se conecta remotamente ao Windows PowerShell para StorSimple via HTTP. |
+| 5986 | No | LAN | Não | Esta porta é usada quando você se conecta remotamente ao Windows PowerShell para StorSimple via HTTPS. |
 
 <sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
 
@@ -194,4 +195,4 @@ Além dos requisitos de rede acima, para obter o desempenho ideal de sua soluç�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

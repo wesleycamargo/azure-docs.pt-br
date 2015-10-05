@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Objetos de Aplicativo e de Entidade de Serviço"
+   pageTitle="Objetos de Aplicativo e de Entidade de Serviço | Microsoft Azure"
    description="Uma discussão sobre a relação entre objetos de Aplicativo e ServicePrincipal no Active Directory do Azure"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -85,4 +85,4 @@ Propriedade | Descrição
 
 ##
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

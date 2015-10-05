@@ -1,24 +1,27 @@
 <properties
-   pageTitle="Exemplo de configuração para as extensões de VM do Azure | Microsoft Azure"
+   pageTitle="Exemplo de configuração para extensões de VM do Windows | Microsoft Azure"
    description="Exemplo de configuração para a criação de modelos com extensões"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
 # Exemplos de configuração de extensão de VM do Windows do Azure.
 
-Este artigo oferece um exemplo para a configuração das Extensões de VM do Azure para VMs do Windows de IaaS do Azure.
+Este artigo fornece um exemplo de configuração para configurar extensões de VM do Azure para VMs do Windows.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Para saber mais sobre estas extensões, clique aqui: [Visão geral de extensões de VM do Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
@@ -302,4 +305,4 @@ Veja abaixo um exemplo de um modelo de VM completo com uma Extensão de Script P
 
 [Extensão de script personalizado em uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Cenários comuns para uso da Fábrica de Dados do Azure
@@ -76,4 +76,4 @@ Consulte os tópicos a seguir para consumir dados utilizando o Power Query:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

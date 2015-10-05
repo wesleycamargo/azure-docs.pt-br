@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurar um nome de domínio personalizado nos Serviços de Nuvem"
+	pageTitle="Configurar um nome de domínio personalizado nos Serviços de Nuvem | Microsoft Azure"
 	description="Saiba como expor seus dados ou seu aplicativo do Azure em um domínio personalizado definindo as configurações de DNS."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 # Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
@@ -23,7 +23,7 @@
 - [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
 
 
-Quando você cria um Serviço de Nuvem, o Azure o atribui a um subdomínio do cloudapp.net. Por exemplo, se o Serviço de Nuvem for chamado "contoso", os usuários poderão acessar seu aplicativo usando uma URL como http://&lt;*contoso*>.cloudapp.net. O Azure também fornece um endereço IP virtual.
+Quando você cria um Serviço de Nuvem, o Azure o atribui a um subdomínio do cloudapp.net. Por exemplo, se o Serviço de Nuvem for chamado "contoso", os usuários poderão acessar seu aplicativo em uma URL como http://contoso.cloudapp.net. O Azure também fornece um endereço IP virtual.
 
 No entanto, você também pode expor sua aplicação em seu próprio nome de domínio, como contoso.com. Este artigo explica como reservar ou configurar um nome de domínio personalizado para funções Web do Serviço de Nuvem.
 
@@ -145,8 +145,14 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você d
 
 ## Próximas etapas
 
--   [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
--   [Como mapear o conteúdo da CDN para um domínio personalizado](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
+* [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
+* [Como mapear o conteúdo da CDN para um domínio personalizado](cdn-map-content-to-custom-domain.md)
+* [Configuração geral do serviço de nuvem](cloud-services-how-to-configure.md).
+* Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy.md).
+* Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
+
+
+
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
@@ -159,4 +165,4 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você d
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

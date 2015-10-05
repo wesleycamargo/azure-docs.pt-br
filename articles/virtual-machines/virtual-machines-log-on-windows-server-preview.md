@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fazer logon em uma máquina virtual executando o Windows Server"
-	description="Saiba como usar o portal de visualização do Azure para fazer logon em uma máquina virtual que esteja executando o Windows Server."
+	pageTitle="Faça logon em uma VM do Windows Server | Microsoft Azure"
+	description="Saiba como fazer logon em uma VM do Windows Server usando o portal de visualização do Azure e o modelo de implantação do Gerenciador de Recursos."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,17 +17,19 @@
 	ms.date="09/15/2015"
 	ms.author="cynthn"/>
 
-# Como fazer logon em uma máquina virtual executando o Windows Server#
+# Como fazer logon em uma máquina virtual executando o Windows Server 
 
-Use o botão **Conectar** no portal de visualização do Azure para iniciar uma sessão da Área de Trabalho Remota. Primeiro, conecte-se à máquina virtual, em seguida faça logon.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o logon em uma VM do Windows usando o modelo de implantação do Gerenciador de Recursos. Você também pode criar um recurso com o [modelo de implantação clássico](virtual-machines-log-on-windows-server.md).
+
+Você usará o botão **Conectar** no portal de visualização do Azure para iniciar uma sessão de área de trabalho remota. Primeiro, conecte-se à máquina virtual, em seguida faça logon.
 
 ## Conectar-se à máquina virtual
 
-1. Entre no [portal de visualização do Azure](https://portal.azure.com/), caso ainda não tenha feito isso.
+1. Se você ainda não o fez, entre no [portal de visualização do Azure](https://portal.azure.com/).
 
 2.	No menu Hub, clique em **Procurar**.
 
-3.	Na folha de pesquisa, role a tela para baixo e clique em **Máquinas Virtuais**.
+3.	Na folha de pesquisa, role para baixo e clique em **Máquinas virtuais**.
 
 	![Procurar máquinas virtuais](./media/virtual-machines-log-on-windows-server-preview/search-blade-preview-portal.png)
 
@@ -43,6 +45,6 @@ Use o botão **Conectar** no portal de visualização do Azure para iniciar uma 
 
 ## Solucionar problemas
 
-Se as dicas sobre logon não ajudarem ou se não forem necessárias, consulte [Solucionar problemas de conexões da Área de Trabalho Remota com uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
+Se as dicas sobre como fazer logon não ajudarem ou não forem o que você precisa, consulte [Solucionar problemas de conexões de área de trabalho remota com uma máquina virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

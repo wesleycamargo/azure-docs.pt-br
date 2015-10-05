@@ -1,25 +1,28 @@
 <properties 
-   pageTitle="Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure"
-	description="Discute os diversos tipos de estratégias HADR do SQL Server em execução em máquinas virtuais do Azure."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Alta Disponibilidade e Recuperação de Desastres para SQL Server | Microsoft Azure"
+   description="Este tutorial usa recursos criados com o modelo de implantação clássica e discute os vários tipos de estratégias HADR do SQL Server em execução em Máquinas Virtuais do Azure."
+   services="virtual-machines"
+   documentationCenter="na"
+   authors="rothja"
+   manager="jeffreyg"
+   editor="monicar" 
+   tags="azure-service-management"/>
 <tags 
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="08/17/2015"
-	ms.author="jroth"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows-sql-server"
+   ms.workload="infrastructure-services"
+   ms.date="08/17/2015"
+   ms.author="jroth" />
 
 # Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure
 
 ## Visão geral
 
 VMs (Máquinas virtuais) do Microsoft Azure com SQL Server podem ajudar a reduzir o custo de uma solução de banco de dados HADR (Alta Disponibilidade e Recuperação de Desastre). A maioria das soluções HADR do SQL Server tem suporte em máquinas virtuais do Azure, tanto como somente Azure ou como soluções híbridas. Em uma solução somente Azure, todo o sistema HADR é executado no Azure. Em uma configuração híbrida, parte da solução é executada no Azure e a outra parte é executada localmente em sua organização. A flexibilidade do ambiente do Azure permite que você se mova parcial ou completamente para o Azure para atender aos requisitos de orçamento e HADR de seus sistemas de banco de dados do SQL Server.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
 
 ## Compreendendo a necessidade de uma solução HADR
 
@@ -44,7 +47,7 @@ Você pode ter uma solução de alta disponibilidade para seus bancos de dados d
 
 |Tecnologia|Arquiteturas de exemplo|
 |---|---|
-|**Grupos de disponibilidade AlwaysOn**|Todas as réplicas de disponibilidade executadas em VMs do Azure para alta disponibilidade na mesma região. Você precisa configurar um controlador de domínio além das máquinas virtuais do SQL Server, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configurar grupos de disponibilidade do AlwaysOn no Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
+|**Grupos de disponibilidade AlwaysOn**|Todas as réplicas de disponibilidade executadas em VMs do Azure para alta disponibilidade na mesma região. Você precisa configurar um controlador de domínio além das máquinas virtuais do SQL Server, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configurar Grupos de Disponibilidade AlwaysOn no Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
 |**Espelhamento de banco de dados**|Os servidores principal, de espelho e testemunha, todos em execução no mesmo data center do Azure para alta disponibilidade. Você pode implantar usando um controlador de domínio.<br/>![Espelhamento de banco de dados](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring1.gif)<br/>Você também pode implantar a mesma configuração de espelhamento de banco de dados sem um controlador de domínio, usando certificados do servidor.<br/>![Espelhamento de banco de dados](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring2.gif)|
 
 ## Somente Azure: soluções de recuperação de desastres
@@ -55,7 +58,7 @@ Você pode ter uma solução de recuperação de desastres para seus bancos de d
 |---|---|
 |**Grupos de disponibilidade AlwaysOn**|Réplicas de disponibilidade executadas em vários datacenters em VMs do Azure para recuperação de desastres. Essa solução de regiões cruzadas protege contra interrupção completa de site. <br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_alwayson.png)<br/>Dentro de uma região, todas as réplicas devem estar dentro do mesmo serviço de nuvem e na mesma VNet. Como cada região terá uma VNet separada, essas soluções necessitam de VNet para conectividade VNet. Para obter mais informações, consulte [Configurar VPN site a site no Portal de Gerenciamento](../vpn-gateway/vpn-gateway-site-to-site-create.md).|
 |**Espelhamento de banco de dados**|Servidores principal e de espelho em execução em diferentes datacenters para recuperação de desastres. Você deve implantar usando certificados de servidor, pois um domínio do Active Directory não pode abranger vários datacenters.<br/>![Espelhamento de banco de dados](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_dbmirroring.gif)|
-|**Backup e restauração com o Serviço de armazenamento de blob do Azure**|Bancos de dados de produção com backup direto no armazenamento de blob em um datacenter diferente para recuperação de desastre.<br/>![Backup e restauração](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [Backup e restauração para SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-backup-and-restore.md).|
+|**Backup e restauração com o Serviço de armazenamento de blob do Azure**|Bancos de dados de produção com backup direto no armazenamento de blob em um datacenter diferente para recuperação de desastre.<br/>![Backup e restauração](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [Backup e Restauração para SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-backup-and-restore.md).|
 
 ## TI híbrida: soluções de recuperação de desastres
 
@@ -63,10 +66,10 @@ Você pode ter uma solução de recuperação de desastres para seus bancos de d
 
 |Tecnologia|Arquiteturas de exemplo|
 |---|---|
-|**Grupos de disponibilidade AlwaysOn**|Algumas réplicas de disponibilidade executadas em VMs do Azure e outras réplicas executadas localmente para recuperação de desastres intersite. O site de produção pode ser local ou em um datacenter do Azure.<br/>![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_alwayson.gif)<br/>Como todas as réplicas de disponibilidade devem estar no mesmo cluster WSFC, o cluster WSFC deve abranger as duas redes (um cluster WSFC de várias sub-redes). Essa configuração requer uma conexão VPN entre o Azure e a rede local.<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local de recuperação de desastres.<br/><br/>É possível usar o assistente Adicionar réplica no SSMS para adicionar uma réplica do Azure a um grupo de disponibilidade AlwaysOn existente. Para obter mais informações, consulte o Tutorial: Estenda seu grupo de disponibilidade AlwaysOn para o Azure.|
+|**Grupos de disponibilidade AlwaysOn**|Algumas réplicas de disponibilidade executadas em VMs do Azure e outras réplicas executadas localmente para recuperação de desastres intersite. O site de produção pode ser local ou em um datacenter do Azure.<br/>![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_alwayson.gif)<br/>Como todas as réplicas de disponibilidade devem estar no mesmo cluster WSFC, o cluster WSFC deve abranger as duas redes (um cluster WSFC de várias sub-redes). Essa configuração requer uma conexão VPN entre o Azure e a rede local.<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local de recuperação de desastres.<br/><br/>É possível usar o assistente Adicionar réplica no SSMS para adicionar uma réplica do Azure a um Grupo de Disponibilidade AlwaysOn existente. Para obter mais informações, consulte o Tutorial: Estenda seu grupo de disponibilidade AlwaysOn para o Azure.|
 |**Espelhamento de banco de dados**|Um parceiro executado em uma VM do Azure e o outro executado localmente para recuperação de desastres intersite usando certificados de servidor. Os parceiros não precisam estar no mesmo domínio do Active Directory e nenhuma conexão VPN é necessária.<br/>![Espelhamento de banco de dados](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_dbmirroring.gif)<br/>Outro cenário que o espelhamento de banco de dados envolve é um parceiro em execução em uma VM do Azure e o outro em execução localmente no mesmo domínio do Active Directory para recuperação de desastres intersite. É necessária uma [conexão VPN entre a rede virtual do Azure e a rede local](../vpn-gateway/vpn-gateway-site-to-site-create.md).<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres.|
 |**Envio de logs**|Um servidor em execução em uma VM do Azure e outro em execução local para recuperação de desastre intersite. O envio de log depende do compartilhamento de arquivos do Windows, assim, uma conexão VPN entre a rede virtual do Azure e a rede local é necessária.<br/>![Envio de logs](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_log_shipping.gif)<br/>Para recuperação de desastre bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no site de recuperação de desastres.|
-|**Backup e restauração com o Serviço de armazenamento de blob do Azure**|Bancos de dados de produção local copiados diretamente no armazenamento de blob do Azure para recuperação de desastres.<br/>![Backup e restauração](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [Backup e restauração do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-backup-and-restore.md).|
+|**Backup e restauração com o Serviço de armazenamento de blob do Azure**|Bancos de dados de produção local com backup diretamente no armazenamento de blob do Azure para recuperação de desastres.<br/>![Backup e restauração](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [Backup e Restauração do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-backup-and-restore.md).|
 
 ## Considerações importantes para HADR do SQL Server no Azure
 
@@ -74,7 +77,7 @@ VMs do Azure, armazenamento e rede têm características operacionais diferentes
 
 ### Nós de alta disponibilidade em um conjunto de disponibilidade
 
-Conjuntos de disponibilidade no Azure permitem que você coloque os nós de alta disponibilidade em FDs (Domínios de Falha) e UDs (Domínios de Atualização) separados. Para que VMs do Azure sejam colocadas no mesmo conjunto de disponibilidade, você deve implantá-las no mesmo serviço de nuvem. Somente nós no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Para obter mais detalhes, confira [Gerenciar a disponibilidade de máquinas virtuais](virtual-machines-manage-availability.md).
+Conjuntos de disponibilidade no Azure permitem que você coloque os nós de alta disponibilidade em FDs (Domínios de Falha) e UDs (Domínios de Atualização) separados. Para que VMs do Azure sejam colocadas no mesmo conjunto de disponibilidade, você deve implantá-las no mesmo serviço de nuvem. Somente nós no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Para obter mais informações, consulte [Gerenciar a Disponibilidade de Máquinas Virtuais](virtual-machines-manage-availability.md).
 
 ### Comportamento do cluster WSFC no sistema de rede do Azure
 
@@ -94,21 +97,21 @@ Considere o cenário onde um cluster de dois nós é criado e colocado online:
 
 1. Enquanto isso, o NODE1 pode enviar pacotes para o NODE2, mas NODE2 não pode responder. O NODE1 perde quorum e fecha o cluster.
 
-Esse cenário pode ser evitado atribuindo um estático endereço IP não usado, como um endereço IP de link local como 169.254.1.1, ao nome da rede de cluster para colocar o nome de rede do cluster online. Para simplificar esse processo, consulte [Configurando cluster de failover do Windows no Azure para grupos de disponibilidade AlwaysOn](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
+Esse cenário pode ser evitado atribuindo um estático endereço IP não usado, como um endereço IP de link local como 169.254.1.1, ao nome da rede de cluster para colocar o nome de rede do cluster online. Para simplificar esse processo, consulte [Configurando Cluster de Failover do Windows no Azure para Grupos de Disponibilidade AlwaysOn](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
-Para obter mais informações, consulte [Configurar grupos de disponibilidade do AlwaysOn no Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).
+Para obter mais informações, consulte [Configurar Grupos de Disponibilidade AlwaysOn no Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).
 
 ### Suporte do ouvinte do grupo de disponibilidade
 
 Ouvintes do grupo de disponibilidade têm suporte em VMs do Azure que executam o Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Esse suporte é possibilitado pelo uso de pontos de extremidade com balanceamento de carga, com DSR (Retorno de Servidor Direto) habilitado em VMs do Azure, que são nós do grupo de disponibilidade. Você deve seguir etapas especiais de configuração para que os ouvintes trabalhem para ambos os aplicativos clientes que estão em execução no Azure, bem como os que estão em execução local.
 
-Clientes devem se conectar ao ouvinte por meio de uma máquina que não está no mesmo serviço de nuvem que os nós do Grupo de disponibilidade AlwaysOn. Se o Grupo de disponibilidade abranger várias sub-redes do Azure (como uma implantação que cruza regiões do Azure), a cadeia de conexão do cliente deve incluir "MultisubnetFailover = True". Isso resulta em tentativas de conexão em paralelo às réplicas nas diferentes sub-redes. Para instruções de como configurar um ouvinte, consulte [Configurar um ouvinte ILB para grupos de disponibilidade AlwaysOn no Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+Clientes devem se conectar ao ouvinte por meio de uma máquina que não está no mesmo serviço de nuvem que os nós do Grupo de disponibilidade AlwaysOn. Se o Grupo de disponibilidade abranger várias sub-redes do Azure (como uma implantação que cruza regiões do Azure), a cadeia de conexão do cliente deve incluir "MultisubnetFailover = True". Isso resulta em tentativas de conexão em paralelo às réplicas nas diferentes sub-redes. Para obter instruções de como configurar um ouvinte, consulte [Configurar um ouvinte ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
 Você pode ainda se conectar a cada réplica de disponibilidade separadamente conectando-se diretamente à instância do serviço. Além disso, como os Grupos de disponibilidade AlwaysOn são compatíveis com versões anteriores com clientes de espelhamento de banco de dados, você pode se conectar a réplicas de disponibilidade, como parceiros de espelhamento, desde que as réplicas sejam configuradas de forma semelhante ao espelhamento do banco de dados:
 
 - Uma réplica primária e uma réplica secundária
 
-- A réplica secundária é configurada como ilegível (**opção Secundária legível** definida como **Não**)
+- A réplica secundária é configurada como ilegível (**opção Secundária Legível** definida como **Não**)
 
 Um exemplo de cadeia de conexão de cliente que corresponde à configuração deste espelhamento de banco de dados usando ADO.NET ou o SQL Server Native Client é ilustrado abaixo:
 
@@ -132,15 +135,15 @@ A replicação geográfica em discos do Azure não dá suporte ao arquivo de dad
 
 ## Próximas etapas
 
-Se você precisar criar uma máquina virtual do Azure com SQL Server, consulte [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-provision-sql-server.md).
+Se você precisar criar uma máquina virtual do Azure com SQL Server, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-provision-sql-server.md).
 
-Para obter o melhor desempenho do SQL Server em execução em uma VM do Azure, consulte o guia em [Práticas recomentadas para o desempenho do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md).
+Para obter o melhor desempenho do SQL Server em execução em uma VM do Azure, consulte as diretrizes em [Práticas Recomentadas para o Desempenho do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md).
 
-Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
+Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
 ### Outros recursos:
 
 - [Instalar uma nova floresta do Active Directory no Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Criar cluster WSFC para Grupos de Disponibilidade AlwaysOn em VM do Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

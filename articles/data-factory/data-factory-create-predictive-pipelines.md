@@ -1,28 +1,30 @@
 <properties 
-	pageTitle="Data Factory - Cria Pipelines de Previsão usando o Data Factory e o Aprendizado de Máquina | Microsoft Azure"
-	description="Descreve como criar pipelines de previsão usando a Azure Data Factory e o Aprendizado de Máquina do Azure"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Data Factory - Cria Pipelines de Previsão usando o Data Factory e o Aprendizado de Máquina | Microsoft Azure" 
+	description="Descreve como criar pipelines de previsão usando a Azure Data Factory e o Aprendizado de Máquina do Azure" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # Criar pipelines de previsão usando o Data Factory e o Aprendizado de Máquina do Azure 
 ## Visão geral
 
-O Azure Data Factory permite que você crie facilmente pipelines que utilizam o serviço Web do [aprendizado de máquina do Azure][azure-machine-learning] publicado para análise preditiva. Isso permite que você use o Azure Data Factory para gerenciar o processamento e movimentação de dados e executar a pontuação de lote usando o Aprendizado de Máquina do Azure. Para conseguir isso, você precisará fazer o seguinte:
+> [AZURE.NOTE]Consulte o artigo [Criar pipelines de previsão usando a atividade de Execução em Lotes de Aprendizado de Máquina do Azure](data-factory-azure-ml-batch-execution-activity.md) para saber mais sobre a nova atividade de execução de lote de aprendizado de máquina, que fornece mais flexibilidade do que a atividade de Pontuação de Lote coberta por este artigo.
+
+O Azure Data Factory permite que você crie facilmente pipelines que utilizam o serviço Web do [Aprendizado de Máquina do Azure][azure-machine-learning] publicado para análise preditiva. Isso permite que você use o Azure Data Factory para gerenciar o processamento e movimentação de dados e executar a pontuação de lote usando o Aprendizado de Máquina do Azure. Para conseguir isso, você precisará fazer o seguinte:
 
 1. Use a atividade **AzureMLBatchScoring**.
-2. **URI de solicitação** para a API de execução do lote. Você pode encontrar o URI de solicitação clicando no link **EXECUÇÃO EM LOTES** na página de serviços Web (mostrada abaixo).
+2. **URI de solicitação** para a API de Execução em Lotes. Você pode encontrar o URI de solicitação clicando no link **EXECUÇÃO EM LOTES** na página de serviços Web (mostrada abaixo).
 3. **Chave API** para o serviço Web do Aprendizado de Máquina do Azure publicado. Você pode encontrar essas informações clicando no serviço Web publicado. 
 
 	![Painel de Aprendizado de Máquina][machine-learning-dashboard]
@@ -53,7 +55,7 @@ Este exemplo usa o armazenamento do Azure para conter tanto os dados de entrada 
 		  }
 		}
 
-2. Criar a **entrada** de **tabelas** do Azure Data Factory. Observe que ao contrário de algumas outras tabelas de Data Factory, essas devem conter os valores **folderPath** e **fileName**. Você pode usar o particionamento para fazer com que cada execução em lote (cada fatia de dados) processe ou produza arquivos de entrada e saída exclusiva. Provavelmente, você precisará incluir algumas atividades upstream para transformar a entrada para o formato de arquivo CSV e colocá-lo na conta de armazenamento de cada fatia. Nesse caso, não inclua as configurações de **external** e **externalData** mostradas no exemplo a seguir e seu ScoringInputBlob será a tabela de saída de uma atividade diferente.
+2. Criar a **tabela** de **entrada** do Azure Data Factory. Observe que ao contrário de algumas outras tabelas de Data Factory, essas devem conter os valores **folderPath** e **fileName**. Você pode usar o particionamento para fazer com que cada execução em lote (cada fatia de dados) processe ou produza arquivos de entrada e saída exclusiva. Provavelmente, você precisará incluir algumas atividades upstream para transformar a entrada para o formato de arquivo CSV e colocá-lo na conta de armazenamento de cada fatia. Nesse caso, não inclua as configurações de **external** e **externalData** mostradas no exemplo a seguir e seu ScoringInputBlob será a tabela de saída de uma Atividade diferente.
 
 		{
 		  "name": "ScoringInputBlob",
@@ -92,7 +94,7 @@ Este exemplo usa o armazenamento do Azure para conter tanto os dados de entrada 
 	     }
 	 
 	Se o arquivo csv não tem a linha de cabeçalho, você poderá ver o seguinte erro: **Erro na atividade: erro ao ler a cadeia de caracteres. Token inesperado: StartObject. Caminho '', linha 1, posição 1**.
-3. Criar a **saída** de **tabelas** do Azure Data Factory. Este exemplo usa o particionamento para criar um caminho de saída exclusivo para cada execução de divisão. Sem isso, a atividade substituiria o arquivo.
+3. Criar a **tabela** de **saída** do Azure Data Factory. Este exemplo usa o particionamento para criar um caminho de saída exclusivo para cada execução de divisão. Sem isso, a atividade substituiria o arquivo.
 
 		{
 		  "name": "ScoringResultBlob",
@@ -198,7 +200,7 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
 	"typeProperties": {
     	"webServiceParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -218,7 +220,7 @@ Se você tiver quaisquer parâmetros de serviço Web adicionais, use a seção *
 Para usar um leitor do SQL do Azure por meio de um pipeline da Azure Data Factory, faça o seguinte:
 
 - Criar um **serviço vinculado do SQL do Azure**. 
-- Criar uma **tabela** de Data Factory que use **AzureSqlTable**.
+- Crie uma **tabela** de Data Factory que use **AzureSqlTable**.
 - Defina essa **tabela** da Data Factory como o **entrada** para o **AzureMLBatchScoringActivity** no pipeline JSON. 
 
 
@@ -228,7 +230,7 @@ Assim como com o leitor do SQL Azure, um gravador do SQL Azure também pode ter 
 
 | Entrada/Saída | A entrada é SQL do Azure | A entrada é Blob do Azure |
 | ------------ | ------------------ | ------------------- |
-| A saída é SQL do Azure | <p>O serviço Data Factory usa as informações da cadeia de conexão do serviço INPUT vinculado para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p><p>Se o leitor do SQL Azure e o gravador do SQL Azure em seu modelo Azure ML compartilham os mesmos parâmetros de serviço Web mencionados acima, está tudo bem. Se eles não compartilham os mesmos parâmetros de serviço Web, por exemplo, se o gravador do SQL Azure usa nomes de parâmetros: Database server name1, Database name1, Server user account name1, Server user account password1 (com "1" no final), você deve passar valores para esses parâmetros de serviço Web OUTPUT na seção webServiceParameters da atividade JSON.</p><p>Você pode passar valores para quaisquer outros parâmetros de serviço da Web usando a seção webServiceParameters da atividade JSON.</p> | <p>O serviço Data Factory usa as informações da cadeia de conexão do serviço vinculado OUTPUT para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p><p>Você pode passar valores para quaisquer outros parâmetros de serviço Web usando a seção webServiceParameters da atividade JSON. <p>O blob de entrada será usado como o local de entrada.</p> |
+| A saída é SQL do Azure | <p>O serviço Data Factory usa as informações da cadeia de conexão do serviço vinculado de ENTRADA para gerar os parâmetros de serviço Web com os nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p><p>Se o Leitor do SQL Azure e o Gravador do SQL Azure em seu modelo Azure ML compartilham os mesmos parâmetros de serviço Web mencionados acima, está tudo bem. Se eles não compartilham os mesmos parâmetros de serviço Web, por exemplo, se o gravador do SQL Azure usa nomes de parâmetros: Database server name1, Database name1, Server user account name1, Server user account password1 (com "1" no final), você deve passar valores para esses parâmetros de serviço Web de SAÍDA na seção webServiceParameters da atividade JSON.</p><p>Você pode passar valores para quaisquer outros parâmetros de serviço da Web usando a seção webServiceParameters da atividade JSON.</p> | <p>O serviço Data Factory usa as informações da cadeia de conexão do serviço vinculado de SAÍDA para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p><p>Você pode passar valores para quaisquer outros parâmetros de serviço Web usando a seção webServiceParameters da atividade JSON. <p>O blob de entrada será usado como o local de entrada.</p> |
 |A saída é o Blob do Azure | O serviço Data Factory usa as informações da cadeia de conexão do serviço de entrada vinculado para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure. | <p>Você deve passar valores para qualquer parâmetro de serviço Web usando a seção WebServiceParameters da atividade JSON.</p><p>Os blobs serão usados como locais de entrada e saída.</p> |
     
 
@@ -238,7 +240,7 @@ Assim como com o leitor do SQL Azure, um gravador do SQL Azure também pode ter 
 
 #### Blob do Azure como uma fonte
 
-Ao usar o módulo de leitor em uma experiência de Aprendizado de Máquina do Azure, você pode especificar os Blobs do Azure como uma entrada. Os arquivos no armazenamento de blob do Azure podem ser os arquivos de saída (por exemplo, 000000\_0) que são produzidos por um script de Pig e Hive em execução no HDInsight. O módulo Leitor permite que você leia arquivos (sem extensões), configurando a propriedade do **caminho para o diretório, blob ou contêiner** do módulo Leitor para apontar para a contêiner/pasta que contém os arquivos conforme mostrado abaixo. Observação: o asterisco (isto é, *) **especifica que todos os arquivos na pasta/contêiner (ou seja, data/aggregateddata/year=2014/month-6/*)** serão lidos como parte da experiência.
+Ao usar o módulo de leitor em uma experiência de Aprendizado de Máquina do Azure, você pode especificar os Blobs do Azure como uma entrada. Os arquivos no armazenamento de blob do Azure podem ser os arquivos de saída (por exemplo, 000000\_0) que são produzidos por um script de Pig e Hive em execução no HDInsight. O módulo Leitor permite que você leia arquivos (sem extensões), configurando a propriedade do **caminho para o diretório, blob ou contêiner** do módulo leitor para apontar para a contêiner/pasta que contém os arquivos, conforme mostrado abaixo. Observação: o asterisco (isto é, *) **especifica que todos os arquivos na pasta/contêiner (ou seja, data/aggregateddata/year=2014/month-6/*)** serão lidos como parte da experiência.
 
 ![Propriedades de Blob do Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -313,4 +315,4 @@ No exemplo JSON acima:
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

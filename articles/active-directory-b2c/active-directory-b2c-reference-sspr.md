@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: configurar a redefinição de senha por autoatendimento para os consumidores
@@ -36,4 +36,4 @@ Para testar, use o recurso "Executar agora" em qualquer política de entrada (qu
 
 > [AZURE.NOTE]As páginas de redefinição de senha por autoatendimento podem ser personalizadas usando o [recurso de identidade visual da empresa](active-directory-add-company-branding.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como monitorar o Cache Redis do Azure"
-	description="Saiba como monitorar a integridade e o desempenho de suas instâncias do Cache Redis do Azure"
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Como monitorar o Cache Redis do Azure" 
+	description="Saiba como monitorar a integridade e o desempenho de suas instâncias do Cache Redis do Azure" 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="sdanie"/>
 
 # Como monitorar o Cache Redis do Azure
@@ -24,7 +24,7 @@ Quando o diagnóstico de cache é habilitado, métricas para instâncias do Cach
 
 As métricas de cache são coletadas usando o comando [INFO](http://redis.io/commands/info) do Redis. Para obter mais informações sobre os diferentes comandos INFO usados para cada métrica de cache, consulte [Métricas disponíveis e intervalos de relatórios](#available-metrics-and-reporting-intervals).
 
-Para exibir as métricas de cache [procure](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings) sua instância de cache no [portal de visualização do Azure](https://portal.azure.com). As métricas para instâncias do Cache Redis do Azure são acessadas na folha do **Cache Redis**.
+Para exibir as métricas de cache [procure](cache-configure.md) sua instância de cache no [portal de visualização do Azure](https://portal.azure.com). As métricas para instâncias do Cache Redis do Azure são acessadas na folha do **Cache Redis**.
 
 ![Monitoramento][redis-cache-monitor-overview]
 
@@ -52,15 +52,13 @@ Clique no botão **Ativado** para habilitar o diagnóstico de cache e exibir a c
 
 Clique na seta à direita de **Conta de Armazenamento** para selecionar uma conta de armazenamento para armazenar dados de diagnóstico. Para obter o melhor desempenho, selecione uma conta de armazenamento na mesma região que seu cache.
 
-Use a lista suspensa **Retenção (dias)** para selecionar o período de retenção para os dados de diagnóstico. Você também pode digitar o número de dias desejado na caixa de texto na parte superior da lista.
-
 Quando as configurações de diagnóstico estiverem definidas, clique em **Salvar** para salvar a configuração. Observe que pode levar alguns minutos para que as alterações entrem em vigor.
 
 >[AZURE.IMPORTANT]Os caches na mesma região e assinatura compartilham a mesma conta de armazenamento de diagnóstico e, quando a configuração é alterada, se aplica a todos os caches na assinatura que estão nessa região.
 
 Para exibir as métricas armazenadas, examine as tabelas em sua conta de armazenamento com nomes que começam com `WADMetrics`. Para obter mais informações sobre como acessar as métricas armazenadas fora do portal de visualização, consulte o exemplo [Acessar dados de monitoramento do Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
->[AZURE.NOTE]Apenas as métricas que estão armazenadas na conta de armazenamento selecionada são exibidas no portal de visualização. Se você alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecerão disponíveis para download, mas não serão exibidos no portal de visualização e não serão removidos quando o intervalo do período de retenção expirar.
+>[AZURE.NOTE]Apenas as métricas que estão armazenadas na conta de armazenamento selecionada são exibidas no portal de visualização. Se você alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecerão disponíveis para download, mas não serão exibidos no portal de visualização.
 
 ## Métricas disponíveis e intervalos de relatórios
 
@@ -80,7 +78,7 @@ As métricas de cache são relatadas usando vários intervalos de relatórios, i
 | Sets | O número de operações set para o cache durante o intervalo de relatório especificado. Esse valor é a soma dos seguintes valores de informações do comando INFO all do Redis : `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` e `cmdstat_setnx`. |
 | Total de Operações | O número total de comandos processados pelo servidor de cache durante o intervalo de relatório especificado. Esse valor é mapeado para o comando INFO `total_commands_processed` do Redis. Observe que, quando o Cache Redis do Azure for usado somente para publicação/assinatura, não haverá métricas para `Cache Hits`, `Cache Misses`, `Gets` ou `Sets`, mas haverá métricas de `Total Operations` que refletem o uso do cache para operações de publicação/assinatura. |
 | Memória Usada | A quantidade de memória de cache usada, em MB, durante o intervalo de relatório especificado. Esse valor é mapeado para o comando INFO `used_memory` do Redis. |
-| CPU | A utilização da CPU do servidor do Cache Redis do Azure como um percentual durante o intervalo de relatório especificado. Esse valor é mapeado para o contador de desempenho `\Processor(_Total)% Processor Time` do sistema operacional. |
+| CPU | A utilização da CPU do servidor do Cache Redis do Azure como um percentual durante o intervalo de relatório especificado. Esse valor é mapeado para o contador de desempenho `\Processor(_Total)\% Processor Time` do sistema operacional. |
 | Cache Lido | A quantidade de dados lidos do cache, em KB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de interface de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. |
 | Gravação no Cache | A quantidade de dados gravados no cache, em KB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de interface de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. |
 
@@ -221,4 +219,4 @@ Para obter mais informações sobre os alertas no Azure, consulte [Receber notif
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

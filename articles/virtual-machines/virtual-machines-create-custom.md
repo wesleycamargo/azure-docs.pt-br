@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Crie uma máquina virtual personalizada no Azure"
-	description="Saiba como criar uma máquina virtual personalizada no Azure."
+	pageTitle="Criar uma máquina virtual personalizada | Microsoft Azure"
+	description="Saiba como criar uma máquina virtual personalizada no portal do Azure usando o modelo de implantação clássico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,13 +11,17 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="cynthn"/>
 
 #Como criar uma máquina virtual personalizada
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+
 
 Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que você cria usando a opção **Da Galeria** porque isso lhe dá mais opções de configuração do que a opção **Criação Rápida**. Essas opções incluem:
 
@@ -31,4 +35,4 @@ Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que vo
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Configurando o projeto Azure usando várias configurações de serviço"
-	description="Configurando o projeto Azure usando várias configurações de serviço"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Configurando o projeto Azure usando várias configurações de serviço"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Configurando um projeto do Azure
 
@@ -85,7 +85,7 @@ Uma função de trabalho pode ter qualquer número de pontos de extremidade HTTP
 
 ## Página Armazenamento Local
 
-Você pode usar a página de propriedades **Armazenamento Local** para reservar um ou mais recursos de armazenamento local para uma função. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual do Azure no qual uma instância de uma função está em execução. Para obter mais informações sobre como trabalhar com recursos de armazenamento local, consulte [Configurar recursos de armazenamento local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+Você pode usar a página de propriedades **Armazenamento Local** para reservar um ou mais recursos de armazenamento local para uma função. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual do Azure no qual uma instância de uma função está em execução. Para obter mais informações sobre como trabalhar com recursos de armazenamento local, consulte [Configurar recursos de armazenamento local](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ## Página Certificados
 
@@ -114,4 +114,4 @@ Para definir configurações que se aplicam a todo um projeto de serviço de nuv
 
 [Ferramentas do Azure para o Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

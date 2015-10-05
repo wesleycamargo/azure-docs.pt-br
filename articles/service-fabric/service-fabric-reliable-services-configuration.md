@@ -1,20 +1,20 @@
 <properties
    pageTitle="Configurando Serviços Confiáveis com estado"
-	description="Saiba como configurar Serviços Confiáveis com estado na Malha de Serviços."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="Saiba como configurar Serviços Confiáveis com estado na Malha de Serviços."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # Configurando Serviços Confiáveis com estado
 A configuração padrão dos Serviços Confiáveis com estado pode ser modificada alterando o arquivo "settings.xml" gerado na raiz do pacote do Visual Studio na pasta "Config" para cada serviço no aplicativo.
@@ -28,9 +28,6 @@ As configurações de segurança do replicador servem para proteger o canal de c
 
 ### Nome da seção
 ReplicatorSecurityConfig
-
-### Nomes da configuração
-Consulte [Segurança de replicação](../service-fabric/service-fabric-replication-security.md)
 
 ## Configuração do replicador
 As configurações do replicador servem para configurar o replicador que será responsável por tornar o estado do Serviço Confiável com estado altamente confiável por meio da replicação e da persistência do estado localmente. A configuração padrão é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre configurações adicionais que estão disponíveis para ajustar o replicador.
@@ -89,6 +86,5 @@ A configuração do OptimizeForLocalSSD é usada para desativar a gravação das
 O MaxRecordSizeInKB define o tamanho máximo de um registro que pode ser gravado pelo replicador no arquivo de log. Na maioria dos casos o tamanho padrão do registro de 1024 KB é ideal, porém, se o serviço estiver fazendo com que itens de dados maiores sejam parte das informações de estado, esse valor talvez precise ser aumentado. Há poucas vantagens em tornar o MaxRecordSizeInKB menor que 1024, já que registros menores usam apenas o espaço necessário para o registro menor. A expectativa é de que isso precise ser alterado somente em casos raros.
 
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas e permitem que um serviço use um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para o arquivo de log compartilhado, de forma que a contenção de movimentação do cabeçote seja reduzida. A expectativa é de que isso precise ser alterado somente em casos raros.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

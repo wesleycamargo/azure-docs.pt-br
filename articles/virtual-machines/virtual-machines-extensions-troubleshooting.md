@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Solucionando problemas de falhas de Extensões de VM"
+   pageTitle="Solucionando problemas de falhas de extensões de VM do Azure | Microsoft Azure"
    description="Saiba mais sobre como solucionar falhas da Extensão de VM do Azure"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -18,9 +19,12 @@
 
 # Solucionando problemas de falhas da Extensão da VM.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos.
+
 ## Visão geral dos Modelos do Gerenciador de Recursos do Azure.
 
 O Modelo do Gerenciador de Recursos do Azure permite que você especifique declarativamente a infraestrutura IaaS do Azure em linguagem Json definindo as dependências entre os recursos.
+
 
 Clique no artigo [Criando modelos de extensão](virtual-machines-extensions-authoring-templates.md) para saber mais sobre como criar modelos para uso de extensões.
 
@@ -80,4 +84,4 @@ Onde "publsher-name" corresponde ao tipo de extensão da saída de "azure vm get
 
 Depois que a extensão tiver sido removida, o modelo poderá ser executado novamente para executar os scripts na VM.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

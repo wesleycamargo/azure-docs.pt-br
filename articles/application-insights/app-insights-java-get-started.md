@@ -271,7 +271,7 @@ Exceções sem tratamento são coletadas automaticamente:
 
 Para coletar dados em outras exceções, você tem duas opções:
 
-* [Inserir chamadas a TrackException em seu código][apiexceptions]. 
+* [Inserir chamadas a trackException() em seu código][apiexceptions]. 
 * [Instalar o Agente Java em seu servidor](app-insights-java-agent.md). Especifique os métodos que deseja inspecionar.
 
 
@@ -381,7 +381,9 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 
 [Solucionar problemas de Java](app-insights-java-troubleshoot.md)
 
+## Próximas etapas
 
+Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
 <!--Link references-->
 
@@ -394,4 +396,4 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

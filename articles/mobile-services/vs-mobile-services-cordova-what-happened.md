@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="" 
-	description="Descreve o que aconteceu com seu projeto de Serviços Móveis do Azure no Cordova" 
+	pageTitle="O que aconteceu com o meu projeto Cordova (Serviços Conectados do Visual Studio) | Microsoft Azure" 
+	description="Descreve o que aconteceu com nosso projeto do Azure Cordova após a adição dos Serviços Móveis do Azure usando os Serviços Conectados do Visual Studio" 
 	services="mobile-services" 
-	documentationCenter="" 
+	documentationCenter="na" 
 	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
@@ -10,13 +10,13 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="09/17/2015" 
 	ms.author="patshea"/>
 
-# O que aconteceu com meu projeto?
+# O que aconteceu com o meu projeto do Azure Cordova após a adição dos Serviços Móveis do Azure usando os Serviços Conectados do Visual Studio?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
@@ -39,4 +39,4 @@ Em `services\mobileServices\settings`, um novo arquivo JavaScript (.js) com um *
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

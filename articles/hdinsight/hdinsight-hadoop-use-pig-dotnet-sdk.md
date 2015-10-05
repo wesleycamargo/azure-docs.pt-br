@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight
@@ -43,13 +43,13 @@ Para autenticar o aplicativo no Azure HDInsight, você deve criar um certificado
 
 Para obter instruções sobre como fazer isso, confira [Criar um certificado autoassinado](http://go.microsoft.com/fwlink/?LinkId=511138).
 
-> [AZURE.NOTE]Ao criar o certificado, certifique-se de observar o nome amigável usado, pois ele será usado posteriormente.
+> [AZURE.NOTE] Ao criar o certificado, certifique-se de observar o nome amigável usado, pois ele será usado posteriormente.
 
 ##<a id="subscriptionid"></a>Localizar sua ID de assinatura
 
 Cada assinatura do Azure é identificada por um valor GUID, conhecido como a ID da assinatura. Use as etapas a seguir para encontrar esse valor.
 
-1. Visite o [portal de visualização do Azure] [portal de visualização].
+1. Visite o [portal de visualização do Azure][portal de visualização].
 
 2. Na barra à esquerda do portal, selecione __PROCURAR TUDO__ e selecione __Assinaturas__ na folha __Procurar__.
 
@@ -235,4 +235,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 [portal de visualização]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

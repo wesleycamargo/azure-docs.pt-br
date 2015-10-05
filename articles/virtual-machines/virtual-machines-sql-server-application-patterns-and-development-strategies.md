@@ -1,12 +1,13 @@
-<properties 
-	pageTitle="Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure"
-	description="Este artigo aborda uma série de padrões de aplicativos relacionados ao SQL Server em execução em Máquinas Virtuais do Azure. Ele fornece aos desenvolvedores e arquitetos de soluções uma base para design e arquitetura de aplicativos de qualidade."
+<properties
+	pageTitle="Padrões de aplicativo do SQL Server em VMs | Microsoft Azure"
+	description="Este artigo aborda os padrões de aplicativo para o SQL Server em máquinas virtuais do Azure. Ele fornece aos desenvolvedores e arquitetos de soluções uma base para design e arquitetura de aplicativos de qualidade."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="Selcin"
 	manager="jeffreyg"
-	editor="monicar" />
-<tags 
+	editor="monicar"
+	tags="azure-service-management,azure-resource-manager" />
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -276,13 +277,13 @@ No padrão de aplicativo híbrido de n camadas, você pode implementar o fluxo d
 1. Planeje os recursos e a configuração necessários na plataforma do Azure, como as contas de armazenamento e máquinas virtuais.
 
 1. Configurar a conectividade de rede entre a rede corporativa local e a [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar a conexão entre a rede corporativa local e uma máquina virtual no Azure, use um dos dois métodos a seguir:
-									
+
 	1. Estabelecer uma conexão entre locais e o Azure por meio de pontos de extremidade públicos em uma máquina virtual no Azure. Esse método fornece uma configuração fácil e permite que você use a autenticação do SQL Server em sua máquina virtual. Além disso, configure a ACL (lista de controle de acesso) da rede nas portas públicas para permitir o acesso a determinados endereços IP. Para obter mais informações, consulte [Gerenciar a ACL em um ponto de extremidade](virtual-machines-set-up-endpoints.md/#manage-the-acl-on-an-endpoint).
-	
+
 	1. Estabelecer uma conexão entre locais e o Azure através do túnel da VPN (rede virtual privada) do Azure. Esse método permite a extensão de políticas de domínio a uma máquina virtual no Azure. Além disso, você pode configurar regras de firewall e usar a autenticação do Windows em sua máquina virtual. Atualmente, o Azure dá suporte a conexões seguras de VPN site a site e VPN site a ponto:
-	
+
 		- Com a conexão segura site a site, você pode estabelecer a conectividade de rede entre sua rede local e sua rede virtual no Azure. É recomendável para conectar o seu ambiente de data center local ao Azure.
-		
+
 		- Com a conexão segura ponto a site, você pode estabelecer a conectividade de rede entre sua rede virtual no Azure e seus computadores virtuais em execução em qualquer lugar. É recomendável principalmente para fins de desenvolvimento e teste.
 
 	Para obter informações sobre como se conectar ao SQL Server no Azure, consulte [Conectar-se a uma máquina virtual do SQL Server no Azure](virtual-machines-sql-server-connectivity.md).
@@ -292,9 +293,9 @@ No padrão de aplicativo híbrido de n camadas, você pode implementar o fluxo d
 1. Dependendo das necessidades do seu aplicativo, você pode implementar um dos três cenários comuns a seguir:
 
 	1. Você pode manter seu servidor Web, servidor de aplicativos e dados não confidenciais em um servidor de banco de dados no Azure, enquanto mantém os dados confidenciais localmente.
-	
+
 	1. Você pode manter seu servidor Web e servidor de aplicativos localmente, enquanto mantém o servidor de banco de dados em uma máquina virtual no Azure.
-	
+
 	1. Você pode manter seu servidor de banco de dados, servidor Web e servidor de aplicativos localmente, enquanto mantém as réplicas de banco de dados em máquinas virtuais no Azure. Essa configuração permite que servidores Web locais ou aplicativos de geração de relatórios acessem as réplicas de banco de dados no Azure. Portanto, você pode reduzir a carga de trabalho em um banco de dados local. Nós recomendamos que você implemente este cenário para cargas de trabalho de leitura pesadas e para fins de desenvolvimento. Para obter informações sobre a criação de réplicas de banco de dados no Azure, consulte os Grupos de Disponibilidade AlwaysOn em [Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## Comparando estratégias de desenvolvimento da Web no Azure
@@ -322,4 +323,4 @@ Para saber mais sobre como escolher entre esses métodos de programação, consu
 
 Para obter informações sobre a execução do SQL Server em máquinas virtuais do Azure, confira [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

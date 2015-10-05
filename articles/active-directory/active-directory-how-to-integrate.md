@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Como realizar a integração ao Active Directory do Azure"
+   pageTitle="Como realizar a integração ao Active Directory do Azure | Microsoft Azure"
    description="Um guia de benefícios e recursos para integração com o Active Directory do Azure."
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Integração ao Active Directory do Azure
@@ -90,4 +90,4 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 
 [Conectar usuários usando o AD do Azure](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

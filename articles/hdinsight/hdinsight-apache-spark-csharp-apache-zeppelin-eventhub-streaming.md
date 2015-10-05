@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Usar Hubs de Eventos do Azure com o Apache Spark no HDInsight para processar dados de streaming | Microsoft Azure"
-	description="Instruções passo a passo sobre como enviar dados de um fluxo para o Hub de Eventos do Azure e receber esses eventos no Spark usando um bloco de notas Zeppelin"
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
+	pageTitle="Usar Hubs de Eventos do Azure com o Apache Spark no HDInsight para processar dados de streaming | Microsoft Azure" 
+	description="Instruções passo a passo sobre como enviar dados de um fluxo para o Hub de Eventos do Azure e receber esses eventos no Spark usando um bloco de notas Zeppelin" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2015" 
 	ms.author="nitinme"/>
 
 
@@ -74,11 +74,27 @@ Você deve ter o seguinte:
 
 Nesta seção, você criará um bloco de notas [Zeppelin](https://zeppelin.incubator.apache.org) para receber mensagens do Hub de Eventos no cluster Spark no HDInsight.
 
+### Alocando recursos para Zeppelin para aplicativo de streaming
+
+Você deve fazer as seguintes considerações ao criar um aplicativo de streaming usando Zeppelin:
+
+* **Partições do hub de evento e núcleos alocados para Zeppelin**. Nas etapas anteriores, você criou um Hub de Eventos com algumas partições. No aplicativo de streaming de Zeppelin que você criar abaixo, você especificará novamente o mesmo número de partições. Para transmitir com êxito os dados do Hub de Eventos usando o Zeppelin, o número de núcleos que você alocar para o Zeppelin deve ser duas vezes maior que o número de partições no Hub de Eventos.
+* **O número mínimo de núcleos a alocar para o Zeppelin**. No aplicativo de streaming que você criar abaixo, você cria uma tabela temporária na qual armazena as mensagens que são transmitidas por seu aplicativo. Você, em seguida, usa uma instrução Spark SQL para ler mensagens desta tabela temporária. Para poder executar a instrução do Spark SQL, certifique-se de ter pelo menos dois núcleos alocados para o Zeppelin.
+
+Se você combinar os dois requisitos anteriores, eis o que você obtém:
+
+* O número mínimo de núcleos que você deve alocar para o Zeppelin é 2.
+* O número de núcleos alocados sempre deve ser duas vezes o número de partições no Hub de Eventos. 
+
+Para obter instruções sobre como alocar recursos em um cluster do Spark, consulte [Gerenciar os recursos de cluster do Apache Spark no HDInsight](hdinsight-apache-spark-resource-manager.md).
+
+### Criar um aplicativo de streaming usando o Zeppelin
+
 1. No [Portal de Visualização do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
 2. Inicie o bloco de anotações do Zeppelin. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de notas Zeppelin**. Quando solicitado, insira as credenciais de administrador para o cluster. Siga as instruções na página que se abre para iniciar o bloco de anotações.
 
-2. Crie um novo bloco de anotações. No painel de cabeçalho, clique em **Bloco de Anotações** e na lista suspensa, clique em **Criar Nova Anotação**.
+2. Crie um novo bloco de anotações. No painel de cabeçalho, clique em **Bloco de Anotações** e, na lista suspensa, clique em **Criar Nova Anotação**.
 
 	![Criar um novo bloco de anotações do Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "Criar um novo bloco de anotações do Zeppelin")
 
@@ -89,6 +105,8 @@ Nesta seção, você criará um bloco de notas [Zeppelin](https://zeppelin.incub
 	![Status do bloco de anotações do Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Status do bloco de anotações do Zeppelin")
 
 4. No parágrafo vazio criado por padrão no novo bloco de notas, cole o trecho a seguir e substitua os espaços reservados para usar a configuração do hub de eventos. Neste trecho, você recebe o fluxo do Hub de Eventos e o registra em uma tabela temporária, chamada **mytemptable**. Na próxima seção, iniciaremos o aplicativo do remetente. Em seguida, você pode ler os dados diretamente da tabela.
+
+	> [AZURE.NOTE]No trecho de código a seguir, **eventhubs.checkpoint.dir** deve ser definido como um diretório em seu contêiner de armazenamento padrão. Se o diretório não existe, o aplicativo streaming o cria. Você pode especificar o caminho completo para o diretório como "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**" ou o caminho relativo para o diretório, como "**/mycheckpointdir**".
 
 		import org.apache.spark.streaming.{Seconds, StreamingContext}
 		import org.apache.spark.streaming.eventhubs.EventHubsUtils
@@ -170,4 +188,4 @@ Instruções sobre como executar essas etapas e um exemplo de aplicativo de stre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

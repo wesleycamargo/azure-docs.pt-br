@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/07/2015"
+   ms.date="09/22/2015"
    ms.author="joliang"/>
 
-# Parceiros de solução do SQL Data Warehouse #
+# Parceiros de solução do SQL Data Warehouse
 
 Para criar uma solução completa de data warehouse, você pode escolher dentre uma ampla variedade de ferramentas líderes do setor. Este artigo lista as empresas parceiras que têm soluções para o SQL Data Warehouse.
 
@@ -46,6 +46,7 @@ Para criar uma solução completa de data warehouse, você pode escolher dentre 
 | ![Yellowfin][21] |**Yellowfin**<br>A Yellowfin é uma fornecedora de BI na nuvem, classificada entre as tops por seus painéis e relatórios ad hoc pela The BI Survey (pesquisa sobre BI) da BARC. Conecte-se ao Azure SQL Data Warehouse, em seguida, crie e compartilhe relatórios e painéis maravilhosos com os premiados recursos colaborativos de BI e informações de localização. | [Mais][yellowfin_more] |
 
 ## Próximas etapas
+
 Para saber mais sobre a integração ao SQL Data Warehouse, consulte[Criar soluções integradas com o SQL Data Warehouse][].
 
 
@@ -100,4 +101,4 @@ Para saber mais sobre a integração ao SQL Data Warehouse, consulte[Criar solu�
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

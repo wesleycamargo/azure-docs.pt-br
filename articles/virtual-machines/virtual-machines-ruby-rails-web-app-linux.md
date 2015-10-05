@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Aplicativo Web Ruby on Rails no Azure usando máquinas virtuais do Linux" 
-	description="Hospedar um site da Web baseado no Ruby on Rails no Azure usando uma máquina virtual do Linux." 
-	services="virtual-machines" 
-	documentationCenter="ruby" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+<properties
+	pageTitle="Hospedar um site Ruby on Rails em uma VM do Linux | Microsoft Azure"
+	description="Configurar e hospedar um site da Web baseado no Ruby on Rails no Azure usando uma máquina virtual do Linux."
+	services="virtual-machines"
+	documentationCenter="ruby"
+	authors="MikeWasson"
+	manager="wpickett"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="web"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="06/09/2015"
 	ms.author="mwasson"/>
 
 
@@ -25,6 +26,8 @@
 Esse tutorial descreve como hospedar um site Ruby on Rails no Azure usando uma máquina virtual do Linux.
 
 Este tutorial foi validado usando o Ubuntu Server 14.04 LTS. Se você usar uma distribuição Linux diferente, talvez seja necessário modificar as etapas para instalar o Rails.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação
 
 ## Criar uma VM do Azure
 
@@ -50,8 +53,8 @@ Depois que a VM for provisionada, você pode obter o ponto de extremidade do SSH
 
 ## Instalar o Ruby on Rails
 
-1. Use SSH para conectar-se à VM. 
-	
+1. Use SSH para conectar-se à VM.
+
 2. Na sessão de SSH, use os seguintes comandos para instalar o Ruby na VM:
 
 		sudo apt-get update -y
@@ -170,6 +173,5 @@ Para usar os serviços do Azure de seu aplicativo Ruby, consulte:
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

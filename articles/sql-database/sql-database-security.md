@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="07/14/2015"
+   ms.date="09/22/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -34,19 +34,28 @@ Todas as conexões do Banco de Dados SQL do Azure exigem criptografia (SSL/TLS) 
 
 ## Autenticação
 
-A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. O Banco de Dados SQL atualmente oferece suporte à Autenticação do SQL com um nome de usuário e uma senha.
+A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. O Banco de Dados SQL dá suporte a dois tipos de autenticação:
 
-Quando você criou o servidor lógico do banco de dados, especificou um logon de "administrador de servidor" com um nome de usuário e uma senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo".
+ - **Autenticação do SQL**, que usa um nome de usuário e senha
+ - **Autenticação do Active Directory do Azure**, que usa identidades gerenciadas pelo Active Directory do Azure e tem suporte para domínios gerenciados e ingressados
 
-No entanto, como uma prática recomendada, seu aplicativo deve usar uma conta diferente para autenticação. Dessa forma, você pode limitar as permissões concedidas ao aplicativo e reduzir os riscos de atividades mal-intencionadas, caso o código do aplicativo seja vulnerável a um ataque de injeção de SQL. A abordagem recomendada é criar um [usuário de banco de dados independente](https://msdn.microsoft.com/library/ff929188), que permite que o aplicativo se autentique diretamente em um único banco de dados com um nome de usuário e uma senha. É possível criar um usuário de banco de dados independente executando o T-SQL a seguir enquanto estiver conectado ao seu banco de dados do usuário com o logon de administrador do servidor:
+Quando você criou o servidor lógico do banco de dados, especificou um logon de "administrador de servidor" com um nome de usuário e uma senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo". Se desejar usar a Autenticação do Active Directory do Azure, você deve criar outro administrador de servidor chamado “admin do AD do Azure”, que tenha permissão para administrar usuários e grupos do AD do Azure. Este administrador também pode executar todas as operações executadas por um administrador de servidor comum. Veja [Conectando-se ao Banco de Dados SQL usando a Autenticação do Active Directory do Azure](sql-database-aad-authentication.md) para ver um passo a passo de como criar um administrador do AD do Azure para habilitar a Autenticação do Active Directory do Azure.
+
+Como uma prática recomendada, seu aplicativo deve usar uma conta diferente para autenticação. Dessa forma, você pode limitar as permissões concedidas ao aplicativo e reduzir os riscos de atividades mal-intencionadas, caso o código do aplicativo seja vulnerável a um ataque de injeção de SQL. A abordagem recomendada é criar um [usuário de banco de dados independente](https://msdn.microsoft.com/library/ff929188), o que permite que o seu aplicativo seja autenticado diretamente em um banco de dados individual. Você pode criar um usuário de banco de dados independente que usa a Autenticação do SQL executando o seguinte comando T-SQL quando estiver conectado ao banco de dados do usuário com o logon de administrador do servidor:
 
 ```
-CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+CREATE USER ApplicationUser WITH PASSWORD = 'strong_password'; -- SQL Authentication
 ```
 
-A cadeia de conexão do aplicativo deve especificar esse nome de usuário e senha, em vez do logon de administrador do servidor, para se conectar ao banco de dados.
+Se você criou um administrador do AD do Azure, é possível criar um usuário de banco de dados independente que usa a autenticação do Active Directory do Azure executando o seguinte comando T-SQL quando estiver conectado ao banco de dados de usuário como o administrador do AD do Azure:
 
-Para saber mais sobre como fazer a autenticação em um Banco de Dados SQL, confira [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/ee336235).
+```
+CREATE USER [Azure_AD_principal_name | Azure_AD_group_display_name] FROM EXTERNAL PROVIDER; -- Azure Active Directory Authentication
+```
+
+Em ambos os casos, a cadeia de conexão do aplicativo deve especificar essas credenciais de usuário, em vez do logon de administrador do servidor, para se conectar ao banco de dados.
+
+Para saber mais sobre como fazer a autenticação em um Banco de Dados SQL, confira [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
 
 
 ## Autorização
@@ -98,4 +107,4 @@ A Auditoria e o rastreamento dos eventos de banco de dados podem ajudar você a 
 Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a atender a vários requisitos de conformidade de segurança, o Banco de Dados SQL do Azure também participa de auditorias regulares e foi certificado em relação a vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](http://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](http://azure.microsoft.com/support/trust-center/services/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

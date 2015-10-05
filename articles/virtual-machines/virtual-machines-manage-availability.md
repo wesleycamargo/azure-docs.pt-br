@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Gerenciar a disponibilidade de máquinas virtuais | Microsoft Azure"
+	pageTitle="Gerenciar a disponibilidade de VMs | Microsoft Azure"
 	description="Saiba como usar várias máquinas virtuais para garantir a alta disponibilidade do aplicativo do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,7 +17,7 @@
 	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
-#Gerenciar a disponibilidade de máquinas virtuais
+# Gerenciar a disponibilidade de máquinas virtuais
 
 ## Compreender a manutenção planejada versus a não planejada
 Há dois tipos de eventos de plataforma Microsoft Azure que podem afetar a disponibilidade das máquinas virtuais: manutenção planejada e manutenção não planejada.
@@ -69,4 +70,4 @@ Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilida
 [Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Como configurar um Conjunto de Disponibilidade para máquinas virtuais]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

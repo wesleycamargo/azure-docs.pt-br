@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Visualização Active Directory B2C do Azure: perguntas frequentes
@@ -105,4 +105,4 @@ Não podemos fornecer informações sobre a data de disponibilidade geral no mom
 
 Verifique também [limitações e restrições atuais da visualização](active-directory-b2c-limitations.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

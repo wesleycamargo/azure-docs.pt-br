@@ -1,23 +1,40 @@
-<properties title="Configuring Oracle Data Guard for Azure" pageTitle="Configurando o Oracle Data Guard para Azure" description="Percorra um tutorial para configurar e implementar o Oracle Data Guard em máquinas virtuais do Azure para alta disponibilidade e recuperação de desastres." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Configurando o Oracle Data Guard em VMs | Microsoft Azure"
+	description="Acompanhe um tutorial para configurar e implementar o Oracle Data Guard em máquinas virtuais do Azure para alta disponibilidade e recuperação de desastres."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-service-management"/>
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
+
 #Configurando o Oracle Data Guard para Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso criado com o modelo de implantação clássico.
+
 Este tutorial demonstra como configurar e implementar o Oracle Data Guard em ambiente de máquinas virtuais do Azure para alta disponibilidade e recuperação de desastres. O tutorial concentra-se na replicação unidirecional para bancos de dados não Oracle RAC.
 
 O Oracle Data Guard dá suporte à proteção de dados e recuperação de desastres para o banco de dados Oracle. É uma solução simples, pronta para uso e de alto desempenho para recuperação de desastres, proteção de dados e alta disponibilidade para todo o banco de dados Oracle.
 
-Este tutorial presume que você já tem conhecimento teórico e prático sobre os conceitos de alta disponibilidade e recuperação de desastre do Oracle Database. Para obter informações, consulte o [Site da Oracle](http://www.oracle.com/technetwork/database/features/availability/index.html) e também o [Guia de administração e conceitos do Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17022/create_ps.htm).
+Este tutorial presume que você já tem conhecimento teórico e prático sobre os conceitos de alta disponibilidade e recuperação de desastre do Oracle Database. Para obter informações, veja o [Site da Oracle](http://www.oracle.com/technetwork/database/features/availability/index.html) e também o [Guia de administração e conceitos do Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17022/create_ps.htm).
 
 Além disso, o tutorial presume que você já tenha implementado os seguintes pré-requisitos:
 
-- Você já revisou a seção de Considerações de alta disponibilidade e recuperação de desastres no tópico [Imagens de máquina virtual Oracle – diversas considerações](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md). Observe que o Azure dá suporte a instâncias de banco de dados Oracle autônomas, mas não a Oracle RAC (Oracle Real Application Clusters) ao mesmo tempo.
+- Você já acompanhou a seção Considerações sobre alta disponibilidade e recuperação de desastres no tópico [Imagens de Máquina Virtual do Oracle – Várias considerações](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md). Observe que o Azure dá suporte a instâncias de banco de dados Oracle autônomas, mas não a Oracle RAC (Oracle Real Application Clusters) ao mesmo tempo.
 
-- Você criou duas VMs (máquinas virtuais) no Azure usando a mesma imagem Oracle Enterprise Edition fornecida pela plataforma no Windows Server. Para obter informações, consulte [Criando uma máquina virtual do Oracle Database 12c no Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) e [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Certifique-se de que as máquinas virtuais estejam no [mesmo serviço de nuvem](virtual-machines-load-balance.md) e na mesma [rede virtual](azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam acessar umas às outras por um endereço IP privado persistente. Além disso, é recomendável colocar as VMs no mesmo [conjunto de disponibilidade](virtual-machines-manage-availability.md) para permitir que o Azure coloque-as em domínios de falha e domínios de atualização separados. Observe que o Oracle Data Guard só está disponível com o Oracle Database Enterprise Edition. Cada computador deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco. Para obter as informações mais atualizadas sobre os tamanhos de VM fornecidos pela plataforma, consulte [Tamanhos de máquina virtual para Azure](http://msdn.microsoft.com/library/dn197896.aspx). Se você precisar de volume de disco adicional para suas VMs, pode anexar discos adicionais. Para obter informações, consulte [Como anexar um disco de dados a uma máquina virtual](storage-windows-attach-disk.md).
+- Você criou duas VMs (máquinas virtuais) no Azure usando a mesma imagem Oracle Enterprise Edition fornecida pela plataforma no Windows Server. Para obter informações, veja [Criando uma máquina virtual do Oracle Database 12c no Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) e [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Verifique se as Máquinas Virtuais estão no [mesmo serviço de nuvem](virtual-machines-load-balance.md) e na mesma [Rede Virtual](azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente. Além disso, é recomendável colocar as VMs no mesmo [conjunto de disponibilidade](virtual-machines-manage-availability.md) para permitir que o Azure as coloque em domínios de falha e domínios de atualização separados. Observe que o Oracle Data Guard só está disponível com o Oracle Database Enterprise Edition. Cada computador deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco. Para obter as informações mais atualizadas sobre os tamanhos de VM fornecidos pela plataforma, veja [Tamanhos de máquina virtual para o Azure](http://msdn.microsoft.com/library/dn197896.aspx). Se você precisar de volume de disco adicional para suas VMs, pode anexar discos adicionais. Para obter informações, veja [Como anexar um disco de dados a uma máquina virtual](storage-windows-attach-disk.md).
 
 - Você definiu os nomes de máquina virtual como "Machine1" para a VM primária e "Machine2" para a VM em espera no Portal do Azure.
 
-- Você definiu a variável de ambiente **ORACLE\_HOME** para apontar para o mesmo caminho de instalação raiz do Oracle nas máquinas virtuais principal e em espera, como `C:\OracleDatabase\product\11.2.0\dbhome_1\database`.
+- Você definiu a variável de ambiente **ORACLE\_HOME** para apontar para o mesmo caminho de instalação raiz do Oracle nas Máquinas Virtuais primária e em espera, como `C:\OracleDatabase\product\11.2.0\dbhome_1\database`.
 
-- Você faz logon no Windows Server como um membro do grupo **Administradores** ou um membro do grupo **ORA\_DBA**.
+- Faça logon no Windows Server como um membro do grupo **Administradores** ou um membro do grupo **ORA\_DBA**.
 
 Neste tutorial, você irá:
 
@@ -68,7 +85,7 @@ Criar um banco de dados físico em espera
 >| **Memória** | Mínimo de 2 GB | Mínimo de 2 GB |
 >| **Espaço em disco** | Mínimo de 5 GB | Mínimo de 5 GB |
 
-Para versões subsequentes do Oracle Database e do Oracle Data Guard, pode haver algumas alterações adicionais que você precisa implementar. Para as informações específicas de versão mais atualizadas, consulte a documentação do [Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) e do [Oracle Database](http://www.oracle.com/us/corporate/features/database-12c/index.html) no site da Oracle.
+Para versões subsequentes do Oracle Database e do Oracle Data Guard, pode haver algumas alterações adicionais que você precisa implementar. Para obter as informações mais atualizadas específicas de versão, veja a documentação do [Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) e do [Oracle Database](http://www.oracle.com/us/corporate/features/database-12c/index.html) no site da Oracle.
 
 ##Implementar o ambiente de banco de dados físico em espera
 ### 1\. Criar um banco de dados primário
@@ -77,17 +94,17 @@ Para versões subsequentes do Oracle Database e do Oracle Data Guard, pode haver
 - Conecte-se ao banco de dados como o usuário SYS com a função SYSDBA no prompt de comando SQL*Plus e execute a instrução a seguir para ver o nome do banco de dados:
 
 		SQL> select name from v$database;
-		
+
 		The result will display like the following:
-		
+
 		NAME
 		---------
 		TEST
 - Em seguida, consulte os nomes dos arquivos de banco de dados no modo de exibição do sistema dba\_data\_files:
 
-		SQL> select file_name from dba_data_files; 
-		FILE_NAME 
-		------------------------------------------------------------------------------- 
+		SQL> select file_name from dba_data_files;
+		FILE_NAME
+		-------------------------------------------------------------------------------
 		C:\ <YourLocalFolder>\TEST\USERS01.DBF
 		C:\ <YourLocalFolder>\TEST\UNDOTBS01.DBF
 		C:\ <YourLocalFolder>\TEST\SYSAUX01.DBF
@@ -116,9 +133,9 @@ Para implementar um banco de dados do estado de espera, é necessário habilitar
 
 Para poder enviar e aplicar os logs arquivados do servidor primário para o servidor em espera, a senha sys deve ser idêntica nos servidores primários e em espera. É por isso que você cria um arquivo de senha no banco de dados primário e copiá-o para o servidor em espera.
 
->[AZURE.IMPORTANT]Ao usar o banco de dados Oracle 12c, há um novo usuário, **SYSDG**, que você pode usar para administrar o Oracle Data Guard. Para obter mais informações, consulte [Alterações no Oracle Database Versão 12c](http://docs.oracle.com/cd/E16655_01/server.121/e10638/release_changes.htm).
+>[AZURE.IMPORTANT]Ao usar o Oracle Database 12c, há um novo usuário, **SYSDG**, que você pode usar para administrar o Oracle Data Guard. Para obter mais informações, veja [Alterações no Oracle Database Versão 12c](http://docs.oracle.com/cd/E16655_01/server.121/e10638/release_changes.htm).
 
-Além disso, certifique-se de que o ambiente ORACLE\_HOME já esteja definido em Machine1. Caso contrário, defina-o como uma variável de ambiente usando a caixa de diálogo Variáveis de Ambiente. Para acessar essa caixa de diálogo, inicie o utilitário **Sistema** clicando duas vezes no ícone Sistema no **Painel de Controle**; clique na guia **Avançado** e escolha **Variáveis de Ambiente**. Clique no botão **Novo** sob **Variáveis de Sistema** para definir as variáveis de ambiente. Depois de configurar as variáveis de ambiente, feche o prompt de comando do Windows existente e abra um novo.
+Além disso, certifique-se de que o ambiente ORACLE\_HOME já esteja definido em Machine1. Caso contrário, defina-o como uma variável de ambiente usando a caixa de diálogo Variáveis de Ambiente. Para acessar essa caixa de diálogo, inicie o utilitário **Sistema** clicando duas vezes no ícone Sistema no **Painel de Controle**; em seguida, clique na guia **Avançado** e escolha **Variáveis de Ambiente**. Clique no botão **Novo** em **Variáveis de Sistema** para definir as variáveis de ambiente. Depois de configurar as variáveis de ambiente, feche o prompt de comando do Windows existente e abra um novo.
 
 Execute a seguinte instrução para trocar para o diretório Oracle\_Home, como C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\database.
 
@@ -142,8 +159,8 @@ Execute a seguinte instrução no prompt de comando SQL*PLUS na Machine1. O arqu
 	3         ONLINE  C:<YourLocalFolder>\TEST\REDO03.LOG               NO
 	2         ONLINE  C:<YourLocalFolder>\TEST\REDO02.LOG               NO
 	1         ONLINE  C:<YourLocalFolder>\TEST\REDO01.LOG               NO
-	Next, query the v$log system view, displays log file information from the control file. 
-	SQL> select bytes from v$log; 
+	Next, query the v$log system view, displays log file information from the control file.
+	SQL> select bytes from v$log;
 	BYTES
 	----------
 	52428800
@@ -182,7 +199,7 @@ Em seguida, habilite o arquivamento executando as seguintes instruções para co
 Primeiro, faça logon como sysdba. No prompt de comando do Windows, execute:
 
 	sqlplus /nolog
-	
+
 	connect / as sysdba
 
 Em seguida, desligue o banco de dados no prompt de comando SQL*Plus:
@@ -205,13 +222,13 @@ Em seguida, execute o comando de montagem de inicialização para montar o banco
 
 Em seguida, execute:
 
-	SQL> alter database archivelog; 
+	SQL> alter database archivelog;
 	Database altered.
 
 Em seguida, execute a instrução Alter do banco de dados com a cláusula Open para disponibilizar o banco de dados para uso normal:
 
 	SQL> alter database open;
-	
+
 	Database altered.
 
 #### Definir parâmetros de inicialização do banco de dados primário
@@ -224,16 +241,16 @@ Você pode controlar o ambiente do Data Guard usando os parâmetros no arquivo I
 	File created.
 
 Em seguida, você precisa editar o arquivo para adicionar os parâmetros em espera. Para fazer isso, abra o arquivo INITTEST.ORA no local de %ORACLE\_HOME%\\database. Em seguida, anexe as instruções a seguir ao arquivo INITTEST.ora. Observe que a convenção de nomenclatura para o arquivo INIT.ORA é INIT< YourDatabaseName >.ORA.
-	
-	db_name='TEST' 
-	db_unique_name='TEST' 
+
+	db_name='TEST'
+	db_unique_name='TEST'
 	LOG_ARCHIVE_CONFIG='DG_CONFIG=(TEST,TEST_STBY)'
 	LOG_ARCHIVE_DEST_1= 'LOCATION=C:\OracleDatabase\archive   VALID_FOR=(ALL_LOGFILES,ALL_ROLES) DB_UNIQUE_NAME=TEST'
 	LOG_ARCHIVE_DEST_2= 'SERVICE=TEST_STBY LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE) DB_UNIQUE_NAME=TEST_STBY'
 	LOG_ARCHIVE_DEST_STATE_1=ENABLE
-	LOG_ARCHIVE_DEST_STATE_2=ENABLE 
-	REMOTE_LOGIN_PASSWORDFILE=EXCLUSIVE 
-	LOG_ARCHIVE_FORMAT=%t_%s_%r.arc 
+	LOG_ARCHIVE_DEST_STATE_2=ENABLE
+	REMOTE_LOGIN_PASSWORDFILE=EXCLUSIVE
+	LOG_ARCHIVE_FORMAT=%t_%s_%r.arc
 	LOG_ARCHIVE_MAX_PROCESSES=30
 	# Standby role parameters --------------------------------------------------------------------
 	fal_server=TEST_STBY
@@ -244,18 +261,18 @@ Em seguida, você precisa editar o arquivo para adicionar os parâmetros em espe
 	# ---------------------------------------------------------------------------------------------
 
 
-O bloco de instrução anterior inclui três itens de configuração importantes:- **LOG\_ARCHIVE\_CONFIG...:** você define as ids de banco de dados exclusivas usando essa instrução. - **LOG\_ARCHIVE\_DEST\_1...:** você define o local da pasta de arquivo morto local usando essa instrução. É recomendável criar um novo diretório para necessidades de arquivamento de seu banco de dados e especificar a localização local do arquivo-morto local usando esta instrução explicitamente, em vez de usando a pasta padrão do Oracle %ORACLE\_HOME%\\database\\archive. - **LOG\_ARCHIVE\_DEST\_2 .... LGWR ASYNC...:** você define um processo de LGWR (gravador de log) assíncrono (LGWR) para coletar dados de restauração de transação e transmiti-los para destinos em espera. Aqui, o DB\_UNIQUE\_NAME especifica um nome exclusivo para o banco de dados no servidor em espera de destino.
+O bloco de instrução anterior inclui três itens de configuração importantes: - **LOG\_ARCHIVE\_CONFIG...:** defina as IDs exclusivas de banco de dados usando essa instrução. - **LOG\_ARCHIVE\_DEST\_1...:** defina o local da pasta de arquivo morto local usando essa instrução. Recomendamos criar um novo diretório para necessidades de arquivamento de seu banco de dados e especificar o local do arquivo morto local usando esta instrução explicitamente, em vez de usar a pasta padrão do Oracle %ORACLE\_HOME%\\database\\archive. - **LOG\_ARCHIVE\_DEST\_2 .... LGWR ASYNC...:** você define um processo de LGWR (gravador de log) assíncrono (LGWR) para coletar dados de restauração de transação e transmiti-los para destinos em espera. Aqui, o DB\_UNIQUE\_NAME especifica um nome exclusivo para o banco de dados no servidor em espera de destino.
 
 Quando o novo arquivo de parâmetro estiver pronto, você precisa criar o spfile por meio dele.
 
 Primeiro, desligue o banco de dados:
 
 	SQL> shutdown immediate;
-	
+
 	Database closed.
-	
+
 	Database dismounted.
-	
+
 	ORACLE instance shut down.
 
 Em seguida, execute o comando nomount de inicialização da seguinte maneira:
@@ -277,7 +294,7 @@ Agora, crie um spfile:
 Então desligue o banco de dados:
 
 	SQL> shutdown immediate;
-	
+
 	ORA-01507: database not mounted
 
 Então use o comando de inicialização para iniciar uma instância:
@@ -297,7 +314,7 @@ Esta seção aborda as etapas que devem ser executadas em Machine2 para preparar
 
 Primeiro, é necessário criar a área de trabalho remota para Machine2 usando o Portal do Azure.
 
-Em seguida, no servidor em espera (Machine2), crie todas as pastas necessárias para o banco de dados em espera, como C:\\<YourLocalFolder>\\TEST. Ao seguir este tutorial, certifique-se de que a estrutura de pasta corresponde à estrutura de pastas em Machine1 para manter todos os arquivos necessários, como controlfile, datafiles, redologfiles, udump, bdump e cdump. Além disso, defina as variáveis de ambiente ORACLE\_HOME e ORACLE\_BASE em Machine2. Caso contrário, defina-as como uma variável de ambiente usando a caixa de diálogo Variáveis de Ambiente. Para acessar essa caixa de diálogo, inicie o utilitário **Sistema** clicando duas vezes no ícone Sistema no **Painel de Controle**; clique na guia **Avançado** e escolha **Variáveis de Ambiente**. Clique no botão **Novo** sob **Variáveis de Sistema** para definir as variáveis de ambiente. Depois de configurar as variáveis de ambiente, você precisa fechar o prompt de comando do Windows existente e abrir um novo para ver as alterações.
+Em seguida, no servidor em espera (Machine2), crie todas as pastas necessárias para o banco de dados em espera, como C:\\<YourLocalFolder>\\TEST. Ao seguir este tutorial, certifique-se de que a estrutura de pasta corresponde à estrutura de pastas em Machine1 para manter todos os arquivos necessários, como controlfile, datafiles, redologfiles, udump, bdump e cdump. Além disso, defina as variáveis de ambiente ORACLE\_HOME e ORACLE\_BASE em Machine2. Caso contrário, defina-as como uma variável de ambiente usando a caixa de diálogo Variáveis de Ambiente. Para acessar essa caixa de diálogo, inicie o utilitário **Sistema** clicando duas vezes no ícone Sistema no **Painel de Controle**; em seguida, clique na guia **Avançado** e escolha **Variáveis de Ambiente**. Clique no botão **Novo** em **Variáveis de Sistema** para definir as variáveis de ambiente. Depois de configurar as variáveis de ambiente, você precisa fechar o prompt de comando do Windows existente e abrir um novo para ver as alterações.
 
 Depois siga estas etapas:
 
@@ -322,18 +339,18 @@ Depois siga estas etapas:
 ### 1\. Preparar um arquivo de parâmetro de inicialização para banco de dados em espera
 
 Esta seção demonstra como preparar um arquivo de parâmetro de inicialização para o banco de dados em espera. Para fazer isso, primeiro copie o arquivo INITTEST.ORA de Machine1 para Machine2 manualmente. Você deve ser capaz de ver o arquivo INITTEST.ORA na pasta %ORACLE\_HOME%\\database em ambas as máquinas. Em seguida, modifique o arquivo INITTEST.ora na Machine2 para configurá-lo para a função de espera conforme especificado abaixo:
-	
+
 	db_name='TEST'
 	db_unique_name='TEST_STBY'
 	db_create_file_dest='c:\OracleDatabase\oradata\test_stby’
 	db_file_name_convert=’TEST’,’TEST_STBY’
 	log_file_name_convert='TEST','TEST_STBY'
-	
-	
+
+
 	job_queue_processes=10
 	LOG_ARCHIVE_CONFIG='DG_CONFIG=(TEST,TEST_STBY)'
 	LOG_ARCHIVE_DEST_1='LOCATION=c:\OracleDatabase\TEST_STBY\archives VALID_FOR=(ALL_LOGFILES,ALL_ROLES) DB_UNIQUE_NAME=’TEST'
-	LOG_ARCHIVE_DEST_2='SERVICE=TEST LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE) 
+	LOG_ARCHIVE_DEST_2='SERVICE=TEST LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE)
 	LOG_ARCHIVE_DEST_STATE_1='ENABLE'
 	LOG_ARCHIVE_DEST_STATE_2='ENABLE'
 	LOG_ARCHIVE_FORMAT='%t_%s_%r.arc'
@@ -343,13 +360,13 @@ Esta seção demonstra como preparar um arquivo de parâmetro de inicialização
 O bloco de instrução anterior inclui dois itens de configuração importantes:
 
 -	***.LOG\_ARCHIVE\_DEST\_1:** você precisa criar manualmente a pasta c:\\OracleDatabase\\TEST\_STBY\\archives em Machine2.
--	***.LOG\_ARCHIVE\_DEST\_2:** Essa é uma etapa opcional. Você define isso porque poderá ser necessário quando a máquina primária estiver em manutenção e o computador em espera se tornar um banco de dados primário.
+-	***.LOG\_ARCHIVE\_DEST\_2:** esta é uma etapa opcional. Você define isso porque poderá ser necessário quando a máquina primária estiver em manutenção e o computador em espera se tornar um banco de dados primário.
 
 Em seguida, você precisa iniciar a instância em espera. No servidor de banco de dados em espera, digite o seguinte comando em um prompt de comando do Windows para criar uma instância do Oracle criando um novo serviço Windows:
 
 	oradim -NEW -SID TEST\_STBY -STARTMODE MANUAL
 
-Observe que o comando **Oradim** cria uma instância do Oracle, mas não a inicia. Você pode encontrá-la no diretório C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN.
+É importante lembrar que o comando **Oradim** cria uma instância do Oracle, mas não a inicia. Você pode encontrá-la no diretório C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN.
 
 ##Configurar o ouvinte e tnsnames para oferecer suporte a banco de dados primário e máquinas em espera
 Antes de criar um banco de dados em espera, você precisa certificar-se de que os bancos de dados primários e em espera em sua configuração possa se comunicar entre si. Para fazer isso, você precisa configurar o ouvinte e TNSNames manualmente ou usando o utilitário de configuração de rede NETCA. Essa é uma tarefa obrigatória quando você usa o utilitário RMAN (Gerenciador de Recuperação).
@@ -359,9 +376,9 @@ Antes de criar um banco de dados em espera, você precisa certificar-se de que o
 Crie a área de trabalho remota para Machine1 e edite o arquivo listener.ora conforme especificado abaixo. Quando você editar o arquivo listener.ora, certifique-se de que a abertura e o fechamento de parêntese alinhem-se na mesma coluna. Você pode encontrar o arquivo listener.ora na seguinte pasta: c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\.
 
 	# listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
-	
+
 	# Generated by Oracle configuration tools.
-	
+
 	SID_LIST_LISTENER =
 	  (SID_LIST =
 	    (SID_DESC =
@@ -371,7 +388,7 @@ Crie a área de trabalho remota para Machine1 e edite o arquivo listener.ora con
 	      (ENVS = "EXTPROC_DLLS=ONLY:C:\OracleDatabase\product\11.2.0\dbhome_1\bin\oraclr11.dll")
 	    )
 	  )
-	
+
 	LISTENER =
 	  (DESCRIPTION_LIST =
 	    (DESCRIPTION =
@@ -381,9 +398,9 @@ Crie a área de trabalho remota para Machine1 e edite o arquivo listener.ora con
 	  )
 
 A seguir, crie a área de trabalho remota para a Machine2 e edite o arquivo listener.ora da seguinte maneira: arquivo de configuração de rede # listener.ora: C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\network\\admin\\listener.ora
-	
+
 	# Generated by Oracle configuration tools.
-	
+
 	SID_LIST_LISTENER =
 	  (SID_LIST =
 	    (SID_DESC =
@@ -393,7 +410,7 @@ A seguir, crie a área de trabalho remota para a Machine2 e edite o arquivo list
 	      (ENVS = "EXTPROC_DLLS=ONLY:C:\OracleDatabase\product\11.2.0\dbhome_1\bin\oraclr11.dll")
 	    )
 	  )
-	
+
 	LISTENER =
 	  (DESCRIPTION_LIST =
 	    (DESCRIPTION =
@@ -416,7 +433,7 @@ Crie a área de trabalho remota para Machine1 e edite o arquivo tnsnames.ora com
 	      (SERVICE_NAME = test)
 	    )
 	  )
-	
+
 	TEST_STBY =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -428,7 +445,7 @@ Crie a área de trabalho remota para Machine1 e edite o arquivo tnsnames.ora com
 	  )
 
 Crie a área de trabalho remota para Machine2 e edite o arquivo tnsnames.ora da seguinte maneira:
-	
+
 	TEST =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -438,7 +455,7 @@ Crie a área de trabalho remota para Machine2 e edite o arquivo tnsnames.ora da 
 	      (SERVICE_NAME = test)
 	    )
 	  )
-	
+
 	TEST_STBY =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -455,7 +472,7 @@ Crie a área de trabalho remota para Machine2 e edite o arquivo tnsnames.ora da 
 Abra um novo prompt de comando do Windows na máquina virtual primária e na em espera e execute as instruções a seguir:
 
 	C:\Users\DBAdmin>tnsping test
-	
+
 	TNS Ping Utility for 64-bit Windows: Version 11.2.0.1.0 - Production on 14-NOV-2013 06:29:08
 	Copyright (c) 1997, 2010, Oracle.  All rights reserved.
 	Used parameter files:
@@ -464,10 +481,10 @@ Abra um novo prompt de comando do Windows na máquina virtual primária e na em 
 	Attempting to contact (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = MACHINE1)(PORT = 1521))) (CONNECT_DATA = (SER
 	VICE_NAME = test)))
 	OK (0 msec)
-	
+
 
 	C:\Users\DBAdmin>tnsping test_stby
-	
+
 	TNS Ping Utility for 64-bit Windows: Version 11.2.0.1.0 - Production on 14-NOV-2013 06:29:16
 	Copyright (c) 1997, 2010, Oracle.  All rights reserved.
 	Used parameter files:
@@ -481,7 +498,7 @@ Abra um novo prompt de comando do Windows na máquina virtual primária e na em 
 ##Inicializar a instância em espera no estado nomount
 Você precisa configurar o ambiente para oferecer suporte ao banco de dados em espera na máquina virtual em espera (MACHINE2).
 
-Primeiro, copie o arquivo de senha da máquina primária (Machine1) para a máquina em espera (Machine2) manualmente. Isso é necessário porque a senha **sys** deve ser idêntica em ambas as máquinas.
+Primeiro, copie o arquivo de senha da máquina primária (Machine1) para a máquina em espera (Machine2) manualmente. Isso é necessário, pois a senha **sys** deve ser idêntica nos dois computadores.
 
 Em seguida, abra o prompt de comando do Windows em Machine2 e configure as variáveis de ambiente para apontar para o banco de dados em espera da seguinte maneira:
 
@@ -493,10 +510,10 @@ Em seguida, iniciar o banco de dados em espera no estado nomount e, em seguida, 
 Inicie o banco de dados:
 
 	SQL>shutdown immediate;
-	
+
 	SQL>startup nomount
 	ORACLE instance started.
-	
+
 	Total System Global Area  747417600 bytes
 	Fixed Size                  2179496 bytes
 	Variable Size             473960024 bytes
@@ -512,7 +529,7 @@ Crie a área de trabalho remota para a VM em espera (MACHINE2) e execute o utili
 >[AZURE.IMPORTANT]Não use a autenticação do sistema operacional, pois ainda não há nenhum banco de dados na máquina do servidor em espera.
 
 	C:\> RMAN TARGET sys/password@test AUXILIARY sys/password@test_STBY
-	
+
 	RMAN>DUPLICATE TARGET DATABASE
 	  FOR STANDBY
 	  FROM ACTIVE DATABASE
@@ -528,11 +545,11 @@ Abra o prompt de comando SQL*Plus e habilite o Data Guard na máquina virtual em
 	STARTUP MOUNT;
 	ALTER DATABASE RECOVER MANAGED STANDBY DATABASE DISCONNECT FROM SESSION;
 
-Quando você abre o banco de dados em espera no modo **MOUNT**, o envio de log de arquivo-morto continua e o processo de recuperação gerenciado continua se aplicando no banco de dados em espera. Isso garante que o banco de dados em espera permaneça atualizado com o banco de dados primário. Observe que o banco de dados em espera não pode ser acessado para fins de relatório durante esse tempo.
+Quando você abre o banco de dados em espera no modo **MONTAGEM**, o envio de log de arquivo morto continua e o processo de recuperação gerenciado continua aplicando o log no banco de dados em espera. Isso garante que o banco de dados em espera permaneça atualizado com o banco de dados primário. Observe que o banco de dados em espera não pode ser acessado para fins de relatório durante esse tempo.
 
-Quando você abre o banco de dados em espera no modo **READ ONLY**, o envio de log do arquivo-morto continua. Mas o processo de recuperação gerenciado para. Isso faz com que o banco de dados em espera se torne cada vez mais desatualizado até que o processo de recuperação gerenciado seja retomado. Você pode acessar o banco de dados em espera para fins de relatório durante esse tempo, mas os dados podem não refletir as alterações mais recentes.
+Quando você abre o banco de dados em espera no modo **SOMENTE LEITURA**, o envio de log do arquivo morto continua. Mas o processo de recuperação gerenciado para. Isso faz com que o banco de dados em espera se torne cada vez mais desatualizado até que o processo de recuperação gerenciado seja retomado. Você pode acessar o banco de dados em espera para fins de relatório durante esse tempo, mas os dados podem não refletir as alterações mais recentes.
 
-Em geral, é recomendável manter o banco de dados em espera no modo **MOUNT** para manter os dados no banco de dados em espera atualizados em caso de falha do banco de dados primário. No entanto, você pode manter o banco de dados em espera no modo **READ ONLY** para fins de relatório, dependendo dos requisitos do aplicativo. As etapas a seguir demonstram como habilitar o Data Guard no modo somente leitura usando SQL*Plus:
+Em geral, recomendamos manter o banco de dados em espera no modo **MONTAGEM** para manter os dados no banco de dados em espera atualizados em caso de falha do banco de dados primário. No entanto, você pode manter o banco de dados em espera no modo **SOMENTE LEITURA** para fins de relatório, dependendo dos requisitos de seu aplicativo. As etapas a seguir demonstram como habilitar o Data Guard no modo somente leitura usando SQL*Plus:
 
 	SHUTDOWN IMMEDIATE;
 	STARTUP MOUNT;
@@ -545,15 +562,15 @@ Esta seção demonstra como verificar a configuração de alta disponibilidade c
 Abra a janela de prompt de comando SQL*Plus e consulte o log de restauração em arquivo-morto na máquina virtual em espera (Machine2):
 
 	SQL> show parameters db_unique_name;
-	
+
 	NAME                                TYPE       VALUE
 	------------------------------------ ----------- ------------------------------
 	db_unique_name                      string     TEST_STBY
-	
+
 	SQL> SELECT NAME FROM V$DATABASE
-	
+
 	SQL> SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME, APPLIED FROM V$ARCHIVED_LOG ORDER BY SEQUENCE#;
-	
+
 	SEQUENCE# FIRST_TIM NEXT_TIM APPLIED
 	----------------  ---------------  --------------- ------------
 	45                    23-FEB-14   23-FEB-14   YES
@@ -565,9 +582,9 @@ Abra a janela de prompt de comando SQL*Plus e consulte o log de restauração em
 
 Abra a janela do prompt de comando SQL*Plus e troque os arquivos de log na máquina principal (Machine1):
 
-	SQL> alter system switch logfile; 
+	SQL> alter system switch logfile;
 	System altered.
-	
+
 	SQL> archive log list
 	Database log mode              Archive Mode
 	Automatic archival             Enabled
@@ -579,14 +596,14 @@ Abra a janela do prompt de comando SQL*Plus e troque os arquivos de log na máqu
 Consulte o log de restauração em arquivo-morto na máquina virtual em espera (Machine2):
 
 	SQL> SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME, APPLIED FROM V$ARCHIVED_LOG ORDER BY SEQUENCE#;
-	
+
 	SEQUENCE# FIRST_TIM NEXT_TIM APPLIED
 	----------------  ---------------  --------------- ------------
 	45                    23-FEB-14   23-FEB-14   YES
 	46                    23-FEB-14   23-FEB-14   YES
 	47                    23-FEB-14   23-FEB-14   YES
 	48                    23-FEB-14   23-FEB-14   YES
-	
+
 	49                    23-FEB-14   23-FEB-14   YES
 	50                    23-FEB-14   23-FEB-14   IN-MEMORY
 
@@ -607,4 +624,4 @@ Recomendamos habilitar o banco de dados de flashback nos bancos de dados primár
 ##Recursos adicionais
 [Imagens de Máquina Virtual Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

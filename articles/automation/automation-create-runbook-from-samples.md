@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="05/19/2015"
+	ms.topic="hero-article" 
+	ms.date="09/08/2015"
 	ms.author="bwren"/>
 
 
@@ -146,4 +146,4 @@ A Microsoft e a comunidade da Automação do Azure fornecem runbooks de exemplo,
 
 **Fornecer comentários** Se você estiver procurando por uma solução de runbook de Automação do Azure ou por um módulo de integração, poste uma Solicitação de script no Script Center. Se você tiver comentários ou solicitações de recurso para a Automação do Azure, poste-os em [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Obrigado!
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

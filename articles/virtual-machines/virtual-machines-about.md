@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Sobre Máquinas Virtuais do Azure"
+	pageTitle="Sobre as máquinas virtuais do Azure | Microsoft Azure"
 	description="Conheça o básico sobre máquinas virtuais no Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,9 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#Sobre Máquinas Virtuais do Azure
+#Sobre máquinas virtuais do Azure criadas com os dois modelos de implantação
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo trata dos recursos criados com o modelo de implantação do Gerenciador de Recursos e o modelo de implantação clássico.
 
 Máquinas Virtuais do Azure é um dos vários tipos de recursos de computação sob demanda escalonáveis oferecidos pelo Azure. Normalmente, você escolhe uma máquina virtual, em vez de outra opção, quando precisa de mais controle sobre o ambiente de computação do que as outras opções oferecem.
 
@@ -49,4 +51,4 @@ Se você estiver começando a aprender sobre as máquinas virtuais do Azure, con
 [Máquinas virtuais]: #tellmevm
 [Serviços de Nuvem]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

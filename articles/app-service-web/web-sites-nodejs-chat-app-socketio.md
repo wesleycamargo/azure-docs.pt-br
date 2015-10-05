@@ -268,6 +268,8 @@ Se os navegadores do cliente continuam para sondagens compridas em vez de usar o
 
 Neste tutorial, você aprendeu como criar um aplicativo de chat hospedado em um aplicativo Web do Azure. Você também pode hospedar o aplicativo como um serviço de nuvem do Azure. Para obter etapas sobre como fazer isso, consulte [criar um aplicativo de bate-papo do Node. js com Socket.IO em um serviço de nuvem do Azure][cloudservice]
 
+Para obter mais informações, consulte também o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -283,4 +285,4 @@ Neste tutorial, você aprendeu como criar um aplicativo de chat hospedado em um 
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

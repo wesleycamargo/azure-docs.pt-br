@@ -1,20 +1,20 @@
 <properties
    pageTitle="Delegar seu domínio ao Azure DNS | Microsoft Azure"
-	description="Entenda como alterar a delegação de domínio e usar servidores de nomes do Azure DNS para fornecer hospedagem do domínio."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   description="Entenda como alterar a delegação de domínio e usar servidores de nomes do Azure DNS para fornecer hospedagem do domínio."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
 # Delegar domínio ao Azure DNS
@@ -159,4 +159,4 @@ Da mesma forma que é feito ao delegar usando um registrador, podemos verificar 
 
 [Referência da API REST do Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

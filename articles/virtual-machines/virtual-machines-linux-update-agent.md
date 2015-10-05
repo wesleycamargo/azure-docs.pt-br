@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Como atualizar o Agente Linux do Azure para a última versão do Github"
-	description="Saiba como atualizar o Agente Linux do Azure por meio do Github para sua VM do Linux no Azure."
+	pageTitle="Atualizar o Agente Linux do Azure por meio do GitHub | Microsoft Azure"
+	description="Saiba como atualizar o Agente Linux do Azure de sua VM do Linux no Azure para a versão mais recente do GitHub"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,19 +18,21 @@
 	ms.author="mingzhan"/>
 
 
-# Como atualizar o Agente Linux do Azure para a última versão do Github
+# Como atualizar o Agente Linux do Azure em uma VM para a versão mais recente do GitHub
 
-Para atualizar seu [Agente Linux do Azure](https://github.com/Azure/WALinuxAgent), você já deve ter:
+Para atualizar seu [agente Linux do Azure](https://github.com/Azure/WALinuxAgent) em uma VM do Linux no Azure, você já deve ter:
 
 1. uma vm do Linux em execução no Azure
 2. Você está conectado a essa VM do Linux usando o SSH
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso com o modelo de implantação do Gerenciador de Recursos ou o modelo de implantação clássico.
 
 > [AZURE.NOTE]Se vai executar essa tarefa em um computador Windows, você pode usar Putty para SSH em seu computador Linux. Para obter mais informações, consulte [Como fazer logon em uma Máquina Virtual executando Linux](virtual-machines-linux-how-to-log-on.md).
 
 As distribuições do Linux endossadas pelo Azure colocaram o pacote do Agente Linux do Azure em seus repositórios. Portanto, verifique e instale a última versão por meio do repositório dessa distribuição primeiro, se possível.
 
 Para o Ubuntu, basta digitar:
-     
+
     #sudo apt-get install walinuxagent
 
 e CentOS, digite:
@@ -52,7 +55,7 @@ Instale o wget (existem algumas distribuições que não o instalam por padrão,
 
 ## Baixe a última versão
 
-Abra [a versão do Agente Linux do Azure no Github](https://github.com/Azure/WALinuxAgent/releases) em uma página da Web e localize o número da última versão. (Você pode localizar sua versão atual digitando `#waagent --version`.)
+Abra [a versão do Agente Linux do Azure no GitHub](https://github.com/Azure/WALinuxAgent/releases) em uma página da Web e encontre o número de versão mais recente. (Você pode localizar sua versão atual digitando `#waagent --version`.)
 
 ###Para obter a versão 2.0. x, digite:
 
@@ -63,8 +66,8 @@ Abra [a versão do Agente Linux do Azure no Github](https://github.com/Azure/WAL
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
 ###Para obter a versão 2.1. x ou posterior, digite:
-  
-    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip 
+
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
     #unzip WALinuxAgent-[version].zip
     #cd WALinuxAgent-[version]
 
@@ -83,18 +86,18 @@ Abra [a versão do Agente Linux do Azure no Github](https://github.com/Azure/WAL
     #chmod +x waagent
 
  Copie o novo executável para /usr/sbin/
-   
+
   Para a maioria dos Linux, use
-         
+
       #sudo cp waagent /usr/sbin
 
   Para o CoreOS, use:
 
     #sudo cp waagent /usr/share/oem/bin/
- 
+
 ###Para obter a versão 2.1.x, use:
 
-Você pode precisar instalar o pacote `setuptools` primeiro, consulte [aqui](https://pypi.python.org/pypi/setuptools). Em seguida, execute abaixo:
+Talvez seja necessário instalar o pacote `setuptools` primeiro, veja [aqui](https://pypi.python.org/pypi/setuptools). Em seguida, execute abaixo:
 
     #sudo python setup.py install
 
@@ -110,10 +113,10 @@ Para o Ubuntu, use:
 
 Para o CoreOS, use:
 
-    #sudo systemctl restart waagent 
+    #sudo systemctl restart waagent
 
 ## Confirme a versão do Agente Linux do Azure
-   
+
     #waagent -version
 
 Para o CoreOS, o comando acima pode não funcionar.
@@ -122,8 +125,4 @@ Você verá que a versão do Agente Linux foi atualizada para a nova versão.
 
 Para obter mais informações sobre o Agente Linux do Azure, consulte [LEIAME do Agente Linux do Azure](https://github.com/Azure/WALinuxAgent).
 
-
-
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

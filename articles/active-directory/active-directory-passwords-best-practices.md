@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Práticas recomendadas: Gerenciamento de Senhas do AD do Azure | Microsoft Azure" 
-	description="Práticas recomendadas de implantação e uso, documentação de usuário final de exemplo e guias de treinamento para Gerenciamento de Senhas no Active Directory do Azure." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Práticas recomendadas: Gerenciamento de Senhas do AD do Azure | Microsoft Azure"
+	description="Práticas recomendadas de implantação e uso, documentação de usuário final de exemplo e guias de treinamento para Gerenciamento de Senhas no Active Directory do Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Implantando o gerenciamento de senhas e treinando os usuários para usá-lo
@@ -98,12 +98,12 @@ Você pode carregar os dados de autenticação por meio do [Portal de Gerenciame
 1.	Navegue até sei diretório na **Extensão do Active Directory** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 2.	Clique na guia **Usuários**.
 3.	Selecione na lista o usuário em que você está interessado.
-4.	Na primeira guia, você encontrará **Email Alternativo**, que pode ser usado como uma propriedade para habilitar a redefinição de senha. 
+4.	Na primeira guia, você encontrará **Email Alternativo**, que pode ser usado como uma propriedade para habilitar a redefinição de senha.
 
     ![][005]
 
 5.	Clique na guia **Informações de Trabalho**.
-6.	Nessa página, você encontrará **Telefone Comercial**, **Celular**, **Telefone de Autenticação** e **Email de Autenticação**. Essas propriedades também podem ser definidas para permitir que um usuário redefina sua senha. 
+6.	Nessa página, você encontrará **Telefone Comercial**, **Celular**, **Telefone de Autenticação** e **Email de Autenticação**. Essas propriedades também podem ser definidas para permitir que um usuário redefina sua senha.
 
     ![][006]
 
@@ -136,6 +136,5 @@ Estamos trabalhando no material de treinamento de exemplo que você pode usar pa
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: permitir a conexão e a inscrição de clientes com contas do Facebook
@@ -70,4 +70,4 @@ Para usar o Facebook como provedor de identidade no Active Directory (AD) B2C do
 6. Clique em **Configurar este provedor de identidade** e insira a **ID do aplicativo** e o **Segredo de Aplicativo** do aplicativo do Facebook que você criou anteriormente nos campos **ID do cliente** e **Segredo do cliente**, respectivamente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração do Facebook.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

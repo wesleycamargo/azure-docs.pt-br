@@ -1,25 +1,10 @@
-<properties 
-   pageTitle="Configurar o RBS para o Adaptador StorSimple para SharePoint | Microsoft Azure"
-   description="Descreve como instalar o Adaptador StorSimple para SharePoint em um farm de servidores do SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/17/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 >[AZURE.NOTE]Ao fazer alterações na configuração do Adaptador StorSimple para SharePoint RBS, você deve estar conectado com uma conta de usuário que pertença ao grupo Administradores do Domínio. Além disso, você deve acessar a página de configuração em um navegador em execução no mesmo host que a Administração Central.
 
 #### Para configurar o RBS
 
-1. Abra a página de Administração Central do SharePoint e navegue até **Configurações do Sistema**. 
+1. Abra a página Administração Central do SharePoint e navegue até **Configurações do Sistema**. 
 
 2. Na seção **Azure StorSimple**, clique em **Configurar Adaptador StorSimple**.
 
@@ -119,4 +104,4 @@
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO4-->

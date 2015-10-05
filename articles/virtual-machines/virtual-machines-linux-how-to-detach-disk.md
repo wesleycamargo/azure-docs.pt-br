@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Desanexar um disco de uma máquina virtual do Linux no Azure"
+	pageTitle="Desanexar um disco de uma VM do Linux | Microsoft Azure"
 	description="Saiba como desanexar um disco de dados de uma máquina virtual do Azure criada usando o modelo de implantação clássica."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,7 @@
 
 # Como desanexar um disco de uma máquina virtual Linux
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como remover um disco com o modelo de implantação clássico.
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -28,4 +29,4 @@
 
 [Usar a CLI do Azure com a API de Gerenciamento de Serviço](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

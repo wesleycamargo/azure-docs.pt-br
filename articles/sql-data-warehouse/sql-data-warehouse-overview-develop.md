@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Desenvolver soluções para o SQL Data Warehouse | Microsoft Azure"
-   description="Técnicas de desenvolvimento e práticas recomendadas para criar soluções com o SQL Data Warehouse."
+   pageTitle="Decisões de design e técnicas de codificação para o desenvolvimento do SQL Data Warehouse | Microsoft Azure"
+   description="Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-# Desenvolver soluções para o SQL Data Warehouse
+# Decisões de design e técnicas de codificação para o SQL Data Warehouse
 
-Confira os artigos de desenvolvimento e entenda melhor os princípios de desenvolvimento, as práticas recomendadas e as técnicas de codificação para o SQL Data Warehouse.
+Dê uma olhada nesses artigos sobre desenvolvimento para entender melhor as principais decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
 
-## Principais conceitos
+## Principais decisões de design
 Os artigos a seguir destacam alguns dos principais conceitos e as decisões de design que você precisará entender para desenvolver seu data warehouse distribuído usando o SQL Data Warehouse:
 
 - [conexões][]
@@ -33,8 +33,8 @@ Os artigos a seguir destacam alguns dos principais conceitos e as decisões de d
 - [CTAS][]
 - [estatísticas][]
 
-## Técnicas de desenvolvimento
-Esses artigos destacam técnicas de codificação específicas, dicas e práticas recomendadas para o desenvolvimento de soluções com o SQL Data Warehouse:
+## Recomendações para o desenvolvimento e técnicas de codificação
+Esses artigos realçam as técnicas de codificação específicas, dicas e recomendações para o desenvolvimento de seu SQL Data Warehouse:
 
 - [procedimentos armazenados][]
 - [rótulos][]
@@ -79,4 +79,4 @@ Após a leitura dos artigos de desenvolvimento, confira a página [Referência a
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Implantar um servidor WordPress no Ubuntu com um modelo do Gerenciador de Recursos do Azure"
+	pageTitle="WordPress no Ubuntu com modelo ARM | Microsoft Azure"
 	description="Implante facilmente um único servidor WordPress executando o Ubuntu usando um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, Azure PowerShell ou o Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="davidmu"/>
 
 # Implantar um servidor WordPress no Ubuntu com um modelo do Gerenciador de Recursos do Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos. Você não pode criar esse recurso com o modelo de implantação clássico.
 
 Use as instruções neste artigo para implantar um servidor WordPress em execução no Ubuntu usando um modelo do Gerenciador de Recursos. Este modelo cria uma única máquina virtual em uma nova rede virtual.
 
@@ -27,7 +29,7 @@ Você pode executar o modelo com o Portal de Visualização do Azure, o Azure Po
 
 ## Portal de Visualização do Azure
 
-Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
+Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
 
@@ -65,7 +67,7 @@ Aqui está um exemplo.
 
 Em seguida, execute o bloco de comando no prompt do Azure PowerShell.
 
-Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois de especificar todos os valores de parâmetro, o **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
+Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois que você especificar todos os valores de parâmetro **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
 
 Quando a execução do modelo for concluída, você terá o servidor WordPress em execução no Ubuntu no seu novo grupo de recursos.
 
@@ -104,4 +106,4 @@ Quando a execução do modelo for concluída, você terá o servidor WordPress e
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Análise de Armazenamento" 
-	description="Como gerenciar a simultaneidade para os serviços Blob, Fila, Tabela e Arquivo" 
+	pageTitle="Habilitando métricas de armazenamento no portal do Azure | Microsoft Azure" 
+	description="Como habilitar métricas de armazenamento para os serviços Blob, Fila, Tabela e Arquivo" 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tamram"/>
 
 # Habilitando métricas de armazenamento e exibição de dados de métricas
@@ -192,4 +192,4 @@ A capacidade usada pelas tabelas de métricas também é faturável. Você pode 
 [Habilitando o armazenamento de log e acessando os dados de log](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

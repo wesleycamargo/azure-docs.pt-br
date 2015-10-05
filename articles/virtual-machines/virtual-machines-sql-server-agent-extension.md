@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="Extensão do agente IaaS do SQL Server"
-	description="Descreve a extensão do agente do SQL Server, que permite que máquinas virtuais executando o SQL Server na nuvem no Azure usem recursos de automação, e como instalar o agente, se ele não tiver sido instalado automaticamente."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="jeffgoll"
+	pageTitle="Extensão do agente IaaS do SQL Server | Microsoft Azure" 
+	description="Este tópico usa recursos criados com o modelo clássico de implantação e descreve a extensão do agente do SQL Server, que permite que uma VM que executa o SQL Server no Azure use recursos de automação." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="jeffgoll" 
 	manager="jeffreyg"
-	editor=""/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
+	ms.workload="infrastructure-services" 
 	ms.date="06/17/2015"
 	ms.author="jeffreyg"/>
 
 # Extensão do agente IaaS do SQL Server
 
 Essa extensão permite que o SQL Server em máquinas virtuais do Azure usem determinados serviços, listados neste artigo, que só podem ser usados com essa extensão instalada. Essa extensão é instalada automaticamente para imagens da Galeria de Imagens do SQL Server no Portal de Visualização do Azure. Ela pode ser instalada em qualquer VM do SQL Server no Azure que tenha o Agente convidado da VM Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o uso de um recurso com o modelo de implantação clássica.
  
 ## Pré-requisitos
 Requisitos para uso de cmdlets do Powershell:
@@ -74,4 +77,4 @@ Se você quiser remover essa extensão de sua VM, usar o seguinte cmdlet do Powe
 ### Sintaxe
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

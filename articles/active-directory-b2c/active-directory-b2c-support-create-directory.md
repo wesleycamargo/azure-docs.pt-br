@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Criando um diretório do Azure AD ou um diretório Azure AD B2C - problemas e resoluções
@@ -34,4 +34,4 @@ Há problemas conhecidos que você pode encontrar durante a [criação de um dir
 	- Exclua o diretório recém-criado e tente novamente.
 - Se nenhuma das resoluções acima funcionar, contate o Suporte. Leia [este artigo](active-directory-b2c-support.md) sobre como arquivar solicitações de suporte para o Azure AD B2C.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

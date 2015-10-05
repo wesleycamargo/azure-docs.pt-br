@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: como arquivar solicitações de suporte para o Active Directory B2C do Azure
@@ -50,4 +50,4 @@ Se você tiver ignorado a etapa 2 descrita acima e tentar criar uma solicitaçã
 
 ![Suporte — sem assinatura](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

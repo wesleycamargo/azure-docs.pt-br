@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure"
+	pageTitle="Solucionar problemas de acesso do aplicativo em uma VM | Microsoft Azure"
 	description="Se você não conseguir acessar um aplicativo em execução em uma máquina virtual do Azure, use essas etapas para isolar a origem do problema."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,9 +19,11 @@
 
 # Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo abrange solução de problemas de acesso do aplicativo em uma máquina virtual criada com o modelo de implantação clássica ou o modelo de implantação do Gerenciador de Recursos.
+
 Se você não conseguir acessar um aplicativo em execução em uma máquina virtual do Azure, este artigo descreve uma abordagem metódica para isolar a origem do problema e corrigi-lo.
 
-> [AZURE.NOTE]Para obter ajuda para se conectar a uma máquina virtual do Azure, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) ou [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada no Linux](virtual-machines-troubleshoot-ssh-connections.md).
+> [AZURE.NOTE]Para obter ajuda para se conectar a uma máquina virtual do Azure, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) ou [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-troubleshoot-ssh-connections.md).
 
 Há quatro áreas principais nas quais é possível solucionar problemas de acesso de um aplicativo que está sendo executado em uma máquina virtual do Azure.
 
@@ -49,9 +51,9 @@ Se não conseguir acessar o aplicativo, verifique o seguinte:
 - O aplicativo está em execução na máquina virtual de destino.
 - O aplicativo está escutando nas portas TCP e UDP esperadas.
 
-Em máquinas virtuais baseadas em Linux e Windows, use o comando **netstat - a** para mostrar as portas de escuta ativas. Examine a saída para as portas esperadas no qual seu aplicativo deve estar escutando. Reinicie o aplicativo ou configure-o para usar as portas esperadas, conforme necessário.
+Em máquinas virtuais baseadas em Linux e Windows, use o comando **netstat -a** para mostrar as portas de escuta ativas. Examine a saída para as portas esperadas no qual seu aplicativo deve estar escutando. Reinicie o aplicativo ou configure-o para usar as portas esperadas, conforme necessário.
 
-## <a id="step2"></a>Etapa 2: Você consegue acessar o aplicativo em outra máquina virtual na mesma rede virtual?
+## <a id="step2"></a>Etapa 2: você consegue acessar o aplicativo em outra máquina virtual na mesma rede virtual?
 
 Tente acessar o aplicativo por meio de uma máquina virtual diferente na mesma rede virtual da máquina virtual em que o aplicativo está sendo executado usando o nome do host da máquina virtual ou seu endereço IP do provedor, público ou provado atribuído pelo Azure. Para máquinas virtuais criadas usando a API de Gerenciamento de Serviços, não use o endereço IP público do serviço de nuvem.
 
@@ -70,7 +72,7 @@ Se não conseguir acessar o aplicativo, verifique o seguinte:
 
 Em uma máquina virtual baseada no Windows, use o Firewall do Windows com Segurança avançada para determinar se as regras de firewall excluem o tráfego de entrada e de saída do seu aplicativo.
 
-## <a id="step3"></a>Etapa 3: Você consegue acessar o aplicativo em um computador que está fora da rede virtual, mas não conectado à mesma rede que o seu computador?
+## <a id="step3"></a>Etapa 3: você consegue acessar o aplicativo em um computador que está fora da rede virtual, mas não conectado à mesma rede que o seu computador?
 
 Tente acessar o aplicativo em um computador fora da rede virtual em que está a máquina virtual na qual o aplicativo está sendo executado, mas que não esteja na mesma rede que o computador cliente original.
 
@@ -83,13 +85,13 @@ Se não conseguir acessar o aplicativo, verifique o seguinte:
 - Para máquinas virtuais criadas usando a API de Gerenciamento de Serviços, cuja configuração do ponto de extremidade da máquina virtual está permitindo tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
 - Para máquinas virtuais criadas usando a API de Gerenciamento de Serviços, as ACLs (Listas de Controle de Acesso) no ponto de extremidade não estão impedindo o tráfego de entrada da Internet. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
 - Para máquinas virtuais criadas no Gerenciador de Recursos, que a configuração da regra NAT de entrada da máquina virtual está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
-- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações. Para obter mais informações, consulte [O que é um NSG (Grupo de segurança de rede)?](virtual-networks-nsg.md).
+- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações. Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](virtual-networks-nsg.md).
 
 Se a máquina virtual ou ponto de extremidade for um membro de um conjunto com balanceamento de carga:
 
 - Verifique se o protocolo de teste (TCP ou UDP) e o número da porta estão corretos.
 - Se a porta e protocolo de teste forem diferentes do protocolo e da porta configurados com balanceamento de carga:
-	- Verifique se o aplicativo está escutando no protocolo de teste (TCP ou UDP) e no número da porta (use **netstat – a** na máquina virtual de destino).
+	- Verifique se o aplicativo está escutando no protocolo de investigação (TCP ou UDP) e no número da porta (use **netstat –a** na máquina virtual de destino).
 	- O firewall do host na máquina virtual de destino está permitindo o tráfego de solicitação de teste entrada e de resposta de teste de saída.
 
 Se você puder acessar o aplicativo, certifique-se de que seu dispositivo de borda de Internet esteja permitindo:
@@ -102,12 +104,12 @@ Se você puder acessar o aplicativo, certifique-se de que seu dispositivo de bor
 Se tiver executado as etapas de 1 a 3 neste artigo e precisar de mais ajuda para corrigir o problema, você pode:
 
 - Obter ajuda de especialistas do Azure no mundo inteiro. Enviar sua dúvida nos fóruns do MSDN Azure ou Stack Overflow. Consulte [Fóruns do Microsoft Azure](http://azure.microsoft.com/support/forums/) para obter mais informações.
-- Registrar um incidente de suporte do Azure. Vá até o [Site do Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter suporte** em **Suporte técnico e de cobrança**.
+- Registrar um incidente de suporte do Azure. Vá até o [Site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter suporte** em **Suporte técnico e de cobrança**.
 
 ## Recursos adicionais
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-[Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada no Linux](virtual-machines-troubleshoot-ssh-connections.md)
+[Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

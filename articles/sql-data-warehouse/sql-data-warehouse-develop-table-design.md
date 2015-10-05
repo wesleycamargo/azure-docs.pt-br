@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Design da tabela no SQL Data Warehouse #
@@ -123,8 +123,8 @@ Suporte parcial:
 
 Há duas opções de distribuição de dados no SQL Data Warehouse:
 
-1. Distribuir os dados com base nos valores de hash de uma única coluna
-2. Distribuir os dados uniformemente, mas aleatoriamente  
+1. Distribuir os dados uniformemente, mas aleatoriamente 
+2. Distribuir os dados com base nos valores de hash de uma única coluna
 
 A distribuição de dados é decidida ao nível da tabela. Todas as tabelas são distribuídas. Você atribuirá a distribuição a cada tabela no banco de dados do SQL Data Warehouse.
 
@@ -306,4 +306,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

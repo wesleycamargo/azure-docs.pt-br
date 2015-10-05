@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL usando PowerShell"
-	description="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL do Azure usando PowerShell"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL usando PowerShell" 
+   description="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL do Azure usando PowerShell" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="adamkr; sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/23/2015"
+   ms.author="adamkr; sstein"/>
 
 # Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL usando PowerShell
 
@@ -240,4 +240,4 @@ Depois de criar um pool de banco de dados elástico, você pode gerenciar os ban
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

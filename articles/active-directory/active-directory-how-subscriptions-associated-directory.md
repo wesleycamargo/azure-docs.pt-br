@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Como as assinaturas do Azure estão associadas ao Azure AD"
+	pageTitle="Como as assinaturas do Azure estão associadas ao AD do Azure | Microsoft Azure"
 	description="Um tópico sobre como entrar no Microsoft Azure e problemas relacionados, como a relação entre uma assinatura do Azure e o AD do Azure."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Como as assinaturas do Azure estão associadas ao Azure AD
@@ -67,7 +67,7 @@ Mas o ponto importante aqui é que os administradores de assinatura do Azure e a
 
 Uma pessoa pode desempenhar ambas as funções, mas isso não é obrigatório. A função de administrador global do diretório pode ser atribuída a um usuário, mas não é possível atribuir a esse usuário as funções de administrador ou coadministrador de serviços de uma assinatura do Azure. Sem ser um administrador da assinatura, esse usuário não pode entrar no Portal de Gerenciamento. Porém, o usuário pode executar tarefas de administração de diretório usando outras ferramentas, como o PowerShell do AD do Azure ou o Admin Center do Office 365.
 
-### Por que não é possível gerenciar o diretório à minha conta de usuário atual?
+## Por que não é possível gerenciar o diretório à minha conta de usuário atual?
 
 Às vezes, um usuário pode tentar entrar no Portal de Gerenciamento usando uma conta corporativa ou de estudante antes de inscrever-se em uma assinatura do Azure. Nesse caso, o usuário receberá uma mensagem que não há nenhuma assinatura para essa conta. A mensagem incluirá um link para iniciar uma assinatura de avaliação gratuita.
 
@@ -124,4 +124,4 @@ Para gerenciar ambos os diretórios no Portal de Gerenciamento, execute essas et
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

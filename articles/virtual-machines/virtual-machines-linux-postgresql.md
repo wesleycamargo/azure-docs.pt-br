@@ -1,34 +1,37 @@
 <properties
-	pageTitle="Instalar e configurar o PostgreSQL em uma máquina virtual do Microsoft Azure executando Linux | Microsoft Azure"
-	description="Saiba como instalar e configurar o PostgreSQL em uma máquina virtual Linux no Azure."
+	pageTitle="Configurar PostgreSQL em uma VM do Linux | Microsoft Azure"
+	description="Saiba como instalar e configurar o PostgreSQL em uma máquina virtual Linux no Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
 	editor=""
-	tags=""/>
+ 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="linux"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
 	ms.date="08/10/2015"
 	ms.author="mingzhan"/>
 
 
-#Instalar e configurar o PostgreSQL no Azure
+# Instalar e configurar o PostgreSQL no Azure
 
 PostgreSQL é um banco de dados avançado de código aberto semelhante ao Oracle e DB2. Ele inclui recursos corporativos como conformidade total com ACID, processamento transacional confiável e controle de simultaneidade de várias versões. Também oferece suporte a padrões como ANSI SQL e SQL/MED (inclusive wrappers de dados externos para Oracle, MySQL, MongoDB e muitos outros). Ele é altamente extensível com suporte para mais de 12 idiomas de procedimento, índices GIN e GiST, dados espaciais e vários recursos como NoSQL para aplicativos JSON ou de chave-valor.
 
 Neste artigo, você aprenderá a instalar e configurar PostgreSQL em uma máquina virtual Azure que executa o Linux.
 
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
+
+## Instalar o PostgreSQL
+
 > [AZURE.NOTE]Você já deve ter uma máquina virtual do Azure executando o Linux para concluir este tutorial. Para criar e configurar uma VM Linux antes de continuar, consulte o [tutorial da VM Linux do Azure](virtual-machines-linux-tutorial.md)
 
 Nesse caso, use a porta 1999 como a porta do PostgreSQL.
-
-## Instalar o PostgreSQL
 
 Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você está usando uma VM Linux do Azure, consulte [Como usar SSH com Linux no Azure](virtual-machines-linux-use-ssh-key.md) para saber como usar PuTTY para se conectar a uma VM Linux.
 
@@ -251,4 +254,4 @@ Use o seguinte comando para atualizar dados em uma tabela. Para este, Sandy conf
 ##Obter mais informações sobre o PostgreSQL
 Agora que você concluiu a instalação do PostgreSQL em uma VM do Linux do Azure, aproveite-o usando-o no Azure. Para saber mais sobre o PostgreSQL, visite o [site do PostgreSQL](http://www.postgresql.org/).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

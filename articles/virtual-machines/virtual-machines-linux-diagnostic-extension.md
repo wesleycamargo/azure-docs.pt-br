@@ -1,25 +1,25 @@
 
 <properties
-		pageTitle="Usar a Extensão de Diagnóstico do Linux para monitorar os dados de desempenho e diagnóstico da VM Linux | Microsoft Azure"
-	description="Saiba como usar a Extensão de Diagnóstico do Linux para monitorar os dados de desempenho e diagnóstico da VM Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="NingKuang"
-	manager="timlt"
-	editor=""
-	tags=""/>
+		pageTitle="Monitorando uma VM do Linux com uma extensão de VM | Microsoft Azure"
+		description="Saiba como usar a Extensão de Diagnóstico do Linux para monitorar os dados de desempenho e diagnóstico de uma VM do Linux no Azure."
+		services="virtual-machines"
+		documentationCenter=""
+  		authors="NingKuang"
+		manager="timlt"
+		editor=""
+  		tags="azure-service-management"/>
 
 <tags
 		ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/20/2015"
-	ms.author="Ning"/>
+		ms.workload="infrastructure-services"
+		ms.tgt_pltfrm="vm-linux"
+		ms.devlang="na"
+		ms.topic="article"
+		ms.date="07/20/2015"
+		ms.author="Ning"/>
 
 
-# Usar a Extensão de Diagnóstico do Linux para monitorar os dados de desempenho e diagnóstico da VM Linux
+# Usar a Extensão de Diagnóstico do Linux para monitorar os dados de desempenho e diagnóstico da VM do Linux
 
 ## Introdução
 
@@ -35,18 +35,20 @@ Para a versão 2.0, os dados incluem:
 - Todos os dados de sistema especificados neste [documento](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - Arquivos de log especificados pelo usuário.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso com o modelo de implantação clássico.
+
 ## Como habilitar a extensão
 A extensão pode ser habilitada por meio do [portal do Azure](https://ms.portal.azure.com/#), Azure PowerShell ou de scripts da CLI do Azure.
 
-Para exibir e configurar os dados de desempenho e sistema diretamente do portal do Azure, siga estas [etapas](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL para o blog do Windows").
+Para exibir e configurar os dados de desempenho e do sistema diretamente do portal do Azure, siga estas [etapas](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL para o blog do Windows").
 
 
 Este artigo se concentra na habilitação e configuração de extensão por meio de comandos da CLI do Azure. Isso permite ler e exibir os dados diretamente da tabela de armazenamento.
 
 
 ## Pré-requisitos
-- Agente Linux do Microsoft Azure versão 2.0.6 ou posterior. Observe que a maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.0.6 ou posterior. Você pode executar **WAAgent-version** para confirmar a versão instalada na VM. Se a VM estiver executando uma versão anterior ao 2.0.6, execute estas [instruções](https://github.com/Azure/WALinuxAgent "instruções") para atualizá-la.
-- [CLI do Azure](./xplat-cli.md). Siga [esta diretriz](./xplat-cli-install.md) para configurar o ambiente da CLI do Azure em seu computador. Quando a CLI do Azure estiver instalada, você poderá usar o comando **azure** na sua interface de linha de comando (Bash, Terminal, prompt de comando) para acessar os comandos da CLI do Azure. Por exemplo, execute **azure vm extension set --help** para ver o uso detalhado, execute **azure login** para fazer logon no Azure, execute **azure vm list** para listar todas as máquinas virtuais que possui no Azure.
+- Agente Linux do Microsoft Azure versão 2.0.6 ou posterior. Observe que a maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.0.6 ou posterior. É possível executar **WAAgent-version** para confirmar a versão instalada na VM. Se a VM estiver executando uma versão anterior ao 2.0.6, execute estas [instruções](https://github.com/Azure/WALinuxAgent "instruções") para atualizá-la.
+- [CLI do Azure](./xplat-cli.md). Siga [esta orientação](./xplat-cli-install.md) para configurar o ambiente da CLI do Azure em seu computador. Depois de instalar a CLI do Azure, você poderá usar o comando **azure** em sua interface de linha de comando (Bash, Terminal, prompt de comando) para acessar os comandos da CLI do Azure. Por exemplo, execute **azure vm extension set --help** para ver o uso detalhado, execute **azure login** para fazer logon no Azure e execute **azure vm list** para listar todas as máquinas virtuais que você tem no Azure.
 - Uma conta de armazenamento para armazenar os dados. Você precisará de um nome de conta de armazenamento e de uma tecla de acesso criados anteriormente para carregar os dados no armazenamento.
 
 
@@ -141,4 +143,4 @@ Se tiver habilitado fileCfg ou perfCfg especificado nos Cenários 2 e 3, você p
 - Para a versão 2.0, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
 - Para a versão 2.0, se você tiver habilitado a extensão de Diagnóstico do Linux por meio de script primeiro, não será possível exibir os dados no portal do Azure. Se você tiver habilitado a extensão no portal primeiro, os scripts ainda funcionarão.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

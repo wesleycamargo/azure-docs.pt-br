@@ -83,7 +83,7 @@ Uma função de trabalho pode ter qualquer número de pontos de extremidade HTTP
 
 ### Página Armazenamento Local
 
-Você pode usar a página de propriedades Armazenamento Local para reservar um ou mais recursos de armazenamento local para uma função. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual do Azure no qual uma instância de uma função está em execução. Para obter mais informações sobre como trabalhar com recursos de armazenamento local, consulte [Configurar recursos de armazenamento local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+Você pode usar a página de propriedades Armazenamento Local para reservar um ou mais recursos de armazenamento local para uma função. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual do Azure no qual uma instância de uma função está em execução. Para obter mais informações sobre como trabalhar com recursos de armazenamento local, consulte [Configurar recursos de armazenamento local](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ### Página Certificados
 
@@ -112,4 +112,4 @@ Para definir configurações que se aplicam a todo um projeto de serviço de nuv
 
 Para saber mais sobre como configurar projetos de serviço de nuvem do Azure, consulte [gerenciamento de funções na nuvem do Azure para serviços projetos com o Visual Studio](vs-azure-tools-cloud-service-project-managing-roles.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh"/>
 
 # Elasticidade de fragmentos 
 
-A **elasticidade de fragmento** permite aos desenvolvedores de aplicativos ampliar ou reduzir dinamicamente os recursos de banco de dados conforme a necessidade, habilitando a otimização do desempenho de seus aplicativos e também minimizando os custos. A combinação das **ferramentas do Banco de Dados Elástico** para o Banco de Dados SQL do Azure junto com as [camadas de serviço Básica, Standard e Premium](http://msdn.microsoft.com/library/azure/dn741340.aspx) fornecem cenários de elasticidade muito atrativos. Ferramentas de banco de dados elástico habilitam o dimensionamento horizontal, um padrão de design no qual os bancos de dados (também [chamados de "fragmentos"](sql-database-elastic-scale-glossary.md)) são adicionados ou removidos de um conjunto de fragmentos para aumentar ou reduzir a capacidade. Da mesma forma, as camadas de serviço do Banco de Dados SQL fornecem recursos de **dimensionamento vertical** que recursos de um banco de dados individual podem escalar e reduzir verticalmente até que atendam à demanda de forma adequada. Juntos, a escala vertical de um único fragmento e a escala horizontal de vários fragmentos proporcionam aos desenvolvedores de aplicativos um ambiente muito flexível que pode ser dimensionado para atender às necessidades de desempenho, capacidade e otimização de custo.
+A **elasticidade de fragmento** permite aos desenvolvedores de aplicativos ampliar ou reduzir dinamicamente os recursos de banco de dados conforme a necessidade, habilitando a otimização do desempenho de seus aplicativos e também minimizando os custos. A combinação das **ferramentas do Banco de Dados Elástico** para o Banco de Dados SQL do Azure junto com as [camadas de serviço Básica, Standard e Premium](sql-database-service-tiers) fornecem cenários de elasticidade muito atrativos. Ferramentas de banco de dados elástico habilitam o dimensionamento horizontal, um padrão de design no qual os bancos de dados (também [chamados de "fragmentos"](sql-database-elastic-scale-glossary.md)) são adicionados ou removidos de um conjunto de fragmentos para aumentar ou reduzir a capacidade. Da mesma forma, as camadas de serviço do Banco de Dados SQL fornecem recursos de **dimensionamento vertical** que recursos de um banco de dados individual podem escalar e reduzir verticalmente até que atendam à demanda de forma adequada. Juntos, a escala vertical de um único fragmento e a escala horizontal de vários fragmentos proporcionam aos desenvolvedores de aplicativos um ambiente muito flexível que pode ser dimensionado para atender às necessidades de desempenho, capacidade e otimização de custo.
 
 Com a recém-lançada funcionalidade de **pools de banco de dados elástico**, fica ainda mais simples de atingir o dimensionamento vertical. Os pools permitem que o consumo de recursos de um banco de dados individual aumente ou diminua *automaticamente* dentro de um orçamento compartilhado por todo o pool. Para aplicativos que prefiram não aproveitar os pools de banco de dados elástico, este artigo descreverá outras técnicas para implementar um mecanismo baseado em políticas para gerenciar o dimensionamento vertical, bem como alguns cenários comuns para automatizar operações deste.
 
@@ -147,7 +147,7 @@ Para facilitar a implementação real de cenários de dimensionamento vertical e
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
+
 
 <!--anchors-->
 [Telemetry]: #telemetry
@@ -155,4 +155,4 @@ Para facilitar a implementação real de cenários de dimensionamento vertical e
 [Action]: #action
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

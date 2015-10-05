@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Introdução: provisionar um SQL Data Warehouse #
@@ -161,6 +161,8 @@ Agora que o serviço SQL Data Warehouse foi provisionado com êxito, podemos ava
 1. [Conectar-se ao data warehouse e consultá-lo][].
 2. Carregue os [dados de exemplo].
 
+	> [AZURE.NOTE]Queremos melhorar este artigo. Se você optar por responder "não" à pergunta "Este artigo foi útil?", inclua uma breve sugestão sobre como melhorar o artigo ou o que está faltando. Obrigado!
+
 <!--Image references-->
 
 
@@ -172,4 +174,4 @@ Agora que o serviço SQL Data Warehouse foi provisionado com êxito, podemos ava
 [avaliação gratuita]: https://azure.microsoft.com/pt-BR/pricing/free-trial/
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

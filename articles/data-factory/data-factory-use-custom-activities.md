@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Usar atividades personalizadas em um pipeline do Data Factory do Azure"
-	description="Saiba como criar atividades personalizadas e usá-las em um pipeline do Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Usar atividades personalizadas em um pipeline do Data Factory do Azure" 
+	description="Saiba como criar atividades personalizadas e usá-las em um pipeline do Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Usar atividades personalizadas em um pipeline do Data Factory do Azure
@@ -53,7 +53,7 @@ Este passo a passo fornece instruções passo a passo para criar uma atividade p
 
 4. Importe o pacote NuGet do Armazenamento do Azure para o projeto.
 
-		Install-Package Azure.Storage
+		Install-Package Azure.Storage -Version 4.3.0 
 
 5. Adicione as instruções **using** a seguir ao arquivo de origem no projeto.
 
@@ -244,7 +244,18 @@ Se você tiver estendido o tutorial [Introdução ao Azure Data Factory][adfgets
 	4. Para a propriedade **version**, especifique a versão do HDInsight que você deseja usar. Se você excluir essa propriedade, a versão mais recente será usada.  
 	5. Para o **linkedServiceName**, especifique **StorageLinkedService** que você criou no tutorial do guia de Introdução. 
 
-		{ "name": "HDInsightOnDemandLinkedService", "properties": { "type": "HDInsightOnDemand", "typeProperties": { "clusterSize": "1", "timeToLive": "00:05:00", "version": "3.1", "linkedServiceName": "StorageLinkedService" } } }
+			{
+			  "name": "HDInsightOnDemandLinkedService",
+			  "properties": {
+			    "type": "HDInsightOnDemand",
+			    "typeProperties": {
+			      "clusterSize": "1",
+			      "timeToLive": "00:05:00",
+			      "version": "3.1",
+			      "linkedServiceName": "StorageLinkedService"
+			    }
+			  }
+			}
 
 2. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
    
@@ -405,6 +416,7 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 		    "type": "AzureBatch",
 		    "typeProperties": {
 		      "accountName": "<Azure Batch account name>",
+			  "batchUri": "https://<region>.batch.azure.com",
 		      "accessKey": "<Azure Batch account key>",
 		      "poolName": "<Azure Batch pool name>",
 		      "linkedServiceName": "<Specify associated storage linked service reference here>"
@@ -412,11 +424,10 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 		  }
 		}
 
-	> [AZURE.NOTE]Acrescente "**.<nome da região**" ao nome da sua conta do lote para a propriedade **accountName**. Exemplo: "mybatchaccount.eastus". Outra opção é fornecer o ponto de extremidade batchUri, conforme mostrado abaixo.
+	> [AZURE.IMPORTANT]A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: accountname.region.batch.azure.com. Para a propriedade **batchUri** no JSON, você precisará **remover "accountname."** da URL e usar o **accountname** para a propriedade JSON **accountName**.
+	  
+	Para a propriedade **poolName**, você também pode especificar a ID do pool em vez do nome do pool.
 
-		accountName: "adfteam",
-		batchUri: "https://eastus.batch.azure.com",
- 
 	Consulte [tópico do MSDN do serviço vinculado Azure Batch](https://msdn.microsoft.com/library/mt163609.aspx) para obter descrições dessas propriedades.
 
 2.  No Editor Data Factory, abra a definição do JSON para o pipeline criado no passo a passo e substitua **HDInsightLinkedService** por **AzureBatchLinkedService**.
@@ -467,4 +478,4 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="As máquinas virtuais no Azure são a opção de computação que eu quero?"
-	description="Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais"
+	pageTitle="Devo escolher as VMs do Azure? | Microsoft Azure"
+	description="Aprenda sobre as VMs do Azure e como elas se comparam aos diferentes modelos de hospedagem de aplicativos no Azure."
 	headerExpose=""
 	footerExpose=""
 	services="virtual-machines"
@@ -10,7 +10,7 @@
 	tags=azure-resource-manager, azure-service-management/>
 
 <tags
-	ms.service="multiple"
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -19,6 +19,8 @@
 	ms.author="cynthn"/>
 
 # Devo escolher Máquinas Virtuais do Azure?
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada um deles fornece um conjunto de serviços diferente, portanto, qual deles você escolhe depende exatamente do que você está tentando fazer. A VM do Azure é a escolha certa para você?
 
@@ -31,4 +33,4 @@ Saiba mais sobre [máquinas virtuais](https://msdn.microsoft.com/library/azure/j
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -5,7 +5,8 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +18,8 @@
 	ms.author="robmcm"/>
 
 # Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
 
 Com o Azure, você pode usar uma máquina virtual para lidar com tarefas de computação intensiva. Por exemplo, uma máquina virtual pode lidar com tarefas e fornecer resultados às máquinas dos clientes ou aos aplicativos móveis. Depois de ler este artigo, você terá um entendimento de como criar uma máquina virtual que executa um aplicativo Java de computação intensiva que pode ser monitorado por outro aplicativo Java.
 
@@ -83,8 +86,8 @@ Para criar um namespace de serviço:
 
 1.  Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 2.  No painel de navegação esquerdo inferior do Portal de Gerenciamento, clique em **Barramento de Serviço, Controle de Acesso e Caching**.
-3.  No painel superior esquerdo do Portal de Gerenciamento, clique no nó do **Barramento de Serviço** e, em seguida, clique no botão **Novo**.![Captura de tela do nó do Barramento de Serviço][svc_bus_node]
-4.  Na caixa de diálogo **Criar um novo namespace de serviço**, digite um **Namespace** e, em seguida, para certificar-se de que ele seja exclusivo, clique no botão **Verificar disponibilidade**. ![Criar uma captura de tela do novo Namespace][create_namespace]
+3.  No painel superior esquerdo do Portal de Gerenciamento, clique no nó **Barramento de Serviço** e, em seguida, clique no botão **Novo**.![Captura de tela do nó do Barramento de Serviço][svc_bus_node]
+4.  Na caixa de diálogo **Criar um novo namespace de serviço**, digite um **Namespace** e, em seguida, para verificar se ele é exclusivo, clique no botão **Verificar Disponibilidade**.![Criar uma captura de tela do novo Namespace][create_namespace]
 5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região na qual o namespace deve estar hospedado e, em seguida, clique no botão **Criar Namespace**.  
 
     O namespace que você criou aparece no Portal de Gerenciamento e demora algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
@@ -93,17 +96,17 @@ Para criar um namespace de serviço:
 
 A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, você precisar obter as credenciais de gerenciamento para o namespace.
 
-1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis. ![Captura de tela de namespaces disponíveis][avail_namespaces]
-2.  Selecione o namespace que você acabou de criar na lista abaixo. ![Captura de tela da lista de namespaces][namespace_list]
-3.  O painel direito **Propriedades** listará as propriedades para o novo namespace. ![Captura de tela do painel Propriedades][properties_pane]
-4.  A **Chave padrão** está oculta. Clique no botão **Exibir** para exibir as credenciais de segurança. ![Captura de tela da chave padrão][default_key]
+1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis.![Captura de tela de namespaces disponíveis][avail_namespaces]
+2.  Selecione o namespace que você acabou de criar na lista abaixo.![Captura de tela da lista de namespaces][namespace_list]
+3.  O painel direito **Propriedades** listará as propriedades do novo namespace.![Captura de tela do painel Propriedades][properties_pane]
+4.  A **Chave padrão** está oculta. Clique no botão **Exibir** para exibir as credenciais de segurança.![Captura de tela da chave padrão][default_key]
 5.  Anote o **Emissor Padrão** e a **Chave Padrão**, pois você usará essas informações abaixo para executar operações com o namespace.
 
 ## Como criar um aplicativo Java que executa uma tarefa de computação intensiva
 
 1. Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java](http://azure.microsoft.com/develop/java/).
 2. Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Neste tutorial, usaremos **TSPSolver.java** como o nome do arquivo Java. Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
-3. Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Neste tutorial, usaremos o **TSPSolver.jar** como o nome do arquivo JAR gerado.
+3. Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Neste tutorial, usaremos **TSPSolver.jar** como o nome do arquivo JAR gerado.
 
 <p/>
 
@@ -293,7 +296,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 ## Como criar um aplicativo Java que monitora o andamento da tarefa de computação intensiva
 
 1. Na sua máquina de desenvolvimento, crie um aplicativo de console Java usando o código de exemplo no final desta seção. Neste tutorial, usaremos **TSPClient.java** como o nome do arquivo Java. Conforme mostrado anteriormente, modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
-2. Exporte o aplicativo para um JAR executável e empacote as bibliotecas necessárias para o JAR gerado. Neste tutorial, usaremos o **TSPClient.jar** como o nome do arquivo JAR gerado.
+2. Exporte o aplicativo para um JAR executável e empacote as bibliotecas necessárias para o JAR gerado. Neste tutorial, usaremos **TSPClient.jar** como o nome do arquivo JAR gerado.
 
 <p/>
 
@@ -415,7 +418,7 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 1. Faça logon na máquina virtual.
 2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\\TSP**.
 3. Copie **TSPSolver.jar** em **c:\\TSP**,
-4. Crie um arquivo chamado **c:\\TSP\\cities.txt** com o seguinte conteúdo.
+4. Crie um arquivo chamado **c:\\TSP\\cities.txt** com o conteúdo abaixo.
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -492,11 +495,11 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 
         java -jar TSPClient.jar
 
-    Como opção, especifique o número de minutos de suspensão entre a verificação da fila passando um argumento de linha de comando. O período de suspensão padrão para a verificação da fila é de três minutos, que será usado se nenhum argumento de linha de comando for passado para **TSPClient**. Se você quiser usar um valor diferente para o intervalo de suspensão, como um minuto, por exemplo, execute o comando a seguir.
+    Como opção, especifique o número de minutos de suspensão entre a verificação da fila passando um argumento de linha de comando. O período de suspensão padrão para a verificação da fila é de 3 minutos, que será usado se nenhum argumento de linha de comando for transmitido para **TSPClient**. Se você quiser usar um valor diferente para o intervalo de suspensão, como um minuto, por exemplo, execute o comando a seguir.
 
 	    java -jar TSPClient.jar 1
 
-    O cliente será executado até ver a mensagem de uma fila "Concluído". Observe que, se executar várias ocorrências do solver sem executar o cliente, você precisará executar o cliente várias vezes para esvaziar completamente a fila. Também é possível excluir a fila e depois criá-la novamente. Para excluir a fila, execute o comando do **TSPSolver** (não **TSPClient**) a seguir.
+    O cliente será executado até ver a mensagem de uma fila "Concluído". Observe que, se executar várias ocorrências do solver sem executar o cliente, você precisará executar o cliente várias vezes para esvaziar completamente a fila. Também é possível excluir a fila e depois criá-la novamente. Para excluir a fila, execute o comando **TSPSolver** (não **TSPClient**) a seguir.
 
         java -jar TSPSolver.jar deletequeue
 
@@ -516,4 +519,4 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

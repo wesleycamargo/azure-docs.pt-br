@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevepo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/03/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
 
-#Gerenciamento de unidades administrativas no AD do Azure - Visualização pública
+# Gerenciamento de unidades administrativas no AD do Azure - Visualização pública
 
 Este artigo descreve unidades administrativas – um novo contêiner do Active Directory do Azure de recursos que pode ser usado para a delegação de permissões administrativas em subconjuntos de usuários e para aplicação de diretivas para um subconjunto de usuários. No Active Directory do Azure, unidades administrativas permitem aos administradores centrais delegar permissões para administradores regionais ou definir a diretiva em um nível granular.
 
@@ -26,14 +26,14 @@ Isso é útil em organizações com divisões independentes, por exemplo, uma gr
 
 Do ponto de vista do administrador central, uma unidade administrativa é um objeto de diretório que pode ser criado e populado com recursos. **Nesta versão, esses recursos podem ser somente os usuários.** Após criada e populada, a unidade administrativa pode ser usada como um escopo para restringir a permissão concedida somente para os recursos contidos na unidade administrativa.
 
-##Gerenciando unidades administrativas
+## Gerenciando unidades administrativas
 
 Nesta versão de visualização, você pode criar e gerenciar unidades administrativas usando os cmdlets do Módulo do Active Directory do Azure para Windows PowerShell.
 
 Para obter mais informações sobre requisitos de software e instalação do módulo AD do Azure e para obter informações sobre os cmdlets do Módulo do AD do Azure para gerenciar unidades administrativas, incluindo sintaxe, descrições de parâmetros e exemplos, consulte [Gerenciar o AD do Azure usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 
-##Próximas etapas
+## Próximas etapas
 [Edições do Active Directory do Azure](active-directory-editions.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

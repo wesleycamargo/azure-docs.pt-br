@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/23/2015"
 	ms.author="genemi"/>
 
 
@@ -169,6 +169,7 @@ O banco de dados anterior à V11 continua disponível para acesso aos dados dura
 | :--- | :--- |
 | Duração da atualização | A duração da atualização depende do tamanho, da edição e do número de bancos de dados no servidor. O processo de atualização de servidores pode levar horas ou dias, especialmente para servidores que tenham bancos de dados:<br/><br/>* Com mais de 50 GB ou <br/>* Em uma camada de serviço que não seja Premium<br/><br/>A criação de novos bancos de dados no servidor durante a atualização também pode aumentar o tempo da atualização. |
 | Sem replicação geográfica | Não há suporte para replicação geográfica em um servidor V12 atualmente envolvido em uma atualização a partir da V11. |
+| O banco de dados está temporariamente indisponível na fase final da atualização para o V12 | Os bancos de dados que pertencem ao servidor V11 permanecem disponíveis durante o processo de atualização. No entanto, a conexão com o servidor e os bancos de dados está temporariamente indisponível na fase final, durante a transição do V11 para o V12 pronto.<br/><br/>O período de transição pode variar de 40 segundos a 5 minutos. Para a maioria dos servidores, a transição deve ser concluída em até 90 segundos. O tempo de transição aumenta para servidores que têm um grande número de bancos de dados, ou quando os bancos de dados têm cargas de trabalho pesadas de gravação. |
 
 
 ### Limitação *após* a atualização para V12
@@ -243,9 +244,6 @@ O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atua
 Se a atualização falhar por algum motivo estranho, seu banco de dados V11 permanece ativo e disponível como normal.
 
 
-> [AZURE.NOTE]O banco de dados anterior à V12 *continua disponível* para acesso a dados durante a atualização para a V12.
-
-
 ## Links relacionados
 
 
@@ -256,4 +254,4 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

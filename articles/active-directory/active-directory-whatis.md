@@ -72,7 +72,7 @@ Sua organização pode usar o AD do Azure para melhorar a produtividade dos func
  - [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/) - você pode se inscrever em uma avaliação gratuita de 30 dias hoje mesmo e implantar sua primeira solução de nuvem em menos de 5 minutos usando este link
  - Leia nossa "Introdução ao AD do Azure" para obter dicas e truques sobre como colocar um locatário do AD do Azure em funcionamento rapidamente
 -	Se você for um desenvolvedor:
- - Confira nosso [Guia de desenvolvedores](https://msdn.microsoft.com/library/azure/ff800682.aspx) para o Active Directory do Azure <need link>
+ - Confira nosso [Guia de desenvolvedores](active-directory-developers-guide.md) para o Active Directory do Azure 
  - [Inicie uma avaliação](https://azure.microsoft.com/trial/get-started-active-directory/) – inscreva-se em uma avaliação gratuita de 30 dias hoje mesmo e comece a integrar seu aplicativo ao AD do Azure
 
 
@@ -104,4 +104,4 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 
 - [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

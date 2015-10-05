@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Visualização do AD B2C do Azure: criar um aplicativo Web do .NET
@@ -34,7 +34,9 @@ Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azur
 
 - Incluir um **aplicativo/api Web** no aplicativo
 - Digitar `https://localhost:44316/` como uma **URL de Resposta** - é a URL padrão para este exemplo de código.
-- Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você precisará dela em breve.
+- Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você precisará dele em breve.
+
+    > [AZURE.IMPORTANT]Não é possível usar aplicativos registrados na guia **Aplicativos** no [Portal do Azure](https://manage.windowsazure.com/) para isso.
 
 ## 3\. Criar suas políticas
 
@@ -43,7 +45,7 @@ No AD B2C do Azure, cada experiência do usuário é definida por uma [**políti
 - Escolher **Inscrição de ID de usuário** ou **Inscrição de email** na folha de provedores de identidade.
 - Escolher o **Nome de Exibição** e alguns outros atributos de inscrição em sua política de inscrição.
 - Escolher a declaração **Nome de Exibição** como uma declaração de aplicativo em cada política. Você pode escolher outras declarações também.
-- Copie o **Nome** de cada política após criá-lo. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará desses nomes de política. 
+- Copie o **Nome** de cada política após criá-lo. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará esses nomes de política. 
 
 Quando suas três políticas forem criadas com êxito, você estará pronto para compilar o aplicativo.
 
@@ -89,7 +91,7 @@ Em seguida, abra o arquivo `web.config` na raiz do projeto e insira os valores d
 ...
 ```
 
-Agora, adicione uma classe de inicialização do OWIN ao projeto denominado `Startup.cs`. Clique com o botão direito do mouse no projeto --> **Adicionar** --> **Novo Item** --> Pesquisar por "OWIN". Altere a declaração de classe para `public partial class Startup` -já implementamos parte dessa classe para você em outro arquivo. O middleware do OWIN invocará o método `Configuration(...)` quando seu aplicativo for iniciado - nesse método, faça uma chamada para ConfigureAuth(...), no qual iremos configurar a autenticação para seu aplicativo.
+Agora, adicione uma classe de inicialização do OWIN ao projeto denominado `Startup.cs`. Clique com o botão direito do mouse no projeto --> **Adicionar** --> **Novo Item** --> pesquise por "OWIN". Altere a declaração de classe para `public partial class Startup` -já implementamos parte dessa classe para você em outro arquivo. O middleware do OWIN invocará o método `Configuration(...)` quando seu aplicativo for iniciado - nesse método, faça uma chamada para ConfigureAuth(...), no qual vamos configurar a autenticação para seu aplicativo.
 
 ```C#
 // Startup.cs
@@ -227,7 +229,7 @@ public void Profile()
 }
 ```
 
-Você também pode usar uma tag `PolicyAuthorize` personalizada em seus controladores para exigir que determinada política seja executada se o usuário não tiver entrado. Abra `Controllers\HomeController.cs` e adicione a tag `[PolicyAuthorize]` ao controlador de Declarações. Certifique-se de substituir a política de exemplo incluída com sua própria política de entrada.
+Você também pode usar uma marca `PolicyAuthorize` personalizada em seus controladores para exigir que determinada política seja executada se o usuário ainda não tiver entrado. Abra `Controllers\HomeController.cs` e adicione a marca `[PolicyAuthorize]` ao controlador de Declarações. Certifique-se de substituir a política de exemplo incluída com sua própria política de entrada.
 
 ```C#
 // Controllers\HomeController.cs
@@ -239,7 +241,7 @@ public ActionResult Claims()
   ...
 ```
 
-Você pode usar o OWIN para desconectar o usuário do aplicativo também. Em `Controllers\AccountController.cs`:
+Você pode usar o OWIN para desconectar o usuário do aplicativo também. De volta em `Controllers\AccountController.cs`:
 
 ```C#
 // Controllers\AccountController.cs
@@ -258,7 +260,7 @@ public void SignOut()
 }
 ```
 
-Por padrão, o OWIN não enviará as políticas que você especificou no `AuthenticationProperties` ao AD do Azure. No entanto, você pode editar as solicitações que o OWIN gera na notificação `RedirectToIdentityProvider`. Use essa notificação em `App_Start\Startup.Auth.cs` para buscar o ponto de extremidade correto para cada política nos metadados de política. Isso garantirá que a solicitação correta é enviada ao AD do Azure para cada política que seu aplicativo quiser executar.
+Por padrão, o OWIN não enviará as políticas que você especificou no `AuthenticationProperties` ao AD do Azure. No entanto, você pode editar as solicitações que o OWIN gera na notificação `RedirectToIdentityProvider`. Use essa notificação em `App_Start\Startup.Auth.cs` para buscar o ponto de extremidade correto para cada política nos metadados da política. Isso garantirá que a solicitação correta é enviada ao AD do Azure para cada política que seu aplicativo quiser executar.
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -335,4 +337,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

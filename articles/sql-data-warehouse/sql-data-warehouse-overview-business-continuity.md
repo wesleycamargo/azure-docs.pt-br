@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/15/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs"/>
 
 
@@ -51,7 +51,7 @@ Uma vez que o SQL Data Warehouse separa computação e armazenamento, todos os s
 
 ### Restauração do banco de dados
 
-A restauração do banco de dados foi desenvolvida para restaurar seu banco de dados para um determinado ponto anterior. O serviço do Azure SQL Data Warehouse protege todos os bancos de dados com instantâneos automáticos de armazenamento a cada 8 horas e os mantêm por 7 dias para fornecer a você um conjunto distinto de pontos de restauração. Esses backups são armazenados no Armazenamento do Azure RA-GRS e, portanto, com redundância geográfica por padrão. Os recursos de backup e restauração automáticos são gratuitos, além de não terem nenhum custo e não exigirem administração para proteger os bancos de dados contra corrupção ou exclusão acidentais. Para saber mais sobre restauração de banco de dados, consulte [Recuperar após erro do usuário][].
+A restauração do banco de dados foi desenvolvida para restaurar seu banco de dados para um determinado ponto anterior. O serviço do Azure SQL Data Warehouse protege todos os bancos de dados com instantâneos automáticos de armazenamento pelo menos a cada 4 horas e os mantêm por 7 dias para fornecer a você um conjunto distinto de pontos de restauração. Esses backups são armazenados no Armazenamento do Azure RA-GRS e, portanto, com redundância geográfica por padrão. Os recursos de backup e restauração automáticos são gratuitos, além de não terem nenhum custo e não exigirem administração para proteger os bancos de dados contra corrupção ou exclusão acidentais. Para saber mais sobre restauração de banco de dados, consulte [Recuperar após erro do usuário][].
 
 ### Restauração geográfica
 
@@ -78,4 +78,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

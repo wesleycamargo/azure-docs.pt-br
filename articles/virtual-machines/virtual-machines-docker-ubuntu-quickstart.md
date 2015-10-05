@@ -18,23 +18,19 @@
 
 # Como começar rapidamente com Docker no Azure Marketplace
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+
 A maneira mais rápida de começar a usar o [Docker] é ir para o Azure Marketplace e criar uma máquina virtual usando o modelo de imagem do **Docker no servidor do Ubuntu** criado por [Canonical] em conjunto com [MSOpenTech]. Isso cria uma VM de servidor do Ubuntu e instala automaticamente a [Extensão de VM do Docker](virtual-machines-docker-vm-extension.md) juntamente com o mecanismo de Docker **mais recente** previamente instalado e em execução no Azure.
 
 Você pode conectar-se à VM imediatamente com SSH e começar a trabalhar com o Docker diretamente sem fazer mais nada.
 
 > [AZURE.NOTE]A VM criada pelo modelo do Azure Marketplace não hospeda a API remota do Docker para o gerenciamento por um cliente remoto do docker. Para habilitar o controle do host do Docker nesta VM remotamente, confira [Executando o Docker com HTTPS](https://docs.docker.com/articles/https/) ou siga as etapas em [Usando a extensão de VM do Docker do Portal do Azure](virtual-machines-docker-with-portal.md) ou [Usando a extensão de VM do Docker da CLI do Azure](virtual-machines-docker-with-xplat-cli.md). Se você estiver se sentindo especialmente nerd, é possível criar o [Cliente do Windows Docker](https://github.com/ahmetalpbalkan/Docker.DotNet) do GitHub e tente isto também (ou simplesmente pegue-o no [nuget](https://www.nuget.org/packages/Docker.DotNet/)).
 
-Neste tópico:
-
-- [Faça logon no Portal]
-- [Crie uma máquina virtual com a imagem de Docker de Canonical e MSOpenTech]
-- [Conecte-se com o SSH e divirta-se]
-
-## <a id='logon'>Faça logon no Portal</a>
+## Faça logon no Portal
 
 Essa parte é fácil, a menos que você não tenha uma conta do Azure. [Obtenha uma gratuita facilmente](http://azure.microsoft.com/pricing/free-trial/)!
 
-## <a id='createvm'>Crie uma máquina virtual com a imagem de Docker de Canonical e MSOpenTech</a>
+## Crie uma máquina virtual com a imagem de Docker de Canonical e MSOpenTech
 
 1. Depois que você fizer logon, clique em **Novo** no canto inferior esquerdo para criar uma nova imagem de VM. Você pode ver a imagem correta na faixa imediatamente:
 
@@ -52,7 +48,7 @@ Essa parte é fácil, a menos que você não tenha uma conta do Azure. [Obtenha 
 
 > ![A imagem do docker em execução no portal](./media/virtual-machines-docker-ubuntu-quickstart/DockerUbuntuRunning.png)
 
-## <a id='havingfun'>Conecte-se com o SSH e divirta-se</a>
+## Conecte-se com o SSH e divirta-se
 
 Agora a diversão começa. Você pode conectar-se imediatamente à máquina virtual usando SSH:
 
@@ -68,9 +64,9 @@ e começar a usar comandos do Docker, lembrando que, nesta VM do Azure, a config
 Você vai querer começar a usar o [Docker]!
 
 <!--Anchors-->
-[Faça logon no Portal]: #logon
-[Crie uma máquina virtual com a imagem de Docker de Canonical e MSOpenTech]: #createvm
-[Conecte-se com o SSH e divirta-se]: #havingfun
+[Log on to the Portal]: #logon
+[Create a VM with the Docker Image from Canonical and MSOpenTech]: #createvm
+[Connect with SSH and Have Fun]: #havingfun
 [Next steps]: #next-steps
 
 
@@ -81,4 +77,4 @@ Você vai querer começar a usar o [Docker]!
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

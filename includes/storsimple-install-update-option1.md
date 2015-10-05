@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Opção 1: Usar o Windows PowerShell para StorSimple para instalar a Atualização 1.2"
-   description="Explica como usar o Windows PowerShell para StorSimple para instalar a Atualização 1.2 do StorSimple 8000 Series."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/09/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar a Atualização 1.2 do Windows PowerShell para StorSimple
 
@@ -127,4 +112,4 @@
  
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

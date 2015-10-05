@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="09/18/2015"
    ms.author="tomfitz"/>
 
 # Criar uma nova entidade de serviço do Azure usando o portal do Azure
@@ -34,58 +34,58 @@ Este tópico mostra como criar uma nova entidade de serviço usando o Portal do 
 
 2. Selecione **Active Directory** no painel à esquerda.
 
-   ![selecionar Active Directory][1]
+     ![selecionar Active Directory][1]
 
 3. Selecione o diretório que você deseja usar para criar o novo aplicativo.
 
-   ![escolher o diretório][2]
+     ![escolher o diretório][2]
 
 3. Para exibir os aplicativos em seu diretório, clique em **Aplicativos**.
 
-   ![exibir aplicativos][11]
+     ![exibir aplicativos][11]
 
 4. Se você não criou um aplicativo nesse diretório antes de você verá algo semelhante à imagem a seguir. Clique em **ADICIONAR UM APLICATIVO**
 
-   ![adicionar aplicativo][6]
+     ![adicionar aplicativo][6]
 
-   Ou então, clique em **Adicionar** no painel inferior.
+     Ou então, clique em **Adicionar** no painel inferior.
 
-   ![adicionar][12]
+     ![adicionar][12]
 
 5. Selecione o tipo de aplicativo que você deseja criar. Para este tutorial, não usaremos um aplicativo da Galeria.
 
-   ![novo aplicativo][10]
+     ![novo aplicativo][10]
 
 6. Preencha o nome do aplicativo e selecione o tipo de aplicativo que você deseja usar. Já que pretendemos usar a entidade de serviço deste aplicativo para autenticar com o Gerenciador de Recursos do Azure, podemos decidir criar um **APLICATIVO WEB E/OU API WEB** e clicar no botão Avançar.
 
-   ![nomear aplicativo][9]
+     ![nomear aplicativo][9]
 
 7. Preencha as propriedades de seu aplicativo. Para **URL DE LOGON**, forneça o URI para um site da Web que descreve seu aplicativo. A existência do site Web não é validada. Para **URI DE ID DO APLICATIVO**, forneça o URI que identifica seu aplicativo. A exclusividade ou existência do ponto de extremidade não está validada. Clique em **Concluir** para criar seu aplicativo AAD.
 
-   ![propriedades do aplicativo][4]
+     ![propriedades do aplicativo][4]
 
 ## Criar sua senha de entidade de serviço
 O portal agora deve estar com seu aplicativo selecionado.
 
 1. Clique na guia **Configurar** para definir a senha do aplicativo.
 
-   ![configurar o aplicativo][3]
+     ![configurar o aplicativo][3]
 
 2. Role para baixo até a seção **Chaves** e selecione por quanto tempo você gostaria que a senha fosse válida.
 
-   ![chaves][7]
+     ![chaves][7]
 
 3. Selecione **Salvar** para criar a chave.
 
-   ![salvar][13]
+     ![salvar][13]
 
-   A chave salva é exibida e você pode copiá-la.
+     A chave salva é exibida e você pode copiá-la.
 
-   ![chave salva][8]
+     ![chave salva][8]
 
 4. Você pode agora usar você chave para autenticar como uma entidade de serviço. Você precisará de sua **ID DO CLIENTE** além de sua **CHAVE** para entrar. Vá para **ID DO CLIENTE** e copie-a.
   
-   ![id do cliente][5]
+     ![id do cliente][5]
 
 
 Seu aplicativo agora está pronto e a entidade de serviço criada em seu locatário. Ao fazer logon como uma entidade de serviço, certifique-se de usar:
@@ -116,4 +116,4 @@ Seu aplicativo agora está pronto e a entidade de serviço criada em seu locatá
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

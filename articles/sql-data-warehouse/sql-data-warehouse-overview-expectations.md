@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/05/2015"
+   ms.date="09/22/2015"
    ms.author="lvargas;twounder;barbkess"/>
 
 # Expectativas de visualização do SQL Data Warehouse
@@ -49,7 +49,7 @@ O SQL Data Warehouse armazena todos os dados no Armazenamento do Azure usando bl
 
 ### Backups
 
-O SQL Data Warehouse do Azure faz backup de todos os dados a cada 4 horas usando Instantâneos de Armazenamento do Azure. Esses instantâneos são mantidos por 7 dias. Isso permite restaurar os dados para até 42 pontos no tempo nos últimos 7 dias até o momento em que o último instantâneo foi definido. Pela disponibilidade geral, nós especificaremos o período de retenção. Você pode restaurar dados de um instantâneo usando o PowerShell ou APIs REST.
+O SQL Data Warehouse do Azure faz backup de todos os dados pelo menos a cada 8 horas usando Instantâneos de Armazenamento do Azure. Esses instantâneos são mantidos por 7 dias. Isso permite restaurar os dados para pelo menos 21 pontos no tempo nos últimos 7 dias até o momento em que o último instantâneo foi definido. Você pode restaurar dados de um instantâneo usando o PowerShell ou APIs REST.
 
 Os instantâneos são copiados de modo assíncrono para uma região remota do Azure para adicionar a capacidade de recuperação em caso de falhas regionais (recuperação de desastres).
 
@@ -78,4 +78,4 @@ Durante a visualização, o SQL Data Warehouse pode ter até 4 eventos de manute
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

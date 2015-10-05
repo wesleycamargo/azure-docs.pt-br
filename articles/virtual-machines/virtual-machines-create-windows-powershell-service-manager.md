@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar e gerenciar uma máquina virtual Windows no Gerenciamento de Serviços com o Azure PowerShell."
-	description="Use o Azure PowerShell para criar rapidamente uma nova máquina virtual baseada em Windows no Gerenciamento de Serviços e realizar funções de gerenciamento."
+	pageTitle="Criar e gerenciar uma VM do Windows usando o Azure PowerShell | Microsoft Azure"
+	description="Crie e gerencie uma máquina virtual do Windows com o Azure PowerShell usando o modelo de implantação clássico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,13 +17,13 @@
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# Criar e gerenciar uma máquina virtual baseada em Windows no Gerenciamento de Serviços usando o Azure PowerShell
+# Criar e gerenciar uma máquina virtual do Windows usando o Azure PowerShell
 
-Este artigo descreve como criar e gerenciar máquinas virtuais do Azure baseadas em Windows no Gerenciamento de Serviços usando o Azure PowerShell.
+Este artigo descreve como criar e gerenciar máquinas virtuais do Windows usando o Azure PowerShell.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar uma VM do Windows com o modelo de implantação clássico. Você também pode criar um recurso de VM do Windows com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-deploy-rmtemplates-powershell.md).
 
-- [Implantar e gerenciar máquinas virtuais usando modelos do PowerShell e do Gerenciador de Recursos do Azure](virtual-machines-deploy-rmtemplates-powershell.md)
+
 
 ## Configurar o PowerShell do Azure
 
@@ -74,7 +74,7 @@ Agora, crie e defina a conta de Armazenamento usando os comandos a seguir. Preen
 
 Em seguida, você precisa de um serviço de nuvem. Se não tiver um serviço de nuvem existente, você deverá criar um. Você deve escolher um nome exclusivo que contenha apenas letras, números e hifens. O primeiro e o último caractere no campo devem ser uma letra ou um número.
 
-Por exemplo, você poderia nomeá-lo como -TestCS-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestCS-Tailspin.
+Por exemplo, você poderia nomeá-lo como TestCS-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestCS-Tailspin.
 
 Você pode testar a exclusividade do nome usando este comando do Azure PowerShell:
 
@@ -209,4 +209,4 @@ Para anexar discos de dados de um arquivo .vhd existente no armazenamento de blo
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

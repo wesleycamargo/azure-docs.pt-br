@@ -1,4 +1,12 @@
-<properties pageTitle="Implantar recursos do Azure usando um modelo" description="Aprenda a usar alguns dos clientes disponíveis na Biblioteca de Gerenciamento de Recursos do Azure para implantar uma máquina virtual, rede virtual e conta de armazenamento" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties
+	pageTitle="Implantar recursos do Azure usando um modelo | Microsoft Azure"
+	description="Saiba como usar alguns dos clientes disponíveis na Biblioteca de Gerenciamento de Recursos do Azure para implantar uma máquina virtual, rede virtual e conta de armazenamento"
+	services="virtual-machines,virtual-networks,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -10,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Implantar recursos do Azure usando bibliotecas .NET e um modelo
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos.
 
 Usando grupos de recursos e modelos, você pode gerenciar em conjunto todos os recursos que dão suporte a seu aplicativo. Este tutorial mostra como usar alguns dos clientes disponíveis na Biblioteca de Gerenciamento de Recursos do Azure e como criar um modelo para implantar uma máquina virtual, rede virtual e conta de armazenamento.
 
@@ -443,4 +453,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 	![Criar um aplicativo do AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,32 +1,35 @@
 <properties
-  pageTitle="Criar um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure"
-	description="Crie um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure por meio do Azure PowerShell ou da CLI do Azure"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="karthmut"
-	manager="timlt"
-	editor="tysonn"/>
+  pageTitle="Criar um cluster do MongoDB no Ubuntu | Microsoft Azure"
+  description="Crie um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure por meio do Azure PowerShell ou da CLI do Azure"
+  services="virtual-machines"
+  documentationCenter=""
+  authors="scoriani"
+  manager="timlt"
+  editor="tysonn"
+  tags="azure-resource-manager"/>
 
 <tags
   ms.service="virtual-machines"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+  ms.workload="multiple"
+  ms.tgt_pltfrm="vm-windows"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="04/29/2015"
+  ms.author="scoriani"/>
 
 # Criar um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo de implantação do Gerenciador de Recursos.
+
 O MongoDB é um banco de dados de software livre que oferece alto desempenho, alta disponibilidade e dimensionamento automático. Você pode instalar o MongoDB como um banco de dados autônomo ou em um cluster aproveitando os recursos internos de replicação. Em alguns casos, você pode usar a replicação para aumentar a capacidade de leitura. Os clientes têm a capacidade de enviar operações de leitura e gravação a servidores diferentes. Você também pode manter cópias em data centers diferentes para aumentar a localidade e a disponibilidade dos dados para aplicativos distribuídos. Com o MongoDB, a replicação também fornece redundância e aumenta a disponibilidade de dados. Com várias cópias de dados em servidores de bancos de dados diferentes, a replicação protege um banco de dados contra a perda de um único servidor. A replicação também permite recuperar-se de falhas de hardware e interrupções de serviço. Com as cópias adicionais dos dados, você pode dedicar um deles para recuperação de desastre, relatórios ou backup.
 
-Além dos vários tipos que já estavam disponíveis no Azure Marketplace, agora você pode facilmente implantar um novo cluster MongoDB em VMs do Ubuntu usando um modelo do Gerenciador de Recursos implantado por meio do [Azure PowerShell](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli.md).
+Além dos vários tipos que já estavam disponíveis no Azure Marketplace, agora você pode facilmente implantar um novo cluster MongoDB em VMs do Ubuntu usando um modelo do Gerenciador de Recursos do Azure implantado por meio do [Azure PowerShell](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli.md).
 
 Clusters recém-implantados com base nesse modelo terão a topologia descrita no diagrama a seguir, embora outras topologias possam ser facilmente obtidas por meio da personalização do modelo apresentado neste artigo.
 
 ![cluster-architecture](media/virtual-machines-mongodb-template/cluster-architecture.png)
 
-Por meio de um parâmetro, você pode definir o número de nós que serão implantados no novo cluster MongoDB e, com base em outro parâmetro, uma instância VM (Jumpbox) com um endereço IP público também pode ser implantada na mesma VNET, dando a você a capacidade de conectar-se ao cluster de Internet pública e realizar qualquer tipo de tarefa administrativa relacionada a esse cluster. Outra opção disponível como um parâmetro é a capacidade de adicionar um nó Arbiter ao conjunto de réplicas, que normalmente é sugerido quando ele tem um número par de membros. Para saber mais sobre topologias de replicação e detalhes do MongoDB, confira a [documentação do MongoDB](http://docs.mongodb.org/manual/core/replication-introduction/) oficial.
+Por meio de um parâmetro, você pode definir o número de nós que serão implantados no novo cluster MongoDB e, com base em outro parâmetro, uma instância VM (Jumpbox) com um endereço IP público também pode ser implantada na mesma VNET, dando a você a capacidade de conectar-se ao cluster de Internet pública e realizar qualquer tipo de tarefa administrativa relacionada a esse cluster. Outra opção disponível como um parâmetro é a capacidade de adicionar um nó Arbiter ao conjunto de réplicas, que normalmente é sugerido quando ele tem um número par de membros. Para obter mais informações sobre topologias de replicação e detalhes do MongoDB, confira a [documentação do MongoDB](http://docs.mongodb.org/manual/core/replication-introduction/) oficial.
 
 Depois que a implantação for concluída, você poderá acessar o Jumpbox usando o endereço DNS configurado na porta SSH 22.
 
@@ -305,7 +308,7 @@ Ao implantar, tenha em mente que uma nova Conta de Armazenamento do Azure precis
 
 Durante e após a implantação, você pode verificar todas as solicitações feitas durante o provisionamento, incluindo quaisquer erros ocorridos.
 
-Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e siga este procedimento:
+Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e faça o seguinte:
 
 - Clique em **Procurar** na barra de navegação à esquerda, role para baixo e clique em **Grupos de Recursos**.
 - Depois que você clicar no grupo de recursos que acabou de criar, a folha Grupo de Recursos será mostrada.
@@ -331,7 +334,7 @@ Você pode verificar o status das implantações de recursos individuais com o s
 
 ## Um tour da estrutura do modelo do MongoDB e da organização de arquivos
 
-Para criar um modelo robusto e reutilizável do Gerenciador de Recursos do Azure, é preciso realizar preparação adicional para organizar a série de tarefas complexas e inter-relacionadas necessárias durante a implantação de uma solução complexa como o MongoDB. Aproveitando os *loops de recursos* e a *vinculação de modelos* do Gerenciador de Recursos do Azure, além da execução de scripts por meio de extensões relacionadas, é possível implementar uma abordagem modular que pode ser reutilizada com praticamente qualquer implantação complexa com base no modelo.
+Para criar um modelo robusto e reutilizável do Gerenciador de Recursos do Azure, é preciso realizar preparação adicional para organizar a série de tarefas complexas e inter-relacionadas necessárias durante a implantação de uma solução complexa como o MongoDB. Com o uso da *vinculação de modelos* e do *loop de recursos* do Gerenciador de Recursos do Azure, além da execução de scripts por meio de extensões relacionadas, é possível implementar uma abordagem modular que pode ser reutilizada com praticamente qualquer implantação complexa baseada em modelo.
 
 O diagrama a seguir descreve as relações entre todos os arquivos baixados do GitHub para essa implantação.
 
@@ -548,7 +551,7 @@ Um conceito importante nesse modelo é a maneira como “tamanhos de camisetas�
       "dataDiskSize": 250
     },
 
-Um cluster MongoDB "Médio" usará D2 como Tamanho da VM para os três nós do MongoDB que hospedam dados, além de uma quarta VM A1 que será usada como arbitrador para fins de replicação. O submodelo correspondente invocado para implantar nós de dados poderá ser `member-resources-D2.json` e os arquivos de dados (250 GB cada) serão armazenados em duas contas de armazenamento. Essa variáveis serão usadas na seção de recursos para orquestrar as implantações de nó e outras tarefas.
+Um cluster MongoDB "Médio" usará D2 como Tamanho da VM para os três nós do MongoDB que hospedam dados, além de uma quarta VM A1 que será usada como arbitrador para fins de replicação. O submodelo correspondente invocado para implantar os nós de dados poderá ser `member-resources-D2.json` e os arquivos de dados (250 GB cada) serão armazenados em duas contas de armazenamento. Essa variáveis serão usadas na seção de recursos para orquestrar as implantações de nó e outras tarefas.
 
 ### Seção Recursos
 
@@ -583,10 +586,10 @@ No exemplo anterior, fica claro como azuredeploy.json nesse cenário foi organiz
 Em particular, os seguintes modelos vinculados serão usados para essa implantação:
 
 -	**Shared-resource.json**: contém a definição de todos os recursos que serão compartilhados na implantação. Os exemplos são contas de armazenamento usadas para armazenar os discos do sistema operacional da VM e redes virtuais.
--	**Jumpbox-resources.json**: quando habilitado, é responsável pela implantação de todos os recursos relacionados à VM Jumpbox, com um endereço IP público que pode ser usado para acessar o cluster MongoDB da rede pública.
+-	**Jumpbox-resources.json**: quando habilitado, é responsável pela implantação de todos os recursos relacionados à VM do Jumpbox, com um endereço IP público que pode ser usado para acessar o cluster MongoDB na rede pública.
 -	**Arbiter-resources.json**: quando habilitado, esse modelo implanta um membro arbitrador no cluster MongoDB. Um arbitrador não contêm dados, mas é usado quando um conjunto de réplicas contém um número par de nós para gerenciar eleições primárias.
--	**Member-resources-Dx.json**: especifica os modelos de recursos que efetivamente estão implantando os nós MongoDB. Um arquivo específico será usado com base na definição do tamanho de camiseta selecionada, em que cada arquivo só será diferente pelo número de discos conectados para cada nó.
--	**Mongodb-ubuntu-install.sh**: um arquivo de script bash invocado pela extensão CustomScriptForLinux em todos os nós no cluster. Responsável pela montagem e formatação de discos de dados e instalação de bits do MongoDB no nó.
+-	**Member-resources-Dx.json**: especifica os modelos de recursos que estão implantando de maneira efetiva os nós do MongoDB. Um arquivo específico será usado com base na definição do tamanho de camiseta selecionada, em que cada arquivo só será diferente pelo número de discos conectados para cada nó.
+-	**Mongodb-ubuntu-install.sh**: um arquivo de script Bash invocado pela extensão CustomScriptForLinux em todos os nós no cluster. Responsável pela montagem e formatação de discos de dados e instalação de bits do MongoDB no nó.
 
 Para implantar um cluster MongoDB, uma lógica específica é necessária para poder configurar corretamente um conjunto de réplicas. O exemplo a seguir mostra a sequência específica que você precisa usar durante a implantação.
 
@@ -646,7 +649,7 @@ Observando novamente nosso modelo principal (azuredeploy.json), vamos ver como e
 
 Um conceito importante a ser destacado é como é possível implantar várias cópias de um único tipo de recurso e, para cada instância, poder definir valores exclusivos para as configurações necessárias. Esse conceito é conhecido como *Loop de Recursos*.
 
-No exemplo anterior, um parâmetro (número de nós que devem ser implantados no cluster) será usado para definir uma variável ("numberOfMembers"), que será passada para o elemento **"copy"** para disparar um número (loop) de implantações filho, sendo que cada uma delas resultará na instanciação do modelo para cada membro do cluster. Para poder definir todas as configurações onde são necessários valores exclusivos entre instâncias, a função **copyindex()** função pode ser usada para obter um valor numérico que indica o índice nessa criação de loop de recurso em particular.
+No exemplo anterior, um parâmetro (número de nós a serem implantados no cluster) será usado para definir uma variável (“numberOfMembers”), que será transmitida para o elemento **“copy”** para disparar um número (loop) de implantações filho, sendo que cada uma delas resultará na instanciação do modelo para cada membro do cluster. Para poder definir todas as configurações onde são necessários valores exclusivos entre instâncias, a função **copyindex()** função pode ser usada para obter um valor numérico que indica o índice nessa criação de loop de recurso em particular.
 
 Outro conceito importante na criação de recursos é a capacidade de especificar dependências e precedências entre recursos, como você pode observar na matriz JSON **dependsOn**. Neste modelo específico, a implantação de cada nó depende da implantação bem-sucedida anterior de **recursos compartilhados**.
 
@@ -690,4 +693,4 @@ Essencialmente, essa abordagem sugere que você:
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,24 +1,27 @@
-<properties 
-   pageTitle="Criar e carregar um VHD FreeBSD para o Azure"
-	description="Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional FreeBSD"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="KylieLiang"
-	manager="timlt"
-	editor=""/>
+<properties
+   pageTitle="Criar e carregar uma imagem de VM FreeBSD | Microsoft Azure"
+   description="Saiba como criar e carregar um VHD (disco rígido virtual) que contenha um sistema operacional FreeBSD para criar uma máquina virtual do Azure"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="KylieLiang"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="05/19/2015"
-	ms.author="kyliel"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
+   ms.workload="infrastructure-services"
+   ms.date="05/19/2015"
+   ms.author="kyliel"/>
 
-# Criar e carregar um VHD FreeBSD para o Azure 
+# Criar e carregar um VHD FreeBSD para o Azure
 
 Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que contém o sistema operacional FreeBSD para que você o use como sua própria imagem para criar uma VM (máquina virtual) no Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
 
 ##Pré-requisitos##
 Este artigo pressupõe que você tenha os seguintes itens:
@@ -48,9 +51,9 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
 
     O SSH é habilitado por padrão após a instalação do disco. Se não for, ou se você usar o VHD FreeBSD diretamente, digite:
 
-		# echo 'sshd_enable="YES"' >> /etc/rc.conf 
-		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key 
-		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
+		# echo 'sshd_enable="YES"' >> /etc/rc.conf
+		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 		# service sshd restart
 
 3. **Instalar console serial**
@@ -73,7 +76,7 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
 
     5\.2 **Instalar o wget**
 
-		# pkg install wget 
+		# pkg install wget
 
 6. **Instalar o agente do Azure**
 
@@ -111,11 +114,11 @@ Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .v
 	![Criação rápida de uma conta de armazenamento](./media/virtual-machines-freebsd-create-upload-vhd/Storage-quick-create.png)
 
 4. Preencha os campos da seguinte maneira:
-	
+
 	- Em **URL**, digite um nome de subdomínio para usar no URL para a conta de armazenamento. A entrada pode conter de 3 a 24 letras minúsculas e números. Esse nome se torna o nome do host na URL que é usada para lidar com os recursos Blob, Fila ou Tabela da assinatura.
-			
+
 	- Escolha o **local ou o grupo de afinidade** da conta de armazenamento. Um grupo de afinidade permite colocar seus serviços de nuvem e armazenamento no mesmo data center.
-		 
+
 	- Escolha entre usar a **replicação geográfica** ou não para a conta de armazenamento. A replicação geográfica é ativada por padrão. Essa opção replica os dados para um local secundário, sem nenhum custo para você, para que o armazenamento efetue o failover para o local se ocorrer uma falha grave no local principal. O local secundário é atribuído automaticamente e não pode ser alterado. Se você precisar de mais controle sobre o local do armazenamento baseado em nuvem devido a requisitos legais ou política organizacional, você pode desligar a replicação geográfica. No entanto, saiba que ao ativar a replicação geográfica posteriormente, você deverá pagar uma taxa de transferência de uma única vez para replicar seus dados existentes para o local secundário. Serviços de armazenamento sem replicação geográfica são oferecidos com desconto. Mais detalhes sobre como gerenciar a replicação geográfica de contas de armazenamento podem ser encontrados aqui: [Criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account/#replication-options).
 
 	![Insira os detalhes da conta de armazenamento](./media/virtual-machines-freebsd-create-upload-vhd/Storage-create-account.png)
@@ -148,7 +151,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 1. Abra o console do PowerShell do Azure.
 
 2. Digite o seguinte comando: `Add-AzureAccount`
-	
+
 	Esse comando abre uma janela de entrada para que você possa conectar-se com sua conta do trabalho ou escola.
 
 	![Janela do PowerShell](./media/virtual-machines-freebsd-create-upload-vhd/add_azureaccount.png)
@@ -157,7 +160,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 ###Usar o método de certificado
 
-1. Abra o console do PowerShell do Azure. 
+1. Abra o console do PowerShell do Azure.
 
 2. Digite: `Get-AzurePublishSettingsFile`.
 
@@ -172,7 +175,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 	Em que `<PathToFile>` é o caminho completo para o arquivo .publishsettings.
 
    Para obter mais informações, consulte [Introdução aos cmdlets do Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)
-	
+
    Para saber mais sobre instalação e configuração do PowerShell, confira [Como instalar e configurar o PowerShell do Microsoft Azure](../install-configure-powershell.md).
 
 ## Etapa 4: carregar o arquivo .vhd ##
@@ -204,6 +207,5 @@ Depois de carregar o VHD, você pode adicioná-lo como uma imagem à lista de im
 4. Quando o provisionamento for concluído, você verá sua VM FreeBSD em execução no Azure.
 
 	![imagem freebsd no azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

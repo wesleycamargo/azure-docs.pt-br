@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/18/2015"
+   ms.date="09/21/2015"
    ms.author="kenhoff"/>
 
 # Eventos de relatório de auditoria do Active Directory do Azure
@@ -48,11 +48,11 @@ Alterar licença de usuário | A licença atribuída a um usuário no diretório
 Atualizar usuário | Um usuário no diretório foi atualizado.
 Definir alteração forçada de senha de usuário | Defina a propriedade que força o usuário a alterar sua senha no logon.
 **Eventos de grupo** |
-Criar grupo | Criou um grupo no diretório
-Atualizar grupo | Atualizou um grupo no diretório
-Excluir grupo | Excluiu um grupo no diretório
-Adicionar membro ao grupo | Adicionou um membro a um grupo no diretório
-Remover membro do grupo | Removeu um membro de um grupo no diretório
+Criar grupo | Criou um grupo no diretório.
+Atualizar grupo | Atualizou um grupo no diretório.
+Excluir grupo | Excluiu um grupo no diretório.
+Adicionar membro ao grupo | Adicionou um membro a um grupo no diretório.
+Remover membro do grupo | Removeu um membro de um grupo no diretório.
 **Eventos de aplicativo** |
 Adicionar entidade de serviço | Uma entidade de serviço foi adicionada ao diretório.
 Remover entidade de serviço | Uma entidade de serviço foi removida do diretório.
@@ -71,7 +71,7 @@ Remover o parceiro da empresa | Um parceiro foi removido do diretório.
 Adicionar domínio a empresa | Um domínio foi adicionado ao diretório.
 Remover o domínio da empresa | Um domínio foi removido do diretório.
 Domínio de atualização | Um domínio no diretório foi atualizado.
-Definir a autenticação de domínio | A configuração de domínio padrão para a empresa foi alterada
+Definir a autenticação de domínio | A configuração de domínio padrão para a empresa foi alterada.
 Definir configurações de federação no domínio | As configurações de federação para um domínio foram atualizadas.
 Verificar domínio | Um domínio no diretório foi verificado.
 Verificar domínio por email | Um domínio no diretório foi verificado usando verificação por email.
@@ -108,4 +108,4 @@ TelephoneNumber | O número de telefone do usuário.
 
 Registros de auditoria são um controle necessário para muitas regulamentações de conformidade. Para clientes que usam o Relatório de Auditoria do Active Directory do Azure para atender aos seus regulamentos de conformidade, recomenda-se que o cliente envie uma cópia deste tópico de ajuda com a cópia do relatório de auditoria exportado do cliente para ajudar a explicar os detalhes do relatório. Se o auditor gostaria de entender os regulamentos de conformidade que o Azure atende atualmente, indique a [Página de conformidade](http://azure.microsoft.com/support/trust-center/compliance/) da Central de confiabilidade do Microsoft Azure ao auditor.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

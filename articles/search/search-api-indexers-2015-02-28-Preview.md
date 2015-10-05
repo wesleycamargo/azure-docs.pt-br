@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/08/2015" 
+ms.date="09/21/2015" 
 ms.author="heidist" />
 
 #Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)
@@ -40,7 +40,7 @@ Atualmente, há suporte às seguintes fontes de dados:
 
 Estamos considerando a adição de suporte a fontes de dados adicionais no futuro. Para nos ajudar a priorizar essas decisões, forneça seus comentários no [Fórum de comentários do Azure Search](http://feedback.azure.com/forums/263029-azure-search).
 
-Consulte [Limites e restrições](https://msdn.microsoft.com/library/azure/dn798934.aspx) para obter os limites máximos relacionados aos recursos de origem do indexador e dados.
+Consulte [Limites de serviços](search-limits-quotas-capacity.md) para obter os limites máximos relacionados aos recursos de origem do indexador e dados.
 
 ## Fluxo de uso típico
 
@@ -775,4 +775,4 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 </tr>
 </table>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar atualizações regulares através do Windows PowerShell para StorSimple
 
@@ -20,4 +21,4 @@
 > - Este comando se aplica somente a hotfixes regulares. Executar esse comando em apenas um controlador, mas ambos os controladores serão atualizados. 
 > - Você pode perceber um failover de controlador durante o processo de atualização; no entanto, o failover não afetará a disponibilidade ou operação do sistema.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

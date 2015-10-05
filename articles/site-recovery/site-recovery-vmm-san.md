@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="09/21/2015" 
 	ms.author="raynew"/>
 
 # Configurar a proteção entre sites locais do VMM com SAN
@@ -198,48 +198,71 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 
 	![Chave de Registro](./media/site-recovery-vmm-san/SRSAN_QuickStartRegKey.png)
 
-3. Em **Preparar servidores VMM**, clique em **Gerar arquivo de chave registro.** A chave é válida para 5 dias após ser gerada. Se você não estiver executando o console no servidor VMM que deseja proteger, baixe o arquivo para um local seguro que possa ser acessado pelos servidores VMM. Por exemplo, um compartilhamento. Observe que:
+4. Na página *Início Rápido*, em **Preparar servidores VMM**, clique *Baixar o Provedor de Recuperação de Site do Microsoft Azure para instalação nos servidores VMM* para obter a versão mais recente do arquivo de instalação do Provedor.
 
-- Se você estiver instalando o Provedor pela primeira vez, instale-o em um nó ativo no cluster e conclua a instalação para registrar o servidor VMM no cofre do Azure Site Recovery. Em seguida, instale o Provedor nos outros nós no cluster.
-- Se você estiver atualizando a versão do Provedor, execute a instalação do Provedor em todos os nós no cluster.
+2. Execute esse arquivo no servidor VMM de origem. Se o VMM for implantado em um cluster e você estiver instalando o Provedor pela primeira vez, instale-o em um nó ativo e conclua a instalação para registrar o servidor VMM no cofre. Em seguida, instale o Provedor nos outros nós. Observe que, se estiver atualizando o Provedor você precisará fazer a atualização em todos os nós porque todos eles devem estar executando a mesma versão do Provedor.
 
-4. Clique em **Baixar o Provedor de Recuperação de Site do Microsoft Azure para instalação nos servidores VMM** para obter a versão mais recente do arquivo de instalação do Provedor.
-5. Execute esse arquivo nos servidores VMM de origem e de destino para abrir o Assistente de Instalação do Provedor do Azure Site Recovery.
-6. Na página **Verificação dos pré-requisitos**, selecione para interromper o serviço VMM a fim de começar a configuração do Provedor. O serviço para e reiniciará automaticamente quando a configuração finaliza. Se estiver instalando em um cluster do VMM, você deverá parar a função de Cluster.
 
-	![Pré-requisitos](./media/site-recovery-vmm-san/SRSAN_ProviderPrereq.png)
+3. O Instalador faz algumas **Verificações de Pré-requisitos** e solicita permissão para interromper o serviço VMM para iniciar a instalação do Provedor. O Serviço VMM será reiniciado automaticamente quando a instalação for finalizada. Se estiver instalando em um cluster do VMM, você deverá parar a função de Cluster.
 
-5. No **Microsoft Update** você pode optar por atualizações. Com esta configuração de Provedor habilitada, a atualização será instalada de acordo com a política do Microsoft Update.
+4. No **Microsoft Update** você pode optar por atualizações. Com esta configuração de Provedor habilitada, a atualização será instalada de acordo com a política do Microsoft Update.
 
-Após o Provedor ser instalado, continue com a configuração para registrar o servidor no cofre.
+	![Atualizações da Microsoft](./media/site-recovery-vmm-san/VMMASRInstallMUScreen.png)
 
-6. Na página Conexão de Internet, especifique como o Provedor em execução no servidor VMM se conecta à Internet. Você pode selecionar não usar um proxy, usar o proxy padrão configurado no servidor VMM ou usar um servidor proxy personalizado. Observe que:
 
-	- Se quiser usar um servidor proxy personalizado, você deverá configurá-lo antes de instalar o Provedor.
-	- As URLs a seguir devem estar acessíveis no servidor VMM
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
-- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA. 
-	
-	- Se você optar por usar um proxy personalizado, uma conta RunAs do VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito.
-	- As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho Configurações, expanda Segurança, clique em contas Executar como e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
-	- Um teste será executado para verificar a conexão com a Internet. Quaisquer erros de proxy serão exibidos no console do VMM.
+1.  O local de instalação é definido como **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Clique no botão Instalar para iniciar a instalação do Provedor. ![InstallLocation](./media/site-recovery-vmm-san/VMMASRInstallLocationScreen.png)
 
-	![Configurações da Internet](./media/site-recovery-vmm-san/SRSAN_ProviderProxy.png)
 
-7. Em **Chave de registro**, selecione que você baixou a partir de Recuperação de Site do Azure e copiou para o servidor VMM.
-8. Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre.
 
-	![Registros do servidor](./media/site-recovery-vmm-san/SRSAN_ProviderRegKeyServerName.png)
+1. Após o Provedor ser instalado, clique no botão 'Registrar' para registrar o servidor no cofre. ![InstallComplete](./media/site-recovery-vmm-san/VMMASRInstallComplete.png)
 
-9. Na sincronização dos **Metadados de nuvem inicial**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM. A opção **Criptografia de Dados** não é relevante nesse cenário.
+5. Em **Conexão de Internet**, especifique como o Provedor em execução no servidor VMM se conecta à Internet. Selecione *Usar configurações de proxy padrão do sistema* para usar as configurações de conexão com a Internet definidas no servidor.
 
-	![Registros do servidor](./media/site-recovery-vmm-san/SRSAN_ProviderSyncEncrypt.png)
+	![Configurações da Internet](./media/site-recovery-vmm-san/VMMASRRegisterProxyDetailsScreen.png) - Se quiser usar um proxy personalizado, configure-o antes de instalar o Provedor. Quando você define as configurações personalizadas de proxy, um teste é executado para verificar a conexão proxy. - Se você usar um proxy personalizado, ou o proxy padrão exigir autenticação, será necessário inserir detalhes do proxy, incluindo o endereço do proxy e a porta. - As urls a seguir devem estar acessíveis do servidor VMM e dos hosts Hyper-v - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Permita os endereços IP descritos em [Intervalos de IPs do Datacenter do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 
-11. Na próxima página, clique em **Registrar** para concluir o processo. Após o registro, os metadados do servidor VMM são recuperado pelo Azure Site Recovery. O servidor é exibido no final da guia <b>Recursos</b> da página **Servidores** no cofre. Após a instalação, modifique as configurações do Provedor no console do VMM.
+	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho Configurações, expanda Segurança, clique em contas Executar como e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
+
+6. Em **Chave de registro**, selecione que você baixou a partir de Recuperação de Site do Azure e copiou para o servidor VMM.
+7. Em **Nome do cofre**, verifique o nome do cofre para o qual o servidor será registrado. Clique em *Próximo*.
+
+
+	![Registros do servidor](./media/site-recovery-vmm-san/VMMASRRegisterVaultCreds.png)
+
+9. Essa configuração é usada apenas para o Cenário VMM para Azure; se você for um usuário que usa exclusivamente VMM para VMM, você pode ignorar esta tela.
+
+	![Registros do servidor](./media/site-recovery-vmm-san/VMMASRRegisterEncryptionScreen.png)
+
+8. Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
+
+8. Na sincronização dos **Metadados de nuvem inicial**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console do VMM. ![Registros do servidor](./media/site-recovery-vmm-san/VMMASRRegisterFriendlyName.png)
+
+
+8. Clique em *Avançar* para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia *Servidores VMM* da página **Servidores** no cofre.
+
+>[AZURE.NOTE]O Provedor do Azure Site Recovery também pode ser instalado usando a linha de comando a seguir. Esse método pode ser usado para instalar o provedor de um NÚCLEO de Servidor para o Windows Server 2012 R2
+>
+>1. Baixar o arquivo de instalação do Provedor e a chave de registro em uma pasta, por exemplo, C:\\ASR
+>2. Parar o Serviço System Center Virtual Machine Manager
+>3. Extrair o instalador do provedor, executando os comandos abaixo em um prompt de comando com privilégios de **Administrador** 
+>
+    	C:\Windows\System32> CD C:\ASR
+    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+>4. Instalar o provedor executando o comando a seguir
+>
+		C:\ASR> setupdr.exe /i
+>5. Registrar o provedor executando o comando a seguir
+>
+    	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+ ####Lista de Parâmetros de Instalação de Linha de Comando####
+>
+ - **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado  
+ - **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
+ - **/EncryptionEnabled**: parâmetro opcional que você precisa usar apenas no Cenário VMM para Azure se precisar da criptografia de suas máquinas virtuais em repouso no Azure. Certifique-se que o nome do arquivo fornecido por você tem uma extensão **.pfx**.
+ - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
+ - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
+ - **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).
+ - **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação). 
 
 
 ## Etapa 4: mapear as matrizes e pools de armazenamento
@@ -361,4 +384,4 @@ Para saber mais sobre a interação com trabalhos e o painel, confira [Operaçõ
 	
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # Desempenho e escala elásticos com o SQL Data Warehouse
@@ -93,4 +93,4 @@ Para obter uma visão geral do desempenho, consulte [visão geral de desempenho]
 
 [Portal do Azure]: http://portal.azure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

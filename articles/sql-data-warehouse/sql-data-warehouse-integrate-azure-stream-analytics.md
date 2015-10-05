@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/02/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs;twounder"/>
 
 # Usar o Stream Analytics do Azure com o SQL Data Warehouse
@@ -36,10 +36,14 @@ Em seguida, crie um banco de dados do SQL Data Warehouse do Azure
 ## Especifique a saída do trabalho: banco de dados do SQL Data Warehouse do Azure
 
 ### Etapa 1
+
 No trabalho de Stream Analytics, clique em **SAÍDA** na parte superior da página e depois em **ADICIONAR SAÍDA**.
 
 ### Etapa 2
-Selecione o Banco de Dados SQL e clique em Avançar. ![][Add Output]
+
+Selecione o Banco de Dados SQL e clique em Avançar.
+
+![][add-output]
 
 ### Etapa 3
 Insira os seguintes valores na próxima página:
@@ -51,36 +55,37 @@ Insira os seguintes valores na próxima página:
 - *Banco de dados*: especifique o nome de um banco de dados de destino.
 - *Nome do servidor*: especifique o nome do servidor do banco de dados que você acabou de especificar. Você pode usar o Portal do Azure para encontrar isso.
 
-![][Server Name]
+![][server-name]
 
 - *Nome de usuário*: especifique o nome de usuário de uma conta que tenha permissões de gravação para o banco de dados.
 - *Senha*: forneça a senha da conta de usuário especificada.
 - *Tabela*: especifique o nome da tabela de destino no banco de dados.
 
-![][Add Database]
+![][add-database]
 
 ### Etapa 4
+
 Clique no botão de verificação para adicionar essa saída e para verificar se o Stream Analytics pode se conectar com êxito ao banco de dados.
 
-![][Test Connection]
+![][test-connection]
 
 Quando a conexão com o banco de dados tiver êxito, você verá uma notificação na parte inferior do portal. Você pode clicar em Testar Conexão na parte inferior para testar a conexão com o banco de dados.
 
-
-
-
 ## Próximas etapas
+
 Para obter uma visão geral da integração, consulte [Visão geral de integração do SQL Data Warehouse][].
 
 Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse][].
 
 <!--Image references-->
-[Add Output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
-[Server Name]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png
-[Add Database]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png
-[Test Connection]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/test-connection.png
+
+[add-output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
+[server-name]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png
+[add-database]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png
+[test-connection]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/test-connection.png
 
 <!--Article references-->
+
 [Introdução ao Stream Analytics do Azure]: stream-analytics-introductiond.md
 [Introdução ao uso do Stream Analytics do Azure]: stream-analytics-get-started.md
 [Visão geral sobre o desenvolvimento no SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
@@ -91,4 +96,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

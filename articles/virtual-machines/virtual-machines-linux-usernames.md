@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Selecionando nomes de usuário para Linux no Azure" 
+	pageTitle="Selecionando nomes de usuário para Linux | Microsoft Azure" 
 	description="Saiba como selecionar nomes de usuário para uma máquina virtual Linux no Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -248,4 +249,4 @@ A seguir estão nomes de usuário que devem ser evitados ao fazer o provisioname
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

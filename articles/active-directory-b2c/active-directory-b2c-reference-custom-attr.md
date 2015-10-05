@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 #  Visualização do Active Directory B2C do Azure: usar Atributos Personalizados para coletar informações sobre seus Consumidores
@@ -46,4 +46,4 @@ O atributo personalizado agora está disponível na lista de **Atributos de usu�
 
 Você pode usar o recurso "Executar agora" da política para verificar a experiência do consumidor. Agora você deve ver "ShoeSize" na lista de atributos que estão sendo coletados durante a inscrição do consumidor e vê-lo no token enviado de volta ao seu aplicativo.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

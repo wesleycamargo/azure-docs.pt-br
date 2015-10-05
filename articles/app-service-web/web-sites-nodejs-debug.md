@@ -110,6 +110,8 @@ Para obter informações no trabalho com módulos no Azure, consulte [usando o N
 
 Para obter informações sobre como especificar uma versão do Node. js para seu aplicativo, consulte [especificar uma versão do Node. js em um aplicativo do Azure]
 
+Para obter mais informações, consulte também o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -125,4 +127,4 @@ Para obter informações sobre como especificar uma versão do Node. js para seu
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

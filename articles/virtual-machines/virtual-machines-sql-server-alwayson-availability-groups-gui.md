@@ -1,12 +1,13 @@
-<properties 
-	pageTitle="Configurar os Grupos de Disponibilidade AlwaysOn na VM do Azure (GUI)"
+<properties
+	pageTitle="Configurar os Grupos de Disponibilidade AlwaysOn (GUI) | Microsoft Azure"
 	description="Crie um Grupo de Disponibilidade AlwaysOn em Máquinas Virtuais do Azure. Este tutorial usa principalmente a interface do usuário e ferramentas em vez de scripts."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
-<tags 
+	editor="monicar"
+	tags="azure-service-management" />
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -16,6 +17,14 @@
 	ms.author="jroth" />
 
 # Configurar os Grupos de Disponibilidade AlwaysOn na VM do Azure (GUI)
+
+> [AZURE.SELECTOR]
+- [Portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+
+<br/>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
 
 Este tutorial ponta a ponta mostra como implementar os Grupos de Disponibilidade usando o SQL Server AlwaysOn em execução em máquinas virtuais do Azure.
 
@@ -43,11 +52,11 @@ Este tutorial pressupõe o seguinte:
 
 - Você já tem uma conta do Azure.
 
-- Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para obter mais informações, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-provision-sql-server.md)
+- Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para obter mais informações, consulte [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-provision-sql-server.md)
 
 - Você já tem uma compreensão sólida dos Grupos de Disponibilidade AlwaysOn. Para obter mais informações, consulte [Grupos de Disponibilidade AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE]Se você estiver interessado em usar os Grupos de Disponibilidade AlwaysOn com o SharePoint, consulte também [Configurar os Grupos de Disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE]Se você estiver interessado em usar os Grupos de Disponibilidade AlwaysOn com o SharePoint, consulte também [Configurar Grupos de Disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
 ## Criar a Rede Virtual e o Servidor de Controlador de Domínio
 
@@ -57,11 +66,11 @@ Comece com uma nova conta de avaliação do Azure. Depois de concluir a configur
 
 	![Clique em Novo no Portal](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665511.gif)
 
-1. Clique em **Serviços de Rede**, em **Rede Virtual,** e em **Criação Personalizada**, conforme mostrado abaixo.
+1. Clique em **Serviços de Rede**, em **Rede Virtual** e em **Criação Personalizada**, conforme mostrado abaixo.
 
 	![Criar Rede Virtual](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665512.gif)
 
-1. Na caixa de diálogo **CRIAR UMA REDE VIRTUAL**, crie uma nova rede virtual percorrendo as páginas com as configurações a seguir.
+1. Na caixa de diálogo **CRIAR UMA REDE VIRTUAL**, crie uma nova rede virtual seguindo as páginas com as configurações a seguir.
 
 	|Página|Configurações|
 |---|---|
@@ -69,11 +78,11 @@ Comece com uma nova conta de avaliação do Azure. Depois de concluir a configur
 |Conectividade de VPN e servidores DNS|Nenhum|
 |Espaços de Endereço da Rede Virtual|As configurações são mostradas na captura de tela abaixo: ![Criar Rede Virtual](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784620.png)|
 
-1. Em seguida, crie a VM que será usada como o DC (Controlador de Domínio). Clique novamente em **Novo**, depois em **Computação**, em **Máquina Virtual** e depois em **Da Galeria**, conforme mostrado abaixo.
+1. Em seguida, crie a VM que será usada como o DC (Controlador de Domínio). Clique novamente em **Novo**, depois em **Computação**, em **Máquina Virtual** e em **Da Galeria**, conforme mostrado abaixo.
 
 	![Criar uma máquina virtual](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784621.png)
 
-1. Na caixa de diálogo **CRIAR UMA MÁQUINA VIRTUAL**, configure uma nova VM percorrendo as páginas com as configurações a seguir.
+1. Na caixa de diálogo **CRIAR UMA MÁQUINA VIRTUAL**, configure uma nova VM seguindo as páginas com as configurações abaixo.
 
 	|Página|Configurações|
 |---|---|
@@ -110,7 +119,7 @@ Nas etapas a seguir, você poderá configurar o computador ContosoDC como um con
 
 	![Adicionar Caixa de Diálogo de Funções](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784624.png)
 
-1. Clique em **Avançar** até alcançar a seção **Confirmação**. Marque a caixa de seleção **Reiniciar o servidor de destino automaticamente se necessário**.
+1. Clique em **Avançar** até alcançar a seção **Confirmação**. Marque a caixa de seleção **Reiniciar cada servidor de destino automaticamente, se necessário**.
 
 1. Clique em **Instalar**.
 
@@ -145,7 +154,7 @@ As próximas etapas configuram as contas do AD (Active Directory) para uso poste
 
 	![Centro Administrativo do Active Directory](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784626.png)
 
-1. No **Centro Administrativo do Active Directory**, selecione **corp (local)** no painel à esquerda.
+1. No **Centro Administrativo do Active Directory**, selecione **corp (local)** no painel esquerdo.
 
 1. No painel **Tarefas** à direita, selecione **Novo** e clique em **Usuário**. Use as configurações a seguir:
 
@@ -160,13 +169,13 @@ As próximas etapas configuram as contas do AD (Active Directory) para uso poste
 
 1. Clique em **OK** para criar o usuário **Instalação**. Essa conta será usada para configurar o cluster de failover e o grupo de disponibilidade.
 
-1. Crie dois usuários adicionais com as mesmas etapas: **CORP\\SQLSvc1** e **CORP\\SQLSvc2**. Essas contas serão usadas para instâncias do SQL Server. Em seguida, você precisa conceder **CORP\\Install** as permissões necessárias para configurar o WSFC (Windows Service Failover Clustering).
+1. Crie dois usuários adicionais com as mesmas etapas: **CORP\\SQLSvc1** e **CORP\\SQLSvc2**. Essas contas serão usadas para instâncias do SQL Server. Em seguida, você precisa conceder a **CORP\\Install** as permissões necessárias para configurar o WSFC (Windows Service Failover Clustering).
 
-1. No **Centro Administrativo do Active Directory**, selecione **corp (local)** no painel à esquerda. Em seguida, no painel **Tarefas** à direita, clique em **Propriedades**.
+1. No **Centro Administrativo do Active Directory**, selecione **corp (local)** no painel esquerdo. Em seguida, no painel **Tarefas** à direita, clique em **Propriedades**.
 
 	![Propriedades do usuário CORP](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784627.png)
 
-1. Selecione **Extensões**, e clique no botão **Avançado** na guia **Segurança**.
+1. Selecione **Extensões** e clique no botão **Avançado** na guia **Segurança**.
 
 1. Na caixa de diálogo **Configurações de Segurança Avançadas para corp**. Clique em **Adicionar**.
 
@@ -176,7 +185,7 @@ As próximas etapas configuram as contas do AD (Active Directory) para uso poste
 
 	![Permissões de usuário corp](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784628.png)
 
-1. Clique em **OK**, e clique em **OK** novamente. Feche a janela de propriedades corporativas.
+1. Clique em **OK** e em **OK** novamente. Feche a janela de propriedades corporativas.
 
 Agora que você concluiu a configuração do Active Directory e dos objetos de usuário, você criará três VMs do SQL Server e vai associá-las a esse domínio.
 
@@ -199,7 +208,7 @@ Depois que as três VMs forem totalmente provisionadas, você precisará ingress
 
 1. Inicie o arquivo RDP baixado e faça logon na VM usando sua conta de administrador configurada (**BUILTIN\\AzureAdmin**) e a senha (**Contoso!000**).
 
-1. Quando você estiver conectado, deverá ver o painel **Gerenciador do Servidor**. No painel esquerdo, clique em **Servidor Local**.
+1. Quando estiver conectado, você deverá ver o painel **Gerenciador do Servidor**. No painel esquerdo, clique em **Servidor Local**.
 
 1. Selecione o link **Endereço IPv4 atribuído pelo DHCP, habilitado para IPv6**.
 
@@ -217,7 +226,7 @@ Depois que as três VMs forem totalmente provisionadas, você precisará ingress
 
 	![Use NSLOOKUP para localizar o endereço IP para DC](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC664954.jpg)
 
-1. Clique em O**K** e em **Fechar** para confirmar as alterações. Agora é possível adicionar a VM a **corp.contoso.com**.
+1. Clique em O**K** e em **Fechar** para confirmar as alterações. Agora é possível ingressar a VM em **corp.contoso.com**.
 
 1. Volte para a janela **Servidor Local** e clique no link **GRUPO DE TRABALHO**.
 
@@ -227,7 +236,7 @@ Depois que as três VMs forem totalmente provisionadas, você precisará ingress
 
 1. Na caixa de diálogo pop-up **Segurança do Windows**, especifique as credenciais para a conta de administrador de domínio padrão (**CORP\\AzureAdmin**) e a senha (**Contoso!000**).
 
-1. Quando você vir a mensagem "Bem-vindo ao domínio corp.contoso.com", clique em **OK**.
+1. Quando a mensagem "Bem-vindo ao domínio corp.contoso.com" for exibida, clique em **OK**.
 
 1. Clique em **Fechar** e em **Reiniciar Agora** na caixa de diálogo pop-up.
 
@@ -245,11 +254,11 @@ Depois que as três VMs forem totalmente provisionadas, você precisará ingress
 
 1. Na caixa de diálogo **Propriedades de Administradores**, clique no botão **Adicionar**.
 
-1. Insira o usuário **CORP\\Install**, e clique em **OK**. Quando solicitado a fornecer credenciais, use a conta **AzureAdmin** com a senha **Contoso!000**.
+1. Insira o usuário **CORP\\Install** e clique em **OK**. Quando solicitado a fornecer credenciais, use a conta **AzureAdmin** com a senha **Contoso!000**.
 
 1. Clique em **OK** para fechar a caixa do diálogo **Propriedades do Administrador**.
 
-### Adicione o serviço de **Clustering de Failover** a cada VM.
+### Adicione o recurso de **Clustering de Failover** a cada VM.
 
 1. No painel **Gerenciador do Servidor**, clique em **Adicionar funções e recursos**.
 
@@ -285,13 +294,13 @@ Todos são pré-requisitos em cada VM para poder ingressá-la no cluster WSFC.
 
 Além disso, observe que a rede virtual do Azure não se comporta da mesma forma que uma rede local. Você precisa criar o cluster na seguinte ordem:
 
-1. Crie um cluster de nó único em um de nós (**ContosoSQL1**).
+1. Crie um cluster de nó único em um dos nós (**ContosoSQL1**).
 
 1. Modifique o endereço IP do cluster para um endereço IP não usado (**10.10.2.101**).
 
 1. Deixe o nome do cluster online.
 
-1. Adicionar outros nós (**ContosoSQL2** e **ContosoWSFCNode**).
+1. Adicione outros nós (**ContosoSQL2** e **ContosoWSFCNode**).
 
 Siga as etapas abaixo para executar essas tarefas que definem totalmente o cluster.
 
@@ -313,7 +322,7 @@ Siga as etapas abaixo para executar essas tarefas que definem totalmente o clust
 |Ponto de Acesso para Administrar o Cluster|Digite **Cluster1** em **Nome do Cluster**|
 |Confirmação|Use os padrões, a menos que você esteja usando Espaços de Armazenamento. Consulte a observação após esta tabela.|
 
-	>[AZURE.WARNING]Se você estiver usando [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739), que agrupam vários discos em pools de armazenamento, desmarque a caixa de seleção **Adicionar todo o armazenamento qualificado ao cluster** na página **Confirmação**. Se você não desmarcar essa opção, os discos virtuais serão desanexados durante o processo de clustering. Como resultado, eles também não aparecerão no Gerenciador ou Explorador de Discos até que os espaços de armazenamento sejam removidos do cluster e reanexados usando o PowerShell.
+	>[AZURE.WARNING]Se você estiver usando [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739), que agrupam vários discos em pools de armazenamento, desmarque a caixa de seleção **Adicione todo o armazenamento qualificado ao cluster** na página **Confirmação**. Se você não desmarcar essa opção, os discos virtuais serão desanexados durante o processo de clustering. Como resultado, eles também não aparecerão no Gerenciador ou Explorador de Discos até que os espaços de armazenamento sejam removidos do cluster e reanexados usando o PowerShell.
 
 1. No painel esquerdo, expanda o **Gerenciador de Cluster de Failover** e clique em **Cluster1.corp.contoso.com**.
 
@@ -337,7 +346,7 @@ Siga as etapas abaixo para executar essas tarefas que definem totalmente o clust
 
 1. Na página **Confirmação**, clique em **Avançar** para adicionar os nós.
 
-	>[AZURE.WARNING]Se você estiver usando [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739), que agrupam vários discos em pools de armazenamento, desmarque a caixa de seleção **Adicionar todo o armazenamento qualificado ao cluster**. Se você não desmarcar essa opção, os discos virtuais serão desanexados durante o processo de clustering. Como resultado, eles também não aparecerão no Gerenciador ou Explorador de Discos até que os espaços de armazenamento sejam removidos do cluster e reanexados usando o PowerShell.
+	>[AZURE.WARNING]Se você estiver usando [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739), que agrupam vários discos em pools de armazenamento, desmarque a caixa de seleção **Adicione todo o armazenamento qualificado ao cluster**. Se você não desmarcar essa opção, os discos virtuais serão desanexados durante o processo de clustering. Como resultado, eles também não aparecerão no Gerenciador ou Explorador de Discos até que os espaços de armazenamento sejam removidos do cluster e reanexados usando o PowerShell.
 
 1. Depois que os nós forem adicionados ao cluster, clique em **Concluir**. O Gerenciador de Cluster de Failover agora deve mostrar que o cluster tem três nós e listá-los no contêiner **Nós**.
 
@@ -371,12 +380,12 @@ Essas ações podem ser executadas em qualquer ordem. No entanto, as etapas a se
 
 1. Clique com o botão direito do mouse no logon **NT AUTHORITY\\System** e clique em **Propriedades**.
 
-1. Na página **Protegíveis**, para o servidor local, selecione **Conceder** para as seguintes permissões e clique em **OK**.
-	
+1. Na página **Protegíveis**, do servidor local, selecione **Conceder** para as seguintes permissões e clique em **OK**.
+
 	- Alterar qualquer grupo de disponibilidade
-	
+
 	- Conectar o SQL
-	
+
 	- Exibir o estado do servidor
 
 1. Em seguida, adicione **CORP\\Install** como uma função de **sysadmin** à instância padrão do SQL Server. Em **Pesquisador de Objetos**, clique com o botão direito do mouse em **Logons** e clique em **Novo Logon**.
@@ -393,11 +402,11 @@ Essas ações podem ser executadas em qualquer ordem. No entanto, as etapas a se
 
 1. Na página **Programa**, selecione **Este caminho de programa** e digite **%Arquivos de Programas%\\Microsoft SQL Server\\MSSQL12.MSSQLSERVER\\MSSQL\\Binn\\sqlservr.exe** na caixa de texto (se você estiver seguindo estas instruções, mas usando o SQL Server 2012, o diretório do SQL Server é **MSSQL11.MSSQLSERVER**). Em seguida, clique em **Próximo**.
 
-1. Na página **Ação**, mantenha selecionado **Permitir a conexão** e clique em **Próximo**.
+1. Na página **Ação**, mantenha selecionado **Permitir a conexão** e clique em **Avançar**.
 
-1. Na página **Perfil** aceite as configurações padrão e clique em **Próximo**.
+1. Na página **Perfil**, aceite as configurações padrão e clique em **Avançar**.
 
-1. Na página **Nome**, especifique um nome de regra como **SQL Server (Regra de Programa)** na caixa de texto **Nome** e clique em **Concluir**.
+1. Na página **Nome**, especifique um nome de regra, como **SQL Server (Regra de Programa)**, na caixa de texto **Nome** e clique em **Concluir**.
 
 1. Em seguida, habilite o recurso de **Grupos de Disponibilidade AlwaysOn**. Na tela **Iniciar**, abra o **SQL Server Configuration Manager**.
 
@@ -427,7 +436,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 ### Crie o banco de dados MyDB1 no ContosoSQL1:
 
-1. Se você ainda não estiver saído das sessões de área de trabalho remota para **ContosoSQL1** e **ContosoSQL2**, faça isso agora.
+1. Se você ainda não tiver saído das sessões de área de trabalho remota para **ContosoSQL1** e **ContosoSQL2**, faça isso agora.
 
 1. Inicie o arquivo RDP para **ContosoSQL1** e faça logon como **CORP\\Install**.
 
@@ -445,11 +454,11 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 1. No **Pesquisador de Objetos**, clique com o botão direito do mouse em **Bancos de Dados** e em **Novo Banco de Dados**.
 
-1. Em **Nome do banco de dados**, digite **MyDB1**, em seguida, clique em **OK**.
+1. Em **Nome do banco de dados**, digite **MyDB1** e clique em **OK**.
 
 ### Faça um backup completo de MyDB1 e restaure-o no ContosoSQL2:
 
-1. Em seguida, faça um backup completo do banco de dados. No **Pesquisador de Objetos**, expanda **Bancos de Dados** e clique com o botão direito do mouse em **MyDB1**, em seguida aponte o mouse para **Tarefas** e clique em **Fazer Backup**.
+1. Em seguida, faça um backup completo do banco de dados. No **Pesquisador de Objetos**, expanda **Bancos de Dados** e clique com o botão direito do mouse em **MyDB1**; em seguida aponte o mouse para **Tarefas** e clique em **Fazer Backup**.
 
 1. Na seção **Origem**, mantenha o **Tipo de backup** definido como **Completo**. Na seção **Destino**, clique em **Remover** para remover o caminho de arquivo padrão para o arquivo de backup.
 
@@ -457,7 +466,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 1. Na caixa de texto **Nome do arquivo**, digite **\\ContosoSQL1\\backup\\MyDB1.bak**. Em seguida, clique em **OK** e em **OK** novamente para fazer backup do banco de dados. Quando a operação de backup for concluída, clique em **OK** novamente para fechar a caixa de diálogo.
 
-1. Em seguida, faça um backup do log de transações do banco de dados. No **Pesquisador de Objetos**, expanda **Bancos de Dados** e clique com o botão direito do mouse em **MyDB1**, em seguida aponte o mouse para **Tarefas** e clique em **Fazer Backup**.
+1. Em seguida, faça um backup do log de transações do banco de dados. No **Pesquisador de Objetos**, expanda **Bancos de Dados** e clique com o botão direito do mouse em **MyDB1**; em seguida aponte o mouse para **Tarefas** e clique em **Fazer Backup**.
 
 1. No tipo **Backup**, selecione **Log de Transações**. Mantenha o caminho do arquivo de **Destino** definido para aquele especificado anteriormente e clique em **OK**. Quando a operação de backup for concluída, clique em **OK** novamente.
 
@@ -534,4 +543,4 @@ Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de dis
 
 Para obter outras informações sobre como usar o SQL Server no Azure, consulte [SQL Server em Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

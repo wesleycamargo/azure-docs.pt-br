@@ -13,35 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2015"
+   ms.date="09/22/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Carregar dados no SQL Data Warehouse
 O SQL Data Warehouse apresenta diversas opções de carregamento de dados, incluindo:
 
+- PolyBase
 - Fábrica de dados do Azure
 - Utilitário de linha de comando BCP
-- PolyBase
 - SQL Server Integration Services (SSIS)
 - Ferramentas de carregamento de dados de terceiros
 
-Embora todos os métodos acima possam ser usados com o SQL Data Warehouse. Muitos de nossos usuários estão obtendo cargas iniciais de centenas de Gigabytes até dezenas de Terabytes. Nas seções abaixo, fornecemos algumas orientações sobre o carregamento de dados inicial.
+Embora todos os métodos acima possam ser usados com o SQL Data Warehouse, a capacidade do PolyBase de paralelizar de forma transparente as cargas do Armazenamento de Blob do Azure tornará a ferramenta a mais rápida para o carregamento de dados. Confira mais informações sobre como [carregar com o PolyBase][]. Além disso, como muitos dos nossos usuários estão procurando cargas iniciais que vão desde centenas de gigabytes até dezenas de terabytes das fontes locais, nas seções abaixo fornecemos algumas orientações sobre o carregamento de dados inicial.
 
 ## Carregamento inicial no SQL Data Warehouse do SQL Server 
 Ao carregar no SQL Data Warehouse a partir de uma instância do SQL Server local, recomendamos as seguintes etapas:
 
 1. **BCP** Dados do SQL Server em arquivos simples 
-2. Use **AZCopy** ou **Importar/Exportar** (para conjuntos de dados maiores) para mover os arquivos para o Azure
+2. Use **AZCopy** ou **Importar/Exportar** (para conjuntos de dados maiores) para mover seus arquivos para o Azure
 3. Configurar PolyBase para ler os arquivos de sua conta de armazenamento
-4. Criar novas tabelas e carregar dados com **PolyBase**
+4. Criar novas tabelas e carregar dados com o **PolyBase**
 
 As seções a seguir analisarão cada etapa com mais detalhes e fornecerão exemplos do processo.
 
-> [AZURE.NOTE]Antes de mover dados de um sistema, como o SQL Server, é recomendável revisar os artigos [Esquema de migração][] e o [Código de migração][] da nossa documentação.
+> [AZURE.NOTE]Antes de mover dados de um sistema como o SQL Server, recomendamos que você leia os artigos [Migrar esquema][] e [Migrar código][] de nossa documentação.
 
 ## Exportando arquivos com BCP
 
-Para preparar os arquivos para a movimentação para o Azure, você precisará exportá-los para arquivos simples. A melhor maneira de fazer isso é usar o Utilitário de Linha de Comando BCP. Se você ainda não tiver o utilitário, ele poderá ser baixado com os [Utilitários de linha de comando da Microsoft para SQL Server][]. Veja a seguir um exemplo parecido de comando BCP:
+Para preparar os arquivos para a movimentação para o Azure, você precisará exportá-los para arquivos simples. A melhor maneira de fazer isso é usar o Utilitário de Linha de Comando BCP. Se você ainda não tiver o utilitário, baixe-o com os [Utilitários de Linha de Comando da Microsoft para SQL Server][]. Veja a seguir um exemplo parecido de comando BCP:
 
 ```
 bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
@@ -58,11 +58,11 @@ Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name>
 Depois de exportar os dados para os arquivos, é hora de movê-los para o Azure. Isso pode ser feito com o AZCopy ou com o serviço de Importação/Exportação, conforme descrito na próxima seção.
 
 ## Carregando no Azure com AZCopy ou Importação/Exportação
-Se você estiver movendo dados no intervalo de 5 a 10 terabytes ou mais, recomendamos o uso do serviço de envio de disco [Importação/Exportação][] para realizar a movimentação. No entanto, em nossos estudos, fomos capazes de mover confortavelmente os dados no intervalo de TB com um único dígito usando a Internet pública com AZCopy. Esse processo também pode ser acelerado ou estendido com o ExpressRoute.
+Se estiver movendo dados no intervalo de 5 a 10 terabytes ou mais, recomendamos o uso do serviço de envio de disco [Importação/Exportação][] para realizar a movimentação. No entanto, em nossos estudos, fomos capazes de mover confortavelmente os dados no intervalo de TB com um único dígito usando a Internet pública com AZCopy. Esse processo também pode ser acelerado ou estendido com o ExpressRoute.
 
-As etapas a seguir detalharão como mover dados do local para uma conta de armazenamento do Azure usando AZCopy. Se você não tiver uma conta de armazenamento do Azure na mesma região, poderá criar uma seguindo a [Documentação do armazenamento do Azure][]. Você também pode carregar dados de uma conta de armazenamento em uma região diferente, mas o desempenho nesse caso não será o melhor.
+As etapas a seguir detalharão como mover dados do local para uma conta de armazenamento do Azure usando AZCopy. Se você não tiver uma conta de Armazenamento do Azure na mesma região, é possível criar uma seguindo a [Documentação do Armazenamento do Azure][]. Você também pode carregar dados de uma conta de armazenamento em uma região diferente, mas o desempenho nesse caso não será o melhor.
 
-> [AZURE.NOTE]Esta documentação pressupõe que você instalou o utilitário de linha de comando AZCopy e é capaz de executá-lo com o Powershell. Se não for o caso, siga as [Instruções de instalação do AZCopy][].
+> [AZURE.NOTE]Esta documentação pressupõe que você instalou o utilitário de linha de comando AZCopy e é capaz de executá-lo com o Powershell. Se este não for o caso, siga as [Instruções de instalação do AZCopy][].
 
 Agora, com base em um conjunto de arquivos criados usando o BCP, o AzCopy pode simplesmente ser executado do powershell do Azure ou por meio da execução de um script do powershell. Em um alto nível, o prompt necessário para executar o AZCopy assumirá o formato:
 
@@ -73,16 +73,16 @@ AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Stor
 Além do básico, recomendamos as seguintes práticas para carregar com o AZCopy:
 
 
-+ **Conexões simultâneas**: além de aumentar o número de operações de AZCopy executadas simultaneamente, a própria operação do AZCopy pode ser paralelizada definindo o parâmetro /NC, que abre um número de conexões simultâneas para o destino. Embora o parâmetro possa ser definido como 512, descobrimos que a transferência de dados ideal ocorreu a 256, e recomendamos o teste de diversos valores para descobrir o que é ideal para sua configuração.
++ **Conexões simultâneas**: além de aumentar o número das operações do AZCopy executadas simultaneamente, a própria operação do AZCopy pode ser paralelizada definindo o parâmetro /NC, que abre um número de conexões simultâneas para o destino. Embora o parâmetro possa ser definido como 512, descobrimos que a transferência de dados ideal ocorreu a 256, e recomendamos o teste de diversos valores para descobrir o que é ideal para sua configuração.
 
-+ **Rota Expressa**: conforme mencionado anteriormente, esse processo pode ser acelerado se a rota expressa estiver habilitada. Encontre uma visão geral sobre a rota expressa e as etapas para sua configuração na [Documentação da Rota Expressa][].
++ **Rota Expressa**: como mencionado anteriormente, esse processo pode ser acelerado se a rota expressa estiver habilitada. Encontre uma visão geral sobre a Rota Expressa e as etapas para sua configuração na [Documentação da Rota Expressa][].
 
-+ **Estrutura de pastas**: para facilitar a transferência com o PolyBase, certifique-se de que cada tabela esteja mapeada para sua própria pasta. Isso minimizará e simplificará as etapas ao carregar posteriormente com o PolyBase. Dito isso, não há qualquer impacto se uma tabela for dividida em vários arquivos ou mesmo em subdiretórios dentro da pasta.
++ **Estrutura de Pastas**: para facilitar a transferência com o PolyBase, certifique-se de que cada tabela esteja mapeada para sua própria pasta. Isso minimizará e simplificará as etapas ao carregar posteriormente com o PolyBase. Dito isso, não há qualquer impacto se uma tabela for dividida em vários arquivos ou mesmo em subdiretórios dentro da pasta.
 	 
 
 ## Configurando o PolyBase 
 
-Agora que os dados residem em blobs de armazenamento do Azure, importaremos esses dados para sua instância de SQL Data Warehouse usando o PolyBase. As etapas a seguir servem apenas para configuração, e muitas delas só precisarão ser concluídas uma vez por instância do SQL Data Warehouse, usuário ou conta de armazenamento. Essas etapas também foram descritas com mais detalhes em nossa documentação [Carregar com PolyBase][].
+Agora que os dados residem em blobs de armazenamento do Azure, importaremos esses dados para sua instância de SQL Data Warehouse usando o PolyBase. As etapas a seguir servem apenas para configuração, e muitas delas só precisarão ser concluídas uma vez por instância do SQL Data Warehouse, usuário ou conta de armazenamento. Estas etapas também foram descritas mais detalhadamente em nossa documentação [Carregar com o PolyBase][].
 
 1. **Criar chave mestra do banco de dados.** Essa operação só precisará ser concluída uma vez para cada banco de dados. 
 
@@ -170,11 +170,11 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 
 <!--Article references-->
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[Carregar com PolyBase]: sql-data-warehouse-load-with-polybase.md
+[carregar com o PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [visão geral sobre desenvolvimento]: sql-data-warehouse-overview-develop.md
-[Esquema de migração]: sql-data-warehouse-migrate-schema.md
-[Código de migração]: sql-data-warehouse-migrate-code.md
+[Migrar esquema]: sql-data-warehouse-migrate-schema.md
+[Migrar código]: sql-data-warehouse-migrate-code.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -183,10 +183,10 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 <!--Other Web references-->
-[Instruções de instalação do AZCopy]: https://azure.microsoft.com/pt-br/documentation/articles/storage-use-azcopy/
-[Utilitários de linha de comando da Microsoft para SQL Server]: http://www.microsoft.com/pt-br/download/details.aspx?id=36433
-[Importação/Exportação]: https://azure.microsoft.com/pt-br/documentation/articles/storage-import-export-service/
-[Documentação do armazenamento do Azure]: https://azure.microsoft.com/pt-br/documentation/articles/storage-create-storage-account/
+[Instruções de instalação do AZCopy]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-use-azcopy/
+[Utilitários de Linha de Comando da Microsoft para SQL Server]: http://www.microsoft.com/pt-BR/download/details.aspx?id=36433
+[Importação/Exportação]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-import-export-service/
+[Documentação do Armazenamento do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-create-storage-account/
 [Documentação da Rota Expressa]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

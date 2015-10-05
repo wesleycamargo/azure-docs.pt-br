@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Visão geral sobre trabalhos de bancos de dados elásticos" 
-	description="Ilustra o serviço do trabalho de banco de dados elástico" 
-	services="sql-database" 
-	documentationCenter=""  
+	pageTitle="Criar e gerenciar trabalhos do Banco de Dados Elástico usando o PowerShell" 
+	description="PowerShell usado para gerenciar pools do Banco de Dados SQL do Azure" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="ddove"/>
 
@@ -12,7 +11,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/17/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)
@@ -23,11 +22,11 @@
 
 ## Visão geral
 
-O recurso **trabalhos de Banco de Dados Elástico** (visualização) permite que você, de modo confiável, execute um script Transact-SQL (T-SQL) ou aplique um DACPAC em um grupo de bancos de dados, incluindo uma coleção de bancos de dados definida de modo personalizado, todos os bancos de dados em um [Pool de Banco de Dados Elástico (visualização)](sql-database-elastic-pool.md) ou um conjunto de fragmentos (criado usando a [biblioteca de cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Durante a visualização, **trabalhos de Banco de Dados Elástico** é atualmente um serviço de nuvem do Azure hospedado pelo cliente, que permite a execução de tarefas administrativas ad hoc e agendadas, as quais são chamadas de trabalhos. Usando este recurso, você pode gerenciar de modo fácil e confiável grandes números de Bancos de Dados SQL do Azure em escala executando scripts Transact-SQL para realizar operações administrativas como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, coleta de dados de desempenho ou coleta de telemetria do locatário (cliente). Para obter mais informações sobre trabalhos de Banco de Dados Elástico, consulte [Visão geral de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md).
+O recurso **trabalhos de Banco de Dados Elástico** (visualização) permite que você, de modo confiável, execute um script Transact-SQL (T-SQL) ou aplique um DACPAC em um grupo de bancos de dados, incluindo uma coleção de bancos de dados definida de modo personalizado, todos os bancos de dados em um [Pool de Banco de Dados Elástico (visualização)](sql-database-elastic-pool.md) ou um conjunto de fragmentos (criado usando a [biblioteca de cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Durante a visualização, o recurso **trabalhos de Banco de Dados Elástico** é atualmente um serviço de nuvem do Azure hospedado pelo cliente, que permite a execução de tarefas administrativas ad hoc e agendadas, as quais são chamadas de trabalhos. Usando este recurso, você pode gerenciar de modo fácil e confiável grandes volumes de Bancos de Dados SQL do Azure em escala executando scripts Transact-SQL para realizar operações administrativas como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, coleta de dados de desempenho ou coleta de telemetria do locatário (cliente). Para obter mais informações sobre trabalhos de Banco de Dados Elástico, consulte [Visão geral de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md).
 
 Com as APIs do PowerShell para **trabalhos de Banco de Dados Elástico**, você tem flexibilidade para definir o grupo de bancos de dados no qual os scripts serão executados. Atualmente, a funcionalidade de **trabalhos de Banco de Dados Elástico** por meio do portal do Azure tem um conjunto de recursos reduzido e limita-se à execução em pools de banco de dados elástico.
 
-O recurso **trabalhos de Banco de Dados Elástico** (visualização) usa vários componentes do Azure para definir os trabalhos a serem executados, definir quando executar os trabalhos, executá-los, acompanhar o êxito ou a falha dos trabalhos e, opcionalmente, especificar um destino de resultados para os resultados retornando consultas. Como as APIs do Powershell incluídas nesta visualização contêm funcionalidade adicional desde a visualização inicial por meio do Portal, é recomendável que você instale a versão mais recente dos componentes do recurso **trabalhos de Banco de Dados Elástico**. Se já estiver instalado, você pode simplesmente atualizar os componentes do recurso **trabalhos de Banco de Dados Elástico**. Para obter mais informações sobre a instalação do [Nuget](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.Jobs) consulte [Instalar os componentes do trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md).
+O recurso **trabalhos de Banco de Dados Elástico** (visualização) usa vários componentes do Azure para definir os trabalhos a serem executados, definir quando executar os trabalhos, executá-los, acompanhar o êxito ou a falha dos trabalhos e, opcionalmente, especificar um destino de resultados para os resultados retornando consultas. Como as APIs do Powershell incluídas nesta visualização contêm funcionalidade adicional desde a visualização inicial por meio do Portal, é recomendável que você instale a versão mais recente dos componentes do recurso **trabalhos de Banco de Dados Elástico**. Se já estiver instalado, você pode simplesmente atualizar os componentes do recurso **trabalhos de Banco de Dados Elástico**. Para obter mais informações sobre a instalação do [Nuget](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.Jobs), consulte [Instalar os componentes do trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md).
 
 Este artigo mostrará como criar tudo o que você precisa para criar e gerenciar **trabalhos de Banco de Dados Elástico**, exceto pela assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em AVALIAÇÃO GRATUITA na parte superior desta página e, em seguida, voltar para concluir este artigo. Este tópico estende o exemplo encontrado na [Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). Quando concluído, você aprenderá como criar e gerenciar trabalhos para executar operações administrativas em relação a um grupo de bancos de dados fragmentados definidos por um **conjunto de fragmentos** e, alternativamente, por uma coleção de bancos de dados personalizada.
 
@@ -149,7 +148,7 @@ A tabela a seguir lista todos os tipos de objeto de **trabalhos de Banco de Dado
     <td>Execução de tarefa de trabalho</td>
     <td>
 	<p>Unidade de trabalho individual para concluir um trabalho.</p>
-	<p>Se uma tarefa de trabalho não é capaz de executar com êxito, a mensagem de exceção resultante será registrada e uma nova tarefa de trabalho correspondente será criada e executada de acordo com a política de execução especificada.</p></p>
+	<p>Se uma tarefa de trabalho não for capaz de executar com êxito, a mensagem de exceção resultante será registrada e uma nova tarefa de trabalho correspondente será criada e executada de acordo com a política de execução especificada.</p></p>
 	</td>
 	<td>
 	<p>Get-AzureSqlJobExecution</p>
@@ -161,8 +160,8 @@ A tabela a seguir lista todos os tipos de objeto de **trabalhos de Banco de Dado
 <tr>
     <td>Política de execução de trabalho</td>
     <td>
-	<p>Controla tempos limite de execução do trabalho, os limites de repetição e os intervalos entre as tentativas.</p>
-	<p>Os trabalhos de banco de dados elástico incluem uma política de execução de trabalho padrão que gera, essencialmente, infinitas repetições de tarefas de trabalho com falha, com retirada exponencial de intervalos entre cada repetição.</p>
+	<p>Controla os tempos limite de execução do trabalho, os limites de repetição e os intervalos entre as tentativas.</p>
+	<p>O recurso trabalhos de banco de dados elástico inclue uma política de execução de trabalho padrão que gera, essencialmente, infinitas repetições de tarefas de trabalho com falha, com retirada exponencial de intervalos entre cada repetição.</p>
 	</td>
 	<td>
 	<p>Get-AzureSqlJobExecutionPolicy</p>
@@ -196,22 +195,22 @@ A tabela a seguir lista todos os tipos de objeto de **trabalhos de Banco de Dado
 </table>
 
 ## Tipos de grupo de trabalhos de Banco de Dados Elástico com suporte
-**Trabalhos de Banco de Dados Elástico** permite a execução de scripts Transact-SQL (T-SQL) ou aplicativo de DACPACs em um grupo de bancos de dados. Quando um trabalho é enviado para ser executado em um grupo de bancos de dados, trabalhos de Banco de Dados Elástico "expandirá" o trabalho em trabalhos filho onde cada um desses trabalhos filho realiza a execução solicitada em um único banco de dados no grupo.
+O recurso **trabalhos de Banco de Dados Elástico** permite a execução de scripts Transact-SQL (T-SQL) ou aplicativo de DACPACs em um grupo de bancos de dados. Quando um trabalho for enviado para ser executado em um grupo de bancos de dados, o recurso trabalhos de Banco de Dados Elástico "expandirá" o trabalho em trabalhos filho onde cada um desses trabalhos filho realiza a execução solicitada em um único banco de dados no grupo.
  
 Veja a seguir uma lista dos tipos de grupo com suporte atualmente:
 
-* [Mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md): quando um trabalho é enviado para destinar-se a um mapa de fragmentos, o recurso trabalhos consultará primeiro o mapa de fragmentos para determinar seu conjunto de fragmentos atual e então expandirá o trabalho para trabalhos filho, cada um dos quais corresponderá a um fragmento contido no mapa de fragmentos.
+* [Mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md): quando um trabalho for enviado para um mapa de fragmentos, o recurso trabalhos consultará primeiro o mapa de fragmentos para determinar seu conjunto de fragmentos atual e então expandirá o trabalho para trabalhos filho, cada um dos quais corresponderá a um fragmento contido no mapa de fragmentos.
 * Coleção personalizada: especificada para indicar um conjunto personalizado definido de bancos de dados. Quando um trabalho é enviado para destinar-se a uma coleção personalizada, o recurso trabalhos expandirá o trabalho para trabalhos filho correspondentes a cada banco de dados definido atualmente na coleção personalizada.
 
-## Configurando a conexão de trabalhos de Banco de Dados Elástico
-Depois de carregar o módulo do PowerShell, a conexão precisa ser definida para o *Banco de Dados de Controle* do trabalhos de Banco de Dados Elástico antes de usar as APIs de trabalhos. Chamar esse cmdlet fará com que uma janela de credencial surja, solicitando o nome de usuário/senha fornecidos ao instalar o trabalhos de Banco de Dados Elástico. Todos os exemplos fornecidos neste tópico pressupõem que a primeira etapa já foi executada.
+## Configurando a conexão do recurso trabalhos de Banco de Dados Elástico
+Depois de carregar o módulo do PowerShell, a conexão precisa ser definida para o recurso *Banco de Dados de Controle* do trabalhos de Banco de Dados Elástico antes de usar as APIs de trabalhos. Chamar esse cmdlet fará com que uma janela de credencial surja, solicitando o nome de usuário/senha fornecidos ao instalar o recurso trabalhos de Banco de Dados Elástico. Todos os exemplos fornecidos neste tópico pressupõem que a primeira etapa já foi executada.
 
-Abrir uma conexão ao trabalhos de Banco de Dados Elástico:
+Abrir uma conexão ao recurso trabalhos de Banco de Dados Elástico:
 
 	Use-AzureSqlJobConnection -CurrentAzureSubscription 
 
-## Credenciais criptografadas no trabalhos de Banco de Dados Elástico
-Credenciais de banco de dados podem ser inseridas no *Banco de Dados de Controle* do trabalhos de Banco de Dados Elástico com sua senha criptografada. É necessário armazenar credenciais para habilitar os trabalhos a serem executados posteriormente, incluindo o uso de planos de trabalho.
+## Credenciais criptografadas no recurso trabalhos de Banco de Dados Elástico
+Credenciais de banco de dados podem ser inseridas no recurso *Banco de Dados de Controle* do trabalhos de Banco de Dados Elástico com sua senha criptografada. É necessário armazenar credenciais para habilitar os trabalhos a serem executados posteriormente, incluindo o uso de planos de trabalho.
  
 Criptografia funciona por meio de um certificado criado como parte do script de instalação. O script de instalação cria e carrega o certificado no Serviço de Nuvem do Azure para descriptografia das senhas criptografadas armazenadas. O Serviço de Nuvem do Azure armazena posteriormente a chave pública no *Banco de Dados de Controle* dos trabalhos de Banco de Dados Elástico, que permite que a interface do Portal do Azure ou API do PowerShell criptografe uma senha fornecida sem exigir que o certificado seja instalado localmente.
  
@@ -265,7 +264,7 @@ Agora crie um destino para o mapa de fragmentos, usando o cmdlet **New-AzureSqlJ
 
 ## Criar um script T-SQL para execução em bancos de dados
 
-Ao criar scripts T-SQL para execução, é altamente recomendável criá-los para que sejam idempotentes e resistentes contra falhas. Trabalhos de Banco de Dados Elástico tentará novamente a execução de um script sempre que ocorrer uma falha nessa execução, independentemente da classificação da falha.
+Ao criar scripts T-SQL para execução, é altamente recomendável criá-los para que sejam idempotentes e resistentes contra falhas. O recurso trabalhos de Banco de Dados Elástico tentará novamente a execução de um script sempre que ocorrer uma falha nessa execução, independentemente da classificação da falha.
 
 Use o cmdlet **New-AzureSqlJobContent** para criar e salvar um script para execução e defina os parâmetros **-ContentName** e **-CommandText**.
 
@@ -299,7 +298,7 @@ Se o script T-SQL é definido dentro de um arquivo, o script a seguir pode ser u
 
 O script de PowerShell a seguir pode ser usado para atualizar o texto do comando T-SQL para um script existente.
 
-Defina as variáveis a seguir para refletirem a definição de script que se deseja configurar:
+Defina as variáveis a seguir para refletirem a definição de script que deseja configurar:
 
 	$scriptName = "Create a TestTable"
 	$scriptUpdateComment = "Adding AdditionalInformation column to TestTable"
@@ -446,7 +445,7 @@ O recurso trabalhos de Banco de Dados Elástico dá suporte à criação de pol�
 Atualmente, as políticas de execução permitem definir:
 
 * Nome: o identificador para a política de execução.
-* Tempo Limite do Trabalho: tempo total antes que um trabalho seja cancelado por Trabalhos de Banco de Dados Elástico.
+* Tempo Limite do Trabalho: tempo total antes que um trabalho seja cancelado pelo recurso Trabalhos de Banco de Dados Elástico.
 * Intervalo de Repetição Inicial: o intervalo de espera antes de primeira repetição de tentativa.
 * Intervalo Máximo de Repetição: limite de intervalos de repetição a usar.
 * Coeficiente de Retirada de Intervalo de Repetição: coeficiente usado para calcular o próximo intervalo entre as repetições de tentativas. A fórmula a seguir é usada: (Intervalo de Repetição Inicial) * Math.pow((Coeficiente de Retirada do Intervalo), (Número de Novas Tentativas) - 2). 
@@ -487,12 +486,12 @@ Atualize a política de execução que deseja atualizar:
  
 ## Cancelar um trabalho
 
-Trabalhos de Banco de Dados Elástico dá suporte a solicitações de cancelamento de trabalhos. Se o trabalhos de Banco de Dados Elástico detecta uma solicitação de cancelamento de um trabalho que está atualmente em execução, ele tenta interromper o trabalho.
+O recurso trabalhos de Banco de Dados Elástico dá suporte a solicitações de cancelamento de trabalhos. Se o recurso trabalhos de Banco de Dados Elástico detecta uma solicitação de cancelamento de um trabalho que está atualmente em execução, ele tenta interromper o trabalho.
 
-Há duas maneiras diferentes pelas quais o Trabalhos de Banco de Dados Elástico pode executar um cancelamento:
+Há duas maneiras diferentes pelas quais o recurso Trabalhos de Banco de Dados Elástico pode executar um cancelamento:
 
 1. Cancelando tarefas atualmente em execução: se um cancelamento for detectado enquanto uma tarefa estiver em execução, será realizada uma tentativa de cancelamento no aspecto da tarefa atualmente em execução. Por exemplo: se houver uma consulta de execução longa sendo executada atualmente, quando houver uma tentativa de cancelamento, haverá também uma tentativa de cancelar a consulta.
-2. Tentativas de Cancelar Tarefa: se um cancelamento é detectado pelo thread de controle antes de uma tarefa ser iniciada para execução, o thread de controle evitará iniciar a tarefa e declarará a solicitação como cancelada.
+2. Tentativas de Cancelar Tarefa: se um cancelamento for detectado pelo thread de controle antes de uma tarefa ser iniciada para execução, o thread de controle evitará iniciar a tarefa e declarará a solicitação como cancelada.
 
 Se for solicitado um cancelamento de trabalho para um trabalho pai, a solicitação de cancelamento será atendida para o trabalho pai e todos os seus trabalhos filho.
  
@@ -503,7 +502,7 @@ Para enviar uma solicitação de cancelamento, use o cmdlet **Stop-AzureSqlJobEx
 
 ## Excluir um trabalho por nome e pelo histórico do trabalho
 
-Trabalhos de Banco de Dados Elástico dão suporte a exclusão assíncrona de trabalhos. Um trabalho pode ser marcado para exclusão e o sistema vai excluir o trabalho e todo o seu histórico de trabalho, depois que todas as execuções de trabalho para o trabalho em questão tenham sido concluídas. O sistema não cancelará automaticamente execuções de trabalhos ativos.
+O recurso trabalhos de Banco de Dados Elástico dá suporte à exclusão assíncrona de trabalhos. Um trabalho pode ser marcado para exclusão e o sistema vai excluir o trabalho e todo o seu histórico de trabalho, depois que todas as execuções de trabalho para o trabalho em questão tenham sido concluídas. O sistema não cancelará automaticamente execuções de trabalhos ativos.
 
 Em vez disso, Stop-AzureSqlJobExecution deve ser chamado para cancelar as execuções de trabalhos ativos.
 
@@ -513,7 +512,7 @@ Para disparar a exclusão de trabalho, use o cmdlet **Remove-AzureSqlJob** e def
 	Remove-AzureSqlJob -JobName $jobName
  
 ## Criar um destino de banco de dados personalizado
-Destinos personalizados de banco de dados podem ser definidos em trabalhos de Banco de Dados Elástico, que podem ser usados para execução direta ou para inclusão em um grupo personalizado de bancos de dados. Uma vez que **pools de Banco de Dados Elástico** ainda não têm suporte direto por meio das APIs do PowerShell, basta simplesmente criar um destino de banco de dados personalizado e um destino de coleção de bancos de dados personalizada que englobe todos os bancos de dados no pool.
+Destinos personalizados de banco de dados podem ser definidos no recurso trabalhos de Banco de Dados Elástico, que podem ser usados para execução direta ou para inclusão em um grupo personalizado de bancos de dados. Uma vez que **pools de Banco de Dados Elástico** ainda não têm suporte direto por meio das APIs do PowerShell, basta simplesmente criar um destino de banco de dados personalizado e um destino de coleção de bancos de dados personalizada que englobe todos os bancos de dados no pool.
 
 Defina as variáveis a seguir para refletirem as informações de banco de dados desejadas:
 
@@ -551,7 +550,7 @@ Use o cmdlet **Get-AzureSqlJobTarget** para recuperar os bancos de dados filho d
 
 ### Criar um trabalho para executar um script em um destino de coleção de bancos de dados personalizada
 
-Use o cmdlet **New-AzureSqlJob** para criar um trabalho para um grupo de bancos de dados definidos por um destino de coleção de bancos de dados personalizada. Trabalhos de Banco de Dados Elástico vão expandir o trabalho em vários trabalhos filho, cada um correspondendo a um banco de dados associado ao destino de coleção de bancos de dados personalizada e assegurando que o script seja executado em cada banco de dados. Novamente, é importante que os scripts sejam idempotentes para que sejam resistentes em relação a novas tentativas.
+Use o cmdlet **New-AzureSqlJob** para criar um trabalho para um grupo de bancos de dados definidos por um destino de coleção de bancos de dados personalizada. O recurso trabalhos de Banco de Dados Elástico expandirá o trabalho em vários trabalhos filho, cada um correspondendo a um banco de dados associado ao destino de coleção de bancos de dados personalizada e assegurando que o script seja executado em cada banco de dados. Novamente, é importante que os scripts sejam idempotentes para que sejam resistentes em relação a novas tentativas.
 
 	$jobName = "{Job Name}"
 	$scriptName = "{Script Name}"
@@ -563,9 +562,9 @@ Use o cmdlet **New-AzureSqlJob** para criar um trabalho para um grupo de bancos 
 
 ## Coleta de dados em bancos de dados
 
-**Trabalhos do Banco de Dados Elástico** dá suporte à execução de uma consulta em um grupo de bancos de dados e envia os resultados a uma tabela do banco de dados especificado. A tabela pode ser consultada após o fato para ver os resultados da consulta provenientes de cada banco de dados. Isso fornece um mecanismo assíncrono para executar uma consulta em vários bancos de dados. Casos de falha - como, por exemplo, um dos bancos de dados estar temporariamente indisponível - são tratados automaticamente por meio de novas tentativas.
+O recurso **Trabalhos do Banco de Dados Elástico** dá suporte à execução de uma consulta em um grupo de bancos de dados e envia os resultados a uma tabela do banco de dados especificado. A tabela pode ser consultada após o fato para ver os resultados da consulta provenientes de cada banco de dados. Isso fornece um mecanismo assíncrono para executar uma consulta em vários bancos de dados. Casos de falha - como, por exemplo, um dos bancos de dados estar temporariamente indisponível - são tratados automaticamente por meio de novas tentativas.
 
-A tabela de destino especificada será criada automaticamente se ela ainda não existir correspondendo ao esquema do conjunto de resultados retornado. Se uma execução de script retornar vários conjuntos de resultados, o trabalhos de Banco de Dados Elástico enviará somente o primeiro à tabela de destino fornecida.
+A tabela de destino especificada será criada automaticamente se ela ainda não existir correspondendo ao esquema do conjunto de resultados retornado. Se uma execução de script retornar vários conjuntos de resultados, o recurso trabalhos de Banco de Dados Elástico enviará somente o primeiro à tabela de destino fornecida.
 
 O script PowerShell a seguir pode ser usado para executar um script coletando os resultados em uma tabela especificada. Este script presume que foi criado um script T-SQL, que produz um único conjunto de resultados; além disso, um destino de coleção de bancos de dados personalizada foi criado.
 
@@ -637,7 +636,7 @@ O script do PowerShell a seguir pode ser usado para obter e exibir agendas conte
 
 ## Criar uma DACPAC (implantação de aplicativo da camada de dados) para execução em bancos de dados
 
-Trabalhos de Banco de Dados Elástico podem ser usados para implantar um DACPAC (aplicativo da camada de dados) a um grupo de bancos de dados. Para criar um DACPAC, consulte esta documentação. Para trabalhos de banco de dados elástico implantarem um DACPAC em um grupo de bancos de dados, o DACPAC deve estar acessível para o serviço. É recomendável carregar um DACPAC criado para o armazenamento do Azure e criar um URI assinado para o DACPAC.
+O recurso trabalhos de Banco de Dados Elástico pode ser usado para implantar um DACPAC (aplicativo da camada de dados) em um grupo de bancos de dados. Para criar um DACPAC, consulte esta documentação. Para o recurso trabalhos de banco de dados elástico implantar um DACPAC em um grupo de bancos de dados, o DACPAC deverá estar acessível para o serviço. É recomendável carregar um DACPAC criado para o armazenamento do Azure e criar um URI assinado para o DACPAC.
 
 O seguinte script PowerShell pode ser usado para inserir um DACPAC em Trabalhos do Banco de Dados Elástico:
 
@@ -657,7 +656,7 @@ DACPACs existentes registrados em Trabalhos do Banco de Dados Elástico podem se
 
 ## Criar um trabalho para aplicar uma implantação de aplicativo da camada de dados (DACPAC) em bancos de dados
 
-Após um DACPAC ter sido criado nos trabalhos de Banco de Dados Elástico, um trabalho pode ser criado para aplicar o DACPAC em um grupo de bancos de dados. O seguinte script PowerShell pode ser usado para criar um trabalho DACPAC em uma coleção de bancos de dados personalizada:
+Após um DACPAC ter sido criado no recurso trabalhos de Banco de Dados Elástico, um trabalho poderá ser criado para aplicar o DACPAC em um grupo de bancos de dados. O seguinte script PowerShell pode ser usado para criar um trabalho DACPAC em uma coleção de bancos de dados personalizada:
 
 	$jobName = "{Job Name}"
 	$dacpacName = "{Dacpac Name}"
@@ -674,4 +673,4 @@ Após um DACPAC ter sido criado nos trabalhos de Banco de Dados Elástico, um tr
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

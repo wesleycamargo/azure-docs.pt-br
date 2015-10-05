@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Versão da API REST do Serviço Azure Search 2015-02-28-Preview | Microsoft Azure"
+	pageTitle="Versão da API REST do Serviço Azure Search 2015-02-28-Preview | Microsoft Azure"
 	description="A API do serviço Azure Search Versão 2015-02-28-Preview inclui recursos experimentais como analisadores de linguagem natural e pesquisas do tipo moreLikeThis."
 	services="search"
 	documentationCenter="na"
@@ -8,32 +8,25 @@
 	editor=""/>
 
 <tags
-   ms.service="search"
+	ms.service="search"
 	ms.devlang="rest-api"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="search"
-	ms.date="08/25/2015"
+	ms.date="09/22/2015"
 	ms.author="heidist"/>
 
 # API REST do serviço Azure Search: Versão 2015-02-28-Preview
 
 Este artigo é a documentação de referência para a `api-version=2015-02-28-Preview`. Essa visualização estende a atual versão disponibilizada para o público geral, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), fornecendo os seguintes recursos experimentais:
 
-- [Processadores de idioma natural](#LanguageSupport) da Microsoft (os mesmos usadas pelo Office e pelo Bing) oferecem maior precisão em relação aos resultados de consultas e mais idiomas.
 - `moreLikeThis` é um parâmetro de consulta usado em [operações de pesquisa](#SearchDocs) que localiza outros documentos relevantes para outro documento específico.
-- Uma alternativa POST para a sintaxe GET para as APIs de [Pesquisa](#SearchDocs) e [Sugestões](#Suggestions), útil quando o tamanho geral da URL ultrapassaria 8 KB.
-
-Alguns recursos adicionais da `2015-02-28-Preview` são documentados separadamente. Estão incluídos:
-
-- [Perfis de pontuação](search-api-scoring-profiles-2015-02-28-preview.md)
-- [Indexadores](search-api-indexers-2015-02-28-preview.md)
 
 O serviço Azure Search está disponível em várias versões. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes.
 
 ##APIs neste documento
 
-A API do serviço Azure Search dá suporte a duas sintaxes para pesquisa de entidades: sintaxe de OData [simples](https://msdn.microsoft.com/library/dn798920.aspx) e alternativa (consulte [Suporte a OData (API do Azure Search)](http://msdn.microsoft.com/library/azure/dn798932.aspx) para obter detalhes). A lista a seguir mostra a sintaxe simples.
+A API do serviço Pesquisa do Azure dá suporte a duas sintaxes para pesquisa de entidades: sintaxe de OData [simples](https://msdn.microsoft.com/library/dn798920.aspx) e alternativa (consulte [Suporte a OData (API da Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798932.aspx) para obter detalhes). A lista a seguir mostra a sintaxe simples.
 
 [Criar o índice](#CreateIndex)
 
@@ -136,7 +129,7 @@ Como alternativa, você pode usar PUT e especificar o nome do índice no URI. Se
 
 A criação de um índice determina a estrutura dos documentos armazenados e usados em operações de pesquisa. Popular o índice é uma operação separada. Nessa etapa, você pode usar um [indexador](https://msdn.microsoft.com/library/azure/mt183328.aspx) (disponível para fontes de dados com suporte) ou uma operação [Adicionar, Atualizar ou Excluir Documentos](https://msdn.microsoft.com/library/azure/dn798930.aspx). O índice invertido é gerado quando os documentos são postados.
 
-**Observação**: o número máximo de índices permitidos varia por camada de preços. O serviço gratuito permite até três índices. O serviço padrão permite 50 índices por serviço de pesquisa. Consulte [Limites e restrições](http://msdn.microsoft.com/library/azure/dn798934.aspx) para obter detalhes.
+**Observação**: o número máximo de índices permitidos varia por camada de preços. O serviço gratuito permite até três índices. O serviço padrão permite 50 índices por serviço de pesquisa. Consulte [Limites de serviço](search-limits-quota-capacity.md) para obter detalhes.
 
 **Solicitação**
 
@@ -144,7 +137,7 @@ HTTPS é necessário para todas as solicitações de serviço. A solicitação *
 
 O nome do índice deve estar em letras minúsculas, começar com uma letra ou número, não conter barras ou pontos e ter menos de 128 caracteres. Depois de iniciar o nome do índice com uma letra ou número, o restante do nome pode incluir qualquer letra, número e traços, desde que os traços não sejam consecutivos.
 
-A `api-version` é obrigatória. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter uma lista das versões de API.
+A `api-version` é obrigatória. Consulte [Controle de Versão de Serviço de Pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter uma lista das versões de API.
 
 **Cabeçalhos da solicitação**
 
@@ -290,13 +283,13 @@ Alguns desenvolvedores talvez prefiram a solução mais familiar, simples e aber
 
 O analisador de inglês da Lucene amplia o analisador padrão. Ele remove possessivos (apóstrofos à direita) de palavras, aplica a lematização conforme o [algoritmo de lematização de Porter](http://tartarus.org/~martin/PorterStemmer/) e remove as [palavras irrelevantes](http://en.wikipedia.org/wiki/Stop_words) do inglês.
 
-Em comparação, o analisador da Microsoft executa a derivação em vez da lematização. Isso significa que ele pode tratar muito melhor as formas irregulares e inflexivas de palavras, o que gera resultados de pesquisa mais relevantes (observe o módulo 7 da [Apresentação MVA da Pesquisa do Azure](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) para obter mais detalhes).
+Em comparação, o analisador da Microsoft executa a derivação em vez da lematização. Isso significa que ele pode tratar muito melhor as formas irregulares e inflexivas de palavras, o que gera resultados da pesquisa mais relevantes (observe o módulo 7 da [Apresentação MVA da Pesquisa do Azure](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) para obter mais detalhes).
 
 A indexação com analisadores da Microsoft é, em média, de duas a três vezes mais lenta do que seus equivalentes da Lucene, dependendo do idioma. O desempenho da pesquisa não dever significativamente afetado para consultas de tamanho médio.
 
 ***Configuração***
 
-Para cada campo na definição do índice, você pode definir a propriedade `analyzer` como um nome de analisador que especifica o idioma e o fornecedor. O mesmo analisador será aplicado durante a indexação e a pesquisa desse campo. Por exemplo, você pode ter campos separados para descrições de hotéis em inglês, francês e espanhol, existentes lado a lado no mesmo índice. Use o [parâmetro de consulta 'searchFields'](#SearchQueryParameters) para descrever qual campo específico de idioma pesquisar em suas consultas. Você pode examinar os exemplos de consultas que incluem a propriedade `analyzer` em [Pesquisar documentos](#SearchDocs).
+Para cada campo na definição do índice, você pode definir a propriedade `analyzer` como um nome de analisador que especifica o idioma e o fornecedor. O mesmo analisador será aplicado durante a indexação e a pesquisa desse campo. Por exemplo, você pode ter campos separados para descrições de hotéis em inglês, francês e espanhol, existentes lado a lado no mesmo índice. Use o [parâmetro de consulta 'searchFields'](#SearchQueryParameters) para descrever qual campo específico a um idioma pesquisar em suas consultas. Você pode examinar os exemplos de consultas que incluem a propriedade `analyzer` em [Pesquisar documentos](#SearchDocs).
 
 ***Lista de analisadores***
 
@@ -633,7 +626,7 @@ O Javascript do lado do cliente não pode chamar APIs por padrão, pois o navega
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
+        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1729,4 +1722,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "suggesterName": "sg"
     }
 
-<!------HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

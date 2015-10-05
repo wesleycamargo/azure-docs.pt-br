@@ -26,7 +26,7 @@ Para destacar como você pode aproveitar com eficiência o Banco de Dados de Doc
 
 Este passo a passo mostra como usar o serviço Banco de Dados de Documentos fornecido pelo Azure para armazenar e acessar dados por meio de um aplicativo Web ASP.NET MVC hospedado no Azure.
 
-> [AZURE.TIP]Este tutorial pressupõe que você tem experiência anterior com o ASP.NET MVC e com os Sites do Azure. Se estiver começando a usar o ASP.NET ou as [ferramentas que são pré-requisitos](#_Toc395637760), recomendamos baixar o projeto de tutorial [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) completo no [GitHub](https://github.com/Azure/azure-documentdb-net) e compilá-lo usando as [instruções do final deste artigo](#GetProject). Depois de compilá-lo, você poderá consultar o artigo para obter informações sobre o código no contexto do projeto.
+> [AZURE.TIP]Este tutorial pressupõe que você tem experiência anterior com o ASP.NET MVC e com os Sites do Azure. Se estiver começando a usar o ASP.NET ou as [ferramentas que são pré-requisitos](#_Toc395637760), recomendamos baixar o [projeto de exemplo completo do GitHub][] e seguir as instruções nesse exemplo. Depois de compilá-lo, você poderá consultar esse artigo para obter informações sobre o código no contexto do projeto.
 
 ## <a name="_Toc395637760"></a>Pré-requisitos para esse tutorial de banco de dados
 
@@ -77,7 +77,7 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 
   	Não escolhi "Servidor de banco de dados" aqui porque não estamos usando o Servidor do Banco de Dados SQL do Azure; vamos criar uma nova Conta de Banco de Dados de Documentos do Azure posteriormente no portal de Visualização do Azure.
 
-	Para obter mais informações sobre como escolher um **plano do Serviço de Aplicativo** e um **grupo de Recursos**, consulte [Visão geral dos planos do Serviço de Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Para obter mais informações sobre como escolher um **plano do Serviço de Aplicativo** e um **grupo de Recursos**, consulte [Visão geral dos planos de Serviço de Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
   	![Captura de tela da caixa de diálogo Configurar Site do Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -581,7 +581,7 @@ Para testar o aplicativo em seu computador local, faça o seguinte:
 
 	![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial de banco de dados](./media/documentdb-dotnet-application/image24.png)
 
-	Se encontrar erros neste ponto, você poderá comparar seu código com o tutorial todo no [GitHub][].
+	Se encontrar erros neste ponto, você poderá comparar seu código com o projeto de exemplo no [GitHub][].
 
 2. Clique no link **Criar Novo** e adicione valores ao campos **Nome** e **Descrição**. Deixe a caixa de seleção **Concluído** desmarcada, caso contrário, o novo **Item** será adicionado em um estado concluído e não aparecerá na lista inicial.
 
@@ -619,44 +619,13 @@ Parabéns! Você acabou de compilar seu primeiro aplicativo ASP.NET MVC usando o
 
 Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs disponíveis na [Biblioteca .NET do Banco de Dados de Documentos](http://msdn.microsoft.com/library/azure/dn783362.aspx) e fique à vontade para contribuir com essa biblioteca no [GitHub][].
 
-##<a id="GetProject"></a>Obter a solução no GitHub
-
-Se você prefere economizar tempo e deseja apenas compilar a solução de lista de tarefas pendentes completa, e não adicionar o código por conta própria, você está com sorte. A solução completa está disponível no GitHub e você pode compilá-la e implantá-la em poucos minutos usando as instruções a seguir.
-
-1. Verifique se você tem os [softwares que são pré-requisitos](#_Toc395637760) instalados, os quais incluem o Visual Studio e SDK do Azure para .NET versão 2.3 ou superior.
-
-2. Clone o repositório azure-documentdb-net usando o Git para Windows ([http://www.git-scm.com/](http://www.git-scm.com/)) baixe o arquivo zip no [GitHub](https://github.com/Azure/azure-documentdb-net/).
-
-2. No Visual Studio, abra o arquivo todo.sln file do diretório azure-documentdb-net/tutorials/todo.
-
-3. Para restaurar as referências ao SDK .NET do Banco de Dados de Documentos no Visual Studio 2013, clique com o botão direito do mouse na solução de lista de tarefas pendentes no **Gerenciador de Soluções** e clique em **Habilitar Restauração de Pacote NuGet**, o que restaurara as referências.
-
-4. Recupere os valores **URI** e **CHAVE PRIMÁRIA** ou **CHAVE SECUNDÁRIOA** da folha **Chaves** da sua conta do Banco de Dados de Documentos no [portal de Visualização do Azure](https://portal.azure.com/).
-
-	
-	Se você não tiver uma conta, consulte [Criar uma conta de banco de dados](documentdb-create-account.md) para configurar uma.
-
-	![Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão Chaves realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves](media/documentdb-dotnet-application/keys.png)
-
-5. No arquivo Web.config, atualize os valores padrão das chaves **endpoint** e **authKey**.
-
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
-
-	- Copie o valor de **URI** da folha Chaves e cole-o na valor da propriedade **endpoint**. 
-	- Copie o valor da **CHAVE PRIMÁRIA** ou da **CHAVE SECUNDÁRIA** da folha **Chaves** e cole-o no valor da propriedade **authKey**.
-	
-
-
-7. Agora você pode [executar o aplicativo localmente](#_Toc395637773) e [implantá-lo nos Sites do Azure](#_Toc395637774).
-
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [Prevenindo solicitação intersite forjada]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)]: http://go.microsoft.com/fwlink/?LinkId=317598
- 
+[GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
+[projeto de exemplo completo do GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

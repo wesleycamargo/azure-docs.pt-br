@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Usando conjuntos de carga balanceada para clusterizar MySQL em Linux"
-	description="Um artigo que ilustra padrões para configurar um cluster Linux de alta disponibilidade e carga balanceada no Azure, utilizando o MySQL como exemplo"
+	pageTitle="Clusterizar MySQL com conjuntos com balanceamento de carga | Microsoft Azure"
+	description="Configurar um cluster MySQL do Linux com alta disponibilidade e balanceamento de carga criado com o modelo clássico de implantação no Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="bureado"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,16 +19,7 @@
 
 # Usando conjuntos de carga balanceada para clusterizar MySQL em Linux
 
-* [Preparando-se](#getting-ready)
-* [Configurando o cluster](#setting-up-the-cluster)
-* [Configurando o MySQL](#setting-up-mysql)
-* [Configurando o Corosync](#setting-up-corosync)
-* [Configurando o Pacemaker](#setting-up-pacemaker)
-* [Testando](#testing)
-* [STONITH](#stonith)
-* [Limitações](#limitations)
-
-## Introdução
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 A finalidade deste artigo é explorar e ilustrar as diferentes abordagens disponíveis para implantar serviços com base em Linux, altamente disponíveis no Microsoft Azure, explorando a alta disponibilidade do MySQL Server como elemento principal. Há um vídeo ilustrando essa abordagem disponível no [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -346,6 +338,5 @@ As seguintes limitações se aplicam:
 - Como o balanceador de carga precisa de pelo menos 5 segundos para responder, os aplicativos devem reconhecer o cluster e ser mais tolerantes ao tempo limite. Outras características também podem ajudar, por exemplo, filas em aplicativo, middleware de consulta, etc.
 - O ajuste do MySQL é necessário para garantir que a gravação seja feita em um ritmo confortável e os caches sejam liberados para o disco com a maior frequência possível para minimizar a perda de memória
 - O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

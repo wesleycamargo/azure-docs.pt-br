@@ -1,10 +1,10 @@
 <properties
    pageTitle="Relatórios do AD do Azure: Introdução"
-   description="Relatórios do AD do Azure: Introdução"
+   description="Lista os diversos relatórios disponíveis nos relatórios do Active Directory do Azure"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="mbaldwin"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/30/2015"
+   ms.date="09/21/2015"
    ms.author="curtand;kenhoff"/>
 
 # Introdução aos Relatórios do AD do Azure
@@ -156,4 +156,4 @@ Envie um email para [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@mic
 
 > [AZURE.TIP]Para obter mais documentação sobre os Relatórios do AD do Azure, consulte [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

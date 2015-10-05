@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure | Microsoft Azure"
-	description="Saiba como usar as ferramentas de linha de comando para Mac, Linux e Windows para gerenciar o Azure usando o modo asm da CLI do Azure."
+	pageTitle="Usar a CLI do Azure com o Gerenciamento de Serviços | Microsoft Azure"
+	description="Saiba como usar as ferramentas de linha de comando para Mac, Linux e Windows para gerenciar o Azure usando a CLI do Azure no modo de implantação clássico (Gerenciamento de Serviços)."
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,6 +18,8 @@
 	ms.author="danlep"/>
 
 # Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação. Você também pode criar um recurso com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-deploy-rmtemplates-azure-cli.md).
 
 Este tópico descreve como usar a CLI do Azure no modo **asm** para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. Essa funcionalidade é semelhante àquela fornecida pelos cmdlets de gerenciamento de serviço Windows PowerShell instalados com o SDK do Azure para .NET, Node.JS e PHP.
 
@@ -65,7 +67,7 @@ Esse comando importa um arquivo publishsettings ou certificado para que possa se
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE]O arquivo publishsettings pode conter detalhes (ou seja, o nome e a ID da assinatura) sobre mais de uma assinatura. Quando você importa o arquivo publishsettings, a primeira assinatura é usada como descrição padrão. Para usar uma assinatura diferente, execute o comando a seguir. <code>\~$ azure config set subscription &lt;outra-id-assinatura&gt;</code>
+> [AZURE.NOTE]O arquivo publishsettings pode conter detalhes (ou seja, o nome e a ID da assinatura) sobre mais de uma assinatura. Quando você importa o arquivo publishsettings, a primeira assinatura é usada como descrição padrão. Para usar uma assinatura diferente, execute o comando a seguir. <code>~$ azure config set subscription &lt;outra-id-assinatura&gt;</code>
 
 **account clear [options]**
 
@@ -208,7 +210,7 @@ Os seguintes parâmetros opcionais são aceitos para esse comando:
 
 **-c, --connect** criar a máquina virtual dentro de uma implantação já criada em um serviço de hospedagem. Se -vmname não for usado com essa opção, o nome da nova máquina virtual será gerado automaticamente. <br /> **-n, --vm-name** especifica o nome da máquina virtual. Por padrão, esse parâmetro usa o nome do serviço de hospedagem. Se -vmname não for especificado, o nome da nova máquina virtual será gerado como &lt;nome\_do\_serviço>&lt;id>, em que &lt;id> é o número de máquinas virtuais existentes no serviço mais 1. Por exemplo, se você usar esse comando para adicionar uma nova máquina virtual a um serviço de hospedagem Meu\_serviço que tem máquina virtual existente, a nova máquina virtual será chamada de Meu\_serviço2.<br /> **-u, --blob-url** especifica a URL de armazenamento de blob na qual criar o disco de sistema da máquina virtual. <br /> **-z, --vm-size** especifica o tamanho da máquina virtual. Os valores válidos são: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". O valor padrão é "Small". <br /> **-r** adiciona conectividade RDP a uma máquina virtual do Windows. <br /> **-e, --ssh** adiciona conectividade SSH a uma máquina virtual do Windows. <br /> **-t, --ssh-cert** especifica o certificado SSH. <br /> **-s** a assinatura <br /> **-o, --community** A imagem especificada é uma imagem comunitária <br /> **-w** o nome da rede virtual <br/> **-l, --location** especifica o local (por exemplo, "Centro-Norte dos EUA"). <br /> **-a, --affinity-group** especifica o grupo de afinidades.<br /> **-w, --virtual-network-name** especifica a rede virtual na qual adicionar a nova máquina virtual. As redes virtuais podem ser configuradas e gerenciadas no portal do Azure.<br /> **-b, --subnet-names** especifica os nomes de sub-redes a serem atribuídas à máquina virtual.
 
-Neste exemplo, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-pt-br-30GB é uma imagem fornecida pela plataforma. Para obter mais informações sobre imagens do sistema operacional, consulte vm image list.
+Neste exemplo, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-pt-BR-30GB é uma imagem fornecida pela plataforma. Para obter mais informações sobre imagens do sistema operacional, consulte vm image list.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -420,15 +422,15 @@ Esse comando obtém uma lista de imagens de máquinas virtuais. Existem três ti
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
 	data:   ---------------------------------------------------------------------  ---------  -------
-	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-pt-br-30GB.vhd   Canonical  Linux
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-pt-BR-30GB.vhd   Canonical  Linux
 	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-	data:   MSFT__Windows-Server-8-Beta.pt-br.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.pt-BR.30GB.2012-03-22                      Microsoft  Windows
 	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-	data:   MSFT__Windows-Server-2008-R2-SP1.pt-br.30GB.2012-3-22                  Microsoft  Windows
-	data:   OpenLogic__OpenLogic-CentOS-62-20120509-pt-br-30GB.vhd                 OpenLogic  Linux
-	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-pt-br-30GB.vhd       SUSE       Linux
-	data:   SUSE__OpenSUSE64121-03192012-pt-br-15GB.vhd                            SUSE       Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.pt-BR.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-pt-BR-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-pt-BR-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-pt-BR-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
 	info:   vm image list command OK
 
@@ -499,7 +501,7 @@ Esse comando mostra detalhes sobre um disco do Azure.
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
-	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-pt-br-30GB.vhd"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-pt-BR-30GB.vhd"
 	info:   vm disk show command OK
 
 **vm disk list [options] [vm-name]**
@@ -2346,4 +2348,4 @@ Remove uma entrada de servidor DNS da configuração de rede.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

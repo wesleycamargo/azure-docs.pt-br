@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure"
-	description="Aprenda a usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas no Windows e no Gerenciador de Recursos no Azure."
+	pageTitle="Criar e pré-configurar uma VM | Microsoft Azure"
+	description="Criar e pré-configurar uma máquina virtual do Azure com o modelo de implantação do Gerenciador de Recursos e o PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -19,13 +19,11 @@
 
 # Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure
 
-Estas etapas mostram como construir um conjunto de comandos no modo Gerenciador de Recursos do PowerShell do Azure, que cria e pré-configura uma máquina virtual do Azure baseada no Windows. Você pode usar esse processo de bloco de construção a fim de criar rapidamente um conjunto de comandos para uma nova máquina virtual baseada no Windows e expandir uma implantação existente. Você também pode usá-lo para criar vários conjuntos de comandos que criam rapidamente um ambiente personalizado de desenvolvimento/teste ou um ambiente para profissional de TI.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo de implantação do Gerenciador de Recursos. Você também pode criar recursos com o [modelo de implantação clássico](virtual-machines-ps-create-preconfigure-windows-vms.md).
+
+Estas etapas mostram como construir um conjunto de comandos do Azure PowerShell que cria e configura previamente uma máquina virtual do Azure no modelo de implantação do Gerenciador de Recursos. Você pode usar esse processo de bloco de construção a fim de criar rapidamente um conjunto de comandos para uma nova máquina virtual baseada no Windows e expandir uma implantação existente. Você também pode usá-lo para criar vários conjuntos de comandos que criam rapidamente um ambiente personalizado de desenvolvimento/teste ou um ambiente para profissional de TI.
 
 Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do PowerShell do Azure. Esta abordagem poderá ser útil se você for novo no PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida. Se você for um usuário avançado do PowerShell, substitua os comandos por seus próprios valores de variáveis (as linhas que começam com "$").
-
-[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
-
-- [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 ## Etapa 1: instalar o PowerShell do Azure
 
@@ -121,7 +119,7 @@ Use este comando para listar os conjuntos de disponibilidade existentes.
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-As máquinas virtuais baseadas no Gerenciador de Recursos podem ser configuradas com regras NAT de entrada para permitirem o tráfego de entrada da Internet e serem colocadas em um conjunto balanceado por carga. Em ambos os casos, você deve especificar uma instância do balanceador de carga e outras configurações. Para obter mais informações, consulte [Criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
+As máquinas virtuais baseadas no Gerenciador de Recursos podem ser configuradas com regras NAT de entrada para permitirem o tráfego de entrada da Internet e serem colocadas em um conjunto balanceado por carga. Em ambos os casos, você deve especificar uma instância do balanceador de carga e outras configurações. Para obter mais informações, consulte [Como criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Máquinas virtuais baseadas no Gerenciador de Recursos exigem uma rede virtual baseada no Gerenciador de Recursos. Se for necessário, crie uma nova rede virtual baseada no Gerenciador de Recursos com pelo menos uma sub-rede para a nova máquina virtual. Veja um exemplo de uma nova rede virtual com duas sub-redes denominadas frontendSubnet e backendSubnet.
 
@@ -225,7 +223,7 @@ Para criar uma NIC e adicioná-la a uma instância do balanceador de carga para 
 - Do nome de uma instância do balanceador de carga criada anteriormente que tenha uma regra para o tráfego balanceado por carga.
 - Do número de índice do pool de endereços back-end da instância do balanceador de carga para atribuir à NIC.
 
-Para obter informações sobre como criar uma instância do balanceador de carga com regras para tráfego balanceado por carga, consulte [Criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
+Para obter informações sobre como criar uma instância do balanceador de carga com regras para tráfego balanceado por carga, consulte [Como criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copie estas linhas em seu conjunto de comandos e especifique os nomes e números de índice necessários.
 
@@ -387,6 +385,6 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos e o PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
-[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
+[Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

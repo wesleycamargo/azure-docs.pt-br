@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como usar VMAccess para máquinas virtuais Linux"
-	description="Como usar o Portal de Visualização do Azure ou a extensão VMAccess para Linux para redefinir senhas e chaves de SSH para redefinir as configurações do SSH e excluir os usuários do Linux."
+	pageTitle="Redefinir senha de VM do Linux a partir da CLI do Azure"
+	description="Como usar a extensão VMAccess no Portal do Azure ou na CLI para redefinir senhas de VM do Linux e chaves SSH, configurações de SSH e excluir contas de usuários."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -263,4 +263,4 @@ Para exibir o status da extensão VMAccess, execute este comando.
 [Recursos e extensões de VM do Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

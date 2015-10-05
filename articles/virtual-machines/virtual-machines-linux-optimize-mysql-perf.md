@@ -1,26 +1,29 @@
-<properties 
-	pageTitle="Otimizando o desempenho do MySQL nas VMs Linux do Azure" 
-	description="Aprenda a otimizar o MySQL em execução em uma máquina virtual do Azure (VM) executando o Linux." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="NingKuang" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Otimizar o desempenho do MySQL em máquinas virtuais do Linux | Microsoft Azure"
+	description="Aprenda a otimizar o MySQL em execução em uma máquina virtual do Azure (VM) executando o Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="NingKuang"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/21/2015"
 	ms.author="ningk"/>
 
-#Otimizando o desempenho do MySQL nas VMs Linux do Azure 
+#Otimizando o desempenho do MySQL nas VMs Linux do Azure
 
 Há muitos fatores que afetam o desempenho do MySQL no Azure, tanto na configuração de software como na seleção de hardware virtual. Este artigo se concentra na otimização de desempenho por meio de armazenamento, sistema e configurações de banco de dados.
 
-##Usando o RAID em uma máquina virtual do Azure 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso com o modelo de implantação clássico.
+
+##Usando o RAID em uma máquina virtual do Azure
 O armazenamento é o principal fator que afeta o desempenho do banco de dados em ambientes de nuvem. Em comparação com um único disco, o RAID pode fornecer acesso mais rápido por meio de simultaneidade. Confira [Níveis do RAID padrão](http://en.wikipedia.org/wiki/Standard_RAID_levels) para obter mais detalhes.
 
 Taxa de transferência de e/s de disco e tempo de resposta de e/s no Azure podem ser melhorados significativamente através do RAID. Nossos testes de laboratório mostram e/s de disco, a taxa de transferência pode ser duplicada e o tempo de resposta de e/s pode ser reduzido pela metade em média quando o número de discos RAID é duplicado (de 2 a 4, 4 a 8, etc.). Confira o [Apêndice A](#AppendixA) para obter detalhes.
@@ -32,9 +35,9 @@ Você talvez queira considerar o tamanho da parte. Em geral quando você tem um 
 Observe que há limites em quantos discos que você pode adicionar para diferentes tipos de máquinas virtuais. Esses limites são detalhados em [Tamanhos de máquinas virtuais e serviço de nuvem para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Você precisará de 4 discos de dados anexados para seguir o exemplo do RAID neste artigo, embora você possa optar por configurar o RAID com menos discos.
 
 Este artigo pressupõe que você já criou uma máquina virtual Linux e já tenha o MYSQL instalado e configurado. Para obter mais informações sobre como começar consulte Como instalar o MySQL no Azure.
-  
+
 ###Configurando o RAID no Azure
-As etapas a seguir mostram como criar o RAID no Azure usando o Portal de Gerenciamento do Microsoft Azure. Você também pode definir o RAID usando scripts do Windows PowerShell. Neste exemplo, configuraremos o RAID 0 com 4 discos.
+As etapas a seguir mostram como criar o RAID no Azure usando o Portal de Gerenciamento do Azure. Você também pode definir o RAID usando scripts do Windows PowerShell. Neste exemplo, configuraremos o RAID 0 com 4 discos.
 
 ####Etapa 1: adicionar um disco de dados à sua máquina virtual  
 
@@ -45,16 +48,16 @@ Na página de máquinas virtuais do Portal de Gerenciamento do Azure, clique na 
 Na página para a máquina virtual, clique em **Painel**.
 
 ![][2]
- 
+
 
 Na barra de tarefas, clique em **Anexar**.
- 
+
 ![][3]
 
 Em seguida, clique em **Anexar disco vazio**.
 
 ![][4]
- 
+
 Para discos de dados, a **Preferência de Cache do Host** deve ser definida como **Nenhum**.
 
 Isso adicionará um disco vazio à sua máquina virtual. Repita essa etapa mais três vezes para que você tenha 4 discos de dados para o RAID.
@@ -66,7 +69,7 @@ Você pode ver as unidades adicionadas na máquina virtual, observando o log de 
 ####Etapa 2: criar o RAID com os discos adicionais
 Siga este artigo para obter as etapas detalhadas de configuração do RAID:
 
-[http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
+[Configurar RAID de software no Linux](virtual-machines-linux-configure-RAID.md)
 
 >[AZURE.NOTE]Se você estiver usando o sistema de arquivos XFS, siga as etapas abaixo após ter criado o RAID.
 
@@ -76,7 +79,7 @@ Para instalar o XFS no Debian, Ubuntu ou Linux Mint, use o seguinte comando:
 
 Para instalar o XFS no Fedora, CentOS ou RHEL, use o seguinte comando:
 
-	yum -y install xfsprogs  xfsdump 
+	yum -y install xfsprogs  xfsdump
 
 
 ####Etapa 3: configurar um novo caminho de armazenamento
@@ -116,11 +119,11 @@ Para a família de distribuição do Debian:
 ###Etapa 1.Exibir o agendador de e/s atual
 Use o seguinte comando:
 
-	root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler 
+	root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler
 
 Você verá o seguinte resultado, que indica o agendador atual.
 
-	noop [deadline] cfq 
+	noop [deadline] cfq
 
 
 ###Etapa 2. Alterar o dispositivo atual (/dev/sda) do algoritmo de agendamento de e/s
@@ -150,7 +153,7 @@ Para a família de distribuição Redhat, só é necessário o seguinte comando:
 
 ##Definir as configurações de operações de arquivos do sistema
 Uma prática recomendada é desabilitar o recurso de log no sistema de arquivos. Atime é a hora do último acesso ao arquivo. Sempre que um arquivo é acessado, o sistema de arquivos registra o carimbo de data/hora no log. No entanto, essas informações raramente são usadas. Você pode desabilitá-lo se não precisar dele, o que reduzirá o tempo de acesso total do disco.
- 
+
 Para desabilitar o log atime, você precisa modificar o arquivo de configuração do sistema de arquivos /etc/ fstab e adicionar a opção **noatime**.
 
 Por exemplo, edite o arquivo vim /etc/fstab, adicionando o noatime conforme mostrado abaixo.
@@ -170,7 +173,7 @@ Teste o resultado modificado. Observe que, quando você modifica o arquivo de te
 Antes do exemplo:
 
 ![][5]
- 
+
 Depois do exemplo:
 
 ![][6]
@@ -190,7 +193,7 @@ Adicione as seguintes quatro linhas no arquivo /etc/security/limits.conf para au
 Execute os seguintes comandos:
 
 	ulimit -SHn 65536
-	ulimit -SHu 65536 
+	ulimit -SHu 65536
 
 ###Etapa 3: assegurar se os limites são atualizados no momento da inicialização
 Colocar os seguintes comandos de inicialização no arquivo /etc/rc.local para que ele entre em vigor durante cada tempo de inicialização.
@@ -198,7 +201,7 @@ Colocar os seguintes comandos de inicialização no arquivo /etc/rc.local para q
 	echo “ulimit -SHn 65536” >>/etc/rc.local
 	echo “ulimit -SHu 65536” >>/etc/rc.local
 
-##Otimização de banco de dados do MySQL 
+##Otimização de banco de dados do MySQL
 Você pode usar a mesma estratégia de ajuste de desempenho para configurar o MySQL no Azure como em um computador local.
 
 As principais regras de otimização de e/s são:
@@ -214,10 +217,10 @@ Os seguintes itens de configuração são os principais fatores que afetam o des
 -	**innodb\_log\_file\_size**: esse é o tamanho do redo log. Você pode usar os logs de refazer para garantir que as operações de gravação sejam rápidas, confiáveis e recuperáveis após uma falha. Isto é definido para 512MB, o que lhe dará bastante espaço para operações de gravação em log.
 -	**max\_connections**: às vezes, os aplicativos não fecham as conexões corretamente. Um valor maior oferece ao servidor mais tempo para reciclar conexões ociosas. O número máximo de conexões é 10000, mas o máximo recomendado é 5000.
 -	**Innodb\_file\_per\_table**: esta configuração habilita ou desabilita a capacidade de InnoDB para armazenar as tabelas em arquivos separados. Ativar a opção garantirá que várias operações de administração avançada possam ser aplicadas com eficiência. Do ponto de vista de desempenho, ela pode acelerar a transmissão de espaço de tabela e otimizar o desempenho do gerenciamento de resíduos. Portanto, a configuração recomendada para esta opção é Ativada.</br> No MySQL 5.6, a configuração padrão é Ativada. Portanto, nenhuma ação é necessária. Para outras versões, que sejam anteriores a 5.6, as configurações padrão estão Desativadas. É necessário ativá-las. E deve aplicá-la antes do carregamento de dados, porque apenas as tabelas criadas recentemente são afetadas.
--	**innodb\_flush\_log\_at\_trx\_commit**: o valor padrão é 1, com o escopo definido como 0\~2. O valor padrão é a opção mais adequada para o banco de dados do MySQL autônomo. A configuração de 2 habilita mais integridade de dados e é adequada para mestre no cluster do MySQL. A configuração de 0 permite a perda de dados, que pode afetar a confiabilidade, em alguns casos com melhor desempenho e é adequada para o subordinado no cluster do MySQL.
+-	**innodb\_flush\_log\_at\_trx\_commit**: o valor padrão é 1, com o escopo definido como 0~2. O valor padrão é a opção mais adequada para o banco de dados do MySQL autônomo. A configuração de 2 habilita mais integridade de dados e é adequada para mestre no cluster do MySQL. A configuração de 0 permite a perda de dados, que pode afetar a confiabilidade, em alguns casos com melhor desempenho e é adequada para o subordinado no cluster do MySQL.
 -	**Innodb\_log\_buffer\_size**: o buffer de log permite que as transações sejam executados sem ter que liberar o log no disco antes que as transações sejam confirmadas. No entanto, se houver objetos binários grandes ou campo de texto, o cache será consumido rapidamente e a e/s de disco frequente será disparada. É melhor aumentar o tamanho do buffer se a variável de estado Innodb\_log\_waits não é 0.
 -	**query\_cache\_size**: a melhor opção é desabilitá-lo desde o início. Defina query\_cache\_size como 0 (este agora é a configuração padrão no MySQL 5.6) e use outros métodos para agilizar as consultas.  
-  
+
 Confira o [Apêndice D](#AppendixD) para comparar o desempenho após a otimização.
 
 
@@ -236,11 +239,11 @@ Observe que por padrão isso não está habilitado. Ativar o log de consultas le
 	service  mysql  restart
 
 ###Etapa 3: verificar se a configuração está produzindo efeito usando o comando “show”
- 
+
 ![][7]
-   
+
 ![][8]
- 
+
 Neste exemplo, você pode ver que o recurso de consulta lenta foi ativado. Você pode usar a ferramenta **mysqldumpslow** para determinar os estrangulamentos de desempenho e otimizar o desempenho, como a adição de índices.
 
 
@@ -255,7 +258,7 @@ Os seguintes são dados de teste de desempenho de amostra produzidos no ambiente
 
 
 ![][9]
- 
+
 **Comandos de teste:**
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
@@ -264,7 +267,7 @@ Os seguintes são dados de teste de desempenho de amostra produzidos no ambiente
 
 <a name="AppendixB"></a>Apêndice B: **comparação de desempenho do MySQL (taxa de transferência) com níveis de RAID diferentes** (sistema de arquivos XFS)
 
- 
+
 ![][10] ![][11]
 
 **Comandos de teste:**
@@ -279,7 +282,7 @@ Os seguintes são dados de teste de desempenho de amostra produzidos no ambiente
 
 <a name="AppendixC"></a>Apêndice C: **comparação de desempenho de disco (IOPS) para tamanhos de partes diferentes** (sistema de arquivos XFS)
 
- 
+
 ![][13]
 
 **Comandos de teste:**
@@ -292,7 +295,7 @@ Observe que o tamanho do arquivo usado para esse teste é 30GB e 1GB respectivam
 
 <a name="AppendixD"></a>Apêndice D: **comparação de desempenho do MySQL (taxa de transferência) antes e depois da otimização** (sistema de arquivos XFS)
 
-  
+
 ![][14]
 
 **Comandos de teste:**
@@ -343,6 +346,5 @@ Parâmetros de configuração de otimização mais detalhados, consulte as instr
 [12]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criar uma máquina virtual personalizada que executa o Windows no Azure"
+	pageTitle="Criar uma máquina virtual personalizada que executa o Windows | Microsoft Azure"
 	description="Aprenda a criar uma máquina virtual personalizada que executa o Windows no Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -20,6 +20,8 @@
 
 #Criar uma máquina virtual personalizada que executa o Windows no Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+
 Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que você cria usando a opção **Da Galeria** porque isso lhe dá mais opções de configuração do que a opção **Criação Rápida**. Essas opções incluem:
 
 - Conectar a máquina virtual a uma rede virtual.
@@ -34,4 +36,4 @@ Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que vo
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

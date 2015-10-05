@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Recomendações de camada de preços do Banco de Dados SQL do Azure" 
-   description="Ao alterar as camadas de preços no portal do Azure, são fornecidas recomendações de camada de preços que apontam a camada mais adequada para executar a carga de trabalho do Banco de Dados SQL do Azure." 
+   description="Ao alterar as camadas de preços no portal do Azure, são fornecidas recomendações de camada de preços que apontam a camada mais adequada para executar a carga de trabalho do Banco de Dados SQL do Azure. As camadas de preços descrevem o nível de serviço e o nível de desempenho de um banco de dados SQL." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,19 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/30/2015"
+   ms.date="09/22/2015"
    ms.author="sstein"/>
 
 # Recomendações de camada de preços do Banco de Dados SQL
 
- Ao alterar as camadas de preços no portal do Azure, são fornecidas recomendações de camada de preços que apontam a camada mais adequada para executar a carga de trabalho do Banco de Dados SQL do Azure.
+ São fornecidas recomendações tipo de preço que recomendam a camada de serviços e o nível de desempenho mais adequados para executar a carga de trabalho do banco de dados SQL do Azure.
 
-> [AZURE.NOTE]As recomendações de camada de preços estão disponíveis apenas para bancos de dados Web e Business e apenas no [Portal do Azure](https://portal.azure.com/).
+> [AZURE.NOTE]As recomendações de tipo de preço estão disponíveis apenas para bancos de dados Web e Business e pools de banco de dados elástico, e apenas no [Portal de Visualização do Azure](https://portal.azure.com/).
+
+
+Obtenha as recomendações de tipo de preço durante as seguintes tarefas:
+
+- [Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um banco de dados SQL](sql-database-scale-up.md)
+- [Atualizar servidor do SQL Azure para V12](sql-database-v12-upgrade.md)
+- [Criar um pool de banco de dados elástico](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
 ## Visão geral
 
-O Azure analisa os requisitos atuais de desempenho e recursos avaliando o uso histórico de recursos de um Banco de Dados SQL. Além disso, a camada de serviço mínima aceitável é determinada com base no tamanho do banco de dados e nos recursos de [continuidade dos negócios](https://msdn.microsoft.com/library/azure/hh852669.aspx) habilitados.
+O serviço do Banco de Dados SQL analisa os requisitos atuais de desempenho e recursos avaliando o uso histórico de recursos de um banco de dados SQL. Além disso, a camada de serviço mínima aceitável é determinada com base no tamanho do banco de dados e nos recursos de [continuidade dos negócios](https://msdn.microsoft.com/library/azure/hh852669.aspx) habilitados.
 
 Com a análise dessas informações, são recomendados a camada de serviço e o nível de desempenho mais adequados para execução da carga de trabalho comum do banco de dados e manutenção do respectivo conjunto de recursos atuais.
 
@@ -45,9 +52,9 @@ Com base no uso do banco de dados, atualmente, podemos encontrar 2 categorias de
 
 ## Obtendo recomendações de camada de preços
 
-Obtenha recomendações de camada de preços selecionando um banco de dados Web ou Business e clicando no bloco **Camada de preços**.
+Obtenha recomendações de camada de preços selecionando um banco de dados Web ou Business e clicando no bloco **Camada de preços**. (As recomendações de tipo de preço também estarão disponíveis quando você [Atualizar o Azure SQL Server para o V12](sql-database-v12-upgrade.md).)
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal de Visualização do Azure](https://portal.azure.com/).
 2. Clique em **PROCURAR** no menu à esquerda.
 3. Clique em **Bancos de dados SQL** na folha **Procurar**.
 4. Na folha **Bancos de dados SQL**, clique no banco de dados que deseja que o serviço analise.
@@ -90,4 +97,4 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Consumir um aplicativo de API no Serviço de Aplicativo do Azure por meio de um cliente .NET"
-	description="Saiba como consumir um aplicativo de API a partir de um cliente .NET usando o SDK do serviço de aplicativo."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Consumir um aplicativo de API no Serviço de Aplicativo do Azure por meio de um cliente .NET" 
+	description="Saiba como consumir um aplicativo de API a partir de um cliente .NET usando o SDK do serviço de aplicativo." 
+	services="app-service\api" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Consumir um aplicativo de API no serviço de aplicativo do Azure por meio de um cliente .NET 
@@ -205,4 +205,4 @@ Para obter exemplos adicionais de um código que chame um aplicativo de API de c
 Para obter informações sobre como usar a autenticação em aplicativos de API, consulte [Autenticação para aplicativos de API e aplicativos móveis no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

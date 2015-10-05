@@ -97,6 +97,8 @@ Você modificará essa página posteriormente adicionando uma seção para exibi
 	* Use o aplicativo do AAD que você já criou, em vez de criar outro.
  
 	* Mantenha o mesmo **URI da ID do Aplicativo** que já tem para o aplicativo do AAD. (Não o altere para o formato especificado no arquivo Leiame.)
+	
+	* Altere outras configurações de aplicativo do AAD conforme orientado; em particular, defina o logon e as URLs de resposta para a URL base para o aplicativo de exemplo.
 
 Você está mantendo o mesmo URI da ID do aplicativo que criou para o aplicativo de API, de modo que é possível usar o mesmo token de acesso do AAD para o aplicativo Web e o aplicativo de API. Se você alterou o URI da ID do aplicativo para o formato definido pelo leiame, ele funcionará para acessar o aplicativo Web, mas não para o aplicativo de API. Você não pode transmitir o token do AAD para o gateway do aplicativo de API para obter o token Zumo, pois o gateway espera um token para um URI da ID do aplicativo composto pela URL do gateway mais "/logon/aad".
 
@@ -109,8 +111,6 @@ Nesta seção, você adiciona o código gerado automaticamente para uma interfac
 9.	Na caixa de diálogo **Adicionar Cliente do Aplicativo de API do Microsoft Azure**, selecione o aplicativo de API que você protegeu com o AAD.
 
 	Após a conclusão da geração de código, você vê uma nova pasta **Gerenciador de soluções**, com o nome do aplicativo de API. Esta pasta contém o código que implementa os modelos de dados e classes de cliente.
-
-	![](./media/app-service-api-authentication-client-flow/aboutpagestart.png)
 
 10. Corrija referências ambíguas causadas pelo código gerado em *ContactsList/ContactsExtensions.cs*: altere as duas instâncias de `Task.Factory.StartNew` para `System.Threading.Tasks.Task.Factory.StartNew`.
  
@@ -222,9 +222,9 @@ Agradeço a Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav)) 
 
 ## Próximas etapas
 
-Você viu como fazer a autenticação do fluxo de cliente para aplicativos de API do Serviço de Aplicativo. Para obter informações sobre outras formas de lidar com a autenticação em aplicativos de API, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
+Você viu como fazer a autenticação do fluxo de cliente para aplicativos de API do Serviço de Aplicativo. Para obter informações sobre outros modos de lidar com a autenticação em aplicativos de API, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
 [portal do Azure]: https://manage.windowsazure.com/
 [portal de visualização do Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

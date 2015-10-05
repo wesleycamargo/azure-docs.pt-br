@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Obter percepções: relatórios de gerenciamento de senhas do AD do Azure | Microsoft Azure" 
-	description="Este artigo descreve como usar os relatórios para obter informações sobre operações de gerenciamento de senhas em sua organização." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Obter percepções: relatórios de gerenciamento de senhas do AD do Azure | Microsoft Azure"
+	description="Este artigo descreve como usar os relatórios para obter informações sobre operações de gerenciamento de senhas em sua organização."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Como obter percepções operacionais com relatórios de gerenciamento de senhas
@@ -106,14 +106,14 @@ Detalhes|Consulte a tabela abaixo.
 ### Valores permitidos para a coluna de detalhes
 Abaixo está a lista de tipos de resultado que você pode esperar ao usar o relatório de atividade de redefinição de senha:
 
-Detalhes | Tipo de resultado 
+Detalhes | Tipo de resultado
 ----|----
 Abandonado pelo usuário depois de concluir a opção de verificação de email | Abandonado
-Abandonado pelo usuário depois de concluir a opção de verificação de SMS móvel|Abandonado 
-Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz móvel | Abandonado 
+Abandonado pelo usuário depois de concluir a opção de verificação de SMS móvel|Abandonado
+Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz móvel | Abandonado
 Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz comercial | Abandonado
-Abandonado pelo usuário depois de concluir a opção de perguntas de segurança|Abandonado 
-Abandonado pelo usuário depois de inserir sua ID de usuário| Abandonado 
+Abandonado pelo usuário depois de concluir a opção de perguntas de segurança|Abandonado
+Abandonado pelo usuário depois de inserir sua ID de usuário| Abandonado
 Abandonado pelo usuário depois de iniciar a opção de verificação de email|Abandonado
 Abandonado pelo usuário depois de iniciar a opção de verificação de SMS móvel|Abandonado
 Abandonado pelo usuário depois de iniciar a opção de verificação de chamada de voz móvel|Abandonado
@@ -141,7 +141,7 @@ A senha do usuário é gerenciada localmente. Você pode habilitar o Write-back 
 Não foi possível acessar o serviço de redefinição de senha no local. Verifique o log de eventos de seu computador de sincronização|Falha
 Encontramos um problema durante a redefinição de senha local do usuário. Verifique o log de eventos de seu computador de sincronização | Falha
 Este usuário não é membro do grupo de usuários de redefinição de senha. Adicione esse usuário ao grupo para resolver o problema.|Falha
-A redefinição de senha foi desabilitada inteiramente para este locatário. Consulte[aqui](http://aka.ms/ssprtroubleshoot)para resolver o problema. | Falha 
+A redefinição de senha foi desabilitada inteiramente para este locatário. Consulte[aqui](http://aka.ms/ssprtroubleshoot)para resolver o problema. | Falha
 O usuário redefiniu a senha com êxito|Bem-sucedido
 
 **Recursos adicionais**
@@ -162,6 +162,5 @@ O usuário redefiniu a senha com êxito|Bem-sucedido
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
- 
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO4-->

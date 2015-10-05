@@ -1,20 +1,20 @@
 <properties
    pageTitle="Recuperar um banco de dados de um erro do usuário no SQL Data Warehouse | Microsoft Azure"
-	description="Etapas para recuperar um banco de dados de um erro do usuário no SQL Data Warehouse."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="Etapas para recuperar um banco de dados de um erro do usuário no SQL Data Warehouse."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/26/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/23/2015"
+   ms.author="sahajs"/>
 
 # Recuperar um banco de dados de um erro do usuário no SQL Data Warehouse
 
@@ -30,16 +30,23 @@ No caso de erro de usuário causando modificações de dados não intencionais, 
 
 ### PowerShell
 
-Use o PowerShell para executar a restauração do banco de dados de modo programático. Para restaurar um banco de dados, use o cmdlet [Start-AzureSqlDatabaseRestore][].
+Use o Azure PowerShell para executar a restauração de banco de dados programaticamente. Para baixar o módulo PowerShell do Azure, execute o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
-1. Selecione a assinatura na sua conta que contém o banco de dados a ser restaurado.
-2. Liste os pontos de restauração do banco de dados (requer o modo de Gerenciamento de Recursos do Azure)
-3. Selecione o ponto de restauração desejado usando o RestorePointCreationDate.
-3. Restaure o banco de dados para o ponto de restauração desejado.
-4. Monitore o progresso da restauração.
+Para restaurar um banco de dados, use o cmdlet [Start-AzureSqlDatabaseRestore][].
+
+1. Abra o Microsoft Azure PowerShell.
+2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
+3. Selecione a assinatura que contém o banco de dados a ser restaurado.
+4. Liste os pontos de restauração do banco de dados (requer o modo de gerenciamento de recursos do Azure).
+5. Selecione o ponto de restauração desejado usando o RestorePointCreationDate.
+6. Restaure o banco de dados para o ponto de restauração desejado.
+7. Monitore o progresso da restauração.
 
 ```
-Select-AzureSubscription -SubscriptionId <Subscription_GUID>
+
+Add-AzureAccount
+Get-AzureSubscription
+Select-AzureSubscription -SubscriptionName "<Subscription_name>"
 
 # List database restore points
 Switch-AzureMode AzureResourceManager
@@ -59,7 +66,7 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
 
-Observe que se o servidor for foo.database.windows.net, use "foo" como o nome do servidor nos cmdlets do powershell.
+Observe que, se o servidor for foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do Powershell acima.
 
 ### API REST
 Use a API REST para executar a restauração do banco de dados de modo programático.
@@ -74,15 +81,20 @@ Depois que a restauração estiver concluída, você poderá configurar o banco 
 No caso de um banco de dados ser excluído, você pode restaurar o banco de dados excluído para a hora da exclusão. O SQL Data Warehouse do Azure captura um instantâneo antes do banco de dados ser descartado e o retém por sete dias.
 
 ### PowerShell
-Use o PowerShell para executar com programação uma restauração de banco de dados excluído. Para restaurar um banco de dados excluído, use o cmdlet [Start-AzureSqlDatabaseRestore][].
+Usar o Azure PowerShell para executar uma restauração de banco de dados excluídos de forma programática. Para baixar o módulo PowerShell do Azure, execute o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
-1. Localize o banco de dados excluído e a data da exclusão na lista de bancos de dados excluídos.
+Para restaurar um banco de dados excluído, use o cmdlet [Start-AzureSqlDatabaseRestore][].
+
+1. Abra o Microsoft Azure PowerShell.
+2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
+3. Selecione a assinatura que contém o banco de dados excluído a ser restaurado.
+4. Localize o banco de dados e sua data de exclusão da lista de bancos de dados excluídos
 
 ```
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
-2. Obtenha o banco de dados excluído e inicie a restauração.
+5. Obtenha o banco de dados excluído e inicie a restauração.
 
 ```
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
@@ -91,6 +103,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase
 
 Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
+
+Observe que, se o servidor for foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do Powershell acima.
 
 ### API REST
 Use a API REST para executar a restauração do banco de dados de modo programático.
@@ -122,4 +136,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

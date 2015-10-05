@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Consultor de Índices do Banco de Dados SQL do Azure" 
-   description="As recomendações de índices são fornecidas para facilitar a criação de índices mais adequados para a execução de carga de trabalho existente de um Banco de Dados SQL do Azure." 
+   description="O Consultor de Índices de banco de dados SQL Azure recomenda novos índices para seus Bancos de Dados SQL existentes a fim de melhorar o desempenho da consulta atual." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/30/2015"
+   ms.date="09/22/2015"
    ms.author="sstein"/>
 
 # Consultor de Índices de Banco de Dados SQL
@@ -22,12 +22,12 @@ O Consultor de Índices de banco de dados SQL Azure recomenda novos índices par
 
 O serviço de Banco de Dados SQL avalia o desempenho do índice, analisando o uso do recurso de histórico para um Banco de Dados SQL e os índices que são mais adequados para a execução de carga de trabalho normal do banco de dados são recomendados.
 
-O Consultor de Índices facilita o gerenciamento de índices, fornecendo recomendações sobre quais índices criar. Para servidores V12, o Consultor de Índices também pode criar e validar os índices com apenas alguns cliques no [Portal do Azure](https://portal.azure.com/). Depois que o índice é criado, o serviço de Banco de Dados SQL analisa o desempenho da carga de trabalho de banco de dados e fornece detalhes do impacto do novo índice. Se a análise determinar que um índice recomendado tem um impacto negativo no desempenho, o índice é revertido automaticamente.
+O Consultor de Índices facilita o gerenciamento de índices, fornecendo recomendações sobre quais índices criar. Para servidores V12, o Consultor de Índices também pode criar e validar os índices com apenas alguns cliques no [Portal de Visualização do Azure](https://portal.azure.com/). Depois que o índice é criado, o serviço de Banco de Dados SQL analisa o desempenho da carga de trabalho de banco de dados e fornece detalhes do impacto do novo índice. Se a análise determinar que um índice recomendado tem um impacto negativo no desempenho, o índice é revertido automaticamente.
 
 Consultor de Índices permite que você gaste menos tempo ajustando o desempenho do banco de dados.
 
 
-> [AZURE.NOTE]O Consultor de Índices está atualmente em visualização e está disponível somente no [Portal do Azure](https://portal.azure.com/).
+> [AZURE.NOTE]O Consultor de Índices está atualmente em visualização e está disponível somente no [Portal de Visualização do Azure](https://portal.azure.com/).
 
 
 ## Considerações de visualização
@@ -57,11 +57,11 @@ Para exibir e criar recomendações de índice, você precisa das permissões co
 
 ## Examinar índices recomendados
 
-O Consultor de Índices fornece uma lista de recomendações de índices na folha de Banco de Dados no [Portal do Azure](https://portal.azure.com/). As principais recomendações selecionadas são mostradas para cada tabela no banco de dados selecionado, no qual a criação um novo índice pode proporcionar ganhos de desempenho.
+O Consultor de Índices fornece uma lista de recomendações de índices na folha de Banco de Dados no [Portal de Visualização do Azure](https://portal.azure.com/). As principais recomendações selecionadas são mostradas para cada tabela no banco de dados selecionado, no qual a criação um novo índice pode proporcionar ganhos de desempenho.
 
 ### Para examinar as recomendações de índice disponíveis no momento:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal de Visualização do Azure](https://portal.azure.com/).
 2. Clique em **PROCURAR** no menu à esquerda.
 3. Clique em **Bancos de dados SQL** na folha **Procurar**.
 4. Na folha **Bancos de Dados SQL**, clique no banco de dados cujos índices recomendados você deseja examinar.
@@ -171,4 +171,4 @@ Monitore suas recomendações de índices e continue a aplicá-las para aprimora
 [3]: ./media/sql-database-index-advisor/recommended-indexes.png
 [4]: ./media/sql-database-index-advisor/index-operations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

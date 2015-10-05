@@ -1,12 +1,31 @@
-<properties pageTitle="Preparar uma máquina virtual Oracle Linux para o Azure" description="Percorra a configuração de uma máquina virtual do Oracle com Linux no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+pageTitle="Preparar uma Máquina Virtual do Oracle Linux para o Azure | Microsoft Azure" 
+description="Configuração passo a passo de uma máquina virtual do Oracle que executa o Linux no Microsoft Azure." 
+services="virtual-machines" 
+authors="bbenz" 
+documentationCenter="virtual-machines"
+tags="azure-service-management,azure-resource-manager"
+/>
+
+<tags 
+ms.service="virtual-machines" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.tgt_pltfrm="vm-linux" 
+ms.workload="infrastructure-services" 
+ms.date="06/22/2015" 
+ms.author="bbenz" />
+
 #Preparar uma máquina virtual Oracle Linux para o Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo se aplica às VMs criadas com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
+
 -   [Preparar uma máquina virtual do Oracle Linux 6.4 e versões posteriores para o Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
 -   [Preparar uma máquina virtual do Oracle Linux 7.0 e versões posteriores para o Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
 ##Pré-requisitos
-Este artigo pressupõe que você já instalou um sistema operacional Oracle Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar o Hyper-V e criar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
+Este artigo pressupõe que você já instalou um sistema operacional Oracle Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, veja [Instalar o Hyper-V e criar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalação do Oracle Linux**
 
@@ -37,11 +56,11 @@ Você deve concluir as etapas de configuração específicas do sistema operacio
 
 	>[AZURE.NOTE]Se o pacote ainda não foi instalado, esse comando falhará com uma mensagem de erro. Isso é esperado.
 
-4. Crie um arquivo chamado **network** no diretório /etc/sysconfig/ que contenha o seguinte texto:
+4. Crie um arquivo chamado **network** no diretório /etc/sysconfig/ que contém o seguinte texto:
 
 	`NETWORKING=yes` `HOSTNAME=localhost.localdomain`
 
-5.  Crie um arquivo chamado **ifcfg-eth0** no diretório /etc/sysconfig/network-scripts/ que contenha o seguinte texto:
+5.  Crie um arquivo chamado **ifcfg-eth0** no diretório /etc/sysconfig/network-scripts/ que contém o seguinte texto:
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -71,13 +90,13 @@ Você deve concluir as etapas de configuração específicas do sistema operacio
 
 	Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, o que pode auxiliar o suporte do Azure com problemas de depuração. Essa ação desabilita a NUMA devido a um bug no kernel da Oracle compatível com o Red Hat.
 
-	Além disso, é recomendável *remover* os seguintes parâmetros:
+	Além dos itens acima, recomendamos *remover* os seguintes parâmetros:
 
 		rhgb quiet crashkernel=auto
 
 	As inicializações gráfica e silenciosa não são úteis em ambientes de rede, quando queremos que todos os logs sejam enviados para a porta serial.
 
-	A opção `crashkernel` pode ser deixada configurada se desejado, porém observe que esse parâmetro reduzirá a quantidade de memória disponível na VM em 128 MB ou mais. Isso pode ser problemático em tamanhos de VM menores.
+	A opção `crashkernel` pode ser deixada configurada se desejado; porém, é importante lembrar que esse parâmetro reduzirá a quantidade de memória disponível na VM em 128 MB ou mais. Isso pode ser problemático em tamanhos de VM menores.
 
 10.  Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização. Geralmente, esse é o padrão.
 
@@ -89,7 +108,7 @@ Você deve concluir as etapas de configuração específicas do sistema operacio
 
 12.  Não crie espaço de permuta no disco do SO.
 
-	O Agente Linux do Azure pode configurar automaticamente o espaço de troca usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM for desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+	O Agente Linux do Azure pode configurar automaticamente o espaço de troca usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. É importante lembrar que o disco de recurso local é um disco *temporário* e que pode ser esvaziado quando a VM for desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
 
 		ResourceDisk.Format=y
 
@@ -128,12 +147,12 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
 
 2.  Clique em **Conectar** para abrir a janela do console para a máquina virtual.
 
-3.  Crie um arquivo chamado **network** no diretório /etc/sysconfig/ que contenha o seguinte texto:
+3.  Crie um arquivo chamado **network** no diretório /etc/sysconfig/ que contém o seguinte texto:
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-4.  Crie um arquivo chamado **ifcfg-eth0** no diretório /etc/sysconfig/network-scripts/ que contenha o seguinte texto:
+4.  Crie um arquivo chamado **ifcfg-eth0** no diretório /etc/sysconfig/network-scripts/ que contém o seguinte texto:
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -166,13 +185,13 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
 
 		GRUB\_CMDLINE\_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Além disso, é recomendável *remover* os seguintes parâmetros:
+	Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Além dos itens acima, recomendamos *remover* os seguintes parâmetros:
 
 		rhgb quiet crashkernel=auto
 
 	As inicializações gráfica e silenciosa não são úteis em ambientes de rede, quando queremos que todos os logs sejam enviados para a porta serial.
 
-	A opção `crashkernel` pode ser deixada configurada se desejado, porém observe que esse parâmetro reduzirá a quantidade de memória disponível na VM em 128 MB ou mais. Isso pode ser problemático em tamanhos de VM menores.
+	A opção `crashkernel` pode ser deixada configurada se desejado; porém, é importante lembrar que esse parâmetro reduzirá a quantidade de memória disponível na VM em 128 MB ou mais. Isso pode ser problemático em tamanhos de VM menores.
 
 10.  Depois de editar "/etc/default/grub", execute o comando a seguir para recompilar a configuração do grub:
 
@@ -186,7 +205,7 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
 
 13.  Não crie espaço de permuta no disco do SO.
 
-	O Agente Linux do Azure pode configurar automaticamente o espaço de troca usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM for desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
+	O Agente Linux do Azure pode configurar automaticamente o espaço de troca usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. É importante lembrar que o disco de recurso local é um disco *temporário* e que pode ser esvaziado quando a VM for desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -202,4 +221,4 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
 
 15.  Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

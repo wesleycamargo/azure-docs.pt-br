@@ -1,11 +1,11 @@
 
 <properties
 	pageTitle="Usar atributos para criar regras avançadas | Microsoft Azure"
-	description="Método avançado para gerenciamento dos grupos de segurança e como usar esses grupos para gerenciar o acesso a um recurso."
+	description="Instruções para criar regras avançadas para um grupo, incluindo suporte para operadores de regra de expressões e parâmetros."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 
@@ -124,7 +124,7 @@ Operadores permitidos
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | Qualquer valor de cadeia de caracteres ou $null. | (user.physicalDeliveryOfficeName -eq "valor") |
 | postalCode | Qualquer valor de cadeia de caracteres ou $null. | (user.postalCode - eq "valor") |
-| preferredLanguage | ISO 639-1 code | (user.preferredLanguage - eq "en-US") |
+| preferredLanguage | ISO 639-1 code | (user.preferredLanguage - eq "pt-BR") |
 | sipProxyAddress | Qualquer valor de cadeia de caracteres ou $null. | (user.sipProxyAddress -eq "valor") |
 | state | Qualquer valor de cadeia de caracteres ou $null. | (user.state -eq "valor") |
 | streetAddress | Qualquer valor de cadeia de caracteres ou $null. | (user.streetAddress -eq "valor") |
@@ -168,4 +168,4 @@ Estes são alguns tópicos que fornecerão informações adicionais sobre o Acti
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

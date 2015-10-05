@@ -1,20 +1,20 @@
 <properties
    pageTitle="Monitore sua carga de trabalho usando DMVs | Microsoft Azure"
-	description="Aprenda a monitorar sua carga de trabalho usando DMVs."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="Aprenda a monitorar sua carga de trabalho usando DMVs."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/06/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="sahajs"/>
 
 # Monitore sua carga de trabalho usando DMVs
 
@@ -22,23 +22,9 @@ Este artigo descreve como usar Visualizações de Gerenciamento Dinâmico (DMVs)
 
 
 
-
-## Permissões
-
-No SQL Data Warehouse, consultar uma visualização de gerenciamento dinâmico requer permissões **VIEW DATABASE STATE**. A permissão **VIEW DATABASE STATE** retorna informações sobre todos os objetos no banco de dados atual. Para conceder a permissão **VIEW DATABASE STATE** a um usuário específico do banco de dados, execute a seguinte consulta:
-
-```
-
-GRANT VIEW DATABASE STATE TO database_user;
-
-```
-
-
-
-
 ## Conexões do monitor
 
-É possível usar a visualização *sys.dm\_pdw\_nodes\_exec\_connections* para recuperar informações sobre as conexões estabelecidas com seu banco de dados do SQL Data Warehouse do Azure. Além disso, a visualização *DM exec\_sessions* é útil ao recuperar informações sobre todas as conexões de usuário ativas.
+É possível usar a visualização *sys.dm\_pdw\_nodes\_exec\_connections* para recuperar informações sobre as conexões estabelecidas com seu banco de dados do SQL Data Warehouse do Azure. Além disso, a exibição *sys.dm\_exec\_sessions* é útil ao recuperar informações sobre todas as conexões de usuário ativas.
 
 ```
 
@@ -217,4 +203,4 @@ Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte [Geren
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

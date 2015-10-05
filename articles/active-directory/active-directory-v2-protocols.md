@@ -320,7 +320,7 @@ Apenas receber o id\_token não é suficiente para autenticar o usuário; você 
 
 O modelo de aplicativo v2.0 tem um ponto de extremidade de metadados do OpenID Connect, que permite a um aplicativo buscar informações sobre o modelo de aplicativo v2.0 no tempo de execução. Essas informações incluem pontos de extremidade, conteúdos de token e chaves de assinatura de token. O ponto de extremidade de metadados contém um documento JSON localizado em:
 
-`https://login.microsoftonline.com/common/v2.0/.well-known/configuration`
+`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
 
 Uma das propriedades desse documento de configuração é o `jwks_uri`, cujo valor para o modelo de aplicativo v2.0 será:
 
@@ -475,4 +475,4 @@ O OAuth em Nome do Fluxo, ou concessão de credenciais portadoras do JWT, é des
 
 Atualmente, esse fluxo não tem suporte da visualização do modelo de aplicativo v2.0. Para ver como ele funciona no serviço AD do Azure disponível para o público em geral, consulte [este exemplo de código do AD do Azure](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

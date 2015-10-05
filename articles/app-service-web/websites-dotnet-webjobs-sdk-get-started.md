@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="tdykstra"/>
 
 # Criar um Trabalho Web do .NET no Serviço de Aplicativo do Azure
@@ -96,9 +96,8 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 ![Conecte-se ao Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Entre utilizando suas credenciais do Azure.
-
-5. Clique com botão direito do mouse em **Armazenamento** sob o nó do Azure e, em seguida, clique em **Criar conta de armazenamento**.
-![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Clique com botão direito do mouse em **Armazenamento** no nó do Azure e clique em **Criar Conta de Armazenamento**. 
+[Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Na caixa de diálogo **Criar conta de armazenamento**, digite um nome para a conta de armazenamento.
 
@@ -817,4 +816,4 @@ Para obter mais informações, consulte [Recursos recomendados para Trabalhos We
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obter um guia sobre a alteração do portal do Azure para o portal de visualização do Azure, consulte [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

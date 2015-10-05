@@ -60,17 +60,17 @@ Quando seus dados forem provenientes de uma fonte de Hub de eventos, você pode 
 
 | Propriedade | Descrição |
 |------------------------------|--------------------------------------------------------------------|
-| System.EventProcessedUtcTime | A data e a hora em que o evento foi processado pelo Stream Analytics |
-| System.EventEnqueuedUtcTime | A data e a hora em que o evento foi recebido pelos Hubs de eventos. |
-| System.PartitionId | A ID de partição com base em zero para o adaptador de entrada |
+| EventProcessedUtcTime | A data e a hora em que o evento foi processado pelo Stream Analytics |
+| EventEnqueuedUtcTime | A data e a hora em que o evento foi recebido pelos Hubs de eventos. |
+| PartitionId | A ID de partição com base em zero para o adaptador de entrada |
 
 Por exemplo, você pode escrever uma consulta semelhante à seguinte:
 
 
     SELECT
-    	System. EventProcessedUtcTime,
-    	System. EventEnqueuedUtcTime,
-    	System.PartitionId
+    	EventProcessedUtcTime,
+    	EventEnqueuedUtcTime,
+    	PartitionId
     FROM Input
 
 ## Como criar uma entrada do fluxo de dados do armazenamento de Blob
@@ -136,23 +136,23 @@ Quando seus dados forem provenientes de uma fonte de armazenamento de Blob, voc�
 
 | Propriedade | Descrição |
 |--------------------------------|--------------------------------------------------------------------|
-| System.BlobName | O nome do blob de entrada de onde o evento veio. |
-| System.EventProcessedUtcTime | A data e a hora em que o evento foi processado pelo Stream Analytics |
-| System.BlobLastModifiedUtcTime | A data e hora da última modificação do blob |
-| System.PartitionId | A ID de partição com base em zero para o adaptador de entrada |
+| BlobName | O nome do blob de entrada de onde o evento veio. |
+| EventProcessedUtcTime | A data e a hora em que o evento foi processado pelo Stream Analytics |
+| BlobLastModifiedUtcTime | A data e hora da última modificação do blob |
+| PartitionId | A ID de partição com base em zero para o adaptador de entrada |
 
 Por exemplo, você pode escrever uma consulta semelhante à seguinte:
 
 
     SELECT
-    	System.BlobName,
-    	System.EventProcessedUtcTime,
-    	System.BlobLastModifiedUtcTime
+    	BlobName,
+    	EventProcessedUtcTime,
+    	BlobLastModifiedUtcTime
     FROM Input
 
 
 ## Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/PT-BR/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
 Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise de streaming em dados da Internet das coisas. Para saber mais sobre esse serviço, consulte:
@@ -170,4 +170,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

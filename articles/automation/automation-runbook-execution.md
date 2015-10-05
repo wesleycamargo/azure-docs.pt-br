@@ -1,26 +1,32 @@
 <properties
    pageTitle="Execução de runbook na Automação do Azure"
-	description="Descreve os detalhes de como um runbook na Automação do Azure é processado."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn"/>
+   description="Descreve os detalhes de como um runbook na Automação do Azure é processado."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
 <tags
    ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/22/2015"
-	ms.author="bwren"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/17/2015"
+   ms.author="bwren" />
 
 # Execução de runbook na Automação do Azure
 
 
 Quando você inicia um runbook na Automação do Azure, um trabalho é criado. Um trabalho é uma instância única de execução de um runbook. Um trabalhador da Automação do Azure é atribuído para executar cada tarefa. Enquanto os trabalhadores são compartilhados por várias contas do Azure, os trabalhos de diferentes contas de automação ficam isolados uns dos outros. Você não tem controle sobre qual trabalhador atenderá a solicitação do seu trabalho. Um único runbook pode ter vários trabalhos em execução ao mesmo tempo. Quando você exibir a lista de runbooks no portal do Azure, ela listará o status do último trabalho iniciado para cada runbook. Você pode exibir a lista de trabalhos para cada runbook a fim de acompanhar o status de cada um. Para obter uma descrição das opções de status de trabalho diferentes, confira [Status de trabalho](#job-statuses).
 
-![Status do Trabalho](./media/automation-runbook-execution/job-statuses.png)
+O diagrama a seguir mostra o ciclo de vida de um trabalho de runbook para [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) e [runbooks de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
+
+![Status de trabalho - Fluxo de trabalho do PowerShell](./media/automation-runbook-execution/job-statuses.png)
+
+O diagrama a seguir mostra o ciclo de vida de um trabalho de runbook para [runbooks do PowerShell](automation-runbook-types.md#powershell-runbooks).
+
+![Status de trabalho - Script do PowerShell](./media/automation-runbook-execution/job-statuses-script.png)
 
 
 Os trabalhos terão acesso aos recursos do Azure fazendo uma conexão à sua assinatura do Azure. Eles só terão acesso aos recursos no seu data center se estes puderem ser acessados da nuvem pública.
@@ -32,7 +38,7 @@ A tabela a seguir descreve os diferentes status possíveis para um trabalho.
 | Status| Descrição|
 |:---|:---|
 |Concluído|Operação concluída com sucesso.|
-|Failed|O trabalho foi concluído com um erro.|
+|Falha| Para [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook falhou ao compilar. Para [runbooks de Script do PowerShell](automation-runbook-types.md), o runbook falhou ao iniciar ou o trabalho encontrou uma exceção. |
 |Erro, aguardando recursos|O trabalho falhou porque atingiu o limite de [fração justa](#fairshare) três vezes e iniciou do mesmo ponto de verificação ou desde o início do runbook em cada uma das vezes.|
 |Em fila|O trabalho está aguardando recursos de um trabalho do Automation ficar disponível para que ele possa ser iniciado.|
 |Iniciando|O trabalho foi atribuído a um trabalho, e o sistema está iniciando-o.|
@@ -41,8 +47,8 @@ A tabela a seguir descreve os diferentes status possíveis para um trabalho.
 |Executando, aguardando recursos|O trabalho foi descarregado, pois atingiu o limite de [fração justa](#fairshare). Ele continuará em breve a partir de seu último ponto de verificação.|
 |Parada|O trabalho foi interrompido pelo usuário antes de ser concluído.|
 |Parando|O sistema está no processo de interromper o trabalho.|
-|Suspenso|O trabalho foi suspenso pelo usuário, pelo sistema ou por um comando no runbook. Um trabalho suspenso pode ser iniciado novamente e continuará a partir de seu último ponto de verificação ou desde o início do runbook se não houver nenhum ponto de verificação. O runbook só será suspenso pelo sistema no caso de uma exceção. Por padrão, ErrorActionPreference é definido como **Continuar** o que significa que o trabalho continuará a ser executado com um erro. Se essa variável de preferência é definida como **Parar** em seguida, o trabalho será suspenso com um erro.|
-|Suspensão|O sistema está tentando suspender o trabalho por solicitação do usuário. O runbook precisa atingir seu próximo ponto de verificação antes de poder ser suspenso. Se já passou seu último ponto de verificação, ele será concluído antes de poder ser suspenso.|
+|Suspenso|O trabalho foi suspenso pelo usuário, pelo sistema ou por um comando no runbook. Um trabalho suspenso pode ser iniciado novamente e continuará a partir de seu último ponto de verificação ou desde o início do runbook se não houver nenhum ponto de verificação. O runbook só será suspenso pelo sistema no caso de uma exceção. Por padrão, ErrorActionPreference é definido como **Continuar** o que significa que o trabalho continuará a ser executado com um erro. Se essa variável de preferência é definida como **Parar** em seguida, o trabalho será suspenso com um erro. Aplica-se a somente [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md).|
+|Suspensão|O sistema está tentando suspender o trabalho por solicitação do usuário. O runbook precisa atingir seu próximo ponto de verificação antes de poder ser suspenso. Se já passou seu último ponto de verificação, ele será concluído antes de poder ser suspenso. Aplica-se a somente [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md).|
 
 ## Exibindo o status de trabalho usando o Portal de Gerenciamento do Azure
 
@@ -103,4 +109,4 @@ Quando você criar um runbook, verifique se o tempo para executar atividades ent
 
 - [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # Usar o Power BI com o SQL Data Warehouse
@@ -42,11 +42,12 @@ A maneira mais fácil de mover entre o SQL Data Warehouse e o Power BI é usando
 ## Conectando-se pelo portal do Power BI
 Além de usar o botão Abrir no Power BI, os usuários também podem se conectar ao respectivo SQL Data Warehouse pelo Portal do Power BI.
 
-1.   Clique em Obter Dados, na parte inferior do painel de navegação.
-2.  Selecione Big Data e Mais.
-3.  Assim que estiver na página Big Data e Mais, selecione SQL Data Warehouse.
-4.  Insira as informações de conexão necessárias. A seção abaixo, Localizando parâmetros, mostra onde esses dados podem ser encontrados.  
-5.	Analisando o conjunto de dados, você poderá explorar todas as tabelas e colunas no banco de dados. Selecionar uma coluna enviará uma consulta de volta à origem, criando dinamicamente seu visual. Esses visuais podem ser salvos em um novo relatório e fixados no seu painel.
+1.  Clique em 'Obter dados' na parte inferior do painel de navegação.
+2.  Selecione 'Bancos de dados'.
+3.  Uma vez na página Bancos de dados, selecione 'SQL Data Warehouse do Azure' e, em seguida, clique em 'Conectar'.
+4.  Insira as informações de conexão necessárias. A seção Localizar parâmetros a seguir mostra onde esses dados podem ser encontrados. 
+5.  Você será direcionado para a página principal do Power BI e, depois que a conexão é feita, uma nova entrada em 'Conjuntos de dados' aparecerá com o nome da sua instância.  
+6.	 Você pode clicar no novo conjunto de dados para explorar todas as tabelas e exibições no banco de dados. Selecionar uma coluna enviará uma consulta de volta à origem, criando dinamicamente seu visual. Esses visuais podem ser salvos em um novo relatório e fixados no seu painel.
 
 ## Localizando valores de parâmetro
 O nome de servidor totalmente qualificado e o nome do banco de dados podem ser encontrados no Portal do Azure. Observe que o SQL Data Warehouse tem apenas uma presença no Portal de Visualização do Azure neste momento.
@@ -62,4 +63,4 @@ O nome de servidor totalmente qualificado e o nome do banco de dados podem ser e
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

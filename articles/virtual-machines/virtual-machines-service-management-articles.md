@@ -18,7 +18,8 @@
 	ms.author="danlep"/>
 
 # Artigos para máquinas virtuais no Gerenciamento de Serviços
-Esta é uma lista de artigos para trabalhar com máquinas virtuais no Gerenciamento de Serviços do Azure. Para novas implantações, é recomendável usar as máquinas virtuais baseadas no Gerenciador de Recursos do Azure e outros recursos. Para obter uma explicação das vantagens do Gerenciador de Recursos, consulte [Provedores de armazenamento, rede e computação do Azure no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o gerenciamento de recursos com o modelo clássico de implantação.
 
 ## Introdução
 
@@ -150,4 +151,4 @@ Esta é uma lista de artigos para trabalhar com máquinas virtuais no Gerenciame
 
 [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

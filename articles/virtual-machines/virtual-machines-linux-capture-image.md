@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Capturar imagens de máquinas virtuais que executam Linux"
-	description="Saiba como capturar imagens de máquina virtual do Azure que executam Linux."
+	pageTitle="Capturar uma imagem de uma VM do Linux | Microsoft Azure"
+	description="Saiba como capturar uma imagem de uma VM (máquina virtual) do Azure criada com o modelo de implantação clássico que executa o Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,6 +19,8 @@
 
 
 # Como capturar uma máquina virtual Linux para ser usada como um modelo
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como capturar uma imagem com o modelo de implantação clássico.
 
 Esse artigo mostra como capturar a máquina virtual do Azure executando Linux para que você a use como modelo para criar outras máquinas virtuais. O modelo inclui o disco do SO e os discos de dados anexados à máquina virtual. Isso não inclui a configuração da rede, então você precisará configurá-la quando você criar as outras máquinas virtuais que usam o modelo.
 
@@ -51,12 +53,12 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 	>[AZURE.NOTE]O desprovisionamento exclui arquivos e dados em um esforço para "generalizar" a imagem. Execute esse comando apenas em máquinas virtuais que você deseje capturar como um novo modelo de imagem. Ele não garante que a imagem esteja sem nenhuma informação confidencial ou seja adequada para redistribuição a terceiros.
 
 
-3. Digite **y** para continuar. Você pode adicionar o parâmetro `-force` para evitar essa etapa de confirmação.
+3. Digite **y** para continuar. Você pode adicionar o parâmetro `-force` para evitar esta etapa de confirmação.
 
 4. Digite **Exit** para fechar o cliente SSH.
 
 
-	>[AZURE.NOTE]As próximas etapas pressupõem que você já tenha [instalado a CLI do Azure](../xplat-cli-install.md) no computador cliente. Todas as etapas abaixo também podem ser feitas no [Portal de Gerenciamento][].
+	>[AZURE.NOTE]Nas próximas etapas, presumimos que você já [instalou a CLI do Azure](../xplat-cli-install.md) no computador cliente. Todas as etapas abaixo também podem ser realizadas no [Portal de Gerenciamento][].
 
 5. No computador cliente, abra a CLI do Azure e faça logon com sua assinatura do Azure. Para obter detalhes, leia [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](../xplat-cli-connect.md).
 
@@ -74,7 +76,7 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 
 	`azure vm capture -t <your-virtual-machine-name> <new-image-name>`
 
-	Digite o nome de imagem que você quer no lugar de _new-image-name_. Este comando cria uma imagem generalizada do SO. O subcomando `-t` exclui a máquina virtual original.
+	Digite o nome da imagem que você deseja substituir no lugar de _new-image-name_. Este comando cria uma imagem generalizada do SO. O subcomando `-t` exclui a máquina virtual original.
 
 9.	A nova imagem agora está disponível na lista de imagens que podem ser usadas para configurar qualquer nova máquina virtual. Você pode exibi-la com o comando:
 
@@ -86,7 +88,7 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 
 
 ## Próximas etapas
-A imagem está pronta para ser usada como modelo para criar uma nova máquina virtual. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você acabou de criar. Consulte [Como usar a CLI do Azure com a API do Serviço de Gerenciamento](virtual-machines-command-line-tools.md) para obter detalhes sobre o comando. Como alternativa, é possível usar o [Portal de Gerenciamento][] para criar uma máquina virtual personalizada usando o método **Da Galeria** e selecionando a imagem que você acabou de criar. Consulte [Como criar uma máquina virtual personalizada][] para obter mais detalhes.
+A imagem está pronta para ser usada como modelo para criar uma nova máquina virtual. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você acabou de criar. Veja [Usando a CLI do Azure com a API de Gerenciamento de Serviços](virtual-machines-command-line-tools.md) para obter detalhes sobre o comando. Como alternativa, é possível usar o [Portal de Gerenciamento][] para criar uma máquina virtual personalizada usando o método **Da Galeria** e selecionando a imagem que você acabou de criar. Veja [Como criar uma máquina virtual personalizada][] para obter mais detalhes.
 
 **Consulte também:** [Guia do usuário do agente Linux para o Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -97,4 +99,4 @@ A imagem está pronta para ser usada como modelo para criar uma nova máquina vi
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Como criar uma máquina virtual que executa Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

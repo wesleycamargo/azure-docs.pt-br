@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Capturar imagens de máquinas virtuais que executam Windows Server"
-	description="Saiba como capturar uma imagem de uma máquina virtual do Azure que executa Windows Server."
+	pageTitle="Capturar uma imagem de uma VM do Windows | Microsoft Azure"
+	description="Capture uma imagem de uma máquina virtual do Windows criada com o modelo de implantação clássico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,9 @@
 	ms.date="07/16/2015"
 	ms.author="cynthn"/>
 
-#Como capturar uma máquina virtual Windows para usar como imagem#
+#Capture uma imagem de uma máquina virtual do Windows criada com o modelo de implantação clássico.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 Esse artigo mostra como capturar uma máquina virtual do Azure executando Windows para que você a use como uma imagem para criar outras máquinas virtuais. Essa imagem inclui o disco do sistema operacional e discos de dados anexados à máquina virtual. Ele não inclui as configurações da rede, então você precisará configurá-la quando criar as outras máquinas virtuais que usam o modelo.
 
@@ -83,4 +85,4 @@ A imagem está pronta para ser usada para criar máquinas virtuais. Para fazer i
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

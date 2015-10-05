@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Usar o ReportViewer em um site da Web hospedado no Azure"
+	pageTitle="Usar o ReportViewer em um site da Web | Microsoft Azure"
 	description="Este tópico descreve como criar um site da Web do Microsoft Azure com o controle ReportViewer do Visual Studio que exibe um relatório armazenado em uma máquina virtual do Microsoft Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +14,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Usar o ReportViewer em um site da Web hospedado no Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
 
 Você pode criar um site da Web do Microsoft Azure com o controle ReportViewer do Visual Studio que exibe um relatório armazenado em uma máquina virtual do Microsoft Azure. O controle ReportViewer é um aplicativo Web que você cria usando o modelo de aplicativo Web ASP.NET.
 
@@ -23,21 +26,21 @@ Você pode criar um site da Web do Microsoft Azure com o controle ReportViewer d
 
 Para incorporar o ReportViewer ao site da Web do Microsoft Azure, é necessário concluir as tarefas a seguir.
 
-- **Adicionar** assemblies ao pacote de implantação
+- **Adicionar** Assemblies ao Pacote de Implantação
 
-- **Configurar** a autenticação e a autorização
+- **Configurar** Autenticação e Autorização
 
 - **Publicar** o aplicativo Web ASP.NET no Azure
 
 ## Pré-requisitos
 
-Leia a seção "Recomendações gerais e práticas recomendadas" no [Business Intelligence do SQL Server nas máquinas virtuais do Azure](virtual-machines-sql-server-business-intelligence.md).
+Leia a seção "Recomendações gerais e práticas recomendadas" no [Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-sql-server-business-intelligence.md).
 
 >[AZURE.NOTE]Os controles ReportViewer são fornecidos com o Visual Studio Standard Edition ou versões posteriores. Se estiver usando o Web Developer Express Edition, você deverá instalar o [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) para usar os recursos de tempo de execução do ReportViewer.
 >
 >Não há suporte para o ReportViewer configurado em modo de processamento local no Microsoft Azure.
 
-Leia o white paper [Controle do visualizador de relatórios do Reporting Services e máquina virtual do Microsoft Azure com base em servidores de relatórios](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx).
+Leia o white paper [Controle do visualizador de relatórios do Reporting Services e servidores de relatórios com base na máquina virtual do Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx).
 
 ## Adicionando assemblies ao pacote de implantação
 
@@ -57,13 +60,13 @@ No modo de processamento remoto, o controle ReportViewer usa os seguintes assemb
 
 1. Na pasta **Referências**, clique no assembly Microsoft.ReportViewer.Common para que suas propriedades apareçam no painel Propriedades.
 
-1. No painel Propriedades, defina **Local da Cópia** como Verdadeiro.
+1. No painel Propriedades, defina **Local da Cópia** como True.
 
 1. Repita as etapas 1 e 2 para Microsoft.ReportViewer.WebForms.
 
 ### Para obter o pacote de idiomas do ReportViewer
 
-1. Instale o pacote redistribuível do Microsoft Report Viewer 2012 Runtime do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=317386).
+1. Instale o pacote redistribuível do Microsoft Report Viewer 2012 Runtime apropriado por meio do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=317386).
 
 1. Selecione o idioma na lista suspensa e a página será redirecionada para a página do centro de download correspondente.
 
@@ -79,17 +82,17 @@ No modo de processamento remoto, o controle ReportViewer usa os seguintes assemb
 
 1. Baixe e instale o pacote redistribuível do Microsoft Report Viewer 2012 Runtime seguindo as instruções especificadas acima.
 
-1. Crie a pasta <language> no projeto e copie nela os arquivos de assembly do recurso associado. Os arquivos de assembly do recurso a serem copiados são: **Microsoft.ReportViewer.Webforms.Resources.dll** e **Microsoft.ReportViewer.Common.Resources.dll**. Selecione os arquivos de assembly do recurso e, no painel Propriedades, defina **Copiar para o Diretório de Saída** como "**Copiar sempre**".
+1. Crie a pasta <language> no projeto e copie nela os arquivos de assembly do recurso associado. Os arquivos de assembly do recurso a serem copiados são: **Microsoft.ReportViewer.Webforms.Resources.dll** e **Microsoft.ReportViewer.Common.Resources.dll**. Selecione os arquivos de assembly do recurso e, no painel Propriedades, defina **Copiar para Diretório de Saída** como "**Copiar sempre**".
 
-1. Defina Culture e UICulture para o projeto Web. Para obter mais informações sobre como definir Culture e UI Culture para uma página da Web ASP.NET, consulte [Como definir Culture e UI Culture para globalização da página da Web ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
+1. Defina Culture e UICulture para o projeto Web. Para obter mais informações sobre como definir Cultura e Cultura de interface de usuário para uma página da Web ASP.NET, consulte [Como definir Cultura e Cultura de interface de usuário para globalização da página da Web ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## Configurando a autenticação e a autorização
 
-O ReportViewer precisa usar credenciais apropriadas para se autenticar no servidor de relatório, e as credenciais devem ser autorizadas pelo servidor de relatório a acessar os relatórios que você deseja. Para obter informações sobre autenticação, consulte o white paper [Controle do visualizador de relatórios do Reporting Services e máquina virtual do Microsoft Azure com base em servidores de relatórios](https://msdn.microsoft.com/library/azure/dn753698.aspx).
+O ReportViewer precisa usar credenciais apropriadas para se autenticar no servidor de relatório, e as credenciais devem ser autorizadas pelo servidor de relatório a acessar os relatórios que você deseja. Para obter informações sobre autenticação, consulte o white paper [Controle do visualizador de relatórios do Reporting Services e servidores de relatórios com base em máquina virtual do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## Publicar o aplicativo Web ASP.NET no Azure
 
-Para obter instruções sobre como publicar um aplicativo Web ASP.NET no Azure, consulte [Como migrar e publicar um aplicativo Web no Azure do Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx) e [Introdução aos aplicativos Web e ao ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
+Para obter instruções sobre como publicar um aplicativo Web ASP.NET no Azure, consulte [Como Migrar e Publicar um Aplicativo Web no Azure do Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx) e [Introdução aos aplicativos Web e ao ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
 
 >[AZURE.IMPORTANT]Se o comando Adicionar Projeto de Implantação do Azure ou Adicionar Projeto de Serviço de Nuvem do Azure não aparecer no menu de atalho do Gerenciador de Soluções, talvez seja necessário alterar a estrutura de destino do projeto para o .NET Framework 4.
 >
@@ -105,4 +108,4 @@ Para obter instruções sobre como publicar um aplicativo Web ASP.NET no Azure, 
 
 [Controle de visualizador de relatórios do Reporting Services e máquina virtual do Microsoft Azure com base em servidores de relatórios](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

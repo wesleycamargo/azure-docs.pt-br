@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: Como Personalizar a IU (Interface do Usuário) do AD B2C do Azure
@@ -43,11 +43,11 @@ Use nossa ferramenta auxiliar (Em breve) para experimentar o recurso de personal
 
 ## Os Elementos principais da interface do usuário em cada Tipo de Página.
 
-Nesta seção você encontrará os fragmentos de HTML5 (para cada tipo de página) que o AD B2C do Azure mescla no elemento `<div id="api"></div>` localizado em seu conteúdo. Você pode usar folhas de estilo para personalizar esses elementos de interface do usuário. Essas folhas de estilo podem substituir as folhas de estilo padrão que adicionamos para esses tipos de página nos fragmentos `<head>`.
+Nas seções abaixo, você encontrará exemplos dos fragmentos de HTML5 (para cada tipo de página) que o AD B2C do Azure mescla no elemento <div id="api"></div> localizado em seu conteúdo. Você pode usar suas próprias folhas de estilo para personalizar esses elementos de interface do usuário. Essas folhas de estilo precisarão substituir as folhas de estilo padrão que adicionarmos a essas páginas nos fragmentos de <head>.
 
-> [AZURE.IMPORTANT]Durante a visualização, espere que os elementos exatos da interface do usuário sofram modificações conforme aprendemos e nos adaptamos com base em seus comentários. Inspecione o código-fonte das páginas padrão para obter detalhes sobre todos os itens a seguir.
+> [AZURE.IMPORTANT]Durante a visualização, espere que os elementos exatos da interface do usuário sofram modificações conforme aprendemos e nos adaptamos com base em seus comentários. Sempre Inspecione o código-fonte das páginas padrão para as atualizações mais recentes. Na verdade, a primeira alteração a ser considerada é a remoção de nossas folhas de estilo padrão; isso significa que você sempre terá de fornecer suas próprias folhas de estilo para esses elementos de interface do usuário em seu conteúdo.
 
-### Página de Seleção do Provedor de Identidade
+## Página de Seleção do Provedor de Identidade
 
 Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição ou entrada. Esses são os provedores de identidade social, como Facebook e Google+, ou então contas locais (baseadas em endereço de email ou nome de usuário).
 
@@ -75,7 +75,7 @@ Esta página contém uma lista de provedores de identidade que o usuário pode e
 
 ```
 
-### Página de Inscrição de Conta Local
+## Página de Inscrição de Conta Local
 
 Esta página contém um formulário de inscrição que o usuário deve preencher ao entrar, usando uma conta local baseada em nome de usuário ou endereço de email. O formulário pode conter diferentes controles de entrada como caixa de entrada de texto, caixa de entrada de senha, botão de opção, lista suspensa de seleção única e caixas de multisseleção.
 
@@ -192,11 +192,11 @@ Esta página contém um formulário de inscrição que o usuário deve preencher
 
 ```
 
-### Página de Inscrição de Conta Social
+## Página de Inscrição de Conta Social
 
 Esta página contém um formulário de inscrição que o consumidor precisa preencher ao se inscrever usando uma conta existente de um provedor de identidade social, como o Facebook ou Google+. Esta página é semelhante à página de inscrição de conta local (mostrada na seção anterior) com exceção dos campos de entrada de senha.
 
-### Página Multi-Factor Authentication
+## Página Multi-Factor Authentication
 
 Esta página permite que os usuários verifiquem seus números de telefone (usando texto ou voz) durante a inscrição ou entrada.
 
@@ -242,7 +242,7 @@ Esta página permite que os usuários verifiquem seus números de telefone (usan
 
 ```
 
-### Página de Erro
+## Página de Erro
 
 
 ```HTML
@@ -276,4 +276,4 @@ Se você estiver planejando usar o recurso de personalização de interface do u
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

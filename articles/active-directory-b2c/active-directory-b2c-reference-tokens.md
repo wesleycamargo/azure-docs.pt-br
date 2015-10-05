@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Visualização do AD B2C do Azure: Referência de Token
@@ -96,7 +96,7 @@ Ao resgatar um token de atualização para um novo token (e se o aplicativo tive
 No momento, a única validação de token que seus aplicativos devem precisar executar é a validação de id-tokens. Para validar um id\_token, o aplicativo deve validar a assinatura do id\_token e as declarações contidas nele.
 
 <!-- TODO: Link -->
-Há muitas bibliotecas de software livre para validar JWTs dependendo do seu idioma de preferência. É recomendável explorar essas opções em vez de implementar sua própria lógica de validação. As informações aqui serão úteis para descobrir como usar essas bibliotecas adequadamente.
+Há muitas bibliotecas de software livre para validar JWTs dependendo do seu idioma de preferência. Recomendamos que você explore essas opções em vez de implementar a sua própria lógica de validação. As informações aqui serão úteis para descobrir como usar essas bibliotecas adequadamente.
 
 #### Validando a assinatura
 Um JWT contém três segmentos, que são separados pelo caractere `.`. O primeiro segmento é conhecido como o **cabeçalho**, o segundo como o **corpo** e o terceiro como a **assinatura**. O segmento de assinatura pode ser usado para validar a autenticidade do id\_token, de modo que seu aplicativo possa confiar nele.
@@ -155,4 +155,4 @@ Os tempos de vida do token a seguir são fornecidos puramente para fins de compr
 | Tokens de atualização | Até 14 dias | Um único token de atualização é válido para um máximo de 14 dias. No entanto, o token de atualização pode se tornar inválido a qualquer momento por vários motivos, de modo que o aplicativo deve continuar testando e usando um token de atualização até que este falhe ou até que o aplicativo o substitua por um novo token de atualização. Um token de atualização também se tornará inválido caso se passem 90 dias desde que o usuário inseriu suas credenciais. |
 | Códigos de Autorização | 5 minutos | Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para access\_tokens, id\_tokens e refresh\_tokens quando eles são recebidos. |
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

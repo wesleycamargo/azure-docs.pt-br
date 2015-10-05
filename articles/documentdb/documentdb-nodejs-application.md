@@ -34,7 +34,7 @@ Seguindo este tutorial de banco de dados, você criará um aplicativo simples de
 
 ![Captura de tela do aplicativo Minha lista de tarefas pendentes criado neste tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Não há tempo para concluir o tutorial e deseja apenas a solução completa do GitHub? Não tem problema, pegue-o [aqui](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Não há tempo para concluir o tutorial e deseja apenas a solução completa? Não é um problema, você pode obter a solução de exemplo completo da [GitHub][].
 
 ## <a name="_Toc395783176"></a>Pré-requisitos
 
@@ -554,10 +554,13 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 Parabéns! Você acabou de criar seu primeiro Aplicativo Web Express do Node.js usando o Banco de Dados de Documentos do Azure e o publicou nos sites do Azure.
 
-O código-fonte para o aplicativo de referência completo pode ser baixado [aqui](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+O código-fonte para o aplicativo de referência completo pode ser baixado no [GitHub][].
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
+Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

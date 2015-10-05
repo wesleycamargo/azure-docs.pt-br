@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Gerenciar clusters HDInsight usando o Ambari (visualização)
@@ -69,7 +69,7 @@ Quando a página se abrir, observe a barra na parte superior. Ela contém as seg
 
 * **Alertas**: um log de informações, avisos e alertas críticos.
 
-* **Admin**: pilha/serviços de software que estão instalados ou podem ser adicionados ao cluster, informações de conta de serviço e segurança Kerberos.
+* **Admin**: pilha/serviços de software que estão instalados no cluster, informações de conta de serviço e segurança Kerberos.
 
 * **Botão Admin**: gerenciamento, configurações de usuário e logoff do Ambari.
 
@@ -191,27 +191,12 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
 
 ###<a id="service"></a>Serviços
 
-Na página **Painel** ou **Serviços**, use o botão **Ações**, na parte inferior da lista de serviços, para adicionar novos serviços ou parar e iniciar todos os serviços.
+Na página **Painel** ou **Serviços**, use o botão **Ações**, na parte inferior da lista de serviços, para interromper e iniciar todos os serviços.
 
 ![ações de serviço](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-Veja a seguir as etapas gerais para adicionar um serviço:
+> [AZURE.WARNING]Enquanto __Adicionar serviço__ estiver listado nesse menu, ele não deve ser usado para adicionar serviços ao cluster HDInsight. Novos serviços devem ser adicionados usando uma Ação de Script durante o provisionamento do cluster. Para saber mais sobre o uso de Ações de Script, consulte [Personalizar clusters HDInsight usando Ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Na página **Painel** ou **Serviços**, use o botão **Ações** e selecione **Adicionar Serviço**.
-
-2. No **Assistente para Adicionar Serviço**, selecione o serviço a adicionar e clique em **Avançar**.
-
-	![adicionar serviço](./media/hdinsight-hadoop-manage-ambari/add-service.png)
-
-3. Prossiga com o assistente, fornecendo informações de configuração para o serviço. Consulte a documentação sobre o serviço específico que você está adicionando para obter mais informações sobre os requisitos de configuração.
-
-4. Na página **Revisão**, você pode **Imprimir** as informações de configuração ou **Implantar** o serviço no cluster.
-
-5. Uma vez implantado o serviço, a página **Instalar, Iniciar e Testar** exibirá informações sobre o progresso da instalação e teste do serviço. Quando **Status** mudar para verde, selecione **Avançar**.
-
-	![imagem de instalar, iniciar e testar página](./media/hdinsight-hadoop-manage-ambari/install-start-test.png)
-
-6. A página **Resumo** exibe um resumo do processo de instalação, bem como as possíveis ações que você precisa fazer; por exemplo, reiniciar outros serviços. Selecione **Concluir** para sair do assistente.
 
 Embora o botão **Ações** possa reiniciar todos os serviços, muitas vezes convém iniciar, parar ou reiniciar um serviço específico. Use as seguintes etapas para executar ações em um serviço individual:
 
@@ -247,8 +232,8 @@ Ambari Web se baseia em uma API REST subjacente, que você pode aproveitar para 
 
 * **Endereços IP**: o endereço retornado dos hosts em um cluster não são acessíveis de fora do cluster, a menos que o cluster seja um membro de uma rede virtual do Azure. Neste último caso, o endereço IP poderá ser acessado por outros membros da rede virtual, mas não de fora da rede.
 
-* **Algumas funcionalidades não estão habilitadas**: parte da funcionalidade do Ambari está desabilitada, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster. Outras funcionalidades podem não ser totalmente implementadas durante a visualização do HDInsight baseado em Linux.
+* **Algumas funcionalidades não estão habilitadas**: parte da funcionalidade do Ambari está desabilitada, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços. Outras funcionalidades podem não ser totalmente implementadas durante a visualização do HDInsight baseado em Linux.
 
 Para obter uma referência completa da API REST, consulte [Referência de API do Ambari, V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

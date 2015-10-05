@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Bancos de dados NoSQL — introdução ao SDK do .NET do Banco de Dados de Documentos | Microsoft Azure"
-	description="Saiba como criar um banco de dados e configurar uma conta do Banco de Dados de Documentos do Azure. Criar bancos de dados, coleções e armazenar documentos JSON em uma conta do banco de dados NoSQL."
+	description="Saiba como criar um banco de dados e configurar uma conta do Banco de Dados de Documentos do Azure. Crie um bancos de dados, uma coleção e armazene documentos JSON em uma conta do banco de dados NoSQL."
 	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
@@ -14,78 +14,80 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="09/03/2015"
+	ms.date="09/16/2015"
 	ms.author="anhoh"/>
 
 #Introdução ao SDK do .NET do Banco de Dados de Documentos  
 
-Este tutorial mostra como começar a usar o [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) e o [SDK do .NET do Banco de Dados de Documentos](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). Você criará um aplicativo de console que cria e consulta recursos no Banco de Dados de Documentos, e grava a saída na janela do console.
+Bem-vindo à Introdução ao SDK do .NET Banco de Dados de Documentos! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos de Banco de Dados de Documentos.
 
-O Banco de Dados de Documentos é um serviço de banco de dados de documentos NoSQL, que tem uma [série de APIs e SDKs disponíveis](https://msdn.microsoft.com/library/dn781482.aspx). O código neste artigo é escrito em C# e utiliza o SDK do .NET do Banco de Dados de Documentos, que é empacotado e distribuído como um pacote do NuGet.
-
-Os cenários a seguir são abordados neste artigo:
+Abordaremos:
 
 - Criando e se conectando a uma conta do Banco de Dados de Documentos
-- Adicionando o Banco de Dados de Documentos à sua solução do Visual Studio
-- Criando bancos de dados
-- Criando coleções
+- Configurar a sua Solução do Visual Studio
+- Criar um banco de dados
+- Criar uma coleção
 - Criando documentos JSON
-- Consultando recursos
-- Excluindo bancos de dados
+- Consultar a coleção
+- Excluir o banco de dados
 
-Não há tempo para concluir o tutorial e deseja apenas a solução de trabalho? Não se preocupe. A solução completa está disponível em [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Consulte [Obter a solução completa](#GetSolution) para as instruções rápidas.
+Você não tem tempo? Não se preocupe! A solução completa está disponível em [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Consulte [Obter a solução completa](#GetSolution) para as instruções rápidas.
 
-Atualizamos e aperfeiçoamos este tópico com frequência, de acordo com seus comentários. Depois de concluir o tutorial, use os botões de votação nas partes superior e inferior desta página e lembre-se de incluir seus comentários sobre os aperfeiçoamentos que deseja ver. Se quiser que entremos em contato com você diretamente, inclua seu endereço de email em seu comentário.
+Em seguida, use os botões de votação na parte superior ou inferior desta página para nos enviar comentários. Se quiser que entremos em contato com você diretamente, inclua seu endereço de email em seu comentário.
+
+Agora vamos começar!
 
 ## Pré-requisitos
 
-Antes de seguir as instruções deste artigo, verifique se você possui o seguinte:
+Certifique-se que você tem o seguinte:
 
-- Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013](http://www.visualstudio.com/) Atualização 4 ou mais recente.
+- Uma conta ativa do Azure. Se não tem uma, você pode se inscrever para uma [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+- [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 
 ## Etapa 1: Criar uma conta do Banco de Dados de Documentos
 
-Vamos iniciar pela criação de uma conta de Banco de Dados de Documentos. Se você já tiver uma conta, é possível pular para [Configurar sua solução do Visual Studio](#SetupVS).
+Vamos criar uma conta de Banco de Dados de Documentos. Se você já tem uma conta que deseja usar, você pode pular para [Configurar sua Solução do Visual Studio](#SetupVS).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ##<a id="SetupVS"></a> Etapa 2: Configure a sua solução do Visual Studio
 
 1. Abra o **Visual Studio** em seu computador.
-2. Selecione **Novo** no menu **Arquivo** e escolha **Projeto**.
-3. Na caixa de diálogo **Novo projeto**, selecione **Modelos** / **Visual C#** / **Aplicativo de Console**, nomeie o projeto e, em seguida, clique em **Adicionar**.
+2. No menu **Arquivo**, selecione **Novo** e depois **Projeto**.
+3. Na caixa de diálogo **Novo projeto**, selecione **Modelos** / **Visual C#** / **Aplicativo de Console**, nomeie o projeto e, em seguida, clique em **OK**.
 4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no seu novo aplicativo de console, que está em sua solução do Visual Studio.
 5. Sem sair do menu, clique em **Gerenciar Pacotes NuGet...**
 6. No canto esquerdo do painel, na janela **Gerenciar Pacotes NuGet**, clique em **Online** / **nuget.org**.
 7. Na caixa de entrada **Pesquisar Online**, procure a **Biblioteca do cliente do Banco de Dados de Documentos**.
 8. Nos resultados, encontre **Biblioteca do cliente do Banco de Dados de Documentos do Microsoft Azure** e clique em **Instalar**. A ID do pacote da Biblioteca de cliente do Banco de Dados de Documentos é [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
 
-Ótimo! Agora você está pronto para começar a trabalhar com o Banco de Dados de Documentos.
+Ótimo! Agora que a instalação está concluída, vamos começar a escrever algum código.
 
 ##<a id="Connect"></a> Etapa 3: Conectar-se a uma conta do Banco de Dados de Documentos
 
-Começaremos criando uma nova instância da classe [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) para estabelecer uma conexão com a nossa conta do Banco de Dados de Documentos. Precisaremos das seguintes referências no início do nosso aplicativo C#:
+Primeiro, adicione essas referências para o início de seu aplicativo C#, no arquivo Program.cs:
 
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
 
-Em seguida, uma instância do **DocumentClient** pode ser criada usando o ponto de extremidade da conta do Banco de Dados de Documentos e a chave de acesso primária ou secundária associada à conta. Adicione essas propriedades à sua classe.
+Em seguida, salve o ponto de extremidade de conta do Banco de Dados de Documentos e uma das duas chaves de acesso, a primária ou a secundária, que pode ser encontrada no [Portal de Visualização do Azure](https://portal.azure.com).
 
-    private static string EndpointUrl = "<your endpoint URI>";
-    private static string AuthorizationKey = "<your key>";
+![Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
 
-Agora, vamos criar uma nova tarefa assíncrona chamada **GetStartedDemo** em sua classe. Dentro desta nova tarefa, criaremos e configuraremos o seu **DocumentClient**.
+    private const string EndpointUrl = "<your endpoint URI>";
+    private const string AuthorizationKey = "<your key>";
+
+Iniciaremos o aplicativo de demonstração de introdução criando uma nova instância do **DocumentClient**. Crie uma nova tarefa assíncrona chamada **GetStartedDemo** e crie uma instância do nosso novo **DocumentClient**.
 
 	private static async Task GetStartedDemo()
     {
-		// Create a new instance of the DocumentClient.
+		// Create a new instance of the DocumentClient
     	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
 	}
 
-Chame a tarefa assíncrona do seu método Main semelhante ao código a seguir.
+Chame a tarefa assíncrona por meio do seu método **Main**, semelhante ao código abaixo.
 
 	public static void Main(string[] args)
     {
@@ -102,41 +104,59 @@ Chame a tarefa assíncrona do seu método Main semelhante ao código a seguir.
 
 > [AZURE.WARNING]Nunca armazene credenciais no código-fonte. Para simplificar este exemplo, as credenciais são mostradas no código-fonte. Consulte os [Sites do Azure: Como as cadeias de caracteres de Aplicativo e as cadeias de caracteres de Conexão funcionam](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) para obter informações sobre como armazenar credenciais em um ambiente de produção. Veja o nosso aplicativo de exemplo em [GitHub](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs) para obter um exemplo de como armazenar credenciais fora do código-fonte.
 
-Os valores de EndpointUrl e AuthorizationKey são o URI e a PRIMARY KEY para sua conta do Banco de Dados de Documentos, que pode ser obtida na folha [Chaves](https://portal.azure.com) para a sua conta do Banco de Dados de Documentos.
-
-![Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
-
-Essas chaves concedem acesso administrativo à sua conta do Banco de Dados de Documentos e aos recursos presentes nela. O Banco de Dados de Documentos tem suporte também para o uso de chaves de recursos que permitem aos clientes ler, gravar e excluir recursos da conta do Banco de Dados de Documentos, de acordo com as permissões que você tiver concedido, sem a necessidade de uma chave de conta. Para obter mais informações sobre as chaves de recurso, consulte [Permissões](documentdb-resources.md#permissions) e [Exibir, copiar e regenerar chaves de acesso](documentdb-manage-account.md#keys).
-
 Agora que você sabe como conectar uma conta do Banco de Dados de Documentos e criar uma instância da classe **DocumentClient**, vejamos como trabalhar com os recursos do Banco de Dados de Documentos.
 
 ## Etapa 4: Criar um banco de dados
 Um [banco de dados](documentdb-resources.md#databases) pode ser criado usando o método [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) da classe **DocumentClient**. Um banco de dados é o contêiner lógico de armazenamento de documentos particionado em coleções. Criar um novo banco de dados no seu método **GetStartedDemo** após a criação do **DocumentClient**.
 
-	// Create a database.
-	Database database = await client.CreateDatabaseAsync(
-		new Database
-		    {
-			    Id = "FamilyRegistry"
-		    });
+	// Check to verify a database with the id=FamilyRegistry does not exist
+	Database database = client.CreateDatabaseQuery().Where(db => db.Id == "FamilyRegistry").AsEnumerable().FirstOrDefault();
+
+	// If the database does not exist, create a new database
+    if (database == null)
+    {
+    	database = await client.CreateDatabaseAsync(
+    		new Database
+            {
+            	Id = "FamilyRegistry"
+            });
+
+		// Write the new database's id to the console
+		Console.WriteLine(database.Id);
+        Console.WriteLine("Press any key to continue ...");
+        Console.ReadKey();
+        Console.Clear();
+	}
 
 ##<a id="CreateColl"></a>Etapa 5: Criar uma coleção  
 
 > [AZURE.WARNING]**CreateDocumentCollectionAsync** criará uma nova coleção de S1, que tem implicações de preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
 
-É possível criar uma [coleção](documentdb-resources.md#collections) usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. A coleção recém-criada será mapeada para um [nível de desempenho S1](documentdb-performance-levels.md). O banco de dados criado na etapa anterior possui uma série de propriedades, entre elas, a propriedade [CollectionsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.database.collectionslink.aspx). Com essas informações, podemos criar uma coleção após a nossa criação de banco de dados.
+É possível criar uma [coleção](documentdb-resources.md#collections) usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. A coleção recém-criada será mapeada para um [nível de desempenho S1](documentdb-performance-levels.md). Crie uma nova coleção chamada **FamilyCollection** após a criação de seu banco de dados no método **GetStartedDemo**.
 
-  	// Create a document collection.
-  	DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
-  		new DocumentCollection
-  		    {
-  			    Id = "FamilyCollection"
-  		    });
+    // Check to verify a document collection with the id=FamilyCollection does not exist
+    DocumentCollection documentCollection = client.CreateDocumentCollectionQuery("dbs/" + database.Id).Where(c => c.Id == "FamilyCollection").AsEnumerable().FirstOrDefault();
+
+	// If the document collection does not exist, create a new collection
+    if (documentCollection == null)
+    {
+    	documentCollection = await client.CreateDocumentCollectionAsync("dbs/" + database.Id,
+        	new DocumentCollection
+            {
+            	Id = "FamilyCollection"
+            });
+
+		// Write the new collection's id to the console
+		Console.WriteLine(documentCollection.Id);
+        Console.WriteLine("Press any key to continue ...");
+        Console.ReadKey();
+        Console.Clear();
+	}
 
 ##<a id="CreateDoc"></a>Etapa 6: Criar documentos
-Um [documento](documentdb-resources.md#documents) pode ser criado usando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. A coleção criada na etapa anterior tem uma série de propriedades, entre elas a propriedade [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Com essas informações, agora podemos inserir um ou mais documentos. Se já tiver dados que gostaria de armazenar em seu banco de dados, você pode usar a[ferramenta de Migração de Dados](documentdb-import-data.md) do Banco de Dados de Documentos.
+Um [documento](documentdb-resources.md#documents) pode ser criado usando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. Agora podemos inserir um ou mais documentos. Se já tiver dados que gostaria de armazenar em seu banco de dados, você pode usar a[ferramenta de Migração de Dados](documentdb-import-data.md) do Banco de Dados de Documentos.
 
-Primeiro, precisamos criar uma classe **Pai**, **Filho**, **Pet**, **Endereço** e **Família**. Crie essas classes, adicionando as seguintes subclasses internas.
+Primeiro, precisamos criar uma classe **Pai**, **Filho**, **Pet**, **Endereço** e **Família**. Crie essas classes, adicionando as seguintes subclasses internas após o método **GetStartedDemo**.
 
     internal sealed class Parent
     {
@@ -178,62 +198,76 @@ Primeiro, precisamos criar uma classe **Pai**, **Filho**, **Pet**, **Endereço**
 
 Em seguida, crie os documentos dentro de seu método assíncrono **GetStartedDemo**.
 
-    // Create the Andersen family document.
-	Family AndersenFamily = new Family
-    {
-        Id = "AndersenFamily",
-        LastName = "Andersen",
-        Parents =  new Parent[] {
-            new Parent { FirstName = "Thomas" },
-            new Parent { FirstName = "Mary Kay"}
-        },
-        Children = new Child[] {
-            new Child {
-                FirstName = "Henriette Thaulow",
-                Gender = "female",
-                Grade = 5,
-                Pets = new Pet[] {
-                    new Pet { GivenName = "Fluffy" }
-                }
-            }
-        },
-        Address = new Address { State = "WA", County = "King", City = "Seattle" },
-        IsRegistered = true
-    };
+    // Check to verify a document with the id=AndersenFamily does not exist
+    Document document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "AndersenFamily").AsEnumerable().FirstOrDefault();
 
-    await client.CreateDocumentAsync(documentCollection.DocumentsLink, AndersenFamily);
+	// If the document does not exist, create a new document
+	if (document == null)
+	{
+	    // Create the Andersen Family document
+	    Family andersonFamily = new Family
+	    {
+	        Id = "AndersenFamily",
+	        LastName = "Andersen",
+	        Parents = new Parent[] {
+	            new Parent { FirstName = "Thomas" },
+	            new Parent { FirstName = "Mary Kay"}
+	        },
+	        Children = new Child[] {
+	            new Child
+	            { 
+	                FirstName = "Henriette Thaulow", 
+	                Gender = "female", 
+	                Grade = 5, 
+	                Pets = new Pet[] {
+	                    new Pet { GivenName = "Fluffy" } 
+	                }
+	            } 
+	        },
+	        Address = new Address { State = "WA", County = "King", City = "Seattle" },
+	        IsRegistered = true
+	    };
+	
+	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
+	}
 
-    // Create the WakeField family document.
-    Family WakefieldFamily = new Family
+    // Check to verify a document with the id=AndersenFamily does not exist
+    document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "WakefieldFamily").AsEnumerable().FirstOrDefault();
+
+    if (document == null)
     {
-        Id = "WakefieldFamily",
-        Parents = new Parent[] {
-            new Parent { FamilyName= "Wakefield", FirstName= "Robin" },
-            new Parent { FamilyName= "Miller", FirstName= "Ben" }
-        },
-        Children = new Child[] {
-            new Child {
-                FamilyName= "Merriam",
-                FirstName= "Jesse",
-                Gender= "female",
-                Grade= 8,
-                Pets= new Pet[] {
-                    new Pet { GivenName= "Goofy" },
-                    new Pet { GivenName= "Shadow" }
+        // Create the WakeField document
+        Family wakefieldFamily = new Family
+        {
+            Id = "WakefieldFamily",
+            Parents = new Parent[] {
+                new Parent { FamilyName= "Wakefield", FirstName= "Robin" },
+                new Parent { FamilyName= "Miller", FirstName= "Ben" }
+            },
+            Children = new Child[] {
+                new Child {
+                    FamilyName= "Merriam", 
+                    FirstName= "Jesse", 
+                    Gender= "female", 
+                    Grade= 8,
+                    Pets= new Pet[] {
+                        new Pet { GivenName= "Goofy" },
+                        new Pet { GivenName= "Shadow" }
+                    }
+                },
+                new Child {
+                    FamilyName= "Miller", 
+                    FirstName= "Lisa", 
+                    Gender= "female", 
+                    Grade= 1
                 }
             },
-            new Child {
-                FamilyName= "Miller",
-                FirstName= "Lisa",
-                Gender= "female",
-                Grade= 1
-            }
-        },
-        Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-        IsRegistered = false
-    };
+            Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+            IsRegistered = false
+        };
 
-    await client.CreateDocumentAsync(documentCollection.DocumentsLink, WakefieldFamily);
+        await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, wakefieldFamily);
+	}
 
 Agora, você criou o seguinte banco de dados, a coleta e os documentos em sua conta do Banco de Dados de Documentos.
 
@@ -275,43 +309,18 @@ O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query
         Console.WriteLine("\tRead {0} from LINQ query", family);
     }
 
-    // Query the documents using DocumentSQL with one join.
-    var items = client.CreateDocumentQuery<dynamic>(documentCollection.DocumentsLink,
-        "SELECT f.id, c.FirstName AS child " +
-        "FROM Families f " +
-        "JOIN c IN f.Children");
-
-    foreach (var item in items.ToList())
-    {
-        Console.WriteLine(item);
-    }
-
-    // Query the documents using LINQ with one join.
-    items = client.CreateDocumentQuery<Family>(documentCollection.DocumentsLink)
-        .SelectMany(family => family.Children
-            .Select(children => new
-            {
-                family = family.Id,
-                child = children.FirstName
-            }));
-
-    foreach (var item in items.ToList())
-    {
-        Console.WriteLine(item);
-    }
-
 O diagrama a seguir ilustra como a sintaxe de consulta do SQL do Banco de Dados de Documentos é chamada em relação à coleção que você criou e a mesma lógica se aplica à consulta LINQ.
 
 ![Diagrama que ilustra o escopo e o significado da consulta](./media/documentdb-get-started/collection-documents.png)
 
-A palavra-chave [FROM](documentdb-sql-query.md/#from-clause) é opcional na consulta, pois as consultas do Banco de Dados de Documentos já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Banco de Dados de Documentos interferirá em Families ou root, ou o nome da variável que você escolheu, fazendo referência à coleção atual por padrão.
+A palavra-chave [FROM](documentdb-sql-query.md#from-clause) é opcional na consulta, pois as consultas do Banco de Dados de Documentos já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Banco de Dados de Documentos fará com que Families, root ou o nome de variável escolhido por você faça referência à coleção atual, por padrão.
 
 ##<a id="DeleteDatabase"></a>Etapa 8: Excluir o banco de dados
 
 Excluir o banco de dados criado removerá o banco de dados e todos os recursos filhos (coleções, documentos, etc.). Você pode excluir o banco de dados e o cliente do documento, adicionando o seguinte trecho de código ao final do seu método assíncrono **GetStartedDemo**.
 
     // Clean up/delete the database
-    await client.DeleteDatabaseAsync(database.SelfLink);
+    await client.DeleteDatabaseAsync("dbs/" + database.Id);
 	client.Dispose();
 
 ##<a id="Run"></a>Etapa 9: Executar o aplicativo!
@@ -438,24 +447,6 @@ Agora você verá a saída do aplicativo iniciado. A saída mostrará os resulta
 	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ query
-	{
-	  "id": "AndersenFamily",
- 	  "child": "Henriette Thaulow"
-	}
-	{
-	  "id": "WakefieldFamily",
-	  "child": "Jesse"
-	}
-	{
-	  "id": "WakefieldFamily",
-	  "child": "Lisa"
-	}
-	{ family = AndersenFamily, child = Henriette Thaulow }
-	{ family = WakefieldFamily, child = Jesse }
-	{ family = WakefieldFamily, child = Lisa }
-
-
-> [AZURE.NOTE]Se executar o aplicativo várias vezes sem remover o banco de dados, você poderá executar o problema da criação de um novo banco de dados com uma ID que já está em uso. Para evitar isso, é possível verificar se já existe um banco de dados, a coleção ou o documento com a mesma ID. Para obter uma referência sobre como isso pode ser obtido, visite a nossa [página GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).
 
 Parabéns! Você criou seu primeiro aplicativo do Banco de Dados de Documentos!
 
@@ -465,7 +456,7 @@ Para criar a solução de Introdução que contém todos os exemplos neste artig
 -   [Conta de Banco de Dados de Documentos][documentdb-create-account].
 -   A solução [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) disponível no GitHub.
 
-Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no Visual Studio 2013, clique com o botão direito do mouse na solução **GetStarted** no Gerenciador de Soluções e, em seguida, clique em **Habilitar pacote de restauração NuGet**. Em seguida, no arquivo App.config, atualize os valores EndpointUrl e AuthorizationKey conforme descrito em [Conectar-se a uma conta do Banco de Dados de Documentos](#Connect).
+Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no Visual Studio, clique com o botão direito do mouse na solução **GetStarted** no Gerenciador de Soluções e, em seguida, clique em **Habilitar Pacote de Restauração NuGet**. Em seguida, no arquivo App.config, atualize os valores EndpointUrl e AuthorizationKey conforme descrito em [Conectar-se a uma conta do Banco de Dados de Documentos](#Connect).
 
 ## Próximas etapas
 
@@ -481,4 +472,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

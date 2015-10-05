@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Cenários de autenticação do AD do Azure"
+   pageTitle="Cenários de autenticação do AD do Azure | Microsoft Azure"
    description="Uma visão geral dos cinco cenários mais comuns de autenticação para o Azure Active Directory (AAD)"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Cenários de autenticação do AD do Azure
@@ -467,4 +467,4 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

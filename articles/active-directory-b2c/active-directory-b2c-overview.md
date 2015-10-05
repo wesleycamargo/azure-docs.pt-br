@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: inscrever e conectar consumidores em seus aplicativos
@@ -62,4 +62,4 @@ Estes links serão úteis na exploração em profundidade do serviço:
 - [Perguntas frequentes do Active Directory B2C do Azure](active-directory-b2c-faqs.md)
 - [Solicitações de suporte de arquivo em relação ao Active Directory B2C do Azure](active-directory-b2c-support.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -258,6 +258,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
 - [API REST de Armazenamento do Azure][]
 - [Blog da equipe de Armazenamento do Azure][]
 
+Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](/develop/java/).
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [SDK de Armazenamento do Azure para Java]: https://github.com/azure/azure-storage-java
 [SDK de Armazenamento do Azure para Android]: https://github.com/azure/azure-storage-android
@@ -266,4 +268,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
 [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

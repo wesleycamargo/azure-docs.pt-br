@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Arquitetura do Gerenciador de Recursos do Azure"
-	description="Saiba mais sobre a arquitetura do Gerenciador de Recursos e as relações entre provedores de recursos de computação, rede e armazenamento."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+   pageTitle="Arquitetura do Gerenciador de Recursos do Azure | Microsoft Azure"
+   description="Saiba mais sobre a arquitetura do Gerenciador de Recursos e as relações entre provedores de recursos de computação, rede e armazenamento."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="davidmu1"
+   manager="timlt"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Arquitetura do Gerenciador de Recursos do Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Este artigo fornece uma visão geral de ambas as arquiteturas de Gerenciamento de serviços e Gerenciador de Recursos para a criação de aplicativos baseados em infraestrutura e cargas de trabalho.
 
@@ -65,7 +67,7 @@ Esse aplicativo consiste em:
 
 Todos esses recursos do aplicativo são gerenciados por meio do grupo de recursos único que os contém.
 
-Você também pode ver a componentização e os relacionamentos dependentes entre recursos quando cria uma máquina virtual baseada no Gerenciador de Recursos usando o PowerShell do Azure ou a CLI do Azure. Antes de executar o comando que cria a máquina virtual, você deve criar um grupo de recursos, uma conta de armazenamento, uma rede virtual com uma sub-rede e uma NIC com um endereço IP. Para obter mais informações, consulte [Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+Você também pode ver a componentização e os relacionamentos dependentes entre recursos quando cria uma máquina virtual baseada no Gerenciador de Recursos usando o PowerShell do Azure ou a CLI do Azure. Antes de executar o comando que cria a máquina virtual, você deve criar um grupo de recursos, uma conta de armazenamento, uma rede virtual com uma sub-rede e uma NIC com um endereço IP. Para obter mais informações, consulte [Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
 
 ## Próximas etapas
 
@@ -79,4 +81,4 @@ Você também pode ver a componentização e os relacionamentos dependentes entr
 
 [Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

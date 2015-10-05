@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure | Microsoft Azure"
+	pageTitle="CLI para Mac, Linux e Windows | Microsoft Azure"
 	description="Usando a CLI do Microsoft Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure."
 	editor="tysonn"
 	manager="timlt"
@@ -13,8 +13,10 @@
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](../powershell-azure-resource-manager.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
 
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o gerenciamento de recursos com o modelo de implantação do Gerenciador de Recursos.
 
 Este artigo descreve como criar, gerenciar e excluir recursos e VMs do Azure usando a CLI do Azure para Mac, Linux e Windows usando o modo Gerenciador de Recursos do Azure.
 
@@ -24,9 +26,9 @@ Este artigo descreve como criar, gerenciar e excluir recursos e VMs do Azure usa
 
 Use o Gerenciador de Recursos do Azure para gerenciar um grupo de _recursos_ (entidades gerenciadas pelo usuário, como máquina virtual, servidor de banco de dados, banco de dados ou site) como uma unidade lógica única ou um _grupo de recursos_. Você pode criar, gerenciar e excluir esses recursos imperativamente na linha de comando, assim como no modo asm.
 
-Usando o modo Gerenciador de Recursos do Azure, você também pode gerenciar os recursos do Azure de maneira _declarativa_ descrevendo a estrutura e as relações de um grupo implantável de recursos em *modelos* JSON. O modelo descreve os parâmetros que podem ser preenchidos, ou embutidos durante a execução de um comando, ou armazenados em arquivo JSON azuredeploy-parameters.json separado. Isso permite criar facilmente novos recursos usando-se o mesmo modelo simplesmente fornecendo parâmetros diferentes. Por exemplo, um modelo que cria um site terá parâmetros para o nome do site, a região do site em que estará localizado e outros parâmetros comuns.
+Usando o modo do Gerenciador de Recursos do Azure, você também pode gerenciar os recursos do Azure de maneira _declarativa_, descrevendo a estrutura e as relações de um grupo implantável de recursos em *modelos* JSON. O modelo descreve os parâmetros que podem ser preenchidos, ou embutidos durante a execução de um comando, ou armazenados em arquivo JSON azuredeploy-parameters.json separado. Isso permite criar facilmente novos recursos usando-se o mesmo modelo simplesmente fornecendo parâmetros diferentes. Por exemplo, um modelo que cria um site terá parâmetros para o nome do site, a região do site em que estará localizado e outros parâmetros comuns.
 
-Quando um modelo é usado para modificar ou criar um grupo, uma _implantação_ é criada e, então, aplicada ao grupo. Para obter mais informações sobre o Gerenciador de Recursos do Azure, visite [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
+Quando um modelo é usado para modificar ou criar um grupo, uma _implantação_ é criada e, então, aplicada ao grupo. Para obter mais informações sobre o Gerenciador de Recursos do Azure, visite a [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
 
 ## Autenticação
 
@@ -71,7 +73,7 @@ Certifique-se de criar pelo menos um grupo de recursos antes de iniciar qualquer
 
 ### Usando os comandos individuais de CLI do Azure
 
-Essa é a abordagem básica para configurar e criar uma máquina virtual de acordo com suas necessidades. No modo Gerenciador de Recursos do Azure, você precisará configurar alguns recursos obrigatórios, como a rede, para poder usar o comando **vm create**.
+Essa é a abordagem básica para configurar e criar uma máquina virtual de acordo com suas necessidades. No modo do Gerenciador de Recursos do Azure, você precisará configurar alguns recursos obrigatórios, como a rede, para poder usar o comando **vm create**.
 
 >[AZURE.NOTE]Se estiver criando recursos pela primeira vez na linha de comando para a sua assinatura, você poderá ser solicitado a fazer o registro para determinados provedores de recursos. Se isso acontecer, é fácil registrar o provedor e repetir o comando com falha novamente, conforme mostrado no próximo exemplo.
 >
@@ -131,7 +133,7 @@ Salve o nome URN da imagem que deseja carregar na sua máquina virtual. Você o 
 
 #### Criando uma máquina virtual
 
-Agora você está pronto para criar uma máquina virtual executando o comando **vm create** e passando as informações necessárias. É opcional passar o IP público neste estágio, pois a NIC já tem essas informações. O comando pode ser semelhante ao exemplo a seguir, onde _testvm_ é o nome da máquina virtual criada no grupo de recursos _testrg_.
+Agora você está pronto para criar uma máquina virtual executando o comando **vm create** e passando as informações necessárias. É opcional passar o IP público neste estágio, pois a NIC já tem essas informações. O comando pode ser semelhante ao exemplo a seguir, em que _testvm_ é o nome da máquina virtual criada no grupo de recursos _testrg_.
 
 	azure-cli@0.8.0:/# azure vm create "testrg" "testvm" "westus" "Linux" -Q "CoreOS:CoreOS:Alpha:660.0.0" -u "azureuser" -p "Pass1234!" -N "testnic"
 	info:    Executing command vm create
@@ -177,7 +179,7 @@ A CLI do Azure criará uma máquina virtual com o tamanho da VM padrão. Ela tam
 
 #### Localizando e configurando um modelo de grupo de recursos
 
-1. Ao trabalhar com modelos, você pode criar o seu próprio modelo, ou usar um da Galeria de Modelos, ou usar os modelos disponíveis em [GitHub](https://github.com/azurermtemplates/azurermtemplates). Para começar, vamos usar um modelo chamado CoreOS.CoreOSStable.0.2.40-preview da Galeria de Modelos. Para listar os modelos disponíveis da galeria, use o comando a seguir. Como há milhares de modelos disponíveis, não se esqueça de paginar os resultados, ou usar **grep** ou **findstr** (no Windows), ou o comando de pesquisa de cadeia de caracteres favorito para localizar modelos interessantes. Como alternativa, você pode usar a opção **--json** e baixar a lista inteira no formato JSON para facilitar a pesquisa.
+1. Ao trabalhar com modelos, você pode criar o seu próprio modelo, usar um da Galeria de Modelos ou usar os modelos disponíveis em [GitHub](https://github.com/azurermtemplates/azurermtemplates). Para começar, vamos usar um modelo chamado CoreOS.CoreOSStable.0.2.40-preview da Galeria de Modelos. Para listar os modelos disponíveis da galeria, use o comando a seguir. Como há milhares de modelos disponíveis, você pode paginar os resultados, ou usar **grep** ou **findstr** (no Windows), ou o comando de pesquisa de cadeia de caracteres favorito para localizar modelos interessantes. Como alternativa, você pode usar a opção **--json** e baixar a lista inteira no formato JSON para facilitar a pesquisa.
 
 		azure group template list
 
@@ -329,9 +331,9 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 
 ## Próximas etapas
 
-* Para obter informações sobre como usar a CLI (Interface de Linha de Comando) do Azure , consulte [Instalar e configurar a CLI do Azure][clisetup].
+* Para obter informações sobre como usar a CLI (Interface de Linha de Comando) do Azure, consulte [Instalar e Configurar a CLI do Azure][clisetup].
 * Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure usando o Azure PowerShell, consulte [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
-* Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure no Portal do Azure, consulte [Usando grupos de recursos para gerenciar os recursos do Azure][psrm]
+* Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure no Portal do Azure, consulte [Usando grupos de recursos para gerenciar os recursos do Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
@@ -339,4 +341,4 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

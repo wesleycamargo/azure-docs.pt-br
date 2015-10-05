@@ -114,4 +114,10 @@ As diferenças de conexão do cliente entre o Banco de Dados SQL V11 e V12 são 
 
 - [Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO3-->
+
+- [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md)
+
+
+- [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
+
+<!---HONumber=Sept15_HO4-->

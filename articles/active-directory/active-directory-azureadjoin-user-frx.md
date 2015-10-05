@@ -43,7 +43,8 @@ Para adicionar um dispositivo ao AD do Azure
 > [AZURE.NOTE]Ingressar em um domínio do Active Directory local no Windows do usuário não é suportado. Portanto, se você planeja adicionar um PC a um domínio você deve selecionar o link "Em vez disso, configure o Windows com uma conta local". Você pode, em seguida, unir o domínio a partir das configurações do PC como você fez antes.
 
 ## Informações adicionais
+* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-overview.md)
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

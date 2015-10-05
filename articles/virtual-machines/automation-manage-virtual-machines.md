@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gerenciar Máquinas Virtuais do Azure usando a Automação do Azure"
+	pageTitle="Gerenciar VMs do Azure usando a automação do Azure | Microsoft Azure"
 	description="Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar máquinas virtuais do Azure em grande escala."
 	services="virtual-machines, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="08/11/2015"
 	ms.author="jolevy"/>
 
 
@@ -21,6 +21,8 @@
 #Gerenciamento de Máquinas Virtuais do Azure usando a Automação do Azure
 
 Este guia apresenta o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento das máquinas virtuais do Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## O que é Automação do Azure?
 
@@ -33,7 +35,7 @@ Você pode reduzir o custo operacional e liberar a equipe de TI e DevOps para se
 
 ## Como a Automação do Azure pode ajudar a gerenciar máquinas virtuais do Azure?
 
-As máquinas virtuais podem ser gerenciadas na Automação do Azure usando [PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). A Automação do Azure inclui cmdlets do PowerShell do Azure, então você pode executar todas as suas tarefas de gerenciamento de máquina virtual dentro do serviço. Você também pode combinar os cmdlets na Automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
+As máquinas virtuais podem ser gerenciadas na Automação do Azure usando [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). A Automação do Azure inclui cmdlets do PowerShell do Azure, então você pode executar todas as suas tarefas de gerenciamento de máquina virtual dentro do serviço. Você também pode combinar os cmdlets na Automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
 
 
 ## Próximas etapas
@@ -42,4 +44,4 @@ Agora que você aprendeu os fundamentos da Automação do Azure e como ela pode 
 
 [Introdução à Automação do Azure](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

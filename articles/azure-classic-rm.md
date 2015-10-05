@@ -1,21 +1,21 @@
 <properties
    pageTitle="Modos de implantação do Gerenciador de Recursos e Gerenciamento de serviços (clássico) | Azure"
-	description="Entenda as diferenças entre os modelos de implantação do Gerenciador de Recursos e do clássico."
-	services="virtual-network"
-	documentationCenter=""
-	authors="telmosampaio"
-	manager="carolz"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   description="Entenda as diferenças entre os modelos de implantação do Gerenciador de Recursos e do clássico."
+   services="virtual-network"
+   documentationCenter=""
+   authors="telmosampaio"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/14/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/14/2015"
+   ms.author="telmos"/>
 
 # Modelos de implantação do Azure
 
@@ -65,7 +65,7 @@ Você pode criar e configurar recursos do Azure de computadores com Windows, OS 
 ## Próximas etapas
 
 - Saiba mais sobre o [Gerenciador de Recursos](/resource-group-overview.md).
-- Entenda como [criar modelos](/best-practices-resource-manager-design-templates/md).
-- Use as [práticas recomendadas](best-practices-resource-manager-examples.md)
+- Entenda como [criar modelos](/best-practices-resource-manager-design-templates.md).
+- Use as [práticas recomendadas](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

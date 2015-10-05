@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Anexar um disco a uma máquina virtual que executa Linux"
-	description="Saiba como anexar um disco de dados a uma máquina virtual Azure e inicializá-lo para que ele fique pronto para uso."
+	pageTitle="Anexar um disco a uma VM do Linux | Microsoft Azure"
+	description="Saiba como anexar um disco de dados a uma máquina virtual do Linux que executa o Azure e inicializá-lo para que esteja pronto para uso."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Como anexar um disco de dados na máquina virtual Linux
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como anexar um disco com o modelo de implantação clássico.
 
 Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo. Este artigo se refere a máquinas virtuais criadas usando o modelo de implantação clássica.
 
@@ -45,7 +47,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 
 	OU
 
-	b) Use o comando `lsscsi` para descobrir a ID do dispositivo. `lsscsi` pode ser instalado por um `yum install lsscsi` (no Red Hat com base em distribuições) ou `apt-get install lsscsi` (no Debian com base em distribuições). Você pode encontrar o disco que está procurando pelo seu _lun_ ou **número de unidade lógica**. Por exemplo, o _lun_ para os discos que você anexou pode ser facilmente visto de `azure vm disk list <virtual-machine>` como:
+	b) Use o comando `lsscsi` para descobrir a ID do dispositivo. O `lsscsi` pode ser instalado pelo `yum install lsscsi` (distribuições baseadas no Red Hat) ou pelo `apt-get install lsscsi` (distribuições baseadas no Debian). É possível encontrar o disco que está procurando pelo seu _lun_ ou **número de unidade lógica**. Por exemplo, o _lun_ dos discos que você anexou pode ser facilmente visto por meio do `azure vm disk list <virtual-machine>` como:
 
 			~$ azure vm disk list ubuntuVMasm
 			info:    Executing command vm disk list
@@ -69,7 +71,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
 			[5:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sde
 
-	O último número na tupla em cada linha é o _lun_. Consulte `man lsscsi` para obter mais informações.
+	O último número na tupla em cada linha é o _lun_. Veja `man lsscsi` para obter mais informações.
 
 3. Na janela SSH, digite o seguinte comando para criar um novo dispositivo e, em seguida, digite a senha da conta:
 
@@ -83,7 +85,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 
 	![Criar novo dispositivo](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. Quando solicitado, digite **p** para definir a partição primária, digite **1** para torná-la a primeira partição e digite enter para aceitar o valor padrão para o cilindro.
+5. Quando solicitado, digite **p** para definir a partição como a partição primária, digite **1** para torná-la a primeira partição e digite Enter para aceitar o valor padrão para o cilindro.
 
 
 	![Criar partição](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -171,4 +173,4 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

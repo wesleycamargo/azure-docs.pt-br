@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como instalar e configurar o Symantec Endpoint Protection em uma VM do Azure"
-	description="Descreve como instalar e configurar a extensão de segurança Symantec Endpoint Protection em uma VM nova ou existente no Azure"
+	pageTitle="Instalar o Symantec Endpoint Protection em uma VM | Microsoft Azure"
+	description="Saiba como instalar e configurar a extensão de segurança do Symantec Endpoint Protection em uma VM do Azure nova ou existente criada com o modelo clássico de implantação."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,7 +19,9 @@
 
 # Como instalar e configurar o Symantec Endpoint Protection em uma VM do Azure
 
-Este artigo mostra como instalar e configurar o cliente do Symantec Endpoint Protection em uma VM (máquina virtual) nova ou existente com o Windows Server em execução. Trata-se do cliente completo, que inclui serviços como proteção contra vírus e spyware, firewall e prevenção de intrusão. Observe que este artigo se refere a máquinas virtuais criadas usando o modelo de implantação clássica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como instalar aplicativos em uma máquina virtual criada com o modelo de implantação clássico.
+
+Este artigo mostra como instalar e configurar o cliente do Symantec Endpoint Protection em uma VM (máquina virtual) nova ou existente com o Windows Server em execução. Trata-se do cliente completo, que inclui serviços como proteção contra vírus e spyware, firewall e prevenção de intrusão.
 
 O cliente é instalado como uma extensão de segurança usando-se o Agente de VM. Em uma máquina virtual nova, você instalará o agente com o cliente do ponto de extremidade. Em uma máquina virtual existente sem o agente, você precisará baixar e instalá-lo primeiro. Este artigo aborda ambas as situações.
 
@@ -95,4 +97,4 @@ Para verificar se a extensão de segurança Symantec foi instalada e está atual
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

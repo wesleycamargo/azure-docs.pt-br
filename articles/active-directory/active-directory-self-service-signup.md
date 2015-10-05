@@ -1,11 +1,11 @@
 <properties
-	pageTitle="O que é a inscrição no Azure por autoatendimento?"
+	pageTitle="O que é a inscrição no Azure por autoatendimento? | Microsoft Azure"
 	description="Uma visão geral da inscrição por autoatendimento no Azure, como gerenciar o processo de inscrição e como ."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="08/14/2015" 
+	ms.date="09/21/2015"
 	ms.author="stevenpo"/>
 
 
@@ -30,43 +30,41 @@ Este tópico explica o processo de inscrição por autoatendimento (também conh
 
 ## Termos e definições
 
-+ **Inscrição por autoatendimento**: esse é o método pelo qual um usuário se inscreve em um serviço de nuvem e tem uma identidade automaticamente criada para ele no Active Directory do Azure, com base no seu domínio de email.
++ **Inscrição por autoatendimento**: esse é o método pelo qual um usuário se inscreve em um serviço de nuvem e tem uma identidade automaticamente criada para ele no Active Directory (AD) do Azure, com base no seu domínio de email.
 + **Locatário do Azure não gerenciado**: este é o diretório onde essa identidade é criada. Um locatário não gerenciado é um diretório sem nenhum administrador global.
 + **Usuário verificado por email**: Este é um tipo de conta de usuário no AD do Azure. Um usuário que tem uma identidade criada automaticamente após a inscrição para uma oferta de autoatendimento é conhecido como um usuário verificado por email. Um usuário verificadas por email é um membro comum de um diretório marcado com creationmethod=EmailVerified.
 
-## Experiência do cliente
-
-### Experiência do usuário
+## Experiência do usuário
 
 Por exemplo, digamos que um usuário cujo email é Dan@BellowsCollege.com recebe arquivos confidenciais por email. Os arquivos foram protegidos pelo Azure RMS (Azure Rights Management). Mas a organização de Dan, a faculdade Bellows, não se inscreveu para o Azure RMS, nem implantou o RMS do Active Directory. Nesse caso, Dan pode se inscrever para uma assinatura gratuita do RMS para indivíduos, para que possa ler os arquivos protegidos.
 
 Se Dan for o primeiro usuário com um endereço de email de BellowsCollege.com a inscrever-se nessa oferta por autoatendimento, será criado um locatário não gerenciado para BellowsCollege.com no AD do Azure. Se outros usuários do domínio BellowsCollege.com tiverem se inscrito nessa oferta ou em outra oferta por autoatendimento semelhante, eles também terão contas de usuário verificadas por email criadas no mesmo locatário não gerenciado no Azure.
 
-### Experiência de admin
+## Experiência de admin
 
 Um administrador que possui o nome de domínio DNS de um locatário do Azure não gerenciado pode assumir ou mesclar o locatário depois de comprovar a propriedade. As próximas seções explicam a experiência de administração mais detalhadamente, mas aqui está um resumo:
 
 - Ao assumir um locatário não gerenciado do Azure, você simplesmente se torna o administrador global do locatário não gerenciado. Isso às vezes é chamado de uma tomada de controle interna.
 - Quando você mescla um locatário do Azure não gerenciado, você adiciona o nome de domínio DNS do locatário não gerenciado em seu locatário gerenciado do Azure e um mapeamento de usuários a recursos é criado, assim os usuários podem continuar acessar os serviços sem interrupção. Isso às vezes é chamado de uma tomada de controle externa.
 
-### O que é criado no diretório Microsoft Azure?
+## O que é criado no Active Directory do Azure?
 
 #### Locatário
 
-- É criado um locatário do Azure por domínio.
-- O diretório de locatário do Azure não tem nenhum administrador global.
+- Um locatário do Active Directory do Azure é criado para o domínio, sendo um locatário por domínio.
+- O diretório de locatário do AD do Azure não tem nenhum administrador global.
 
 #### Usuários
 
-- Para cada usuário que se inscreve, um objeto de usuário é criado no locatário do Azure.
+- Para cada usuário que se inscreve, um objeto de usuário é criado no locatário do AD do Azure.
 - Cada objeto de usuário é marcado como viral.
 - Cada usuário recebe acesso ao serviço para o qual se inscreveu.
 
-### Como reivindico um locatário por autoatendimento do Azure para um domínio que possuo?
+### Como reivindico um locatário por autoatendimento do AD do Azure para um domínio que possuo?
 
-Você pode reivindicar um locatário Azure autoatendimento executando a validação de domínio. A validação de domínio prova, por meio de criação de registros DNS, que você possui o domínio.
+Você pode reivindicar um locatário de autoatendimento do AD do Azure executando a validação de domínio. A validação de domínio prova, por meio de criação de registros DNS, que você possui o domínio.
 
-Há duas maneiras de tomar o controle do DNS de um locatário do Azure:
+Há duas maneiras de tomar o controle do DNS de um locatário do AD do Azure:
 
 - tomada de controle interna (o admin descobre um locatário não gerenciado do Azure e deseja transformá-lo em um locatário gerenciado)
 - tomada de controle externa (o admin tenta adicionar um novo domínio a seu locatário gerenciado do Azure)
@@ -234,4 +232,4 @@ Para obter mais informações e exemplos de como usar esses parâmetros, consult
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

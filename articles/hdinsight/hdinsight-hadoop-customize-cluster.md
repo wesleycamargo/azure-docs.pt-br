@@ -92,7 +92,9 @@ Há dois tipos de componentes de software livre disponíveis no serviço HDInsig
 
 Componentes internos são totalmente compatíveis e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
 
-Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Ou seja, talvez você tenha que resolver o problema sozinho ou contatar os canais disponíveis para a obtenção das competências especializadas nessas tecnologias de software livre. Por exemplo, há muitos sites de comunidades que podem ser usados, como o <a href ="https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight" target="_blank">Fórum do MSDN para o HDInsight</a> e o <a href="http://stackoverflow.com" target="_blank">Stack Overflow</a>. Além disso, projetos Apache têm sites de projetos em <a href="http://apache.org" target="_blank">Apache.org</a>; por exemplo, <a href="http://hadoop.apache.org/" target="_blank">Hadoop</a> e <a href="http://spark.apache.org/" target="_blank">Spark</a>.
+> [AZURE.WARNING]Há suporte total a componentes fornecidos com o cluster HDInsight e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
+>
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=hdinsight) e [http://stackoverflow.com](http://stackoverflow.com). Além disso, projetos Apache têm sites de projetos em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
 
 O serviço HDInsight possibilita o uso de componentes personalizados de várias formas. Seja como for usado ou instalado em um cluster, o mesmo nível de suporte se aplica ao componente. Mostramos, a seguir, uma lista das formas mais comuns de usar os componentes personalizados em clusters HDInsight:
 
@@ -123,4 +125,4 @@ Confira [Desenvolver scripts de Ação de Script para o HDInsight][hdinsight-wri
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Estágios durante o provisionamento de cluster"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

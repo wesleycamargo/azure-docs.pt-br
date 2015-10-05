@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="09/23/2015"
 	ms.author="larryfr"/>
 
 
@@ -48,9 +48,9 @@ O fluxo de trabalho que você vai implementar seguindo as instruções neste doc
 
 1. Uma ação do Hive executa um script HiveQL para extrair os registros de **hivesampletable** incluídos com o HDInsight. Cada linha de dados descreve uma visita de um dispositivo móvel específico. O formato de registro é semelhante ao seguinte:
 
-		8       18:54:20        pt-br   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        pt-br   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        pt-br   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        PT-BR   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        PT-BR   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        PT-BR   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	O script do Hive usado neste documento conta o total de visitas para cada plataforma (como Android ou iPhone) e armazena as contagens em uma nova tabela Hive.
 
@@ -715,7 +715,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/pt-br/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/PT-BR/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -725,4 +725,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

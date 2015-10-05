@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como alterar a letra da unidade do disco temporário do Windows"
-	description="Descreve como remapear o disco temporário em uma VM baseada em Windows no Azure"
+	pageTitle="Como posso alterar a letra da unidade do disco temporário? | Microsoft Azure"
+	description="Altere a letra da unidade do disco temporário em uma máquina virtual Windows criada com o modelo de implantação clássica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn
@@ -18,7 +18,9 @@
 	ms.date="05/27/2015"
 	ms.author="cynthn"/>
 
-#Como alterar a letra da unidade do disco temporário do Windows
+#Alterar a letra da unidade do disco temporário do Windows em uma máquina virtual criada com o modelo de implantação clássica
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
 
 Se você precisar usar a unidade D para armazenar dados, siga estas instruções para usar uma unidade diferente para o disco temporário. Nunca use o disco temporário para armazenar os dados que você precisa manter.
 
@@ -26,7 +28,9 @@ Antes de começar, você precisará de um disco de dados anexado à máquina vir
 
 Se você quiser usar um disco de dados existente na unidade D, verifique se que você carregou também o VHD para a conta de Armazenamento. Para obter instruções, consulte as etapas 3 e 4 em [Criar e carregar um VHD do Windows Server no Azure][VHD].
 
-> [AZURE.WARNING]Se você redimensionar uma máquina virtual e, ao fazer isso, a máquina virtual se mover para um host diferente, o disco temporário será alterado de volta para a unidade D.
+> [AZURE.WARNING]Se você redimensionar ou "Parar (desalocar)" uma máquina virtual, isso pode disparar o posicionamento da máquina virtual para um novo hipervisor. Um evento de manutenção planejada ou não planejada também pode disparar esse posicionamento. Nesse cenário, o disco temporário será reatribuído à primeira letra da unidade disponível. Se você tiver um aplicativo que requer especificamente a unidade "D", certifique-se de que, depois de mover o arquivo de paginação, você atribui um novo disco persistente e ele recebe a letra D. O Azure não aceitará a letra D de volta.
+
+> [AZURE.WARNING]Se você redimensionar uma máquina virtual depois de mover explicitamente o arquivo de paginação, observe que você pode encontrar um erro na inicialização se o disco temporário da nova máquina virtual não for grande o suficiente para conter o arquivo de paginação do tamanho da VM original. Você também poderá encontrar este erro se o disco temporário não for definido para a próxima letra da unidade disponível, fazendo com que o Windows referencie uma letra da unidade inválida na configuração do arquivo de paginação enquanto o Azure cria a unidade temporária com a próxima letra da unidade disponível.
 
 ##Alterar a letra da unidade
 
@@ -45,6 +49,10 @@ Se você quiser usar um disco de dados existente na unidade D, verifique se que 
 7.	Verifique se E está mapeada para o disco temporário.
 
 8.	Mova pagefile.sys da outra unidade para a unidade E.
+
+9.	Reinicie a máquina virtual.
+
+
 
 ## Recursos adicionais
 [Como fazer logon em uma máquina virtual executando o Windows Server][Logon]
@@ -66,4 +74,4 @@ Se você quiser usar um disco de dados existente na unidade D, verifique se que 
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

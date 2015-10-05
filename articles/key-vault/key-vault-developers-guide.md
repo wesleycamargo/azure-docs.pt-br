@@ -1,19 +1,19 @@
 <properties
    pageTitle="Guia do desenvolvedor do Cofre da Chave | Microsoft Azure"
-	description="Os desenvolvedores podem usar o Cofre da Chave do Azure para gerenciar chaves de criptografia no ambiente do Microsoft Azure."
-	services="key-vault"
-	documentationCenter=""
-	authors="BrucePerlerMS"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="Os desenvolvedores podem usar o Cofre da Chave do Azure para gerenciar chaves de criptografia no ambiente do Microsoft Azure."
+   services="key-vault"
+   documentationCenter=""
+   authors="BrucePerlerMS"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="key-vault"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/11/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/22/2015"
+   ms.author="mbaldwin" />
 
 # Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -55,11 +55,11 @@ As chaves do Cofre da Chave do Azure também podem ser gerenciadas usando o Powe
 
 - [Criar e gerenciar Cofres das Chaves com o PowerShell](key-vault-get-started.md)
 - [Criar e gerenciar Cofres das Chaves com a CLI](key-vault-manage-with-cli.md)
-- [Como gerar e transferir chaves protegidas por HSM para o cofre da chave do Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx)
+- [Como gerar e transferir chaves protegidas por HSM para o cofre da chave do Azure](key-vault-hsm-protected-keys.md)
 - [Sobre chaves e segredos](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ## Consulte também
 
 - [Exemplos de código de Cofre da Chave do Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

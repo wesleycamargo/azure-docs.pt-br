@@ -1,21 +1,21 @@
 <properties
    pageTitle="Diretrizes e limitações do Banco de Dados SQL do Azure | Microsoft Azure"
-	description="Saiba mais sobre as Limitações e diretrizes de Banco de dados SQL do Microsoft Azure relacionadas à segurança."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""
-	tags=""/>
+   description="Saiba mais sobre as Limitações e diretrizes de Banco de dados SQL do Microsoft Azure relacionadas à segurança."
+   services="sql-database"
+   documentationCenter=""
+   authors="BYHAM"
+   manager="jeffreyg"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="08/20/2015"
-	ms.author="rickbyh"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="08/20/2015"
+   ms.author="rickbyh"/>
 
 # Limitações e diretrizes de segurança de Banco de Dados SQL do Azure
 
@@ -45,9 +45,9 @@ Para obter mais informações técnicas, consulte [Segurança de conexão de ban
 
 ## Autenticação
 
-O Banco de dados SQL só oferece suporte a autenticação do SQL Server. Não há suporte para a autenticação do Windows (segurança integrada). Os usuários devem fornecer credenciais (login e senha) toda vez que se conectarem ao Banco de Dados SQL. Para obter mais informações sobre autenticação do SQL Server, consulte [Escolha de um modo de autenticação](https://msdn.microsoft.com/library/ms144284.aspx) nos Manuais Online do SQL Server.
+A autenticação do Active Directory (segurança integrada) está disponível como uma visualização no Banco de Dados SQL V12. Para obter mais informações sobre como configurar a autenticação do AD, veja [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md). Quando não estiverem usando a visualização, os usuários devem fornecer credenciais (logon e senha) sempre que se conectarem ao Banco de Dados SQL. Para obter mais informações sobre a Autenticação do SQL Server, veja [Escolhendo um modo de autenticação](https://msdn.microsoft.com/library/ms144284.aspx) nos Manuais Online do SQL Server.
 
-O [Banco de dados SQL V12](sql-database-v12-whats-new.md) permite que os usuários se autentifiquem no banco de dados usando usuários do banco de dados independente. Para obter mais informações, consulte [Usuários do Banco de dados Independente - Tornado portátil o banco de dados](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), e [Bancos de dados independentes](https://technet.microsoft.com/library/ff929071.aspx).
+O [Banco de dados SQL V12](sql-database-v12-whats-new.md) permite que os usuários façam a autenticação no banco de dados usando os usuários do banco de dados independente. Para obter mais informações, veja [Usuários do banco de dados independente – Tornando portátil o banco de dados](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) e [Bancos de dados independentes](https://technet.microsoft.com/library/ff929071.aspx).
 
 > [AZURE.NOTE]A Microsoft recomenda usar usuários de banco de dados independentes para melhorar a escalabilidade.
 
@@ -62,18 +62,18 @@ Ao gerenciar logons e usuários no banco de dados SQL, há restrições.
 Para o logon principal no nível de servidor, as seguintes restrições se aplicam:
 
 - O usuário de banco de dados no banco de dados mestre correspondente para o logon principal no nível de servidor não pode ser alterado ou descartado. 
-- Embora o logon principal no nível de servidor não seja um membro das duas funções de banco de dados, **dbmanager** e **loginmanager**, no banco de dados **mestre**, ele tem todas as permissões concedidas para essas duas funções.
+- Embora o logon na entidade de segurança no nível do servidor não seja um membro das duas funções de banco de dados, **dbmanager** e **loginmanager**, no banco de dados **mestre**, ele tem todas as permissões concedidas para essas duas funções.
 
 > [AZURE.NOTE]Esse logon é criado durante o provisionamento do servidor e é semelhante ao logon **sa** em uma instância do SQL Server.
 
 Para todos os logons, as seguintes restrições se aplicam:
 
 - Inglês é o idioma padrão.
-- Para acessar o banco de dados **mestre**, cada logon deve ser mapeado para uma conta de usuário no banco de dados **mestre**. O banco de dados **mestre** não oferece suporte aos usuários de banco de dados independente.
+- Para acessar o banco de dados **mestre**, cada logon deve ser mapeado para uma conta de usuário no banco de dados **mestre**. O banco de dados **mestre** não dá suporte aos usuários de banco de dados independente.
 - Se você não especificar um banco de dados na cadeia de conexão, você será conectado ao banco de dados **mestre** por padrão.
 - Você deve estar conectado ao banco de dados **mestre** ao executar as instruções ``CREATE/ALTER/DROP LOGIN`` e ``CREATE/ALTER/DROP DATABASE``. 
-- Ao executar as instruções ``CREATE/ALTER/DROP LOGIN`` e ``CREATE/ALTER/DROP DATABASE`` em um aplicativo ADO.NET, o uso de comandos parametrizados não está permitido. Para obter mais informações, consulte [Comandos e parâmetros](https://msdn.microsoft.com/library/ms254953.aspx).
-- Ao executar as instruções ``CREATE/ALTER/DROP DATABASE`` e ``CREATE/ALTER/DROP LOGIN``, cada uma dessas instruções deve ser a única instrução em um lote de Transact-SQL. Caso contrário, ocorrerá um erro. Por exemplo, o Transact-SQL a seguir verifica se o banco de dados existe. Se ele existir, uma instrução ``DROP DATABASE`` é chamada para remover o banco de dados. Como a instrução ``DROP DATABASE`` não é a única instrução no lote, a execução da seguinte instrução Transact-SQL resultará em um erro.
+- Ao executar as instruções ``CREATE/ALTER/DROP LOGIN`` e ``CREATE/ALTER/DROP DATABASE`` em um aplicativo do ADO.NET, o uso de comandos parametrizados não é permitido. Para obter mais informações, veja [Comandos e parâmetros](https://msdn.microsoft.com/library/ms254953.aspx).
+- Ao executar as instruções ``CREATE/ALTER/DROP DATABASE`` e ``CREATE/ALTER/DROP LOGIN``, cada uma dessas instruções deve ser a única instrução em um lote do Transact-SQL. Caso contrário, ocorrerá um erro. Por exemplo, o Transact-SQL a seguir verifica se o banco de dados existe. Se ele existir, uma instrução ``DROP DATABASE`` é chamada para remover o banco de dados. Como a instrução ``DROP DATABASE`` não é a única instrução no lote, a execução da seguinte instrução Transact-SQL resultará em um erro.
 
 ```
 IF EXISTS (SELECT [name]
@@ -83,20 +83,20 @@ IF EXISTS (SELECT [name]
 GO
 ```
 
-- Ao executar a instrução ``CREATE USER`` com a opção ``FOR/FROM LOGIN``, deve ser a única instrução em um lote de Transact-SQL.
-- Ao executar a instrução ``ALTER USER`` com a opção ``WITH LOGIN``, deve ser a única instrução em um lote de Transact-SQL.
-- Somente o logon principal no nível de servidor e os membros da função **dbmanager** do banco de dados no banco de dados **mestre** têm permissão para executar as instruções ``CREATE DATABASE`` e ``DROP DATABASE``.
-- Somente o logon principal no nível de servidor e os membros da função **loginmanager** do banco de dados no banco de dados **mestre** têm permissão para executar as instruções ``CREATE LOGIN``, ``ALTER LOGIN`` e ``DROP LOGIN``.
-- Para ``CREATE/ALTER/DROP`` um usuário requer a permissão ``ALTER ANY USER`` no banco de dados.
-- Quando o proprietário de uma função de banco de dados tenta adicionar ou remover outro usuário de banco de dados de ou para aquela função de banco de dados, pode ocorrer o seguinte erro: **usuário ou função 'Name' não existe neste banco de dados.** Esse erro ocorre porque o usuário não está visível para o proprietário. Para resolver esse problema, conceda ao proprietário da função a permissão ``VIEW DEFINITION`` no usuário. 
+- Ao executar a instrução ``CREATE USER`` com a opção ``FOR/FROM LOGIN``, ela deve ser a única instrução em um lote do Transact-SQL.
+- Ao executar a instrução ``ALTER USER`` com a opção ``WITH LOGIN``, ela deve ser a única instrução em um lote do Transact-SQL.
+- Somente o logon na entidade de segurança no nível do servidor e os membros da função **dbmanager** do banco de dados no banco de dados **mestre** têm permissão para executar as instruções ``CREATE DATABASE`` e ``DROP DATABASE``.
+- Somente o logon na entidade de segurança no nível do servidor e os membros da função **loginmanager** do banco de dados no banco de dados **mestre** têm permissão para executar as instruções ``CREATE LOGIN``, ``ALTER LOGIN`` e ``DROP LOGIN``.
+- Para o ``CREATE/ALTER/DROP``, um usuário requer a permissão ``ALTER ANY USER`` no banco de dados.
+- Quando o proprietário de uma função de banco de dados tenta adicionar ou remover outro usuário de banco de dados de ou para essa função de banco de dados, pode ocorrer o seguinte erro: **O usuário ou a função “Nome” não existe neste banco de dados.** Esse erro ocorre porque o usuário não está visível para o proprietário. Para resolver esse problema, conceda ao proprietário da função a permissão ``VIEW DEFINITION`` no usuário. 
 
-Para saber mais sobre a logons e usuários, consulte [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
+Para obter mais informações sobre logons e usuários, veja [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
 
 ## Práticas recomendadas de segurança
 
 Considere os seguintes pontos para tornar seus aplicativos de Banco de dados SQL do Azure menos vulneráveis a ameaças de segurança:
 
-- Use sempre as atualizações mais recentes: ao se conectar ao banco de dados SQL, sempre use a versão mais recente das ferramentas e bibliotecas para evitar vulnerabilidades de segurança. Para obter mais informações sobre quais ferramentas e bibliotecas têm suporte, consulte [Limitações e diretrizes do Banco de dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee336245.aspx).
+- Use sempre as atualizações mais recentes: ao se conectar ao banco de dados SQL, sempre use a versão mais recente das ferramentas e bibliotecas para evitar vulnerabilidades de segurança. Para obter mais informações sobre quais ferramentas e bibliotecas têm suporte, veja [Limitações e diretrizes gerais do Banco de dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee336245.aspx).
 - Bloquear conexões de entrada na porta TCP 1433: somente conexões de saída na porta TCP 1433 são necessárias para os aplicativos que se comunicam com o banco de dados SQL. Se as comunicações de entrada não são necessárias em outros aplicativos no computador, certifique-se de que o firewall continue a bloquear conexões de entrada na porta TCP 1433.
 - Evite vulnerabilidades de injeção: para certificar-se de que seus aplicativos não tenham vulnerabilidades de injeção de SQL, use consultas parametrizadas onde possível. Além disso, certifique-se de revisar o código cuidadosamente e executar um teste de penetração antes de implantar seu aplicativo.
 
@@ -111,4 +111,4 @@ Considere os seguintes pontos para tornar seus aplicativos de Banco de dados SQL
 
 [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

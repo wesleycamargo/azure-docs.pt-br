@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Gerenciar suas VMs do Azure usando a CLI do Azure para Mac, Linux e Windows | Microsoft Azure"
-   description="Descreve como criar, gerenciar e excluir suas VMs do Azure usando a CLI do Azure para Mac, Linux e Windows."
+   pageTitle="Gerenciar suas VMs do Azure usando a CLI do Azure | Microsoft Azure"
+   description="Descreve como gerenciar suas VMs do Azure usando a CLI do Azure para Mac, Linux e Windows."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="danlep"/>
 
 # Gerenciar suas máquinas virtuais usando a CLI do Azure para Mac, Linux e Windows
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso criado com o modelo de implantação clássico. Você também pode gerenciar um recurso criado com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-how-to-automate-azure-resource-manager.md).
 
 Muitas tarefas realizadas diariamente para gerenciar suas VMs podem ser automatizadas usando a CLI do Azure. Este artigo fornece comandos de exemplo para tarefas mais simples e links para artigos que mostram os comandos para tarefas mais complexas.
 
@@ -79,6 +82,5 @@ Para criar uma nova VM baseada no Linux, você precisará ter vários valores à
 ## Próximas etapas
 
 Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, consulte [Usando a CLI do Microsoft Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-resource-manager.md). Para saber mais sobre recursos do Azure e seus conceitos, consulte [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

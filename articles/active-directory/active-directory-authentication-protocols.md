@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Protocolos de autenticação do Azure Active Directory"
+   pageTitle="Protocolos de Autenticação do Active Directory do Azure | Microsoft Azure"
    description="Uma visão geral dos protocolos de autenticação suportados pelo Azure Active Directory (AD)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Protocolos de autenticação do Azure Active Directory
@@ -55,4 +55,4 @@ O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos 
 
 [Exemplos de código do Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

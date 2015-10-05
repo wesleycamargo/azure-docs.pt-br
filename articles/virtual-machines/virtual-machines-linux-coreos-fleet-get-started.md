@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introdução ao Fleet no CoreOS no Azure"
-	description="Fornece exemplos básicos do uso de fleet e Docker em uma máquina virtual de CoreOS Linux no Azure."
+	pageTitle="Introdução ao Fleet no CoreOS | Microsoft Azure"
+	description="Fornece exemplos básicos do uso de fleet e Docker em uma máquina virtual de CoreOS Linux criada com o modelo de implantação clássico no Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,6 +18,8 @@
 	ms.author="danlep"/>
 
 # Introdução ao Fleet no CoreOS no Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso com o modelo de implantação clássico.
 
 Este artigo oferece dois exemplos rápidos de uso do [fleet](https://github.com/coreos/fleet) e do [Docker](https://www.docker.com/) para executar aplicativos em um cluster de máquinas virtuais do [CoreOS].
 
@@ -173,4 +175,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [imagem do Docker Hub do CoreOS Apache]: https://registry.hub.docker.com/u/coreos/apache/
 [Computação de software livre e do Linux no Azure]: virtual-machines-linux-opensource.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

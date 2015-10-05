@@ -3,7 +3,7 @@
    description="Uma visão geral da função de Porcentagem de Buffer do Nó no Balanceador de Recursos"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Visão geral da Porcentagem de Buffer do Nó
 
@@ -47,4 +47,4 @@ Se o valor não for especificado nessa seção, 0 será usado como o valor padr�
 Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

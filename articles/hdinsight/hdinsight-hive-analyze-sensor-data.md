@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015" 
+	ms.date="09/23/2015" 
 	ms.author="larryfr"/>
 
 #Analisar dados de sensor usando o Console de consulta Hive no Hadoop HDInsight
@@ -38,7 +38,7 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]O Microsoft Excel é usado para visualização de dados no [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=pt-br&rs=pt-br&ad=US).
+	> [AZURE.NOTE]O Microsoft Excel é usado para visualização de dados no [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=PT-BR&rs=PT-BR&ad=US).
 
 * [Driver ODBC do Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -54,4 +54,4 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

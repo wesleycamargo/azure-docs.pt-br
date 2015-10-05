@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Visão geral do Barramento de Serviço AMQP (Java) | Microsoft Azure" 
-	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 no Azure." 
+	description="Saiba como usar Java com o Advanced Message Queuing Protocol (AMQP) 1.0 no Azure." 
 	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
@@ -99,4 +99,4 @@ Para saber mais sobre como obter e usar essas bibliotecas com o Barramento de Se
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

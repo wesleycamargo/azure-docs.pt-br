@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/21/2015"   
 	ms.author="juliako"/>
 
 
@@ -29,12 +29,11 @@ O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arqui
 >[AZURE.IMPORTANT]Quanto a indexação de conteúdo, certifique-se de usar os arquivos de mídia com fala muito clara (sem música em segundo plano, ruído, efeitos ou assovio no microfone). Alguns exemplos de conteúdo apropriado são: reuniões, palestras e apresentações registradas. O seguinte conteúdo pode não ser adequado para indexação: filmes, programas de TV, tudo com áudio misto e efeitos de som, com conteúdo mal gravado com ruídos de fundo (assovio).
 
 
-Um trabalho de indexação gera quatro saídas para todo arquivo de indexação:
+Um trabalho de indexação gera as seguintes saídas:
 
-- Arquivo de legenda codificada no formato SAMI.
-- Arquivo de legenda codificada no formato de linguagem de marcação de texto temporizada (TTML).
+- Arquivos de legenda nos seguintes formatos: **SAMI**, **TTML** e **WebVTT**.
 
-	O SAMI e TTML incluem uma marca chamada Recognizability, que classifica um trabalho de indexação com base em o quanto a fala é reconhecível no vídeo de origem. Você pode usar o valor de Recognizability para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.
+	Arquivos de legenda incluem uma marca chamada Recognizability, que classifica um trabalho de indexação com base no quanto a fala é reconhecível no vídeo de origem. Você pode usar o valor de Recognizability para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.
 - Arquivo de palavra-chave (XML).
 - Áudio de indexação de arquivo de blob (AIB) para uso com o SQL Server.
 	
@@ -43,7 +42,7 @@ Um trabalho de indexação gera quatro saídas para todo arquivo de indexação:
 
 Este tópico mostra como criar trabalhos de indexação **Indexar um ativo** e **Indexar vários arquivos**.
 
-Para as atualizações mais recentes do indexador de mídia do Azure, consulte [blogs dos Serviços de Mídia](http://azure.microsoft.com/blog/topics/media-services/).
+Para as atualizações mais recentes do indexador de mídia do Azure, consulte [blogs dos serviços de mídia](http://azure.microsoft.com/blog/topics/media-services/).
 
 ##Usando arquivos de configuração e de manifesto para tarefas de indexação
 
@@ -164,11 +163,11 @@ Para baixar o complemento, clique em Complemento de SQL do <a href="http://aka.m
 <br/><br/>
 Também é possível utilizar outros mecanismos de pesquisa, como o Apache Lucene/Solr para indexar apenas vídeo com base na legenda codificada e arquivos XML de palavra-chave, mas isso resulta em resultados de pesquisa menos precisos.</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
-<td>Arquivos de legenda (CC) nos formatos SAMI e TTML.
+<td>Arquivos de legenda (CC) nos formatos SAMI, TTML e WebVTT.
 <br/><br/>
 Eles podem ser usados para tornar os arquivos de áudio e vídeo acessíveis para pessoas com deficiência auditiva.
 <br/><br/>
-O SAMI e TTML incluem uma marca chamada <b>Recognizability</b>, que classifica um trabalho de indexação com base em o quanto a fala é reconhecível no vídeo de origem. Você pode usar o valor de <b>Recognizability</b> para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.</td></tr>
+Arquivos de legenda incluem uma marca chamada <b>Recognizability</b>, que classifica um trabalho de indexação com base no quanto a fala é reconhecível no vídeo de origem. Você pode usar o valor de <b>Recognizability</b> para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.</td></tr>
 <tr><td>InputFileName.kw.xml</td>
 <td>Arquivo de palavra-chave.
 <br/><br/>
@@ -261,7 +260,7 @@ Um arquivo de manifesto com a extensão .lst é criado e carregado para o ativo.
 
 ###Arquivos de saída
 
-Quando houver mais de um arquivo de mídia de entrada, o WAMI gerará um arquivo de manifesto para as saídas de trabalho, chamado 'JobResult.txt'. Para cada mídia de entrada de arquivo, o AIB, SAMI, TTML e arquivos de palavra-chave resultantes são numerados em sequência, como listado abaixo.
+Quando houver mais de um arquivo de mídia de entrada, o WAMI gerará um arquivo de manifesto para as saídas de trabalho, chamado 'JobResult.txt'. Para cada mídia de entrada de arquivo, os arquivos AIB, SAMI, TTML, WebVTT e arquivos de palavra-chave resultantes são numerados em sequência, como listado abaixo.
 
 Para obter descrições dos arquivos de saída, consulte [Arquivos de saída](#output_files).
 
@@ -292,7 +291,7 @@ Error: indica se este arquivo de mídia é indexado com êxito. 0 para êxito, c
 <tr><td>Media_1.aib </td>
 <td>Arquivo #0 - indexação de áudio de arquivo de blob.</td></tr>
 <tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>Arquivo #0 - Legenda (CC) de arquivos nos formatos SAMI e TTML.</td></tr>
+<td>Arquivo #0 - arquivos de legenda (CC) nos formatos SAMI, TTML e WebVTT.</td></tr>
 <tr><td>Media_1.kw.xml</td>
 <td>Arquivo #0 - arquivo de palavra-chave.</td></tr>
 <tr><td>Media_2.aib </td>
@@ -306,10 +305,10 @@ Se nem todos os arquivos de mídia de entrada são indexados com êxito, o traba
 Se nem todos os arquivos de mídia de entrada são indexados com êxito, o trabalho de indexação falhará com o código de erro 4000. Para obter mais informações, consulte [Códigos de erro](#error_codes).
 
 
-As mesmas saídas (como trabalhos com êxito) são geradas. Você pode consultar o arquivo de manifesto de saída para descobrir quais arquivos de entrada estão com falha, de acordo com os valores da coluna de erro. Para arquivos de entrada com falha, o AIB, SAMI, TTML e arquivos de palavra-chave resultantes não serão gerados.
+As mesmas saídas (como trabalhos com êxito) são geradas. Você pode consultar o arquivo de manifesto de saída para descobrir quais arquivos de entrada estão com falha, de acordo com os valores da coluna de erro. Para arquivos de entrada com falha, os arquivos AIB, SAMI, TTML, WebVTT e arquivos de palavra-chave resultantes NÃO serão gerados.
 
 
-### <a id="error_codes"></a>Códigos de erro
+### <a id="error_codes"></a>Códigos do Erro
 
 
 <table border="1">
@@ -355,4 +354,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 <!-- URLs. -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

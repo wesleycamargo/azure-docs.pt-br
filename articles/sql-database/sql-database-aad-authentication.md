@@ -204,7 +204,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 Em todos os computadores cliente, dos quais seus aplicativos ou usuários se conectam ao Banco de Dados SQL do Azure usando identidades do AD do Azure, você deve instalar o software a seguir:
 
 - .NET framework 4.6 ou posterior de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- A Biblioteca de Autenticação do Active Directory do Azure para SQL Server (**ADALSQL. DLL**) está disponível em vários idiomas (tanto x89 quanto amd64) no centro de download da [Biblioteca de Autenticação do Microsoft Active Directory para o Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+- A Biblioteca de Autenticação do Active Directory do Azure para SQL Server (**ADALSQL. DLL**) está disponível em vários idiomas (tanto x86 quanto amd64) no centro de download da [Biblioteca de Autenticação do Microsoft Active Directory para o Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 ### Ferramentas
 
@@ -252,7 +252,7 @@ Para criar um usuário de banco de dados independente baseado no AD do Azure (qu
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure\_AD\_principal\_name* pode ser o nome UPN do AD do Azure ou o nome de exibição para um aplicativo ou grupo do AD do Azure.
+*Azure\_AD\_principal\_name* pode ser o nome UPN do AD do Azure ou o nome de exibição para um grupo do AD do Azure.
 
 **Exemplos:** para criar um usuário de banco de dados independente representando um usuário de domínio federado ou gerenciado do AD do Azure:
 
@@ -268,7 +268,7 @@ Para obter mais informações sobre como criar usuários de banco de dados indep
 
 Quando você cria um usuário de banco de dados, o usuário recebe a permissão **CONNECT** e pode conectar-se ao banco de dados como um membro da função **PUBLIC**. Inicialmente, as únicas permissões disponíveis para o usuário são quaisquer permissões concedidas à função **PUBLIC** ou quaisquer permissões concedidas a quaisquer grupos do Windows dos quais esse usuário faz parte. A partir do momento que você provisionar um usuário de banco de dados independente baseado no AD do Azure, você pode conceder ao usuário permissões adicionais, do mesmo modo que você concede permissões para qualquer outro tipo de usuário. Normalmente, conceda permissões para funções de banco de dados e adicione usuários a funções. Para obter mais informações, consulte [Noções Básicas Sobre Permissões de Mecanismo de Banco de Dados](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Para obter mais informações sobre funções especiais de Banco de dados SQL, consulte [Gerenciando Bancos de Dados e Logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md). Um usuário de domínio federado que é importado para um domínio gerenciado deve usar a identidade do domínio gerenciado.
 
-> [AZURE.NOTE]Usuários do AD do Azure são marcados nos metadados do banco de dados com tipo E (EXTERNAL\_USER) e para grupos ou aplicativos com o tipo X (EXTERNAL\_GROUPS). Para obter mais informações, consulte [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> [AZURE.NOTE]Usuários do AD do Azure são marcados nos metadados do banco de dados com tipo E (EXTERNAL\_USER) e para grupos com o tipo X (EXTERNAL\_GROUPS). Para obter mais informações, consulte [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 
 ## 7\. Conectar-se ao banco de dados usando identidades do Active Directory do Azure
@@ -310,6 +310,7 @@ Para exemplos de código específicos relacionados à autenticação do AD do Az
 [CRIAR USUÁRIO (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
 <!--Image references-->
+
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
 [2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
 [3]: ./media/sql-database-aad-authentication/3admin-structure.png
@@ -320,6 +321,5 @@ Para exemplos de código específicos relacionados à autenticação do AD do Az
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
-<!--anchors-->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

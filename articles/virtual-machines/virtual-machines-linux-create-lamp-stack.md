@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Como criar uma pilha LAMP com o Microsoft Azure"
+	pageTitle="Criar uma pilha LAMP com o Azure | Microsoft Azure"
 	description="Saiba como criar uma pilha de LÂMPADA com o Microsoft Azure usando máquinas virtuais do Azure (VMs) que executam o Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,6 +21,8 @@
 
 Uma pilha “LAMP" é um grupo de software livre que é tipicamente instalado em conjunto para habilitar um servidor a hospedar sites dinâmicos e aplicativos Web. Na verdade, este termo é um acrônimo que representa o sistema operacional Linux com o servidor Web Apache. Os dados do site são armazenados em um banco de dados MySQL e o conteúdo dinâmico é processado pelo PHP.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
+
 Neste guia, vamos obter uma pilha LAMP instalada em uma imagem do Linux e implantá-la no Microsoft Azure.
 
 Você aprenderá a:
@@ -28,11 +31,11 @@ Você aprenderá a:
 -	Como preparar a máquina virtual para a pilha LAMP.
 -	Como instalar o software necessário pelo servidor LAMP na máquina virtual.
 
-Supõe-se que o leitor já tenha uma assinatura do Azure. Caso contrário, você poderá se inscrever em uma avaliação gratuita em [http://azure.microsoft.com](http://azure.microsoft.com). Se você tiver uma assinatura do MSDN, confira [Preço especial do Microsoft Azure: benefícios do MSDN, MPN, e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Para saber mais sobre o Azure, confira [o que é o Azure?](http://azure.microsoft.com/overview/what-is-azure/)
+Supõe-se que o leitor já tenha uma assinatura do Azure. Caso contrário, você poderá se inscrever em uma avaliação gratuita em [http://azure.microsoft.com](http://azure.microsoft.com). Se você tiver uma assinatura do MSDN, confira [Preço especial do Microsoft Azure: benefícios do MSDN, MPN, e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Para saber mais sobre o Azure, confira [O que é o Azure?](http://azure.microsoft.com/overview/what-is-azure/)
 
-Além deste tópico, se você já tiver uma máquina virtual e estiver apenas procurando as Noções básicas de instalação de uma pilha LAMP em diferentes distribuições do Linux, consulte [Instalar a pilha LAMP em uma máquina virtual Linux no Azure](virtual-machines-linux-install-lamp-stack.md).
+Além deste tópico, se você já tiver uma máquina virtual e estiver apenas procurando obter as noções básicas de instalação de uma pilha LAMP em diferentes distribuições do Linux, consulte [Instalar a Pilha LAMP em uma máquina virtual do Linux no Azure](virtual-machines-linux-install-lamp-stack.md).
 
-Você também pode implantar imagens da LAMP pré-configuradas do Azure Marketplace. O vídeo de 10 minutos a seguir apresenta a implantação de imagens da LAMP pré-configuradas do Azure Marketplace: (pilha da LAMP em VMs do Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
+Você também pode implantar imagens da LAMP pré-configuradas do Azure Marketplace. O vídeo de 10 minutos a seguir apresenta a implantação de imagens da LAMP pré-criadas do Azure Marketplace: (pilha LAMP em VMs do Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##Fase 1: Criar uma imagem
 Nesta fase, você criará a máquina virtual usando uma imagem do Linux no Azure.
@@ -42,7 +45,7 @@ O SSH é uma ferramenta importante para os administradores do sistema. No entant
 
 Siga estas etapas para gerar a chave de autenticação SSH.
 
--	Baixe e instale o puttygen do seguinte local: [http://www.chiark.greenend.org.uk/\~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	Baixe e instale o PuTTYGen no seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
 -	Execute puttygen.exe.
 -	Clique em **Gerar** para gerar as chaves. No processo, você pode aumentar a aleatoriedade movendo o mouse sobre a área em branco na janela. ![][1]
 -	Após o processo de geração, Puttygen.exe mostrará a chave gerada. Por exemplo: ![][2]
@@ -50,19 +53,19 @@ Siga estas etapas para gerar a chave de autenticação SSH.
 -	Clique em **Salvar chave privada** e salve-a em um arquivo chamado **privateKey.ppk**.
 
 ###Etapa 2: Criar a imagem no Portal do Azure.
-No [Portal do Azure](https://portal.azure.com/), clique em **Novo** na barra de tarefas e crie uma imagem seguindo estas instruções, escolhendo a imagem do Linux com base nas suas necessidades. Este exemplo usa a imagem do Ubuntu 14.04.
+No [Portal do Azure](https://portal.azure.com/), clique em **Novo** na barra de tarefas e crie uma imagem seguindo estas instruções e escolhendo a imagem do Linux de acordo com as suas necessidades. Este exemplo usa a imagem do Ubuntu 14.04.
 
 ![][3]
 
 Para o **Nome do Host**, especifique o nome para a URL que você e os clientes da Internet usarão para acessar esta máquina virtual. Defina a última parte do nome DNS, por exemplo LAMPDemo, e o Azure gerará a URL como Lampdemo.cloudapp.net.
 
-Para o **Nome de usuário**, selecione um nome que você usará posteriormente para fazer logon na máquina virtual.
+Para o **Nome de Usuário**, selecione um nome que você usará mais tarde para fazer logon na máquina virtual.
 
-Para a **Chave de autenticação SSH**, copie o valor-chave do arquivo **publicKey.pem**, o qual contém a chave pública gerada pelo puttygen.
+Para a **Chave de Autenticação SSH**, copie a chave-valor do arquivo **publicKey.pem**, que contém a chave pública gerada pelo PuTTYGen.
 
 ![][4]
 
-Configure as outras configurações conforme necessário e, em seguida, clique em **Criar**.
+Configure as outras configurações, conforme necessário e clique em **Criar**.
 
 ##Fase 2: Preparar sua máquina virtual para a pilha LAMP
 Nesta fase, você configurará um ponto de extremidade para o tráfego da Web e, em seguida, conectar-se à nova máquina virtual.
@@ -76,7 +79,7 @@ No Portal do Azure, clique em **Procurar -> Máquina Virtual** e clique na máqu
 
 ![][5]
 
-Para adicionar um ponto de extremidade para uma máquina virtual, clique na caixa **Pontos de extremidade**.
+Para adicionar um ponto de extremidade a uma máquina virtual, clique na caixa **Pontos de Extremidade**.
 
 ![][6]
 
@@ -84,9 +87,9 @@ Clique em **Adicionar**. Ao provisionar uma nova máquina virtual, você pode ha
 
 Configure o ponto de extremidade:
 
-1.	Digite um nome para o ponto de extremidade em **Ponto de extremidade**.
-2.	Digite 80 na **Porta pública**. Se você alterou a porta de escuta padrão do Apache, você deve atualizar a Porta privada para ser a mesma que a porta de escuta do Apache.
-3.	Digite 80 na **Porta pública**. Por padrão, o tráfego HTTP usa a porta 80. Se você defini-lo como 80, não é necessário incluir o número da porta na URL que permite que você acesse o serviço Web Apache. Por exemplo: http://lampdemo.cloudapp.net. Se você definir a porta de escuta do Apache para outro valor, como 81, você precisará adicionar o número da porta à URL para acessar o serviço Web Apache. Por exemplo, http://lampdemo.cloudapp.net:81/.
+1.	Digite um nome para o ponto de extremidade em **Ponto de Extremidade**.
+2.	Digite 80 na **Porta Pública**. Se você alterou a porta de escuta padrão do Apache, você deve atualizar a Porta privada para ser a mesma que a porta de escuta do Apache.
+3.	Digite 80 na **Porta Pública**. Por padrão, o tráfego HTTP usa a porta 80. Se você defini-lo como 80, não é necessário incluir o número da porta na URL que permite que você acesse o serviço Web Apache. Por exemplo: http://lampdemo.cloudapp.net. Se você definir a porta de escuta do Apache para outro valor, como 81, você precisará adicionar o número da porta à URL para acessar o serviço Web Apache. Por exemplo, http://lampdemo.cloudapp.net:81/.
 
 ![][7]
 
@@ -98,7 +101,7 @@ Clique em **OK** para adicionar o ponto de extremidade à máquina virtual.
 ###Etapa 2: Conectar-se à imagem criada
 Você pode escolher qualquer ferramenta SSH para se conectar à nova máquina virtual. Neste exemplo, usamos Putty.
 
-Primeiro, obtenha o nome DNS da máquina virtual no Portal do Azure. Clique em **Procurar -> Máquinas virtuais ->** o nome de sua máquina virtual **-> Propriedades** e, em seguida, verifique o campo **Nome do domínio** do bloco **Propriedades**.
+Primeiro, obtenha o nome DNS da máquina virtual no Portal do Azure. Clique em **Procurar -> Máquinas virtuais ->** o nome de sua máquina virtual **-> Propriedades** e, em seguida, verifique o campo **Nome do Domínio** do bloco **Propriedades**.
 
 Obtenha o número da porta para conexões SSH no campo **SSH**. Aqui está um exemplo.
 
@@ -110,11 +113,11 @@ Após o download, clique no arquivo executável PUTTY.EXE. Configure as opções
 
 ![][9]
 
-No painel esquerdo, clique em **Conexão -> SSH -> Autenticação** e, em seguida, clique em **Procurar** para especificar o local do arquivo **privateKey.ppk** que contém a chave privada gerada pelo puttygen na Fase 1: Criar uma imagem. Aqui está um exemplo:
+No painel esquerdo, clique em **Conexão -> SSH -> Autenticação** e, em seguida, clique em **Procurar** para especificar o local do arquivo **privateKey.ppk**, que contém a chave privada gerada pelo PuTTYGen na Fase 1: criar uma imagem. Aqui está um exemplo:
 
 ![][10]
 
-Clique em **Abrir**. Você pode ser alertado por uma caixa de mensagem. Se você tiver configurado o nome DNS e o número da porta corretamente, clique em **Sim**.
+Clique em **Abrir**. Você pode ser alertado por uma caixa de mensagem. Se você configurou o nome DNS e o número da porta corretamente, clique em **Sim**.
 
 ![][11]
 
@@ -141,6 +144,7 @@ Para instalar o Apache, abra o terminal e execute este comando:
 Uma vez instalado, inicie o Apache com este comando:
 
 	sudo service httpd start
+
 ####Testar Apache
 Para verificar se o Apache foi instalado com êxito, navegue até o nome DNS do seu servidor Apache (para a URL de exemplo neste artigo, http://lampdemo.cloudapp.net/)). A página deve exibir as palavras “It works!" ![][14]
 
@@ -263,7 +267,7 @@ Isso foi testado no Ubuntu 14.04.
 
 O Ubuntu baseia-se no Debian. Você pode instalar a pilha LAMP da mesma forma como para a série Red Hat. Para simplificar as etapas, use a ferramenta Tasksel.
 
-Tasksel é uma ferramenta do Debian/Ubuntu que instala vários pacotes relacionados como uma tarefa coordenada no seu sistema. Para obter mais informações, consulte [Tasksel - Ajuda da Comunidade Wiki](https://help.ubuntu.com/community/Tasksel).
+Tasksel é uma ferramenta do Debian/Ubuntu que instala vários pacotes relacionados como uma tarefa coordenada no seu sistema. Para obter mais informações, veja [Tasksel – Ajuda da Comunidade Wiki](https://help.ubuntu.com/community/Tasksel).
 
 Use tasksel para instalar o software necessário para a pilha LAMP.
 
@@ -303,7 +307,7 @@ Se o sistema operacional da máquina virtual é o Ubuntu, use o seguinte comando
 
 	sudo service apache2 restart  
 
-Conclua navegando até sua página de informações de php (para o servidor Web de exemplo neste tópico, a URL seria http://lampdemo.cloudapp.net/info.php)).
+Conclua navegando até a página de informações de PHP (para o servidor Web de exemplo neste tópico, a URL seria http://lampdemo.cloudapp.net/info.php)).
 
 O seu navegador deve ser semelhante a este:
 
@@ -356,7 +360,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 
 -	**Sintoma** O Apache está sendo executado, mas você não consegue ver a página padrão do Apache com o seu navegador.
 -	**Possível causa raiz**
-	1.	A porta de escuta do Apache não é a mesma que a Porta Privada do ponto de extremidade da sua máquina virtual para o tráfego da Web.</br> Verifique as configurações de ponto de extremidade da Porta Pública e da Porta Privada e certifique-se de que a Porta Privada é a mesma que a porta de escuta do Apache. Consulte a Fase 1: Crie uma imagem para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual.</br> Para determinar a porta de escuta do Apache, abra /etc/httpd/conf/httpd.conf (versão Red Hat) ou /etc/apache2/ports.conf (versão Debian) e pesquise a cadeia de caracteres “Listen”. A porta padrão é 80.
+	1.	A porta de escuta do Apache não é a mesma que a Porta Privada do ponto de extremidade de sua máquina virtual para o tráfego da Web.</br> Verifique as configurações de ponto de extremidade da Porta Pública e da Porta Privada e certifique-se de que a Porta Privada é a mesma que a porta de escuta do Apache. Veja a Fase 1: crie uma imagem para obter instruções sobre como configurar pontos de extremidade para sua máquina virtual.</br> Para determinar a porta de escuta do Apache, abra /etc/httpd/conf/httpd.conf (versão Red Hat) ou /etc/apache2/ports.conf (versão Debian) e pesquise a cadeia de caracteres “Listen”. A porta padrão é 80.
 
 	2.	O firewall desabilitou a porta de escuta do Apache.</br> Se você pode ver a página padrão do Apache no host local, então, o problema pode ser que a porta que está sendo escutada pelo Apache esteja bloqueada pelo firewall. Você pode usar a ferramenta w3m para procurar a página da Web. Os seguintes comandos instalam o w3m e navegam até a página padrão do Apache:
 
@@ -385,7 +389,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 
 ###Permissão negada ao carregar seus arquivos de projeto para /var/www/html/  
 
--	**Sintoma** Quando você usa qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar à sua máquina virtual e navegar até /var/www/html para publicar seu site, recebe uma mensagem de erro semelhante à seguinte:  
+-	**Sintoma** Quando você usa qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar à sua máquina virtual e navegar até /var/www/html para publicar seu site, você recebe uma mensagem de erro semelhante à seguinte:  
 
 		status:	Listing directory /var/www/html
 		Command:	put "C:\Users\liang\Desktop\info.php" "info.php"
@@ -411,7 +415,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 
 ###Não foi possível determinar com segurança o nome de domínio totalmente qualificado do servidor
 
--	**Sintoma** Ao reiniciar o servidor Apache usando um dos seguintes comandos:  
+-	**Sintoma** Quando você reinicia o servidor Apache usando um dos seguintes comandos:  
 
 		sudo /etc/init.d/apache2 restart  # Debian release  
 
@@ -450,6 +454,5 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 [16]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
- 
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO4-->

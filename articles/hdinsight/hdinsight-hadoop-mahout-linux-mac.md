@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/22/2015"
 	ms.author="larryfr"/>
 
 #Gerar recomendações de filmes usando o Apache Mahout com o Hadoop para Linux no HDInsight (visualização)
@@ -30,6 +30,14 @@ O Mahout é uma biblioteca de [aprendizado de máquina][ml] para o Apache Hadoop
 ##Pré-requisitos
 
 * Um Hadoop baseado em Linux no cluster HDInsight. Para obter informações sobre como criar um, consulte [Introdução ao uso do Hadoop para Linux HDInsight][getstarted].
+
+##Versões do Mahout
+
+Para obter mais informações sobre a versão do Mahout incluída com o cluster HDInsight, consulte [Versões do HDInsight e componentes do Hadoop](hdinsight-component-versioning.md).
+
+> [AZURE.WARNING]Embora seja possível carregar uma versão diferente do Mahout no cluster HDInsight, há suporte somente aos componentes fornecidos com o cluster HDInsight e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
+>
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=hdinsight) e [http://stackoverflow.com](http://stackoverflow.com). Além disso, projetos Apache têm sites de projetos em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
 
 ##<a name="recommendations"></a>Entendendo as recomendações
 
@@ -256,4 +264,4 @@ Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalh
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

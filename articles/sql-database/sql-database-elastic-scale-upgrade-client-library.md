@@ -1,6 +1,7 @@
-<properties  
-	pageTitle="Atualizar para a biblioteca de cliente de banco de dados elástico mais recente" 
-	description="Atualizar instruções usando o PowerShell e C#" 
+<properties
+	
+	pageTitle="Upgrade to the latest elastic database client library" 
+	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -12,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh" />
 
 # Atualizar para a biblioteca de cliente de banco de dados elástico mais recente
 
 Novas versões da biblioteca de cliente de banco de dados elástico estão disponíveis por meio de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) e da interface do Gerenciador NuGetPackage no Visual Studio. Atualizações contêm correções de bugs e suporte para novos recursos de biblioteca de cliente.
 
+Recompile seu aplicativo com a nova biblioteca, além de alterar os metadados do Gerenciador de Mapa de Fragmentos existentes armazenados em seus Bancos de Dados SQL do Azure para dar suporte aos novos recursos.
+
+Executar estas etapas nesta ordem garante que as versões antigas da biblioteca de cliente não estejam mais presentes em seu ambiente quando objetos de metadados são atualizados, o que significa que os objetos de metadados da versão antiga não serão criados após a atualização.
+
 ## Etapas de atualização
-
-A atualização requer a recriação de seu aplicativo com a nova biblioteca, bem como alteração dos metadados do Gerenciador de mapa do fragmento existentes armazenados em seus bancos de dados do SQL Azure para oferecer suporte a novos recursos.
-
-Siga a sequência abaixo para atualizar seus aplicativos, o banco de dados do Gerenciador de mapa do fragmento e os metadados do Gerenciador de Mapa do fragmento em cada fragmento. Executar as etapas de atualização nesta ordem garante que as versões antigas da biblioteca de cliente não estejam mais presentes em seu ambiente quando objetos de metadados são atualizados, que significa que os objetos de metadados de versão antiga não serão criados após a atualização.
 
 **1. Atualize seus aplicativos.** No Visual Studio, baixe e referencie a versão mais recente da biblioteca do cliente em todos os seus projetos de desenvolvimento que usam a biblioteca. Em seguida, recrie e implante.
 
  * Em sua solução do Visual Studio, selecione **Ferramentas** --> **NuGet** --> **Gerenciar pacotes NuGet para solução**. 
- * No painel esquerdo, selecione **Atualizações** e, em seguida, selecione o botão **Atualizar** no pacote **Biblioteca de cliente de dimensionamento elástico do Banco de dados SQL do Azure** que aparece na janela.![Atualizar pacotes do Nuget][1]
+ * (Visual Studio 2013) No painel esquerdo, selecione **Atualizações** e, em seguida, selecione o botão **Atualizar** no pacote **Biblioteca de cliente de dimensionamento elástico do Banco de dados SQL do Azure** que aparece na janela.
+ * (Visual Studio 2015) Defina a caixa de Filtro para **Atualização disponível**. Selecione o pacote de atualização e clique no botão **Atualizar**.
+	
  
  * Criar e implantar.
 
@@ -94,4 +97,4 @@ Versão de visualização inicial
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

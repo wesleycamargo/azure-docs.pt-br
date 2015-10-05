@@ -1,11 +1,13 @@
 <properties
- pageTitle="Sobre os recursos e extensões de Máquina Virtual | Microsoft Azure"
- description="Descreve várias das extensões de máquina virtual, agrupadas pelo que elas fornecem ou melhoram, como conectividade e o gerenciamento básico."
+ pageTitle="Recursos e extensões de máquina virtual | Microsoft Azure"
+ description="Saiba quais extensões estão disponíveis para as máquinas virtuais do Azure, agrupadas pelas funcionalidades fornecidas ou aperfeiçoadas."
  services="virtual-machines"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-service-management,azure-resource-manager"/>
+
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -17,11 +19,14 @@
 #Sobre os recursos e extensões de máquina virtual
 O Microsoft Azure fornece extensões de VM criadas pela Microsoft e pelos provedores de terceiros confiáveis para habilitar a segurança, o tempo de execução, a depuração, o gerenciamento e outros recursos que você pode aproveitar para aumentar sua produtividade com as máquinas virtuais do Azure. Este tópico descreve os vários recursos que as extensões de VM do Azure fornecem às máquinas virtuais Windows e Linux para o seu uso e aponta em direção à documentação para cada uma delas.
 
-Para obter detalhes sobre os agentes de VM e como eles funcionam para dar suporte a extensões de VM, consulte [Agente de VM e visão geral de extensões de VM](https://msdn.microsoft.com/library/dn832621.aspx).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo trata dos recursos criados com o modelo de implantação do Gerenciador de Recursos ou o modelo de implantação clássico.
+
+
+Para obter detalhes sobre os Agentes de VM e como eles funcionam para dar suporte às Extensões de VM, veja [Visão geral de Agente de VM e Extensões de VM](https://msdn.microsoft.com/library/dn832621.aspx).
 
 ##Extensões de VM do Azure
 
-As extensões de VM implementam a maioria dos recursos essenciais que você deseja usar com suas VMs, incluindo funcionalidades básicas como a redefinição de senhas, configuração do RDP e muitos outros. Como novas extensões são adicionadas o tempo todo, o número de recursos possíveis para oferecer suporte às suas VMs no Azure continua a aumentar. Por padrão, várias extensões básicas de VM são instaladas quando você cria sua VM na Galeria de imagens, incluindo **IaaSDiagnostics** (atualmente somente VMs do Windows), **VMAccess** e **BGInfo** (também atualmente apenas no Windows). No entanto, nem todas as extensões são implementadas em Windows e Linux em qualquer momento específico, devido ao fluxo constante de novas extensões e atualizações de recursos.
+As extensões de VM implementam a maioria dos recursos essenciais que você deseja usar com suas VMs, incluindo funcionalidades básicas como a redefinição de senhas, configuração do RDP e muitos outros. Como novas extensões são adicionadas o tempo todo, o número de recursos possíveis para oferecer suporte às suas VMs no Azure continua a aumentar. Por padrão, várias extensões básicas de VM são instaladas quando você cria sua VM na Galeria de Imagens, incluindo **IaaSDiagnostics** (atualmente apenas nas VMs do Windows), **VMAccess** e **BGInfo** (também atualmente apenas no Windows). No entanto, nem todas as extensões são implementadas em Windows e Linux em qualquer momento específico, devido ao fluxo constante de novas extensões e atualizações de recursos.
 
 ##Conectividade e gerenciamento básico
 
@@ -39,16 +44,16 @@ As seguintes extensões oferecem suporte a diferentes tipos de recursos e cenár
 |Nome da extensão da VM|Descrição do recurso|Mais informações|
 |---|---|---|
 |**MSEnterpriseApplication**|Implementa recursos de suporte pelo Windows System Center.|[Funções de máquinas virtuais do System Center 2012 R2](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx)|
-|**Implantar Octopus** (com base em extensão DSC)|Dá suporte à implantação automatizada de aplicativos da web ASP.NET e serviços do Windows em ambientes de desenvolvimento, teste e produção.|[Introdução à implantação do Octopus](http://docs.octopusdeploy.com/display/OD/Getting%20started)|
-|**Gerenciador de versão do Visual Studio** (com base em extensão DSC)|Dá suporte à implantação contínua com o Visual Studio.|[Automatizar implantações com o Release Management](https://msdn.microsoft.com/library/dn217874.aspx)|
+|**Implantar Octopus** (baseado na Extensão DSC)|Dá suporte à implantação automatizada de aplicativos da web ASP.NET e serviços do Windows em ambientes de desenvolvimento, teste e produção.|[Introdução à implantação do Octopus](http://docs.octopusdeploy.com/display/OD/Getting%20started)|
+|**Gerenciador de Versão do Visual Studio** (baseado na Extensão DSC)|Dá suporte à implantação contínua com o Visual Studio.|[Automatizar implantações com o Release Management](https://msdn.microsoft.com/library/dn217874.aspx)|
 |**CentosChefClient**|||
 |**ChefClient**|Cria um cliente chefe no Windows. (Também pode usar a extensão DSC, abaixo.)|[Chef e Microsoft Azure](https://www.getchef.com/solutions/azure/)|
 |**LinuxChefClient**|||
-|**DockerExtension**|Instala o daemon Docker para oferecer suporte a comandos Docker remotos.|[Como usar a extensão de Máquina Virtual Docker](virtual-machines-docker-vm-extension.md). Para obter mais informações, consulte o [Guia do usuário de extensão de VM do Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
+|**DockerExtension**|Instala o daemon Docker para oferecer suporte a comandos Docker remotos.|[Como usar a Extensão de Máquina Virtual do Docker](virtual-machines-docker-vm-extension.md)Para obter mais informações, veja o [Guia do usuário da Extensão de VM do Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
 |**DSC**|Extensão do PowerShell DSC (configuração de estado desejado).|[Extensão do Azure PowerShell DSC (configuração de estado desejado)](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
 |**PuppetEnterpriseAgent**|Implementa os recursos do Puppet Enterprise. |[Puppet no Azure](http://puppetlabs.com/solutions/microsoft)|
-|**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Chama scripts personalizados na VM a qualquer momento: inicialização ou durante o tempo de vida.|[Extensão de script personalizado](https://msdn.microsoft.com/library/dn781373.aspx)[Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)|
-|**AzureCATExtensionHandler**|Consome os dados de diagnóstico coletados pelo **IaaSDiagnostics** e algumas outras fontes de dados como as [Métricas da análise de armazenamento do Azure](https://msdn.microsoft.com/library/azure/hh343270.aspx) e os transforma em um conjunto de dados agregados apropriado para o consumo do processo de controle de Host do SAP.|[Monitoramento aprimorado do Azure para SAP](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
+|**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Chama scripts personalizados na VM a qualquer momento: inicialização ou durante o tempo de vida.|[Extensão de Script Personalizado](https://msdn.microsoft.com/library/dn781373.aspx)[Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)|
+|**AzureCATExtensionHandler**|Consome os dados de diagnóstico coletados pelo **IaaSDiagnostics** e algumas outras fontes de dados como as [Métricas de Análise do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/hh343270.aspx) e os transforma em um conjunto de dados agregados apropriado para o consumo do processo de controle de Host do SAP|[Monitoramento aprimorado do Azure para SAP](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
 
 ##Segurança e proteção
 
@@ -69,9 +74,9 @@ Dá suporte a comportamento e a recursos de gerenciamento de operações comuns.
 
 |**Nome da extensão da VM**|Descrição do recurso|Mais informações|
 |---|---|---|
-|**AzureVmLogCollector**|Você pode usar a extensão **AzureVMLogCollector** sob demanda para executar a coleção de logs uma vez por meio de uma ou mais VMs de serviço de nuvem (de funções da web e funções de trabalho) e transferir os arquivos coletados em uma conta de armazenamento do Azure – tudo sem fazer logon remotamente a qualquer uma das máquinas virtuais. |[Extensão AzureLogCollector](https://msdn.microsoft.com/library/dn927183.aspx)|
-|**IaaSDiagnostics**|Habilita, desabilita e configura o diagnóstico do Azure e também é usado pelo **AzureCATExtensionHandler** para oferecer suporte a monitoramento do SAP.|[Monitoramento de máquina virtual do Microsoft Azure com extensão de diagnóstico do Azure](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
-|**OSPatchingForLinux**|Habilita os administradores de VM do Azure a automatizar as atualizações de sistema operacional de VM com as configurações personalizadas. Você pode usar a extensão OSPatching para configurar atualizações do sistema operacional para as máquinas virtuais, incluindo: especificar com que frequência e quando instalar patches do sistema operacional, Especificar quais patches instalar e Configurar o comportamento de reinicialização após atualizações|[Postagem no blog da extensão de patches do sistema operacional](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Consulte também o arquivo Leiame e o código-fonte no Github em [Extensão de aplicação de patches do SO](https://github.com/Azure/azure-linux-extensions).|
+|**AzureVmLogCollector**|É possível usar a extensão **AzureVMLogCollector** sob demanda para executar uma coleção avulsa de logs de uma ou mais VMs de Serviço de Nuvem (de funções Web e funções de trabalho) e transferir os arquivos coletados para uma conta de armazenamento do Azure – tudo sem precisar fazer logon remotamente em uma das VMs. |[Extensão AzureLogCollector](https://msdn.microsoft.com/library/dn927183.aspx)|
+|**IaaSDiagnostics**|Habilita, desabilita e configura o Diagnóstico do Azure e também é usado pelo **AzureCATExtensionHandler** para dar suporte ao monitoramento do SAP.|[Monitoramento de máquina virtual do Microsoft Azure com extensão de diagnóstico do Azure](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
+|**OSPatchingForLinux**|Habilita os administradores de VM do Azure a automatizar as atualizações de sistema operacional de VM com as configurações personalizadas. Você pode usar a extensão OSPatching para configurar atualizações do sistema operacional para as máquinas virtuais, incluindo: especificar com que frequência e quando instalar patches do sistema operacional, Especificar quais patches instalar e Configurar o comportamento de reinicialização após atualizações|[Postagem no blog da Extensão de patches do sistema operacional](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Veja também o arquivo Leiame e o código-fonte no GitHub em [Extensão de aplicação de patch do SO](https://github.com/Azure/azure-linux-extensions).|
 
 ##Desenvolver e depurar
 
@@ -96,4 +101,4 @@ Essas extensões dão suporte para outros recursos VM que podem ser úteis.
 |**BGInfo**|Apresenta uma visão consolidada útil das informações do servidor na área de trabalho ao usar o RDP.|[Extensão BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Instala, configura e mantém os drivers de dispositivo de rede de acesso remoto direto à memória (RDMA) em uma VM de tamanho A8 ou A9 que executa o Windows Server 2012 R2 ou o Windows Server 2012. Habilita VMs A8 ou A9 clusterizadas para usar a rede RDMA ao executar aplicativos MPI paralelos.|[Sobre as instâncias de computação intensiva A8, A9, A10 e A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

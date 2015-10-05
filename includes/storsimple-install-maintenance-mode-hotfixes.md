@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar os hotfixes do modo de manutenção por meio do Windows PowerShell para StorSimple
 
@@ -17,4 +18,4 @@
 
 6. Após a aplicação dos hotfixes, saia do modo de Manutenção. Consulte [Etapa 4: Sair do modo de manutenção](storsimple-update-device.md#step4) para obter instruções.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

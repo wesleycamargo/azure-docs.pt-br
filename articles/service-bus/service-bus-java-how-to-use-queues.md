@@ -174,6 +174,9 @@ Se houver falha do aplicativo após o processamento da mensagem, mas antes da so
 
 Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][] para obter mais informações.
 
+Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](/develop/java/).
+
+
   [SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
   [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/pt-BR/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
@@ -189,4 +192,4 @@ Agora que você aprendeu as noções básicas sobre as filas do Barramento de Se
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

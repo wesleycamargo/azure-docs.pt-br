@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="07/21/2015"
+	ms.date="09/23/2015"
 	ms.author="yidingz"/>
 
 # Introdução à Biblioteca do Azure Batch para .NET  
@@ -205,14 +205,14 @@ Um pool de nós de computação é o primeiro conjunto de recursos que você dev
 
 2. Adicione este código a Principal, que define as credenciais para fazer chamadas para o serviço de Lote do Azure:
 
-			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("https://[account-name].[region].batch.azure.com", "[account-name]", "[account-key]");
+			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Substitua esses valores:
+	Substitua os valores entre colchetes por aqueles associados à sua conta do Lote, cada um deles pode ser encontrado no [portal de Visualização do Azure](https://portal.azure.com). Para localizar esses valores, faça logon no [portal de Visualização do Azure](https://portal.azure.com) e:
 
-	- **[account-name]** com o nome da conta do Lote criada anteriormente.
-	- **[region]** com a região em que sua conta está localizada. Consulte [Regiões do Azure](http://azure.microsoft.com/regions/) para descobrir as regiões disponíveis.
-	- **[account-key]** com a chave primária da conta do Lote.
+	- **[account-name]** - clique em **Contas de Lote**, selecione a conta do Lote criada anteriormente
+	- **[account-url]** - na folha Conta do Lote, clique em **Propriedades** > **URL**
+	- **[account-key]** - na folha Conta do Lote, Clique em **Propriedades** > **Chaves** > **Chave de Acesso Primária**
 
 3.	Adicione esse método à classe Programa, que cria o pool:
 
@@ -491,8 +491,8 @@ Como você é cobrado pelos recursos no Azure, sempre será uma boa ideia exclui
 
 ## Próximas etapas
 
-1. Agora que aprendeu os conceitos básicos da execução de tarefas, poderá saber mais sobre como dimensionar automaticamente nós de computação quando a demanda por seu aplicativo for alterada. Para fazer isso, consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md)
+1. Agora que aprendeu os conceitos básicos da execução de tarefas, poderá saber mais sobre como dimensionar automaticamente nós de computação quando a demanda por seu aplicativo for alterada. Para fazer isso, consulte [Dimensionar automaticamente Nós de Computação em um Pool do Lote do Azure](batch-automatic-scaling.md)
 
-2. Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Uma forma de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
+2. Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Um modo de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

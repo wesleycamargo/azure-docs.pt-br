@@ -14,7 +14,8 @@ Ao hospedar um aplicativo Node.js, talvez você queira garantir que seu aplicati
 
 As versões de Node.js fornecidas pelo Azure são atualizadas constantemente. Salvo indicação em contrário, a versão mais recente será usada. Atualmente, as versões a seguir estão incluídas:
 
-- 0\.12.x: 0.12.0
+- 4\.x.x: 4.0.0
+- 0\.12.x: 0.12.6, 0.12.3, 0.12.2, 0.12.0
 - 0\.10.x: 0.10.32, 0.10.31, 0.10.29, 0.10.28, 10.26, 0.10.24, 0.10.21, 0.10.18, 0.10.5
 - 0\.8.x: 0.8.28, 0.8.27, 0.8.26, 0.8.19, 0.8.2
 - 0\.6: 0.6.20, 0.6.17
@@ -90,9 +91,11 @@ Enquanto o Azure fornece várias versões padrão do Node.js, talvez você queir
 
 Agora que você aprendeu como especificar a versão do Node.js usada pelo seu aplicativo, saiba como [trabalhar com módulos], [criar e implantar um Site no Node.js] e [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux].
 
+Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+
 [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]: xplat-cli.md
 [Ferramentas de linha de comando do Azure]: xplat-cli.md
 [trabalhar com módulos]: nodejs-use-node-modules-azure-apps.md
 [criar e implantar um Site no Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

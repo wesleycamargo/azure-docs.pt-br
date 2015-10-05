@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Como gerenciar um serviço de nuvem | Microsoft Azure" 
-	description="Saiba como gerenciar serviços de nuvem no Portal de Visualização do Azure." 
+	pageTitle="Como gerenciar um serviço de nuvem (portal de visualização) | Microsoft Azure" 
+	description="Saiba como gerenciar serviços de nuvem no Portal de Visualização do Azure. Esses exemplos usam o portal de visualização do Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -106,4 +106,11 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
 [Portal de Visualização do Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO7-->
+## Próximas etapas
+
+* [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
+* Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
+* Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
+* Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
+
+<!---HONumber=Sept15_HO4-->

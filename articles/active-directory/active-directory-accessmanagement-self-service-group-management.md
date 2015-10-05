@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Configurando o AD do Azure para gerenciamento de acesso de aplicativos de autoatendimento | Microsoft Azure"
-	description="Um tópico que explica como gerenciar grupos no AD do Azure."
+	description="visão geral do gerenciamento de grupo de autoatendimento que permite aos usuários criar e gerenciar grupos de segurança no Active Directory (AD) do Microsoft Azure e oferece aos usuários a possibilidade de solicitar associações de grupo de segurança"
 	services="active-directory"
 	documentationCenter=""
     authors="femila"
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/21/2015"
 	ms.author="femila"/>
 
 #Configurando o AD do Azure para gerenciamento de acesso de aplicativos de autoatendimento
@@ -49,4 +49,4 @@ Estes são alguns tópicos que fornecem informações adicionais sobre o Active 
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

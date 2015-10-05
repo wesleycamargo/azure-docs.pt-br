@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Diretrizes de identidade visual para aplicativos"
-	description="Um guia abrangente para recursos para desenvolvedores do Azure Active Directory"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   pageTitle="Diretrizes de identidade visual para aplicativos | Microsoft Azure"
+   description="Um guia abrangente para recursos para desenvolvedores do Azure Active Directory"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/17/2015"
+   ms.author="mbaldwin"/>
 
 
 # Diretrizes de identidade visual para aplicativos
@@ -94,4 +94,4 @@ Você também pode fornecer uma explicação adicional para ajudar os usuários 
 
 Se seu aplicativo oferecer suporte ao Azure AD e a contas da Microsoft, você precisa incluir dois botões de login separados em seu aplicativo. Estamos trabalhando ativamente em uma atualização que permitirá que você integre uma vez e ofereça suporte a contas pessoais e comerciais da Microsoft. Quando isso estiver disponível, você poderá mostrar um único botão de "login na Microsoft" em seu aplicativo.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

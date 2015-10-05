@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso avançado do modelo de programação de Serviços Confiáveis"
-	description="Saiba mais sobre o uso avançado do modelo de programação de Serviços Confiáveis da Malha de Serviços para obter maior flexibilidade em seus serviços."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor="masnider"/>
+   description="Saiba mais sobre o uso avançado do modelo de programação de Serviços Confiáveis da Malha de Serviços para obter maior flexibilidade em seus serviços."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor="masnider"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="jesseb"/>
 
 # Uso avançado do modelo de programação de Serviços Confiáveis
 A Malha de Serviços simplifica o desenvolvimento e o gerenciamento de serviços confiáveis com e sem estado. Este guia tratará dos usos avançados do modelo de programação de Serviços Confiáveis para obter mais controle e flexibilidade sobre seus serviços. Antes de ler este guia, familiarize-se com [o do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-introduction.md).
@@ -59,7 +59,4 @@ Para tópicos mais avançados relacionados à Malha de Serviço, consulte os art
 
 - [Visão geral de Restrições de Posicionamento](service-fabric-placement-constraint.md)
 
-- [Tráfego de replicação seguro dos serviços com estado da Malha de Serviço do Azure](service-fabric-replication-security.md)
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

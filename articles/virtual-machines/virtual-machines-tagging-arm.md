@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Como marcar uma Máquina Virtual no Azure"
-   description="Saiba mais sobre a marcação de uma Máquina Virtual no Azure"
+   pageTitle="Como Marcar uma VM | Microsoft Azure"
+   description="Aprenda a Marcar uma Máquina Virtual do Azure criada no modelo de implantação do Gerenciador de Recursos."
    services="virtual-machines"
    documentationCenter=""
    authors="mmccrory"
@@ -19,17 +19,19 @@
 
 # Como marcar uma Máquina Virtual no Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo abrange a marcação de uma máquina virtual criada no modelo de implantação do Gerenciador de Recursos.
+
 Este artigo descreve as diferentes maneiras de marcar uma máquina virtual no Azure por meio do Gerenciador de Recursos do Azure. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure oferece suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas tem suporte apenas a recursos criados por meio do Gerenciador de Recursos do Azure.
 
 ## Marcando uma máquina virtual por meio de modelos
 
 Primeiramente, vamos observar uma marcação por meio de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) coloca marcas nos seguintes recursos: Computação (Máquina Virtual), Armazenamento (Conta de Armazenamento) e Rede (Endereço IP Público, Rede Virtual e Interface de Rede).
 
-Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Isso o levará ao [Portal de Visualização do Azure](http://portal.azure.com/), onde é possível implantar esse modelo.
+Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Isso o levará ao [Portal de Visualização do Azure](http://portal.azure.com/), em que será possível implantar esse modelo.
 
 ![Implantação simples com marcas](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
-Esse modelo inclui as seguintes marcas: *Department*, *Application* e *Created By*. Você pode adicionar/editar essas marcas diretamente no modelo se desejar diferentes nomes de marca.
+Esse modelo inclui as seguintes marcas: *Departamento*, *Aplicativo* e *Criado por*. Você pode adicionar/editar essas marcas diretamente no modelo se desejar diferentes nomes de marca.
 
 ![Marcas do Azure em um modelo](./media/virtual-machines-tagging-arm/azure-tags-in-a-template.png)
 
@@ -70,7 +72,7 @@ Agora, a nova marca deve aparecer na lista de marcas do seu recurso.
 
 Para criar, adicionar e excluir marcas pelo PowerShell, primeiramente, você precisa configurar o [ambiente do PowerShell com o Gerenciador de Recursos do Azure][]. Depois de concluir a instalação, você pode colocar marcas em recursos de Computação, Rede e Armazenamento na criação ou depois que o recurso for criado via PowerShell. Este artigo se concentra na exibição/edição de marcas colocadas nas Máquinas Virtuais.
 
-Em primeiro lugar, navegue para uma Máquina Virtual usando o cmdlet `Get-AzureVM`.
+Primeiramente, navegue para uma Máquina Virtual usando o cmdlet `Get-AzureVM`.
 
         PS C:\> Get-AzureVM -ResourceGroupName "MyResourceGroup" -Name "MyWindowsVM"
 
@@ -104,7 +106,7 @@ O segundo comando exibe as marcas para a variável fornecida.
         Value		Production
         Name		Environment
 
-O terceiro comando adiciona uma marca extra à variável *tags*. Observe o uso de **+=** para acrescentar o novo par de chave/valor à lista *tags*.
+O terceiro comando adiciona uma marca extra à variável *tags*. Observe o uso de **+=** para acrescentar o novo par de Chave/Valor à lista *tags*.
 
         PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
 
@@ -129,16 +131,16 @@ O quinto comando exibe todas as marcas no recurso. Como pode ser visto, *Locatio
         Value		MyLocation
         Name		Location
 
-Para saber mais sobre como marcar usando o PowerShell, confira [Cmdlets de recurso do Azure][].
+Para saber mais sobre marcação usando o PowerShell, confira [Cmdlets de Recurso do Azure][].
 
 
 ## Marcando com a CLI do Azure
 
-A marcação também tem suporte de recursos que já foram criados por meio da CLI do Azure. Para começar, configure seu [ambiente CLI do Azure][]. Faça logon na sua assinatura usando a CLI do Azure e alterne para o modo ARM. É possível exibir todas as propriedades de uma determinada Máquina Virtual, incluindo as marcas, usando este comando:
+A marcação também tem suporte de recursos que já foram criados por meio da CLI do Azure. Para começar, configure seu [ambiente da CLI do Azure][]. Faça logon na sua assinatura usando a CLI do Azure e alterne para o modo ARM. É possível exibir todas as propriedades de uma determinada Máquina Virtual, incluindo as marcas, usando este comando:
 
         azure vm show -g MyResourceGroup -n MyVM
 
-Diferentemente do PowerShell, se estiver adicionando marcas a um recurso que já contém marcas, você não precisará especificar todas as marcas (antigas e novas) antes de usar o comando `azure vm set`. Em vez disso, esse comando permite acrescentar uma marca ao recurso. Para adicionar uma nova marca VM usando a CLI do Azure, você pode usar o comando `azure vm set` juntamente com o parâmetro de marca **-t**:
+Diferentemente do PowerShell, se estiver adicionando marcas a um recurso que já contém marcas, você não precisa especificar todas as marcas (antigas e novas) antes de usar o comando `azure vm set`. Em vez disso, esse comando permite acrescentar uma marca ao recurso. Para adicionar uma nova marca VM usando a CLI do Azure, você pode usar o comando `azure vm set` juntamente com o parâmetro de marca **-t**:
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
@@ -162,7 +164,7 @@ Selecione o extrato de cobrança e os detalhes de uso da **Versão 2**:
 
 ![Detalhes de uso da Versão 2 Preview no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
-Nos detalhes de uso, você pode ver todas as marcas na coluna **Marcas**:
+Em detalhes de uso, você pode ver todas as marcas na coluna **Marcas**:
 
 ![Coluna Marcas no Portal do Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
@@ -180,11 +182,11 @@ Ao analisar essas marcas juntamente com o uso, as organizações poderão adquir
 
 
 [ambiente do PowerShell com o Gerenciador de Recursos do Azure]: ../powershell-azure-resource-manager.md
-[Cmdlets de recurso do Azure]: https://msdn.microsoft.com/pt-br/library/azure/dn757692.aspx
-[ambiente CLI do Azure]: ./xplat-cli-azure-resource-manager.md
+[Cmdlets de Recurso do Azure]: https://msdn.microsoft.com/pt-BR/library/azure/dn757692.aspx
+[ambiente da CLI do Azure]: ./xplat-cli-azure-resource-manager.md
 [Visão Geral do Gerenciador de Recursos do Azure]: ../resource-group-overview.md
 [Usando marcas para organizar os recursos do Azure]: ../resource-group-using-tags.md
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

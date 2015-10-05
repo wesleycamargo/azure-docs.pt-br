@@ -3,7 +3,7 @@
 	description="Aprenda a usar o banco de dados SQL do Azure do código Java." 
 	services="sql-database" 
 	documentationCenter="java" 
-	authors="rmcmurray" 
+	authors="MightyPen" 
 	manager="jeffreyg" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
-	ms.author="robmcm"/>
+	ms.date="09/22/2015" 
+	ms.author="genemi"/>
 
 # Como usar o Banco de Dados SQL do Azure em Java
 
@@ -698,6 +698,8 @@ Para usar o Banco de Dados SQL em Java em uma implantação do Azure, além de t
 
 Para saber mais sobre o Microsoft JDBC Driver para SQL Server, consulte [Visão geral do JDBC Driver](http://msdn.microsoft.com/library/ms378749.aspx). Para saber mais sobre o Banco de Dados SQL, consulte [Visão geral do Banco de Dados SQL (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx).
 
+Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](/develop/java/).
+
 [Concepts]: #concepts
 [Prerequisites]: #prerequisites
 [Creating an Azure SQL Database]: #create_db
@@ -726,4 +728,4 @@ Para saber mais sobre o Microsoft JDBC Driver para SQL Server, consulte [Visão 
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

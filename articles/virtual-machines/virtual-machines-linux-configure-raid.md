@@ -1,12 +1,13 @@
 <properties 
-	pageTitle="Configurar o software RAID em uma máquina virtual que executa Linux no Azure" 
+	pageTitle="Configurar o RAID de software em uma máquina virtual que executa o Linux | Microsoft Azure" 
 	description="Saiba como usar mdadm para configurar o RAID no Linux no Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	writer="szark" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -22,11 +23,12 @@
 # Configurar RAID de software no Linux
 É um cenário comum usar o software RAID em máquinas virtuais Linux no Azure para apresentar vários discos de dados anexados como um único dispositivo RAID. Normalmente, isso pode ser usado para melhorar o desempenho e permitir uma taxa de transferência aprimorada em comparação com o uso de apenas um único disco.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Anexando discos de dados
-Dois ou mais discos de dados vazios geralmente serão necessários para configurar um dispositivo RAID. Este artigo não se aprofundará em detalhes sobre como anexar discos de dados para uma máquina virtual Linux. Consulte o artigo do Microsoft Azure [anexar um disco](storage-windows-attach-disk.md#attachempty) para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual Linux no Azure.
+Dois ou mais discos de dados vazios geralmente serão necessários para configurar um dispositivo RAID. Este artigo não se aprofundará em detalhes sobre como anexar discos de dados para uma máquina virtual Linux. Confira o artigo [anexar um disco](storage-windows-attach-disk.md#attachempty) do Microsoft Azure para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual do Linux no Azure.
 
->[AZURE.NOTE]O tamanho Extrapequeno de VM não dá suporte a mais de um disco de dados anexados à máquina virtual. Consulte [Tamanhos de Máquina Virtual e de Serviço de Nuvem para o Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) para obter informações detalhadas sobre tamanhos de VM e o número de discos de dados aceitos.
+>[AZURE.NOTE]O tamanho Extrapequeno de VM não dá suporte a mais de um disco de dados anexados à máquina virtual. Veja [Tamanhos de Máquina Virtual e de Serviço de Nuvem para o Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) para obter informações detalhadas sobre tamanhos de VM e o número de discos de dados com suporte.
 
 
 ## Instalar o utilitário mdadm
@@ -104,7 +106,7 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
 
-Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Observe também que se, anteriormente, esses discos de dados faziam parte de outro conjunto de RAID desabilitado, talvez seja necessário adicionar o parâmetro `--force` ao comando `mdadm`.
+Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Também é importante lembrar que, se anteriormente esses discos de dados faziam parte de outra matriz RAID desabilitada, talvez seja necessário adicionar o parâmetro `--force` ao comando `mdadm`.
 
 
 2. Criar o sistema de arquivos no novo dispositivo RAID
@@ -117,12 +119,12 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES 11 & openSUSE** - habilitar boot.md e criar mdadm.conf
+3. **SLES 11 e openSUSE** – habilite boot.md e crie mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]Pode ser necessária uma reinicialização depois de fazer essas alterações em sistemas SUSE. Essa etapa *não* é necessária no SLES 12.
+	>[AZURE.NOTE]Pode ser necessária uma reinicialização depois de fazer essas alterações em sistemas SUSE. Esta etapa *não* é necessária no SLES 12.
 
 
 ## Adicionar o novo sistema de arquivos a /etc/fstab
@@ -143,7 +145,7 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	Ou no **SLES 11 & openSUSE**:
+	Ou no **SLES 11 e openSUSE**:
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
@@ -173,10 +175,10 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 	**Parâmetros de inicialização do Linux**
 
-	Além dos parâmetros acima, o parâmetro de kernel "`bootdegraded=true`" pode permitir que o sistema inicialize mesmo que seja detectado que o RAID esteja danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isso também pode resultar em um sistema não inicializável.
+	Além dos parâmetros acima, o parâmetro de kernel “`bootdegraded=true`” pode permitir que o sistema inicialize mesmo que seja detectado que o RAID esteja danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isso também pode resultar em um sistema não inicializável.
 
-	Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo "`/boot/grub/menu.lst`". No Ubuntu, esse parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` em "/etc/default/grub".
+	Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux e SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo “`/boot/grub/menu.lst`”. No Ubuntu, esse parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` em “/etc/default/grub”.
 
  
 
-<!---HONumber=06-->
+<!---HONumber=Sept15_HO4-->

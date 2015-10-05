@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Exibir relatórios de acesso e uso"
-	description="Um tópico que explica como exibir relatórios de acesso e uso para obter informações sobre a integridade e a segurança do diretório da organização."
+	pageTitle="Exibir relatórios de acesso e uso | Microsoft Azure"
+	description="Explica como exibir relatórios de acesso e uso para obter informações sobre a integridade e a segurança do diretório da organização."
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"
-	manager="TerryLan"
-	editor="LisaToft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff;Justinha"/>
+	ms.date="09/21/2015"
+	ms.author="kenhoff;Justinha;curtand"/>
 
 # Exibir relatórios de acesso e uso
 
@@ -90,12 +90,6 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 |	Usuários RMS mais ativos | | |	Somente RMS |
 |	Uso de dispositivo do RMS | | |	Somente RMS |
 |	Uso de aplicativos habilitados para RMS | | |	Somente RMS |
-
-
-
-
-
-
 
 
 
@@ -276,4 +270,4 @@ Para saber mais sobre as notificações de relatórios do Azure AD, confira [Not
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

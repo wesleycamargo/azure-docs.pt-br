@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configurando a Junção do Azure AD para seus usuários | Microsoft Azure" 
-	description="Um tópico que explica como os administradores podem configurar a Junção do Azure AD para seus usuários finais (funcionários, estudantes, outros usuários)." 
+	description="Explica como os administradores podem configurar o Ingresso no AD do Azure para os usuários finais (funcionários, estudantes, outros usuários) na sua organização." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Configuração da Junção do Azure AD na sua organização
@@ -47,8 +47,8 @@ A seguir estão os três cenários de como você pode habilitar seus usuários p
 - Os usuários adicionam contas de trabalho ao Windows em um dispositivo pessoal 
 
 ## Informações adicionais
-* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-user-upgrade.md)
+* [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-overview.md)
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

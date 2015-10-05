@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 Neste procedimento, você vai:
 
@@ -21,7 +22,7 @@ Neste procedimento, você vai:
 
 5. No arquivo web.config descriptografado, sob o nó **<connectionStrings>**, adicione a cadeia de conexão para sua instância de servidor SQL e o nome do banco de dados de conteúdo. Veja os exemplos a seguir.
 
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
+    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
 
 6. Use `aspnet_regiis –pef connectionStrings` para criptografar o arquivo web.config novamente.
 
@@ -63,4 +64,4 @@ Neste procedimento, você vai:
 
 2. No servidor Web front-end, na **Administração Central**, edite as **Configurações Gerais do Aplicativo Web** para o banco de dados de conteúdo desejado a fim de reabilitar a Lixeira. Para fazer isso, clique em **Administração Central** -> **Gerenciamento de Aplicativos** -> **Aplicativos Web (Gerenciar aplicativos Web)** -> **SharePoint - 80** -> **Configurações Gerais de Aplicativos**. Defina o Status da Lixeira para **ATIVADO**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

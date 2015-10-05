@@ -44,6 +44,8 @@ Para instalar a biblioteca, vá para a [Biblioteca do cliente do banco de dados 
 
 Para instruções sobre como usar a ferramenta de mesclagem e divisão, consulte a [visão geral da ferramenta de mesclagem e divisão](sql-database-elastic-scale-overview-split-and-merge.md).
 
+[A biblioteca de cliente do banco de dados elástico agora é tem código aberto!](http://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -51,4 +53,4 @@ Para instruções sobre como usar a ferramenta de mesclagem e divisão, consulte
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

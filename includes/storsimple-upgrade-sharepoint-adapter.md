@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Atualizar o Adaptador StorSimple para SharePoint | Microsoft Azure"
-   description="Descreve como atualizar o SharePoint e, em seguida, instalar uma nova versão do Adaptador StorSimple para SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/03/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 ### Atualizar o SharePoint 2010 para SharePoint 2013 e instalar o Adaptador StorSimple para SharePoint
 
@@ -37,7 +22,7 @@
 >
 >- O conteúdo externalizado anteriormente não estará disponível até que o adaptador seja reinstalado.
 >
->- Qualquer conteúdo carregado no site depois da desinstalação da versão anterior do Adaptador StorSimple para SharePoint, mas antes da instalação da nova versão, será armazenado no banco de dados de conteúdo. Você precisará mover esse conteúdo para o dispositivo StorSimple depois de instalar o novo adaptador. Você pode usar o cmdlet do Microsoft` RBS Migrate()` PowerShell incluído com o SharePoint para migrar o conteúdo. Para obter mais informações, veja [Migrar o conteúdo para dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx).
+>- Qualquer conteúdo carregado no site depois da desinstalação da versão anterior do Adaptador StorSimple para SharePoint, mas antes da instalação da nova versão, será armazenado no banco de dados de conteúdo. Você precisará mover esse conteúdo para o dispositivo StorSimple depois de instalar o novo adaptador. Você pode usar o cmdlet do Microsoft` RBS Migrate()` PowerShell incluído com o SharePoint para migrar o conteúdo. Para saber mais, consulte [Migrar o conteúdo para dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
 
 #### Para atualizar o Adaptador StorSimple para SharePoint 
@@ -48,4 +33,4 @@
  
 2. Instale o novo Adaptador StorSimple para SharePoint. O novo adaptador reconhecerá automaticamente os bancos de dados de conteúdo habilitados ou desabilitados para RBS anteriormente e usará as configurações anteriores.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

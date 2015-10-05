@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mover dados para e do SQL Azure | Azure Data Factory"
-	description="Saiba como mover dados para/do Banco de Dados SQL do Azure usando o Azure Data Factory"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Mover dados para e do SQL Azure | Azure Data Factory" 
+	description="Saiba como mover dados para/do Banco de Dados SQL do Azure usando o Azure Data Factory" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do SQL Azure com o Azure Data Factory
@@ -474,4 +474,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 
 	 
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

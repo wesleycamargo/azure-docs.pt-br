@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Usando marcas para organizar os recursos do Azure" 
-	description="Mostra como aplicar marcas para organizar os recursos para cobrança e gerenciamento." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
+<properties
+	pageTitle="Usando marcas para organizar os recursos do Azure"
+	description="Mostra como aplicar marcas para organizar os recursos para cobrança e gerenciamento."
+	services="azure-resource-manager"
+	documentationCenter=""
 	authors="tfitzmac"
-	manager="wpickett" 
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="AzurePortal" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/04/2015" 
+<tags
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="AzurePortal"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/04/2015"
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ Quando você exibir os recursos com uma determinada marca, verá os recursos de 
 
 Cada marca que você adiciona a um recurso ou grupo de recursos é adicionada automaticamente à taxonomia de toda a assinatura. Você também pode pré-popular a taxonomia para sua assinatura com nomes de marca, enquanto os valores que você deseja usar como recursos serão marcados no futuro.
 
-> [AZURE.NOTE]Você só pode aplicar marcas em recursos com suporte a operações do Gerenciador de Recursos. Se você tiver criado uma Máquina Virtual, uma Rede Virtual ou um Armazenamento por meio do modelo de implantação clássica (como por meio do Portal do Azure ou da [API de Gerenciamento de Serviço](https://msdn.microsoft.com/library/azure/dn948465.aspx)), você não poderá aplicar uma marca a esse recurso. Será necessário implantar esses recursos novamente por meio do Gerenciador de Recursos para dar suporte à marcação. Todos os outros recursos oferecem suporte à marcação.
+> [AZURE.NOTE]Você só pode aplicar marcas em recursos com suporte a operações do Gerenciador de Recursos. Se você tiver criado uma Máquina Virtual, uma Rede Virtual ou um Armazenamento por meio do modelo de implantação clássico (como por meio do Portal do Azure ou da [API de Gerenciamento de Serviço](../services/api-management/)), você não poderá aplicar uma marca a esse recurso. Será necessário implantar esses recursos novamente por meio do Gerenciador de Recursos para dar suporte à marcação. Todos os outros recursos oferecem suporte à marcação.
 
 
 ## Marcas no portal de visualização
@@ -154,8 +154,5 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcas de cobr
 - Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, veja [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md).
 - Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, veja [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
 - Para obter uma introdução ao uso do portal de visualização, veja [Usando o portal de visualização do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
-  
 
-  
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

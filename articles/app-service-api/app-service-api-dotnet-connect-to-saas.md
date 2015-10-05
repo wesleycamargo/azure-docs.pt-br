@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Conectar-se a uma plataforma SaaS de um aplicativo de API ASP.NET no Serviço de Aplicativo do Azure
@@ -447,4 +447,4 @@ Você aprender a codificar e configurar um aplicativo de API que se conecta a um
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

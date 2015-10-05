@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -146,5 +146,11 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
+## Próximas etapas
 
-<!---HONumber=August15_HO7-->
+* [Configuração geral do serviço de nuvem](cloud-services-how-to-configure.md).
+* Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name.md).
+* [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage.md).
+* Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
+
+<!---HONumber=Sept15_HO4-->

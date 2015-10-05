@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Visualização do AD (Active Directory) B2C do Azure: fornecer registro e conexão aos consumidores com contas do LinkedIn
@@ -52,4 +52,4 @@ Para usar o LinkedIn como um provedor de identidade no AD (Active Directory) B2C
 6. Clique em **Configurar este provedor de identidade** e insira a **ID do Cliente** e o **Segredo do Cliente** do aplicativo do LinkedIn que você criou anteriormente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração do LinkedIn.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

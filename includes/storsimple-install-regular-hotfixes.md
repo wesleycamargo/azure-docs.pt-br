@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar hotfixes normais por meio do Windows PowerShell para StorSimple
 
@@ -18,4 +19,4 @@
 
 5. Será solicitada a sua confirmação. Digite **Y** para prosseguir com a instalação do hotfix.
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -1,9 +1,10 @@
 <properties 
 	pageTitle="Como usar o AMQP 1.0 com o API do Barramento de Serviço em Java | Microsoft Azure" 
-	description="Saiba como usar o Java Message Service (JMS) com o barramento de serviço do Azure e Advanced Message Queuing Protocol (AMQP) 1.0." 
+	description="Como usar o Java Message Service (JMS) com o barramento de serviço do Azure e Advanced Message Queuing Protocol (AMQP) 1.0." 
 	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
+	writer="sethm" 
 	manager="timlt" 
 	editor=""/>
 
@@ -35,7 +36,7 @@ Este guia presume que você já tenha um namespace do Barramento de Serviço que
 
 ## Baixando a biblioteca do cliente do JMS do AMQP 1.0
 
-Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS do AMQP 1.0, acesse [acessehttp://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)
+Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS do AMQP 1.0, acesse [acessehttp://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)
 
 Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distribuição do Apache Qpid JMS do AMQP 1.0 ao CLASSPATH do Java ao criar e executar aplicativos do JMS com o Barramento de Serviço:
 
@@ -335,7 +336,10 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 * [Como usar os tópicos AMQP 1.0 com o Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Guia do desenvolvedor do AMQP 1.0 do Barramento de Serviço](http://msdn.microsoft.com/library/jj841071.aspx)
 * [Como usar as filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
+* [Central de desenvolvedores do Java](/develop/java/).
+
+
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->
