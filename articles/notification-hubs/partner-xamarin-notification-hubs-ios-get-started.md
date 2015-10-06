@@ -71,7 +71,7 @@ Em seguida, registre seu aplicativo na Apple, habilite as notificações por pus
 
 Para poder enviar notificações por push dos Serviços Móveis para um aplicativo iOS, você deve registrar o aplicativo na Apple e também registrar para notificações por push.
 
-1. Se você ainda não registrou seu aplicativo, navegue até o <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Provisionamento do iOS</a> no Apple Developer Center, entre com seu ID Apple, clique em **Identificadores**, em **IDs de Aplicativo** e, finalmente, clique no sinal de **++￼￼￼￼￼￼￼** para registrar um novo aplicativo.
+1. Se você ainda não registrou seu aplicativo, navegue até o <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Provisionamento do iOS</a> no Apple Developer Center, entre com seu ID Apple, clique em **Identificadores**, em **IDs de Aplicativo** e, finalmente, clique no sinal de **++** para registrar um novo aplicativo.
 
    	![][105]
 

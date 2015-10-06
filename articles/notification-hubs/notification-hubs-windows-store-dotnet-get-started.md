@@ -124,7 +124,7 @@ O hub de notificação agora está configurado para trabalhar com o WNS e você 
 
 	Isso baixa, instala e adiciona uma referência em todos os projetos para a biblioteca Mensagens do Azure para a Windows Store usando o <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">pacote NuGet do WindowsAzure.Messaging.Managed</a>.
 
-3. Abra o arquivo de projeto App.xaml.cs e adicione as seguintes instruções `using`. No projeto universal, este arquivo está localizado na pasta `<project_name>.Shared` ￼￼￼.
+3. Abra o arquivo de projeto App.xaml.cs e adicione as seguintes instruções `using`. No projeto universal, este arquivo está localizado na pasta `<project_name>.Shared` .
 
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
