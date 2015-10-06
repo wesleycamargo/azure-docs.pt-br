@@ -78,16 +78,14 @@ Quando o `TaskService` recebe solicitações de `TaskClient`, ele verifica se h�
   </appSettings>
   ```
 
-If you want to learn how a web API securely authenticates requests using Azure AD B2C, check out our
-[Web API Getting Started article](active-directory-b2c-devquickstarts-api-dotnet.md).
+Se você quer aprender como uma API Web autentica com segurança solicitações usando o B2C do Azure AD, consulte nosso
+[Artigo de Introdução à API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Execute policies
-Now that the `TaskService` is ready to authenticate requests, we can implement the `TaskClient`.  Your app communicates with Azure AD B2C by sending HTTP authentication requests,
-specifying the policy it wishes to execute as part of the request.  For .NET desktop applications, you can use the **Active Directory Authentication Library (ADAL)**
-to send OAuth 2.0 authentication messages, execute policies, and get tokens for calling web APIs.
+## 6. Executar políticas
+Agora que o `TaskService` está pronto para autenticar solicitações, podemos implementar `TaskClient`. Seu aplicativo se comunica com o AD B2C do Azure enviando solicitações de autenticação HTTP, especificando a política que deseja executar como parte da solicitação. Para aplicativos da área de trabalho do .NET, você pode usar a **ADAL (Active Directory Authentication Library)** para enviar mensagens de autenticação OAuth 2.0, executar políticas e obter tokens para APIs Web de chamada.
 
-#### Install ADAL
-Begin by adding ADAL to the TaskClient project using the Visual Studio Package Manager Console.
+#### Instalar a ADAL
+Comece adicionando a ADAL ao projeto TaskClient usando o Console do Gerenciador de Pacotes do Visual Studio.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskClient -IncludePrerelease
@@ -326,7 +324,9 @@ Você pode fazer experiências à vontade com as políticas e observar o efeito 
 
 Para referência, o exemplo concluído [é fornecido como. zip aqui](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
+```
 
 <!--
 

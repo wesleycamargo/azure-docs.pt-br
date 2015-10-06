@@ -82,13 +82,11 @@ Quando o `TaskService` recebe solicitações de `TaskWebApp`, ele verifica se h�
 </appSettings>
   ```
 
-This article will not cover the details of securing the `TaskService`.  If you want to learn how a web API securely authenticates requests using Azure AD B2C, check out our
-[Web API Getting Started article](active-directory-b2c-devquickstarts-api-dotnet.md).
+Este artigo não inclui os detalhes sobre a segurança de `TaskService`. Se você quer aprender como uma API Web autentica com segurança solicitações usando o AD B2C do Azure, consulte nosso [Artigo de Introdução à API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Configure the task web app
+## 6. Configurar o aplicativo Web da tarefa
 
-In order for the `TaskWebApp` to communicate with Azure AD B2C, there are a few common parameters that you will need to provide.  In the `TaskWebApp` project, open up the
-`web.config` file in the root of the project and replace the values in the `<appSettings>` section.  These values will be used throughout the web app.
+Para que `TaskWebApp` se comunique com o AD B2C do Azure, há alguns parâmetros comuns que você precisará fornecer. No projeto `TaskWebApp`, abra o arquivo `web.config` na raiz do projeto e substitua os valores na seção `<appSettings>`. Esses valores serão usados em todo o aplicativo Web.
 
 ```
 <appSettings>
