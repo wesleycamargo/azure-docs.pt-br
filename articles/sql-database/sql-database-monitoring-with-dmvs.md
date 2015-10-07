@@ -44,7 +44,9 @@ Em uma instância do SQL Server local, as exibições de gerenciamento dinâmico
 A consulta a seguir retorna o tamanho do seu banco de dados em megabytes:
 
 ```
-– Calcula o tamanho do banco de dados. SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO 
+– Calcula o tamanho do banco de dados. 
+SELECT SUM(reserved\_page\_count)*8.0/1024
+FROM sys.dm\_db\_partition\_stats; GO 
 ```
 
 A consulta a seguir retorna o tamanho do dos objetos individuais (em megabytes) no seu banco de dados:
@@ -134,4 +136,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)
 
-<!----HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->
