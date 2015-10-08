@@ -23,7 +23,9 @@ Cenário 1: empresas baseadas principalmente na nuvem
 --------------------------------------------------------
 A Junção do Azure AD pode beneficiá-lo se você operar e gerenciar identidades para seus negócios na nuvem ou for migrar para a nuvem em breve. Você pode usar uma conta que já criou no Azure AD para entrar no Windows 10. Por meio de um [processo de FRX (experiência de primeira execução)](active-directory-azureadjoin-user-frx.md) ou unindo o Azure AD por meio da [experiência de Configurações](active-directory-azureadjoin-user-upgrade.md), seus usuários podem unir suas máquinas ao Azure AD. Agora, seus usuários têm acesso de SSO a seus recursos de nuvem, como o Office 365, no navegador ou em aplicativos do Office.
 
-Cenário 2: instituições de ensino ---------------------------------------------------------------------------------- Instituições de ensino normalmente têm dois tipos de usuário: professores e alunos. Os membros do corpo docente são considerados integrantes de longo prazo da organização e é desejável criar contas locais para eles. Mas os alunos são membros de prazo mais curto da organização e, portanto, podem ser gerenciados no Azure AD, de modo que a escala do diretório pode ser enviada para a nuvem em vez do local. Agora, esses alunos podem entrar no Windows com sua conta do Azure AD e obter acesso aos recursos do Office 365 em aplicativos do Office.
+Cenário 2: instituições de ensino
+----------------------------------------------------------------------------------
+Instituições de ensino normalmente têm dois tipos de usuário: professores e alunos. Os membros do corpo docente são considerados integrantes de longo prazo da organização e é desejável criar contas locais para eles. Mas os alunos são membros de prazo mais curto da organização e, portanto, podem ser gerenciados no Azure AD, de modo que a escala do diretório pode ser enviada para a nuvem em vez do local. Agora, esses alunos podem entrar no Windows com sua conta do Azure AD e obter acesso aos recursos do Office 365 em aplicativos do Office.
 
 Cenário 3: empresas de varejo
 ---------------------------------------------------------------------------------------
@@ -85,4 +87,4 @@ Você pode configurar seus funcionários e usuários para usarem seus dispositiv
 * [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-overview.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

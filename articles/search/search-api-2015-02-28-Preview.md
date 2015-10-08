@@ -1501,7 +1501,7 @@ O URI da solicitação inclui um [nome de índice] e uma [chave], especificando 
 
 `$select=[string]` (opcional) ‒ uma lista de campos separados por vírgulas a serem recuperados. Se não for especificado ou se for definido como `*`, todos os campos marcados como recuperáveis no esquema serão incluídos na projeção.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
 
 Observação: para essa operação, a `api-version` é especificada como um parâmetro de consulta.
 
@@ -1722,4 +1722,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "suggesterName": "sg"
     }
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

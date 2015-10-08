@@ -38,7 +38,20 @@ Os recursos do Azure Site Recovery foram criados tendo em mente a proteção/rec
 
 As tecnologias de replicação de ASR são compatíveis com qualquer aplicativo em execução em uma máquina virtual. Conduzimos testes adicionais em parceria com as equipes de produto do aplicativo a fim de dar mais suporte a cada aplicativo.
 
-**Carga de trabalho** | <p>**Replicar máquinas virtuais do Hyper-V**</p> <p>**(para o site secundário)**</p> | <p>**Replicar máquinas virtuais do Hyper-V**</p><p>**(para o Azure)**</p> | <p>**Replicar máquinas virtuais da VMware**</p> <p>**(para o site secundário)**</p> | <p>**Replicar máquinas virtuais da VMware**</p><p>**(para o Azure)****</p>---|---|---|---|--- Active Directory, DNS | Y | Y | Y | Y Aplicativos Web (IIS, SQL) | Y | Y | Y | Y SCOM | Y | Y | Y | Y Sharepoint | Y | Y | Y | Y <p>SAP</p><p>Replicar site da SAP para o Azure para não cluster</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) Exchange (não DAG) | Y | Em breve | Y | Y Área de Trabalho Remota/VDI | Y | Y | Y | N/D <p>Linux</p> <p>(sistema operacional e aplicativos)</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) Dynamics AX | Y | Y | Y | Y Dynamics CRM | Y | Em breve | Y | Em breve Oracle | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) Servidor de Arquivos do Windows | Y | Y | Y | Y
+**Carga de trabalho** | <p>**Replicar máquinas virtuais do Hyper-V**</p> <p>**(para o site secundário)**</p> | <p>**Replicar máquinas virtuais do Hyper-V**</p><p>**(para o Azure)**</p> | <p>**Replicar máquinas virtuais da VMware**</p> <p>**(para o site secundário)**</p> | <p>**Replicar máquinas virtuais da VMware**</p><p>**(para o Azure)****</p>
+---|---|---|---|---
+Active Directory, DNS | Y | Y | Y | Y
+Aplicativos Web (IIS, SQL) | Y | Y | Y | Y
+SCOM | Y | Y | Y | Y
+Sharepoint | Y | Y | Y | Y
+<p>SAP</p><p>Replicar site da SAP para o Azure para não cluster</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft)
+Exchange (não DAG) | Y | Em breve | Y | Y
+Área de Trabalho Remota/VDI | Y | Y | Y | N/D
+<p>Linux</p> <p>(sistema operacional e aplicativos)</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft)
+Dynamics AX | Y | Y | Y | Y
+Dynamics CRM | Y | Em breve | Y | Em breve
+Oracle | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) Servidor de Arquivos do 
+Windows | Y | Y | Y | Y
 
 ##Active Directory e DNS
 
@@ -107,4 +120,4 @@ O SAP é um software líder de planejamento de recursos empresariais (ERP), usad
 
 Consulte o documento vinculado para obter uma orientação detalhada sobre a [implantação do Azure Site Recovery para SAP NetWeaver](http://aka.ms/asr-sap)
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->
