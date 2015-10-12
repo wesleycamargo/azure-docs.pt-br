@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/26/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal de visualização do Azure
@@ -46,4 +46,4 @@ Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

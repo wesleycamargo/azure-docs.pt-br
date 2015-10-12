@@ -12,14 +12,14 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/21/2015" 
+ms.date="09/29/2015" 
 ms.author="heidist" />
 
-#Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)
+#Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)#
 
-> [AZURE.NOTE]Este artigo descreve os indexadores na versão [2015-02-28-Preview](search-api-2015-02-28-preview.md). Atualmente, a única diferença entre a versão `2015-02-28` documentada no [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e a versão `2015-02-28-Preview` descrita aqui é que a visualização fornece *fieldMappings*, conforme descrito em [Criar indexador](#CreateIndexer).
+> [AZURE.NOTE]Este artigo descreve os indexadores na versão [2015-02-28-Preview](./search-api-2015-02-28-preview). Atualmente não há nenhuma diferença entre a versão `2015-02-28` documentada no [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e a versão `2015-02-28-Preview` descrita aqui. Fornecemos este artigo para que você tenha a documentação completa definida para `2015-02-28-Preview`, embora essa API esteja inalterada.
 
-## Visão geral
+## Visão geral ##
 
 O Azure Search pode se integrar diretamente a algumas fontes de dados comuns, eliminando a necessidade de escrever código para indexar seus dados. Para configurar isso, você pode chamar a API do Azure Search para criar e gerenciar **indexadores** e **fontes de dados**.
 
@@ -40,9 +40,9 @@ Atualmente, há suporte às seguintes fontes de dados:
 
 Estamos considerando a adição de suporte a fontes de dados adicionais no futuro. Para nos ajudar a priorizar essas decisões, forneça seus comentários no [Fórum de comentários do Azure Search](http://feedback.azure.com/forums/263029-azure-search).
 
-Consulte [Limites de serviços](search-limits-quotas-capacity.md) para obter os limites máximos relacionados aos recursos de origem do indexador e dados.
+Veja [Limites de Serviço](search-limits-quotas-capacity.md) para obter os limites máximos relacionados aos recursos do indexador e da fonte de dados.
 
-## Fluxo de uso típico
+## Fluxo de uso típico ##
 
 Você pode criar e gerenciar índices e fontes de dados por meio de solicitações HTTP simples (POST, GET, PUT, DELETE) em relação a um recurso `data source` ou `indexer` específico.
 
@@ -63,9 +63,9 @@ Depois de criar um indexador, você pode recuperar seu status de execução usan
 <!-- MSDN has 2 art files plus a API topic link list -->
 
 
-## Criar fonte de dados
+## Criar fonte de dados ##
 
-Você pode criar uma nova fonte de dados em um serviço Azure Search usando uma solicitação HTTP POST.
+Na Pesquisa do Azure, uma fonte de dados é usada com indexadores, fornecendo as informações de conexão para a atualização de dados ad hoc ou agendada de um índice de destino. Você pode criar uma nova fonte de dados em um serviço Azure Search usando uma solicitação HTTP POST.
 	
     POST https://[service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
@@ -75,7 +75,7 @@ Como alternativa, você pode usar PUT e especificar o nome da fonte de dados no 
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
-**Observação**: o número máximo de fontes de dados permitidas varia por camada de preços. O serviço gratuito permite até três fontes de dados. O serviço padrão permite 50 fontes de dados. Consulte [Limites e restrições](https://msdn.microsoft.com/library/azure/dn798934.aspx) para obter detalhes.
+**Observação**: o número máximo de fontes de dados permitidas varia por camada de preços. O serviço gratuito permite até três fontes de dados. O serviço padrão permite 50 fontes de dados. Veja [Limites de Serviço](search-limits-quotas-capacity.md) para obter detalhes.
 
 **Solicitação**
 
@@ -125,7 +125,8 @@ A contém as seguintes propriedades:
 		
 - `container`:
 	- A propriedade obrigatória `name` especifica a tabela ou o modo de exibição (para a fonte de dados do Azure SQL) ou uma coleção (para uma fonte de dados DocumentDB) que será indexado. 
-	- As fontes de dados DocumentDB também dão suporte a uma propriedade opcional `query` que permite que você especifique uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que o Azure Search pode indexar.   
+	- Para fontes de dados do SQL, omita os prefixos de esquema, como dbo., para que o contêiner consista apenas no nome da tabela ou da exibição.
+	- As fontes de dados do Banco de Dados de Documentos também dão suporte a uma propriedade `query` opcional que permite especificar uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que pode ser indexado pela Pesquisa do Azure.   
 - A `dataChangeDetectionPolicy` e a `dataDeletionDetectionPolicy` opcionais são descritas abaixo.
 
 <a name="DataChangeDetectionPolicies"></a> **Políticas de Detecção de Alteração de Dados**
@@ -211,7 +212,7 @@ Se você pretende usar a fonte de dados para uma cópia única dos dados, as pol
 Para uma solicitação bem-sucedida: "201 Criado".
 
 <a name="UpdateDataSource"></a>
-## Atualizar Fonte de Dados
+## Atualizar Fonte de Dados ##
 
 Você pode atualizar uma fonte de dados usando uma solicitação HTTP PUT. Especifique o nome da fonte de dados a ser atualizada no URI da solicitação:
 
@@ -230,7 +231,7 @@ A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de v
 **OBSERVAÇÃO:** algumas propriedades não podem ser atualizadas em uma fonte de dados existente. Por exemplo, você não pode alterar o tipo de fonte de dados existente.
 
 <a name="ListDataSource"></a>
-## Listar Fontes de Dados
+## Listar Fontes de Dados ##
 
 A operação **Listar Fontes de Dados** retorna uma lista das fontes de dados existentes no momento em seu serviço Azure Search.
 
@@ -269,7 +270,7 @@ Nesse caso, a resposta do exemplo anterior seria exibida da seguinte maneira:
 Essa é uma técnica útil para economizar largura de banda se você tiver muitas fontes de dados em seu serviço de pesquisa.
 
 <a name="GetDataSource"></a>
-## Obter Fonte de Dados
+## Obter Fonte de Dados ##
 
 A operação **Obter Fonte de Dados** obtém a definição da fonte de dados do Azure Search.
 
@@ -304,7 +305,7 @@ A resposta é semelhante ao exemplos em [Solicitações de exemplo Criar Fonte d
 **OBSERVAÇÃO** não defina o `Accept` cabeçalho da solicitação como `application/json;odata.metadata=none` ao chamar essa API, pois isso fará com que o atributo `@odata.type` seja omitido da resposta, e você não poderá diferenciar políticas de detecção de alteração de dados e exclusão de dados de diferentes tipos.
 
 <a name="DeleteDataSource"></a>
-## Excluir Fonte de Dados
+## Excluir Fonte de Dados ##
 
 A operação **Excluir Fonte de Dados** remove uma fonte de dados de seu serviço Azure Search.
 
@@ -322,7 +323,7 @@ A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de v
 Código de status: 204 Sem Conteúdo é retornado para uma resposta bem-sucedida.
 
 <a name="CreateIndexer"></a>
-## Criar Indexador
+## Criar Indexador ##
 
 Você pode criar um novo indexador em um serviço Azure Search usando uma solicitação HTTP POST.
 	
@@ -334,7 +335,7 @@ Como alternativa, você pode usar PUT e especificar o nome da fonte de dados no 
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
-**Observação**: o número máximo de indexadores permitidos varia por camada de preços. O serviço gratuito permite até três indexadores. O serviço padrão permite 50 indexadores. Consulte [Limites e restrições](https://msdn.microsoft.com/library/azure/dn798934.aspx) para obter detalhes.
+**Observação**: o número máximo de indexadores permitidos varia por camada de preços. O serviço gratuito permite até três indexadores. O serviço padrão permite 50 indexadores. Veja [Limites de Serviço](search-limits-quotas-capacity.md) para obter detalhes.
 
 A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de versão do Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) tem detalhes e mais informações sobre versões alternativas.
 
@@ -355,14 +356,15 @@ A sintaxe para estruturar a carga da solicitação é indicada a seguir. Uma sol
         "targetIndexName" : "Required. The name of an existing index",
         "schedule" : { Optional. See Indexing Schedule below. },
         "parameters" : { Optional. See Indexing Parameters below. },
-        "fieldMappings" : { Optional. See Field Mappings below. }
+        "fieldMappings" : { Optional. See Field Mappings below. },
+        "disabled" : Optional boolean value indicating whether the indexer is disabled. False by default.  
 	}
 
 **Agenda do indexador**
 
 Um indexador pode, também, especificar uma agenda. Se houver uma agenda, o indexador será executado periodicamente segundo a agenda. A agenda tem os seguintes atributos:
 
-- `interval`: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
+- `interval`: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P[nD][T[nH][nM]]`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
 
 - `startTime`: obrigatório. Uma data/hora, no horário UTC, quando o indexador deve começar a ser executado.
 
@@ -370,9 +372,9 @@ Um indexador pode, também, especificar uma agenda. Se houver uma agenda, o inde
 
 Um indexador pode, opcionalmente, especificar vários parâmetros que afetam seu comportamento. Todos os parâmetros são opcionais.
 
-- `maxFailedItems`: o número de itens que podem não ser indexados antes que a execução de um indexador seja considerada como falha. O padrão é 0. Informações sobre itens com falha são retornadas pela operação [Obter Status do Indexador](#GetIndexerStatus). 
+- `maxFailedItems`: o número de itens que podem não ser indexados antes que a execução de um indexador seja considerada uma falha. O padrão é 0. Informações sobre itens com falha são retornadas pela operação [Obter Status do Indexador](#GetIndexerStatus). 
 
-- `maxFailedItemsPerBatch`: o número de itens que podem não ser indexados em cada lote antes que a execução de um indexador seja considerada como falha. O padrão é 0.
+- `maxFailedItemsPerBatch`: o número de itens que podem não ser indexados em cada lote antes que a execução de um indexador seja considerada uma falha. O padrão é 0.
 
 - `base64EncodeKeys`: especifica se as chaves de documento serão ou não codificadas em base 64. O Azure Search impõe restrições em relação aos caracteres que podem estar presentes em uma chave de documento. No entanto, os valores na fonte de dados podem conter caracteres que são inválidos. Se for necessário indexar esses valores como chaves de documento, esse sinalizador poderá ser definido como true. O padrão é `false`.
 
@@ -401,7 +403,7 @@ Apenas uma dessas funções tem suporte: `jsonArrayToStringCollection`. Analisa 
 
 Por exemplo, se o campo de origem contiver a cadeia de caracteres `["red", "white", "blue"]`, o campo de destino do tipo `Collection(Edm.String)` será preenchido com os três valores `"red"`, `"white"` e `"blue"`.
 
-Observação: a propriedade `targetFieldName` é opcional; se omitida, o valor `sourceFieldName` é usado).
+Observe que a propriedade `targetFieldName` é opcional; se omitida, o valor `sourceFieldName` será usado.
 
 <a name="CreateIndexerRequestExamples"></a> **Exemplos de corpo de solicitação**
 
@@ -422,7 +424,7 @@ O exemplo a seguir cria um indexador que copia dados da tabela referenciada pela
 
 
 <a name="UpdateIndexer"></a>
-## Atualizar Indexador
+## Atualizar Indexador ##
 
 Você pode atualizar um indexador usando uma solicitação HTTP PUT. Especifique o nome do indexador a ser atualizado no URI da solicitação:
 
@@ -444,7 +446,7 @@ Para uma solicitação bem-sucedida: 201 Criado se um novo indexador for criado 
 
 
 <a name="ListIndexers"></a>
-## Listar Indexadores
+## Listar Indexadores ##
 
 A operação **Listar Indexadores** retorna a lista de indexadores em seu serviço Azure Search.
 
@@ -487,7 +489,7 @@ Essa é uma técnica útil para economizar largura de banda se você tiver muito
 
 
 <a name="GetIndexer"></a>
-## Obter Indexador
+## Obter Indexador ##
 
 A operação **Obter Indexador** obtém a definição de indexador do Azure Search.
 
@@ -515,7 +517,7 @@ A resposta é semelhante aos exemplos em [Solicitações de exemplo criar Indexa
 
 
 <a name="DeleteIndexer"></a>
-## Excluir Indexador
+## Excluir Indexador ##
 
 A operação **Excluir Indexador** remove um indexador de seu serviço Azure Search.
 
@@ -533,7 +535,7 @@ A `api-version` é obrigatória. A versão de visualização é `2015-02-28-Prev
 Código de status: 204 Sem Conteúdo é retornado para uma resposta bem-sucedida.
 
 <a name="RunIndexer"></a>
-## Executar Indexador
+## Executar Indexador ##
 
 Além de ser executado periodicamente segundo uma agenda, o indexador também pode ser invocado sob demanda por meio da operação **Executar Indexador**:
 
@@ -549,7 +551,7 @@ A `api-version` é obrigatória. A versão de visualização é `2015-02-28-Prev
 Código de status: 202 Aceito é retornado para uma resposta bem-sucedida.
 
 <a name="GetIndexerStatus"></a>
-## Obter Status do Indexador
+## Obter Status do Indexador ##
 
 A operação **Obter Status do Indexador** recupera o status atual e o histórico de execução de um indexador:
 
@@ -617,7 +619,7 @@ O resultado da execução do indexador contém as seguintes propriedades:
 
 - `endTime`: a hora em UTC quando essa execução terminou. Esse valor não será definido se a execução ainda estiver em andamento.
 
-- `errors`: uma lista de erros de nível de item, se houver.
+- `errors`: uma lista de erros de nível de item, se houver. Cada entrada contém uma chave de documento (`key` propriedade) e uma mensagem de erro (`errorMessage` propriedade).
 
 - `itemsProcessed`: o número de itens da fonte de dados (por exemplo, linhas de tabela) que o indexador tentou indexar durante esta execução.
 
@@ -635,15 +637,14 @@ O status de execução do indexador captura o status de uma única execução do
 
 - `inProgress` indica que a execução do indexador está em andamento.
 
-- `transientFailure` indica que a execução de um indexador falhou. Consulte a propriedade `errorMessage` para obter detalhes. A falha pode ou não exigir intervenção humana para ser corrigida. Por exemplo, para corrigir uma incompatibilidade de
-- esquema entre a fonte de dados e o índice de destino, é exigida a ação do usuário, enquanto um tempo de inatividade de fonte de dados temporários não a exige. As invocações do indexador continuarão de acordo com a agenda, se houver. 
+- `transientFailure` indica que a execução de um indexador falhou. Consulte a propriedade `errorMessage` para obter detalhes. A falha pode ou não exigir a intervenção humana para a correção – por exemplo, corrigir uma incompatibilidade de esquema entre a fonte de dados e o índice de destino requer a ação do usuário, ao contrário de um tempo de inatividade temporário da fonte de dados. As invocações do indexador continuarão de acordo com a agenda, se houver.
 
 - `persistentFailure` indica que o indexador falhou em uma forma que requer intervenção humana. As execuções agendadas do indexador param. Depois de abordar o problema, use Redefinir a API do indexador para reiniciar as execuções agendadas.
 
 - `reset` indica que o indexador foi redefinido por uma chamada para Redefinir a API do Indexador (veja a seguir).
 
 <a name="ResetIndexer"></a>
-## Redefinir Indexador
+## Redefinir Indexador ##
 
 A operação **Redefinir Indexador** redefine o estado de controle de alterações associado ao indexador. Isso permite disparar a reindexação do zero (por exemplo, se o esquema de fonte de dados for alterado) ou alterar a política de detecção de alteração de dados para uma fonte de dados associada ao indexador.
 
@@ -658,7 +659,7 @@ A `api-version` é obrigatória. A versão de visualização é `2015-02-28-Prev
 
 Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 
-## Mapeamento entre tipos de dados SQL e tipos de dados do Azure Search
+## Mapeamento entre tipos de dados SQL e tipos de dados do Azure Search ##
 
 <table style="font-size:12">
 <tr>
@@ -725,7 +726,7 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 </tr>
 </table>
 
-## Mapeamento entre tipos de dados JSON e tipos de dados da Pesquisa do Azure
+## Mapeamento entre tipos de dados JSON e tipos de dados da Pesquisa do Azure ##
 
 <table style="font-size:12">
 <tr>
@@ -775,4 +776,4 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 </tr>
 </table>
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

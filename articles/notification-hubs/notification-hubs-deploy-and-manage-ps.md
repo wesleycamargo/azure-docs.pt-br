@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/24/2015" 
 	ms.author="wesmc"/>
 
 # Implantar e gerenciar os Hubs de Notificação usando o PowerShell
@@ -171,4 +171,4 @@ Alguns scripts prontos também estão disponíveis para download: - [Scripts do 
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

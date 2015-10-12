@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Analisando a Variação do Cliente usando o Aprendizado de Máquina | Microsoft Azure" 
-	description="Estudo de caso do desenvolvimento de um modelo integrado para analisar e pontuar a insatisfação do cliente" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jeannt" 
-	manager="paulettm" 
+<properties
+	pageTitle="Analisando a Variação do Cliente usando o Aprendizado de Máquina | Microsoft Azure"
+	description="Estudo de caso do desenvolvimento de um modelo integrado para analisar e pontuar a insatisfação do cliente"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jeannt"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/28/2015" 
 	ms.author="jeannt"/>
 
 # Analisando a Variação do Cliente usando o Aprendizado de Máquina do Microsoft Azure
@@ -54,17 +54,17 @@ Um processo comum de solução de problemas para resolver variação do cliente 
 Essa abordagem visionária é a melhor maneira de tratar a variação, mas ela traz complexidade: precisamos desenvolver um arquétipo de vários modelos e rastrear dependências entre os modelos. A interação entre os modelos pode ser encapsulada conforme mostrado no diagrama a seguir:
 
 ![][2]
- 
+
 *Figura 4: Arquétipo multimodelo unificado*
 
 As interações entre os diferentes modelos são a chave para fornecermos uma abordagem holística para a retenção de clientes. Cada modelo obrigatoriamente degrada-se com o tempo; portanto, a arquitetura é um circuito implícito (semelhante ao arquétipo definido pelo padrão CRISP-DM de prospecção de dados, [***3***]).
- 
+
 O ciclo total de segmentação/decomposição de risco-decisão-marketing ainda é uma estrutura generalizada, que é aplicável a muitos problemas empresariais. A análise de variação é somente um exemplo altamente representativo desse grupo de problemas, porque demonstra todas as características de um problema empresarial complexo que não permite uma solução preditiva simplificada. Os aspectos sociais da abordagem moderna para a variação não são especialmente destacados na abordagem, mas os aspectos sociais são encapsulados no arquétipo de modelagem, do mesmo modo que seriam em qualquer modelo.
 
 Uma adição interessante nesse caso é a análise de big data. As empresas de telecomunicações e varejo coletam dados sobre seus clientes de modo exaustivo, de modo que podemos prever facilmente que a necessidade de uma conectividade multimodelo se tornará uma tendência comum, dadas as tendências emergentes como a “Internet das coisas” e os dispositivos ubíquos, que permitem que a empresa aplique soluções inteligentes em múltiplos níveis.
 
  
-##Implementando o arquétipo modelagem no Estúdio de Aprendizado de Máquina 
+##Implementando o arquétipo modelagem no Estúdio de Aprendizado de Máquina
 Dado o problema descrito acima, como podemos implementar uma abordagem integrada de modelagem e pontuação? Nesta seção, demonstraremos como conseguimos isso usando o Estúdio do Aprendizado de Máquina do Azure.
 
 A abordagem multimodelo é essencial ao projetar um arquétipo global para variação. Até mesmo a parte de pontuação (preditiva) da abordagem deve ser multimodelo.
@@ -72,7 +72,7 @@ A abordagem multimodelo é essencial ao projetar um arquétipo global para varia
 O diagrama a seguir mostra o protótipo que criamos, que emprega quatro algoritmos de pontuação no Estúdio de Aprendizado de Máquina para prever a variação. O motivo para usar uma abordagem multimodelo não é somente criar um classificador de conjunto para aumentar a precisão, mas também proteger contra over-fitting e aprimorar a seleção prescritiva de recursos.
 
 ![][3]
- 
+
 *Figura 5: Protótipo de uma abordagem de modelagem de variação*
 
 As seções a seguir fornecem mais detalhes sobre o protótipo de modelo de pontuação que implementamos usando o Estúdio de Aprendizado de Máquina.
@@ -91,23 +91,23 @@ O ponto mais importante é que o processo inteiro, incluindo ETL, a seleção de
 Os diagramas a seguir ilustram os dados que foram usados.
 
 ![][4]
- 
+
 *Figura 6: Extrato de fonte de dados (ofuscado)*
 
 ![][5]
 
- 
+
 *Figura 7: Recursos extraídos da fonte de dados*
-> Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados. No entanto, para um modelo semelhante usando dados publicamente disponíveis, consulte este experimento de exemplo na [Galeria de Modelos](http://gallery.azureml.net/): [Variação do Cliente de Telecomunicações](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
-> 
+> Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados. No entanto, para um modelo semelhante usando dados publicamente disponíveis, consulte este experimento de exemplo na [Galeria de Análise do Cortana](http://gallery.azureml.net/): [Variação do Cliente de Telecomunicações](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
+>
 
 ###Algoritmos usados no protótipo
 
 Usamos os quatro algoritmos de aprendizado de máquina a seguir para criar o protótipo (sem personalização):
 
 1.	Regressão logística (LR)
-2.	Árvore de decisão aumentada (BT) 
-3.	Perceptron médio (AP) 
+2.	Árvore de decisão aumentada (BT)
+3.	Perceptron médio (AP)
 4.	Máquina de vetor de suporte (SVM)  
 
 
@@ -115,7 +115,7 @@ O diagrama a seguir ilustra uma parte da superfície de design do teste, que ind
 
 ![][6]
 
- 
+
 *Figura 8: Criando modelos no Estúdio de Aprendizado de Máquina*
 
 ###Métodos de pontuação
@@ -123,7 +123,7 @@ Pontuamos quatro modelos usando um conjunto de dados de treinamento rotulado.
 
 Também enviamos o conjunto de dados para um modelo comparável criado usando a edição de área de trabalho do SAS Enterprise Miner 12. Medimos a precisão do modelo SAS e todos os quatro modelos do Estúdio de Aprendizado de Máquina.
 
-##Resultados 
+##Resultados
 Nesta seção, apresentamos nossas descobertas sobre a precisão dos modelos, com base no conjunto de dados de pontuação.
 
 ###Precisão e exatidão da pontuação
@@ -133,7 +133,7 @@ No entanto, a métrica mais importante na variação é a taxa de classificaçã
 
 ![][7]
 
- 
+
 *Figura 9: Área do protótipo de Passau sob a curva*
 
 ###Usando AUC para comparar resultados
@@ -154,7 +154,7 @@ Pelo mesmo token, a exatidão é mais importante que a precisão, porque estamos
 O diagrama a seguir, da Wikipédia, representa a relação em um gráfico vívido, fácil de entender:
 
 ![][8]
- 
+
 *Figura 10: Troca entre exatidão e precisão*
 
 ###Resultados de precisão e exatidão para modelo de árvore de decisão aprimorado  
@@ -165,7 +165,7 @@ O gráfico a seguir exibe os resultados brutos de pontuação usando o protótip
 
 *Figura 11: Características do modelo de árvore de decisão aprimorado*
 
-##Comparação de desempenho 
+##Comparação de desempenho
 Comparamos a velocidade na qual os dados foram pontuados usando os modelos do Estúdio de Aprendizado de Máquina e um modelo comparável criado usando a edição de área de trabalho do SAS Enterprise Miner 12.1.
 
 A tabela a seguir resume o desempenho dos algoritmos:
@@ -184,16 +184,16 @@ Na indústria de telecomunicações, diversas práticas surgiram para analisar a
 -	As métricas se derivam de quatro categorias essenciais:
 	-	**Entidade (por exemplo, uma assinatura)**. Provisione informações básicas sobre a assinatura e/ou cliente sujeito à variação.
 	-	**Atividade**. Obter todas as informações de uso possíveis relacionadas à entidade, por exemplo, o número de logons.
-	-	**Atendimento ao cliente**. Colete informações por meio dos logs de suporte do cliente para indicar se a assinatura teve problemas ou interações com o atendimento ao cliente. 
+	-	**Atendimento ao cliente**. Colete informações por meio dos logs de suporte do cliente para indicar se a assinatura teve problemas ou interações com o atendimento ao cliente.
 	-	**Dados empresariais e de concorrência**. Obter todas as informações possíveis sobre o cliente (por exemplo, ele pode estar indisponível ou ser difícil de rastrear).
 -	Use a importância como critério para acelerar a seleção de recursos. Isso implica que o modelo de árvore de decisão aprimorado sempre é uma abordagem promissora.  
 
 O uso das quatro categorias precedentes cria a ilusão de que uma simples abordagem *determinística*, baseada em índices formados por fatores razoáveis divididos por categoria, seria suficiente para identificar os clientes apresentando risco de variação. Infelizmente, apesar de esse conceito parecer plausível, ele não é verdadeiro. O motivo é que a variação é um efeito temporal e os fatores que contribuem para a variação estão, geralmente, em estados transientes. O que leva um cliente a considerar a possibilidade de sair hoje pode ser diferente do motivo de amanhã e, com certeza, será diferente do motivo que ele terá para isso daqui a seis meses. Assim, um modelo *probabilístico* é necessário.
- 
+
 Essa observação importante muitas vezes é ignorada pela empresa, que geralmente prefere uma abordagem orientada por Business Intelligence para a análise, principalmente porque é algo mais fácil de vender e permite automação simples.
 
 No entanto, a promessa de análises de autoatendimento usando Estúdio de Aprendizado de Máquina significa que as quatro categorias de informação, classificadas por divisão ou departamento, tornam-se uma fonte valiosa de aprendizado de máquina sobre variação.
- 
+
 Outro recurso interessante do Aprendizado de Máquina do Azure é a capacidade de adicionar um módulo personalizado ao repositório de módulos predefinidos que já estão disponíveis. Essa capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. Ela é um diferencial importante do Aprendizado de Máquina do Azure no mercado.
 
 Esperamos continuar com este tópico no futuro, especialmente relacionado à análise de big data.
@@ -204,7 +204,7 @@ Este documento descreve uma abordagem sensata para lidar com o problema comum de
 
 Este documento foi útil para você? Por favor, nos dê seu feedback. Avalie em uma escala de 1 (ruim) a 5 (excelente), como você classificaria este documento e o porquê de ter dado essa classificação? Por exemplo:
 
--	Você está dando uma classificação alta devido a ter bons exemplos, excelentes capturas de tela, escrita clara ou por outro motivo? 
+-	Você está dando uma classificação alta devido a ter bons exemplos, excelentes capturas de tela, escrita clara ou por outro motivo?
 -	Você está dando uma classificação baixa devido a exemplos ruins, capturas de tela distorcidas ou escrita confusa?  
 
 Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmos.
@@ -214,7 +214,7 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, julho/agosto de 2011, p. 18 a 20.
 
 [2] [Precisão e exatidão](http://en.wikipedia.org/wiki/Accuracy_and_precision) na Wikipédia
- 
+
 [3] [CRISP-DM 1.0: Guia de mineração de dados passo a passo](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
 [4] Marketing de Big Data
@@ -223,9 +223,9 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 ##Apêndice
 
 ![][10]
- 
+
 *Figura 12: Instantâneo de uma apresentação de protótipo de variação*
-  
+
 
 [1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
@@ -237,6 +237,5 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

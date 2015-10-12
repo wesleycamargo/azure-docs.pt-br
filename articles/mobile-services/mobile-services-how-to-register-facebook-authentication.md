@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registrar-se para autenticação do Facebook | Microsoft Azure" 
+	pageTitle="Registrar a autenticação do Facebook | Serviços Móveis do Azure" 
 	description="Aprenda a usar a autenticação do Facebook em seu aplicativo de Serviços Móveis do Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/27/2015" 
+	ms.date="09/25/2015" 
 	ms.author="glenga"/>
 
 # Registrar seus aplicativos para a autenticação do Facebook com os Serviços Móveis
@@ -22,11 +22,11 @@
 
 Este tópico mostra como registrar seus aplicativos para poder usar o Facebook para autenticar com os Serviços Móveis do Azure.
 
->[AZURE.NOTE]Este tutorial é sobre os [Serviços Móveis do Azure], uma solução para ajudá-lo a criar aplicativos móveis escalonáveis para qualquer plataforma. Os Serviços Móveis facilita a sincronização de dados, autentica usuários e envia notificações por push. Esta página oferece suporte ao tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introdução à autenticação</a>, que mostra como fazer o logon de usuários no seu aplicativo. Se essa for sua primeira experiência com os Serviços Móveis, conclua o tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introdução aos Serviços Móveis</a>.
+>[AZURE.NOTE]Este tutorial é sobre os [Serviços Móveis do Azure], uma solução para ajudá-lo a criar aplicativos móveis escalonáveis para qualquer plataforma. Os Serviços Móveis facilita a sincronização de dados, autentica usuários e envia notificações por push. Esta página oferece suporte ao tutorial [Introdução à autenticação](mobile-services-ios-get-started-users.md) que mostra como fazer o logon de usuários no seu aplicativo. Se esta for sua primeira experiência com os Serviços Móveis, conclua o tutorial [Introdução aos Serviços Móveis](mobile-services-ios-get-started.md).
 	
-Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook com um endereço de email verificado e um número de telefone celular. Para criar uma nova conta do Facebook, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.
+Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook com um endereço de email verificado e um número de telefone celular. Para criar uma nova conta do Facebook, vá para [facebook.com](http://go.microsoft.com/fwlink/p/?LinkId=268285).
 
-1. Navegue até o site de <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Desenvolvedores do Facebook</a> e entre com suas credenciais de conta do Facebook.
+1. Navegue até o site de [Desenvolvedores do Facebook](http://go.microsoft.com/fwlink/p/?LinkId=268285) e entre com suas credenciais de conta do Facebook.
 
 2. (Opcional) Se você ainda não foi registrado, clique em **Meus Aplicativos** e em **Registrar como um Desenvolvedor**, aceite a política e siga as etapas de registro.
 
@@ -73,4 +73,4 @@ Agora você está pronto para usar um logon do Facebook para autenticação em s
 [Serviços Móveis do Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

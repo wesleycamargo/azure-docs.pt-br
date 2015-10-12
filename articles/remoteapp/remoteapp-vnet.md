@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/29/2015"
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Para validar seu VNET do Azure, faça o seguinte:
 1. Crie uma máquina virtual do Azure dentro da sub-rede do VNET do Azure que deseja usar com o RemoteApp do Azure.
 
 2. Conecte-se à VM usando a opção **Conectar** no portal de gerenciamento.
-3. Adicione a máquina virtual no mesmo domínio que você deseja usar com o RemoteApp do Azure.
+3. Adicione a máquina virtual no mesmo domínio que você deseja usar com o RemoteApp do Azure. Se estiver criando uma coleção híbrida que se conecta à sua rede local, ingresse a máquina virtual no domínio local.
 
 Se essa ação for bem-sucedida, o VNET do Azure está pronto para uso com o RemoteApp.
 
@@ -38,4 +38,4 @@ Para obter mais informações sobre o fluxo de trabalho de coleção híbrido de
 - [Implantar a coleção do RemoteApp do Azure à sua Rede Virtual do Azure (com suporte para Rota Expressa)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Detalhes da configuração de rede para trabalhar com a Rota Expressa" 
 	description="Detalhes da configuração de rede para executar Ambientes do Serviço de Aplicativo em uma rede virtual conectada a um circuito da Rota Expressa." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -126,4 +126,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

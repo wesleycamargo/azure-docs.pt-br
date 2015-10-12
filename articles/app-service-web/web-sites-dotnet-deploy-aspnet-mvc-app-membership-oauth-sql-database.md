@@ -1,46 +1,47 @@
 <properties 
-	pageTitle="Criar um aplicativo ASP.NET MVC com autenticação e o banco de dados SQL e implantar no Serviço de Aplicativo do Azure"
-	description="Aprenda a desenvolver um aplicativo ASP.NET MVC 5 com um banco de dados SQL de back-end, adicionar autenticação e autorização e implantá-lo no Azure."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Rick-Anderson"
-	manager="wpickett"
+	pageTitle="Criar um aplicativo ASP.NET MVC com autenticação e o banco de dados SQL e implantar no Serviço de Aplicativo do Azure" 
+	description="Aprenda a desenvolver um aplicativo ASP.NET MVC 5 com um banco de dados SQL de back-end, adicionar autenticação e autorização e implantá-lo no Azure." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/07/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="riande"/>
-
-
 
 # Criar um aplicativo ASP.NET MVC com autenticação e o banco de dados SQL e implantar no Serviço de Aplicativo do Azure
 
-Este tutorial mostra como criar um aplicativo Web ASP.NET MVC 5 seguro que permite que os usuários façam logon com credenciais do Google ou do Facebook. Você implantará o aplicativo no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
+Este tutorial mostra como criar um aplicativo Web ASP.NET MVC 5 seguro que permite que os usuários façam logon com credenciais do Google ou do Facebook. O aplicativo é uma lista de contatos simples que usa o ADO.NET Entity Framework para acesso ao banco de dados. Você implantará o aplicativo no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-É possível abrir uma conta do Azure gratuitamente e, se você ainda não tiver o Visual Studio 2013, o SDK instalará automaticamente o Visual Studio 2013 para o Web Express. É possível iniciar o desenvolvimento para o Azure de maneira gratuita.
-
-Este tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure. Ao concluir este tutorial, você terá um aplicativo Web controlado por dados seguro e em funcionamento na nuvem usando um banco de dados em nuvem.
-
-Você aprenderá a:
-
-* Como criar um projeto ASP.NET MVC 5 seguro e publicá-lo em [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) no Serviço de Aplicativo do Azure.
-* Como utilizar o [OAuth](http://oauth.net/ "http://oauth.net/") e o banco de dados de associação do ASP.NET para proteger seu aplicativo.
-* Como usar um banco de dados SQL para armazenar dados no Azure.
-
-Você criará um aplicativo Web de lista de contatos simples criado no ASP.NET MVC 5 e que usa o ADO.NET Entity Framework para acesso ao banco de dados. A seguinte ilustração mostra a página de logon do aplicativo concluído:
+Ao concluir o tutorial, você terá um aplicativo Web controlado por dados seguro e em funcionamento na nuvem usando um banco de dados em nuvem. A ilustração a seguir mostra a página de logon do aplicativo concluído.
 
 ![página de logon][rxb]
 
->[AZURE.NOTE]Para criar os botões de formatação de logon social na captura de tela acima, exiba a postagem do blog intitulada [Botões de formatação de logon social para ASP.NET MVC 5](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5)
+O que você aprenderá:
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](../pt-BR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se para uma avaliação gratuita](../pt-BR/pricing/free-trial/?WT.mc_id=A261C142F).
+* Como criar um projeto Web ASP.NET MVC 5 seguro no Visual Studio.
+* Como autenticar e autorizar usuários que fazem logon com credenciais de suas contas do Google ou Facebook (autenticação de provedor social usando [OAuth 2.0](http://oauth.net/2 "http://oauth.net/2")).
+* Como autenticar e autorizar usuários que se registram em um banco de dados gerenciado pelo aplicativo (autenticação local usando [ASP.NET Identity](http://asp.net/identity/)).
+* Como usar o ADO.NET Entity Framework 6 Code First para ler e gravar dados em um banco de dados SQL.
+* Como usar Entity Framework Code First Migrations para implantar um banco de dados.
+* Como armazenar dados relacionais na nuvem usando o Banco de Dados SQL do Azure.
+* Como implantar um projeto Web que usa um banco de dados em um [aplicativo Web](http://go.microsoft.com/fwlink/?LinkId=529714) no Serviço de Aplicativo do Azure.
 
->Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Este é um tutorial longo. Se quiser ver uma breve introdução a projetos da Web do Serviço de Aplicativo do Azure e do Visual Studio, consulte [Criar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure](web-sites-dotnet-get-started.md).
+>
+>Ou se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+
+## Pré-requisitos
+
+Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](../pt-BR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se para uma avaliação gratuita](../pt-BR/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Para configurar o ambiente de desenvolvimento, você deverá instalar o [Visual Studio 2013 Atualização 4](http://go.microsoft.com/fwlink/?LinkId=390521) ou superior e a versão mais recente do [SDK do Azure para Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Este artigo foi escrito para o Visual Studio Atualização 4 e para o SDK 2.5.1.
 
@@ -360,6 +361,8 @@ O [OAuth](http://oauth.net/ "http://oauth.net/") é um protocolo aberto que perm
 Além da autenticação, o tutorial também usará funções para implementar a autorização. Somente os usuários que você adicionar à função *canEdit* poderão alterar dados (isto é, criar, editar ou excluir contatos).
 
 Siga as instruções no tutorial [Criar um aplicativo do MVC 5 com o logon OAuth2 do Facebook, do Twitter, do LinkedIn e do Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog) em **Criando um aplicativo do Google para o OAuth 2 para configurar um aplicativo do Google para o OAuth2**. Execute e teste o aplicativo para verificar se você pode fazer logon usando a autenticação do Google.
+
+Se quiser criar botões de logon social com ícones específicos do provedor, consulte [Botões de logon social para ASP.NET MVC 5](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5)
 
 ## Usando a API de Associação
 Nesta seção, você irá adicionar um usuário local e a função *canEdit* ao banco de dados de associação. Somente os usuários na função *canEdit* poderão editar os dados. A melhor prática é nomear as funções pelas ações que podem executar, portanto, *canEdit* é preferível do que uma função chamada *admin*. Quando seu aplicativo evoluir, você poderá adicionar novas funções, como *canDeleteMembers*, em vez da menos descritiva *superAdmin*.
@@ -717,4 +720,4 @@ Este tutorial e o aplicativo de exemplo foram escritos por [Rick Anderson](http:
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

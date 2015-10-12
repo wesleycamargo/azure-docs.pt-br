@@ -3,7 +3,7 @@
 	description="Explica como atualizar para o Banco de Dados SQL V12 do Azure, de uma versão anterior do Banco de Dados SQL do Azure." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sonalmm" 
+	authors="stevestein" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,85 +13,76 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="05/15/2015" 
-	ms.author="sonalm"/>
+	ms.date="09/30/2015" 
+	ms.author="sstein"/>
 
 
-# Atualizar para o Banco de Dados SQL V12 in-loco
+# Atualizar para o Banco de Dados SQL V12
 
 
-[Inscreva-se](https://portal.azure.com) no Banco de Dados SQL V12 para aproveitar a última geração do Banco de Dados SQL no Microsoft Azure. Primeiro, você precisa de uma assinatura do Microsoft Azure. Inscreva-se para obter uma versão de [avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial) e analisar as informações de [preço](http://azure.microsoft.com/pricing/details/sql-database).
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-v12-upgrade.md)
+- [PowerShell](sql-database-upgrade-server.md)
 
 
-## Etapas para atualizar para o Banco de Dados SQL V12
+O Banco de Dados SQL V12 é a versão mais recente do Banco de Dados SQL e oferece [várias vantagens em relação à versão anterior do V2](sql-database-v12-whats-new.md). Este artigo mostra como atualizar os servidores do V2 para o V12 usando o portal de visualização do Azure.
+
+Durante o processo de atualização para o Banco de Dados SQL V12, você também deverá [atualizar todos os bancos de dados da Web e Empresariais para uma nova camada de serviço](sql-database-upgrade-new-service-tiers.md). As instruções a seguir incluem as etapas para atualizar seus bancos de dados da Web e Empresariais com recomendações de tipo de preço com base no uso histórico do seu banco de dados.
 
 
-| Etapas de atualização | Captura de tela |
-| :--- | :--- |
-| 1\. Entre em [http://portal.azure.com/](http://portal.azure.com/). | ![Novo Portal do Azure][1] |
-| 2\. Clique em **PROCURAR**. | ![Procurar Serviços][2] |
-| 3\. Clique em **Servidores SQL**. Uma lista de nomes do SQL Server é exibida. | ![Selecionar serviço do SQL Server][3] |
-| 4\. Selecione o servidor que você deseja copiar para um novo servidor com a atualização do banco de dados SQL habilitada. | ![Mostra uma lista de servidores SQL][4] |
-| 5\. Clique em **Configurações** ou **Versão do servidor** para atualizar o seu servidor para V12. | ![Recurso de visualização mais recente][5] |
-| 6\. Clique em **UPGRADE THIS SERVER**. | ![Atualiza o SQL Server para a visualização][6] |
-| 7\. Depois de clicar em **ATUALIZAR ESTE SERVIDOR**, o processo de atualização será iniciado. Em **Versão do servidor**, a notificação muda de **V2** para **Atualização agendada..**. Se você clicar na notificação **Atualização agendada..**, uma folha é aberta com o botão **Cancelar atualização** mostrado na parte superior. Clique em **Cancelar atualização** caso você decida não atualizar o servidor por algum motivo. **Observe** que o cancelamento da operação não funcionará nas últimas do processo de atualização e a atualização será concluída.|![Cancelar Atualização][9] 
+
+1. No [Portal de Visualização do Azure](http://portal.azure.com/), navegue até o servidor que deseja atualizar selecionando **PROCURAR TUDO** > **SQL Servers** e selecionando o servidor desejado.
+2. Selecione **atualização mais recente do banco de dados SQL** e, em seguida, selecione **Atualizar este servidor**.
+
+      ![atualizar servidor][1]
+
+## Atualizar seus bancos de dados da Web e Empresariais
+
+2. Atualize todos os bancos de dados da Web e Empresariais. Se o seu servidor tiver qualquer banco de dados da Web ou Empresarial, é necessário atualizá-los. Para ajudá-lo com a atualização, o serviço do Banco de Dados SQL recomenda uma camada de serviço e nível de desempenho (tipo de preço) adequados para cada banco de dados. Ao analisar o uso histórico de cada banco de dados, o serviço recomenda uma camada que é mais adequada para a execução da carga de trabalho existente do banco de dados. 
+    
+    Selecione cada banco de dados para examinar e selecionar para qual tipo de preço recomendado ele será atualizado. Também é possível procurar vários tipos de preço e selecionar aquele que se adapte melhor ao seu ambiente.
+
+     ![databases][2]
 
 
-> [AZURE.NOTE]Quando você seleciona a opção de atualização, seu servidor e os bancos de dados nesse servidor serão habilitados com recursos do Banco de Dados SQL V12, e isso não poderá ser revertido. Para atualizar servidores para o Banco de Dados SQL V12, você precisa de uma camada de serviço Basic, Standard ou Premium. Para saber mais sobre as camadas de serviço, confira [Atualizar banco de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md).
+
+7. Depois de clicar na camada sugerida, será exibida a folha **Escolha sua camada de preços**, em que é possível clicar em uma camada e clicar no botão **Selecionar** para alterar para a camada em questão. Selecione uma nova camada para cada banco de dados da Web ou Empresarial
+
+    ![filmes][6]
 
 
-> [AZURE.IMPORTANT]Não há suporte para replicação geográfica com o Banco de Dados SQL V12 (visualização). Para saber mais, confira [Planejar e se preparar para atualizar para a visualização do Banco de Dados SQL V12](sql-database-v12-plan-prepare-upgrade.md).
+Depois que todos os bancos de dados no servidor forem qualificados, você estará pronto para iniciar a atualização
+
+## Inicie a atualização
+
+3. Quando todos os bancos de dados no servidor forem qualificados para a atualização, você precisará **DIGITAR O NOME DO SERVIDOR** para verificar que deseja executar a atualização e, em seguida, clique em **OK**. 
+
+    ![verificar atualização][3]
 
 
-Depois de clicar na opção **ATUALIZAR ESTE SERVIDOR**, a folha que é aberta mostra uma mensagem sobre um processo de validação.
+4. A atualização é iniciada e exibe a notificação em andamento. O processo de atualização é iniciado. Dependendo dos detalhes de seus bancos de dados específicos, a atualização para o V12 pode levar algum tempo. Durante esse tempo, todos os bancos de dados no servidor permanecerão online, mas as ações de gerenciamento de servidor e de banco de dados serão restringidas.
 
+    ![atualização em andamento][4]
 
-- O processo de validação verifica a camada de serviço do banco de dados e verifica se a replicação geográfica está habilitada. A lâmina mostrará os resultados após a conclusão da validação. 
-- Depois que o processo de validação for concluído, você verá uma lista de nomes de banco de dados que exigem uma ação para atender aos requisitos de atualização do Banco de Dados SQL V12.
- - **Você precisará concluir as ações em cada um desses bancos de dados para poder atualizar para o Banco de Dados SQL V12**.
-- Ao clicar em cada nome de banco de dados, uma nova lâmina fornece a recomendação da camada de preço de serviço com base no seu uso atual. Também é possível procurar várias camadas de preços e selecionar aquela que atenda melhor o seu ambiente. Todos os bancos de dados que são configurados para replicação geográfica precisam ser reconfigurados para interromper a replicação. 
-- Observe que uma recomendação sobre a camada de preço não será exibida se não forem encontrados dados suficientes. 
+    No momento da transição real para o novo nível de desempenho temporário podem ocorrer quedas das conexões com duração muito curtas (em segundos) com o banco de dados. Se um aplicativo tiver um tratamento de falha transitória (lógica de repetição) para encerramentos de conexão, isto será suficiente para proteger contra a queda de conexões ao final da atualização.
 
+5. Depois de concluída a operação de atualização, os recursos do servidor do Banco de Dados SQL V12 estarão habilitados.
 
-| Ação | Captura de tela |
-| :--- | :--- |
-| 7\. Depois de concluir as ações que preparam o servidor para a atualização, digite o nome do servidor a ser atualizado e clique em **OK**. | ![Confirmar o nome do servidor para atualização][7] |
-| 8\. O processo de atualização é iniciado. A atualização pode levar até 24 horas. Durante esse tempo todos os bancos de dados neste servidor permanecerão online, mas o servidor e ações de gerenciamento de banco de dados serão restringidas. Quando o processo for concluído, o status **Habilitado** será exibido na folha do servidor. | ![Confirma se os recursos de visualização estão habilitados][8] |
-
-
-## Cmdlets do Powershell
-
-
-Os cmdlets do Powershell estão disponíveis para iniciar, parar ou monitorar uma atualização para o Banco de Dados SQL do Azure de V11 para V12 ou de qualquer outra versão anterior à V12.
-
-
-Para ver a documentação de referência sobre esses cmdlets do Powershell, confira:
-
-
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
-
-
-O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atualização, a não ser começá-la novamente. O cmdlet Stop- limpa e libera todos os recursos apropriados.
+    ![V12 habilitado][5]
 
 
 ## Links relacionados
 
--  [Novidades no Banco de Dados SQL V12](sql-database-v12-whats-new.md) 
+- [Novidades no Banco de Dados SQL V12](sql-database-v12-whats-new.md)
 - [Planejar e se preparar para atualizar para o Banco de Dados SQL V12](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->
-[1]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[2]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[3]: ./media/sql-database-v12-upgrade/sqlserverlist.png
-[4]: ./media/sql-database-v12-upgrade/sqlserverlist.png
-[5]: ./media/sql-database-v12-upgrade/latestprview.png
-[6]: ./media/sql-database-v12-upgrade/upgrade.png
-[7]: ./media/sql-database-v12-upgrade/typeservername.png
-[8]: ./media/sql-database-v12-upgrade/enabled.png
-[9]: ./media/sql-database-v12-upgrade/cancel.PNG
- 
+[1]: ./media/sql-database-v12-upgrade/latest-sql-database-update.png
+[2]: ./media/sql-database-v12-upgrade/upgrade-server2.png
+[3]: ./media/sql-database-v12-upgrade/upgrade-server3.png
+[4]: ./media/sql-database-v12-upgrade/online-during-upgrade.png
+[5]: ./media/sql-database-v12-upgrade/enabled.png
+[6]: ./media/sql-database-v12-upgrade/recommendations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="get-started-article"
@@ -56,7 +56,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Provedor de serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Suportado | Sem suporte | Vale do Silício, Cingapura, Washington, D.C. |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Suportado | Suportado | Amsterdã +, Londres + Dallas, Vale do Silício, Washington, D.C. |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Suportado | Em breve | Amsterdã +, Londres + Dallas, Vale do Silício, Washington, D.C. |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Suportado | Suportado | Amsterdã, Londres, Vale do Silício+, Washington, D.C. |
 |**China Telecom Global** | Em breve | Sem suporte | Hong Kong+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Sem suporte | Amsterdã, Londres |
@@ -77,7 +77,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Suportado | Suportado | Amsterdã, Chennai (Madras), Hong Kong, Londres, Mumbai +, Cingapura |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Suportado | Suportado | Amsterdã, Londres |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Suportado | Sem suporte | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Suportado | Londres, Hong Kong, Vale do Silício, Washington, D.C. |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Suportado | Suportado | Londres, Hong Kong, Vale do Silício, Washington, D.C. |
 | **[Zayo Group](http://www.zayo.com/)** | Suportado | Sem suporte | Washington, D.C. |
 
  **+** indica que haverá em breve
@@ -127,4 +127,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 - Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos para Rota Expressa](expressroute-prerequisites.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/29/2015"
 	ms.author="liviodlc"/>
 
 #Gerenciamento de certificados para logon único federado no Active Directory do Azure
@@ -26,7 +26,7 @@ Este artigo só é relevante para aplicativos que são configurados para usar o 
 
 ##Como personalizar a data de vencimento para seu Certificado de Federação
 
-Por padrão, os certificados são definidos para expirar depois de dois anos. É possível escolher uma data de vencimento diferente para o certificado seguindo as etapas abaixo. As capturas de tela incluídas usam o ServiceNow para fins de exemplo, mas essas etapas podem ser aplicadas a qualquer aplicativo SaaS federado.
+Por padrão, os certificados são definidos para expirar depois de dois anos. É possível escolher uma data de vencimento diferente para o certificado seguindo as etapas abaixo. As capturas de tela incluídas usam a equipe de vendas para fins de exemplo, mas podem aplicar essas etapas para qualquer aplicativo de SaaS federado.
 
 1. No Active Directory do Azure, na página Início Rápido para seu aplicativo, clique em **Configurar logon único**.
 
@@ -76,8 +76,6 @@ As etapas de renovação mostradas abaixo idealmente não devem resultar em nenh
 
 	![Baixe e depois carregue o certificado](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-##Consulte também
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-[Acesso a aplicativos e logon único no AD do Azure](active-directory-appssoaccess-whatis.md)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

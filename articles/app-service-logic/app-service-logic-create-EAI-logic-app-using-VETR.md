@@ -1,20 +1,20 @@
 <properties
    pageTitle="Criar aplicativo lógico EAI usando VETR | Microsoft Azure"
-	description="Este tópico aborda os recursos Validar, Codificar e Transformar dos serviços XML do BizTalk."
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   description="Recursos Validar, Codificar e Transformar dos serviços XML do BizTalk"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="rajeshramabathiran"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="06/24/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/29/2015"
+   ms.author="rajram"/>
 
 
 # Criar aplicativo lógico de EAI usando VETR
@@ -26,7 +26,7 @@ A maioria dos cenários de EAI (Integração de Aplicativos Empresariais) media 
 - Converta dados de um formato para outro (por exemplo, do formato de dados de um sistema CRM para o formato de dados de um sistema ERP)
 - Encaminhe os dados para o aplicativo ou sistema desejado
 
-Este artigo mostra um padrão comum de integração: VETR (validar, enriquecer, transformar, rota) ou "mediação mensagem unidirecional". O VETR media dados entre uma entidade de origem e uma entidade de destino. Normalmente, a origem e o destino são fontes de dados.
+Este artigo mostra um padrão comum de integração: "mediação de mensagem unidirecional" ou VETR (validar, enriquecer, transformar, rotear). O padrão VETR media dados entre uma entidade de origem e uma entidade de destino. Normalmente, a origem e o destino são fontes de dados.
 
 Considere um site que aceita pedidos. Os usuários lançam pedidos no sistema usando HTTP. Nos bastidores, o sistema valida se os dados de entrada estão corretos, normaliza-os e os mantém em uma fila do Barramento de Serviço para processamento adicional. O sistema retira os pedidos da fila, esperando por eles em um formato específico. Assim, o fluxo de ponta a ponta é:
 
@@ -53,9 +53,9 @@ Em seguida, vamos adicionar ações e gatilhos.
 ## Adicionar Gatilho HTTP
 
 1. Selecione **Ouvinte HTTP** na galeria para criar um novo ouvinte. Chame-o de **HTTP1**.
-2. Deixe **Enviar resposta automaticamente?** definido como falso. Configure a ação do gatilho definindo _Método HTTP_ como _POST_ e definindo _URL Relativa_ como _/OneWayPipeline_.
+2. Deixe **Enviar resposta automaticamente?** definido como falso. Configure a ação do gatilho definindo _Método HTTP_ como _POST_ e definindo _URL Relativa_ como _/OneWayPipeline_:  
 
-![Gatilho de HTTP][2]
+	![Gatilho de HTTP][2]
 
 
 ## Adicionar ação de validação
@@ -65,27 +65,27 @@ Agora, vamos inserir ações que são executadas sempre que o gatilho é acionad
 1. Adicione o **Validador XML do BizTalk** da galeria e nomeie-o _(Validate1)_ para criar uma instância.
 2. Configure um esquema XSD para validar as mensagens XML de entrada. Selecione a ação _Validar_ e selecione _triggers(‘httplistener’).outputs.Content_ como valor do parâmetro _inputXml_.
 
-Agora, a ação de validação é a primeira ação após o ouvinte HTTP. Da mesma forma, vamos adicionar o restante das ações.
+Agora, a ação de validação é a primeira ação após o ouvinte HTTP:
 
 ![Validador de XML do BizTalk][3]
 
+Da mesma forma, vamos adicionar o restante das ações.
 
 ## Adicionar ação Transformar
 Vamos configurar transformações para normalizar os dados de entrada.
 
 1. Adicione **Transformar** da galeria.
-2. Para configurar uma transformação e transformar as mensagens XML de entrada, selecione a ação **Transformar** como a ação a ser executada quando essa API é chamada e selecione ```triggers(‘httplistener’).outputs.Content``` como valor para _inputXml_. Mapa é um parâmetro opcional, uma vez que os dados de entrada são comparados com todas as transformações configuradas e apenas aquelas que correspondem ao esquema são aplicadas.
-3. Por fim, a transformação é executada somente se a validação for bem-sucedida. Para configurar essa condição, selecione o ícone de engrenagem no canto superior direito e selecione _Adicionar uma condição a ser atendida_. Defina a condição como ```equals(actions('xmlvalidator').status,'Succeeded')```
-
+2. Para configurar uma transformação e transformar as mensagens XML de entrada, selecione a ação **Transformar** como a ação a ser executada quando essa API for chamada, e selecione ```triggers(‘httplistener’).outputs.Content``` como valor para _inputXml_. *Mapa* é um parâmetro opcional, uma vez que os dados de entrada são comparados com todas as transformações configuradas e apenas aquelas que correspondem ao esquema são aplicadas.
+3. Por fim, a transformação é executada somente se a validação for bem-sucedida. Para configurar essa condição, selecione o ícone de engrenagem no canto superior direito e selecione _Adicionar uma condição a ser atendida_. Defina a condição como ```equals(actions('xmlvalidator').status,'Succeeded')```:  
 
 ![Transformações do BizTalk][4]
 
 
 ## Adicionar o conector do Barramento de Serviço
-Em seguida, vamos adicionar o destino, uma Fila do Barramento de Serviço, no qual gravar os dados.
+Em seguida, vamos adicionar o destino – uma Fila do Barramento de Serviço – no qual gravar os dados.
 
-1. Adicione um **Conector do Barramento de Serviço** da galeria. Defina o **Nome** como _Servicebus1_, defina **Cadeia de Conexão* como a cadeia de conexão para sua instância de barramento de serviço, defina **Nome da Entidade** como _Fila_ e ignore **Nome da assinatura**.
-2. Selecione a ação **Enviar Mensagem** e defina o campo **Mensagem** da ação como _actions('transformservice').outputs.OutputXml_
+1. Adicione um **Conector do Barramento de Serviço** da galeria. Defina o **Nome** como _Servicebus1_, defina **Cadeia de Conexão** como a cadeia de conexão para sua instância de barramento de serviço, defina **Nome da Entidade** como _Fila_, e ignore **Nome da assinatura**.
+2. Selecione a ação **Enviar Mensagem** e defina o campo **Mensagem** da ação como _actions('transformservice').outputs.OutputXml_.
 
 ![Barramento de Serviço][5]
 
@@ -94,14 +94,18 @@ Em seguida, vamos adicionar o destino, uma Fila do Barramento de Serviço, no qu
 Depois do processamento do pipeline, envie de volta uma resposta HTTP tanto para êxito quanto para falha com as seguintes etapas:
 
 1. Adicione um **ouvinte HTTP** da galeria e selecione a ação **Enviar resposta de HTTP**.
-2. Defina **Conteúdo da Resposta** como *Processamento de pipeline concluído*, **Código de Status de Resposta** como *200* para indicar HTTP 200 OK e a **Condição** como a expressão ```@equals(actions('servicebusconnector').status,'Succeeded')```
+2. Defina **Conteúdo da Resposta** como *Processamento de pipeline concluído*, **Código de Status de Resposta** como *200* para indicar HTTP 200 OK e a **Condição** como a seguinte expressão: ```@equals(actions('servicebusconnector').status,'Succeeded')``` <br/>
 
-Repita as etapas acima para enviar uma resposta HTTP em caso de falha também. Altere a **Condição** para ```@not(equals(actions('servicebusconnector').status,'Succeeded')).```
+
+Repita essas etapas para enviar uma resposta HTTP em caso de falha também. Altere **Condição** para a seguinte expressão: ```@not(equals(actions('servicebusconnector').status,'Succeeded'))``` <br/>
 
 
 ## Conclusão
-Sempre que alguém envia uma mensagem ao ponto de extremidade HTTP, isso dispara o aplicativo e executa as ações que você acabou de criar. Para gerenciar esses aplicativos lógicos, clique em **Procurar** no Portal de Gerenciamento do Azure e clique em **Aplicativos Lógicos**. Clique em seu aplicativo para obter mais informações.
+Sempre que alguém envia uma mensagem ao ponto de extremidade HTTP, isso dispara o aplicativo e executa as ações que você acabou de criar. Para gerenciar esses aplicativos lógicos, clique em **Procurar** no Portal do Azure e clique em **Aplicativos Lógicos**. Selecione seu aplicativo para obter mais informações.
 
+Alguns tópicos úteis:
+
+[Gerenciar e monitorar seus Aplicativos de API e conectores](app-service-logic-monitor-your-connectors.md) <br/> [Monitorar seus Aplicativos Lógicos](app-service-logic-monitor-your-logic-apps.md)
 
 <!--image references -->
 [1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
@@ -110,4 +114,4 @@ Sempre que alguém envia uma mensagem ao ponto de extremidade HTTP, isso dispara
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -72,4 +72,4 @@ Os bancos de dados que já tiverem o recurso de Replicação Geográfica habilit
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -122,4 +122,4 @@ Para começar a usar o backup de máquinas virtuais, saiba como:
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Gerenciar o backup de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

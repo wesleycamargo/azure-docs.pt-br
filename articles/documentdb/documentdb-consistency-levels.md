@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Usando níveis de consistência para maximizar a disponibilidade e o desempenho no Banco de Dados de Documentos
@@ -56,15 +56,13 @@ A consistência Eventual oferece a consistência de leitura mais fraca, mas ofer
 
 ### Alterando o nível de consistência do banco de dados
 
-1.  No [Portal de visualização do Azure](https://portal.azure.com/), clique em **Procurar Todos**.
+1.  No [Portal de Visualização do Azure](https://portal.azure.com/), no Jumpbar, clique em **Contas de Banco de Dados de Documentos**.
 
-2.  Na folha **Procurar Todos**, clique em **Contas do Banco de Dados de Documentos**.
+2. Na folha **Contas do Banco de Dados de Documentos**, selecione a conta do banco de dados a ser modificada.
 
-3. Na folha **Contas do Banco de Dados de Documentos**, selecione a conta do banco de dados a ser modificada.
+3. Na folha da conta, na lente **Configuração**, clique no bloco **Consistência Padrão**.
 
-4. Na folha da conta, na lente **Configuração**, clique no bloco **Consistência Padrão**.
-
-5. Selecione o novo nível de consistência e clique em **Salvar**.
+4. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
 
 	![Captura de tela destacando o bloco de Consistência Padrão, as configurações de consistência e o botão Salvar](./media/documentdb-consistency-levels/database-consistency-level.png)
 
@@ -90,4 +88,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 -	Werner Vogels. Eventual Consistent - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

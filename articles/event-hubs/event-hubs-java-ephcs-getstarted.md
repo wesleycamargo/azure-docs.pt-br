@@ -119,4 +119,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

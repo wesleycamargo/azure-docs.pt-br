@@ -1,20 +1,20 @@
 <properties
  pageTitle="Usar VMs de computação do Linux em um cluster de HPC Pack | Microsoft Azure"
-	description="Saiba como fazer um script de implantação de um cluster de HPC Pack no Azure que contenha um nó principal que executa o Windows Server com nós de computação Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+ description="Saiba como fazer um script de implantação de um cluster de HPC Pack no Azure que contenha um nó principal que executa o Windows Server com nós de computação Linux."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
 <tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="big-compute"
-	ms.date="09/01/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="big-compute"
+ ms.date="09/01/2015"
+ ms.author="danlep"/>
 
 # Introdução a nós de computação Linux em um cluster de HPC Pack no Azure
 
@@ -43,7 +43,7 @@ Para obter uma visão geral das opções de implantação de cluster do HPC Pack
 * **Cota de núcleos** - Talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós de cluster com tamanhos de VM de vários núcleos. Para o exemplo neste artigo, você precisará de pelo menos 24 núcleos. Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 ### Criar o arquivo de configuração
-O script de implantação do HPC Pack IaaS usa um arquivo de configuração XML como entrada que descreve a infraestrutura do cluster do HPC. Para implantar um cluster pequeno que consiste em um nó principal e dois nós de computação Linux, substitua os valores para o seu ambiente no seguinte arquivo de configuração de exemplo. Para obter mais informações sobre o arquivo de configuração, consulte o arquivo Manual.rtf na pasta de script ou a [documentação do script](https://msdn.microsoft.com/library/azure/dn864734.aspx).
+O script de implantação do HPC Pack IaaS usa um arquivo de configuração XML como entrada que descreve a infraestrutura do cluster do HPC. Para implantar um cluster pequeno que consiste em um nó principal e dois nós de computação Linux, substitua os valores para o seu ambiente no seguinte arquivo de configuração de exemplo. Para obter mais informações sobre o arquivo de configuração, veja o arquivo Manual.rtf na pasta scripts e [Criar um cluster HPC com o script de implantação de IaaS do HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -310,4 +310,4 @@ A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em n�
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

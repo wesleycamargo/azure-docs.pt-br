@@ -1,20 +1,20 @@
 <properties
    pageTitle="Desenvolver um serviço da Malha do Serviço"
-	description="Informações conceituais e tutoriais que ajudarão você a entender como desenvolver um serviço da Malha do Serviço usando os modelos de programação Ator Confiável ou Serviços Confiáveis."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="rwike77"
-	manager="timlt"
-	editor=""/>
+   description="Informações conceituais e tutoriais que ajudarão você a entender como desenvolver um serviço da Malha do Serviço usando os modelos de programação Ator Confiável ou Serviços Confiáveis."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rwike77"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/20/2015"
-	ms.author="ryanwi"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/25/2015"
+   ms.author="ryanwi"/>
 
 # Desenvolver um serviço da Malha do Serviço
 Esta página contém links para artigos conceituais e de visão geral, bem como para tutoriais que ajudam você a aprender a desenvolver um serviço da Malha do Serviço. A Malha do Serviço oferece dois modelos de programação de nível alto para criação de serviços: as APIs de ator confiável e as APIs de serviços confiáveis. Embora ambos se baseiem no mesmo núcleo da Malha do Serviço, eles apresentam diferentes compensações entre simplicidade e flexibilidade em termos de simultaneidade, particionamento e comunicação. É útil entender ambos os modelos para que você possa escolher a estrutura apropriada para um determinado serviço no seu aplicativo.
@@ -30,10 +30,11 @@ Esta página contém links para artigos conceituais e de visão geral, bem como 
 - [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
 - [Como os Atores da Malha usam a plataforma da Malha do Serviço](service-fabric-reliable-actors-platform.md)
 - [Observações sobre a serialização do tipo de Atores da Malha do Serviço do Azure](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+- [Node.js e atores confiáveis](service-fabric-node-and-reliable-actors-an-winning-combination.md)
 
 A comunicação com Atores é descrita em:
 
-- [Introdução ao modelo de Ator da Malha do Serviço](service-fabric-reliable-actors-introduction.md#actor-communication).
+- [Introdução ao modelo de Ator da Malha do Serviço](service-fabric-reliable-actors-introduction.md#actor-communication)
 - [Comunicando-se com serviços](service-fabric-connect-and-communicate-with-services.md)
 
 Estes artigos abordam padrões e cenários úteis de design:
@@ -69,7 +70,6 @@ Os Atores Confiáveis emitem eventos e contadores de desempenho, que podem ser u
 Os Serviços Confiáveis fornecem um modelo de programação simples, potente e de nível superior que ajuda você a demonstrar o que é importante para seu aplicativo. Para saber mais, leia:
 
 - [Introdução aos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
-- [Visão geral do modelo de programação](../service-fabric-reliable-services-service-overview.md)  
 - [Arquitetura](service-fabric-reliable-services-platform-architecture.md)
 - [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md)
 - [Configurando Serviços Confiáveis com estado](../Service-Fabric/service-fabric-reliable-services-configuration.md)
@@ -87,4 +87,4 @@ Os Serviços Confiáveis emitem eventos e contadores de desempenho, que podem se
 
 - [Diagnóstico de Serviços Confiáveis com estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

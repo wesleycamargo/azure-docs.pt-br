@@ -24,8 +24,7 @@
 
 Para criar um aplicativo que aceita a inscrição e a conexão do consumidor, primeiro será necessário registrá-lo em um diretório do Active Directory B2C do Azure. Obtenha seu próprio diretório usando as etapas descritas [aqui](active-directory-b2c-get-started.md). Se tiver seguido todas as etapas nesse artigo, você deverá ter a folha de recursos do B2C fixada em seu Quadro Inicial.
 
-    > [AZURE.IMPORTANT]
-    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Navegue até a folha de recursos do B2C
 
@@ -33,28 +32,28 @@ Você pode navegar para a folha de recursos do B2C de uma das duas maneiras a se
 
 ### 1\. Diretamente no Portal de Visualização do Azure
 
-Se tiver a folha de recursos do B2C fixada em seu Quadro Inicial, você a verá assim que entrar no [portal de visualização do Azure](https://portal.azure.com/) como o Administrador Global do diretório B2C.
+Se você tiver a folha de recursos B2C fixada em seu quadro inicial, você a verá assim que entrar no [Portal de visualização do Azure](https://portal.azure.com/) como o Administrador Global do diretório B2C.
 
-Você também pode acessar a folha de recursos do B2C diretamente navegando para [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft\_AAD\_B2CAdmin=true#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com), em que **{directory}** deve ser substituído pelo nome usado no momento da criação do diretório (por exemplo, contosob2c) e entrando como o Administrador Global do diretório B2C. Você pode marcar esse link para referência futura.
+Você também pode acessar a folha de recursos B2C diretamente, navegando para [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft\_AAD\_B2CAdmin=true#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com) em que **{directory}** deve ser substituído pelo nome usado no momento da criação do diretório (por exemplo, contosob2c) e fazer logon como o Administrador Global do diretório B2C. Você pode marcar esse link para referência futura.
 
 ### 2\. Acesso por meio do Portal do Azure
 
-Entre no [portal do Azure](https://manage.windowsazure.com/) como o Administrador de Assinatura (essa é a mesma conta do trabalho, da escola ou da Microsoft que você usou para inscrever-se no Azure). Navegue até a extensão do Active Directory à esquerda e clique no diretório B2C. Na guia **Início Rápido** (a primeira guia que é aberta), clique em **Gerenciar configurações B2C** em **Administrar**. Isso abrirá a folha de recursos do B2C em uma nova janela do navegador ou guia.
+Entre no [portal do Azure](https://manage.windowsazure.com/) como o administrador de assinatura (esse é o mesmo trabalho ou conta da escola ou a mesma Conta da Microsoft que você usou para inscrever-se no Azure). Navegue até a extensão do Active Directory à esquerda e clique no diretório B2C. Na guia **Início rápido** (a primeira guia que abre), clique em **Gerenciar configurações B2C** em **Administrar**. Isso abrirá a folha de recursos do B2C em uma nova janela do navegador ou guia.
 
-Você também pode encontrar o link **Gerenciar configurações B2C** (na seção **Administração B2C**) na guia **Configurar**.
+Você também pode encontrar o link **Gerenciar configurações B2C** (na seção **Administração de B2C**) na guia **Configurar**.
 
 ## Registrar um aplicativo
 
-1. Na folha de recursos do B2C no portal de visualização do Azure, clique em **Aplicativos**.
-2. Clique em **+Adicionar**, na parte superior da folha.
+1. Na folha de recursos B2C no portal de visualização do Azure, clique em **Aplicativos**.
+2. Clique em **+ Adicionar** na parte superior da folha.
 3. O **Nome** do aplicativo descreverá seu aplicativo para os consumidores. Por exemplo, digite "Aplicativo B2C da Contoso".
-4. Se você estiver escrevendo um aplicativo baseado na Web, alterne a opção **Incluir aplicativo Web/API Web** para **Sim**. As **URLs de resposta** são pontos de extremidade em que o AD B2C do Azure retornará quaisquer tokens que seu aplicativo solicitar. Por exemplo, insira `https://localhost:44321/`. Se seu aplicativo incluir um componente do lado do servidor (API) que precise ser protegido, convém criar (e copiar) também um **Segredo de Aplicativo** clicando no botão **Gerar Chave**.
+4. Se você estiver escrevendo um aplicativo baseado na web, alterne o botão **incluir o aplicativo web / API da web** para **Sim**. O **Reply URLs** são pontos de extremidade em que o AD B2C do Azure retornará quaisquer tokens de suas solicitações de aplicativo. Por exemplo, digite `https://localhost:44321/`. Se seu aplicativo incluir um componente do lado do servidor (API) que precisa ser protegido, você desejará criar (e copiar) um **segredo do aplicativo** também clicando no botão **Gerar chave**.
 
-    > [AZURE.NOTE]O **Segredo do Aplicativo** é uma credencial de segurança importante.
+    > [AZURE.NOTE]**Segredo do aplicativo** é uma credencial de segurança importante.
 
-5. Se você estiver escrevendo um aplicativo móvel, alterne a opção **Incluir cliente nativo** para **Sim**. Copie o **URI de redirecionamento** padrão criado automaticamente para você.
-6. Clique em **Criar** para registrar o aplicativo.
-7. Clique no aplicativo que você acabou de criar e copie a **ID do aplicativo** global exclusiva que você usará posteriormente em seu código.
+5. Se você estiver escrevendo um aplicativo móvel, alterne o **incluir cliente nativo** para **Sim**. Copie o padrão **URI de redirecionamento** criado automaticamente para você.
+6. Clique em **Criar** para registrar seu aplicativo.
+7. Clique no aplicativo que você acabou de criar e copie o identificador global exclusivo **ID do aplicativo** que você usará posteriormente em seu código.
 
 ## Criar um Aplicativo de Início Rápido
 
@@ -62,4 +61,4 @@ Agora que tem um aplicativo registrado com o B2C do AD do Azure, você pode conc
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

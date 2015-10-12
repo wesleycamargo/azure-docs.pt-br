@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
 #Use Sqoop com Hadoop no HDInsight (Windows)
@@ -225,7 +225,7 @@ Você criará duas tabelas no banco de dados SQL ou no SQL Server. Elas são usa
 		Write-Host "Done" -ForegroundColor Green
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script.
-6. Use o [Portal do Azure][azure-management-portal] para examinar as tabelas e os índices clusterizados.
+6. Use o [portal de visualização][azure-management-portal] para examinar as tabelas e os índices clusterizados.
 
 **Para SQL Server**
 
@@ -413,7 +413,7 @@ Nesta seção, você usará o PowerShell do Azure para executar o comando de exp
 	Observe que o delimitador de campo é **\\0x20**, que é o espaço. O delimitador é definido no script do PowerShell do Azure de pré-processamento do arquivo sample.log. Para obter informações sobre **-m 1**, confira o [Guia do usuário do Sqoop][sqoop-user-guide-1.4.4].
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script.
-6. Use o [Portal do Azure][azure-management-portal] para examinar os dados exportados.
+6. Use o [portal de visualização][azure-management-portal] para examinar os dados exportados.
 
 **Para exportar a tabela Hive hivesampletable**
 
@@ -464,7 +464,7 @@ Nesta seção, você usará o PowerShell do Azure para executar o comando de exp
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script.
-6. Use o [Portal do Azure][azure-management-portal] para examinar os dados exportados.
+6. Use o [portal de visualização][azure-management-portal] para examinar os dados exportados.
 
 
 
@@ -523,14 +523,14 @@ A seguir, um exemplo em C# usa o SDK do .NET do HDInsight para executar exporta�
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
 	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 
-	            // Submit the Hive job
+	            // Submit the Sqoop job
 	            var jobClient = JobSubmissionClientFactory.Connect(creds);
 	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
 
 	            // Wait for the job to complete
 	            WaitForJobCompletion(jobResults, jobClient);
 
-	            // Print the Hive job output
+	            // Print the Sqoop job output
 	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
 
 	            StreamReader reader = new StreamReader(stream);
@@ -649,4 +649,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

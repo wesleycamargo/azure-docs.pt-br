@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="JennieHubbard"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="spelluru"/>
+	ms.date="09/24/2015"
+	ms.author="jhubbard"/>
 
 
 #Introdução à Sincronização de Dados do SQL do Azure (visualização)
@@ -40,7 +40,7 @@ Este tutorial pressupõe uma experiência mínima anterior com SQL Server e com 
 
 
 ## Etapa 2: Adicionar um Agente Cliente
-Essa etapa somente será necessária se você pretender ter um banco de dados local do SQL Server incluído no seu grupo de sincronização. Você poderá pular para a etapa 4: Criar um grupo de sincronização se o seu grupo de sincronização tiver apenas instâncias do Banco de Dados SQL.
+Essa etapa somente será necessária se você pretender ter um banco de dados local do SQL Server incluído no seu grupo de sincronização. Vá para a Etapa 4 se o seu grupo de sincronização tiver apenas instâncias do Banco de Dados SQL.
 
 <a id="InstallRequiredSoftware"></a>
 ### Etapa 2a: Instalar o software necessário
@@ -202,4 +202,4 @@ Para obter informações adicionais sobre banco de dados SQL e Sincronização d
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

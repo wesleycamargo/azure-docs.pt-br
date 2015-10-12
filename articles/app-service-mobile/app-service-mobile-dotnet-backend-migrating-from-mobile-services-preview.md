@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
@@ -135,15 +135,15 @@ Depois que seus clientes tiverem a oportunidade de receber essas atualizações,
 [Portal de Gerenciamento do Azure de visualização]: https://portal.azure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [O que são Aplicativos Móveis?]: app-service-mobile-value-prop-preview.md
-[Eu já uso sites e serviços móveis – como o Serviço de Aplicativo pode me ajudar?]: /pt-br/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
+[Eu já uso sites e serviços móveis – como o Serviço de Aplicativo pode me ajudar?]: /pt-BR/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
 [SDK do Servidor de Aplicativos Móveis]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Criar um Aplicativo Móvel]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 [Adicionar notificações por ao seu aplicativo móvel]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [Adicionar notificações por push ao seu aplicativo móvel]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [Adicionar autenticação ao seu Aplicativo Móvel]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
-[Agendador do Azure]: /pt-br/documentation/services/scheduler/
+[Agendador do Azure]: /pt-BR/documentation/services/scheduler/
 [Trabalho Web]: ../app-service-web/websites-webjobs-resources.md
 [Enviar notificações por push multiplataforma]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 [Como usar o SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

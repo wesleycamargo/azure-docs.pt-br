@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Dimensionar trabalhos do Stream Analytics para aumentar a produtividade | Microsoft Azure"
 	description="Aprenda a dimensionar trabalhos do Stream Analytics configurando partições de entrada, ajustando a definição da consulta e definindo unidades de streaming de trabalho."
+	keywords="analytics jobs,data stream,data streaming"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/04/2015"
+	ms.date="09/29/2015"
 	ms.author="jeffstok"/>
 
 # Dimensionar trabalhos do Stream Analytics do Azure para aumentar a produtividade #
@@ -153,6 +154,9 @@ Essa consulta pode ser dimensionada até 24 unidades de streaming.
 
 ![Dimensionamento de unidade de fluxo do Stream Analytics do Azure][img.stream.analytics.streaming.units.scale]
 
+No portal de visualização do Azure, as configurações de Escala podem ser acessadas em Configurações:
+
+![Configuração de trabalho do Stream Analytics no Portal de Visualização do Azure][img.stream.analytics.preview.portal.settings.scale]
 
 ## Monitorar o desempenho do trabalho ##
 
@@ -228,7 +232,7 @@ Abaixo estão os resultados com o aumento do número de unidades de streaming e 
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Obter ajuda ##
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 
 ## Próximas etapas ##
@@ -246,6 +250,7 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings.png
 
 <!--Link references-->
 
@@ -260,4 +265,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

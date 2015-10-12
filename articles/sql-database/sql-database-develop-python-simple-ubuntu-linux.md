@@ -109,7 +109,10 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
+## Próximas etapas
+
+Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

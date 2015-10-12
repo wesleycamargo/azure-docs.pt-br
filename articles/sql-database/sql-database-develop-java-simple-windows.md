@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/28/2015" 
 	ms.author="lbosq"/>
 
 
@@ -230,4 +230,4 @@ Copie e cole este pequeno segmento Java no exemplo de código principal, no loca
 
 Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

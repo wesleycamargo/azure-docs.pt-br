@@ -23,12 +23,13 @@ Segue uma lista de exemplos criados e mantidos pela Microsoft para uso com o Apa
 
 | Descrição | Demonstra | Estrutura/linguagem |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
-| [Bolt e Spout do Hub de Eventos](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Fonte para o Bolt e Spout do Hub de Eventos | Java |
+| [Origem do Bolt e Spout do Hub de Eventos](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Fonte para o Bolt e Spout do Hub de Eventos | Java |
 | [Desenvolver topologias baseadas em Java para o Apache Storm no HDInsight][5797064f] | Maven | Java |
 | [Desenvolver topologias C# para o Apache Storm no HDInsight usando o Visual Studio][16fce2d1] | Ferramentas do HDInsight para Visual Studio | C#, Java |
 | [Criar vários fluxos de dados em uma topologia Storm em C#][ec5a4064] | Vários fluxos | C# |
 | [Determinar tópicos de tendências do Twitter com o Storm no HDInsight][3c86c7c8] | Trident | Java, Trident |
-| [Processar eventos dos Hubs de Evento do Azure com o Storm no HDInsight][844d1d81] | Hubs de Evento | C# e Java |
+| [Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight][844d1d81] | Hubs de Evento | C# e Java |
+| [Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) | Hubs de Evento | Java |
 | [Usar o Power BI (visualização) para visualizar dados de uma Topologia Storm][94d15238] | Power BI | C# |
 | [Analisando dados do sensor com o Storm e o HBase no HDInsight][ab894747] | Hubs de Evento, HBase, Socket.IO, painel da Web | C#, Java, JavaScript, HTML |
 | [Processar dados do sensor do veículo a partir de Hubs de Evento usando o Storm no HDInsight][246ee964] | Hubs de Evento, Banco de Dados de Documentos, Blob de Armazenamento do Azure (WASB) | C#, Java |
@@ -58,4 +59,4 @@ Segue uma lista de exemplos criados e mantidos pela Microsoft para uso com o Apa
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Este projeto contém modelos para spouts, bolts e topologias para interagir com vários serviços do Azure como os Hubs de Evento, Banco de Dados de Documentos e Banco de Dados SQL."
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

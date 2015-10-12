@@ -253,8 +253,8 @@ Este artigo percorreu todas as etapas para provisionar um novo cluster Deis no A
 
 [Visão geral do Gerenciador de Recursos do Azure][resource-group-overview] [Como usar a CLI do Azure][azure-command-line-tools] [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure][powershell-azure-resource-manager]
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

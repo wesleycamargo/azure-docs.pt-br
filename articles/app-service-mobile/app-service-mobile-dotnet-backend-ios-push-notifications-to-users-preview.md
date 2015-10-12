@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="06/23/2015"
+	ms.date="09/25/2015"
 	ms.author="yuaxu"/>
 
 # Enviar notificações entre plataformas para um usuário específico
@@ -103,7 +103,7 @@ Publique novamente o projeto do back-end móvel e execute qualquer aplicativo cl
 <!-- URLs. -->
 [Introdução à autenticação]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [Introdução às notificações por push]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
-[modelos]: https://msdn.microsoft.com/pt-br/library/dn530748.aspx
+[modelos]: https://msdn.microsoft.com/pt-BR/library/dn530748.aspx
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

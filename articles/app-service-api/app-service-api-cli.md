@@ -22,7 +22,7 @@ Este artigo mostra como criar, gerenciar e excluir aplicativos de API no Serviç
 
 ## Pré-requisitos
 
-Este artigo pressupõe que você instalou a CLI do Azure e sabe como executar tarefas básicas. Para obter uma introdução a CLI, consulte [Instalar e configurar a CLI do Azure](../xplat-cli.md).
+Este artigo pressupõe que você instalou a CLI do Azure e sabe como executar tarefas básicas. Para obter uma introdução à CLI, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
 
 > [AZURE.NOTE]As instruções para [conectar-se a uma assinatura do Azure](../xplat-cli-connect.md) oferecem duas alternativas: fazer logon usando uma conta de trabalho ou escolar e baixar um arquivo *. publishsettings*. Para aplicativos de API, o método de autenticação de arquivo *. publishsettings* não funcionará. Isso ocorre porque você precisa usar o modo de Gerenciamento de recursos (apresentado na próxima seção) para trabalhar com aplicativos de API e o método de autenticação de arquivo *. publishsettings* não funciona com o Gerenciador de recursos.
 
@@ -288,4 +288,4 @@ Para obter mais informações sobre como usar os utilitários de linha de comand
 * [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
  
 
-<!---HONumber=06-->
+<!---HONumber=Oct15_HO1-->

@@ -200,6 +200,8 @@ Se houver falha do aplicativo após o processamento da mensagem, mas antes da so
 
 Agora que você aprendeu as noções básicas sobre filas do Barramento de Serviço, confira o tópico [Filas, tópicos e assinaturas][] para obter mais informações.
 
+Para obter mais informações, veja também o [Centro de Desenvolvedores do PHP](/develop/php/).
+
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
@@ -213,4 +215,4 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

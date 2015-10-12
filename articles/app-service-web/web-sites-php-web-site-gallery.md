@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
@@ -26,8 +26,10 @@ Você aprendeu como criar e implantar um aplicativo Web por meio da galeria. Par
 - [Criar um aplicativo Web do PHP-MySQL do Azure e implantá-lo usando o Git](/pt-BR/develop/php/tutorials/website-w-mysql-and-git/)
 - [Crie tipos adicionais de aplicativos usando o PHP e o Azure](/pt-BR/develop/php/tutorials/)
 
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para Serviço de Aplicativo, veja [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, veja [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715).
+Para obter mais informações, veja também o [Centro de Desenvolvedores do PHP](/develop/php/).
 
-<!---HONumber=Sept15_HO2-->
+## O que mudou
+* Para obter um guia sobre a alteração dos Sites para o Serviço de Aplicativo, consulte [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, veja a [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715).
+
+<!---HONumber=Oct15_HO1-->

@@ -33,11 +33,7 @@ Ambari é fornecido por padrão com os clusters HDInsight baseados em Linux. Clu
 
 > [AZURE.NOTE]Enquanto o Ambari para o cluster é acessível diretamente pela Internet, alguns links da interface do Ambari (como para o JobTracker) não são expostos na internet. Portanto, você receberá erros de "servidor não encontrado" ao tentar acessar esses recursos, a menos que use um túnel Secure Shell (SSH) para o tráfego de proxy da web para o nó principal do cluster.
 
-Use os artigos a seguir para criar um túnel SSH de uma porta no computador local até o cluster:
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight por meio de Linux, Unix ou OS X</a>: etapas para criar um túnel SSH usando o comando `ssh`.
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight no Windows</a>: etapas para usar PuTTY para criar um túnel SSH.
+Para obter mais informações sobre como criar e usar um túnel SSH para trabalhar com Ambari, consulte [Usar um túnel SSH para acessar a IU Web do Ambari, ResourceManager, JobHistory, NameNode, Oozie e IU da Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Interface da Web do Ambari
 
@@ -69,7 +65,7 @@ Quando a página se abrir, observe a barra na parte superior. Ela contém as seg
 
 * **Alertas**: um log de informações, avisos e alertas críticos.
 
-* **Admin**: pilha/serviços de software que estão instalados no cluster, informações de conta de serviço e segurança Kerberos.
+* **Admin** - pilha/serviços de software que estão instalados no cluster, informações de conta de serviço e segurança Kerberos.
 
 * **Botão Admin**: gerenciamento, configurações de usuário e logoff do Ambari.
 
@@ -141,11 +137,7 @@ A seleção de qualquer um desses links abrirá uma nova guia em seu navegador, 
 
 > [AZURE.NOTE]Selecionar um link **Links Rápidos** de algum serviço resultará em um erro "servidor não encontrado", a não ser que você use um túnel SSL como proxy do tráfego da Web para o cluster. Isso ocorre porque os aplicativos Web usados para exibir essas informações não são expostos na Internet.
 >
-> Para obter informações sobre como usar um túnel SSL com o HDInsight, consulte um destes tópicos:
->
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight por meio de Linux, Unix ou OS X</a>: etapas para criar um túnel SSH usando o comando `ssh`.
->
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usar SSH com Hadoop baseado em Linux no HDInsight no Windows</a>: etapas para usar PuTTY para criar um túnel SSH.
+> Para obter mais informações sobre o uso em um túnel SSL com HDInsight, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IU da Web](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ##Gerenciamento
 
@@ -191,7 +183,7 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
 
 ###<a id="service"></a>Serviços
 
-Na página **Painel** ou **Serviços**, use o botão **Ações**, na parte inferior da lista de serviços, para interromper e iniciar todos os serviços.
+Na página **Painel** ou **Serviços**, use o botão **Ações** na parte inferior da lista de serviços para interromper e iniciar todos os serviços.
 
 ![ações de serviço](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
@@ -232,8 +224,8 @@ Ambari Web se baseia em uma API REST subjacente, que você pode aproveitar para 
 
 * **Endereços IP**: o endereço retornado dos hosts em um cluster não são acessíveis de fora do cluster, a menos que o cluster seja um membro de uma rede virtual do Azure. Neste último caso, o endereço IP poderá ser acessado por outros membros da rede virtual, mas não de fora da rede.
 
-* **Algumas funcionalidades não estão habilitadas**: parte da funcionalidade do Ambari está desabilitada, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços. Outras funcionalidades podem não ser totalmente implementadas durante a visualização do HDInsight baseado em Linux.
+* **Algumas funcionalidades não estão habilitadas** - parte da funcionalidade do Ambari está desabilitada, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços. Outras funcionalidades podem não ser totalmente implementadas durante a visualização do HDInsight baseado em Linux.
 
 Para obter uma referência completa da API REST, consulte [Referência de API do Ambari, V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

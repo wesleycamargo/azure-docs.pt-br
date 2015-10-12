@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/29/2015"
 	ms.author="juliako"/>
 
 
-#Use o SDK do .NET para criar canais que realizam codificação ao vivo de um fluxo com taxa de bits única para fluxo múltiplas taxas de bits (Visualização)
+#Use o SDK do .NET para criar canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits (Visualização)
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -37,32 +37,27 @@ Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de streaming ao vivo.
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
-	
-	Essa etapa também pode ser realizada após a criação do canal.
+
+Essa etapa também pode ser realizada após a criação do canal.
 
 1. Crie e inicie um Canal.
 
 1. Recupere a URL de ingestão do canal.
 
-	A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
-1. Recupere a URL de visualização do canal. 
+A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal. 1. Recupere a URL de visualização do canal.
 
-	Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
+Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 
 2. Crie um ativo.
-3. Se você quiser que o ativo seja criptografado dinamicamente durante a reprodução, faça o seguinte: 	
-	
-	1. 	Crie uma chave de conteúdo. 
-	1. 	Configure a política de autorização da chave de conteúdo.
+3. Se você quiser que o ativo seja criptografado dinamicamente durante a reprodução, faça o seguinte:
+
+1. 	Crie uma chave de conteúdo.
+1. 	Configure a política de autorização da chave de conteúdo.
 1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
 3. Crie um programa e especifique o uso do ativo que você criou.
-1. Publique o ativo associado ao programa criando um localizador OnDemand.  
+1. Publique o ativo associado ao programa criando um localizador OnDemand.
 
-	Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
-1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
-2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
-1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
-1. Exclua o programa (e, opcionalmente, exclua o ativo).   
+Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo. 1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento. 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída. 1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento. 1. Exclua o programa (e, opcionalmente, exclua o ativo).
 
 ##Neste tópico
 
@@ -72,15 +67,15 @@ O tópico mostra como fazer o seguinte:
 
 1. Crie e inicie um canal. São usadas APIs de execução longa.
 1. Obtenha o ponto de extremidade de ingestão (entrada) dos canais. Esse ponto de extremidade deve ser fornecido ao codificador que pode enviar um fluxo ao vivo de taxa de bits única.
-1. Obtenha o ponto de extremidade de visualização. Esse ponto de extremidade é usado para visualizar o fluxo. 
+1. Obtenha o ponto de extremidade de visualização. Esse ponto de extremidade é usado para visualizar o fluxo.
 1. Crie um ativo que será usado para armazenar seu conteúdo. As políticas de entrega de ativos devem ser configuradas, assim, como mostrado neste exemplo.
 1. Crie um programa e especifique o uso do ativo que você criou anteriormente. Inicie o programa. São usadas APIs de execução longa.
 1. Crie um localizador para o ativo, de modo que o conteúdo seja publicado e possa ser transmitido para seus clientes.
 1. Mostrar e ocultar slates. Iniciar e parar anúncios. São usadas APIs de execução longa.
 1. Limpe seu canal e todos os recursos associados.
 
->[AZURE.NOTE]Enquanto esse recurso estiver no modo de Visualização, o máximo recomendado durante um evento ao vivo é 8 horas.
->
+>[AZURE.NOTE]A duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com na Microsoft se precisar executar um Canal por períodos mais longos.
+
 ##Pré-requisitos
 Os itens a seguir são necessários para concluir o tutorial.
 
@@ -90,7 +85,7 @@ Os itens a seguir são necessários para concluir o tutorial.
 - Uma webcam e um codificador que possa enviar um fluxo ao vivo de taxa de bits única.
 
 ##Configurar para o desenvolvimento com o SDK dos Serviços de Mídia para .NET
- 
+
 1. No Visual Studio, crie um aplicativo de console.
 1. Adicione o SDK dos Serviços de Mídia para .NET a seu aplicativo de console usando o pacote do NuGet dos Serviços de Mídia.
 
@@ -98,17 +93,11 @@ Os itens a seguir são necessários para concluir o tutorial.
 Como prática recomendada, você deve usar um arquivo app.config para armazenar o nome e a chave de conta dos Serviços de Mídia.
 
 >[AZURE.NOTE]Para localizar os valores de Nome e Chave, vá para o Portal do Azure, selecione sua conta de serviço de mídia e clique no ícone "GERENCIAR CHAVES" na parte inferior da janela do portal. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
- 
+
 Adicione a seção appSettings ao arquivo app.config e defina os valores do nome e da chave de sua conta dos Serviços de Mídia.
 
 
-	<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 
@@ -508,4 +497,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

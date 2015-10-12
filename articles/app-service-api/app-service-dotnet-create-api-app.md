@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-api"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
@@ -50,4 +50,4 @@ Quando as instruções o direcionarem para digitar um nome para o projeto, digit
 
 Seu aplicativo de API está pronto para ser implantado, e você pode seguir o tutorial [Implantar um Aplicativo de API](app-service-dotnet-deploy-api-app.md) para fazer isso.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

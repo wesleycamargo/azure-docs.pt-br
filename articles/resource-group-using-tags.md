@@ -155,4 +155,4 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcas de cobr
 - Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, veja [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
 - Para obter uma introdução ao uso do portal de visualização, veja [Usando o portal de visualização do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

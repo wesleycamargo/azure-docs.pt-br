@@ -108,7 +108,7 @@ Em vez de:
 - **geography**, use um tipo varbinary
 - **hierarchyid**, esse tipo de CLR não tem suporte
 - **image**, **text**, **ntext**, use varchar/nvarchar (quanto menor, melhor)
-- **nvarchar(max)**, use varchar(4000) ou menor para melhor desempenho
+- **nvarchar(max)**, use nvarchar(4000) ou menor para um melhor desempenho
 - **numeric**, use decimais
 - **sql\_variant**, divida a coluna em várias colunas fortemente tipadas
 - **sysname**, use nvarchar(128)
@@ -145,4 +145,4 @@ Para obter mais dicas de desenvolvimento, consulte a [visão geral de desenvolvi
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -38,7 +38,7 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]O Microsoft Excel é usado para visualização de dados no [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=PT-BR&rs=PT-BR&ad=US).
+	> [AZURE.NOTE]O Microsoft Excel é usado para visualização de dados no [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=pt-BR&rs=pt-BR&ad=US).
 
 * [Driver ODBC do Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -54,4 +54,4 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

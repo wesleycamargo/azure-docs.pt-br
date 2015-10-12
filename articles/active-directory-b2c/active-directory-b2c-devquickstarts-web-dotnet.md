@@ -36,28 +36,30 @@ Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azur
 - Digitar `https://localhost:44316/` como uma **URL de Resposta** - é a URL padrão para este exemplo de código.
 - Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você precisará dele em breve.
 
-    > [AZURE.IMPORTANT]Não é possível usar aplicativos registrados na guia **Aplicativos** no [Portal do Azure](https://manage.windowsazure.com/) para isso.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Criar suas políticas
 
 No AD B2C do Azure, cada experiência do usuário é definida por uma [**política**](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade - perfil de inscrição, entrada e edição. Você precisará criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar suas três políticas, não se esqueça de:
 
-- Escolher **Inscrição de ID de usuário** ou **Inscrição de email** na folha de provedores de identidade.
-- Escolher o **Nome de Exibição** e alguns outros atributos de inscrição em sua política de inscrição.
-- Escolher a declaração **Nome de Exibição** como uma declaração de aplicativo em cada política. Você pode escolher outras declarações também.
-- Copie o **Nome** de cada política após criá-lo. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará esses nomes de política. 
+- Escolha **Inscrição de ID de usuário** ou **Inscrição de email** na folha de provedores de identidade.
+- Escolha o **Nome de exibição** e alguns outros atributos de inscrição em sua política de inscrição.
+- Escolha a declaração de **nome de exibição** como uma declaração de aplicativo em cada política. Você pode escolher outras declarações também.
+- Copie o **Nome** de cada política após criá-lo. Em breve, você precisará esses nomes de política. 
 
-Quando suas três políticas forem criadas com êxito, você estará pronto para compilar o aplicativo.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+
+Depois de criar suas três políticas com êxito, você está pronto para criar o aplicativo.
 
 ## 4\. Baixar o código e configurar a autenticação
 
-O código para este exemplo é mantido [no GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Para compilar o exemplo conforme você avança, você pode [baixar um projeto de esqueleto como .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) ou clonar o esqueleto:
+O código deste exemplo é mantido [no GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Para compilar o exemplo à medida que avança, você pode [baixar um projeto de esqueleto como um. zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) ou clonar o esqueleto:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
 ```
 
-O exemplo concluído também está [disponível como. zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) ou na ramificação `complete` do mesmo repositório.
+O exemplo concluído também está [disponível como. zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) ou na `complete` ramificação do mesmo repositório.
 
 Depois de baixar o código de exemplo, abra o arquivo `.sln` do Visual Studio para começar.
 
@@ -71,7 +73,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-Em seguida, abra o arquivo `web.config` na raiz do projeto e insira os valores de configuração do aplicativo na seção `<appSettings>`.
+Em seguida, abra o `web.config` de arquivos na raiz do projeto e insira os valores de configuração do aplicativo na `<appSettings>` seção.
 
 ```
 <configuration>
@@ -91,7 +93,9 @@ Em seguida, abra o arquivo `web.config` na raiz do projeto e insira os valores d
 ...
 ```
 
-Agora, adicione uma classe de inicialização do OWIN ao projeto denominado `Startup.cs`. Clique com o botão direito do mouse no projeto --> **Adicionar** --> **Novo Item** --> pesquise por "OWIN". Altere a declaração de classe para `public partial class Startup` -já implementamos parte dessa classe para você em outro arquivo. O middleware do OWIN invocará o método `Configuration(...)` quando seu aplicativo for iniciado - nesse método, faça uma chamada para ConfigureAuth(...), no qual vamos configurar a autenticação para seu aplicativo.
+[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
+Agora, adicione um "OWIN Startup Class" ao projeto chamado `Startup.cs`. --> Clique com o botão direito do mouse no projeto **Adicionar** --> **Novo Item** --> pesquisa para "OWIN". Altere a declaração de classe para `public partial class Startup` -já implementamos parte dessa classe para você em outro arquivo. Middleware OWIN invocará o `Configuration(...)` método quando seu aplicativo for iniciado - nesse método, faça uma chamada para ConfigureAuth(...), em que vamos configurar autenticação para seu aplicativo.
 
 ```C#
 // Startup.cs
@@ -171,7 +175,7 @@ public partial class Startup
 ## 5\. Enviar solicitações de autenticação ao AD do Azure
 Seu aplicativo agora está configurado corretamente para se comunicar com o AD B2C do Azure usando o protocolo de autenticação OpenID Connect. O OWIN cuidou de todos os detalhes difíceis da criação de mensagens de autenticação, validação de tokens do AD do Azure e manutenção da sessão do usuário. Tudo o que resta é iniciar o fluxo de cada usuário.
 
-Quando um usuário clica no botão "Inscrever-se", "Entrar" ou "Editar Perfil" no aplicativo Web, a ação associada será invocada no `Controllers\AccountController.cs`. Em cada caso, você pode usar métodos internos de OWIN para disparar a política certa:
+Quando um usuário clica nos botões "Inscrever-se", "Entrar" ou "Editar perfil" no aplicativo web, a ação associada será invocada no `Controllers\AccountController.cs`. Em cada caso, você pode usar métodos internos de OWIN para disparar a política certa:
 
 ```C#
 // Controllers\AccountController.cs
@@ -229,7 +233,7 @@ public void Profile()
 }
 ```
 
-Você também pode usar uma marca `PolicyAuthorize` personalizada em seus controladores para exigir que determinada política seja executada se o usuário ainda não tiver entrado. Abra `Controllers\HomeController.cs` e adicione a marca `[PolicyAuthorize]` ao controlador de Declarações. Certifique-se de substituir a política de exemplo incluída com sua própria política de entrada.
+Você também pode usar uma tag personalizada `PolicyAuthorize` em seus controladores para exigir que uma determinada política seja executada se o usuário não tiver entrado. Abra `Controllers\HomeController.cs`, e adicione a `[PolicyAuthorize]` tag ao controlador de declarações. Certifique-se de substituir a política de exemplo incluída com sua própria política de entrada.
 
 ```C#
 // Controllers\HomeController.cs
@@ -241,7 +245,7 @@ public ActionResult Claims()
   ...
 ```
 
-Você pode usar o OWIN para desconectar o usuário do aplicativo também. De volta em `Controllers\AccountController.cs`:
+Você pode usar o OWIN para desconectar o usuário do aplicativo também. Em `Controllers\AccountController.cs`:
 
 ```C#
 // Controllers\AccountController.cs
@@ -260,7 +264,7 @@ public void SignOut()
 }
 ```
 
-Por padrão, o OWIN não enviará as políticas que você especificou no `AuthenticationProperties` ao AD do Azure. No entanto, você pode editar as solicitações que o OWIN gera na notificação `RedirectToIdentityProvider`. Use essa notificação em `App_Start\Startup.Auth.cs` para buscar o ponto de extremidade correto para cada política nos metadados da política. Isso garantirá que a solicitação correta é enviada ao AD do Azure para cada política que seu aplicativo quiser executar.
+Por padrão, o OWIN não enviará as políticas que você especificou no `AuthenticationProperties` ao AD do Azure. No entanto, você pode editar as solicitações que o OWIN gera na `RedirectToIdentityProvider` notificação. Use essa notificação em `App_Start\Startup.Auth.cs` para buscar o ponto de extremidade correto para cada política de metadados da política. Isso garantirá que a solicitação correta é enviada ao AD do Azure para cada política que seu aplicativo quiser executar.
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -282,7 +286,7 @@ private async Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotifi
 ``` 
 
 ## 6\. Exibir informações do usuário
-Ao autenticar usuários com o OpenID Connect, o AD do Azure retorna um id\_token ao aplicativo que contém **declarações** ou afirmações sobre o usuário. Você pode usar estas declarações para personalizar o aplicativo.
+Ao autenticar usuários com o OpenID Connect, o AD do Azure retorna um id\_token para o aplicativo que contém **declarações**, ou afirmações sobre o usuário. Você pode usar estas declarações para personalizar o aplicativo.
 
 Abra o arquivo `Controllers\HomeController.cs`. Você pode acessar as declarações do usuário em seus controladores por meio do objeto principal de segurança `ClaimsPrincipal.Current`.
 
@@ -302,11 +306,11 @@ Você pode acessar qualquer declaração que seu aplicativo recebe da mesma mane
 
 ## 7\. Executar o aplicativo de exemplo
 
-Por fim, compile e execute seu aplicativo! Inscreva-se para o aplicativo com um endereço de email ou nome de usuário. Saia e entre novamente como o mesmo usuário. Edite perfil do usuário. Saia e entre novamente como outro usuário. Observe como as informações exibidas na guia **Declarações** correspondem às informações configuradas em suas políticas.
+Por fim, compile e execute seu aplicativo! Inscreva-se para o aplicativo com um endereço de email ou nome de usuário. Saia e entre novamente como o mesmo usuário. Edite perfil do usuário. Saia e entre novamente como outro usuário. Observe como as informações exibidas na guia **Declarações** corresponde às informações configuradas em suas políticas.
 
 ## 8\. Adicionar IDPs sociais
 
-Atualmente, o aplicativo dá suporte apenas a inscrição e entrada com o que é chamado de **contas locais** - as contas são armazenadas no diretório B2C com um nome de usuário e uma senha. Com o AD B2C do Azure, você pode adicionar suporte para outros **provedores de identidade**, ou IDPs, sem alterar nenhum código.
+Atualmente, o aplicativo dá suporte apenas para a inscrição e acesso com o se chama de **contas locais** - contas armazenadas no seu diretório B2C com um nome de usuário e senha. Com o AD B2C do Azure, você pode adicionar suporte para outros **provedores de identidade**, ou IDPs, sem alterar nenhum código.
 
 Para adicionar IDPs sociais ao seu aplicativo, comece seguindo as instruções detalhadas em um ou dois desses artigos. Para cada IDP ao qual deseja oferecer suporte, você precisará registrar um aplicativo no sistema e obter uma ID de cliente.
 
@@ -315,11 +319,11 @@ Para adicionar IDPs sociais ao seu aplicativo, comece seguindo as instruções d
 - [Configurar o Amazon como um IDP](active-directory-b2c-setup-amzn-app.md)
 - [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md) 
 
-Quando você tiver adicionado os provedores de identidade ao seu diretório B2C, terá de voltar e editar cada uma das três políticas para incluir os novos IDPs, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de salvar as políticas, execute o aplicativo novamente. Você deve ver os novos IDPs adicionados como uma entrada e opção de inscrição em cada experiência de identidade.
+Quando você tiver adicionado os provedores de identidade ao seu diretório B2C, você precisará voltar e editar cada um das suas três políticas para incluir os novos IDPs, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de salvar as políticas, execute o aplicativo novamente. Você deve ver os novos IDPs adicionados como uma entrada e opção de inscrição em cada experiência de identidade.
 
 Você pode fazer experiências à vontade com as políticas e observar o efeito no aplicativo de exemplo - adicionar ou remover IDPs, manipular declarações de aplicativo, alterar atributos de inscrição. Experimente até começar a entender como políticas, solicitações de autenticação e OWIN se unem.
 
-Para referência, o exemplo concluído (sem seus valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
+Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
@@ -337,4 +341,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

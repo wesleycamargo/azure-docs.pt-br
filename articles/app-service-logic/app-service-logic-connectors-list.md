@@ -22,6 +22,7 @@ Saiba mais sobre todos os conectores e Aplicativos de API disponibilizados pela 
 
 Para obter informações de preço e uma lista do que é incluído com cada camada de serviço, consulte [Preços do Serviço de Aplicativo do Azure](http://azure.microsoft.com/pricing/details/app-service/).
 
+> [AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
 ## Conectores padrão
 A tabela a seguir lista todos os conectores e aplicativos de API criados pela Microsoft, que estão disponíveis com os conectores Padrão:
@@ -93,4 +94,4 @@ Os conectores também podem ser usados como ações dentro do Aplicativo Lógico
 
 [O que são aplicativos de API do BizTalk e conectores](app-service-logic-what-are-biztalk-api-apps.md) [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md) [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

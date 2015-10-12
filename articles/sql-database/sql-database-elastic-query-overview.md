@@ -1,8 +1,6 @@
 <properties
-    title="Azure SQL Database elastic database query overview"
     pageTitle="Visão geral da consulta de banco de dados elástico do Banco de Dados SQL do Azure"
-    description="Visão geral do recurso de consulta elástica"
-    metaKeywords="azure sql database elastic database queries"
+    description="Visão geral do recurso de consulta elástica"    
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -15,7 +13,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="07/09/2015"
-    ms.author="sidneyh" />
+    ms.author="sidneyh;torsteng" />
 
 # Visão geral da consulta de Banco de Dados Elástico do Banco de Dados SQL do Azure (visualização)
 
@@ -81,7 +79,7 @@ Para descrever as tabelas remotas que podem ser acessadas de um ponto de extremi
 O recurso de consulta de banco de dados elástico depende dessas quatro instruções DDL. Normalmente, essas instruções DDL são usadas de uma vez ou raramente ao alterar o esquema de seu aplicativo.
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-*    [CRIAR CREDENCIAL](https://msdn.microsoft.com/library/ms189522.aspx)
+*    [CRIAR UMA CREDENCIAL NO ESCOPO DO BANCO DE DADOS](https://msdn.microsoft.com/library/mt270260.aspx)
 *    [CRIAR/REMOVER FONTE DE DADOS EXTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
 *    [CRIAR/REMOVER TABELA EXTERNA](https://msdn.microsoft.com/library/dn935021.aspx)
 
@@ -100,7 +98,7 @@ As informações sobre as credenciais estão visíveis no modo de exibição de 
 
 Você pode usar a sintaxe a seguir para remover a chave mestra e as credenciais:
 
-    DROP CREDENTIAL <credential_name> ON DATABASE;
+    DROP DATABASE SCOPED CREDENTIAL <credential_name>;
     DROP MASTER KEY;  
 
 ### Fontes de dados externas
@@ -267,4 +265,4 @@ Para começar a explorar a consulta de Banco de Dados Elástico, siga nosso tuto
 
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

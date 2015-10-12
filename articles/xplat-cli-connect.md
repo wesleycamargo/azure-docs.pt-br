@@ -128,7 +128,7 @@ Isso muda a assinatura padrão para o Azure sub-2.
 
 Se quiser usar uma assinatura não padrão com a CLI do Azure, mas não quiser alterar o padrão atual, você poderá usar a opção `--subscription` do comando e fornecer o nome da assinatura que deseja usar na operação.
 
-Uma vez conectado à sua assinatura do Azure, você pode começar a usar os comandos da CLI do Azure. Para saber mais, confira [Como usar a CLI do Azure](xplat-cli.md).
+Uma vez conectado à sua assinatura do Azure, você pode começar a usar os comandos da CLI do Azure. Para saber mais, confira [Como usar a CLI do Azure](xplat-cli-install.md).
 
 ## Armazenamento de configurações da CLI
 
@@ -159,4 +159,4 @@ Se você fizer logon com uma conta corporativa ou de estudante, ou importar conf
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

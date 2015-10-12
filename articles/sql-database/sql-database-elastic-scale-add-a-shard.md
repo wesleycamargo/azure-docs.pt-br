@@ -41,9 +41,10 @@ No exemplo a seguir, um banco de dados denominado **sample\_shard\_2** e todos o
                             (new Range<long>(300, 400), shard2, MappingStatus.Online)); 
 
 
+Como alternativa, é possível usar o Powershell para criar um novo Gerenciador de Mapa de Fragmentos. Um exemplo está disponível [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 ## Para adicionar um fragmento de uma parte vazia de um intervalo existente  
 
-Em algumas circunstâncias, você já mapeou um intervalo para um fragmento e parcialmente preencheu-o com dados, mas agora deseja que os dados futuros sejam direcionados para um fragmento diferente. Por exemplo, você fragmentou o intervalo por dia e já tem 50 dias alocados para um fragmento, mas no dia 24, você deseja que os dados futuros encaixem em um fragmento diferente. A [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) do banco de dados elástico pode executar essa operação, mas se a movimentação de dados não for necessária (por exemplo, dados para o intervalo de dias [25, 50), por exemplo, o dia 25, inclusive, até o 50 não inclusive, ainda não existe) você pode executar isso inteiramente usando as APIs de gerenciamento de mapa de fragmentos diretamente.
+Em algumas circunstâncias, você já mapeou um intervalo para um fragmento e parcialmente preencheu-o com dados, mas agora deseja que os dados futuros sejam direcionados para um fragmento diferente. Por exemplo, você fragmentou o intervalo por dia e já tem 50 dias alocados para um fragmento, mas no dia 24, você deseja que os dados futuros encaixem em um fragmento diferente. A [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) do banco de dados elástico pode executar essa operação, mas se a movimentação de dados não for necessária (por exemplo, dados para o intervalo de dias [25, 50), por exemplo, o dia 25, inclusive, até o 50, inclusive, ainda não existe), você pode executar tudo isso usando as APIs de Gerenciamento de Mapa de Fragmentos diretamente.
 
 ### Exemplo: dividir um intervalo e atribuir a parte vazia a um fragmento adicionado recentemente
 
@@ -72,10 +73,10 @@ Um banco de dados chamado "sample\_shard\_2" e todos os objetos de esquema neces
     upd.Shard = shard2; 
     sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd)); 
 
-**Importante**: use essa técnica somente se você tiver certeza de que o intervalo para o mapeamento atualizado está vazio. Os métodos acima não verificam os dados para o intervalo que está sendo movido, portanto, é melhor incluir verificações em seu código. Se existirem linhas no intervalo que está sendo movido, a distribuição de dados real não corresponderá ao mapa do fragmento atualizado. Use a [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) para executar a operação nesses casos.
+**Importante**: use essa técnica apenas se tiver certeza de que o intervalo para o mapeamento atualizado está vazio. Os métodos acima não verificam os dados para o intervalo que está sendo movido, portanto, é melhor incluir verificações em seu código. Se existirem linhas no intervalo que está sendo movido, a distribuição de dados real não corresponderá ao mapa do fragmento atualizado. Use a [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) para executar a operação nesses casos.
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

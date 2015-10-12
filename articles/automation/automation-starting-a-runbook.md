@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
-   ms.author="bwren" />
+   ms.date="09/28/2015"
+   ms.author="bwren;sngun"/>
 
 # Como iniciar um Runbook na Automação do Azure
 
@@ -49,7 +49,6 @@ A tabela a seguir o ajuda a determinar o método de inicialização de runbook n
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://msdn.microsoft.com/library/azure/mt163849.aspx">API de Automação do Azure</a></td>
   <td>
    <ul>
@@ -62,7 +61,6 @@ A tabela a seguir o ajuda a determinar o método de inicialização de runbook n
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook</a></td>
   <td>
    <ul>
@@ -74,6 +72,16 @@ A tabela a seguir o ajuda a determinar o método de inicialização de runbook n
   </td>
  </tr>
  <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Responder a um Alerta do Azure</a></td>
+  <td>
+   <ul>
+    <li>Inicie um runbook em resposta a um alerta do Azure.</li>
+    <li>Configure o webhook para o runbook e vincule ao alerta.</li>
+    <li>Autenticado com token de segurança na URL.</li>
+    <li>Atualmente, dá suporte ao alerta apenas para as Métricas.</li>
+   </ul>
+  </td>
+ </tr>
  <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">Agenda</a></td>
   <td>
@@ -232,4 +240,4 @@ Supondo que o nome de usuário nas credenciais foi *vmonte*, isso resulta na sa�
 
 - [Iniciando um runbook de outro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

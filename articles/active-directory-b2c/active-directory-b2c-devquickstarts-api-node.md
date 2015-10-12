@@ -295,15 +295,17 @@ policyName:'b2c_1_<sign in policy name>',
 
 ```
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
 ### Valores necessários
 
-*IdentityMetadata*: é onde o passport-azure-ad vai procurar os dados de configuração para o IdP, bem como as chaves para validar os tokens JWT. Provavelmente, você não deseja alterar isso se estiver usando o Active Directory do Azure.
+*IdentityMetadata*: isso é onde passport-azure-ad vai procurar os dados de configuração para o IdP, bem como as chaves para validar os tokens JWT. Provavelmente, você não deseja alterar isso se estiver usando o Active Directory do Azure.
 
-*público*: o URI do portal que identifica seu serviço. Nosso exemplo usa: `http://localhost/TodoListService`
+*público*: O URI do portal que identifica seu serviço. Nosso exemplo usa: `http://localhost/TodoListService`
 
-*tenantName*: o nome do locatário (por exemplo, contoso.microsoftonline.com)
+*tenantName*: O nome do locatário (por exemplo, contoso.onmicrosoft.com)
 
-*policyName*: a política com a qual você deseja validar os tokens que entram no servidor. Esta deve ser a mesma política que você usou no aplicativo cliente para entrar.
+*policyName*: A política que você deseja validar os tokens que chegam ao seu servidor. Esta deve ser a mesma política que você usou no aplicativo cliente para entrar.
 
 > [AZURE.NOTE]Para nossa visualização de B2C, você usa as mesmas políticas tanto em instalações de cliente quanto de servidor. Se você já seguiu um passo a passo e criou essas políticas, não é necessário fazê-lo novamente. Como você já passou por este passo a passo, não precisa configurar novas políticas ao passar por quaisquer instruções passo a passo neste site.
 
@@ -349,7 +351,7 @@ Agora todos os essa preparação passará a compensar, enquanto agrupamos esses 
 
 Para este passo a passo usaremos MongoDB para armazenar nossas tarefas conforme discutido em ***Etapa 4***.
 
-Se você chamar novamente o arquivo config.js criado na Etapa 11, chamaremos nosso banco de dados *tasklist*, já que foi isso que colocamos no final da nossa URL de conexão mogoose\_auth\_local. Você não precisa criar esse banco de dados com antecedência no MongoDB, ele criará isso para nós na primeira execução do nosso aplicativo de servidor (supondo que ele ainda não exista).
+Se você se lembra do arquivo js que criamos na etapa 11, chamamos de nosso banco de dados *tasklist*, uma vez que foi o que usamos no final da nossa URL de conexão mogoose\_auth\_local. Você não precisa criar esse banco de dados com antecedência no MongoDB, ele criará isso para nós na primeira execução do nosso aplicativo de servidor (supondo que ele ainda não exista).
 
 Agora que dissemos ao servidor qual banco de dados MongoDB, gostaríamos de usar, precisamos escrever algum código adicional para criar o modelo e o esquema para as tarefas do nosso servidor.
 
@@ -878,7 +880,7 @@ Você já fez tudo que era possível com esse servidor sem usar um cliente compa
 
 Se você estava apenas procurando obter informações sobre como implementar uma API REST usando Restify e OAuth2, você tem código mais do que suficiente para manter o desenvolvimento de seu serviço e aprender como compilar neste exemplo.
 
-Para referência, o exemplo concluído (sem seus valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip), ou você pode cloná-lo do GitHub:
+Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
@@ -891,4 +893,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [Conectar-se a uma API Web usando o iOS com o B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

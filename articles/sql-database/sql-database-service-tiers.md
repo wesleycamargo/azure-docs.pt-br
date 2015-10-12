@@ -16,7 +16,7 @@
    ms.date="09/11/2015"
    ms.author="shkurhek"/>
 
-# Camadas de serviço
+# Camadas de serviço do Banco de Dados SQL
 
 ## Visão geral
 O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) fornece várias camadas de serviço para lidar com diferentes tipos de cargas de trabalho. Você tem a opção de criar um único banco de dados com características e preços definidos. Ou você pode criar vários bancos de dados em um pool de banco de dados elástico. Em ambos os casos, as camadas incluem **Basic**, **Standard** e **Premium**. Mas as características dessas camadas variam conforme você cria um banco de dados individual ou um pool de banco de dados elástico. Este artigo fornece uma visão geral das camadas de serviço em ambos os contextos.
@@ -90,4 +90,4 @@ Se você estiver interessado no gerenciamento de vários bancos de dados como um
 Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

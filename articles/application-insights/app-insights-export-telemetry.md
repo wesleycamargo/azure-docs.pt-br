@@ -32,7 +32,7 @@ Se você ainda não tiver uma conta de armazenamento "clássica", crie uma agora
 
     ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-export-telemetry/030.png)
 
-2. Criar um contêiner
+2. Criar um contêiner.
 
     ![No novo armazenamento, selecione Contêineres, clique no bloco Contêineres e, em seguida, Adicionar](./media/app-insights-export-telemetry/040.png)
 
@@ -217,4 +217,4 @@ Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/serv
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

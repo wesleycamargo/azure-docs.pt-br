@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # Introdução à sincronização de dados offline nos Serviços Móveis
@@ -155,7 +155,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
 
     #### TodoItem
 
-    | Atributo | Tipo | Observação | 
+    | Atributo | Tipo | Observação |
     |-------------- |  ------ | -------------------------------------------------------|
     | ID (obrigatório) | Cadeia de caracteres | chave primária no repositório remoto (obrigatório) |
     | concluído | Booliano | campo de item de tarefa |
@@ -271,4 +271,4 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

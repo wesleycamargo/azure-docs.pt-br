@@ -26,4 +26,4 @@
 	- Defina **Habilitar Bitcode** como **Não** em Destinos > Configurações de Compilação. Certifique-se de selecionar TUDO na barra de ferramentas superior. 
 	- Habilite **Notificações por Push** em Destinos > Nome do seu destino > Recursos.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

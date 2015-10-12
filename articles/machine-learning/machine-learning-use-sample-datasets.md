@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Usar os conjuntos de dados de exemplo no Studio de Aprendizado de Máquina | Microsoft Azure"
 	description="Descrições dos conjuntos de dados usados em modelos de exemplo incluídos no Estúdio AM. Você pode usar esses conjuntos de dados de exemplo para seus testes."
-	services="machine-learning" 
+	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
 	manager="paulettm"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="09/28/2015"
 	ms.author="garye"/>
 
 
@@ -21,7 +21,7 @@
 
 [top]: #machine-learning-sample-datasets
 
-Quando você cria um novo espaço de trabalho no Aprendizado de Máquina do Azure, um número de conjuntos de dados de exemplo e testes é incluído por padrão. Muitos desses conjuntos de dados de exemplo são usados pelos modelos de exemplo na [Galeria do Aprendizado de Máquina do Azure](http://azure.microsoft.com/documentation/services/machine-learning/models/), e outros são incluídos como exemplos de vários tipos de dados usados no aprendizado de máquina.
+Quando você cria um novo espaço de trabalho no Aprendizado de Máquina do Azure, um número de conjuntos de dados de exemplo e testes é incluído por padrão. Muitos desses conjuntos de dados de exemplo são usados pelos modelos de exemplo na [Galeria de Análise do Cortana](http://gallery.azureml.net/), e outros são incluídos como exemplos de vários tipos de dados usados no aprendizado de máquina.
 
 Alguns desses conjuntos de dados estão disponíveis no armazenamento de Blob do Azure. Para esses conjuntos de dados, as tabelas a seguir fornecem um link direto. Você pode usar esses conjuntos de dados em seus experimentos com o uso do módulo [Leitor][reader].
 
@@ -316,4 +316,4 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

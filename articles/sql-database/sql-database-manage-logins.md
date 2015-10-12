@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/08/2015"
+   ms.date="09/25/2015"
    ms.author="rickbyh"/>
 
 # Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure
@@ -140,7 +140,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE]Você deve usar uma senha forte ao criar um logon. Para obter mais informações, consulte [Senhas fortes (a página pode estar em inglês)](https://msdn.microsoft.com/library/ms161962.aspx).
 
-O exemplo a seguir mostra como criar um usuário de banco de dados chamado **logon1Usuário** no banco de dados **bancodedados1** que corresponda ao logon **logon1**:
+O exemplo abaixo mostra como criar um usuário de banco de dados chamado **login1User** no banco de dados **database1** que corresponde ao logon **login1**. Para executar o exemplo a seguir, você deve primeiro criar uma nova conexão a database1, usando um logon com a permissão **ALTERAR QUALQUER USUÁRIO** no banco de dados. Qualquer usuário que se conecte como membro da função **db\_owner** terá essa permissão, como o logon que criou o banco de dados.
 
 ```
 -- Establish a new connection to the database1 database
@@ -157,7 +157,7 @@ Esse modelo de permissão no nível de banco de dados no Banco de Dados SQL do A
 ## Exibição de logons e bancos de dados
 
 
-Para exibir logons e bancos de dados em seu servidor do Banco de Dados SQL, use os modos de exibição ``sys.sql_logins`` e ``sys.databases`` do banco de dados mestre, respectivamente. O exemplo a seguir mostra como exibir uma lista de todos os logons e bancos de dados em seu servidor de Banco de dados SQL do Azure.
+Para exibir logons e bancos de dados em seu servidor do Banco de Dados SQL do Azure, use as exibições ``sys.sql_logins`` e ``sys.databases`` do banco de dados mestre, respectivamente. O exemplo a seguir mostra como exibir uma lista de todos os logons e bancos de dados em seu servidor de Banco de dados SQL do Azure.
 
 ```
 -- first, connect to the master database
@@ -167,6 +167,6 @@ SELECT * FROM sys.databases;
 
 ## Consulte também
 
-[Limitações e diretrizes de segurança de Banco de Dados SQL do Azure](sql-database-security-guidelines.md) [Conectar-se ao Banco de Dados SQL Usando a Autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
+[Limitações e diretrizes de segurança do Banco de Dados SQL do Azure](sql-database-security-guidelines.md) [Conectando-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

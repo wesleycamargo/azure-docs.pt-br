@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/25/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do sistema de arquivos local usando o Azure Data Factory
@@ -573,6 +573,18 @@ O **FileSystemSink** suporta as seguintes propriedades:
 | -------- | ----------- | -------------- | -------- |
 | copyBehavior | Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. | <p>Há três valores possíveis para a propriedade copyBehavior. </p><ul><li>* *PreserveHierarchy: ** preserva a hierarquia de arquivos na pasta de destino, ou seja, o caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.</li><li>**FlattenHierarchy:** todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino terão o nome gerado automaticamente. </li><li>**MergeFiles:** mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome de arquivo mesclado seria o nome especificado. Caso contrário, seria o nome de arquivo gerado automaticamente.</li></ul> | Não |
 
+### exemplos de recursiva e copyBehavior
+Esta seção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursivos e copyBehavior.
+
+recursiva | copyBehavior | Comportamento resultante
+--------- | ------------ | --------
+verdadeiro | preserveHierarchy | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>& nbsp; & nbsp; & nbsp; & nbsp; File1<br/>& nbsp; & nbsp; & nbsp; & nbsp; File2<br/>& nbsp; & nbsp; & nbsp; & nbsp; Subfolder1<br/>& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; Arquivo3<br/>& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; File4<br/>& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; File5</p>a pasta de destino Pasta1 terá a mesma estrutura de acordo com a fonte<p>Pasta1<br/>& nbsp; & nbsp; & nbsp; & nbsp; File1<br/>& nbsp; & nbsp; & nbsp; & nbsp; File2<br/>& nbsp; & nbsp; & nbsp; & nbsp; Subfolder1<br/>& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; Arquivo3<br/>& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; File4<br/>& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; File5</p>.  
+verdadeiro | flattenHierarchy | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a Pasta1 de destino terá a seguinte estrutura: <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome automaticamente gerado para Arquivo5</p>
+verdadeiro | mergeFiles | <p>Para uma pasta de origem Pasta1 com a seguintes estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura: <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1 + Arquivo2 + Arquivo3 + Arquivo4 + Arquivo5 os conteúdos serão mesclados em um nome do arquivo autogerado</p>
+false | preserveHierarchy | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura<p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/></p><p>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados.</p>.
+false | flattenHierarchy | <p>Para uma pasta de origem Pasta1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura<p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para Arquivo2<br/></p><p>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados.</p>.
+false | mergeFiles | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutura:</p> <p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5</p>a pasta de destino Pasta1 terá a seguinte estrutura<p>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos do Arquivo1 + Arquivo2 serão mesclados em um arquivo com o nome do arquivo autogerado. nome autogerado para Arquivo1</p><p>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados.</p>.
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -587,4 +599,4 @@ O **FileSystemSink** suporta as seguintes propriedades:
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

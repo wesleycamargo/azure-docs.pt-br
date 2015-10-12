@@ -272,6 +272,9 @@ Após você ter se conectado, será capaz de carregar e descarregar arquivos de 
 
 Após carregar `index.php` e `createtable.php`, navegue para **http://[site name].azurewebsites.net/createtable.php** para criar a tabela para o aplicativo, em seguida navegue para **http://[site name].azurewebsites.net/index.php** para começar usar o aplicativo.
  
+## Próximas etapas
+
+Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
@@ -297,4 +300,4 @@ Após carregar `index.php` e `createtable.php`, navegue para **http://[site name
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

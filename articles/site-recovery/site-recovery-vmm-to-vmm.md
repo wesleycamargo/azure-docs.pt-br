@@ -388,4 +388,4 @@ O Provedor no servidor VMM é notificado do evento pelo Serviço e executa uma a
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

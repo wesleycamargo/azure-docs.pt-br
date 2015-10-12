@@ -153,7 +153,7 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
 Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e Configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
@@ -188,4 +188,4 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 	- **-f (or --template-file)**. Caminho para o arquivo de modelo ARM.
 	- **-e (or --parameters-file)**. Caminho para o arquivo de parâmetros ARM.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

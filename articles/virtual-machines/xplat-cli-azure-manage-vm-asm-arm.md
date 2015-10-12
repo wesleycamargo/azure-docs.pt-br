@@ -64,7 +64,7 @@ Conferir todos os tamanhos de VM disponíveis | Não disponível | `azure vm siz
 
 ## Próximas etapas
 
-* Para saber mais sobre como usar a CLI do Azure para trabalhar com os recursos do Gerenciador de Recursos, consulte [Usando a interface de linha de comando do Azure com o Gerenciador de Recursos](xplat-cli-azure-resource-manager.md) e [Gerenciando o controle de acesso baseado em função com a interface de linha de comando do Azure](../role-based-access-control-xplat-cli.md).
+* Para saber mais sobre como usar a CLI do Azure para trabalhar com os recursos do Gerenciador de Recursos, veja [Usando a Interface de Linha de Comando do Azure com o Gerenciador de Recursos](xplat-cli-azure-resource-manager.md) e [Gerenciando o Controle de Acesso Baseado em Função com a Interface de Linha de Comando do Azure](../role-based-access-control-xplat-cli-install.md).
 * Para obter exemplos adicionais dos comandos de CLI, consulte [Usando a interface de linha de comando do Azure com o Gerenciamento de serviços do Azure](../virtual-machines-command-line-tools.md) e [Usando a CLI do Azure com o Gerenciador de Recursos do Azure](azure-cli-arm-commands.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -60,4 +60,4 @@ Para obter mais informações sobre consulte Backup do Azure, consulte
 - [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
 - [Teste o Backup do Azure](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

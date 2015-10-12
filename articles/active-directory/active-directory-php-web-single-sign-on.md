@@ -188,6 +188,9 @@ Este tutorial mostrou como criar e configurar um aplicativo PHP de locatário ú
 
 Um exemplo que mostra como usar o Active Directory do Azure e o logon único para PHP está disponível em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
 
+## Próximas etapas
+
+Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
 
 [Step 1: Create a PHP Application]: #createapp
 [Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
@@ -203,4 +206,4 @@ Um exemplo que mostra como usar o Active Directory do Azure e o logon único par
 [Código de exemplo de PHP para o Active Directory do Azure]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

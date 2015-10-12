@@ -34,7 +34,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**: consulte [Obter avaliação gratuita do Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **CLI do Azure**: consulte [Instalar e Configurar a CLI do Azure](xplat-cli.md)
+- **CLI do Azure**: consulte [Instalar e Configurar a CLI do Azure](xplat-cli-install.md)
 
 - **Um cluster hdinsight**: consulte [Introdução ao HDInsight no Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -48,9 +48,9 @@ O fluxo de trabalho que você vai implementar seguindo as instruções neste doc
 
 1. Uma ação do Hive executa um script HiveQL para extrair os registros de **hivesampletable** incluídos com o HDInsight. Cada linha de dados descreve uma visita de um dispositivo móvel específico. O formato de registro é semelhante ao seguinte:
 
-		8       18:54:20        PT-BR   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        PT-BR   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        PT-BR   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        pt-BR   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        pt-BR   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        pt-BR   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	O script do Hive usado neste documento conta o total de visitas para cada plataforma (como Android ou iPhone) e armazena as contagens em uma nova tabela Hive.
 
@@ -201,7 +201,7 @@ As definições de fluxos de trabalho do Oozie são escritas em hPDL (uma Lingua
 
 As seguintes etapas criam o Banco de Dados SQL do Azure para o qual os dados serão exportados.
 
-> [AZURE.IMPORTANT]Antes de executar essas etapas, você deve [instalar e configurar a CLI do Azure](xplat-cli.md). A instalação da CLI e as etapas para criar um banco de dados podem ser executadas no cluster HDInsight ou sua estação de trabalho local.
+> [AZURE.IMPORTANT]Antes de executar essas etapas, você deve [instalar e configurar a CLI do Azure](xplat-cli-install.md). A instalação da CLI e as etapas para criar um banco de dados podem ser executadas no cluster HDInsight ou sua estação de trabalho local.
 
 1. Use o comando a seguir para criar um novo servidor de Banco de Dados SQL do Azure:
 
@@ -477,11 +477,7 @@ A IU da Web do Oozie fornece um modo de exibição baseado na web sobre o status
 
 Para acessar a interface do usuário do Oozie da Web, use as seguintes etapas:
 
-1. Crie um túnel SSH para o cluster HDInsight. Para obter informações sobre como fazer isso, consulte um destes procedimentos:
-
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
-
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+1. Crie um túnel SSH para o cluster HDInsight. Para obter mais informações sobre como fazer isso, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IUs da Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 2. Quando um túnel tiver sido criado, abra a interface do usuário da Web do Ambari no navegador da Web. O URI do site Ambari é ****https://CLUSTERNAME.azurehdinsight.net**. Substitua **NOMEDOCLUSTER** pelo nome do cluster do HDInsight baseado em Linux.
 
@@ -715,7 +711,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/PT-BR/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/pt-BR/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -725,4 +721,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

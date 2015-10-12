@@ -2,20 +2,20 @@
 <properties
 	pageTitle="Aprimore seu aplicativo de API para Aplicativos Lógicos"
 	description="Este artigo demonstra como decorar seu aplicativo de API para funcionar bem com Aplicativos Lógicos"
-	services="app-service\api"
+	services="app-service"
 	documentationCenter=".net"
 	authors="sameerch"
 	manager="wpickett"
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="sameerch;guayan;tarcher"/>
+	ms.date="09/29/2015"
+	ms.author="sameerch"/>
 
 # Aprimore seu aplicativo de API para Aplicativos Lógicos #
 
@@ -235,4 +235,4 @@ Para aplicativos de API que usam metadados dinâmicos, você pode fazer uso de a
 Neste artigo, você viu como aprimorar a experiência do usuário do seu aplicativo API quando ele é usado no designer de Aplicativos Lógicos. Como melhor prática, é recomendável que você forneça nomes amigáveis adequados para todas as operações (ações e gatilhos), parâmetros e propriedades. Também é recomendável que você forneça no máximo 5 operações básicas. Para parâmetros de entrada, a recomendação é restringir o número de propriedades básicas para não mais do que 4 e, para propriedades, a recomendação é de 5 ou menos. O restante das suas operações e propriedades devem ser marcadas como avançadas.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

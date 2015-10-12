@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # Fazer upload de imagens no Armazenamento do Azure usando Serviços Móveis
@@ -78,4 +78,4 @@ Para poder usar um SAS para fazer upload de imagens de seu aplicativo no armazen
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [SDK do Windows Phone 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

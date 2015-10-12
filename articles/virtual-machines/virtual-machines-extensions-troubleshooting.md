@@ -6,7 +6,7 @@
    authors="kundanap"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="top-support-issue,azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -84,4 +84,4 @@ Onde "publsher-name" corresponde ao tipo de extensão da saída de "azure vm get
 
 Depois que a extensão tiver sido removida, o modelo poderá ser executado novamente para executar os scripts na VM.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

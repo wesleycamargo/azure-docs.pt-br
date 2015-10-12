@@ -32,7 +32,7 @@ Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já cr
 ## Como criar o NSG para a sub-rede front-end
 Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e Configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 
 2. Execute o comando **azure config mode** para alternar para o modo clássico, como mostrado abaixo.
 
@@ -239,4 +239,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

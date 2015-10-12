@@ -20,7 +20,7 @@ O DataStax é um dos líderes reconhecidos do setor para o desenvolvimento e for
 
 >[AZURE.NOTE]Diferente da edição Community, para implantar o DataStax Enterprise, você precisa ter uma conta válida do DataStax (nome de usuário e senha) para fornecer como parâmetros durante a implantação do modelo. Visite o site do [Datastax](http://www.datastax.com) para configurar sua conta se ainda não tiver uma.
 
-Além do que já está disponível no Azure Marketplace, agora você também pode implantar facilmente um novo cluster do DataStax Enterprise em VMs do Ubuntu usando um modelo do Gerenciador de Recursos por meio do [PowerShell do Azure](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli.md).
+Além do que já está disponível no Azure Marketplace, agora você também pode implantar facilmente um novo cluster do DataStax Enterprise em VMs do Ubuntu usando um modelo do Gerenciador de Recursos por meio do [PowerShell do Azure](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli-install.md).
 
 Clusters recém-implantados com base nesse modelo terão a topologia descrita no diagrama a seguir, embora outras topologias possam ser facilmente obtidas por meio da personalização do modelo apresentado neste artigo.
 
@@ -498,4 +498,4 @@ Essa abordagem sugere que você:
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

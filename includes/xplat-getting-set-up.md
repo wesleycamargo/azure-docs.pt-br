@@ -1,7 +1,17 @@
+<properties services="virtual-machines" title="Setting up Azure CLI for service management" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
+
+<tags
+   ms.service="virtual-machine"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="linux"
+   ms.workload="infrastructure"
+   ms.date="04/13/2015"
+   ms.author="rasquill" />
 
 ## Usando a CLI do Azure
 
-As etapas a seguir o ajudarão a usar a CLI do Azure facilmente com a versão mais recente e com a assinatura correta. Se você precisar instalar a CLI do Azure e conectá-lo primeiro em sua conta, confira [Interface de Linha de Comando do Azure (CLI do Azure)](xplat-cli.md).
+As etapas a seguir o ajudarão a usar a CLI do Azure facilmente com a versão mais recente e com a assinatura correta. Se você precisar instalar a CLI do Azure e conectá-lo primeiro em sua conta, confira [Interface de Linha de Comando do Azure (CLI do Azure)](xplat-cli-install.md).
 
 ### Etapa 1: atualizar a versão da CLI do Azure
 
@@ -24,4 +34,4 @@ Depois de conectar a CLI do Azure com a conta que você deseja usar, você pode 
 
 > [AZURE.NOTE]Se você ainda não tiver uma conta do Azure, mas tem uma assinatura para a assinatura do MSDN, você pode obter créditos gratuitos do Azure ativando os seus [benefícios de assinante do MSDN aqui](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) – ou você pode usar a conta gratuita. Ambos funcionarão para o acesso ao Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

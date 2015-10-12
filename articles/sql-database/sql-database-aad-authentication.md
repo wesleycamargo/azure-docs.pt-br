@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/14/2015"
+   ms.date="09/28/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Conectar-se ao Banco de Dados SQL Usando a Autenticação do Active Directory do Azure 
@@ -65,7 +65,7 @@ Para criar um usuário do banco de dados contido no Banco de Dados SQL do Azure,
 
 ## Limitações e recursos do AD do Azure 
 
-Os seguintes membros do Active Directory do Azure podem ser provisionados no SQL Server do Azure: - Membros nativos: um membro criado no AD do Azure no domínio gerenciado ou em um domínio do cliente. Para obter mais informações, consulte [Adicionar seu próprio nome de domínio ao Azure AD](active-directory-add-domain.md). - Membros do domínio federado: um membro criado no AD do Azure com um domínio federado. Para obter mais informações, consulte [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - Membros importados de outros Azure Active Directories que são membros de domínio nativo ou federado. - Grupos de Active Directory criados como grupos de segurança.
+Os seguintes membros do Active Directory do Azure podem ser provisionados no SQL Server do Azure: - Membros nativos: um membro criado no AD do Azure no domínio gerenciado ou em um domínio do cliente. Para obter mais informações, consulte [Adicionar seu próprio nome de domínio ao Azure AD](active-directory-add-domain.md). - Membros do domínio federado: um membro criado no AD do Azure com um domínio federado. Para obter mais informações, veja [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - Membros importados de outros Active Directories do Azure que são membros de domínio nativo ou federado. - Grupos do Active Directory criados como grupos de segurança.
 
 Não há suporte para contas da Microsoft (por exemplo, outlook.com, hotmail.com, live.com) nem para outras contas de convidado (por exemplo, gmail.com, yahoo.com). Se você pode fazer logon em [https://login.live.com](https://login.live.com) usando a conta e senha, isso significa que você está usando uma conta da Microsoft para a qual que não há suporte para autenticação do AD do Azure para o Banco de Dados SQL do Azure.
 
@@ -87,7 +87,7 @@ Crie um Active Directory do Azure e popule-o com usuários e grupos. Isso inclui
 - Crie o domínio inicial de domínio gerenciado do AD do Azure.
 - Realize a federação de uma instância local dos Serviços de Domínio do Active Directory com o Active Directory do Azure.
 
-Para obter mais informações, consulte [Adicionar seu próprio nome de domínio ao AD do Azure](active-directory-add-domain.md), [O Microsoft Azure agora dá suporte à Federação com o Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrar seu diretório do AD do Azure](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gerenciar o AD do Azure usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Para obter mais informações, veja [Adicionar seu próprio nome de domínio ao AD do Azure](active-directory-add-domain.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório do AD do Azure](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gerenciar o AD do Azure usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Certificar-se que o banco de dados está em Banco de Dados SQL V12 do Azure
  
@@ -139,15 +139,15 @@ Cada servidor do Azure SQL Server começa com uma única conta de administrador 
 2. Na faixa à esquerda, selecione **SQL servers**, selecione seu **SQL server** e, em seguida, na folha **SQL Server**, na parte superior, clique em **Configurações**.
 
 	![configurações de ad.][9]
-3. Na folha **Configurações**, clique em **Administrador do Active directory (visualização)** e aceite a cláusula de visualização.
-4. Na folha **Administrador do Active directory (visualização)**, clique para examinar e, em seguida, clique em **OK** para aceitar os termos de visualização.
-5. Na folha **Administrador do Active directory (visualização)**, clique em **Administrador do Active directory** e, em seguida, na parte superior, clique em **Definir administrador**.
-6. Na folha **Adicionar administrador**, procure um usuário, selecione o usuário ou grupo que será um administrador e, em seguida, clique em **Selecionar**. (A folha Administrador do Active Directory mostrará todos os membros e grupos do Active Directory. Usuários ou grupos que estão esmaecidos não podem ser selecionados porque eles não têm suporte como administradores do AD do Azure. (Consulte a lista de administradores com suporte em **Limitações e recursos do AD do Azure** acima.)
-7. Na parte superior da folha **Administrador do Active directory**, clique em **SALVAR**. ![escolha o administrador][10]
+3. Na folha **Configurações**, clique em **Administrador do Active Directory (visualização)** e aceite a cláusula de visualização.
+4. Na folha **Administrador do Active Directory (visualização)**, clique para examinar e em **OK** para aceitar os termos de visualização.
+5. Na folha **Administrador do Active Directory (visualização)**, clique em **Administrador do Active Directory** e, na parte superior, clique em **Definir administrador**.
+6. Na folha **Adicionar administrador**, procure um usuário, selecione o usuário ou grupo que será um administrador e, em seguida, clique em **Selecionar**. (A folha Administrador do Active Directory mostrará todos os membros e grupos do Active Directory. Usuários ou grupos que estão esmaecidos não podem ser selecionados porque eles não têm suporte como administradores do AD do Azure. (Consulte a lista de administradores com suporte em **Limitações e recursos do AD do Azure** acima.) O RBAC (controle de acesso baseado em função) aplica-se somente ao portal e não é propagado para o SQL Server.
+7. Na parte superior da folha **Administrador do Active Directory**, clique em **SALVAR**.![escolha o administrador][10]
 
-	O processo de alteração do administrador pode levar vários minutos. O novo administrador será exibido na caixa **Administrador do Active directory**.
+	O processo de alteração do administrador pode levar vários minutos. O novo administrador será exibido na caixa **Administrador do Active Directory**.
 
-Para remover posteriormente o administrador, na parte superior da folha **Administrador do Active directory**, clique em **Remover administrador**.
+Para remover o administrador mais tarde, na parte superior da folha **Administrador do Active Directory**, clique em **Remover administrador**.
 
 ### Provisionar um administrador do AD do Azure para o Azure SQL Server usando o PowerShell 
 
@@ -209,7 +209,7 @@ Em todos os computadores cliente, dos quais seus aplicativos ou usuários se con
 ### Ferramentas
 
 - Instalar um [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ou [SQL Server Data Tools para Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) atende ao requisito do .NET Framework 4.6. 
-- O SSMS instala a versão x86 do **ADALSQL.DLL**. 
+- O SSMS instala a versão x86 do **ADALSQL.DLL**. (No momento, o SSMS não solicitará uma reinicialização necessária após a instalação. Isso deve ser corrigido em um futuro CTP.)
 - O SSDT instala a versão amd64 do **ADALSQL.DLL**. O SSDT oferece suporte apenas parcial à autenticação do AD do Azure.
 - O Visual Studio mais recente dos [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) atende ao requisito de .NET Framework 4.6, mas não instala a versão amd64 requerida do **ADALSQL. DLL**.
 
@@ -217,7 +217,7 @@ Em todos os computadores cliente, dos quais seus aplicativos ou usuários se con
 
 ### Sobre usuários de bancos de dados independentes
 
-A autenticação do Active Directory do Azure exige que os usuários do banco de dados sejam criados como usuários do banco de dados independente. Um usuário de banco de dados independente com base em uma identidade do AD do Azure é um usuário de banco de dados que não tem um logon no banco de dados mestre e que mapeia para uma identidade no diretório do AD do Azure que está associada ao banco de dados. A identidade do AD do Azure pode ser uma conta de usuário individual ou um grupo. Para obter mais informações sobre usuários de bancos de dados independentes, consulte [Usuários do Banco de dados Independente - Tornando seu Banco de Dados Portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+A autenticação do Active Directory do Azure exige que os usuários do banco de dados sejam criados como usuários do banco de dados independente. Um usuário de banco de dados independente com base em uma identidade do AD do Azure é um usuário de banco de dados que não tem um logon no banco de dados mestre e que mapeia para uma identidade no diretório do AD do Azure que está associada ao banco de dados. A identidade do AD do Azure pode ser uma conta de usuário individual ou um grupo. Para obter mais informações sobre usuários de bancos de dados independentes, consulte [Usuários do Banco de dados Independente - Tornando seu Banco de Dados Portátil](https://msdn.microsoft.com/library/ff929188.aspx). Os usuários do banco de dados (com a expectativa dos administradores) não podem ser criados usando o portal, e as funções RBAC não são propagadas para o SQL Server.
 
 ### Conectar-se ao banco de dados de usuário usando o SQL Server Management Studio
  
@@ -322,4 +322,4 @@ Para exemplos de código específicos relacionados à autenticação do AD do Az
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

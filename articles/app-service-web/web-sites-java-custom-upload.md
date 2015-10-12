@@ -134,6 +134,22 @@ Como no caso do Tomcat, os clientes podem carregar suas próprias instâncias de
 
 A configuração do Jetty precisa ser alterada no start.ini para definir `java.net.preferIPv4Stack=true`.
 
+### Springboot
+Para obter colocar um aplicativo Springboot em execução, você precisa carregar o arquivo JAR ou WAR e adicionar o seguinte arquivo web.config. O arquivo web.config vai para a pasta wwwroot. Em web.config, ajuste os argumentos para apontar para o arquivo JAR. No exemplo a seguir, o arquivo JAR está localizado na pasta wwwroot.
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+	  <system.webServer>
+	    <handlers>
+	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+	    </handlers>
+	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+	        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar ";%HOME%\site\wwwroot\my-web-project.jar";">
+	    </httpPlatform>
+	  </system.webServer>
+	</configuration>
+
+
 ### Hudson
 
 Nosso teste usou o war do Hudson 3.1.2 e a instância padrão do Tomcat 7.0.50, mas sem usar a interface do usuário para configurar as coisas. Como o Hudson é uma ferramenta de criação de software, é aconselhável instalá-lo em instâncias dedicadas em que o sinalizador **AlwaysOn** pode ser definido no aplicativo Web.
@@ -241,4 +257,4 @@ Para obter mais informações sobre Java, consulte o [Centro de desenvolvedores 
 <!-- External Links -->
 [Serviço de Aplicativo do Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

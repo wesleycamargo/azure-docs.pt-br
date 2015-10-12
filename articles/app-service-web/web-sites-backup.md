@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure" 
 	description="Saiba como criar backups de seus aplicativos Web no Serviço de Aplicativo do Azure" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -186,7 +186,7 @@ A estratégia de restauração deve ser semelhante à seguinte:
 
 <a name="nextsteps"></a>
 ## Próximas etapas
-Para saber como restaurar o aplicativo Web do Azure do backup, consulte [Restaurar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-restore.md).
+Para saber como restaurar o aplicativo Web do backup, consulte [Restaurar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-restore.md).
 
 Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](/pricing/free-trial/).
 
@@ -222,4 +222,4 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

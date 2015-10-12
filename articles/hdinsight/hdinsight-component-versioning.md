@@ -66,7 +66,7 @@ Alguns dos principais recursos da plataforma HDInsight incluem:
 
 - **Storm** - O Storm no Azure HDInsight agora está disponível ao público geral, proporcionando uma maneira rápida e fácil de implantar análise em tempo real em apenas alguns cliques e dentro de minutos. O Apache Storm no HDInsight do Azure é um projeto de código-fonte aberto no ecossistema do Apache Hadoop que fornece acesso a uma plataforma de análise capaz de processar milhões de eventos de maneira confiável. Agora os usuários de Hadoop podem obter insights sobre como os eventos ocorrem, além de insights de eventos passados. A Microsoft também fornece integração interna com o Visual Studio, facilitando a interação do desenvolvedor com o Storm. Agora você pode desenvolver, implantar e depurar topologias Storm de dentro do Visual Studio.
 
-- **HDInsight no Linux (visualização)** - O HDInsight do Azure fornece a opção de provisionar clusters do Hadoop que sejam executados em máquinas virtuais (VMs) Linux (Ubuntu). Você pode usar essa opção se estiver familiarizado com o Linux ou Unix, estiver migrando de uma solução Hadoop baseada em Linux existente ou desejar fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Você pode provisionar um cluster HDInsight no Linux por meio de um computador cliente executando o Windows ou Linux usando o portal de visualização do Azure, a CLI do Azure ou o SDK do .NET HDInsight (somente Windows).
+- **HDInsight no Linux** - O HDInsight do Azure fornece a opção de provisionar clusters do Hadoop que sejam executados em máquinas virtuais (VMs) Linux (Ubuntu). Você pode usar essa opção se estiver familiarizado com o Linux ou Unix, estiver migrando de uma solução Hadoop baseada em Linux existente ou desejar fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Você pode provisionar um cluster HDInsight no Linux por meio de um computador cliente executando o Windows ou Linux usando o portal de visualização do Azure, a CLI do Azure ou o SDK do .NET HDInsight (somente Windows).
 
 - **Tamanhos de VM adicionais** - clusters do HDInsight agora estão disponíveis em mais tipos e tamanhos de VM. Os clusters do HDInsight agora podem utilizar tamanhos de A2 a A7 criados para fins gerais; os nós da Série D têm SSDs (unidades de estado sólido) e processadores 60% mais rápidos; e tamanhos A8 e A9 com suporte para InfiniBand para rede rápida. Clientes Apache HBase no Azure HDInsight podem se beneficiar das configurações de memória maiores da série de D para aumentar o desempenho. Clientes do Storm Apache no Azure HDInsight também podem se beneficiar de memória adicional para carregar conjuntos de dados de referência maiores, bem como CPUs mais rápidas para taxa de transferência mais alta.
 
@@ -162,4 +162,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

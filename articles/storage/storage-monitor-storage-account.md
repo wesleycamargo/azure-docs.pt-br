@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/27/2015"
 	ms.author="tamram"/>
 
 # Monitorar uma conta de armazenamento no portal do Azure
@@ -24,16 +24,16 @@
 
 > [AZURE.NOTE]Há custos adicionais associados ao exame de dados de monitoramento no portal do Azure. Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Análise de armazenamento e cobrança</a>. <br />
 
-> O serviço de Arquivo do Azure não tem suporte para Análise de Armazenamento no momento.
+> O Armazenamento de arquivos do Azure atualmente dá suporte às métricas de Análise de Armazenamento, mas ainda não dá suporte ao registro em log. É possível habilitar métricas para o Armazenamento de arquivos do Azure por meio de [portal de visualização do Azure](https://ms.portal.azure.com).
 
 > Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/).
 
 
 ## Como configurar o monitoramento para uma conta de armazenamento
 
-1. No [Portal do Azure](https://manage.windowsazure.com/), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1. No [portal de gerenciamento do Azure](https://manage.windowsazure.com/), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
-2. Clique em **Configurar** e role para baixo até as configurações de **monitoramento** dos serviços de Blob, Tabela e Fila.
+2. Clique em **Configurar** e role para baixo até as configurações de **monitoramento** dos serviços Blob, Tabela e Fila.
 
 	![Opções de monitoramento](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
 
@@ -41,7 +41,7 @@
 
 	-  Para definir o nível de monitoramento, selecione uma das seguintes opções:
 
-      **Mínimo**: coleta métricas como entrada/saída, disponibilidade, latência e porcentagens de êxitos, que são agregadas aos serviços de Blob, Tabela e Fila.
+      **Mínimo** - Coleta métricas como entrada/saída, disponibilidade, latência e porcentagens de êxitos, que são agregadas aos serviços Blob, Tabela e Fila.
 
       **Detalhado** - Além das métricas mínimas, coleta o mesmo conjunto de métricas para cada operação de armazenamento na API do Serviço de Armazenamento do Azure. As métricas no modo detalhado permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo.
 
@@ -64,7 +64,7 @@ As métricas são armazenadas na conta de armazenamento em quatro tabelas intitu
 
 No painel, você pode escolher até seis métricas para serem traçadas no gráfico de métricas de nove métricas disponíveis. Para cada serviço (Blob, Tabela e Fila), as métricas de Disponibilidade, Percentual de Êxitos e Total de Solicitações estão disponíveis. As métricas disponíveis no painel são as mesmas para o monitoramento mínimo ou detalhado.
 
-1. No [Portal do Azure](https://manage.windowsazure.com/), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1. No [portal do Azure](https://manage.windowsazure.com/), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2. Para alterar as métricas que são traçadas no gráfico, realize uma das seguintes ações:
 
@@ -92,7 +92,7 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 ## Tutorial: Adicionar métricas à tabela de métricas
 
 
-1. No [Portal do Azure](https://manage.windowsazure.com/), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1. No [portal do Azure](https://manage.windowsazure.com/), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2. Clique em **Monitoramento**.
 
@@ -122,7 +122,7 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 
 6. Depois que você selecionar métricas para todos os serviços, clique em OK (marca de seleção) para atualizar a configuração de monitoramento. As métricas selecionadas são adicionadas à tabela de métricas.
 
-7. Para excluir uma métrica da tabela, clique na métrica para selecioná-la e clique em **Excluir Métricas**.
+7. Para excluir uma métrica da tabela, clique na métrica para selecioná-la e clique em **Excluir Métrica**.
 
 	![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
@@ -140,7 +140,7 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 
 Para cada um dos serviços de armazenamento disponíveis com sua conta de armazenamento (Blob, Tabela e Fila), é possível salvar logs de diagnóstico para as Solicitações de Leitura, Solicitações de Gravação e/ou Solicitações de Exclusão e definir a política de retenção de dados para cada um dos serviços.
 
-1. No [Portal do Azure](https://manage.windowsazure.com/), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1. No [portal do Azure](https://manage.windowsazure.com/), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
 
 2. Clique em **Configurar** e use a seta para baixo no teclado para rolar para baixo até **registrar em log**.
 
@@ -157,4 +157,4 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -136,9 +136,12 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
 -   Consulte a referência do MSDN [Armazenamento do Azure][].
 -   Visite o [Blog da equipe de Armazenamento do Azure][].
 
+Para obter mais informações, veja também o [Centro de Desenvolvedores do Python](/develop/python/).
+
+
 [Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [pacote do Python Azure]: https://pypi.python.org/pypi/azure
 [pacote de armazenamento do Python Azure]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

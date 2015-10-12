@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="09/22/2015"
    ms.author="telmos" />
 
-# O que é uma ACL (Lista de Controle de Acesso) de rede?
+# O que é uma ACL (Lista de Controle de Acesso) do ponto de extremidade?
 
-Uma ACL (Lista de Controle de Acesso) de rede é um aprimoramento de segurança disponível para sua implantação do Azure. Uma ACL fornece a capacidade para permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Você pode especificar ACLs de rede apenas para pontos de extremidade. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual.
+Uma ACL (Lista de Controle de Acesso) de ponto de extremidade é uma melhoria de segurança disponível para a sua implantação do Azure. Uma ACL fornece a capacidade para permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Você pode especificar ACLs de rede apenas para pontos de extremidade. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual.
 
 > [AZURE.IMPORTANT]Recomendamos que você use NSGs (Grupos de segurança de rede) em vez de ACLs sempre que possível. Para saber mais sobre NSGs, confira [O que é um Grupo de segurança de rede?](../virtual-networks-nsg).
 
@@ -27,7 +27,7 @@ Com as ACLs de rede, você pode fazer o seguinte:
 
 - Permitir ou negar seletivamente o tráfego de entrada com base no intervalo de endereços IPv4 de sub-rede remota para um ponto de extremidade de entrada de máquina virtual.
 
-- Inserir endereços IP em uma lista de bloqueios
+- Inserir endereços IP em uma lista negra
 
 - Criar várias regras por ponto de extremidade de máquina virtual
 
@@ -99,4 +99,4 @@ As ACLs de rede podem ser especificadas em um ponto de extremidade com conjunto 
 
 [Como gerenciar ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

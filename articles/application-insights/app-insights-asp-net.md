@@ -57,7 +57,7 @@ Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, e 
 
 #### Opções de configuração
 
-Se esta é sua primeira vez, você será solicitado a fazer logon ou se inscrever na visualização do Microsoft Azure. (ela é separada de sua conta do Visual Studio Online.)
+Se esta for sua primeira vez, você será solicitado a fazer logon ou se inscrever no Microsoft Azure.
 
 Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **Definir configurações** e colocá-lo no mesmo grupo de recursos que os outros componentes.
 
@@ -248,4 +248,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

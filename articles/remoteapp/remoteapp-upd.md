@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Dados de Perfil do Usuário no Azure RemoteApp"
+    pageTitle="Dados do Perfil do Usuário no Azure RemoteApp | Microsoft Azure"
 	description="Saiba como os dados de usuário são armazenados e acessados no Azure RemoteApp"
 	services="remoteapp"
 	documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="09/29/2015" 
     ms.author="elizapo" />
 
 
@@ -35,7 +35,7 @@ Se você precisar acessar os dados para um dos seus usuários (para recuperaçã
 
 ## É feito backup dos dados?
 
-Sim, vamos salvar um backup dos dados do usuário por localização geográfica. Os dados são somente leitura e podem ser acessados da mesma forma que os dados comuns (entre em contato com o Azure RemoteApp para saber), se o data center principal estiver inativo.
+Sim, vamos salvar um backup dos dados do usuário por localização geográfica. Os dados são somente leitura e podem ser acessados da mesma forma que os dados comuns (entre em contato com o Azure RemoteApp para saber), se o data center principal estiver inativo. Os dados são copiados em tempo real no local de backup e não mantemos cópias de versões diferentes. Assim, se houver dados corrompidos, não poderemos restaurá-los para uma versão válida anteriormente conhecida, mas se o data center principal estiver inativo, você poderá obter os dados do usuário de outro local.
 
 ## Como os usuários veem o UPD no lado do servidor?
 
@@ -54,7 +54,7 @@ Sim, o Azure RemoteApp é compatível com o uso de soluções de dados compartil
 Você pode configurar o RemoteApp do Azure para permitir que os usuários acessem dispositivos locais configurando [redirecionamento](remoteapp-redirection.md). Depois, os dispositivos locais podem acessar os dados no UPD.
 
 ## Posso usar meu UPD como um compartilhamento de rede?
-Não, porque o UDP não é persistente. Um UPD só fica disponível quando o usuário está conectado ativamente ao Azure RemoteApp.
+Não. Os UPDs não podem ser usados como um compartilhamento de rede. Um UPD só é disponibilizado ao usuário quando ele está conectado ativamente ao Azure RemoteApp.
 
 ## Se eu excluir um usuário de uma coleção, seu UPD é excluído?
 
@@ -70,6 +70,9 @@ Sim, basta entrar em contato com o [Azure RemoteApp](mailto:remoteappforum@micro
 
 No momento, só oferecemos acesso offline a UPDs dentro da janela de acesso de 10 horas descrita acima. Isso significa que não temos uma forma de dar acesso por tempo suficiente para concluir tarefas mais complicadas, como executar um software antivírus nos UPDs ou acessar dados para uma auditoria.
 
+## As configurações de chave do Registro são persistentes?
+Sim, todos os elementos escritos em HKEY\_Current\_User fazem parte do UPD.
+
 ## Posso desativar UPDs para uma coleção?
 
 Sim, você pode pedir ao Azure RemoteApp para desabilitar UPDs para uma assinatura, mas não pode fazer isso por conta própria. Isso significa que os UPDs serão desabilitados para todas as coleções da assinatura.
@@ -79,7 +82,7 @@ Sim, você pode pedir ao Azure RemoteApp para desabilitar UPDs para uma assinatu
 Sim, mas você precisa configurar isso na imagem de modelo antes de criar a coleção. Use as etapas a seguir para bloquear o acesso à unidade do sistema:
 
 1. Execute **gpedit.msc** na imagem do modelo.
-2. Navegue até **Configuração do usuário > Modelos administrativos > Componentes do Windows > Explorer**.
+2. Navegue até **Configuração do Usuário > Modelos Administrativos > Componentes do Windows > Explorer**.
 3. Selecione as seguintes opções:
 	- **Ocultar estas unidades especificadas em Meu Computador**
 	- **Impedir o acesso a unidades de Meu Computador**
@@ -101,7 +104,7 @@ Você também pode usar aplicativos de sincronização de dados como o OneDrive 
 
 ## Como posso executar um script de inicialização no Azure RemoteApp?
 
-Se você quiser executar um script de inicialização, comece criando uma tarefa agendada na imagem do modelo que você vai usar para a coleção. (Faça isso *antes de* executar sysprep.)
+Se você quiser executar um script de inicialização, comece criando uma tarefa agendada na imagem do modelo que você vai usar para a coleção. (Faça isso *antes* de executar o sysprep.)
 
 ![Criar uma tarefa do sistema](./media/remoteapp-upd/upd1.png)
 
@@ -111,7 +114,7 @@ A tarefa agendada abre o script de inicialização usando as credenciais do usu�
 
 ![Defina o disparador para a tarefa "No logon"](./media/remoteapp-upd/upd3.png)
 
-Você também pode usar [scripts de inicialização baseada em Política de Grupo](https://technet.microsoft.com/library/cc779329%28v=ws.10%29.aspx).
+Você também pode usar [scripts de inicialização baseados na Política de Grupo](https://technet.microsoft.com/library/cc779329%28v=ws.10%29.aspx).
 
 ## E quanto a colocar um script de inicialização no menu Iniciar? Isso funcionaria?
 
@@ -123,4 +126,4 @@ Não, não há suporte para isso com o Azure RemoteApp, que usa RDSH, que també
 
 Não, não há suporte para isso com o Azure RemoteApp.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

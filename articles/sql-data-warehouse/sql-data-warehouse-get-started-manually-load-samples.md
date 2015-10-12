@@ -83,4 +83,4 @@ Agora que proporcionamos a você um aquecimento com a verificação de dados de 
 <!--Other Web references-->
 [Exemplos de scripts de dados]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

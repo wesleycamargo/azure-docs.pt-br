@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Implantar um aplicativo Web móvel ASP.NET MVC 5 no Serviço de Aplicativo do Azure" 
 	description="Um tutorial que ensina como implantar um aplicativo Web no Serviço de Aplicativo do Azure usando recursos móveis no aplicativo Web ASP.NET MVC 5." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -617,4 +617,4 @@ Este tutorial mostrou como usar o ASP.NET MVC 5 para desenvolver aplicativos Web
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

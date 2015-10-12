@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="09/23/2015"
 	ms.author="tomfitz"/>
 
 # Como usar o Armazenamento de Fila do PHP
@@ -378,9 +378,11 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Filas do Azur
 - Consulte a referência do MSDN [Armazenamento do Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 - Visite o [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
+Para obter mais informações, veja também o [Centro de Desenvolvedores do PHP](/develop/php/).
+
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

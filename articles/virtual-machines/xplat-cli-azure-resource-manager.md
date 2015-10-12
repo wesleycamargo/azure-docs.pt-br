@@ -331,14 +331,14 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 
 ## Próximas etapas
 
-* Para obter informações sobre como usar a CLI (Interface de Linha de Comando) do Azure, consulte [Instalar e Configurar a CLI do Azure][clisetup].
+* Para obter informações sobre como usar a CLI (Interface de Linha de Comando) do Azure, veja [Instalar e configurar a CLI do Azure][clisetup].
 * Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure usando o Azure PowerShell, consulte [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 * Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure no Portal do Azure, consulte [Usando grupos de recursos para gerenciar os recursos do Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
-[clisetup]: ../xplat-cli.md
+[clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

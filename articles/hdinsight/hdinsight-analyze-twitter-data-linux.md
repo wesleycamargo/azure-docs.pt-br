@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/12/2015"
 	ms.author="larryfr"/>
 
 # Analisar dados do Twitter usando o Hive no HDInsight
 
-Neste documento, você obterá tweets usando uma API de streaming do Twitter e então usará o Apache Hive em um cluster HDInsight baseado em Linux (visualização) para processar os dados do formato JSON. O resultado será uma lista de usuários do Twitter que enviaram a maioria dos tweets com uma determinada palavra.
+Neste documento, você obterá tweets usando uma API de streaming do Twitter e então usará o Apache Hive em um cluster HDInsight baseado em Linux para processar os dados do formato JSON. O resultado será uma lista de usuários do Twitter que enviaram a maioria dos tweets com uma determinada palavra.
 
 > [AZURE.NOTE]Embora diversas partes deste documento possam ser usadas com clusters HDInsight baseados no Windows (Python e Hive, por exemplo), muitas etapas deste documento são específicas de clusters HDInsight baseados em Linux. Para obter as etapas específicas para um cluster baseado no Windows, confira [Analisar dados do Twitter usando o Hive no HDInsight](hdinsight-analyze-twitter-data.md).
 
@@ -37,7 +37,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - __Python__ e [pip](https://pypi.python.org/pypi/pip)
 
-- A __CLI do Azure__. Para obter mais informações, confira [Instalar e configurar a CLI do Azure](../xplat-cli.md)
+- A __CLI do Azure__. Para obter mais informações, confira [Instalar e configurar a CLI do Azure](../xplat-cli-install.md)
 
 ##Obtenha um feed do Twitter
 
@@ -319,4 +319,4 @@ Neste tutorial vimos como transformar o conjunto de dados não estruturado JSON 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

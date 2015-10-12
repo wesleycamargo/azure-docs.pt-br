@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/30/2015" 
 	ms.author="juliako"/>
 
 
-#Use o Portal de Gerenciamento para criar canais que realizam codificação ao vivo de um fluxo com taxa de bits única para fluxo múltiplas taxas de bits (Visualização)
+#Use o Portal de Gerenciamento para criar canais que realizam codificação ao vivo de um fluxo com taxa de bits única para fluxo múltiplas taxas de bits 
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -140,7 +140,7 @@ Se nenhum endereço IP for especificado e não houver definição de regra, nenh
 
 ![standard4][standard4]
 
->[AZURE.NOTE]Atualmente na visualização, a inicialização do canal pode levar até 30 minutos. A redefinição de canal pode levar até 5 minutos.
+>[AZURE.NOTE]Atualmente, a inicialização do Canal pode levar até 30 minutos. A redefinição de canal pode levar até 5 minutos.
 
 Uma vez criado o canal, você pode selecionar a guia **CODIFICADOR**, onde você pode exibir as configurações de canais. Você também pode gerenciar slates e anúncios.
 
@@ -266,4 +266,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

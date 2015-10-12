@@ -24,6 +24,7 @@ Este tópico explica como enumerar programaticamente os aplicativos YARN (Yet An
   1. O servidor de histórico de aplicativo genérico nos clusters HDInsight está habilitado. Ele é um componente dentro do Servidor de Linha do Tempo de YARN que manipula o armazenamento e recuperação de informações genéricas de aplicativos concluídos.
   2. Há APIs disponíveis no Azure HDInsight .NET SDK para enumerar programaticamente os aplicativos que foram executados em seus clusters e baixar os logs relevantes específicos de aplicativo ou de contêiner (em texto sem formatação) para ajudar na depuração de problemas de aplicativo que ocorrerem.
 
+> [AZURE.NOTE]As informações contidas neste documento são aplicadas apenas aos clusters HDInsight baseados no Windows. Para obter informações sobre os logs de YARN nos clusters HDInsight baseados em Linux, consulte [Acessar logs do aplicativo YARN no Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## Pré-requisitos
 
@@ -173,4 +174,4 @@ Se necessário, você também pode baixar os logs de cada contêiner (ou de um c
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

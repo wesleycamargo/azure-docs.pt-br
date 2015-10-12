@@ -17,11 +17,13 @@
    ms.date="09/23/2015"
    ms.author="larryfr"/>
 
-#Implantar e gerenciar topologias Apache Storm no HDInsight
+#Implantar e gerenciar topologias Apache Storm no HDInsight baseado no Windows
 
 O Painel Storm permite que você implante e execute facilmente topologias Apache Storm para seu cluster HDInsight usando o navegador da Web. Você também pode usar o painel para monitorar e gerenciar topologias em execução. Se você usar o Visual Studio, as ferramentas do HDInsight para Visual Studio fornecem recursos semelhantes no Visual Studio.
 
 Os recursos do Storm e do Painel Storm das Ferramentas do HDInsight contam com API REST Storm, que pode ser usada para criar suas próprias soluções de monitoramento e gerenciamento.
+
+> [AZURE.IMPORTANT]As etapas deste documento exigem um Storm baseado em Windows no cluster HDInsight. Para obter informações sobre como usar um cluster baseado em Linux, consulte [Implantar e gerenciar as topologias do Apache Storm no HDInsight baseado em Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ##Pré-requisitos
 
@@ -177,4 +179,4 @@ Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Stor
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

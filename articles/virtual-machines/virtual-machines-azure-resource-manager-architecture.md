@@ -81,4 +81,4 @@ Você também pode ver a componentização e os relacionamentos dependentes entr
 
 [Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -46,8 +46,8 @@ Verifique se estes pré-requisitos estão em vigor:
 	- Uma ou mais máquinas virtuais no servidor Hyper-V de origem. As máquinas virtuais devem ser de geração 1.
 - Saiba mais sobre como configurar nuvens VMM:
 	- Leia mais sobre nuvens VMM privadas em [Novidades na nuvem privada com o System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) e em [VMM 2012 e as nuvens](http://go.microsoft.com/fwlink/?LinkId=324956).
-	- Saiba mais em [Configurando a malha de nuvem VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric).
-	- Depois que os elementos de malha de nuvem estiverem em vigor, veja como criar nuvens privadas em  [Criando uma nuvem privada na VMM](http://go.microsoft.com/fwlink/?LinkId=324953) e [Passo a passo: criando nuvens privadas com a VMM do System Center 2012 SP1](http://go.microsoft.com/fwlink/?LinkId=324954).
+	- Saiba mais em [Configurando a malha de nuvem VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
+	- Depois que os elementos de malha de nuvem estiverem em vigor, veja como criar nuvens privadas em [Criando uma nuvem privada na VMM](http://go.microsoft.com/fwlink/?LinkId=324953) e [Passo a passo: criando nuvens privadas com a VMM do System Center 2012 SP1](http://go.microsoft.com/fwlink/?LinkId=324954).
 
 ### Pré-requisitos do Hyper-V
 
@@ -80,9 +80,11 @@ Se desejar implantar o mapeamento de rede, você precisará do seguinte:
 
 1. Entre no [Portal de Gerenciamento](https://portal.azure.com) do servidor VMM que você deseja registrar.
 
-2. Expanda **Serviços de Dados**, expanda **Serviços de Recuperação** e clique em **Cofre de Recuperação de Site**.
 
-3. Clique em **Criar Novo** e, em seguida, clique em **Criação Rápida**.
+2. Expanda
+3. *Serviços de Dados*, expanda *Serviços de Recuperação* e clique em *Cofre de Recuperação de Site*. *
+3. Clique em *Criar Novo* e, em seguida, clique em *Criação Rápida*.
+
 
 4. Em **Nome**, digite um nome amigável para identificar o cofre.
 
@@ -187,7 +189,7 @@ Se não tiver uma conta de armazenamento do Azure, clique em **Adicionar uma Con
 
 Instale o Agente de Serviços de Recuperação do Azure em cada servidor de host Hyper-V localizado nas nuvens VMM que você deseja proteger.
 
-1. Na página **Início Rápido**, clique em <b>Baixar o Agente dos Serviços de Recuperação de Site do Azure e instalar nos hosts</b> para obter a versão mais recente do arquivo de instalação do agente.
+1. Na página Início Rápido, clique em <b>Baixar o Agente dos Serviços de Recuperação de Site do Azure e instalar nos hosts</b> para obter a versão mais recente do arquivo de instalação do agente.
 
 	![Instalar o Agente de Serviços de Recuperação](./media/site-recovery-vmm-to-azure/ASRE2AVMM_InstallHyperVAgent.png)
 
@@ -225,7 +227,7 @@ Após o salvamento, as configurações de nuvem podem ser modificadas na guia <b
 Antes de começar o mapeamento de rede, verifique se as máquinas virtuais no servidor VMM de origem estão conectadas a uma rede VM. Além disso, crie uma ou mais redes virtuais do Azure. Observe que várias redes VM podem ser mapeadas para uma única rede do Azure.
 
 1. Na página **Início Rápido**, clique em **Mapear redes**.
-2. Na guia **Redes**, em **Local de origem**, selecione o servidor VMM de origem. No **Local de destino**, selecione **Azure**.
+2. Na guia **Redes**, em **Local de origem**, selecione o servidor VMM de origem. No **Local de destino**, selecione Azure.
 3. Em redes de **Origem**, é exibida uma lista de redes VM associadas ao servidor VMM. Em redes de **Destino**, são exibidas as redes do Azure associadas à assinatura.
 4. Selecione a rede VM de origem e clique em **Mapear**.
 5. Na página **Selecionar uma Rede de Destino**, selecione a rede de destino do Azure que deseja usar.
@@ -265,9 +267,9 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
 
 4. Na guia Configurar das propriedades da máquina virtual, as seguintes propriedades de rede podem ser modificadas.
 
-    - Número de adaptadores de rede da máquina virtual de destino: o número de adaptadores de rede na máquina virtual de destino depende do tamanho da máquina virtual escolhida. O número de adaptadores de rede das máquinas virtuais de destino é no mínimo o número de adaptadores de rede na máquina virtual de origem e no máximo o número de adaptadores de rede compatível com o tamanho da máquina virtual escolhida.  
+    1. Número de adaptadores de rede da máquina virtual de destino: o número de adaptadores de rede na máquina virtual de destino depende do tamanho da máquina virtual escolhida. O número de adaptadores de rede das máquinas virtuais de destino é no mínimo o número de adaptadores de rede na máquina virtual de origem e no máximo o número de adaptadores de rede compatível com o tamanho da máquina virtual escolhida.  
 
-    - Rede da máquina virtual de destino: a rede à qual a máquina virtual se conecta é determinada pelo mapeamento de rede da rede da máquina virtual de origem. No caso de a máquina virtual de origem ter mais de um adaptador de rede, e as redes de origem estarem mapeadas para diferentes redes no destino, o usuário teria de escolher entre uma das redes de destino.
+	1. Rede da máquina virtual de destino: a rede à qual a máquina virtual se conecta é determinada pelo mapeamento de rede da rede da máquina virtual de origem. No caso de a máquina virtual de origem ter mais de um adaptador de rede, e as redes de origem estarem mapeadas para diferentes redes no destino, o usuário teria de escolher entre uma das redes de destino.
 
 	1. Sub-rede de cada um dos adaptadores de rede: para cada adaptador de rede, o usuário pode escolher a sub-rede a qual a máquina virtual em estado de failover se conectará.
 
@@ -315,7 +317,7 @@ Se você quiser executar um failover de teste para uma máquina virtual habilita
 Para executar um failover de teste, faça o seguinte:
 
 1. Na guia **Planos de Recuperação**, selecione o plano e clique em **Failover de Teste**.
-1. Na página **Confirmar Failover de Teste**, selecione **Nenhum** ou uma rede específica do Azure. Observe que, se você selecionar **Nenhum**, o failover de teste verificará se a máquina virtual foi replicada corretamente para o Azure, mas não verificará sua configuração de rede de replicação.
+1. Na página **Confirmar Failover de Teste**, selecione **Nenhum** ou uma rede específica do Azure. Observe que, se você selecionar Nenhum, o failover de teste verificará se a máquina virtual foi replicada corretamente para o Azure, mas não verificará sua configuração de rede de replicação.
 
 	![Sem rede](./media/site-recovery-vmm-to-azure/ASRE2AVMM_TestFailoverNoNetwork.png)
 
@@ -324,11 +326,9 @@ Para executar um failover de teste, faça o seguinte:
 1. Quando o failover atinge a fase **Teste completo**, clique em **Teste Completo** para concluir o failover de teste. Você pode fazer uma busca detalhada na guia **Trabalho** para acompanhar o progresso e o status do failover, e para realizar as ações necessárias.
 1. Após o failover, você poderá ver a réplica de teste da máquina virtual no portal do Azure. Se tiver configurado para máquinas virtuais de acesso a rede local, você pode iniciar uma conexão de área de trabalho remota para a máquina virtual. Observe que:
 
-    a. Verifique se as máquinas virtuais foram iniciadas com êxito
-
-    b. Se você quiser se conectar à máquina virtual no Azure usando a Área de trabalho remota após o failover, habilite a Conexão de Área de Trabalho Remota na máquina virtual antes de executar o teste de failover. Você também precisará adicionar um ponto de extremidade RDP na máquina virtual. Você pode aproveitar um [Runbooks de Automação do Azure](site-recovery-runbook-automation.md) para fazer isso.
-
-    c. Após o failover, se você usar um endereço IP público para se conectar à máquina virtual no Azure usando a Área de Trabalho Remota, verifique se você não tem qualquer política de domínio que impeça a conexão com uma máquina virtual usando um endereço público.
+    1. Verifique se as máquinas virtuais foram iniciadas com êxito
+    1. Se você quiser se conectar à máquina virtual no Azure usando a Área de trabalho remota após o failover, habilite a Conexão de Área de Trabalho Remota na máquina virtual antes de executar o teste de failover. Você também precisará adicionar um ponto de extremidade RDP na máquina virtual. Você pode aproveitar um [Runbooks de Automação do Azure](site-recovery-runbook-automation.md) para fazer isso.
+    1. Após o failover, se você usar um endereço IP público para se conectar à máquina virtual no Azure usando a Área de Trabalho Remota, verifique se você não tem qualquer política de domínio que impeça a conexão com uma máquina virtual usando um endereço público.
 
 1.  Após a conclusão do teste, faça o seguinte:
 	- Clique em **Failover de teste concluído**. Limpe o ambiente de teste para desligar automaticamente e excluir as máquinas virtuais de teste.
@@ -351,4 +351,4 @@ Para executar um failover de teste, faça o seguinte:
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

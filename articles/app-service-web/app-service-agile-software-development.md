@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure"
 	description="Aprenda a criar aplicativos complexos de grande escala com o Serviço de Aplicativo do Azure, de forma a oferecer suporte ao desenvolvimento de software Agile."
-	services="app-service\web,app-service\api,app-service\mobile"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -277,8 +277,8 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 -	[Ramificação Git – Conceitos básicos de ramificação e mesclagem](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Blog de David Ebbo](http://blog.davidebbo.com/)
 -	[PowerShell do Azure](powershell-install-configure.md)
--	[Ferramentas de linha de comando de plataformas cruzadas do Azure](xplat-cli.md)
+-	[Ferramentas de linha de comando de plataformas cruzadas do Azure](xplat-cli-install.md)
 -	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

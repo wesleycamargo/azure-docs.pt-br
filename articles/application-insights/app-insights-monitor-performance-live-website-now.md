@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Diagnosticar problemas de desempenho em um site em execução | Microsoft Azure"
+	pageTitle="Diagnosticar problemas de desempenho em um site IIS em execução | Microsoft Azure"
 	description="Monitore o desempenho do site sem implantá-lo novamente. Use um autônomo ou o SDK do Application Insights para obter a telemetria de dependência."
 	services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/10/2015"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 
@@ -20,15 +20,18 @@
 
 *O Application Insights está em modo de visualização.*
 
-O Status do Monitor do Visual Studio Application Insights permite diagnosticar exceções e problemas de desempenho em aplicativos Web executados em qualquer servidor do IIS. Basta instalá-lo no servidor Web IIS e ele instruirá os aplicativos Web do ASP.NET encontrados, enviando dados para o portal do Application Insights para pesquisar e analisar. Você pode instalá-lo em qualquer servidor físico ou virtual ao qual você tem acesso de administrador.
+O Status do Monitor do Application Insights para Visual Studio permite diagnosticar exceções e problemas de desempenho em aplicativos ASP.NET.
 
 ![gráficos de exemplo](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+
+> [AZURE.TIP]Há artigos sobre como instrumentar [aplicativos Web J2EE online](app-insights-java-live.md) e [Serviços de Nuvem do Azure](app-insights-cloudservices.md).
+
 
 Você tem três maneiras de aplicar o Application Insights em seus aplicativos Web do IIS:
 
 * **Tempo de compilação:** [Adicionar o SDK do Application Insights][greenbrown] ao código do aplicativo Web. Isso fornece:
  * Um intervalo de telemetria de uso e de diagnóstico padrão.
- * E você pode usar o [API do Application Insights][api] se você quiser escrever sua própria telemetria para rastrear o uso ou diagnosticar problemas.
+ * A [API do Application Insights][api] permite escrever sua própria telemetria para monitorar o uso detalhadamente ou diagnosticar problemas.
 * **Tempo de execução:** use o Monitor de Status para instrumentar seu aplicativo Web no servidor.
  * Monitorar aplicativos Web que já estão em execução: não é necessário recriá-los ou republicá-los.
  * Um intervalo de telemetria de uso e de diagnóstico padrão.
@@ -37,21 +40,18 @@ Você tem três maneiras de aplicar o Application Insights em seus aplicativos W
 * **Ambos:** compile o SDK em seu código de aplicativo Web e execute o Monitor de Status em seu servidor Web. O melhor dos dois mundos:
  * telemetria de uso e de diagnóstico padrão.
  * Diagnóstico de dependência.
- * Escreva telemetria personalizada usando a API.
+ * A API permite escrever telemetria personalizada.
  * Solucione qualquer problema com o SDK e telemetria.
 
 
+## Instale o Application Insights Status Monitor
 
-> [AZURE.TIP]Seu aplicativo é um [aplicativo Web do Serviço de Aplicativo do Azure](../app-service-web/websites-learning-map.md)? [Adicionar o SDK do Application Insights][greenbrown] e [Adicionar a extensão do Application Insights](../insights-perf-analytics.md) do painel de controle do aplicativo no Microsoft Azure.
+É necessário ter uma assinatura do [Microsoft Azure](http://azure.com).
 
-
-## Instalar o Application Insights Status Monitor em seu servidor Web do IIS
-
-1. É necessário ter uma assinatura do [Microsoft Azure](http://azure.com).
+### Se seu aplicativo for executado em seu servidor IIS
 
 1. No servidor Web IIS, faça logon com as credenciais de administrador.
 2. Baixe e execute o [instalador do Monitor de Status](http://go.microsoft.com/fwlink/?LinkId=506648).
-
 4. No assistente de instalação, entre no Microsoft Azure.
 
     ![Entre no Azure com suas credenciais de Conta da Microsoft.](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
@@ -78,11 +78,24 @@ Você tem três maneiras de aplicar o Application Insights em seus aplicativos W
 
    Há também algumas mudanças em web.config.
 
-### Deseja (re)configurar mais tarde?
+#### Deseja (re)configurar mais tarde?
 
 Após concluir o assistente, você pode reconfigurar o agente quando desejar. É possível também usá-lo se você instalou o agente, mas ocorreu algum problema na configuração inicial.
 
 ![Clique no ícone do Application Insights na barra de tarefas](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
+
+
+### Se seu aplicativo for executado como um Aplicativo Web do Azure
+
+No painel de controle do Aplicativo Web do Azure, adicione a extensão do Application Insights.
+
+![Em seu aplicativo Web, Configurações, Extensões, Adicionar, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+
+### Se ele for um projeto de serviços de nuvem do Azure
+
+[Adicionar scripts a funções da Web e de trabalho](app-insights-cloudservices.md).
+
 
 ## Exibir desempenho de telemetria
 
@@ -90,24 +103,30 @@ Entre no [Portal de Visualização do Azure](http://portal.azure.com), procure o
 
 ![Selecione Navegar, Application Insights e selecione seu aplicativo.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
-Abra a folha de Desempenho para ver as dependências e outros dados.
+Abra a folha de Desempenho para ver as solicitações, tempos de resposta, dependências e outros dados.
 
 ![Desempenho](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Clique em qualquer gráfico para ver mais detalhes.
+Clique para ajustar os detalhes do que é exibido ou adicionar um novo gráfico.
 
 
 ![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
 
-#### Dependências
+## Dependências
 
-Os gráficos rotulados como HTTP, SQL e AZUREBLOB mostram os tempos de resposta e as contagens de chamadas para as dependências, ou seja, os serviços externos que o aplicativo usa.
+O gráfico de Duração da Dependência mostra o tempo gasto por chamadas do seu aplicativo para componentes externos, como bancos de dados, APIs REST ou Armazenamento de Blob do Azure.
 
+Para segmentar o gráfico por chamadas para dependências diferentes, selecione o gráfico, ative o Agrupamento e escolha a Dependência, o Tipo de Dependência ou o Desempenho de Dependência.
 
+Você também pode filtrar o gráfico para examinar um bloco específico de dependência, tipo ou desempenho. Clique em Filtros.
 
 #### Contadores de desempenho
 
-Clique em qualquer gráfico do contador de desempenho para alterar o que ele faz. Você pode ainda adicionar um novo gráfico.
+(Não vale para aplicativos Web do Azure.) Clique em Servidores na folha de visão geral para ver gráficos de contadores de desempenho do servidor, como uso de memória e ocupação da CPU.
+
+Adicione um novo gráfico ou clique em qualquer gráfico para alterar o que ele mostra.
+
+Você também pode [alterar o conjunto de contadores de desempenho que são relatados pelo SDK](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3).
 
 #### Exceções
 
@@ -196,4 +215,4 @@ Suporte ao IIS: IIS 7, 7,5, 8 e 8.5 (o IIS é obrigatório)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -70,4 +70,4 @@ Essas etapas o orientarão ao longo da configuração de uma rede virtual e de u
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

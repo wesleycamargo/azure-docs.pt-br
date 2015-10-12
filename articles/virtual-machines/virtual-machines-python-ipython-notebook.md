@@ -114,7 +114,7 @@ Para instalar o IPython e suas dependências na VM do Windows, use a Área de Tr
 
 	* Você também precisará adicionar `C:\OpenSSL-Win32\bin` à sua variável de ambiente `PATH`.
 
-> [AZURE.NOTE] Ao instalar o OpenSSL, use a versão 1.0.1g ou posterior, pois essas versões incluem uma correção para a vulnerabilidade de segurança Heartbleed.
+	> [AZURE.NOTE]Ao instalar o OpenSSL, use a versão 1.0.1g ou posterior, pois essas versões incluem uma correção para a vulnerabilidade de segurança Heartbleed.
 
 1.  Instale o IPython usando o comando a seguir.
 
@@ -258,8 +258,9 @@ O IPython Notebook fornece uma interface avançada para acesso interativo à tec
 
 Os recursos principais do IPython também estão disponíveis no Visual Studio por meio do [Python Tools for Visual Studio][] (PTVS). O PTVS é um plug-in gratuito e de código aberto da Microsoft que transforma o Visual Studio em um ambiente de implantação avançado do Python, incluindo um editor avançado com IntelliSense, depuração, criação de perfil e integração de computação paralela.
 
+## Próximas etapas
 
-
+Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
 [Tornado]: http://www.tornadoweb.org/ "Tornado"
 [PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
@@ -272,4 +273,4 @@ Os recursos principais do IPython também estão disponíveis no Visual Studio p
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

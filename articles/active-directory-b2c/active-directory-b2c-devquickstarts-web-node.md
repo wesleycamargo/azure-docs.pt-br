@@ -34,7 +34,9 @@ Para isso, você precisará:
 
 O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) ou clonar o esqueleto:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
+```
+git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git
+```
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
@@ -54,8 +56,7 @@ Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azur
 - Criar um **Segredo do Aplicativo** para seu aplicativo e copiá-lo. Você precisará dele em breve.
 - Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você também precisará dela em breve.
 
-    > [AZURE.IMPORTANT]
-    Não é possível usar aplicativos registrados na guia **Aplicativos** no [Portal do Azure](https://manage.windowsazure.com/) para isso.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3. Criar suas políticas
 
@@ -103,6 +104,7 @@ Aqui, configuraremos o middleware Express para usar o protocolo de autenticaçã
     -	`returnURL` é o **URI de Redirecionamento** inserido no portal.
     - `tenantName:` é o **nome do locatário** do seu aplicativo, por exemplo, contoso.onmicrosoft.com
 
+[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 - Em seguida, abra o arquivo `app.js` na raiz do projeto e adicione a seguinte chamada para invocar a estratégia `OIDCStrategy` que vem com `passport-azure-ad`
 
@@ -111,7 +113,7 @@ Aqui, configuraremos o middleware Express para usar o protocolo de autenticaçã
 JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Add some logging
+// Adicione um registro de log
 var log = bunyan.createLogger({
     name: 'Microsoft OIDC Example Web Application'
 });
@@ -431,4 +433,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

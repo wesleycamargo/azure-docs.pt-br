@@ -24,7 +24,7 @@ Apache Spark é um mecanismo rápido para processamento de dados em grande escal
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como implantar um recurso com o modelo de implantação do Gerenciador de Recursos. Não é possível implantar este recurso com o modelo de implantação clássico.
 
 
-Além de executar nos gerenciadores de cluster Mesos ou YARN, o Spark fornece um modo simples de implantação autônoma. Este tutorial mostrará como usar um exemplo de modelo do Gerenciador de Recursos do Azure para implantar um cluster Spark em VMs do Ubuntu por meio do [Azure PowerShell](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli.md).
+Além de executar nos gerenciadores de cluster Mesos ou YARN, o Spark fornece um modo simples de implantação autônoma. Este tutorial mostrará como usar um exemplo de modelo do Gerenciador de Recursos do Azure para implantar um cluster Spark em VMs do Ubuntu por meio do [Azure PowerShell](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli-install.md).
 
 Esse modelo implanta um cluster Spark em máquinas virtuais Ubuntu. Também fornece uma conta de armazenamento, rede virtual, conjuntos de disponibilidade, endereços IP públicos e interfaces de rede necessários para a instalação. O cluster Spark é criado por trás de uma sub-rede e, portanto, não há acesso de IP público ao cluster. Como parte da implantação, uma "jump box" opcional pode ser implantada. Essa “jump box” é uma VM Ubuntu implantada na sub-rede, mas que *expõe* um endereço IP público com uma porta SSH aberta com qual você pode se conectar. Em seguida, da “jump box”, é possível executar SSH em todas as VMs Spark na sub-rede.
 
@@ -47,7 +47,7 @@ Conforme mostra a imagem acima, a topologia de implantação é composta pelos e
 -	Quatro nós subordinados em execução na mesma sub-rede virtual, e conjunto de disponibilidade como o nó mestre.
 -	Uma VM jump box localizada na mesma rede virtual e sub-rede que pode ser usada para acessar o cluster.
 
-O Spark versão 3.0.0 é a versão padrão e pode ser alterada para qualquer binário pré-criado disponível no repositório do Spark. Há também uma cláusula no script para remover os comentários da compilação do código-fonte. Um endereço IP estático será atribuído a cada nó mestre do Spark: 10.0.0.10. Um endereço IP estático será atribuído a cada nó subordinado do Spark para contornar a limitação atual de não ser possível criar dinamicamente uma lista de endereços IP de dentro do modelo. (Por padrão, o primeiro nó será atribuído ao endereço IP privado 10.0.0.30, o segundo nó será atribuído ao 10.0.0.31 e assim por diante.) Para verificar erros de implantação, acesse o novo portal do Azure e procure **Grupo de Recursos** > **Última Implantação** > **Verificar Detalhes da Operação**.
+O Spark versão 3.0.0 é a versão padrão e pode ser alterada para qualquer binário pré-criado disponível no repositório do Spark. Há também uma cláusula no script para remover os comentários da compilação do código-fonte. Um endereço IP estático será atribuído a cada nó mestre do Spark: 10.0.0.10. Um endereço IP estático será atribuído a cada nó escravo do Spark para contornar a limitação atual de não ser possível criar dinamicamente uma lista de endereços IP de dentro do modelo. (Por padrão, o primeiro nó será atribuído ao endereço IP privado 10.0.0.30, o segundo nó será atribuído ao 10.0.0.31 e assim por diante.) Para verificar erros de implantação, acesse o novo portal do Azure e procure **Grupo de Recursos** > **Última Implantação** > **Verificar Detalhes da Operação**.
 
 Antes de lidar com mais detalhes relacionados ao Gerenciador de Recursos do Azure e ao modelo usado para essa implantação, verifique se você tem o PowerShell ou a CLI do Azure configurados corretamente.
 
@@ -847,4 +847,4 @@ Descubra mais [estruturas de aplicativo](virtual-machines-app-frameworks.md).
 
 [Solucionar problemas de implantações de modelo](resource-group-deploy-debug.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

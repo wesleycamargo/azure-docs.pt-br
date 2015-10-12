@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/01/2015"
+   ms.date="09/29/2015"
    ms.author="danlep"/>
 
 # Soluções do Lote e de HPC
@@ -94,7 +94,7 @@ Ferramentas de gerenciamento de cluster e agendamento de trabalho ajudam a alcan
 
 O Azure tem uma série de serviços de computação, dados, rede e serviços relacionados que você pode usar para fluxos de trabalho e soluções de Big Compute. Para obter orientações detalhadas sobre cada um desses serviços, consulte a documentação de serviços do Azure. Consulte os [cenários de solução](#solution-scenarios) neste artigo para algumas abordagens comuns com aplicativos HPC e Lote.
 
->[AZURE.NOTE]Novos serviços são introduzidos regularmente na plataforma do Azure e podem ser úteis para seu cenário. O uso dos serviços de visualização é recomendado somente para teste ou implantações de verificação de conceito, não cargas de trabalho de produção. Se você tiver dúvidas, entre em contato com um [parceiro do Azure](https://pinpoint.microsoft.com/en-US/search?keyword=azure) ou envie um email para *bigcompute@microsoft.com*.
+>[AZURE.NOTE]Novos serviços são introduzidos regularmente na plataforma do Azure e podem ser úteis para seu cenário. O uso dos serviços de visualização é recomendado somente para teste ou implantações de verificação de conceito, não cargas de trabalho de produção. Se você tiver dúvidas, entre em contato com um [parceiro do Azure](https://pinpoint.microsoft.com/pt-BR/search?keyword=azure) ou envie um email para *bigcompute@microsoft.com*.
 
 ### Serviços de computação
 
@@ -164,11 +164,11 @@ Você pode usar ferramentas de automação do Azure para criar um cluster HPC em
 
 >[AZURE.NOTE]Verifique com o fornecedor de sua solução e aplicativos de cluster local os requisitos adicionais e as práticas recomendadas para execução em uma nuvem pública fornecendo infraestrutura como serviço (IaaS).
 
-Por exemplo, você pode criar um cluster HPC baseado no Windows Server em com o [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) em máquinas virtuais de serviços de infraestrutura do Azure (IaaS) para executar suas cargas de trabalho, conforme mostrado na seguinte figura simplificada. Um usuário de cluster pode enviar um trabalho com segurança para o cluster de nuvem por meio de ferramentas de envio de trabalho de HPC Pack padrão em execução em um computador cliente. Consulte [Microsoft HPC Pack em VMs do Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx) para obter detalhes e opções de implantação.
+Por exemplo, você pode criar um cluster HPC com o [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) em máquinas virtuais de serviços de infraestrutura do Azure (IaaS) para executar suas cargas de trabalho do Windows ou linux, conforme mostrado na seguinte figura simplificada. Um usuário de cluster pode enviar um trabalho com segurança para o cluster de nuvem por meio de ferramentas de envio de trabalho de HPC Pack padrão em execução em um computador cliente. Consulte [Opções de cluster do HPC com Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
 ![Cluster em IaaS][iaas_cluster]
 
-**Implantação automatizada** - para implantar um grande número de VMs do Windows Server ou do Linux, você pode usar imagens de VM padrão ou personalizadas e ferramentas de automação do Azure como a [Interface de linha de comando do Azure](../xplat-cli.md) ou [Azure PowerShell](../powershell-install-configure.md). Os exemplos incluem:
+**Implantação automatizada** - para implantar um grande número de VMs do Windows Server ou do Linux, você pode usar imagens de VM padrão ou personalizadas e ferramentas de automação do Azure como a [Interface de linha de comando do Azure](../xplat-cli-install.md) ou [Azure PowerShell](../powershell-install-configure.md). Os exemplos incluem:
 
 * Para implantar um cluster de HPC Pack em serviços de infraestrutura do Azure, você pode executar um [script do Azure PowerShell](https://msdn.microsoft.com/library/azure/dn864734.aspx) flexível de um computador cliente; o script usa uma imagem de VM do Windows Server com o HPC Pack pré-instalado. Você também pode usar um [modelo de início rápido](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) com o Azure PowerShell ou a CLI do Azure para implantar um cluster de HPC Pack.
 
@@ -222,4 +222,4 @@ Consulte a figura a seguir para um fluxo de trabalho típico, que um desenvolved
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

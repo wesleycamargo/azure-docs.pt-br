@@ -71,8 +71,8 @@ Atualmente, o Banco de Dados SQL do Azure tem uma cota de DTU por servidor lógi
 
 [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)
 
-[Faixas de Serviço de Banco de Dados SQL do Azure e Níveis de Desempenho](https://msdn.microsoft.com/library/azure/dn741336.aspx)
+[Faixas de Serviço de Banco de Dados SQL do Azure e Níveis de Desempenho](sql-database-service-tiers.md)
 
 [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

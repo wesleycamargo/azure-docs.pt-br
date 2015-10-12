@@ -27,11 +27,11 @@ Instalar a CLI do Azure e ter uma assinatura do Azure impedirá você de criar u
 
 ## Como instalar a CLI do Azure
 
-Siga as instruções para [instalar a CLI do Azure](../xplat-cli.md#install).
+Siga as instruções para [instalar a CLI do Azure](../xplat-cli-install.md#install).
 
 ## Conectando ao Azure usando a CLI do Azure
 
-Você pode conectar sua instalação da CLI do Azure a uma conta pessoal, empresarial ou escolar do Azure. Para compreender as diferenças e escolher, consulte [Como se conectar à sua assinatura do Azure](../xplat-cli.md#configure).
+Você pode conectar sua instalação da CLI do Azure a uma conta pessoal, empresarial ou escolar do Azure. Para compreender as diferenças e escolher, consulte [Como se conectar à sua assinatura do Azure](../xplat-cli-install.md#configure).
 
 ## Criando uma VM no Azure e conectando-se a ela
 
@@ -78,4 +78,4 @@ Um ótimo lugar para ver mais exemplos de como usar a CLI do Azure para gerencia
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

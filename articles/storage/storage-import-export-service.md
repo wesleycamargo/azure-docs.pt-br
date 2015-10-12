@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/27/2015" 
 	ms.author="tamram"/>
 
 
@@ -36,7 +36,7 @@ Este artigo apresenta uma visão geral do serviço Importar/Exportar e descreve 
 
 Para começar o processo de importação para o armazenamento de Blob ou de exportação desse armazenamento, primeiro crie um *trabalho*, que pode ser um *trabalho de importação* ou um *trabalho de exportação*:
 
-- Crie um trabalho de importação quando desejar transferir dados locais para blobs na sua conta de armazenamento do Azure.
+- Crie um trabalho de importação quando desejar transferir dados locais para blobs em sua conta de armazenamento do Azure.
 - Crie um trabalho de exportação quando desejar transferir os dados armazenados atualmente como blobs na sua conta de armazenamento para discos rígidos enviados a você.
 
 Ao criar um trabalho, você notifica o serviço de Importação/Exportação de que enviará um ou mais discos rígidos para um data center do Azure. Para um trabalho de importação, você enviará discos rígidos contendo dados de arquivo. Para um trabalho de exportação, você enviará discos rígidos vazios.
@@ -269,4 +269,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

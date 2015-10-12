@@ -275,4 +275,4 @@ Agora o dispositivo está cabeado para energia, acesso à rede e conectividade s
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

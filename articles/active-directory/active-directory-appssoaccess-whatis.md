@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/28/2015"
 	ms.author="asmalser-msft"/>
 
 #O que é o acesso a aplicativos e logon único com o Azure Active Directory?
@@ -80,11 +80,11 @@ O SSO baseado em senha conta com uma extensão de navegador para recuperar as in
 
 Para SSO baseado em senha, os navegadores do usuário final podem ser:
 
-- Internet Explorer 8, 9 e 10 – no Windows 7 ou posterior
+- Internet Explorer 8, 9 e 10 – no Windows 7 ou posterior (Consulte também [guia de implantação de extensão do IE](active-directory-saas-ie-group-policy.md))
 - Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
 - Firefox 26.0 ou posterior, no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
-**Observação:** a extensão SSO com senha será disponibilizada para o Edge no Windows 10 quando as extensões do navegador se tornarem compatíveis com Edge.
+**Observação:** a extensão SSO baseada em senha será disponibilizada para borda no Windows 10 quando extensões do navegador se tornarem compatíveis para borda.
 
 ###Logon único existente
 
@@ -98,7 +98,7 @@ Para selecionar aplicativos, o AD do Azure permite provisionamento automatizado 
 
 Quando um usuário é excluído ou suas informações mudam no AD do Azure, essas alterações também são refletidas no aplicativo SaaS. Isso significa que a configuração do gerenciamento de ciclo de vida de identidade automatizado permite aos administradores controlar e fornecer provisionamento e desprovisionamento de aplicativos SaaS automatizado. No AD do Azure, essa automação do ciclo de vida do gerenciamento de identidades é habilitada pelo provisionamento do usuário.
 
-Para obter mais informações, consulte [Provisionamento e desprovisionamento automatizado do usuário para aplicativos SaaS](active-directory-saas-app-provisioning.md)
+Para obter mais informações, consulte [Desprovisionamento para aplicativos SaaS e provisionamento automatizado do usuário](active-directory-saas-app-provisioning.md)
 
 ##Introdução à Galeria de aplicativos do AD do Azure
 
@@ -106,15 +106,15 @@ Pronto para começar? Para implantar o logon único entre o AD do Azure e aplica
 
 ###Usando a galeria de aplicativos do AD do Azure
 
-A [Galeria de Aplicativos do Active Directory do Azure](http://azure.microsoft.com/marketplace/active-directory/all/) fornece uma lista de aplicativos que são conhecidos por dar suporte a um formulário de logon único com o Active Directory do Azure.
+A [Galeria de aplicativos do Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/) fornece uma lista de aplicativos que são conhecidos para dar suporte a um formulário de logon único com o Active Directory do Azure.
 
 ![][1]
 
 Aqui estão algumas dicas para localizar aplicativos segundo os recursos com os quais eles são compatíveis:
 
-*	O AD do Azure dá suporte automático ao provisionamento e desprovisionamento para todos os aplicativos "Em destaque" na [Galeria de Aplicativos do Active Directory do Azure](http://azure.microsoft.com/marketplace/active-directory/all/).
+*	O AD do Azure dá suporte ao provisionamento automático e desprovisionamento para todos os aplicativos "Featured" na [Galeria de aplicativos do Active Directory do Azure](http://azure.microsoft.com/marketplace/active-directory/all/).
 
-*	Uma lista de aplicativos federados que dão suporte especificamente ao logon único federada usando um protocolo como SAML, Web Services Federation ou OpenID Connect pode ser encontrada [aqui](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+*	Uma lista de aplicativos federados que dão suporte especificamente a logon único federado usando um protocolo como SAML, WS-Federation ou OpenID Connect pode ser encontrada [aqui](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 Depois de localizar seu aplicativo, você pode começar seguindo as instruções apresentadas na Galeria de aplicativos e no portal de gerenciamento do Azure para habilitar o logon único.
 
@@ -122,16 +122,16 @@ Depois de localizar seu aplicativo, você pode começar seguindo as instruções
 
 Se seu aplicativo não for encontrado na Galeria de aplicativos do AD do Azure, você tem estas opções:
 
-*	**Adicionar um aplicativo não listado que você está usando** - Use a categoria Personalizada na galeria de aplicativos no Portal de Gerenciamento do Azure para se conectar a um aplicativo não listado que sua organização está usando. Você pode adicionar qualquer aplicativo que ofereça suporte ao SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma página de entrada baseada em HTML como um aplicativo do SSO de senha. Para obter mais detalhes, consulte este artigo sobre como [Adicionar seu próprio aplicativo](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+*	**Adicione um aplicativo não listado que estiver usando** -use a categoria personalizada na galeria de aplicativo dentro do portal de gerenciamento do Azure para se conectar a um aplicativo não listado que sua organização estiver usando. Você pode adicionar qualquer aplicativo que ofereça suporte ao SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma página de entrada baseada em HTML como um aplicativo do SSO de senha. Para obter mais detalhes, consulte este artigo sobre [Adicionando seu próprio aplicativo](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 
-*	**Adicionar seu próprio aplicativo que você está desenvolvendo** - Se que você desenvolveu o aplicativo, siga as orientações na documentação do desenvolvedor do AD do Azure para implementar o logon único federado ou provisionamento usando a Graph API do AD do Azure. Para obter mais informações, consulte estes recursos:
+*	**Adicione seu próprio aplicativo que estiver desenvolvendo** - se você tiver desenvolvido o aplicativo, siga as orientações na documentação do desenvolvedor do AD do Azure para implementar o logon único federado ou provisionamento usando o Graph API do AD do Azure. Para obter mais informações, consulte estes recursos:
   * [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md)
   * [https://GitHub.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-dotnet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://GitHub.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-dotnet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://GitHub.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**Solicitar uma integração de aplicativo** - Solicitação de suporte para o aplicativo que você precisa usar o [Fórum de comentários do AD do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
+*	**Solicitar uma integração de aplicativo** -Solicite suporte para o aplicativo que você precisa usando o [Fórum de comentários do AD do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 ###Usando o Portal de Gerenciamento do Azure
 
@@ -168,7 +168,7 @@ A escolha dos métodos para implantação de sua organização fica seu critéri
 
 ###Painel de acesso do AD do Azure
 
-O Painel de Acesso em https://myapps.microsoft.com é um portal baseado na Web que permite que um usuário final com uma conta organizacional no Active Directory do Azure exiba e inicie aplicativos baseados em nuvem que têm acesso concedido pelo administrador do AD do Azure. Se você for um usuário final com [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), você também pode utilizar os recursos de gerenciamento de grupo de autoatendimento por meio do Painel de Acesso.
+O painel de acesso em https://myapps.microsoft.com é um portal baseado na web que permite que um usuário final, com uma conta organizacional no Active Directory do Azure exiba e inicialize aplicativos baseados em nuvem para os quais tenham sido concedido acesso pelo administrador do AD do Azure. Se você for um usuário final com [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), também pode utilizar os recursos de gerenciamento de grupo de autoatendimento por meio do painel de acesso.
 
 ![][3]
 
@@ -182,7 +182,7 @@ Para organizações que implantaram o Office 365, os aplicativos atribuídos aos
 
 ![][4]
 
-Para obter mais informações sobre o iniciador do aplicativo Office 365, consulte [Seu aplicativo foi exibido no iniciador do aplicativo do Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Para obter mais informações sobre o iniciador do aplicativo Office 365, consulte [Faça o seu aplicativo ser exibido no iniciador do aplicativo do Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ###Logon direto a aplicativos federados
 
@@ -220,4 +220,4 @@ Esses links usam os mesmos mecanismos de controle de acesso que o painel de aces
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

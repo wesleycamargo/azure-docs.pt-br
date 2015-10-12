@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="09/24/2015"
    ms.author="mbaldwin"/>
 
 # Integração ao Active Directory do Azure
@@ -76,7 +76,7 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 
 ### Desenvolvimento fácil
 
-**Protocolos padrão da indústria.** A Microsoft está comprometida em oferecer suporte aos padrões do setor da indústria. O AD do Azure dá suporte aos protocolos de autenticação SAML 2.0, OpenID Connect 1.0, OAuth 2.0 e WS-Federation 1.2. A Graph API é compatível com o OData 4.0. Se seu aplicativo já dá suporte aos protocolos SAML 2.0 ou OpenID Connect 1.0 para entrada federada, adicionar suporte para o AD do Azure pode ser simples. Saiba mais sobre [protocolos de autenticação com suporte pelo AD do Azure](../authentication-protocols.md).
+**Protocolos padrão da indústria.** A Microsoft está comprometida em oferecer suporte aos padrões do setor da indústria. O AD do Azure dá suporte aos protocolos de autenticação SAML 2.0, OpenID Connect 1.0, OAuth 2.0 e WS-Federation 1.2. A Graph API é compatível com o OData 4.0. Se seu aplicativo já dá suporte aos protocolos SAML 2.0 ou OpenID Connect 1.0 para entrada federada, adicionar suporte para o AD do Azure pode ser simples. Saiba mais sobre [protocolos de autenticação com suporte pelo AD do Azure](active-directory-authentication-protocols.md).
 
 **Bibliotecas de software livre.** A Microsoft fornece bibliotecas software livre para as quais há suporte total, voltadas a plataformas e linguagens populares para acelerar o desenvolvimento. O código-fonte está licenciado sob Apache 2.0, e você é livre para buscar alternativas e fornecer feedback, contribuindo para os projetos. Saiba mais sobre [Bibliotecas de autenticação do Azure AD](active-directory-authentication-libraries.md).
 
@@ -90,4 +90,4 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 
 [Conectar usuários usando o AD do Azure](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

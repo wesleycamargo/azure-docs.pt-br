@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Como configurar a autenticação mútua TLS para Aplicativo Web" 
 	description="Saiba como configurar o aplicativo Web para usar a autenticação de certificado do cliente no TLS." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -179,4 +179,4 @@ O certificado do cliente que é enviado ao aplicativo não passa por qualquer va
         }
     }
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

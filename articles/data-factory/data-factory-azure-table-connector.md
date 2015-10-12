@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Mover dados para e da Tabela do Azure | Azure Data Factory" 
 	description="Saiba como mover dados para/do Armazenamento de Tabela do Azure usando o Azure Data Factory" 
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados para e da Tabela do Azure | Azure Data Factory
@@ -370,8 +370,7 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta de tabela do Azure. Exemplo: **ColumnA eq ValueA** | Não
-azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
+azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | <p>Cadeia de consulta de tabela do Azure.</p>* * Exemplos: * ***<br/> "azureTableSourceQuery": "eq PartitionKey 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format ('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\ 'e PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | Nenhum azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
 
 **AzureTableSink** dá suporte às seguintes propriedades na seção typeProperties:
 
@@ -389,7 +388,7 @@ writeBatchTimeout | Insere dados na tabela do Azure quando o writeBatchSize ou w
 
 ### Mapeamento de tipo de Tabela do Azure
 
-Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
+Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em 2 etapas descritas a seguir.
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -485,11 +484,4 @@ Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclu
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-
-
-
-<!----HONumber=August15_HO9-->
-
-
-
-
+<!---HONumber=Oct15_HO1-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/27/2015"
+	ms.date="09/24/2015"
 	ms.author="davidmu;v-marsma"/>
 
 # Consultas de lista de lote eficientes
@@ -37,6 +37,8 @@ O monitoramento é um caso de uso comum; determinar a capacidade e o status de u
 - Mais memória será consumida pelo aplicativo que chama o Lote quando há mais itens e/ou itens maiores.
 - Mais itens e/ou itens maiores resultarão em maior tráfego de rede. Isso levará mais tempo para transferir e, dependendo da arquitetura do aplicativo, pode resultar em cobranças de rede maiores para dados transferidos fora da região da conta do Batch.
 
+> [AZURE.IMPORTANT]É *altamente* recomendável que você *sempre* use cláusulas filter e select para suas chamadas à API de lista para garantir o máximo de eficiência e desempenho para o seu aplicativo. Essas cláusulas e seu uso são descritos abaixo.
+
 Para todas as APIs de Lote, o seguinte se aplica:
 
 - Cada nome de propriedade é uma cadeia de caracteres que é mapeada para a propriedade do objeto
@@ -50,7 +52,7 @@ Para todas as APIs de Lote, o seguinte se aplica:
 
 ## Consulta eficiente no .NET de Lote
 
-A API .NET de Lote fornece a capacidade de reduzir o número de itens retornados em uma lista, bem como de reduzir a quantidade de informações retornadas para cada item, especificando o [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) de uma consulta. DetailLevel é uma classe base abstrata, e um objeto [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) realmente precisa ser criado e passado como o parâmetro para os métodos apropriados.
+A API .NET de Lote fornece a capacidade de reduzir o número de itens retornados em uma lista, bem como de reduzir a quantidade de informações retornadas para cada item, especificando o [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) de uma consulta. DetailLevel é uma classe base abstrata, e um objeto [ODATADetailLevel][odata] precisa ser criado e passado como o parâmetro para os métodos apropriados.
 
 Um objeto ODataDetailLevel tem três propriedades de cadeia de caracteres públicas que podem ser especificadas no construtor ou definidas diretamente:
 
@@ -58,13 +60,13 @@ Um objeto ODataDetailLevel tem três propriedades de cadeia de caracteres públi
 - [SelectClause](#select) – especificar um subconjunto de valores de propriedade a serem retornados para cada item, reduzindo o tamanho do item e da resposta
 - [ExpandClause](#expand) – retornar todos os dados necessários em uma única chamada em vez de várias chamadas
 
-> [AZURE.TIP]Uma instância de DetailLevel configurada com as cláusulas Select e Expand também pode ser passada para os métodos Get apropriados como [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx) para limitar a quantidade de dados retornados.
+> [AZURE.TIP]Uma instância de DetailLevel configurada com as cláusulas Select e Expand também pode ser passada para os métodos Get apropriados, como [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), para limitar a quantidade de dados retornados.
 
 ### <a id="filter"></a> FilterClause
 
 O número de itens retornados pode ser reduzido por uma cadeia de caracteres de filtro. Um ou mais valores de propriedade com qualificadores podem ser especificados para garantir que apenas os itens relevantes à sua consulta sejam retornados. Por exemplo, talvez você queira listar somente as tarefas em execução para um trabalho, ou listar apenas os nós de computação que estão prontos para executar tarefas.
 
- Um [FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) é uma cadeia de caracteres que consiste em uma ou mais expressões, em que uma expressão consiste em um *nome de propriedade*, um *operador* e um *valor*. As propriedades que podem ser especificadas são específicas para cada chamada de API, assim como os operadores com suporte para cada propriedade. Várias expressões podem ser combinadas usando operadores lógicos **and** e **or**.
+ Uma [FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) é uma cadeia de caracteres que consiste em uma ou mais expressões, em que uma expressão consiste em um *nome de propriedade*, um *operador* e um *valor*. As propriedades que podem ser especificadas são específicas para cada chamada de API, assim como os operadores com suporte para cada propriedade. Várias expressões podem ser combinadas usando operadores lógicos **and** e **or**.
 
 Por exemplo, essa cadeia de caracteres de filtro retorna apenas tarefas em execução cujo *displayName* começa com "MyTask":
 
@@ -124,7 +126,23 @@ Abaixo você encontrará um trecho de código que usa a API .NET de Lote para co
 	// detail level we configured above
 	List<CloudPool> testPools = myBatchClient.PoolOperations.ListPools(detailLevel).ToList();
 
-> [AZURE.TIP]É recomendável que você *sempre* use cláusulas filter e select para suas chamadas à API de lista para garantir o máximo de eficiência e o melhor desempenho para o seu aplicativo.
+## Exemplo de projeto
+
+Confira o exemplo de projeto [EfficientListQueries][efficient_query_sample] no GitHub para ver como uma consulta de lista eficaz pode afetar o desempenho de um aplicativo. Este aplicativo de console C# cria e adiciona um grande número de tarefas a um trabalho, consulta o serviço de Lote usando diferentes especificações [ODATADetailLevel][odata], exibindo uma saída semelhante à seguinte:
+
+		Adding 5000 tasks to job jobEffQuery...
+		5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+
+		4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
+		0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
+		59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
+		5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
+
+		Sample complete, hit ENTER to continue...
+
+Como é mostrado nas informações de tempo decorrido, limitar as propriedades e o número de itens retornados pode reduzir significativamente os tempos de resposta da consulta. Você pode encontrar esse e outros exemplos de projetos no repositório [azure-batch-samples][github_samples] no GitHub.
 
 ## Próximas etapas
 
@@ -133,4 +151,8 @@ Abaixo você encontrará um trecho de código que usa a API .NET de Lote para co
     - [.NET do Lote](https://msdn.microsoft.com/library/azure/dn865466.aspx)
 2. Pegue os [Exemplos de Lote do Azure](https://github.com/Azure/azure-batch-samples) no GitHub e aprofunde-se no código
 
-<!---HONumber=September15_HO1-->
+[efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
+
+<!---HONumber=Oct15_HO1-->

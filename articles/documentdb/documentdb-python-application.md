@@ -343,6 +343,9 @@ Atualizamos e aperfeiçoamos este tópico com frequência, de acordo com seus co
 
 Para incluir funcionalidade adicional no aplicativo, examine as APIs disponíveis no [SDK Python do Banco de Dados de Documentos](https://pypi.python.org/pypi/pydocumentdb).
 
+Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
+
+
   [Clique aqui para acessar os tutoriais do Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [aqui]: http://aka.ms/ptvs
@@ -352,4 +355,4 @@ Para incluir funcionalidade adicional no aplicativo, examine as APIs disponívei
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

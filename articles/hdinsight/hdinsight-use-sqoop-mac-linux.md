@@ -40,13 +40,13 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Estação de trabalho**: um computador com um cliente SSH.
 
-- **CLI do Azure**: para obter mais informações, consulte [Instalar e configurar a CLI do Azure](../xplat-cli.md)
+- **CLI do Azure**: para obter mais informações, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md)
 
 - **Cluster HDInsight baseado no Linux**: para obter instruções sobre como provisionar um cluster, consulte [Introdução ao uso do HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) ou [Provisionar clusters HDInsight][hdinsight-provision].
 
 - **Banco de Dados SQL do Azure**: este documento fornece instruções para criar um Banco de Dados SQL. Para obter mais informações sobre o Banco de Dados SQL, consulte [Introdução ao uso do banco de dados SQL do Azure][sqldatabase-get-started].
 
-* **SQL Server**: as etapas deste documento também podem ser usadas, com algumas modificações, com o SQL Server. Para obter mais informações sobre requisitos específicos para usar este artigo com o SQL Server, consulte a seção [Usando o SQL Server](#using-sql-server).
+* **SQL Server**: As etapas neste documento podem ser usadas, com alguma modificação, com o SQL Server, contudo, tanto o cluster HDInsight como o SQL Server devem estar na mesma Rede Virtual do Azure. Para obter mais informações sobre requisitos específicos para usar este artigo com o SQL Server, consulte a seção [Usando o SQL Server](#using-sql-server).
 
 ##Compreender o cenário
 
@@ -263,4 +263,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

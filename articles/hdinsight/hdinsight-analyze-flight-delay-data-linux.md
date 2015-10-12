@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="larryfr"/>
 
 #Analisar dados de atraso de voo usando o Hadoop no HDInsight
 
-Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado em Linux (visualização) e exporte os dados para um Banco de Dados SQL do Azure usando o Sqoop.
+Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado em Linux e exporte os dados para um Banco de Dados SQL do Azure usando o Sqoop.
 
 > [AZURE.NOTE]Embora diversas partes deste documento possam ser usadas com clusters HDInsight baseados no Windows (Python e Hive, por exemplo), muitas etapas deste documento são específicas de clusters baseados em Linux. Para conhecer as etapas que funcionarão em um cluster baseado no Windows, confira [Analisar dados de atraso de voos usando o Hive no HDInsight](hdinsight-analyze-flight-delay-data.md)
 
@@ -33,7 +33,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - __Banco de dados SQL do Azure__. Você usará um banco de dados SQL do Azure como um repositório de dados de destino. Se você ainda não tiver um Banco de Dados SQL, confira [Como criar e configurar um Banco de Dados SQL do Azure](../sql-database/sql-database-create-configure.md) para criar um.
 
-- __CLI do Azure__. Se você não tiver instalado a CLI do Azure, confira [Instalar e configurar a CLI do Azure](../xplat-cli.md) para obter mais etapas.
+- __CLI do Azure__. Se você não tiver instalado a CLI do Azure, confira [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) para obter mais etapas.
 
 
 ##Baixar os dados de voos
@@ -305,4 +305,4 @@ Agora você compreende como carregar um arquivo para o armazenamento de Blob do 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

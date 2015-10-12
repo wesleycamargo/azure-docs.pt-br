@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="09/25/2015"
 	ms.author="jgao"/>
 
 
@@ -49,11 +49,13 @@ O suplemento do Power Query para Excel facilita a importação de dados de seu c
 
 2. Crie uma nova pasta de trabalho em branco.
 
-3. Clique no menu **Power Query**, clique em **De Outras Fontes** e, em seguida, clique em **Do Azure HDInsight**.
+3. Clique no menu **Power Query**, clique em **Do Azure** e, em seguida, clique em **Do Microsoft Azure HDInsight**.
 
 	![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
 
-	Observação: se você não vir o menu **Power Query**, vá para **Arquivo** > **Opções** > **Suplementos** e selecione **Suplementos COM** na caixa suspensa **Gerenciar** na parte inferior da página. Selecione o botão **Ir...** e verifique se a caixa do suplemento Power Query para Excel está marcada.
+	**Observação:** se você não vir o menu **Power Query**, vá para **Arquivo** > **Opções** > **Suplementos** e selecione **Suplementos COM** na caixa suspensa **Gerenciar** na parte inferior da página. Selecione o botão **Ir...** e verifique se a caixa do suplemento Power Query para Excel está marcada.
+
+	**Observação:** o Power Query também permite que você importe dados do HDFS clicando **De outras fontes**.
 
 3. Para **Nome da Conta**, insira o nome da conta de armazenamento do Blob do Azure associada ao cluster e, em seguida, clique em **OK**.
 
@@ -86,4 +88,4 @@ Neste artigo, você aprendeu como usar o Power Query para recuperar dados do HDI
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

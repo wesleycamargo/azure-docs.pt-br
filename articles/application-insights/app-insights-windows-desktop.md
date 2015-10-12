@@ -200,6 +200,8 @@ Por outro lado, o canal de persistência armazena a telemetria em buffer em um a
     ``` 
 3. Use `telemetryClient.Flush()` antes que seu aplicativo feche para garantir que os dados serão enviados para o portal ou salvos no arquivo.
 
+    Observe que Flush() é síncrono para o canal de persistência, mas assíncrono para outros canais.
+
  
 O canal de persistência é otimizado para cenários de dispositivos, onde o número de eventos gerados pelo aplicativo é relativamente pequeno e a conexão geralmente não é confiável. Esse canal gravará eventos para o disco em um armazenamento confiável primeiro e depois tentará enviá-los.
 
@@ -297,4 +299,4 @@ O código do canal de persistência está no [github](https://github.com/Microso
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

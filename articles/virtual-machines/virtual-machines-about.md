@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Sobre as máquinas virtuais do Azure | Microsoft Azure"
-	description="Conheça o básico sobre máquinas virtuais no Azure."
+	description="Saiba mais sobre os conceitos básicos das máquinas virtuais no Azure que usam os dois modelos de implantação."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#Sobre máquinas virtuais do Azure criadas com os dois modelos de implantação
+#Sobre as máquinas virtuais do Azure 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo trata dos recursos criados com o modelo de implantação do Gerenciador de Recursos e o modelo de implantação clássico.
 
@@ -51,4 +51,4 @@ Se você estiver começando a aprender sobre as máquinas virtuais do Azure, con
 [Máquinas virtuais]: #tellmevm
 [Serviços de Nuvem]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

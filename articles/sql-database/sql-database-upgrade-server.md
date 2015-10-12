@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Atualizar um servidor do SQL Azure para a V12 com o PowerShell" 
-	description="Atualize um servidor do SQL Azure para a V12 com o PowerShell." 
+	pageTitle="Atualizar um Azure SQL Server para o V12 com o PowerShell" 
+	description="Atualize um Azure SQL Server para o V12 com o PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,14 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/05/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sstein"/>
 
-# Atualizar o servidor do SQL Azure para a V12 com o PowerShell
- 
+# Atualização para o Banco de Dados SQL V12 com o PowerShell
 
-Este artigo mostra como atualizar um servidor do Banco de Dados SQL para a V12 usando as recomendações de camada de preços e pool elástico.
 
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-v12-upgrade.md)
+- [PowerShell](sql-database-upgrade-server.md)
+
+
+Este artigo mostra como atualizar para o Banco de Dados SQL V12 com o PowerShell.
+
+Durante o processo de atualização para o Banco de Dados SQL V12, você também deverá atualizar todos os bancos de dados da Web e Empresariais para uma nova camada de serviço. As instruções a seguir incluem o uso de recomendações de tipo de preço e pool elástico para ajudá-lo a [atualizar qualquer banco de dados da Web e Empresarial](sql-database-upgrade-new-service-tiers.md) no servidor.
 
 
 ## Pré-requisitos 
@@ -39,16 +45,13 @@ Para obter informações detalhadas, confira [Usando o Windows PowerShell com o 
 
 
 
-## Configurar credenciais
+## Configurar suas credenciais e selecionar sua assinatura
 
 Para executar os cmdlets do PowerShell em sua assinatura do Azure, primeiramente você deve estabelecer acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal do Azure.
 
 	Add-AzureAccount
 
 Após entrar, você verá algumas informações na tela, incluindo a ID usada para entrar e as assinaturas do Azure as quais você tem acesso.
-
-
-## Selecionar sua assinatura do Azure
 
 Para selecionar a assinatura com a qual deseja trabalhar, você precisa da ID (**-SubscriptionId**) ou do nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado.
 
@@ -64,7 +67,7 @@ Para obter a recomendação para a atualização do servidor, execute o seguinte
 
     $hint = Get-AzureSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
 
-Para obter mais informações, confira [as recomendações de pool de banco de dados elástico do Banco de Dados SQL do Azure](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) e [as recomendações de camada de preços do Banco de Dados SQL](sql-database-service-tier-advisor.md).
+Para obter mais informações, confira [as recomendações de pool de banco de dados elástico do Banco de Dados SQL do Azure](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) e [as recomendações de tipo de preço do Banco de Dados SQL do Azure](sql-database-service-tier-advisor.md).
 
 
 
@@ -78,7 +81,7 @@ Para iniciar a atualização do servidor, execute o seguinte cmdlet:
 Quando você executar este comando, o processo de atualização será iniciado. Você pode personalizar a saída da recomendação e fornecer a recomendação editada para esse cmdlet.
 
 
-## Atualizar um servidor do SQL Azure
+## Atualizar um servidor
 
 
     # Adding the account
@@ -112,33 +115,45 @@ Quando você executar este comando, o processo de atualização será iniciado. 
 
 Se as recomendações não forem apropriadas para seu servidor e caso comercial, você poderá escolher o modo como seus bancos de dados são atualizados e mapeá-los a bancos de dados simples ou elásticos.
 
-Atualizar bancos de dados em um pool de banco de dados elástico:
-
-    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties
-    $elasticPool.DatabaseDtuMax = 100  
-    $elasticPool.DatabaseDtuMin = 0  
-    $elasticPool.Dtu = 800
-    $elasticPool.Edition = "Standard"  
-    $elasticPool.DatabaseCollection = ("DB1")  
-    $elasticPool.Name = "elasticpool_1"  
-
-
-Atualize bancos de dados em um único banco de dados:
-
-    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  
-    $databaseMap.Name = "DB2"
-    $databaseMap.TargetEdition = "Standard"
-    $databaseMap.TargetServiceLevelObjective = "S0"
-    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
+Os parâmetros ElasticPoolCollection e DatabaseCollection são opcionais:
+    
+    # Creating elastic pool mapping
+    #
+    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties 
+    $elasticPool.DatabaseDtuMax = 100 
+    $elasticPool.DatabaseDtuMin = 0 
+    $elasticPool.Dtu = 800 
+    $elasticPool.Edition = "Standard" 
+    $elasticPool.DatabaseCollection = ("DB1", “DB2”, “DB3”, “DB4”) 
+    $elasticPool.Name = "elasticpool_1" 
+    $elasticPool.StorageMb = 800 
+     
+    # Creating single database mapping
+    #
+    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties 
+    $databaseMap.Name = "DBMain" 
+    $databaseMap.TargetEdition = "Standard" 
+    $databaseMap.TargetServiceLevelObjective = "S0" 
+     
+    # Starting the upgrade
+    #
+    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool) 
     
 
+
+
+
+- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
+- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
+- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
 
 
 
 ## Informações relacionadas
 
 - [Cmdlets do Gerenciador de Recursos do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/mt163521.aspx)
-- [Cmdlets do Gerenciamento de Serviço do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn546726.aspx)
- 
+- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
+- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
+- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

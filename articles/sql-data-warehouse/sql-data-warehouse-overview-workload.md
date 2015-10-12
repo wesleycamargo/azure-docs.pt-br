@@ -73,4 +73,4 @@ Para começar a desenvolver seu data warehouse, consulte [visão geral de desenv
 
 <!--Other web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

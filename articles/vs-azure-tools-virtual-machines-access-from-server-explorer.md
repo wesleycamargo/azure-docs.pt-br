@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # Acessando máquinas virtuais do Azure por meio do Gerenciador de Servidores
@@ -51,6 +51,6 @@ Se tiver máquinas virtuais hospedadas pelo Azure, você pode acessá-las no Ger
 
 ## Próximas etapas
 
-Para saber mais sobre como usar funções do Azure no Visual Studio, consulte [Usando área de trabalho remota com funções do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623091).
+Para saber mais sobre como usar funções do Azure no Visual Studio, consulte [usando a área de trabalho remota com funções do Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

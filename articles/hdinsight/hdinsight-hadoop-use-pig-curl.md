@@ -90,7 +90,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de Blob do Azure. O parâmetro `statusdir` passado com a consulta contém o local do arquivo de saída; nesse caso, ****wasb:///example/pigcurl**. Esse endereço armazena a saída do trabalho no diretório **example/pigcurl** no contêiner de armazenamento padrão usado pelo seu cluster HDInsight.
 
-Você pode listar e baixar esses arquivos usando a [CLI do Azure para Mac, Linux e Windows](../xplat-cli.md). Por exemplo, para listar arquivos em **exemplo/pigcurl**, use o seguinte comando:
+Você pode listar e baixar esses arquivos usando a [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md). Por exemplo, para listar arquivos em **exemplo/pigcurl**, use o seguinte comando:
 
 	azure storage blob list <container-name> example/pigcurl
 
@@ -118,4 +118,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

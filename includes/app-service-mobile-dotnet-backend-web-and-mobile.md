@@ -64,10 +64,6 @@ Nesta seção você usará um aplicativo de cliente da Web de exemplo, implement
 
     ![Exibição do aplicativo móvel Xamarin](./media/app-service-mobile-dotnet-backend-web-and-mobile/xamarin-ios-quickstart-device.png)
 
-## Próximas etapas
-
-Neste exemplo, mostramos como usar o mesmo banco de dados subjacente para um aplicativo que tenha tanto um site quanto um cliente móvel. Nesse caso não existia nenhuma lógica de negócios no back-end que desejávamos reutilizar entre os dois clientes, portanto, ele foi suficiente para simplesmente compartilhar o mesmo banco de dados. Em um tutorial futuro, você aprenderá como adicionar lógica de negócios à sua API da Web e reutilizar essa lógica em seu código de back-end do aplicativo móvel.
-
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -77,4 +73,4 @@ Neste exemplo, mostramos como usar o mesmo banco de dados subjacente para um apl
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [Criar um aplicativo móvel]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

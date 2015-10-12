@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/17/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Noções básicas sobre saídas do Stream Analytics
@@ -31,7 +31,6 @@ Um [banco de dados SQL do Azure](http://azure.microsoft.com/services/sql-databas
 | Nome da Propriedade | Descrição |
 |---------------|-------------|
 | Alias de saída | Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para esse banco de dados. |
-| Assinatura | Você pode escolher um banco de dados de sua própria assinatura ou fornecer as informações de conexão para uma outra assinatura |
 | Banco de dados | O nome do banco de dados para o qual você está enviando a saída |
 | Nome do Servidor | Nome do servidor de banco de dados SQL do Azure |
 | Nome de Usuário | O nome de usuário que tem acesso de gravação no banco de dados |
@@ -40,7 +39,7 @@ Um [banco de dados SQL do Azure](http://azure.microsoft.com/services/sql-databas
 
 ## Armazenamento de Blob ##
 
-O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de Blob do Azure e seu uso, consulte a documentação em [Como usar Blobs](./articles/storage-dotnet-how-to-use-blobs.md).
+O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, confira a documentação em [Como usar blobs](./articles/storage-dotnet-how-to-use-blobs.md).
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de blob.
 
@@ -53,10 +52,6 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 <tr>
 <td>Alias de saída</td>
 <td>Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para esse armazenamento de blob.</td>
-</tr>
-<tr>
-<td>Assinatura</td>
-<td>Você pode escolher uma conta de armazenamento e blob de sua própria assinatura ou fornecer as informações de conexão para uma outra assinatura</td>
 </tr>
 <tr>
 <td>Conta de armazenamento</td>
@@ -92,7 +87,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 </tr>
 <tr>
 <td>Delimitador</td>
-<td>O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical.</td>
+<td>Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical.</td>
 </tr>
 <tr>
 <td>Formatar</td>
@@ -103,14 +98,13 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 
 ## Hub de evento
 
-[Hubs de eventos](https://azure.microsoft.com/services/event-hubs/) é um ingestor de eventos altamente escalonável de publicação / assinatura. Ele pode coletar milhões de eventos por segundo. Uma utilização de um Hub de Eventos como saída é quando a saída de um trabalho do Stream Analytics será a entrada de outro trabalho de streaming.
+Os [Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/) são um ingestor de eventos altamente escalonável de publicação/assinatura. Ele pode coletar milhões de eventos por segundo. Uma utilização de um Hub de Eventos como saída é quando a saída de um trabalho do Stream Analytics será a entrada de outro trabalho de streaming.
 
 Há alguns parâmetros que são necessários para configurar fluxos de dados de Hub de Eventos como uma saída.
 
 | Nome da Propriedade | Descrição |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de saída | Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para esse Hub de eventos. |
-| Assinatura | Você pode escolher um Hub de Eventos de sua própria assinatura ou fornecer as informações de conexão para uma outra assinatura |
 | Namespace do Barramento de Serviço | Um namespace Barramento de Serviço é um contêiner para um conjunto de entidades de mensagens. Ao criar um novo Hub de Eventos, você também criou um namespace Barramento de Serviço. |
 | Hub de evento | O nome da sua saída de Hub de eventos |
 | Nome da política do Hub de Eventos. | A política de acesso compartilhada, que pode ser criada na guia Configurar o Hub de Eventos. Cada política de acesso compartilhado terá um nome, as permissões definidas por você e as chaves de acesso. |
@@ -118,15 +112,17 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 | Coluna de chave de partição [opcional] | Esta coluna contém a chave de partição para saída do Hub de Eventos. |
 | Formato de serialização do evento | Formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
 | Codificação | Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
-| Delimitador | O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
+| Delimitador | Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
 | Formatar | Aplicável somente para o tipo JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON. |
 ## Power BI
 
-O [Power BI](https://powerbi.microsoft.com/) pode ser utilizado como uma saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização para usuários do Stream Analytics. Essa funcionalidade pode ser utilizada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
+O [Power BI](https://powerbi.microsoft.com/) pode ser usado como uma saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização para usuários do Stream Analytics. Essa funcionalidade pode ser utilizada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
+
+> [AZURE.NOTE]No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
 
 ### Autorizar uma conta do Power BI
 
-1.	Quando Power BI é selecionado como uma saída, você será solicitado a autorizar um usuário do Power BI existente ou a criar uma nova conta do Power BI.  
+1.	Quando o Power BI é selecionado como uma saída no portal de Gerenciamento do Azure, você será solicitado a autorizar um usuário existente do Power BI ou criar uma nova conta do Power BI.  
 
     ![Autorizar usuário do Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -161,57 +157,94 @@ Para resolver esse problema, pare seu trabalho em execução e vá para a saída
 
 ## Armazenamento de tabela
 
-O [armazenamento de tabela do Azure](./articles/storage-introduction.md) oferece armazenamento altamente disponível e altamente escalonável, para que um aplicativo possa ser dimensionado automaticamente para atender à demanda dos usuários. O Armazenamento de tabela é um repositório de chave/atributo NoSQL da Microsoft que pode ser utilizado por alguém com dados estruturados, com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
+O [armazenamento de Tabela do Azure](./articles/storage-introduction.md) oferece um armazenamento altamente disponível e massivamente escalonável, para que um aplicativo possa ser escalonado automaticamente para atender à demanda dos usuários. O Armazenamento de tabela é um repositório de chave/atributo NoSQL da Microsoft que pode ser utilizado por alguém com dados estruturados, com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da tabela.
 
 | Nome da Propriedade | Descrição |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de saída | Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para esse armazenamento de tabela. |
-| Assinatura | Você pode escolher uma conta de armazenamento de tabela de sua própria assinatura ou fornecer as informações de conexão se a conta de armazenamento for de outra assinatura |
 | Conta de armazenamento | O nome da conta de armazenamento para o qual você está enviando a saída |
 | Chave da conta de armazenamento | A chave de acesso associada à conta de armazenamento. |
 | Nome da tabela | O nome da tabela. A tabela será criada se ainda não existir. |
 | Chave de partição | O nome da coluna de saída que contém a chave da partição. A chave de partição é um identificador exclusivo para a partição em uma determinada tabela que forma a primeira parte da chave primária da entidade. É um valor de cadeia de caracteres que pode ter até 1 KB em tamanho. |
 | Chave de linha | O nome da coluna de saída que contém a chave de linha. A chave de linha é um identificador exclusivo para uma entidade em uma determinada partição. Ela forma a segunda parte da chave primária da entidade. A chave de linha é um valor de cadeia de caracteres que pode ter até 1 KB em tamanho. |
-| Tamanho do lote | É o número de registros para uma operação em lote. Normalmente, o padrão é suficiente para a maioria dos trabalhos; consulte a [Especificação da operação de lote de tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre como modificar essa configuração. |
+| Tamanho do lote | É o número de registros para uma operação em lote. Normalmente, o padrão é suficiente para a maioria dos trabalhos; consulte a [especificação da Operação em Lote de Tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre como modificar essa configuração. |
 
 ## Filas de barramento de serviço
 
-As [filas de Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) oferecem entrega de mensagem do tipo FIFO (primeiro a entrar, primeiro a sair) para um ou mais consumidores concorrentes. Normalmente, espera-se que as mensagens sejam recebidas e processadas pelos receptores na ordem cronológica em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
+As [Filas do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) oferecem a entrega de mensagens do tipo PEPS (primeiro a entrar, primeiro a sair) para um ou mais consumidores concorrentes. Normalmente, espera-se que as mensagens sejam recebidas e processadas pelos receptores na ordem cronológica em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da fila.
 
 | Nome da Propriedade | Descrição |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de saída | Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para essa fila de Barramento de Serviço. |
-| Assinatura | Você pode escolher um namespace do Barramento de Serviço de sua própria assinatura ou fornecer as informações de conexão se o namespace for de outra assinatura |
 | Namespace do Barramento de Serviço | Um namespace Barramento de Serviço é um contêiner para um conjunto de entidades de mensagens. |
 | Nome da fila | O nome da fila do Barramento de Serviço. |
 | Nome da política da fila | Ao criar uma fila, você também pode criar políticas de acesso compartilhado na guia Configurar fila. Cada política de acesso compartilhado terá um nome, as permissões definidas por você e as chaves de acesso. |
 | Chave de política de fila | A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço |
 | Formato de serialização do evento | Formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
 | Codificação | Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
-| Delimitador | O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
+| Delimitador | Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
 | Formatar | Aplicável somente para o tipo JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON. |
 
 ## Tópicos do Service Bus
 
-Enquanto as filas de barramento de serviço fornecem um método de comunicação de um-para-um do remetente para o receptor, os [tópicos de Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) fornecem uma forma de comunicação um-para-muitos.
+Enquanto as Filas do Barramento de Serviço fornecem um método de comunicação de um-para-um do remetente para o receptor, os [Tópicos sobre o Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) fornecem uma forma de comunicação de um-para-muitos.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da tabela.
 
 | Nome da Propriedade | Descrição |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de saída | Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para essa tópico de Barramento de Serviço. |
-| Assinatura | Você pode escolher um namespace do Barramento de Serviço de sua própria assinatura ou fornecer as informações da cadeia de conexão se o namespace for de outra assinatura |
 | Namespace do Barramento de Serviço | Um namespace Barramento de Serviço é um contêiner para um conjunto de entidades de mensagens. Ao criar um novo Hub de Eventos, você também criou um namespace Barramento de Serviço. |
 | Nome do tópico | Tópicos são entidades de envio de mensagens, semelhantes a filas e hubs de eventos. Eles são projetados para coletar fluxos de eventos de alguns dispositivos e serviços diferentes. Quando um tópico é criado, ele também recebe um nome específico. As mensagens enviadas para um tópico não estarão disponíveis a menos que uma assinatura seja criada, portanto, certifique-se de que há uma ou mais assinaturas sob o tópico. |
 | Nome da política de tópico | Ao criar um tópico, você também pode criar políticas de acesso compartilhado na guia Configurar tópico. Cada política de acesso compartilhado terá um nome, as permissões definidas por você e as chaves de acesso. |
 | Chave de política do tópico | A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço |
 | Formato de serialização do evento | Formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
 | Codificação | Se o formato for CSV ou JSON, uma codificação deve ser especificada. UTF-8 é o único formato de codificação com suporte no momento. |
-| Delimitador | O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
+| Delimitador | Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
+
+## Banco de Dados de Documentos
+
+O [Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) é um serviço de banco de dados de documentos NoSQL totalmente gerenciado que oferece transações e consulta de dados sem esquema, desempenho previsível e confiável e rápido desenvolvimento.
+
+A tabela abaixo lista os nomes de propriedade e sua descrição para a criação de uma saída do Banco de Dados de Documentos.
+
+<table>
+<tbody>
+<tr>
+<td>NOME DA PROPRIEDADE</td>
+<td>DESCRIÇÃO</td>
+</tr>
+<tr>
+<td>Nome da conta</td>
+<td>O nome da conta do Banco de Dados de Documentos. Ele também pode ser o ponto de extremidade da conta.</td>
+</tr>
+<tr>
+<td>Chave de conta</td>
+<td>A chave de acesso compartilhado para a conta do Banco de Dados de Documentos.</td>
+</tr>
+<tr>
+<td>Banco de dados</td>
+<td>O nome do banco de dados do Banco de Dados de Documentos.</td>
+</tr>
+<tr>
+<td>Padrão de nome da coleção</td>
+<td>O padrão de nome da coleção para as coleções a ser usado. O formato de nome da coleção pode ser construído com o token {partição} opcional, em que as partições começam em 0.<BR>Por exemplo Veja abaixo as entradas válidas:<BR>MyCollection{partição}<BR>MyCollection<BR>Observe que as coleções devem existir antes do início do trabalho do Stream Analytics e que elas não serão criadas automaticamente.</td>
+</tr>
+<tr>
+<td>Chave de partição</td>
+<td>O nome do campo nos eventos de saída usado para especificar a chave para o particionamento de saída em várias coleções.</td>
+</tr>
+<tr>
+<td>ID do documento</td>
+<td>O nome do campo em eventos de saída usado para especificar a chave primária na qual se baseiam as operações de inserção ou atualização.</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
@@ -232,4 +265,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

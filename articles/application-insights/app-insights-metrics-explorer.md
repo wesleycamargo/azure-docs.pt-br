@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
 # Explorar métricas no Application Insights
@@ -75,20 +75,24 @@ Por exemplo, clique no gráfico de Solicitações com falha do aplicativo Web:
 
 ## O que as figuras significam?
 
-A legenda na lateral mostra, por padrão, o valor agregado durante o período do gráfico.
+A legenda na lateral normalmente mostra, por padrão, o valor agregado durante o período do gráfico. Se você passar o mouse sobre o gráfico, ele mostra o valor nesse ponto.
 
-Cada ponto de dados no gráfico também é um acumulado dos valores de dados recebidos no intervalo de amostragem anterior, ou "granularidade". A granularidade é mostrada na parte superior da folha e varia de acordo com a escala de tempo total do gráfico.
+Cada ponto de dados no gráfico é um acumulado dos valores de dados recebidos no intervalo de amostragem anterior, ou "granularidade". A granularidade é mostrada na parte superior da folha e varia de acordo com a escala de tempo total do gráfico.
 
-Métricas diferentes são agregadas de maneiras diferentes:
+Métricas podem ser agregadas de maneiras diferentes:
 
- * Para uma métrica como tempo de resposta, os valores são **média** durante o período do gráfico.
- * Para contagens de eventos, como solicitações com falha, o acumulado é a **soma** das contagens durante o período.
- * Para contagens de usuários, o acumulado é o número de usuários **exclusivos** durante o período. (Se um usuário for acompanhado mais de uma vez durante o período, ele será contado apenas uma vez.)
+ * **Soma** adiciona os valores de todos os pontos de dados recebidos no intervalo de amostragem ou no período do gráfico.
+ * **Média** divide a Soma pelo número de pontos de dados recebidos durante o intervalo.
+ * Contagens **Únicas** são usadas para contagens de usuários e contas. Durante o intervalo de amostragem, ou durante o período do gráfico, a figura mostra a contagem de diferentes usuários vistos no momento.
 
-Para saber se o valor é uma soma, média ou exclusivo, clique no gráfico e role para baixo até o valor selecionado. Você também pode obter uma breve descrição da métrica.
 
-![Passar o ponteiro do mouse sobre (i)](./media/app-insights-metrics-explorer/06-total.png)
- 
+Você pode alterar o método de agregação:
+
+![Selecione o gráfico e a agregação](./media/app-insights-metrics-explorer/05-aggregation.png)
+
+O método padrão para cada métrica é mostrado quando você cria um novo gráfico:
+
+![Desmarque a seleção de todas as métricas para ver os padrões](./media/app-insights-metrics-explorer/06-total.png)
 
 
 ## Edição de gráficos e grades
@@ -128,6 +132,12 @@ Para ver apenas as métricas para um conjunto selecionado de valores de propried
 Se você não selecionar nenhum valor para uma determinada propriedade, será o mesmo que selecionar todas elas: não há nenhum filtro para essa propriedade.
 
 Observe as contagens de eventos junto a cada valor da propriedade. Quando você seleciona valores de uma propriedade, as contagens junto a outros valores de propriedade são ajustadas.
+
+### Para adicionar propriedades à lista de filtros
+
+Você deseja filtrar a telemetria em uma categoria de sua escolha? Por exemplo, talvez você divida seus usuários em categorias diferentes e queira segmentar os dados segundo essas categorias.
+
+[Criar sua própria propriedade](app-insights-api-custom-events-metrics.md#properties). Defina-a em um [Inicializador de Telemetria](app-insights-api-custom-events-metrics.md#telemetry-initializers) para que ela apareça em toda a telemetria - incluindo a telemetria padrão enviada por diferentes módulos do SDK.
 
 ## Remover o tráfego de testes da Web e de bot
 
@@ -202,4 +212,4 @@ Se desejar exibições ainda mais avançadas, você pode [exportar para o Power 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

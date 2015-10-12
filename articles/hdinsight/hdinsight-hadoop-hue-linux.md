@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Usar o Hue com clusters Linux de Hadoop do HDInsight | Microsoft Azure" 
-	description="Saiba como instalar e usar o Hue com clusters Linux de Hadoop do HDInsight." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="Usar o Hue com clusters Linux de Hadoop do HDInsight | Microsoft Azure"
+	description="Saiba como instalar e usar o Hue com clusters Linux de Hadoop do HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
@@ -60,16 +60,11 @@ O script [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01
 
 O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento em que ele está em execução. O túnel via SSH permite que o tráfego vá diretamente para o nó de cabeçalho do cluster no qual o Hue está sendo executado. Após a conclusão do provisionamento do cluster, use as etapas a seguir para usar o Hue em um cluster Linux do HDInsight.
 
-> [AZURE.NOTE]As instruções abaixo pressupõem que você tenha um navegador da Web Firefox com a extensão [FoxyProxy](https://addons.mozilla.org/pt-BR/firefox/addon/foxyproxy-standard/) instalada.
+1. Use as informações em [Usar túnel SSH para acessar a IU Web da Ambari, ResourceManager, JobHistory, NameNode, Oozie e outra IU da Web](hdinsight-linux-ambari-ssh-tunnel.md) para criar um túnel SSH por meio do seu sistema de cliente para o cluster HDInsight, e em seguida, configura o seu navegador da Web para usar o túnel como um proxy.
 
-1. Habilite o túnel SSH do seu computador desktop e configure seu navegador da Web Firefox para usar o túnel SSH. Ao configurar o túnel, use uma porta diferente da porta 8888.
+2. Depois que você criar um túnel SSH e configurar seu navegador para tráfego de proxy através dele, use o navegador para abrir o portal do Hue em http://headnode0:8888.
 
-	* Para obter instruções sobre como habilitar o túnel SSH por meio de um computador Linux, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight em Linux, Unix ou OS X](hdinsight-linux-ambari-ssh-tunnel.md#usessh).
-	* Para obter instruções sobre como habilitar o túnel SSH por meio de um computador Windows, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-linux-ambari-ssh-tunnel.md#useputty).
-
-	Mantenha a sessão PuTTY em execução.
- 
-2. Em seu computador, use o navegador da Web Firefox com FoxyProxy configurado para iniciar o portal do Hue em http://headnode0:8888. Quando você fizer logon pela primeira vez, você será solicitado a criar uma conta para poder efetuar logon no portal do Hue. As credenciais que você especificar aqui serão limitadas ao portal e não serão relacionadas às credenciais de usuário SSH ou de administrador que você especificou durante o provisionamento do cluster.
+    > [AZURE.NOTE]Ao fazer logon pela primeira vez, será solicitado criar uma conta para poder efetuar logon no portal do Hue. As credenciais que você especificar aqui serão limitadas ao portal e não serão relacionadas às credenciais de usuário SSH ou de administrador que você especificou durante o provisionamento do cluster.
 
 	![Fazer logon no portal do Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Especificar credenciais para o portal do Hue")
 
@@ -93,10 +88,9 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 
 	![Usar navegador de arquivos](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Usar navegador de arquivos")
 
-3. Clique com o botão direito do mouse em um arquivo ou pasta para ver as operações disponíveis. Use o botão **Carregar**, no canto superior direito, para carregar arquivos no diretório atual. Use o botão **Novo** para criar novos arquivos ou diretórios.
+3. Clique com o botão direito do mouse em um arquivo ou pasta para ver as operações disponíveis. Use o botão **Carregar** no canto superior direito, para carregar arquivos no diretório atual. Use o botão **Novo** para criar novos arquivos ou diretórios.
 
 > [AZURE.NOTE]O navegador de arquivos do Hue só pode mostrar o conteúdo do contêiner padrão associado ao cluster do HDInsight. Quaisquer contêineres/contas de armazenamento adicionais associados ao cluster não poderão ser acessados usando o navegador de arquivos. No entanto, os contêineres adicionais associados ao cluster sempre estarão acessíveis para os trabalhos do Hive. Por exemplo, ao digitar o comando `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` no editor do Hive, você poderá ver também o conteúdo de contêineres adicionais. Neste comando, **newcontainer** não é o contêiner padrão associado a um cluster.
-
 
 ## Considerações importantes
 
@@ -131,6 +125,5 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

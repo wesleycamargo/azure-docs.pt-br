@@ -128,13 +128,9 @@ Cada nó de cabeçalho pode ter entradas de log exclusivo, portanto você deve v
 
 ###Ambari
 
-> [AZURE.NOTE]Acessar arquivos de log por meio de Ambari requer um túnel SSH, já que os sites da Web para os serviços individuais não são expostos publicamente na Internet. Para obter informações sobre como usar um túnel SSH, consulte um destes tópicos:
->
-> * [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
->
-> * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+> [AZURE.NOTE]Acessar arquivos de log por meio de Ambari requer um túnel SSH, já que os sites da Web para os serviços individuais não são expostos publicamente na Internet. Para obter mais informações sobre o uso de um túnel SSH, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IUs da Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-A partir da interface do usuário da Ambari Web, selecione o serviço para o qual você deseja exibir os logs (por exemplo, YARN) e, em seguida, use os **Links rápidos** para selecionar o nó de cabeçalho para o qual serão exibidos os logs.
+Na IU da Ambari Web, selecione o serviço que você deseja para ver os logs (por exemplo, YARN,) e, em seguida, use **Links Rápidos** para selecionar qual nó principal para ver os logs.
 
 ![Usando links rápidos para exibir logs](./media/hdinsight-high-availability-linux/viewlogs.png)
 
@@ -142,15 +138,15 @@ A partir da interface do usuário da Ambari Web, selecione o serviço para o qua
 
 O tamanho do nó principal só pode ser selecionado durante a criação do cluster. O tamanho padrão dos nós principais é **A3**, que fornece 4 núcleos, 7GB de memória e 285GB de armazenamento local. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight, incluindo o núcleo, memória e armazenamento local para cada um, na [página de preços do HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
-Ao criar um novo cluster, você pode especificar o tamanho dos nós. A seguir são apresentadas informações sobre como especificar o tamanho usando o [portal de visualização do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e a [CLI do Azure][azure-cli]\:
+Ao criar um novo cluster, você pode especificar o tamanho dos nós. A seguir são apresentada as informações sobre como especificar o tamanho usando o [Portal de visualização do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e o [CLI do Azure][azure-cli]\:
 
-* **Portal de visualização do azure**: ao criar um novo cluster, você terá a opção de definir o tamanho (camada de preços) do nó principal e do nó de dados (trabalho):
+* **Portal de visualização do azure**: ao criar um novo cluster, você terá a opção de definir o tamanho (tipo de preço) do nó principal e do nó de dados (trabalho) para o cluster:
 
 	![Imagem do Assistente de criação de cluster com a seleção de tamanho do nó](./media/hdinsight-high-availability-linux/headnodesize.png)
 
 * **CLI do azure**: ao usar o comando `azure hdinsight cluster create`, você pode definir o tamanho do nó principal usando o parâmetro `--headNodeSize`.
 
-* **Azure PowerShell**: ao usar o comando `New-AzureHDInsightCluster`, você pode definir o tamanho do nó principal usando o parâmetro `-HeadNodeVMSize`.
+* **Azure PowerShell**: ao usar o cmdlet `New-AzureHDInsightCluster`, você pode definir o tamanho do nó principal usando o parâmetro `-HeadNodeVMSize`.
 
 ##Próximas etapas
 
@@ -158,7 +154,7 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 
 - [Referência REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
-- [Instalar e configurar a CLI do Azure](../xplat-cli.md).
+- [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
 
 - [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md)
 
@@ -168,6 +164,6 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: ../powershell-install-configure.md
-[azure-cli]: ../xplat-cli.md
+[azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

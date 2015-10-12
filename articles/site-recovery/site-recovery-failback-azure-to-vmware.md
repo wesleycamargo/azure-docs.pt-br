@@ -152,7 +152,7 @@ Para obter a ID de SCSI de cada disco SCSI em uma máquina virtual Linux, você 
 
 OBSERVAÇÃO: verifique se o sistema tem conexão com a Internet antes de baixar e instalar os pacotes adicionais.
 
-\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 O comando acima baixará os 15 pacotes mencionados abaixo do repositório CentOS 6.6 e os instalará.
 
@@ -188,17 +188,17 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 OBSERVAÇÃO: se a máquina de origem usar o sistema de arquivos Reiser ou XFS para o dispositivo raiz ou de inicialização, será necessário baixar e instalar os pacotes a seguir no Destino mestre do Linux antes da proteção.
 
-\# cd /usr/local
+# cd /usr/local
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Aplicar alterações de configuração personalizadas
 
@@ -210,11 +210,11 @@ Para aplicar alterações de configuração personalizadas, execute as etapas me
 
 2. Execute o comando abaixo para descompactar o binário.
 
-**tar -zxvf \<Nome do arquivo\>**
+**tar -zxvf <Nome do arquivo>**
 
 3. Execute o comando abaixo para conceder a permissão.
 
-\# **chmod 755 ./ApplyCustomChanges.sh**
+# **chmod 755 ./ApplyCustomChanges.sh**
 
 4. Execute o comando abaixo para executar o script.
 
@@ -274,6 +274,8 @@ Se por algum motivo você não registrar o Servidor de destino mestre do Linux n
 #### Validar o registro do Servidor de destino mestre para o Servidor de Configuração.
 
 Você pode validar se o Servidor de destino mestre foi registrado com êxito com o Servidor de Configuração visitando a página Detalhes do Servidor na página de Configuração do Servidor no cofre do Azure Site Recovery
+
+Observação: depois de registrar o MT, você pode achar que ele apresenta um erro de configuração com as possíveis causas - A Máquina Virtual pode ter sido excluída do Azure ou os pontos de extremidade não estão configurados corretamente. Isso ocorre porque a configuração do MT é detectada pelos Pontos de Extremidade do Azure quando o MT é implantado no Azure. No entanto, isso não é verdadeiro para o MT local e o erro poderá ser ignorado. O failback não terá problemas devido a isso.
 
 
 ## Começar protegendo as máquinas virtuais de volta ao local
@@ -367,7 +369,7 @@ Selecione o Armazenamento de Dados de Destino | O armazenamento de dados dispon�
 
 **Propriedade** | **Como configurar**
 ---|---
-Configuração de rede|Para cada NIC detectado, configure o endereço IP de failback da máquina virtual. Selecione o NIC e clique em **Alterar** para especificar os detalhes do endereço IP.
+Configuração de rede|Para cada NIC detectado, configure o endereço IP de failback da máquina virtual. Selecione a NIC e clique em **Alterar** para especificar os detalhes do endereço IP.
 Configuração de hardware|Você pode especificar os valores CPU e Memória da VM. Essa configuração pode ser aplicada a todas as VMs que você está tentando proteger.
 Nome de exibição|Para identificar os valores corretos para CPU e Memória, consulte o tamanho da função das VMs no IAAS e veja o número de núcleos e a Memória atribuída.
 Nome de exibição|Após o failover de volta para o local, você pode optar por renomear as máquinas virtuais exibidas no inventário do vCenter. Observe que o valor padrão visto aqui é o nome de host do computador da máquina virtual. Para identificar o nome da VM, consulte a lista de VMs no grupo Proteção.
@@ -552,4 +554,4 @@ Após a conclusão do failback, convém proteger mais uma vez as máquinas virtu
 
  
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

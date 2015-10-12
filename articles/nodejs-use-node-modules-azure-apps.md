@@ -71,11 +71,11 @@ Agora que você aprendeu como usar os módulos no Node.js com o Azure, aprenda c
 Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
 [especificar a versão do Node.js]: nodejs-specify-node-version-azure-apps.md
-[Como usar a Interface de Linha de Comando do Azure para Mac e Linux]: xplat-cli.md
+[Como usar a Interface de Linha de Comando do Azure para Mac e Linux]: xplat-cli-install.md
 [criar e implantar um Site no Node.js]: web-sites-nodejs-develop-deploy-mac.md
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
 [Publishing with Git]: web-sites-publish-source-control.md
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Scripts de implantação de site personalizado com o Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

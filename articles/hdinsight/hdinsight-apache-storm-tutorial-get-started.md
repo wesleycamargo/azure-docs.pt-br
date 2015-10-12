@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="larryfr"/>
 
 
@@ -23,7 +23,13 @@
 
 O Apache Storm é um sistema de computação escalável, tolerante a falhas, distribuído e em tempo real para o processamento de fluxos de dados. Com o Storm no Microsoft Azure HDInsight, você pode criar um cluster Storm baseado em nuvem que execute análise de big data em tempo real.
 
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
+[AZURE.INCLUDE [portal de visualização](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [Tutorial do Apache Storm: Introdução a exemplos do Storm Starter para análise de big data no HDInsight](hdinsight-apache-storm-tutorial-get-started-v1.md)
+
+   
+
+> [AZURE.NOTE]As etapas deste artigo criam um cluster HDInsight baseado no Windows. Para as etapas criarem um Storm baseado em Linux no cluster HDInsight, consulte [tutorial do Apache Storm tutorial: Introdução ao exemplo do Storm Starter usando a análise de dados no HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
 ## Pré-requisitos
 
@@ -35,13 +41,13 @@ Você deve ter o seguinte para concluir com êxito este tutorial do Apache Storm
 
 O Storm no HDInsight usa o armazenamento de Blobs do Azure para armazenar arquivos de log e topologias enviadas para o cluster. Use as seguintes etapas para criar uma conta de armazenamento do Azure a ser usada com o cluster:
 
-1. Entre no [portal de visualização do Azure][preview-portal].
+1. Entre no [Portal de Visualização do Azure][preview-portal].
 
-2. Selecione **NOVO**, selecione __Análises de Dados__ e, em seguida, selecione __HDInsight__.
+2. Selecione **NOVO**, selecione __Análise de Dados__ e, em seguida, selecione __HDInsight__.
 
 	![Criar um novo cluster no portal de visualização do Azure](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. Insira um __Nome de Cluster__ e, em seguida, selecione __Storm__ para o __Tipo de cluster__. Uma marca de seleção verde será exibida ao lado do __Nome do Cluster__, se ele estiver disponível.
+3. Insira um __Nome de Cluster__ e, em seguida, selecione __Storm__ para o __Tipo de cluster__. Uma marca de seleção verde será exibida ao lado do __Nome do Cluster__ se ele estiver disponível.
 
 	![Nome do cluster, tipo de cluster e tipo de sistema operacional](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
 
@@ -61,11 +67,11 @@ O Storm no HDInsight usa o armazenamento de Blobs do Azure para armazenar arquiv
 
 	No momento, você pode selecionar uma conta de armazenamento do Azure como fonte de dados para um cluster HDInsight. Use o item a seguir para entender as entradas na folha __Fonte de Dados__.
 
-	- __Método de Seleção__: defina-o como __De todas as assinaturas__ para habilitar a procura de contas de armazenamento em suas assinaturas. Defina-o como __Tecla de Acesso__ se você desejar inserir o __Nome de Armazenamento__ e a __Tecla de Acesso__ de uma conta de armazenamento existente.
+	- __Método de Seleção__: defina-o como __De todas as assinaturas__ para habilitar a procura de contas de armazenamento em suas assinaturas. Defina-o como __Chave de Acesso__ se você desejar inserir o __Nome de Armazenamento__ e a __Chave de Acesso__ de uma conta de armazenamento existente.
 
 	- __Criar Novo__: use essa opção para criar uma nova conta de armazenamento. Use o campo exibido para inserir o nome da conta de armazenamento. Uma marca de seleção verde é exibida se o nome estiver disponível.
 
-	- __Escolher contêiner padrão__: use essa opção para inserir o nome do contêiner padrão a ser usado para o cluster. Embora você possa inserir qualquer nome aqui, é recomendável usar o mesmo nome utilizado para o cluster, para que você possa reconhecer facilmente que o contêiner é usado para esse cluster específico.
+	- __Escolher Contêiner Padrão__: use essa opção para inserir o nome do contêiner padrão a ser usado para o cluster. Embora você possa inserir qualquer nome aqui, é recomendável usar o mesmo nome utilizado para o cluster, para que você possa reconhecer facilmente que o contêiner é usado para esse cluster específico.
 
 	- __Local__: a região geográfica em que a conta de armazenamento estará ou na qual será criada.
 
@@ -77,9 +83,9 @@ O Storm no HDInsight usa o armazenamento de Blobs do Azure para armazenar arquiv
 
 	![Folha de camadas de preços de nó](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
 
-	Use __Selecionar__ para salvar as informações de __Camadas de Preços de Nó__.
+	Use __Selecionar__ para salvar as informações das __Camadas de Preços de Nó__.
 
-8. Selecione __Configuração opcional__. Esta folha permite que você selecione a versão do cluster, bem como defina outras configurações opcionais, como adicionar um __Rede Virtual__ ou configurar um __Metastore externo__ para manter dados de Hive e Oozie.
+8. Selecione __Configuração Opcional__. Esta folha permite que você selecione a versão do cluster, bem como defina outras configurações opcionais, como adicionar um __Rede Virtual__ ou configurar um __Metastore externo__ para manter dados de Hive e Oozie.
 
 	![Folha de configuração opcional](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
@@ -89,7 +95,7 @@ O Storm no HDInsight usa o armazenamento de Blobs do Azure para armazenar arquiv
 	| ------------------ | --------------------- |
 	| ![Indicador de provisionamento no Quadro Inicial](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Bloco de cluster provisionado](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE]Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada __Notificações__, localizada à esquerda da página, para verificar o processo de provisionamento.
+	> [AZURE.NOTE]Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial, ou a entrada __Notificações__ à esquerda da página para verificar o processo de provisionamento.
 
 ## Executar uma amostra do Starter Storm no HDInsight
 
@@ -164,7 +170,7 @@ A interface do usuário do Storm pode ser usada para monitorar a topologia.
 
 	* **Desativar** - pausa uma topologia em execução.
 
-	* **Reequilibrar** - ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Isso permite que a topologia ajuste o paralelismo para compensar o aumento/diminuição do número de nós no cluster. Para obter mais informações, confira [Noções básicas sobre o paralelismo de uma topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+	* **Reequilibrar** - ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Isso permite que a topologia ajuste o paralelismo para compensar o aumento/diminuição do número de nós no cluster. Para obter mais informações, consulte [Noções básicas sobre o paralelismo de uma topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 	* **Eliminar** - encerra uma topologia do Storm após o tempo limite especificado.
 
@@ -239,4 +245,4 @@ Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

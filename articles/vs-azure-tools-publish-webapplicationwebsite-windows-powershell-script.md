@@ -58,7 +58,7 @@ O nome da assinatura do Azure na qual você deseja criar o site.
 
 ## WebDeployPackage
 
-O caminho para o pacote de implantação Web a publicar no site. Você pode criar este pacote usando o assistente Publicar Web no Visual Studio. Consulte [Como criar um pacote de implantação da Web no Visual Studio](http://go.microsoft.com/fwlink/p/?LinkID=623089).
+O caminho para o pacote de implantação Web a publicar no site. Você pode criar este pacote usando o assistente Publicar Web no Visual Studio. Para obter mais informações, consulte [Introdução aos serviços de nuvem do Azure e ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
 |Parâmetro|Valor padrão|
 |---|---|
@@ -97,7 +97,7 @@ Se seu valor for true, imprimir mensagens do script para o fluxo de saída.
 
 ## Comentários
 
-Para obter uma explicação completa de como usar o script para criar ambientes de desenvolvimento e teste, consulte [Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste](https://msdn.microsoft.com/library/azure/dn642480.aspx).
+Para obter uma explicação completa de como usar o script para criar ambientes de desenvolvimento e teste, consulte [usando Scripts do Windows PowerShell para publicar em ambientes de teste e desenvolvimento](vs-azure-tools-publishing-using-powershell-scripts.md).
 
 O arquivo de configuração JSON especifica os detalhes daquilo que está para ser implantado. Ele inclui as informações que você especificou quando criou o projeto, como o nome e também o nome de usuário para o site. Ele também inclui o banco de dados a provisionar, se houver. O código a seguir mostra um exemplo de arquivo de configuração JSON:
 
@@ -127,6 +127,6 @@ Você pode editar o arquivo de configuração JSON para alterar o que é implant
 
 ## Próximas etapas
 
-[Publish-WebApplicationVM (script do Windows PowerShell)](https://msdn.microsoft.com/library/azure/dn689112.aspx)
+Para obter mais informações, consulte [WebApplicationVM de publicação (script do Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

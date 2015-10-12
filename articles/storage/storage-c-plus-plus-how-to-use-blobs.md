@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="09/23/2015" 
     ms.author="tamram"/>
 
 # Como usar o Armazenamento de Blob em C++  
@@ -242,4 +242,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

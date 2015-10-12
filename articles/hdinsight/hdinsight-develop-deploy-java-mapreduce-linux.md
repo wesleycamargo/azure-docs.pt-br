@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
 
-Este documento orienta você quanto ao uso do Apache Maven para criar um aplicativo de MapReduce e implantar e executá-lo em um Hadoop baseado em Linux no cluster do HDInsight.
+Este documento orienta você quanto ao uso do Apache Maven para criar um aplicativo de MapReduce e implantar e executá-lo em um Hadoop baseado em Linux no cluster do HDInsight. Para obter informações sobre como usar um Hadoop baseado em Windows no cluster HDInsight, consulte [Desenvolver programas Java MapReduce para Hadoop no HDInsight (Windows)](hdinsight-develop-deploy-java-mapreduce.md)
 
 ##<a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**: consulte [Obter avaliação gratuita do Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **CLI do Azure**: para obter mais informações, consulte [Instalar e configurar a CLI do Azure](../xplat-cli.md)
+- **CLI do Azure**: para obter mais informações, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md)
 
 ##Configurar variáveis de ambiente
 
@@ -88,7 +88,7 @@ As seguintes variáveis de ambiente podem ser definidas quando você instala o J
 		  <scope>provided</scope>
 		</dependency>
 
-	Isso informa ao Maven que o projeto exige as bibliotecas (listadas em <artifactId>) com uma versão específica (listada em <version>). No momento da compilação, ele será baixado do repositório padrão do Maven. Você pode usar a [pesquisa de repositório do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) para exibir mais informações.
+	Isso informa ao Maven que o projeto exige as bibliotecas (listadas em &lt;artifactId>) com uma versão específica (listada em &lt;version>). No momento da compilação, ele será baixado do repositório padrão do Maven. Você pode usar a [pesquisa de repositório do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) para exibir mais informações.
 
 	O `<scope>provided</scope>` informa o Maven que essas dependências não devem ser empacotadas com o aplicativo, pois serão fornecidas pelo cluster do HDInsight no tempo de execução.
 
@@ -250,7 +250,7 @@ Isso copiará os arquivos do sistema local para o nó principal.
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	Isso usará o aplicativo WordCount do MapReduce para contar as palavras no arquivo davinci.txt e armazenará os resultados em \___wasb:///example/data/wordcountout__. Os arquivos de entrada e saída são armazenados no armazenamento padrão do cluster.
+	Isso usará o aplicativo WordCount do MapReduce para contar as palavras no arquivo davinci.txt e armazenará os resultados em \_\___wasb:///example/data/wordcountout__. Os arquivos de entrada e saída são armazenados no armazenamento padrão do cluster.
 
 3. Após concluir o trabalho, use o seguinte para exibir os resultados:
 
@@ -300,4 +300,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

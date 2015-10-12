@@ -256,4 +256,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

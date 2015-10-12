@@ -111,7 +111,7 @@ Como foi mencionado anteriormente, ao fornecer conteúdo aos clientes (eventos d
 - Reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro).
 - Ajuste da janela de apresentação de DVR.
 
-###Filtragem de representação 
+##Filtragem de representação 
 
 Você pode optar por codificar seu ativo para vários perfis de codificação (H.264 linha de base, H.264 alto, AACL, AACH, Dolby Digital Plus) e várias taxas de bits de qualidade. No entanto, nem todos os dispositivos de cliente oferecerão suporte a todos os seus perfis e taxas de bits de todos os seus ativos. Por exemplo, os dispositivos Android antigos oferecem suporte apenas da H.264 linha de base+ AACL. Enviar taxas de bits mais altos para um dispositivo que não consegue aproveitar os benefícios, representa um desperdício de largura de banda e do dispositivo de computação. Esse dispositivo deve decodificar todas as informações determinadas, apenas para que seja subdimensionado para exibição.
 
@@ -124,20 +124,20 @@ No exemplo a seguir, o Codificador de Mídia do Azure foi usado para codificar u
 
 ![Filtragem de representação][renditions1]
 
-###Remover faixas de idiomas
+##Remover faixas de idiomas
 
 Os ativos podem incluir vários idiomas de áudio, como inglês, espanhol, francês etc. Normalmente, o SDK do Player gerencia a seleção da faixa de áudio padrão e as faixas de áudio disponível por seleção do usuário. O desenvolvimento desses SDKs do Player é um desafio, requer diferentes implementações em estruturas de player específicas do dispositivo. Além disso, em algumas plataformas, os APIs de Player são limitados e não incluem o recurso de seleção de áudio em que os usuários não podem selecionar ou alterar a faixa de áudio padrão. Com filtros de ativos, é possível controlar o comportamento por meio da criação de filtros que incluem apenas os idiomas de áudio desejados.
 
 ![Filtragem das faixas de idioma][language_filter]
 
 
-###Corte do início de um ativo 
+##Corte do início de um ativo 
 
 Na maioria dos eventos de transmissão ao vivo, os operadores executam alguns testes antes do evento real. Por exemplo, eles podem incluir um slate antes do início do evento com a seguinte frase: "O programa será iniciado em instantes". Se o programa estiver sendo arquivado, o teste e os dados do slate também são arquivados e serão incluídos na apresentação. No entanto, essas informações não devem ser mostradas para os clientes. Com o manifesto dinâmico, é possível criar um filtro de hora de início e remover os dados indesejados do manifesto.
 
 ![Corte do início][trim_filter]
 
-###Criar subclipes (exibições) de um arquivo ao vivo
+##Criar subclipes (exibições) de um arquivo ao vivo
 
 Muitos eventos ao vivo são de longa duração e o arquivamento dinâmico pode incluir vários eventos. Após o término do evento ao vivo, talvez os difusores queiram dividir o arquivo ao vivo em sequências lógicas de início e parada do programa. Em seguida, publicam esses programas virtuais separadamente sem pós-processamento do arquivo em tempo real e sem criar ativos separados (o que não obterá benefícios dos fragmentos de cache existentes nas CDNs). Exemplos desses programas virtuais (subclipes) são os tempos de um jogo de futebol ou de basquete, os innings no beisebol ou eventos individuais de uma tarde de programas Olímpicos.
 
@@ -149,24 +149,22 @@ Ativos filtrados:
 
 ![Esqui][skiing]
 
-###Ajuste da janela de apresentação (DVR)
+##Ajuste da janela de apresentação (DVR)
 
 Atualmente, o Serviços de Mídia do Azure oferece arquivamento circular onde a duração pode ser configurada entre 5 minutos e 25 horas. A filtragem de manifesto pode ser usada para criar uma janela DVR com rolagem que ultrapassa o arquivo, sem excluir a mídia. Há muitos cenários em que os difusores podem desejar fornecer uma janela DVR limitada que se move com a borda ao vivo e, ao mesmo, tempo manter uma janela de arquivamento maior. Talvez o difusor queira usar os dados que estão fora da janela DVR para realçar clipes ou talvez ele queira fornecer janelas DVR diferentes para dispositivos diferentes. Por exemplo, a maioria dos dispositivos móveis não lida com janelas DVR grandes (você pode ter uma janela DVR de 2 minutos para dispositivos móveis e de 1 hora para os clientes de desktop).
 
 ![Janela DVR][dvr_filter]
 
-###Ajustar o LiveBackoff (posição ao vivo)
+##Ajustar o LiveBackoff (posição ao vivo)
 
 A filtragem de manifesto pode ser usada para remover vários segundos da borda ao vivo de um programa ao vivo. Isso permite que os difusores assistam à apresentação no ponto de publicação de visualização e criar pontos de inserção de anúncio antes que os visualizadores recebam o fluxo (normalmente retirado por 30 segundos). Os difusores, enviam esses anúncios para suas estruturas de cliente no horário para que eles recebam e processem as informações antes da oportunidade de anúncio.
 
 Além do suporte do anúncio, o LiveBackoff pode ser usado para ajustar a posição de download ao vivo do cliente para que, quando os clientes se deslocarem e alcançarem a borda ao vivo, ainda possam obter fragmentos do servidor em vez de obter erros HTTP 404 ou 412.
 
-
-
 ![livebackoff\_filter][livebackoff_filter]
 
 
-###Combinar várias regras em um único filtro
+##Combinar várias regras em um único filtro
 
 É possível combinar várias regras de filtragem em um único filtro. Por exemplo, você pode definir uma regra de intervalo para remover o slate de um arquivo ao vivo e filtrar as taxas de bits disponíveis. Para várias regras de filtragem, o resultado final é a composição (somente intersecção) dessas regras.
 
@@ -177,6 +175,22 @@ Além do suporte do anúncio, o LiveBackoff pode ser usado para ajustar a posiç
 O tópico a seguir discute entidades de serviços de mídia relacionadas a filtros. O tópico também mostra como criar filtros por meio de programa.
 
 [Criar filtros com APIs REST](media-services-rest-dynamic-manifest.md).
+
+## Combinando vários filtros (composição de filtros)
+
+Você também pode combinar vários filtros em uma única URL.
+
+O seguinte cenário demonstra por que talvez seja conveniente combinar filtros:
+
+1. Você precisa filtrar as qualidades de seus vídeos para dispositivos móveis, como Android ou iPAD (para limitar as qualidades de vídeos). Para remover as qualidades indesejadas, você criaria um filtro global que é adequado para perfis de dispositivos. Como mencionado acima, os filtros globais podem ser usados para todos os seus ativos com a mesma conta de serviços de mídia sem qualquer outra associação. 
+2. Você também deseja cortar a hora de início e de término de um ativo. Para conseguir isso, você criaria um filtro local e definiria a hora de início/término. 
+3. Você deseja combinar esses dois filtros (sem a combinação, você precisaria adicionar a filtragem de qualidade ao filtro de corte, o que dificultará o uso do filtro).
+
+Para combinar os filtros, você precisa definir os nomes dos filtros para a URL do manifesto/playlist com ponto e vírgula delimitado. Vamos supor que você tenha um filtro chamado *MyMobileDevice* que filtra as qualidades e tenha outro chamado *MyStartTime* para definir uma hora de início específica. Você pode combiná-los assim:
+
+	http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
+
+Você pode combinar até três filtros.
 
 ##Conheça os problemas e limitações
 
@@ -192,7 +206,9 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+##Consulte também
 
+[Visão geral do fornecimento de conteúdo a clientes](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png
@@ -214,4 +230,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

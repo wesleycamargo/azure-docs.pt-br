@@ -239,4 +239,4 @@ O comutador opcional “-q” pode ser usado para suprimir o prompt de confirma�
 [Introdução à criação de conjuntos de registros e registros](dns-getstarted-create-recordset-cli.md)<BR> [Executar operações em zonas DNS](dns-operations-dnszones-cli.md)<BR> [Automatizar operações usando o SDK do .NET](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

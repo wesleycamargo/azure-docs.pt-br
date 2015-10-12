@@ -18,7 +18,7 @@
 
 
 
-#Gerenciando o Azure HDInsight usando a Automação do Azure
+#Gerenciar o Azure HDInsight usando a Automação do Azure
 Este guia apresentará o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento de seus clusters e automatizar tarefas comuns no Azure HDInsight.
 
 ## O que é Automação do Azure?
@@ -44,4 +44,4 @@ Agora que você aprendeu as noções básicas da Automação do Azure e como ela
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

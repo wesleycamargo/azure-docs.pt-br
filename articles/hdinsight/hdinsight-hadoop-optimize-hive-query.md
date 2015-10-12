@@ -6,7 +6,7 @@
    authors="rashimg"
    manager="mwinkle"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -22,7 +22,9 @@
 
 Por padrão, os clusters do Hadoop não são otimizados para desempenho. Este artigo aborda alguns dos métodos de otimização de desempenho do Hive mais comuns que você pode aplicar a nossas consultas.
 
+
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
 
 * [Otimizar consultas do Hive para Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query-v1.md).
 
@@ -59,7 +61,7 @@ Você pode fazer qualquer consulta do Hive habilitada pelo Tez prefixando a cons
 
 	set hive.execution.engine=tez;
 
-O Tez deve estar habilitado no momento do provisionamento. Este é um exemplo de script do PowerShell do Azure para provisionar um cluster do Hadoop com o Tez habilitado:
+Para clusters HDInsight baseados no Windows, o Tez deve estar habilitado no momento do provisionamento. Este é um exemplo de script do PowerShell do Azure para provisionar um cluster do Hadoop com o Tez habilitado:
 
 
 	$clusterName = "[HDInsightClusterName]"
@@ -83,6 +85,10 @@ O Tez deve estar habilitado no momento do provisionamento. Este é um exemplo de
 	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
 	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
 	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
+
+    
+> [AZURE.NOTE]Clusters HDInsight baseados em Linux têm o Tez habilitado por padrão.
+    
 
 ## Particionamento do Hive
 
@@ -220,4 +226,4 @@ Neste artigo, você aprendeu a vários métodos comuns de otimização de consul
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

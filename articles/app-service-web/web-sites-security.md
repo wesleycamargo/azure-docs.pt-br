@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Proteger um aplicativo Web no Serviço de Aplicativo do Azure"
 	description="Saiba como proteger um aplicativo Web do Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
@@ -88,4 +88,4 @@ Para obter informações sobre como registrar em log informações de aplicativo
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

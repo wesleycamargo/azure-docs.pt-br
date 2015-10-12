@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/29/2015"
+   ms.date="09/30/2015"
    ms.author="juliako"/>
 
 
@@ -68,4 +68,4 @@ Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

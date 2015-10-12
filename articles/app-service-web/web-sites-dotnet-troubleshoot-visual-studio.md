@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio" 
 	description="Saiba como solucionar problemas de um aplicativo Web do Azure usando ferramentas de log, rastreamento e depuração remota criadas no Visual Studio 2013." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -761,4 +761,4 @@ Se você quiser depurar um serviço de nuvem do Azure em vez de um aplicativo We
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

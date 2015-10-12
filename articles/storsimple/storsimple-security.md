@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/10/2015"
+   ms.date="09/25/2015"
    ms.author="v-sharos"/>
 
 # Proteção de dados e segurança de StorSimple
@@ -52,7 +52,7 @@ Apenas dispositivos StorSimple autorizados têm permissão para ingressar no ser
 
 Para autorizar um dispositivo, registre-o com o serviço do Gerenciador do StorSimple fornecendo a chave de registro. A chave de registro é uma chave aleatória de 128 bits gerada no portal. Para saber como obter uma chave de registro de serviço, acesse a [Etapa 2: Obter a chave de registro do serviço](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
-> [AZURE.NOTE]A chave de registro de serviço é uma chave longa que contém 100 caracteres. Recomendamos copiar a chave e salvá-la em um arquivo de texto em um local seguro para poder usá-la para autorizar dispositivos adicionais conforme necessário.
+> [AZURE.NOTE]A chave de registro de serviço é uma chave longa que contém 100 caracteres. É possível copiar a chave e salvá-la em um arquivo de texto em um local seguro para poder usá-la para autorizar dispositivos adicionais conforme necessário.
 > 
 > * Se a chave de registro do serviço for perdida depois de registrar o primeiro dispositivo, você pode gerar uma nova chave usando o serviço do Gerenciador do StorSimple. Isso não afetará a operação dos dispositivos existentes. 
 > * Depois que um dispositivo é registrado, ele usa tokens para se comunicar com o Microsoft Azure. A chave de registro de serviço não é usada depois do registro do dispositivo.
@@ -69,7 +69,7 @@ As senhas são um aspecto importante da segurança do computador e são usadas a
 
 ### Senhas do Windows PowerShell para StorSimple e do administrador de dispositivo do StorSimple
 
-O Windows PowerShell para StorSimple é uma interface de linha de comando que você pode usar para gerenciar o dispositivo StorSimple. O Windows PowerShell para StorSimple tem recursos que permitem registrar o dispositivo, configurar a interface de rede no dispositivo, instalar determinados tipos de atualizações, solucionar problemas do dispositivo acessando a sessão de suporte e alterar o estado do dispositivo. Você pode acessar o Windows PowerShell para StorSimple conectando-se ao console serial ou usando o Windows PowerShell remotamente.
+O Windows PowerShell para StorSimple é uma interface de linha de comando que você pode usar para gerenciar o dispositivo StorSimple. O Windows PowerShell para StorSimple tem recursos que permitem registrar o dispositivo, configurar a interface de rede no dispositivo, instalar determinados tipos de atualizações, solucionar problemas do dispositivo acessando a sessão de suporte e alterar o estado do dispositivo. Você pode acessar o Windows PowerShell para StorSimple conectando-se ao console serial no dispositivo ou usando o Windows PowerShell remotamente.
 
 A comunicação remota do PowerShell pode ser feita por meio de HTTPS ou HTTP. Se o gerenciamento remoto por HTTPS estiver habilitado, você precisará baixar o certificado de gerenciamento remoto do dispositivo e instalá-lo no cliente remoto.
 
@@ -129,7 +129,7 @@ Conforme descrito em outras seções, as senhas são usadas para autorizar e aut
 É o objetivo principal do serviço do Gerenciador do StorSimple gerenciar e configurar o dispositivo StorSimple. O serviço do Gerenciador do StorSimple é executado no Microsoft Azure. Você usa o Portal de Gerenciamento do Azure para inserir dados de configuração de dispositivo e, em seguida, Microsoft Azure usa o serviço do Gerenciador do StorSimple para enviar os dados para o dispositivo. O serviço do Gerenciador do StorSimple usa um sistema de pares de chaves assimétricas para ajudar a garantir que o comprometimento do serviço do Azure não resulte no comprometimento das informações armazenadas. O sistema de chaves assimétricas ajuda a proteger os dados que fluem através do serviço da seguinte maneira:
 
 1. Um certificado de criptografia de dados que usa um par de chaves pública e privada assimétricas é gerado no dispositivo e usado para proteger os dados. As chaves são geradas quando o primeiro dispositivo é registrado. 
-2. As chaves do certificado de criptografia de dados são exportadas para um arquivo de troca de informações pessoais (.pfx) protegido pela chave de criptografia de dados de serviço, que é uma chave forte de 128 bits aleatoriamente gerada pelo dispositivo durante o registro.
+2. As chaves do certificado de criptografia de dados são exportadas para um arquivo .pfx (Troca de Informações Pessoais) protegido pela chave de criptografia de dados de serviço, que é uma chave forte de 128 bits gerada aleatoriamente pelo primeiro dispositivo durante o registro.
 3. A chave pública do certificado é disponibilizada para o serviço do Gerenciador do StorSimple e a chave privada permanece com o dispositivo.
 4. Os dados que entram no serviço são criptografados usando a chave pública e descriptografados usando a chave privada armazenada no dispositivo, garantindo que o serviço do Azure não possa descriptografar os dados que fluem para o dispositivo.
 
@@ -144,7 +144,7 @@ Conforme descrito em outras seções, as senhas são usadas para autorizar e aut
 
 ## Proteger dados em repouso
 
-O dispositivo StorSimple gerencia dados armazenando-os em camadas localmente e na nuvem, dependendo da frequência de uso. Todos os computadores host conectados ao dispositivo enviam dados para o dispositivo, que então os transfere para a nuvem, conforme apropriado. Os dados são transferidos do dispositivo para a nuvem por meio do protocolo iSCSI. Cada dispositivo tem um destino iSCSI que mostra todos os volumes compartilhados naquele dispositivo. Todos os dados são criptografados antes de serem enviados ao armazenamento em nuvem. Para ajudar a garantir a segurança e a integridade dos dados movidos para a nuvem, o Azure StorSimple permite definir chaves de criptografia de armazenamento em nuvem da seguinte maneira:
+O dispositivo StorSimple gerencia dados armazenando-os em camadas localmente e na nuvem, dependendo da frequência de uso. Todos os computadores host conectados ao dispositivo enviam dados para o dispositivo, que então os transfere para a nuvem, conforme apropriado. Os dados são transferidos do dispositivo para a nuvem com segurança pela Internet. Cada dispositivo tem um destino iSCSI que mostra todos os volumes compartilhados naquele dispositivo. Todos os dados são criptografados antes de serem enviados ao armazenamento em nuvem. Para ajudar a garantir a segurança e a integridade dos dados movidos para a nuvem, o Azure StorSimple permite definir chaves de criptografia de armazenamento em nuvem da seguinte maneira:
 
 - Especifique a chave de criptografia de armazenamento em nuvem ao criar um contêiner de volume. A chave não pode ser modificada nem adicionada posteriormente. 
 - Todos os volumes em um contêiner de volume compartilham a mesma chave de criptografia. Se você quiser uma forma diferente de criptografia para um volume específico, é recomendável criar um novo contêiner de volume para hospedar esse volume.
@@ -203,7 +203,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **P:** Perdi minha chave de criptografia de dados de serviço. O que devo fazer?
 
-**R:** Entre em contato com o Suporte da Microsoft. Ele podem fazer logon em uma sessão de suporte no seu dispositivo e ajudá-lo a recuperar a chave. Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, vá para:
+**R:** Entre em contato com o Suporte da Microsoft. Eles podem fazer logon em uma sessão de suporte no seu dispositivo e ajudar você a recuperar a chave (contanto que pelo menos um dispositivo esteja online). Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, vá para:
 
 - [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
@@ -253,4 +253,4 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 [Implantar o dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

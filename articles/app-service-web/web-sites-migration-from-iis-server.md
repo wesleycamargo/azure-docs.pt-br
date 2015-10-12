@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Migrar um aplicativo Web corporativo para o Serviço de Aplicativo do Azure" 
 	description="Mostra como usar o Assistente de migração de aplicativos Web para migrar rapidamente sites existentes do IIS para aplicativos Web do Serviço de Aplicativo do Azure" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -10,7 +10,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -136,4 +136,4 @@ Esta seção percorre um exemplo para migrar alguns sites que usam um banco de d
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

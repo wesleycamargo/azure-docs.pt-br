@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Provisionar os clusters do Apache Spark no HDInsight | Microsoft Azure"
-   description="Saiba como provisionar clusters do Spark para o Azure HDInsight usando o portal do Azure, Azure PowerShell, uma linha de comando ou o SDK HDInsight .NET" 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   description="Saiba como provisionar clusters do Spark para o Azure HDInsight usando o portal do Azure, Azure PowerShell, uma linha de comando ou o SDK HDInsight .NET"
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"
    tags="azure-portal"/>
-   
+
 <tags
-   ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="09/22/2015"
-   ms.author="nitinme"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="09/22/2015"
+    ms.author="nitinme"/>
 
 # Provisionar clusters do Apache Spark no HDInsight usando opções personalizadas
 
@@ -434,8 +434,8 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 [powershell-install-configure]: ../install-configure-powershell/
 
 
-
+[azure-preview-portal]: https://portal.azure.com
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

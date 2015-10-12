@@ -171,7 +171,7 @@ Para obter mais informações sobre como desenvolver e publicar Sites do Azure, 
 * [IPython – um REPL/Notebook avançado para o Python][]
 * [IPython Notebook no Azure][]
 * [Python Tools para Visual Studio no GitHub][]
-
+* [Centro de desenvolvedores do Python](/develop/python/)
 
 [Distribuição do Python de Análise de Continuidade]: http://continuum.io
 [Distribuição do Python de Enthought]: http://www.enthought.com
@@ -207,4 +207,4 @@ Para obter mais informações sobre como desenvolver e publicar Sites do Azure, 
 [armazenamento de fila]: storage-python-how-to-use-queue-storage.md
 [armazenamento de blobs]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure"
 	description="Saiba como usar a publicação em estágios para aplicativos Web no Serviço de Aplicativo do Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	writer="cephalin"
@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/21/2015"
 	ms.author="cephalin"/>
 
 # Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure
@@ -127,6 +127,11 @@ Configurar a Permuta Automática para um slot é fácil. Siga as etapas abaixo:
 
 3. Execute um envio de código por push para esse slot de implantação. A Permuta Automática ocorrerá após um curto período de tempo e a atualização será refletida na URL do seu slot de destino.
 
+<a name="Multi-Phase"></a>
+## Usar permuta multifase para seu aplicativo Web ##
+
+A permuta multifase está disponível para simplificar a validação no contexto de elementos de configuração criados para permanecer em um slot, como cadeias de conexão. Nesses casos, é útil aplicar esses elementos de configuração do alvo de permuta à origem da permuta e validar antes da permuta realmente entrar em vigor. Depois que os elementos de configuração do alvo de permuta são aplicados à origem de permuta, as ações disponíveis são concluir a permuta ou reverter para a configuração original para a origem de permuta, o que também tem o efeito de cancelar a permuta. Exemplos de cmdlets do Azure PowerShell disponíveis para permuta multifase são incluídos nos cmdlets do Azure PowerShell para a seção de slots de implantação.
+
 <a name="Rollback"></a>
 ## Para reverter um aplicativo de produção após a permuta ##
 Se algum erro for identificado na produção após uma permuta de slot, reverta os slots para os estados pré-permuta permutando ambos os slots imediatamente.
@@ -147,49 +152,43 @@ O PowerShell do Azure é um módulo que fornece cmdlets para gerenciar o Azure p
 
 - Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](../install-configure-powershell.md).  
 
-- Para listar os cmdlets disponíveis para o Serviço de Aplicativo do Azure no PowerShell, chame `help AzureWebsite`.
+- Para usar o novo modo do Gerenciador de Recursos do Azure para cmdlets do PowerShell, comece pelo seguinte: `Switch-AzureMode -Name AzureResourceManager`.
 
 ----------
 
-### Get-AzureWebsite
-O cmdlet **Get-AzureWebsite** apresenta informações sobre aplicativos Web do Azure da assinatura atual, como no exemplo a seguir.
+### Criar um aplicativo Web
 
-`Get-AzureWebsite webappslotstest`
-
-----------
-
-### New-AzureWebsite
-Você pode criar um slot de implantação usando o cmdlet **New-AzureWebsite** e especificando os nomes tanto do aplicativo Web quanto do slot. Indique também a mesma região que a do aplicativo Web para a criação do slot de implantação, conforme demonstrado no exemplo a seguir.
-
-`New-AzureWebsite webappslotstest -Slot staging -Location "West US"`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Publish-AzureWebsiteProject
-Você pode usar o cmdlet **Publish-AzureWebsiteProject** para implantação de conteúdo, como no exemplo a seguir.
+### Crie um slot de implantação para um aplicativo Web
 
-`Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip`
-
-----------
-
-### Show-AzureWebsite
-Após as atualizações do conteúdo e da configuração terem sido aplicadas ao novo slot, você pode validar as atualizações navegando até o slot usando o cmdlet **Show-AzureWebsite**, como no exemplo a seguir.
-
-`Show-AzureWebsite -Name webappslotstest -Slot staging`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Switch-AzureWebsiteSlot
-O cmdlet **Show-AzureWebsiteSlot** pode executar uma operação de permuta para tornar o slot de implantação atualizado no site de produção, como no exemplo a seguir. O aplicativo de produção não passará por nenhuma experiência de tempo de inatividade, nem passará por uma inicialização a frio.
+### Inicie a permuta multifase e aplique a configuração de slot de destino ao slot de origem
 
-`Switch-AzureWebsiteSlot -Name webappslotstest`
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
 
 ----------
 
-### Remove-AzureWebsite
-Se um slot de implantação não for mais necessário, ele poderá ser excluído usando o cmdlet **Remove-AzureWebsite**, como no exemplo a seguir.
+### Reverta a primeira fase da permuta multifase e restaure a configuração do slot de origem
 
-`Remove-AzureWebsite -Name webappslotstest -Slot staging`
+`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+
+----------
+
+### Permute slots de implantação
+
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+
+----------
+
+### Exclua um slot de implantação
+
+`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
 
 ----------
 
@@ -200,7 +199,7 @@ Se um slot de implantação não for mais necessário, ele poderá ser excluído
 
 A CLI do Azure fornece comandos entre plataformas para trabalhar com o Azure, incluindo suporte ao gerenciamento de slots de implantação de aplicativo Web.
 
-- Para obter instruções sobre como instalar e configurar a CLI do Azure, incluindo informações sobre como conectar a CLI do Azure com sua assinatura do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli.md).
+- Para obter instruções sobre como instalar e configurar a CLI do Azure, incluindo informações sobre como conectar a CLI do Azure com sua assinatura do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
 
 -  Para listar os comandos disponíveis para o Serviço de Aplicativo do Azure na CLI do Azure, chame `azure site -h`.
 
@@ -261,4 +260,4 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

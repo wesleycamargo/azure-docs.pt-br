@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Iniciando e parando máquinas virtuais — Graph | Microsoft Azure"
-   description="Versão da solução de Automação do Azure do Fluxo de Trabalho do PowerShell, incluindo runbooks para iniciar e parar máquinas virtuais clássicas."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	pageTitle="Iniciando e parando máquinas virtuais — Graph | Microsoft Azure"
+	description="Versão da solução de Automação do Azure do Fluxo de Trabalho do PowerShell, incluindo runbooks para iniciar e parar máquinas virtuais clássicas."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn" />
 <tags 
-   ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+	ms.service="automation"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/25/2015"
+	ms.author="bwren" />
 
 # Solução de Automação do Azure — iniciando e parando máquinas virtuais
 
@@ -54,7 +54,7 @@ Os runbooks incluem uma atividade chamada **Leia-me**, que apresenta uma descri�
 Os runbooks exigem os ativos a seguir, que você deverá criar e preencher com os valores apropriados. Os nomes são padrão. Será possível usar ativos com nomes diferentes se você especificar esses nomes nos [parâmetros de entrada](#using-the-solution) quando inicia o runbook.
 
 | Tipo de Ativo | Nome padrão | Descrição |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | [Credencial](automation-credentials.md) | AzureCredential | Contém as credenciais de uma conta com autoridade para iniciar e parar máquinas virtuais na assinatura do Azure. |
 | [Variável](automation-variables.md) | AzureSubscriptionId | Contém a ID da sua assinatura do Azure. |
 
@@ -65,7 +65,7 @@ Os runbooks exigem os ativos a seguir, que você deverá criar e preencher com o
 Cada um dos runbooks tem os [parâmetros de entrada](automation-starting-a-runbook#runbook-parameters) a seguir. Você deve fornecer valores para todos os parâmetros obrigatórios e pode, se desejar, fornecer valores para outros parâmetros de acordo com os próprios requisitos.
 
 | Parâmetro | Tipo | Obrigatório | Descrição |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | ServiceName | string | Não | Se um valor for fornecido, todas as máquinas virtuais com esse nome de serviço serão iniciadas ou paradas. Se nenhum valor for fornecido, todas as máquinas virtuais clássicas na assinatura do Azure serão iniciadas ou paradas. |
 | AzureSubscriptionIdAssetName | string | Não | Contém o nome do [ativo variável](#installing-the-solution) que contém a ID da sua assinatura do Azure. Se você não especificar um valor, *AzureSubscriptionId* será usado. |
 | AzureCredentialAssetName | string | Não | Contém o nome do [ativo de credencial](#installing-the-solution) com as credenciais para o runbook a ser usado. Se você não especificar um valor, *AzureCredential* será usado. |
@@ -153,4 +153,4 @@ A etapa final no runbook é enviar a saída, se a solicitação de inicializaç�
 - [Runbooks filhos na Automação do Azure](automation-child-runbooks.md) 
 - [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

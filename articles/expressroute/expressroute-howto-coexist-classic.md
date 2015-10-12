@@ -210,4 +210,4 @@ Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Exp
 
 Para saber mais sobre a Rota Expressa, consulte [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

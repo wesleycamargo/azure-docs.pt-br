@@ -4,7 +4,7 @@
    services="application-insights"
    documentationCenter=""
    authors="soubhagyadash"
-   manager="victormu"
+   manager="douge"
    editor="alancameronwills"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="06/17/2015"
+   ms.date="09/30/2015"
    ms.author="sdash"/>
 
 # Application Insights para Serviços de Nuvem do Azure
@@ -65,20 +65,32 @@ Como alternativa, você pode enviar dados de todas as funções a apenas um recu
 
 3. Configure o SDK para enviar dados ao recurso do Application Insights.
 
-    Abra `ApplicationInsights.config` e insira esta linha:
+    Defina a chave de instrumentação como um parâmetro de configuração no arquivo `ServiceConfiguration.Cloud.cscfg`. ([Exemplo de código](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
+ 
+    ```XML
+     
+    <Role name="WorkerRoleA"> 
+      <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
+    </Role>
+    ```
+ 
+    Em uma função de inicialização adequada, defina a chave de instrumentação no parâmetro de configuração:
 
-    `<InstrumentationKey>` *a chave de instrumentação que você copiou* `</InstrumentationKey>`
+    ```C#
 
-    Use a chave de instrumentação copiada do recurso do Application Insights.
+     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey");
+    ```
 
-4. Defina o arquivo ApplicationInsights.config para sempre ser copiado no diretório de saída. Isso só é necessário para funções de trabalho.
+    Faça isso para cada função em seu aplicativo. Veja os exemplos:
+ 
+ * [Função Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
+ * [Função de trabalho](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
+ * [Para páginas da Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
 
+4. Defina o arquivo ApplicationInsights.config para sempre ser copiado no diretório de saída. 
 
-Como alternativa, você pode definir a chave de instrumentação (iKey) no código. Isso é útil, por exemplo, se você quiser usar as configurações do Azure Service Configuration (CSCFG) para gerenciar as chaves de instrumentação para os respectivos ambientes. O [aplicativo de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) mostra como você pode definir o iKey:
+    (No arquivo. config, você verá mensagens solicitando que você coloque a chave de instrumentação lá. No entanto, para aplicativos em nuvem é melhor defini-la por meio do arquivo .cscfg. Isso garante que a função seja identificada corretamente no portal).
 
-* [Função Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
-* [Função de trabalho](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
-* [Para páginas da Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)
 
 ## Usar o SDK para relatar telemetria
 ### Solicitações de relatório
@@ -196,4 +208,4 @@ Para obter a visão de 360 graus completa de seu aplicativo, há mais algumas co
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

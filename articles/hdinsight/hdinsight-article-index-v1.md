@@ -1,20 +1,20 @@
 <properties
    pageTitle="Índice do artigo do HDInsight para o portal do Azure | Microsoft Azure"
-	description="Uma página de índice com links para artigos sobre o HDInsight no portal do Azure. A Microsoft recomenda o portal de visualização do Azure para novos clusters Hadoop no HDInsight."
-	services="hdinsight"
-	documentationCenter="na"
-	authors="cjgronlund"
-	manager="pablissima"
-	editor=""/>
+   description="Uma página de índice com links para artigos sobre o HDInsight no portal do Azure. A Microsoft recomenda o portal de visualização do Azure para novos clusters Hadoop no HDInsight."
+   services="hdinsight"
+   documentationCenter="na"
+   authors="cjgronlund"
+   manager="pablissima"
+   editor=""/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="cjgronlund"/>
+   ms.devlang="na"
+   ms.topic="index-page"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/17/2015"
+   ms.author="cjgronlund"/>
 
 # Índice do artigo do HDInsight para o portal do Azure
 
@@ -102,6 +102,7 @@ Para obter artigos sobre o uso de clusters nativos do Apache Spark no portal de 
 * [Gerar recomendações de vídeo usando o Apache Mahout com Hadoop](hdinsight-mahout.md)
 * [Roteiro de aprendizagem: soluções de análises avançadas de compilação](machine-learning-data-science-how-to-create-machine-learning-service.md)
 * [Roteiro de aprendizagem: processamento avançado de dados](machine-learning-data-science-advanced-data-processing.md)
+* [Prever dicas de táxi com o HDInsight e Aprendizado de Máquina](machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Extensibilidade
 
@@ -132,4 +133,4 @@ Para obter artigos sobre o uso de clusters nativos do Apache Spark no portal de 
 * [Mensagens de erro detalhadas](hdinsight-debug-jobs.md)
 * [Obtenha ajuda no fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

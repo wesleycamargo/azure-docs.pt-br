@@ -39,8 +39,8 @@ O serviço Arquivos do Azure está na fase de visualização. Por isso, as prát
 ||Todos os serviços|	Rede|	[Dispositivos do lado cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#subheading2)
 ||Todos os serviços|	Rede|	[Os dispositivos do lado cliente têm um link de qualidade alta o suficiente?](#subheading3)
 ||Todos os serviços|	Rede|	[O aplicativo cliente está localizado perto da conta de armazenamento?](#subheading4)
-||Todos os serviços|	Distribuição conteúdo|	[Você está usando uma CDN para distribuição de conteúdo?](#subheading5)
-||Todos os serviços de|	Acesso Direta do cliente|	[Você está usando SAS e CORS para permitir acesso direto ao armazenamento, em vez de proxy?](#subheading6)
+||Todos os serviços|	Distribuição|	[conteúdo Você está usando uma CDN para distribuição de conteúdo?](#subheading5)
+||Todos os serviços de|	Acesso|	[Direta do cliente Você está usando SAS e CORS para permitir acesso direto ao armazenamento, em vez de proxy?](#subheading6)
 ||Todos os serviços|	Cache|	[Seu aplicativo em cache dados que são usados repetidamente e alterações raramente?](#subheading7)
 ||Todos os serviços|	Cache|	[O aplicativo de envio em lote atualizações (eles em cache do lado do cliente e, em seguida, carregar conjuntos maiores)?](#subheading8)
 ||Configuração de .NET todos os serviços|	.NET Configuração|	[Você configurou o cliente para usar um número suficiente de conexões simultâneas?](#subheading9)
@@ -187,7 +187,7 @@ Para saber mais, consulte o artigo [Uma visão geral dos aprimoramentos de desem
 Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado ao usar o paralelismo não associado (no qual não há limites para a quantidade de threads e/ou de solicitações paralelas) para carregar ou baixar dados, usando diversas funções de trabalho para acessar diversas partições (contêineres, filas ou tabelas) na mesma conta de armazenamento ou para acessar diversos itens na mesma partição. Se o paralelismo não estiver associado, o aplicativo pode ultrapassar as funcionalidades do dispositivo cliente ou as metas de escalabilidade da conta de armazenamento, o que resulta em latências mais longas e restrições.
 
 ###<a name="subheading13"></a>Ferramentas e bibliotecas cliente para armazenamento
-Sempre use a última versão das bibliotecas e ferramentas fornecidas pela Microsoft. No momento da edição, é possível usar bibliotecas RTM disponíveis para .NET, Windows Phone, Tempo de Execução do Windows e Java, além de bibliotecas de visualização em outras linguagens, como node.js e C++. Além disso, a Microsoft liberou cmdlets do PowerShell e os comandos da CLI do Azure para trabalhar com o Armazenamento do Azure. A Microsoft desenvolve essas ferramentas pesando no desempenho, além de mantê-las atualizadas com as últimas versões do serviço e garantir que elas gerenciem muitas das práticas de desempenho comprovadas internamente.
+Sempre use a última versão das bibliotecas e ferramentas fornecidas pela Microsoft. No momento da gravação, há bibliotecas cliente disponíveis para .NET, Windows Phone, Tempo de Execução do Windows, Java e C++, além de bibliotecas de visualização em outras linguagens. Além disso, a Microsoft liberou cmdlets do PowerShell e os comandos da CLI do Azure para trabalhar com o Armazenamento do Azure. A Microsoft desenvolve essas ferramentas pesando no desempenho, além de mantê-las atualizadas com as últimas versões do serviço e garantir que elas gerenciem muitas das práticas de desempenho comprovadas internamente.
 
 ###Novas tentativas
 ####<a name="subheading14"></a>Limitação/Servidor ocupado
@@ -387,4 +387,4 @@ Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A 
 Este artigo falou sobre algumas das práticas comprovadas mais comuns para otimizar o desempenho com o uso do armazenamento do Azure. Nós recomendamos que cada desenvolvedor avalie seu aplicativo com base nas práticas descritas acima e considere seguir as recomendações para obter desempenho excelente para seus aplicativos que usam o Armazenamento do Azure.
  
 
-<!------HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

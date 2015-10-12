@@ -13,18 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#Personalização do indexador da Pesquisa do Azure#
+#Personalização do indexador da Pesquisa do Azure
 
-Neste artigo, você aprenderá a usar indexadores da Pesquisa do Azure para implementar estes cenários:
-
-- Renomear campos entre uma fonte de dados e um índice de destino 
-- Transformar cadeias de caracteres de uma tabela de banco de dados em coleções de cadeias de caracteres
-- Alternar a política de detecção de alteração em uma fonte de dados 
-- Chaves de documento de codificação de URL que contêm caracteres não seguros URL 
-- Tolerar falhas para indexar alguns documentos 
+A configuração de um indexador na Pesquisa do Azure permite renomear campos entre uma fonte de dados e um índice de destino, transformar cadeias de caracteres de uma tabela de banco de dados em coleções de cadeia de caracteres, alterna a política de detecção de alteração em uma fonte de dados, codificar em URL chaves de documento que contêm caracteres não seguros para URL e tolerar falhas para indexar alguns documentos.
 
 Se você não estiver familiarizado com os indexadores da Pesquisa do Azure, convém examinar estes artigos primeiro:
 
@@ -123,4 +117,4 @@ Mesmo se você optar por tolerar algumas falhas, as informações sobre quais do
 E isso é tudo por enquanto. Caso você tenha pensamentos ou sugestões para futuras ideias de conteúdo, envie um tweet para nós usando a hashtag #AzureSearch ou envie suas ideias pela nossa [página UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

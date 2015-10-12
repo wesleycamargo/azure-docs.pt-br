@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Introdução ao ambiente de Serviço de Aplicativo" 
 	description="Saiba mais sobre o recurso de ambiente de serviço de aplicativo que fornece unidades de escala seguras, dedicadas e unidas por VNet para executar todos os seus aplicativos." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
@@ -9,33 +9,33 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="09/25/2015"
 	ms.author="stefsch"/>
 
 # Introdução ao ambiente de Serviço de Aplicativo
 
 ## Visão geral ##
-Um ambiente de Serviço de Aplicativo é uma opção de plano de serviço [Premium][PremiumTier] do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança todos os seus aplicativos. Isso inclui [Aplicativos Web][WebApps], [Aplicativos Móveis][MobileApps], [Aplicativos de API][APIApps] e [Aplicativos Lógicos][LogicApps], com opções de dimensionamento expandidas.
+Um Ambiente de Serviço de Aplicativo é uma opção de plano de serviço [Premium][PremiumTier] do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado para executar com segurança todos os seus aplicativos do Serviço de Aplicativo do Azure em alta escala, incluindo [Aplicativos Web][WebApps], [Aplicativos Móveis][MobileApps] e [Aplicativos de API][APIApps].
 
-Recursos de computação para um ambiente de Serviço de Aplicativo são dedicados exclusivamente a executar somente seus aplicativos. Um Ambiente do Serviço de Aplicativo sempre é criado em uma rede virtual regional clássica "v1", que fornece a seus aplicativos novas opções para isolamento de rede. Além disso, um ambiente de serviço de aplicativo oferece suporte a opções adicionais de dimensionamento, com até cinquenta (50) recursos de computação disponíveis para executar seus aplicativos. Fora de um ambiente de serviço de aplicativo, há um limite de 20 recursos de computação para hospedar seus aplicativos.
+Os Ambientes de Serviço de Aplicativo são ideais para cargas de trabalho de aplicativos que exigem:
+
+- Escala muito alta
+- Isolamento e acesso seguro à rede
+
+Os clientes podem criar vários Ambientes de Serviço de Aplicativo dentro de uma única região do Azure, bem como entre várias regiões do Azure. Isso faz dos Ambientes de Serviço de Aplicativo ideais para dimensionar horizontalmente camadas de aplicativo sem estado para dar suporte a cargas de trabalho RPS altas.
+
+Ambientes de Serviço de Aplicativo são isolados para executar somente aplicativos de um único cliente, e sempre são implantados em uma rede virtual. Os clientes têm um controle refinado sobre o tráfego de entrada e saída da rede de aplicativos, e os aplicativos podem estabelecer conexões seguras de alta velocidade por meio de redes virtuais com recursos corporativos locais.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Suporte a Rede Virtual ##
-Um Ambiente do Serviço de Aplicativo pode ser criado em uma rede virtual regional clássica "v1" existente ou uma nova rede virtual regional clássica "v1" ([obter mais informações sobre redes virtuais][MoreInfoOnVirtualNetworks]). Como um ambiente de serviço de aplicativo sempre existe em uma rede virtual regional, mais precisamente em uma sub-rede de uma rede virtual regional, você pode aproveitar os recursos de segurança de redes virtuais para controlar tanto a comunicação de rede de entrada quanto a de saída.
-
-**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2".
-
-Você pode usar [grupos de segurança de rede][NetworkSecurityGroups] para restringir a comunicação de rede de entrada à sub-rede na qual reside um ambiente de serviço de aplicativo. Isso permite que você execute aplicativos por trás de dispositivos e serviços upstream, como firewalls de aplicativo Web e provedores SaaS de rede.
-
-Aplicativos frequentemente precisam acessar recursos corporativos, como bancos de dados internos e serviços da Web. Uma abordagem comum é disponibilizar esses pontos de extremidade apenas ao tráfego de rede interno que flui dentro de uma rede virtual do Azure. Depois que um ambiente de serviço de aplicativo é combinado à mesma rede virtual que os serviços internos, os aplicativos que são executados no ambiente podem acessá-los, incluindo pontos de extremidade acessíveis via conexões [Site a Site][SiteToSite] e [Rota Expressa do Azure][ExpressRoute].
-
 ## Recursos de computação dedicados ##
-Todos os recursos de computação em um ambiente de serviço de aplicativo são dedicados exclusivamente a uma única assinatura. Um ambiente de Serviço de Aplicativo é composto de um pool de recursos de computação único de front-end, bem como um a três pools de recursos de computação de trabalho.
+Todos os recursos de computação em um Ambiente de Serviço de Aplicativo são dedicados exclusivamente a uma única assinatura, e um Ambiente de Serviço de Aplicativo pode ser configurado com até 50 (cinquenta) recursos de computação para uso exclusivo por um único aplicativo.
+
+Um Ambiente de Serviço de Aplicativo é composto de um pool de recursos de computação de front-end, bem como um a três pools de recursos de computação de trabalho.
 
 O pool de front-end contém recursos de computação responsáveis pela terminação SSL, bem como balanceamento automático de carga de solicitações do aplicativo em um ambiente de serviço de aplicativo.
 
@@ -43,10 +43,20 @@ Cada pool de trabalho contém recursos de computação alocados para [planos de 
 
 Por exemplo, isso permite a criação de um pool de trabalho com menos recursos de computação poderosos para planos de serviço de aplicativo destinados a aplicativos de desenvolvimento ou teste. Um segundo (ou até mesmo terceiro) pool de trabalho de pode usar recursos de computação mais poderosos para planos de serviço de aplicativo executando aplicativos de produção.
 
-Um ambiente de serviço de aplicativo pode ser configurado com até cinquenta (50) recursos de computação em um único pool de trabalho. Para obter mais detalhes sobre a quantidade de recursos de computação disponíveis para os pools de front-end e de trabalho, consulte [Como configurar um ambiente de serviço de aplicativo][HowToConfigureanAppServiceEnvironment].
+Para obter mais detalhes sobre a quantidade de recursos de computação disponíveis para os pools de front-end e de trabalho, consulte [Como configurar um ambiente de serviço de aplicativo][HowToConfigureanAppServiceEnvironment].
 
 Para obter detalhes sobre os tamanhos de recursos de computação disponíveis com suporte em um determinado ambiente de serviço de aplicativo, consulte a página [Preços de serviços de aplicativo][AppServicePricing] e revise as opções disponíveis para ambientes de serviço de aplicativo na camada de preços Premium.
 
+## Suporte a Rede Virtual ##
+Um Ambiente de Serviço de Aplicativo pode ser criado em uma rede virtual regional clássica "v1" existente ou uma nova rede virtual regional clássica "v1" ([obter mais informações sobre redes virtuais][MoreInfoOnVirtualNetworks]). Como um ambiente de serviço de aplicativo sempre existe em uma rede virtual regional, mais precisamente em uma sub-rede de uma rede virtual regional, você pode aproveitar os recursos de segurança de redes virtuais para controlar tanto a comunicação de rede de entrada quanto a de saída.
+
+Você pode usar [grupos de segurança de rede][NetworkSecurityGroups] para restringir a comunicação de rede de entrada à sub-rede na qual reside um ambiente de serviço de aplicativo. Isso permite que você execute aplicativos por trás de dispositivos e serviços upstream, como firewalls de aplicativo Web e provedores SaaS de rede.
+
+Aplicativos frequentemente precisam acessar recursos corporativos, como bancos de dados internos e serviços da Web. Uma abordagem comum é disponibilizar esses pontos de extremidade apenas ao tráfego de rede interno que flui dentro de uma rede virtual do Azure. Depois que um ambiente de serviço de aplicativo é combinado à mesma rede virtual que os serviços internos, os aplicativos que são executados no ambiente podem acessá-los, incluindo pontos de extremidade acessíveis via conexões [Site a Site][SiteToSite] e [Rota Expressa do Azure][ExpressRoute].
+
+Para obter mais detalhes sobre o funcionamento dos Ambientes de Serviço de Aplicativo com redes virtuais e redes locais, consulte os seguintes artigos sobre [Arquitetura de rede][NetworkArchitectureOverview], [Controle do tráfego de entrada][ControllingInboundTraffic] e [Conexão segura com back-ends][SecurelyConnectingToBackends].
+
+**Observação:** um Ambiente de Serviço de Aplicativo não pode ser criado em uma rede virtual "v2".
 
 ## Introdução
 
@@ -54,9 +64,9 @@ Para se familiarizar com os Ambientes de Serviços de Aplicativo, consulte [Como
 
 Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
 
-Para obter uma visão geral da arquitetura de rede do Ambiente do Serviço de Aplicativo, consulte o artigo [Visão geral da arquitetura de rede][NetworkArchitectureOverview].
+Para obter uma visão geral da arquitetura de rede do Ambiente de Serviço de Aplicativo, consulte o artigo [Visão geral da arquitetura de rede][NetworkArchitectureOverview].
 
-Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo com o ExpressRoute, consulte o seguinte artigo sobre [Rota Expressa e Ambientes do Serviço de Aplicativo][NetworkConfigDetailsForExpressRoute].
+Para obter detalhes sobre como usar um Ambiente de Serviço de Aplicativo com o ExpressRoute, consulte o seguinte artigo sobre a [Rota Expressa e Ambientes de Serviço de Aplicativo][NetworkConfigDetailsForExpressRoute].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -77,10 +87,12 @@ Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo com o 
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
+[ControllingInboundTraffic]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
+[SecurelyConnectingToBackends]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
 [NetworkArchitectureOverview]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
 [NetworkConfigDetailsForExpressRoute]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

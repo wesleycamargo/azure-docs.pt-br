@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="09/30/2015"
 	ms.author="wesmc"/>
 
 # Introdução aos Hubs de Notificação para aplicativos da Windows Store
@@ -124,7 +124,7 @@ O hub de notificação agora está configurado para trabalhar com o WNS e você 
 
 	Isso baixa, instala e adiciona uma referência em todos os projetos para a biblioteca Mensagens do Azure para a Windows Store usando o <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">pacote NuGet do WindowsAzure.Messaging.Managed</a>.
 
-3. Abra o arquivo de projeto App.xaml.cs e adicione as seguintes instruções `using`. No projeto universal, este arquivo está localizado na pasta `<project_name>.Shared` .
+3. Abra o arquivo de projeto App.xaml.cs e adicione as seguintes instruções `using`. No projeto universal, este arquivo está localizado na pasta `<project_name>.Shared` ￼￼￼.
 
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
@@ -197,6 +197,9 @@ Você pode enviar notificações usando Hubs de Notificação de qualquer back-e
 
 	Isso adiciona uma referência ao SDK de Hubs de Notificação do Azure usando o <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacote NuGet de Hubs Microsoft.Azure.Notification</a>.
 
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+
 5. Abra o arquivo Program.cs e adicione a seguinte instrução `using`:
 
         using Microsoft.Azure.NotificationHubs;
@@ -211,16 +214,16 @@ Você pode enviar notificações usando Hubs de Notificação de qualquer back-e
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   	Substitua o espaço reservado de "nome do hub" pelo nome do hub de notificação que aparece no portal, na guia **Hubs de Notificação**. Além disso, substitua o espaço reservado da cadeia de conexão pela cadeia de conexão chamada **DefaultFullSharedAccessSignature** que você obteve na seção "Configurar seu hub de notificação".
+   	Substitua o espaço reservado de "nome do hub" pelo nome do hub de notificação que aparece no portal, na guia **Hubs de Notificação**. Além disso, substitua o espaço reservado da cadeia de conexão pela cadeia de conexão chamada **DefaultFullSharedAccessSignature** que você obteve na seção “Configurar seu hub de notificação”.
 
-	>[AZURE.NOTE]Verifique se você está usando a cadeia de conexão com acesso **Completo**, não com acesso para **Escutar**. A cadeia de acesso de escuta não tem permissões para enviar notificações.
+	>[AZURE.NOTE]Verifique se você está usando a cadeia de conexão com acesso **Completo**, não com acesso **Escuta**. A cadeia de acesso de escuta não tem permissões para enviar notificações.
 
 7. Adicione as seguintes linhas no método **Main**:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-8. No Visual Studio, clique com o botão direito do mouse no projeto do aplicativo do console e clique em **Definir como Projeto de Inicialização** para defini-lo de volta ao projeto de inicialização. Pressione a tecla **F5** para executar o aplicativo de console.
+8. No Visual Studio, clique com o botão direito do mouse no projeto do aplicativo do console e clique em **Definir como Projeto de Inicialização** para defini-lo como o projeto de inicialização. Pressione a tecla **F5** para executar o aplicativo de console.
 
    	![][14]
 
@@ -264,4 +267,4 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 [catálogo de blocos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [visão geral de emblema]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

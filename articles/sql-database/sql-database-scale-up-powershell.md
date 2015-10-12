@@ -28,7 +28,7 @@
 
 Este artigo mostra como alterar a camada de serviço e o nível de desempenho do banco de dados SQL com o PowerShell.
 
-Use as informações em [Atualizar banco de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md) e [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn741336.aspx) para determinar o nível de desempenho e a camada de serviço apropriados para o Banco de Dados SQL do Azure.
+Use as informações em [Atualizar banco de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md) e [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md) para determinar o nível de desempenho e a camada de serviço apropriados para o Banco de Dados SQL do Azure.
 
 > [AZURE.IMPORTANT]A alteração do nível de desempenho e da camada de serviço de um banco de dados SQL é uma operação online. Isso significa que seu banco de dados permanecerá online e disponível durante toda a operação, sem qualquer tempo de inatividade.
 
@@ -134,4 +134,4 @@ Execute o cmdlet **Set-AzureSqlDatabase** e defina o **-RequestedServiceObjectiv
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

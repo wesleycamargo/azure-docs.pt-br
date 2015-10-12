@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="09/23/2015"
     ms.author="tamram"/>
 
 
@@ -106,7 +106,7 @@ A seguir, examinamos alguns cenários para preparar seus VHDs.
 
 #### VHD do Sistema Operacional Generalizado para criar várias instâncias de VM
 
-Se você estiver carregando um VHD que será usado para criar várias instâncias de VM do Azure genéricas, você deverá primeiro generalizar o VHD usando um utilitário sysprep. Isso se aplica a um VHD que é local ou está na nuvem. O Sysprep remove do VHD quaisquer informações específicas da máquina.
+Se você estiver carregando um VHD que será usado para criar várias instâncias de VM do Azure genéricas, você deverá primeiro generalizar o VHD usando um utilitário sysprep. Isso se aplica a um VHD local ou que está localizado na nuvem. O Sysprep remove do VHD quaisquer informações específicas da máquina.
 
 >[AZURE.IMPORTANT]Tire um instantâneo ou realize backup de sua VM antes de generalizá-lo. Executar o sysprep excluirá a instância VM. Siga as etapas abaixo para usar o sysprep em um VHD do sistema operacional Windows. Observe que executar o comando Sysprep exigirá que você desligue a máquina virtual. Para saber mais sobre o Sysprep, consulte [Visão Geral do Sysprep](http://technet.microsoft.com/library/hh825209.aspx) ou [Referência Técnica do Sysprep](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx).
 
@@ -127,7 +127,7 @@ Se você tiver um aplicativo em execução na máquina virtual que exige dados e
 
 #### VHDs do disco de dados a serem anexados à(s) instância(s) de VM(s)
 
-Se você tiver discos de dados em um armazenamento na nuvem a serem migrados, deverá verificar se as máquinas virtuais que usam esses discos devem ser finalizadas. Para os discos de dados que estão no local, crie um VHD consistente.
+Se você tiver discos de dados em um armazenamento na nuvem a serem migrados, deverá verificar se as máquinas virtuais que usam esses discos devem ser finalizadas. Para os discos de dados locais, crie um VHD consistente.
 
 ## Copiar os VHDs para o Armazenamento do Azure
 
@@ -315,4 +315,4 @@ Consulte também as fontes a seguir para saber mais sobre o Armazenamento do Azu
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

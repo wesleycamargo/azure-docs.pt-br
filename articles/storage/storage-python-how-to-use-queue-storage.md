@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar o Armazenamento de fila do Python | Microsoft Azure"
-	description="Saiba como usar o serviço Fila do Azure do Python para criar e excluir filas, bem como para inserir, obter e excluir mensagens."
-	services="storage"
-	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	pageTitle="Como usar o Armazenamento de fila do Python | Microsoft Azure" 
+	description="Saiba como usar o serviço Fila do Azure do Python para criar e excluir filas, bem como para inserir, obter e excluir mensagens." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="emgerner-msft" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="emgerner"/>
 
 # Como usar o Armazenamento de fila do Python
@@ -107,10 +107,12 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 -   Consulte a referência do MSDN: [Armazenando e acessando dados no Azure][]
 -   Visite o [Blog da Equipe de Armazenamento do Azure][]
 
+Para obter mais informações, veja também o [Centro de Desenvolvedores do Python](/develop/python/).
+
 [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [pacote do Python Azure]: https://pypi.python.org/pypi/azure
 [pacote de armazenamento do Python Azure]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/04/2015"
+   ms.date="09/25/2015"
    ms.author="ryanwi"/>
 
 # Diagnosticar e monitorar um serviço da Malha do Serviço
@@ -22,7 +22,6 @@ Monitoramento, detecção, diagnóstico e solução de problemas permitem dar co
 - [Como monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 - [Configurando o Application Insights para seu aplicativo da Malha do Serviço](service-fabric-diagnostics-application-insights-setup.md)
 - [Solucionando problemas de falhas de atualização de aplicativo ](service-fabric-application-upgrade-troubleshooting.md)
-- [Solucionando uma atualização de aplicativo monitorada com falha](../service-fabric-application-monitored-upgrade-troubleshooting.md)
 - [Diagnóstico e monitoramento de desempenho para Atores Confiáveis](service-fabric-reliable-actors-diagnostics.md)
 - [Diagnóstico e monitoramento de desempenho para Serviços Confiáveis](service-fabric-reliable-services-diagnostics.md)
 
@@ -38,6 +37,5 @@ A Malha do Serviço apresenta um modelo de integridade que fornece uma funcional
 - [Como exibir relatórios de integridade da Malha do Serviço](service-fabric-view-entities-aggregated-health.md)
 - [Usando relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Adicionando relatórios de integridade personalizados da Malha do Serviço](service-fabric-report-health.md)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

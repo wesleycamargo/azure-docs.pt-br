@@ -105,7 +105,9 @@ Para obter informações sobre como usar o PowerShell do Azure, consulte [Como u
 
 O CLI do Azure é um conjunto de ferramentas de linha de comando para implantar e gerenciar serviços do Azure, como os Sites do Azure e Máquinas Virtuais do Azure. Para obter informações sobre como instalar a CLI do Azure, consulte [Instalar a CLI do Azure](xplat-cli-install.md).
 
+## Próximas etapas
 
+Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
 
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -128,4 +130,4 @@ O CLI do Azure é um conjunto de ferramentas de linha de comando para implantar 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

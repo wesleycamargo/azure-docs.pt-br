@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="09/27/2015"
 	ms.author="selcint"/>
 
 # Usando o PowerShell do Azure com o Armazenamento do Azure
@@ -595,9 +595,9 @@ Seu código remove uma mensagem de um fila em duas etapas. Quando você chama o 
     $Queue.CloudQueue.DeleteMessage($QueueMessage)
 
 ## Como gerenciar arquivos e compartilhamentos de arquivos do Azure
-O armazenamento de arquivos do Azure oferece armazenamento compartilhado para aplicativos usando o protocolo padrão SMB 2.1. As máquinas virtuais e os serviços de nuvem do Microsoft Azure podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API de armazenamento de arquivo ou o Azure PowerShell.
+O Armazenamento de Arquivos do Azure oferece o armazenamento compartilhado para aplicativos com o uso do protocolo SMB padrão. As máquinas virtuais e os serviços de nuvem do Microsoft Azure podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API de armazenamento de arquivo ou o Azure PowerShell.
 
-Para obter mais informações sobre o armazenamento de arquivos do Azure, consulte [Como usar o armazenamento de arquivos do Azure](storage-dotnet-how-to-use-files.md) e [REST API de serviços de arquivo](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+Para obter mais informações sobre o Armazenamento de arquivos do Azure, veja [Como usar o Armazenamento de arquivos do Azure com o Windows](storage-dotnet-how-to-use-files.md) e [API REST do Serviço de Arquivos](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## Como definir e consultar análises de armazenamento
 Você pode usar a [Análise de armazenamento do Azure](storage-analytics.md) para coletar métricas para suas contas de armazenamento do Azure e registrar dados sobre solicitações enviadas à sua conta de armazenamento. Você pode usar métricas de armazenamento para monitorar a integridade de uma conta de armazenamento, e log de armazenamento para diagnosticar e solucionar problemas com sua conta de armazenamento. Por padrão, as métricas de armazenamento não estão habilitadas para seus serviços de armazenamento. Você pode habilitar o monitoramento usando o Portal de Gerenciamento do Azure, Windows PowerShell ou com programação por meio de uma API de armazenamento. O log de armazenamento ocorre no lado do servidor e permite que você registre detalhes de solicitações bem-sucedidas e com falhas na conta de armazenamento. Esses registros permitem ver detalhes de operações de leitura, gravação e exclusão em suas tabelas, filas e blobs bem como as razões para solicitações com falha.
@@ -736,4 +736,4 @@ Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerSh
 [Next Steps]: #next
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

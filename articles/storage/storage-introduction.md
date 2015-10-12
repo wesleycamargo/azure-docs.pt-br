@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="09/28/2015" 
 	ms.author="tamram"/>
 
 # Introdução ao Armazenamento do Microsoft Azure
@@ -46,14 +46,14 @@ O Armazenamento de fila fornece uma solução de mensagens confiáveis para comu
 
 O Armazenamento do Azure oferece suporte a clientes que usam um conjunto variado de sistemas operacionais (inclusive o Windows e o Linux) e uma variedade de linguagens de programação (incluindo .NET, Java e C++) para desenvolvimento conveniente. O Armazenamento do Azure também expõe recursos de dados por meio de APIs REST simples, que estão disponíveis para qualquer cliente capaz de enviar e receber dados via HTTP/HTTPS.
 
-O Armazenamento premium do Azure agora está disponível na visualização. O Armazenamento premium do Azure dá suporte a disco de alto desempenho e baixa latência para cargas de trabalho com uso intenso de entrada e saída em execução em máquinas virtuais do Azure. Com o Armazenamento premium do Azure, é possível anexar vários discos de dados persistentes a uma máquina virtual e configurá-los para atender suas necessidades de desempenho. Cada disco de dados é apoiado por um disco SSD no Armazenamento premium do Azure para máximo desempenho de entrada e saída. Para obter mais detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage-premium-storage-preview-portal).
+O Armazenamento premium do Azure dá suporte a disco de alto desempenho e baixa latência para cargas de trabalho com uso intenso de entrada e saída em execução em máquinas virtuais do Azure. Com o Armazenamento premium do Azure, é possível anexar vários discos de dados persistentes a uma máquina virtual e configurá-los para atender suas necessidades de desempenho. Cada disco de dados é apoiado por um disco SSD no Armazenamento premium do Azure para máximo desempenho de entrada e saída. Para obter mais detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage-premium-storage-preview-portal).
 
 ## Apresentando os serviços de Armazenamento do Azure
 
 Uma conta de armazenamento do Azure é uma conta segura que fornece acesso a serviços no Armazenamento do Azure. Sua conta de armazenamento fornece um namespace único para seus recursos de armazenamento. Existem dois tipos de contas de armazenamento:
 
 - Uma conta de armazenamento padrão inclui armazenamento de Blob, Tabela e Fila.
-- Uma conta de armazenamento premium tem suporte no momento para discos de Máquina Virtual do Azure apenas. O Armazenamento Premium do Azure está disponível sob solicitação por meio da página de [Visualização do Azure](/services/preview/).
+- Uma conta de armazenamento premium tem suporte no momento para discos de Máquina Virtual do Azure apenas.
 
 Antes de criar uma conta de armazenamento, você deve ter uma assinatura do Azure, que é um plano que dá acesso a uma variedade de serviços do Azure. [Você pode criar até 100 contas de armazenamento nomeadas exclusivamente com uma única assinatura.](../azure-subscription-service-limits.md) Consulte [Detalhes de preços de armazenamento](http://azure.microsoft.com/pricing/details/storage/) para obter informações sobre o preço por volume.
 
@@ -66,7 +66,7 @@ Uma conta de armazenamento padrão dá acesso a armazenamento de Blob, Tabela, F
 - **O Armazenamento de Blob** armazena dados de arquivos. Um blob pode ser qualquer tipo de texto ou dados binários, como um documento, um arquivo de mídia ou um instalador do aplicativo. 
 - **O Armazenamento de Tabela** armazena conjuntos de dados estruturados. O Armazenamento de Tabela é um repositório de dados de atributo de chave NoSQL, que permite desenvolvimento rápido e acesso rápido a grandes quantidades de dados.
 - **O Armazenamento de Fila** fornece sistema de mensagens confiável para processamento de fluxo de trabalho e para comunicação entre componentes dos serviços de nuvem.
-- O **Armazenamento de arquivo (Visualização)** oferece armazenamento compartilhado para aplicativos herdados usando o protocolo padrão SMB 2.1. As máquinas virtuais do Azure e os serviços de nuvem podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API REST do serviço de Arquivo. O armazenamento de arquivo está disponível sob solicitação por meio da [página Visualização do Azure](/services/preview/). 
+- **O Armazenamento de arquivos** oferece o armazenamento compartilhado para aplicativos herdados com o protocolo SMB padrão. As máquinas virtuais e os serviços de nuvem do Azure podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e os aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API REST do serviço de Arquivo. 
 
 Cada conta de armazenamento padrão pode conter até 500 TB de dados de blob, tabela, fila e arquivo combinados. Confira as [Metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md) para obter detalhes sobre a capacidade da conta de armazenamento padrão.
 
@@ -78,7 +78,7 @@ Para saber como criar uma conta de armazenamento padrão, confira [Criar, gerenc
 
 ### Contas de Armazenamento Premium
 
-Um Armazenamento premium do Azure tem suporte no momento para discos de Máquina Virtual do Azure apenas. O Armazenamento Premium do Azure está disponível sob solicitação por meio da [página Visualização do Azure](/services/preview/). Para obter uma visão geral detalhada do Armazenamento Premium do Azure, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
+Um Armazenamento premium do Azure tem suporte no momento para discos de Máquina Virtual do Azure apenas. Para obter uma visão geral detalhada do Armazenamento Premium do Azure, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
 
 ## Armazenamento de Blob
 
@@ -117,13 +117,13 @@ Na criação de aplicativos para escala, os componentes do aplicativo geralmente
 
 Uma conta de armazenamento pode conter qualquer número de filas. Uma fila pode conter um número ilimitado de mensagens, até o limite de capacidade da conta de armazenamento. Mensagens individuais podem ter até 64 KB de tamanho.
 
-## Armazenamento de arquivos (visualização)
+## Armazenamento de arquivo
 
-O armazenamento de arquivos do Azure oferece compartilhamentos de arquivo SMB 2.1 baseados em nuvem, de modo que você pode migrar aplicativos herdados que recorrem aos compartilhamentos de arquivo para o Azure rapidamente e sem regravações caras. Com o armazenamento de arquivos do Azure, os aplicativos executados em máquinas virtuais do Azure ou serviços de nuvem podem montar um compartilhamento de arquivos na nuvem, exatamente como um aplicativo de desktop monta um compartilhamento SMB típico. Qualquer quantidade de componentes de aplicativos pode montar e acessar o compartilhamento de armazenamento de arquivos simultaneamente.
+O Armazenamento de arquivos do Azure oferece compartilhamentos de arquivos do SMB baseados em nuvem, para que você possa migrar aplicativos herdados que recorrem aos compartilhamentos de arquivos para o Azure rapidamente e sem regravações caras. Com o armazenamento de arquivos do Azure, os aplicativos executados em máquinas virtuais do Azure ou serviços de nuvem podem montar um compartilhamento de arquivos na nuvem, exatamente como um aplicativo de desktop monta um compartilhamento SMB típico. Qualquer quantidade de componentes de aplicativos pode montar e acessar o compartilhamento de armazenamento de arquivos simultaneamente.
 
-Uma vez que um compartilhamento de armazenamento de Arquivo é um compartilhamento de arquivo SMB 2.1 padrão, aplicativos executados no Azure podem acessar dados no compartilhamento por meio de APIs E/S de sistemas de arquivos. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Profissionais de TI podem usar cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de Arquivo como parte da administração de aplicativos Azure.
+Já que um compartilhamento do Armazenamento de arquivos é um compartilhamento de arquivos SMB padrão, os aplicativos executados no Azure podem acessar dados no compartilhamento por meio de APIs de E/S do sistema de arquivos. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Profissionais de TI podem usar cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de Arquivo como parte da administração de aplicativos Azure.
 
-Assim como os outros serviços de armazenamento do Azure, o armazenamento de Arquivo expõe a API REST para acessar dados em um compartilhamento. Aplicativos no local podem chamar a API REST do armazenamento de arquivo para acessar dados em um armazenamento de arquivo. Dessa forma, uma empresa pode optar por migrar alguns aplicativos herdados para o Azure e continuar executando outros de dentro de sua própria organização. Observe que montar um compartilhamento de arquivo é possível somente para aplicativos em execução no Azure. Um aplicativo local pode acessar o compartilhamento de arquivo somente pela API REST.
+Assim como os outros serviços de armazenamento do Azure, o armazenamento de Arquivo expõe a API REST para acessar dados em um compartilhamento. Aplicativos no local podem chamar a API REST do armazenamento de arquivo para acessar dados em um armazenamento de arquivo. Dessa forma, uma empresa pode optar por migrar alguns aplicativos herdados para o Azure e continuar executando outros de dentro de sua própria organização. É importante observar que montar um compartilhamento de arquivos é possível apenas para aplicativos executados no Azure. Um aplicativo local pode acessar o compartilhamento de arquivos apenas pela API REST.
 
 Aplicativos distribuídos também podem usar o armazenamento de arquivo para armazenar e compartilhar dados de aplicativos úteis e ferramentas de desenvolvimento e testes. Por exemplo, um aplicativo pode armazenar arquivos de configuração e dados de diagnósticos como logs, métricas e despejos de falha para que estejam disponíveis para diversas funções ou máquinas virtuais. Desenvolvedores e administradores podem armazenar utilitários de que precisam para compilar ou gerenciar um aplicativo em um armazenamento de arquivo que esteja disponível para todos os componentes, em vez de instalá-los em todas as máquinas virtuais ou instâncias de função.
 
@@ -133,7 +133,11 @@ Por padrão, somente o proprietário da conta de armazenamento pode acessar recu
 
 Sua conta de armazenamento recebe duas chaves de acesso privadas na criação, que são usadas para autenticação. Ter duas chaves garante que seu aplicativo permaneça disponível quando você regenerar regularmente as chaves como uma prática comum de gerenciamento de chaves de segurança.
 
-Se você precisar permitir acesso controlado aos usuários a seus recursos de armazenamento, poderá criar uma [assinatura de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md). Uma assinatura de acesso compartilhado é um token que pode ser acrescentado a uma URL que permite acesso delegado a um contêiner, blob, tabela ou fila. Qualquer pessoa que possua o token pode acessar o recurso para o qual ele aponta com as permissões que ele especifica, pelo período de tempo da validade. Observe que atualmente o armazenamento de arquivo do Azure não oferece suporte para assinaturas de acesso compartilhado.
+Se você precisar permitir acesso controlado aos usuários a seus recursos de armazenamento, poderá criar uma [assinatura de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md). Uma SAS (assinatura de acesso compartilhado) é um token que pode ser acrescentado a uma URL que permite acesso delegado a um recurso de armazenamento. Qualquer pessoa que possua o token pode acessar o recurso para o qual ele aponta com as permissões que ele especifica, pelo período de tempo da validade. A partir da versão de 5/4/2015, o Armazenamento do Azure dá suporte a dois tipos de assinaturas de acesso compartilhado: SAS de serviço e SAS de conta.
+
+A SAS de serviço delega acesso a um recurso em apenas um dos serviços de armazenamento: o serviço Blob, Fila, Tabela ou Arquivo.
+
+Uma SAS de conta delega acesso a recursos em um ou mais dos serviços de armazenamento. É possível delegar acesso a operações de nível de serviço que não estão disponíveis com uma SAS de serviço. Você também pode delegar acesso a operações de leitura, gravação e exclusão em contêineres de blob, tabelas, filas e compartilhamentos de arquivos que não são permitidos com um SAS de serviço.
 
 Finalmente, você pode especificar que um contêiner e seus blobs ou um blob específico estão disponíveis para acesso público. Quando você indica que um contêiner ou blob é público, qualquer pessoa pode lê-lo anonimamente. Nenhuma autenticação é necessária. Os contêineres e blobs públicos são úteis para expor recursos, como mídia e documentos, que são hospedados em sites. Para reduzir a latência de rede para um público global, você pode armazenar em cache os dados de blob usados por sites com a CDN do Azure.
 
@@ -230,4 +234,4 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 - [Como usar o Armazenamento de Fila no Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=06-->
+<!---HONumber=Oct15_HO1-->

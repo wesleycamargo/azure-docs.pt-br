@@ -6,7 +6,8 @@
 	authors="rothja" 
 	manager="jeffreyg" 
 	editor="monicar"
-	tags="azure-service-management"/>
+	tags="azure-service-management"
+	/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -36,7 +37,9 @@ Neste tutorial, você vai:
 * [Concluir as etapas de configuração para conectar-se à máquina virtual usando o SQL Server Management Studio em outro computador](#SSMS)
 * [Próximas etapas](#Optional)
 
-##<a id="Provision">Provisionar uma máquina virtual do SQL Server da Galeria</a>
+>[AZURE.NOTE]Este artigo descreve como provisionar uma VM do SQL Server com o Portal de Gerenciamento do Azure existente. No entanto, também é possível criar e gerenciar VMs do SQL Server no [novo Portal](https://manage.windowsazure.com). Há algumas vantagens no novo portal, como o uso do Armazenamento Premium como padrão e outras opções, como configurações de Aplicação de Patch Automatizada, Backup Automatizado e do AlwaysOn. O conteúdo futuro abordará instruções passo a passo.
+
+##<a id="Provision">Provisionar uma máquina virtual do SQL Server por meio da galeria</a>
 
 1. Faça logon no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com) usando sua conta. Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -46,12 +49,12 @@ Neste tutorial, você vai:
 
 	![Escolha uma imagem](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
 
-Para obter as informações mais atualizadas sobre as imagens do SQL Server com suporte no Azure, consulte [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
+Para obter as informações mais atualizadas sobre as imagens do SQL Server com suporte no Azure, veja [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
 >[AZURE.NOTE] Se você tiver uma máquina virtual criada usando a imagem da plataforma da edição de avaliação do SQL Server, não será possível atualizá-la para uma imagem de edição paga por minuto na galeria. Você pode escolher uma das duas seguintes opções:
 >
-> - Você pode criar uma nova máquina virtual usando a edição paga por minuto do SQL Server da galeria e migrar seus arquivos de banco de dados para essa nova máquina virtual seguindo as etapas em [Migrar um banco de dados para SQL Server em uma VM do Azure](virtual-machines-migrate-onpremises-database)
-> - Ou você pode atualizar uma instância existente do SQL Server Evaluation Edition para outra edição do SQL Server sob o contrato de [Mobilidade de Licença por meio do Software Assurance no Azure](http://azure.microsoft.com/pricing/license-mobility/) seguindo as etapas em [Atualizar para uma edição diferente do SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). Para obter informações sobre como adquirir a cópia licenciada do SQL Server, consulte [Como comprar o SQL Server (a página pode estar em inglês)](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
+> - Você pode criar uma nova máquina virtual usando a edição paga por minuto do SQL Server por meio da galeria e migrar seus arquivos de banco de dados para essa nova máquina virtual seguindo as etapas em [Migrar um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-migrate-onpremises-database)
+> - Ou você pode atualizar uma instância existente do SQL Server Evaluation Edition para uma edição diferente do SQL Server nos termos do contrato de [Mobilidade de Licença por meio do Software Assurance no Azure](http://azure.microsoft.com/pricing/license-mobility/) seguindo as etapas em [Atualizar para uma edição diferente do SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). Para obter informações sobre como adquirir a cópia licenciada do SQL Server, consulte [Como comprar o SQL Server (a página pode estar em inglês)](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
 
 4. Na primeira página **Configuração de Máquina Virtual**, forneça as seguintes informações:
 	- UMA **DATA DE LANÇAMENTO DA VERSÃO**. Se houver várias imagens, selecione a mais recente.
@@ -65,13 +68,8 @@ Para obter as informações mais atualizadas sobre as imagens do SQL Server com 
 
 	>[AZURE.NOTE] O tamanho da máquina virtual é especificado durante o provisionamento:
  	>
-	> - Um2 é o tamanho menor recomendado para cargas de trabalho de produção. 
-    > - O tamanho mínimo recomendado para uma máquina virtual é A3 ao usar o SQL Server Enterprise Edition.
-    > - Selecione A3 ou maior ao usar o SQL Server Enterprise Edition.
-   	> - Selecione A4 ou superior ao usar imagens do SQL Server 2012 ou 2014 Enterprise Otimizado para Cargas de Trabalho Transacionais.  
-   	> - Selecione A7 ou superior ao usar imagens do SQL Server 2012 ou 2014 Enterprise Otimizado para Cargas de Trabalho de Data Warehousing. 
-   	> - Para obter um melhor desempenho, use DS2 ou DS3 com Armazenamento Premium. Para obter mais informações, consulte [Práticas recomendadas de desempenho do SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md).
-   	> - O tamanho selecionado limita o número de discos de dados que você pode configurar. Para obter informações mais atualizadas sobre tamanhos de máquina virtual disponíveis e o número de discos de dados que você pode anexar a uma máquina virtual, consulte [Tamanhos de Máquina Virtual para o Azure](virtual-machines-size-specs.md) .
+	> - Para cargas de trabalho de produção, recomendamos o uso do Armazenamento Premium com os seguintes tamanhos mínimos recomendados: **DS3** para o SQL Server Enterprise Edition e **DS2** para o SQL Server Standard Edition. Para obter mais informações, veja [Práticas recomendadas de desempenho do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-performance-best-practices.md).
+	> - O tamanho selecionado limita o número de discos de dados que podem ser configurados. Para obter informações mais atualizadas sobre tamanhos de máquina virtual disponíveis e o número de discos de dados que você pode anexar a uma máquina virtual, consulte [Tamanhos de Máquina Virtual para o Azure](virtual-machines-size-specs.md) .
 
 5. Depois de inserir os detalhes de configuração de VM, clique na seta Avançar no canto inferior direito para continuar.
 
@@ -99,7 +97,7 @@ Para obter as informações mais atualizadas sobre as imagens do SQL Server com 
 	- **Executando**
 	
 
-##<a id="RemoteDesktop">Abra a VM usando a área de trabalho remota para concluir a instalação</a>
+##<a id="RemoteDesktop">Abrir a VM usando a Área de Trabalho Remota para concluir a instalação</a>
 
 1. Quando o provisionamento for concluído, clique no nome da sua máquina virtual para ir para a página PAINEL. Na parte inferior da página, clique em **Conectar**.
 
@@ -117,11 +115,11 @@ Para obter as informações mais atualizadas sobre as imagens do SQL Server com 
 
 Quando você está conectado à máquina virtual com a Área de Trabalho Remota do Windows, a máquina virtual funciona de maneira muito semelhante à qualquer outro computador. Conecte-se à instância padrão do SQL Server com o SQL Server Management Studio (em execução na máquina virtual) da maneira normal.
 
-##<a id="SSMS">Conectar-se à instância da VM do SQL Server a partir do SSMS em outro computador</a>
+##<a id="SSMS">Conectar-se à instância VM do SQL Server por meio do SSMS em outro computador</a>
 
 [AZURE.INCLUDE [Conectar-se ao SQL Server em uma VM](../../includes/virtual-machines-sql-server-connection-steps.md)]
 
-## <a id="cdea">Conectar-se ao mecanismo de banco de dados a partir do aplicativo</a>
+## <a id="cdea">Conectar-se ao Mecanismo de Banco de Dados por meio do seu aplicativo</a>
 
 Se você puder se conectar a uma instância do SQL Server em execução em uma máquina virtual do Azure usando o Management Studio, você poderá se conectar usando uma cadeia de conexão semelhante à seguinte.
 
@@ -131,7 +129,7 @@ Para obter mais informações, consulte [Como solucionar problemas de conexão c
 
 ##<a id="Optional">Próximas etapas</a>
 
-Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure usando a imagem de plataforma. Em muitos casos, a próxima etapa é migrar os bancos de dados para essa nova VM do SQL Server. Para obter orientação de migração do banco de dados, consulte [Migrando um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-migrate-onpremises-database.md).
+Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure usando a imagem de plataforma. Em muitos casos, a próxima etapa é migrar os bancos de dados para essa nova VM do SQL Server. Para obter orientações sobre a migração de banco de dados, veja [Migrando um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-migrate-onpremises-database.md).
 
 A lista a seguir fornece recursos adicionais para o SQL Server em máquinas virtuais do Azure.
 
@@ -157,4 +155,4 @@ A lista a seguir fornece recursos adicionais para o SQL Server em máquinas virt
 
 - [Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

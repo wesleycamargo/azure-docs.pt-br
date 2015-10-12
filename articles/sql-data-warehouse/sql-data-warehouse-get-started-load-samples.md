@@ -35,7 +35,7 @@ Você pode garantir o carregamento desses dados de exemplo em seu SQL Data Wareh
 
 ##Usando o Power BI para analisar a Adventureworks
 
-O uso do conjunto de dados de exemplo pode ser uma ótima maneira de começar a usar o Power BI. Depois de carregar os dados de exemplo, você poderá abrir uma conexão com o SQL Data Warehouse clicando no botão ‘Abrir no Power BI’ no portal do Azure ou acessando o [Power BI][] e [conectando-se ao SQL Data Warehouse][]. Após a conexão, um novo conjunto de dados deve ser criado com o mesmo nome de seu data warehouse. Para facilitar a análise, criamos uma exibição chamada ‘AggregateSales’ com algumas das métricas fundamentais para a análise das vendas da empresa. Você pode clicar no nome da exibição para expandi-la e ver as colunas que ela contém, e também pode criar algumas visualizações rápidas seguindo estas etapas:
+O uso do conjunto de dados de exemplo pode ser uma ótima maneira de começar a usar o Power BI. Depois de carregar os dados de exemplo, você poderá abrir uma conexão com o SQL Data Warehouse clicando no botão “Abrir no Power BI” no portal do Azure ou acessando [Power BI][] e [conectando-se ao SQL Data Warehouse][]. Após a conexão, um novo conjunto de dados deve ser criado com o mesmo nome de seu data warehouse. Para facilitar a análise, criamos uma exibição chamada ‘AggregateSales’ com algumas das métricas fundamentais para a análise das vendas da empresa. Você pode clicar no nome da exibição para expandi-la e ver as colunas que ela contém, e também pode criar algumas visualizações rápidas seguindo estas etapas:
 
 1. Para começar, podemos criar com facilidade um mapa de todas as nossas vendas clicando nas colunas ‘PostalCode’ e ‘SalesAmount’. O Power BI reconhecerá isso automaticamente como dados geográficos e os colocará em um mapa para você. 
 
@@ -85,8 +85,8 @@ Agora que proporcionamos a você uma introdução à verificação de dados de e
 [migração de código]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-migrate-code/
 [carregar dados de exemplo manualmente]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
 [carregar os dados de exemplo manualmente]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[Portal do Azure]: portal.azure.com
-[Power BI]: www.powerbi.com
+[Portal do Azure]: https://portal.azure.com
+[Power BI]: http://www.powerbi.com
 [conectando-se ao SQL Data Warehouse]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-integrate-power-bi/
 
 <!--MSDN references-->
@@ -95,4 +95,4 @@ Agora que proporcionamos a você uma introdução à verificação de dados de e
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

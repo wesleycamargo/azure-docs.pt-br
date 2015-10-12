@@ -13,20 +13,22 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#Conectar o Banco de Dados do SQL Azure à Pesquisa do Azure usando indexadores#
+#Conectar o Banco de Dados do SQL Azure à Pesquisa do Azure usando indexadores
 
-O serviço de Pesquisa do Azure facilita o fornecimento de uma excelente experiência de pesquisa. Porém, antes de poder pesquisar, você precisa preencher um índice de Pesquisa do Azure com seus dados. Se os dados estiverem em um Banco de Dados SQL do Azure, o novo recurso **indexador da Pesquisa do Azure para o Banco de Dados SQL do Azure** (ou **indexador do SQL Azure** para resumir) na Pesquisa do Azure poderá automatizar o processo de indexação. Isso significa menos código para escrever e menos infraestrutura para manter.
+O serviço de Pesquisa do Azure facilita o fornecimento de uma excelente experiência de pesquisa. Porém, antes de poder pesquisar, você precisa preencher um índice de Pesquisa do Azure com seus dados. Se os dados estiverem em um Banco de Dados SQL do Azure, o novo **indexador da Pesquisa do Azure para o Banco de Dados SQL do Azure** (ou **indexador do SQL Azure** para resumir) na Pesquisa do Azure poderá automatizar o processo de indexação. Isso significa menos código para escrever e menos infraestrutura para se preocupar.
 
-Atualmente, os indexadores funcionam apenas com o Banco de Dados SQL do Azure, com o SQL Server em VMs do Azure e com o Banco de Dados de Documentos do Azure. Neste artigo, vamos nos concentrar nos indexadores que funcionam com o Banco de Dados SQL do Azure. Se você quiser suporte para outras fontes de dados, forneça seus comentários no [Fórum de comentários da Pesquisa do Azure](http://feedback.azure.com/forums/263029-azure-search).
+Atualmente, os indexadores funcionam apenas com o Banco de Dados SQL do Azure, SQL Server em VMs do Azure e [Banco de Dados de Documentos do Azure](../documentdb/documentdb-search-indexer.md). Neste artigo, vamos nos concentrar nos indexadores que funcionam com o Banco de Dados SQL do Azure. Se você quiser suporte para outras fontes de dados, forneça seus comentários no [Fórum de comentários da Pesquisa do Azure](http://feedback.azure.com/forums/263029-azure-search).
 
 Este artigo abordará a mecânica do uso de indexadores, mas também exploraremos recursos e comportamentos disponíveis apenas com os bancos de dados SQL (por exemplo, controle integrado de alterações).
 
 ## Indexadores e fontes de dados ##
 
-Para instalar e configurar um indexador do SQL Azure, você pode chamar a [API REST da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) para criar e gerenciar **indexadores** e **fontes de dados**. Posteriormente, essa funcionalidade também estará disponível no portal de gerenciamento do Azure e no SDK .Net da Pesquisa do Azure.
+Para instalar e configurar um indexador do SQL Azure, você pode chamar a [API REST da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) para criar e gerenciar **indexadores** e **fontes de dados**.
+
+Também é possível usar a [classe Indexer](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) no [SDK do .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx) ou o assistente de Importação de Dados no [portal do Azure](https://portal.azure.com) para criar e agendar um indexador.
 
 Uma **fonte de dados** especifica quais dados indexar, as credenciais necessárias para acessar os dados e as políticas que permitem à Pesquisa do Azure identificar com eficiência as alterações nos dados (linhas novas, modificadas ou excluídas). Ela é definida como um recurso independente para que possa ser usada por vários indexadores.
 
@@ -77,7 +79,7 @@ Em seguida, crie um índice de destino da Pesquisa do Azure, caso ainda não ten
 | bigint | Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
 | smallmoney, numérico decimal dinheiro | Edm.String| O Azure Search não dá suporte à conversão de tipos decimais em Edm.Double porque isso causaria a perda de precisão |
-| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transformar uma coluna de cadeia de caracteres em Collection(Edm.String) requer o uso de uma API Versão 2015-02-28-visualização prévia. Consulte [este artigo](search-api-indexers-2015-02-28-Preview.md#create-indexer) para obter detalhes| 
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transformar uma coluna de cadeia de caracteres em Collection(Edm.String) requer o uso de uma API Versão 2015-02-28-visualização prévia. Confira [este artigo](search-api-indexers-2015-02-28-Preview.md#create-indexer) para obter detalhes| 
 |smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
 |uniqueidentifer | Edm.String | |
 |geografia | Edm.GeographyPoint | Há suporte apenas para instâncias de Geografia do tipo POINT com SRID 4326 (que é o padrão) | | 
@@ -249,7 +251,7 @@ Observe que **softDeleteMarkerValue** deve ser uma cadeia de caracteres – use 
 
 ## Personalizar o indexador do SQL Azure ##
  
-Você pode personalizar certos aspectos do comportamento do indexador (por exemplo, tamanho do lote, número de documentos que podem ser ignorados antes que uma execução de indexador falhe etc.). Para mais detalhes, confira [Documentação da API do indexador](http://go.microsoft.com/fwlink/p/?LinkId=528173).
+Você pode personalizar certos aspectos do comportamento do indexador (por exemplo, tamanho do lote, número de documentos que podem ser ignorados antes que uma execução de indexador falhe, entre outros). Para obter mais detalhes, veja [Personalização de indexador do Pesquisa do Azure](search-indexers-customization.md).
 
 ## Perguntas frequentes ##
 
@@ -277,4 +279,4 @@ R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e o
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

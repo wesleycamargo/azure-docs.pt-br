@@ -191,6 +191,8 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 - [Documentação do Django]
 - [MySQL]
 
+Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
+
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -216,4 +218,4 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

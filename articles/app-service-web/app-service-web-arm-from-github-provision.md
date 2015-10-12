@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Implantar um aplicativo Web vinculado a um repositório GitHub" 
 	description="Use um modelo do Gerenciador de Recursos do Azure para implantar um aplicativo Web que contém um projeto de um repositório GitHub." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -32,7 +32,7 @@ Com esse modelo, você implantará um aplicativo Web que contém o código de um
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
-[![Implantar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+[![Implantar no Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
 ## Parâmetros
 
@@ -110,4 +110,4 @@ O aplicativo Web também tem um recurso filho que é definido na seção de **re
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

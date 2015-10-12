@@ -445,7 +445,7 @@ Outra opção para o provisionamento de um cluster HDInsight é a CLI do Azure. 
 - **SDK do Node.js** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
 - **CLI do Azure** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-Para ver um guia geral sobre como usar a CLI do Azure, consulte [CLI do Azure para Mac, Linux e Windows](../xplat-cli.md).
+Para ver um guia geral sobre como usar a CLI do Azure, consulte [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md).
 
 As instruções a seguir orientam sobre como instalar a CLI do Azure no Linux e no Windows e como usar a linha de comando para provisionar um cluster.
 
@@ -810,4 +810,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

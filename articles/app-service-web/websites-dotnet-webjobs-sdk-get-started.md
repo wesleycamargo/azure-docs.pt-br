@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -816,4 +816,4 @@ Para obter mais informações, consulte [Recursos recomendados para Trabalhos We
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obter um guia sobre a alteração do portal do Azure para o portal de visualização do Azure, consulte [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

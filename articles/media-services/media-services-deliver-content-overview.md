@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/27/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,8 @@ Exemplo
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
+
+
 **Formato Apple HTTP Live Streaming (HLS) V4**
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl)
@@ -96,6 +98,11 @@ Exemplo
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
+**Formato HLS (Apple HTTP Live Streaming) com filtro somente áudio**
+
+Por padrão, faixas somente áudio são incluídas no manifesto do HLS. Isso é necessário para a certificação da Apple Store para redes de celular. Nesse caso, se um cliente não tiver largura de banda suficiente ou conectada por uma conexão 2G, ele alternará para a reprodução somente áudio. Isso ajuda a manter a transmissão contínua sem buffer, mas com uma desvantagem de nenhuma exibição de vídeo. No entanto, em alguns cenários, o buffer do player pode ser preferível em relação ao somente áudio. Se desejar remover a faixa somente áudio, é possível adicionar (somente áudio = false) à URL e removê-la.
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 **Formato Smooth Streaming**
 
@@ -163,7 +170,7 @@ As seguintes considerações se aplicam:
 
 ##Ponto de extremidade de streaming
 
-Um **Ponto de Extremidade de Streaming** representa um serviço de streaming que pode entregar conteúdo diretamente a um aplicativo de player do cliente ou a uma CDN (Rede de Distribuição de Conteúdo) para distribuição posterior. O fluxo de saída de um serviço de ponto de extremidade de streaming pode ser uma transmissão ao vivo ou um ativo de vídeo sob demanda em sua conta dos Serviços de Mídia. Além disso, você pode controlar a capacidade do serviço de ponto de extremidade de streaming para lidar com necessidades crescentes de largura de banda ajustando as unidades reservadas de streaming. Você deve alocar pelo menos uma unidade reservada para aplicativos em um ambiente de produção. Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins.md#scale_streaming_endpoints).
+Um **Ponto de Extremidade de Transmissão** representa um serviço de transmissão que pode entregar conteúdo diretamente a um aplicativo de player do cliente ou a uma CDN (Rede de Distribuição de Conteúdo) para distribuição posterior. O fluxo de saída de um serviço de ponto de extremidade de streaming pode ser uma transmissão ao vivo ou um ativo de vídeo sob demanda em sua conta dos Serviços de Mídia. Além disso, você pode controlar a capacidade do serviço de ponto de extremidade de streaming para lidar com necessidades crescentes de largura de banda ajustando as unidades reservadas de streaming. Você deve alocar pelo menos uma unidade reservada para aplicativos em um ambiente de produção. Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins.md#scale_streaming_endpoints).
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -179,4 +186,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [Atualizar localizadores dos Serviços de Mídia depois de implantar chaves de armazenamento](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

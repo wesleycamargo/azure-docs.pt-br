@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Atualizar bancos de dados SQL de negócios ou da Web para novas camadas de serviço"
-	description="Atualize bancos de dados da Web de banco de dados do SQL Azure ou Business para as novas camadas de serviço do Azure SQL Database Basic, Standard e Premium e níveis de desempenho."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	pageTitle="Atualizar bancos de dados SQL de negócios ou da Web para novas camadas de serviço" 
+	description="Atualize bancos de dados da Web de banco de dados do SQL Azure ou Business para as novas camadas de serviço do Azure SQL Database Basic, Standard e Premium e níveis de desempenho." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
+	ms.date="06/18/2015" 
+	ms.author="sstein" 
+	ms.workload="data-management" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -29,7 +29,7 @@ Baixe o [manual de orientação de migração de banco de dados para Web e Busin
 
 <p>Os bancos de dados Web e de Negócios SQL Azure são executados em um ambiente compartilhado multilocatário sem nenhuma capacidade de recursos reservada para o banco de dados. A atividade de outros bancos de dados dentro desse ambiente de recurso compartilhado pode afetar o desempenho. A disponibilidade de recurso em qualquer momento determinado depende muito de outras cargas de trabalho simultâneas em execução no sistema. Isso pode resultar em desempenho de aplicativos de banco de dados imprevisível e altamente variável. Os comentários dos clientes são que esse desempenho imprevisível é difícil de gerenciar, e um desempenho mais previsível é preferencial.
 
-Para atender a esses comentários, o serviço de banco de dados SQL do Azure introduziu novas camadas de serviço de banco de dados [(Basic, Standard e Premium)](http://msdn.microsoft.com/library/dn741340.aspx), que oferecem um desempenho previsível e uma infinidade de novos recursos de segurança e continuidade de negócios. Essas novas camadas de serviço são projetadas para fornecer um nível especificado de recursos para uma carga de trabalho de banco de dados, independentemente de outras cargas de trabalho do cliente em execução no ambiente. Isso resulta em um desempenho altamente previsível.
+Para atender a esses comentários, o serviço de banco de dados SQL do Azure introduziu novas camadas de serviço de banco de dados [(Basic, Standard e Premium)](sql-database-service-tiers.md), que oferecem um desempenho previsível e uma infinidade de novos recursos de segurança e continuidade de negócios. Essas novas camadas de serviço são projetadas para fornecer um nível especificado de recursos para uma carga de trabalho de banco de dados, independentemente de outras cargas de trabalho do cliente em execução no ambiente. Isso resulta em um desempenho altamente previsível.
 
 Com essas alterações surgem perguntas sobre como avaliar e decidir qual nova camada de serviço é a melhor adequada para os bancos de dados Web e Business (W/B) atuais e sobre o processo de atualização real.
 
@@ -73,10 +73,8 @@ Os novos recursos da camada de serviço e níveis desempenho são resumidos e co
 
 | Artigo | Descrição |
 |:--|:--|
-|[Faixas de serviço de banco de dados SQL do Azure (edições)](http://msdn.microsoft.com/library/azure/dn741340.aspx)| Visão geral das camadas de serviço Basic, Standard e Premium.|
-|[Faixas de serviço de banco de dados SQL do Azure e níveis de desempenho](http://msdn.microsoft.com/library/dn741336.aspx)| Métricas e recursos para cada camada de serviço (e como monitorar a utilização do banco de dados no portal de gerenciamento e usando DMVs). |
-|[O que é diferente nas camadas de serviço?](http://msdn.microsoft.com/library/dn369873.aspx#Different)| Mais informações sobre as camadas de serviço diferentes, incluindo alguns motivos por que você deve selecionar uma camada em vez de outra. |
-|[Continuidade dos negócios no Banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)|Detalhes dos recursos de continuidade nos negócios e recuperação de desastres (restauração pontual, restauração geográfica, replicação geográfica) disponíveis para as camadas de serviço diferentes.|
+|[Faixas de Serviço de Banco de Dados SQL do Azure e Níveis de Desempenho](sql-database-service-tiers.md)| Visão geral, métricas e funcionalidades para cada camada de serviço (e como monitorar a utilização do banco de dados no portal de gerenciamento e com o uso de DMVs). |
+|[Continuidade dos negócios no Banco de dados SQL do Azure](sql-database-business-continuity.md)|Detalhes dos recursos de continuidade nos negócios e recuperação de desastres (restauração pontual, restauração geográfica, replicação geográfica) disponíveis para as camadas de serviço diferentes.|
 |[Preços do Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Informações detalhadas sobre preços para as diferentes camadas de serviço e níveis de desempenho.|
 
 <br>
@@ -156,7 +154,7 @@ Os dados retornados por [resource\_stats](https://msdn.microsoft.com/library/dn2
 
 As informações sobre o consumo de DTU em termos de um nível de banco de dados S2 permite normalizar o consumo atual dos bancos de dados Web e Business em termos da nova camada dos bancos de dados e ver onde elas se ajustam melhor. Por exemplo, se o consumo médio de porcentagem DTU mostra um valor de 80%, isso indica que o banco de dados está consumindo DTU na taxa de 80% do limite de um banco de dados no nível de desempenho S2. Se você vir valores superiores a 100% na exibição **sys.resource\_stats**, isso significa que você precisa de um nível de desempenho maior que o S2. Por exemplo, digamos que você vê um valor de porcentagem DTU de pico de 300%. Isso indica que você está usando três vezes mais recursos que estariam disponíveis em um S2. Para determinar um tamanho inicial razoável, compare as DTUs disponíveis em um S2 (50 DTUs) com os tamanhos mais próximos (S3/P1 = 100 DTUs ou 200% de S2, P2 = 200 DTUs ou 400% de S2). Porque você está em 300% do S2, convém começar com um P2 e testar novamente.
 
-Com base no percentual de uso DTU e a edição maior do que era necessário de acordo com sua carga de trabalho, você pode determinar qual o nível de desempenho e da camada de serviço mais adequada para sua carga de trabalho do banco de dados (conforme indicado por meio de porcentagem DTU e potência DTU relativa de vários [níveis de desempenho)](http://msdn.microsoft.com/library/azure/dn741336.aspx). Aqui está uma tabela que fornece um mapeamento da porcentagem de consumo de recursos Web/Business para os níveis de desempenho equivalente da nova camada:
+Com base no percentual de uso DTU e a edição maior do que era necessário de acordo com sua carga de trabalho, você pode determinar qual o nível de desempenho e da camada de serviço mais adequada para sua carga de trabalho do banco de dados (conforme indicado por meio de porcentagem DTU e potência DTU relativa de vários [níveis de desempenho)](sql-database-service-tiers.md). Aqui está uma tabela que fornece um mapeamento da porcentagem de consumo de recursos Web/Business para os níveis de desempenho equivalente da nova camada:
 
 ![Consumo de recursos][4]
 
@@ -248,7 +246,7 @@ Para obter detalhes, consulte [Alterando camadas de serviço e níveis de desemp
 
 
 ## 6\. Monitoramento da atualização da nova camada de serviço e nível de desempenho
-O banco de dados SQL do Azure fornece informações sobre o andamento em operações de gerenciamento (como CREATE, ALTER, DROP) executadas em um banco de dados na exibição de gerenciamento dinâmico sys.dm\_operation\_status no banco de dados mestre do servidor lógico onde seu banco de dados atual está localizado [Consulte a documentação do sys.dm \_operation \_status]. (http://msdn.microsoft.com/library/azure/dn270022.aspx)Use o DMV do status da operação para determinar o progresso da operação de atualização do banco de dados. Este exemplo de consulta mostra todas as operações de gerenciamento executadas em um banco de dados:
+O Banco de Dados SQL do Azure fornece informações de andamento em operações de gerenciamento (como CREATE, ALTER e DROP) executadas em um banco de dados na exibição de gerenciamento dinâmico sys.dm\_operation\_status no banco de dados mestre do servidor lógico em que seu banco de dados atual está localizado [confira a documentação do sys.dm\_operation\_status].(http://msdn.microsoft.com/library/azure/dn270022.aspx)Use a DMV do status da operação para determinar o andamento da operação de atualização de um banco de dados. Este exemplo de consulta mostra todas as operações de gerenciamento executadas em um banco de dados:
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -307,4 +305,4 @@ O serviço de banco de dados SQL do Azure fornece os dados e ferramentas de tele
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

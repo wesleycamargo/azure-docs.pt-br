@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Adicionas entradas | Microsoft Azure" 
-	description="Segmento do roteiro de aprendizagem Adicionar entradas."
+	description="Adicionar Entradas a trabalhos do Stream Analytics | segmento de roteiro de aprendizagem."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,8 +13,9 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
+
 
 # Adicionar Entradas
 
@@ -25,34 +26,45 @@ Os trabalhos do Stream Analytics do Azure podem ser conectados a uma ou mais ent
 
 Para adicionar uma entrada ao trabalho do Stream Analytics:
 
-1. No trabalho do Stream Analytics, clique em **Entradas** e em **Adicionar uma Entrada**.
+1. No portal do Azure, clique em **Entradas** e em **Adicionar uma Entrada** em seu trabalho do Stream Analytics.
 
     ![Adicionar Entradas](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
 
-2. Especifique o tipo de entrada: ou **Fluxo de dados**, ou **Dados de referência**.
+    No portal de visualização do Azure, clique no bloco **Entradas** em seu trabalho do Stream Analytics.
+
+    ![Adicionar Entradas no portal de visualização do Azure](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
+
+2. Especifique o tipo da entrada: **Transmissão de dados** ou **Dados de referência**.
 
     ![Adicionar dados](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)
 
-3. Se criar uma entrada de Fluxo de Dados, especifique o tipo de fonte para a entrada. Essa tela é ignorada durante a criação de Dados de Referência, pois somente o armazenamento de Blob tem suporte.
+    ![Adicionar dados no Portal de Visualização do Azure](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)
+
+3. Se criar uma entrada de Fluxo de Dados, especifique o tipo de fonte para a entrada. Essa etapa pode ser ignorada durante a criação dos Dados de Referência, pois atualmente há suporte apenas para o armazenamento de Blob.
 
     ![Adicionar fluxo de dados](./media/stream-analytics-add-inputs/3-stream-analytics-add-inputs.png)
 
+    ![Adicionar transmissão de dados no portal de visualização](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)
+
 4. Forneça um nome amigável para essa entrada na caixa Alias de Entrada. Esse nome será usado na consulta do trabalho posteriormente para fazer referência à entrada.
 
-    Preencha o restante das propriedades de conexão necessárias para se conectar à fonte de dados. Esses campos variam de acordo com o tipo de entrada e fonte e são definidos em detalhes [aqui](stream-analytics-create-a-job.md.)
+    Preencha o restante das propriedades de conexão necessárias para se conectar à fonte de dados. Esses campos variam de acordo com o tipo de entrada e de fonte e são definidos detalhadamente [aqui](stream-analytics-create-a-job.md).
 
     ![Adicionar hub de eventos](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)
 
 5. Especifique as configurações de serialização para os dados de entrada:
-	- Para verificar se suas consultas funcionam da maneira esperada, especifique o **Formato de Serialização de Evento** dos dados de entrada. Os formatos de serialização com suporte são JSON, CSV e Avro.
+	- Para verificar se as suas consultas funcionam da maneira esperada, especifique o **Formato de Serialização de Evento** dos dados de entrada. Os formatos de serialização com suporte são JSON, CSV e Avro.
 	- Verifique a **Codificação** dos dados. UTF-8 é o único formato de codificação com suporte no momento.
 
     ![Configurações da serialização de dados](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)
+
+    ![Configurações de serialização de dados no portal de visualização do Azure](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)
 
 6. Depois de concluir a criação da entrada, o Stream Analytics verificará se ele pode se conectar à fonte de entrada. Você pode exibir o status da operação Testar Conexão no Hub de notificação.
 
     ![Testar conexão](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)
 
+    ![Testar conexão no portal de visualização do Azure](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
 
 ## Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
@@ -65,4 +77,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -227,4 +227,4 @@ Você viu como fazer a autenticação do fluxo de cliente para aplicativos de AP
 [portal do Azure]: https://manage.windowsazure.com/
 [portal de visualização do Azure]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="09/28/2015"  
 	ms.author="juliako"/>
 
 
@@ -78,7 +78,7 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 - [Introdução ao fornecimento de conteúdo VoD (Vídeo sob Demanda) usando o SDK .NET](media-services-dotnet-get-started.md)
 
-- [Usar o SDK do .NET para criar canais que realizam codificação ao vivo de um fluxo com taxa de bits única para fluxo múltiplas taxas de bits (Visualização)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [Usar o SDK do .NET para criar canais que realizam a codificação ativa por meio de uma transmissão de taxa de bits única para transmissão de múltiplas taxas de bits](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
@@ -92,4 +92,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
   [portal do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

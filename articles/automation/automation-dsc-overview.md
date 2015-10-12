@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/16/2015"
+   ms.date="09/24/2015"
    ms.author="coreyp"/>
 
 # Visão geral da DSC da Automação do Azure #
@@ -137,11 +137,11 @@ Passar de uma conta de automação vazia para um conjunto gerenciado de nós con
 
 - Ao integrar uma VM do Azure para gerenciamento com a DSC de Automação do Azure usando `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` ou a extensão de VM da DSC de Automação do Azure no portal de visualização do Azure, pode levar até uma hora para que a VM seja mostrada como um nó da DSC na Automação do Azure. Isso se deve à instalação do Windows Management Framework 5.0 na VM pela extensão DSC da VM do Azure, que precisa integrar a VM à DSC da Automação do Azure.
 
-- Registrar nós envolve a negociação, por parte dos nós, de um certificado a ser usado para a autenticação desse nó específico para a DSC de Automação do Azure, pós-registro. Este certificado tem uma validade de um ano desde sua criação e, atualmente, o protocolo pull da DSC do PowerShell não tem nenhum método para emitir um novo certificado quando esse certificado está prestes a expirar. Por esse motivo, os nós precisarão ser registrados com a DSC de Automação do Azure após o período de um ano, até que esse protocolo seja implementado em uma versão futura do WMF (espera-se que seja em menos de um ano da data atual).
+- Após o registro, cada nó negocia automaticamente um certificado exclusivo para autenticação, que expira depois de um ano. Neste momento, o protocolo de registro DSC do PowerShell não pode renovar automaticamente certificados quando eles estão prestes a expirar, então você precisa registrar novamente os nós após o período de um ano. Antes de registrar novamente, certifique-se de que cada nó está executando o Windows Management Framework 5.0 RTM. Se o certificado de autenticação de um nó expirar e o nó não estiver registrado, o nó não será capaz de se comunicar com a Automação do Azure e será marcado como "Sem resposta". O novo registro é feito da mesma maneira como você registrou o nó inicialmente. A realização de um novo registro a 90 dias ou menos do tempo de expiração do certificado, ou a qualquer momento após o tempo de expiração do certificado, vai resultar na geração e uso de um novo certificado.
 
 ##Artigos relacionados##
 
 - [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [preço da DSC de Automação do Azure](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

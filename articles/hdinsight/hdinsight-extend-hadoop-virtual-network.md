@@ -22,6 +22,8 @@
 A Rede Virtual do Azure permite que você estenda suas soluções Hadoop para incorporar recursos locais, como SQL Server, ou para criar redes privadas seguras entre recursos na nuvem.
 
 > [AZURE.NOTE]O HDInsight não é compatível com redes virtuais do Azure baseadas em afinidade. Ao usar o HDInsight, você deve usar redes virtuais baseadas em local.
+>
+> No momento (25/08/2015), você só poderá provisionar um cluster HDInsight baseado em Linux em uma Rede Virtual do Azure.
 
 ##<a id="whatis"></a>O que é a Rede Virtual do Azure?
 
@@ -62,6 +64,10 @@ Para obter mais informações sobre os recursos, benefícios e capacidades das r
 > O Azure HDInsight dá suporte apenas a redes virtuais baseadas em local e atualmente não funciona com redes virtuais baseadas em grupo de afinidade.
 >
 > É altamente recomendável designar uma única subrede para cada cluster.
+>
+> Não é possível usar uma Rede Virtual v1 (Clássica) do Azure com o HDInsight baseado em Linux. A Rede Virtual deve ser v2 (Gerenciador de Recursos do Azure) para que seja listada como uma opção durante o processo de criação de cluster HDInsight no portal de visualização do Azure ou para poder ser usada durante a criação de um cluster por meio da CLI do Azure ou do Azure PowerShell.
+>
+> Se você tiver recursos em uma rede v1 e desejar disponibilizar o HDInsight diretamente a esses recursos por meio de uma rede virtual, veja [Conectando VNets clássicas a novas VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) para obter informações sobre como conectar uma Rede Virtual v2 a uma Rede Virtual v1. Quando essa conexão for estabelecida, você poderá criar o cluster HDInsight na Rede Virtual v2.
 
 Para obter mais informações sobre como provisionar um cluster HDInsight em uma rede virtual, consulte [Provisionando clusters Hadoop no HDInsight](hdinsight-provision-clusters.md).
 
@@ -165,12 +171,10 @@ Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azur
 
 * [Analisar dados de sensor com o Storm e o HBase no HDInsight](hdinsight-storm-sensor-data-analysis.md): demonstra como configurar um cluster Storm e HBase em uma rede virtual e como gravar dados remotamente no HBase pelo Storm.
 
-* [Provisionar clusters HBase na Rede Virtual do Azure](hdinsight-hbase-provision-vnet.md): fornece informações sobre como provisionar um cluster HBase em uma rede virtual do Azure.
+* [Provisionar clusters Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md): fornece informações sobre como provisionar clusters Hadoop, inclusive informações sobre como usar a Rede Virtual do Azure.
 
-* [Provisionar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): fornece informações sobre como provisionar clusters Hadoop, inclusive informações sobre como usar a Rede Virtual do Azure.
-
-* [Usar o Sqoop com o Hadoop no HDInsight](hdinsight-use-sqoop.md): fornece informações sobre como usar o Sqoop para transferir dados com o SQL Server em uma rede virtual.
+* [Usar o Sqoop com o Hadoop no HDInsight](hdinsight-use-sqoop-mac-linux.md): fornece informações sobre como usar o Sqoop para transferir dados com o SQL Server em uma rede virtual.
 
 Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

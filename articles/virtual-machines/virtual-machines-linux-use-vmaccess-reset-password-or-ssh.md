@@ -37,7 +37,7 @@ Para redefinir o nome e a senha da conta de usuário com privilégios sudo ou a 
 Você precisará do seguinte:
 
 - Microsoft Azure Linux Agent versão 2.0.5 ou posterior. A maioria das imagens do Linux na Galeria de máquinas virtuais incluem a versão 2.0.5. Para descobrir qual versão está instalada, execute **waagent -version**. Para atualizar o agente, siga as instruções de [Guia do Usuário do Agente do Azure Linux].
-- Interface de Linha de Comando (CLI) do Azure. Para obter detalhes sobre como configurar a CLI do Azure, confira [Instalar e Configurar a Interface de Linha de Comando do Azure](../xplat-cli.md).
+- Interface de Linha de Comando (CLI) do Azure. Para obter detalhes sobre como configurar a CLI do Azure, confira [Instalar e Configurar a Interface de Linha de Comando do Azure](../xplat-cli-install.md).
 - PowerShell do Azure. Você usará comandos no cmdlet Set-AzureVMExtension para carregar e configurar automaticamente a extensão VMAccessForLinux. Para obter detalhes sobre como configurar o PowerShell do Azure, confira [Como instalar e configurar o PowerShell do Azure].
 - Uma nova senha ou conjunto de chaves SSH, se quiser redefinir um deles. Você não precisa deles para redefinir a configuração de SSH.
 
@@ -263,4 +263,4 @@ Para exibir o status da extensão VMAccess, execute este comando.
 [Recursos e extensões de VM do Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -35,7 +35,7 @@ O [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) permite execu
 
 OU
 
-* [CLI do Azure para Mac, Linux e Windows](../xplat-cli.md).
+* [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md).
 
 ##O que é o SSH?
 
@@ -43,7 +43,7 @@ SSH é um utilitário para efetuar login e executar remotamente comandos em um s
 
 ###Nome de usuário do SSH
 
-Um nome de usuário SSH é o nome usado para autenticação no cluster HDInsight. Quando você especifica um nome de usuário do SSH durante a criação do cluster, esse usuário é criado em todos os nós no cluster. Quando o cluster for criado, você poderá usar esse nome de usuário para conectar-se aos nós de cabeçalho do cluster HDInsight. Nos nós de cabeçalho, você então poderá se conectar aos nós de trabalho individuais.
+Um nome de usuário SSH é o nome usado para autenticação no cluster HDInsight. Quando você especifica um nome de usuário SSH durante a criação do cluster, esse usuário é criado em todos os nós no cluster. Depois que o cluster for criado, você poderá usar esse nome de usuário para se conectar aos nós de cabeçalho do cluster HDInsight. Nos nós de cabeçalho, você poderá se conectar aos nós de trabalho individuais.
 
 > [AZURE.NOTE]O nome de usuário SSH deve ser exclusivo. Como um nome de usuário SSH cria uma conta de usuário no cluster HDInsight, ele não pode entrar em conflito com os usuários existentes criados pelo HDInsight. Estes são os nomes reservados para uso por serviços em execução no cluster HDInsight e que não podem ser usados como o nome de usuário SSH:
 >
@@ -242,4 +242,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

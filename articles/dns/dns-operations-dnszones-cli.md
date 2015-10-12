@@ -76,4 +76,4 @@ Esta operação tem um comutador opcional “-q” que suprime o prompt para con
 
 [Automatizar operações usando o SDK do .NET](dns-sdk.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

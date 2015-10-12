@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Atividade de procedimento armazenado do SQL Server"
-	description="Saiba como é possível usar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado em um banco de dados SQL do Azure de um pipeline de Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Atividade de procedimento armazenado do SQL Server" 
+	description="Saiba como é possível usar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado em um banco de dados SQL do Azure ou SQL Data Warehouse do Azure de um pipeline de Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="spelluru"/>
 
 # Atividade de procedimento armazenado do SQL Server
 
-Você pode usar a atividade de procedimento armazenado do SQL Server em um [pipeline](data-factory-create-pipelines.md) de Data Factory para invocar um procedimento armazenado em um banco de dados **SQL do Azure**. Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md), que apresenta uma visão geral de transformação de dados e as atividades de transformação para as quais há suporte.
+Você pode usar o Procedimento Armazenado do SQL Server em um [pipeline](data-factory-create-pipelines.md) de Data Factory para invocar um procedimento armazenado em um **Banco de Dados SQL do Azure** ou um **SQL Data Warehouse do Azure**. Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral de transformação de dados e as atividades de transformação para as quais há suporte.
 
 ## Sintaxe
 	{
@@ -46,8 +46,8 @@ name | Nome da atividade | Sim
 description | Texto que descreve qual a utilidade da atividade | Não
 type | SqlServerStoredProcedure | Sim
 inputs | Conjunto(s) de dados de entrada que devem estar disponíveis (no status "Pronto") para que a atividade de procedimento armazenado seja executada A entrada(s) para a atividade de procedimento armazenado somente serve como gerenciamento de dependência ao encadear esta atividade com outras. O(s) conjunto(s) de dados de entrada não podem ser consumidos no procedimento armazenado como um parâmetro. | Não
-outputs | Conjunto(s) de dado(s) de saída produzidos pela atividade de procedimento armazenado. Certifique-se de que a tabela de saída usa um serviço vinculado que vincula um Banco de Dados SQL do Azure ao data factory. As saída(s) na atividade de procedimento armazenado podem servir como uma maneira de passar o resultado da atividade de procedimento armazenado para realizar o processamento subsequentemente e/ou pode servir como o gerenciamento de dependência ao encadear essa atividade com outras | Sim
-storedProcedureName | Especifique o nome do procedimento armazenado no banco de dados SQL do Azure que é representado pelo serviço vinculado utilizado pela tabela de saída. | Sim
+outputs | Conjunto(s) de dado(s) de saída produzidos pela atividade de procedimento armazenado. Certifique-se de que a tabela de saída usa um serviço vinculado que vincula um Banco de Dados SQL do Azure ou SQL Data Warehouse do Azure ao data factory. As saída(s) na atividade de procedimento armazenado podem servir como uma maneira de passar o resultado da atividade de procedimento armazenado para realizar o processamento subsequentemente e/ou pode servir como o gerenciamento de dependência ao encadear essa atividade com outras | Sim
+storedProcedureName | Especifique o nome do procedimento armazenado no banco de dados SQL do Azure ou SQL Data Warehouse do Azure que é representado pelo serviço vinculado utilizado pela tabela de saída. | Sim
 storedProcedureParameters | Especificar valores para parâmetros de procedimento armazenado | Não
 
 ## Exemplo
@@ -132,4 +132,4 @@ Para fazer isso, passe o parâmetro Cenário e o valor da atividade de procedime
 		}
 	}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

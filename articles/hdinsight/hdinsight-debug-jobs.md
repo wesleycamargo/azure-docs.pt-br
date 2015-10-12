@@ -300,4 +300,4 @@ Os erros que um usuário pode encontrar no Azure PowerShell ou no portal de visu
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

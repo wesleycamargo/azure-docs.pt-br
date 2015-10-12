@@ -1,20 +1,21 @@
 <properties 
-	pageTitle="Executar scripts de aprendizado de máquina do Python | Microsoft Azure"
-	description="Descreve princípios de design subjacentes ao suporte a Python no Aprendizado de Máquina do Azure e seus cenários de uso básico, recursos e limitações."
+	pageTitle="Executar scripts de aprendizado de máquina do Python | Microsoft Azure" 
+	description="Descreve princípios de design subjacentes ao suporte a Python no Aprendizado de Máquina do Azure e seus cenários de uso básico, recursos e limitações." 
+	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
-	ms.author="bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/30/2015" 
+	ms.author="bradsev" />
 
 
 # Executar scripts Python de aprendizado de máquina no Estúdio de Aprendizado de Máquina do Azure
@@ -164,10 +165,13 @@ O módulo [Executar Script Python][execute-python-script] permite a um cientista
 
 Nos próximos meses, esperamos fornecer funcionalidades adicionais para o módulo [Executar Script Python][execute-python-script], como a capacidade de treinar e operacionalizar modelos em Python e acrescentar um melhor suporte para o desenvolvimento e depuração de código no Estúdio de Aprendizado de Máquina do Azure.
 
+## Próximas etapas
+
+Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

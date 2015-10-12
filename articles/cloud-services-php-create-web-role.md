@@ -198,6 +198,10 @@ Para parar os emuladores, execute este comando:
 
 Para publicar seu aplicativo, você precisa primeiro importar suas configurações de publicação usando o cmdlet **Import-PublishSettingsFile**. Em seguida, você pode publicar o aplicativo usando o cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Para obter informações sobre como entrar, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
 
+## Próximas etapas
+
+Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
+
 [SDK do Azure para PHP]: /develop/php/common-tasks/download-php-sdk/
 [install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [definição do serviço (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
@@ -207,4 +211,4 @@ Para publicar seu aplicativo, você precisa primeiro importar suas configuraçõ
 [sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

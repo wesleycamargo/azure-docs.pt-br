@@ -57,4 +57,4 @@ Para obter exemplos de como usar as ferramentas em uma implantação clássica:
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Provisionar e implantar microsserviços previsíveis no Azure"
 	description="Saiba como implantar um aplicativo composto por microsserviços no Serviço de Aplicativo do Azure como uma única unidade e de maneira previsível usando modelos de grupo de recursos JSON e scripts do PowerShell."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -305,4 +305,4 @@ Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Usar o Hive do Hadoop com Curl no HDInsight | Microsoft Azure"
-	description="Saiba como enviar remotamente trabalhos do Pig para o HDInsight usando o Curl."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="Saiba como enviar remotamente trabalhos do Pig para o HDInsight usando o Curl."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/28/2015"
+   ms.author="larryfr"/>
 
 #Executar consultas Hive com Hadoop no HDInsight com Curl
 
@@ -116,7 +116,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 4. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de Blobs do Azure. O parâmetro `statusdir` passado com a consulta contém o local do arquivo de saída; nesse caso, ****wasb:///example/curl**. Esse endereço armazena a saída do trabalho no diretório **example/curl** do contêiner de armazenamento padrão usado pelo cluster HDInsight.
 
-    Você pode listar e baixar esses arquivos usando a [CLI do Azure para Mac, Linux e Windows](xplat-cli.md). Por exemplo, para listar arquivos em **example/curl**, use o seguinte comando:
+    Você pode listar e baixar esses arquivos usando a [CLI do Azure para Mac, Linux e Windows](xplat-cli-install.md). Por exemplo, para listar arquivos em **example/curl**, use o seguinte comando:
 
 		azure storage blob list <container-name> example/curl
 
@@ -194,4 +194,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

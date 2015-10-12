@@ -163,7 +163,7 @@ Nesta seção, você criará um arquivo **server.js** com o exemplo 'Hello World
 
 ##Próximas etapas
 
-Embora as etapas deste artigo usem o portal do Azure para criar um aplicativo Web, você também poderá usar a [Interface de Linha de Comando do Azure](../xplat-cli.md) para executar as mesmas operações.
+Embora as etapas deste artigo usem o portal do Azure para criar um aplicativo Web, você também pode usar a [Interface de Linha de Comando do Azure](../xplat-cli-install.md) para executar as mesmas operações.
 
 O Node.js fornece um rico ecossistema de módulos que podem ser usadas por seus aplicativos. Para saber como os Aplicativos Web funcionam com módulos, confira [Usando módulos do Node.js com aplicativos do Azure](../nodejs-use-node-modules-azure-apps.md).
 
@@ -175,7 +175,7 @@ Se você tiver problemas com seu aplicativo depois de implantá-lo no Azure, con
 ##Recursos adicionais
 
 * [PowerShell do Azure](../install-configure-powershell.md)
-* [Interface de linha de comando do Azure](../xplat-cli.md)
+* [Interface de linha de comando do Azure](../xplat-cli-install.md)
 * [Centro de Desenvolvedores do Node.js](/develop/nodejs/)
 
 ## O que mudou
@@ -206,4 +206,4 @@ Se você tiver problemas com seu aplicativo depois de implantá-lo no Azure, con
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

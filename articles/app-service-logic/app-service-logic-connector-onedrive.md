@@ -78,6 +78,8 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector do OneD
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
+>[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
@@ -95,4 +97,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Definição da API do OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

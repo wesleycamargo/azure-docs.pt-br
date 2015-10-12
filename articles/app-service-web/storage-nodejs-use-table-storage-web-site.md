@@ -615,7 +615,7 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [Git remoto]: http://git-scm.com/docs/git-remote
 
 [Aplicativo Web Node.js com o MongoDB]: web-sites-nodejs-store-data-mongodb.md
-[CLI do Azure]: ../xplat-cli.md
+[CLI do Azure]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -642,4 +642,4 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

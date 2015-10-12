@@ -35,7 +35,7 @@ O [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) permite execu
 
 OU
 
-* [CLI do Azure para Mac, Linux e Windows](../xplat-cli.md).
+* [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md).
 
 ##O que é o SSH?
 
@@ -109,7 +109,7 @@ Isso cria um logon para o usuário especificado e permite a autenticação de se
 
 ###Interface de linha de comando do Azure para Mac, Linux e Windows
 
-Você pode usar a [CLI do Azure para Mac, Linux e Windows](../xplat-cli.md) para criar um novo cluster usando o comando `azure hdinsight cluster create`.
+Você pode usar a [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md) para criar um novo cluster usando o comando `azure hdinsight cluster create`.
 
 Para obter mais informações sobre como usar esse comando, consulte [Provisionar clusters Hadoop em Linux no HDInsight usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -233,4 +233,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

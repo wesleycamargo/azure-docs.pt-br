@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/09/2015" 
+    ms.date="09/24/2015" 
     ms.author="elizapo" />
 
 
@@ -25,6 +25,9 @@ Você sabia que você pode usar sua assinatura do Office 365 existente no Azure 
 ## Posso usar minha assinatura do Office 365 para executar aplicativos do Office no Azure RemoteApp?
 
 Sim! Na verdade, usar sua assinatura do Office 365 é a única maneira de levar seus aplicativos do Office para o Azure RemoteApp.
+
+(Observação: se a sua implantação do Azure RemoteApp for entregue por um parceiro de hospedagem, ele poderá conseguir fornecer licenças do Office com base em um [Contrato de Licença do Provedor de Serviço](http://www.microsoft.com/pt-BR/Licensing/licensing-programs/spla-program.aspx))
+
 
 A boa notícia sobre a sua assinatura do Office 365 é que ela permite que você use a mesma licença de usuário em várias plataformas e ambientes diferentes, incluindo a nuvem do Azure. Quando você usa os aplicativos do Office no Azure RemoteApp, você não precisa comprar licenças adicionais ou configurar suas licenças existentes de uma maneira especial. Tudo o que você precisa é de uma assinatura do Office 365 que inclua o [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
 
@@ -54,7 +57,7 @@ Você não precisa licenciar esses programas se não desejar usá-los. Ative ape
 
 Agora que você conhece os detalhes do licenciamento do Office 365, vamos mostrar como você pode usá-lo no Azure RemoteApp – é muito fácil:
 
-Quando você criar sua coleção do Azure RemoteApp, use a imagem do **Office 365 ProPlus (Assinatura necessária)**.
+Ao criar sua coleção do Azure RemoteApp, use a imagem do **Office 365 ProPlus (Assinatura necessária)**.
 
 ![Imagem do Azure RemoteApp com o Office 365 Pro Plus](./media/remoteapp-officesubscription/remoteapp-officeimage.png)
 
@@ -84,8 +87,8 @@ Para desabilitar as atualizações automáticas, adicione o seguinte ao arquivo 
 Agora, o arquivo de configuração deve conter estas linhas:
 	
 		<Display Level="NONE" AcceptEULA="TRUE" />
-		<Propery Name="SharedComputerLicensing" Value="1" />
-		<Updated Enabled="FALSE" />
+		<Property Name="SharedComputerLicensing" Value="1" />
+		<Updates Enabled="FALSE" />
 
 ## Como é possível atualizar uma imagem com o Office 365 ProPlus?
 
@@ -117,4 +120,4 @@ Precisa de mais informações sobre como usar a Ferramenta de implantação do O
 - [Implantando e atualizando o Office 365 ProPlus usando a Ferramenta de Implantação do Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Definir configurações de atualização para o Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

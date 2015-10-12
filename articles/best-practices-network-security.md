@@ -218,7 +218,7 @@ podem ser encontrados na página [Instruções detalhadas de compilação][Examp
 Neste exemplo, há uma assinatura que contém o seguinte:
 
 - Dois serviços de nuvem: "FrontEnd001" e "BackEnd001"
-- Uma rede virtual, “CorpNetwork”, com duas sub-redes, “FrontEnd” e “BackEnd”
+- Uma Rede Virtual, “CorpNetwork”, com duas sub-redes, “FrontEnd” e “BackEnd”
 - Um único grupo de segurança de rede que é aplicado a ambas as sub-redes
 - Um dispositivo virtual de rede, neste exemplo, um firewall, conectado à sub-rede Frontend
 - Um Windows Server que representa um servidor Web de aplicativos ("IIS01")
@@ -499,4 +499,4 @@ estarão disponíveis em breve e vinculados a essa página.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

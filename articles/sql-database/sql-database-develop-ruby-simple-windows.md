@@ -91,7 +91,7 @@ No exemplo de código, A função [TinyTds::Result](https://github.com/rails-sql
     client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
     host: 'yourserver.database.windows.net', port: 1433, 
     database: 'AdventureWorks', azure:true 
-    results = client.execute("select * from SalesLT.Product") 
+    results = client.execute("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC") 
     results.each do |row| 
     puts row 
     end 
@@ -131,4 +131,4 @@ Para alinhar com o formato [datetime](http://msdn.microsoft.com/library/ms187819
     puts row
     end
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

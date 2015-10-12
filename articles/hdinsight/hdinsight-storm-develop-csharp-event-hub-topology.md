@@ -1,20 +1,20 @@
 <properties
    pageTitle="Processar eventos de Hubs de Eventos com o Storm no HDInsight | Microsoft Azure"
-	description="Saiba como processar dados de Hubs de Eventos com uma topologia Storm C# criada no Visual Studio usando as Ferramentas do HDInsight para Visual Studio."
-	services="hdinsight,notification hubs"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+   description="Saiba como processar dados de Hubs de Eventos com uma topologia Storm C# criada no Visual Studio usando as Ferramentas do HDInsight para Visual Studio."
+   services="hdinsight,notification hubs"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/02/2015"
+   ms.author="larryfr"/>
 
 # Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight
 
@@ -25,6 +25,8 @@ Neste tutorial, você aprenderá a usar as Ferramentas do HDInsight para Visual 
 * **EventHubWriter**: gera dados aleatoriamente e grava nos Hubs de Eventos
 
 * **EventHubReader**: lê dados dos Hubs de Eventos e os armazena no armazenamento de Tabela do Azure
+
+[AZURE.NOTE]As etapas neste documento só funcionam com um cluster HDInsight baseado em Windows. Para obter uma versão Java deste projeto que funcionará com um cluster baseado em Windows ou Linux, consulte [Processar eventos dos Hubs de eventos do Azure com Storm no HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## Pré-requisitos
 
@@ -555,4 +557,4 @@ Neste documento, você aprendeu a usar o Bolt e o Spout dos Hub de Eventos Java 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

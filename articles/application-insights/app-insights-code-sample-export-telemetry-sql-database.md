@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Exemplo de código: Exportar para SQL do Application Insights usando uma função de trabalho" 
+	pageTitle="Exemplo de código: analisar dados exportados do Application Insights" 
 	description="Codifique sua própria análise de telemetria no Application Insights usando o recurso de exportação contínua." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
-# Exemplo de código: Exportar para SQL do Application Insights usando uma função de trabalho
+# Exemplo de código: analisar dados exportados do Application Insights
 
-Este artigo mostra como mover seus dados de telemetria do [Visual Studio Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e um breve trecho de código.
+Este artigo mostra como processar dados JSON exportados do Application Insights. Como um exemplo, escreveremos um código para mover seus dados de telemetria do [Visual Studio Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export]. (Você também pode fazer isso [usando o Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), mas nosso objetivo aqui é mostrar alguns códigos.)
 
 A exportação contínua move a telemetria no armazenamento do Azure no formato JSON, por isso vamos escrever um código para analisar objetos JSON e criar linhas em uma tabela de banco de dados.
 
-(Normalmente, a Exportação Contínua é a maneira de fazer sua própria análise da telemetria enviada pelos seus aplicativos ao Application Insights. Você pode adaptar este exemplo de código para fazer outras coisas com a telemetria exportada.)
+Normalmente, a Exportação Contínua é a maneira de fazer sua própria análise da telemetria enviada pelos seus aplicativos ao Application Insights. Você pode adaptar este exemplo de código para fazer outras coisas com a telemetria exportada.
 
 Vamos começar supondo que você já tenha o aplicativo que você deseja monitorar.
 
@@ -50,6 +50,8 @@ Introdução:
 
 
 ## Criar armazenamento no Azure
+
+Dados do Application Insights sempre são exportados para uma conta do Armazenamento do Azure no formato JSON. É desse armazenamento que seu código lerá os dados.
 
 1. Crie uma conta de armazenamento “clássica” na sua assinatura do [Portal do Azure][portal].
 
@@ -93,6 +95,8 @@ Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter
 
 ## Criar um Banco de Dados SQL do Azure
 
+Para este exemplo, vamos escrever um código para enviar os dados por push para um banco de dados.
+
 Mais uma vez, começando com a sua assinatura no [Portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) para o qual você vai gravar os dados.
 
 ![Novo, Dados, SQL](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
@@ -106,9 +110,9 @@ Verifique se o servidor de banco de dados permite o acesso aos serviços do Azur
 
 ## Criar uma função de trabalho 
 
-Agora podemos escrever [código](https://sesitai.codeplex.com/) para analisar o JSON em blobs exportados e criar registros no banco de dados. Como o repositório de exportação e o banco de dados estão no Azure, vamos executar o código em uma função de trabalho do Azure.
+Agora, por fim, podemos escrever [código](https://sesitai.codeplex.com/) para analisar o JSON em blobs exportados e criar registros no banco de dados. Como o repositório de exportação e o banco de dados estão no Azure, vamos executar o código em uma função de trabalho do Azure.
 
-Esse código extrai automaticamente quaisquer propriedades que estejam presentes no JSON. Para obter descrições das propriedades, confira [Modelo de exportação de dados](app-insights-export-data-model.md).
+Esse código extrai automaticamente quaisquer propriedades que estejam presentes no JSON. Para obter descrições das propriedades, confira [Modelo de dados de exportação](app-insights-export-data-model.md).
 
 
 #### Criar projeto de função de trabalho
@@ -539,4 +543,4 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

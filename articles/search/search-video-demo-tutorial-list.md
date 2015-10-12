@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/16/2015"
+	ms.date="09/29/2015"
 	ms.author="heidist"/>
 
 #Pesquisa do Azure: tutoriais, demonstrações em vídeo e exemplos
@@ -31,6 +31,7 @@ Atualize-se mais rapidamente com os seguintes vídeos, demonstrações, tutoriai
 
 Link|Descrição
 ----|-----------
+[Práticas recomendadas do AzureCon 2015 para a Pesquisa do Azure](https://azure.microsoft.com/pt-BR/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Conselhos práticos sobre como obter escala, desempenho ideal e eficiência de codificação ao compilar aplicativos para cenários móveis ou da Web. 
 [Microsoft Virtual Academy: adicionando Pesquisa do Azure a seus sites e aplicativos](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|Série de sete partes sobre como adicionar Pesquisa do Azure a um aplicativo, apresentada por Liam Cavanagh, Janusz Lembicz e Bernardita Torres Garayar.
 [Build 2015: dados modernos](http://channel9.msdn.com/Events/Build/2015/2-663)|Aos 29 minutos da sessão, saiba como a Pesquisa do Azure se enquadra na revolução de dados moderna, apresentada por Shawn Bice e Pablo Castro.
 [Build 2015: usando a Pesquisa do Azure para criar excelentes experiências de pesquisa em Mobile e WebApps](http://channel9.msdn.com/Events/Build/2015/2-745)|Pablo Castro apresenta na Microsoft Build 2015.
@@ -64,30 +65,30 @@ Passo a passo|Descrição
 
 ##Exemplos de código
 
-[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) é um repositório GitHub contendo amostras de código criados por Liam Cavanagh. Os exemplos a seguir podem ser encontrados nesse repositório:
+[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) é um repositório GitHub que contém códigos de exemplo criados por Liam Cavanagh. Os exemplos a seguir podem ser encontrados nesse repositório:
 
-- [AdventureWorksWP8]() é um aplicativo para Windows Phone.
+- [AdventureWorksWP8]() é um aplicativo do Windows Phone.
 - [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
 - [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) é um arquivo index.html que fornece dados em um tutorial.
-- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) é um aplicativo ASP.NET MVC para Pesquisa do Azure.
-- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) fornece código-fonte para o site de demonstração ao vivo NYCJob.
-- [Recomendações](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) usa o Active Data Factory, o Banco de Dados SQL, o armazenamento de Blob e o HDInsight para implementar recomendações de produtos com base na frequência com a qual os produtos são comprados em conjunto.
+- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) é um aplicativo do ASP.NET MVC para a Pesquisa do Azure.
+- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) fornece o código-fonte para o site de demonstração ao vivo NYCJob.
+- [Recomendações](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) usa o Active Data Factory, o Banco de Dados SQL, o armazenamento de Blob e o HDInsight para implementar recomendações sobre produtos com base na frequência em que os produtos são comprados em conjunto.
 
-[****https://github.com/AzureSearch**](https://github.com/AzureSearch) é outro repositório GitHub para a Pesquisa do Azure que contém exemplos de código criados pela equipe de desenvolvimento da Pesquisa do Azure. Você pode procurar o repositório para ver o que ele contém, ou clicar nos links a seguir para ir diretamente para exemplos específicos.
+[****https://github.com/AzureSearch**](https://github.com/AzureSearch) é outro repositório GitHub para a Pesquisa do Azure que contém códigos de exemplo criados pela equipe de desenvolvimento da Pesquisa do Azure. Você pode procurar o repositório para ver o que ele contém, ou clicar nos links a seguir para ir diretamente para exemplos específicos.
 
 - [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
 - [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
-- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) é um aplicativo ASP.NET MVC 5 que usa uma biblioteca de cliente .NET para operações de pesquisa.
+- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) é um aplicativo do ASP.NET MVC 5 que usa uma biblioteca de cliente do .NET para operações de pesquisa.
 
-Um repositório GitHub separado é utilizado para [**Materiais de treinamento da AzureSearch - Microsoft Virtual Academy**](https://github.com/MicrosoftLearning/AzureSearch-MVA). Inclui vários exemplos usados no curso de 7 partes.
+Um repositório GitHub separado é utilizado para os [**Materiais de Treinamento da Pesquisa do Azure - Microsoft Virtual Academy**](https://github.com/MicrosoftLearning/AzureSearch-MVA). Inclui vários exemplos usados no curso de 7 partes.
 
 No CodePlex, você pode encontrar vários exemplos publicados durante a visualização pública que ainda são relevantes na versão atual.
 
-- [**Demonstração de API REST de gerenciamento**](https://azuresearchmgmtapi.codeplex.com/) é um aplicativo de console do Windows que usa a API REST de gerenciamento.
-- [**Demonstração AdventureWorks**](https://azuresearchadventureworksdemo.codeplex.com/) é um aplicativo ASP.NET MVC 4.
-- [**Demonstração de sugestões**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) é um aplicativo ASP.NET MVC 4.
-- [**Exemplo de GeoSearch**](https://azuresearchgeospatial.codeplex.com/) é um aplicativo ASP.NET MVC 4.
-- [**Exemplo de sincronização do SQL Server com a Pesquisa do Azure**](http://sqlserver2azuresearch.codeplex.com/) é um aplicativo de console do Windows que carrega um conjunto de linhas do SQL Server de um banco de dados incorporado.
-- [**Demonstração de perfis de pontuação**](https://azuresearchscoringprofiles.codeplex.com/) é um aplicativo de console do Windows que define, executa e atualiza um perfil de pontuação para ajustar os resultados da pesquisa.
+- [**Demonstração da API REST de Gerenciamento**](https://azuresearchmgmtapi.codeplex.com/) é um aplicativo do console do Windows que usa a API REST de Gerenciamento.
+- [**Demonstração do AdventureWorks**](https://azuresearchadventureworksdemo.codeplex.com/) é um aplicativo do ASP.NET MVC 4.
+- [**Demonstração de Sugestões**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) é um aplicativo do ASP.NET MVC 4.
+- [**Exemplo de GeoSearch**](https://azuresearchgeospatial.codeplex.com/) é um aplicativo do ASP.NET MVC 4.
+- [**Exemplo de Sincronização do SQL Server com a Pesquisa do Azure**](http://sqlserver2azuresearch.codeplex.com/) é um aplicativo do console do Windows que carrega um conjunto de linhas do SQL Server de um banco de dados local incorporado.
+- [**Demonstração de Perfis de Pontuação**](https://azuresearchscoringprofiles.codeplex.com/) é um aplicativo do console do Windows que define, executa e atualiza um perfil de pontuação para ajustar os resultados da pesquisa.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

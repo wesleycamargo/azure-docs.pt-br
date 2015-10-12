@@ -41,7 +41,7 @@
 
 [Como criar uma VM usando a interface de linha de comando do Azure (CLI do Azure)](virtual-machines-xplat-getting-started.md)
 
-[Criar uma implantação de várias VMs usando a CLI do Azure](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+[Criar uma implantação de várias VMs usando a CLI do Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Plano
 
@@ -95,7 +95,7 @@
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
-[Docker](virtual-machines-docker-with-xplat-cli.md)
+[Docker](virtual-machines-docker-with-xplat-cli-install.md)
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
@@ -151,4 +151,4 @@
 
 [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

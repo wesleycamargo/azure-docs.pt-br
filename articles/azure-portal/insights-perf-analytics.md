@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # Monitorar o desempenho do aplicativo Web do Azure
@@ -21,7 +21,7 @@ No [Portal do Azure](http://portal.azure.com) você pode configurar o monitorame
 
 O Azure oferece suporte ao Monitoramento de desempenho do aplicativo (ou, *APM*) aproveitando as *extensões*. Essas extensões são instaladas em seu aplicativo, coletam os dados e informam os serviços de monitoramento.
 
-O Application Insights e New Relic são duas das extensões de monitoramento de desempenho que estão disponíveis. Para usar o New Relic, instale um agente em tempo de execução. Para usar o Application Insights, recrie seu código com um SDK. Você também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes.
+O Application Insights e New Relic são duas das extensões de monitoramento de desempenho que estão disponíveis. Para usá-las, instale um agente em tempo de execução. Com o Application Insights, também há a opção de criar seu código com um SDK. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes.
 
 ## Habilitar uma extensão
 
@@ -37,9 +37,9 @@ Ou, se você estiver usando uma máquina virtual:
 
 ![Clique no bloco de análise](./media/insights-perf-analytics/10-vm1.png)
 
-### Para o Application Insights: reconstrução com o SDK
+### Opcional para o Application Insights: recompilação com o SDK
 
-O Application Insights funciona ao instalar um SDK em seu aplicativo.
+O Application Insights pode fornecer dados de telemetria mais detalhados instalando um SDK em seu aplicativo.
 
 No Visual Studio, adicione o SDK do Application Insights ao projeto.
 
@@ -83,4 +83,4 @@ Ao chegar na folha, para Application Insights, por exemplo, você pode:- Abrir o
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

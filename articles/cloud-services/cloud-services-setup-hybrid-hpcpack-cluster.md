@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""f/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/29/2015"
 	ms.author="danlep"/>
 
 
@@ -24,7 +24,7 @@ Este tutorial lhe mostra como usar o Microsoft HPC Pack 2012 R2 e o Azure para i
 
 Este tutorial mostra uma abordagem, às vezes chamada de cluster "de estouro para a nuvem", para usar os recursos de computação dimensionáveis e sob demanda no Azure para executar aplicativos com uso intensivo de computação.
 
-Este tutorial não pressupõe nenhuma experiência anterior com clusters de computação ou com o HPC Pack. Ele destina-se somente para ajudá-lo a implantar um cluster híbrido de computação de forma rápida para fins de demonstração. Para obter as considerações e as etapas para implantar um cluster híbrido do HPC Pack em uma escala maior em um ambiente de produção, consulte as [diretrizes detalhadas](http://go.microsoft.com/fwlink/p/?LinkID=200493). Se você quiser configurar um cluster de HPC Pack inteiramente no Azure, consulte [Microsoft HPC Pack em VMs do Azure](http://go.microsoft.com/fwlink/p/?linkid=330375).
+Este tutorial não pressupõe nenhuma experiência anterior com clusters de computação ou com o HPC Pack. Ele destina-se somente para ajudá-lo a implantar um cluster híbrido de computação de forma rápida para fins de demonstração. Para obter as considerações e as etapas para implantar um cluster híbrido do HPC Pack em uma escala maior em um ambiente de produção, consulte as [diretrizes detalhadas](http://go.microsoft.com/fwlink/p/?LinkID=200493). Se você quiser configurar um cluster do HPC Pack inteiramente no Azure, consulte [Opções de cluster do HPC com o Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
 >[AZURE.NOTE]O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines-size-specs.md) para seus recursos de computação, adequados para diferentes cargas de trabalho. Por exemplo, as instâncias A8 e A9 combinam alto desempenho e acesso a uma rede de aplicativos com alta taxa de transferência e baixa latência, necessários para alguns aplicativos de HPC. Consulte [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
@@ -306,7 +306,7 @@ Depois de testar o cluster, você pode usar o Gerenciador de Cluster de HPC para
 
 * [HPC Pack 2012 R2 e HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Intermitência para o Azure com o Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
-* [Microsoft HPC Pack nas VMs do Azure](http://go.microsoft.com/fwlink/p/?linkid=330375)
+* [Opções de cluster do HPC com Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 * [Big Compute no Azure: recursos técnicos para Lote e HPC (Computação de Alto Desempenho)](big-compute-resources.md).
 
 
@@ -347,4 +347,4 @@ Depois de testar o cluster, você pode usar o Gerenciador de Cluster de HPC para
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

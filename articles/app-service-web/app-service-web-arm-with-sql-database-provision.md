@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Provisionar um aplicativo Web que usa um banco de dados SQL" 
 	description="Use um modelo do Gerenciador de Recursos do Azure para implantar um aplicativo Web que inclui um banco de dados SQL." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -41,7 +41,7 @@ Neste modelo, você implantará:
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
-[![Implantar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![Implantar no Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Parâmetros para especificar
 
@@ -452,4 +452,4 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

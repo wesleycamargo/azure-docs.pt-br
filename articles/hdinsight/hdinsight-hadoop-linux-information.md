@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -124,7 +124,7 @@ Você também pode encontrar as informações de armazenamento usando o portal d
 
 Diferente do comando Hadoop do cluster, há várias maneiras de acessar blobs:
 
-* [CLI do Azure para Mac, Linux e Windows](../xplat-cli.md): comandos de interface de linha de comando para trabalhar com o Azure. Depois de instalar, use o comando `azure storage` para obter ajuda sobre o uso do armazenamento ou `azure blob` para comandos específicos do blob.
+* [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md): comandos de interface de linha de comando para trabalhar com o Azure. Depois de instalar, use o comando `azure storage` para obter ajuda sobre o uso do armazenamento ou `azure blob` para comandos específicos do blob.
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): um script Python para trabalhar com blobs no Armazenamento do Azure.
 
@@ -184,6 +184,7 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
 
 		2. Na lista de serviços à esquerda da página, selecione __Storm__. Então, selecione __Interface do Usuário do Storm__ em __Links Rápidos__.
 
+
 			![Entrada de interface do usuário do Storm em links rápidos](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
 
 			Isso exibirá a interface do usuário do Storm:
@@ -239,4 +240,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -188,4 +188,4 @@ Não há nenhum script incluído neste aplicativo de exemplo para configurar o s
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

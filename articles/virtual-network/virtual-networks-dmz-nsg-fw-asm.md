@@ -129,7 +129,7 @@ Com a ativação do conjunto de regras de firewall, a criação do ambiente de e
   2.	A Regra NSG 2 (RDP) não se aplica; vá para a próxima regra
   3.	A Regra NSG 3 (Internet para Firewall) não se aplica; vá para a próxima regra
   4.	A regra NSG 4 (IIS01 para AppVM01) não se aplica; o tráfego é permitido, pare o processamento da regra
-10.	AppVM01 recebe a Consulta SQL e responde
+10.	AppVM01 recebe a consulta SQL e responde
 11.	Como não há nenhuma regra de saída na sub-rede Backend, a resposta é permitida
 12.	A sub-rede Frontend inicia o processamento da regra de entrada:
   1.	Não há nenhuma regra NSG que se aplique ao tráfego de Entrada da sub-rede Backend para a sub-rede Frontend e, portanto, nenhuma das regras NSG se aplica
@@ -519,7 +519,7 @@ Este script do PowerShell deve ser executado localmente em um computador ou serv
 	  Write-Host
 
 
-#### Arquivo de Configuração de Rede
+#### Arquivo de configuração de rede
 Salve esse arquivo xml com localização atualizada e adicione o link a esse arquivo à variável $NetworkConfigFile no script acima.
 	
 	<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -566,4 +566,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

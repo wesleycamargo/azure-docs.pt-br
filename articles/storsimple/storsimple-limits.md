@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Limites do sistema StorSimple| Microsoft Azure"
-   description="Descreve os limites do sistema e tamanhos recomendados para componentes do StorSimple e conexões."
+   description="Descreve os limites do sistema e os tamanhos recomendados para componentes e conexões do StorSimple série 8000."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="09/28/2015"
    ms.author="alkohli" />
 
 # Limites do sistema StorSimple
@@ -27,4 +27,4 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 
 Analise os [requisitos de sistema do StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

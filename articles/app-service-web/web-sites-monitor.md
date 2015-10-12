@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Monitorar aplicativos Web no Serviço de Aplicativo do Azure"
 	description="Saiba como monitorar Aplicativos Web no Serviço de Aplicativo do Azure usando o Portal de Gerenciamento."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -279,4 +279,4 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

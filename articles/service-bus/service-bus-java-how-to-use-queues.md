@@ -192,4 +192,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

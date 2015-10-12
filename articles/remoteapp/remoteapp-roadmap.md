@@ -1,5 +1,5 @@
 <properties
-    pageTitle="O que vem pela frente no RemoteApp do Azure"
+    pageTitle="Quais as próximas novidades no Azure RemoteApp | Microsoft Azure"
     description="Saiba quando novos recursos para o RemoteApp do Azure estarão disponíveis"
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/29/2015"
     ms.author="elizapo" />
 
 # O que vem pela frente no RemoteApp do Azure
@@ -28,7 +28,9 @@ Estamos sempre trabalhando para melhorar o RemoteApp do Azure com base em seus c
 |Rota Expressa ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| |X| | |
 |O RemoteApp do Azure disponível no novo [portal de visualização do Azure](http://azure.microsoft.com/overview/preview-portal/)| | | |X|
 |Aplicativo Universal do Windows 10 para visualização do RemoteApp do Azure| | |X| |
-|Capacidade de publicar aplicativos individuais para usuários específicos ([comentários](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | |X| |
+|Capacidade de publicar aplicativos individuais para usuários específicos – **Visualização Pública** ([comentários](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | ||X|
+|Pacote MSI redistribuível do cliente do Windows ([comentários](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| | ||X|
+
 
 Outros aperfeiçoamentos adicionados no início deste ano:
 
@@ -39,4 +41,4 @@ Outros aperfeiçoamentos adicionados no início deste ano:
 - Disponibilidade em datacenters australianos
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

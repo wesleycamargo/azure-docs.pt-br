@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/24/2015" 
 	ms.author="mandia"/>
 
 
@@ -38,8 +38,10 @@ Este tópico lista estas etapas.
 **Para criar Conexões Híbridas em Serviços do BizTalk**:
 
 1. Entre no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. <br/>Se você não tiver um Serviço BizTalk, você poderá [Criar um Serviço BizTalk](biztalk-provision-services.md).
-3. Selecione a guia Conexões Híbridas: <br/> ![Guia de Conexões Híbridas][HybridConnectionTab]
+2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. 
+
+	Se não tiver um Serviço BizTalk, você poderá [Criar um Serviço BizTalk](biztalk-provision-services.md).
+3. Selecione a guia Conexões Híbridas: ![Guia de Conexões Híbridas][HybridConnectionTab]
 
 4. Selecione **Criar uma Conexão Híbrida** ou selecione o botão **ADD** na barra de tarefas. Insira o seguinte:
 
@@ -70,8 +72,8 @@ Após uma Conexão Híbrida ser criada, instale o Gerenciador de Conexões Híbr
 
 1. Entre no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. 
-3. Selecione a guia **Conexões Híbridas**: <br/> ![Guia de Conexões Híbridas][HybridConnectionTab]
-4. Na barra de tarefas, selecione **Configuração Local**: <br/> ![Configuração Local][HCOnPremSetup]
+3. Selecione a guia **Conexões Híbridas**: ![Guia de Conexões Híbridas][HybridConnectionTab]
+4. Na barra de tarefas, selecione **Configuração Local**: ![Configuração Local][HCOnPremSetup]
 5. Selecione **Instalar e Configurar** para executar ou baixar o Gerenciador de Conexões Híbridas no sistema local. 
 6. Selecione a marca de seleção para iniciar a instalação. 
 
@@ -112,20 +114,22 @@ Para gerenciar suas Conexões Híbridas, você pode:
 
 1. Entre no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. 
-3. Selecione a guia **Conexões Híbridas**: <br/> ![Guia de Conexões Híbridas][HybridConnectionTab]
-4. Selecione a Conexão Híbrida. Na barra de tarefas, selecione **Gerenciar Conexão**: <br/> ![Gerenciar opções][HCManageConnection] <br/> **Gerenciar Conexão** lista as cadeias de conexão Local e do Aplicativo. É possível copiar as cadeias de conexão ou regenerar a chave de acesso usada na cadeia de conexão. <br/> <br/> **Se você selecionar Regenerar**, a Chave de Acesso compartilhada usada na Cadeia de Conexão será alterada. Faça o seguinte:
-- No Portal de Gerenciamento do Azure, selecione **Sincronizar Chaves** no aplicativo do Azure.
-- Execute novamente a **Configuração Local**. Ao executar novamente a Configuração Local, o recurso local é configurado automaticamente para usar a cadeia de conexão primária atualizada.
+3. Selecione a guia **Conexões Híbridas**: ![Guia de Conexões Híbridas][HybridConnectionTab]
+4. Selecione a Conexão Híbrida. Na barra de tarefas, selecione **Gerenciar Conexão**: ![Gerenciar opções][HCManageConnection]
+
+	**Gerenciar Conexão** lista as cadeias de conexão do aplicativo e local. É possível copiar as cadeias de conexão ou regenerar a chave de acesso usada na cadeia de conexão.
+
+	**Se você selecionar Regenerar**, a Chave de Acesso compartilhada usada na Cadeia de Conexão será alterada. Faça o seguinte: - no Portal de Gerenciamento do Azure, selecione **Sincronizar Chaves** no aplicativo do Azure. - Execute novamente a **Configuração local**. Ao executar novamente a Configuração Local, o recurso local é configurado automaticamente para usar a cadeia de conexão primária atualizada.
 
 
 #### Use a Política de Grupo para controlar os recursos locais utilizados por uma Conexão Híbrida
 
 1. Baixe os [modelos administrativos do Gerenciador de Conexões Híbridas](http://www.microsoft.com/download/details.aspx?id=42963).
 2. Extraia os arquivos.
-3. No computador que modifica a política de grupo, faça o seguinte: 
+3. No computador que modifica a política de grupo, faça o seguinte:  
 
 	- Copie os arquivos .ADMX para a pasta *%WINROOT%\\PolicyDefinitions*.
-	- Copie os arquivos .ADML para a pasta *%WINROOT%\\PolicyDefinitions\\pt-br*.
+	- Copie os arquivos .ADML para a pasta *%WINROOT%\\PolicyDefinitions\\pt-BR*.
 
 Após tê-los copiado, você pode usar o Editor de políticas de grupo para mudar a política.
 
@@ -134,16 +138,16 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 
 ## Avançar
 
-[Conectar Aplicativos Web do Azure a um recurso local](../web-sites-hybrid-connection-get-started.md)<br/> [Conectar ao SQL Server local a partir de Aplicativos Web do Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Serviços Móveis do Azure e Conexões Híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)<br/> [Visão geral de Conexões Híbridas](integration-hybrid-connection-overview.md)
+[Conectar Aplicativos Web do Azure a um recurso local](../web-sites-hybrid-connection-get-started.md) [Conectar ao SQL Server local por meio de Aplicativos Web do Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Serviços Móveis do Azure e Conexões Híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Visão geral de Conexões Híbridas](integration-hybrid-connection-overview.md)
 
 
 ## Consulte também
 
-[API REST para gerenciar Serviços BizTalk no Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)<br/> [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md)<br/> [Criar um Serviço BizTalk usando o Portal de Gerenciamento do Azure](biztalk-provision-services.md)<br/> [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[API REST para gerenciar Serviços BizTalk no Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) [Criar um Serviço BizTalk usando o Portal de Gerenciamento do Azure](biztalk-provision-services.md) [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

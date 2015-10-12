@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/22/2015"
+	ms.date="09/29/2015"
 	ms.author="spelluru"/>
 
 # Crie seu primeiro pipeline usando o Azure Data Factory
@@ -154,7 +154,7 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE]O comando acima cria um contêiner denominado **script** em seu armazenamento de blob do Azure e copia o arquivo **partitionweblogs.hql** para o contêiner.
+		> [AZURE.NOTE]O comando acima cria um contêiner denominado **script** em seu armazenamento de Blob do Azure e copia o arquivo **partitionweblogs.hql** da sua unidade local para o contêiner de Blob.
 	>
 	5. Depois que o arquivo for carregado com êxito, você verá a seguinte saída de AzCopy.
 	
@@ -176,4 +176,4 @@ Faça o seguinte:
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

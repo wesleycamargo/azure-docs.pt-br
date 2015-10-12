@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Definir alertas no Application Insights
@@ -50,6 +50,10 @@ Você recebe um email quando o estado de um alerta é mudado de inativo para ati
 
 O estado atual de cada alerta é mostrado na folha de regras de Alerta.
 
+Há um resumo da atividade recente no menu suspenso de alertas:
+
+![](./media/app-insights-alerts/010-alert-drop.png)
+
 O histórico das alterações de estado está no log de Eventos de operações:
 
 ![Na folha Visão geral, próximo à parte inferior, clique em 'Eventos da semana anterior'](./media/app-insights-alerts/09-alerts.png)
@@ -57,6 +61,27 @@ O histórico das alterações de estado está no log de Eventos de operações:
 *Esses "eventos" estão relacionados a eventos de telemetria ou a eventos personalizados?*
 
 * Não. Esses eventos operacionais são apenas um log de eventos que ocorreram nesse recurso de aplicativo. 
+
+
+## Como funcionam os alertas
+
+* Um alerta tem dois estados: ("alerta" e "íntegro"). 
+
+* Um email é enviado quando um alerta muda de estado.
+
+* Um alerta é avaliado toda vez que uma métrica chega, mas não o contrário.
+
+* A avaliação agrega a métrica ao longo do período anterior e a compara com o limite para determinar o novo estado.
+
+* O período que você escolhe especifica o intervalo durante o qual as métricas são agregadas. Ele não afeta a frequência com que o alerta é avaliado: isto depende da frequência da chegada das métricas.
+
+* Se nenhum dado chegar para uma determinada métrica por algum tempo, a lacuna tem efeitos diferentes sobre a avaliação do alerta e sobre os gráficos no Metrics Explorer. No Metrics Explorer, se nenhum dado for visto por mais tempo que o intervalo de amostragem do gráfico, o gráfico mostrará um valor de 0. Mas um alerta com base na mesma métrica não será avaliado novamente e o estado do alerta permanecerá inalterado.
+
+    Quando os dados chegam, o gráfico volta para um valor diferente de zero. O alerta será avaliado com base nos dados disponíveis para o período especificado. Se o novo ponto de dados for o único disponível no período, a agregação será baseada apenas nisso.
+
+* Um alerta pode piscar frequentemente entre os estados de alerta e íntegro, mesmo que você defina um longo período. Isso pode acontecer se o valor da métrica estiver em torno do limite. Não há nenhuma histerese no limite: a transição para o alerta acontece com o mesmo valor que a transição para o estado íntegro.
+
+
 
 ## Alertas de disponibilidade
 
@@ -69,8 +94,9 @@ Depende de seu aplicativo. Para começar, é melhor não definir um número exce
 Alguns alertas populares são:
 
 * [Testes da web][availability] são importantes se seu aplicativo é um site ou serviço Web que é visível na Internet pública. Eles informam se seu site fica inativo ou responde lentamente, mesmo que haja um problema na operadora, não em seu aplicativo. Porém, eles são testes sintéticos; portanto, não medem a experiência real dos usuários.
-* [Métricas de navegador][client], principalmente tempos de carregamento de páginas de navegador, são adequados para aplicativos Web. Se sua página tem vários scripts, convém procurar exceções de navegador. Para obter essas métricas e alertas, você precisa configurar o [monitoramento de página da Web][client].
-* Tempo de resposta do servidor e solicitações que falharam para a perspectiva do servidor de aplicativos Web. Além de configurar alertas, confira essas métricas para ver se elas variam de forma desproporcional com altas taxas de solicitação: isso pode indicar que seu aplicativo está ficando sem recursos.
+* [Métricas de navegador][client], principalmente **tempos de carregamento de páginas** de navegador, são adequados para aplicativos Web. Se sua página tem vários scripts, convém procurar **exceções de navegador**. Para obter essas métricas e alertas, você precisa configurar o [monitoramento de página da Web][client].
+* **Tempo de resposta do servidor** e **Solicitações com falha** para o lado do servidor dos aplicativos Web. Além de configurar alertas, confira essas métricas para ver se elas variam de forma desproporcional com altas taxas de solicitação: isso pode indicar que seu aplicativo está ficando sem recursos.
+* **Exceções de servidor** - para vê-las, você precisa fazer algumas [configurações adicionais](app-insights-asp-net-exceptions.md).
 
 ## Definir alertas usando o PowerShell
 
@@ -191,4 +217,4 @@ request,<br/>requestFailed|[Solicitação do servidor](app-insights-configuratio
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

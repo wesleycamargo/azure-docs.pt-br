@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar o serviço de email SendGrid (PHP) | Microsoft Azure"
-	description="Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos em PHP."
-	documentationCenter="php"
-	services=""
-	manager="sendgrid"
-	editor="mollybos"
+	pageTitle="Como usar o serviço de email SendGrid (PHP) | Microsoft Azure" 
+	description="Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos em PHP." 
+	documentationCenter="php" 
+	services="" 
+	manager="sendgrid" 
+	editor="mollybos" 
 	authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="10/30/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 # Como usar serviço de email SendGrid do PHP
 
@@ -390,6 +390,9 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
 -   Biblioteca de SendGrid PHP: <https://github.com/sendgrid/sendgrid-php>
 -   Oferta especial do SendGrid para clientes do Azure: <https://sendgrid.com/windowsazure.html>
 
+Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
+
+
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html
@@ -401,4 +404,4 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
   [biblioteca de sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Compositor]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

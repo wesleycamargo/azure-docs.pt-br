@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Visualização do AD B2C do Azure: tipos de aplicativos
@@ -124,8 +124,8 @@ Os aplicativos que contêm processos de longa duração ou que operem sem a pres
 Esse fluxo não tem suporte atualmente no AD B2C do Azure, o que equivale a dizer que os aplicativos só podem obter tokens após a ocorrência de um fluxo de usuário interativo. O fluxo de credenciais de cliente será adicionado em breve.
 
 ### Cadeias de API Web (Em nome de)
-Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web de downstream, ambas protegidas pelo AD do Azure. Este cenário é comum em clientes nativos que têm um back-end de API Web que, por sua vez, chama um serviço Microsoft Online, como o Graph API do AD do Azure.
+Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web downstream, ambas protegidas pelo AD B2C do Azure. Este cenário é comum em clientes nativos que têm um back-end de API Web que, por sua vez, chama um serviço Microsoft Online, como o Graph API do AD do Azure.
 
 Este cenário de API Web encadeada pode ter suporte usando a concessão Credencial de Portador Jwt do OAuth 2.0, também conhecido como fluxo Em nome de. No entanto, o fluxo Em nome de não está implementado atualmente na visualização do AD B2C do Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -19,7 +19,6 @@
 
 # Instalar e usar o Solr em clusters HDInsight do Hadoop
 
-
 Neste tópico, você aprenderá como instalar o Solr no Azure HDInsight usando a Ação de Script. O Solr é uma plataforma de pesquisa poderosa e oferece recursos de pesquisa em nível corporativo para os dados gerenciados pelo Hadoop. Depois de instalar o Solr no cluster HDInsight, você também aprenderá como pesquisar dados usando o Solr.
 
 > [AZURE.NOTE]As etapas deste documento exigem um cluster HDInsight baseado em Linux. Para obter informações sobre como usar o Solr com um cluster baseado no Windows, veja [Instalar e usar o Solr em clusters do Hadoop no HDinsight (Windows)](hdinsight-hadoop-solr-install.md)
@@ -58,11 +57,11 @@ Um exemplo de script para instalar o R em um cluster HDInsight está disponível
 
 3. Na parte inferior das **Ações de Script**, use o botão **Selecionar** para salvar a configuração. Por fim, use o botão **Selecionar** na parte inferior da folha **Configuração Opcional** para salvar as informações de configuração opcional.
 
-4. Continue o provisionamento do cluster, conforme descrito em [Provisionar clusters do HDInsight baseados em Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continue o provisionamento do cluster conforme descrito em [Provisionar clusters HDInsight baseados em Linux](hdinsight-provision-linux-clusters.md#portal).
 
 ## <a name="usesolr"></a>Como usar o Solr no HDInsight?
 
-###Dados de indexação
+### Dados de indexação
 
 Você deve começar com indexação Solr, com alguns arquivos de dados. Em seguida, você pode usar o Solr para executar consultas de pesquisa em dados indexados. Use as etapas a seguir para adicionar alguns dados de exemplo para Solr e, em seguida, consultá-lo:
 
@@ -153,9 +152,9 @@ Você deve começar com indexação Solr, com alguns arquivos de dados. Em segui
 			    ]
 			  }
 
-###Usando o painel do Solr
+### Usando o painel do Solr
 
-O painel do Solr é uma IU da Web que permite que você trabalhe com Solr pelo navegador da Web. O painel do Solr não seja exposto diretamente na Internet por meio do seu cluster HDInsight, mas deve ser acessado através de um túnel SSH. Para obter mais informações sobre o uso de um túnel SSH, consulte [Usar túnel SSH para acessar a IU da Web Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras IUs da Web](hdinsight-linux-ambari-ssh-tunnel.md)
+O painel do Solr é uma IU Web que permite que você trabalhe com o Solr através do seu navegador da Web. O painel do Solr não seja exposto diretamente na Internet por meio do seu cluster HDInsight, mas deve ser acessado através de um túnel SSH. Para obter mais informações sobre o uso de um túnel SSH, consulte [Usar túnel SSH para acessar a IU da Web Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras IUs da Web](hdinsight-linux-ambari-ssh-tunnel.md)
 
 Depois de estabelecer um túnel SSH, use as seguintes etapas para usar o painel do Solr:
 
@@ -229,7 +228,7 @@ Depois de estabelecer um túnel SSH, use as seguintes etapas para usar o painel 
 			    ]
 			  }
 
-###Iniciando e parando o Solr
+### Iniciando e parando o Solr
 
 Se você precisar interromper ou iniciar o Solr manualmente, use os seguintes comandos:
 
@@ -237,8 +236,7 @@ Se você precisar interromper ou iniciar o Solr manualmente, use os seguintes co
 
 	sudo start solr
 
-
-##Backup de dados indexados
+## Backup de dados indexados
 
 Como uma prática recomendada, você deve fazer backup dos dados indexados de nós do cluster Solr no armazenamento de Blob do Azure. Execute as seguintes etapas para fazê-lo:
 
@@ -276,7 +274,7 @@ Como uma prática recomendada, você deve fazer backup dos dados indexados de n�
 Para obter mais informações sobre como trabalhar com backups e restaurações do Solr, consulte [Fazendo backups e restaurações de SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
 
 
-## Consulte também##
+## Consulte também
 
 - [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md). O Hue é uma interface do usuário da Web que torna mais fácil criar, executar e salvar trabalhos Pig e Hive, bem como procurar o armazenamento padrão do cluster HDInsight.
 
@@ -291,11 +289,9 @@ Para obter mais informações sobre como trabalhar com backups e restaurações 
 
 
 
-
-
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

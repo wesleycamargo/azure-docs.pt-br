@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Controle de acesso baseado em função no portal do Microsoft Azure"
 	description="Descreve como funciona o controle de acesso baseado em função e como configurá-lo"
-	services=""
+	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="active-directory"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
@@ -1275,7 +1275,7 @@ Tente o Azure RBAC e nos envie [comentários](http://aka.ms/azurerbacfeedback).
 Veja alguns recursos adicionais para ajudar você a usar o controle de acesso com base em função:
 
 + [Gerenciar o controle de acesso com base em função com o Windows PowerShell](role-based-access-control-powershell.md)
-+ [Gerenciar o controle de acesso com base em função com o Azure CLI](role-based-access-control-xplat-cli.md)
++ [Gerenciar o controle de acesso com base em função com o Azure CLI](role-based-access-control-xplat-cli-install.md)
 + [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
 + [Azure Active Directory Premium e Basic](active-directory-editions.md)
 + [Como as assinaturas do Azure estão associadas ao AD do Azure](active-directory-how-subscriptions-associated-directory.md)
@@ -1293,4 +1293,4 @@ Veja alguns recursos adicionais para ajudar você a usar o controle de acesso co
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

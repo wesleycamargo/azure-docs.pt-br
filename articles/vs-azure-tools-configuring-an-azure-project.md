@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configurando um projeto de serviço de nuvem do Azure usando várias configurações de serviço | Microsoft Azure"
-   description="Saiba como configurar um projeto de serviço de nuvem do Azure alterando os arquivos Servicedefinition e ServiceConfiguration."
+   pageTitle="Configurar um projeto de serviço de nuvem do Azure com o Visual Studio | Microsoft Azure"
+   description="Saiba como configurar um projeto de serviço de nuvem do Azure no Visual Studio, dependendo dos requisitos para o projeto."
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,104 +12,53 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="09/29/2015"
    ms.author="kempb" />
 
-# Configurando um projeto de serviço de nuvem do Azure usando várias configurações de serviço
+# Configure um projeto de serviço de nuvem do Azure com o Visual Studio
 
-Um projeto de serviço de nuvem do Azure inclui dois arquivos de configuração: ServiceDefinition.csdef e ServiceConfiguration.cscfg. Esses arquivos são empacotados com o aplicativo de serviço de nuvem do Azure e implantados no Azure.
+Você pode configurar um projeto de serviço de nuvem do Azure, dependendo dos requisitos para o projeto. Você pode definir propriedades do projeto para as seguintes categorias:
 
-- O arquivo **ServiceDefinition.csdef** contém os metadados exigidos pelo ambiente do Azure para os requisitos do seu aplicativo de serviço de nuvem, inclusive as funções que ele contém. Esse arquivo também contém configurações que se aplicam a todas as instâncias. Essas definições de configurações podem ser lidas em tempo de execução usando a API de tempo de execução de hospedagem de serviços do Azure. Esse arquivo não pode ser atualizado enquanto o serviço está em execução no Azure.
+- **Publicar um serviço de nuvem no Azure**
 
-- O arquivo **ServiceConfiguration.cscfg** estabelece valores para as configurações definidas no arquivo de definição de serviço e especifica o número de instâncias a serem executadas para cada função. Esse arquivo pode ser atualizado enquanto o serviço de nuvem está em execução no Azure.
+  Você pode definir uma propriedade para certificar-se de que um serviço de nuvem existente implantado no Azure não é excluído acidentalmente.
 
-As ferramentas do Azure para Visual Studio fornecem páginas de propriedades que você pode usar para definir as configurações armazenadas nesses arquivos. Para acessar as páginas de propriedades, no menu de atalho da referência de função no **Gerenciador de Soluções**, escolha **Propriedades**, conforme mostrado na figura a seguir. Como alternativa, você pode clicar duas vezes na referência de função.
+- **Executar ou depurar um serviço de nuvem no computador local**
 
-![VS\_Solution\_Explorer\_Roles\_Properties](./media/vs-azure-tools-configuring-an-azure-project/IC784076.png)
+  Você pode selecionar uma configuração de serviço para usar e indicar se deseja iniciar o emulador de armazenamento do Azure.
 
-Para obter informações sobre os esquemas subjacentes para a definição e os arquivos de configuração do serviço, consulte a [Referência do esquema](https://msdn.microsoft.com/library/azure/dd179398.aspx). Para obter mais informações sobre a configuração de serviço, consulte [Como gerenciar perfis e configurações de serviço](vs-azure-tools-service-configurations-and-profiles-how-to-manage.md).
+- **Validar um pacote de serviço de nuvem quando ele é criado**
 
-## Configurando propriedades da função
+  Você pode optar por tratar todos os avisos como erros, para que você possa certificar-se de que o pacote de serviço de nuvem será implantado sem problemas. Isso reduz o tempo de espera se você implantar e, em seguida, descobrir que ocorreu uma falha.
 
-As páginas de propriedades de uma função web e uma função de trabalho são semelhantes, embora existam algumas diferenças, indicadas nas seções a seguir. Na página **Cache**, você pode configurar os serviços de cache do Azure.
+A ilustração a seguir mostra como selecionar uma configuração a ser usada quando você executa ou depura o serviço de nuvem localmente. Você pode definir qualquer uma das propriedades do projeto que necessita nesta janela, conforme mostrado na ilustração.
 
-### Página Configuração
+![Configurar um projeto do Microsoft Azure](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
 
-Na página **Configuração**, você pode definir as propriedades a seguir.
+## Para configurar um projeto de serviço de nuvem do Azure
 
-**Instâncias**
+1. Para configurar um projeto do serviço de nuvem **Gerenciador de Soluções**, abra o menu de atalho para o projeto de serviço de nuvem e, em seguida, escolha **Propriedades**.
 
-Defina a propriedade de contagem da **Instância** para o número de instâncias que o serviço deve executar para esta função.
+  Uma página com o nome do projeto de serviço de nuvem aparece no editor do Visual Studio.
 
-Defina a propriedade de **Tamanho da VM** como **Extra Pequeno**, **Pequeno**, **Médio**, **Grande**, ou **Extra Grande**. Para obter mais informações, confira [Configurar tamanhos para serviços de nuvem](https://msdn.microsoft.com/library/azure/ee814754.aspx).
+1. Escolha a guia **Desenvolvimento**.
 
-**Ação de inicialização** (somente função web)
+1. Para certificar-se de não excluir acidentalmente uma implantação existente no Azure, no prompt antes de excluir uma lista de implantação existente, escolha **True**.
 
-Defina essa propriedade para especificar que o Visual Studio deve iniciar um navegador da Web para os pontos de extremidade HTTP ou os pontos de extremidade HTTPS, ou ambos, quando você iniciar a depuração.
+1. Para selecionar a configuração de serviço que você deseja usar quando executa ou depura seu serviço de nuvem localmente, na lista **Configuração do Serviço**, escolha a configuração do serviço.
 
-A opção de **ponto de extremidade HTTPS** está disponível somente se você já definiu um ponto de extremidade HTTPS para sua função. Você pode definir um ponto de extremidade HTTPS na página de propriedades **Pontos de Extremidade**.
+  >[AZURE.NOTE]Se você deseja criar uma configuração de serviço para usar, consulte como: gerenciar configurações de serviço e perfis. Se você quiser modificar uma configuração de serviço para uma função, consulte [como configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-Se você já tiver adicionado um ponto de extremidade HTTPS, a opção de **ponto de extremidade HTTPS** é habilitada por padrão e o Visual Studio iniciará um navegador para esse ponto de extremidade quando você iniciar a depuração, além de um navegador para o ponto de extremidade HTTP. Isso pressupõe que ambas as opções de inicialização estão habilitadas.
+1. Para iniciar o emulador de armazenamento do Azure, quando você executa ou depura seu serviço de nuvem localmente, no **Emulador de Armazenamento do Azure**, escolha **Verdadeiro**.
 
-**Diagnostics**
+1. Para certificar-se de que você não pode publicar se houver erros de validação de pacote, em **tratar avisos como erros**, escolha **Verdadeiro**.
 
-Por padrão, o diagnóstico é habilitado para a função web. A conta de armazenamento e o projeto de serviço de nuvem do Azure são definidos para usar o emulador de armazenamento local. Quando você estiver pronto para implantar no Azure, pode clicar no botão construtor (**...**) para atualizar a conta de armazenamento e usar o armazenamento do Azure na nuvem. Você pode transferir os dados de diagnóstico para a conta de armazenamento sob demanda ou em intervalos agendados automaticamente. Para obter mais informações sobre diagnósticos do Azure, consulte [Coletar dados do log usando o Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx).
+1. Para certificar-se de que sua função web usa a mesma porta cada vez que inicia localmente no IIS Express, em **Usar Portas de Projeto Web**, escolha **Verdadeiro**. Para usar uma porta específica para um projeto Web específico, abra o menu de atalho para o projeto Web, escolha a guia **Propriedades**, escolha a guia **Web** e altere o número da porta no **Url do projeto** definindo na seção **IIS Express**. Por exemplo, digite `http://localhost:14020` como a URL do projeto.
 
-### Página Configurações
-
-Na página **Configurações**, você pode adicionar as definições de configuração para o serviço. Definições de configuração são pares nome-valor. O código em execução na função pode ler os valores de suas definições de configuração em tempo de execução usando classes fornecidas pela [Biblioteca gerenciada do Azure](http://go.microsoft.com/fwlink?LinkID=171026). Especificamente, o método [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) retorna o valor de uma definição de configuração nomeada em tempo de execução.
-
-**Configurando uma cadeia de conexão para uma conta de armazenamento**
-
-Uma cadeia de conexão é uma definição de configuração que fornece informações de conexão e autenticação para o emulador de armazenamento ou para uma conta de armazenamento do Azure. Sempre que o código precisar acessar dados de serviços de armazenamento do Azure – ou seja, blob, fila ou dados da tabela – do código em execução em uma função, você precisará definir uma cadeia de conexão para essa conta de armazenamento.
-
-Uma cadeia de conexão que aponta para uma conta de armazenamento do Azure deve usar um formato definido. Para obter informações sobre como criar cadeias de conexão, consulte [Como configurar cadeias de conexão](https://msdn.microsoft.com/library/azure/ee758697.aspx).
-
-Quando você estiver pronto para testar seu serviço em relação aos serviços de armazenamento do Azure, ou quando você estiver pronto para implantar seu serviço de nuvem no Azure, pode alterar o valor de qualquer cadeia de conexão para apontar para sua conta de armazenamento do Azure. Clique em (...) e selecione Inserir credenciais da conta de armazenamento. Insira as informações de sua conta que incluem o nome da conta e a chave de conta. Na caixa de diálogo Cadeia de Conexão da Conta de Armazenamento, você também pode indicar se deseja usar os pontos de extremidade HTTPS padrão (a opção padrão), os pontos de extremidade padrão HTTP ou pontos de extremidade personalizados. Você pode decidir usar pontos de extremidade personalizados se registrou um nome de domínio personalizado para seu serviço, conforme descrito em [Configurar um nome de domínio personalizado para dados blob em uma conta de armazenamento do Azure](storage-custom-domain-name.md).
-
->[AZURE.IMPORTANT]Você deve modificar as cadeias de conexão para apontar para uma conta de armazenamento do Azure antes de implantar seu serviço. A falha em fazer isso pode fazer com que sua função não inicie, ou que ela alterne entre os estados inicializando, ocupado e parando.
-
-### Página Pontos de Extremidade
-
-Uma função de trabalho pode ter qualquer número de pontos de extremidade HTTP, HTTPS ou TCP. Pontos de extremidade podem ser pontos de extremidade de entrada, disponíveis a clientes externos, ou pontos de extremidade internos, disponíveis a outras funções em execução no serviço.
-
-- Para disponibilizar um ponto de extremidade HTTP para clientes externos e navegadores da Web, altere o tipo de ponto de extremidade para entrada e especifique um nome e um número da porta pública.
-
-- Para disponibilizar um ponto de extremidade HTTPS para clientes externos e navegadores da Web, altere o tipo de ponto de extremidade para entrada e especifique um nome, um número da porta pública e um nome de certificado de gerenciamento.
-
-  Observe que, antes de especificar um certificado de gerenciamento, você deve definir o certificado na página de propriedades de **Certificados**.
-
-- Para disponibilizar um ponto de extremidade para o acesso interno por outras funções no serviço de nuvem, altere o tipo de ponto de extremidade para **interno** e especifique um nome e possíveis portas privadas para esse ponto de extremidade.
-
-### Página Armazenamento Local
-
-Você pode usar a página de propriedades Armazenamento Local para reservar um ou mais recursos de armazenamento local para uma função. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual do Azure no qual uma instância de uma função está em execução. Para obter mais informações sobre como trabalhar com recursos de armazenamento local, consulte [Configurar recursos de armazenamento local](../cloud-services/cloud-services-configure-local-storage-resources.md).
-
-### Página Certificados
-
-Na página **Certificados**, você pode associar certificados à sua função. Os certificados que você adicionar podem ser usados para configurar os pontos de extremidade HTTPS na página de propriedades **Pontos de Extremidade**.
-
-A página de propriedades **Certificados** adiciona informações sobre seus certificados para a configuração do serviço. Observe que os certificados não são empacotados com o serviço; você deve carregá-los separadamente no Azure por meio do [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
-
-Para associar um certificado à sua função, forneça um nome para o certificado. Use esse nome para fazer referência ao certificado ao configurar um ponto de extremidade HTTPS na página de propriedades **Pontos de Extremidade**. Em seguida, especifique se o repositório de certificados é **Computador Local** ou **Usuário Atual** e o nome do repositório. Finalmente, insira a impressão digital do certificado. Se o certificado estiver no repositório **Usuário Atual\\Pessoal (Meu)**, você pode inserir a impressão digital do certificado, selecionando o certificado em uma lista preenchida. Se ele residir em qualquer outro local, insira o valor de impressão digital manualmente.
-
-Quando você adiciona um certificado do repositório de certificados, todos os certificados intermediários são adicionados automaticamente às definições de configuração para você. Esses certificados intermediários também devem ser carregados no Azure para configurar corretamente o serviço para SSL.
-
-Qualquer certificado de gerenciamento que você associar a seu serviço só se aplicará a esse serviço quando ele estiver em execução na nuvem. Quando o serviço é executado no ambiente de desenvolvimento local, ele usa um certificado padrão que é gerenciado pelo emulador de computação.
-
-## Configurando o projeto de serviço de nuvem do Azure
-
-Para definir configurações que se aplicam a todo um projeto de serviço de nuvem do Azure, você primeiro abre o menu de atalho para esse nó do projeto e depois escolhe **Propriedades** para abrir as páginas de propriedades. A tabela a seguir mostra essas páginas de propriedades.
-
-|Página de Propriedades|Descrição|
-|---|---|
-|Aplicativo|Nessa página, você pode exibir informações sobre a versão das ferramentas do Azure que este projeto de serviço de nuvem usa e pode atualizar para a versão atual das ferramentas.|
-|Eventos de compilação|Nessa página, você pode configurar eventos de pré e pós-compilação.|
-|Desenvolvimento|Nessa página, você pode especificar instruções de configuração da compilação e as condições sob as quais eventos de pós-compilação são executados.|
-|Web|Nessa página, você pode definir as configurações relacionadas ao servidor Web.|
+1. Para salvar as alterações feitas nas propriedades do projeto de serviço de nuvem, escolha o botão **Salvar** na barra de ferramentas.
 
 ## Próximas etapas
 
-Para saber mais sobre como configurar projetos de serviço de nuvem do Azure, consulte [gerenciamento de funções na nuvem do Azure para serviços projetos com o Visual Studio](vs-azure-tools-cloud-service-project-managing-roles.md).
+Para saber mais sobre como configurar projetos de serviço de nuvem do Azure no Visual Studio, consulte [Configurando seu projeto do Azure usando várias configurações de serviço](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

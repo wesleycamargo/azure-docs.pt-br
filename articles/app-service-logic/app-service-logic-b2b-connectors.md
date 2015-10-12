@@ -191,6 +191,7 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 4. Selecione **OK** para salvar suas alterações.
 
+>[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
 ## Mais recursos B2B
 
@@ -203,6 +204,6 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 ## Mais conectores
 
-[Lista de conectores e aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+[Lista de conectores e Aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e Aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -114,7 +114,7 @@ CoreOS é uma distribuição pequena e otimizada para escala de computação pur
 
 ## Noções básicas
 
-1. [Noções básicas: a interface de linha de comando do Azure (CLI do Azure)](../xplat-cli.md)
+1. [Noções básicas: a interface de linha de comando do Azure (CLI do Azure)](../xplat-cli-install.md)
 4. [Noções básicas: gerenciamento e uso de certificados](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [Noções básicas: selecionando nomes de usuário do Linux](virtual-machines-linux-usernames.md)
 6. [Noções básicas: faça logon em uma VM do Linux usando o Portal do Azure](virtual-machines-linux-how-to-log-on.md)
@@ -131,7 +131,7 @@ CoreOS é uma distribuição pequena e otimizada para escala de computação pur
 17. [Noções básicas: injetando dados personalizados em uma VM para usar com Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Noções básicas de blogs: criando Linux altamente disponível no Azure em 12 etapas](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Noções básicas de blogs: automatizar provisionamento Linux no Azure com CLI do Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [Criar uma implantação de várias VMs usando a CLI do Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+19. [Criar uma implantação de várias VMs usando a CLI do Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 20. [Noções básicas: extensão Docker Azure da VM](virtual-machines-docker-vm-extension.md)
 23. Referência [API REST do Gerenciamento de Serviços do Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 24. [GlusterFS no Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
@@ -181,7 +181,7 @@ CoreOS é uma distribuição pequena e otimizada para escala de computação pur
 
 Procure nesta seção para preenchimento rápido. Se você tiver sugestões, envie-em um RP ou deixe nos comentários abaixo.
 
-1. [Criar uma implantação de várias VMs usando a CLI do Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+1. [Criar uma implantação de várias VMs usando a CLI do Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 2. [Repositório GitHub de Linux no Azure, de Patrick Chanezon](https://github.com/chanezon/azure-linux)
 3. [Como mover dados USB locais no Linux para o Azure usando **usbip**](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [Vídeo: acessando a GUI baseada em Linux no Azure no navegador com fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -258,7 +258,7 @@ Esta seção começa com uma entrada de blog que contém uma série de vídeos e
 
 1. Docker
 	- [Extensão VM Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
-	- [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](virtual-machines-docker-with-../xplat-cli.md)
+	- [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](virtual-machines-docker-with-../xplat-cli-install.md)
 	- [Usando a extensão de VM Docker no Portal de Visualização do Azure](virtual-machines-docker-with-portal.md)
 	- [Introdução rápida ao Docker no Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 	- [Como usar a máquina docker no Azure](virtual-machines-docker-machine.md)
@@ -307,4 +307,4 @@ Esta seção começa com uma entrada de blog que contém uma série de vídeos e
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

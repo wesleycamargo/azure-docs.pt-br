@@ -40,7 +40,7 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 |5c.A folha **Novo servidor** lhe dá a opção de criar o novo servidor em atualizações do V12. Para saber mais sobre os recursos em servidores V12, examine [O que há de novo no Banco de Dados SQL V12](sql-database-v12-whats-new.md).| ![Selecione o servidor V12][6]|
 |5d. Faça suas seleções na folha **Novo servidor** e clique em **OK**. Isso o levará para a folha **Banco de Dados SQL** para concluir o restante das ações para criar um banco de dados. | ![Concluir ações da folha Novo servidor][8]|
 |6\. Clique em **Selecionar origem**. Os diferentes tipos de fontes que você pode selecionar para criar um banco de dados são: um banco de dados em branco, um banco de dados de exemplo ou de um backup de um banco de dados.| ![Selecione a origem para o banco de dados][10]|
-|7\. Em seguida, na folha do **Banco de Dados SQL**, clique em **CAMADA DE PREÇOS**. Você pode selecionar uma das camadas de preço recomendadas ou **Exibir todas** as camadas de preços disponíveis. Depois de fazer uma escolha, clique em **Selecionar**. <p>Para obter mais informações sobre camadas de preços, consulte [Atualizar bancos de dados SQL Web/Business para novas camadas de serviço](./sql-database-upgrade-new-service-tiers/) e [Faixas de serviço de banco de dados SQL do Azure e níveis de desempenho](http://msdn.microsoft.com/library/azure/dn741336.aspx). |![Selecione uma faixa de preço.][7]
+|7\. Em seguida, na folha do **Banco de Dados SQL**, clique em **CAMADA DE PREÇOS**. Você pode selecionar uma das camadas de preço recomendadas ou **Exibir todas** as camadas de preços disponíveis. Depois de fazer uma escolha, clique em **Selecionar**. <p>Para obter mais informações sobre camadas de preços, consulte [Atualizar bancos de dados SQL Web/Business para novas camadas de serviço](./sql-database-upgrade-new-service-tiers/) e [Faixas de serviço de banco de dados SQL do Azure e níveis de desempenho](sql-database-service-tiers.md). |![Selecione uma faixa de preço.][7]
 | 8\. Em seguida, na folha **Banco de Dados SQL**, clique em **Configuração opcional**, faça as seleções e clique em **OK**. 
 | 9\. Quando você seleciona o servidor existente, **Grupo de recurso** e **Assinatura** já são escolhidos por você. Na folha **Banco de Dados SQL**, você verá um ícone bloqueado ao lado de **Grupo de recurso** e **Assinatura**. Se você criar um novo servidor, poderá selecionar ou criar um grupo de recursos. Para obter mais informações, consulte [Usando grupos de recursos para gerenciar os recursos do Azure.](resource-group-overview.md)|![Especifique o grupo de recursos][11]
 | 10\. Clique em **Criar**. É criado um novo banco de dados com recursos do Banco de Dados SQL V12. |![Cria um novo banco de dados][12]
@@ -66,4 +66,4 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

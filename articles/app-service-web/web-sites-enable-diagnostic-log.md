@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure"
 	description="Saiba como habilitar o log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -116,7 +116,7 @@ Para baixar os arquivos de log usando a Interface da Linha de Comando do Azure, 
 
 Isto salvará os logs para o aplicativo Web chamado 'webappname' em um arquivo chamado **diagnostics.zip** no diretório atual.
 
-> [AZURE.NOTE]Se você não instalou a interface de linha de comando do Azure (CLI do Azure) ou não configurou para usar sua assinatura do Azure, consulte [Como usar a CLI do Azure](../xplat-cli.md).
+> [AZURE.NOTE]Se você não instalou a interface de linha de comando do Azure (CLI do Azure) ou não configurou para usar sua assinatura do Azure, consulte [Como usar a CLI do Azure](../xplat-cli-install.md).
 
 ## Como exibir os logs de rastreamento de Java no Application Insights
 
@@ -175,7 +175,7 @@ Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho**.
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]Se você não instalou a Interface da Linha de Comando ou não a configurou para usar a sua Assinatura do Azure, consulte [Como usar a Interface da linha de comando do Azure](../xplat-cli.md).
+> [AZURE.NOTE]Se você não instalou a Interface da Linha de Comando ou não a configurou para usar a sua Assinatura do Azure, consulte [Como usar a Interface da linha de comando do Azure](../xplat-cli-install.md).
 
 ##<a name="understandlogs"></a> Como compreender os logs de diagnóstico
 
@@ -265,4 +265,4 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

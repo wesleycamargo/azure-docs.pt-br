@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -59,4 +59,4 @@ Com o Serviço de Aplicativo do Azure, isso é tão fácil quanto selecionar um 
 [Crie um novo aplicativo Web](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

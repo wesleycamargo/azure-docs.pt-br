@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="09/25/2015"
 	ms.author="donnam"/>
 
 # Usando sincronização de dados offline em Serviços Móveis
@@ -159,9 +159,9 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 
 
 <!-- URLs. -->
-[Tratando conflitos com o suporte offline para Serviços Móveis]: ../mobile-services-xamarin-android-handling-conflicts-offline-data.md
-[Tratando conflitos com o suporte offline para os Serviços Móveis]: ../mobile-services-xamarin-android-handling-conflicts-offline-data.md
-[Tratando conflitos com suporte offline para Serviços Móveis]: ../mobile-services-xamarin-android-handling-conflicts-offline-data.md
+[Tratando conflitos com o suporte offline para Serviços Móveis]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
+[Tratando conflitos com o suporte offline para os Serviços Móveis]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
+[Tratando conflitos com suporte offline para Serviços Móveis]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
 [Get started with data]: mobile-services-android-get-started-data.md
 [Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Como usar a biblioteca de cliente Componente Xamarin para os Serviços Móveis do Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
@@ -174,4 +174,4 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

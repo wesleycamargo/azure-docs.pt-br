@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitorar seus aplicativos lógicos" 
+	pageTitle="Monitorar seus Aplicativos Lógicos | Microsoft Azure" 
 	description="Como ver o que o aplicativo lógico fez." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/29/2015"
 	ms.author="stepsic"/>
 
 #Monitorar seus aplicativos lógicos
@@ -56,4 +56,4 @@ Observe que, no caso de gatilhos *Push*, você *não* verá os horários de iní
 Há um recurso adicional que, atualmente, não está disponível na interface do usuário (em breve), mas está disponível via [API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). Quando você atualiza a definição de um aplicativo lógico, a versão anterior da definição é armazenada. Isso ocorre porque, se você já tiver uma execução em andamento, essa execução fará referência à versão do aplicativo lógico que existia quando a execução teve início. Definições de execuções não podem mudar enquanto estiverem em andamento. O histórico de versão de API REST fornece acesso a essas informações.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

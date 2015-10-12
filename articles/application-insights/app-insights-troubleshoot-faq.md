@@ -54,7 +54,7 @@ Isso pode acontecer se:
 
 Ação corretiva:
 
-+ Confirme que você forneceu as credenciais de logon da conta certa do Azure. Em algumas versões anteriores das ferramentas, as credenciais do Microsoft Azure, que você vê na caixa de diálogo Novo Projeto, podem ser diferentes das credenciais do Visual Studio Online que você vê no canto superior direito do Visual Studio.
++ Confirme que você forneceu as credenciais de logon da conta certa do Azure. Em algumas versões anteriores das ferramentas, as credenciais do Microsoft Azure, que você vê na caixa de diálogo Novo Projeto, podem ser diferentes das credenciais que você vê no canto superior direito do Visual Studio.
 + No navegador, verifique se você tem acesso ao [portal do Azure](https://portal.azure.com). Abra Configurações e veja se há alguma restrição.
 + [Adicione o Application Insights aos seus projetos existentes][start]\: no Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e selecione “Adicionar Application Insights”.
 + Se ainda não estiver funcionando, siga o [procedimento manual](app-insights-start-monitoring-app-health-usage.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto. 
@@ -189,11 +189,6 @@ No Gerenciador de Soluções, clique com o botão direito do mouse em `Applicati
 Não! Ele mostra o status de serviço do Azure. Para ver os resultados de seu teste na Web, selecione Navegar > Application Insights > (seu aplicativo) e depois veja os resultados de teste na Web.
 
 
-#### <a name="q07"></a>Quando eu adiciono o Application Insights ao meu aplicativo e abro o portal do Application Insights, tudo parece completamente diferente das suas capturas de tela.
-
-Você pode estar usando [a versão mais antiga do SDK do Application Insights](http://msdn.microsoft.com/library/dn793604.aspx), que se conecta à versão do Visual Studio Online.
-
-As páginas de ajuda que você está consultando referem-se ao [Application Insights para a Visualização do Microsoft Azure][start], que já vem ativado no Visual Studio 2013 Atualização 3 ou posterior.
 
 #### <a name="data"></a>Por quanto tempo os dados são mantidos no portal? É seguro?
 
@@ -248,4 +243,4 @@ Você pode [gravar um Script do PowerShell](app-insights-powershell-script-creat
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

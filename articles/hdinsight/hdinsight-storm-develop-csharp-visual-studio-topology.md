@@ -23,6 +23,8 @@ Saiba como criar uma topologia Storm C# usando as ferramentas do HDInsight para 
 
 Você também aprenderá a criar topologias híbridas que usam componentes C# e Java.
 
+[AZURE.INCLUDE [somente Windows](../../includes/hdinsight-windows-only.md)]
+
 ##Pré-requisitos
 
 -	Uma das seguintes versões do Visual Studio
@@ -31,7 +33,7 @@ Você também aprenderá a criar topologias híbridas que usam componentes C# e 
 
 	-	Visual Studio 2013 com [Atualização 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	Visual Studio de 2015 ou [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
+	-	Visual Studio 2015 ou [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
 -	SDK do Azure 2.5.1 ou posterior
 
@@ -461,7 +463,7 @@ As versões recentes do SCP.NET oferecem suporte à atualização de pacote por 
 > [AZURE.IMPORTANT]Se o seu projeto foi criado com uma das versões anteriores do SCP.NET que não usou o NuGet para atualizações de pacote, você deve executar as seguintes etapas para atualizar para a nova versão:
 >
 > 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Gerenciar Pacotes NuGet**.
-> 2. Usando o campo **Pesquisa**, pesquise e, em seguida, adicione **Microsoft.SCP.Net.SDK** ao projeto.
+> 2. Usando o campo **Pesquisa**, faça a pesquisa e, em seguida, adicione **Microsoft.SCP.Net.SDK** ao projeto.
 
 ##Solucionar problemas
 
@@ -656,4 +658,4 @@ Para obter outras maneiras de trabalhar com o HDInsight e mais amostras do Storm
 
 -	[Introdução ao HBase no HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

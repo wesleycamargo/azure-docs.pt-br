@@ -13,10 +13,22 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/16/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de versão do Stream Analytic da Microsoft
+
+## Notas de versão de 29/09/2015 do Stream Analytics ##
+
+Esta versão contém as atualizações a seguir.
+
+Title | Descrição
+---|---
+Visualização Pública do Azure IoT Suite | O Stream Analytics está incluído na Visualização Pública do Azure IoT Suite.
+Integração no Portal de Visualização do Azure | Além da presença contínua no portal de Gerenciamento do Azure, o Stream Analytics agora está integrado no [portal de Visualização do Azure](http://azure.microsoft.com/overview/preview-portal/). Lembre-se de que a funcionalidade do Stream Analytics no portal de Visualização é atualmente um subconjunto da funcionalidade oferecida no portal de Gerenciamento do Azure, sem suporte para o teste de consulta no navegador, configuração de saída do Power BI e navegação ou criação de novos recursos de entrada e saída nas assinaturas às quais você tem acesso.
+Suporte para a saída do Banco de Dados de Documentos | Os trabalhos do Stream Analytics agora podem ser importados para o [Banco de Dados de Documentos](http://azure.microsoft.com/services/documentdb/).
+Suporte para a entrada do Hub IoT | Os trabalhos do Stream Analytics agora podem ingerir dados dos Hubs IoT.
+TIMESTAMP BY para eventos heterogêneos | Quando uma transmissão de dados única contém vários tipos de evento com carimbos de data/hora em diferentes campos, agora você pode usar o [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) com expressões para especificar diferentes campos de carimbo de data/hora para cada caso.
 
 ## Notas de versão de 10/09/2015 do Stream Analytics ##
 
@@ -32,7 +44,7 @@ Esta versão contém as atualizações a seguir.
 
 Title|Descrição
 ---|---
-Função LAST adicionada |A função [LAST](http://msdn.microsoft.com/library/mt421186.aspx) agora está disponível nos trabalhos do Stream Analytics, permitindo que você recupere o evento mais recente em um fluxo de eventos, em um determinado período de tempo.
+Função LAST adicionada |A função [LAST](http://msdn.microsoft.com/library/mt421186.aspx) agora está disponível nos trabalhos do Stream Analytics, permitindo que você recupere o evento mais recente em uma transmissão de eventos, em um determinado período de tempo.
 Novas funções de matriz|As funções de matriz [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) e [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) agora estão disponíveis.
 Novas funções de registro|As funções de registro [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) e [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) agora estão disponíveis.
 
@@ -92,4 +104,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

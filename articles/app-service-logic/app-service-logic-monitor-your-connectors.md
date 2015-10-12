@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gerenciar e monitorar conectores e aplicativos de API no Serviço de Aplicativo do Azure" 
+	pageTitle="Gerenciar e monitorar conectores e aplicativos de API no Serviço de Aplicativo | Microsoft Azure" 
 	description="Visualizar o desempenho de conectores e aplicativos de API no Serviço de Aplicativo do Azure; arquitetura de microsserviços" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="mandia"/>
 
 # Gerenciar e monitorar aplicativos de API e conectores internos
 
 Você criou um aplicativo de API interno. E agora?
 
-No Azure, cada aplicativo de API é um site separado hospedado no Azure. Como resultado, você pode ver facilmente quantas solicitações são realizadas, bem como a quantidade de dados usados pelo conector.
-
-Também é possível realizar backup do aplicativo de API, criar alertas, habilitar o Tinfoil Security e adicionar usuários e funções.
+No Azure, cada aplicativo de API é um site separado hospedado no Azure. Como resultado, você pode ver facilmente quantas solicitações são realizadas, bem como a quantidade de dados usados pelo conector. Também é possível realizar backup do aplicativo de API, criar alertas, habilitar o Tinfoil Security e adicionar usuários e funções.
 
 Este tópico descreve algumas das diferentes opções para gerenciar o aplicativo de API.
 
-Para ver esses recursos internos, abra o aplicativo de API no [Portal de Visualização do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Se o aplicativo de API estiver em seu quadro inicial, selecione-o para abrir as propriedades. Você também pode selecionar **Procurar**, selecionar **Aplicativos de API**e selecionar o aplicativo de API:
+Para ver esses recursos internos, abra o aplicativo de API no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Se o aplicativo de API estiver em seu quadro inicial, selecione-o para abrir as propriedades. Você também pode selecionar **Procurar**, selecionar **Aplicativos de API**e selecionar o aplicativo de API:
 
 ![][browse]
 
@@ -51,17 +49,15 @@ Após a configuração ou criação do conector interno, você pode alterar os v
 As etapas são as seguintes:
 
 1. Abra o conector ou aplicativo de API. Quando você fizer isso, a folha Aplicativo de API será aberta.
-2. Em Fundamentos, clique no hiperlink sob a propriedade de host. O hiperlink tem um nome como *slackconnector* ou *microsoftsqlconnector123*:
+2. Em **Fundamentos**, clique no hiperlink sob a propriedade de host. O hiperlink tem um nome como *slackconnector* ou *microsoftsqlconnector123*:
 
 	![][apiapphost]
 
-3. Na folha Host do aplicativo de API, selecione **Configurações**.
-4. Na folha Configurações, clique em **Configurações do aplicativo**.
-5. Os valores de configuração estão listados em **Configurações do aplicativo**: 
+3. Na folha Host do aplicativo de API, selecione **Configurações**. Na folha Configurações, clique em **Configurações do aplicativo**. Os valores de configuração estão listados em **Configurações do aplicativo**:
 	
 	![][hostsettings]
 
-6. Clique na configuração que deseja alterar, digite o novo valor e **salve** suas alterações.
+4. Clique na configuração que deseja alterar, digite o novo valor e **salve** suas alterações.
 
 
 ## Instalar o Gerenciador de Conexão Híbrida - opcional
@@ -75,7 +71,7 @@ Consulte [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do
 > [AZURE.NOTE]O Gerenciador de Conexão Híbrida será necessário apenas se você estiver se conectando a um recurso local por trás do firewall. Se você não estiver se conectando a um sistema local, o Gerenciador de Conexão Híbrida talvez não esteja listado na folha do conector.
 
 ## Monitorar o desempenho
-Métricas de desempenho são recursos internos incluídos em cada aplicativo de API criado. Essas métricas são específicas ao aplicativo de API hospedado no Azure:
+Métricas de desempenho são recursos internos incluídos em cada aplicativo de API criado. Essas métricas são específicas ao aplicativo de API hospedado no Azure. Métricas de exemplo:
 
 ![][monitoring]
 
@@ -118,6 +114,9 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 > 
 > Essas propriedades são específicas ao site que hospeda o aplicativo de API. Ao usar um aplicativo de API ou um conector interno, a maioria dessas propriedades não se aplica, e é recomendável que você não as atualize. Se tiver criado seu aplicativo de API no Visual Studio e implantado-o em sua assinatura do Azure, você poderá usar as folhas Host e Gateway. [Gerenciar aplicativos de API](../app-service-api/app-service-api-manage-in-portal.md) fornece mais informações sobre o que você pode fazer nessas folhas com o aplicativo de API personalizado criado.
 
+
+>[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
+
 ## Leia mais
 
 [Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/> [Lista de conectores de aplicativos de API no Serviço de Aplicativo](app-service-logic-connectors-list.md)<br/> [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md)<br/> [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md)
@@ -133,4 +132,4 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -1,31 +1,31 @@
 <properties 
-   pageTitle="O que é o StorSimple? | Microsoft Azure"
-	description="Descreve o gerenciamento de dados StorSimple e processo de proteção, benefícios e arquitetura e apresenta os componentes do StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="O que é o StorSimple? | Microsoft Azure" 
+   description="Descreve o gerenciamento de dados StorSimple e processo de proteção, benefícios e arquitetura e apresenta os componentes do StorSimple." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/25/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida 
 
 ## Visão geral
 
-O Microsoft Azure StorSimple é uma solução eficiente, econômica e gerenciável que elimina muitos dos problemas e dos custos associados à proteção de dados e ao armazenamento empresarial. Ele usa um dispositivo proprietário (o dispositivo Microsoft Azure StorSimple), integração com serviços de nuvem e um conjunto de ferramentas de gerenciamento para proporcionar uma visualização perfeita de todo o armazenamento de empresa, incluindo armazenamento em nuvem.
+O Microsoft Azure StorSimple é uma solução de SAN eficiente, econômica e facilmente gerenciável que elimina muitos dos problemas e dos custos associados à proteção de dados e ao armazenamento empresarial. Ele usa um dispositivo proprietário (o dispositivo Microsoft Azure StorSimple), é integrado com os serviços de nuvem e fornece um conjunto de ferramentas de gerenciamento para proporcionar uma exibição perfeita de todo o armazenamento empresarial, incluindo o armazenamento em nuvem.
 
 O StorSimple usa armazenamento em camadas para gerenciar os dados armazenados em várias mídias de armazenamento. O conjunto de trabalho atual é armazenado no local em SSDs (unidades de estado sólido), dados que são usados com menos frequência são armazenados em HDDs (unidades de disco rígido) e dados de arquivamento são enviados para a nuvem. Além disso, StorSimple usa eliminação de duplicação e compactação para reduzir a quantidade de armazenamento que consome os dados. O processo de armazenamento em camadas ocorre da seguinte maneira:
 
 1. Um administrador do sistema configura uma conta de armazenamento em nuvem do Microsoft Azure.
-2. O administrador usa o console serial e o serviço StorSimple Manager (em execução no Portal de Gerenciamento do Azure) para configurar o dispositivo e o servidor de arquivos, criando políticas de proteção de volumes e dados. O servidor de arquivos local usa iSCSI (Internet Small Computer System Interface) para acessar o dispositivo StorSimple.
+2. O administrador usa o console serial e o serviço StorSimple Manager (em execução no Portal de Gerenciamento do Azure) para configurar o dispositivo e criar políticas de proteção de volumes e dados. Os computadores locais (como servidores de arquivos) usam o iSCSI (Internet Small Computer System Interface) para acessar o dispositivo StorSimple.
 3. Inicialmente, o StorSimple armazena dados na camada de SSD rápida do dispositivo.
 4. À medida que a camada de SSD se aproxima da capacidade, o StorSimple elimina a duplicação e compacta os blocos de dados mais antigos, movendo-os para a camada de HDD.
 5. À medida que a camada de HDD se aproxima da capacidade, o StorSimple criptografa os blocos de dados mais antigos e os envia com segurança para a conta de armazenamento do Microsoft Azure via HTTPS.
@@ -57,7 +57,7 @@ O diagrama a seguir fornece uma exibição de alto nível da solução Microsoft
 A solução Microsoft Azure StorSimple inclui os seguintes componentes:
 
 - **Dispositivo do Microsoft Azure StorSimple** – uma matriz de armazenamento híbrido local que contém SSDs (unidades de estado sólido) e HDDs (unidades de disco rígido), juntamente com controladores redundantes e recursos de failover automático. Os controladores de gerenciam o armazenamento hierárquico, colocando dados usados no momento (ou mais acessados) no armazenamento local (no dispositivo ou em servidores locais), ao mesmo tempo movendo dados menos dados para a nuvem.
-- **Dispositivo virtual StorSimple** – também conhecido como Solução de Virtualização StorSimple, é uma versão de software do dispositivo StorSimple que replica a arquitetura e os recursos do dispositivo de armazenamento híbrido físico. O dispositivo virtual StorSimple é executado em um único nó em uma máquina virtual do Azure. O dispositivo virtual é adequado para uso em cenários pequenos de piloto e teste. Você não pode criar um dispositivo virtual StorSimple em um servidor local ou em um dispositivo StorSimple.
+- **Dispositivo virtual StorSimple** – também conhecido como StorSimple Virtual Appliance, essa é uma versão de software do dispositivo StorSimple que replica a arquitetura e a maioria dos recursos do dispositivo de armazenamento híbrido físico. O dispositivo virtual StorSimple é executado em um único nó em uma máquina virtual do Azure. O dispositivo virtual é adequado para uso em cenários pequenos de piloto e teste. Você não pode criar um dispositivo virtual StorSimple em um servidor local ou em um dispositivo StorSimple.
 - **Windows PowerShell para StorSimple** – uma interface de linha de comando que você pode usar para gerenciar o dispositivo StorSimple. O Windows PowerShell para StorSimple tem recursos que permitem registrar seu dispositivo StorSimple, configurar a interface de rede em seu dispositivo, instalar determinados tipos de atualizações, solucionar problemas de seu dispositivo acessando a sessão de suporte e alterar o estado do dispositivo. Você pode acessar o Windows PowerShell para StorSimple conectando-se ao console serial ou usando o Windows PowerShell remotamente.
 - **cmdlets Azure PowerShell StorSimple** – um conjunto de cmdlets do Windows PowerShell que permitem automatizar tarefas de nível de serviço e migração na linha de comando. Para obter mais informações sobre os cmdlets do Azure PowerShell para StorSimple, vá para a [referência do cmdlet](https://msdn.microsoft.com/library/dn920427.aspx).
 - **Serviço StorSimple Manager** – uma extensão do Portal de Gerenciamento do Azure que permite gerenciar um dispositivo StorSimple ou o dispositivo de virtualização StorSimple em uma única interface da Web. Você pode usar o serviço StorSimple Manager para criar e gerenciar serviços, exibir e gerenciar dispositivos, exibir alertas, gerenciar volumes e exibir e gerenciar políticas de backup e o catálogo de backup.
@@ -73,4 +73,4 @@ Leia mais sobre os [componentes e a terminologia do StorSimple](storsimple-compo
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

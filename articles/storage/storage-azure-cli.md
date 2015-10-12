@@ -1,19 +1,19 @@
 <properties
     pageTitle="Usando a CLI do Azure com o Armazenamento do Azure | Microsoft Azure"
-	description="Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure."
-	services="storage"
-	documentationCenter="na"
-	authors="tamram"
-	manager="jdial"/>
+    description="Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure."
+    services="storage"
+    documentationCenter="na"
+    authors="tamram"
+    manager="jdial"/>
 
 <tags
     ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="chungli;jiyang;yaxia;tamram"/>
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="09/28/2015"
+    ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Usando a CLI do Azure com o Armazenamento do Azure
 
@@ -21,7 +21,7 @@
 
 A CLI do Azure fornece um conjunto de comandos entre plataformas de software livre para trabalhar com a Plataforma Azure. Ela fornece grande parte das mesmas funcionalidades encontradas no Portal de Gerenciamento do Azure, bem como funcionalidades avançadas de acesso a dados.
 
-Neste guia, exploraremos como usar a [Interface de Linha de Comando do Azure (CLI do Azure)](../xplat-cli.md) para executar uma variedade de tarefas de administração e desenvolvimento com o Armazenamento do Azure. É recomendável baixar e instalar ou atualizar para a CLI mais recente do Azure antes usar este guia.
+Neste guia, exploraremos como usar a [Interface de Linha de Comando do Azure (CLI do Azure)](../xplat-cli-install.md) para executar uma variedade de tarefas de administração e desenvolvimento com o Armazenamento do Azure. É recomendável baixar e instalar ou atualizar para a CLI mais recente do Azure antes usar este guia.
 
 Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Este guia fornece vários scripts que demonstram o uso da CLI do Azure com o Armazenamento do Azure. Não se esqueça de atualizar as variáveis de script com base na sua configuração antes de executar cada script.
 
@@ -94,7 +94,7 @@ Depois que o script é executado, você deve ter uma pasta de destino que inclui
 
 ### Conecte-se à sua assinatura do Azure
 
-Embora a maioria dos comandos de armazenamento funcione sem uma assinatura do Azure, é recomendável se conectar à sua assinatura na CLI do Azure. Para configurar a CLI do Azure para trabalhar com sua assinatura, siga as etapas em [Como se conectar à sua assinatura do Azure](../xplat-cli.md#how-to-connect-to-your-azure-subscription).
+Embora a maioria dos comandos de armazenamento funcione sem uma assinatura do Azure, é recomendável se conectar à sua assinatura na CLI do Azure. Para configurar a CLI do Azure para trabalhar com sua assinatura, siga as etapas em [Como se conectar à sua assinatura do Azure](../xplat-cli-install.md#how-to-connect-to-your-azure-subscription).
 
 ### Criar uma nova conta de armazenamento
 
@@ -169,13 +169,11 @@ Para excluir um blob, use o comando abaixo:
 
 ## Criar e gerenciar compartilhamentos de arquivos
 
-O armazenamento de arquivos do Azure oferece armazenamento compartilhado para aplicativos usando o protocolo padrão SMB 2.1. As máquinas virtuais e os serviços de nuvem da Microsoft podem compartilhar arquivos de dados entre componentes de aplicativo usando compartilhamentos montados. Você pode gerenciar compartilhamentos de arquivos e dados de arquivos por meio da CLI do Azure. Para saber mais sobre o Armazenamento de Arquivos do Azure, confira [Como usar o Armazenamento de Arquivos do Azure com o PowerShell e .NET](storage-dotnet-how-to-use-files).
-
-> [AZURE.NOTE]O armazenamento de arquivos do Azure está atualmente em visualização. Para solicitar acesso à visualização, vá até a [página de visualização do Microsoft Azure](/services/preview/) e solicite acesso aos **Arquivos do Azure**. Após a solicitação ser aprovada, você será notificado de que pode acessar a visualização do armazenamento de arquivos. Você pode então criar uma conta de armazenamento para acessar o armazenamento de arquivos.
+O Armazenamento de Arquivos do Azure oferece o armazenamento compartilhado para aplicativos com o uso do protocolo SMB padrão. As máquinas virtuais e os serviços de nuvem do Microsoft Azure, bem como aplicativos locais, podem compartilhar dados de arquivos por meio de compartilhamentos montados. Você pode gerenciar compartilhamentos de arquivos e dados de arquivos por meio da CLI do Azure. Para obter mais informações sobre o Armazenamento de arquivos do Azure, veja [Como usar o Armazenamento de arquivos do Azure com o Windows](storage-dotnet-how-to-use-files) ou [Como usar o Armazenamento de arquivos do Azure com o Linux](storage-how-to-use-files-linux.md).
 
 ### Criar um compartilhamento de arquivos
 
-Um compartilhamento de arquivos do Azure é um compartilhamento de arquivos SMB 2.1 no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento de arquivos. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos, e um compartilhamento pode conter um número ilimitado de arquivos, até os limites de capacidade da conta de armazenamento. O exemplo a seguir cria um compartilhamento de arquivos denominado **myshare**.
+Um compartilhamento de Arquivos do Azure é um compartilhamento de arquivos do SMB no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento de arquivos. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos, e um compartilhamento pode conter um número ilimitado de arquivos, até os limites de capacidade da conta de armazenamento. O exemplo a seguir cria um compartilhamento de arquivos denominado **myshare**.
 
         azure storage share create myshare
 
@@ -224,4 +222,4 @@ Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Arm
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

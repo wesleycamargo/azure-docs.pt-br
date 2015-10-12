@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/10/2015"
+	ms.date="09/28/2015"
 	ms.author="brohrer;garye" />
 
 # Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure
@@ -35,7 +35,7 @@ Essas recomendações são comentários e dicas compilados de muitos cientistas 
 
 Leia os rótulos do caminho e do algoritmo no gráfico, como "Para *&lt;rótulodocaminho&gt;*, use *&lt;algoritmo&gt;*". Por exemplo, "Para*velocidade*, use *regressão logística de duas classes*". Às vezes, mais de uma ramificação se aplicará. Às vezes, nenhuma delas será a solução perfeita. Elas se destinam a serem recomendações gerais, portanto não se preocupe com a exatidão delas. Vários cientistas dados com quem conversei disseram que a única maneira de encontrar o melhor algoritmo é experimentar todos eles.
 
-Veja um exemplo da[ Galeria de Aprendizado de Máquina do Azure ](http://gallery.azureml.net/)de um experimento que experimenta vários algoritmos nos mesmos dados e compara os resultados: [Comparar classificadores multiclasse: reconhecimento de letra](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+Veja um exemplo da [Galeria de Análise do Cortana](http://gallery.azureml.net/) de um experimento que experimenta vários algoritmos nos mesmos dados e compara os resultados: [Comparar classificadores multiclasse: reconhecimento de letra](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
 ## Tipos de aprendizado de máquina
 
@@ -112,7 +112,7 @@ Alguns algoritmos de aprendizado fazem suposições específicas sobre a estrutu
 |[máquina de vetor de suporte localmente profunda](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Bom para conjuntos de recursos grandes|
 |[computador do ponto de Bayes](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**Classificação multiclasse**| | | | | |
-|[regressão logística](https://msdn.microsoft.com/pt-br/library/azure/dn905853.aspx)| |●|●|5| |
+|[regressão logística](https://msdn.microsoft.com/pt-BR/library/azure/dn905853.aspx)| |●|●|5| |
 |[floresta de decisão](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[selva de decisão ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Volume de memória insuficiente|
 |[rede neural](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)|
@@ -222,4 +222,4 @@ O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutur
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

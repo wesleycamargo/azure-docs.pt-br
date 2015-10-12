@@ -151,7 +151,7 @@ A configuração do Encaminhamento IP é um único comando e pode ser feito no m
 ## Grupos de segurança de rede (NSG)
 Neste exemplo, um grupo NSG é criado e então carregado com uma única regra. Esse grupo é então associado somente às sub-redes Frontend e Backend (e não a SecNet). Declarativamente, a seguinte regra está sendo criada:
 
-1.	Todo o tráfego (todas as portas) da Internet para a Rede Virtual inteira (todas as sub-redes) é Negado
+1.	Todo tráfego (todas as portas) da Internet a toda a VNet (todas as sub-redes) é negado
 
 Embora NSGs sejam usados neste exemplo, seu principal objetivo será ser como uma segunda camada de defesa contra erros de configuração manual. Queremos bloquear todo tráfego de entrada da Internet para as sub-redes Frontend ou Backend; o tráfego só fluirá por meio da sub-rede SecNet até o firewall (e então, se apropriado, nas sub-redes Frontend ou Backend). Além disso, com as regras UDR em vigor, qualquer tráfego que tenha conseguido passar para as sub-redes Frontend ou Backend seria direcionado para o firewall (graças ao UDR). O firewall veria isso como um fluxo assimétrico e descartaria o tráfego de saída. Assim, há três camadas de segurança protegendo as sub-redes Frontend e Backend; 1) nenhum ponto de extremidade aberto nos serviços de nuvem FrontEnd001 e BackEnd001, 2) NSGs negando o tráfego da Internet, 3) o firewall descartando o tráfego assimétrico.
 
@@ -941,4 +941,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

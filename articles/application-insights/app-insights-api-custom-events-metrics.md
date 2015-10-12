@@ -461,7 +461,18 @@ Mas se os usuários entram em seu aplicativo, você pode obter uma contagem mais
     }
 ```
 
-Não é necessário usar o nome do usuário real de conexão. Só deve ser uma ID exclusiva para esse usuário. Não é possível incluir espaços ou os caracteres `,;=|`.
+Em um aplicativo MVC Web ASP.NET, por exemplo:
+
+*Razor*
+
+        @if (Request.IsAuthenticated)
+        {
+            <script>
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+            </script>
+        }
+
+Não é necessário usar o nome do usuário real de conexão. Só deve ser uma ID exclusiva para esse usuário. Não deve incluir espaços ou os caracteres `,;=|`.
 
 A ID de usuário também é definida em um cookie de sessão e enviada ao servidor. Se o servidor SDK estiver instalado, a ID de usuário autenticado será enviada como parte das propriedades de contexto de telemetria do cliente e servidor, para que você possa filtrar e pesquisar nela.
 
@@ -470,7 +481,9 @@ Se seu aplicativo agrupa os usuários em contas, você também pode passar um id
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-No [Metrics Explorer](app-insights-metrics-explorer.md), você pode criar um gráfico de **Usuários Autenticados** e **Contas**.
+No [Metrics Explorer](app-insights-metrics-explorer.md), você pode criar um gráfico que contabiliza **Usuários Autenticados** e **Contas de usuário**.
+
+Você também pode [pesquisar][diagnostic] por pontos de dados do cliente com contas e nomes de usuário específicos.
 
 
 ## <a name="defaults"></a>Definir padrões para telemetria personalizada selecionada
@@ -699,7 +712,7 @@ Normalmente o SDK envia dados em momentos escolhidos para minimizar o impacto so
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Observe que a função é assíncrona.
+Observe que a função é assíncrono para canais de memória, mas síncrona se você optar por usar o [canal persistente](app-insights-windows-desktop.md#persistence-channel).
 
 
 
@@ -903,4 +916,4 @@ Há alguns limites no número de métricas você pode usar.
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

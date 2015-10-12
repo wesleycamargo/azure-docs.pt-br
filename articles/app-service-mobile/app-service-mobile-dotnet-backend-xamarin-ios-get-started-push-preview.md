@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Adicionar notificações por push a seu aplicativo Xamarin iOS com o Serviço de Aplicativo do Azure"
-	description="Aprenda a usar o Serviço de Aplicativo do Azure para enviar notificações por push para o aplicativo Xamarin.iOS"
-	services="app-service\mobile"
-	documentationCenter="xamarin"
+	pageTitle="Adicionar notificações por push a seu aplicativo Xamarin iOS com o Serviço de Aplicativo do Azure" 
+	description="Aprenda a usar o Serviço de Aplicativo do Azure para enviar notificações por push para o aplicativo Xamarin.iOS" 
+	services="app-service\mobile" 
+	documentationCenter="xamarin" 
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
+	ms.service="app-service-mobile" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="08/22/2015"
-	ms.author="yuaxu"/>
+	ms.date="08/22/2015" 
+	ms.author="wesmc"/>
 
 # Adicionar notificações por push a seu aplicativo Xamarin.iOS
 
@@ -210,4 +210,4 @@ Este tutorial foi concluído com êxito.
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

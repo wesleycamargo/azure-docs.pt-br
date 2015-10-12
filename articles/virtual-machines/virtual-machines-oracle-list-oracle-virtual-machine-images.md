@@ -62,4 +62,4 @@ Veja a seguir uma lista das imagens pré-configuradas de máquina virtual Oracle
 
 [Imagens de máquinas virtuais Oracle — diversas considerações](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

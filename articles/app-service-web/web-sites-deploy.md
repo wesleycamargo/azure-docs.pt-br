@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Implantar um aplicativo Web no Serviço de Aplicativo do Azure"
 	description="Saiba quais métodos estão disponíveis para a implantação de conteúdo para aplicativos Web."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -20,60 +20,37 @@
 
 ## Visão geral
 
-Você tem várias opções para implantar seu próprio conteúdo de [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Este tópico apresenta uma breve visão geral de cada opção e links para mais informações.
-
-
-###<a name="cloud"></a>Implantar por meio de um sistema de controle do código-fonte hospedado em nuvem
+Este tópico fornece uma breve visão geral das opções para implantar seu próprio conteúdo nos [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 A melhor maneira de implantar um aplicativo Web é configurando um [fluxo de trabalho de entrega contínua](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) integrado com seu [sistema de controle do código-fonte](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). A automação não só torna o processo de desenvolvimento mais eficiente, mas também pode tornar os processos de backup e restauração mais gerenciáveis e confiáveis.
 
-Se você não tiver configurado o controle do código-fonte ainda, a maneira mais fácil de começar será usando um sistema de controle do código-fonte hospedado em nuvem.
+Para obter informações sobre a implantação de sistemas de controle do código-fonte hospedados na nuvem, consulte as seções a seguir neste artigo.
 
 * [Visual Studio Online](#vso)
 * [Sites de repositório usando o Git](#git)
 * [Sites de repositório usando o Mercurial](#mercurial)
 * [Dropbox](#dropbox)
 
-###<a name="ide"></a>Implantando de um IDE
-
-O [Visual Studio](http://www.visualstudio.com/) e o [WebMatrix](http://www.microsoft.com/web/webmatrix/) são IDEs (ambientes de desenvolvimento integrado) da Microsoft que você pode usar para desenvolvimento na web. Ambos oferecem recursos integrados que facilitam a implantação de um aplicativo Web. Ambos podem usar a [Implantação da Web](http://www.iis.net/downloads/microsoft/web-deploy) para automatizar as tarefas adicionais relacionadas à implantação, como alterações na cadeia de conexão e implantação de banco de dados. Ambos também podem implantar usando [FTP ou FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol)).
-
-O WebMatrix é de rápida instalação e fácil aprendizado, mas o Visual Studio oferece muito mais recursos para trabalhar com aplicativos Web. No IDE do Visual Studio, você poderá criar, parar, iniciar e excluir aplicativos Web do Azure, exibir logs após sua criação em tempo real, depurar remotamente, etc. O Visual Studio também se integra com sistemas de controle do código-fonte, como o [Visual Studio Online](#vso), o [Team Foundation Server](#tfs) e os [repositórios Git](#git).
-
-* [Visual Studio](#vs)
-* [WebMatrix](#webmatrix)
-
-###<a name="ftp"></a>Implantar usando um utilitário FTP
-
-Independentemente de qual IDE for usado, você também poderá implantar conteúdo no seu aplicativo usando o [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar arquivos. É fácil criar credenciais FTP para um aplicativo Web, e você pode usá-las em qualquer aplicativo que funcione com o FTP, incluindo navegadores como o Internet Explorer e utilitários gratuitos completos, como o [FileZilla](https://filezilla-project.org/). Aplicativos Web também dão suporte ao protocolo FTPS, que é mais seguro.
-
-Embora seja fácil copiar os arquivos do seu aplicativo Web para o Azure usando os utilitários FTP, estes não são capazes de, automaticamente, cuidar das tarefas de implantação relacionadas ou coordená-las; tarefas estas como, por exemplo, implantar um banco de dados ou alterar as cadeias de conexão. Além disso, várias ferramentas de FTP não comparam os arquivos de origem com os arquivos de destino para ignorar a cópia dos arquivos inalterados. Para aplicativos grandes, copiar todos os arquivos pode resultar em longos tempos de implantação até mesmo para atualizações menores, já que todos os arquivos serão sempre copiados.
-
-###<a name="onpremises"></a>Implantando de um sistema de controle do código-fonte local
-
-Se você estiver usando TFS, Git ou Mercurial em um repositório local (e não hospedado em nuvem), você pode implantar diretamente de seu repositório em um aplicativo Web.
+Para obter informações sobre a implantação de sistemas de controle do código-fonte locais, consulte as seções a seguir neste artigo.
 
 * [Team Foundation Server (TFS)](#tfs)
 * [Repositórios locais do Git ou do Mercurial](#onpremises)
 
-###<a name="commandline"></a>Implantar usando ferramentas de linha de comando e o API REST de gerenciamento do Azure
+Você também pode automatizar a implantação usando ferramentas de linha de comando. Para obter informações sobre a implantação usando ferramentas de linha de comando, consulte as seções a seguir neste artigo.
 
-É sempre melhor automatizar o fluxo de trabalho de desenvolvimento, mas se você não puder fazer isso diretamente no sistema de controle do código-fonte, poderá configurá-lo manualmente usando as ferramentas de linha de comando. Isso geralmente envolve o uso de mais de uma ferramenta ou estrutura, pois a implantação geralmente abrange a execução de funções de gerenciamento de site, bem como a cópia de conteúdo.
-
-O Azure simplifica as tarefas de gerenciamento de site que você terá que executar para a implantação, fornecendo uma API de gerenciamento do REST e várias estruturas que facilitam o trabalho com a API.
-
-* [FTP](#ftp)
 * [MSBuild](#msbuild)
-* [Scripts do FTP](#ftp2)
+* [Scripts e ferramentas de FTP](#ftp)
 * [Windows PowerShell](#powershell)
 * [API de gerenciamento do .NET](#api)
 * [Interface de linha de comando do Azure (CLI do Azure)](#cli)
 * [Linha de comando de Implantação da Web](#webdeploy)
  
-###<a name="octopus"></a>Octopus Deploy
+Às vezes, é mais conveniente implantar do seu IDE (Ambiente de Desenvolvimento Integrado). Para obter informações sobre a implantação usando um IDE, consulte as seções a seguir neste artigo.
 
-[Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy) pode ser usado com aplicativos Web do Serviço de Aplicativo. Para obter mais informações, consulte [Implantar aplicativos ASP.NET em Sites do Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+* [Visual Studio](#vs)
+* [WebMatrix](#webmatrix)
 
+Outra opção de implantação é usar um serviço baseado em nuvem, como o [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Para obter mais informações, consulte [Implantar aplicativos ASP.NET em Sites do Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -154,7 +131,6 @@ Para obter mais informações, consulte os recursos a seguir:
 * [Fórum do Azure para Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 * [Implantando DOIS sites no Azure de um repositório Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx) Postagem de blog de Scott Hanselman.
 
-
 ##<a name="msbuild"></a>MSBuild
 
 Se você usar o [IDE do Visual Studio](#vs) para desenvolvimento, poderá usar o [MSBuild](http://msbuildbook.com/) para automatizar qualquer tarefa que possa ser executada no seu IDE. Você pode configurar o MSBuild para usar a [Implantação da Web](#webdeploy) ou o [FTP/FTPS](#ftp) para copiar arquivos. A Implantação da Web também pode automatizar várias outras tarefas relacionadas à implantação tarefas, como a implantação de bancos de dados.
@@ -164,9 +140,11 @@ Para obter mais informações sobre a implantação de linha de comando usando o
 * [Implantação da Web do ASP.NET usando o Visual Studio: implantação de linha de comando](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). O décimo de uma série de tutoriais sobre implantação no Azure usando o Visual Studio. Mostra como usar a linha de comando para implantar após a configuração de perfis de publicação no Visual Studio.
 * [Por dentro do Microsoft Build Engine: usando o MSBuild e o Team Foundation Build](http://msbuildbook.com/). Livro impresso que contém capítulos sobre como usar o MSBuild para implantação.
 
-##<a name="ftp2"></a>Scripts do FTP
+##<a name="ftp"></a>Scripts e ferramentas de FTP
 
-É fácil criar credenciais do [FTP/FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para um aplicativo Web e você pode usá-las com os scripts em lotes FTP.
+Você pode implantar conteúdo em seu aplicativo usando [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar arquivos. É fácil criar credenciais de FTP para um aplicativo Web, e você pode usá-las em scripts ou aplicativos que funcionem com o FTP, incluindo navegadores como o Internet Explorer e utilitários gratuitos completos, como o [FileZilla](https://filezilla-project.org/). Aplicativos Web também dão suporte ao protocolo FTPS, que é mais seguro.
+
+Embora seja fácil copiar os arquivos do seu aplicativo Web para o Azure usando os utilitários FTP, estes não são capazes de, automaticamente, cuidar das tarefas de implantação relacionadas ou coordená-las; tarefas estas como, por exemplo, implantar um banco de dados ou alterar as cadeias de conexão. Além disso, várias ferramentas de FTP não comparam os arquivos de origem com os arquivos de destino para ignorar a cópia dos arquivos inalterados. Para aplicativos grandes, copiar todos os arquivos pode resultar em longos tempos de implantação até mesmo para atualizações menores, já que todos os arquivos serão sempre copiados.
 
 Para obter mais informações, consulte o recurso a seguir:
 
@@ -227,4 +205,4 @@ Para obter mais informações sobre outros tópicos de implantação, consulte a
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

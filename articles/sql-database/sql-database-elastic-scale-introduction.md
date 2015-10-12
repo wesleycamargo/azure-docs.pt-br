@@ -61,7 +61,7 @@ O dimensionamento vertical refere-se ao aumento ou diminuição do nível de des
 
 A maioria dos aplicativos de banco de dados de escala de nuvem usará uma combinação dessas duas estratégias. Por exemplo, um aplicativo de Software como um Serviço pode usar o dimensionamento horizontal para provisionar novos clientes finais e o dimensionamento vertical para permitir que o banco de dados de cada cliente final aumente ou reduza em recursos conforme necessário para a carga de trabalho.
 
-* A escala horizontal é gerenciada usando a [biblioteca de clientes do Banco de Dados Elástico](sql-database-elastic-client-overview.md).
+* A escala horizontal é gerenciada com a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md).
 
 * A escala vertical é realizada usando cmdlets do Azure PowerShell para alterar a camada de serviço ou colocando os bancos de dados em um pool de Banco de Dados Elástico.
 
@@ -85,13 +85,13 @@ Alguns aplicativos usam a abordagem mais simples de criar um banco de dados sepa
 Outros cenários de vários locatários pack juntos em bancos de dados, em vez de isolá-los em bancos de dados separados. Esse é um típico **padrão de fragmentação multilocatário**, e pode ser conduzido pelo fato de que um aplicativo gerencia grandes números de locatários muito pequenos. Na fragmentação multilocatária, as linhas nas tabelas de banco de dados foram projetadas para executar uma chave que identifica a ID do locatário ou a chave de fragmentação. Novamente, a camada de aplicativo é responsável por rotear a solicitação de um locatário no banco de dados apropriado, e isso pode ter suporte na biblioteca de cliente do banco de dados elástico. Além disso, a segurança no nível de linha pode ser usada para filtrar quais linhas cada locatário pode acessar. Para obter mais detalhes, confira [Aplicativos multilocatário com ferramentas de banco de dados elástico e segurança no nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md). Redistribuir dados entre bancos de dados pode ser necessário com o padrão de fragmentação de multilocatário, e isso é facilitado pela ferramenta de divisão/mesclagem de banco de dados elástico.
 
 ### Mover dados de bancos de dados de vários locatários para de um locatário
-Ao criar um aplicativo SaaS, é comum para oferecer aos clientes em potencial uma versão de avaliação do software. Nesse caso, é econômico usar um banco de dados multilocatário para os dados. No entanto, quando um cliente em potencial se torna um cliente, um banco de dados de um único locatário é melhor, já que fornece maior desempenho. Se o cliente tiver criado dados durante o período de avaliação, use a [ferramenta de divisão e mesclagem](sql-database-elastic-scale-overview-split-and-merge) para mover os dados do banco de dados multilocatário para o banco de dados de um único locatário.
+Ao criar um aplicativo SaaS, é comum para oferecer aos clientes em potencial uma versão de avaliação do software. Nesse caso, é econômico usar um banco de dados multilocatário para os dados. No entanto, quando um cliente em potencial se torna um cliente, um banco de dados de um único locatário é melhor, já que fornece maior desempenho. Se o cliente tiver criado dados durante o período de avaliação, use a [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) para mover os dados do banco de dados multilocatário para o novo banco de dados de um único locatário.
 
 ## Próximas etapas
 
 Para um aplicativo de exemplo que demonstre a biblioteca do cliente, confira [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 
-Para usar a ferramenta de divisão e mesclagem, você deve [configurar a segurança](sql-database-elastic-scale-split-merge-security-configuration,md).
+Para usar a ferramenta de divisão/mesclagem, é necessário [configurar a segurança](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Para ver os detalhes do pool do Banco de Dados Elástico, confira [Considerações de preço e desempenho para um pool do banco de dados elástico](sql-database-elastic-pool-guidance.md) ou crie um novo pool com o [tutorial](sql-database-elastic-pool-portal.md).
 
@@ -108,4 +108,4 @@ O que podemos aperfeiçoar? Este tópico explica o recurso de maneira clara? Ou 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

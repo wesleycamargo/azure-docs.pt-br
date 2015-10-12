@@ -242,4 +242,4 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 - [Limitações e diretrizes de gerais do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Gerenciamento de recursos](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

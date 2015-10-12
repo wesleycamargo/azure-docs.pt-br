@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Use a ação de Script no HDInsight para instalar o Spark em um cluster do Hadoop | Microsoft Azure"
-	description="Saiba como personalizar um cluster do HDInsight com o Spark. Você usará uma opção de configuração de Ação de Script para usar um script para instalar o Spark"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
+	pageTitle="Use a ação de Script no HDInsight para instalar o Spark em um cluster do Hadoop | Microsoft Azure" 
+	description="Saiba como personalizar um cluster do HDInsight com o Spark. Você usará uma opção de configuração de Ação de Script para usar um script para instalar o Spark" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="Blackmist" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/01/2015" 
 	ms.author="larryfr"/>
 
 # Instalar e usar o Spark em clusters Hadoop do HDInsight
@@ -33,17 +33,17 @@ Este tópico fornece instruções sobre como personalizar um cluster HDInsight p
 
 ## <a name="whatis"></a>Qual versão do Spark posso instalar?
 
-Neste tópico, usamos um script personalizado de Ação de Script para instalar o Spark em um cluster HDInsight. Esse script instala o Spark 1.3.1.
+Neste tópico, usamos um script personalizado de Ação de Script para instalar o Spark em um cluster HDInsight. Esse script instala o Spark 1.5.0.
 
 Você pode modificar esse script ou criar seu próprio script para instalar outras versões do Spark.
 
 ## O que o script faz
 
-Esse script instala a versão 1.3.1 do Spark em `/usr/hdp/current/spark`.
+Esse script instala a versão 1.5.0 do Spark em `/usr/hdp/current/spark`.
 
 ## <a name="install"></a>Instalar o Spark usando ações de script
 
-Um exemplo de script para instalar Spark em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente para leitura em [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh). Esta seção fornece instruções sobre como usar o script de exemplo ao provisionar o cluster usando o portal do Azure.
+Um exemplo de script para instalar Spark em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente leitura em [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Esta seção fornece instruções sobre como usar o script de exemplo ao provisionar o cluster usando o portal do Azure.
 
 > [AZURE.NOTE]Você também pode usar o Azure PowerShell ou o SDK do .NET do HDInsight para criar um cluster usando esse script. Para saber mais sobre como usar esses métodos, consulte [Personalizar clusters HDInsight com ações de script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -52,7 +52,7 @@ Um exemplo de script para instalar Spark em um cluster HDInsight está disponív
 2. Na folha **Configuração opcional**, selecione **Ações de script** e forneça as informações a seguir:
 
 	* __NOME__: insira um nome fácil para a ação de script.
-	* __URI do SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh
+	* __URI do script__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __CABEÇALHO__: marque essa opção
 	* __TRABALHO__: marque essa opção
 	* __ZOOKEEPER__: marque essa opção para instalar no nó Zookeeper.
@@ -225,7 +225,7 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 
 - [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite que você execute operações poderosas nos dados armazenados.
 
-- [Instalar a Matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar a Matiz em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
+- [Instalar a Matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar o Hue em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
 
 
 
@@ -235,4 +235,4 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

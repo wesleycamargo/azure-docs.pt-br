@@ -1,27 +1,29 @@
 <properties
  pageTitle="Correlacionar eventos ao longo do tempo com o Storm e o HBase no HDInsight"
-	description="Saiba como correlacionar eventos que chegam em momentos diferentes usando o Storm e HBase no HDInsight."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+ description="Saiba como correlacionar eventos que chegam em momentos diferentes usando o Storm e HBase no HDInsight."
+ services="hdinsight"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="big-data"
+ ms.date="09/02/2015"
+ ms.author="larryfr"/>
 
 # Correlacionar eventos ao longo do tempo com o Storm e o HBase no HDInsight
 
 Usando um armazenamento de dados persistentes com o Apache Storm, você pode correlacionar as entradas de dados que chegam em momentos diferentes. Por exemplo, vincular eventos de logon e logoff de uma sessão de usuário para calcular quanto tempo durou a sessão.
 
 Neste documento, você aprenderá como criar uma topologia Storm C# básica que rastreie eventos de logon e logoff de sessões de usuário e calcule a duração da sessão. A topologia usa HBase como um repositório de dados persistentes. O HBase também permite executar consultas de lote nos dados históricos para produzir informações adicionais, como quantas sessões de usuário foram iniciadas ou encerradas durante um período específico.
+
+[AZURE.INCLUDE [somente Windows](../../includes/hdinsight-windows-only.md)]
 
 ## Pré-requisitos
 
@@ -198,4 +200,4 @@ Quando você estiver pronto para parar a topologia, volte para o projeto **Corre
 Para obter mais exemplos de topologias Storm, consulte [Exemplo de topologias para Storm no HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

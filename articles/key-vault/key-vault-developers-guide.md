@@ -33,7 +33,7 @@ Operações em cofres de chave são autenticadas e autorizadas usando o Active D
 
 ## Programação para cofre da chave
 
-O sistema de gerenciamento de cofre da chave para programadores consiste em várias interfaces, com o REST como base.
+O sistema de gerenciamento de cofre da chave para programadores consiste em várias interfaces, com o REST como base. Este artigo na referência do REST oferece os conceitos fundamentais [Sobre chaves e segredos](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ### REST
 
@@ -47,19 +47,24 @@ A API do .NET é um conjunto de wrappers que permite a implementação por meio 
 
 ### Node.js
 
-A API do Node.js é um conjunto de wrappers que permite a implementação por meio do modelo de programação JavaScript sem precisar interagir diretamente com o ponto de extremidade REST. Aqui você pode encontrar o [SDK do Microsoft Azure para Node.js - Gerenciamento do Cofre da Chave](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
+A API do Node.js é um conjunto de wrappers que permite a implementação por meio do modelo de programação sem precisar interagir diretamente com o ponto de extremidade REST. Aqui você pode encontrar o [SDK do Microsoft Azure para Node.js - Gerenciamento do Cofre da Chave](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
 
-## Gerenciamento do Cofre da Chave com o PowerShell e CLI
+## Gerenciado os cofres da chave
 
-As chaves do Cofre da Chave do Azure também podem ser gerenciadas usando o PowerShell e a CLI, conforme descrito nos seguintes artigos:
+Os contêineres do Cofre da Chave do Azure (cofres) podem ser gerenciados usando o PowerShell ou a CLI, conforme descrito nos seguintes artigos:
 
 - [Criar e gerenciar Cofres das Chaves com o PowerShell](key-vault-get-started.md)
 - [Criar e gerenciar Cofres das Chaves com a CLI](key-vault-manage-with-cli.md)
+
+
+## Instruções
+
+Os artigos a seguir apresentam orientação específica da tarefa:
+
 - [Como gerar e transferir chaves protegidas por HSM para o cofre da chave do Azure](key-vault-hsm-protected-keys.md)
-- [Sobre chaves e segredos](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
-## Consulte também
+## Exemplos
 
-- [Exemplos de código de Cofre da Chave do Azure](http://www.microsoft.com/download/details.aspx?id=45343)
+- Este download contém o aplicativo de exemplo HelloKeyVault e um exemplo de serviço Web do Azure. [Exemplos de código de Cofre da Chave do Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

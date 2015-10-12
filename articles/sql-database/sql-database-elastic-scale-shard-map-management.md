@@ -106,16 +106,17 @@ Nesse código, um aplicativo tenta abrir um existente**ShardMapManager**. Se obj
         // for privileges on both the GSM and the shards themselves.
     } 
  
+Como alternativa, é possível usar o Powershell para criar um novo Gerenciador de Mapa de Fragmentos. Um exemplo está disponível [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ### Credenciais de administração de mapa de fragmentos
 
 Normalmente, os aplicativos que administrar e manipulam mapas de fragmento são diferentes daqueles que utilizam os mapas de fragmento para conexões de rota.
 
-Para aplicativos que administrem mapas de fragmento (adição ou alteração de fragmentos, mapas de fragmento, mapeamentos de fragmento, etc.) você deve instanciar o **ShardMapManager** usando **credenciais que tenham privilégios de leitura/gravação em banco de dados GSM e em cada banco de dados que sirva como um fragmento**. As credenciais devem permitir gravações nas tabelas no GSM e LSM como informações de mapa do fragmento são inseridas ou alteradas, bem como para criar tabelas LSM em novos fragmentos.
+Para aplicativos que administram mapas de fragmentos (adicionando ou alterando fragmentos, mapas de fragmentos, mapeamentos de fragmentos, etc.), é necessário instanciar o **ShardMapManager** usando as **credenciais que têm privilégios de leitura/gravação no banco de dados do GSM e em cada banco de dados que atua como um fragmento**. As credenciais devem permitir gravações nas tabelas no GSM e LSM como informações de mapa do fragmento são inseridas ou alteradas, bem como para criar tabelas LSM em novos fragmentos.
 
 ### Apenas os metadados afetados 
 
-Métodos usados para preencher ou alterar o**ShardMapManager**dados não alteram os dados de usuário armazenados nos próprios fragmentos. Por exemplo, os métodos como**CreateShard**, **DeleteShard**, **UpdateMapping** etc, afetam apenas os metadados do mapa de fragmento. Não remova, adicione ou altere dados de usuário contidos nos fragmentos. Em vez disso, esses métodos destinam-se a ser usado em conjunto com operações separadas, que você pode executar para criar ou remover bancos de dados real ou que move linhas de um fragmento para outro para reequilibrar um ambiente fragmentado. (A ferramenta de **divisão/mesclagem** incluída com as ferramentas de banco de dados elástico faz uso dessas APIs além de orquestrar a movimentação de dados real entre fragmentos.)
+Os métodos usados para preencher ou alterar os dados de **ShardMapManager** não alteram os dados de usuário armazenados nos próprios fragmentos. Por exemplo, métodos como **CreateShard**, **DeleteShard**, **UpdateMapping** etc., afetam apenas os metadados do mapa de fragmentos. Não remova, adicione ou altere dados de usuário contidos nos fragmentos. Em vez disso, esses métodos destinam-se a ser usado em conjunto com operações separadas, que você pode executar para criar ou remover bancos de dados real ou que move linhas de um fragmento para outro para reequilibrar um ambiente fragmentado. (A ferramenta de **divisão/mesclagem** incluída com as ferramentas de banco de dados elástico usa essas APIs, além de orquestrar a movimentação de dados real entre fragmentos.)
 
 ## Popular um mapa de fragmentos: exemplo
  
@@ -125,7 +126,7 @@ Uma sequência de operações para preencher um mapa de fragmento específicos e
 2. Os metadados para dois fragmentos diferentes é adicionado ao mapa de fragmento. 
 3. Uma variedade de mapeamentos de intervalo de chave são adicionados e o conteúdo geral do mapa do fragmento é exibido. 
 
-O código é escrito de forma que todo o método pode ser novamente com segurança no caso de um erro inesperado – cada solicitação testa se um fragmento ou mapeando já existe, antes de tentar criá-lo. O código a seguir pressupõe que bancos de dados chamados **sample\_shard\_0**, **sample\_shard\_1** e **sample\_shard\_2** já tenham sido criados no servidor referido pela cadeia de caracteres **shardServer**.
+O código é escrito de forma que todo o método pode ser novamente com segurança no caso de um erro inesperado – cada solicitação testa se um fragmento ou mapeando já existe, antes de tentar criá-lo. O código abaixo pressupõe que bancos de dados chamados **sample\_shard\_0**, **sample\_shard\_1** e **sample\_shard\_2** já foram criados no servidor referenciado pela cadeia de caracteres **shardServer**.
 
     public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
         {            
@@ -199,17 +200,17 @@ O código é escrito de forma que todo o método pode ser novamente com seguran�
             } 
         } 
  
-Como alternativa, você pode usar scripts do PowerShell para alcançar o mesmo resultado.
+Como alternativa, você pode usar scripts do PowerShell para alcançar o mesmo resultado. Alguns dos exemplos do PowerShell de exemplo estão disponíveis [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 Depois de mapas de fragmento são preenchidos, aplicativos de acesso de dados podem ser criados ou adaptados para funcionar com os mapas. Não será necessário preencher ou manipular os mapas novamente até que o **layout do mapa** precise ser alterado.
 
 ## Roteamento dependente de dados 
 
-Melhor uso do Gerenciador de mapa de fragmento virão os aplicativos que exigem conexões de banco de dados para executar as operações de dados específicos do aplicativo. Em um aplicativo fragmentado, essas conexões agora devem estar associadas com o banco de dados de destino correto. Isso é conhecido como **Roteamento dependente de dados**. Para esses aplicativos, instancie um objeto do Gerenciador do mapa de fragmento de fábrica usando as credenciais que têm acesso somente leitura no banco de dados GSM. As solicitações de conexões individuais posteriormente fornecerá credenciais necessárias para conectar-se ao banco de dados apropriado do fragmento.
+Melhor uso do Gerenciador de mapa de fragmento virão os aplicativos que exigem conexões de banco de dados para executar as operações de dados específicos do aplicativo. Em um aplicativo fragmentado, essas conexões agora devem estar associadas com o banco de dados de destino correto. Isso é conhecido como **Roteamento Dependente de Dados**. Para esses aplicativos, instancie um objeto do Gerenciador do mapa de fragmento de fábrica usando as credenciais que têm acesso somente leitura no banco de dados GSM. As solicitações de conexões individuais posteriormente fornecerá credenciais necessárias para conectar-se ao banco de dados apropriado do fragmento.
 
-Observe que esses aplicativos (usando **ShardMapManager** aberto com as credenciais somente leitura) não poderão alterar mapeamentos ou mapas. Para essas necessidades, crie aplicativos administrativos específicos ou scripts do PowerShell que fornecem credenciais de privilégios mais altos, conforme discutido anteriormente.
+Observe que esses aplicativos (usando o **ShardMapManager** aberto com as credenciais somente leitura) não poderão alterar mapas ou mapeamentos. Para essas necessidades, crie aplicativos administrativos específicos ou scripts do PowerShell que fornecem credenciais de privilégios mais altos, conforme discutido anteriormente.
 
-Para obter mais detalhes, consulte [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md).
+Para obter mais detalhes, veja [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md).
 
 ## Modificar um mapa de fragmentos 
 
@@ -221,17 +222,17 @@ Esses métodos funcionam juntos como blocos de construção disponíveis para mo
     
     O servidor e o banco de dados que representa o fragmento de destino já devem existir para executar essas operações. Esses métodos não têm qualquer impacto nos bancos de dados, apenas nos metadados no mapa do fragmento.
 
-* Para criar ou remover pontos ou intervalos mapeados para os fragmentos: use **CreateRangeMapping**, **DeleteMapping**, **CreatePointMapping**.
+* Para criar ou remover pontos ou intervalos mapeados para os fragmentos: use **CreateRangeMapping**, **DeleteMapping** e **CreatePointMapping**.
     
-    Vários pontos diferentes ou intervalos podem ser mapeados para o mesmo fragmento. Esses métodos afetam somente metadados – elas não afetam todos os dados que podem já estar presentes em fragmentos. Se houver necessidade de remover os dados do banco de dados para que sejam consistentes com as operações **DeleteMapping**, você precisará realizar essas operações separadamente, mas usando esses métodos.
+    Vários pontos diferentes ou intervalos podem ser mapeados para o mesmo fragmento. Esses métodos afetam somente metadados – elas não afetam todos os dados que podem já estar presentes em fragmentos. Se for necessário remover os dados do banco de dados para que eles sejam consistentes com as operações **DeleteMapping**, você precisará realizar essas operações separadamente, mas em conjunto com esses métodos.
 
 * Para dividir intervalos existentes em dois ou mesclar intervalos adjacentes em um: use **SplitMapping** e **MergeMappings**.
 
-    Observe que as operações de divisão/mesclagem **não alteram o fragmento para o qual os valores de chave são mapeados**. Uma divisão divide um intervalo existente em duas partes, mas deixa ambos como mapeada para o mesmo fragmento. Uma mesclagem opera em dois intervalos adjacentes que já são mapeados para o mesmo fragmento, juntando-os em um único intervalo. A movimentação de pontos ou intervalos em si entre fragmentos precisa ser coordenada usando **UpdateMapping** junto com a movimentação de dados real. Você pode usar o serviço de **Divisão/Mesclagem** que faz parte das ferramentas de banco de dados elástico para coordenar as alterações de mapa de fragmentos com a movimentação de dados, quando houver necessidade de movimentação.
+    Observe que as operações de divisão e mesclagem **não alteram o fragmento para o qual os valores de chave são mapeados**. Uma divisão divide um intervalo existente em duas partes, mas deixa ambos como mapeada para o mesmo fragmento. Uma mesclagem opera em dois intervalos adjacentes que já são mapeados para o mesmo fragmento, juntando-os em um único intervalo. A movimentação dos próprios pontos ou intervalos entre fragmentos precisa ser coordenada com **UpdateMapping** em conjunto com a movimentação real de dados. É possível usar o serviço de **Divisão/Mesclagem** que faz parte das ferramentas de banco de dados elástico para coordenar as alterações de mapa de fragmentos com a movimentação de dados, quando a movimentação for necessária.
 
-* Para remapear (ou mover) pontos individuais ou intervalos de fragmentos diferentes: use **UpdateMapping**.
+* Para remapear (ou mover) pontos ou intervalos individuais para fragmentos diferentes: use **UpdateMapping**.
 
-    Uma vez que pode haver necessidade de mover os dados de um fragmento para outro para que sejam consistentes com as operações de **UpdateMapping**, será preciso executar essa movimentação separadamente, mas usando esses métodos.
+    Já que pode ser necessário mover os dados de um fragmento para outro para que eles sejam consistentes com as operações **UpdateMapping**, você precisará executar essa movimentação separadamente, mas em conjunto com esses métodos.
 
 * Para realizar mapeamentos online e offline: use **MarkMappingOffline** e **MarkMappingOnline** para controlar o estado online de um mapeamento.
 
@@ -245,11 +246,11 @@ Mapeamentos são objetos imutáveis no .Net. Todos os métodos acima que alteram
 
 Geralmente, os aplicativos precisam simplesmente adicionar novos fragmentos para lidar com dados que são esperados de novas chaves ou intervalos de chaves para um mapa do fragmento que já existe. Por exemplo, um aplicativo fragmentado por ID de locatário talvez tenha provisionar um novo fragmento para um novo locatário ou dados mensalmente fragmentados talvez precisem de um novo fragmento provisionado antes do início de cada novo mês.
 
-Se o novo intervalo de valores de chave já não é parte de um mapeamento existente e nenhuma movimentação de dados é necessária, é muito simples adicionar o novo fragmento e associar a nova chave ou o intervalo para esse fragmento. Para obter detalhes sobre como adicionar novos fragmentos, consulte [Adicionar um novo fragmento](sql-database-elastic-scale-add-a-shard.md).
+Se o novo intervalo de valores de chave já não é parte de um mapeamento existente e nenhuma movimentação de dados é necessária, é muito simples adicionar o novo fragmento e associar a nova chave ou o intervalo para esse fragmento. Para obter detalhes sobre como adicionar novos fragmentos, veja [Adicionar um novo fragmento](sql-database-elastic-scale-add-a-shard.md).
 
-Para cenários que exigem a movimentação de dados, no entanto, a ferramenta de divisão/mesclagem é necessária para orquestrar a movimentação dos dados entre os fragmentos em conjunto com as atualizações necessárias do mapa de fragmentos. Para obter detalhes sobre como usar a ferramenta de divisão/mesclagem, consulte [Visão geral de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md)
+Para cenários que exigem a movimentação de dados, no entanto, a ferramenta de divisão/mesclagem é necessária para orquestrar a movimentação dos dados entre os fragmentos em conjunto com as atualizações necessárias do mapa de fragmentos. Para obter detalhes sobre como usar a ferramenta de divisão/mesclagem, confira [Visão geral de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

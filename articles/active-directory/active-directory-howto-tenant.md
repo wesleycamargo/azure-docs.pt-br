@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Como obter um locatário do Active Directory do Azure
@@ -65,4 +65,4 @@ Se todos os itens acima forem sem sentido para você, não se preocupe. Basta vi
 
 Como parte do processo de inscrição para o Azure, será solicitado que você forneça detalhes de cartão de crédito. Você pode prosseguir com confiança - você não será cobrado para publicar aplicativos no AD do Azure nem para criar novos locatários.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

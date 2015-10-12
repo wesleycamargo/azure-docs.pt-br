@@ -22,9 +22,9 @@ Este artigo é um complemento do [artigo principal sobre personalização da int
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Obter um diretório B2C
+## Obter um locatário B2C
 
-Para personalizar algo, você precisará [obter um diretório Azure AD B2C](active-directory-b2c-get-started.md), caso ainda não tenha um.
+Para personalizar algo, você precisará [obter um locatário do AD B2C do Azure](active-directory-b2c-get-started.md), caso ainda não tenha um.
 
 ## Criar uma política de inscrição
 
@@ -32,23 +32,23 @@ O conteúdo de exemplo que fornecemos personaliza duas páginas em uma [polític
 
 ## Registrar um aplicativo
 
-Você precisará [registrar um aplicativo](active-directory-b2c-app-registration.md) no diretório B2C que possa ser usado para executar a política. Depois de registrar o aplicativo, você terá algumas opções que poderão ser usadas para executar de fato a política de inscrição:
+Você precisará [registrar um aplicativo](active-directory-b2c-app-registration.md) no locatário B2C que possa ser usado para executar a política. Depois de registrar o aplicativo, você terá algumas opções que poderão ser usadas para executar de fato a política de inscrição:
 
 - Compile um dos aplicativos de Início Rápido do Azure AD B2C listados [aqui](active-directory-b2c-overview.md#getting-started).
-- Use o aplicativo predefinido [Playground do AD B2C do Azure](https://aadb2cplayground.azurewebsites.net). Caso opte por usar o playground, você deverá registrar um aplicativo no diretório B2C usando o **URI de redirecionamento** `https://aadb2cplayground.azurewebsites.net/`
+- Use o aplicativo predefinido [Playground do AD B2C do Azure](https://aadb2cplayground.azurewebsites.net). Caso opte por usar o playground, você deverá registrar um aplicativo no locatário B2C usando o **URI de redirecionamento** `https://aadb2cplayground.azurewebsites.net/`
 - Na política, use o botão **Executar Agora** no [Portal de Visualização do Azure](https://portal.azure.com).
 
 ## Personalizar a política
 
 Para personalizar a aparência das políticas, primeiramente, você precisa criar arquivos HTML e CSS usando as convenções específicas do AD B2C do Azure. Em seguida, carregue o conteúdo estático em um local publicamente disponível para que o Azure AD B2C possa acessá-lo. Esse local pode ser seu próprio servidor Web dedicado, o Armazenamento de Blob do Azure, a CDN do Azure ou qualquer outro recurso estático que esteja hospedando o provedor. Os únicos requisitos são que o conteúdo esteja disponível por HTTPS e possa ser acessado usando CORS. Depois de expor o conteúdo estático na Web, é possível editar a política para apontar para esse local e apresentar esse conteúdo aos usuários finais. O [artigo principal sobre personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md) descreve detalhadamente como funciona o recurso de personalização do Azure AD B2C.
 
-Para os fins deste tutorial, já criamos o conteúdo de exemplo e o hospedamos no Armazenamento de Blob do Azure. O conteúdo de exemplo é uma personalização bastante básica no tema de nossa empresa fictícia, "Fabrikam B2C". Para testá-lo em sua própria política, siga estas etapas:
+Para os fins deste tutorial, já criamos o conteúdo de exemplo e o hospedamos no Armazenamento de Blob do Azure. O conteúdo de exemplo é uma personalização bastante básica no tema de nossa empresa fictícia, "Contoso B2C". Para testá-lo em sua própria política, siga estas etapas:
 
-1. Entre em seu diretório no [Portal de Visualização do Azure](https://portal.azure.com) e navegue até a folha de recursos do B2C.
+1. Entre em seu locatário no [Portal de Visualização do Azure](https://portal.azure.com) e navegue até a folha de recursos do B2C.
 2. Clique em **Políticas de inscrição** e clique em sua política de inscrição (por exemplo, "b2c\_1\_sign\_up").
 3. Clique em **Personalização da interface do usuário da página** e em **Página de seleção do provedor de identidade**.
-4. Alterne a opção **Usar modelo personalizado** para **Sim**. No campo **URI da página personalizada**, digite `https://fabrikamb2c.blob.core.windows.net/aadb2cplayground/Index.html`. Clique em **OK**.
-5. Clique em **Página de inscrição da conta local**. Alterne a opção **Usar modelo personalizado** para **Sim**. No campo **URI da página personalizada**, digite `https://fabrikamb2c.blob.core.windows.net/aadb2cplayground/EmailVerification.html`. Clique em **OK** duas vezes para fechar as folhas de personalização da interface do usuário.
+4. Alterne a opção **Usar modelo personalizado** para **Sim**. No campo **URI da página personalizada**, digite `https://contosob2c.blob.core.windows.net/static/Index.html`. Clique em **OK**.
+5. Clique em **Página de inscrição da conta local**. Alterne a opção **Usar modelo personalizado** para **Sim**. No campo **URI da página personalizada**, digite `https://contosob2c.blob.core.windows.net/static/EmailVerification.html`. Clique em **OK** duas vezes para fechar as folhas de personalização da interface do usuário.
 6. Clique em **Salvar**.
 
 Agora, você pode testar a política personalizada. Você pode usar seu próprio aplicativo ou o playground do AAD B2C se desejar, mas também pode simplesmente clicar no comando **Executar Agora** na folha da política. Selecione o aplicativo no menu suspenso e o URI de redirecionamento apropriado. Clique no botão **Executar agora**. Uma nova guia do navegador é aberta e você pode passar pela experiência de usuário de se inscrever no aplicativo com o novo conteúdo definido!
@@ -72,17 +72,17 @@ Se quiser usar o Armazenamento de Blob do Azure para hospedar o conteúdo da pá
 
 #### Baixar a ferramenta auxiliar e os arquivos de exemplo
 
-Você pode baixar a [ferramenta auxiliar Armazenamento de Blob do Azure e os arquivos de exemplo como um .zip aqui](https://github.com/azureadsamples/b2c-azureblobstorage-client/archive/master.zip) ou cloná-los do GitHub:
+Você pode baixar a [ferramenta auxiliar Armazenamento de Blob do Azure e os arquivos de exemplo como um .zip aqui](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) ou cloná-los do GitHub:
 
 ```
-git clone https://github.com/azureadsamples/b2c-azureblobstorage-client
+git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
 Esse repositório contém um diretório `sample_templates\contoso`, que inclui o exemplo HTML, CSS e as imagens. Para que esses modelos façam referência à sua própria conta de Armazenamento de Blob do Azure, você precisará editar os arquivos HTML. Abra `Index.htnml` e `EmailValidation.html` e substitua todas as instâncias de `https://localhost` pela URL do seu próprio contêiner que você copiou nas etapas acima. É necessário usar o caminho absoluto dos arquivos HTML, pois nesse caso, o HTML será atendido pelo Azure AD, sob o domínio `https://login.microsoftonline.com`.
 
 #### Carregar os arquivos de exemplo
 
-No mesmo repositório, descompacte `B2CAzureStorageClient.zip` e execute o arquivo `B2CAzureStorageClient.exe`. Esse programa simplesmente carregará todos os arquivos no diretório que você especifica para sua conta de armazenamento e habilita o acesso CORS para esses arquivos. Se você seguiu as etapas acima, os arquivos HTML e CSS agora estarão apontando para a conta de armazenamento.
+No mesmo repositório, descompacte `B2CAzureStorageClient.zip` e execute o arquivo `B2CAzureStorageClient.exe`. Esse programa simplesmente carregará todos os arquivos no diretório que você especifica para sua conta de armazenamento e habilita o acesso CORS para esses arquivos. Se você seguiu as etapas acima, os arquivos HTML e CSS agora estarão apontando para a conta de armazenamento. Observe que o nome da sua conta de armazenamento é a parte que precede `blob.core.windows.net`, por exemplo, `contoso`. Você pode verificar se o conteúdo foi carregado corretamente, tentando acessar `https://{storage-account-name}.blob.core.windows.net/{container-name}/Index.html` em um navegador. Use também [http://test-cors.org/](http://test-cors.org/) para certificar-se de que o conteúdo agora está habilitado para CORS (procure o status XHR: 200 no resultado).
 
 #### Personalizar a política, novamente
 
@@ -90,4 +90,4 @@ Agora que você carregou o conteúdo de exemplo em sua própria conta de armazen
         
 Agora, você pode usar o botão **Executar Agora** ou seu próprio aplicativo para executar a política novamente. O resultado deve ser quase o mesmo — você usou o mesmo HTML e CSS de exemplo em ambos os casos. No entanto, as políticas agora estão fazendo referência à sua própria instância do Armazenamento de Blob do Azure, e você é livre para editar e recarregar os arquivos como quiser. Para saber mais sobre como personalizar o HTML e CSS, consulte o [artigo principal sobre personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

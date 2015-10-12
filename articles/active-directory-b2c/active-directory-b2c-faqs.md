@@ -75,7 +75,7 @@ Não atualmente. A integração desses sistemas está em nosso roteiro.
 
 ### O AD B2C do Azure funciona com o SharePoint local 2016 ou anterior?
 
-Não atualmente. O AD B2C do Azure não tem suporte para tokens SAML 1.1.
+Não atualmente. O B2C do AD do Azure não tem suporte para tokens SAML 1.1 que os aplicativos de portais / comércio eletrônico desenvolvem de acordo com as necessidades do SP locais. Observe que o AD B2C do Azure não é destinado ao cenário de compartilhamento de parceiro externo do Sharepoint; consulte [AD B2C do Azure](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
 
 ### Quais recursos de relatórios e auditoria o AD B2C do Azure oferece? É o mesmo que o Azure AD Premium?
 
@@ -95,7 +95,7 @@ Não, o AD B2C do Azure é um serviço pré-pago do Azure e não faz parte do EM
 
 ### Como faço para relatar problemas com o AD B2C do Azure?
 
-Confira [este tópico de suporte](active-directory-b2c-support.md) no AD B2C do Azure.
+Confira [Este tópico de suporte](active-directory-b2c-support.md) no AD B2C do Azure.
 
 ### Quando o AD B2C do Azure estará disponível?
 
@@ -103,6 +103,6 @@ Não podemos fornecer informações sobre a data de disponibilidade geral no mom
 
 ## Mais informações
 
-Verifique também [limitações e restrições atuais da visualização](active-directory-b2c-limitations.md).
+Também convém analisar as [restrições de visualização, restrições e limitações](active-directory-b2c-limitations.md) atuais.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

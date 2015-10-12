@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="O que acontece quando você adiciona os Serviços Móveis a um aplicativo Javvascript usando Serviços Conectados do Visual Studio" 
+	pageTitle="O que acontece quando você adiciona os Serviços Móveis a um aplicativo do Javascript usando os Serviços Conectados do Visual Studio" 
 	description="Descreve o que aconteceu com seu projeto dos Serviços Móveis do Azure no Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/23/2015" 
 	ms.author="patshea"/>
 
-# O que acontece com o meu projeto Javascript do Azure do Visual Studio quando adiciono os Serviços Móveis usando os Serviços Conectados?
+# O que acontece com o meu projeto do Javascript quando adiciono os Serviços Móveis do Azure usando os Serviços Conectados do Visual Studio?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
@@ -46,4 +46,4 @@ Na pasta de serviços, arquivos de configuração de Serviços Conectados foram 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

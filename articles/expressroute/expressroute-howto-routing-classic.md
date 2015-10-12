@@ -310,4 +310,4 @@ Você pode remover a configuração de emparelhamento executando o seguinte cmdl
 
 Para saber mais sobre o emparelhamento de circuito, consulte [Circuitos e domínios de roteamento da Rota Expressa](expressroute-circuit-peerings.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

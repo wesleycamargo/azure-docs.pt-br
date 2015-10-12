@@ -624,4 +624,4 @@ Recomendamos habilitar o banco de dados de flashback nos bancos de dados primár
 ##Recursos adicionais
 [Imagens de Máquina Virtual Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

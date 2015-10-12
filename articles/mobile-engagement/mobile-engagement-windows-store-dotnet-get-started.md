@@ -159,9 +159,11 @@ Você estará pronto para enviar uma notificação do sistema. Agora vamos verif
 
 1. Você terá que associar seu aplicativo a um Aplicativo da Windows Store para obter seu **SID (Identificador de Segurança de Pacote)** e sua **Chave Secreta** (Segredo do Cliente). Você pode criar um aplicativo no [Centro de Desenvolvimento da Windows Store] e se certificar de usar **Associar o Aplicativo à Store** do Visual Studio.
 
-2. Navegue até **Configurações**, no portal do Mobile Engagement, e clique na seção **Push Nativo** à esquerda.
+	![][7]
 
-3. Clique no botão **Editar** para inserir seu **SID (Identificador de Segurança de Pacote)** e sua **Chave Secreta**, conforme mostrado abaixo:
+2. Navegue até **Configurações** no portal do Mobile Engagement e clique na seção **Push Nativo** à esquerda.
+
+3. Clique no botão **Editar** para inserir seu **SID (Identificador de Segurança de Pacote)** e sua **Chave Secreta**, como mostrado abaixo:
 
 	![][6]
 
@@ -178,10 +180,11 @@ Agora você verá uma notificação da sua campanha em seu dispositivo — o apl
 [Aplicativos do Windows Universal - Integração de sobreposição]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/UniversalAppCreation.png
+[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
 [2]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-store-dotnet-get-started/add-connection-info.png
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
+[7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->
