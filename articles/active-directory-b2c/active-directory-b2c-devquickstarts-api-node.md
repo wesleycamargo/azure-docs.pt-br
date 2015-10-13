@@ -59,8 +59,7 @@ siga [estas instruções](active-directory-b2c-app-registration.md). Certifique-
 - Criar um **Segredo do Aplicativo** para seu aplicativo e copiá-lo. Você precisará dele em breve.
 - Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você também precisará dela em breve.
 
-    > [AZURE.IMPORTANT]
-    Não é possível usar aplicativos registrados na guia **Aplicativos** no [Portal do Azure](https://manage.windowsazure.com/) para isso.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3. Criar suas políticas
 
@@ -72,9 +71,11 @@ experiências de identidade: inscrição, entrada e entrada com o Facebook. Voc�
 - Escolher as declarações de aplicativo **Nome de Exibição** e **ID do Objeto** em cada política. Você pode escolher outras declarações também.
 - Copie o **Nome** de cada política após criá-lo. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará esses nomes de política.
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+
 Depois de criar suas três políticas com êxito, você está pronto para criar o aplicativo.
 
-Observe que este artigo não aborda como usar as políticas que você acabou de criar. Para saber mais sobre como as políticas funcionam no AD B2C do Azure, você deve começar com o [Tutorial de introdução do aplicativo Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Observe que este artigo não aborda como usar as políticas que você acabou de criar. Se quiser aprender sobre como as políticas funcionam no AD B2C do Azure, comece com o [tutorial de introdução ao aplicativo Web da .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## 4: baixar node.js para sua plataforma
 Para usar este exemplo com êxito, você deve ter uma instalação do Node.js em funcionamento.
@@ -299,13 +300,13 @@ policyName:'b2c_1_<sign in policy name>',
 
 ### Valores necessários
 
-*IdentityMetadata*: isso é onde passport-azure-ad vai procurar os dados de configuração para o IdP, bem como as chaves para validar os tokens JWT. Provavelmente, você não deseja alterar isso se estiver usando o Active Directory do Azure.
+*IdentityMetadata*: é onde passport-azure-ad vai procurar os dados de configuração para o IdP, bem como as chaves para validar os tokens JWT. Provavelmente, você não deseja alterar isso se estiver usando o Active Directory do Azure.
 
-*público*: O URI do portal que identifica seu serviço. Nosso exemplo usa: `http://localhost/TodoListService`
+*público*: o URI do portal que identifica seu serviço. Nosso exemplo usa: `http://localhost/TodoListService`
 
-*tenantName*: O nome do locatário (por exemplo, contoso.onmicrosoft.com)
+*tenantName*: o nome do locatário (por exemplo, contoso.onmicrosoft.com)
 
-*policyName*: A política que você deseja validar os tokens que chegam ao seu servidor. Esta deve ser a mesma política que você usou no aplicativo cliente para entrar.
+*policyName*: a política com que você deseja validar os tokens que chegam ao seu servidor. Esta deve ser a mesma política que você usou no aplicativo cliente para entrar.
 
 > [AZURE.NOTE]Para nossa visualização de B2C, você usa as mesmas políticas tanto em instalações de cliente quanto de servidor. Se você já seguiu um passo a passo e criou essas políticas, não é necessário fazê-lo novamente. Como você já passou por este passo a passo, não precisa configurar novas políticas ao passar por quaisquer instruções passo a passo neste site.
 
@@ -351,7 +352,7 @@ Agora todos os essa preparação passará a compensar, enquanto agrupamos esses 
 
 Para este passo a passo usaremos MongoDB para armazenar nossas tarefas conforme discutido em ***Etapa 4***.
 
-Se você se lembra do arquivo js que criamos na etapa 11, chamamos de nosso banco de dados *tasklist*, uma vez que foi o que usamos no final da nossa URL de conexão mogoose\_auth\_local. Você não precisa criar esse banco de dados com antecedência no MongoDB, ele criará isso para nós na primeira execução do nosso aplicativo de servidor (supondo que ele ainda não exista).
+Se você se lembra do arquivo js que criamos na Etapa 11, chamamos de nosso banco de dados *tasklist*, uma vez que foi o que usamos no final da nossa URL de conexão mogoose\_auth\_local. Você não precisa criar esse banco de dados com antecedência no MongoDB, ele criará isso para nós na primeira execução do nosso aplicativo de servidor (supondo que ele ainda não exista).
 
 Agora que dissemos ao servidor qual banco de dados MongoDB, gostaríamos de usar, precisamos escrever algum código adicional para criar o modelo e o esquema para as tarefas do nosso servidor.
 
@@ -893,4 +894,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [Conectar-se a uma API Web usando o iOS com o B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

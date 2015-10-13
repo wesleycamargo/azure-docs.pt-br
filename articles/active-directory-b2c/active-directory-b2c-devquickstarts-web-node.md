@@ -40,7 +40,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Ope
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
-> [AZURE.WARNING] 	ara Visualização do B2C, você deve usar a mesma ID do Aplicativo/ID do cliente e políticas tanto para o servidor de tarefa API Web quanto para o cliente que se conecta a ele. Isso é verdadeiro para nossos tutoriais do Android e iOS. Se você tiver criado anteriormente um aplicativo em qualquer um desses guias de início rápido, use esses valores em vez de criar novos abaixo.
+> [AZURE.WARNING] 	Para Visualização do B2C, você deve usar a mesma ID do Aplicativo/ID do cliente e políticas tanto para o servidor de tarefa API Web quanto para o cliente que se conecta a ele. Isso é verdadeiro para nossos tutoriais do Android e iOS. Se você tiver criado anteriormente um aplicativo em qualquer um desses guias de início rápido, use esses valores em vez de criar novos abaixo.
 
 ## 1. Obter um diretório AD B2C do Azure
 
@@ -62,8 +62,8 @@ Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azur
 
 No AD B2C do Azure, cada experiência do usuário é definida por uma [**política**](active-directory-b2c-reference-policies.md). Este aplicativo contém três experiências de identidade: inscrição, entrada e entrada com o Facebook. Você precisará criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar suas três políticas, não se esqueça de:
 
-- Escolher o **Nome de Exibição** e alguns outros atributos de inscrição em sua política de inscrição.
-- Escolher as declarações de aplicativo **Nome de Exibição** e **ID do Objeto** em cada política. Você pode escolher outras declarações também.
+- Escolha o **Nome de Exibição** e alguns outros atributos de inscrição em sua política de inscrição.
+- Escolha as declarações de aplicativo **Nome de Exibição** e **ID do Objeto** em cada política. Você pode escolher outras declarações também.
 - Copie o **Nome** de cada política após criá-lo. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará esses nomes de política. 
 
 Depois de criar suas três políticas com êxito, você está pronto para criar o aplicativo.
@@ -304,9 +304,9 @@ app.get('/logout', function(req, res){
 
 -	Vamos examiná-los detalhadamente:
     -	A rota `/` redirecionará para o modo de exibição index.ejs passando o usuário na solicitação (se houver)
-    - A rota `/account` primeiro ***garantirá que sejamos autenticados*** (implementamos isso abaixo) e passará o usuário na solicitação para que possamos obter informações adicionais sobre ele.
+    - A rota `/account` primeiro ***garantirá que sejamos autenticados*** (implementamos isso abaixo) e aprovará o usuário na solicitação para que possamos obter informações adicionais sobre ele.
     - A rota `/login` chamará nosso autenticador azuread-openidconnect de `passport-azuread` e, se não tiver êxito, redirecionará o usuário para /login
-    - O `/logout` simplesmente chamará logout.ejs (e a rota), o que limpa os cookies e, em seguida, retorna o usuário para index. ejs
+    - O `/logout` simplesmente chamará logout.ejs (e a rota), o que limpa os cookies e, em seguida, retorna o usuário para index.ejs
 
 
 - Para a última parte do `app.js`, vamos adicionar o método EnsureAuthenticated que é usado em `/account` acima.
@@ -337,7 +337,7 @@ app.listen(3000);
 
 ## 5\. Criar estes modos de exibição e rotas no Express para chamar nossas políticas
 
-Temos nosso `app.js` concluído. Agora, precisamos só adicionar rotas e modos de exibição que nos permitirão chamar as políticas de conexão e registro, bem como tratar das rotas `/logout` e `/login` que criamos.
+Temos nosso `app.js` concluído. Agora, precisamos só adicionar rotas e exibições que nos permitirão chamar as políticas de conexão e entrada, bem como tratar das rotas `/logout` e `/login` que criamos.
 
 - Crie a rota `/routes/index.js` no diretório raiz.
 
@@ -367,7 +367,7 @@ exports.list = function(req, res){
 
 Essas rotas simples apenas passarão a solicitação para nossos modos de exibição, incluindo o usuário, se presente.
 
-- Crie o modo de exibição `/views/index.ejs` no diretório raiz. Este é um exemplo de página que chamará nossas políticas para entrada e saída que nos permitirá obter informações da conta. Observe que podemos usar o `if (!user)` condicional, pois o usuário que está sendo passado na solicitação é uma prova de que temos um usuário conectado.
+- Crie a exibição `/views/index.ejs` no diretório raiz. Este é um exemplo de página que chamará nossas políticas para entrada e saída que nos permitirá obter informações da conta. Observe que podemos usar o `if (!user)` condicional, pois o usuário que está sendo passado na solicitação é uma prova de que temos um usuário conectado.
 
 ```JavaScript
 <% if (!user) { %>
@@ -382,7 +382,7 @@ Essas rotas simples apenas passarão a solicitação para nossos modos de exibi�
 <% } %>
 ```
 
-- Crie o modo de exibição `/views/account.ejs` no diretório raiz para que possamos exibir as informações adicionais que `passport-azuread` colocou na solicitação do usuário.
+- Crie a exibição `/views/account.ejs` no diretório raiz para que possamos exibir as informações adicionais que `passport-azuread` colocou na solicitação do usuário.
 
 ```Javascript
 <% if (!user) { %>
@@ -412,7 +412,7 @@ Registre-se ou entre no aplicativo com o email ou Facebook. Saia e faça logon n
 
 ##Próximas etapas
 
-Para referência, o exemplo concluído (sem seus valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip), ou você pode cloná-lo do GitHub:
+Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git
@@ -433,4 +433,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

@@ -961,7 +961,7 @@ E agora gerenciar nossos retornos de chamada da caixa de diálogo:
     
 ```
 
-É isso! Você deve ter uma `ToDoActivity.java` arquivo compilado. Todo o projeto deve ser compilado agora também.
+É isso! Você deve ter um arquivo `ToDoActivity.java` compilado. Todo o projeto deve ser compilado agora também.
     
 
 
@@ -987,9 +987,12 @@ A ADAL criptografa os tokens e os armazena em SharedPreferences por padrão. Voc
 
 #### Cookies de sessão no Webview
 
-Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
-```
-CookieSyncManager.createInstance(getApplicationContext()); CookieManager cookieManager = CookieManager.getInstance(); cookieManager.removeSessionCookie(); CookieSyncManager.getInstance().sync();``` Mais sobre cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+O Webview para Android não limpa os cookies de sessão depois que o aplicativo é fechado. Você pode lidar com isso com o código de exemplo abaixo: ```
+CookieSyncManager.createInstance(getApplicationContext());
+CookieManager cookieManager = CookieManager.getInstance();
+cookieManager.removeSessionCookie();
+CookieSyncManager.getInstance().sync();
+``` Mais sobre cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

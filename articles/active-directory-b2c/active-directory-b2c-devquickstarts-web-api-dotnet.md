@@ -373,7 +373,9 @@ Finalmente, compile e execute o `TaskClient` e o `TaskService`. Inscreva-se ou e
 
 Para referência, o exemplo concluído [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
+```
 
 <!--
 
@@ -387,4 +389,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
