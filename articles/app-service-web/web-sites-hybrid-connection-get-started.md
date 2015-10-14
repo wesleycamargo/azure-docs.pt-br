@@ -20,7 +20,7 @@
 
 Você pode conectar um aplicativo Web no Serviço de Aplicativo do Azure a qualquer recurso local que utilize uma porta TCP estática, como SQL Server, MySQL, APIs Web HTTP, Serviços Móveis e os serviços Web mais personalizados. Este artigo mostra como criar uma conexão híbrida entre um aplicativo Web no Serviço de Aplicativo e um banco de dados do SQL Server local.
 
-> [AZURE.NOTE]A parte de aplicativos Web do recurso de conexões híbridas está disponível apenas no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> [AZURE.NOTE] A parte de aplicativos Web do recurso de conexões híbridas está disponível apenas no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Pré-requisitos
 - Uma assinatura do Azure. Para uma assinatura gratuita, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/). 
@@ -32,7 +32,7 @@ Você pode conectar um aplicativo Web no Serviço de Aplicativo do Azure a qualq
 	- Precisa ser capaz de conectar-se ao Azure pela porta 5671
 	- Precisa ser capaz de atingir o *hostname*:*portnumber* do seu recurso local. 
 
-> [AZURE.NOTE]As etapas neste artigo pressupõem que você está utilizando o navegador a partir do computador que hospedará o agente local de conexão híbrida.
+> [AZURE.NOTE] As etapas neste artigo pressupõem que você está utilizando o navegador a partir do computador que hospedará o agente local de conexão híbrida.
 
 
 ## Criar um aplicativo Web no Portal do Azure ##
@@ -77,7 +77,11 @@ Em seguida, você criará uma conexão híbrida e um serviço do BizTalk para o 
 	
 	![Criar uma Conexão Híbrida][TwinCreateHCBlades]
 	
-	Na **folha Criar conexão híbrida**: - Para **Nome**, forneça um nome para a conexão. - Para **Nome de host**, digite o nome do computador local que hospeda o recurso. - Para **Porta**, digite o número da porta que o recurso local usa (1433 para uma instância do SQL Server padrão). - Clique em **Serviço BizTalk**
+	Na **folha Criar conexão híbrida**:
+	- Para **Nome**, forneça um nome para a conexão.
+	- Para **Nome de host**, digite o nome do computador local que hospeda o recurso.
+	- Para **Porta**, digite o número da porta que o recurso local usa (1433 para uma instância do SQL Server padrão).
+	- Clique em **Serviço BizTalk**
 
 
 4. A folha **Criar serviço BizTalk** será aberta. Insira um nome para o serviço BizTalk, então clique em **OK**.
@@ -93,16 +97,16 @@ Em seguida, você criará uma conexão híbrida e um serviço do BizTalk para o 
 6. Quando o processo for concluído, a área Notificações no portal informa a você que a conexão foi criada com sucesso.
 	<!-- TODO
 
-Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
-(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-Create hybrid conn step, you get the following error
-Failed to create hybrid connection RelecIoudHC. The 
-resource type could not be found in the namespace 
-'Microsoft.BizTaIkServices for api version 2014-06-01'.
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
-The error indicates it couldn't find the type, not the instance.
-![Success notification][CreateHCSuccessNotification]
--->
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. Na folha do aplicativo Web, o ícone **Conexões híbridas** agora mostra que uma conexão híbrida foi criada.
 	
 	![Uma conexão híbrida criada][CreateHCOneConnectionCreated]
@@ -154,7 +158,7 @@ Nesse ponto, você concluiu uma parte importante da infraestrutura de conexão h
 
 Agora que a infraestrutura de conexão híbrida está concluída, você criará um aplicativo híbrido que a utilize.
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 <a name="NextSteps"></a>
 ## Próximas etapas ##
@@ -207,4 +211,4 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
