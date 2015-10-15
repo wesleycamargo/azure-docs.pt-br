@@ -47,9 +47,9 @@ No painel **SQL Data Warehouse**, preencha os campos a seguir. **Servidor** e **
      
     ![Nome e DWU](./media/sql-data-warehouse-get-started-provision/name-and-dwu.png)
 
-    > [AZURE.NOTE]Medimos o desempenho em Unidades de Data Warehouse (DWUs). À medida que você aumenta as DWUs, o SQL Data Warehouse aumenta os recursos de computação disponíveis para suas operações de banco de dados do data warehouse.
+    > [AZURE.NOTE] Medimos o desempenho em Unidades de Data Warehouse (DWUs). À medida que você aumenta as DWUs, o SQL Data Warehouse aumenta os recursos de computação disponíveis para suas operações de banco de dados do data warehouse.
 
-	> [AZURE.NOTE]Você pode alterar de maneira rápida e fácil o nível de desempenho depois de criar o banco de dados. Por exemplo, se você não estiver usando o banco de dados, mova o controle deslizante para a esquerda para reduzir os custos. Ou aumentar o desempenho quando mais recursos forem necessários. Esse é o poder escalonável do SQL Data Warehouse.
+	> [AZURE.NOTE] Você pode alterar de maneira rápida e fácil o nível de desempenho depois de criar o banco de dados. Por exemplo, se você não estiver usando o banco de dados, mova o controle deslizante para a esquerda para reduzir os custos. Ou aumentar o desempenho quando mais recursos forem necessários. Esse é o poder escalonável do SQL Data Warehouse.
 	
 
 2. **Grupo de recursos**. Mantenha os valores padrão. Os grupos de recursos são contêineres projetados para ajudá-lo a gerenciar uma coleção de recursos do Azure. Saiba mais sobre [grupos de recursos](../azure-portal/resource-group-portal.md).
@@ -62,11 +62,15 @@ No painel **SQL Data Warehouse**, preencha os campos a seguir. **Servidor** e **
 
     ![Criar um novo servidor](./media/sql-data-warehouse-get-started-provision/create-new-server.png)
 
-    >[AZURE.NOTE]No SQL Data Warehouse e no Banco de Dados SQL, um servidor fornece uma maneira consistente de configurar bancos de dados baseados em nuvem. No Azure, mesmo que um servidor esteja vinculado a um único data center, ele não é um hardware físico como uma instância local do SQL Server; ele faz parte do software do serviço. É por isso que o chamamos de um servidor lógico. É importante lembrar que, ao contrário do mundo real, as cargas de trabalho que executam bancos de dados e data warehouses no mesmo servidor não terão um impacto no desempenho entre si.
+    >[AZURE.NOTE] No SQL Data Warehouse e no Banco de Dados SQL, um servidor fornece uma maneira consistente de configurar bancos de dados baseados em nuvem. No Azure, mesmo que um servidor esteja vinculado a um único data center, ele não é um hardware físico como uma instância local do SQL Server; ele faz parte do software do serviço. É por isso que o chamamos de um servidor lógico. É importante lembrar que, ao contrário do mundo real, as cargas de trabalho que executam bancos de dados e data warehouses no mesmo servidor não terão um impacto no desempenho entre si.
 
 1. Na janela **Novo servidor**, preencha as informações solicitadas.
 
-    Lembre-se de armazenar o nome do servidor, o nome do administrador e a senha em algum lugar. Você precisará dessas informações para fazer logon no servidor. - **Nome do Servidor**. Insira um nome para o servidor lógico. - **Nome do Administrador do Servidor**. Insira um nome de usuário para a conta do administrador do servidor. - **Senha**. Insira a senha do administrador do servidor. - **Local**. Escolha um local geográfico que esteja perto de você ou de seus outros recursos do Azure. Isso reduzirá a latência da rede, já que todos os bancos de dados e recursos que pertencem ao seu servidor lógico estarão fisicamente localizados na mesma região.
+    Lembre-se de armazenar o nome do servidor, o nome do administrador e a senha em algum lugar. Você precisará dessas informações para fazer logon no servidor. 
+	- **Nome do Servidor**. Insira um nome para o servidor lógico. 
+	- **Nome do Administrador do Servidor**. Insira um nome de usuário para a conta do administrador do servidor.
+	- **Senha**. Insira a senha do administrador do servidor. 
+	- **Local**. Escolha um local geográfico que esteja perto de você ou de seus outros recursos do Azure. Isso reduzirá a latência da rede, já que todos os bancos de dados e recursos que pertencem ao seu servidor lógico estarão fisicamente localizados na mesma região.
 
     ![Configurar novo servidor](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
 
@@ -92,6 +96,6 @@ Agora que você criou um banco de dados de exemplo para o SQL Data Warehouse, sa
 
 - [Conectar e consultar](./sql-data-warehouse-get-started-connect-query.md).
 
-	> [AZURE.NOTE]Queremos melhorar este artigo. Se você optar por responder "não" à pergunta "Este artigo foi útil?", inclua uma breve sugestão sobre como melhorar o artigo ou o que está faltando. Obrigado!
+	> [AZURE.NOTE] Queremos melhorar este artigo. Se você optar por responder "não" à pergunta "Este artigo foi útil?", inclua uma breve sugestão sobre como melhorar o artigo ou o que está faltando. Obrigado!
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
