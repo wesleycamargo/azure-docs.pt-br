@@ -66,6 +66,8 @@ No AD B2C do Azure, cada experiência do usuário é definida por uma [**políti
 - Escolha as declarações de aplicativo **Nome de Exibição** e **ID do Objeto** em cada política. Você pode escolher outras declarações também.
 - Copie o **Nome** de cada política após criá-lo. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará esses nomes de política. 
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+
 Depois de criar suas três políticas com êxito, você está pronto para criar o aplicativo.
 
 Observe que este artigo não aborda como usar as políticas que você acabou de criar. Para saber mais sobre como as políticas funcionam no AD B2C do Azure, você deve começar com o [Tutorial de introdução do aplicativo Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
