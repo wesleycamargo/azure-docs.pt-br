@@ -101,7 +101,7 @@ Você precisa configurar uma regra de firewall no servidor que permita conexões
 
 	![Adicionar o endereço IP](./media/sql-database-get-started/firewall_config_new_rule.png)
 
-	>[AZURE.IMPORTANT]Seu endereço IP provavelmente será alterado periodicamente, e você não poderá acessar o seu servidor até que você crie uma nova regra de firewall. Você pode verificar seu endereço IP usando o [Bing](http://www.bing.com/search?q=my%20ip%20address) e depois adicionar um único endereço IP ou um intervalo de endereços IP. Veja [Como definir as configurações de firewall](sql-database-configure-firewall-settings.md) para obter mais detalhes.
+	>[AZURE.IMPORTANT]Seu endereço IP de cliente provavelmente será alterado periodicamente, e você não poderá acessar o seu servidor até que você crie uma nova regra de firewall. Você pode verificar seu endereço IP usando o [Bing](http://www.bing.com/search?q=my%20ip%20address) e depois adicionar um único endereço IP ou um intervalo de endereços IP. Veja [Como definir as configurações de firewall](sql-database-configure-firewall-settings.md) para obter mais detalhes.
 
 ## Próximas etapas
 Agora que você tem um banco de dados com alguns dados de exemplo, você está pronto para explorar o uso de suas ferramentas favoritas.
@@ -114,4 +114,4 @@ Agora que você tem um banco de dados com alguns dados de exemplo, você está p
 
 - Se deseja mover seus bancos de dados SQL Server local para o Azure, veja [Migrando um banco de dados para o Banco de dados SQL do Azure](sql-database-cloud-migrate.md) para obter mais informações.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

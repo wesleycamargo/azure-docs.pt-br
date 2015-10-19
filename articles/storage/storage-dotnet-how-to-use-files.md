@@ -19,7 +19,7 @@
 
 ## Visão geral
 
-O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. O armazenamento de arquivo agora está disponível e dá suporte a SMB 3.0 e a SMB 2.1.
+O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. O armazenamento de arquivo agora está disponível e dá suporte a SMB 2.1 e a SMB 3.0.
 
 Você pode criar compartilhamentos de arquivos do Azure usando o portal de visualização do Azure, os cmdlets do PowerShell de armazenamento do Azure, as bibliotecas de cliente de armazenamento do Azure ou APIs REST do armazenamento do Azure. Além disso, como os compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs padrão e clássicas do sistema de arquivos.
 
@@ -61,7 +61,7 @@ O [portal de visualização do Azure](https://ms.portal.azure.com/) fornece uma 
 
 ## Usar o PowerShell para gerenciar um compartilhamento de arquivos
 
-Em seguida, usaremos o PowerShell do Azure para criar um compartilhamento de arquivos. Quando o compartilhamento de arquivos tiver sido criado, você poderá montá-lo em qualquer sistema de arquivos que dê suporte a SMB 2.1.
+Em seguida, usaremos o PowerShell do Azure para criar um compartilhamento de arquivos. Quando o compartilhamento de arquivos tiver sido criado, você poderá montá-lo em qualquer sistema de arquivos que dê suporte a SMB 2.1 ou SMB 3.0.
 
 ### Instalar os cmdlets do PowerShell para Armazenamento do Azure
 
@@ -162,14 +162,14 @@ Observe que as credenciais são mantidas somente no contexto no qual `cmdkey` é
 
 Após ter uma conexão remota com a máquina virtual, você poderá executar o comando `net use` para montar o compartilhamento de arquivos usando a sintaxe a seguir. Substitua `<storage-account-name>` pelo nome da sua conta de armazenamento e `<share-name>` pelo nome do compartilhamento de armazenamento de arquivos.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
 Como você persistiu as credenciais da conta de armazenamento na etapa anterior, não será preciso fornecê-las com o comando `net use`. Se ainda não tiver persistido suas credenciais, inclua-as como um parâmetro passado para o comando `net use`, conforme exibido no exemplo a seguir.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
@@ -540,4 +540,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

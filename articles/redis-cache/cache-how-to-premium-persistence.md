@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # Como configurar a persistência de dados para um Cache Redis do Azure Premium
@@ -81,8 +81,10 @@ O intervalo da frequência de backup não é iniciado até que o processo de bac
 Todos os backups, exceto pelo mais recente, serão excluídos automaticamente. Essa exclusão pode não acontecer imediatamente, mas os backups mais antigos não são persistidos por tempo indeterminado.
 
 ## Próximas etapas
+Aprenda a usar mais recursos de cache premium.
 
-Saiba como usar mais recursos de cache premium. - [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md) - [Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md)
+-	[Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md)
+-	[Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md)
   
 <!-- IMAGES -->
 
@@ -94,4 +96,4 @@ Saiba como usar mais recursos de cache premium. - [Como configurar o clustering 
 
 [redis-cache-persistence-selected]: ./media/cache-how-to-premium-persistence/redis-cache-persistence-selected.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

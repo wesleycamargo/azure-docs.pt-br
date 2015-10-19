@@ -36,7 +36,7 @@ Para poder autenticar os usuários, deve-se registrar o seu aplicativo com o Azu
 Este tutorial exige o seguinte:
 
 * XCode 4.5 e iOS 6.0 (ou versões posteriores)
-* Conclusão do tutorial [Introdução aos Serviços Móveis] ou [Introdução aos Dados].
+* Conclusão do tutorial [Introdução aos Serviços Móveis]
 * SDK de Serviços Móveis do Microsoft Azure
 * A [Biblioteca de Autenticação do Active Directory para iOS]
 
@@ -114,10 +114,9 @@ Este tutorial exige o seguinte:
 
 
 <!-- URLs. -->
-[Introdução aos Dados]: mobile-services-ios-get-started-data.md
 [Introdução aos serviços móveis]: mobile-services-dotnet-backend-ios-get-started.md
 [Como se registrar com o Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

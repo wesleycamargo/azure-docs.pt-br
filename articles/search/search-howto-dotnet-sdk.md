@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="07/08/2015"
+   ms.date="10/06/2015"
    ms.author="brjohnst"/>
 
 # Como usar a Pesquisa do Azure de um aplicativo .NET #
@@ -31,7 +31,7 @@ A biblioteca de cliente define classes como `Index`, `Field` e `Document`, e ope
 
 A versão atual do SDK do .Net da Pesquisa do Azure é uma versão de pré-lançamento. Se você quiser fornecer comentários para que possamos incorporar na primeira versão estável, visite nossa [página de comentários](http://feedback.azure.com/forums/263029-azure-search).
 
-O SDK do .NET dá suporte à versão `2015-02-28` da API REST da Pesquisa do Azure, documentada no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Novos recursos que *não* fazem parte dessa versão, como o suporte a processadores de idioma natural da Microsoft ou o parâmetro de pesquisa `moreLikeThis`, estão em [visualização](search-api-2015-02-28-preview.md) e ainda não estão disponíveis no SDK. Confira em [Controle de versão do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn864560.aspx) ou [Atualizações mais recentes da Pesquisa do Azure](search-latest-updates.md) para obter atualizações do status de um desses recursos.
+O SDK do .NET dá suporte à versão `2015-02-28` da API REST da Pesquisa do Azure, documentada no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Agora, esta versão inclui suporte para analisadores de idioma da Microsoft. Recursos mais novos que *não* fazem parte dessa versão, como o suporte ao parâmetro de pesquisa `moreLikeThis`, estão em [visualização](search-api-2015-02-28-preview.md) e ainda não estão disponíveis no SDK. Confira em [Controle de versão do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn864560.aspx) ou [Atualizações mais recentes da Pesquisa do Azure](search-latest-updates.md) para obter atualizações do status de um desses recursos.
 
 Outros recursos que não têm suporte neste SDK incluem:
 
@@ -335,7 +335,9 @@ Você pode estar se perguntando como o SDK do .NET da Pesquisa do Azure é capaz
 
 A primeira coisa a observar é que cada propriedade pública de `Hotel` corresponde a um campo na definição do índice, mas com uma diferença fundamental: o nome de cada campo começa com uma letra minúscula ("minúsculas concatenadas"), enquanto o nome de cada propriedade pública de `Hotel` começa com uma letra maiúscula ("maiúsculas concatenadas"). Esse é um cenário comum em aplicativos .NET que executam associação de dados quando o esquema de destino está fora do controle do desenvolvedor do aplicativo. Em vez de violar as diretrizes de nomenclatura do .NET, usando minúscula para os nomes de propriedade, você pode informar ao SDK para mapear automaticamente os nomes de propriedade como minúscula com o atributo `[SerializePropertyNamesAsCamelCase]`.
 
-Um segundo fator importante sobre a classe `Hotel` são os tipos de dados das propriedades públicas. Os tipos .NET dessas propriedades são mapeados para seus tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade de cadeia de caracteres `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Há mapeamentos de tipo semelhantes entre `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` etc. As regras específicas para o mapeamento de tipos estão documentadas com o método `Documents.Get` no [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx). Observe que os tipos de valor, por exemplo, `bool` e `int`, são anuláveis na classe `Hotel`, pois todos os tipos de campo primitivos na Pesquisa do Azure são anuláveis.
+Um segundo fator importante sobre a classe `Hotel` são os tipos de dados das propriedades públicas. Os tipos .NET dessas propriedades são mapeados para seus tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade de cadeia de caracteres `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Há mapeamentos de tipo semelhantes entre `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` etc. As regras específicas para o mapeamento de tipos estão documentadas com o método `Documents.Get` no [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
+ 
+> [AZURE.NOTE]Ao criar suas próprias classes de modelo para mapear para um índice de Pesquisa do Azure, declare as propriedades de tipos de valor como `bool` e `int` como anuláveis (por exemplo: `bool?` em vez de `bool`). Isso é necessário, pois todos os tipos de campo primitivo na Pesquisa do Azure são anuláveis. Se você usar tipos não anuláveis, poderá obter resultados inesperados durante a indexação de valores padrão como `0` e `false`.
 
 Essa capacidade de usar suas próprias classes como documentos funciona em ambas as direções; Você também pode recuperar os resultados da pesquisa e fazer com que o SDK os desserialize automaticamente para um tipo de sua escolha, como veremos na próxima seção.
 
@@ -625,4 +627,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

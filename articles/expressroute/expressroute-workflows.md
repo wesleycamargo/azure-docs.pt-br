@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Fluxos de trabalho de provisionamento e estados do circuito da Rota Expressa
@@ -30,9 +30,9 @@ A figura e as etapas correspondentes abaixo mostram as tarefas que você deve ex
 
 4. Configure os domínios de roteamento. Se seu provedor de conectividade gerencia a camada 3 para você, ele configurará o roteamento para o circuito. Se o seu provedor de conectividade oferece somente os serviços de camada 2, configure o roteamento de acordo com as diretrizes descritas nas páginas [requisitos de roteamento](expressroute-routing.md) e [configuração de roteamento](expressroute-howto-routing-classic.md).
 
-	1. Habilitar o emparelhamento privado do Azure - Você deve habilitar esse emparelhamento para se conectar a VMs/serviços de nuvem implantados dentro das redes virtuais. 
-	2. Habilitar o emparelhamento público do Azure - Você deve habilitar o emparelhamento público do Azure se quiser se conectar aos serviços do Azure hospedados em endereços IP públicos. Esse é um requisito para acessar os recursos do Azure se você tiver optado por habilitar o roteamento padrão para emparelhamento privado do Azure.
-	3. Habilitar o emparelhamento da Microsoft - você deve habilitar isso para acessar os serviços do Office 365 e do CRM Online. 
+	-  Habilitar o emparelhamento privado do Azure - Você deve habilitar esse emparelhamento para se conectar a VMs/serviços de nuvem implantados dentro das redes virtuais.
+	-  Habilitar o emparelhamento público do Azure - Você deve habilitar o emparelhamento público do Azure se quiser se conectar aos serviços do Azure hospedados em endereços IP públicos. Esse é um requisito para acessar os recursos do Azure se você tiver optado por habilitar o roteamento padrão para emparelhamento privado do Azure.
+	-  Habilitar o emparelhamento da Microsoft - você deve habilitar isso para acessar os serviços do Office 365 e do CRM Online. 
 	
 	>[AZURE.IMPORTANT]Se você estiver habilitando o emparelhamento da Microsoft, verifique se o emparelhamento público do Azure também está habilitado para acessar o Azure AD. Use um proxy/borda diferente da usada para a Internet para se conectar à Microsoft. Usar a mesma borda para a Rota Expressa e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.
 
@@ -116,8 +116,9 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
 ## Próximas etapas
 
 - Configurar sua conexão da Rota Expressa.
+
 	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

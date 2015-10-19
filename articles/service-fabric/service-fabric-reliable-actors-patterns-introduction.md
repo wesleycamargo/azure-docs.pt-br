@@ -3,7 +3,7 @@
    description="padrões de projeto que funcionam bem com Atores de Malha do Serviço"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Introdução aos padrões de design de Atores Confiáveis
 O modelo de programação dos Atores Confiáveis do Service Fabric é uma plataforma criada em torno do modelo de ator para resolver problemas do mundo real em escala de nuvem. A Malha de Serviço do Azure é uma plataforma para a criação aplicativos altamente confiáveis e escalonáveis tanto para a nuvem e como para local que sejam fáceis de serem desenvolvidos e gerenciados. Este artigo destina-se a ser um documento prático sobre problemas práticos. Após a leitura por meio de vários padrões, você deve estar apto a entender como é possível usar o Modelo de Ator de Malha do Serviço para criar soluções de soluções de "empresa" ou "nuvem".
@@ -70,4 +70,4 @@ Os principais benefícios de Atores de Malha do Azure são: 1) **produtividade d
 
 * *Assincronismo explícito.* O modelo de programação de Atores de Malha do Azure torna explícita a natureza assíncrona de um aplicativo distribuído e orienta os programadores a produzirem códigos assíncronos sem bloqueio. Isso permite um alto grau de paralelismo distribuído e produtividade geral sem o uso explícito de vários threads.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

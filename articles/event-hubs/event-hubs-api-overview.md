@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Visão geral de API de Hubs de Eventos"
-	description="Um resumo de algumas das principais APIs de cliente .NET de Hubs de Eventos."
-	services="event-hubs"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+   description="Um resumo de algumas das principais APIs de cliente .NET de Hubs de Eventos."
+   services="event-hubs"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="" />
 <tags 
    ms.service="event-hubs"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="07/10/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="07/10/2015"
+   ms.author="sethm" />
 
 # Visão geral de API de Hubs de Eventos
 
 Este artigo resume algumas das principais APIs de cliente .NET de Hubs de Eventos. Há duas categorias: APIs de gerenciamento e de tempo de execução. APIs de tempo de execução consistem em todas as operações necessárias para enviar e receber uma mensagem. Operações de gerenciamento permitem gerenciar o estado da entidade Hubs de Eventos, ao criar, atualizar e excluir entidades.
 
-Os cenários de monitoramento abrangem gerenciamento e tempo de execução. Para obter documentação de referência detalhada sobre as APIs do .NET, consulte a [Biblioteca de classes do .NET](https://msdn.microsoft.com/library/jj933431.aspx) e referências da [API EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.aspx).
+Os cenários de monitoramento abrangem gerenciamento e tempo de execução. Para obter documentação de referência detalhada sobre as APIs do .NET, consulte a [Biblioteca de classes do .NET](https://msdn.microsoft.com/library/azure/jj933431.aspx) e referências da [API EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx).
 
 ## API de Gerenciamento
 
@@ -50,7 +50,7 @@ namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ### Excluir
 
 ```
-namespaceManager.DeleteEventHubAsync("event hub name").Wait();
+namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
 ## APIs de tempo de execução
@@ -59,7 +59,7 @@ namespaceManager.DeleteEventHubAsync("event hub name").Wait();
 
 ```
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-EventHubClient eventHubClient = EventHubClient.Create("event hub name");
+EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
 ### Publicar mensagem
@@ -131,7 +131,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-A interface [IEventProcessor](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.ieventprocessor.aspx) é definida da seguinte maneira:
+A interface [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) é definida da seguinte maneira:
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -184,7 +184,7 @@ Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 
 As referências de API .NET estão aqui:
 
-- [Referência de API do .NET de Hubs de Eventos e Barramento de Serviço](https://msdn.microsoft.com/library/jj933424.aspx)
-- [Referência de API do host de processador de eventos](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [Referência de API do .NET de Hubs de Eventos e Barramento de Serviço](https://msdn.microsoft.com/library/azure/jj933424.aspx)
+- [Referência de API do host de processador de eventos](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

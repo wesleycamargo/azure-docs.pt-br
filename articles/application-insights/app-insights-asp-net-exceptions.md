@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Diagnosticar falhas e exceções em aplicativos ASP.NET com o Application Insights  
@@ -418,11 +418,10 @@ Adicione o atributo para as implementações de serviço:
 
     namespace WcfService4
     {
-        [ServiceContract]
         [AiLogException]
-        public interface IService1
-        {
-     ...
+        public class Service1 : IService1 
+        { 
+         ...
 
 [Amostra](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
@@ -449,4 +448,4 @@ Observe que ela será diferente da contagem 'Exceções' calculada pelo portal d
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

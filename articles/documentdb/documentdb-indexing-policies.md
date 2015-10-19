@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/03/2015" 
+    ms.date="10/05/2015" 
     ms.author="mimig"/>
 
 
@@ -480,7 +480,7 @@ O Banco de Dados de Documentos dá suporte a tipos de índice Hash e Intervalo p
 - **Hash** dá suporte a consultas JOIN e de igualdade eficientes. Na maioria dos casos de uso, os índices de hash não precisam de uma precisão maior que o valor padrão de 3 bytes.
 - **Intervalo** dá suporte a consultas de igualdade eficientes, a consultas de intervalo (usando >, <, >=, <=, !=) e a consultas Order By. Por padrão, as consultas Ordenar por também exigem a precisão máxima de índice (-1).
 
-O Banco de Dados de Documentos também dá suporte ao tipo de índice Espacial para todos os caminhos que possam ser especificados para o tipo de dados Point. O valor no caminho especificado deve ser um ponto GeoJSON válido, como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+O Banco de Dados de Documentos também dá suporte ao tipo de índice Espacial para todos os caminhos que possam ser especificados para o tipo de dados de Ponto. O valor no caminho especificado deve ser um ponto GeoJSON válido, como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 - **Espacial** dá suporte a consultas espaciais (interna e de distância) eficientes.
 
@@ -541,7 +541,7 @@ Estes são os tipos de índice com suporte e exemplos de consultas que eles pode
 
 Por padrão, um erro será retornado para consultas com operadores de intervalo como >= se não houver nenhum índice de intervalo (de qualquer precisão) para sinalizar que uma verificação pode ser necessária para servir a consulta. Consultas de intervalo podem ser executadas sem um índice de intervalo usando o cabeçalho x-ms-documentdb-enable-scans na API REST ou na opção de solicitação EnableScanInQuery usando o SDK do .NET. Se houver qualquer outro filtro na consulta que o Banco de Dados de Documentos possa usar para filtrar o índice, nenhum erro será retornado.
 
-As mesmas regras se aplicam a consultas espaciais. Por padrão, um erro será retornado para consultas espaciais se não houver nenhum índice espacial. Elas podem ser executadas como um exame usando x-ms-documentdb-enable-scan/EnableScanInQuery.
+As mesmas regras se aplicam a consultas espaciais. Por padrão, um erro retornará para consultas espaciais se não houver um índice espacial e se não houver outros filtros que possam ser atendidos a partir do índice. Elas podem ser executadas como um exame usando x-ms-documentdb-enable-scan/EnableScanInQuery.
 
 #### Precisão de índice
 
@@ -664,6 +664,8 @@ Quando você faria alterações na política de indexação para suas coleções
 - Ajustar a precisão da indexação para melhorar o desempenho da consulta ou reduzir o armazenamento consumido
 
 >[AZURE.NOTE]Para modificar a política de indexação usando ReplaceDocumentCollectionAsync, você precisará de uma versão superior à 1.3.0 do SDK do .NET
+>
+> Para que a transformação do índice seja concluída com êxito, você deve assegurar que exista espaço livre suficiente disponível na coleção. Se a coleção atingir sua cota de armazenamento, a transformação do índice será pausada. A transformação do índice será retomada automaticamente quando houver espaço em armazenamento disponível, por exemplo, se você excluir alguns documentos.
 
 ## Ajuste de desempenho
 
@@ -767,4 +769,4 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

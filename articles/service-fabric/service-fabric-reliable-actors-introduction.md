@@ -3,7 +3,7 @@
    description="Introdução ao modelo de programação de Atores Confiáveis do Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Introdução aos Atores Confiáveis do Service Fabric
 A API de Atores Confiáveis é uma das duas estruturas de alto nível fornecidas pela [Malha de Serviço](service-fabric-technical-overview.md), junto com a [API de Serviços Confiáveis](service-fabric-reliable-services-introduction.md).
@@ -198,4 +198,4 @@ Os retornos de chamada de temporizador podem ser marcados com o atributo `Readon
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

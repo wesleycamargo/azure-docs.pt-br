@@ -97,7 +97,7 @@ Se você tem um banco de dados existente, verifique se ele está hospedado no Ba
 
 Se seu banco de dados não está hospedado em Banco de Dados SQL V12, consulte [Planejar e se preparar para atualizar para o Banco de Dados SQL V12](sql-database-v12-plan-prepare-upgrade.md) e, em seguida, visite o Portal do Azure para migrar o banco de dados para Banco de Dados SQL V12.
 
-Como alternativa, você pode criar um novo banco de dados em Banco de Dados SQL V12, seguindo as etapas listadas em [Criar um banco de dados na Atualização do Banco de Dados SQL](sql-database-create.md). **Dica**: leia a próxima etapa antes de selecionar uma assinatura para o novo banco de dados.
+Como alternativa, você pode criar um novo banco de dados em Banco de Dados SQL V12, seguindo as etapas listadas em [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md). **Dica**: leia a próxima etapa antes de selecionar uma assinatura para o novo banco de dados.
 
 ## 3\. Opcional: associar ou alterar o Active Directory que está associado atualmente à sua Assinatura do Azure
 
@@ -322,4 +322,4 @@ Para exemplos de código específicos relacionados à autenticação do AD do Az
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

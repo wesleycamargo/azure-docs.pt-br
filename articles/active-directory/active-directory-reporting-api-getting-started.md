@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introdução à API de relatório do AD do Azure"
-	description="Como começar a usar a API de relatório do Active Directory do Azure"
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
-	editor=""/>
+   description="Como começar a usar a API de relatório do Active Directory do Azure"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/17/2015"
-	ms.author="kenhoff;yossib"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="07/17/2015"
+   ms.author="kenhoff;yossib"/>
 
 
 # Introdução à API de relatório do AD do Azure
@@ -157,10 +157,15 @@ Quando você terminar de editar o script, execute-o e verifique se os dados espe
 
 O script retorna listas de todos os relatórios disponíveis e retorna a saída do relatório AccountProvisioningEvents na janela do PowerShell, no formato JSON. Ele também cria arquivos com a mesma saída em XML, JSON e texto. Você pode comentar experimentos de modificação do script para retornar dados de outros relatórios, além de comentar os formatos de saída de que você não precisa.
 
+## Observações
+
+- Não há qualquer limite para o número de eventos retornados pela API de Relatórios do Azure AD (usando a paginação de OData).
+	- Para conhecer os limites de retenção em dados de relatório, confira [Políticas de retenção de relatório](active-directory-reporting-retention.md).
+
 
 ## Próximas etapas
 - Curioso sobre que relatórios de segurança, auditoria e atividade estão disponíveis? Verifique [Relatórios de segurança, auditoria e atividade do AD do Azure](active-directory-view-access-usage-reports.md)
 - Consulte [Eventos de relatório de auditoria do AD do Azure](active-directory-reporting-audit-events.md) para obter mais detalhes sobre o relatório de auditoria
 - Consulte [Eventos e relatórios de auditoria do AD do Azure (visualização)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obter mais detalhes sobre o serviço REST de Graph API
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

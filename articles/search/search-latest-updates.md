@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="10/01/2015" 
 	ms.author="heidist"/>
 
 #Novidades na atualização mais recente para a Pesquisa do Azure#
 
-Agora a Pesquisa do Azure está disponível, oferecendo um contrato de nível de serviço (SLA) com 99,9% de disponibilidade para as configurações com suporte da [versão 2015-02-28 da API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+A Pesquisa do Azure está disponível, oferecendo um contrato de nível de serviço (SLA) com 99,9% de disponibilidade para as configurações com suporte da [versão 2015-02-28 da API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##Como é feito o controle de versão e lançamento dos recursos
 
@@ -27,7 +27,15 @@ Os recursos são lançados separadamente ou em conjunto por meio da [API REST](h
 A biblioteca .NET e as APIs REST têm várias versões. APIs mais antigas permanecerão operacionais à medida que lançamos novos recursos. Você pode visitar o [Controle de versão de serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn864560.aspx) para saber mais sobre nossa política de controle de versão.
 
 
+##Versão da Api de visualização de 28-02-2015
+**Novo lançamento: setembro de 2015**
+
+Essa versão adiciona novo [suporte à sintaxe de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx), que pode ser usado em relação a [versão de visualização da API REST do Serviço de Pesquisa do Azure](search-api-2015-02-28-preview.md). Para usar a nova sintaxe, especifique o `queryType` em uma operação de Pesquisa de Documentos.
+
+Além disso, os dois recursos a seguir saíram do modo de visualização e agora fazem parte da API oficial no MSDN: - processadores de linguagem Natural - POST em pesquisa, sugestões e consultas de pesquisa
+
 ##.NET SDK 0.10.0-preview
+**Lançamento: agosto de 2015**
 
 Esta é a segunda iteração da biblioteca de cliente .NET, Microsoft.Azure.Search.dll. Essa versão acrescenta o suporte para a criação, gerenciamento e uso de indexadores por meio de classes .NET. Além disso, para indexadores do SQL Azure, há novo suporte para indexação de pontos de geografia.
 
@@ -117,4 +125,4 @@ A versão de visualização da [API REST de gerenciamento](search-management-api
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

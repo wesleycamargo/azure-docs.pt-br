@@ -1,5 +1,5 @@
 <properties
- pageTitle="Tamanhos de máquina virtual"
+ pageTitle="Tamanhos de máquinas virtuais | Azure da Microsoft"
  description="Lista os diferentes tamanhos de máquinas virtuais e suas capacidades."
  services="virtual-machines"
  documentationCenter=""
@@ -85,11 +85,11 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 
 |Tamanho – Portal do Azure\\cmdlets e APIs|Núcleos de CPU|Memória|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|
-|A0\\ extrapequeno|1|768 MB|<p>SO = 1023 GB</p><p>Temporário = 20 GB</p>|1|1 x 500|
-|A1\\pequeno|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporário = 70 GB</p>|2|2x500|
-|A2\\médio|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporário = 135 GB</p>|4|4x500|
-|A3\\grande|4|7 GB|<p>SO = 1023 GB</p><p>Temporário = 285 GB</p>|8|8 x 500|
-|A4\\extragrande|8|14 GB|<p>SO = 1023 GB</p><p>Temporário = 605 GB</p>|16|16 x 500|
+|A0\\Muito pequeno|1|768 MB|<p>SO = 1023 GB</p><p>Temporário = 20 GB</p>|1|1 x 500|
+|A1\\Pequeno|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporário = 70 GB</p>|2|2x500|
+|A2\\Médio|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporário = 135 GB</p>|4|4x500|
+|A3\\Grande|4|7 GB|<p>SO = 1023 GB</p><p>Temporário = 285 GB</p>|8|8 x 500|
+|A4\\Extra Grande|8|14 GB|<p>SO = 1023 GB</p><p>Temporário = 605 GB</p>|16|16 x 500|
 |A5\\mesmo|2|14 GB|<p>SO = 1023 GB</p><p>Temporário = 135 GB</p>|4|4X500|
 |A6\\mesmo|4|28 GB|<p>SO = 1023 GB</p><p>Temporário = 285 GB</p>|8|8 x 500|
 |A7\\mesmo|8|56 GB|<p>SO = 1023 GB</p><p>Temporário = 605 GB</p>|16|16 x 500|
@@ -167,4 +167,4 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 
 [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

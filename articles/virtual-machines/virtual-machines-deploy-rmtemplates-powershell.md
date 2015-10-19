@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gerenciar VMs do Azure usando o Gerenciador de Recursos e o PowerShell | Microsoft Azure"
+	pageTitle="Gerenciar as VMs do Gerenciador de Recursos do Azure | Microsoft Azure"
 	description="Gerenciar máquinas virtuais usando o PowerShell, modelos e o Gerenciador de Recursos do Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -379,4 +379,4 @@ Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada 
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
+	ms.date="09/28/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -19,11 +19,29 @@
 
 # Atualizar bancos de dados SQL de negócios ou da Web para novas camadas de serviço
 
-Os bancos de dados SQL Web e Business do Azure estão sendo substituídos e serão [desativados em setembro de 2015](http://msdn.microsoft.com/library/azure/dn741330.aspx) assim, é hora de começar o planejamento para atualizar os bancos de dados Web ou Business existentes para as camadas de serviço Basic, Standard ou Premium.
+Os bancos de dados SQL [Web e Business do Azure estão sendo desativados](sql-database-web-business-sunset-faq.md) então, é hora de começar a atualizar os bancos de dados Web ou Business existentes para as camadas de serviço [Basic, Standard, Premium ou Elastic](sql-database-service-tiers.md).
 
-Baixe o [manual de orientação de migração de banco de dados para Web e Business](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf).
 
-> [AZURE.NOTE] [Pricing tier recommendations](sql-database-service-tier-advisor.md) para bancos de dados da Web e Business agora estão disponíveis.
+> [AZURE.IMPORTANT]A atualização do bancos de dados Web ou Business para uma nova camada de serviço não colocará o banco de dados offline. O banco de dados permanecerá online e disponível durante a operação de atualização.
+
+
+Para ajudá-lo com a atualização, o serviço do Banco de Dados SQL recomenda uma camada de serviço e nível de desempenho (tipo de preço) adequados para cada banco de dados. Ao analisar o uso histórico de cada banco de dados, o serviço recomenda uma camada que é mais adequada para a execução da carga de trabalho existente do banco de dados.
+
+O tipo de preço recomendado para cada banco de dados é fornecido durante o processo de alteração de uma camada de serviço dos banco de dados Web ou Business ou durante a atualização para o Banco de Dados SQL V12.
+
+Dependendo do seu ambiente específico o serviço pode recomendar a atualização de alguns ou de todos os bancos de dados em um [pool de banco de dados elástico](sql-database-elastic-pool.md).
+
+Para ver as camadas de serviço recomendadas para os bancos de dados obsoletos, você pode usar o [portal de visualização do Azure](https://portal.azure.com) ou o PowerShell. Para instruções passo a passo, consulte:
+
+- [Atualização para o Banco de Dados SQL V12 (Portal de Visualização do Azure)](sql-database-v12-upgrade.md)
+- [Atualização para o Banco de Dados SQL V12 (PowerShell)](sql-database-upgrade-server.md)
+
+
+O que é importante observar, é que o seu banco de dados do SQL não está bloqueado em nenhuma camada de serviço ou nível de desempenho específicos, de forma que os requisitos de sua alteração de banco de dados podem ser alterados facilmente entre as camadas de serviço e níveis de desempenho disponíveis. Na realidade, os Bancos de Dados SQL Basic, Standard e Premium do Azure são cobrados por hora, e você tem a capacidade de dimensionar cada banco de dados para cima ou para baixo quatro vezes dentro de um período de 24 horas. Isso significa que você pode ajustar a camada de serviço e o nível de desempenho para maximizar as necessidades de desempenho, conjunto de recursos e custos do banco de dados, com base nos requisitos e cargas de trabalho diferentes do seu aplicativo. Isso também significa que avaliar e alterar a camada de serviço e o nível de desempenho do banco de dados (scaling up e down) é um processo contínuo que deve fazer parte de sua manutenção programada e rotina de ajuste de desempenho.
+ 
+Para obter mais informações sobre as diferenças entre Web/Business e as novas camadas de serviço e para obter detalhes adicionais sobre migração, baixe o Baixe o [manual de orientação de migração de banco de dados para Web e Business](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf)..
+
+
 
 ## Visão geral
 
@@ -36,8 +54,6 @@ Com essas alterações surgem perguntas sobre como avaliar e decidir qual nova c
 Por fim, a melhor opção é a combinação de camada de serviço e nível de desempenho que fornece o equilíbrio ideal entre recursos, desempenho e custo, até agora a que satisfaz completamente as necessidades de negócios e requisitos do seu aplicativo.
 
 Este documento fornece uma metodologia orientada para atualizar um banco de dados Web ou Business para uma das novas camadas de serviço e nível de desempenho.
-
-O que é importante observar, é que os bancos de dados do SQL Azure não estão bloqueados em nenhuma camada de serviço ou nível de desempenho específicos, de forma que os requisitos de sua alteração de banco de dados podem ser alterados facilmente entre as camadas de serviço e níveis de desempenho disponíveis. Na verdade, os bancos de dados SQL Basic, Standard e Premium são cobrados por hora, e você tem a capacidade de dimensionar cada banco de dados para cima ou para baixo 4 vezes dentro de um período de 24 horas (usando o [Portal do Azure ou de forma programada](http://msdn.microsoft.com/library/azure/ff394116.aspx)). Isso significa que você pode ajustar a camada de serviço e o nível de desempenho para maximizar as necessidades de desempenho, conjunto de recursos e custos do banco de dados, com base nos requisitos e cargas de trabalho diferentes do seu aplicativo. Isso também significa que avaliar e alterar a camada de serviço e o nível de desempenho do banco de dados (scaling up e down) é um processo contínuo que deve fazer parte de sua manutenção programada e rotina de ajuste de desempenho.
 
 
 ## Atualizando bancos de dados Business e Web
@@ -61,7 +77,7 @@ A atualização de um banco de dados Web ou Business para uma nova camada de ser
 
 As camadas de serviço Basic, Standard e Premium oferecem diferentes conjuntos de recursos, portanto a primeira etapa na seleção de uma camada apropriada é determinar a camada de serviço que fornece o nível mínimo de recursos necessários para seu aplicativo e negócios.
 
-Por exemplo, considere que longos backups precisam ser mantidos, ou se recursos de [replicação geográfica Standard ou Ativa](http://msdn.microsoft.com/library/azure/dn783447.aspx) são necessários, ou o tamanho total máximo do banco de dados necessário, etc. Esses requisitos determinam sua escolha de camada de serviço mínima. Esses requisitos determinam sua escolha de camada de serviço mínimo.
+Por exemplo, considere que longos backups precisam ser mantidos, ou se recursos de [replicação geográfica Standard ou Ativa](sql-database-business-continuity.md) são necessários, ou o tamanho total máximo do banco de dados necessário, etc. Esses requisitos determinam sua escolha de camada de serviço mínima. Esses requisitos determinam sua escolha de camada de serviço mínimo.
 
 A camada ‘Basic’ é usada principalmente para bancos de dados muito pequenos e de baixa atividade. Portanto, para uma atualização deve geralmente iniciar com a camada ‘Standard’ ou ‘Premium’ com base no nível mínimo de recursos necessários.
 
@@ -90,16 +106,16 @@ O serviço de banco de dados SQL expõe as informações no portal de gerenciame
 Como bancos de dados Web e Business não possuem os limites de DTU e recursos garantidos associados a eles, podemos normalizar os valores de porcentagem em termos da quantidade de recursos disponíveis para um banco de dados em nível de desempenho S2. O consumo médio de porcentagem DTU de um banco de dados em qualquer intervalo específico pode ser calculado como o valor mais alto de porcentagem entre o uso da CPU, e/s e Log nesse intervalo.
 
 
-Use o portal de gerenciamento para uma visão geral de alto nível do uso de percentual DTU e, em seguida, analise os detalhes usando exibições do sistema.
+Use o portal de visualização do Azure para obter uma visão geral de alto nível do uso de percentual DTU e, em seguida, analise os detalhes usando exibições do sistema.
 
-Você também pode usar o novo portal de gerenciamento do Azure para exibir a camada de serviço recomendada para seu banco de dados Web ou Business quando atualiza um servidor para banco de dados do SQL Azure V12 ([visualização em algumas regiões](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+Você também pode usar o portal de visualização do Azure para exibir a camada de serviço recomendada para seu banco de dados Web ou Business quando atualiza um servidor para Banco de Dados SQL do Azure V12.
 
-### Como exibir a camada de serviço recomendadas no novo Portal de Gerenciamento do Azure
-O portal de gerenciamento recomenda a camada de serviço apropriado para seu banco de dados Web ou Business durante o processo de atualização de um servidor para banco de dados do SQL Azure V12. A recomendação é baseada em uma análise histórica do consumo de recursos do banco de dados.
+### Como exibir a camada de serviço recomendadas no Portal de Visualização do Azure
+O portal do Azure recomenda a camada de serviço apropriado para seu banco de dados Web ou Business durante o processo de atualização de um servidor para o Banco de Dados SQL do Azure V12. A recomendação é baseada em uma análise histórica do consumo de recursos do banco de dados.
 
 **Novo Portal de Gerenciamento**
 
-1. Faça o login no [novo portal de gerenciamento](https://portal.azure.com) e navegue até um servidor que contenha um banco de dados Web ou Business.
+1. Faça o login no [portal de visualização do Azure](https://portal.azure.com) e navegue até um servidor que contenha um banco de dados Web ou Business.
 2. Clique em **Atualização mais recente** na folha do servidor.
 3. Clique em **UPGRADE THIS SERVER**.
 
@@ -242,7 +258,7 @@ Depois de determinar a camada de serviço e nível de desempenho apropriados par
 | [API REST de gerenciamento de serviço](http://msdn.microsoft.com/library/azure/dn505719.aspx) | use o comando [Update Database](http://msdn.microsoft.com/library/dn505718.aspx).|
 | [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | use a declaração [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx). |
 
-Para obter detalhes, consulte [Alterando camadas de serviço e níveis de desempenho de banco de dados](http://msdn.microsoft.com/library/dn369872.aspx)
+Para obter detalhes, consulte [Alterando camadas de serviço e níveis de desempenho de banco de dados](sql-database-scale-up.md)
 
 
 ## 6\. Monitoramento da atualização da nova camada de serviço e nível de desempenho
@@ -257,10 +273,6 @@ O Banco de Dados SQL do Azure fornece informações de andamento em operações 
     ORDER BY o.last_modify_time DESC;
 
 Se você usou o portal de gerenciamento para a atualização, uma notificação também está disponível a partir do portal para a operação.
-
-### O que acontece quando a carga de trabalho de banco de dados atinge os limites de recursos após a atualização?
-Os níveis de desempenho são calibrados e controlados para fornecer os recursos necessários para executar sua carga de trabalho de banco de dados até os limites máximos permitidos para a sua camada de serviço e nível de desempenho selecionados (ou seja, o consumo de recursos é de 100%). Se a sua carga de trabalho está atingindo os limites em um dos limites de CPU/E/S de dados/E/S de Log, você continuará a receber os recursos no nível máximo permitido, mas provavelmente você observará latências maiores para suas consultas. O alcance de um desses limites não resultará em nenhum erro, mas apenas uma lentidão na carga de trabalho, a menos que a lentidão se torne tão grave que as consultas comecem a não serem executadas a tempo. Se você está atingindo os limites do máximo permitido de sessões/solicitações de usuários simultâneos (threads de trabalho), você verá [erro 10928 ou 10929](http://msdn.microsoft.com/library/azure/dn338078.aspx).
-
 
 ## 7\. Monitoramento do banco de dados após a atualização
 Após a atualização do banco de dados Web/Business para a nova camada, é recomendável monitorar o banco de dados ativamente para garantir que aplicativos estão sendo executados no desempenho esperado e uso ideal conforme necessário. As seguintes etapas adicionais são recomendáveis para monitorar o banco de dados.
@@ -283,17 +295,17 @@ A [documentação](http://msdn.microsoft.com/library/dn800981.aspx) adicional co
 
 - **Alertas:** configurar 'Alertas' no Portal de gerenciamento do Azure para ser notificado quando consumo de DTU para um banco de dados atualizado se aproximar certo alto nível. Alertas de banco de dados podem ser configurados no Portal de gerenciamento do Azure para várias métricas de desempenho como Log, CPU, E/S e DTU. 
 
-	Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU” se o valor da porcentagem média de DTU exceder 75% nos últimos 5 minutos. Consulte [Como: Receber notificações de alerta e gerenciar regras de alerta no Azure](http://msdn.microsoft.com/library/azure/dn306638.aspx) para saber mais sobre como configurar notificações de alerta.
+	Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU” se o valor da porcentagem média de DTU exceder 75% nos últimos 5 minutos. Consulte [Receber notificações de alerta](insights-receive-alert-notifications.md) para saber mais sobre como configurar notificações de alerta.
 
 
-- **Ampliação/redução de nível de desempenho programada:** se seu aplicativo tiver cenários específicos que exigem mais desempenho somente em determinados momentos do dia/semana, você poderá usar a [Automação do Azure](http://msdn.microsoft.com/library/azure/dn643629.aspx) para ampliar/reduzir seu banco de dados para um nível de desempenho superior/inferior de acordo com uma operação planejada.
+- **Ampliação/redução de nível de desempenho programada:** se seu aplicativo tiver cenários específicos que exigem mais desempenho somente em determinados momentos do dia/semana, você poderá usar a [Automação do Azure](https://azure.microsoft.com/documentation/services/automation/) para ampliar/reduzir seu banco de dados para um nível de desempenho superior/inferior de acordo com uma operação planejada.
 
 	Por exemplo, atualizar o banco de dados para um nível mais alto de desempenho para a duração de um trabalho em lotes/manutenção semanal e reduzi-lo depois que o trabalho for concluído. Esse tipo de agendamento também é útil para qualquer operação de uso intensivo de recursos grandes como dados de carregamento, etc recriação de índice. Observe que o modelo de cobrança de banco de dados de SQL Azure baseia-se em uso por hora de um nível de desempenho/da camada de serviço. Essa flexibilidade permite que você planeje atualizações agendadas ou planejadas com mais eficiência de custos.
 
 
 
 ## Resumo
-O serviço de banco de dados SQL do Azure fornece os dados e ferramentas de telemetria para avaliar suas cargas de trabalho de banco de dados Web/Business e determinar a melhor camada de serviço adequada para atualização. O processo de atualização é bem simples e pode ser feito sem colocar o banco de dados offline e sem perda de dados. Bancos de dados atualizados se beneficiam do desempenho previsível e recursos adicionais fornecidos pelo novas camadas de serviço.
+O serviço de banco de dados SQL do Azure fornece os dados e ferramentas de telemetria para avaliar suas cargas de trabalho de banco de dados Web/Business e determinar a melhor camada de serviço para atualização. O processo de atualização é bem simples e pode ser feito sem colocar o banco de dados offline e sem perda de dados. Bancos de dados atualizados se beneficiam do desempenho previsível e recursos adicionais fornecidos pelo novas camadas de serviço.
 
 
 
@@ -305,4 +317,4 @@ O serviço de banco de dados SQL do Azure fornece os dados e ferramentas de tele
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

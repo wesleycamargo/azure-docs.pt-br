@@ -42,11 +42,11 @@ O script executa as ações a seguir:
 
 ## <a name="install"></a>Instalar o Giraph usando Ações de Script
 
-Um script de exemplo para instalar o Giraph em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente leitura em [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). Esta seção fornece instruções sobre como usar o script de exemplo ao provisionar o cluster usando o portal do Azure.
+Um script de exemplo para instalar o Giraph em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente leitura em [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). Esta seção fornece instruções sobre como usar o exemplo de script durante a criação do cluster usando o Portal do Azure.
 
 > [AZURE.NOTE]Você também pode usar o Azure PowerShell ou o SDK do .NET do HDInsight para criar um cluster usando esse script. Para obter mais informações sobre como usar esses métodos, consulte [Personalizar clusters HDInsight com Ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Inicie o provisionamento de um cluster usando as etapas em [Provisionar clusters HDInsight baseados em Linux](hdinsight-provision-linux-clusters.md#portal), mas não conclua o provisionamento.
+1. Inicie a criação de um cluster usando as etapas em [Criar clusters de HDInsight baseados em Linux](hdinsight-provision-linux-clusters.md#portal), mas não conclua a criação.
 
 2. Na folha **Configuração Opcional**, selecione **Ações de Script** e forneça as informações a seguir:
 
@@ -59,11 +59,11 @@ Um script de exemplo para instalar o Giraph em um cluster HDInsight está dispon
 
 3. Na parte inferior das **Ações de Script**, use o botão **Selecionar** para salvar a configuração. Por fim, use o botão **Selecionar** na parte inferior da folha **Configuração Opcional** para salvar as informações de configuração opcional.
 
-4. Continue o provisionamento do cluster, conforme descrito em [Provisionar clusters HDInsight baseados em Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continue a criação do cluster conforme descrito em [Criar clusters HDInsight baseados em Linux](hdinsight-provision-linux-clusters.md#portal).
 
 ## <a name="usegiraph"></a>Como usar o Giraph no HDInsight?
 
-Quando o provisionamento do cluster tiver terminado, use as etapas a seguir para executar o exemplo SimpleShortestPathsComputation incluído com o Giraph. Isso realiza a implementação do <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> básico para encontrar o caminho mais curto entre objetos em um gráfico.
+Quando a criação do cluster tiver terminado, use as etapas a seguir para executar o exemplo SimpleShortestPathsComputation incluído com o Giraph. Isso realiza a implementação do <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> básico para encontrar o caminho mais curto entre objetos em um gráfico.
 
 1. Conecte-se ao cluster HDInsight usando SSH:
 
@@ -148,4 +148,4 @@ Quando o provisionamento do cluster tiver terminado, use as etapas a seguir para
 
 - [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite que você execute operações poderosas nos dados armazenados.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

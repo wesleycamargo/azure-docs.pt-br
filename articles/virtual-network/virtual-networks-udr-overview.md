@@ -87,7 +87,7 @@ Para saber como habilitar o Encaminhamento IP para uma máquina virtual no Azure
 
 ## Próximas etapas
 
-- Saiba como [criar rotas](../virtual-networks-udr-how-to#How-to-manage-routes) e associá-las a sub-redes.
-- Saiba como [habilitar o encaminhamento IP](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding) para uma VM que executa um dispositivo virtual. 
+- Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](../virtual-network-create-udr-arm-template) e associá-las a sub-redes. 
+- Saiba como [criar rotas no modelo de implantação clássico](../virtual-network-create-udr-classic-ps) e associá-las a sub-redes.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

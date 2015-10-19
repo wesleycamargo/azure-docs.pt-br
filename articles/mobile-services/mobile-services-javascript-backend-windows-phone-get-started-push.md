@@ -140,8 +140,6 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 
 Este tutorial demonstrou as noções básicas sobre a ativação do aplicativo da Windows Store para usar os Serviços Móveis e Hubs de Notificação para enviar notificações por push. Em seguida, considere concluir um dos seguintes tutoriais:
 
-+ [Enviar notificações em push para usuários autenticados](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md) <br/>Saiba como usar marcas para enviar notificações por push a partir de um Serviço Móvel apenas para um usuário autenticado.
-
 + [Enviar notificações de transmissão para assinantes](../notification-hubs-windows-phone-send-breaking-news.md)  
 <br/>Saiba como os usuários podem registrar e receber notificações por push para categorias de interesse.
 
@@ -181,4 +179,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

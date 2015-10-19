@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/24/2015"
 	ms.author="cephalin"/>
 
 
@@ -281,4 +281,4 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 -	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

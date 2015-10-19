@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/10/2015"
+   ms.date="10/07/2015"
    ms.author="seanmck"/>
 
 # Configurar o ambiente de desenvolvimento da Malha do Serviço
@@ -66,7 +66,7 @@ Um cluster local representa a topologia de vários computadores que você, no fi
     ```powershell
     cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
     ```
-    
+
 3. Executar
 
     ```powershell
@@ -81,7 +81,7 @@ Em alguns segundos, você deve ver a saída que mostra as informações do nó e
 
 Você pode verificar se o cluster foi criado com êxito usando a ferramenta Gerenciador da Malha do Serviço fornecida com o SDK.
 
-1. Inicie o Gerenciador do Service Fabric executando 
+1. Inicie o Gerenciador do Service Fabric executando
 
     ```powershell
     . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
@@ -106,4 +106,4 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Link do WebPI"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

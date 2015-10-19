@@ -1,13 +1,15 @@
 <properties
- pageTitle="Introdução a um cluster de HPC Pack para executar cargas de trabalho do Excel e SOA | Microsoft Azure"
- description="."
+ pageTitle="Cluster de HPC Pack para Excel e SOA | Microsoft Azure"
+ description="Introdução a um cluster de HPC Pack para executar cargas de trabalho do Excel e SOA, usando o modelo de implantação do Gerenciador de Recursos."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager"/>
+
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
@@ -19,6 +21,8 @@ ms.service="virtual-machines"
 
 Este artigo mostra como implantar um cluster de HPC Pack nos serviços de infraestrutura do Azure (IaaS) usando um modelo de início rápido do Azure ou um script de implantação do Azure PowerShell. Você usará as imagens de VM do Azure Marketplace projetadas para executar cargas de trabalho de arquitetura orientada a serviços (SOA) ou Microsoft Excel com o HPC Pack. Você pode usar o cluster para executar os serviços SOA e HPC simples do Excel de um computador de cliente local. Os serviços do Excel HPC incluem descarregamento de pasta de trabalho do Excel e funções definidas pelo usuário do Excel ou UDFs.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda os recursos criados usando o modelo de implantação do Gerenciador de Recursos.
+
 Em um alto nível, o diagrama a seguir mostra o cluster de HPC Pack que você criará.
 
 ![Cluster HPC com nós que executam cargas de trabalho do Excel][scenario]
@@ -27,7 +31,7 @@ Em um alto nível, o diagrama a seguir mostra o cluster de HPC Pack que você cr
 
 * **Computador cliente** - você precisará de um computador cliente baseado no Windows para executar o script de implantação de cluster do Azure PowerShell (se você escolher esse método de implantação) e enviar trabalhos de exemplo do Excel e SOA ao cluster.
 
-* **Assinatura do Azure** - se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Assinatura do Azure** - se não tiver uma conta, você poderá criar uma de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 * **Cota de núcleos** - talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós de cluster com tamanhos de VM de vários núcleos. Se você estiver usando um modelo de início rápido do Azure, lembre-se de que a cota de núcleos no Gerenciador de Recursos é por região do Azure, e talvez seja necessário aumentar a cota de uma região específica. Consulte [Limites de assinatura do Azure, cotas e restrições](../azure-subscription-service-limits.md). Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
@@ -92,7 +96,7 @@ O script de implantação do HPC Pack IaaS é outra forma versátil para implant
 
 * **Azure PowerShell** - [Instale e configure o Azure PowerShell](../powershell-install-configure.md) (versão 0.8.10 ou posterior) no computador cliente.
 
-* **Script de implantação do HPC Pack IaaS**- Baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.0 ou posterior do script.
+* **Script de implantação do Pacote HPC IaaS**: baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.0 ou posterior do script.
 
 **Criar o arquivo de configuração**
 
@@ -384,4 +388,4 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

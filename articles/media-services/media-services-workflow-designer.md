@@ -20,7 +20,7 @@
 #Criar fluxos de trabalho de codificação avançada com o Designer de Fluxo de Trabalho
 
 ##Visão geral
-O **Designer de Fluxo de Trabalho** é uma ferramenta autônoma que é usada para criar fluxos de trabalho/gráficos para codificação com **Fluxo de Trabalho do Media Encoder Premium**.
+O **Designer de Fluxo de Trabalho** é uma ferramenta de área de trabalho do Windows usada para projetar e criar fluxos de trabalho personalizados para codificação com **Fluxo de Trabalho do Media Encoder Premium**.
 
 Essa ferramenta também pode ser usada para modificar [fluxos de trabalho existentes](media-services-workflow-designer.md#existing_workflows).
 
@@ -79,4 +79,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 [Vídeos de treinamento de Designer de Fluxo de Trabalho do Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,6 @@
 <properties      
     pageTitle="Particionar e dimensionar dados no Banco de Dados de Documentos com fragmentação | Microsoft Azure"      
-    description="Saiba como dimensionar dados com uma técnica chamada fragmentação. Saiba mais sobre fragmentos, como particionar dados no Banco de Dados de Documentos e quando usar o particionamento hash, por intervalos e de pesquisa."         
+    description="Saiba como dimensionar dados com uma técnica chamada fragmentação. Saiba mais sobre fragmentos, como particionar dados no Banco de Dados de Documentos e quando usar o particionamento hash e por intervalos."         
     keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
 	services="documentdb"      
     authors="arramac"      
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="09/14/2015"      
+    ms.date="10/05/2015"      
     ms.author="arramac"/>
 
 # Particionar e dimensionar dados no Banco de Dados de Documentos
@@ -24,7 +24,7 @@ Você pode conseguir reduzir horizontalmente quase infinitamente em termos de ar
 
 Depois de ler este artigo sobre dimensionamento, você poderá responder às seguintes perguntas:
 
- - O que é particionamento hash, por intervalos e por pesquisa?
+ - O que é particionamento hash e por intervalos?
  - Quando você usaria cada uma das técnicas de particionamento e por quê?
  - Como você pode criar um aplicativo particionado no Banco de Dados de Documentos do Azure?
 
@@ -56,13 +56,13 @@ Um caso especial de particionamento por intervalos é quando o intervalo é um �
 
 No particionamento hash, as partições são atribuídas com base no valor de uma função hash, permitindo distribuir uniformemente solicitações e dados entre várias partições. Ele costuma ser usado para particionar dados produzidos ou consumidos por um grande número de clientes diferentes e é útil para armazenar perfis de usuários, itens de catálogo e dados de telemetria de dispositivo IoT ("Internet das Coisas").
 
-> [AZURE.TIP]Você deve usar o particionamento hash sempre que houver entidades demais para enumerar usando o particionamento por pesquisa (como usuários ou dispositivos) e a taxa de solicitação for relativamente uniforme entre as entidades.
+> [AZURE.TIP]Você deve usar o particionamento hash sempre que houver entidades demais para enumerar (como usuários ou dispositivos), e a taxa de solicitação for relativamente uniforme entre as entidades.
 
 ## Escolhendo a técnica de particionamento ideal
 
 Qual técnica de particionamento é melhor para você? Depende do tipo de dados e dos padrões de acesso comuns. Escolher a técnica de particionamento certa no momento do design permite evitar deficiências técnicas e lidar com o aumento do tamanho dos dados e dos volumes de solicitação.
 
-- O **particionamento por intervalos** geralmente é usado no contexto de datas, pois oferece um mecanismo simples e natural para remover partições com base no carimbo de data/hora. Ele também é útil quando as consultas ficam restritas a um intervalo de tempo, uma vez que ele é alinhado aos limites de particionamento. Ele também permite agrupar e organizar conjuntos de dados desordenados e não relacionados de uma maneira natural, como agrupar locatários por organização ou estados por região. A pesquisa também oferece um controle refinado da migração de dados entre coleções. 
+- O **particionamento por intervalos** geralmente é usado no contexto de datas, pois oferece um mecanismo simples e natural para remover partições com base no carimbo de data/hora. Ele também é útil quando as consultas ficam restritas a um intervalo de tempo, uma vez que ele é alinhado aos limites de particionamento. Ele também permite agrupar e organizar conjuntos de dados desordenados e não relacionados de uma maneira natural, como agrupar locatários por organização ou estados por região. O intervalo também oferece um controle refinado da migração de dados entre coleções. 
 - O **particionamento hash** é útil para fazer o balanceamento de cargas uniforme das solicitações, para usar de maneira eficaz o armazenamento e a produtividade provisionados. Usar algoritmos de *hash consistentes* permite reduzir a quantidade de dados que precisam ser movidos quando uma partição é adicionada ou removida.
 
 Você não precisa escolher apenas uma técnica de particionamento. Uma *mescla* dessas técnicas também pode ser útil dependendo da situação. Por exemplo, se você estiver armazenando dados de telemetria de um veículo, uma boa abordagem seria particionar os dados de telemetria do dispositivo segundo intervalo do carimbo de data/hora para facilitar o gerenciamento das partições e, depois, subparticionar segundo o VIN (número de identificação de veículo), para expandir e obter mais produtividade (particionamento de composição e hash por intervalos).
@@ -78,7 +78,7 @@ Vejamos cada uma dessas áreas com mais detalhes.
 
 ## Encaminhando criações e consultas
 
-O roteamento de solicitações de criação de documento é direto para o particionamento hash e por intervalos. O documento é criado na partição com o valor hash, de pesquisa ou de intervalo correspondente à chave de partição.
+O roteamento de solicitações de criação de documento é direto para o particionamento hash e por intervalos. O documento é criado na partição com o valor hash ou de intervalo correspondente à chave de partição.
 
 Consultas e leituras normalmente devem ser direcionadas a uma única chave de partição, de modo que as consultas sejam distribuídas apenas às partições correspondentes. Para consultar todos os dados, no entanto, você precisa *distribuir* a solicitação em várias partições e depois mesclar os resultados. Tenha em mente que algumas consultas talvez precisem executar uma lógica personalizada para mesclar resultados (por exemplo, para buscar os N resultados principais).
 
@@ -92,7 +92,7 @@ Se não, você pode armazená-lo em qualquer armazenamento persistente. Um padr�
 
 Com o Banco de Dados de Documentos, você pode adicionar e remover as coleções a qualquer momento e usá-las para armazenar novos dados ou balancear novamente dados disponíveis em coleções existentes. Veja na página [Limites](documentdb-limits.md) o número de coleções. E você sempre pode nos contatar para aumentar os limites.
 
-Adicionar e remover uma nova partição usando particionamento por intervalos ou pesquisa é simples. Por exemplo, para adicionar uma nova região ou um novo intervalo de tempo para dados recentes, você precisa apenas acrescentar as novas partições ao mapa existente. Dividir uma partição existente em várias partições ou mesclar duas partições demanda um pouco mais de esforço. Você precisa
+Adicionar e remover uma nova partição usando particionamento por intervalos é bem simples. Por exemplo, para adicionar uma nova região ou um novo intervalo de tempo para dados recentes, você precisa apenas acrescentar as novas partições ao mapa existente. Dividir uma partição existente em várias partições ou mesclar duas partições demanda um pouco mais de esforço. Você precisa
 
 - Deixar o fragmento offline para leituras.
 - Encaminhar leituras para as duas partições usando a configuração de particionamento antiga, bem como a nova configuração de particionamento durante a migração. Observe que as garantias de nível de consistência e transação não estarão em vigor até a conclusão da migração.
@@ -112,4 +112,4 @@ Neste artigo, apresentamos algumas técnicas comuns para particionar dados com o
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

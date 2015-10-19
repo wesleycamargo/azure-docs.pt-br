@@ -24,30 +24,27 @@ Você pode adicionar, remover e alterar rotas no Azure usando o PowerShell. Para
 ### Como criar uma tabela de rotas
 Para criar uma tabela de rotas denominada *FrontEndSubnetRouteTable*, execute o seguinte comando do PowerShell:
 
-```powershell
-New-AzureRouteTable -Name FrontEndSubnetRouteTable `
-	-Location uscentral `
-	-Label "Route table for frontend subnet"
-```
+	```powershell
+	New-AzureRouteTable -Name FrontEndSubnetRouteTable `
+		-Location uscentral `
+		-Label "Route table for front end subnet"
+	```
 
 A saída do comando acima deve ser semelhante ao seguinte:
 
-	Error          :
-	HttpStatusCode : OK
-	Id             : 085ac8bf-26c3-9c4c-b3ae-ebe880108c70
-	Status         : Succeeded
-	StatusCode     : OK
-	RequestId      : a8cc03ca42d39f27adeaa9c1986c14f7
+	Name                      Location   Label                          
+	----                      --------   -----                          
+	FrontEndSubnetRouteTable  West US    Route table for front end subnet
 
 ### Como adicionar uma rota a uma tabela de rotas
 Para adicionar uma rota que define *10.1.1.10* como o próximo salto para a sub-rede *10.2.0.0/16* na tabela de rotas criada acima, execute o seguinte comando do PowerShell:
 
-```powershell
-Get-AzureRouteTable FrontEndSubnetRouteTable `
-	|Set-AzureRoute -RouteName FirewallRoute -AddressPrefix 10.2.0.0/16 `
-	-NextHopType VirtualAppliance `
-	-NextHopIpAddress 10.1.1.10
-```
+	```powershell
+	Get-AzureRouteTable FrontEndSubnetRouteTable `
+		|Set-AzureRoute -RouteName FirewallRoute -AddressPrefix 10.2.0.0/16 `
+		-NextHopType VirtualAppliance `
+		-NextHopIpAddress 10.1.1.10
+	```
 
 A saída do comando acima deve ser semelhante ao seguinte:
 
@@ -62,21 +59,21 @@ A saída do comando acima deve ser semelhante ao seguinte:
 ### Como associar uma rota a uma sub-rede
 Uma tabela de rotas deve ser associada a uma ou mais sub-redes para que seja usada. Para associar a tabela de rotas *FrontEndSubnetRouteTable* a uma sub-rede denominada *FrontEndSubnet* na rede virtual *ProductionVnet*, execute o seguinte comando do PowerShell:
 
-```powershell
-Set-AzureSubnetRouteTable -VirtualNetworkName ProductionVnet `
-	-SubnetName FrontEndSubnet `
-	-RouteTableName FrontEndSubnetRouteTable
-```
+	```powershell
+	Set-AzureSubnetRouteTable -VirtualNetworkName ProductionVnet `
+		-SubnetName FrontEndSubnet `
+		-RouteTableName FrontEndSubnetRouteTable
+	```
 
 ### Como ver as rotas aplicadas em uma VM
 Você pode consultar o Azure para ver as rotas reais aplicadas a uma instância de função ou VM específica. As rotas mostradas incluem rotas padrão que o Azure fornece, bem como rotas anunciadas por um Gateway de VPN. O limite de rotas mostrado é 800.
 
 Para ver as rotas associadas a NIC primária em uma VM denominada *FWAppliance1*, execute o seguinte comando do PowerShell:
 
-```powershell
-Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
-	| Get-AzureEffectiveRouteTable
-```
+	```powershell
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
+		| Get-AzureEffectiveRouteTable
+	```
 
 A saída do comando acima deve ser semelhante ao seguinte:
 
@@ -93,17 +90,17 @@ A saída do comando acima deve ser semelhante ao seguinte:
 
 Para ver as rotas associadas a uma NIC secundária denominada *backendnic* em uma VM denominada *FWAppliance1*, execute o seguinte comando do PowerShell:
 
-```powershell
-Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
-	| Get-AzureEffectiveRouteTable -NetworkInterfaceName backendnic
-```
+	```powershell
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
+		| Get-AzureEffectiveRouteTable -NetworkInterfaceName backendnic
+	```
 
 Para ver as rotas associadas à NIC primária em uma instância de função denominada *myRole* que faz parte de um serviço de nuvem chamado *ProductionVMs*, execute o seguinte comando do PowerShell:
 
-```powershell
-Get-AzureEffectiveRouteTable -ServiceName ProductionVMs `
-	-RoleInstanceName myRole
-```
+	```powershell
+	Get-AzureEffectiveRouteTable -ServiceName ProductionVMs `
+		-RoleInstanceName myRole
+	```
 
 ## Como gerenciar o encaminhamento IP
 Conforme mencionado anteriormente, você precisa habilitar o encaminhamento IP em qualquer VM ou instância de função que atuará como um dispositivo virtual.
@@ -127,7 +124,7 @@ Set-AzureIPForwarding -ServiceName DMZService `
 Para desabilitar o encaminhamento IP em uma VM denominada *FWAppliance1*, execute o seguinte comando do PowerShell:
 
 ```powershell
-Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
+Get-AzureVM -Name FWAppliance1 -ServiceName DMZService `
 	| Set-AzureIPForwarding -Disable
 ```
 
@@ -146,4 +143,4 @@ Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
 ``` 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

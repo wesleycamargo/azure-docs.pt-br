@@ -1,12 +1,13 @@
 <properties
-	pageTitle="DataStax Enterprise no Ubuntu com um Modelo do Gerenciador de Recursos"
+	pageTitle="DataStax Enterprise no Ubuntu com um modelo do Gerenciador de Recursos | Microsoft Azure"
 	description="Aprenda a implantar facilmente um novo cluster do DataStax Enterprise em VMs do Ubuntu usando o PowerShell ou a CLI do Azure e um modelo do Gerenciador de Recursos"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+	editor="tysonn"
+	tags="azure-resource-manager"/>
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -17,6 +18,8 @@
 	ms.author="scoriani"/>
 
 # DataStax Enterprise no Ubuntu com um Modelo do Gerenciador de Recursos
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos.
 
 O DataStax é um dos líderes reconhecidos do setor para o desenvolvimento e fornecimento de soluções com base no Apache Cassandra™ - a tecnologia de banco de dados distribuído NoSQL de software livre, com suporte comercial e pronta para empresas que é amplamente reconhecida como ágil, sempre ativa e escalonável de forma previsível para qualquer porte. O DataStax oferece as opções Enterprise (DSE) e Community (DSC). Além dos recursos trazidos pela edição Community, o Datastax Enterprise tem o certificado de produção Cassandra, com recursos como computação na memória, segurança de nível corporativo, análise integrada rápida e eficiente e gerenciamento corporativo.
 
@@ -458,7 +461,7 @@ Os discos anexados são formatados como parte das atividades de preparação do 
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh faz parte da pasta shared_scripts\\ubuntu, no repositório do github azure-quickstart-templates, e contém funções muito úteis para a montagem formatação e distribuição de discos. Essas funções podem ser usadas em todos os modelos no repositório.
+vm-disk-utils-0.1.sh faz parte da pasta shared\_scripts\\ubuntu, no repositório do github azure-quickstart-templates, e contém funções muito úteis para a montagem formatação e distribuição de discos. Essas funções podem ser usadas em todos os modelos no repositório.
 
 Outro fragmento interessante para explorar é aquele relacionado às extensões de VM CustomScriptForLinux. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó de cluster (e a instância OpsCenter). Elas usam o mesmo mecanismo de loop de recursos descrito para máquinas virtuais.
 
@@ -500,4 +503,4 @@ Essa abordagem sugere que você:
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Monitorar sua infraestrutura de identidade local na nuvem."
 	description="Esta é a página de Integridade do Azure AD Connect que descreve o que ele é e por que você deve usá-lo."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -70,7 +70,7 @@ O portal de Azure AD Connect Health permite a visualização de alertas, monitor
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
 
 - **Início Rápido** – selecionar esta opção abrirá a folha de Início Rápido. Aqui você poderá baixar o agente de Azure AD Connect Health, escolhendo Obter Ferramentas, acessar a documentação e fornecer comentários.
-- **Serviços de Federação do Active Directory** – representa todos os serviços do AD FS que o Azure AD Connect Health está monitorando no momento. Ao selecionar uma das instâncias, uma folha abrirá com informações sobre essa instância de serviços. Essas informações incluem uma análise de visão geral, propriedades, alertas, monitoramento e análise de uso. 
+- **Serviços de Federação do Active Directory** – representa todos os serviços do AD FS que o Azure AD Connect Health está monitorando no momento. Ao selecionar uma das instâncias, uma folha abrirá com informações sobre essa instância de serviços. Essas informações incluem uma análise de visão geral, propriedades, alertas, monitoramento e análise de uso.
 - Configurar – isso permite ativar ou desativar o seguinte:
 <ol>
 1. Atualização para atualizar automaticamente o agente do Azure AD Connect Health para a versão mais recente automática - isso significa que você será atualizada automaticamente para a versão mais recente do agente do Azure AD Connect Health quando ela estiver disponível. Isso é habilitado por padrão.
@@ -95,9 +95,10 @@ A tabela a seguir é uma lista de requisitos do agente que devem ser atendidos a
 | Requisito | Descrição|
 | ----------- | ---------- |
 |O agente do Azure AD Connect Health instalado em cada servidor de destino| O Azure AD Connect Health requer que um agente esteja instalado nos servidores de destino para fornecer os dados que serão exibidos no portal. </br></br>Por exemplo, para obter dados sobre sua infraestrutura local do AD FS, o agente deve estar instalado nos servidores do AD FS. Isso inclui servidores de Proxy do AD FS e servidores de Proxy de aplicativo Web. </br></br>Para obter informações sobre a instalação do agente, consulte [Azure AD Connect Health Agent Installation (Instalação do Agente do Azure AD Connect Health)](active-directory-aadconnect-health-agent-install.md).</br></br>**Importante:** a conta usada ao instalar os agentes deve ser uma conta organizacional ou corporativa e não pode ser uma conta da Microsoft. Para obter mais informações, consulte [Inscrever-se no Azure como uma organização](sign-up-organization.md)|
-|Conectividade de saída para os pontos de extremidade de serviço do Azure|Durante a instalação e o tempo de execução, o agente requer conectividade com os pontos de extremidade de serviço do Azure AD Connect Health listados a seguir. Se você bloquear a conectividade de saída, verifique se os recursos a seguir estão adicionados à lista de permissões: </br></br><li>&#42;.servicebus.windows.net - Porta: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
-|Portas de firewall no servidor que executa o agente.| O agente requer que as seguintes portas de firewall estejam abertas para que o agente se comunique com os pontos de extremidade de serviço do Azure AD Health.</br></br><li>Porta TCP/UDP 80</li><li>Porta TCP/UDP 443</li>
-|Permita os sites a seguir se a segurança reforçada do IE estiver habilitada|Os sites a seguir precisam ser permitidos se a Segurança Aprimorada do IE estiver habilitada no servidor no qual o agente será instalado.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>O servidor de federação da sua organização confiável pelo Active Directory do Azure, por exemplo: https://sts.contoso.com</li> 
+|Conectividade de saída para os pontos de extremidade de serviço do Azure|Durante a instalação e o tempo de execução, o agente requer conectividade com os pontos de extremidade de serviço do Azure AD Connect Health listados a seguir. Se você bloquear a conectividade de saída verifique se os recursos a seguir foram adicionados à lista de permissões: </br></br><li>**novo**: &#42;.blob.core.windows.net </li><li>**novo**: &#42;.queue.core.windows.net</li><li>&#42;.servicebus.windows.net - Port: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+|Portas de firewall no servidor que executa o agente.| O agente exige que as seguintes portas de firewall estejam abertas para que o agente se comunique com os pontos de extremidade de serviço do Azure AD Health.</br></br><li>Porta TCP/UDP 80</li><li>Porta TCP/UDP 443</li><li>Porta TCP/UDP 5671</li>
+
+|Permitir os seguintes sites se a Segurança Aprimorada do IE estiver habilitada| Os sites a seguir precisam receber permissão se a Segurança Aprimorada do IE estiver habilitada no servidor no qual o agente será instalado.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>O servidor de federação da sua organização confiável pelo Active Directory do Azure, por exemplo: https://sts.contoso.com</li>
 
 ## Baixar o agente
 
@@ -111,7 +112,4 @@ Para começar a usar a Integridade do o Azure AD Connect, você pode baixar a ve
 * [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

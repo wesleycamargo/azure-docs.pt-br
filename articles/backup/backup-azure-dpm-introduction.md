@@ -7,9 +7,13 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/05/2015" ms.author="sammehta"; "jimpark"/>
 
 # Preparando-se para fazer backup de cargas de trabalho no Azure com o DPM
+
+> [AZURE.SELECTOR]
+- [Azure Backup](backup-azure-microsoft-azure-backup.md)
+- [SCDPM](backup-azure-dpm-introduction.md)
 
 Este artigo fornece uma introdução ao uso do Backup do Microsoft Azure para proteger seus servidores e cargas de trabalho do Center Data Protection Manager. Lendo-o, você entenderá:
 
@@ -81,4 +85,4 @@ E os seguintes não têm suporte:
 
 >[AZURE.NOTE]No System Center 2012 DPM com SP1 em diante, é possível fazer backup de cargas de trabalho protegidas por DPM para o Azure usando o Backup do Microsoft Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

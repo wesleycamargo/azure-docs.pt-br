@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="08/05/2015"
+   ms.date="10/07/2015"
    ms.author="ruturajd@microsoft.com"/>
 
 # Etapas para realização do failback do Azure para o VMware
@@ -558,4 +558,4 @@ Após a conclusão do failback, convém proteger mais uma vez as máquinas virtu
 
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

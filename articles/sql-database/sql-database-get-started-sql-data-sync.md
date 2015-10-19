@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/01/2015"
 	ms.author="jhubbard"/>
 
 
@@ -195,11 +195,11 @@ Parabéns. Você criou um grupo de sincronização que inclui uma instância do 
 ## Próximas etapas
 Para obter informações adicionais sobre banco de dados SQL e Sincronização de Dados do SQL, consulte:
 
-* [Conteúdo de sincronização de dados SQL na biblioteca do MSDN](https://msdn.microsoft.com/library/azure/hh456371.aspx)
+* [Baixe a documentação técnica de Sincronização de Dados do SQL](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [Visão geral do Banco de Dados SQL](sql-database-technical-overview.md)
 * [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

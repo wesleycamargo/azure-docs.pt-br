@@ -58,7 +58,7 @@ Não há nenhum limite para o número de sub-redes que você usa em uma rede vir
 
 ### Existem restrições quanto ao uso de endereços IP dentro dessas sub-redes?
 
-O Azure reserva alguns endereços IP em cada sub-rede. O primeiro e o último endereço IP das sub-redes são reservados para conformidade de protocolo, juntamente com dois ou mais endereços usados para serviços do Azure.
+O Azure reserva alguns endereços IP em cada sub-rede. O primeiro e o último endereço IP das sub-redes são reservados para conformidade de protocolo, juntamente com três ou mais endereços usados para os serviços do Azure.
 
 ### Que tamanho, máximo e mínimo, as redes virtuais e sub-redes podem ter?
 
@@ -221,7 +221,8 @@ Você só pode usar serviços de computação em redes virtuais. Os serviços de
 
 Não. Um Aplicativo Web do Azure não pode ser implantado em uma rede virtual. No entanto, os Aplicativos Web poderão se conectar e acessar os recursos na rede virtual do Azure se você tiver configurado o ponto a site para sua rede virtual. Para saber mais, confira o seguinte:
 
-- [Integração da rede virtual de Aplicativos Web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Integração da rede virtual de Aplicativos Web](http://azure.microsoft.com/blog/
+- 014/09/15/azure-websites-virtual-network-integration/)
 
 - [Usando conexões híbridas e integração de rede virtual com Aplicativos Web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
@@ -264,4 +265,4 @@ Sim. Você pode usar APIs REST para gerenciar redes virtuais e conectividade ent
 
 Sim. Você pode usar ferramentas de linha de comando e o PowerShell para uma variedade de plataformas. Mais informações podem ser encontradas [aqui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -25,6 +25,7 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação. Você também pode criar um recurso com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-windows-tutorial.md).
 
 Este tutorial mostra como é fácil criar uma VM (máquina virtual) do Azure no Portal do Azure. Vamos usar uma imagem do Windows Server como exemplo, mas ela é apenas uma das muitas imagens que o Azure oferece. Observe que as opções de imagem dependem de sua assinatura. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
 
@@ -52,4 +53,4 @@ Esta seção mostra como usar a opção **Da Galeria** no portal do Azure para c
 
 - Anexe um disco para armazenar dados. Você pode anexar tanto discos vazios como discos que contenham dados. Para obter instruções, consulte o [tutorial Anexar um disco de dados](storage-windows-attach-disk.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

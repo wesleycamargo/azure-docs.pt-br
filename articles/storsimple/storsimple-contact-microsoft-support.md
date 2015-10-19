@@ -1,23 +1,28 @@
 <properties 
    pageTitle="Contatar o Suporte da Microsoft | Microsoft Azure"
-	description="Saiba como criar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Saiba como criar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="10/06/2015"
+   ms.author="alkohli" />
 
 # Contatar o Suporte da Microsoft
 
-Se tiver problemas com sua solução Microsoft Azure StorSimple, você poderá criar uma solicitação de serviço de suporte técnico. Em uma sessão online com seu engenheiro de suporte, talvez você precise iniciar uma sessão de suporte em seu dispositivo StorSimple. Este artigo o orienta durante o processo de criação de uma solicitação de suporte e também para iniciar uma sessão de suporte na interface do Windows PowerShell de seu dispositivo StorSimple.
+Se tiver problemas com sua solução Microsoft Azure StorSimple, você poderá criar uma solicitação de serviço de suporte técnico. Em uma sessão online com seu engenheiro de suporte, talvez você precise iniciar uma sessão de suporte em seu dispositivo StorSimple. Este artigo orienta você sobre:
+
+- Como criar uma solicitação de suporte.
+- Como iniciar uma sessão de suporte na interface do Windows PowerShell de seu dispositivo StorSimple.
+
+Examine os [SLAs e informações de suporte ao StorSimple 8000 Series](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar uma solicitação de suporte.
 
 ## Criar uma solicitação de suporte
 
@@ -25,7 +30,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
 
 #### Para criar uma solicitação de suporte
 
-1. Uma solicitação de suporte pode ser criada por meio do [Portal de Gerenciamento](http://manage.windowsazure.com/). No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em seu **Nome de Conta** e, em seguida, clique em **Contatar o Suporte da Microsoft**.
+1. Uma solicitação de suporte pode ser criada por meio do [Portal de Gerenciamento](http://manage.windowsazure.com/). No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em seu **Nome de Conta** e clique em **Contatar o Suporte da Microsoft**.
 
 	![Contate o Suporte da MS por meio do Portal de Gerenciamento](./media/storsimple-contact-microsoft-support/IC777286.png)
 
@@ -51,7 +56,7 @@ Execute as seguintes etapas para iniciar uma sessão de suporte:
 
 #### Para iniciar uma sessão de suporte
 
-1. Acesse o dispositivo diretamente usando o console serial ou por meio de uma sessão de telnet de um computador remoto. Para fazer isso, siga as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Acesse o dispositivo diretamente usando o console serial ou por meio de uma sessão de telnet de um computador remoto. Para fazer isso, execute as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Na sessão que será aberta, pressione a tecla **Enter** para obter um prompt de comando.
 
@@ -71,4 +76,4 @@ Execute as seguintes etapas para iniciar uma sessão de suporte:
 
 > [AZURE.IMPORTANT]Você pode desabilitar o acesso ao suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desabilitar o acesso ao suporte oito horas após a sessão ser iniciada. É uma prática recomendada alterar as credenciais de seu dispositivo StorSimple após iniciar uma sessão de suporte.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

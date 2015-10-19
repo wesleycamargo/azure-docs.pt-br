@@ -47,7 +47,7 @@ Fornecemos SDKs e exemplos para .NET, Java, PHP, Python, Node .js para que um ba
 Oferecemos suporte para notificações de envio para Apple iOS, Android, Windows Universal e Windows Phone, Kindle, Android China (via Baidu), Xamarin (iOS e Android), plataformas de aplicativos Chrome. Tutoriais de introdução passo a passo para essas plataformas estão disponíveis aqui - [NH - Tutoriais de Introdução]
 
 ###3\. Você oferece suporte a notificações de Email/SMS/web?
-Os Hubs de Notificação são projetados principalmente para enviar notificações aos aplicativos móveis usando as plataformas listadas acima. Não oferecemos o recurso de enviar email ou SMS, no entanto plataformas de terceiros que fornecem esses recursos podem ser integradas com Hubs de Notificação para enviar notificações de push nativo usando os Serviços Móveis do Azure. Por exemplo, este tutorial fala sobre como enviar notificações do SMS usando os Serviços Móveis do Azure - [Enviar SMS com os Serviços Móveis] Também não fornecemos uma notificação por push no navegador pronta para uso. Os clientes podem optar por implementar isso usando o SignalR. Nós também fornecemos um tutorial para enviar notificação por push para aplicativos do Chrome que funcionarão no navegador Google Chrome. Consulte isto - [Tutorial de aplicativos do Chrome]
+Os Hubs de Notificação são projetados principalmente para enviar notificações aos aplicativos móveis usando as plataformas listadas acima. Não oferecemos o recurso de enviar email ou SMS, no entanto plataformas de terceiros que fornecem esses recursos podem ser integradas com Hubs de Notificação para enviar notificações de push nativo usando os Serviços Móveis do Azure. Também não fornecemos uma notificação por push no navegador pronto para uso. Os clientes podem optar por implementar isso usando o SignalR. Nós também fornecemos um tutorial para enviar notificação por push para aplicativos do Chrome que funcionarão no navegador Google Chrome. Veja isto - [Tutorial de aplicativos do Chrome]
 
 ###4\. Qual é a relação entre os Serviços Móveis do Azure e os Hubs de Notificação do Azure e quando usar qual?
 Se você tiver um back-end do aplicativo móvel existente e desejar apenas adicionar o recurso para enviar notificações por push, então você deve usar os Hubs de Notificação do Azure. Se quiser configurar o back-end do aplicativo móvel do zero, então você deve considerar o uso dos Serviços Móveis do Azure. Um serviço móvel do Azure provisiona automaticamente um Hub de Notificação para que você possa enviar notificações por push facilmente a partir do back-end do aplicativo móvel. Os preços dos Serviços Móveis do Azure incluem os encargos de base para um Hub de Notificação e você paga apenas quando ultrapassar os envios incluídos. Mais detalhes aqui - [Preços de Serviços Móveis]
@@ -74,7 +74,7 @@ Devido à natureza das notificações por push que são entregues por uma plataf
 *Distribuição geográfica:* a distribuição geográfica nem sempre é crítica em caso de notificações por push. Deve-se observar as vários serviços de Notificação por push (por exemplo, APNS, GCM etc.) que, por fim, entregam as notificações por push aos dispositivos que não são igualmente distribuídos. No entanto se você tiver um aplicativo que é usado em todo o mundo você pode criar vários hubs em namespaces diferentes aproveitando a disponibilidade do serviço de Hubs de Notificação em diferentes regiões do Azure no mundo todo. Observe que isso aumentará o custo de gerenciamento principalmente em torno de registros, então isso realmente não é recomendado e só deve ser feito se for realmente necessário.
 
 ###10\. Devemos fazer registros de back-end do aplicativo ou diretamente dispositivos?
-Registros de back-end do aplicativo são úteis quando você precisa fazer uma autenticação de cliente antes de criar o registro ou quando há marcas que devem ser criadas ou modificadas pelo back-end do aplicativo, com base em alguma lógica de aplicativo. Mais orientações estão disponíveis aqui - [Diretrizes de registro de back-end] e [Diretrizes de registro de back-end - 2]
+Registros de back-end do aplicativo são úteis quando você precisa fazer uma autenticação de cliente antes de criar o registro ou quando há marcas que devem ser criadas ou modificadas pelo back-end do aplicativo, com base em alguma lógica de aplicativo. Encontre mais orientações aqui - [Diretrizes de registro de back-end] e [Diretrizes de registro de back-end - 2]
 
 ###11\. O que é o modelo de segurança?
 Os Hubs de Notificação do Azure usam um modelo de segurança baseado em Assinatura de Acesso Compartilhado (SAS). Você pode usar os tokens SAS no nível do namespace raiz ou no nível de hubs de notificação granular. Esses tokens SAS podem ser definidos com diferentes regras de autorização por exemplo, as permissões para enviar mensagens, permissões para ouvir notificação etc. Mais detalhes aqui - [Modelo de segurança NH]
@@ -119,7 +119,6 @@ Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria n
 [CaseStudy - 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [NH - APIs REST]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [NH - Tutoriais de Introdução]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Enviar SMS com os Serviços Móveis]: http://azure.microsoft.com/documentation/articles/partner-twilio-mobile-services-how-to-use-voice-sms/
 [Tutorial de aplicativos do Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Preços de Serviços Móveis]: http://azure.microsoft.com/pricing/details/mobile-services/
 [Diretrizes de registro de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
@@ -131,4 +130,4 @@ Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria n
 [NH - Exemplo de métricas]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Importação/exportação de registros]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

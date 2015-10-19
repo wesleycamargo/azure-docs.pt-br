@@ -18,13 +18,13 @@
 
 # Armazenar o código de seu projeto de serviço móvel no controle do código-fonte
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 Este tópico mostra como usar o controle do código-fonte dos Serviços Móveis do Azure para armazenar scripts do servidor. Scripts e outros arquivos de código de back-end de JavaScript podem ser promovidos do repositório de Git local para o serviço móvel de produção. Ele também mostra como definir o código compartilhado que pode ser exigido por vários scripts e como usar o arquivo package.json para adicionar módulos Node.js ao serviço móvel.
 
-Para concluir este tutorial, você deve já ter criado um serviço móvel ao concluir a [Introdução aos Serviços Móveis] ou ao concluir o tutorial [Adicionar Serviços Móveis a um aplicativo existente].
+Para concluir este tutorial, você já deve ter criado um serviço móvel por meio da conclusão do tutorial [Introdução aos Serviços Móveis].
 
 ##<a name="enable-source-control"></a>Habilitar o controle do código-fonte no seu serviço móvel
 
@@ -32,7 +32,7 @@ Para concluir este tutorial, você deve já ter criado um serviço móvel ao con
 
 ##<a name="clone-repo"></a>Instalar o Git e criar o repositório local
 
-1. Instale o Git no seu computador local. 
+1. Instale o Git no seu computador local.
 
 	As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
 
@@ -75,13 +75,13 @@ Agora que criou seu repositório local, você pode fazer alterações nos script
 		    request.execute();
 		    console.log(JSON.stringify(item, null, 4));
 		}
-	
+
 	Esse código simplesmente grava o item inserido no log. Se esse arquivo já contiver código, basta adicionar um código JavaScript válido a ele, por exemplo, uma chamada para `console.log()`, e salvar as alterações.
 
 3. No prompt de comando do Git, digite o comando a seguir para iniciar o acompanhamento do novo arquivo de script:
 
 		$ git add .
-	
+
 
 4. Digite o comando a seguir para confirmar as alterações:
 
@@ -90,12 +90,10 @@ Agora que criou seu repositório local, você pode fazer alterações nos script
 5. Digite o comando a seguir para carregar as alterações para o repositório remoto:
 
 		$ git push origin master
-	
+
 	Uma série de comandos deverão ser exibidos indicando que a confirmação foi implantada no serviço móvel.
 
-6. De volta ao Portal de Gerenciamento, clique na guia **Dados**; em seguida, clique na tabela **TodoItem**, em **Script** e selecione a operação **Inserir**.
-7. 
-	Observe que o script da operação de inserção exibido é o mesmo do código JavaScript que você acabou de carregar para o repositório.
+6. De volta ao Portal de Gerenciamento, clique na guia **Dados**; em seguida, clique na tabela **TodoItem**, em **Script** e selecione a operação **Inserir**. Observe que o script da operação de inserção exibido é o mesmo do código JavaScript que você acabou de carregar para o repositório.
 
 ##<a name="use-npm"></a>Aproveitar o código compartilhado e os módulos do Node.js nos seus scripts de servidor
 
@@ -125,7 +123,7 @@ A maneira recomendada para adicionar módulos Node.js ao seu serviço móvel é 
 		$ git add .
 		$ git commit -m "added node-uuid module"
 		$ git push origin master
-		
+
 	Isso adicionará o novo arquivo, confirmará suas alterações e enviará o novo módulo node-uuid e as alterações por push ao script todoitem.insert.js para o seu serviço móvel.
 
 ## <a name="next-steps"> </a>Próximas etapas
@@ -133,8 +131,6 @@ A maneira recomendada para adicionar módulos Node.js ao seu serviço móvel é 
 Agora que concluiu este tutorial, você sabe como armazenar seus scripts no controle do código-fonte. Para saber mais sobre como trabalhar com scripts de servidor e APIs personalizadas, consulte:
 
 + [Trabalhar com scripts de servidor em Serviços Móveis] <br/>Mostra como trabalhar com scripts de servidor, o agendador de trabalhos e APIs personalizadas.
-
-+ [Chamar uma API personalizada do cliente] <br/>Mostra como criar APIs personalizadas que podem ser chamadas do cliente.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -152,11 +148,9 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Controle do código-fonte]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Introdução aos Serviços Móveis]: mobile-services-ios-get-started.md
-[Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-ios-get-started-data.md
 [Trabalhar com scripts de servidor em Serviços Móveis]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Chamar uma API personalizada do cliente]: mobile-services-ios-call-custom-api.md
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

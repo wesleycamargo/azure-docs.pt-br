@@ -3,7 +3,7 @@
 	description="Implante um banco de dados do SQL Server no Banco de Dados SQL do Azure usando o Assistente no SQL Server 2016 Management Studio." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sidneyh" 
+	authors="CarlRabeler" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
-	ms.author="sidneyh"/>
+	ms.date="10/08/2015" 
+	ms.author="carlrab"/>
 
 
 # Como implantar um banco de dados do SQL Server no Banco de Dados SQL do Azure
@@ -593,4 +593,4 @@ Para ver um tutorial sobre como criar um novo banco de dados SQL do Azure, confi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Criar, monitorar e gerenciar data factories do Azure usando o SDK da Data Factory"
-	description="Aprenda como criar, monitorar e gerenciar as data factories do Azure programaticamente usando o SDK da Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Criar, monitorar e gerenciar data factories do Azure usando o SDK da Data Factory" 
+	description="Aprenda como criar, monitorar e gerenciar as data factories do Azure programaticamente usando o SDK da Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET da Data Factory
@@ -56,8 +56,8 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
 		    <!--Make sure to write your own tenenat id and subscription ID here-->
-		    <add key="SubscriptionId" value="<subscription ID>" />
-    		<add key="ActiveDirectoryTenantId" value="<tenant ID" />
+		    <add key="SubscriptionId" value="your subscription ID" />
+    		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
 6. Adicione as seguintes declarações **using** ao arquivo de origem (Program.cs) no projeto.
 
@@ -71,7 +71,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure;
-6. Adicione o seguinte código que cria uma instância de classe **DataPipelineManagementClient** ao método **Principal**. Você usará esse objeto para criar um data factory, um serviço vinculado, tabelas de entrada e saídas e uma pipeline. Você também irá usar esse objeto para monitorar os subconjuntos de uma tabela em tempo de execução.    
+6. Adicione o seguinte código que cria uma instância de classe **DataPipelineManagementClient** ao método **Principal**. Você usará esse objeto para criar um data factory, um serviço vinculado, conjunto de dados de entrada e de saída e um pipeline. Você também usará esse objeto para monitorar as partes de um conjunto de dados em tempo de execução.    
 
         // create data factory management client
         string resourceGroupName = "resourcegroupname";
@@ -123,25 +123,25 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
                 }
             }
         );
-9. Adicione o seguinte código que cria **tabelas de entrada e saída** no método **Principal**. 
+9. Adicione o seguinte código que cria **conjuntos de dados de entrada e de saída** para o método **Principal**. 
 
 	Observe que o **FolderPath** para o blob de entrada é definido como **adftutorial/**, em que **adftutorial** é o nome do contêiner em seu armazenamento de blob. Se esse contêiner não existir em seu armazenamento de blob do Azure, crie um contêiner com o nome **adftutorial** e carregue um arquivo de texto no contêiner.
 	
 	Observe que o FolderPath para o blob de saída é definido como: **adftutorial/apifactoryoutput /{fatia}**, onde a **Fatia** é dinamicamente calculada com base no valor de **SliceStart** (data e hora de início de cada fatia).
 
  
-        // create input and output tables
-        Console.WriteLine("Creating input and output tables");
-        string Table_Source = "TableBlobSource";
-        string Table_Destination = "TableBlobDestination";
+        // create input and output datasets
+        Console.WriteLine("Creating input and output datasets");
+        string Dataset_Source = "DatasetBlobSource";
+        string Dataset_Destination = "DatasetBlobDestination";
 
-        client.Tables.CreateOrUpdate(resourceGroupName, dataFactoryName,
-            new TableCreateOrUpdateParameters()
+        client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+            new DatasetCreateOrUpdateParameters()
             {
-                Table = new Table()
+                Dataset = new Dataset()
                 {
-                    Name = Table_Source,
-                    Properties = new TableProperties()
+                    Name = Dataset_Source,
+                    Properties = new DatasetProperties()
                     {
                         LinkedServiceName = "LinkedService-AzureStorage",
                         TypeProperties = new AzureBlobDataset()
@@ -167,13 +167,13 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
                 }
             });
 
-        client.Tables.CreateOrUpdate(resourceGroupName, dataFactoryName,
-            new TableCreateOrUpdateParameters()
+        client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+            new DatasetCreateOrUpdateParameters()
             {
-                Table = new Table()
+                Dataset = new Dataset()
                 {
-                    Name = Table_Destination,
-                    Properties = new TableProperties()
+                    Name = Dataset_Destination,
+                    Properties = new DatasetProperties()
                     {
 
                         LinkedServiceName = "LinkedService-AzureStorage",
@@ -233,14 +233,14 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
                                 Inputs = new List<ActivityInput>()
                                 {
                                     new ActivityInput() {
-                                        Name = Table_Source
+                                        Name = Dataset_Source
                                     }
                                 },
                                 Outputs = new List<ActivityOutput>()
                                 {
                                     new ActivityOutput()
                                     {
-                                        Name = Table_Destination
+                                        Name = Dataset_Destination
                                     }
                                 },
                                 TypeProperties = new CopyActivity()
@@ -297,7 +297,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
             throw new InvalidOperationException("Failed to acquire token");
         }  
  
-13. Adicione o código a seguir no método **Principal** para obter o status de uma fatia de dados da tabela de saída. Há apenas uma fatia esperada neste exemplo.
+13. Adicione o seguinte código ao método **Principal** para obter o status de uma fatia de dados do conjunto de dados de saída. Há apenas uma fatia esperada neste exemplo.
  
         // Pulling status within a timeout threshold
         DateTime start = DateTime.Now;
@@ -309,7 +309,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
             // wait before the next status check
             Thread.Sleep(1000 * 12);
 
-            var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Table_Destination,
+            var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
                 new DataSliceListParameters()
                 {
                     DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
@@ -342,7 +342,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
         var datasliceRunListResponse = client.DataSliceRuns.List(
                 resourceGroupName,
                 dataFactoryName,
-                Table_Destination,
+                Dataset_Destination,
                 new DataSliceRunListParameters()
                 {
                     DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
@@ -363,16 +363,17 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. Compile o aplicativo de console. Clique no menu **Compilar** e clique em **Solução de Compilação**. Se você receber um erro da classe **ConfigurationManager**, adicione uma referência para o assembly **System.Configuration** e tente compilar novamente.
+15. No Gerenciador de Soluções, expanda o projeto (**DataFactoryAPITestApp**), clique com o botão direito do mouse em **Referências** e clique em **Adicionar Referência**. Marque a caixa de seleção do assembly **System.Configuration** e clique em **OK**.
+16. Compile o aplicativo de console. Clique no menu **Compilar** e clique em **Solução de Compilação**. 
 16. Confirme se há pelo menos um arquivo no contêiner adftutorial no seu armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo de Emp.txt no bloco de notas com o seguinte conteúdo e carregue-o no contêiner adftutorial.
 
         John, Doe
 		Jane, Doe
 	 
-17. Execute o exemplo, clicando no menu **Depurar** -> **Iniciar Depuração**. Quando você vir **Obter detalhes de uma fatia de dados da execução**, aguarde alguns minutos e pressione **ENTER**.
+17. Execute o exemplo, clicando no menu **Depurar** -> **Iniciar Depuração**. Quando você vir **Obter detalhes de execução de uma fatia de dados**, aguarde alguns minutos e pressione **ENTER**.
 18. Use o Portal de visualização para verificar se a data factory **APITutorialFactory** é criada com os seguintes artefatos: 
 	- Serviço vinculado: **LinkedService\_AzureStorage** 
-	- Tabelas: **TableBlobSource** e **TableBlobDestination**.
+	- Conjunto de dados: **DatasetBlobSource** e **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample** 
 18. Verifique se um arquivo de saída foi criado na pasta **apifactoryoutput** no contêiner **adftutorial**.
 
@@ -394,4 +395,4 @@ Artigo | Descrição
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tomfitz"/>
 
 # Operações de auditoria com o Gerenciador de Recursos
@@ -26,15 +26,15 @@ Você pode recuperar informações de logs de auditoria por meio do Azure PowerS
 
 ## PowerShell
 
-Para recuperar as entradas de log, você deve executar o comando **Get-AzureResourceGroupLog**. Fornecer parâmetros adicionais para filtrar a lista de entradas.
+Para recuperar as entradas de log, execute o comando **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** para versões do PowerShell anteriores à 1.0 Preview). Fornecer parâmetros adicionais para filtrar a lista de entradas.
 
 O exemplo a seguir mostra como usar o log de auditoria para ações de pesquisa executadas durante o ciclo de vida da solução. Você pode ver quando a ação ocorreu e quem a solicitou.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
 
 Dependendo do tempo de início que você especificar, o comando anterior pode retornar uma longa lista de ações para esse grupo de recursos. Você pode, pelo fornecimento de critérios de pesquisa, filtrar os resultados para o que você está procurando. Por exemplo, se você estiver tentando pesquisar como um aplicativo Web foi interrompido, você pode executar o comando a seguir e ver que uma ação de parada foi realizada por someone@example.com.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -54,11 +54,11 @@ Dependendo do tempo de início que você especificar, o comando anterior pode re
 
 No próximo exemplo, vamos procurar ações com falha somente após a hora de início especificada. Também incluiremos o parâmetro **DetailedOutput** para ver as mensagens de erro.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
     
 Se esse comando retorna um número excessivo de entradas e propriedades, você pode concentrar seus esforços de auditoria recuperando a propriedade **properties**.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
 
     Content
     -------
@@ -68,7 +68,7 @@ Se esse comando retorna um número excessivo de entradas e propriedades, você p
 
 Além disso, você pode refinar ainda mais os resultados examinando a mensagem de status.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -151,4 +151,4 @@ Você pode selecionar qualquer operação para obter mais detalhes sobre ela.
 - Para aprender sobre a obtenção de acesso a uma entidade de serviço, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 - Para saber como realizar ações em um recurso para todos os usuários, consulte [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

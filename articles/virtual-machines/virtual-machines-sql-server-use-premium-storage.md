@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-	editor="monicar"    
-	tags="azure-service-management"/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/02/2015"
+	ms.date="10/02/2015"
 	ms.author="jroth"/>
 
 # Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais
@@ -1027,7 +1027,7 @@ Você pode verificar o status da cópia VHD para todos os VHDs: ForEach ($disk i
 
 Aguarde até que todos esses itens sejam registrados como êxito.
 
-Para obter informações de blobs individuais: \#Check induvidual blob status Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
+Para obter informações de blobs individuais: #Check induvidual blob status Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 
 #### Etapa 21: registrar o disco do sistema operacional
     #change storage account to the new XIO storage account
@@ -1148,4 +1148,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

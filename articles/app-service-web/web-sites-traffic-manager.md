@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure"
-	description="Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Azure, já que ele está relacionado a aplicativos Web do Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure" 
+	description="Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Azure, já que ele está relacionado a aplicativos Web do Azure." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure
@@ -62,4 +63,4 @@ Para obter informações detalhadas sobre o balanceamento de carga no Gerenciado
 Para obter mais informações sobre como usar o Gerenciador de Tráfego com aplicativos Web, consulte as postagens de blog [Usando o Gerenciador de Tráfego do Azure com sites do Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [O Gerenciador de Tráfego do Azure agora pode se integrar a sites do Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

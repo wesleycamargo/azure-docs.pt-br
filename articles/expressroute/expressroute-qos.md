@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Requisitos de QoS para Rota Expressa
 
-Skype for Business tem várias cargas de trabalho que exigem tratamento de QoS diferenciado. Se você planeja utilizar serviços de voz por meio de Rota Expressa, você deve seguir os requisitos descritos abaixo.
+Skype for Business tem várias cargas de trabalho que exigem tratamento de QoS diferenciado. Se você planeja utilizar serviços de voz por meio de Rota Expressa, siga os requisitos descritos abaixo.
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
@@ -44,9 +44,10 @@ A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Skype for Bu
 ## Próximas etapas
 
 - Consulte os requisitos de [Roteamento](expressroute-routing.md) e de [NAT](expressroute-nat.md).
-- Configurar sua conexão da Rota Expressa.
+- Consulte os links a seguir para configurar a conexão da Rota Expressa.
+
 	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

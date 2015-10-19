@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="10/06/2015"
 	ms.author="stefsch"/>
 
 # Introdução ao ambiente de Serviço de Aplicativo
@@ -29,6 +29,10 @@ Os Ambientes de Serviço de Aplicativo são ideais para cargas de trabalho de ap
 Os clientes podem criar vários Ambientes de Serviço de Aplicativo dentro de uma única região do Azure, bem como entre várias regiões do Azure. Isso faz dos Ambientes de Serviço de Aplicativo ideais para dimensionar horizontalmente camadas de aplicativo sem estado para dar suporte a cargas de trabalho RPS altas.
 
 Ambientes de Serviço de Aplicativo são isolados para executar somente aplicativos de um único cliente, e sempre são implantados em uma rede virtual. Os clientes têm um controle refinado sobre o tráfego de entrada e saída da rede de aplicativos, e os aplicativos podem estabelecer conexões seguras de alta velocidade por meio de redes virtuais com recursos corporativos locais.
+
+Para obter uma visão geral sobre como os Ambientes de Serviço de Aplicativo permitem expansão e acesso seguro à rede, consulte [Aprofundamento no AzureCon][AzureConDeepDive] em Ambientes de Serviço de Aplicativo!
+
+Para uma análise aprofundada sobre a expansão horizontal usando vários Ambientes de Serviço de Aplicativo, consulte o artigo sobre como configurar uma [Pegada de aplicativo distribuído geograficamente][GeodistributedAppFootprint].
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -56,7 +60,7 @@ Aplicativos frequentemente precisam acessar recursos corporativos, como bancos d
 
 Para obter mais detalhes sobre o funcionamento dos Ambientes de Serviço de Aplicativo com redes virtuais e redes locais, consulte os seguintes artigos sobre [Arquitetura de rede][NetworkArchitectureOverview], [Controle do tráfego de entrada][ControllingInboundTraffic] e [Conexão segura com back-ends][SecurelyConnectingToBackends].
 
-**Observação:** um Ambiente de Serviço de Aplicativo não pode ser criado em uma rede virtual "v2".
+**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2".
 
 ## Introdução
 
@@ -83,6 +87,8 @@ Para obter detalhes sobre como usar um Ambiente de Serviço de Aplicativo com o 
 [MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
 [APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
 [LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
+[AzureConDeepDive]: https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
+[GeodistributedAppFootprint]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
@@ -95,4 +101,4 @@ Para obter detalhes sobre como usar um Ambiente de Serviço de Aplicativo com o 
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

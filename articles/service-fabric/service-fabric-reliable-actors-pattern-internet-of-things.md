@@ -4,7 +4,7 @@
    description="Os Atores Confiável do Service Fabric são os principais blocos de construção (como uma camada intermediária) em um sistema que combina um front-end de sistema de mensagens que dá suporte a vários transportes como HTTPS, MQTT ou AMQP, e então se comunica com atores que representam dispositivos individuais."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Padrão de design de Atores Confiáveis: Internet das Coisas
 Desde que a IoT se tornou a nova tendência juntamente com os avanços tecnológicos em dispositivos e serviços de nuvem, os desenvolvedores começaram a examinar os principais blocos de construção nos quais desenvolver seus sistemas. O diagrama a seguir ilustra os principais cenários obtidos usando os Atores Confiáveis do Service Fabric:
@@ -217,4 +217,4 @@ Concluímos que mais e mais clientes olharão para os Atores da Malha do Serviç
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

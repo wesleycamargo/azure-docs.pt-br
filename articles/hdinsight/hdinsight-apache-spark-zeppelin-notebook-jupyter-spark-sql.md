@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/07/2015"
+	ms.date="09/30/2015"
 	ms.author="nitinme"/>
 
 
@@ -104,9 +104,15 @@ Depois de ter provisionado um cluster, você pode usar um bloco de anotações Z
 
 >[AZURE.NOTE]O bloco de anotações criado seguindo as instruções abaixo também está disponível por padrão no cluster. Depois que você tiver iniciado o Zeppelin, encontrará esse bloco de anotações com o nome **Tutorial de HVAC do Zeppelin**.
 
-1. Inicie o bloco de anotações do Zeppelin. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de notas Zeppelin**. Quando solicitado, insira as credenciais de administrador para o cluster. Siga as instruções na página que se abre para iniciar o bloco de anotações.
+1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
-2. Crie um novo bloco de anotações. No painel de cabeçalho, clique em **Bloco de anotações** e, em seguida, clique em **Criar nova anotação**.
+2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de Notas Zeppelin**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+
+	> [AZURE.NOTE]Você também pode acessar o Bloco de Notas Zeppelin de seu cluster abrindo a seguinte URL no navegador. Substitua __CLUSTERNAME__ pelo nome do seu cluster:
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
+
+2. Crie um novo bloco de anotações. No painel de cabeçalho, clique em **Bloco de Anotações** e, em seguida, clique em **Criar Nova Anotação**.
 
 	![Criar um novo bloco de anotações do Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.CreateNewNote.png "Criar um novo bloco de anotações do Zeppelin")
 
@@ -116,7 +122,7 @@ Depois de ter provisionado um cluster, você pode usar um bloco de anotações Z
 
 	![Status do bloco de anotações do Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "Status do bloco de anotações do Zeppelin")
 
-4. Carregar dados de exemplo em uma tabela temporária. Quando você provisiona um cluster do Spark no HDInsight, o arquivo de dados de exemplo, **hvac.csv**, é copiado para a conta de armazenamento associada em **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Carregar dados de exemplo em uma tabela temporária. Quando você provisiona um cluster Spark no HDInsight, o arquivo de dados de exemplo, **hvac.csv**, é copiado para a conta de armazenamento associada em **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	No parágrafo vazio criado por padrão no novo bloco de anotações, cole o código a seguir:
 
@@ -160,7 +166,7 @@ Depois de ter provisionado um cluster, você pode usar um bloco de anotações Z
 
 	Clique nas opções de exibição (realçadas no retângulo) para alternar entre diferentes representações para o mesmo resultado. Clique em **Configurações** para escolher o que constitui a chave e os valores no resultado. A captura de tela acima usa **buildingID** como a chave e a média de **temp\_diff** como o valor.
 
-6. Você também pode executar instruções Spark SQL usando variáveis na consulta. O exemplo de código seguinte mostra como definir uma variável **Temp** na consulta, com os possíveis valores com os quais você deseja consultar. Quando você executa a consulta pela primeira vez, uma lista suspensa é preenchida automaticamente com os valores especificados para a variável.
+6. Você também pode executar instruções Spark SQL usando variáveis na consulta. O exemplo de código seguinte mostra como definir uma variável **Temp** na consulta, com os possíveis valores os quais você deseja consultar. Quando você executa a consulta pela primeira vez, uma lista suspensa é preenchida automaticamente com os valores especificados para a variável.
 
 		%sql
 		select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff
@@ -177,13 +183,19 @@ Depois de ter provisionado um cluster, você pode usar um bloco de anotações Z
 
 	![Reiniciar o interpretador do Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Zeppelin.Restart.Interpreter.png "Reiniciar o interpretador do Zeppelin")
 
-## <a name="jupyter"></a>Executar consultas do Spark SQL usando um bloco de anotações do Jupyter
+## <a name="jupyter"></a>Executar consultas do Spark SQL usando um bloco de notas Jupyter
 
 Nesta seção, você pode usar um bloco de anotações do Jupyter para executar consultas do Spark SQL com relação a um cluster do Spark.
 
->[AZURE.NOTE]O bloco de anotações criado seguindo as instruções abaixo também está disponível por padrão no cluster. Depois que você tiver iniciado o Jupyter, encontrará esse bloco de anotações com o nome **HVACTutorial.ipynb**.
+>[AZURE.NOTE]O bloco de anotações criado seguindo as instruções abaixo também está disponível por padrão no cluster. Depois que tiver iniciado o Jupyter, você encontrará esse bloco de anotações com o nome **HVACTutorial.ipynb**.
 
-1. Inicie o bloco de anotações do Jupyter. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de notas Jupyter**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
+1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
+
+2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de Notas Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+
+	> [AZURE.NOTE]Você também pode acessar o Bloco de Notas Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua __CLUSTERNAME__ pelo nome do seu cluster:
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 2. Crie um novo bloco de anotações. Clique em **Novo** e, em seguida, clique em **Python2**.
 
@@ -203,11 +215,11 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		sqlContext = SQLContext(sc)
 
-	Toda vez que você executar um trabalho no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** junto com o título do bloco de anotações. Você também verá um círculo preenchido ao lado do texto **Python 2** no canto superior direito. Depois que o trabalho for concluído, isso será alterado para um círculo vazio.
+	Toda vez que você executar um trabalho no Jupyter, seu título da janela do navegador da Web mostrará um status **(Ocupado)** junto com o título do bloco de anotações. Você também verá um círculo preenchido ao lado do texto **Python 2** no canto superior direito. Depois que o trabalho for concluído, isso será alterado para um círculo vazio.
 
 	 ![Status de um trabalho do bloco de anotações do Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Job.Status.png "Status de um trabalho do bloco de anotações do Jupyter")
 
-4. Carregar dados de exemplo em uma tabela temporária. Quando você provisiona um cluster do Spark no HDInsight, o arquivo de dados de exemplo, **hvac.csv**, é copiado para a conta de armazenamento associada em **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Carregar dados de exemplo em uma tabela temporária. Quando você provisiona um cluster Spark no HDInsight, o arquivo de dados de exemplo, **hvac.csv**, é copiado para a conta de armazenamento associada em **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	Em uma célula vazia, cole o exemplo de código a seguir e pressione **SHIFT + ENTER**. Esse exemplo de código registra os dados em uma tabela temporária chamada **hvac**.
 
@@ -280,4 +292,4 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

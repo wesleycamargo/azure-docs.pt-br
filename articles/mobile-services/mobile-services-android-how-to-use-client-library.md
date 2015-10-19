@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/11/2015" 
+	ms.date="10/05/2015" 
 	ms.author="ricksal"/>
 
 
@@ -649,7 +649,7 @@ Agora você está pronto para usar a associação de dados. O código a seguir m
 
 Você também deverá chamar o adaptador sempre que modificar a tabela *ToDoItem* se desejar exibir os resultados desse procedimento. Como as modificações são feitas de registro em registro, você estará lidando com uma única linha, em vez de uma coleção. Ao inserir um item, você chama o método *add* no adaptador e, ao excluir, você chama o método *remove*.
 
-##<a name="#custom-api"></a>Chamar uma API personalizada
+##<a name="custom-api"></a>Chamar uma API personalizada
 
 Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como definir um ponto de extremidade de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
 
@@ -933,4 +933,4 @@ Esse método geral pode ser usado sempre que tivermos um objeto complexo não se
 [Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

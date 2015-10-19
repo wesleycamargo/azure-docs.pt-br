@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Padrões de consulta do Stream Analytics do Azure | Microsoft Azure"
 	description="Padrões de consulta comuns do Stream Analytics"
+	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/19/2015"
+	ms.date="10/05/2015"
 	ms.author="jeffstok"/>
 
 
@@ -443,7 +444,7 @@ Ao usar o que aprendemos em "Associação exterior ESQUERDA para incluir valores
 Componha esses juntos e podemos obter correto -> incorreto -> correto com nenhum outro evento correto entre os dois. Agora, podemos calcular a duração entre os eventos corretos inicial e final que nos dá a duração do bug.
 
 ## Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/PT-BR/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
 
@@ -454,4 +455,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

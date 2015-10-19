@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="10/04/2015"
 	ms.author="awills"/>
 
 
@@ -54,7 +54,7 @@ Um [recurso][roles] no Azure é uma instância de um serviço. Este recurso é o
 
 A escolha do tipo de aplicativo define o conteúdo de padrão de folhas de recursos e as propriedades visíveis no [Metrics Explorer][metrics].
 
-#### Cópia da chave de instrumentação
+#### Copiar a chave de instrumentação
 
 A chave identifica o recurso, e você a instalará em breve no SDK para direcionar os dados ao recurso.
 
@@ -66,7 +66,7 @@ As etapas que acabou de fazer para criar um novo recurso são uma boa maneira de
 
 Instalando e configurando o Application Insights SDK varia dependendo da plataforma em que você está trabalhando. Para aplicativos ASP.NET, é fácil.
 
-1. No Visual Studio, edite os pacotes do NuGet do seu projeto de aplicativo de área de trabalho.
+1. No Visual Studio, edite os pacotes NuGet de seu projeto de aplicativo Web.
 
     ![Clique com o botão direito no projeto e selecione Gerenciar Pacotes Nuget](./media/app-insights-start-monitoring-app-health-usage/03-nuget.png)
 
@@ -110,8 +110,8 @@ Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobr
 
 #### Não há dados?
 
-* Abra o bloco [Pesquisar][diagnostic] para ver eventos individuais.
 * Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
+* Abra o bloco [Pesquisar][diagnostic] para ver eventos individuais. Às vezes, os eventos demoram um pouco mais para passar pelo pipeline de métricas.
 * Aguarde alguns segundos e clique em **Atualizar**. Os gráficos se atualizam periodicamente, mas você pode atualizá-los manualmente se estiver aguardando para alguns dados serem exibidos.
 * Consulte [Solucionar problemas][qna].
 
@@ -119,7 +119,9 @@ Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobr
 
 Agora, implante seu aplicativo no IIS ou no Azure e veja os dados se acumularem.
 
-Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
+![Usar o Visual Studio para publicar seu aplicativo](./media/app-insights-start-monitoring-app-health-usage/15-publish.png)
+
+Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo na configuração de Versão, os dados acumulam mais lentamente.
 
 #### Nenhum dado depois de publicar no servidor?
 
@@ -134,19 +136,6 @@ Abra estas portas para tráfego de saída no firewall do servidor:
 Consulte [este item de solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
 
-## Rastrear versão do aplicativo
-
-Verifique se `buildinfo.config` é gerado pelo processo de compilação. No arquivo. csproj, adicione:
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
-```
-
-Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico][diagnostic] ou ao [explorar métricas][metrics].
-
 
 ## 5\. Adicionar acompanhamento de dependência (e contadores de desempenho de IIS)
 
@@ -160,7 +149,7 @@ Entre no seu servidor com direitos de administrador e instale o [Application Ins
 
 Talvez você precise [abrir portas adicionais de saída no firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
-Essa etapa também habilita [relatórios de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como CPU, memória, ocupação de rede.
+Esta etapa também habilita o [relatório de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como o uso de CPU, memória e a ocupação de rede.
 
 #### Se seu aplicativo for um Aplicativo Web do Azure
 
@@ -177,13 +166,10 @@ No painel de controle do Aplicativo Web do Azure, adicione a extensão do Applic
 
 ## 6\. Adicionar monitoramento do lado do cliente
 
-Você instalou o SDK que envia dados de telemetria da extremidade do servidor (back-end) do seu aplicativo. Agora, você pode adicionar o monitoramento do lado do cliente. Isso fornece dados sobre usuários, sessões, exibições de página e qualquer exceção ou falha que ocorre no cliente.
+Você instalou o SDK que envia dados de telemetria da extremidade do servidor (back-end) do seu aplicativo. Agora, você pode adicionar o monitoramento do lado do cliente. Isso fornece dados sobre usuários, sessões, exibições de página e qualquer exceção ou falha que ocorre no navegador. Você também poderá escrever seu próprio código para rastrear como os usuários trabalham com seu aplicativo, até o nível detalhado de cliques e pressionamentos de teclas.
 
-Você também poderá escrever seu próprio código para rastrear como os usuários trabalham com seu aplicativo, até o nível detalhado de cliques e pressionamentos de teclas.
 
-#### Se seus clientes forem navegadores da Web
-
-Se seu aplicativo exibir páginas da Web, adicione um trecho de JavaScript a cada página. Obtenha o código do recurso Application Insights:
+Adicione um trecho de código JavaScript em cada página. Obtenha o código do recurso Application Insights:
 
 ![Em seu aplicativo Web, abra Início Rápido e clique em 'Obter código para monitorar as minhas páginas da web'](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
@@ -191,12 +177,21 @@ Observe que o código contém a chave de instrumentação que identifica o recur
 
 [Saiba mais sobre rastreamento de página da Web.](app-insights-web-track-usage.md)
 
-#### Se seus clientes forem aplicativos de dispositivo
 
-Se seu aplicativo estiver atendendo a clientes, como telefones ou outros dispositivos, adicione o [SDK apropriado](app-insights-platforms.md) ao aplicativo do dispositivo.
+## Rastrear versão do aplicativo
 
-Se você configurar o SDK do cliente com a mesma chave de instrumentação do SDK do servidor, os dois fluxos serão integrados para que seja possível vê-los juntos.
+Verifique se `buildinfo.config` foi gerado pelo processo do MSBuild. No arquivo. csproj, adicione:
 
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico][diagnostic] ou ao [explorar métricas][metrics].
+
+No entanto, observe que o número de versão de compilação é gerado apenas pelo MSBuild, não pela compilação de desenvolvedor no Visual Studio.
 
 ## 7\. Conclua a instalação.
 
@@ -225,7 +220,7 @@ Se o projeto tem páginas da Web, ele também adiciona o [SDK do JavaScript][cli
 
 #### ...ou então, se é um projeto existente
 
-Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, e selecione **Adicionar Application Insights**.
+Clique com o botão direito no projeto no Gerenciador de Soluções e escolha **Adicionar Application Insights**.
 
 ![Escolher Adicionar Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -273,4 +268,4 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

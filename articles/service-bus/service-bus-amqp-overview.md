@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Visão geral do Barramento de Serviço AMQP| Microsoft Azure"
-	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 no Azure."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
+	pageTitle="Visão geral do Barramento de Serviço AMQP| Microsoft Azure" 
+	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 no Azure." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
 	editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/05/2015" 
 	ms.author="sethm"/>
 
 
@@ -81,21 +81,28 @@ Neste momento, as seguintes bibliotecas de cliente são conhecidas para trabalha
 
 **Figura 2: Tabela de bibliotecas de cliente do AMQP 1.0**
 
-Para saber mais sobre como obter e usar essas bibliotecas com o Barramento de Serviço, consulte o [Guia do desenvolvedor do Barramento de Serviço do AMQP][]. Consulte a seção "Referências" abaixo para obter mais informações.
-
 ## Resumo
 
 *    O AMQP (Advanced Message Queuing Protocol) 1.0 é um protocolo de mensagens aberto e confiável que pode ser usado para criar aplicativos híbridos de mensagens avançados entre plataformas. O AMQP 1.0 é um padrão OASIS.
 *    O suporte do AMQP 1.0 agora está disponível no barramento de serviço do Azure, bem como para o barramento de serviço do Windows Server (Service Bus 1.1). O preço é o mesmo para os protocolos existentes.
 
-## Referências
+## Próximas etapas
 
-*    [Como usar o AMQP 1.0 com a API do .NET no Barramento de Serviço](http://aka.ms/lym3vk)
-*    [Como usar a API do JMS (Serviço de Mensagem Java) com Barramento de Serviço e AMQP 1.0](http://aka.ms/ll1fm3)
-*    [Guia do desenvolvedor do Barramento de Serviço do AMQP](http://msdn.microsoft.com/library/jj841071.aspx)
-*    [Especificação do protocolo AMQP (Advanced Message Queuing Protocol) OASIS versão 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
+Está pronto(a) para saber mais? Visite os links a seguir:
 
-[0]: ./media/service-bus-amqp-overview/Example1.png
-[Guia do desenvolvedor do Barramento de Serviço do AMQP]: http://msdn.microsoft.com/library/jj841071.aspx
+- [Usando o Barramento de Serviço do .NET com AMQP]
+- [Usando o Barramento de Serviço do Java com AMQP]
+- [Usando o Barramento de Serviço do Python com AMQP]
+- [Usando o Barramento de Serviço do PHP com AMQP]
+- [Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]
+- [AMQP no Barramento de Serviço para Windows Server]
 
-<!---HONumber=August15_HO9-->
+[0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
+[Usando o Barramento de Serviço do .NET com AMQP]: service-bus-amqp-dotnet.md
+[Usando o Barramento de Serviço do Java com AMQP]: service-bus-amqp-java.md
+[Usando o Barramento de Serviço do Python com AMQP]: service-bus-amqp-python.md
+[Usando o Barramento de Serviço do PHP com AMQP]: service-bus-amqp-php.md
+[Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]: service-bus-amqp-apache.md
+[AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+
+<!---HONumber=Oct15_HO2-->

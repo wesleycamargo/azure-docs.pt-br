@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="07/24/2015" />
+	ms.date="10/01/2015" />
 
 # Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)
 
@@ -300,7 +300,7 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 </tr><tr>
 <td>magnitude | constantBoostBeyondRange</td>	<td>Os valores válidos são true ou false (padrão). Quando definido como true, o aumento completo continuará a ser aplicado a documentos que tenham um valor para o campo de destino maior do que a extremidade superior do intervalo. Se for false, o aumento dessa função não será aplicado a documentos com um valor para o campo de destino que esteja fora do intervalo.</td>
 </tr><tr>
-<td>atualização</td>	<td>A função de pontuação atualização é usada para alterar as pontuações de classificação para os itens com base nos valores nos campos DateTimeOffset. Por exemplo, um item com uma data mais recente pode ter classificação mais alta do que itens mais antigos. Na versão atual do serviço, uma extremidade do intervalo será corrigida para a hora atual. A taxa à qual o aumento é alterado em um intervalo máximo e mínimo é determinada pela Interpolação é aplicada ao perfil de pontuação (consulte a figura abaixo). Para inverter o fator de aumento aplicado, escolha um fator de aumento que seja inferior a 1.</td>
+<td>atualização</td>	<td>A função de pontuação atualização é usada para alterar as pontuações de classificação para os itens com base nos valores nos campos DateTimeOffset. Por exemplo, um item com uma data mais recente pode ter classificação mais alta do que itens mais antigos. (Observe que também é possível classificar itens, como os eventos de calendário, com datas futuras, de modo que os itens mais próximos à data atual possam ter uma classificação superior do que itens com data mais distantes.) Na versão atual do serviço, uma extremidade do intervalo será corrigida para a hora atual. A outra extremidade é um momento no passado com base em “boostingDuration”. Para aumentar um intervalo de horários no futuro, use um “boostingDuration” com valor negativo. A taxa à qual o aumento é alterado em um intervalo máximo e mínimo é determinada pela Interpolação é aplicada ao perfil de pontuação (consulte a figura abaixo). Para inverter o fator de aumento aplicado, escolha um fator de aumento que seja inferior a 1.</td>
 </tr><tr>
 <td>atualização | boostingDuration</td>	<td>Define um período de expiração após o qual o aumento será interrompido para um documento específico. Consulte [Definir boostingDuration ][#bkmk_boostdur] na próxima seção para obter a sintaxe e exemplos.</td>
 </tr><tr>
@@ -338,7 +338,7 @@ As interpolações permitem que você defina a inclinação para a qual o aument
 <a name="bkmk_boostdur"></a>
 ##Definir boostingDuration
 
-`boostingDuration` é um atributo da função de atualização. Você pode usá-lo para definir um período de expiração após o qual o aumento será interrompido para um documento específico. Por exemplo, para aumentar uma linha de produtos ou marca por um período promocional de 10 dias, você especificaria o período de 10 dias como "P10D" para esses documentos.
+`boostingDuration` é um atributo da função de atualização. Você pode usá-lo para definir um período de expiração após o qual o aumento será interrompido para um documento específico. Por exemplo, para aumentar uma linha de produtos ou marca por um período promocional de 10 dias, você especificaria o período de 10 dias como "P10D" para esses documentos. Ou, para aumentar eventos futuros na próxima semana especifique "-P7D".
 
 `boostingDuration` deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um valor de duração ISO 8601). O padrão é: "P[nD][T[nH][nM][nS]]".
 
@@ -370,4 +370,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

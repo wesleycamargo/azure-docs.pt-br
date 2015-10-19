@@ -22,7 +22,7 @@
 
 ##Visão geral
 
-Este guia mostra como executar cenários comuns usando um cliente .NET para os Serviços Móveis do Azure, em aplicativos da Windows Store e em aplicativos do Windows Phone. Os cenários abrangidos incluem consultas de dados, inserção, atualização e exclusão de dados, autenticação de usuários e tratamento de erros. Se você for novo nos Serviços Móveis, você deverá considerar primeiro concluir o tutorial de [início rápido dos Serviços Móveis](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) ou o tutorial [Adicionar os Serviços Móveis para um aplicativo existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
+Este guia mostra como executar cenários comuns usando um cliente .NET para os Serviços Móveis do Azure, em aplicativos da Windows Store e em aplicativos do Windows Phone. Os cenários abrangidos incluem consultas de dados, inserção, atualização e exclusão de dados, autenticação de usuários e tratamento de erros. Se for novo nos Serviços Móveis, primeiro conclua o tutorial [Início rápido dos Serviços Móveis](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -276,7 +276,7 @@ Se você tentar excluir um item sem o campo "Id" já estar definido, o serviço 
 
 ##<a name="#custom-api"></a>Chamar uma API personalizada
 
-Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como definir um ponto de extremidade de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
+Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como definir um ponto de extremidade de API personalizado](mobile-services-dotnet-backend-define-custom-api.md).
 
 Você pode chamar uma API personalizada chamando uma das sobrecargas de método [InvokeApiSync] no cliente. Por exemplo, a linha de código a seguir envia uma solicitação POST à API **completeAll** no serviço móvel local:
 
@@ -742,8 +742,7 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [API personalizada nas SDKs do cliente dos Serviços Móveis do Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [InvokeApiSync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

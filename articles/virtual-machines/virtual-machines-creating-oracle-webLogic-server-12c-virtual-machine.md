@@ -1,7 +1,25 @@
-<properties pageTitle="Criando uma Máquina Virtual do Oracle WebLogic Server 12c no Azure" description="Veja um exemplo de como criar uma máquina virtual do Oracle WebLogic Server 12c executando o Windows Server 2012 no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Criar uma VM do Oracle WebLogic Server 12c | Microsoft Azure"
+	description="Crie uma máquina virtual do Oracle WebLogic Server 12c executando o Windows Server 2012 no Microsoft Azure usando o modelo de implantação do Gerenciador de Recursos."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
+
 #Criando uma Máquina Virtual do Oracle WebLogic Server 12c no Azure
 O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em uma imagem Oracle WebLogic Server 12c fornecida pela Microsoft em execução no Windows Server 2012 no Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um Servidor do Oracle WebLogic usando o modelo de implantação do Gerenciador de Recursos.
+
 
 ##Para criar uma Máquina Virtual do Oracle WebLogic Server 12c no Azure
 
@@ -11,24 +29,24 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 3.	Selecione a imagem **Oracle WebLogic Server 12c Standard Edition no Windows Server 2012** ou **Oracle WebLogic Server 12c Enterprise Edition no Windows Server 2012**. Examine as informações sobre essa imagem (como o tamanho mínimo recomendado) e depois clique em **Avançar**.
 
-4.	Especifique um **Nome de Host** para a máquina virtual.
+4.	Especifique um **Nome de Host** para a VM.
 
-5.	Especifique um **Nome de Usuário** para a máquina virtual. Observe que esse usuário é para fazer logon remotamente na VM; não é o nome de usuário do banco de dados Oracle.
+5.	Especifique um **Nome de Usuário** para a VM. Observe que esse usuário é para fazer logon remotamente na VM; não é o nome de usuário do banco de dados Oracle.
 
 6.	Especifique e confirme uma senha para a máquina virtual ou forneça uma chave pública SSH.
 
-7.	Escolha uma **Camada de Preços**. Observe que as camadas de preço recomendadas são exibidas por padrão. Para ver todas as opções de configuração, clique em **Exibir tudo** no canto superior direito.
+7.	Escolha um **Tipo de Preço**. É importante lembrar que o Tipo de Preço Recomendado é exibido por padrão. Para ver todas as opções de configuração, clique em **Exibir tudo** no canto superior direito.
 
 8.	Defina a configuração opcional conforme o necessário, levando em conta estas considerações:
 	1. Deixe **Conta de Armazenamento** como está para criar uma nova conta de armazenamento com o nome da VM.
 	2. Deixe **Conjunto de Disponibilidade** como "Não Configurado".
-	3. Não adicione **pontos de extremidade** no momento.
+	3. Não adicione nenhum **ponto de extremidade** neste momento.
 
-9.	Escolher ou criar um [Grupo de Recursos](resource-group-portal.md)
+9.	Escolha ou crie um [Grupo de Recursos](resource-group-portal.md).
 
-10. Escolher uma **Assinatura**
+10. Escolha uma **Assinatura**.
 
-11. Escolher um **Local**
+11. Escolha um **Local**.
 
 
 ##Para configurar a sua Máquina Virtual do Oracle WebLogic Server 12c no Azure
@@ -43,7 +61,7 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 5.	Responda às solicitações conforme necessário para se conectar à Máquina Virtual. Quando for solicitado o nome do administrador e a senha, use os valores que você forneceu quando criou a Máquina Virtual.
 
-6.	Na caixa de diálogo **Início Rápido da Plataforma WebLogic**, clique em **Introdução ao Servidor WebLogic**. (Se a caixa de diálogo **WebLogic Platform QuickStart** ainda não estiver aberta, abra-a clicando em **Windows Iniciar**, digitando **Iniciar o servidor de administrador para o domínio do WebLogic Server** e, em seguida, clicando no ícone **Iniciar o servidor de administrador para o domínio do WebLogic Server**.)
+6.	Na caixa de diálogo **Início Rápido da Plataforma WebLogic**, clique em **Introdução ao Servidor WebLogic**. (Se a caixa de diálogo **Início Rápido da Plataforma WebLogic** ainda não estiver aberta, abra-a clicando em **Windows Iniciar**, digitando **Iniciar o servidor de administrador para o domínio do WebLogic Server** e, em seguida, clicando no ícone **Iniciar o servidor de administrador para o domínio do WebLogic Server**.)
 
 7.	Na caixa de diálogo **Boas-vindas**, selecione **Criar um novo domínio WebLogic** e, em seguida, clique em **Avançar**.
 
@@ -92,7 +110,7 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 3.	Dentro do **Console de administração do WebLogic Server**, clique em **Bloquear e Editar**, **Implantações** e, em seguida, clique em **Instalar**.
 
-4.	Para **Caminho**, tipo **C:\\mywar\\shoppingcart.war**.
+4.	Para **Caminho**, digite **C:\\mywar\\shoppingcart.war**.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image18.png)
 
@@ -112,9 +130,9 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 	1. Faça logon no [Portal do Azure](https://ms.portal.azure.com/).
 
-	2.	Clique em **Procurar**
+	2.	Clique em **Procurar**.
 
-	3.	Clique em **Máquinas Virtuais**
+	3.	Clique em **Máquinas Virtuais**.
 
 	4.	Selecione a Máquina Virtual
 
@@ -140,21 +158,21 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 	1.	Faça logon na Máquina Virtual.
 
-	2.	Clique em **Windows Iniciar**, digite **Firewall do Windows com Segurança Avançada** e clique no ícone **Firewall do Windows com Segurança avançada**. Isso abre o console de gerenciamento do **Firewall do Windows com Segurança Avançada**.
+	2.	Clique em **Windows Iniciar**, digite **Firewall do Windows com Segurança Avançada** e clique no ícone **Firewall do Windows com Segurança Avançada**. Isso abre o console de gerenciamento do **Firewall do Windows com Segurança Avançada**.
 
 	3.	No console de gerenciamento do firewall, clique em **Regras de Entrada** no painel esquerdo (se você não vir **Regras de Entrada**, expanda o nó superior no painel à esquerda) e, em seguida, clique em Nova Regra no painel direito.
 
 	4.	Para **Tipo de Regra**, selecione **Porta** e clique em **Avançar**.
 
-	5.	Para **Protocolo e Porta**, selecione **TCP**, selecione **Portas locais específicas**, digite **7001** para a porta e, em seguida, clique em **Avançar**.
+	5.	Para **Protocolo e Porta**, selecione **TCP**, selecione **Portas locais específicas**, digite **7001** para a porta e clique em **Próximo**.
 
 	6.	Selecione **Permitir a conexão** e clique em **Avançar**.
 
 	7.	Aceite os padrões para os perfis aos quais a regra se aplica e clique em **Avançar**.
 
-	8.	Especifique um nome para a regra e, opcionalmente, uma descrição e depois clique em **Concluir**.
+	8.	Especifique um nome para a regra e, opcionalmente, uma descrição e clique em **Concluir**.
 
-12.	Para ver o aplicativo de carrinho de compras em execução na Internet, abra um navegador para a URL na forma de `http://<<unique_domain_name>>/shoppingcart`. Você pode determinar o valor de <<*unique\_domain\_name*>> dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle WebLogic Server.
+12.	Para ver o aplicativo de carrinho de compras em execução na Internet, abra um navegador para a URL na forma de `http://<<unique_domain_name>>/shoppingcart`. (Você pode determinar o valor de <<*unique\_domain\_name*>> dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle WebLogic Server).
 
 
 ##Recursos adicionais
@@ -168,4 +186,4 @@ Agora que você configurou a Máquina Virtual executando o Oracle WebLogic Serve
 
 -	[Imagens de Máquina Virtual Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

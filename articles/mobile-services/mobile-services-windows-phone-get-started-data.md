@@ -19,7 +19,7 @@
 
 # Adicionar Serviços Móveis a um aplicativo existente
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 ##Visão geral
 
@@ -193,4 +193,4 @@ Este tutorial demonstrou as noções básicas sobre a habilitação de um aplica
 [Site de Exemplos de Código do Desenvolvedor]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

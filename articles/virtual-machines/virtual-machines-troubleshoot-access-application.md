@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/05/2015"
 	ms.author="dkshir"/>
 
 # Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure
@@ -112,4 +112,4 @@ Se tiver executado as etapas de 1 a 3 neste artigo e precisar de mais ajuda para
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

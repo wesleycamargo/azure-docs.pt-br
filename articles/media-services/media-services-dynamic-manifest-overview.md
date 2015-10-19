@@ -192,6 +192,9 @@ Para combinar os filtros, você precisa definir os nomes dos filtros para a URL 
 
 Você pode combinar até três filtros.
 
+Para saber mais, confira [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+
+
 ##Conheça os problemas e limitações
 
 - Manifesto dinâmico opera nos limites do GOP (quadros chave) e, como consequência, o corte tem precisão de GOP. 
@@ -230,4 +233,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

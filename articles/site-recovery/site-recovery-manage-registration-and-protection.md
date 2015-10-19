@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/05/2015" 
+	ms.date="10/07/2015" 
 	ms.author="raynew"/>
 
 # Gerenciar o registro e a proteção
@@ -212,4 +212,4 @@ Se você quiser interromper a proteção de uma máquina virtual VMware ou de um
 	- **Desabilitar a proteção**—Se você habilitar e salvar essa opção, a máquina não será mais protegida pela Recuperação de Site. As configurações de proteção para a máquina serão limpas automaticamente.
 	- **Remover do cofre**—Se você selecionar essa opção, a máquina será removida somente do cofre da Recuperação de Site. As configurações de proteção local da máquina não serão afetadas. Para remover as configurações na máquina e remover a máquina virtual da assinatura do Azure, será necessário limpar as configurações desinstalando o Serviço de Mobilidade. ![Opções de remoção](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->
