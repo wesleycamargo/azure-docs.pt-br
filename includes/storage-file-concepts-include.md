@@ -1,10 +1,10 @@
 ## O que é o armazenamento de arquivos do Azure?
 
-O armazenamento de arquivos oferece armazenamento compartilhado para aplicativos usando o protocolo padrão SMB 2.1. As máquinas virtuais e os serviços de nuvem do Microsoft Azure podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API de armazenamento de arquivo.
+O armazenamento de arquivos oferece armazenamento compartilhado para aplicativos que usem o protocolo padrão SMB 2.1 ou SMB 3.0. As máquinas virtuais e os serviços de nuvem do Microsoft Azure podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API de armazenamento de arquivo.
 
 Aplicativos executados em máquinas virtuais do Azure ou em serviços de nuvem podem montar um compartilhamento de armazenamento de arquivo para acessar dados de arquivos, assim como um aplicativo de área de trabalho montaria um compartilhamento SMB típico. Qualquer quantidade de máquinas virtuais ou funções do Azure podem montar e acessar o compartilhamento de armazenamento de arquivos simultaneamente.
 
-Uma vez que um compartilhamento de armazenamento de arquivos é um compartilhamento de arquivo SMB 2.1 padrão, os aplicativos executados no Azure podem acessar dados no compartilhamento por meio das APIs de E/S de arquivos. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Os profissionais de TI podem usar cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de arquivos como parte da administração de aplicativos do Azure. Este guia mostrará exemplos de ambos os casos.
+Como um compartilhamento de Armazenamento de arquivos é um compartilhamento de arquivo padrão no Azure que usa o protocolo SMB, os aplicativos executados no Azure poderão acessar os dados no compartilhamento por meio das APIs de E/S de arquivo. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Os profissionais de TI podem usar cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de arquivos como parte da administração de aplicativos do Azure. Este guia mostrará exemplos de ambos os casos.
 
 Os usos comuns do armazenamento de arquivos incluem:
 
@@ -21,7 +21,7 @@ O armazenamento de arquivos contém os seguintes componentes:
 
 -   **Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx) para obter detalhes sobre a capacidade da conta de armazenamento.
 
--   **Compartilhamento**: um compartilhamento do armazenamento de arquivos é um compartilhamento de arquivos SMB 2.1 no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento pai. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos, e um compartilhamento pode conter um número ilimitado de arquivos, até os limites de capacidade da conta de armazenamento.
+-   **Compartilhamento**: um compartilhamento do armazenamento de arquivos é um compartilhamento de arquivos SMB no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento pai. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total de 5 TB do armazenamento de arquivos.
 
 -   **Diretório:** uma hierarquia opcional de diretórios.
 
@@ -36,4 +36,4 @@ Para obter detalhes sobre como nomear compartilhamentos, diretórios e arquivos,
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

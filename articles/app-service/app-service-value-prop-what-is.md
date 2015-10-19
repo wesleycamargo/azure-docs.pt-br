@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="10/02/2015" 
 	ms.author="omark"/>
 
 # O que é o Serviço de Aplicativo do Azure?
@@ -43,20 +43,20 @@ O Serviço de Aplicativo permite que você crie os seguintes tipos de aplicativo
 
 - [**Aplicativos Web**](../app-service-web-overview) - crie e implante rapidamente aplicativos Web críticos dimensionados de acordo com sua empresa.
 - [**Aplicativos Móveis**](../app-service-mobile-value-prop-preview) - envolva funcionários, parceiros e clientes em qualquer dispositivo a qualquer momento.
-- [**Aplicativos de API**](../app-service-api-apps-why-best-platform) - facilmente compile e consuma APIs em nuvem e participe da economia de API.
+- [**Aplicativos de API**](../app-service-api-apps-why-best-platform) - Compile e consuma APIs de nuvem com facilidade.
 - [**Aplicativos Lógicos**](../app-service-logic-what-are-logic-apps) - automatize o acesso e o uso de dados entre nuvens sem escrever código.
 
 Como um único serviço integrado, o Serviço de Aplicativo torna fácil compor os tipos de aplicativo acima em uma única solução, permitindo que você compile facilmente aplicativos Web e clientes móveis usando o mesmo back-end e integre com sistemas locais, bem como serviços populares, como Office 365 e salesforce.com.
 
 ### Planos de serviço de aplicativo
-Os Planos de Serviço de Aplicativo representam um conjunto de recursos e capacidades que pode ser compartilhado entre seus aplicativos. Os Planos de Serviço de Aplicativo dão suporte a algumas camadas de preço (por exemplo, Grátis, Compartilhado, Básico e Padrão), em que cada camada tem seus próprios recursos. Você pode alterar rapidamente o plano do Serviço de Aplicativo no qual um aplicativo é hospedado sem tempo de inatividade. [Saiba mais sobre Planos de Serviço de Aplicativo.](../web-sites-web-hosting-plan-overview.md)
+Os Planos de Serviço de Aplicativo representam um conjunto de recursos e capacidades que pode ser compartilhado entre seus aplicativos. Os Planos de Serviço de Aplicativo dão suporte a alguns tipos de preço (por exemplo, Free, Shared, Basic, Standard e Premium), e cada tipo tem seus próprios recursos. Você pode alterar rapidamente o plano do Serviço de Aplicativo no qual um aplicativo é hospedado sem tempo de inatividade. [Saiba mais sobre Planos de Serviço de Aplicativo.](../web-sites-web-hosting-plan-overview.md)
 
 ##Introdução ao Serviço de Aplicativo
 Quer uma amostra? Familiarize-se em segundos.
 
 Com o Serviço de Aplicativo do Azure, isso é tão fácil quanto selecionar um idioma!
 
-[Crie um novo aplicativo Web](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
+[Crie um novo aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo e gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

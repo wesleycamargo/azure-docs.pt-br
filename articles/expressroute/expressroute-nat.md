@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Requisitos de NAT da Rota Expressa
@@ -59,9 +59,11 @@ O caminho de emparelhamento da Microsoft permite que você se conecte a serviço
 ## Próximas etapas
 
 - Consulte os requisitos de [Roteamento](expressroute-routing.md) e de [QoS](expressroute-qos.md).
+- Para obter informações sobre o fluxo de trabalho, consulte [Fluxos de trabalho de provisionamento e estados do circuito da Rota Expressa](expressroute-workflows.md)
 - Configurar sua conexão da Rota Expressa.
+
 	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -41,6 +41,8 @@ Use o seguinte bloco de comandos do PowerShell para criar as máquinas virtuais 
 
 Lembre-se de que você definiu a Tabela M na [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e as Tabelas V, S, ST e A na [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
+> [AZURE.NOTE]Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0.0 e posteriores. Você pode verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**. Os blocos de comandos do Azure PowerShell neste artigo estão sendo testados e atualizados a fim de dar suporte aos novos cmdlets nas versões 1.0.0 e posteriores do Azure PowerShell. Agradecemos sua paciência.
+
 Quando você tiver fornecido a todos os valores adequados, execute o bloco resultante no prompt do Azure PowerShell.
 
 	# Set up subscription and key variables
@@ -173,7 +175,7 @@ Use o procedimento a seguir duas vezes, uma vez para cada SQL Server, para permi
 1.	Na tela inicial, clique **Este PC** e em **Propriedades**.
 2.	Na janela **Sistema**, clique em **Configurações Remotas**.
 3.	Na seção **Área de Trabalho Remota**, clique em **Selecionar Usuários** e, em seguida, clique em **Adicionar**.
-4.	Em **Insira os nomes de objetos a serem selecionados **, digite [domínio]**\\sqladmin** e clique em **OK** três vezes.
+4.	Em **Digite os nomes de objetos a serem selecionados**, digite [domínio]**\\sqladmin** e clique em **OK** três vezes.
 
 O SQL Server exige uma porta que os clientes usam para acessar o servidor de banco de dados. Ele também precisa de portas para se conectar com o SQL Server Management Studio e gerenciar o grupo de alta disponibilidade. Em seguida, execute o seguinte comando duas vezes em um prompt de nível de administrador do Windows PowerShell, uma vez para cada máquina virtual do SQL Server, a fim de adicionar uma regra de firewall que permita esse tipo de tráfego de entrada.
 
@@ -220,7 +222,7 @@ Devido ao comportamento atual não compatível com RFC do DHCP no Azure, a cria�
 5.	Na página **Selecionar Servidores**, digite o nome da máquina primária do SQL Server, clique em **Adicionar** e clique em **Avançar**.
 6.	Na página **Aviso de Validação**, clique em **Não. Eu não preciso de suporte da Microsoft para este cluster e, portanto, não desejo executar os testes de validação. Ao clicar em Avançar, continuar a criação do cluster.** e, em seguida, clique em **Avançar**.
 7.	Na página **Ponto de Acesso para Administrar o Cluster**, na caixa de texto **Nome do Cluster**, digite o nome do cluster e clique em **Avançar**.
-8.	Na página **Confirmação**, clique em **Avançar** para iniciar a criação do cluster. 
+8.	Na página **Confirmação**, clique em **Avançar** para começar a criação do cluster. 
 9.	Na página **Resumo**, clique em **Concluir**.
 10.	No painel esquerdo, clique no novo cluster. Na seção **Recursos Principais de Cluster** do painel de conteúdo, abra o nome do cluster do servidor. O recurso **Endereço IP** aparece com o estado **Falha**. O recurso de endereço IP não pode ficar online porque o cluster recebeu o mesmo endereço IP que a própria máquina. O resultado é um endereço duplicado. 
 11.	Clique com o botão direito no recurso **Endereço IP** com falha e clique em **Propriedades**.
@@ -231,7 +233,7 @@ Devido ao comportamento atual não compatível com RFC do DHCP no Azure, a cria�
 16.	Para remover o endereço IP do cluster, clique com botão direito em **Endereço IP**, clique em **Remover** e, em seguida, clique em **Sim** quando solicitado. O recurso de cluster não poderá mais ficar online porque ele depende do recurso de endereço IP. No entanto, um grupo de disponibilidade não depende do nome do cluster ou do endereço IP para funcionar corretamente. Dessa forma, o nome do cluster pode ficar offline.
 17.	Para adicionar os nós restantes ao cluster, clique com o botão direito do mouse no nome do cluster no painel esquerdo e clique em **Adicionar Nó**.
 18.	Na página **Antes de Começar**, clique em **Avançar**. 
-19.	Na página **Selecionar Servidores**, digite o nome e clique em **Adicionar** para adicionar o SQL Server secundário e o nó principal do cluster ao cluster. Depois de adicionar os dois computadores, clique em **Avançar**. Se não for possível adicionar uma máquina e a mensagem de erro exibida for “Serviço de Registro Remoto não está em execução”, faça o seguinte: Faça logon na máquina, abra o snap-in Serviços (services.msc) e habilite o Registro Remoto. Para saber mais , consulte [Não é possível se conectar ao Serviço de Registro Remoto](http://technet.microsoft.com/library/bb266998.aspx). 
+19.	Na página **Selecionar Servidores**, digite o nome e clique em **Adicionar ** para adicionar o SQL Server secundário e o nó principal do cluster ao cluster. Depois de adicionar os dois computadores, clique em **Avançar**. Se não for possível adicionar uma máquina e a mensagem de erro exibida for “Serviço de Registro Remoto não está em execução”, faça o seguinte: Faça logon na máquina, abra o snap-in Serviços (services.msc) e habilite o Registro Remoto. Para saber mais , consulte [Não é possível se conectar ao Serviço de Registro Remoto](http://technet.microsoft.com/library/bb266998.aspx). 
 20.	Na página **Aviso de Validação**, clique em **Não. Eu não preciso de suporte da Microsoft para este cluster e, portanto, não desejo executar os testes de validação. Ao clicar em Avançar, continuar a criação do cluster.** e, em seguida, clique em **Avançar**. 
 21.	Na página **Confirmação**, clique em **Avançar**.
 22.	Na página **Resumo**, clique em **Concluir**.
@@ -258,7 +260,7 @@ Este diagrama mostra a configuração resultante da conclusão bem-sucedida dest
 
 ## Próxima etapa
 
-Para definir a configuração dessa carga de trabalho, vá para a [Fase 4: configurar servidores Web](virtual-machines-workload-high-availability-LOB-application-phase4.md).
+Para definir a configuração dessa carga de trabalho, vá para a [Fase 4: Configurar servidores Web](virtual-machines-workload-high-availability-LOB-application-phase4.md).
 
 ## Recursos adicionais
 
@@ -272,4 +274,4 @@ Para definir a configuração dessa carga de trabalho, vá para a [Fase 4: confi
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

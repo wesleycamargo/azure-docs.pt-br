@@ -13,14 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="sahajs"/>
 
 # Use o Aprendizado de Máquina do Azure com o SQL Data Warehouse
 
 O Aprendizado de Máquina do Azure é um serviço de análise preditiva totalmente gerenciado que você pode usar para criar modelos de previsão em relação aos dados do SQL Data Warehouse e publicá-los como serviços web prontos para consumir. Você pode aprender os fundamentos da análise de previsão e aprendizado de máquina lendo [Introdução ao Aprendizado de Máquina no Azure][]. Em seguida, você pode aprender como criar, treinar, pontuar e testar um modelo de aprendizado de máquina usando o [Criar tutorial de teste][].
 
-Neste artigo, você aprenderá a fazer o seguinte usando a [Estúdio de Aprendizado de Máquina do Azure][]\: - Ler dados do seu banco de dados para criar, treinar e pontuar um modelo preditivo - Gravar dados em seu banco de dados
+Neste artigo, você aprenderá a fazer o seguinte usando o [Estúdio de Aprendizado de Máquina do Azure][]\:
+
+- Ler dados de seu banco de dados para criar, treinar e pontuar um modelo de previsão
+- Gravar dados em seu banco de dados 
 
 
 ## Exportar dados do SQL Data Warehouse
@@ -72,8 +75,13 @@ FROM dbo.DimProduct;
 
 ## Crie, treine e pontue um modelo
 
-Agora você pode usar esse conjunto de dados para: - Criar um modelo: processar dados e definir recursos - Treinar o modelo: escolher e aplicar um algoritmo de aprendizado - Pontuar e testar o modelo: prever o novo preço da bicicleta
-	
+Agora você pode usar esse conjunto de dados para:
+
+- Criar um modelo: processar dados e definir recursos
+- Treinar o modelo: escolher e aplicar um algoritmo de aprendizado
+- Pontuar e testar o modelo: prever o novo preço de uma bicicleta
+ 
+
 ![][model]
 
 Para saber mais sobre como criar, treinar, pontuar e testar uma modelo de aprendizado de máquina, use o [Tutorial de criação de experimento][].
@@ -130,9 +138,9 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 [Visão geral sobre o desenvolvimento no SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
 [Visão geral de integração do SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
-[Criar tutorial de teste]: ./machine-learning-create-experiment/
-[Tutorial de criação de experimento]: ./machine-learning-create-experiment/
-[Introdução ao Aprendizado de Máquina no Azure]: ./machine-learning-what-is-machine-learning/
+[Criar tutorial de teste]: https://azure.microsoft.com/pt-BR/documentation/articles/machine-learning-create-experiment/
+[Tutorial de criação de experimento]: https://azure.microsoft.com/pt-BR/documentation/articles/machine-learning-create-experiment/
+[Introdução ao Aprendizado de Máquina no Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/machine-learning-what-is-machine-learning/
 [Estúdio de Aprendizado de Máquina do Azure]: https://studio.azureml.net/Home
 [Portal do Azure]: https://portal.azure.com/
 
@@ -142,4 +150,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

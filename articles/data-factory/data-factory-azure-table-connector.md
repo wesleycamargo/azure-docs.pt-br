@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados para e da Tabela do Azure | Azure Data Factory
 
-Este artigo descreve como você pode usar a Atividade de Cópia em uma Azure Data Factory para mover dados para a Tabela do Azure de outro armazenamento de dados e mover dados de outro armazenamento de dados para a Tabela do Azure. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
+Este artigo descreve como você pode usar a Atividade de Cópia em um Azure Data Factory para mover dados de outro armazenamento de dados para a Tabela do Azure e mover dados da Tabela do Azure para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
 ## Exemplo: Copiar dados da Tabela do Azure para o Blob do Azure
 
@@ -384,11 +384,31 @@ azureTableInsertType | O modo para inserir dados na tabela do Azure. | mesclar<b
 writeBatchSize | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido. | Inteiro de 1 a 100 (unidade = contagem de linhas) | Não (Padrão = 100) 
 writeBatchTimeout | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido | (Unidade = timespan)Exemplo: “00:20:00” (20 minutos) | Não (padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento)
 
+### azureTablePartitionKeyName
+Será necessário mapear uma coluna de origem para uma coluna de destino usando a propriedade JSON do conversor antes de poder usar a coluna de destino como o azureTablePartitionKeyName.
+
+No exemplo a seguir, a coluna de origem DivisionID é mapeada para a coluna de destino: DivisionID.
+
+	"translator": {
+		"type": "TabularTranslator",
+		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
+	} 
+
+EmpID é especificada como a chave da partição.
+
+	"sink": {
+		"type": "AzureTableSink",
+		"azureTablePartitionKeyName": "DivisionID",
+		"writeBatchSize": 100,
+		"writeBatchTimeout": "01:00:00"
+	}
+
+
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Mapeamento de tipo de Tabela do Azure
 
-Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em 2 etapas descritas a seguir.
+Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em 2 etapas descritas a seguir:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -484,4 +504,4 @@ Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclu
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

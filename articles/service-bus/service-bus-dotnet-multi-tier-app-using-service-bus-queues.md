@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Aplicativo multicamadas .NET | Microsoft Azure"
-	description="Um tutorial que ajuda você a desenvolver um aplicativo de várias camadas no Azure que usa filas do barramento de serviço para se comunicar entre camadas. Amostras no .NET."
+	description="Um tutorial .NET que ajuda você a desenvolver um aplicativo de várias camadas no Azure que usa filas do barramento de serviço para se comunicar entre camadas."
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure
 
 ## Introdução
 
-O desenvolvimento para o Microsoft Azure é fácil usando o Visual Studio 2013 e o SDK do Azure gratuito para o .NET. Se ainda não tiver o Visual Studio 2013, o SDK instalará automaticamente o Visual Studio Express, para que você possa iniciar o desenvolvimento no Microsoft Azure de forma totalmente gratuita. Este artigo pressupõe que você não tenha experiência prévia no uso do Microsoft Azure. Ao concluir este tutorial, você terá um aplicativo que usa vários recursos do Microsoft Azure em execução em seu ambiente local e demonstra como um aplicativo multicamadas funciona.
+O desenvolvimento para o Microsoft Azure é fácil usando o Visual Studio e o SDK do Azure gratuito para o .NET. Se ainda não tiver o Visual Studio, o SDK instalará automaticamente o Visual Studio Express, para que você possa iniciar o desenvolvimento no Microsoft Azure de forma totalmente gratuita. Este artigo pressupõe que você não tenha experiência prévia no uso do Microsoft Azure. Ao concluir este tutorial, você terá um aplicativo que usa vários recursos do Microsoft Azure em execução em seu ambiente local e demonstra como um aplicativo multicamadas funciona.
 
 Você aprenderá a:
 
@@ -51,11 +51,11 @@ O Barramento de Serviço fornece duas entidades para dar suporte ao sistema de m
 
 Esse mecanismo de comunicação oferece diversas vantagens sobre mensagens diretas:
 
--   **Desacoplamento temporal.** Com o padrão de mensagens assíncrono, os produtores e consumidores não precisam estar online ao mesmo tempo. O ServiceBus armazena de forma confiável as mensagens até que a parte de consumo esteja prontapara recebê-las. Isso permite que os componentes do aplicativodistribuído sejam desconectados voluntariamente, por exemplo, paramanutenção ou devido a uma falha de componente, sem afetar osistema como um todo. Além disso, o aplicativo de consumo só precisaser colocado online durante determinadas horas do dia.
+-   **Desacoplamento temporal.** Com o padrão de mensagens assíncrono, os produtores e consumidores não precisam estar online ao mesmo tempo. O ServiceBus armazena de forma confiável as mensagens até que a parte de consumo esteja prontapara recebê-las. Isso permite que os componentes do aplicativo distribuído sejam desconectados voluntariamente, por exemplo, para manutenção ou devido a uma falha de componente, sem afetar o sistema como um todo. Além disso, o aplicativo de consumo só precisa ser colocado online durante determinadas horas do dia.
 
--   **Nivelamento de carga**. Em muitos aplicativos, a carga do sistema varia ao longo do tempo enquanto o tempo de processamento necessário para cada unidade de trabalho for normalmente constante. Intermediar produtores de mensagem e consumidorescom uma fila significa que o aplicativo de consumo (o função de trabalho) sóprecisa ser configurado para acomodar a carga média em vez de pico decarga. A profundidade da fila crescerá e contrairá conforme a carga de entradavariar. Isso economiza dinheiro diretamente em termos da quantidade deinfraestrutura necessária para atender à carga do aplicativo.
+-   **Nivelamento de carga**. Em muitos aplicativos, a carga do sistema varia ao longo do tempo enquanto o tempo de processamento necessário para cada unidade de trabalho for normalmente constante. Intermediar produtores de mensagem e consumidorescom uma fila significa que o aplicativo de consumo (o função de trabalho) sóprecisa ser configurado para acomodar a carga média em vez de pico decarga. A profundidade da fila aumentará e diminuirá conforme a carga de entrada variar. Isso economiza dinheiro diretamente em termos da quantidade deinfraestrutura necessária para atender à carga do aplicativo.
 
--   **Balanceamento de carga.** Conforme a carga aumenta, mais processos de função de trabalho podem seradicionados à leitura da fila. Cada mensagem é processada por apenas umdos processos de trabalho. Além disso, esse balanceamento de carga com base em recepçãopermite uma utilização ideal das máquinas de trabalho mesmo se asmáquinas de trabalho diferem em termos de capacidade de processamento, pois elasirão receber mensagens em sua própria taxa máxima. Esse padrão geralmente échamado de padrão de consumidor concorrente.
+-   **Balanceamento de carga.** Conforme a carga aumenta, mais processos de função de trabalho podem seradicionados à leitura da fila. Cada mensagem é processada por apenas umdos processos de trabalho. Além disso, esse balanceamento de carga com base em recepção permite uma utilização ideal das máquinas de trabalho mesmo se as máquinas de trabalho diferem em termos de capacidade de processamento, pois elas irão receber mensagens em sua própria taxa máxima. Esse padrão geralmente é chamado de *padrão de consumidor concorrente*.
 
     ![][2]
 
@@ -85,17 +85,15 @@ Antes de iniciar o desenvolvimento de seu aplicativo do Azure, baixe as ferramen
 
 ## Configurar o namespace do Barramento de Serviço
 
-A próxima etapa é para criar um namespace de serviço e para obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace de serviço fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS será gerada pelo sistema quando um namespace de serviço for criado. A combinação do namespace de serviço e uma chave SAS oferece as credenciais para o Barramento de Serviço para autenticar o acesso a um aplicativo.
-
-> [AZURE.NOTE]Você também pode gerenciar namespaces e entidades de mensagens do Barramento de Serviço usando o Gerenciador de Servidores do Visual Studio, mas só pode criar novos namespaces dentro do portal do Azure.
+A próxima etapa é para criar um namespace de serviço e obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS será gerada pelo sistema quando um namespace de serviço for criado. A combinação do namespace e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
 
 ### Configurar o namespace usando o portal do Azure
 
 1.  Faça logon no [Portal do Azure][].
 
-2.  No painel de navegação esquerdo do Portal do Azure, clique em **Barramento de Serviço**.
+2.  No painel de navegação esquerdo do portal do Azure, clique em **Barramento de Serviço**.
 
-3.  No painel inferior do Portal do Azure, clique em **Criar**.
+3.  No painel inferior do portal do Azure, clique em **Criar**.
 
     ![][6]
 
@@ -107,7 +105,7 @@ A próxima etapa é para criar um namespace de serviço e para obter uma chave d
 
     > [AZURE.IMPORTANT]Selecione a **mesma região** que pretende escolher para implantar o aplicativo. Isso lhe dará o melhor desempenho.
 
-6.  Clique na marca de seleção. Agora, o sistema cria o namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
+6.  Clique na marca de seleção OK. Agora, o sistema cria o namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
 
 	![][27]
 
@@ -127,7 +125,7 @@ A próxima etapa é para criar um namespace de serviço e para obter uma chave d
 
 ## Criar uma função Web
 
-Nesta seção, você compilará o front-end de seu aplicativo. Primeiro, você criará várias páginas que seu aplicativo exibirá. Depois disso, você adicionará o código para enviar itens para uma fila do Barramento de Serviço e exibir informações de status sobre a fila.
+Nesta seção, você compila o front-end de seu aplicativo. Primeiro, você cria várias páginas que o seu aplicativo exibe. Depois disso, você adiciona o código para enviar itens para uma fila do Barramento de Serviço e exibir informações de status sobre a fila.
 
 ### Criar o projeto
 
@@ -155,7 +153,7 @@ Nesta seção, você compilará o front-end de seu aplicativo. Primeiro, você c
 
 6.  No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências**, clique em **Gerenciar Pacotes NuGet** ou em **Adicionar Referência do Pacote de Biblioteca**.
 
-7.  Selecione **Online** no lado esquerdo da caixa de diálogo. Pesquise "**Barramento de Serviço**" e selecione o item **Barramento de Serviço do Microsoft Azure**. Então conclua a instalação e feche esta caixa de diálogo.
+7.  Selecione **Online** no lado esquerdo da caixa de diálogo. Procure "**Barramento de Serviço**" e selecione o item **Barramento de Serviço do Microsoft Azure**. Então conclua a instalação e feche esta caixa de diálogo.
 
     ![][13]
 
@@ -165,7 +163,7 @@ Nesta seção, você compilará o front-end de seu aplicativo. Primeiro, você c
 
 ### Escreva o código para a função Web
 
-Nesta seção, você criará várias páginas que exibem seu aplicativo.
+Nesta seção, você cria várias páginas que exibem seu aplicativo.
 
 1.  No arquivo OnlineOrder.cs do Visual Studio, substitua a definição do namespace existente pelo seguinte código:
 
@@ -237,7 +235,7 @@ Nesta seção, você criará várias páginas que exibem seu aplicativo.
 
 4.  No menu **Compilar**, clique em **Compilar Solução** para testar a precisão de seu trabalho até o momento.
 
-5.  Agora você criará a exibição do método **Submit()** criado antes. Clique com o botão direito do mouse no método **Submit()** e selecione **Adicionar Exibição**.
+5.  Agora crie a exibição do método **Submit()** criado antes. Clique com o botão direito do mouse no método **Submit()** e selecione **Adicionar Exibição**.
 
     ![][14]
 
@@ -247,7 +245,7 @@ Nesta seção, você criará várias páginas que exibem seu aplicativo.
 
 7.  Clique em **Adicionar**.
 
-8.  Agora, altere o nome exibido do seu aplicativo. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\\Shared\\\_Layout.cshtml** para abrir no editor do Visual Studio.
+8.  Agora, altere o nome exibido do seu aplicativo. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\\Shared\\_Layout.cshtml** para abrir no editor do Visual Studio.
 
 9.  Altere todas as ocorrências de **Meu aplicativo ASP.NET** para **Produtos da LITWARE**.
 
@@ -265,13 +263,13 @@ Nesta seção, você criará várias páginas que exibem seu aplicativo.
 
 ### Escreva o código para enviar itens para uma fila do Brramento de Serviço
 
-Agora, você adicionará o código para enviar itens para uma fila. Primeiro, você criará uma classe que contém as informações de conexão de fila do Barramento de Serviço. Em seguida, você inicializará a conexão do Global.aspx.cs. Por fim, você atualizará o código de envio criado anteriormente em HomeController.cs para efetivamente enviar itens para uma fila do Barramento de Serviço.
+Agora, adicione o código para enviar itens para uma fila. Primeiro, você cria uma classe que contém as informações de conexão de fila do Barramento de Serviço. Em seguida, você inicializa a conexão do Global.aspx.cs. Por fim, você atualiza o código de envio criado anteriormente em HomeController.cs para efetivamente enviar itens para uma fila do Barramento de Serviço.
 
 1.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **FrontendWebRole** (clique com o botão direito no projeto, e não na função). Clique em **Adicionar** e depois em **Classe**.
 
 2.  Nomeie a classe QueueConnector.cs. Clique em **Adicionar** para criar a classe.
 
-3.  Agora, você adicionará o código que encapsula as informações da conexão e inicializará a conexão em uma fila do Barramento de Serviço. Em QueueConnector.cs, adicione o seguinte código e insira valores para **Namespace** (seu namespace de serviço) e **yourKey**, que é a chave de SAS obtida do [portal do Azure][Azure portal] anteriormente.
+3.  Agora, você adiciona o código que encapsula as informações da conexão e inicializa a conexão em uma fila do Barramento de Serviço. Em QueueConnector.cs, adicione o seguinte código e insira valores para **Namespace** (seu namespace de serviço) e **yourKey**, que é a chave de SAS obtida do [portal do Azure][Azure portal] anteriormente.
 
         using System;
         using System.Collections.Generic;
@@ -331,7 +329,7 @@ Agora, você adicionará o código para enviar itens para uma fila. Primeiro, vo
             }
         }
 
-    Observe que, mais adiante neste tutorial, você aprenderá a armazenar o nome de seu **Namespace** e o valor da chave SAS em um arquivo de configuração.
+    Mais tarde neste tutorial, você aprenderá como armazenar o nome de seu **Namespace** e o valor da chave SAS em um arquivo de configuração.
 
 4.  Agora, garanta que o método **Initialize** seja chamado. No **Gerenciador de Soluções**, clique duas vezes em **Global.asax\\Global.asax.cs**.
 
@@ -381,13 +379,13 @@ Agora, você adicionará o código para enviar itens para uma fila. Primeiro, vo
 
 ## Gerenciador de configuração de nuvem
 
-O método **GetSettings** na classe **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** permite que você leia as definições de configuração do armazenamento de configuração para sua plataforma. Por exemplo, se seu código estiver sendo executado em uma função web ou de trabalho, o método **GetSettings** lerá o arquivo ServiceConfiguration.cscfg; se seu código estiver em execução em um aplicativo de console padrão, o método **GetSettings** lerá o arquivo app.config.
+O método [GetSetting][] na classe [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] permite que você leia as definições de configuração do armazenamento de configuração para sua plataforma. Por exemplo, se seu código estiver sendo executado em uma função web ou de trabalho, o método [GetSetting][] lerá o arquivo ServiceConfiguration.cscfg; se seu código estiver em execução em um aplicativo de console padrão, o método [GetSetting][] lerá o arquivo app.config.
 
-Se você armazenar uma cadeia de conexão no seu namespace do Barramento de Serviço em um arquivo de configuração, você poderá usar o método **GetSettings** para ler uma cadeia de conexão que você pode usar para criar uma instância de um objeto **NamespaceMananger**. Você pode usar uma instância **NamespaceMananger** para configurar o Namespace do Barramento de Serviço por meio de programação. Você pode usar a mesma cadeia de conexão para criar uma instância de objetos do cliente (como objeto **QueueClient**, **TopicClient** e **EventHubClient**) que você pode usar para executar operações de tempo de execução como enviar e receber mensagens.
+Se você armazenar uma cadeia de conexão no seu namespace do Barramento de Serviço em um arquivo de configuração, você poderá usar o método [GetSetting][] para ler uma cadeia de conexão que você pode usar para criar uma instância de um objeto [NamespaceMananger][]. Você pode usar uma instância [NamespaceMananger][] para configurar o Namespace do Barramento de Serviço por meio de programação. Você pode usar a mesma cadeia de conexão para criar uma instância de objetos do cliente (como objeto [QueueClient][], [TopicClient][] e [EventHubClient][]) que você pode usar para executar operações de tempo de execução como enviar e receber mensagens.
 
 ### Cadeia de conexão
 
-Para criar uma instância de um cliente (por exemplo, um **QueueClient** do Barramento de Serviço), você pode representar as informações de configuração como uma cadeia de conexão. No lado do cliente, há um `CreateFromConnectionString()` método que cria uma instância desse tipo de cliente usando essa cadeia de conexão. Por exemplo, dada a seção de configuração a seguir
+Para criar uma instância de um cliente (por exemplo, um [QueueClient][] do Barramento de Serviço), você pode representar as informações de configuração como uma cadeia de conexão. No lado do cliente, há um `CreateFromConnectionString()` método que cria uma instância desse tipo de cliente usando essa cadeia de conexão. Por exemplo, dada a seção de configuração a seguir
 
 	<ConfigurationSettings>
     ...
@@ -412,7 +410,7 @@ O código a seguir recupera a cadeia de conexão, cria uma fila e inicializa a c
 	// Initialize the connection to Service Bus queue.
 	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
 
-O código na seção a seguir usa a classe **CloudConfigurationManager**.
+O código na seção a seguir usa a classe [CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager].
 
 ## Criar a função de trabalho
 
@@ -446,7 +444,7 @@ Agora você criará a função de trabalho que processa o envio de pedidos. Este
 
 10. Navegue até a subpasta para **FrontendWebRole\\Models** e clique duas vezes em **OnlineOrder.cs** para adicioná-la a esse projeto.
 
-11. Em WorkerRole.cs, substitua o valor da variável **QueueName** em **WorkerRole.cs** de `"ProcessingQueue"` para `"OrdersQueue"`, como mostra o seguinte código:
+11. Em **WorkerRole.cs**, substitua o valor da variável **QueueName** em **WorkerRole.cs** de `"ProcessingQueue"` para `"OrdersQueue"`, como mostra o seguinte código:
 
 		// The name of your queue.
 		const string QueueName = "OrdersQueue";
@@ -491,7 +489,7 @@ Para implementar o aplicativo criado neste tutorial como um projeto Web padrão,
 
 3. Você pode testar o front-end e back-end separadamente ou executar simultaneamente em instâncias separadas do Visual Studio.
 
-Para saber como implantar o front-end em um site do Azure, consulte [Implantando um aplicativo Web ASP.NET em um site do Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Para saber como implantar o back-end em um serviço de nuvem do Azure, consulte [Aplicativo multicamadas do .NET usando tabelas, filas e blobs de armazenamento][mutitierstorage].
+Para saber como implantar o front-end em um site do Azure, consulte [Crie um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure](../app-service-web/web-sites-dotnet-get-started.md). Para saber como implantar o back-end em um serviço de nuvem do Azure, consulte [Aplicativo multicamadas do .NET usando tabelas, filas e blobs de armazenamento][mutitierstorage].
 
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
@@ -502,6 +500,15 @@ Para saber como implantar o front-end em um site do Azure, consulte [Implantando
   [3]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
+  [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
+  [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
+  [NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+
+  [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
+
+  [TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
+
+  [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
   [Azure portal]: http://manage.windowsazure.com
   [Portal do Azure]: http://manage.windowsazure.com
@@ -530,7 +537,7 @@ Para saber como implantar o front-end em um site do Azure, consulte [Implantando
   [30]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
   [31]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
   [32]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
-  [33]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
+  [33]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-42-webpi.png
   [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
@@ -538,4 +545,4 @@ Para saber como implantar o front-end em um site do Azure, consulte [Implantando
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

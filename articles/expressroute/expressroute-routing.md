@@ -12,17 +12,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 
 # Requisitos de roteamento da Rota Expressa  
 
-Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se seu provedor de conectividade oferece esse serviço. Caso contrário, você deverá atender aos requisitos descritos abaixo.
+Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos descritos abaixo.
 
-Consulte o artigo sobre [domínios de circuito e roteamento](expressroute-circuit-peerings.md) para obter uma descrição das sessões de roteamento que precisam ser configuradas para possibilitar a conectividade.
+Consulte o artigo sobre [Circuitos e domínios de roteamento](expressroute-circuit-peerings.md) para obter uma descrição das sessões de roteamento que precisam ser configuradas para possibilitar a conectividade.
 
-**Observação:** a Microsoft não dá suporte a protocolos de redundância de roteador (HSRP e VRRP, para mencionar apenas alguns exemplos) para configurações de alta disponibilidade. Contamos com um par redundante de sessões BGP por emparelhamento para alta disponibilidade.
+**Observação:** a Microsoft não dá suporte a protocolos de redundância de roteador (HSRP e VRRP) para configurações de alta disponibilidade. Contamos com um par redundante de sessões BGP por emparelhamento para alta disponibilidade.
 
 ## Endereços IP para emparelhamentos
 
@@ -36,9 +36,9 @@ Você pode usar endereços IP privados ou endereços IP públicos para configura
  - As sub-redes usadas para roteamento podem ser endereços IP privados ou endereços IP públicos.
  - As sub-redes não devem entrar em conflito com o intervalo reservado pelo cliente para uso na nuvem da Microsoft.
  - Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
- - A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
- - Para cada uma das sub-redes /30, é necessário o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
- - Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) seja válido.  
+	 - A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
+	 - Para cada uma das sub-redes /30, é necessário o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
+	 - Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) seja válido.  
 
 #### Exemplo para emparelhamento privado
 
@@ -46,7 +46,7 @@ Se você optar por usar a.b.c.d/29 para configurar o emparelhamento, ela será d
 
 a.b.c.d/29 será dividida em a.b.c.d/30 e a.b.c.d+4/30 e passada à Microsoft por meio das APIs de provisionamento. Você usará a.b.c.d+1 como o IP VRF para o PE Primário, e a Microsoft consumirá a.b.c.d+2 como o IP VRF para o MSEE primário. Você usará a.b.c.d+5 como o IP VRF para o PE secundário, e a Microsoft usará a.b.c.d+6 como o IP VRF para o MSEE secundário.
 
-Considere o caso em que você selecionou 192.168.100.128/29 para configurar o emparelhamento privado. 192.168.100.128/29 inclui os endereços de 192.168.100.128 a 192.168.100.133, entre os quais:
+Considere um caso em que você seleciona 192.168.100.128/29 para configurar o emparelhamento privado. 192.168.100.128/29 inclui os endereços de 192.168.100.128 a 192.168.100.135, entre os quais:
 
 - 192\.168.100.128/30 será atribuído ao link1, com o provedor usando 192.168.100.129 e a Microsoft usando 192.168.100.130.
 - 192\.168.100.132/30 será atribuído ao link2, com o provedor usando 192.168.100.133 e a Microsoft usando 192.168.100.134.
@@ -58,7 +58,7 @@ Você deve usar endereços IP públicos que possui para configurar as sessões B
 - Você deve usar uma sub-rede /29 exclusiva ou duas sub-redes /30 para configurar o emparelhamento BGP para cada emparelhamento por circuito da Rota Expressa (se houver mais de um). 
 - Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
 	- A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
-	- Para cada uma das sub-redes /30, é necessário o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
+	- Para cada uma das sub-redes /30, é necessário usar o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
 	- Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) seja válido.
 
 Verifique se o endereço IP e o número de AS estão registrados em um dos registros listados abaixo.
@@ -70,12 +70,12 @@ Verifique se o endereço IP e o número de AS estão registrados em um dos regis
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](rr.Level3.net)
+- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Intercâmbio de roteamento dinâmico
 
-O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP são estabelecidas entre os MSEEs e os roteadores. A autenticação de sessões BGP não é um requisito. Se necessário, um hash MD5 pode ser configurado. Analise o fluxo de trabalho de configuração de roteamento para obter informações sobre como configurar sessões BGP.
+O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP são estabelecidas entre os MSEEs e os roteadores. A autenticação de sessões BGP não é um requisito. Se necessário, um hash MD5 pode ser configurado. Consulte [Configurar roteamento](expressroute-howto-routing-classic.md) e [Fluxos de trabalho de provisionamento e estados de circuito](expressroute-workflows.md) para saber mais sobre como configurar as sessões BGP.
 
 ## Números de sistema autônomos
 
@@ -114,7 +114,7 @@ Por exemplo, se você estiver conectado à Microsoft em Amsterdã por meio da Ro
 
 Consulte a página [Locais de emparelhamento e parceiros da Rota Expressa](expressroute-locations.md) para obter uma lista detalhada das regiões geopolíticas, regiões associadas do Azure e locais de emparelhamento correspondentes da Rota Expressa.
 
-Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Em casos em que há vários circuitos da Rota Expressa, você recebe o mesmo conjunto de prefixos anunciados da Microsoft nos caminhos de emparelhamento público e da Microsoft. Isso significa que você terá vários caminhos de sua rede para a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços.
+Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Em casos em que há vários circuitos da Rota Expressa, você recebe o mesmo conjunto de prefixos anunciados da Microsoft nos caminhos de emparelhamento público e da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços.
 
 A Microsoft marcará prefixos anunciados por meio do emparelhamento público e do emparelhamento da Microsoft com valores de comunidade BGP apropriados indicando a região em que os prefixos estão hospedados. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o roteamento ideal aos clientes.
 
@@ -156,13 +156,14 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 
 ### Manipulando preferências de roteamento
 
-A Microsoft não adota valores de comunidade BGP que você define. É necessário configurar um par de sessões BGP por emparelhamento para garantir que os requisitos para o [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) sejam atendidos. No entanto, você pode configurar sua rede para preferir um link a outro usando técnicas padrão de manipulação de rota BGP. Você pode aplicar diferentes preferências locais de BGP a cada link para favorecer um caminho em vez de outro em sua rede para a Microsoft. Você pode preceder caminho as nos anúncios de rota para influenciar o fluxo do tráfego da Microsoft em sua rede.
+A Microsoft não adota valores de comunidade BGP que você define. É necessário configurar um par de sessões BGP por emparelhamento para garantir que os requisitos para o [SLA de disponibilidade](http://azure.microsoft.com/support/legal/sla/) sejam atendidos. No entanto, você pode configurar sua rede para preferir um link a outro usando técnicas padrão de manipulação de rota BGP. Você pode aplicar diferentes preferências locais de BGP a cada link para favorecer um caminho em vez de outro em sua rede para a Microsoft. Você pode preceder o caminho as nos anúncios de rota para influenciar o fluxo do tráfego da Microsoft em sua rede.
 
 ## Próximas etapas
 
 - Configurar sua conexão da Rota Expressa.
+
 	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

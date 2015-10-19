@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 
@@ -63,10 +63,10 @@ Como mencionado anteriormente, aplicativos de API AS2, X12 e EDIFACT precisam de
 Para criar acordos entre parceiros comerciais:
 
 1. Crie uma instância do conector do **Gerenciamento de Parceiros Comerciais do BizTalk**. Isso requer um Banco de Dados SQL em branco para funcionar. Antes de iniciar, certifique-se ter um banco de dados em branco disponível e pronto para uso.
-2. Carregue esquemas e certificados conforme exigido pelos acordos. Isso deve ser feito procurando a instância de TPM criada e acessando a parte “Esquemas” e/ou “Certificados”
+2. Carregue esquemas e certificados conforme exigido pelos acordos. Faça isso procurando a instância de TPM criada e acessando a parte “Esquemas” e/ou “Certificados”
 3. Navegue até a instância de TPM criada e acesse a parte **Parceiros**
 4. Crie os parceiros conforme desejado. Edite os perfis conforme apropriado e adicione as identidades necessárias
-5. Agora, use a seção **Acordos** para criar acordos. Durante a criação do acordo, uma das etapas iniciais é escolher o protocolo. O restante da configuração do acordo ocorre com base no protocolo escolhido.
+5. Agora, use a seção **Acordos** para criar acordos. Ao criar um Acordo, você precisa selecionar o protocolo que será usado. As opções de configuração restantes têm base no protocolo selecionado.
 
 ![][2]
 
@@ -78,4 +78,4 @@ Para criar acordos entre parceiros comerciais:
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

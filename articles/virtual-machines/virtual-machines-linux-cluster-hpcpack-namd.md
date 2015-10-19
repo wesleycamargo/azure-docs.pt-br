@@ -8,7 +8,7 @@
  editor=""
  tags="azure-service-management"/>
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
@@ -19,6 +19,9 @@ ms.service="virtual-machines"
 # Executar o NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure
 
 Este artigo mostra como implantar um cluster do Microsoft HPC Pack no Azure e executar um trabalho do [NAMD](http://www.ks.uiuc.edu/Research/namd/) com **charmrun** em vários nós de computação do Linux em uma rede de cluster virtual para calcular e visualizar a estrutura de um sistema biomolecular grande.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+
 
 O NAMD (para o programa Nanoscale Molecular Dynamics) é um pacote de dinâmica molecular paralela criado para a simulação de alto desempenho de sistemas biomoleculares grandes que contêm milhões de átomos, como vírus, estruturas celulares e proteínas grandes. O NAMD é dimensionado para centenas de núcleos de simulações típicas e para mais de 500.000 núcleos para as simulações maiores.
 
@@ -77,7 +80,7 @@ O Microsoft HPC Pack fornece recursos para executar uma variedade de aplicativos
 Executar um trabalho de nós cruzados em vários nós do Linux requer que os nós tenham uma relação de confiança entre si (por **rsh** ou **ssh**). Quando você cria o cluster do HPC Pack com o script de implantação de IaaS do Microsoft HPC Pack, o script configura automaticamente uma relação de confiança mútua permanente para a conta de administrador que você especificar. Para usuários que não sejam administradores criados no domínio do cluster, é necessário configurar uma relação de confiança mútua temporária entre os nós quando um trabalho é alocado para eles e destruir a relação depois que o trabalho for concluído. Para fazer isso para cada usuário, forneça um par de chaves RSA para o cluster usado pelo HPC Pack para estabelecer a relação de confiança.
 
 ### Gerar um par de chaves RSA
-É fácil gerar um par de chaves RSA, que contém uma chave pública e uma chave privada, executando o comando **ssh keygen** do Linux.
+É fácil gerar um par de chaves RSA, que contém uma chave pública e uma chave privada, executando o comando **ssh-keygen** do Linux.
 
 1.	Faça logon em um computador com Linux.
 
@@ -127,7 +130,7 @@ Agora configure um padrão de compartilhamento SMB em uma pasta no nó principal
 
 1.	Crie uma pasta no nó principal e compartilhe-a com todos, configurando privilégios de Leitura/Gravação. Neste exemplo, \\\CentOS66HN\\Namd é o nome da pasta, em que CentOS66HN é o nome de host do nó principal.
 
-2. Extraia os arquivos do NAMD na pasta usando uma versão do Windows de **tar** ou outro utilitário do Windows que funciona em arquivos. tar. Extraia o arquivo tar do NAMD para \\\CentOS66HN\\Namd\\namd2 e os arquivos do tutorial em \\\CentOS66HN\\Namd\\namd2\\namdsample.
+2. Extraia os arquivos do NAMD na pasta usando uma versão do Windows de **tar** ou outro utilitário do Windows que funciona em arquivos .tar. Extraia o arquivo tar do NAMD para \\\CentOS66HN\\Namd\\namd2 e os arquivos do tutorial em \\\CentOS66HN\\Namd\\namd2\\namdsample.
 
 2.	Abra uma janela do Windows PowerShell e execute os seguintes comandos para montar a pasta compartilhada.
 
@@ -260,7 +263,7 @@ Agora você está pronto para enviar um trabalho do NAMD no Gerenciador de Clust
 
 1.	Conecte-se ao nó principal do cluster e inicie o Gerenciador de Cluster do HPC.
 
-2.  Em **Gerenciamento de Nós**, verifique que os nós de computação do Linux estão no estado **Online**. Se não estiverem, selecione-os e clique em **Colocar Online**.
+2.  Em **Gerenciamento de Nós**, verifique se os nós de computação do Linux estão no estado **Online**. Se não estiverem, selecione-os e clique em **Colocar Online**.
 
 2.  Em **Gerenciamento de Trabalhos**, clique em **Novo Trabalho**.
 
@@ -274,11 +277,11 @@ Agora você está pronto para enviar um trabalho do NAMD no Gerenciador de Clust
 
 5.	Na página **Detalhes da Tarefa e Redirecionamento de E/S**, adicione uma nova tarefa ao trabalho e defina os valores a seguir.
 
-    * **Linha de comando** – `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
+    * **Linha de comando** - `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
 
-    * **Diretório de trabalho** – /namd2
+    * **Diretório de trabalho** - /namd2
 
-    * **Mínimo** – 3
+    * **Mínimo** - 3
 
     ![Detalhes de tarefa][task_details]
 
@@ -298,7 +301,7 @@ Agora você está pronto para enviar um trabalho do NAMD no Gerenciador de Clust
 
 6.	O trabalho leva vários minutos para ser concluído.
 
-7.	Encontre o log do trabalho no log \<headnodeName>\\Namd\\namd2\\namd2\_hpccharmrune os arquivos de saída em \<headnode>\\Namd\\namd2\\namdsample\\1-2-sphere.
+7.	Encontre o log do trabalho em \<headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log e os arquivos de saída em \<headnode>\\Namd\\namd2\\namdsample\\1-2-sphere.
 
 8.	Opcionalmente, inicie o VMD para exibir os resultados do trabalho. As etapas para visualizar os arquivos de saída do NAMD (neste caso, uma molécula da proteína ubiquitina em uma esfera de água) estão além do escopo deste artigo. Veja [Tutorial do NAMD](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf) para obter mais detalhes.
 
@@ -404,4 +407,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

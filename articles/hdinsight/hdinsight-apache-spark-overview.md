@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 # Visão geral: Apache Spark no Azure HDInsight 
@@ -41,7 +41,7 @@ O Azure HDInsight oferece um serviço Spark totalmente gerenciado. Os benefício
 | Recurso | Descrição |
 |-------------------------------------|-------------------|
 | Facilidade de provisionamento | Você pode provisionar um novo cluster do Spark no HDInsight em minutos usando o Portal de Gerenciamento do Azure, o Azure PowerShell ou o SDK do HDInsight .NET. Consulte [Provisionar um cluster do Spark no HDInsight](hdinsight-apache-spark-provision-clusters.md) |
-| Fácil de uso | Os clusters do Spark no HDInsight incluem blocos de anotações do Zeppelin e Jupyter pré-configurados. Você pode usá-los para processar e visualizar dados interativamente. Você pode iniciar esses blocos de anotações no painel de cluster para trabalhar diretamente em um cluster do Spark.|
+| Fácil de uso | Os clusters do Spark no HDInsight incluem blocos de anotações do Zeppelin e Jupyter pré-configurados. Você pode usá-los para processar e visualizar dados interativamente. As URLs desses blocos de anotação são https://CLUSTERNAME.azurehdinsight.net/zeppelin e https://CLUSTERNAME.azurehdinsight.net/jupyter. Substitua __CLUSTERNAME__ pelo nome do seu cluster HDInsight.|
 | APIs REST | O Spark no HDInsight inclui um servidor de trabalho do Spark, um servidor de API REST que permite aos usuários enviar e monitorar trabalhos em execução remotamente. |
 | Consultas simultâneas | O Spark no HDInsight dá suporte a consultas simultâneas. Isso possibilita que várias consultas de um usuário ou várias consultas de vários usuários e aplicativos compartilhem os mesmos recursos de cluster. |
 | Armazenamento em cache no SSDs | Você pode escolher os dados em cache na memória ou em SSDs anexados a nós do cluster. O armazenamento em cache na memória oferece o melhor desempenho de consulta, mas pode ser caro; o armazenamento em cache em SSDs é uma ótima opção para melhorar o desempenho de consulta sem necessidade de criar um cluster do tamanho necessário para colocar todo o conjunto de dados na memória.|
@@ -100,4 +100,4 @@ O Spark no HDInsight também fornece um [driver ODBC](http://go.microsoft.com/fw
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

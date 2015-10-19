@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Implantar recursos do Azure usando bibliotecas de computação, rede e armazenamento do .NET"
-	description="Saiba como usar alguns dos clientes disponíveis nas bibliotecas de computação, armazenamento e rede do .NET para criar e excluir recursos no Microsoft Azure."
+	pageTitle="Implantar dos recursos usando bibliotecas .NET | Microsoft Azure"
+	description="Saiba como usar as bibliotecas de Computação, Armazenamento e Rede do .NET para criar e excluir recursos no Microsoft Azure usando o Gerenciador de Recursos."
 	services="virtual-machines,virtual-network,storage"
 	documentationCenter=""
 	authors="davidmu1"
@@ -29,7 +29,7 @@ Para concluir este tutorial, você também precisa do seguinte:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Conta de armazenamento do Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/pt-BR/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-BR/download/details.aspx?id=40855)
 - [PowerShell do Azure](../install-configure-powershell.md)
 
 São necessários cerca de 30 minutos para a conclusão destas etapas.
@@ -189,7 +189,7 @@ Uma conta de armazenamento é necessária para armazenar o arquivo de disco ríg
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
-###Criar uma rede virtual
+###Criar a configuração de rede
 
 Uma máquina virtual é mais produtiva quando é adicionada a uma rede virtual.
 
@@ -390,4 +390,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 	![Criar um aplicativo do AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

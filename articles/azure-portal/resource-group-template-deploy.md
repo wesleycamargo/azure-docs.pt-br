@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/02/2015"
    ms.author="tomfitz"/>
 
 # Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure
@@ -240,9 +240,10 @@ O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
 ## Próximas etapas
 - Para ver um exemplo da implantação de recursos por meio da biblioteca de cliente do .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](../arm-template-deployment.md)
 - Para ver um exemplo detalhado da implantação de um aplicativo, confira [Provisionar e implantar microsserviços de modo previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para obter orientação sobre como implantar sua solução em ambientes diferentes, consulte [Ambientes de desenvolvimento e de teste no Microsoft Azure](../solution-dev-test-environments-preview-portal.md).
 - Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criando modelos](../resource-group-authoring-templates.md)
 - Para ver uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, confira [Funções do modelo](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

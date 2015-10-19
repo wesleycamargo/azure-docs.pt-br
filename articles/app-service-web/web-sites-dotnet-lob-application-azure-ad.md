@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/07/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Criar um aplicativo Web .NET MVC no Serviço de Aplicativo do Azure com a autenticação do Active Directory do Azure #
@@ -331,7 +331,7 @@ public class WorkItemsController : Controller
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-workitem.png)
 
-16. Preencha o restante do formulário e clique em **Criar**. A página \~/WorkItems/Index agora mostra o item de trabalho criado recentemente. Você também observará na captura de tela abaixo que removi a coluna `AssignedToID` em Views\\WorkItems\\Index.cshtml.
+16. Preencha o restante do formulário e clique em **Criar**. A página ~/WorkItems/Index agora mostra o item de trabalho criado recentemente. Você também observará na captura de tela abaixo que removi a coluna `AssignedToID` em Views\\WorkItems\\Index.cshtml.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/10-workitem-index.png)
 
@@ -352,7 +352,7 @@ Agora que você configurou as autorizações e a funcionalidade de linha de neg�
 - [Exemplos e documentação do Active Directory do Microsoft Azure](https://github.com/AzureADSamples)
 - [Blog de Vittorio Bertocci](http://blogs.msdn.com/b/vbertocci/)
 - [Migrar um projeto Web VS2013 do WIF para Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
-- [Novas conexões híbridas do Azure, não seu \#hybridCloud pai](/documentation/videos/new-hybrid-connections-not-your-fathers-hybridcloud/)
+- [Novas conexões híbridas do Azure, não seu #hybridCloud pai](/documentation/videos/new-hybrid-connections-not-your-fathers-hybridcloud/)
 - [Semelhanças entre o Active Directory e o Active Directory do Azure](http://technet.microsoft.com/library/dn518177.aspx)
 - [Sincronização de diretórios com cenário de logon único](http://technet.microsoft.com/library/dn441213.aspx)
 - [Tipos de declaração e token com suporte no Active Directory do Azure](http://msdn.microsoft.com/library/azure/dn195587.aspx)
@@ -362,4 +362,4 @@ Agora que você configurou as autorizações e a funcionalidade de linha de neg�
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -3,7 +3,7 @@
    description="Padrão de design sobre como usar os Atores Confiáveis como infraestrutura de armazenamento em cache em aplicativos baseados na Web"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Padrão de design de Atores Confiáveis: cache inteligente
 A combinação de uma camada da Web, camada de cache, camada de armazenamento e, ocasionalmente, uma camada de trabalho, é quase uma parte padrão dos aplicativos de hoje. A camada de cache geralmente é essencial para o desempenho e pode, na verdade, ser composta por várias camadas em si. Muitos caches são pares simples de chave-valor, enquanto outros sistemas, como o [Redis](http://redis.io), são usados como caches que oferecem semântica mais rica. Ainda assim, qualquer camada de cache especial será limitada em semântica e, o mais importante, ainda é outra camada a ser gerenciada. E se, em vez disso, os objetos apenas mantivessem o estado em variáveis locais e esses objetos pudessem ser colocados em instantâneos ou persistidos em um repositório durável automaticamente? Além disso, as coleções avançadas, como listas, conjuntos classificados, filas e outros tipos personalizados para esse fim são simplesmente modelados como métodos e variáveis de membro.
@@ -302,4 +302,4 @@ Basicamente, o Cache Inteligente fornece:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

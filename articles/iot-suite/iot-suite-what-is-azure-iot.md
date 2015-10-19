@@ -13,30 +13,37 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.date="09/29/2015"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-e-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
-Azure IoT Suite é uma solução de nível corporativo que permite que você comece a trabalhar rapidamente por meio de um conjunto de soluções pré-configuradas extensíveis que abrangem cenários IoT comuns, como *monitoramento remoto* e *dispositivos conectados*.
 
-As soluções pré-configuradas são:
+O Microsoft Azure IoT Suite é uma solução de nível corporativo que permite a você trabalhar rapidamente por meio de um conjunto de soluções pré-configuradas extensíveis que abrangem cenários IoT comuns, como *monitoramento remoto* e *dispositivos conectados*.
 
-- Soluções completa funcionando de ponta a ponta que incluem dispositivos simulados para iniciar, serviços pré-configurados do Azure como Hub IoT do Azure, Hubs de Eventos do Azure, Stream Analytics do Azure, Aprendizado de Máquina do Azure e armazenamento do Azure e consoles de gerenciamento específico de solução.
+As soluções pré-configuradas:
+
+- São soluções completas e funcionais que incluem dispositivos simulados para que você comece a trabalhar logo, serviços pré-configurados do Azure, como o [Hub IoT do Azure][], [Hubs de Eventos do Azure][], [Stream Analytics do Azure][], [Aprendizado de Máquina do Azure][] e [Armazenamento do Azure][], além de consoles de gerenciamento específicos à solução.
 - Contêm código comprovado e pronto para produção que é possível personalizar e estender para implementar seus próprios cenários específicos de IoT.
 
-Você também pode estar interessado no serviço Hub IoT do Azure que muitas das soluções pré-configuradas usam. O serviço do Hub IoT do Azure fornece muitos dos recursos de "processamento de dados e análise" definidos na arquitetura da solução de exemplo.
+Talvez você também tenha interesse no serviço [Hub IoT do Azure][], usado por muitas das soluções pré-configuradas. O serviço [Hub IoT do Azure][] fornece muitos dos recursos de processamento e análise de dados definidos na arquitetura da solução de exemplo.
 
 ## Próximas etapas
-Para começar com o IoT no Azure, explore esses recursos:
+
+Explore estes recursos para obter mais informações sobre IoT no Azure:
 
 - [Visão geral do Azure IoT Suite][lnk-suite-overview].
-- [Introdução às soluções da IoT pré-configuradas][lnk-preconfigured-solutions].
-- [Conectando o dispositivo à solução de monitoramento remota Azure IoT Suite][lnk-connecting].
+- [Introdução às soluções de IoT pré-configuradas][lnk-preconfigured-solutions].
+- [Conectando o dispositivo à solução de monitoramento remoto do IoT Suite][lnk-connecting].
 
 [lnk-suite-overview]: iot-suite-overview.md
 [lnk-connecting]: iot-suite-connecting-devices.md
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
+[Hub IoT do Azure]: https://azure.microsoft.com/services/iot-hub/
+[Hubs de Eventos do Azure]: https://azure.microsoft.com/services/event-hubs/
+[Stream Analytics do Azure]: https://azure.microsoft.com/services/stream-analytics/
+[Aprendizado de Máquina do Azure]: https://azure.microsoft.com/pt-BR/services/machine-learning/
+[Armazenamento do Azure]: https://azure.microsoft.com/pt-BR/services/storage/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

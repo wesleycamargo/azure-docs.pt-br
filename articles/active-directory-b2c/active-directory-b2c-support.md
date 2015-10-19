@@ -50,4 +50,4 @@ Se tiver ignorado a etapa 2 descrita acima e tentar criar uma solicitação de s
 
 ![Suporte — sem assinatura](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

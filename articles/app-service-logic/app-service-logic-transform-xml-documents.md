@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="anuragdalmia"/>
 
 #Transformação do BizTalk
@@ -22,7 +22,7 @@
 ## Visão geral
 O Aplicativo de API de Transformação do BizTalk converte dados de um formato para outro. Por exemplo, você pode usar endereços de cobrança e remessas de ordens de compra e inseri-los em um documento de nota fiscal. Ou talvez você tenha uma mensagem de entrada contendo a data atual no formato *YearMonthDay*. Você deseja reformatar a data para que fique no formato *MonthDayYear*.
 
-Você pode fazer isso usando o Aplicativo de API de Transformação no Serviço de Aplicativo do Microsoft Azure. Uma transformação ou mapa consiste em um esquema XML de origem (a entrada) e um esquema XML de destino (a saída). Você pode usar funções internas diferentes para ajudar a manipular e controlar os dados, incluindo manipulações de cadeia de caracteres, atribuições condicionais, expressões aritméticas, formatadores do tempo de data e até mesmo construções em loop.
+Você pode fazer isso usando o Aplicativo de API de Transformação no Serviço de Aplicativo do Microsoft Azure. Uma Transformação, que também é conhecida como um mapa, é formada por um esquema XML de origem (entrada) e um esquema XML de destino (saída). Você pode usar funções internas diferentes para ajudar a manipular e controlar os dados, incluindo manipulações de cadeia de caracteres, atribuições condicionais, expressões aritméticas, formatadores do tempo de data e até mesmo construções em loop.
 
 Mapas são criados no Visual Studio usando o [SDK de Serviços BizTalk do Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087). Quando tiver terminado de criar e testar o mapa, carregue o mapa (.trfm) no Aplicativo de API de Transformação do BizTalk.
 
@@ -116,4 +116,4 @@ Depois que o mapa tiver sido criado e testado, ele estará pronto para consumo.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

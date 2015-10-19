@@ -138,6 +138,5 @@ Agora realize o gesto de atualização das instâncias do aplicativo, arrastando
 [Getting Started Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
 [Introdução aos Dados Offline]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

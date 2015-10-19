@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Saiba o que é o Hive e como usar o HiveQL | Microsoft Azure"
 	description="Saiba mais sobre o Apache Hive e como usá-lo com o Hadoop no HDInsight. Escolha como você deseja executar o trabalho do Hive e usar o HiveQL para analisar um arquivo log4j do Apache de exemplo."
+	keywords="hiveql,what is hive"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/28/2015"
+	ms.date="10/05/2015"
 	ms.author="larryfr"/>
 
 # Usar o Hive e o HiveQL com o Hadoop no HDInsight para analisar um arquivo log4j do Apache de exemplo
@@ -97,15 +98,13 @@ As instruções executam as seguintes ações:
 
 ##<a id="usetez"></a>Usar o Apache Tez para desempenho aprimorado
 
-O [Apache Tez](http://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. Na versão mais recente do HDInsight, o Hive tem suporte para a execução no Tez.
+O [Apache Tez](http://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. Na versão mais recente do HDInsight, o Hive tem suporte para a execução no Tez. O Tez está habilitado por padrão para clusters HDInsight baseados em Linux.
 
-Atualmente o Tez está desativado por padrão para clusters baseados no Windows HDInsight e deve ser habilitado. Para aproveitar o Tez, o seguinte valor deve ser definido para uma consulta Hive:
-
-	set hive.execution.engine=tez;
-
-Isso pode ser enviado por consulta colocando-o no início da sua consulta. Também é possível definir esse recurso para estar ativado por padrão definindo o valor de configuração no momento da criação do cluster. Você pode encontrar mais detalhes em [Provisionamento de clusters do HDInsight](hdinsight-provision-clusters.md).
-
-O Tez está ativado como padrão para clusters HDInsight baseados em Linux.
+> [AZURE.NOTE]Atualmente o Tez está desativado por padrão para clusters baseados no Windows HDInsight e deve ser habilitado. Para aproveitar o Tez, o seguinte valor deve ser definido para uma consulta Hive:
+>
+> ```set hive.execution.engine=tez;```
+>
+>Isso pode ser enviado por consulta colocando-o no início da sua consulta. Também é possível definir esse recurso para estar ativado por padrão definindo o valor de configuração no momento da criação do cluster. Você pode encontrar mais detalhes em [Provisionamento de clusters do HDInsight](hdinsight-provision-clusters.md).
 
 Os [documentos de design do Hive no Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contêm vários detalhes das escolhas de implantação e configurações de ajuste.
 
@@ -116,7 +115,8 @@ O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tab
 
 | **Use** se quiser... | ...um shell **interativo** | ...Processamento em **lotes** | ... com esse **sistema operacional de cluster** | ... desse **sistema operacional cliente** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
-| [SSH](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
+| [Comando do Beeline (de uma sessão SSH)](hdinsight-hadoop-use-hive-beeline.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
+| [Comando do Hive (de uma sessão SSH)](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux ou Windows | Linux, Unix, Mac OS X ou Windows |
 | [Console de consulta](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | Baseado em navegador |
 | [Ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
@@ -183,4 +183,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

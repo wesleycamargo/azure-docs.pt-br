@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium
@@ -72,15 +72,17 @@ A lista a seguir contém alguns erros comuns de configuração que podem impedir
 -	Bloqueio da comunicação mútua das VMs de instância de função do Redis na sub-rede. As instâncias de função do Redis devem ter permissão para se comunicar entre si usando TCP em qualquer uma das portas usadas, que podem estar sujeitas à alteração, mas, no mínimo, pode-se considerar como todas as portas usadas no arquivo CSDEF do Redis.
 -	Conexão bloqueada do Balanceador de Carga do Azure com as VMs do Redis na porta TCP/HTTP 16001. O Cache Redis do Azure depende da investigação do balanceador de carga padrão do Azure para determinar quais instâncias de função estão ativas. A investigação padrão do balanceador de carga funciona com a execução de ping do Agente Convidado do Azure na porta 16001. Somente as instâncias de função que respondem ao ping serão colocadas em rotação para receber o tráfego encaminhado pelo ILB. Quando nenhuma instância estiver em rotação devido à falha do ping pelo bloqueio das portas, o ILB não aceitará conexões TCP de entrada.
 -	Bloqueio do tráfego da Web do aplicativo cliente usado para a validação da chave pública do SSL. Os clientes do Redis (na rede virtual) devem conseguir realizar o tráfego HTTP para a Internet pública para baixar certificados da AC e listas de certificados revogados, a fim de realizar a validação do certificado SSL ao usar a porta 6380 para se conectar ao Redis e fazer autenticação do servidor SSL.
--	Conexão bloqueada do Balanceador de Carga do Azure com as VMs do Redis em um cluster por meio de TCP na porta 1300x (13000, 13001, etc.) ou 1500x (15000, 15001, etc.). As VNets são configuradas no arquivo csdef com uma investigação do balanceador de carga para abrir essas portas. O balanceador de carga do Azure precisa ser permitido pelos NSGs, e os NSGs padrão fazem isso com a marca AZURE\_LOADBALANCER. O balanceador de carga do Azure tem um único endereço IP estático 168.63.126.16. Para obter mais informações, veja [O que é um NSG (Grupo de Segurança de Rede)?](..\virtual-network\virtual-networks-nsg.md).
+-	Conexão bloqueada do Balanceador de Carga do Azure com as VMs do Redis em um cluster por meio de TCP na porta 1300x (13000, 13001, etc.) ou 1500x (15000, 15001, etc.). As VNets são configuradas no arquivo csdef com uma investigação do balanceador de carga para abrir essas portas. O balanceador de carga do Azure precisa ser permitido pelos NSGs, e os NSGs padrão fazem isso com a marca AZURE\_LOADBALANCER. O balanceador de carga do Azure tem um único endereço IP estático 168.63.126.16. Para saber mais, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md).
 
 ## Posso usar VNETs com um cache básico ou standard?
 
 As VNETs podem ser usadas apenas com os caches premium.
 
 ## Próximas etapas
+Aprenda a usar mais recursos de cache premium.
 
-Saiba como usar mais recursos de cache premium. - [Como configurar a persistência para um Cache Redis do Azure Premium](cache-how-to-premium-persistence.md) - [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md)
+-	[Como configurar a persistência para um Cache Redis do Azure Premium](cache-how-to-premium-persistence.md)
+-	[Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md)
 
 
 
@@ -101,4 +103,4 @@ Saiba como usar mais recursos de cache premium. - [Como configurar a persistênc
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

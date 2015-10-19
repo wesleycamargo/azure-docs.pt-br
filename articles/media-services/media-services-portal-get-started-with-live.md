@@ -190,12 +190,19 @@ Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisio
 - Você pode parar seu ponto de extremidade de streaming, a menos que queira continuar fornecendo o arquivo morto do evento ao vivo como um fluxo sob demanda. Se o canal estiver no estado parado, ele não incorrerá em nenhum encargo.
 
 
-##Caminhos de aprendizado dos Serviços de Mídia
+##Próximas etapas
 
-Você pode exibir aqui os roteiros de aprendizagem do AMS:
+###Roteiros de aprendizagem dos Serviços de Mídia
+
+Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Procurando outra coisa?
+
+Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
+
 
 ## Recursos adicionais
 - [Introdução ao streaming ao vivo usando o Portal de Gerenciamento do Azure](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
@@ -205,4 +212,4 @@ Você pode exibir aqui os roteiros de aprendizagem do AMS:
 
 <!-- Images -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

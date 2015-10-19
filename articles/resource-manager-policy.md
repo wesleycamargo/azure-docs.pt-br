@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="09/29/2015"
+	ms.date="10/06/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usar a política para gerenciar recursos e controlar o acesso
@@ -26,13 +26,13 @@ Neste artigo, explicaremos a estrutura básica de linguagem de definição de po
 
 ## Cenários comuns
 
-Um cenário comum é requerer marcas departamentais para fins de estorno. Uma organização talvez queira permitir operações somente quando o Centro de custo apropriado for associado. Caso contrário, eles recusariam a solicitação. Isso os ajudaria a cobrar o centro de custo apropriado para as operações executadas.
+Um cenário comum é requerer marcas departamentais para fins de estorno. Uma organização talvez queira permitir operações somente quando o centro de custo apropriado for associado. Caso contrário, a solicitação será negada. Isso os ajudaria a cobrar o centro de custo apropriado para as operações executadas.
 
 Outro cenário comum é que a organização talvez queira controlar os locais onde os recursos são criados. Ou talvez queiram controlar o acesso aos recursos, permitindo que somente determinados tipos de recursos sejam provisionados.
 
 Da mesma forma, uma organização pode controlar o catálogo de serviços ou aplicar as convenções de nomenclatura desejadas para os recursos.
 
-Usando políticas, esses cenários podem facilmente ser obtidos, conforme descrito abaixo.
+Usando políticas, esses cenários podem ser facilmente obtidos, conforme descrito abaixo.
 
 ## Estrutura da definição de política
 
@@ -42,7 +42,7 @@ Basicamente, uma política contém o seguinte:
 
 **Condição/operadores lógicos/:** contém um conjunto de condições que podem ser manipuladas por meio de um conjunto de operadores lógicos.
 
-**Efeito:** descreve qual será o efeito quando a condição for satisfeita – negar ou auditar. Um efeito de auditoria emitirá um log de aviso de serviço de evento. Por exemplo, um administrador pode criar uma política que diz à auditoria se alguém cria uma VM grande. Em seguida, ele pode examinar esses logs posteriormente.
+**Efeito:** descreve qual será o efeito quando a condição for satisfeita – negar ou auditar. Um efeito de auditoria emitirá um log de aviso de serviço de evento. Por exemplo, um administrador pode criar uma política que ocasiona uma auditoria se alguém criar uma VM grande e examinar os logs mais tarde.
 
     {
       "if" : {
@@ -88,7 +88,7 @@ Fontes: **ação**
 
 ## Exemplos de definições de política
 
-Agora vamos dar uma olhada como definiremos a política para atender os cenários listados acima.
+Agora veremos como definir a política para obter os cenários listados acima.
 
 ### Estorno: Requerem marcas departamentais
 
@@ -177,17 +177,17 @@ As políticas podem ser aplicadas em escopos diferentes, como assinatura, grupos
 
 ## Criando uma política
 
-Esta seção fornece detalhes sobre como uma política pode ser criada usando a API REST e PowerShell.
+Esta seção fornece detalhes sobre como uma política pode ser criada usando a API REST.
 
 ### Crie definição de política com a API REST
 
-Você pode criar uma política com a API REST para Política. A API REST permite que você crie, exclua as políticas e obtenha informações sobre as políticas existentes.
+Você pode criar uma política com a [API REST para Definições de Política](https://msdn.microsoft.com/library/azure/mt588471.aspx). A API REST permite que você crie e exclua as definições de políticas e obtenha informações sobre as definições existentes.
 
 Para criar uma nova política, execute:
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-Abaixo está um exemplo de como seria o corpo da solicitação –
+Com um corpo de solicitação semelhante ao seguinte:
 
     {
       "properties":{
@@ -211,21 +211,21 @@ Abaixo está um exemplo de como seria o corpo da solicitação –
     }
 
 
-Definição de política pode ser definida como um dos exemplos mostrados acima. Para a versão de api use a visualização *2015-10-01*. Para obter mais detalhes e exemplos, consulte a API REST para política.
+Definição de política pode ser definida como um dos exemplos mostrados acima. Para a versão de api, use a *2015-10-01-preview*. Para obter mais detalhes e exemplos, consulte a [API REST para Definições de Política](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ## Aplicando uma política
 
 ### Atribuição de política com a API REST
 
-Você pode aplicar a definição de política no escopo desejado por meio da API REST para atribuição de política, a API REST permite que você crie, exclua as atribuições de diretivas e obtenha informações sobre atribuições existentes.
+Você pode aplicar a definição de política no escopo desejado por meio da [API REST para atribuições de política](https://msdn.microsoft.com/library/azure/mt588466.aspx). A API REST permite que você crie e exclua as atribuições de políticas e obtenha informações sobre as atribuições existentes.
 
 Para criar uma nova atribuição de política, execute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-A {Atribuição da política} é o nome da atribuição da política. Para a versão de api use a visualização *2015-10-01*. Para obter mais detalhes e exemplos, consulte a API REST para atribuição de política.
+A {Atribuição da política} é o nome da atribuição da política. Para a versão de api, use a *2015-10-01-preview*.
 
-Abaixo, há um exemplo de como o corpo da solicitação ficaria
+Com um corpo de solicitação semelhante ao seguinte:
 
     {
       "properties":{
@@ -238,4 +238,6 @@ Abaixo, há um exemplo de como o corpo da solicitação ficaria
       "name":"VMPolicyAssignment"
     }
 
-<!---HONumber=Oct15_HO1-->
+Para obter mais detalhes e exemplos, consulte a [API REST para Atribuições de Política](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+
+<!---HONumber=Oct15_HO2-->

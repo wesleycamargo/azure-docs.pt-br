@@ -97,7 +97,7 @@ Para configurar o ambiente de desenvolvimento, você deverá instalar o [Visual 
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverase navbar-fixed-top">
+		    <div class="navbar navbar-inverse navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -230,7 +230,7 @@ Você começa criando um modelo de dados simples no código.
                 public string Email { get; set; }
             }
         }
-A classe **Contacts** define os dados que você armazenará para cada contato, além de uma chave primária, *ContactID*, que é necessária para o banco de dados.
+A classe **Contact** define os dados que você armazenará para cada contato, além de uma chave primária, *ContactID*, que é necessária para o banco de dados.
 
 ### Criar as páginas da web que permitem que os usuários do aplicativo trabalhem com os contatos
 
@@ -720,4 +720,4 @@ Este tutorial e o aplicativo de exemplo foram escritos por [Rick Anderson](http:
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

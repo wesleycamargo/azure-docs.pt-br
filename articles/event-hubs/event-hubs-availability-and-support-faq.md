@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos"
-   description="Preços e perguntas frequentes dos Hubs de Eventos"
+   pageTitle="Suporte e disponibilidade dos Hubs de Eventos | Microsoft Azure"
+   description="Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos"
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="sethm" />
 
 # Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos
 
 Hubs de eventos fornecem entrada, persistência e processamento de eventos de dados de fontes de dados de alta produtividade e/ou milhões de dispositivos. Quando combinados com tópicos e filas do Barramento de Serviço, os Hubs de Eventos permitem implantações de comandos e controles persistentes para cenários de Internet das Coisas.
 
-Esta seção traz informações de disponibilidade e respostas a algumas perguntas frequentes.
+Este artigo discute as informações de disponibilidade e responde algumas perguntas frequentes:
 
 ## Informações sobre preço
 
-Para obter informações sobre os preços dos Hubs de Eventos, consulte os [detalhes de preços dos Hubs de Eventos](http://azure.microsoft.com/pricing/details/event-hubs/).
+Para obter todas as informações sobre os preços dos Hubs de Eventos, consulte os [detalhes de preços dos Hubs de Eventos](http://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Como os eventos de entrada de Hubs de Eventos são calculados?
 
@@ -100,15 +100,14 @@ Para saber mais sobre nosso SLA, visite a página de [contratos de nível de ser
 
 ## Próximas etapas
 
-Para saber mais sobre os Hubs de Eventos, consulte os tópicos a seguir:
+Para saber mais sobre os Hubs de Eventos, consulte os artigos a seguir:
 
-- [Visão Geral dos Hubs de Evento]
-- Um [aplicativo de exemplo completo que usa os Hubs de Eventos].
-- Uma [solução de mensagens enfileiradas] usando filas do Barramento de Serviço.
+- [Visão geral dos Hubs de Eventos].
+- Um [aplicativo de exemplo completo que usa os Hubs de Evento].
+- Uma [solução de mensagens na fila] usando filas do Barramento de Serviço.
 
-[Visão Geral dos Hubs de Evento]: event-hubs-overview.md
-[aplicativo de exemplo completo que usa os Hubs de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[solução de mensagens enfileiradas]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
- 
+[Visão geral dos Hubs de Eventos]: event-hubs-overview.md
+[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

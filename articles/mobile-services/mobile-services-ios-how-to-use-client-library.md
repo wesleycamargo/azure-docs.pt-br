@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-Este guia ensina a executar cenários comuns usando os Serviços Móveis do Azure [SDK do iOS]. Se você for novo nos serviços móveis, primeiro conclua [Início Rápido dos Serviços Móveis] ou [Adicionar os Serviços Móveis a um aplicativo existente] para configurar a sua conta, criar uma tabela e um serviço móvel.
+Este guia ensina a executar cenários comuns usando os Serviços Móveis do Azure [SDK do iOS]. Se você for novo nos Serviços Móveis, primeiro conclua [Início Rápido dos Serviços Móveis] para configurar a sua conta, criar uma tabela e um serviço móvel.
 
 > [AZURE.NOTE]Este guia usa a versão mais recente do [SDK de Serviços Móveis do iOS](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se o seu projeto usa uma versão mais antiga do SDK, primeiro atualize a estrutura no Xcode.
 
@@ -28,7 +28,7 @@ Este guia ensina a executar cenários comuns usando os Serviços Móveis do Azur
 
 ##<a name="Setup"></a>Configuração e pré-requisitos
 
-Este guia pressupõe que você tenha criado um serviço móvel com uma tabela. Para saber mais, confira [Criar uma tabela] ou reutilize a tabela `TodoItem` criada em [Início Rápido dos Serviços Móveis] ou em [Adicionar os Serviços Móveis a um aplicativo existente]. Este guia pressupõe que a tabela tem o mesmo esquema das tabelas desses tutoriais. Este guia também pressupõe que o Xcode referencia `WindowsAzureMobileServices.framework` e importa `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
+Este guia pressupõe que você tenha criado um serviço móvel com uma tabela. Para saber mais, consulte [Criar uma tabela] ou reutilize a tabela `TodoItem` criada em [Início rápido dos Serviços Móveis]. Este guia pressupõe que a tabela tem o mesmo esquema das tabelas desses tutoriais. Este guia também pressupõe que o Xcode referencia `WindowsAzureMobileServices.framework` e importa `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
 
 ##<a name="create-client"></a>Como criar o cliente Serviços Móveis
 
@@ -235,7 +235,7 @@ No mínimo, o atributo `id` deve ser definido quando você faz exclusões.
 
 ##<a name="#custom-api"></a>Chamar uma API personalizada
 
-Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como definir um ponto de extremidade de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
+Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para obter um exemplo de como criar uma API personalizada em seu serviço móvel, consulte [Como definir um ponto de extremidade de API personalizado](mobile-services-dotnet-backend-define-custom-api.md).
 
 [AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
 
@@ -311,10 +311,8 @@ O arquivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/az
 <!-- Images. -->
 
 <!-- URLs. -->
-[Adicionar os Serviços Móveis a um aplicativo existente]: /develop/mobile/tutorials/get-started-data
-[Início Rápido dos Serviços Móveis]: /develop/mobile/tutorials/get-started-ios
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Início Rápido dos Serviços Móveis]: mobile-services-ios-get-started.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Autenticação]: /develop/mobile/tutorials/get-started-with-users-ios
 [SDK do iOS]: https://developer.apple.com/xcode
@@ -323,13 +321,11 @@ O arquivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/az
 [SDK do Live Connect]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissões]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Autorização do lado do serviço]: mobile-services-javascript-backend-service-side-authorization.md
-[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Esquema dinâmico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Criar uma tabela]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Manipulador de conflito]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

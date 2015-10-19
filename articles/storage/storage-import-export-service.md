@@ -50,7 +50,10 @@ Ao criar um trabalho de importação ou de exportação, você também precisar�
 ### Requisitos e escopo
 
 1.	**Assinatura e contas de armazenamento:** você deve ter uma assinatura do Azure e uma ou mais contas de armazenamento existentes para usar o serviço de Importação/Exportação. Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um trabalho não pode se estender por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md).
-2.	**Discos rígidos:** somente discos rígidos SATA II de 3,5 polegadas têm suporte para uso com o serviço Importação/Exportação. São suportados discos rígidos até 6 TB. Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS. Você pode anexar um disco SATA II/III externamente a maioria dos computadores usando um adaptador USB para SATA II/III.
+2.	**Discos rígidos:** somente discos rígidos SATA II/III de 3,5 polegadas têm suporte para uso com o serviço Importação/Exportação. São suportados discos rígidos até 6 TB. Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS. Você pode anexar um disco SATA II/III externamente à maioria dos computadores usando um adaptador USB para SATA II/III externo.
+
+  >[AZURE.IMPORTANT]Não há suporte para unidades de disco rígido externas que vêm com um adaptador USB integrado neste serviço. Não prepare um HDD externo. O disco dentro da estrutura externa também não pode ser usado para importar dados. Use uma unidades de disco rígido **interna** SATA II/III de 3,5 polegadas. Se você não conseguir conectar o disco SATA diretamente ao seu computador, use um SATA externo para o adaptador USB. Consulte a lista de adaptadores recomendados na seção de perguntas frequentes.
+
 3.	**Criptografia BitLocker:** todos os dados armazenados em discos rígidos devem ser criptografados usando o BitLocker com chaves de criptografia protegidas com senhas numéricas.
 4.	**Destinos de armazenamento de blob:** é possível carregar dados para blobs de blocos e blobs de páginas e baixar dados desses blobs. 
 5.	**Número de trabalhos:** um cliente pode ter até 20 trabalhos ativos por conta de armazenamento.
@@ -188,6 +191,8 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 > [AZURE.NOTE]Se tiver um conversor que não está relacionado acima, você pode tentar executar a Ferramenta de Importação/Exportação do Microsoft Azure usando seu conversor para preparar a unidade e ver se funciona, antes de adquirir um conversor com suporte.
 
+- Não há suporte para HDD externo com um adaptador USB integrado.
+
 **Se eu quiser importar ou exportar mais de 10 unidades, o que devo fazer?**
 
 - Um trabalho de importação ou de exportação pode fazer referência a apenas 10 unidades em um único trabalho para o serviço de Importação/Exportação. Se quiser enviar mais de 10 unidades, você poderá criar vários trabalhos.
@@ -218,7 +223,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - Não. Todas as unidades devem estar preparadas para BitLocker.
  
-**É necessário executar alguma preparação ao disco para criar um trabalho de exportação?** - Não, mas são recomendadas algumas verificações prévias. Verifique o número de discos necessários usando o comando [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) da ferramenta Importação/Exportação do Azure. A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler/gravar no disco rígido que será enviado para o trabalho de exportação.
+**É necessário executar alguma preparação ao disco ao criar um trabalho de exportação?** - Não, mas são recomendadas algumas verificações prévias. Verifique o número de discos necessários usando o comando [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) da ferramenta Importação/Exportação do Azure. A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler/gravar no disco rígido que será enviado para o trabalho de exportação.
 
 ### Remessa
 
@@ -269,4 +274,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

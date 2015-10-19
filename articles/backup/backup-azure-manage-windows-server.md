@@ -7,7 +7,14 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/05/2015"
+	ms.author="jimpark; aashishr; giridham"/>
 
 
 # Gerenciar servidores e cofres de backup do Azure
@@ -37,11 +44,14 @@ Selecione **Itens registrados** para exibir os nomes dos servidores registrados 
 
 ![Servidor excluído](./media/backup-azure-manage-windows-server/RS_deletedserver.png)
 
-A partir daqui, você pode executar as seguintes tarefas:- **Permitir novo registro**: quando essa opção estiver selecionada para um servidor, você pode usar o **Assistente de Registro** no agente para registrar o servidor no cofre de backup uma segunda vez. Talvez você precise registrar novamente devido a um erro no certificado ou se um servidor tiver que ser refeito. O novo registro é permitido apenas uma vez por nome do servidor. - **Excluir**: exclui um servidor do cofre de backup. Todos os dados armazenados associados ao servidor serão excluídos imediatamente.
+A partir daqui, você pode executar as seguintes tarefas:
+
+- **Permitir Novo Registro** - Quando esta opção estiver selecionada para um servidor, você poderá usar o **Assistente de Registro** no agente para registrar o servidor com o cofre de backup uma segunda vez. Talvez você precise registrar novamente devido a um erro no certificado ou se um servidor tiver que ser refeito.
+- **Excluir** - Exclui um servidor do cofre de backup. Todos os dados armazenados associados ao servidor serão excluídos imediatamente.
 
 ## Próximas etapas
 - [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 - Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
-- Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+- Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

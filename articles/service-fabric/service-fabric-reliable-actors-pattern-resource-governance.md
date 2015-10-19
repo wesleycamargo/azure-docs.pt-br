@@ -3,7 +3,7 @@
    description="O padrão de design de como os Atores da Malha do Serviço podem ser usados para modelar aplicativos que precisam ser dimensionados, mas usam recursos restritos"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Padrão de design de Atores Confiáveis: governança de recursos
 Esse padrão e cenários relacionados podem ser facilmente reconhecidos pelos desenvolvedores (corporativos ou não) que têm recursos restritos no local ou na nuvem, os quais não podem dimensionar imediatamente, ou que desejam enviar aplicativos e dados em larga escala para a nuvem.
@@ -417,4 +417,4 @@ Esse padrão é muito comum em cenários onde os desenvolvedores têm recursos r
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

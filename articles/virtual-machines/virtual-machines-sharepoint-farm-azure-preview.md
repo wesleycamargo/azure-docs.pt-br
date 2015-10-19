@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # Farm do SharePoint Server
@@ -52,7 +52,8 @@ Para criar seu farm do SharePoint farm com o modelo de Farm do SharePoint Server
 7. Para configurar os seus servidores SharePoint, clique na seta. É possível especificar um prefixo de nome do host (o padrão é o nome do grupo de recursos), o tamanho dos seus servidores SharePoint (o padrão é A2), uma conta do usuário do SharePoint (o padrão é sp\_setup) e a senha, um nome da conta farm do SharePoint (o padrão é sp\_farm) e a senha e um passphase de farm do SharePoint. O padrão é usar a senha do administrador para a conta do usuário do SharePoint, a conta do farm e o passphrase.
 8. Para configurar os parâmetros de configuração opcionais de rede virtual, conta de armazenamento ou diagnóstico, clique na seta correspondente.
 9. Para especificar a assinatura, clique na seta.
-10. Quando tiver concluído, clique em **Criar**.
+10. Para especificar a localização do Azure, clique na seta.
+11. Quando tiver concluído, clique em **Criar**.
 
 > [AZURE.NOTE]O controlador de domínio não tem as ferramentas de Gerenciamento do Active Directory instaladas por padrão. Para instalá-los, execute o comando **Install-WindowsFeature AD-Domain-Services -IncludeManagementTools** em um prompt de comando do Windows PowerShell com nível de administrador na máquina virtual do controlador de domínio.
 
@@ -81,9 +82,8 @@ No site Administração central do SharePoint, é possível configurar o My site
 
 Observações:
 
-- O Portal de visualização do Azure cria estas máquinas virtuais na assinatura especificada.
 - O Portal de visualização do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização.
-- É possível administrar esses servidores por meio de conexões de área de trabalho remota. Para saber mais, confira [Como fazer logon em uma máquina virtual executando o Windows Server](virtual-machines-log-on-windows-server.md).
+- É possível administrar esses servidores por meio de conexões de área de trabalho remota. Para saber mais, consulte [Faça logon na máquina virtual](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine).
 
 ## Gerenciador de Recursos do Azure
 
@@ -93,10 +93,8 @@ O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria m�
 
 [Detalhes da configuração do Farm do SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
-[SharePoint nos serviços de infraestrutura do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

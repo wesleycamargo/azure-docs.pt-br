@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Comparação: Apache Storm vs. Stream Analytics do Azure | Microsoft Azure"
 	description="Saiba como usar a Stream Analytics para análise de sentimento Twitter em tempo real. Orientações passo a passo de geração de eventos aos dados em um painel em tempo real."
+	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/13/2015"
+	ms.date="10/05/2015"
 	ms.author="jeffstok"/>
 
 # Comparação entre o Apache Storm e Stream Analytics do Azure #
@@ -123,7 +124,7 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
                     O preço do Stream Analytics é calculado pelo volume de dados processados e o número de unidades de streaming (por hora de execução do trabalho) necessário.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pt-br/pricing/details/stream-analytics/">Mais informações sobre preços podem ser encontradas aqui.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Mais informações sobre preços podem ser encontradas aqui.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -131,7 +132,7 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
                     Para Apache Storm no HDInsight, a unidade de compra é baseada em cluster e é cobrada com base no tempo de execução do cluster, independentemente dos trabalhos implantados.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pt-br/pricing/details/hdinsight/">Mais informações sobre preços podem ser encontradas aqui.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Mais informações sobre preços podem ser encontradas aqui.</a>
                 </p>
             </td>
         </tr>
@@ -589,4 +590,4 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
     </tbody>
 </table>
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

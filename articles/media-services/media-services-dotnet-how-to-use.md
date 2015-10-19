@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 #Desenvolvimento de serviços de mídia com o .NET 
@@ -28,9 +28,9 @@ A biblioteca do **SDK do .NET dos Serviços de Mídia** permite que você progra
 ##Pré-requisitos
 
 -   Uma conta dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Consulte o tópico [Como criar uma conta de Serviços de Mídia](media-services-create-account.md).
--   Sistemas operacionais: Windows 7, Windows 2008 R2 ou Windows 8.
+-   Sistemas operacionais: Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
 -   .NET Framework 4.5.
--   Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express). 
+-    Visual Studio 2015, Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express). 
   
 
 ##Criar e configurar um projeto do Visual Studio 
@@ -75,15 +75,9 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
 	Para obter as informações de **nome da conta** e de **chave da conta**, abra o **Portal de Gerenciamento do Azure**, selecione sua conta de serviços de mídia e clique no botão **GERENCIAR CHAVES**.
 
 
-	<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
-
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>
 
 5. Substitua a instruções using existentes no início do arquivo Program.cs pelo código a seguir.
 
@@ -108,4 +102,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

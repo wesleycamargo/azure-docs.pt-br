@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Configurar a proteção entre sites locais do VMM com SAN" 
-	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais Hyper-V entre os sites do VMM locais usando a replicação SAN." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
+<properties
+	pageTitle="Configurar a proteção entre sites locais do VMM com SAN"
+	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais Hyper-V entre os sites do VMM locais usando a replicação SAN."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2015" 
+<tags
+	ms.service="site-recovery"
+	ms.workload="backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="raynew"/>
 
 # Configurar a proteção entre sites locais do VMM com SAN
@@ -26,7 +26,7 @@ As vantagens de negócios incluem:
 
 - O fornecimento de uma solução corporativa de replicação escalonável automatizada pela Recuperação de Site.
 - Utilização dos recursos de replicação de SAN fornecidos pelos parceiros de armazenamento corporativo por meio do armazenamento fibre channel e iSCSI. Confira nossos [Parceiros de armazenamento SAN](http://go.microsoft.com/fwlink/?LinkId=518669).
-- Aproveita de sua infraestrutura de SAN atual para proteger aplicativos fundamentais implantados em clusters Hyper-V. 
+- Aproveita de sua infraestrutura de SAN atual para proteger aplicativos fundamentais implantados em clusters Hyper-V.
 - Fornecimento de suporte para clusters convidados.
 - Garantia de consistência da replicação em camadas diferentes de um aplicativo, com replicação sincronizada para RTO e RPO baixo, e replicação assíncrona para alta flexibilidade, dependendo das capacidades da matriz de armazenamento.  
 - A integração com o VMM fornece gerenciamento de SAN no console do VMM, e o SMI-S no VMM descobre o armazenamento existente.  
@@ -64,7 +64,7 @@ Este cenário protege suas cargas de trabalho por meio do backup das máquinas v
 	- Um ou mais grupos de hosts do VMM
 	- Um ou mais clusters de Hyper-V em cada grupo de hosts.
 	- Um ou mais máquinas virtuais localizadas no servidor Hyper-V de origem na nuvem.
-		
+
 ### Requisitos do Hyper-V
 
 - Você precisará de um cluster de host do Hyper-V implantado nos sites primários e secundários, executando pelo menos o Windows Server 2012 com as atualizações mais recentes.
@@ -139,10 +139,10 @@ Adicionar e classificar SANs no console do VMM:
 
 1. Depois que o armazenamento SAN estiver integrado ao VMM, crie LUNs (unidades lógicas (provisão).
 
-- [Como selecionar um método para criar unidades lógicas no VMM](http://go.microsoft.com/fwlink/?LinkId=518490)
-- [Como provisionar armazenamento de unidades lógicas no VMM](http://go.microsoft.com/fwlink/?LinkId=518491)
+	- [Como selecionar um método para criar unidades lógicas no VMM](http://go.microsoft.com/fwlink/?LinkId=518490)
+	- [Como provisionar armazenamento de unidades lógicas no VMM](http://go.microsoft.com/fwlink/?LinkId=518491)
 
-2. Aloque a capacidade de armazenamento ao cluster de host Hyper-V para que o VMM possa implantar dados da máquina virtual para o armazenamento provisionado: 
+2. Aloque a capacidade de armazenamento ao cluster de host Hyper-V para que o VMM possa implantar dados da máquina virtual para o armazenamento provisionado:
 
 	- Antes de alocar o armazenamento ao cluster, você precisará alocá-lo ao grupo de hosts do VMM no qual o cluster reside. Confira [Como alocar unidades lógicas de armazenamento para um grupo de hosts](http://go.microsoft.com/fwlink/?LinkId=518493) e [Como alocar pools de armazenamento a um grupo de hosts](http://go.microsoft.com/fwlink/?LinkId=518492).</a>
 	- Em seguida, aloque a capacidade de armazenamento para o cluster conforme descrito em [Como configurar o armazenamento em um cluster de host Hyper-V no VMM](http://go.microsoft.com/fwlink/?LinkId=513017).</a>.
@@ -162,7 +162,7 @@ Se você quiser configurar o mapeamento de rede, faça o seguinte:
 
 1. Leia sobre [Mapeamento de rede](https://msdn.microsoft.com/library/azure/dn801052.aspx).
 2. Prepare redes de VM no VMM:
- 
+
 	- Saiba mais sobre [a configuração de redes lógicas](http://go.microsoft.com/fwlink/?LinkId=386307). Configurar redes lógicas: leia a Visão geral sobre a configuração de rede lógica no VMM.
 	- [Configure as redes de VMM](http://go.microsoft.com/fwlink/?LinkId=386308).
 
@@ -176,7 +176,7 @@ Se você quiser configurar o mapeamento de rede, faça o seguinte:
 
 
 3. Clique em **Criar Novo** > **Criação Rápida**.
-	
+
 4. Em **Nome**, digite um nome amigável para identificar o cofre.
 
 5. Em **Região**, selecione a região geográfica para o cofre. Para verificar as regiões suportadas, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços de Recuperação de Site do Azure](href="http://go.microsoft.com/fwlink/?LinkId=389880)
@@ -210,7 +210,7 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 	![Atualizações da Microsoft](./media/site-recovery-vmm-san/VMMASRInstallMUScreen.png)
 
 
-1.  O local de instalação é definido como **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Clique no botão Instalar para iniciar a instalação do Provedor. ![InstallLocation](./media/site-recovery-vmm-san/VMMASRInstallLocationScreen.png)
+1.  O local de instalação é definido como **<SystemDrive>\\Arquivos de Programas\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Clique no botão Instalar para iniciar a instalação do Provedor. ![InstallLocation](./media/site-recovery-vmm-san/VMMASRInstallLocationScreen.png)
 
 
 
@@ -218,7 +218,7 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 
 5. Em **Conexão de Internet**, especifique como o Provedor em execução no servidor VMM se conecta à Internet. Selecione *Usar configurações de proxy padrão do sistema* para usar as configurações de conexão com a Internet definidas no servidor.
 
-	![Configurações da Internet](./media/site-recovery-vmm-san/VMMASRRegisterProxyDetailsScreen.png) - Se quiser usar um proxy personalizado, configure-o antes de instalar o Provedor. Quando você define as configurações personalizadas de proxy, um teste é executado para verificar a conexão proxy. - Se você usar um proxy personalizado, ou o proxy padrão exigir autenticação, será necessário inserir detalhes do proxy, incluindo o endereço do proxy e a porta. - As urls a seguir devem estar acessíveis do servidor VMM e dos hosts Hyper-v - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Permita os endereços IP descritos em [Intervalos de IPs do Datacenter do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
+	![Configurações da Internet](./media/site-recovery-vmm-san/VMMASRRegisterProxyDetailsScreen.png) - Se quiser usar um proxy personalizado, você deverá configurá-lo antes de instalar o provedor. Quando você define as configurações personalizadas de proxy, um teste é executado para verificar a conexão proxy. - Se você usar um proxy personalizado, ou o proxy padrão exigir autenticação, será necessário inserir detalhes do proxy, incluindo o endereço do proxy e a porta. - As urls a seguir devem estar acessíveis do servidor VMM e dos hosts Hyper-v - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Permita os endereços IP descritos em [Intervalos de IPs do Datacenter do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 
 	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho Configurações, expanda Segurança, clique em contas Executar como e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
 
@@ -239,11 +239,11 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 
 8. Clique em *Avançar* para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia *Servidores VMM* da página **Servidores** no cofre.
 
->[AZURE.NOTE]O Provedor do Azure Site Recovery também pode ser instalado usando a linha de comando a seguir. Esse método pode ser usado para instalar o provedor de um NÚCLEO de Servidor para o Windows Server 2012 R2
+>[AZURE.NOTE]O Provedor do Azure Site Recovery também pode ser instalado usando a linha de comando a seguir. Esse método pode ser usado para instalar o provedor em um NÚCLEO de Servidor para o Windows Server 2012 R2
 >
 >1. Baixar o arquivo de instalação do Provedor e a chave de registro em uma pasta, por exemplo, C:\\ASR
 >2. Parar o Serviço System Center Virtual Machine Manager
->3. Extrair o instalador do provedor, executando os comandos abaixo em um prompt de comando com privilégios de **Administrador** 
+>3. Extrair o instalador do provedor, executando os comandos abaixo em um prompt de comando com privilégios de **Administrador**
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -262,7 +262,7 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
  - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
  - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
  - **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).
- - **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação). 
+ - **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação).
 
 
 ## Etapa 4: mapear as matrizes e pools de armazenamento
@@ -329,7 +329,7 @@ Depois que um grupo de armazenamento estiver replicando, habilite a proteção p
 
 
 	![Habilitar proteção](./media/site-recovery-vmm-san/SRSAN_EnableProtection.png)
-	
+
 
 <P>Depois que as máquinas virtuais forem habilitadas para proteção, elas aparecerão no console do Azure Site Recovery. Você pode exibir propriedades da máquina virtual, acompanhar o status e o failover de grupos de replicação que contêm várias máquinas virtuais. Observe que na replicação de SAN, todas as máquinas virtuais associadas a um grupo de replicação devem fazer failover juntas. Isso ocorre porque o failover ocorre na camada de armazenamento pela primeira vez. É importante agrupar seus grupos de replicação corretamente e colocar apenas as máquinas virtuais associadas juntas.</P>
 
@@ -344,8 +344,8 @@ Teste a implantação para garantir que as máquinas virtuais e os dados execute
 
 4. Em **Selecionar Máquina Virtual**, selecione os grupos de replicação. Todas as máquinas virtuais associadas ao grupo de replicação serão selecionadas e adicionadas ao plano de recuperação. Essas máquinas virtuais são adicionadas ao grupo padrão do plano de recuperação — Grupo 1. Você pode adicionar mais grupos se necessário. Observe que, depois da replicação, as máquinas virtuais serão inicializadas de acordo com a ordem dos grupos de plano de recuperação.
 
-	![Adicionar máquinas virtuais](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)	
-5. Depois que um plano de recuperação tiver sido criado, ele aparecerá na lista da guia **Planos de Recuperação**. 
+	![Adicionar máquinas virtuais](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
+5. Depois que um plano de recuperação tiver sido criado, ele aparecerá na lista da guia **Planos de Recuperação**.
 6. Na guia **Planos de Recuperação**, selecione o plano e clique em **Failover de Teste**.
 7. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Observe que com essa opção habilitada a falha em máquinas virtuais de réplica não será conectada a nenhuma rede. Isso irá testar se a máquina virtual falha conforme o esperado, mas não testa seu ambiente de rede de replicação. Se você quiser executar um failover de teste mais abrangente, confira <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Testar uma implantação local no MSDN</a>.
 
@@ -381,7 +381,5 @@ A partir da guia **Trabalhos** você exibe os trabalhos, realiza busca detalhada
 A partir de **Painel**, você pode baixar as últimas versões dos arquivos de instalação do Provedor e do Agente, obtenha informações de configuração para o cofre, consulte o número de máquinas virtuais que tem a proteção gerenciada pelo cofre, veja os trabalhos recentes, grencie o certificado do cofre e sincronize novamente as máquinas virtuais.
 
 Para saber mais sobre a interação com trabalhos e o painel, confira [Operações e monitoramento](http://go.microsoft.com/fwlink/?LinkId=398534).
-	
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

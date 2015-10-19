@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="ricksal"/>
 
 # Adicionar a sincronização de dados Offline para seu aplicativo de serviços móveis Android
@@ -33,7 +33,6 @@ Se você estiver offline conectado ou não, conflitos podem ocorrer sempre que v
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-
 ## Atualizar o aplicativo para dar suporte à sincronização offline
 
 Com sincronização offline você lê e grava a partir uma *tabela de sincronização* (usando a interface *IMobileServiceSyncTable*), que é parte de um banco de dados **SQL Light**no dispositivo.
@@ -48,14 +47,14 @@ Para enviar e receber alterações entre o dispositivo e os serviços móveis do
 2. Adicione as seguintes instruções de **importação** a *ToDoActivity.java*:
 
 		import java.util.Map;
-		
+
 		import android.widget.Toast;
-		
-		import com.microsoft.windowsazure.mobileservices.table.query.Query; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore; 
+
+		import com.microsoft.windowsazure.mobileservices.table.query.Query;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
 
 3. Na parte superior da classe `ToDoActivity`, altere a declaração da variável `mToDoTable` de uma classe `MobileServiceTable<ToDoItem>` para uma classe `MobileServiceSyncTable<ToDoItem>`.
 
@@ -109,7 +108,7 @@ Para enviar e receber alterações entre o dispositivo e os serviços móveis do
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
 				new AsyncTask<Void, Void, Void>() {
-	
+
 					@Override
 					protected Void doInBackground(Void... params) {
 						try {
@@ -136,7 +135,7 @@ Para enviar e receber alterações entre o dispositivo e os serviços móveis do
 	Isso faz com que o dispositivo na inicialização para sincronizar com a tabela do Azure. Caso contrário, exibirá o último conteúdo offline do repositório local.
 
 
- 
+
 9. Atualize o código no método `refreshItemsFromTable` para usar esta consulta (primeira linha de código dentro do bloco `try`):
 
 		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
@@ -162,8 +161,8 @@ Quando você pressiona o botão, uma nova tarefa em segundo plano é iniciada e 
 
 Vamos testar os cenários a seguir.
 
-1. Adicione alguns novos itens ao seu dispositivo; 
-2. Certifique-se de que os itens não aparecem no portal; 
+1. Adicione alguns novos itens ao seu dispositivo;
+2. Certifique-se de que os itens não aparecem no portal;
 3. a seguir, pressione **Atualizar** e verifique se eles são exibidos.
 4. Altere ou adicione um item no portal, pressione **Atualizar** e verifique se as alterações apareceram em seu dispositivo.
 
@@ -212,7 +211,6 @@ One thing which is important to point out: if there are pending changes in the l
 
 
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]: mobile-services-android-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
@@ -221,4 +219,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [Tutorial de Início Rápido dos Serviços Móveis]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -3,7 +3,7 @@
 	description="Implante facilmente um farm de três ou nove servidores do SharePoint com modelos do Gerenciador de Recursos e o Portal de Visualização do Azure, Azure PowerShell ou CLI do Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/29/2015"
-	ms.author="davidmu"/>
+	ms.date="10/05/2015"
+	ms.author="josephd"/>
 
 # Implantar farms do SharePoint com os modelos do Gerenciador de Recursos do Azure
 
@@ -37,17 +37,18 @@ Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recurso
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Para o painel **Modelo**, clique em **Salvar**.
-2.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
-3.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
-4.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
-5.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
-6.	Se for necessário, clique em **Termos legais** para rever os termos e o contrato de utilização do modelo.
+1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
+2.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
+3.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
+4.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
+6.	Clique em **Termos legais** para examinar os termos e o contrato de utilização do modelo.
 7.	Clique em **Criar**.
 
 Dependendo do modelo, pode levar algum tempo para o Azure criar a carga de trabalho. Ao concluir, você terá um novo farm de três servidores do SharePoint em seu grupo de recursos novos ou existentes.
 
 ### Azure PowerShell
+
+> [AZURE.NOTE]Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0.0 e posteriores. Você pode verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**. Os blocos de comandos do Azure PowerShell neste artigo estão sendo testados e atualizados a fim de dar suporte aos novos cmdlets nas versões 1.0.0 e posteriores do Azure PowerShell. Agradecemos sua paciência.
 
 Antes de começar, verifique se você tem a versão correta do Azure PowerShell instalada, faça logon e alterne para o novo modo do Gerenciador de Recursos. Para obter detalhes, clique [aqui](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
 
@@ -71,7 +72,7 @@ Aqui está um exemplo.
 
 Em seguida, execute o bloco de comando no prompt do Azure PowerShell.
 
-Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois de especificar todos os valores de parâmetro, o **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
+Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois que você especificar todos os valores do parâmetro, **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
 
 Quando a execução do modelo for concluída, você terá um novo farm de três servidores do SharePoint em seu novo grupo de recursos.
 
@@ -92,7 +93,7 @@ Aqui está um exemplo.
 	azure group create sp3serverfarm eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json sp3serverfarm spdevtest
 
-Ao executar o comando **azure group deployment create**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Quando você tiver especificado todos os valores de parâmetro, o Azure criará e configurará as máquinas virtuais.
+Ao executar o comando **azure group deployment create**, você será solicitado a fornecer os valores para uma série de parâmetros. Quando você tiver especificado todos os valores de parâmetro, o Azure criará e configurará as máquinas virtuais.
 
 Agora você tem um novo farm de três servidores do SharePoint em seu novo grupo de recursos.
 
@@ -104,17 +105,16 @@ Para um farm do SharePoint Server 2013 de alta disponibilidade, um modelo do Ger
 
 ### Portal de visualização do Azure
 
-Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o portal de visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
+Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Para o painel **Modelo**, clique em **Salvar**.
-2.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
-3.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
-4.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
-5.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
-6.	Se for necessário, clique em **Termos legais** para rever os termos e o contrato de utilização do modelo.
-7.	Clique em **Criar**.
+1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
+2.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
+3.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
+4.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
+5.	Clique em **Termos legais** para examinar os termos e o contrato de utilização do modelo.
+6.	Clique em **Criar**.
 
 Dependendo do modelo, pode levar algum tempo para o Azure criar a carga de trabalho. Ao concluir, você terá um novo farm de nove servidores do SharePoint em seu grupo de recursos novos ou existentes.
 
@@ -142,7 +142,7 @@ Aqui está um exemplo.
 
 Em seguida, execute o bloco de comando no prompt de comando do Azure PowerShell.
 
-Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois de especificar todos os valores de parâmetro, o **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
+Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois que você especificar todos os valores do parâmetro, **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
 
 Quando a execução do modelo for concluída, você terá um novo farm de nove servidores do SharePoint em seu novo grupo de recursos.
 
@@ -163,12 +163,14 @@ Aqui está um exemplo.
 	azure group create sphaserverfarm eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json sphaserverfarm spdevtest
 
-Ao executar o comando **azure group deployment create**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Quando você tiver especificado todos os valores de parâmetro, o Azure criará e configurará as máquinas virtuais.
+Ao executar o comando **azure group deployment create**, você será solicitado a fornecer os valores para uma série de parâmetros. Quando você tiver especificado todos os valores de parâmetro, o Azure criará e configurará as máquinas virtuais.
 
 Quando a execução do modelo for concluída, você terá, então, um novo farm de nove servidores do SharePoint Server 2013 em seu novo grupo de recursos.
 
 
 ## Recursos adicionais
+
+[Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e o Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
@@ -182,4 +184,4 @@ Quando a execução do modelo for concluída, você terá, então, um novo farm 
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

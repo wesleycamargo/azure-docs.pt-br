@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Enviar notificações por push aos usuários autenticados (Universal para Windows 8.1) | Microsoft Azure" 
+	pageTitle="Enviar notificações por push aos usuários autenticados (Universal para Windows 8.1) | Serviços Móveis do Azure" 
 	description="Saiba como usar os Serviços Móveis do Azure para enviar notificações por push a um usuário autenticado específico que está executando seu aplicativo universal para Windows 8.1." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="10/05/2015" 
 	ms.author="glenga"/>
 
 # Enviar notificações por push para usuários autenticados
@@ -30,9 +30,9 @@ Este tutorial é compatível com aplicativos da Windows Store e da Loja do Windo
 
 Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais dos Serviços Móveis:
 
-+ [Introdução à autenticação]<br/>Adiciona um requisito de logon ao aplicativo de amostra TodoList.
++ [Introdução à autenticação] Adiciona um requisito de logon ao aplicativo de amostra TodoList.
 
-+ [Introdução às notificações por push]<br/>Configura o aplicativo de amostra TodoList para notificações por push usando Hubs de Notificação.
++ [Introdução às notificações por push] Configura o aplicativo de amostra TodoList para notificações por push usando Hubs de Notificação.
 
 Depois de ter concluído ambos os tutoriais, você pode evitar que usuários não autenticados se registrem para notificações por push de seu serviço móvel.
 
@@ -66,4 +66,4 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

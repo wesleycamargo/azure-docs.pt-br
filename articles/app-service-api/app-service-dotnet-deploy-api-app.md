@@ -124,4 +124,4 @@ Em seguida, faça uma alteração na definição de API e veja a alteração no 
 Você viu como os recursos de implantação direta do Visual Studio facilitam o processo de iteração e implantação rapidamente e testam se sua API funciona corretamente. No [próximo tutorial](../app-service-dotnet-remotely-debug-api-app.md), você verá como depurar seu aplicativo de API enquanto ele é executado no Azure.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

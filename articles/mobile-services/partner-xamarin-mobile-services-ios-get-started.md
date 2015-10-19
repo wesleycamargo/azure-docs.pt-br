@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Serviços Móveis para aplicativos iOS do Xamarin"
+	pageTitle="Introdução aos Serviços Móveis para aplicativos iOS do Xamarin | Microsoft Azure"
 	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento do Xamarin iOS."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -12,23 +12,23 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="hero-article"
+	ms.date="10/06/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin.iOS usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples <em>To do list</em> que armazena dados do aplicativo no novo serviço móvel.
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin.iOS usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples *To do list* que armazena dados do aplicativo no novo serviço móvel.
 
 Se você preferir assistir a um vídeo, o clipe abaixo segue as mesmas etapas deste tutorial.
 
 Vídeo: “Introdução aos Serviços Móveis do Xamarin e do Azure" com Craig Dunn, desenvolvedor evangelista para Xamarin (duração: 10:05 min)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
-
-
 
 Uma captura de tela do aplicativo completo está disponível abaixo:
 
@@ -98,13 +98,16 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 ## Próximas etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
 
-* [Introdução aos dados]<br/>Saiba como adicionar uma nova tabela a um serviço móvel, em seguida, ler e gravar em relação a essa tabela.
+* [Introdução à sincronização de dados offline] Saiba como o início rápido usa dados offline para tornar o seu aplicativo responsivo e robusto.
 
-* [Introdução à sincronização de dados offline] <br/>Saiba como o início rápido usa dados offline para tornar o seu aplicativo responsivo e robusto.
+* [Introdução à autenticação] Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 
-* [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
+* [Introdução às notificações por push] Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
 
-* [Introdução às notificações por push] <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
+* [Como usar o cliente do Componente Xamarin para os Serviços Móveis do Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Saiba como consultar o serviço móvel, trabalhar com dados e acessar as APIs personalizadas.
+  
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -124,7 +127,6 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 
 <!-- URLs. -->
-[Introdução aos dados]: partner-xamarin-mobile-services-ios-get-started-data.md
 [Introdução à sincronização de dados offline]: mobile-services-xamarin-ios-get-started-offline-data.md
 [Introdução à autenticação]: partner-xamarin-mobile-services-ios-get-started-users.md
 [Introdução às notificações por push]: partner-xamarin-mobile-services-ios-get-started-push.md
@@ -134,4 +136,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -203,6 +203,10 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 ## Notas de versão do emulador de armazenamento
 
+### Versão 4.2
+
+- O emulador de armazenamento agora dá suporte à versão 2015-04-05 dos serviços de armazenamento dos pontos de extremidade dos serviços de Blob, Fila e Tabela.
+
 ### Versão 4.1
 
 - O emulador de armazenamento agora dá suporte à versão 2015-02-21 dos serviços de armazenamento dos pontos de extremidade de serviço Blob, Fila e Tabela, com exceção dos novos recursos de Blob de Anexo. 
@@ -228,4 +232,4 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 - A versão 2013-08-15 dos serviços de armazenamento do Azure agora tem total suporte. (Anteriormente nesta versão só tinha suporte do emulador de armazenamento versão 2.2.1 Preview.)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

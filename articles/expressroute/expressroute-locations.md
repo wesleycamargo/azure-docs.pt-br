@@ -66,7 +66,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **[InterCloud](https://www.intercloud.com/)** | Suportado | Sem suporte | Amsterdã, Londres, Cingapura, Washington, D.C. |
 | **Internet Solutions - Cloud Connect** | Suportado | Sem suporte | Amsterdã, Londres |
 | **Interxion** | Suportado | Sem suporte | Amsterdã |
-| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Sem suporte | Chicago, Dallas, Londres, Seattle, Vale do Silício, Washington, D.C. |
+| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Sem suporte | Amsterdã, Chicago, Dallas, Londres, Seattle, Vale do Silício, Washington, D.C. |
 | **Megaport** | Suportado | Sem suporte | Melbourne, Sydney |
 | **MTN** | Suportado | Sem suporte | Londres |
 | **NTT Communications** | Em breve | Sem suporte | Tóquio + |
@@ -127,4 +127,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 - Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos para Rota Expressa](expressroute-prerequisites.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

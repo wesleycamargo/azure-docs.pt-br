@@ -127,7 +127,7 @@ Os Serviços de Mídia do Azure também permitem que você adicione criptografia
 	
 	}
 
->[AZURE.NOTE]Ao criptografar com Widevine, você só seria capaz de fornecer usando um DASH. Certifique-se de especificar DASH (2) no protocolo de fornecimento de ativos.
+>[AZURE.NOTE]Ao criptografar com Widevine, você só seria capaz de fornecer usando um DASH. Certifique-se de especificar DASH no protocolo de fornecimento de ativos.
 
 
 ##Política de entrega de ativos DynamicEnvelopeEncryption 
@@ -328,4 +328,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

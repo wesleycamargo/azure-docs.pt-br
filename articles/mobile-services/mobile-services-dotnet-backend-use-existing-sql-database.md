@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="08/01/2015"
 	ms.author="glenga"/>
 
 
@@ -613,6 +613,6 @@ Observe que as duas implementações do controlador tornam exclusivo o uso dos D
 
     }
 
-Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço. Para saber mais, consulte [Adicionar Serviços Móveis a um aplicativo existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
+Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Como usar a máquina de suporte com o Azure"
-   description="Mostra como colocar em funcionamento o Azure com Máquina de Suporte no Ubuntu."
+   pageTitle="Como usar a máquina de suporte com o Azure | Microsoft Azure"
+   description="Mostra como colocar em funcionamento o Azure com Máquina de Suporte no Ubuntu usando o modelo de implantação clássico."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -211,6 +212,5 @@ Vá para o [guia do usuário Docker](https://docs.docker.com/userguide/) e crie 
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
- 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

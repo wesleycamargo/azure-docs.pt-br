@@ -21,10 +21,7 @@
 
 Este tópico mostra como usar o SDK .NET dos Serviços de Mídia para codificar um ativo e gerar miniaturas usando o Codificador de Mídia Padrão. O tópico define as predefinições de miniatura XML e JSON que você pode usar para criar uma tarefa que faça a codificação e gere miniaturas ao mesmo tempo. [Este](https://msdn.microsoft.com/library/mt269962.aspx) documento contém descrições dos elementos que são usados por essas predefinições.
 
-As seguintes considerações se aplicam:
-
-- O uso de carimbos explícitos para Início/Etapa/Intervalo pressupõe que a fonte de entrada tem duração de pelo menos 1 minuto.
-
+Certifique-se de examinar a seção [Considerações](media-services-dotnet-generate-thumbnail-with-mes.md#considerations).
 
 ##Exemplo
 
@@ -32,7 +29,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 - Crie um trabalho de codificação.
 - Obtenha uma referência para o Media Encoder Standard.
-- Carregue a predefinição [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) que contêm a codificação de predefinição, assim como as informações necessárias para gerar miniaturas. Você pode salvar esse [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) em um arquivo e usar o código a seguir para carregar o arquivo.
+- Carregue a predefinição [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) que contém a codificação predefinida, assim como as informações necessárias para gerar miniaturas. Você pode salvar esse [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) em um arquivo e usar o código a seguir para carregar o arquivo.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
@@ -355,6 +352,25 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
 	  </Outputs>
 	</Preset>
 
+##Considerações
+
+As seguintes considerações se aplicam:
+
+- O uso de carimbos explícitos para Início/Etapa/Intervalo pressupõe que a fonte de entrada tem duração de pelo menos 1 minuto.
+- Elementos de Jpg/Png/BmpVideo têm atributos de cadeia de caracteres de Início, Etapa e Intervalo que podem ser interpretados como:
+
+	- Número de quadro se eles forem números inteiros não negativos, por exemplo: "Start": "120",
+	- Relativos à duração da origem se expressos com sufixo %, por exemplo: "Start": "15%" OU
+	- Carimbo de data/hora se expressos no formato HH:MM:SS… Por exemplo, "Start": "00:01:00"
+
+	Você pode combinar as notações como desejar.
+	
+	Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
+	
+	- Padrões: Start:{Best}
+- O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o AMS corresponderá JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
+
+
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
 Você pode exibir os roteiros de aprendizagem do AMS aqui:
@@ -366,4 +382,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

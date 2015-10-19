@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Usando dados offline nos Serviços Móveis (Xamarin iOS) | Microsoft Azure"
-	description="Saiba como usar serviços móveis do Azure para cache e sincronização de dados offline no aplicativo iOS Xamarin"
-	documentationCenter="xamarin"
-	authors="lindydonna"
-	editor="wesmc"
-	manager="dwrede"
+	pageTitle="Usando dados offline nos Serviços Móveis (Xamarin iOS) | Microsoft Azure" 
+	description="Saiba como usar serviços móveis do Azure para cache e sincronização de dados offline no aplicativo iOS Xamarin" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	editor="wesmc" 
+	manager="dwrede" 
 	services="mobile-services"/>
 
 <tags 
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
 	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
@@ -176,7 +176,6 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [Tratando conflitos com o suporte offline para Serviços Móveis]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
 [Tratando conflitos com o suporte offline para os Serviços Móveis]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
 [Tratando conflitos com suporte offline para Serviços Móveis]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Introdução aos Serviços Móveis]: mobile-services-ios-get-started.md
 [Como usar a biblioteca de cliente Componente Xamarin para os Serviços Móveis do Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Exclusão Reversível]: mobile-services-using-soft-delete.md
@@ -185,4 +184,4 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [extensão Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

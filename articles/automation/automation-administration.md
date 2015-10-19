@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2015"
+   ms.date="10/01/2015"
    ms.author="bwren" />
 
 # Administração de Automação do Azure
@@ -60,4 +60,4 @@ Não é possível recuperar o valor de variáveis criptografadas nem o campo de 
 
 Você não pode exportar certificados da Automação do Azure. Você deve garantir que todos os certificados estejam disponíveis fora do Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

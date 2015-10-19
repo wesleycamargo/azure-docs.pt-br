@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -90,9 +90,13 @@ Para obter instruções sobre como alocar recursos em um cluster do Spark, consu
 
 ### Criar um aplicativo de streaming usando o Zeppelin
 
-1. No [Portal de Visualização do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
+1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
-2. Inicie o bloco de anotações do Zeppelin. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de notas Zeppelin**. Quando solicitado, insira as credenciais de administrador para o cluster. Siga as instruções na página que se abre para iniciar o bloco de anotações.
+2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de notas Zeppelin**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+
+	> [AZURE.NOTE]Você também pode acessar o Bloco de Notas Zeppelin de seu cluster abrindo a seguinte URL no navegador. Substitua __NOMEDOCLUSTER__ pelo nome do cluster:
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
 2. Crie um novo bloco de anotações. No painel de cabeçalho, clique em **Bloco de Anotações** e, na lista suspensa, clique em **Criar Nova Anotação**.
 
@@ -188,4 +192,4 @@ Instruções sobre como executar essas etapas e um exemplo de aplicativo de stre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

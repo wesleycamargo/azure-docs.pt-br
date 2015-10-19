@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Anexar um disco a uma VM do Linux | Microsoft Azure"
-	description="Saiba como anexar um disco de dados a uma máquina virtual do Linux que executa o Azure e inicializá-lo para que esteja pronto para uso."
+	description="Saiba como anexar um disco de dados a uma máquina virtual do Azure que executa o Linux e inicializá-lo para que esteja pronto para uso."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -150,7 +150,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 
 	Ou, em sistemas baseados em SUSE Linux, talvez você precise usar um formato ligeiramente diferente:
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
 	Agora você pode testar se o sistema de arquivo está montado corretamente ao simplesmente desmontar e montar novamente o sistema de arquivos, ou seja, usando o ponto de montagem de exemplo `/datadrive` criado nas etapas anteriores:
 
@@ -173,4 +173,4 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

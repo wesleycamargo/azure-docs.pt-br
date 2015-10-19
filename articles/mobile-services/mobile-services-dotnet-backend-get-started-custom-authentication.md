@@ -390,7 +390,7 @@ Esta seção descreve as etapas necessárias para acessar os pontos de extremida
 
 	Só é necessário chamar o ponto de extremidade **CustomRegistration** uma vez para criar uma conta para um determinado usuário, desde que você mantenha as informações de logon do usuário na tabela Contas. Para obter exemplos de como chamar uma API personalizada em várias plataformas de cliente com suporte, consulte o artigo [API Personalizada nos Serviços Móveis do Azure – SDKs cliente](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 	 
-	> [AZURE.IMPORTANT]Como esta etapa de provisionamento de usuário ocorre apenas uma vez, você deve considerar criar a conta de usuário usando um método diferente. Em um ponto de extremidade de registro público, você também deve considerar implementar um processo de verificação baseado em email ou SMS ou alguma outra proteção para evitar a geração de contas fraudulentas. Você pode usar o Twilio para enviar mensagens SMS a partir dos Serviços Móveis. Para saber mais, consulte [Como enviar uma mensagem SMS](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms). Você também pode usar o SendGrid para enviar emails a partir do Mobile Services. Para saber mais, consulte [Enviar email a partir dos Serviços Móveis com o SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+	> [AZURE.IMPORTANT]Como esta etapa de provisionamento de usuário ocorre apenas uma vez, você deve considerar criar a conta de usuário usando um método diferente. Em um ponto de extremidade de registro público, você também deve considerar implementar um processo de verificação baseado em email ou SMS ou alguma outra proteção para evitar a geração de contas fraudulentas. Você pode usar o Twilio para enviar mensagens SMS a partir dos Serviços Móveis. Você também pode usar o SendGrid para enviar emails a partir do Mobile Services. Para saber mais sobre como usar o SendGrid, consulte [Enviar email a partir dos Serviços Móveis com o SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
 	
 3. Use método **invokeApi** apropriado novamente, desta vez para chamar o ponto de extremidade **CustomRegistration**, passando o nome de usuário fornecido pelo tempo de execução e a senha no corpo da mensagem.
 
@@ -420,4 +420,4 @@ Assim, concluímos este tutorial.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

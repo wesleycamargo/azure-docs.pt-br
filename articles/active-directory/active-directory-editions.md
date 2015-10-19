@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/01/2015"
 	ms.author="markvi"/>
 
 # Edições do Active Directory do Azure
@@ -54,11 +54,11 @@ A edição Active Directory Premium é uma oferta paga do Active Directory do Az
 
 - **Multi-Factor Authentication** - O Multi-Factor Authentication é agora incluído com o Premium e pode ajudá-lo a proteger acessos a aplicativos locais (VPN, RADIUS, etc.), Azure, Microsoft Online Services como Office 365 e Dynamics CRM Online e milhares de serviços de nuvem não MS previamente integrados ao Active Directory do Azure. Simplesmente habilite a Multi-Factor Authentication para identidades do Active Directory do Azure; assim, os usuários serão solicitados a configurar uma verificação adicional na próxima vez em que entrarem.
 
-    Para obter mais informações, consulte [O que é o Azure Multi-Factor Authentication?](multi-factor-authentication.md)
+    Para saber mais, consulte [O que é o Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 
-- **MIM (Microsoft Identity Manager)** - a Premium Edition vem com a opção de conceder direitos de uso de um servidor MIM (e CALs) em sua rede local para dar suporte a qualquer combinação de soluções de identidade híbridas. Isso é uma ótima opção se você tiver uma variação de diretórios e bancos de dados locais que você deseja sincronizar diretamente ao Active Directory do Azure. Não há nenhum limite para o número de servidores FIM que você pode usar, no entanto, CALs MIM são concedidos com base na alocação de uma licença de usuário do Active Directory Premium do Azure.
+- **Microsoft Identity Manager** - a Premium Edition vem com a opção de conceder direitos de uso de um servidor MIM (e CALs) em sua rede local para dar suporte a qualquer combinação de soluções de identidade híbridas. Isso é uma ótima opção se você tiver uma variação de diretórios e bancos de dados locais que você deseja sincronizar diretamente ao Active Directory do Azure. Não há nenhum limite para o número de servidores MIM que você pode usar. No entanto, CALs MIM são concedidos com base na alocação de uma licença de usuário do Active Directory Premium do Azure.
 
-    Para obter mais informações, consulte [Implantar MIM 2010 R2](https://www.microsoft.com/server-cloud/products/forefront-identity-manager/features.aspx).
+    Para saber mais, consulte [Microsoft Identity Manager](http://www.microsoft.com/pt-BR/server-cloud/products/microsoft-identity-manager/default.aspx).
 
 - **SLA empresarial de 99,9%** - garantimos pelo menos 99,9% de disponibilidade do serviço no Active Directory Premium do Azure.
 
@@ -450,4 +450,4 @@ Os recursos a seguir estão atualmente em visualização pública e serão adici
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 - [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

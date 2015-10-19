@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="10/01/2015"
 	ms.author="tomfitz"/>
 
 # Criar um aplicativo Web do WordPress no Serviço de Aplicativo do Azure
@@ -23,8 +23,8 @@
 ## <a name="nextsteps"></a>Próximas etapas
 Você aprendeu como criar e implantar um aplicativo Web por meio da galeria. Para saber mais sobre como criar, configurar, implantar e dimensionar aplicativos Web do Azure, veja estes recursos:
 
-- [Criar um aplicativo Web do PHP-MySQL do Azure e implantá-lo usando o Git](/pt-BR/develop/php/tutorials/website-w-mysql-and-git/)
-- [Crie tipos adicionais de aplicativos usando o PHP e o Azure](/pt-BR/develop/php/tutorials/)
+- [Criar um aplicativo Web do PHP-MySQL do Azure e implantá-lo usando o Git](/PT-BR/develop/php/tutorials/website-w-mysql-and-git/)
+- [Crie tipos adicionais de aplicativos usando o PHP e o Azure](/PT-BR/develop/php/tutorials/)
 
 Para obter mais informações, veja também o [Centro de Desenvolvedores do PHP](/develop/php/).
 
@@ -32,4 +32,4 @@ Para obter mais informações, veja também o [Centro de Desenvolvedores do PHP]
 * Para obter um guia sobre a alteração dos Sites para o Serviço de Aplicativo, consulte [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, veja a [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015"
+	ms.date="10/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -50,6 +50,6 @@ Após criar um certificado de gerenciamento (arquivo .cer somente com a chave p�
 
 ## Próximas etapas
 
-Agora que você tem um certificado de gerenciamento associado a uma assinatura, você pode (depois de ter instalado localmente o certificado correspondente) conectar-se programaticamente à [API REST do Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/ee460799.aspx) e automatizar os diversos recursos do Azure que também estão associados à assinatura.
+Agora que você tem um certificado de gerenciamento associado a uma assinatura, você pode (depois de ter instalado localmente o certificado correspondente) conectar-se programaticamente à [API REST do Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/mt420159.aspx) e automatizar os diversos recursos do Azure que também estão associados à assinatura.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

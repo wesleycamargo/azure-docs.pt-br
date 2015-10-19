@@ -37,13 +37,13 @@ Este [documento][OS Platforms and hardware compatibility] descreve a compatibili
 
 ## SDKs do serviço de Hub IoT
 
-Os SDKs do serviço de IoT do Microsoft Azure contêm código que facilita a criação aplicativos que interagem diretamente com o Hub IoT para gerenciar dispositivos e segurança.
+Os SDKs do serviço de IoT do Microsoft Azure contêm código que facilita a criação aplicativos que interagem diretamente com o Hub IoT a fim de gerenciar dispositivos e segurança.
 
 O seguinte SDK de serviço IoT está disponível para download de GitHub:
 
 - [SDK do serviço IoT do Azure para Node.js][]
 
-## Documentação de referência de API
+## Documentação de referência online de API
 
 A seguir uma lista dos links para documentação de referência de API online para as bibliotecas do dispositivo IoT do Azure:
 
@@ -73,4 +73,4 @@ A seguir uma lista dos links para documentação de referência de API online pa
 [SDK do dispositivo IoT do Microsoft Azure para Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [REST do Hub IoT]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

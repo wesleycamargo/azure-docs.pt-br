@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Depurando um serviço de nuvem no Azure ou máquina virtual no Visual Studio | Microsoft Azure"
-	description="Depuração de um Serviço de Nuvem ou Máquina Virtual no Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Depuração de um Serviço de Nuvem ou Máquina Virtual no Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 # Depurando um serviço de nuvem ou máquina virtual do Azure no Visual Studio
 
@@ -42,7 +42,7 @@ O emulador simula o serviço de computação do Azure e o executa no ambiente lo
     **Observação:** quando você interrompe a execução ou a depuração do serviço, o emulador de computação local e o emulador de armazenamento não são interrompidos. Também é preciso pará-los explicitamente na área de notificação.
 
 
-## Depurando um serviço de nuvem no Azure
+## Depurar um perfil de serviço de nuvem no Azure
 
 Para depurar um serviço de nuvem em um computador remoto, você deve habilitar essa funcionalidade explicitamente quando implanta o serviço de nuvem para que os serviços exigidos (msvsmon.exe, por exemplo) sejam instalados nas máquinas virtuais que executam suas instâncias de função. Se você não habilitou a depuração remota quando publicou o serviço, será preciso publicar novamente o serviço com a depuração remota habilitada.
 
@@ -190,4 +190,4 @@ Os projetos ASP.NET do Visual Studio oferecem uma opção para criar uma máquin
 - Use o **Intellitrace** para coletar um log de chamadas e eventos de um servidor de liberação. Consulte [Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Use o **Diagnóstico do Azure** para registrar em log informações detalhadas do código em execução nas funções, estejam elas em execução no ambiente de desenvolvimento ou no Azure. Consulte [Coletando dados de log usando o Diagnóstico do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

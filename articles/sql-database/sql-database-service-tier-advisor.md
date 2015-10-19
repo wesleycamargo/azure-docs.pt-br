@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/22/2015"
+   ms.date="10/02/2015"
    ms.author="sstein"/>
 
 # Recomendações de camada de preços do Banco de Dados SQL
@@ -27,12 +27,16 @@ Obtenha as recomendações de tipo de preço durante as seguintes tarefas:
 
 - [Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um banco de dados SQL](sql-database-scale-up.md)
 - [Atualizar servidor do SQL Azure para V12](sql-database-v12-upgrade.md)
+- Navegue até seu servidor V12 - se os bancos de dados puderem se [beneficiar de um pool de banco de dados elástico](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), a folha do servidor exibirá uma mensagem indicando um pool recomendado. Clique na mensagem para criar o pool recomendado.
 - [Criar um pool de banco de dados elástico](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+
+
+
 
 
 ## Visão geral
 
-O serviço do Banco de Dados SQL analisa os requisitos atuais de desempenho e recursos avaliando o uso histórico de recursos de um banco de dados SQL. Além disso, a camada de serviço mínima aceitável é determinada com base no tamanho do banco de dados e nos recursos de [continuidade dos negócios](https://msdn.microsoft.com/library/azure/hh852669.aspx) habilitados.
+O serviço do Banco de Dados SQL analisa os requisitos atuais de desempenho e recursos avaliando o uso histórico de recursos de um banco de dados SQL. Além disso, a camada de serviço mínima aceitável é determinada com base no tamanho do banco de dados e nos recursos de [continuidade dos negócios](sql-database-business-continuity.md) habilitados.
 
 Com a análise dessas informações, são recomendados a camada de serviço e o nível de desempenho mais adequados para execução da carga de trabalho comum do banco de dados e manutenção do respectivo conjunto de recursos atuais.
 
@@ -55,9 +59,8 @@ Com base no uso do banco de dados, atualmente, podemos encontrar 2 categorias de
 Obtenha recomendações de camada de preços selecionando um banco de dados Web ou Business e clicando no bloco **Camada de preços**. (As recomendações de tipo de preço também estarão disponíveis quando você [Atualizar o Azure SQL Server para o V12](sql-database-v12-upgrade.md).)
 
 1. Entre no [Portal de Visualização do Azure](https://portal.azure.com/).
-2. Clique em **PROCURAR** no menu à esquerda.
-3. Clique em **Bancos de dados SQL** na folha **Procurar**.
-4. Na folha **Bancos de dados SQL**, clique no banco de dados que deseja que o serviço analise.
+2. Clique em **PROCURAR** > **bancos de dados SQL**.
+4. Na folha **Bancos de Dados SQL**, clique no banco de dados para o qual você deseja ver uma recomendação:
 
     ![Selecionar um banco de dados][1]
 
@@ -97,4 +100,4 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -40,9 +40,13 @@ Nesta seção, usamos o bloco de anotações do [Jupyter](https://jupyter.org) a
 
 Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos nos conectar à tabela Hive usando ferramentas de BI como Power BI e Tableau.
 
-1. No [Portal de Visualização do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**. 
- 
-2. Inicie o bloco de anotações do [Jupyter](https://jupyter.org). Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de anotações Jupyter**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
+1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
+
+2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de Notas Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+
+	> [AZURE.NOTE]Você também pode acessar o Bloco de Notas Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua __CLUSTERNAME__ pelo nome do seu cluster:
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 2. Crie um novo bloco de anotações. Clique em **Novo** e, em seguida, clique em **Python 2**.
 
@@ -66,9 +70,9 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 
 	 ![Status de um trabalho do bloco de anotações do Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Status de um trabalho do bloco de anotações do Jupyter")
 
-4. Carregar dados de exemplo em uma tabela temporária. Quando você provisiona um cluster do Spark no HDInsight, o arquivo de dados de exemplo, **hvac.csv**, é copiado para a conta de armazenamento associada em **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Carregar dados de exemplo em uma tabela temporária. Quando você provisiona um cluster Spark no HDInsight, o arquivo de dados de exemplo, **hvac.csv**, é copiado para a conta de armazenamento associada em **\\HdiSamples\\SensorSampleData\\hvac**.
 
-	Em uma célula vazia, cole o seguinte trecho e pressione **SHIFT + ENTER**. Esse trecho de código registra os dados em uma tabela Hive chamada **hvac**.
+	Em uma célula vazia, cole o seguinte trecho e pressione **SHIFT + ENTER**. Esse trecho registra os dados em uma tabela Hive chamada **hvac**.
 
 
 		# Create an RDD from sample data
@@ -116,7 +120,7 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 
 3. Na próxima tela, clique em **Spark** e, em seguida, clique em **Conectar**.
 
-4. Na página Spark no Azure HDInsight, forneça os valores para se conectar ao cluster do Spark e, em seguida, clique em **Conectar**.
+4. Na página Spark no Azure HDInsight, forneça os valores para se conectar ao cluster Spark e, em seguida, clique em **Conectar**.
 
 	![Conectar-se a um cluster do Spark no HDInsight](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Connect.Spark.png "Conectar-se a um cluster do Spark no HDInsight")
 
@@ -130,11 +134,11 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 
 	  ![Listar tabelas Hive](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Display.Tables.png "Listar tabelas Hive")
 
-7. Crie uma visualização para mostrar a variação entre a temperatura almejada e a temperatura real para cada edifício. Para fazer isso, arraste e solte campo o **BuildingID** em **Eixo** e os campos **ActualTemp**/**TargetTemp** em **Valor**.
+7. Crie uma visualização para mostrar a variação entre a temperatura almejada e a temperatura real para cada edifício. Para fazer isso, arraste e solte o campo **BuildingID** em **Eixo** e os campos **ActualTemp**/**TargetTemp** em **Valor**.
 
 	![Criar visualizações](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.1.png "Criar visualizações")
 
-	Além disso, selecione **Mapa da área** (mostrado em vermelho) para visualizar seus dados.
+	Além disso, selecione **Mapa da Área** (mostrado em vermelho) para visualizar seus dados.
 
 8. Por padrão, a visualização mostra a soma para **ActualTemp** e **TargetTemp**. Para os campos, na lista suspensa, selecione **Média** para obter uma média das temperaturas almejada e real para ambos os prédios.
 
@@ -156,7 +160,7 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 
 	![Conectar-se a um cluster do Spark](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Connect.png "Conectar-se a um cluster do Spark")
 
-	O menu suspenso de autenticação lista o **Serviço HDInsight do Microsoft** **Azure** como uma opção somente se você tiver instalado o [Driver ODBC do Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) no computador.
+	O menu suspenso de autenticação lista o **Serviço Microsoft Azure** **HDInsight** como uma opção somente se você tiver instalado o [Driver ODBC do Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) no computador.
 
 3. Na próxima tela, no menu suspenso **Esquema**, clique no ícone **Localizar** e clique em **padrão**.
 
@@ -208,4 +212,4 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

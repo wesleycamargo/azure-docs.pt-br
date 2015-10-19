@@ -86,9 +86,13 @@ Criaremos um aplicativo básico com Cordova para demonstrar a integração:
 	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
 	        --variable AZME_ENABLE_LOG=true|false
 
+*Ícone de Alcance do Android*: deve ser o nome do recurso sem qualquer extensão, nem o prefixo drawable (ex: mynotificationicon), e o arquivo de ícone deve ser copiado no seu projeto Android (plataforms/android/res/drawable)
+
+*Ícone de Alcance do iOS*: deve ser o nome do recurso com a extensão (ex: mynotificationicon.png), e o arquivo de ícone deve ser adicionado ao seu projeto do iOS com XCode (usando o Menu Adicionar Arquivos)
+
 ##<a id="monitor"></a>Habilitar monitoramento em tempo real
 
-1. No projeto Cordova - editar **www/js/index.js** para adicionar a chamada para o Mobile Engagement para declarar uma nova atividade uma vez que o evento *deviceReady* é recebido.
+1. No projeto Cordova - edite **www/js/index.js** para adicionar a chamada para o Mobile Engagement para declarar uma nova atividade uma vez que o evento *deviceReady* é recebido.
 
 		 onDeviceReady: function() {
 		        app.receivedEvent('deviceready');
@@ -134,7 +138,7 @@ Para permitir que o Mobile Engagement envie notificações por Push em seu nome,
 	
 	![][1]
 	
-2. Você será levado para a página de configurações em seu Portal do Engagement. A partir daí, clique na seção **Push Nativo**:
+2. Você será levado para a página de configurações em seu Portal do Engagement. Nele, clique na seção **Push Nativo**:
 	
 	![][2]
 
@@ -154,7 +158,7 @@ Para permitir que o Mobile Engagement envie notificações por Push em seu nome,
 
 ###Habilitar notificações por push no aplicativo Cordova
 
-Editar **www/js/index.js** para adicionar a chamada para o Mobile Engagement para solicitar notificações por push e declarar um manipulador:
+Edite **www/js/index.js** para adicionar a chamada para o Mobile Engagement para solicitar notificações por push e declarar um manipulador:
 
 	 onDeviceReady: function() {
 	        app.receivedEvent('deviceready');
@@ -167,9 +171,9 @@ Editar **www/js/index.js** para adicionar a chamada para o Mobile Engagement par
 
 **[iOS]**
 
-1. Nós usaremos o XCode para criar e implantar o aplicativo no dispositivo para testar as notificações por push já que o iOS permite apenas notificações por push para um dispositivo real. Vá para o local onde o projeto Cordova é criado e navegue até **...\\platforms\\ios**. Abra o arquivo .xcodeproj nativo no XCode. 
+1. Nós usaremos o XCode para criar e implantar o aplicativo no dispositivo para testar as notificações por push já que o iOS permite apenas notificações por push para um dispositivo real. Vá para o local no qual o projeto Cordova é criado e navegue até **...\\platforms\\ios**. Abra o arquivo .xcodeproj nativo no XCode. 
 	
-2. Crie e implante o aplicativo Cordova para o dispositivo iOS usando a conta que tem o perfil de provisionamento que contém o certificado que você acabou de carregar para o portal do Mobile Engagement e a Id do aplicativo que corresponde à que você forneceu ao criar o aplicativo Cordova. Você pode consultar o *Identificador de pacote* em seu arquivo **Resources*-info.plist** no XCode para fazer a correspondência.
+2. Crie e implante o aplicativo Cordova para o dispositivo iOS usando a conta que tem o perfil de provisionamento que contém o certificado que você acabou de carregar para o portal do Mobile Engagement e a Id do aplicativo que corresponde à que você forneceu ao criar o aplicativo Cordova. Você pode conferir o *Identificador de pacote* em seu arquivo **Resources*-info.plist** no XCode para fazer a correspondência.
 
 3. Você verá o popup iOS padrão em seu dispositivo dizendo que o aplicativo solicita de permissão para enviar notificações. Conceder permissão.
 
@@ -183,7 +187,7 @@ Você pode simplesmente usar o emulador para executar o aplicativo Android, já 
 
 Agora, vamos criar uma campanha de notificação por push simples que enviará um push para seu aplicativo executando o dispositivo:
 
-1. Navegue até a guia **Reach** no portal do Mobile Engagement
+1. Navegue até a guia **Reach** em seu portal do Mobile Engagement
 
 2. Clique em **Novo Comunicado** para criar sua campanha de push.
 
@@ -192,7 +196,7 @@ Agora, vamos criar uma campanha de notificação por push simples que enviará u
 3. Forneça entradas para criar sua campanha do **[Android]**
 	
 	- Forneça um **Nome** para sua campanha. 
-	- Selecione o **Tipo de Entrega** como *Sistema de notificação* - *Simples*
+	- Selecione o **Tipo de Entrega** como *Notificação do sistema* *Simples*
 	- Selecione o Horário de entrega como *"A Qualquer Momento"*
 	- Forneça um **Título** para a notificação que será a primeira linha no envio por push.
 	- Forneça uma **Mensagem** para a notificação, que servirá como o corpo da mensagem. 
@@ -202,19 +206,19 @@ Agora, vamos criar uma campanha de notificação por push simples que enviará u
 4. Forneça entradas para criar sua campanha do **[iOS]**
 
 	- Forneça um **Nome** para sua campanha. 
-	- Selecione o Tipo de entrega como *"Somente fora do aplicativo*"
+	- Selecione o Horário de entrega como *"Somente fora do aplicativo*"
 	- Forneça um **Título** para a notificação que será a primeira linha no envio por push.
 	- Forneça uma **Mensagem** para a notificação, que servirá como o corpo da mensagem. 
  
 	![][12]
 
-5. Role para baixo e, na seção de conteúdo, selecione **Somente notificação**
+5. Role para baixo e, na seção Conteúdo, selecione **Somente notificação**
 
 	![][8]
 
-6. [Opcional] Você também pode fornecer uma URL de ação. Certifique-se de que ele usa um esquema de URL fornecido ao configurar a variável **URL de REDIRECIONAMENTO de AZME** do plug-in, por exemplo, **myapp://test*.
+6. [Opcional] Você também pode fornecer uma URL de ação. Certifique-se de que ela usa um esquema de URL fornecido ao configurar a variável **URL de REDIRECIONAMENTO de AZME** do plug-in, por exemplo, **myapp://test*.
 
-7. Você concluiu a configuração da campanha mais básica possível. Agora, role para baixo novamente e clique no botão **Criar** para salvar sua campanha.
+7. Você concluiu a configuração da campanha mais básica possível. Agora role para baixo novamente e clique no botão **Criar** para salvar sua campanha.
 
 8. Por fim, **Ative** sua campanha
 	
@@ -241,4 +245,4 @@ Agora, vamos criar uma campanha de notificação por push simples que enviará u
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +17,8 @@
 	ms.author="scoriani"/>
 
 # DataStax no Ubuntu com um modelo do Gerenciador de Recursos
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos.
 
 O DataStax é um dos líderes reconhecidos da indústria em desenvolvimento e entrega de soluções baseadas no Apache Cassandra – a tecnologia de banco de dados distribuído NoSQL, com suporte comercial e pronta para empresas que é amplamente reconhecida como ágil, sempre ativa e escalonável de forma previsível para qualquer tamanho. O DataStax oferece as opções Enterprise (DSE) e Community (DSC). Ele também fornece recursos como computação na memória, segurança de nível corporativo, análise integrada rápida e eficiente e pesquisa empresarial.
 
@@ -364,7 +366,7 @@ Em particular, os seguintes modelos vinculados serão usados para essa implanta�
 -	**shared-resource.json**: contém a definição de todos os recursos que serão compartilhados na implantação. Alguns exemplos são as contas de armazenamento usadas para armazenar as redes virtuais e os discos do SO de uma VM.
 -	**opscenter-resources.json**: implanta uma VM do OpsCenter e todos os recursos relacionados, incluindo uma interface de rede e um endereço IP público.
 -	**opscenter-install-resources.json**: implanta a extensão de VM do OpsCenter (script personalizado para Linux) que invocará o arquivo de script Bash específico (opscenter.sh) necessário para configurar o serviço do OpsCenter nessa VM.
--	**ephemeral-nodes-resources.json**: implanta todas as VMs de nó de cluster e os recursos conectados (placas de rede, IPs privados, etc). Esse modelo também implantará extensões de VM (scripts personalizados para Linux) e invoca um script bash (dsenode.sh) para instalar fisicamente partes do Apache Cassandra em cada nó.
+-	**ephemeral-nodes-resources.json**: implanta todas as VMs de nó de cluster e os recursos conectados (placas de rede, IPs privados, etc.). Esse modelo também implantará extensões de VM (scripts personalizados para Linux) e invoca um script bash (dsenode.sh) para instalar fisicamente partes do Apache Cassandra em cada nó.
 
 Vejamos detalhadamente como este último modelo é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Esse conceito é conhecido como **loop de recursos**.
 
@@ -475,6 +477,6 @@ Essencialmente, essa abordagem sugere o seguinte:
 -	Para membros de um grupo de recursos idênticos (nós em um cluster etc.), crie modelos específicos que usam o loop de recursos para implantar várias instâncias com propriedades exclusivas.
 -	Para todas as tarefas pós-implantação (instalação de produtos, configurações etc.), use extensões de implantação de scripts e crie scripts específicos para cada tecnologia.
 
-Para obter mais informações, veja [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->
