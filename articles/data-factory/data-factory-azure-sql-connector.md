@@ -24,11 +24,11 @@ Este artigo descreve como você pode usar a Atividade de Cópia em uma Azure Dat
 
 O exemplo a seguir mostra:
 
-1. Um serviço vinculado do tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+1. Um serviço vinculado do tipo [AzureSqlDatabase](#azure-sql-linked-service-properties).
 2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties). 
+3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureSqlTable](#azure-sql-dataset-type-properties). 
 4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de Cópia que usa [SqlSource](#azure-sql-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia a cada hora dados pertencentes a uma série temporal de uma tabela no banco de dados SQL do Azure para um blob. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -44,6 +44,8 @@ O exemplo copia a cada hora dados pertencentes a uma série temporal de uma tabe
 	  }
 	}
 
+Consulte a seção [Serviço vinculado do SQL Azure](#azure-sql-linked-service-properties) para obter a lista de propriedades com o suporte deste serviço vinculado.
+
 **Serviço vinculado do armazenamento de Blob do Azure**
 
 	{
@@ -55,6 +57,8 @@ O exemplo copia a cada hora dados pertencentes a uma série temporal de uma tabe
 	    }
 	  }
 	}
+
+Consulte o artigo [Blob do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) para obter a lista de propriedades com o suporte deste serviço vinculado.
 
 **Conjunto de dados de entrada do SQL Azure**
 
@@ -84,6 +88,8 @@ Definir “external”: ”true” e especificar a política externalData inform
 	    }
 	  }
 	}
+
+Consulte a seção [Propriedades do tipo de conjunto de dados do SQL Azure](#azure-sql-dataset-type-properties) para obter a lista de propriedades com o suporte deste tipo de conjunto de dados.
 
 **Conjunto de dados de saída de Blob do Azure**
 
@@ -143,6 +149,8 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 	  }
 	}
 
+Consulte a seção [Propriedades do tipo de conjunto de dados do Blog do Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para obter a lista de propriedades com o suporte deste tipo de conjunto de dados.
+
 **Pipeline com Atividade de cópia**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **SqlSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
@@ -192,6 +200,16 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	   }
 	}
 
+> [AZURE.NOTE]No exemplo acima, **sqlReaderQuery** é especificado para o SqlSource. A Atividade de Cópia executa essa consulta em relação à fonte do Banco de Dados SQL do Azure para obter os dados.
+>  
+> Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usar parâmetros).
+>  
+> Se você não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, as colunas definidas na seção de estrutura do conjunto de dados JSON são usadas para criar uma consulta (selecione column1, column2 de mytable) para executar o Banco de Dados SQL do Azure. Se a definição de conjunto de dados não tiver a estrutura, todas as colunas serão selecionadas da tabela.
+
+
+Consulte a seção [Fonte Sql](#sqlsource) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) para obter a lista de propriedades com o suporte de SqlSource e de BlobSink.
+
+
 ## Exemplo: Copiar dados do Blob do Azure para o SQL Azure
 
 O exemplo a seguir mostra:
@@ -200,7 +218,7 @@ O exemplo a seguir mostra:
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
-4.	Um [pipeline](data-factory-create-pipelines.md) com Atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
+4.	Um [pipeline](data-factory-create-pipelines.md) com a atividade de Cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
 O exemplo copia os dados pertencentes a uma série temporal do blob do Azure para uma tabela no banco de dados SQL do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -217,6 +235,8 @@ O exemplo copia os dados pertencentes a uma série temporal do blob do Azure par
 	  }
 	}
 
+Consulte a seção [Serviço vinculado do SQL Azure](#azure-sql-linked-service-properties) para obter a lista de propriedades com o suporte deste serviço vinculado.
+
 **Serviço vinculado do armazenamento de Blob do Azure**
 
 	{
@@ -228,6 +248,8 @@ O exemplo copia os dados pertencentes a uma série temporal do blob do Azure par
 	    }
 	  }
 	}
+
+Consulte o artigo [Blob do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) para obter a lista de propriedades com o suporte deste serviço vinculado.
 
 **Conjunto de dados de entrada de Blob do Azure**
 
@@ -296,6 +318,8 @@ Os dados são coletados de um novo blob a cada hora (frequência: hora, interval
 	  }
 	}
 
+Consulte a seção [Propriedades do tipo de conjunto de dados do Blog do Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para obter a lista de propriedades com o suporte deste tipo de conjunto de dados.
+
 **Conjunto de dados de saída do SQL Azure**
 
 O exemplo copia dados para uma tabela chamada "MyTable" no SQL Azure. Você deve criar a tabela no SQL Azure com o mesmo número de colunas que você espera que o arquivo CSV de Blob contenha. Novas linhas são adicionadas à tabela a cada hora.
@@ -315,9 +339,11 @@ O exemplo copia dados para uma tabela chamada "MyTable" no SQL Azure. Você deve
 	  }
 	}
 
+Consulte a seção [Propriedades do tipo de conjunto de dados do SQL Azure](#azure-sql-dataset-type-properties) para obter a lista de propriedades com o suporte deste tipo de conjunto de dados.
+
 **Pipeline com Atividade de cópia**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo **source** está definido como **BlobSource** e o tipo **sink** está definido como **SqlSink**.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **BlobSource** e o tipo **sink** está definido como **SqlSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -364,6 +390,9 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	   }
 	}
 
+Consulte a seção [SqlSink](#sqlsink) e [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) para obter a lista de propriedades com o suporte de SqlSource e de BlobSink.
+
+
 ## Propriedades do serviço vinculado do SQL Server
 
 A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço de vinculado de SQL Azure.
@@ -373,7 +402,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 | type | A propriedade type deve ser definida como: AzureSqlDatabase | Sim |
 | connectionString | Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL Azure para a propriedade connectionString. | Sim |
 
-**Observação**: você precisa configurar o [Firewall de Banco de Dados SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Você precisa configurar o servidor de banco de dados para [permitir que os serviços do Azure acessem o servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se você estiver copiando dados para o SQL Azure, de fora do Azure, incluindo fontes de dados locais com o gateway de fábrica de dados, você precisa configurar o intervalo de endereços IP apropriado para o computador que está enviando dados para o SQL Azure.
+**Observação:** você precisa configurar o [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Você precisa configurar o servidor de banco de dados para [permitir que os Serviços do Azure acessem o servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se você estiver copiando dados para o SQL Azure, de fora do Azure, incluindo fontes de dados locais com o gateway de fábrica de dados, você precisa configurar o intervalo de endereços IP apropriado para o computador que está enviando dados para o SQL Azure.
 
 ## Propriedades de tipo do Conjunto de Dados SQL Azure
 
@@ -401,7 +430,13 @@ No caso de Atividade de cópia, quando a fonte é do tipo **SqlSource**, as segu
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. Se não for especificada, a instrução SQL que é executada é: select from MyTable. | Não |
 | sqlReaderStoredProcedureName | Nome do procedimento armazenado que lê os dados da tabela de origem. | Nome do procedimento armazenado. | Não |
-| storedProcedureParameters | Parâmetros para o procedimento armazenado. | Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não | 
+| storedProcedureParameters | Parâmetros para o procedimento armazenado. | Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não |
+
+Se **sqlReaderQuery** for especificado para SqlSource, a Atividade de Cópia executa essa consulta em relação à fonte do Banco de Dados SQL do Azure para obter os dados.
+
+Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usar parâmetros).
+
+Se você não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, as colunas definidas na seção de estrutura do conjunto de dados JSON são usadas para criar uma consulta (selecione column1, column2 de mytable) para executar o Banco de Dados SQL do Azure. Se a definição de conjunto de dados não tiver a estrutura, todas as colunas serão selecionadas da tabela.
 
 ### Exemplo de SqlSource
 
@@ -471,7 +506,7 @@ O **SqlSink** dá suporte às seguintes propriedades:
 
 ### Mapeamento de tipo para SQL Server e SQL Azure
 
-Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em 2 etapas descritas a seguir:
+Como mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem de duas etapas a seguir:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -527,4 +562,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 
 	 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,29 +13,34 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
 
-Este guia descreve como usar as filas do barramento de serviço. Os exemplos são escritos em Java e usam o [SDK do Azure para Java][]. Os cenários cobertos incluem **criação de filas**, **envio e recebimento de mensagens** e **exclusão de filas**.
+Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em Java e usam o [SDK do Azure para Java][]. Os cenários cobertos incluem **criação de filas**, **envio e recebimento de mensagens** e **exclusão de filas**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
 ## Configurar seu aplicativo para usar o Barramento de serviço
-Verifique se você instalou o [SDK do Azure para Java][] antes de compilar este exemplo. Se você estiver usando o Eclipse, instale o [Kit de ferramentas do Azure para Eclipse][], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto: ![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Adicione as seguintes instruções de importação à parte superior do arquivo Java:
+Verifique se você instalou o [SDK do Azure para Java][] antes de compilar este exemplo. Se você estiver usando o Eclipse, instale o [Kit de ferramentas do Azure para Eclipse][], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
 
-	// Include the following imports to use Service Bus APIs
-	import com.microsoft.windowsazure.services.servicebus.*;
-	import com.microsoft.windowsazure.services.servicebus.models.*;
-	import com.microsoft.windowsazure.core.*;
-	import javax.xml.datatype.*;
+![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-## Como criar uma fila
+Adicione as seguintes instruções `import` à parte superior do arquivo Java:
 
-Operações de gerenciamento para as filas do Barramento de Serviço podem ser realizadas pela **classeServiceBusContract**. Um objeto **ServiceBusContract** é construído com uma configuração adequada que encapsula o token SAS com as permissões para gerenciá-lo, e a classe **ServiceBusContract** é o único ponto de comunicação com o Azure.
+```
+// Include the following imports to use Service Bus APIs
+import com.microsoft.windowsazure.services.servicebus.*;
+import com.microsoft.windowsazure.services.servicebus.models.*;
+import com.microsoft.windowsazure.core.*;
+import javax.xml.datatype.*;
+```
+
+## Criar uma fila
+
+Operações de gerenciamento para as filas do Barramento de Serviço podem ser realizadas pela classe **ServiceBusContract**. Um objeto **ServiceBusContract** é construído com uma configuração adequada que encapsula o token SAS com as permissões para gerenciá-lo, e a classe **ServiceBusContract** é o único ponto de comunicação com o Azure.
 
 A classe **ServiceBusService** fornece métodos para criar, enumerar e excluir filas. O exemplo abaixo mostra como um objeto **ServiceBusService** pode ser usado para criar uma fila chamada "TestQueue" com um namespace chamado "HowToSample":
 
@@ -60,7 +65,7 @@ A classe **ServiceBusService** fornece métodos para criar, enumerar e excluir f
         System.exit(-1);
     }
 
-Existem métodos em QueueInfo que permitem que as propriedades da fila sejam ajustadas (por exemplo, para definir o valor da "vida útil" padrão a ser aplicado às mensagens enviadas para a fila). O exemplo a seguir mostra como criar uma fila denominada "TestQueue" com um tamanho máximo de 5 GB:
+Existem métodos em **QueueInfo** que permitem que as propriedades da fila sejam ajustadas (por exemplo, para definir o valor da "vida útil" (TTL) padrão a ser aplicado às mensagens enviadas para a fila). O exemplo a seguir mostra como criar uma fila denominada `TestQueue` com um tamanho máximo de 5 GB:
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
@@ -69,9 +74,9 @@ Existem métodos em QueueInfo que permitem que as propriedades da fila sejam aju
 
 Observe que você pode usar o método **listQueues** em objetos **ServiceBusContract** para verificar se já existe uma fila com um nome especificado dentro de um namespace de serviço.
 
-## Como enviar mensagens para uma fila
+## Enviar mensagens a uma fila
 
-Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo obterá um objeto **ServiceBusContract**. O código abaixo demonstra como enviar uma mensagem para a fila "TestQueue" que criamos acima dentro do nosso namespace de serviço "HowToSample":
+Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo obterá um objeto **ServiceBusContract**. O código abaixo demonstra como enviar uma mensagem à fila `TestQueue` que criamos acima no namespace `HowToSample`:
 
     try
     {
@@ -85,9 +90,9 @@ Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo ob
         System.exit(-1);
     }
 
-As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe **BrokeredMessage**. Objeto **BrokeredMessage** possuem um conjunto de métodos padrão (como **getLabel**, **getTimeToLive**, **setLabel** e **setTimeToLive**), um dicionário usado para manter propriedades específicas do aplicativo personalizado e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do **BrokeredMessage** e o serializador adequado então será usado para serializar o objeto. Como alternativa, um **java.IO.InputStream** pode ser fornecido.
+As mensagens enviadas para e recebidas de filas de Barramento de Serviço são instâncias da classe [BrokeredMessage][]. Os objetos [BrokeredMessage][] têm um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do [BrokeredMessage][] e o serializador adequado então será usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **java.IO.InputStream**.
 
-O exemplo a seguir demonstra como enviar cinco mensagens de teste para **MessageSender** de "TestQueue" que obtivemos no trecho de código acima:
+O exemplo a seguir demonstra como enviar cinco mensagens de teste para o objeto `TestQueue` **MessageSender** obtido no trecho de código anterior:
 
     for (int i=0; i<5; i++)
     {
@@ -101,13 +106,13 @@ O exemplo a seguir demonstra como enviar cinco mensagens de teste para **Message
 
 As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB.
 
-## Como receber mensagens de uma fila
+## Receber mensagens de uma fila
 
 A maneira mais fácil de receber mensagens de uma fila é usar um objeto **ServiceBusContract**. As mensagens recebidas podem funcionar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**.
 
 Ao usar o modo **ReceiveAndDelete**, o recebimento é uma operação única, isto é, quando o Barramento de Serviço recebe uma solicitação de leitura de uma mensagem em uma fila, ele marca a mensagem como sendo consumida e a retorna para o aplicativo. O modo **ReceiveAndDelete** (que é o modo padrão) é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando **Delete** na mensagem recebida. Quando o Barramento de Serviço vê a chamada **Delete**, ele marca a mensagem como tendo sido consumida e a remove da fila.
+No modo **PeekLock**, o recebimento se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando **Delete** na mensagem recebida. Quando o Barramento de Serviço vê a chamada **Delete**, ele marca a mensagem como tendo sido consumida e a remove da fila.
 
 O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **PeekLock** (não o modo padrão). O exemplo abaixo executa um loop infinito e processa mensagens assim que elas chegam em nossa "TestQueue":
 
@@ -174,22 +179,13 @@ Se houver falha do aplicativo após o processamento da mensagem, mas antes da so
 
 Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][] para obter mais informações.
 
-Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](/develop/java/).
+Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
 
   [SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
-  [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/pt-BR/library/azure/hh694271.aspx
-  [What are Service Bus Queues?]: #what-are-service-bus-queues
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigApp
-  [How to: Create a Security Token Provider]: #bkmk_HowToCreateQueue
-  [How to: Send Messages to a Queue]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Queue]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
-  [Next Steps]: #bkmk_NextSteps
+  [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Azure Management Portal]: http://manage.windowsazure.com/
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
- 
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

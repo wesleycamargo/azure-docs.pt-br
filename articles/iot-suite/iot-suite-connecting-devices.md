@@ -28,7 +28,7 @@ Neste exemplo, teremos três fontes de dados simulados: temperatura externa, int
 
 ### Provisionar seu IoT Suite
 
-Se você ainda não provisionou sua solução pré-configurada de monitoramento remoto, faça-o [aqui](www.internetofyourthings.com).
+Se você ainda não provisionou sua solução pré-configurada de monitoramento remoto, faça-o [aqui](http://www.microsoft.com/pt-BR/server-cloud/internet-of-things/getting-started.aspx).
 
 
 ### Provisionar o dispositivo na solução de monitoramento remoto
@@ -149,7 +149,7 @@ Conecte o dispositivo
 
 - Conecte a placa à sua rede usando um cabo Ethernet. Essa etapa é necessária, já que o exemplo depende de acesso à internet.
 
-- Conecte o dispositivo ao computador usando um cabo microUSB. Não deixe de conectar o cabo à porta USB correta no dispositivo, como mostra [esta](https://developer.mbed.org/platforms/IBMEthernetKit/) Figura, na seção "Introdução".
+- Conecte o dispositivo ao computador usando um cabo microUSB. Não deixe de conectar o cabo à porta USB correta no dispositivo, como mostra [esta](https://developer.mbed.org/platforms/frdm-k64f/) Figura, na seção "Introdução".
 
 - Execute as [instruções sobre o manual do mbed](https://developer.mbed.org/handbook/SerialPC) para configurar a conexão serial com o dispositivo do computador de desenvolvimento. Se você estiver no Windows, instale os drivers de porta serial do Windows localizados [aqui](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
 
@@ -199,7 +199,6 @@ Compile e execute o programa
 
 - Conecte-se ao dispositivo usando um aplicativo de cliente SSH, como o PuTTY. Você pode determinar qual porta serial o dispositivo usa verificando o Gerenciador de Dispositivos do Windows:
 
-	![][10]
 
 - Em PuTTY, clique no tipo de conexão **Serial**. O dispositivo provavelmente se conectará em 115200; portanto, insira esse valor na caixa **Velocidade**. Em seguida, clique em **Abrir**:
 
@@ -293,7 +292,8 @@ Agora que o dispositivo está conectado e enviando dados de temperatura gerados 
 - Selecionar o comando que você deseja executar: nesse caso, escolhemos "Definir temperatura", pois queremos alterar a temperatura para a qual o dispositivo está definido. Selecione o comando e escolha o valor de temperatura. Clique em Enviar Comando e a temperatura nova será enviada ao dispositivo. Observação: você verá que no histórico de comandos o resultado do comando é "Pendente". Isso ocorre porque, para fins de simplicidade, esses exemplos ainda não implementaram lógica no dispositivo para responder ao Hub IoT. Você pode fazer isso estendendo a solução.
 
 	![][14]
-- Volte para o painel e verifique se os dados atualizados estão vindo. Você deve ver estatísticas atualizadas sobre a temperatura e os novos dados que estão sendo exibidos no histórico da telemetria. ![][15]
+- Volte para o painel e verifique se os dados atualizados estão vindo. Você deve ver estatísticas atualizadas sobre a temperatura e os novos dados que estão sendo exibidos no histórico da telemetria.
+
 
 
 
@@ -305,8 +305,8 @@ Agora que o dispositivo está conectado e enviando dados de temperatura gerados 
 [18]: ./media/iot-suite-connecting-devices/suite10.png
 
 
-## Estendendo a solução
+## Próximas etapas
 
-Há várias maneiras de estender a funcionalidade deste exemplo: conectar o sensor real ao seu dispositivo para enviar a data real; implementar a funcionalidade de comando e controle, etc. Use nosso guia sobre como estender a solução de monitoramento remoto para saber mais sobre isso.
+Há várias maneiras de estender a funcionalidade deste exemplo: conectar o sensor real ao seu dispositivo para enviar a data real; implementar a funcionalidade de comando e controle, etc. Use nosso [guia](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) sobre como estender a solução de monitoramento remoto para saber mais sobre isso.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

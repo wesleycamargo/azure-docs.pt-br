@@ -5,6 +5,7 @@
 	services="mobile-services, notification-hubs"
 	documentationCenter="android"
 	authors="RickSaling"
+	writer="ricksal"
 	manager="dwrede"
 	editor=""/>
 
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="10/06/2015"
 	ms.author="ricksal"/>
 
 
@@ -30,15 +31,18 @@ Este tópico mostra como usar os Serviços Móveis do Azure para enviar notifica
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-##<a id="register"></a>Habilitar as mensagens em nuvem do Google
+## Exemplo de código
+Para ver o código-fonte completo, clique [aqui](https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPush).
+
+## Habilitar o sistema de mensagens em nuvem do Google
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-##<a id="configure"></a>Configurar Serviços Móveis para enviar solicitações de push
+## Configurar Serviços Móveis para enviar solicitações de push
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
-##<a id="add-push"></a>Adicionar notificações de push para seu aplicativo
+## Adicionar notificações de push para seu aplicativo
 
 
 
@@ -55,12 +59,12 @@ Se estiver testando com um dispositivo mais antigo, consulte [Configurar o SDK d
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
 
-##<a id="update-scripts"></a>Atualizar o script de inserção registrados no Portal de Gerenciamento
+## Atualizar o script de inserção registrados no Portal de Gerenciamento
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
 
-##<a id="test"></a>Testar notificações por push no seu aplicativo
+## Testar notificações por push no seu aplicativo
 
 Você pode testar o aplicativo anexando um telefone Android com um cabo USB diretamente ou usando um dispositivo virtual no emulador.
 
@@ -97,23 +101,9 @@ Este tutorial foi concluído com êxito.
 
 [AZURE.INCLUDE [Verifique o SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
-
-## Versões mais antigas do código
-
-Se quiser ver a versão Eclipse deste tutorial, vá para [Introdução às notificações por push (Eclipse)].
-
-
-<!--
-To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
--->
-
-
-## <a name="next-steps"> </a>Próximas etapas
+## Próximas etapas
 
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
-
-+ [Send push notifications to authenticated users]
-	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers]
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
@@ -123,8 +113,6 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 -->
 
 Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
-
-* [Introdução aos dados] <br/>Saiba mais sobre armazenar e consultar dados usando os Serviços Móveis.
 
 * [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo com diferentes tipos de contas usando Serviços Móveis.
 
@@ -149,11 +137,9 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 
 <!-- URLs. -->
-[Introdução às notificações por push (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-ec.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Introdução aos dados]: mobile-services-android-get-started-data.md
 [Introdução à autenticação]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
@@ -166,11 +152,8 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-
-[Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
-
 [O que são Hubs de Notificação?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

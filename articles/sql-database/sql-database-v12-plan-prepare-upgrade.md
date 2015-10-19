@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/01/2015"
 	ms.author="genemi"/>
 
 
@@ -33,8 +33,7 @@ A tabela a seguir lista outros tópicos de Ajuda da V12.
 | Título e link | Descrição do conteúdo |
 | :--- | :--- |
 | [Novidades no Banco de Dados SQL V12](sql-database-v12-whats-new.md) | Descreve os detalhes de como o V12 aproxima o Banco de Dados SQL do Azure à paridade total com o Microsoft SQL Server. |
-| [Passo a passo: inscrever-se na mais recente atualização do Banco de Dados SQL V12](sql-database-v12-sign-up.md) | Descreve as etapas que você deve executar se desejar atualizar seus bancos de dados SQL do Azure para a V12. |
-| [Criar um banco de dados na atualização do Banco de Dados SQL V12](sql-database-create.md) | Descreve como você pode criar um novo banco de dados SQL do Azure na versão V12. Ela descreve várias opções além de apenas um banco de dados vazio. |
+| [Criar um banco de dados no Banco de Dados SQL V12](sql-database-get-started.md) | Descreve como você pode criar um novo banco de dados SQL do Azure na versão V12. Ela descreve várias opções além de apenas um banco de dados vazio. |
 
 
 ## Planejar com antecedência
@@ -60,9 +59,9 @@ Começando com V12, o Banco de Dados SQL do Azure oferecerá suporte apenas as c
 
 Para obter informações detalhadas sobre as camadas de serviço Basic, Standard e Premium, consulte:
 
-
+- [Camadas de serviço do Banco de Dados SQL](sql-database-service-tiers.md)
 - [Atualizar os bancos de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md)
-- [Preços do Banco de Dados SQL do Azure](http://azure.microsoft.com/pricing/details/sql-database/)
+
 
 
 ### Revisar a configuração da replicação geográfica
@@ -254,4 +253,4 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gerenciar o Barramento de Serviço com o PowerShell"
+	pageTitle="Gerenciar o Barramento de Serviço com PowerShell | Microsoft Azure"
 	description="Gerenciar o Barramento de Serviço com scripts do PowerShell em vez do .NET"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Gerenciar o Barramento de Serviço com o PowerShell
@@ -45,8 +45,7 @@ Em primeiro lugar, verifique se o script pode localizar o assembly **Microsoft.S
 
 Aqui está como essas etapas são implementadas em um script do PowerShell:
 
-```powershell
-
+```
 try
 {
     # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
@@ -63,12 +62,11 @@ catch [System.Exception]
 {
     Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
 }
-
 ```
 
 ## Provisionar um namespace do Barramento de Serviço
 
-Dois cmdlets do PowerShell oferecem suporte a operações de namespace do Barramento de Serviço. Em vez das APIs do SDK do .NET, você pode usar o [Get-AzureSBNamespace] e [New-AzureSBNamespace].
+Dois cmdlets do PowerShell oferecem suporte a operações de namespace do Barramento de Serviço. Em vez das APIs do SDK do .NET, você pode usar o [Get-AzureSBNamespace][] e [New-AzureSBNamespace][].
 
 Este exemplo cria algumas variáveis locais no script; `$Namespace` e `$Location`.
 
@@ -84,8 +82,7 @@ Esta parte do script tem a seguinte função:
 2. Se o namespace for encontrado, ele informará o que foi encontrado.
 3. Se o namespace não for encontrado, ele vai criar o namespace e, em seguida, recuperar o namespace recentemente criado.
 
-	``` powershell
-	
+	```
 	$Namespace = "MyServiceBusNS"
 	$Location = "West US"
 	
@@ -105,10 +102,9 @@ Esta parte do script tem a seguinte função:
 	    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
 	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 	}
-
 	```
 
-Para provisionar outras entidades do Barramento de Serviço, crie uma instância da classe `NamespaceManager` do SDK. Você pode usar o cmdlet [Get-AzureSBAuthorizationRule] para recuperar uma regra de autorização que é usada para fornecer uma cadeia de conexão. Armazenaremos uma referência para a instância `NamespaceManager` na variável `$NamespaceManager`. Usaremos `$NamespaceManager` posteriormente no script para provisionar outras entidades.
+Para provisionar outras entidades do Barramento de Serviço, crie uma instância da classe [NamespaceManager][] do SDK. Você pode usar o cmdlet [Get-AzureSBAuthorizationRule][] para recuperar uma regra de autorização que é usada para fornecer uma cadeia de conexão. Armazenaremos uma referência à instância `NamespaceManager` na variável `$NamespaceManager`. Usaremos `$NamespaceManager` posteriormente no script para provisionar outras entidades.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -120,7 +116,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 ## Provisionamento de outras entidades do Barramento de Serviço
 
-Para provisionar outras entidades, como filas, tópicos e Hubs de Eventos, use a [API .NET para Barramento de Serviço]. Este artigo se concentra apenas em Hubs de Eventos, mas as etapas para outras entidades são semelhantes. Além disso, os exemplos mais detalhados, incluindo outras entidades, são referenciados no final deste artigo.
+Para provisionar outras entidades, como filas, tópicos e Hubs de Evento, use a [API do .NET para o Barramento de Serviço][]. Este artigo se concentra apenas em Hubs de Eventos, mas as etapas para outras entidades são semelhantes. Além disso, os exemplos mais detalhados, incluindo outras entidades, são referenciados no final deste artigo.
 
 Essa parte do script cria mais quatro variáveis locais. Essas variáveis serão usadas para criar uma instância de um objeto `EventHubDescription`. O script tem a seguinte função:
 
@@ -128,8 +124,7 @@ Essa parte do script cria mais quatro variáveis locais. Essas variáveis serão
 2. Se não existir, cria um `EventHubDescription` e o passa para o método `CreateEventHubIfNotExists` da classe `NamespaceManager`.
 3. Depois de determinar se o Hub de Eventos está disponível, cria um grupo de consumidores usando `ConsumerGroupDescription` e `NamespaceManager`.
 
-	``` powershell
-		
+	```
 	$Path  = "MyEventHub"
 	$PartitionCount = 12
 	$MessageRetentionInDays = 7
@@ -170,7 +165,7 @@ Os exemplos mais detalhados estão disponíveis nessas postagens de blogs:
 - [Como criar filas, tópicos e assinaturas do Barramento de Serviço usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Como criar um namespace do Barramento de Serviço e um Hub de Eventos usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Alguns scripts prontos também estão disponíveis para download: [Scripts do PowerShell do Barramento de Serviço](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+Alguns scripts prontos também estão disponíveis para download:- [Scripts do PowerShell do Barramento de Serviço](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
 [Opções de compra]: http://azure.microsoft.com/pricing/purchase-options/
@@ -181,7 +176,7 @@ Alguns scripts prontos também estão disponíveis para download: [Scripts do Po
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API .NET para Barramento de Serviço]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
- 
+[API do .NET para o Barramento de Serviço]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
+[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

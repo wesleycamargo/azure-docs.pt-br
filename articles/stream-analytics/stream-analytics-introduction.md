@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -43,7 +43,7 @@ Grandes quantidades de dados estão fluindo em alta velocidade na rede hoje. Org
 -   **Conectividade:** o Stream Analytics se conecta diretamente ao Hub de eventos do Azure para a inclusão de fluxo e o serviço Blob do Azure para incluir dados históricos. Os resultados podem ser gravados do Stream Analytics para os blobs ou tabelas de armazenamento do Azure, DB do SQL Azure, Hubs de eventos, tópicos do Barramento de Serviço do Azure ou filas e Power BI, onde, em seguida, pode ser visualizado, processados posteriormente por fluxos de trabalho, usados na análise do lote via [Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) ou processado novamente como uma série de eventos. Ao usar os Hubs de eventos do Azure, é fácil criar várias Stream Analytics junto com outras fontes de dados e mecanismos de processamento sem perder a natureza de streaming dos cálculos.
 
 ## Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/PT-BR/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
 Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise de streaming em dados da Internet das coisas. Para saber mais sobre esse serviço, consulte:
@@ -53,4 +53,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

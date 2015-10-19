@@ -103,23 +103,23 @@ Você criou um novo projeto Aplicativo Universal do Windows no qual integraremos
 
 Para iniciar o envio de dados e assegurar que os usuários estejam ativos, você deve enviar pelo menos uma tela (Atividade) para o back-end do Mobile Engagement.
 
-1. 	Em **MainPage.xaml.cs**, adicione a instrução `using`:
+1. 	Em **MainPage.xaml.cs**, adicione a seguinte instrução `using`:
 
-		using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement.Overlay;
 
-2. Substitua a classe base de **MainPage**, de **Page** para **EngagementPage**:
+2. Substitua a classe base de **MainPage**, de **Page** para **EngagementPageOverlay**:
 
-		class MainPage : EngagementPage
+		class MainPage : EngagementPageOverlay
 
 3. No arquivo `MainPage.xaml`:
 
 	a. Adicione às suas declarações de namespaces:
 
-		xmlns:engagement="using:Microsoft.Azure.Engagement"
+		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-	b. Substitua **Page** no nome da marca XML por **engagement:EngagementPage**.
+	b. Substitua **Page** no nome da marca XML por **engagement:EngagementPageOverlay**.
 	
-> [AZURE.IMPORTANT]Se sua página substitui o método `OnNavigatedTo`, certifique-se de chamar `base.OnNavigatedTo(e)`. Caso contrário, a atividade não será registrada (a `EngagementPage` chama `StartActivity` dentro de seu método `OnNavigatedTo`). Isso é especialmente importante em um projeto do Windows Phone, no qual o modelo padrão tem um método `OnNavigatedTo`.
+> [AZURE.IMPORTANT]Se a sua página substituir o método `OnNavigatedTo`, lembre-se de chamar `base.OnNavigatedTo(e)`. Caso contrário, a atividade não será registrada (a `EngagementPage` chama `StartActivity` dentro de seu método `OnNavigatedTo`). Isso é especialmente importante em um projeto do Windows Phone, no qual o modelo padrão tem um método `OnNavigatedTo`.
 
 ##<a id="monitor"></a>Conectar o aplicativo com monitoramento em tempo real
 
@@ -171,13 +171,15 @@ Você estará pronto para enviar uma notificação do sistema. Agora vamos verif
 
 [AZURE.INCLUDE [Criar campanha de Push do Windows](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Agora você verá uma notificação da sua campanha em seu dispositivo — o aplicativo deve ser fechado para ver essa notificação. Se o aplicativo estava em execução, certifique-se de que ele tenha sido fechado alguns minutos antes de ativar a campanha para poder receber a notificação do sistema. Se você deseja integrar a notificação no aplicativo para que a notificação apareça no aplicativo quando ele for aberto, consulte [Aplicativos do Windows Universal - Integração de sobreposição].
+Se o aplicativo estiver em execução, você verá uma notificação no aplicativo, caso contrário, verá uma notificação do sistema se o aplicativo for fechado. Se você estiver vendo uma notificação no aplicativo, mas não uma notificação do sistema e estiver executando o aplicativo no modo de depuração no Visual Studio, experimente **Eventos de ciclo de vida -> Suspender** na barra de ferramentas, a fim de garantir que o aplicativo seja realmente suspenso. Se você acabou de clicar no botão Início durante a depuração do aplicativo no Visual Studio, nem sempre ele será suspenso e, embora você veja a notificação como sendo no aplicativo, ela não aparecerá como notificação do sistema.
+
+![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
 [Centro de Desenvolvimento da Windows Store]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
-[Aplicativos do Windows Universal - Integração de sobreposição]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
+[Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
@@ -186,5 +188,6 @@ Agora você verá uma notificação da sua campanha em seu dispositivo — o apl
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
+[8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

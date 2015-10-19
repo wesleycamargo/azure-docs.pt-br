@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="10/01/2015"
    ms.author="andalmia"/>
 
 #Regras do BizTalk
@@ -34,11 +34,9 @@ Há três motivos principais para usar as Regras de Negócio do BizTalk no proce
 
 ##Vocabulário
 
-Os termos usados para definir as ações e condições das regras normalmente são expressas por nomenclaturas específicas ao domínio ou setor. Por exemplo, um usuário de email escreve regras em termos de mensagens “recebidas de" e mensagens "recebidas após”, enquanto um analista de seguros escreve regras em termos de "fatores de risco" e "valor de cobertura".
-Subjacente a essa terminologia específica ao domínio estão os artefatos de tecnologia (objetos, tabelas de banco de dados e documentos XML) que implementam as ações e as condições das regras. Os vocabulários são projetados para preencher a lacuna entre a semântica e a implementação de negócios.
-
-Por exemplo, uma vinculação de dados para um status de aprovação pode apontar para uma certa coluna de uma certa linha de um determinado banco de dados, representado como uma consulta SQL. Em vez de inserir esse tipo de representação complexa em uma regra, você pode criar uma definição de vocabulário, associada à vinculação de dados, com o nome amigável de "Status". Posteriormente, você pode incluir "Status" em qualquer regra, e o mecanismo de regra pode recuperar os dados correspondentes da tabela.
 Um _vocabulário_ é uma coleção de definições que consiste de nomes amigáveis para os objetos de computação usados em ações e condições de regra. Definições de vocabulário facilitam a leitura, compreensão e compartilhamento das regras pelas pessoas em um domínio de negócios específico.
+
+Os vocabulários são projetados para preencher a lacuna entre a semântica e a implementação de negócios. Por exemplo, uma vinculação de dados para um status de aprovação pode apontar para uma certa coluna de uma certa linha de um determinado banco de dados, representado como uma consulta SQL. Em vez de inserir esse tipo de representação complexa em uma regra, você pode criar uma definição de vocabulário, associada à vinculação de dados, com o nome amigável de "Status". Posteriormente, você pode incluir "Status" em qualquer regra, e o mecanismo de regra pode recuperar os dados correspondentes da tabela.
 
 ##Regra
 
@@ -248,4 +246,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

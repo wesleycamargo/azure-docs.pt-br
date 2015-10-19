@@ -22,9 +22,9 @@
 
    ![](./media/app-service-mobile-adal-register-app/aad-native-client-add-permissions.png)
 
-Seu aplicativo agora está configurado no AAD (Active Directory do Azure) para que os usuários possam fazer logon usando o logon único do AAD.
+Seu aplicativo está configurado no AAD para que os usuários possam fazer logon usando o logon do AAD.
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Como configurar seu aplicativo móvel com o Active Directory do Azure]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

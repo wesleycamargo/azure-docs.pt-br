@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
  
 # O que é o Application Insights?
@@ -115,7 +115,7 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
 * Perguntas e problemas:
  * [Solucionar problemas][qna]
- * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/PT-BR/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bugs:
  * [Conectar-se](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -152,4 +152,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -1,24 +1,26 @@
 <properties
- pageTitle="Sobre o agente e as extensões de máquina virtual | Microsoft Azure"
- description="Fornece uma visão geral do agente e das extensões e de como instalar o agente."
+ pageTitle="Agente e extensões de VM do Azure | Microsoft Azure"
+ description="Fornece uma visão geral do agente e das extensões e de como instalar o agente usando o modelo de implantação clássico."
  services="virtual-machines"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-service-management"/>
+
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
  ms.date="09/22/2015"
  ms.author="rasquill"/>
- 
+
 #Sobre o agente e extensões de máquina virtual
 O agente de máquina Virtual do Azure (agente de VM) é usado para instalar, configurar, gerenciar e executar extensões de máquina Virtual do Azure (extensões de VM). As Extensões de VM fornecem recursos dinâmicos que a Microsoft e outros fornecedores fornecem. O agente e as extensões são adicionados principalmente por meio do Portal de Gerenciamento, mas você também pode usar os cmdlets do [Powershell](../install-configure-powershell.md) ou a [CLI do Azure](xplat-install.md) para adicionar e configurar quando criar uma VM ou com VMs existentes.
 
-> [AZURE.NOTE]Este tópico aborda o PowerShell e a CLI do Azure, mas menciona as chamadas de implantação que se destinam ao modelo de implantação clássico e não ao modelo de implantação do Gerenciador de Recursos. Veja [Provedores de computação, rede e armazenamento do Azure no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md) para obter mais informações sobre modelos de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo se refere a chamadas de implantação para o modelo de implantação clássica.
 
 
 As Extensões de VM podem ajudá-lo a:
@@ -40,7 +42,7 @@ Há dois agentes de VM do Azure, um para máquinas virtuais do Windows e outro p
 
 O Agente de VM é habilitado nas seguintes situações:
 
--   Quando você cria uma instância de uma Máquina Virtual usando o método de **Criação rápida** no Portal de Gerenciamento ou o método de **Criação personalizada** no Portal de Gerenciamento e verificando se a caixa de seleção **Instalar o Agente de VM** está marcada (como mostrado na imagem abaixo). Para obter mais informações, veja [Como criar uma máquina virtual personalizada](virtual-machines-create-custom.md).
+-   Quando você cria uma instância de uma Máquina Virtual usando o método de **Criação rápida** no Portal de Gerenciamento ou o método de **Criação personalizada** no Portal de Gerenciamento e verificando se a caixa de seleção **Instalar o Agente de VM** está marcada (como mostrado na imagem abaixo). Para saber mais, consulte [Como criar uma máquina virtual personalizada](virtual-machines-create-custom.md).
 
     ![Caixa de seleção do Agente de VM](./media/virtual-machines-extensions-agent-about/IC719409.png "Caixa de seleção do Agente de VM")
 
@@ -52,9 +54,9 @@ O Agente de VM é habilitado nas seguintes situações:
         $vm.VM.ProvisionGuestAgent = $TRUE
         Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
--   Criando uma imagem de VM com o agente de VM instalado antes de carregá-lo no Azure. Para uma VM do Windows, baixe o [arquivo .msi do Agente de VM do Windows](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) e instale o Agente de VM. Para uma VM do Linux, ela será instalada por meio do repositório do GitHub localizado em <https://github.com/Azure/WALinuxAgent>. Para obter mais informações sobre como instalar o Agente de VM no Linux, veja o [Guia do usuário do Agente de VM no Linux do Azure](virtual-machines-linux-agent-user-guide.md).
+-   Criando uma imagem de VM com o agente de VM instalado antes de carregá-lo no Azure. Para uma VM do Windows, baixe o [arquivo .msi do Agente de VM do Windows](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) e instale o Agente de VM. Para uma VM do Linux, ela será instalada por meio do repositório do GitHub localizado em <https://github.com/Azure/WALinuxAgent>. Para saber mais sobre como instalar o Agente de VM no Linux, consulte o [Guia do usuário do Agente de VM no Linux do Azure](virtual-machines-linux-agent-user-guide.md).
 
->[AZURE.NOTE]No PaaS, o agente de VM é chamado **GuestAgent** e sempre está disponível na Web e nas VMs de Função de Trabalho. (Para obter mais informações, veja [Arquitetura de funções do Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).) Agora, o agente de VM para VMs de função pode adicionar extensões às máquinas virtuais de serviço de nuvem, da mesma maneira que faz para máquinas virtuais persistentes. A maior diferença entre as extensões de VM nas máquinas virtuais de função e nas máquinas virtuais persistentes é que com VMs de função, as extensões são adicionadas ao serviço de nuvem primeiro e, em seguida, às implantações no serviço em nuvem.
+>[AZURE.NOTE]No PaaS, o agente de VM é chamado **GuestAgent** e sempre está disponível na Web e nas VMs de Função de Trabalho. (Para saber mais, consulte [Arquitetura de funções do Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).) Agora, o agente de VM para VMs de função pode adicionar extensões às máquinas virtuais de serviço de nuvem, da mesma maneira que faz para máquinas virtuais persistentes. A maior diferença entre as extensões de VM nas máquinas virtuais de função e nas máquinas virtuais persistentes é que com VMs de função, as extensões são adicionadas ao serviço de nuvem primeiro e, em seguida, às implantações no serviço em nuvem.
 
 >Use o cmdlet [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) para listar todas as extensões de VM de função disponíveis.
 
@@ -62,4 +64,4 @@ O Agente de VM é habilitado nas seguintes situações:
 
 Para obter detalhes sobre essas tarefas, veja [Adicionar, encontrar, atualizar e remover Extensões de VM do Azure](virtual-machines-extensions-install.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

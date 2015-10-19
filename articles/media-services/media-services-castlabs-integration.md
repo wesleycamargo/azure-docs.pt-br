@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usando o castLabs para fornecer licenças DRM para os serviços de mídia do Azure" 
+	pageTitle="Usando o castLabs para fornecer licenças Widevine para os Serviços de Mídia do Azure" 
 	description="Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine. A licença do PlayReady vem do servidor de licenças do PlayReady dos serviços de mídia e a licença do Widevine é fornecida pelo servidor de licenças do castLabs." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="10/07/2015"  
 	ms.author="juliako"/>
 
 
-#Usando o castLabs para fornecer licenças DRM para os serviços de mídia do Azure
+#Usando o castLabs para fornecer licenças Widevine para os Serviços de Mídia do Azure
+
+> [AZURE.SELECTOR]
+- [Axinom](media-services-axinom-integration.md)
+- [castLabs](media-services-castlabs-integration.md)
 
 ##Visão geral
 
@@ -120,4 +124,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Tutorial de início rápido para a linguagem R para Aprendizado de Máquina | Microsoft Azure"
 	description="Use este tutorial de programação R para começar a usar rapidamente a linguagem R com Studio de Aprendizado de Máquina do Azure para criar uma solução de previsão."
+	keywords="quickstart,r language,r programming language,r programming tutorial"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/08/2015"
 	ms.author="larryfr"/>
 
 # Tutorial de início rápido para a linguagem de programação R para o Aprendizado de Máquina do Azure
@@ -112,15 +113,13 @@ Esse código não foi executado resultando em uma condição de erro. Quando cli
 Parece que precisamos examinar output.g para ver a mensagem de erro de R. Clique em [Executar Script R][execute-r-script] e, em seguida, clique no item **Exibir output.log** no **painel de propriedades** à direita. Uma nova janela do navegador é aberta e vejo o item a seguir.
 
 
-	[ModuleOutput] [1] 14000
-	[ModuleOutput]
-	[ModuleOutput] Loading objects:
-	[ModuleOutput]
-	[ModuleOutput]   port1
-	[ModuleOutput]
-	[ModuleOutput] [1] "Loading variable port1..."
-	[ModuleOutput]
-	[ModuleOutput] Error in eval(expr, envir, enclos) : object 'y' not found
+    [Critical]     Error: Error 0063: The following error occurred during evaluation of R script:
+    ---------- Start of error message from R ----------
+    object 'y' not found
+    
+    
+    object 'y' not found
+    ----------- End of error message from R -----------
 
 Essa mensagem de erro contém surpresas e claramente identifica o problema.
 
@@ -161,7 +160,7 @@ Vamos começar carregando o arquivo **csdairydata.csv** no Estúdio de Aprendiza
 
 - Inicie seu ambiente do Estúdio de Aprendizado de Máquina do Azure.
 
-- Clique em + no canto inferior esquerdo da tela e selecione **Conjunto de dados**.
+- Clique em __+ NOVO__ no canto inferior esquerdo da tela e selecione **Conjunto de dados**.
 
 - Selecione **De Arquivo Local** e **Procurar** para selecionar o arquivo.
 
@@ -175,7 +174,7 @@ Vamos começar carregando o arquivo **csdairydata.csv** no Estúdio de Aprendiza
 
 Agora que temos alguns dados no Estúdio de Aprendizado de Máquina, precisamos criar um teste para fazer a análise.
 
-- Clique em + na parte inferior esquerda e selecione **Teste** e **Teste em branco**.
+- Clique em __+NOVO__ na parte inferior esquerda e selecione **Teste** e **Teste em branco**.
 
 - Você pode nomear o seu teste selecionando e modificando o título **Teste criado em...** no início da página. Por exemplo, alterando-o para **Análise da AC**.
 
@@ -187,7 +186,7 @@ Agora que temos alguns dados no Estúdio de Aprendizado de Máquina, precisamos 
 
 - Arraste e solte o módulo [Executar Script R][execute-r-script] em seu palete.
 
-- Conecte a saída do conjunto de dados **csdairydata.csv dataset** à entrada à esquerda (**Dataset1**) de [Executar Script R][execute-r-script].
+- Conecte a saída do **conjunto de dados csdairydata.csv** à entrada à esquerda (**Dataset1**) de [Executar Script R][execute-r-script].
 
 - **Não se esqueça de clicar em 'Salvar'!**
 
@@ -205,7 +204,7 @@ Vamos dar uma olhada nos dados que carregou em nosso teste. No teste, clique dua
 
 *Figura 4. Resumo de conjunto de dados cadairydata.csv.*
 
-Nessa exibição, vemos muitas informações úteis. A linha **Tipo de Recurso** mostra quais tipos de dados o Estúdio de Aprendizado de Máquina do Azure atribui às colunas de nosso conjunto de dados. Também vemos as primeiras linhas do conjunto de dados. Dar uma olhada rápida como esta é boa uma verificação de integridade para ser feita antes de começar qualquer trabalho sério.
+Nessa exibição, vemos muitas informações úteis. Podemos ver as primeiras linhas do conjunto de dados. Se selecionarmos uma coluna, a seção Estatísticas mostra mais informações sobre a coluna. Por exemplo, a linha Tipo de Recurso mostra quais tipos de dados o Estúdio de Aprendizado de Máquina do Azure atribuiu à coluna. Dar uma olhada rápida como esta é boa uma verificação de integridade para ser feita antes de começar qualquer trabalho sério.
 
 ###	Primeiro script R
 
@@ -270,6 +269,17 @@ Você pode passar uma tabela retangular de dados para seu código R usando a ent
 	cadairydata <- maml.mapInputPort(1)
 
 Execute seu teste clicando no botão **Executar**. Quando a execução for concluída, clique no módulo [Executar Script R][execute-r-script] e clique em** Exibir log de saída** no painel de propriedades. Uma nova página deve aparecer em seu navegador, exibindo o conteúdo do arquivo output.log. Ao rolar para baixo, você deve ver algo como o seguinte exemplo:
+
+    [ModuleOutput] InputDataStructure
+    [ModuleOutput]
+    [ModuleOutput] {
+    [ModuleOutput]  "InputName":Dataset1
+    [ModuleOutput]  "Rows":228
+    [ModuleOutput]  "Cols":9
+    [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
+    [ModuleOutput] }
+
+Clicar duas vezes na página carregará dados adicionais, que terá uma aparência semelhante ao seguinte.
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -377,9 +387,33 @@ Excluí a linha que criou a matriz de dispersão e adicionei uma linha para conv
 	## Azure Machine Learning Studio
 	maml.mapOutputPort('cadairydata')
 
-Vamos executar esse código e examinar a saída. A saída de **Visualizar** no menu do Dispositivo R é mostrada na Figura 9.
+Vamos executar esse código e examinar o log de saída para o script R. Os dados relevantes do log são mostrados na Figura 9.
 
-![Resumo do dataframe com uma variável de fator][10]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 14 levels "Apr","April",..: 6 5 9 1 11 8 7 3 14 13 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *Figura 9. Resumo do dataframe com uma variável de fator.*
 
@@ -390,9 +424,33 @@ O problema é que a coluna “Month” não foi codificada sistematicamente. Em 
 	## Ensure the coding is consistent and convert column to a factor
 	cadairydata$Month <- as.factor(substr(cadairydata$Month, 1, 3))
 
-Execute novamente o teste e use a opção **Visualizar** para a saída da porta do Dispositivo R com os resultados mostrados na Figura 10.
+Execute novamente o teste e exiba o log de saída. Os resultados esperados são mostrados na Figura 10.
 
-![Resumo do dataframe com o número correto de níveis de fator][11]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *Figura 10. Resumo do dataframe com o número correto de níveis de fator.*
 
@@ -411,9 +469,29 @@ Adiciono a linha a seguir a meu código R no módulo [Executar Script R][execute
 	# Remove two columns we do not need
 	cadairydata <- cadairydata[, c(-1, -2)]
 
-Execute esse código em seu teste e verifique o resultado com **Visualizar** na porta do Dispositivo R. Esses resultados são mostrados na Figura 11.
+Execute esse código em seu teste e verifique o resultado no log de saída. Esses resultados são mostrados na Figura 11.
 
-![Resumo do dataframe com duas colunas removidas][12]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  7 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *Figura 11. Resumo do dataframe com duas colunas removidas.*
 
@@ -439,9 +517,31 @@ Para ajudar a organizar o código, vamos criar nossa primeira função simples, 
 	## Compute the new column for the dataframe
 	cadairydata$Month.Count <- num.month(cadairydata$Year, cadairydata$Month.Number)
 
-Agora, execute o teste atualizado e use **Visualizar** na porta do Dispositivo R para exibir os resultados. Esses resultados são mostrados na Figura 12.
+Agora execute o teste atualizado e use o log de saída para exibir os resultados. Esses resultados são mostrados na Figura 12.
 
-![Resumo do dataframe com a coluna adicional][13]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  8 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *Figura 12. Resumo do dataframe com a coluna adicional.*
 
@@ -502,9 +602,31 @@ Se você não está acostumado à programação defensiva em R, todo esse códig
 
 4. As computações de log são encapsuladas em `tryCatch()` para que as exceções não causem uma interrupção abrupta no processamento. Sem `tryCatch()`, a maioria dos erros gerada pelas funções de R resulta em um sinal de interrupção, que faz exatamente isso.
 
-Executar esse código R em seu teste e veja a saída impressa no output.log. Agora, você verá os valores transformados das quatro colunas usando **Visualizar** no menu do Dispositivo R, conforme mostrado na Figura 13.
+Executar esse código R em seu teste e veja a saída impressa no output.log. Agora, você verá os valores transformados das quatro colunas no log, conforme mostrado na Figura 13.
 
-![Resumo dos valores de transformados no dataframe][14]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  8 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *Figura 13. Resumo dos valores transformados no dataframe.*
 
@@ -538,9 +660,27 @@ Como primeira etapa, vamos ler um dataframe e verificar se obtemos os resultados
 	cadairydata <- maml.mapInputPort(1)
 	str(cadairydata) # Check the results
 
-Agora, execute o teste. A saída que você observa na porta do dispositivo R deve ser como a Figura 14.
+Agora, execute o teste. O log da nova forma Executar Script R deve parecer com a Figura 14.
 
-![Resumo do dataframe no módulo Executar Script R][15]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  8 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
 
 *Figura 14. Resumo do dataframe no módulo Executar Script R.*
 
@@ -559,9 +699,29 @@ Precisamos adicionar um objeto de série de tempo ao nosso dataframe. Substitua 
 
 	str(cadairydata) # Check the results
 
-Agora, verifique a saída do dispositivo R. Deve se parecer com a Figura 15.
+Agora, verifique o log. Deve se parecer com a Figura 15.
 
-![Resumo do dataframe com um objeto de série temporal][16]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
 
 *Figura 15. Resumo do dataframe com um objeto de série temporal.*
 
@@ -662,9 +822,59 @@ O código para calcular as correlações como objetos ccf R é indicado a seguir
 
 	cadairycorrelations
 
-Executar esse código produz o resultado mostrado na Figura 18.
+Executar esse código produz o log mostrado na Figura 18.
 
-![Lista de objetos ccf de análise da correlação emparelhados][19]
+    [ModuleOutput] Loading objects:
+    [ModuleOutput]   port1
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] [[1]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]    -1     0     1 
+    [ModuleOutput] 0.148 0.358 0.317 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[2]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]     -1      0      1 
+    [ModuleOutput] -0.395 -0.186 -0.238 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[3]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]     -1      0      1 
+    [ModuleOutput] -0.059 -0.089 -0.127 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[4]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]    -1     0     1 
+    [ModuleOutput] 0.140 0.294 0.293 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[5]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]     -1      0      1 
+    [ModuleOutput] -0.002 -0.074 -0.124 
 
 *Figura 18. Lista de objetos ccf de análise de correlação emparelhados.*
 
@@ -741,9 +951,29 @@ Como a análise de correlação que acabamos de concluir, precisamos adicionar u
 
 	str(cadairydata)
 
-Execute esse código e examine a porta de saída do dispositivo R. O resultado deve ser semelhante a Figura 21.
+Execute esse código e examine o log. O resultado deve ser semelhante a Figura 21.
 
-![Resumo do dataframe][22]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
 
 *Figura 21. Resumo do dataframe.*
 
@@ -1116,4 +1346,4 @@ Alguns ótimos recursos na Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -23,8 +23,6 @@
 ##Visão geral
 Este tópico mostra como usar os Serviços Móveis do Azure com um back-end do .NET para enviar notificações por push a um aplicativo do Windows universal. Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure em um projeto do aplicativo Windows universal. Ao concluir, seu serviço móvel enviará uma notificação por push do back-end do .NET para todos os aplicativos do Windows Store e Windows Phone Store sempre que um registro é inserido na tabela TodoList. O hub de notificação que você cria é fornecido gratuitamente com o serviço móvel, pode ser gerenciado independentemente do serviço móvel e pode ser usado por outros aplicativos e serviços.
 
->[AZURE.NOTE]Esse tópico lhe mostra como usar as ferramentas no Visual Studio Professional 2013 com atualização 3 para adicionar suporte para notificações por push dos Serviços Móveis para um aplicativo Windows universal. As mesmas etapas podem ser usadas para adicionar notificações por push dos Serviços Móveis para um aplicativo da Windows Store ou Windows Phone Store 8.1. Para adicionar notificações por push a um aplicativo Windows Phone 8 ou Windows Phone Silverlight 8.1, consulte esta versão de [Introdução à autenticação dos Serviços Móveis](mobile-services-dotnet-backend-windows-phone-get-started-push.md).
-
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma [conta ativa da Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045).
@@ -38,7 +36,7 @@ Para concluir este tutorial, você precisará do seguinte:
  
 &nbsp;&nbsp;7. Abra o arquivo de código App.xaml.cs compartilhado e avise que uma chamada para o novo método **UploadChannel** foi adicionada no manipulador de evento **OnLaunched**. Isso garante a tentativa do registro do dispositivo sempre que o aplicativo for iniciado.
 
-&nbsp;&nbsp;8. Repita as etapas anteriores para adicionar notificações por push ao projeto do aplicativo Windows Phone Store e, em seguida, no arquivo App.xaml.cs compartilhado, remova a chamada extra para **UploadChannel** e o wrapper condicional `#if...#endif` restante. Ambos os projetos podem agora compartilhar uma única chamada para **UploadChannel**.
+&nbsp;&nbsp;8. Repita as etapas anteriores para adicionar notificações por push ao projeto do aplicativo Windows Phone Store e no arquivo App.xaml.cs compartilhado, remova a chamada extra para **UploadChannel** e o wrapper condicional `#if...#endif` restante. Ambos os projetos podem agora compartilhar uma única chamada para **UploadChannel**.
 
 > [AZURE.NOTE]Você também pode simplificar o código gerado ao unificar as definições ajustadas do `#if...#endif` [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) em uma única definição não ajustada usada por ambas as versões do aplicativo.
 
@@ -109,4 +107,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Como usar um cliente .NET para os Serviços Móveis do Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

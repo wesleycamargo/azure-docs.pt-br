@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="YuriD"
    manager="swadhwa"
-   editor=""/>
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="azure-security"
@@ -17,7 +18,6 @@
    ms.author="yurid"/>
 
 #Práticas recomendadas para atualizações de software no Microsoft Azure IaaS
-
 
 Antes de entrar em qualquer tipo de discussão sobre as práticas recomendadas para um ambiente de IaaS do Azure, é importante entender quais são os cenários que farão com que você gerencie atualizações de software. O diagrama abaixo deve explicar melhor:
 
@@ -71,7 +71,7 @@ Em grandes organizações, geralmente é útil dividir os computadores da sua em
 
 Depois de realizar uma auditoria inicial do software em uso na sua empresa, você deve determinar o melhor método para receber notificações de novas atualizações de software para cada produto e versão de software. Dependendo do produto de software, o melhor método de notificação pode ser notificações por email, sites ou publicações de computador.
 
-Por exemplo, o MSRC (Microsoft Security Response Center) responde a todas as questões de segurança sobre os produtos Microsoft e fornece o Boletim de Segurança da Microsoft, uma notificação de email gratuito de vulnerabilidades recentemente identificadas e atualizações de software lançadas para lidar com essas vulnerabilidades. Você pode assinar este serviço em <http://www.microsoft.com/technet/security/bulletin/notify.mspx>
+Por exemplo, o MSRC (Microsoft Security Response Center) responde a todas as questões de segurança sobre os produtos Microsoft e fornece o Boletim de Segurança da Microsoft, uma notificação de email gratuito de vulnerabilidades recentemente identificadas e atualizações de software lançadas para lidar com essas vulnerabilidades. Você pode assinar este serviço em http://www.microsoft.com/technet/security/bulletin/notify.mspx
 
 ## Considerações sobre a atualização de software
 
@@ -99,7 +99,7 @@ Algumas opções de backup do Azure IaaS incluem:
 
 -   [Proteção de carga de trabalho do Azure IaaS usando o Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Fazer backup de máquinas virtuais do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/backup-azure-vms/)
+-   [Fazer backup de máquinas virtuais do Azure](../backup/backup-azure-vms.md)
 
 ### Monitoramento
 
@@ -119,4 +119,4 @@ Além das considerações gerais que foram explicadas neste artigo, você també
 
 Use as diretrizes descritas neste artigo para ajudar a determinar as melhores opções para as atualizações de software de máquinas virtuais no Azure IaaS. Existem muitas semelhanças entre as práticas recomendadas de atualização de software em um datacenter tradicional versus o IaaS do Azure; portanto, é recomendável que você avalie suas diretivas de atualização de software atual para incluir as VMs do Azure e as práticas recomendadas relevantes deste artigo em seu processo geral de atualização de software.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

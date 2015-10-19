@@ -13,14 +13,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Criar e modificar um circuito da Rota Expressa
 
 Este artigo fornece uma orientação pelas etapas de criação de um circuito da Rota Expressa usando cmdlets do PowerShell e o modelo de implantação clássico. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar um circuito da Rota Expressa.
 
->[AZURE.IMPORTANT]É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para saber mais sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md)
+>[AZURE.IMPORTANT]É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para saber mais sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md).
 
 ## Pré-requisitos de configuração
 
@@ -153,21 +153,21 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 	Quando você criar um novo circuito da Rota Expressa, ele estará no seguinte estado:
 	
-		**ServiceProviderProvisioningState :** NotProvisioned
+		ServiceProviderProvisioningState : NotProvisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
-	O ServiceProviderProvisioningState fornece informações sobre o estado atual do provisionamento no lado do provedor de serviço, e o Status fornece o estado no lado da Microsoft. Um circuito da Rota Expressa deverá estar no seguinte estado para você poder usá-lo.
+	O *ServiceProviderProvisioningState* fornece informações sobre o estado atual do provisionamento no lado do provedor de serviço, e o Status fornece o estado no lado da Microsoft. Um circuito da Rota Expressa deverá estar no seguinte estado para você poder usá-lo.
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 	O circuito assumirá o seguinte o estado quando o provedor de conectividade estiver habilitando-o para você.
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 
 
@@ -196,7 +196,7 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 ##  Como obter o status de um circuito da Rota Expressa
 
-Você pode recuperar essas informações quando quiser usando o cmdlet *Get-AzureCircuit*. Fazer a chamada sem nenhum parâmetro listará todos os circuitos.
+Você pode recuperar essas informações a qualquer momento usando o cmdlet *Get-AzureCircuit*. Fazer a chamada sem nenhum parâmetro listará todos os circuitos.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -276,8 +276,8 @@ Você pode desabilitar o complemento premium da Rota Expressa para o circuito ex
 		ServiceKey                       : *********************************
 		ServiceProviderName              : equinix
 		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Premium
-		Status                           : Standard
+		Sku                              : Standard
+		Status                           : Enabled
 
 O complemento Premium agora está desabilitado para o seu circuito.
 
@@ -321,7 +321,7 @@ Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisi
 
 ## Próximas etapas
 
-- [Configurar o roteamento de Rota Expressa (gerenciar emparelhamentos do circuito)](expressroute-howto-routing-classic.md)
-- [Vincular redes virtuais a um circuito da Rota Expressa](expresssroute-howto-linkvnet-classic.md) 
+- [Configurar o roteamento](expressroute-howto-routing-classic.md)
+- [Vincular uma rede virtual a um circuito da Rota Expressa](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

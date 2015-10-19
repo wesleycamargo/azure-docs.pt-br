@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Fazer logon em uma máquina virtual executando o Linux no Azure"
+	pageTitle="Logon em uma VM Linux no Azure | Microsoft Azure"
 	description="Saiba como fazer logon em uma máquina virtual do Azure que executa Linux usando um cliente SSH (Secure Shell)."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,6 +21,8 @@
 
 
 #Como fazer logon em uma máquina virtual que executa o Linux #
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o uso de uma máquina virtual criada usando o modelo de implantação clássico. Você pode executar etapas parecidas para a máquina virtual criada com o [Modelo de implantação do Gerenciador de Recursos](virtual-machines-linux-tutorial-portal-rm.md).
 
 Em uma máquina virtual que executa o sistema operacional Linux, use um cliente Secure Shell (SSH) para fazer logon.
 
@@ -53,4 +56,4 @@ Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro
 <!-- LINKS -->
 [Como redefinir uma senha ou SSH para máquinas virtuais Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos Android" 
-	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento Android." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos Android"
+	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento Android."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="get-started-article"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
@@ -26,7 +26,7 @@ Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a u
 
 Uma captura de tela do aplicativo completo está disponível abaixo:
 
-![][0]
+![](./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png)
 
 A conclusão deste tutorial requer as [Ferramentas para desenvolvedores do Android][Android Studio], que incluem o ambiente de desenvolvimento integrado do Android Studio e a plataforma Android mais recente. Android 4.2 ou uma versão posterior é necessária.
 
@@ -71,7 +71,7 @@ Nesta seção você criará um novo aplicativo Android que está conectado ao se
 1. No [Portal de Gerenciamento], clique em **Serviços Móveis**e, em seguida, clique no serviço móvel que você acabou de criar.
 
 2. Na guia de início rápido, clique em **Android** em **Escolher a plataforma** e expanda **Criar um novo aplicativo Android**.
- 
+
 	![][2]
 
 3. Se ainda não o fez, baixe e instale [Android Developer Tools][Android SDK] em seu computador local ou máquina virtual.
@@ -87,9 +87,9 @@ Nesta seção você criará um novo aplicativo Android que está conectado ao se
 ## <a name="next-steps"> </a>Próximas etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
 
-* [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
+* [Adicionar notificações por push ao seu aplicativo] <br/>Saiba como enviar uma notificação por push bem básica ao seu aplicativo.
 
-* [Introdução às notificações por push] <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo.
+* [Adicionar autenticação ao seu aplicativo] <br/>Aprenda a restringir o acesso a seus dados de back-end para usuários específicos e registrados de seu aplicativo.
 
 * [Solucionar problemas de back-end do .NET dos Serviços Móveis] <br/> Saiba como diagnosticar e corrigir problemas que podem surgir com o back-end do .NET dos Serviços Móveis.
 
@@ -118,15 +118,13 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 <!-- URLs. -->
 [Introdução (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
-[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
-[Introdução à autenticação]: mobile-services-dotnet-backend-android-get-started-users.md
-[Introdução às notificações por push]: mobile-services-dotnet-backend-android-get-started-push.md
+[Adicionar notificações por push ao seu aplicativo]: mobile-services-dotnet-backend-android-get-started-push.md
+[Adicionar autenticação ao seu aplicativo]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Solucionar problemas de back-end do .NET dos Serviços Móveis]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

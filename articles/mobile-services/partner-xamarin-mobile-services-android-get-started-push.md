@@ -28,7 +28,7 @@ Este tutorial exige o seguinte:
 + Uma conta ativa do Google.
 + [Componente do cliente Google Cloud Messaging]. Você adicionará esse componente durante o tutorial.
 
-Você já deve ter os componentes [Xamarin.Android] e os [Serviços Móveis do Azure] instalados em seu projeto desde quando concluiu a [Introdução aos Serviços Móveis] ou [Adicionar Serviços Móveis a um aplicativo existente].
+Você já deve ter os componentes [Xamarin.Android] e [Serviços Móveis do Azure] instalados em seu projeto de quando concluiu a [Introdução aos Serviços Móveis].
 
 ##<a id="register"></a>Habilitar as mensagens em nuvem do Google
 
@@ -65,9 +65,7 @@ Este tutorial foi concluído com êxito.
 
 Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
 
-* [Adicionar os Serviços Móveis a um aplicativo existente] <br/>Saiba mais sobre como armazenar e consultar dados usando os serviços móveis.
-
-* [Introdução à autenticação](mobile-services-android-get-started-users.md) <br/>Saiba como autenticar usuários de seu aplicativo com diferentes tipos de contas usando os Serviços Móveis.
+* [Introdução à autenticação](mobile-services-android-get-started-users.md) <br/>Saiba como autenticar usuários de seu aplicativo com diferentes tipos de contas usando Serviços Móveis.
 
 * [O que são Hubs de Notificação?](../notification-hubs-overview.md) <br/>Saiba mais sobre como os Hubs de Notificação funcionam para entregar notificações aos seus aplicativos entre todas as diversas principais plataformas de cliente.
 
@@ -79,12 +77,10 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: mobile-services-ios-get-started.md
-[Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-android-get-started-data.md
-[Adicionar os Serviços Móveis a um aplicativo existente]: mobile-services-android-get-started-data.md
 
 [Componente do cliente Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

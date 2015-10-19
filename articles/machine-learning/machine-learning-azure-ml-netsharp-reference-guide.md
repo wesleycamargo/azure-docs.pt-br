@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeannt"/>
 
 
@@ -159,6 +159,11 @@ Opcionalmente, você pode especificar um conjunto de pesos para um grupo filtrad
 
 Valores de peso são agrupados pelo índice do nó de destino. Ou seja, se o primeiro nó de destino está conectado a K nós de origem, os primeiros _K_ elementos da tupla **Weights** são os pesos para o primeiro nó de destino, na ordem do índice de origem. O mesmo se aplica aos nós de destino restantes.
 
+É possível especificar pesos diretamente como valores constantes. Por exemplo, se você souber os pesos anteriormente, pode especificá-los como constantes usando esta sintaxe:
+
+	const Weights_1 = [0.0188045055, 0.130500451, ...]
+
+
 ## Grupos convolucionais
 Quando os dados de treinamento têm uma estrutura homogênea, conexões convolucionais são usadas para aprender os recursos de alto nível dos dados. Por exemplo, para dados de imagem, áudio ou vídeo, a dimensionalidade espacial ou temporal pode ser bastante uniforme.
 
@@ -218,7 +223,7 @@ Para mais informações sobre camadas de pooling, consulte esses artigos:
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ## Grupos de normalização de resposta
-**Normalização de resposta** é um esquema de normalização local que foi introduzido primeiramente por Geoffrey Hinton, entre outros, no documento [Classificação ImageNet com Redes Neurais Convolucionais Profundas](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) A normalização de resposta é usada para auxiliar na generalização de redes neurais. Quando um neurônio está disparando em um nível de ativação muito alto, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios circundantes. Isso é feito usando três parâmetros (***α***, ***β*** e ***k***), além de uma estrutura convolucional (ou forma de zona próxima). Todo neurônio na camada de destino ***y*** corresponde a um neurônio ***x*** na camada de origem. O nível de ativação de ***y*** é fornecido pela fórmula a seguir, na qual ***f*** é o nível de ativação de um neurônio, e ***Nx*** é o kernel, ou o conjunto contendo os neurônios na zona próxima a ***x***, conforme definido pela seguinte estrutura convolucional:
+**Normalização de resposta** é um esquema de normalização local que foi introduzido primeiramente por Geoffrey Hinton, entre outros, no artigo [Classificação ImageNet com Redes Neurais Convolucionais Profundas](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). A normalização de resposta é usada para auxiliar na generalização de redes neurais. Quando um neurônio está disparando em um nível de ativação muito alto, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios circundantes. Isso é feito usando três parâmetros (***α***, ***β*** e ***k***), além de uma estrutura convolucional (ou forma de zona próxima). Todo neurônio na camada de destino ***y*** corresponde a um neurônio ***x*** na camada de origem. O nível de ativação de ***y*** é fornecido pela fórmula a seguir, na qual ***f*** é o nível de ativação de um neurônio, e ***Nx*** é o kernel, ou o conjunto contendo os neurônios na zona próxima a ***x***, conforme definido pela seguinte estrutura convolucional:
 
 ![][1]
 
@@ -361,7 +366,7 @@ Este exemplo ilustra vários recursos da linguagem de especificação de redes n
 -	A camada _Pixels_ é uma camada de origem para dois grupos de conexões, com as camadas de destino _ByRow_ e _ByCol_.
 -	As camadas _Gather_ e _Result_ são camadas de destino em múltiplos grupos de conexões.
 -	A camada de saída, _Result_, é uma camada de destino em dois grupos de conexões; um com a camada oculta de segundo nível (Gather) como uma camada de destino e o outro com a camada de entrada (MetaData) como uma camada de destino.
--	As camadas ocultas, _ByRow_ e _ByCol_, especificam conectividade filtrada usando expressões de predicado. Mais precisamente, o nó em _ByRow_ em [x, y] está conectado aos nós em _Pixels_, que tem a primeira coordenada de índice igual à primeira coordenada do nó, x. Da mesma forma, o nó em \_ByCol em [x, y] está conectado aos nós em _Pixels_, que tem a segunda coordenada de índice dentro da segunda coordenada do nó, y.
+-	As camadas ocultas, _ByRow_ e _ByCol_, especificam conectividade filtrada usando expressões de predicado. Mais precisamente, o nó em _ByRow_ em [x, y] está conectado aos nós em _Pixels_, que têm a primeira coordenada de índice igual à primeira coordenada do nó, x. Da mesma forma, o nó em \_ByCol em [x, y] está conectado aos nós em _Pixels_, que têm a segunda coordenada de índice dentro da segunda coordenada do nó, y.
 
 ### Definir uma rede convolucional para classificação multiclasse: exemplo de reconhecimento de dígitos
 A definição de rede a seguir foi projetada para reconhecer números e ilustra algumas técnicas avançadas para personalizar uma rede neural.
@@ -390,14 +395,14 @@ A definição de rede a seguir foi projetada para reconhecer números e ilustra 
 -	A estrutura tem uma única camada de entrada, _Image_.
 -	A palavra-chave **convolve** indica que as camadas denominadas _Conv1_ e _Conv2_ são camadas convolucionais. Cada uma dessas declarações de camada é seguida de uma lista dos atributos de convolução.
 -	A rede tem uma terceira camada oculta, _Hid3_, que é totalmente conectada à _Conv2_, a segunda camada oculta.
--	A camada de saída, _Digit_, é conectada somente à terceira camada oculta, _Hid3_. A palavra-chave **all** indica que a camada de saída está totalmente conectada à _Hid3_.
+-	A camada de saída, _Digit_, é conectada somente à terceira camada oculta, _Hid3_. A palavra-chave **all** indica que a camada de saída está totalmente conectada a _Hid3_.
 -	A aridade da convolução é três (o tamanho das tuplas **InputShape**, **KernelShape**, **Stride** e **Sharing**). 
--	O número de pesos por kernel é _1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
+-	O número de pesos por kernel é _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
 -	Você pode calcular os nós em cada camada oculta, conforme descrito a seguir:
-	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
--	O número total de nós pode ser calculado usando a dimensionalidade declarada da camada, [50, 5, 5], conforme descrito a seguir: _**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
+	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**\\1 = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
+-	O número total de nós pode ser calculado usando a dimensionalidade declarada da camada, [50, 5, 5], conforme descrito a seguir: _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
 -	Como **Sharing**[d] é Falso somente para _d == 0_, o número de kernels é _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
 
@@ -409,4 +414,4 @@ A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolv
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

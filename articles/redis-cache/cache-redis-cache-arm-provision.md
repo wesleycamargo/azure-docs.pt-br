@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/02/2015" 
 	ms.author="tomfitz"/>
 
 # Criar um Cache Redis usando um modelo
@@ -26,13 +26,15 @@ Para obter mais informações sobre a criação de modelos, consulte [Criação 
 
 Para obter o modelo completo, confira [Modelo do Cache Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
+>[AZURE.NOTE]Em breve chegarão os modelos de ARM para a nova [camada Premium](cache-premium-tier-intro.md). Para verificar os modelos mais recentes, consulte [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e procure por `Redis Cache`.
+
 ## O que você implantará
 
 Neste modelo, você implantará um Cache Redis do Azure que usa uma conta de armazenamento existente para os dados de diagnóstico.
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
-[![Implantar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+[![Implantar no Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## Parâmetros
 
@@ -129,4 +131,4 @@ Cria o Cache Redis do Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

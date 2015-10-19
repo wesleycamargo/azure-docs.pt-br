@@ -1,20 +1,20 @@
 <properties 
    pageTitle="Configurando Rota Expressa com NSPs"
-	description="Este tutorial orienta a configuração de Rota Expressa por meio de NSPs (Provedores de Serviços de Rede)"
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Este tutorial orienta a configuração de Rota Expressa por meio de NSPs (Provedores de Serviços de Rede)"
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="adinah"
+   editor="tysonn"/>
 
 <tags 
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/29/2015"
+   ms.author="cherylmc"/>
 
 #  Configurar uma conexão de Rota Expressa por meio de um provedor de serviços de rede
 
@@ -150,4 +150,4 @@ O Windows PowerShell é um ambiente de script poderoso que você pode usar para 
 		
 		Provisioned 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

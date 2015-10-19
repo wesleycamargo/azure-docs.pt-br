@@ -35,7 +35,7 @@ Para poder autenticar os usuários, deve-se registrar o seu aplicativo com o Azu
 Este tutorial exige o seguinte:
 
 * Visual Studio 2013 em execução no Windows 8.1.
-* Conclusão do tutorial [Introdução aos Serviços Móveis] ou [Introdução aos Dados].
+* Conclusão do tutorial [Introdução aos Serviços Móveis]
 * Pacote NuGet do SDK de Serviços Móveis do Microsoft Azure
 * Pacote NuGet da biblioteca de autenticação do diretório ativo
 
@@ -212,8 +212,7 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 <!-- URLs. -->
 [Como se registrar com o Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Introdução aos Dados]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Introdução aos serviços móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Painel do Dev Center do Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

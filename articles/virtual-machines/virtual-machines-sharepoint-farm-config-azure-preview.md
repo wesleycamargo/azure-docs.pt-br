@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
@@ -113,7 +113,7 @@ Aqui estão os detalhes da configuração:
 -	Servidores de banco de dados:
 	-	Imagem da máquina virtual: SQL Server 2014 RTM Enterprise no Windows Server 2012 R2.
 	-	Prefixo do nome do host: especificado durante a configuração inicial.
-	-	Tamanho: A5 (padrão) para servidores de banco de dados, A0 (padrão) para a testemunha de compartilhamento de arquivos.
+	-	Tamanho: A5 (padrão) para servidores de banco de dados, A0 (padrão) para a testemunha de compartilhamento de arquivos (SQL0).
 	-	Nome da conta de acesso do banco de dados: especificado durante a configuração inicial.
 	-	Senha da conta de acesso do banco de dados: especificada durante a configuração inicial.
 	-	Nome da conta de serviço do SQL Server: sqlservice (padrão).
@@ -137,8 +137,8 @@ O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria m�
 
 [Farm do SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[SharePoint em máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

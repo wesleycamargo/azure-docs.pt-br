@@ -58,6 +58,8 @@ Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter um
 
 Em primeiro lugar, se for necessário, use as instruções em [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para instalar o Azure PowerShell no computador local. Abra um prompt do Azure PowerShell.
 
+> [AZURE.NOTE]Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0.0 e posteriores. Você pode verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**. Os blocos de comandos do Azure PowerShell neste artigo estão sendo testados e atualizados a fim de dar suporte aos novos cmdlets nas versões 1.0.0 e posteriores do Azure PowerShell. Agradecemos sua paciência.
+
 Em seguida, selecione a assinatura correta do Azure com estes comandos. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelo nome correto.
 
 	$subscr="<Subscription name>"
@@ -146,7 +148,7 @@ Em seguida, conecte-se à máquina virtual DC1.
 3.	Quando solicitado, abra o arquivo DC1.rdp baixado.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC1\**[nome da conta do administrador local]
+- Nome: **DC1\**[Nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -175,7 +177,7 @@ Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **CORP\**[nome da conta do administrador local]
+- Nome: **CORP\**[Nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -333,4 +335,4 @@ Para iniciar as máquinas virtuais na ordem com o Azure PowerShell, preencha o n
 	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

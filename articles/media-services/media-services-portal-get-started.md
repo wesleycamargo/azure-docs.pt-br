@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao fornecimento de Vídeo sob Demanda (VoD) usando o portal do Azure | Microsoft Azure"
+	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando o Portal do Azure | Microsoft Azure"
 	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de Vídeo sob Demanda (VoD) com os Serviços de Mídia do Azure usando o portal do Azure."
 	services="media-services"
 	documentationCenter=""
@@ -11,13 +11,14 @@
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
+	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# Introdução ao fornecimento de vídeo sob demanda (VoD) usando o portal do Azure
+# Introdução ao fornecimento de conteúdo sob demanda usando o Portal do Azure
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -222,12 +223,18 @@ Algumas considerações se aplicam:
 
 
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##Próximas etapas
+
+###Roteiros de aprendizagem dos Serviços de Mídia
 
 Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Procurando outra coisa?
+
+Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
 ### Recursos adicionais
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Serviços de Mídia do Azure 101 - Coloque seu vídeo online agora!</a>
@@ -254,4 +261,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

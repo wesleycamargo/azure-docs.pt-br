@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="10/01/2015" 
 	ms.author="tomfitz"/>
 
 # Crie um Aplicativo Lógico usando um modelo
@@ -140,4 +140,4 @@ Essa definição específica será executada uma vez por hora e executará ping 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

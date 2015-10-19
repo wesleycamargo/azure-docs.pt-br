@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="10/01/2015" 
 	ms.author="stefsch"/>
 
 # Visão geral da arquitetura de rede dos Ambientes de Serviço de Aplicativo
@@ -40,7 +40,9 @@ Para obter detalhes sobre como permitir a conectividade de saída da Internet de
 ## Endereços de rede de saída ##
 Quando um Ambiente de Serviço de Aplicativo faz chamadas de saída, um endereço IP sempre é associado às chamadas de saída. O endereço IP específico que é usado depende de onde o ponto de extremidade que está sendo chamado está localizado, se dentro ou fora da topologia de rede virtual.
 
-Se o ponto de extremidade que está sendo chamado estiver **fora** da topologia de rede virtual, o endereço de saída (também conhecido como endereço NAT de saída) que será usado é o VIP público do Ambiente de Serviço de Aplicativo. Esse endereço pode ser encontrado na interface do usuário do portal para o Ambiente de Serviço de Aplicativo (Observação: UX pendente).
+Se o ponto de extremidade que está sendo chamado estiver **fora** da topologia de rede virtual, o endereço de saída (também conhecido como endereço NAT de saída) que será usado é o VIP público do Ambiente de Serviço de Aplicativo. Esse endereço pode ser encontrado na interface do usuário do portal para o Ambiente de Serviço de Aplicativo na folha Propriedades.
+ 
+![Endereço IP de saída][OutboundIPAddress]
 
 Esse endereço também pode ser determinado pela criação de um aplicativo no Ambiente de Serviço de Aplicativo e pela execução de um *nslookup* no endereço do aplicativo. O endereço IP resultante é o VIP público, bem como o endereço NAT de saída do Ambiente de Serviço de Aplicativo.
 
@@ -60,9 +62,13 @@ No diagrama acima:
 ## Chamadas entre Ambientes de Serviço de Aplicativo ##
 Um cenário mais complexo pode ocorrer se você implantar vários Ambientes de Serviço de Aplicativo na mesma rede virtual e fizer chamadas de saída de um Ambiente de Serviço de Aplicativo para outro. Esses tipos de chamadas entre Ambientes de Serviço de Aplicativo também serão tratadas como chamadas de "Internet".
 
-Como um exemplo usando o Ambiente de Serviço de Aplicativo acima com o endereço IP de saída 192.23.1.2: se um aplicativo em execução no Ambiente de Serviços de Aplicativo faz uma chamada de saída para um aplicativo em execução em um segundo Ambiente de Serviço de Aplicativo localizado na mesma rede virtual, as chamadas de saída que chegam ao segundo Ambiente de Serviço de Aplicativo serão mostradas como originárias de 192.23.1.2 (ou seja, não o intervalo de endereços de sub-rede do primeiro Ambiente de Serviço de Aplicativo).
+O diagrama a seguir mostra um exemplo de uma arquitetura em camadas com aplicativos em um Ambiente de Serviço de Aplicativo (por exemplo, aplicativos Web de "Porta") chamando aplicativos em um segundo Ambiente de Serviço de Aplicativo (por exemplo, aplicativos internos de API de back-end que não pretendem ser acessíveis pela Internet).
 
-Embora chamadas entre diferentes Ambientes de Serviço de Aplicativo sejam tratadas como chamadas de "Internet", quando ambos os Ambientes de Serviço de Aplicativo estão localizados na mesma região do Azure, o tráfego de rede permanece na rede regional do Azure e não flui fisicamente para a Internet pública. Como resultado, você pode usar um grupo de segurança de rede na sub-rede do segundo Ambiente de Serviço de Aplicativo para permitir somente chamadas de entrada de 192.23.1.2, garantindo assim a comunicação segura entre os Ambientes de Serviço de Aplicativo.
+![Chamadas entre Ambientes de Serviço de Aplicativo][CallsBetweenAppServiceEnvironments]
+
+No exemplo acima, o Ambiente de Serviço de Aplicativo "ASE One" tem um endereço IP de saída de 192.23.1.2. Se um aplicativo em execução no Ambiente de Serviço de Aplicativo faz uma chamada de saída a um aplicativo em execução em um segundo Ambiente de Serviço de Aplicativo ("ASE Two") localizado na mesma rede virtual, a chamada de saída será tratada como uma chamada de "Internet". Como resultado do tráfego de rede que chega, o segundo Ambiente de Serviço de Aplicativo será mostrado como originário de 192.23.1.2 (ou seja, não é o intervalo de endereços de sub-rede do primeiro Ambiente de Serviço de Aplicativo).
+
+Embora chamadas entre diferentes Ambientes de Serviço de Aplicativo sejam tratadas como chamadas de "Internet", quando ambos os Ambientes de Serviço de Aplicativo estão localizados na mesma região do Azure, o tráfego de rede permanece na rede regional do Azure e não flui fisicamente para a Internet pública. Como resultado, você pode usar um grupo de segurança de rede na sub-rede do segundo Ambiente de Serviço de Aplicativo para permitir somente chamadas de entrada do primeiro Ambiente de Serviço de Aplicativo (aqueles cujo endereço IP de saída é 192.23.1.2), garantindo assim a comunicação segura entre os Ambientes de Serviço de Aplicativo.
 
 ## Informações e links adicionais ##
 Os detalhes sobre as portas de entrada usadas pelos Ambientes de Serviço de Aplicativo e como usar grupos de segurança de rede para controlar o tráfego de entrada estão disponíveis [aqui][controllinginboundtraffic].
@@ -77,6 +83,8 @@ Os detalhes sobre como usar rotas definidas pelo usuário para conceder acesso �
 
 <!-- IMAGES -->
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
+[OutboundIPAddress]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundIPAddress-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
+[CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

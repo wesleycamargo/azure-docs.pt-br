@@ -20,9 +20,9 @@
 
 ## Visão geral ##
 
-Ambiente do Serviço de Aplicativo é um novo recurso de nível Premium que está sendo oferecido no modo de Visualização. Ele oferece novos recursos de acesso a rede e de dimensionamento. Essa nova funcionalidade de escala permite que você coloque uma instância do Serviço de Aplicativo do Azure em sua VNET. Se você não estiver familiarizado com a capacidade do ASE (Ambiente do Serviço de Aplicativo), leia o documento aqui [O que é um ambiente do serviço de aplicativo]/app-service-app-service-environment-intro.md). Para obter informações sobre como criar um ASE, leia o documento aqui [Como criar um ambiente do Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
+Ambientes de Serviço de Aplicativo é o novo recurso do tipo Premium no Serviço de Aplicativo do Azure que oferece novos recursos de expansão e de acesso à rede. Essa nova funcionalidade de escala permite que você coloque uma instância do Serviço de Aplicativo do Azure em sua VNET. Se você não estiver familiarizado com a capacidade do ASE (Ambiente de Serviço de Aplicativo), leia o documento aqui [O que é um ambiente de serviço de aplicativo](app-service-app-service-environment-intro.md). Para obter informações sobre como criar um ASE, leia o documento aqui [Como criar um ambiente de serviço de aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
 
-Em um nível elevado, um ambiente do Serviço de Aplicativo consiste em vários componentes principais:
+Em um nível elevado, um ambiente de serviço de aplicativo consiste em vários componentes principais:
 
 - Recursos de computação em execução no serviço hospedado do Ambiente de Aplicativo do Azure
 - Armazenamento
@@ -133,4 +133,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

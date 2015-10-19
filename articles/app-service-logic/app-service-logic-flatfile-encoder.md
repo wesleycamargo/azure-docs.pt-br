@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 # Codificador de Arquivo Simples do BizTalk
 
-O conector de Codificação e Decodificação de Arquivo Simples do BizTalk auxilia na interoperabilidade de seu aplicativo entre dados de arquivo simples (por exemplo, excel, csv) e dados XML. Ele pode converter uma instância de arquivo simples em XML e vice-versa.
+Use o conector de Codificação de Arquivo Simples do BizTalk para permitir a interoperabilidade entre os dados de arquivo simples (por exemplo, excel, csv) e dados XML. Ele pode converter uma instância de arquivo simples em XML e vice-versa.
 
 ##Usando o Codificador de Arquivo Simples do BizTalk
-1. Para usar o Codificador de Arquivo Simples do BizTalk, primeiro você precisa criar uma instância do aplicativo de API do Codificador de Arquivo Simples do BizTalk. Isso pode ser feito de forma embutida durante a criação de um aplicativo lógico ou com a seleção do aplicativo de API do Codificador de Arquivo Simples do BizTalk no Azure Marketplace.
+Para usar o Codificador de Arquivo Simples do BizTalk, primeiro você precisa criar uma instância do aplicativo de API do Codificador de Arquivo Simples do BizTalk. Isso pode ser feito de forma embutida durante a criação de um aplicativo lógico ou com a seleção do aplicativo de API do Codificador de Arquivo Simples do BizTalk no Azure Marketplace.
 
 ###Configurar o Codificador de Arquivo Simples do BizTalk
 O Codificador de Arquivo Simples do BizTalk usa esquemas como parte de sua configuração. Os usuários podem iniciar a folha de configuração do aplicativo de API iniciando o aplicativo de API diretamente do portal do Azure ou clicando duas vezes no aplicativo de App na superfície do designer.
@@ -74,4 +74,4 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Arquivo Simples. A s
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

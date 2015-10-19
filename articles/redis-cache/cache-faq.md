@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # Perguntas frequentes sobre Cache Redis do Azure
@@ -34,14 +34,18 @@ Veja abaixo as considerações para a escolha de uma oferta de Cache.
 -	**Cluster Redis**: se desejar criar caches maiores que 53 GB ou fragmentar dados entre vários nós do Redis, você pode usar o clustering do Redis que está disponível na camada Premium. Cada nó consiste em um par de cache primário/de réplica para alta disponibilidade. Para obter mais informações, veja [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
 -	**Isolamento de rede e segurança avançados**: a implantação de VNET (Rede Virtual) do Azure fornece isolamento e segurança avançados para o Cache Redis do Azure, bem como sub-redes, políticas de controle de acesso e outros recursos para restringir ainda mais o acesso. Para obter mais informações, veja [Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md).
 -	**Configurar o Redis**: nas camadas Standard e Premium, é possível configurar o Redis para notificações de Keyspace.
--	**Número máximo de conexões de cliente**: a camada Premium oferece o número máximo de clientes que podem se conectar ao Redis, com um número maior de conexões para caches de tamanhos maiores. [Confira a página de preço para obter detalhes](TODO).
+-	**Número máximo de conexões de cliente**: a camada Premium oferece o número máximo de clientes que podem se conectar ao Redis, com um número maior de conexões para caches de tamanhos maiores. [Confira a página de preço para obter detalhes](https://azure.microsoft.com/pricing/details/cache/).
 -	**Núcleo dedicado para o servidor do Redis**: na camada Premium, todos os tamanhos de cache têm um núcleo dedicado para o Redis. Nas camadas Básica/Standard, o tamanho C1 e acima têm um núcleo dedicado para o servidor do Redis.
 -	**Como o Redis usa thread único**, ter mais de dois núcleos não oferece um benefício adicional em relação a ter apenas dois, mas tamanhos maiores de VM normalmente têm mais largura de banda que tamanhos menores. Se o cliente ou servidor de cache atingir os limites de largura de banda, você receberá tempos limite no lado do cliente.
 -	**Melhorias de desempenho**: Os caches na camada Premium são implantados no hardware que tem processadores mais rápidos e que oferece um melhor desempenho quando comparado às camadas Básica ou Standard. Os Caches da camada Premium têm a taxa de transferência mais alta e as latências mais baixas.
 
 A tabela a seguir mostra os valores de largura de banda máxima observados durante o teste de vários tamanhos de caches Standard e Premium usando `redis-benchmark.exe` de uma VM de Iaas no ponto de extremidade do Cache Redis do Azure. É importante observar que esses valores não são garantidos e que não há nenhum SLA para esses números, mas eles devem ser típicos. Você deve realizar teste de carga em seu próprio aplicativo para determinar o tamanho de cache certo para ele.
 
-Por meio desta tabela, podemos tirar as conclusões a seguir. - A taxa de transferência para o Cache do mesmo tamanho é mais alta no Premium quando comparado à camada Standard. Por exemplo: para um Cache de 6 GB, a taxa de transferência de P1 é de 140 mil RPS (solicitações por segundo) quando comparada a 49 mil do C3. - Com o clustering do Redis, a taxa de transferência aumenta linearmente à medida que o número de fragmentos (nós) no cluster aumenta. Por exemplo: se você criar um cluster P4 de 10 fragmentos, a taxa de transferência disponível será de 250 mil *10 = 2,5 milhões RPS - A taxa de transferência para tamanhos de chave maiores é mais alta na camada Premium quando comparada à camada Standard.
+Podemos tirar as seguintes conclusões desta tabela.
+
+-	A taxa de transferência para o Cache do mesmo tamanho é maior na camada Premium quando comparada à camada Standard. Por exemplo, para um Cache de 6 GB, a taxa de transferência de P1 será 140 mil RPS, em comparação com 49 mil para C3.
+-	Com o cluster Redis, a taxa de transferência aumenta linearmente à medida que o número de fragmentos (nós) no cluster aumenta. Por exemplo, se você criar um cluster P4 de 10 fragmentos, a taxa de transferência disponível será de 250 mil *10 = 2,5 milhões de RPS.
+-	A taxa de transferência tamanhos de chave maiores é mais alta na camada Premium quando comparada à camada Standard.
 
 | Camada de preços | Tamanho | Largura de banda disponível (Mbps) | Tamanho de chave de 1 KB |
 |----------------------|--------|----------------------------|--------------------------------|
@@ -187,4 +191,4 @@ O Cache Redis do Microsoft Azure baseia-se no popular software livre Cache Redis
 
 Como cada cliente é diferente, não há não uma referência de classe centralizada no MSDN; em vez disso, cada cliente mantém sua própria documentação de referência. Além de documentação de referência, há vários tutoriais no Azure.com mostrando como começar a usar o Cache Redis do Azure usando diferentes linguagens e clientes de cache na página [Documentação do Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

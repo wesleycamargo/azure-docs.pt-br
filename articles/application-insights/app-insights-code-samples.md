@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: Exemplos e Guias de Código
@@ -35,7 +35,7 @@ Os [SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) são u
 Para analisar os dados de telemetria com suas próprias ferramentas, [exporte-os](app-insights-export-telemetry.md) para o armazenamento, no qual você poderá analisá-los e processá-los.
 
 * [Exportar para o Power BI](app-insights-export-power-bi.md) 
-* [Exportar para SQL usando uma função de trabalho](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Analisar os dados exportados usando uma função de trabalho](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportar para o SQL usando o Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
 * [Habilitando a telemetria para o Microsoft CRM](app-insights-sample-mscrm.md)
 
@@ -53,4 +53,4 @@ Para analisar os dados de telemetria com suas próprias ferramentas, [exporte-os
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

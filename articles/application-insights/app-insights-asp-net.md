@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 
@@ -64,9 +64,9 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 
 ####<a name="land"></a> Qual a função de "Adicionar o Application Insights"?
 
-O comando executou estas etapas (que, em vez disso, você poderia executar manualmente, se preferir):
+O comando executou estas etapas (que, em vez disso, você poderia [executar manualmente](app-insights-start-monitoring-app-health-usage.md), se preferir):
 
-* Cria um recurso do Application Insights no [portal do Azure][portal]. É onde você verá seus dados. Ele recupera a *chave de instrumentação*, que identifica o recurso.
+* Cria um recurso do Application Insights no [Portal do Azure][portal]. É onde você verá seus dados. Ele recupera a *chave de instrumentação*, que identifica o recurso.
 * Adiciona o pacote NuGet do SDK da Web do Application Insights ao seu projeto. Para vê-lo no Visual Studio, clique com o botão direito em seu projeto e escolha Gerenciar pacotes NuGet.
 * Coloca a chave de instrumentação em `ApplicationInsights.config`.
 
@@ -81,7 +81,7 @@ No Visual Studio, você verá uma contagem dos eventos que foram recebidos.
 
 ## <a name="monitor"></a> Abrir o Application Insights
 
-Abra o recurso Application Insights no [portal do Azure][portal].
+Abra o recurso Application Insights no [Portal do Azure][portal].
 
 ![Clique com o botão direito do mouse no seu projeto e abra o portal do Azure.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
@@ -99,8 +99,9 @@ Quando você executa no modo de depuração, a telemetria é expressa através d
 
 #### Não há dados?
 
-* Abra o bloco [Pesquisar][diagnostic] para ver eventos individuais.
+* Tenha certeza de que está olhando para coisa certa. Entre no [Portal do Azure](https://portal.azure.com), clique em "Procurar >", "Application Insights" e selecione seu aplicativo.
 * Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
+* Abra a folha [Pesquisar][diagnostic] para ver eventos individuais. Às vezes, os eventos demoram um pouco mais passar pelo pipeline de métricas.
 * Aguarde alguns segundos e clique em Atualizar.
 * Consulte [Solucionar problemas][qna].
 
@@ -111,27 +112,20 @@ Consulte [este item de solução de problemas](app-insights-troubleshoot-faq.md#
 
 ## Adicionar monitoramento de navegador
 
-O monitoramento de navegador ou do lado do cliente fornece dados sobre usuários, sessões, exibições de página e todas as exceções ou falhas que ocorrem no navegador.
+O monitoramento de navegador fornece dados sobre usuários, sessões, exibições de página e todas as exceções ou falhas que ocorrem no navegador.
 
 ![Escolha Novo, Serviços de Desenvolvedor, Application Insights.](./media/app-insights-asp-net/16-page-views.png)
 
 Você também poderá escrever seu próprio código para rastrear como os usuários trabalham com seu aplicativo, até o nível detalhado de cliques e pressionamentos de teclas.
 
-#### Se seus clientes forem navegadores da Web
-
-Se seu aplicativo exibir páginas da Web, adicione um trecho de JavaScript a cada página. Obtenha o código do recurso Application Insights:
+Adicione um trecho de código JavaScript em cada página. Obtenha o código do recurso Application Insights:
 
 ![Em seu aplicativo Web, abra Início Rápido e clique em “Obter código para monitorar minhas páginas na Web”](./media/app-insights-asp-net/02-monitor-web-page.png)
 
 Observe que o código contém a chave de instrumentação que identifica o recurso de aplicativo.
 
-[Saiba mais sobre acompanhamento de página da Web.](app-insights-web-track-usage.md)
+[Saiba mais sobre rastreamento de página da Web.](app-insights-web-track-usage.md)
 
-#### Se seus clientes forem aplicativos de dispositivo
-
-Se seu aplicativo estiver atendendo a clientes, como telefones ou outros dispositivos, adicione o [SDK apropriado](app-insights-platforms.md) ao aplicativo do dispositivo.
-
-Se você configurar o SDK do cliente com a mesma chave de instrumentação do SDK do servidor, os dois fluxos serão integrados para que seja possível vê-los juntos.
 
 ## Acompanhamento de uso
 
@@ -196,7 +190,7 @@ No painel de controle do Aplicativo Web do Azure, adicione a extensão do Applic
 
 ![Em seu aplicativo Web, clique em Configurações, Extensões, Adicionar, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
-(A extensão apenas ajuda um aplicativo que foi criado com o SDK. Ao contrário do Status Monitor, ela não pode instrumentar um aplicativo existente.)
+(Você também pode adicionar a extensão a um aplicativo que já está ativo, mesmo se você não tiver instalado o SDK nele.)
 
 #### Para monitorar funções de serviços de nuvem do Azure
 
@@ -248,4 +242,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

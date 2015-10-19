@@ -46,8 +46,8 @@ Verifique se estes pré-requisitos estão em vigor:
 	- Uma ou mais máquinas virtuais no servidor Hyper-V de origem. As máquinas virtuais devem ser de geração 1.
 - Saiba mais sobre como configurar nuvens VMM:
 	- Leia mais sobre nuvens VMM privadas em [Novidades na nuvem privada com o System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) e em [VMM 2012 e as nuvens](http://go.microsoft.com/fwlink/?LinkId=324956).
-	- Saiba mais em [Configurando a malha de nuvem VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-	- Depois que os elementos de malha de nuvem estiverem em vigor, veja como criar nuvens privadas em [Criando uma nuvem privada na VMM](http://go.microsoft.com/fwlink/?LinkId=324953) e [Passo a passo: criando nuvens privadas com a VMM do System Center 2012 SP1](http://go.microsoft.com/fwlink/?LinkId=324954).
+	- Saiba mais em [Configurando a malha de nuvem VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric).
+	- Depois que os elementos de malha de nuvem estiverem em vigor, veja como criar nuvens privadas em  [Criando uma nuvem privada na VMM](http://go.microsoft.com/fwlink/?LinkId=324953) e [Passo a passo: criando nuvens privadas com a VMM do System Center 2012 SP1](http://go.microsoft.com/fwlink/?LinkId=324954).
 
 ### Pré-requisitos do Hyper-V
 
@@ -86,10 +86,10 @@ Se desejar implantar o mapeamento de rede, você precisará do seguinte:
 3. Clique em *Criar Novo* e, em seguida, clique em *Criação Rápida*.
 
 
-4. Em **Nome**, digite um nome amigável para identificar o cofre.
+4. Em *Nome*, digite um nome amigável para identificar o cofre.
 
-5. Em **Região**, selecione a região geográfica para o cofre. As regiões geográficas disponíveis incluem Oeste da Europa, Sudeste da Ásia, Ásia Oriental, Norte da Europa, Oeste dos EUA, Leste dos EUA.
-6. Clique em **Criar cofre**.
+5. Em *Região*, selecione a região geográfica para o cofre. As regiões geográficas disponíveis incluem Oeste da Europa, Sudeste da Ásia, Ásia Oriental, Norte da Europa, Oeste dos EUA, Leste dos EUA.
+6. Clique em *Criar cofre*.
 
 	![Novo cofre](./media/site-recovery-vmm-to-azure/ASRE2AVMM_HvVault.png)
 
@@ -100,7 +100,7 @@ Se desejar implantar o mapeamento de rede, você precisará do seguinte:
 
 Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recovery e instalá-lo no servidor VMM, você usará essa chave para registrar o servidor VMM no cofre.
 
-1. Na página **Serviços de Recuperação**, clique no cofre para abrir na página de Início Rápido. O Início Rápido pode também ser aberto a qualquer tempo usando o ícone.
+1. Na página *Serviços de Recuperação*, clique no cofre para abrir na página de Início Rápido. O Início Rápido pode também ser aberto a qualquer tempo usando o ícone.
 
 	![Ícone de Inicialização Rápida](./media/site-recovery-vmm-to-azure/ASRE2AVMM_QuickStartIcon.png)
 
@@ -111,7 +111,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 ## Etapa 3: instalar o Provedor do Azure Site Recovery
 
-4. Na página **Início Rápido**, em **Preparar servidores VMM**, clique **Baixar o Provedor de Recuperação de Site do Microsoft Azure para instalação nos servidores VMM** para obter a versão mais recente do arquivo de instalação do Provedor.
+4. Na página *Início Rápido*, em **Preparar servidores VMM**, clique *Baixar o Provedor de Recuperação de Site do Microsoft Azure para instalação nos servidores VMM* para obter a versão mais recente do arquivo de instalação do Provedor.
 
 2. Execute esse arquivo no servidor VMM de origem. Se o VMM for implantado em um cluster e você estiver instalando o Provedor pela primeira vez, instale-o em um nó ativo e conclua a instalação para registrar o servidor VMM no cofre. Em seguida, instale o Provedor nos outros nós. Observe que, se estiver atualizando o Provedor você precisará fazer a atualização em todos os nós porque todos eles devem estar executando a mesma versão do Provedor.
 
@@ -152,11 +152,11 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 8. Clique em *Avançar* para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia *Servidores VMM* da página **Servidores** no cofre.
 
->[AZURE.NOTE]O Provedor do Azure Site Recovery também pode ser instalado usando a linha de comando a seguir. Esse método pode ser usado para instalar o provedor de um NÚCLEO de Servidor para o Windows Server 2012 R2
+>[AZURE.NOTE]O Provedor do Azure Site Recovery também pode ser instalado usando a linha de comando a seguir. Esse método pode ser usado para instalar o provedor em um NÚCLEO de Servidor para o Windows Server 2012 R2
 >
 >1. Baixar o arquivo de instalação do Provedor e a chave de registro em uma pasta, por exemplo, C:\\ASR
 >2. Parar o Serviço System Center Virtual Machine Manager
->3. Extrair o instalador do provedor, executando os comandos abaixo em um prompt de comando com privilégios de **Administrador** 
+>3. Extrair o instalador do provedor, executando os comandos abaixo em um prompt de comando com privilégios de **Administrador**
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -175,12 +175,12 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
  - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
  - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
  - **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).
- - **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação). 
+ - **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação).
 
-  
+
 ## Etapa 4: criar uma conta de armazenamento do Azure
 
-Se não tiver uma conta de armazenamento do Azure, clique em **Adicionar uma Conta de Armazenamento do Azure**. A conta deve ter a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o serviço de Recuperação de Site do Azure e ser associada à mesma assinatura.
+Se não tiver uma conta de armazenamento do Azure, clique em **Adicionar uma conta de Armazenamento do Azure**. A conta deve ter a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o serviço de Recuperação de Site do Azure e ser associada à mesma assinatura.
 
 
 ![Conta de armazenamento](./media/site-recovery-vmm-to-azure/ASRE2AVMM_StorageAgent.png)
@@ -207,7 +207,7 @@ Após o registro do servidor VMM, você poderá definir as configurações de pr
 ![Publicar uma nuvem](./media/site-recovery-vmm-to-azure/ASRE2AVMM_CloudsList.png)
 
 
-1. Na página de **Início Rápido**, clique em **Configurar a proteção para nuvens VMM**.
+1. Na página de Início Rápido, clique em **Configurar a proteção para nuvens VMM**.
 2. Na guia **Itens Protegidos**, clique na nuvem que você deseja configurar e vá até a guia **Configuração**.
 3. Em <b>Destino</b>, selecione <b>Microsoft Azure</b>.
 4. Em <b>Conta de Armazenamento</b>, selecione a conta de armazenamento do Azure que você deseja utilizar para replicar suas máquinas virtuais.
@@ -226,7 +226,7 @@ Após o salvamento, as configurações de nuvem podem ser modificadas na guia <b
 ## Etapa 7: configurar o mapeamento de rede
 Antes de começar o mapeamento de rede, verifique se as máquinas virtuais no servidor VMM de origem estão conectadas a uma rede VM. Além disso, crie uma ou mais redes virtuais do Azure. Observe que várias redes VM podem ser mapeadas para uma única rede do Azure.
 
-1. Na página **Início Rápido**, clique em **Mapear redes**.
+1. Na página Início Rápido, clique em **Mapear redes**.
 2. Na guia **Redes**, em **Local de origem**, selecione o servidor VMM de origem. No **Local de destino**, selecione Azure.
 3. Em redes de **Origem**, é exibida uma lista de redes VM associadas ao servidor VMM. Em redes de **Destino**, são exibidas as redes do Azure associadas à assinatura.
 4. Selecione a rede VM de origem e clique em **Mapear**.
@@ -335,11 +335,11 @@ Para executar um failover de teste, faça o seguinte:
 	- Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
 
 ## <a id="runtest" name="runtest" href="#runtest"></a>Monitorar atividade
-<p>Você pode usar a guia **Trabalhos** e **Painel** para exibir e monitorar os principais trabalhos executados pelo cofre de Recuperação de Site do Azure, incluindo a configuração da proteção para uma nuvem; habilitação e desabilitação da proteção para uma máquina virtual; execução de um failover (planejado, não planejado ou teste) e confirmação de um failover não planejado.</p>
+<p>Você pode usar a guia *Trabalhos* e *Painel* para exibir e monitorar os principais trabalhos executados pelo cofre de Recuperação de Site do Azure, incluindo a configuração da proteção para uma nuvem; habilitação e desabilitação da proteção para uma máquina virtual; execução de um failover (planejado, não planejado ou teste) e confirmação de um failover não planejado.</p>
 
-<p>A partir da guia **Trabalhos** você exibe os trabalhos, realiza busca detalhada nos detalhes do trabalho e erros, executa consultas de trabalho para recuperar trabalhos que combinam com os critérios específicos, exporta trabalhos para o Excel e reinicia os trabalhos que falharam.</p>
+<p>A partir da guia *Trabalhos* você exibe os trabalhos, realiza busca detalhada nos detalhes do trabalho e erros, executa consultas de trabalho para recuperar trabalhos que combinam com os critérios específicos, exporta trabalhos para o Excel e reinicia os trabalhos que falharam.</p>
 
-<p>A partir de **Painel**, você pode baixar as últimas versões dos arquivos de instalação do Provedor e do Agente, obtenha informações de configuração para o cofre, consulte o número de máquinas virtuais que tem a proteção gerenciada pelo cofre, veja os trabalhos recentes, gerencie o certificado do cofre e sincronize novamente as máquinas virtuais.</p>
+<p>A partir de *Painel*, você pode baixar as últimas versões dos arquivos de instalação do Provedor e do Agente, obtenha informações de configuração para o cofre, consulte o número de máquinas virtuais que tem a proteção gerenciada pelo cofre, veja os trabalhos recentes, gerencie o certificado do cofre e sincronize novamente as máquinas virtuais.</p>
 
 <p>Para obter mais informações sobre a interação com trabalhos e o painel, consulte o <a href="http://go.microsoft.com/fwlink/?LinkId=398534">Guia de Operações e Monitoramento</a>.</p>
 
@@ -349,6 +349,5 @@ Para executar um failover de teste, faça o seguinte:
 
 
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

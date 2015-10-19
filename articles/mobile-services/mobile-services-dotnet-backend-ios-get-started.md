@@ -58,8 +58,6 @@ Isso mostra como executar seu novo aplicativo cliente no serviço móvel em exec
 
 Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 
-* [Adicionar os serviços móveis a um aplicativo existente] <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
-
 * [Introdução à sincronização de dados offline] <br/>Saiba como usar a sincronização de dados offline para tornar o seu aplicativo responsivo e robusto.
 
 * [Adicionar autenticação a um aplicativo existente] <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
@@ -88,7 +86,6 @@ Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 
 
 <!-- URLs. -->
-[Adicionar os serviços móveis a um aplicativo existente]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Introdução à sincronização de dados offline]: mobile-services-ios-get-started-offline-data.md
 [Adicionar autenticação a um aplicativo existente]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Adicionar notificações por push a um aplicativo existente]: mobile-services-dotnet-backend-ios-get-started-push.md
@@ -100,4 +97,4 @@ Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versão de back-end do JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

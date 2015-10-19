@@ -20,6 +20,16 @@
 
 As atualizações para o **Catálogo de Dados do Azure** são lançadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário, já que algumas versões se concentram em recursos de serviço de back-end. Esta página destacará os novos recursos voltados para o usuário adicionados ao serviço do **Catálogo de Dados do Azure**.
 
+## Novidades da versão da semana de 2 de outubro de 2015
+
+A partir da semana de 2 de outubro de 2015, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
+
+- Suporte ao registro manual de tipos conhecidos de fonte de dados. Os usuários podem inserir manualmente informações de fonte de dados usando o portal de **Catálogo de dados do Azure** para todos os tipos de fonte de dados com suporte do **Catálogo de dados do Azure**.
+- Suporte para a autorização de grupos de segurança do Active Directory do Azure. Os administradores de catálogo podem habilitar o acesso de catálogo para grupos de segurança e para contas de usuário, tornando mais fácil gerenciar o acesso aos **Catálogo de dados do Azure**.
+- Suporte para abrir fontes de dados de Hive no Excel a partir do portal **Catálogo de dados do Azure**.
+
+> [AZURE.NOTE]Para usar o recurso "Abrir no Excel" para fontes de dados de Hive, os usuários devem ter o driver ODBC para Hive instalado.
+
 ## Novidades da versão da semana de 25 de setembro de 2015
 
 Desde a semana de 25 de setembro de 2015, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
@@ -32,7 +42,7 @@ Desde a semana de 25 de setembro de 2015, os seguintes recursos foram adicionado
 Desde a semana de 18 de setembro de 2015, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
 
 - Uma nova experiência de descoberta da fonte de dados de "introdução" no portal do **Catálogo de Dados do Azure**. Quando os usuários entram na página "descobrir" do portal do **Catálogo de Dados do Azure** sem digitar um termo de pesquisa, será apresentada a eles uma visão geral do conteúdo do catálogo, incluindo marcas usadas com mais frequência, além de especialistas, tipos de fontes de dados e tipos de objeto.
-- Suporte para registro e descoberta de bancos de dados e objetos do SQL Data Warehouse do Azure. Para obter informações adicionais sobre o SQL Data Warehouse do Azure, consulte [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+- Suporte para registro e descoberta de bancos de dados e objetos do SQL Data Warehouse do Azure. Para saber mais sobre o SQL Data Warehouse do Azure, consulte [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
 - Suporte para registro e descoberta de modelos do SQL Server Analysis Services e servidores do SQL Server Reporting Services como contêineres. Ao registrar objetos SSAS e SSRS, o **Catálogo de Dados do Azure** criará uma entrada para o modelo SSAS e o servidor do SSRS, bem como para os relatórios e outros objetos. Os contêineres podem ser descobertos e anotados usando o portal do **Catálogo de Dados do Azure**. Os usuários também podem pesquisar e filtrar o conteúdo de um modelo ou servidor, além de pesquisar e filtrar o conteúdo do catálogo.
 
 > [AZURE.NOTE]Os objetos SSAS e SSRS que foram registrados antes da versão de 18 de setembro devem ser registrados novamente usando a ferramenta de registro de fonte de dados antes que a entrada do modelo ou servidor seja adicionada ao catálogo. Registrar novamente uma fonte de dados não afetará nenhuma anotação que tenha sido adicionada pelos usuários no portal do **Catálogo de Dados do Azure**.
@@ -74,4 +84,4 @@ Desde 21 de agosto de 2015, os seguintes recursos foram adicionados ao **Catálo
 - Somente Standard Edition: ao adicionar proprietários aos ativos de dados, o **Catálogo de Dados do Azure** agora dá suporte a contas de usuário e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário de ativos de dados selecionados, você pode inserir o nome para exibição do grupo ou o endereço de email do UPN do grupo, se houver.
 - Suporte para fontes de dados do Armazenamento do Blobs do Azure. Agora, os usuários podem registrar e descobrir os blobs e diretórios de armazenamento do Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

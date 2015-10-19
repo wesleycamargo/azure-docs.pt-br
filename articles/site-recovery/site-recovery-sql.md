@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="10/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -51,10 +51,12 @@ A Recuperação de Site pode ser integrada com tecnologias nativas de BCDR do SQ
 
 
 
+
+
 A tabela a seguir resume nossas recomendações para a integração de tecnologias de BCDR do SQL Server na implantação da Recuperação de Site.
 
 **Versão** |**Edição** | **Implantação** | **Local para local** | **Local para o Azure** 
----|---|---|---|
+---|---|---|---|---
 SQL Server 2014 ou 2012 | Enterprise | Instância do cluster de failover | Grupos de disponibilidade AlwaysOn | Grupos de disponibilidade AlwaysOn
  | Enterprise | Grupos de disponibilidade AlwaysOn para alta disponibilidade | Grupo de disponibilidade AlwaysOn | Grupo de disponibilidade AlwaysOn
  | Padrão | Instância do cluster de failover | Replicação de Recuperação de Site com espelhamento local | Replicação de Recuperação de Site com espelhamento local
@@ -362,4 +364,4 @@ Para clusters padrão do SQL, a realização do failback após um failover não 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

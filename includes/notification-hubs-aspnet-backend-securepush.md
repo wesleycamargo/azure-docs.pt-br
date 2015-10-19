@@ -61,7 +61,7 @@
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
 
             // windows
-            var rawNotificationToBeSent = new Microsoft.ServiceBus.Notifications.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
+            var rawNotificationToBeSent = new Microsoft.Azure.NotificationHubs.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
                             new Dictionary<string, string> {
                                 {"X-WNS-Type", "wns/raw"}
                             });
@@ -84,4 +84,4 @@ Observe que agora o método `Post` não envia uma notificação de sistema. Ele 
 
 24. Selecione o Site do Azure como seu destino de publicação. Faça logon em sua conta do Azure e selecione um site novo ou existente, então anote a propriedade **URL de destino** na guia **Conexão**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end*. Clique em **Publicar**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

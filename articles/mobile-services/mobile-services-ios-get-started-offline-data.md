@@ -261,7 +261,6 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Tratando conflitos com o suporte offline para os Serviços Móveis]: mobile-services-ios-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 [Exclusão Reversível]: mobile-services-using-soft-delete.md
@@ -271,4 +270,4 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

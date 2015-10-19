@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/29/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
@@ -487,14 +487,17 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 	
 
 
+##Próximas etapas
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+###Roteiros de aprendizagem dos Serviços de Mídia
 
 Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
+### Procurando outra coisa?
 
-<!---HONumber=Oct15_HO1-->
+Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
+
+<!---HONumber=Oct15_HO2-->

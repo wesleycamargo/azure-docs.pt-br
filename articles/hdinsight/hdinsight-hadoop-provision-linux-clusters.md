@@ -138,7 +138,7 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
 
 	> [AZURE.NOTE]A entrada padrão será um dos seus grupos de recursos existentes, se houver algum disponível.
 
-6. Clique em **Credenciais** e insira uma senha para o usuário administrador. Você também deve inserir um **Nome de usuário de SSH** e uma **SENHA** ou uma **CHAVE PÚBLICA**, que será usada para autenticar o usuário SSH. Usar uma chave pública é a abordagem recomendada. Clique em **Selecionar** na parte inferior para salvar a configuração de credenciais.
+6. Clique em **Credenciais** e insira uma senha para o usuário administrador. Você também deve inserir um **Nome de Usuário de SSH** e uma **SENHA** ou uma **CHAVE PÚBLICA**, que será usada para autenticar o usuário SSH. Usar uma chave pública é a abordagem recomendada. Clique em **Selecionar** na parte inferior para salvar a configuração de credenciais.
 
 	![Forneça credenciais de cluster](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.3.png "Forneça credenciais de cluster")
 
@@ -386,7 +386,7 @@ Pode levar vários minutos para que o provisionamento do cluster seja concluído
 ###<a id="sdk"></a> Usando o SDK do .NET do HDInsight
 O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com o HDInsight em um aplicativo .NET Framework. Siga as instruções abaixo para criar um aplicativo de console do Visual Studio e cole o código para criar um cluster.
 
-**Para criar um aplicativo de console do Visual Studio**
+**Para criar um aplicativo de console do Visual Studio em C#**
 
 1. Abra o Visual Studio 2013 ou 2015.
 2. Crie um projeto novo no Visual Studio com as configurações a seguir
@@ -406,6 +406,8 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 
 6. No Gerenciador de Soluções, clique duas vezes em **Program.cs** para abri-lo, cole o seguinte código e forneça valores para as variáveis:
 
+		using System;
+		using System.Security;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
@@ -512,7 +514,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 
 
 
-##<a id="nextsteps"></a> Próximas etapas
+## Próximas etapas
 Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsight Hadoop no Linux. Para saber mais, consulte os seguintes artigos:
 
 - [Trabalhando com o HDInsight no Linux](hdinsight-hadoop-linux-information.md): conheça as nuances de trabalhar com um cluster HDInsight no Linux.
@@ -571,4 +573,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="10/01/2015"
 	ms.author="jolevy"/>
 
 
@@ -53,4 +53,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
  * Leia a postagem no blog [Automação do Azure: seu agente SQL na nuvem](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -18,7 +18,7 @@
 
 # Como Criar um Ambiente do Serviço de Aplicativo #
 
-ASE (Ambientes do Serviço de Aplicativo) são uma opção de serviço Premium do serviço de aplicativo do Azure que está atualmente em modo de Visualização. Ele fornece um recurso de configuração avançada que não está disponível nos carimbos multilocatário. Para obter uma maior compreensão dos recursos oferecidos pelos ambientes do serviço de aplicativo, leia a documentação [O que é um ambiente do serviço de aplicativo][WhatisASE].
+Ambientes de Serviço de Aplicativo (ASE) são uma opção de serviço Premium do Serviço de Aplicativo do Azure que fornece um recurso de configuração avançada não disponível em carimbos com vários locatários. Para obter uma maior compreensão dos recursos oferecidos pelos ambientes do serviço de aplicativo, leia a documentação [O que é um ambiente do serviço de aplicativo][WhatisASE].
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -145,4 +145,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

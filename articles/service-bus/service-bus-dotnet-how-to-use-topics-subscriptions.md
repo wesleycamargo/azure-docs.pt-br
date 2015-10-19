@@ -158,7 +158,7 @@ Você também pode criar assinaturas de tópico com a classe [`NamespaceManager`
 
 Você também pode configurar filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico.
 
-O tipo de filtro mais flexível com suporte das assinaturas é a classe [SqlFilter], que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais informações sobre as expressões que podem ser usadas com um filtro SQL, consulte a sintaxe [SqlFilter.SqlExpression][].
+O tipo de filtro mais flexível com suporte das assinaturas é a classe [SqlFilter][], que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais informações sobre as expressões que podem ser usadas com um filtro SQL, consulte a sintaxe [SqlFilter.SqlExpression][].
 
 O exemplo a seguir cria uma assinatura denominada **HighMessages** com um objeto [SqlFilter] que seleciona apenas as mensagens que tenham uma propriedade **MessageNumber** personalizada maior do que 3.
 
@@ -299,4 +299,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Exemplos do Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

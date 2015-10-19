@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/02/2015"
 	ms.author="carlrab"/>
 
 
@@ -51,7 +51,7 @@ A tabela a seguir lista os principais métodos de migração e discute quando o 
 | [Use o assistente para Implantar um Banco de Dados do SQL Server em uma VM do Microsoft Azure](#azure-vm-deployment-wizard-tutorial) | SQL Server 2005 ou posterior | SQL Server 2014 ou posterior | Mais de 1 TB | Método mais simples e mais rápido, use sempre que possível para migrar para uma instância do SQL Server nova ou existente em uma máquina virtual do Azure |
 | [Execute o backup local usando a compactação e copie manualmente o arquivo de backup para a máquina virtual do Azure](#backup-to-file-and-copy-to-vm-and-restore) | SQL Server 2005 ou posterior | SQL Server 2005 ou posterior | [Limite de armazenamento da VM do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/azure-subscription-service-limits/) | Use somente quando você não pode usar o assistente, como quando a versão de banco de dados de destino for anterior ao SQL Server 2012 SP1 CU2 ou quando o tamanho do backup do banco de dados for maior do que 1 TB (12,8 TB com o SQL Server 2016) |
 | [Execute um backup para URL e restaure na máquina virtual do Azure desde a URL](#backup-to-url-and-restore) | SQL Server 2012 SP1 CU2 ou posterior | SQL Server 2012 SP1 CU2 ou posterior | Mais de 1 TB (para o SQL Server 2016, menos de 12,8 TB) | Geralmente, usar o [backup para URL](https://msdn.microsoft.com/library/dn435916.aspx) tem o mesmo desempenho que usar o assistente, mas não é tão fácil |
-| [Desanexe e copie os arquivos de log e dados para o armazenamento de blob do Azure e anexe à máquina virtual do SQL Server no Azure desde a URL](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 ou posterior | SQL Server 2014 ou posterior | [Limite de armazenamento da VM do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/azure-subscription-service-limits/) | Use ao anexar arquivos de banco de dados ao SQL Server em uma VM do Azure [armazenando esses arquivos por meio do serviço de armazenamento de Blob do Azure](https://msdn.microsoft.com/library/dn385720.aspx), especialmente com bancos de dados muito grandes |
+| [Desanexe e copie os arquivos de log e dados para o armazenamento de blob do Azure e anexe à máquina virtual do SQL Server no Azure desde a URL](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 ou posterior | SQL Server 2014 ou posterior | [Limite de armazenamento da VM do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/azure-subscription-service-limits/) | Use este método quando pretender [armazenar esses arquivos usando o serviço de armazenamento de Blob do Azure](https://msdn.microsoft.com/library/dn385720.aspx) e anexá-los ao SQL Server em execução em uma VM do Azure, especialmente com bancos de dados muito grandes. |
 | [Converta a máquina local em VHDs do Hyper-V, carregue no armazenamento de Blob do Azure e, em seguida, implante uma nova máquina virtual usando o VHD carregado](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) | SQL Server 2005 ou posterior | SQL Server 2005 ou posterior | [Limite de armazenamento da VM do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/azure-subscription-service-limits/) | Use quando estiver [trazendo sua própria licença do SQL Server](../data-management-azure-sql-database-and-sql-server-iaas/) ao migrar um banco de dados que você executará em uma versão anterior do SQL Server ou ao migrar bancos de dados do sistema e do usuário como parte da migração de banco de dados dependente de outros bancos de dados do usuário e/ou bancos de dados do sistema. |
 | [Remeter o disco rígido usando o Serviço de Importação/Exportação do Windows](#ship-hard-drive) | SQL Server 2005 ou posterior | SQL Server 2005 ou posterior | [Limite de armazenamento da VM do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/azure-subscription-service-limits/) | Use o [Serviço de Importação/Exportação do Windows](../storage-import-export-service/) quando o método de cópia manual for muito lento, como com bancos de dados muito grandes |
 
@@ -167,4 +167,4 @@ Use o [método do Serviço de Importação/Exportação do Windows](../storage-i
 
 Para obter mais informações sobre como executar o SQL Server em Máquinas Virtuais do Azure, veja [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introdução ao fornecimento de conteúdo VoD (Vídeo sob Demanda) usando o SDK .NET"
-	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) com os Serviços de Mídia do Azure usando o .NET."
+	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando o SDK do .NET"
+	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo de fornecimento de conteúdo sob demanda com os Serviços de Mídia do Azure usando .NET."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# Introdução ao fornecimento de conteúdo VoD (Vídeo sob Demanda) usando o SDK .NET
+# Introdução ao fornecimento de conteúdo sob demanda usando o SDK do .NET
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -34,7 +34,7 @@ Os seguintes pré-requisitos são necessários para começar a desenvolver com o
 
 - Sistemas operacionais: Windows 8 ou posterior, Windows 2008 R2, Windows 7.
 - .NET Framework 4.5 ou .NET Framework 4.0
-- Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, ou Express).
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou posterior.
 
 
 As tarefas a seguir são mostradas neste guia de início rápido.
@@ -118,14 +118,9 @@ Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 
 4. Abra o arquivo App.config (adicione o arquivo ao seu projeto se ele não foi adicionado por padrão) e adicione uma seção *appSettings* ao arquivo. Defina os valores para o nome e chave de conta de seus Serviços de Mídia do Azure, conforme mostrado no exemplo a seguir. Para obter as informações de nome da conta e de chave, abra o portal do Azure, selecione sua conta de serviços de mídia e clique no botão **GERENCIAR CHAVES**.
 
-	 <pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>ion&gt; </code></pre>
 
 5. Substitua a instruções **using** existentes no início do arquivo Program.cs pelo código a seguir.
 
@@ -146,7 +141,7 @@ Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 
 Ao usar os serviços de mídia com o .NET, você deve usar a classe **CloudMediaContext** para a maioria das tarefas de programação dos Serviços de Mídia: conectar-se à conta de Serviços de Mídia; criar, atualizar, acessar e excluir os seguintes objetos: ativos, arquivos de ativos, trabalhos, políticas de acesso, localizadores, etc.
 
-Substitua a classe Program padrão pelo código a seguir. O código demonstra como ler os valores de conexão por meio do arquivo App.config e como criar o objeto **CloudMediaContext** para poder se conectar aos Serviços de Mídia. Para obter mais informações sobre como conectar-se aos Serviços de Mídia, consulte [Conectando-se aos Serviços de Mídia com o SDK dos Serviços de Mídia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Substitua a classe Program padrão pelo código a seguir. O código demonstra como ler os valores de conexão por meio do arquivo App.config e como criar o objeto **CloudMediaContext** para poder se conectar aos Serviços de Mídia. Para saber mais sobre como conectar-se aos Serviços de Mídia, consulte [Conectando-se aos Serviços de Mídia com o SDK dos Serviços de Mídia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 A função **Main** chama métodos que serão definidos posteriormente nesta seção.
 
@@ -199,14 +194,14 @@ A função **Main** chama métodos que serão definidos posteriormente nesta se�
 
 ##Criar um novo ativo e carregar um arquivo de vídeo
 
-No Serviços de Mídia, você carrega (ou insere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão. Os arquivos no ativo são chamados **Arquivos de Ativo**.
+No Serviços de Mídia, você carrega (ou insere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão. Os arquivos no ativo são chamados **Arquivos de Ativo**.
 
 O método **UploadFile** definido abaixo chama **CreateFromFile** (definido em extensões do SDK .NET). **CreateFromFile** cria um novo ativo no qual o arquivo de origem especificado é carregado.
 
 O método **CreateFromFile** contém **AssetCreationOptions**, que permite especificar uma das seguintes opções de criação de ativos:
 
 - **None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento. Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
-- **StorageEncrypted** – use essa opção para criptografar seu conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carregá-lo para o armazenamento do Azure, onde ele é armazenado, criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
+- **StorageEncrypted** – use essa opção para criptografar seu conteúdo limpo localmente usando a criptografia AES de 256 bits e carregá-lo para o armazenamento do Azure, onde ele é armazenado, criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
 - **CommonEncryptionProtected** — use esta opção se você estiver carregando conteúdo que já foi criptografado e protegido com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
 - **EnvelopeEncryptionProtected** – use esta opção se você estiver carregando HLS criptografado com AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
 
@@ -418,13 +413,18 @@ Para o fluxo de vídeo, use [Player dos Serviços de Mídia do Azure](http://ams
 Para testar o download progressivo, cole uma URL em um navegador (por exemplo, Internet Explorer, Chrome ou Safari).
 
 
+##Próximas etapas
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+###Roteiros de aprendizagem dos Serviços de Mídia
 
 Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Procurando outra coisa?
+
+Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
 
 <!-- Anchors. -->
@@ -434,4 +434,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

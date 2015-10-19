@@ -3,7 +3,7 @@
    description="Este tutorial orienta você pelas etapas de criação, depuração e implantação de um serviço canônico HelloWorld usando os Atores Confiáveis da Malha de Serviços."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Atores Confiáveis: o cenário canônico HelloWorld passo a passo
 Este artigo explica os conceitos básicos dos Atores Confiáveis da Malha de Serviços e orienta você durante a criação, depuração e implantação de um aplicativo simples HelloWorld no Visual Studio.
@@ -158,4 +158,4 @@ As ferramentas para Visual Studio da Malha do Serviço oferecem suporte à depur
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

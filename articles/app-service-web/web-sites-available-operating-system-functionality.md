@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Funcionalidade do sistema operacional nos aplicativos Web do Serviço de Aplicativo do Azure #
@@ -101,7 +101,7 @@ As áreas de registro em log de diagnóstico e rastreamento que não estão disp
 
 <a id="RegistryAccess"></a>
 ## Acesso ao Registro
-Os aplicativos têm acesso somente leitura a grande parte (mas nem todo) do Registro da máquina virtual em que estão sendo executados. Na prática, isso significa que as chaves do Registro que permitem acesso somente leitura ao grupo Usuários local são acessíveis por aplicativos Web. Uma área do Registro que atualmente não é compatível com acesso de leitura ou gravação é a seção HKEY\\\_CURRENT\\\_USER.
+Os aplicativos têm acesso somente leitura a grande parte (mas nem todo) do Registro da máquina virtual em que estão sendo executados. Na prática, isso significa que as chaves do Registro que permitem acesso somente leitura ao grupo Usuários local são acessíveis por aplicativos Web. Uma área do Registro que atualmente não é compatível com acesso de leitura ou gravação é a seção HKEY\\_CURRENT\\_USER.
 
 O acesso de gravação ao Registro está bloqueado, inclusive o acesso a chave do Registro por usuário. Do ponto de vista de um aplicativo, o acesso de gravação ao Registro jamais deve ser usado em um ambiente de nuvem porque os aplicativos podem (e vão) ser migrados entre máquinas virtuais diferentes. O único armazenamento gravável persistente que pode ser usado por um aplicativo Web é a estrutura do diretório de conteúdo por aplicativo armazenada nos compartilhamentos UNC dos aplicativos Web.
 
@@ -111,4 +111,4 @@ O acesso de gravação ao Registro está bloqueado, inclusive o acesso a chave d
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

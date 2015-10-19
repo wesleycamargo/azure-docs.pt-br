@@ -33,7 +33,7 @@ Neste artigo, você lerá sobre:
 
 ## Recurso de Personalização da IU (Interface do Usuário) da Página
 
-O recurso de personalização da interface do usuário de página permite que você personalize a aparência das páginas de inscrição, entrada edição de perfil do consumidor (pela configuração de [políticas](active-directory-b2c-references.policies.md)). Seus consumidores terão experiências consistentes ao navegar entre seu aplicativo e as páginas atendidas pelo serviço do AD B2C do Azure.
+O recurso de personalização da interface do usuário de página permite que você personalize a aparência das páginas de inscrição, entrada edição de perfil do consumidor (pela configuração de [políticas](active-directory-b2c-reference-policies.md)). Seus consumidores terão experiências consistentes ao navegar entre seu aplicativo e as páginas atendidas pelo serviço do AD B2C do Azure.
 
 Ao contrário de outros serviços no qual as opções são limitadas ou só estão disponíveis por meio de APIs, o AD B2C do Azure usa uma abordagem moderna (e mais simples) para a personalização da interface do usuário da página. Eis aqui como ele funciona: o AD B2C do Azure executa o código no navegador do cliente e usa uma abordagem moderna chamada [CORS (Compartilhamento de Recursos Entre Origens)](http://www.w3.org/TR/cors/) para carregar conteúdo proveniente de uma URL que você especifica em uma política. Você pode especificar URLs diferentes para diferentes páginas. O código mescla o conteúdo do AD B2C do Azure (chamado de elementos de interface do usuário) e o conteúdo carregado por meio de sua URL e exibe a página para o consumidor. Tudo que você precisa fazer é criar um conteúdo HTML5 bem-formado com um elemento `<div id="api"></div>` localizado em algum lugar no `<body>` - é para este local que o conteúdo do AD B2C do Azure é mesclado. E hospede esse conteúdo em um ponto de extremidade HTTPS (com CORS permitido). Você também pode formatar totalmente o estilo dos elementos da interface do usuário do AD B2C do Azure.
 
@@ -276,4 +276,4 @@ Se você estiver planejando usar o recurso de personalização de interface do u
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

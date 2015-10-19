@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/07/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Criar um aplicativo Web .NET MVC no Serviço de Aplicativo do Azure com autenticação do AD FS
@@ -249,7 +249,7 @@ Até agora, você já teve êxito das seguintes maneiras:
 - O AD FS foi autenticou com êxito um usuário do AD e redirecionou você de que volta à página inicial do aplicativo
 - O AD FS enviou com êxito a declaração de nome (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) ao seu aplicativo, conforme indicado pelo fato de que o nome de usuário é exibido no canto. 
 
-Se a declaração de nome estiver ausente, você teria visto **Olá, !**. Se você verificar Views\\Shared\\\_LoginPartial.cshtml, descobrirá que ele usa `User.Identity.Name` para exibir o nome de usuário. Conforme mencionado anteriormente, o ASP.NET alimenta essa propriedade com a declaração de nome de usuário autenticado, se ele estiver disponível no token SAML. Para ver todas as declarações enviadas pelo AD FS, coloque um ponto de interrupção em Controllers\\HomeController.cs, no método de ação de Índice. Depois que o usuário for autenticado, inspecione a coleção `System.Security.Claims.Current.Claims`.
+Se a declaração de nome estiver ausente, você teria visto **Olá, !**. Se você verificar Views\\Shared\\_LoginPartial.cshtml, descobrirá que ele usa `User.Identity.Name` para exibir o nome de usuário. Conforme mencionado anteriormente, o ASP.NET alimenta essa propriedade com a declaração de nome de usuário autenticado, se ele estiver disponível no token SAML. Para ver todas as declarações enviadas pelo AD FS, coloque um ponto de interrupção em Controllers\\HomeController.cs, no método de ação de Índice. Depois que o usuário for autenticado, inspecione a coleção `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -343,4 +343,4 @@ Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a b
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos de HTML 5"
+	pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos HTML/JavaScript | Microsoft Azure"
 	description="Siga este tutorial para começar a usar o os Serviços Móveis do Azure para desenvolvimento de HTML."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,14 +12,16 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
-	ms.topic="article" 
-	ms.date="07/25/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Visão geral 
 
@@ -46,7 +48,7 @@ Os itens a seguir são necessários para concluir este tutorial:
 	Você pode usar qualquer servidor web para hospedar o aplicativo, mas estes são os servidores web com suporte dos scripts baixados.
 
 + Um navegador da Web que ofereça suporte a HTML5.
-+ Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
@@ -117,13 +119,12 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 ## <a name="next-steps"> </a>Próximas etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
 
-* **[Introdução aos dados]** <br/>Saiba mais sobre armazenar e consultar dados usando os Serviços Móveis.
+* **[Adicionar autenticação ao seu aplicativo]** Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 
-* **[Chamar uma API personalizada de um aplicativo HTML]** <br/>Conecte seu aplicativo HTML à API personalizada hospedada nos Serviços Móveis.
+* **[Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]** Saiba mais sobre como usar os Serviços Móveis com o HTML/JavaScript
 
-* **[Introdução à autenticação]** <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 
-* **[Referência conceitual do tutorial do HTML/JavaScript de Serviços Móveis]** <br/>Saiba mais sobre como usar os Serviços Móveis com o HTML/JavaScript
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -144,9 +145,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 
 <!-- URLs. -->
-[Introdução aos dados]: mobile-services-html-get-started-data.md
-[Introdução à autenticação]: mobile-services-html-get-started-users.md
-[Chamar uma API personalizada de um aplicativo HTML]: mobile-services-html-call-custom-api.md
+[Adicionar autenticação ao seu aplicativo]: mobile-services-html-get-started-users.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]: http://go.microsoft.com/fwlink/p/?LinkId=286333
@@ -155,4 +154,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

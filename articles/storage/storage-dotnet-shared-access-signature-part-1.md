@@ -72,7 +72,7 @@ A SAS de conta e os tokens SAS de serviço incluem alguns parâmetros comuns e t
 - **Hora de início.** É a hora em que a SAS torna-se válida. A hora de início para uma assinatura de acesso compartilhado é opcional; se estiver omitida, a SAS entrará em vigor imediatamente. 
 - **Hora de expiração.** É a hora após a qual a SAS não é mais válida. As práticas recomendadas sugerem que você especifique uma hora de expiração para uma SAS ou associe-a a uma política de acesso armazenada (veja mais abaixo).
 - **Permissões.** As permissões especificadas nas SAS indicam quais operações o cliente pode executar com o recurso de armazenamento usando a SAS. As permissões disponíveis são diferentes entre SAS de conta e de serviço.
-- **IP.** Um parâmetro opcional que especifica um endereço IP ou um intervalo de endereços IP do qual aceitar solicitações. 
+- **IP.** Um parâmetro opcional que especifica um endereço IP, ou um intervalo de endereços IP, fora do Azure (consulte a seção [Estado de configuração da sessão de roteamento](../expressroute/expressroute-workflows.md#routing-session-configuration-state) da Rota Expressa) do qual aceitar solicitações. 
 - **Protocolo.** Um parâmetro opcional que especifica o protocolo permitido para uma solicitação. Os valores possíveis são HTTPS e HTTP (http, https), que é o valor padrão, ou somente HTTPS (https). Observe que somente HTTP não é um valor permitido.
 - **Assinatura.** A assinatura é construída com os parâmetros especificados como parte do token e depois criptografada. Ela é usada para autenticar a SAS.
 
@@ -320,4 +320,4 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -256,6 +256,7 @@ Se você suspeitar que uma conta de usuário pode estar comprometida ou qualquer
 	- Até 1.000 eventos serão mostrados no Portal de Gerenciamento do Azure.
 5. Se aplicável, clique em **Baixar** para baixar o relatório em um arquivo compactado no formato de valores separados por vírgulas (CSV) para visualização offline ou para fins de arquivamento.
 	- Até 75.000 eventos serão incluídos no arquivo baixado.
+	- Para obter mais dados, confira a [API de Relatórios do Azure AD](active-directory-reporting-api-getting-started.md).
 
 ## Ignorar um evento
 
@@ -263,11 +264,11 @@ Se você estiver exibindo os relatórios de anomalias, perceba que você pode ig
 
 ## Notificações automáticas por email
 
-Para obter mais informações sobre as notificações de relatórios do AD do Azure, verifique [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
+Para saber mais sobre as notificações de relatórios do Azure AD, confira [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
 
 ## O que vem a seguir
 
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

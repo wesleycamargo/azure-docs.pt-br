@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # Ambiente de teste de configuração básica
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação. Você também pode criar esses recursos com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-base-configuration-test-environment-resource-manager.md).
 
-Este artigo apresenta instruções passo a passo para criar o ambiente de teste com a configuração de base em uma Rede Virtual do Azure, usando máquinas virtuais criadas no Gerenciamento de Serviços.
+Este artigo apresenta instruções passo a passo para criar o ambiente de teste de Configuração de Base em uma Rede Virtual do Azure.
 
 Você pode usar o ambiente de teste resultante:
 
@@ -51,7 +51,7 @@ Há quatro fases para configurar a sub-rede Corpnet do ambiente de teste de Conf
 3.	Configurar o APP1.
 4.	Configurar o CLIENT1.
 
-Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter uma avaliação gratuita em [Experimentar o Azure](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se ainda não tiver uma conta do Azure, inscreva-se para obter uma avaliação gratuita em [Avaliação gratuita de um mês](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 > [AZURE.NOTE]As máquinas virtuais no Azure incorrem em um custo monetário contínuo quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para obter mais informações sobre os custos da execução de máquinas virtuais do Azure, consulte [Detalhes de preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Calculadora de preços do Azure](http://azure.microsoft.com/pricing/calculator/). Para reduzir os custos, consulte [Minimizando os custos de máquinas de virtuais do ambiente de teste no Azure](#costs).
 
@@ -59,7 +59,7 @@ Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter um
 
 Primeiro, crie a rede virtual TestLab do Azure que hospedará a sub-rede Corpnet da configuração de base.
 
-1.	Na barra de tarefas do Portal de Gerenciamento do Azure, clique em **Novo > Serviços de Rede > Rede Virtual > Criação Personalizada**.
+1.	Na barra de tarefas do [Portal do Azure](https://manage.windowsazure.com), clique em **Novo > Serviços de Rede > Rede Virtual > Criação Personalizada**.
 2.	Na página Detalhes da Rede Virtual, digite **TestLab** em **Nome**.
 3.	Em **Local**, selecione a região apropriada.
 4.	Clique na seta Avançar.
@@ -254,6 +254,8 @@ A configuração básica no Azure agora está pronta para desenvolvimento e test
 
 ## Recursos adicionais
 
+[Laboratório de teste do Azure](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx)
+
 [Ambientes de teste de nuvem híbrida](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 [Ambiente de teste Configuração de Base com o Gerenciador de Recursos do Azure](virtual-machines-base-configuration-test-environment-resource-manager.md)
@@ -286,4 +288,4 @@ Para iniciar as máquinas virtuais em ordem com o PowerShell do Azure, preencha 
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

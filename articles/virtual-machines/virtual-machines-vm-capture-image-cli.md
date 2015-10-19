@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Capturar uma imagem de uma máquina virtual executando Linux usando a CLI"
+	pageTitle="Capturar uma imagem de uma máquina virtual executando Linux usando a CLI | Microsoft Azure"
 	description="Saiba como capturar imagens de máquina virtual do Azure que executam Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="madhana"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,7 +22,7 @@
 
 # Como capturar uma máquina virtual Linux para usar como um modelo com a CLI##
 
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
 
 Esse artigo mostra como capturar a máquina virtual do Azure executando Linux para que você a use como modelo para criar outras máquinas virtuais. O modelo inclui o disco do SO e qualquer disco de dados anexados à máquina virtual. Isso não inclui a configuração da rede, então você precisará configurá-la quando você criar as outras máquinas virtuais que usam o modelo.
 
@@ -162,4 +163,4 @@ Visite a [página de documentação da CLI do Azure][] para obter mais detalhes 
 [Como anexar um disco de dados à máquina virtual]: storage-windows-attach-disk.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

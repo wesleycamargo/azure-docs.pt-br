@@ -30,7 +30,7 @@ Este tutorial também é demonstrado por Nick Harris no vídeo a seguir:
 
 Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve, primeiramente, concluir o tutorial [Adicionar Serviços Móveis a um aplicativo existente].
 
->[AZURE.NOTE]Este tutorial demonstra o fluxo de autenticação gerenciado pelos Serviços Móveis utilizando uma variedade de provedores de identidade. Esse método é fácil de configurar e oferece suporte a vários provedores. Em vez de usar o Live Connect com autenticação gerenciada pelo cliente e fornecer uma experiência de logon único em seu aplicativo do Windows Phone, consulte o tópico [Logon único para aplicativos do Windows Phone usando o Live Connect]. Ao usar a autenticação gerenciada pelo cliente, seu aplicativo tem acesso aos dados adicionais do usuário mantidos pelo provedor de identidade. Você pode obter os mesmos dados do usuário em seu serviço móvel ao chamar a função **user.getIdentities()** nos scripts do servidor. Para obter mais informações, consulte [essa postagem](http://go.microsoft.com/fwlink/p/?LinkId=506605).
+>[AZURE.NOTE]Este tutorial demonstra o fluxo de autenticação gerenciado pelos Serviços Móveis utilizando uma variedade de provedores de identidade. Esse método é fácil de configurar e oferece suporte a vários provedores. Ao usar a autenticação gerenciada pelo cliente, seu aplicativo tem acesso aos dados adicionais do usuário mantidos pelo provedor de identidade. Você pode obter os mesmos dados do usuário em seu serviço móvel ao chamar a função **user.getIdentities()** nos scripts do servidor. Para obter mais informações, consulte [essa postagem](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
 ##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
@@ -77,7 +77,6 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Logon único para aplicativos do Windows Phone usando o Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

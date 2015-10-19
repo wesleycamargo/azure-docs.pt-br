@@ -131,11 +131,10 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: mobile-services-html-get-started.md
-[Get started with data]: mobile-services-html-get-started-data.md
 [Autorizar usuários com scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

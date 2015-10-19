@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Sistema de mensagens de retransmissão do Barramento de Serviço"
+	pageTitle="Visão geral de mensagens retransmitidas pelo Barramento de Serviço | Microsoft Azure"
 	description="Visão geral da retransmissão do Barramento de Serviço"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/04/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 
@@ -31,12 +31,12 @@ Você inicia a conexão entre o serviço local e o serviço de retransmissão us
 
 ## Próximas etapas
 
-Para saber mais sobre a retransmissão do Barramento de Serviço, confira os tópicos a seguir.
+Para obter mais detalhes sobre a retransmissão do Barramento de Serviço, consulte os tópicos a seguir.
 
-- [Visão geral da arquitetura de Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
 
 - [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

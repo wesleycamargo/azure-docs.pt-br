@@ -209,7 +209,6 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 
 6. Associe o NSG criado acima à sub-rede *BackEnd*.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
@@ -236,4 +235,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
                         "ProvisioningState": "Succeeded"
                       }
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

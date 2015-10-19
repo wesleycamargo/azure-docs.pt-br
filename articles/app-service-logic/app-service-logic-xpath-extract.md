@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 #Extrator de XPath do BizTalk
@@ -50,4 +50,4 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Resultado. O Resulta
 <!-- Links -->
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->
