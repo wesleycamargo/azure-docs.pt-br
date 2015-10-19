@@ -48,7 +48,8 @@ Para testar sua instalação do Redigir, execute o comando a seguir.
 $ docker-compose --version
 ```
 
-Você verá uma saída semelhante a ```
+Você verá uma saída semelhante a
+```
 docker-compose 1.3.2
 ```
 
@@ -59,9 +60,18 @@ Em seguida, você criará um arquivo `docker-compose.yml`, que é apenas um arqu
 
 Crie um diretório de trabalho na sua VM e use seu editor de texto favorito para criar `docker-compose.yml`. Para testar um exemplo simples, copie o texto a seguir no arquivo. Essa configuração usa imagens do [Registro do DockerHub](https://registry.hub.docker.com/_/wordpress/) para instalar o WordPress (o sistema de blog e gerenciamento de conteúdo de software livre) e um banco de dados SQL MariaDB de back-end vinculado.
 
- ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
+ ```
+ wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
 
-db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
+db:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: <your password>
 
 ```
 
@@ -77,7 +87,9 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
+Creating wordpress_db_1...
+Creating wordpress_wordpress_1...
+```
 
 >[AZURE.NOTE]Não se esqueça de usar a opção **-d** na inicialização para que os contêineres sejam executados continuamente em segundo plano.
 

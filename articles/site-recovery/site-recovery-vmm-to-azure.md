@@ -46,8 +46,8 @@ Verifique se estes pré-requisitos estão em vigor:
 	- Uma ou mais máquinas virtuais no servidor Hyper-V de origem. As máquinas virtuais devem ser de geração 1.
 - Saiba mais sobre como configurar nuvens VMM:
 	- Leia mais sobre nuvens VMM privadas em [Novidades na nuvem privada com o System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) e em [VMM 2012 e as nuvens](http://go.microsoft.com/fwlink/?LinkId=324956).
-	- Saiba mais em [Configurando a malha de nuvem VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-	- Depois que os elementos de malha de nuvem estiverem em vigor, veja como criar nuvens privadas em [Criando uma nuvem privada na VMM](http://go.microsoft.com/fwlink/?LinkId=324953) e [Passo a passo: criando nuvens privadas com a VMM do System Center 2012 SP1](http://go.microsoft.com/fwlink/?LinkId=324954).
+	- Saiba mais em [Configurando a malha de nuvem VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric).
+	- Depois que os elementos de malha de nuvem estiverem em vigor, veja como criar nuvens privadas em  [Criando uma nuvem privada na VMM](http://go.microsoft.com/fwlink/?LinkId=324953) e [Passo a passo: criando nuvens privadas com a VMM do System Center 2012 SP1](http://go.microsoft.com/fwlink/?LinkId=324954).
 
 ### Pré-requisitos do Hyper-V
 

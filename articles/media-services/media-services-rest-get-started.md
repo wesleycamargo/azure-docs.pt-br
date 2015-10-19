@@ -21,7 +21,8 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avaliação Gratuita do Azure</a>.
+>[AZURE.NOTE]
+> Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avaliação Gratuita do Azure</a>.
 
 Este início rápido orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) com as APIs REST dos Serviços de Mídia do Azure (AMS).
 
@@ -81,7 +82,8 @@ As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST d
 1. Obtendo um token de acesso. 
 2. Conectando o URI dos serviços de mídia. 
 	
-	>[AZURE.NOTE]Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI.
+	>[AZURE.NOTE]
+	Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI.
 	> 
 	> Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
 3. Postando suas chamadas de API subsequentes para a nova URL. 
@@ -145,7 +147,8 @@ O exemplo a seguir mostra a resposta HTTP que contém o token de acesso no corpo
 	}
 	
 
->[AZURE.NOTE]É recomendável armazenar em cache os valores "access\_token" e "expires\_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
+>[AZURE.NOTE]
+É recomendável armazenar em cache os valores "access\_token" e "expires\_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
 
 Certifique-se de monitorar o valor "expires\_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
 
@@ -496,7 +499,8 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte: HTTP/1.1 204 No Content
+Se for bem-sucedido, será retornado o seguinte
+	HTTP/1.1 204 No Content
 
 ## Excluir o AccessPolicy e localizador 
 
@@ -1008,7 +1012,8 @@ O exemplo a seguir mostra como especificar o AccessPolicy para permissões de le
 
 Se tiver êxito, um código de sucesso 201 é retornado descrevendo a entidade AccessPolicy que você criou. Em seguida, você usará a ID do AccessPolicy com a ID do ativo que contém o arquivo que você deseja fornecer (como um ativo de saída) para criar a entidade do localizador.
 
->[AZURE.NOTE]Esse fluxo de trabalho básico é o mesmo utilizado para carregar um arquivo ao ingerir ativos (como foi discutido neste tópico). Além disso, como o carregamento de arquivos, se você (ou seus clientes) precisarem acessar os arquivos imediatamente, defina o valor StartTime para cinco minutos antes da hora atual Essa ação é necessária porque pode haver uma defasagem horária entre o cliente e os serviços de mídia. O valor de StartTime deve estar no seguinte formato de DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
+>[AZURE.NOTE]
+Esse fluxo de trabalho básico é o mesmo utilizado para carregar um arquivo ao ingerir ativos (como foi discutido neste tópico). Além disso, como o carregamento de arquivos, se você (ou seus clientes) precisarem acessar os arquivos imediatamente, defina o valor StartTime para cinco minutos antes da hora atual Essa ação é necessária porque pode haver uma defasagem horária entre o cliente e os serviços de mídia. O valor de StartTime deve estar no seguinte formato de DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
 
 
 ###Criando uma URL SAS para download de conteúdo 
@@ -1074,7 +1079,8 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 
 A propriedade **Path** retornada contém a URL de SAS.
 
->[AZURE.NOTE]Se você baixar o conteúdo de armazenamento criptografado, deverá manualmente descriptografá-lo antes de renderizá-lo ou usar o MediaProcessor de descriptografia de armazenamento em uma tarefa de processamento para arquivos processados de saída de modo transparente para um OutputAsset e, em seguida, fazer o download deste ativo. Para saber mais sobre processamento, consulte Criar um trabalho de codificação com a API REST dos serviços de mídia. Além disso, os localizadores URL SAS não podem ser atualizados depois que eles foram criados. Por exemplo, você não pode reutilizar o mesmo localizador com um valor StartTime atualizado. Isso é devido ao modo como as URLs SAS são criadas. Se você quiser acessar um ativo para baixar após um localizador ter expirado, você deve criar um novo com um novo StartTime.
+>[AZURE.NOTE]
+Se você baixar o conteúdo de armazenamento criptografado, deverá manualmente descriptografá-lo antes de renderizá-lo ou usar o MediaProcessor de descriptografia de armazenamento em uma tarefa de processamento para arquivos processados de saída de modo transparente para um OutputAsset e, em seguida, fazer o download deste ativo. Para saber mais sobre processamento, consulte Criar um trabalho de codificação com a API REST dos serviços de mídia. Além disso, os localizadores URL SAS não podem ser atualizados depois que eles foram criados. Por exemplo, você não pode reutilizar o mesmo localizador com um valor StartTime atualizado. Isso é devido ao modo como as URLs SAS são criadas. Se você quiser acessar um ativo para baixar após um localizador ter expirado, você deve criar um novo com um novo StartTime.
 
 ###Baixar arquivos
 
