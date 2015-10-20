@@ -135,4 +135,4 @@ O mapeamento de rede da VMNetwork1-Chicago é alterado. | A VM-1 será conectada
 
 Agora que você compreende melhor o mapeamento de rede, comece a ler as [práticas recomendadas](site-recovery-best-practices.md) para se preparar para a implantação.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

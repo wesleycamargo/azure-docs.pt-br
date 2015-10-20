@@ -18,7 +18,7 @@
 
 # Criar, iniciar ou excluir um Application Gateway usando o Gerenciador de Recursos do Azure
 
-O Application Gateway é a camada 7 do balanceador de carga. Ele fornece o failover, realizando roteamento de solicitações HTTP entre diferentes servidores com alto desempenho, independentemente de estarem na nuvem ou no local. O Application Gateway tem os seguintes recursos de entrega de aplicativo: Balanceamento de carga HTTP, Afinidade de sessão baseadas em cookie, Descarregamento SSL.
+O Application Gateway é a camada 7 do balanceador de carga. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Application Gateway tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie, descarregamento SSL.
 
 
 > [AZURE.SELECTOR]
@@ -414,4 +414,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

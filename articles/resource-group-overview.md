@@ -131,4 +131,4 @@ Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

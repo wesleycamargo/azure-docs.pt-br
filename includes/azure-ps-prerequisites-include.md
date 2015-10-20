@@ -3,4 +3,4 @@ Para executar estas etapas do artigo, será necessário [instalar e configurar o
 
 > [AZURE.NOTE]Se você não tiver uma conta do Azure, será preciso criar uma. Inscreva-se em uma [avaliação gratuita aqui](sign-up-organization.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

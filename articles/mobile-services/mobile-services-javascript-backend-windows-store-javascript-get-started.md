@@ -89,4 +89,4 @@ Agora que você concluiu o início rápido, saiba como trabalhar com o [Cliente 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

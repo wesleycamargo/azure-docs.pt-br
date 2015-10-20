@@ -33,4 +33,4 @@ Quando esses arquivos não existem, o Azure cria um script de implantação temp
 
 [interface de linha de comando do Azure]: http://azure.microsoft.com/downloads/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -82,7 +82,7 @@ Qualquer cenário de VMM que você queira implantar com a Recuperação de Site 
 - [Novidades na nuvem privada com o System Center 2012 R2 VMM](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=)
 - [VMM 2012 e as nuvens](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
 - [Configurando a malha de nuvem do VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-- [Criando uma nuvem privada no VMM](https://technet.microsoft.com/pt-br/library/jj860425.aspx)
+- [Criando uma nuvem privada no VMM](https://technet.microsoft.com/pt-BR/library/jj860425.aspx)
 - [Passo a passo: criando nuvens privadas com o System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 
 
@@ -194,4 +194,4 @@ Depois de revisar essas práticas recomendadas, inicie a implantação da Recupe
 - [Configurar a proteção com um único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

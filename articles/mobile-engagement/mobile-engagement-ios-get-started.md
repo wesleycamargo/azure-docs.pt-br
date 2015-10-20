@@ -30,7 +30,7 @@ Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do a
 
 Este tutorial exige o seguinte:
 
-+ XCode 6 ou XCode 7, que podem ser instalados por meio da MAC App Store
++ XCode 6 ou XCode 7, que podem ser instalados a partir da MAC App Store
 + o [SDK do Mobile Engagement iOS]
 + Certificado de notificação por push (. p12), que pode ser obtido no centro de desenvolvimento da Apple
 
@@ -187,4 +187,4 @@ O Mobile Engagement permite interagir com seus usuários e o REACH com notifica�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

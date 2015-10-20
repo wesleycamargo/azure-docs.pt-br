@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 # Introdução aos Hubs de Notificação para aplicativos do iOS
@@ -26,12 +26,19 @@ Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar not
 
 Este tutorial demonstra o cenário de transmissão simples usando Hubs de Notificação.
 
+
+## Antes de começar
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+O código completo para este tutorial pode ser encontrado no GitHub [aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted).
+
 ##Pré-requisitos
 
 Este tutorial exige o seguinte:
 
 + [SDK do iOS dos Serviços Móveis]
-+ [Xcode 6][Install Xcode]
++ [XCode 7][Install Xcode]
 + Um dispositivo compatível com o iOS 8 (ou versão posterior)
 + Associação no Programa de Desenvolvedores de iOS
 
@@ -39,7 +46,7 @@ Este tutorial exige o seguinte:
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais sobre os Hubs de Notificação para aplicativos do iOS.
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> [AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fja-jp%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
 [AZURE.INCLUDE [Hubs de notificação habilitam notificações por push da Apple](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -70,15 +77,17 @@ Esta seção apresenta como criar e configurar um novo hub de notificação com 
 
    	![][4]
 
-6. Clique na guia **Hubs de Notificação** na parte superior e no hub de notificação que você acabou de criar.
+6. Clique na guia **Hubs de Notificação** na parte superior e clique no hub de notificação que você acabou de criar.
 
    	![][5]
 
-7. Clique na guia **Configurar** na parte superior e, em seguida, clique no botão **Carregar** nas configurações de notificação da Apple para carregar a impressão digital do certificado. Depois, selecione o certificado **.p12** que você exportou anteriormente e a senha do certificado. Lembre-se de escolher se deseja usar a **Produção** (se desejar enviar notificações por push para os usuários que adquiriram seu aplicativo na loja) ou o serviço de push da **Área Restrita** (durante o desenvolvimento).
+7. Clique na guia **Configurar** na parte superior e, em seguida, clique no botão **Carregar** nas configurações de notificação da Apple para carregar a impressão digital do certificado. Depois, selecione o certificado **.p12** que você exportou anteriormente e a senha do certificado.
+ 
+	Selecione o modo de **Área Restrita**, pois se trata de desenvolvimento. Use **Produção** apenas se você quiser enviar notificações por push aos usuários que adquiriram seu aplicativo na loja.
 
-   	![][6]
+   	![](./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png)
 
-8. Clique na guia **Painel** na parte superior e, em seguida, clique em **Exibir Cadeia de Conexão**. Anote as duas cadeias de conexão.
+8. Clique na guia **Painel** na parte superior e, em seguida, clique em **Exibir Cadeia de Conexão**. Anote as duas cadeias de conexão. Você usará as cadeias de conexão na seção de código abaixo.
 
    	![][7]
 
@@ -160,11 +169,17 @@ Seu hub de notificação agora está configurado para funcionar com o APNs e voc
 ## Enviar notificações
 
 
-Você pode testar o recebimento das notificações no aplicativo enviando notificações no portal do Azure por meio da guia de depuração no hub de notificação, como mostrado na tela abaixo. ![][30]
+Você pode testar o recebimento de notificações em seu aplicativo ao enviar notificações no portal do Azure usando a guia de depuração no hub de notificação, como mostrado na tela abaixo.
+
+![][30]
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-![][31]
+
+
+## (Opcional) Enviar notificações do aplicativo
+
+Se você quiser enviar notificações em um aplicativo. Esta seção fornece um exemplo de como fazer isso usando a interface REST.
 
 1. No Xcode, abra Main.storyboard e adicione os seguintes componentes da interface do usuário da biblioteca de objetos para permitir que o usuário envie notificações por push no aplicativo:
 
@@ -449,7 +464,7 @@ Para testar as notificações por push no iOS, você deve implantar o aplicativo
 
 	![][33]
 
-2. Toque dentro do campo de texto para inserir uma mensagem de notificação. Depois, pressione o botão **Enviar** no teclado ou o botão **Enviar Notificação** no modo de exibição para enviar a mensagem de notificação.
+2. Você pode enviar uma notificação de teste do portal do Azure. Se você adicionou o código para enviar a notificação no aplicativo, toque dentro do campo de texto para inserir uma mensagem de notificação. Depois, pressione o botão **Enviar** no teclado ou o botão **Enviar Notificação** no modo de exibição para enviar a mensagem de notificação.
 
 	![][34]
 
@@ -462,7 +477,11 @@ Se você tiver problemas ou recomendações para melhorar este tutorial para tod
 
 ##Próximas etapas
 
-Neste exemplo simples, você envia notificações para todos os seus dispositivos iOS. Para selecionar usuários de destino específicos, consulte o tutorial [Usar Hubs de Notificação para enviar notificações por push aos usuários]. Se desejar segmentar os usuários por grupos de interesse, você poderá ler [Usar Hubs de Notificação para enviar notícias mais recentes]. Saiba mais sobre como usar Hubs de Notificação em [Diretrizes dos Hubs de Notificação].
+Neste exemplo simples, você envia notificações para todos os seus dispositivos iOS. Como uma próxima etapa do aprendizado, sugerimos que você continue no tutorial [Usar Hubs de Notificação para enviar notificações por push aos usuários]. Esse tutorial o orientará na criação de um back-end para enviar as notificações usando marcas.
+
+Se desejar segmentar os usuários por grupos de interesse, você poderá adicionalmente continuar em [Usar Hubs de Notificação para enviar as últimas notícias].
+
+Para obter informações mais gerais sobre os Hubs de Notificação, consulte [Diretrizes dos Hubs de Notificação].
 
 
 
@@ -505,8 +524,8 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Usar Hubs de Notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-ios-send-breaking-news.md
+[Usar Hubs de Notificação para enviar as últimas notícias]: notification-hubs-ios-send-breaking-news.md
 
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

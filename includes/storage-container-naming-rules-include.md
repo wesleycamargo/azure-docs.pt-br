@@ -12,4 +12,4 @@ Um nome de contêiner deve ser um nome DNS válido e estar em conformidade com a
 
 > [AZURE.IMPORTANT]Observe que o nome de um contêiner deve sempre estar em minúsculas. Se você incluir uma letra maiúscula em um nome de contêiner ou de alguma forma violar as regras de nomenclatura do contêiner, você receberá um erro 400 (solicitação incorreta).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -516,4 +516,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 [Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs
 [Documentação do Django]: https://www.djangoproject.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

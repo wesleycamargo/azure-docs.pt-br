@@ -62,8 +62,8 @@ A disponibilidade definida no conjunto de dados **AzureBlobOutput** determina a 
 ## Preparar o armazenamento do Azure para o tutorial
 Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com arquivos necessários para o tutorial.
 
-1. Inicie o bloco de notas, cole o texto a seguir e salve-o como **partitionweblogs.hql** na pasta C:\\adfgettingstarted no disco rígido. Esse script de Hive cria duas tabelas externas: **WebLogsRaw** e **WebLogsPartitioned**.
-
+1. Inicie o **Bloco de Notas** e cole o script HQL a seguir. Esse script de Hive cria duas tabelas externas: **WebLogsRaw** e **WebLogsPartitioned**. Clique em **Arquivo** no menu e selecione **Salvar como**. Alterne para a pasta **C:\\adfgettingstarted** no disco rígido. Selecione **Todos os Arquivos (*.*)** para o campo **Salvar como tipo**. Digite **partitionweblogs.hql** para o **Nome de arquivo**. Confirme se o campo **Codificação** na parte inferior da caixa de diálogo está definido como **ANSI**. Se não estiver, defina-o como **ANSI**.  
+	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -142,8 +142,7 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-	
- 
+	 
 2. Como preparar o armazenamento do Azure para o tutorial:
 	1. Baixe a [versão mais recente do **AzCopy**](http://aka.ms/downloadazcopy) ou a [última versão de visualização](http://aka.ms/downloadazcopypr). Consulte o artigo [Como usar o AzCopy](../storage/storage-use-azcopy.md) para obter instruções sobre o uso do utilitário.
 	2. Após a instalação do AzCopy, você pode adicioná-lo ao caminho do sistema, executando o seguinte comando no prompt de comando. 
@@ -174,6 +173,6 @@ Faça o seguinte:
 - Clique no link [Usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) na parte superior para executar o tutorial usando o Visual Studio. 
 
 ## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

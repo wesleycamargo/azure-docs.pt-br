@@ -39,4 +39,4 @@ Quando você deseja criar um experimento, procure exemplos nos experimentos de e
 - [Criar uma API do serviço Web](machine-learning-publish-a-machine-learning-web-service.md)
 - [Procurar aplicativos prontos para uso](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

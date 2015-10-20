@@ -41,9 +41,9 @@ Depois de ter documentos em uma coleção, você pode usar o [SQL do Banco de Da
 
 Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 
--	[Mapa de Aprendizagem para o Banco de Dados de Documentos](documentdb-learning-map.md)
+-	[Roteiro de aprendizagem para o Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Conceitos e modelo de recursos do Banco de Dados de Documentos](documentdb-resources.md)
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

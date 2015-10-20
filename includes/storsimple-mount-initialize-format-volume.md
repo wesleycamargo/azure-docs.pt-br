@@ -35,4 +35,4 @@ Para assistir a um vídeo que demonstra como montar, inicializar e formatar um v
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

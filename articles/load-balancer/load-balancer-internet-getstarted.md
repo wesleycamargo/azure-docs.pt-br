@@ -1,20 +1,20 @@
 
 <properties
    pageTitle="Introdução à configuração do balanceador de carga para a Internet | Microsoft Azure"
-	description="Configure seu primeiro balanceador de carga da Internet para suas máquinas virtuais ou serviços de nuvem."
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Configure seu primeiro balanceador de carga da Internet para suas máquinas virtuais ou serviços de nuvem."
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/12/2015"
+   ms.author="joaoma" />
 
 # Introdução à configuração do balanceador de carga para a Internet
 
@@ -136,4 +136,4 @@ No exemplo a seguir, você irá adicionar um balanceador de carga chamado "webfa
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

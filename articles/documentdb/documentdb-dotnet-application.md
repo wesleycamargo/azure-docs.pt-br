@@ -20,6 +20,12 @@
 
 #<a name="_Toc395809351"></a>Desenvolvimento de aplicativo Web com ASP.NET MVC usando Banco de Dados de Documentos
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md) 
+
 Para destacar como você pode aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este artigo fornece um passo a passo completo que mostra como compilar um aplicativo Web de lista de tarefas pendentes usando o Banco de Dados de Documentos do Azure. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos do Azure.
 
 ![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial](./media/documentdb-dotnet-application/image1.png)
@@ -628,4 +634,4 @@ Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs dispon�
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 [projeto de exemplo completo do GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

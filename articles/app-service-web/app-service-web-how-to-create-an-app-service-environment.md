@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+	ms.date="10/13/2015" 
 	ms.author="ccompy"/>
 
 # Como Criar um Ambiente do Serviço de Aplicativo #
@@ -39,12 +39,12 @@ Cada implantação de ASE é um serviço hospedado que o Azure gerencia e manté
 Há duas maneiras de acessar a interface do usuário de criação do ASE. Ela pode ser encontrada pesquisando no Azure Marketplace por ***ambiente do serviço de aplicativo*** ou acessando as opções de menu Novo -> Web + Móvel.
 
 ### Criação Rápida ###
-Depois de inserir a interface do usuário de criação, você pode criar rapidamente um ASE simplesmente digitando um nome para a implantação. Isso criará, por sua vez, uma VNET com 512 endereços, uma sub-rede com 256 endereços nessa VNET e um ambiente ASE com 2 Front-Ends e 2 processadores no pool de trabalho 1. Certifique-se de selecionar o local onde você deseja que o sistema esteja localizado e a assinatura em que você quer que ele esteja. As únicas contas que podem usar o ASE para hospedar o conteúdo devem estar na assinatura usada para criá-lo.
+Depois de inserir a interface do usuário de criação, você pode criar rapidamente um ASE simplesmente digitando um nome para a implantação. Isso criará, por sua vez, uma VNET com 512 endereços, uma sub-rede com 256 endereços nessa VNET e um ambiente ASE com 2 Front-Ends e 2 processadores no pool de trabalho 1. Crie um novo *plano de serviço de aplicativo* ou selecione um existente e a assinatura em que você deseja incluí-lo. As únicas contas que podem usar o ASE para hospedar o conteúdo devem estar na assinatura usada para criá-lo.
 
 O nome especificado para o ASE será usado para aplicativos Web criados no ASE. Se o nome do ASE for appsvcenvdemo, o nome de domínio será .*appsvcenvdemo.p.azurewebsites.net*. Se você criou, portanto, um aplicativo Web chamado mytestapp, ele seria endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Você não pode usar espaços em branco no nome. Se você usar letras maiúsculas entre os caracteres do nome, o nome de domínio será a versão total em letras minúsculas desse nome.
 
 
-![][1]
+![][1] ![][4]
 
 ### Pools de recursos de computação ###
 
@@ -118,16 +118,16 @@ Você não pode alterar:
 - VNET usada
 - Sub-rede usada
 
-Há mais detalhes sobre o gerenciamento e monitoramento de ambientes do serviço de aplicativo aqui: [Como configurar um Ambiente do Serviço de Aplicativo][ASEConfig]
+Há mais detalhes sobre o gerenciamento e monitoramento de ambientes de serviço de aplicativo aqui: [Como configurar um Ambiente de Serviço de Aplicativo][ASEConfig]
 
 Há dependências adicionais que não estão disponíveis para personalização, como o banco de dados e o armazenamento. Esses são gerenciados pelo Azure e fornecidos com o sistema. O armazenamento do sistema oferece suporte a até 500 GB para todo o ambiente do serviço de aplicativo.
 
 
 ## Introdução
 
-Para se familiarizar com os ambientes do serviço de aplicativo, consulte [Introdução ao ambiente do Serviço de Aplicativo][WhatisASE]
+Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente de Serviço de Aplicativo][WhatisASE]
 
-Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
+Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -138,6 +138,7 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseappserviceplan.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
@@ -145,4 +146,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -48,4 +48,4 @@ Depois de criar o cofre de Backup do Azure, um agente deve ser instalado em cada
 
     ![Configurar o Backup do Azure](./media/backup-install-agent/configure.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

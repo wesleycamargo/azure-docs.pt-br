@@ -3,19 +3,10 @@
 Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
 1. Se você nunca tiver usado o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o final para entrar no Azure e selecionar sua assinatura.
-2. Execute o cmdlet **Switch-AzureMode** para alternar para modo Gerenciador de Recursos, como mostrado abaixo.
 
-		Switch-AzureMode AzureResourceManager
+3. Se necessário, execute o cmdlet **New-AzureRMResourceGroup** para criar um novo grupo de recursos. O comando abaixo cria um grupo de recursos chamado *TestRG* na região do Azure do *Centro dos EUA*. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
 
-	Este é o resultado esperado para o comando descrito acima:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]O cmdlet Switch-AzureMode será preterido em breve. Quando isso acontecer, todos os cmdlets do Gerenciador de Recursos serão renomeados.
-
-3. Se necessário, execute o cmdlet **New-AzureResourceGroup** para criar um novo grupo de recursos. O comando abaixo cria um grupo de recursos chamado *TestRG* na região do Azure do *Centro dos EUA*. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
-
-		New-AzureResourceGroup -Name TestRG -Location centralus
+		New-AzureRMResourceGroup -Name TestRG -Location centralus
 		
 	Este é o resultado esperado para o comando descrito acima:
 
@@ -27,11 +18,11 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-4. Execute o cmdlet **New-AzureResourceGroupDeployment** para implantar a nova Rede Virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima.
+4. Execute o cmdlet **New-AzureRMResourceGroupDeployment** para implantar a nova rede virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima.
 
-		New-AzureResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
+		New-AzureRMResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 			
 	Este é o resultado esperado para o comando descrito acima:
@@ -55,18 +46,18 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		
 		Outputs           :
 
-5. Execute o cmdlet **Get-AzureVirtualNetwork** para exibir as propriedades da nova Rede Virtual, como mostrado abaixo.
+5. Execute o cmdlet **Get-AzureRMVirtualNetwork** para exibir as propriedades da nova Rede Virtual, como mostrado abaixo.
 
 
-		Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
 	Este é o resultado esperado para o comando descrito acima:
 		
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
-		Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"
+		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              :
 		AddressSpace      : {
@@ -81,8 +72,8 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		Subnets           : [
 		                      {
 		                        "Name": "FrontEnd",
-		                        "Etag": "W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
 		                        "AddressPrefix": "192.168.1.0/24",
 		                        "IpConfigurations": [],
 		                        "NetworkSecurityGroup": null,
@@ -91,8 +82,8 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		                      },
 		                      {
 		                        "Name": "BackEnd",
-		                        "Etag": "W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
 		                        "AddressPrefix": "192.168.2.0/24",
 		                        "IpConfigurations": [],
 		                        "NetworkSecurityGroup": null,
@@ -101,4 +92,4 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		                      }
 		                    ]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

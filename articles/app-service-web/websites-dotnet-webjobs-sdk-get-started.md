@@ -13,38 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/22/2015"
+	ms.date="10/09/2015"
 	ms.author="tdykstra"/>
 
 # Criar um Trabalho Web do .NET no Serviço de Aplicativo do Azure
 
+Este tutorial mostra como escrever código para um aplicativo ASP.NET MVC 5 multicamadas simples que usa [SDK WebJobs](websites-dotnet-webjobs-sdk.md) para trabalhar com as [filas do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) e os [blobs do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). O tutorial mostra como implantar o aplicativo no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e no [Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336279).
 
-
-Este tutorial mostra como criar um aplicativo MVC ASP.NET de várias camadas que usa o SDK de WebJobs para trabalhar com as [filas do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) e os [blobs do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) no recurso Aplicativos Web no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). O aplicativo também utiliza o [banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336279).
-
-O aplicativo de exemplo é um boletim informativo de anúncio. Os usuários criam um anúncio inserindo texto e carregando uma imagem. Eles podem ver uma lista de anúncios com imagens em miniatura e podem ver a imagem em tamanho total ao selecionar um anúncio para ver os detalhes. Esta é uma captura de tela:
+O aplicativo de exemplo é um boletim informativo de anúncio. Os usuários podem carregar imagens para anúncios, e um processo de back-end converte as imagens em miniaturas. A página de lista de anúncios mostra as miniaturas, e a página de detalhes do anúncio mostra a imagem em tamanho normal. Esta é uma captura de tela:
 
 ![Lista de anúncios](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
-Você pode [baixar o projeto do Visual Studio][download] na Galeria de Códigos do MSDN.
-
-[download]: http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb
-
 ## <a id="prerequisites"></a>Pré-requisitos
 
-O tutorial pressupõe que você saiba como trabalhar com projetos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) no Visual Studio. O aplicativo função Web usa MVC, mas a maior parte do tutorial também aplica-se a Web Forms.
+O tutorial pressupõe que você saiba como trabalhar com projetos [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou Web Forms no Visual Studio.
 
-As instruções do tutorial funcionam com os seguintes produtos:
+O tutorial foi escrito para o Visual Studio 2013. Se você ainda não tem o Visual Studio, ele será instalado automaticamente quando você instalar o SDK do Azure para .NET.
 
-* Visual Studio 2013
-* Comunidade do Visual Studio 2013
-* Visual Studio 2013 Express para Web
+O tutorial pode ser usado com o Visual Studio 2015, mas, antes de executar o aplicativo localmente, você precisa alterar a parte `Data Source` da cadeia de conexão LocalDB do SQL Server nos arquivos Web.config e App.config de `Data Source=(localdb)\v11.0` para `Data Source=(LocalDb)\MSSQLLocalDB`.
 
-Se você não tiver nenhum desses produtos, o Visual Studio 2013 Express para Web será instalado automaticamente ao instalar o SDK do Azure.
-
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
-
->[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note2.md)]
 
 ## <a id="learn"></a>O que você vai aprender
 
@@ -65,26 +53,15 @@ O aplicativo armazena anúncios em um banco de dados SQL usando Entity Framework
 
 ![Tabela de anúncios](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
-Quando um usuário carrega uma imagem, o front-end do aplicativo Web armazena a imagem em um [blob do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e armazena as informações do anúncio no banco de dados com uma URL que aponta para o blob. Ao mesmo tempo, ele grava uma mensagem em uma fila do Azure. Um processo back-end em execução como um Trabalho Web do Azure usa o SDK de Trabalhos Web para sondar a fila a procura de novas mensagens. Quando uma nova mensagem é exibida, o Trabalho Web cria uma miniatura dessa imagem e atualiza o campo do banco de dados da URL de miniatura desse anúncio. Veja a seguir este diagrama que mostra como as partes de um aplicativo interagem:
+Quando um usuário carrega uma imagem, o aplicativo Web armazena a imagem em um [Blob do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e armazena as informações do anúncio no banco de dados, com uma URL que aponta para o blob. Ao mesmo tempo, ele grava uma mensagem em uma fila do Azure. Em um processo back-end em execução como um Trabalho Web do Azure, o SDK de Trabalhos Web sonda a fila a procura de novas mensagens. Quando uma nova mensagem é exibida, o Trabalho Web cria uma miniatura dessa imagem e atualiza o campo do banco de dados da URL de miniatura desse anúncio. Veja a seguir este diagrama que mostra como as partes de um aplicativo interagem:
 
 ![Arquitetura do Contoso Ads](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
-### Arquitetura alternativa
+[AZURE.INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
 
-Trabalhos Web são executados no contexto de um aplicativo Web e não são escalonáveis separadamente. Por exemplo, se tiver uma instância de aplicativo Web Padrão, você só pode ter uma instância do processo em segundo plano em execução e ela está usando parte dos recursos do servidor (CPU, memória etc.) que, de outra forma, estariam disponíveis para atender ao conteúdo da Web.
+As instruções do tutorial aplicam-se ao SDK do Azure para .NET 2.7.1 ou posterior.
 
-Se o tráfego variar de acordo com a hora do dia ou o dia da semana e se for possível esperar o processamento back-end necessário, você pode agendar os Trabalhos Web para serem executados nos horários de menos tráfego. Se ainda assim a carga for muito grande para essa solução, você pode levar em consideração ambientes alternativos para o programa back-end, como os seguintes:
-
-* Executar o programa como um Trabalho Web em um aplicativo Web à parte, dedicado a essa finalidade. Em seguida, você pode dimensionar seu aplicativo Web de back-end independentemente do seu aplicativo Web de front-end.
-* Executar o programa em uma função de trabalho Serviço de Nuvem do Azure. Ao escolher essa opção, você pode executar o front-end em uma função web de Serviço de Nuvem ou em um aplicativo Web.
-
-Este tutorial mostra como executar o front-end em um aplicativo Web e o back-end como um WebJob no mesmo aplicativo Web. Para saber mais sobre como escolher o melhor ambiente para seu cenário, confira [Comparação entre aplicativo Web do Azure, serviços de nuvem e máquinas virtuais](../choose-web-site-cloud-service-vm/).
-
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
-
-As instruções do tutorial aplicam-se ao SDK do Azure para .NET 2.5.1 ou posterior. Na seção Criar do zero, em que você cria o projeto do Trabalho Web, os pacotes SDK dos Trabalhos Web são incluídos automaticamente no projeto; com versões anteriores do SDK, você precisa instalar os pacotes manualmente.
-
-## <a id="storage"></a>Criar uma conta de armazenamento do Azure
+## <a id="storage"></a>Criar uma conta do Armazenamento do Azure
 
 Uma conta de armazenamento do Azure fornece os recursos para dados de blob e fila de armazenamento na nuvem. Ela também é usada pelo SDK de WebJobs para armazenar dados de registro no painel.
 
@@ -96,8 +73,9 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 ![Conecte-se ao Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Entre utilizando suas credenciais do Azure.
-5. Clique com botão direito do mouse em **Armazenamento** no nó do Azure e clique em **Criar Conta de Armazenamento**. 
-[Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+
+5. Clique com botão direito do mouse em **Armazenamento** sob o nó do Azure e, em seguida, clique em **Criar conta de armazenamento**. 
+![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Na caixa de diálogo **Criar conta de armazenamento**, digite um nome para a conta de armazenamento.
 
@@ -119,11 +97,11 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 ## <a id="download"></a>Baixar o aplicativo
 
-1. Baixar e descompactar a [solução concluída][download].
+1. Baixar e descompactar a [solução concluída](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb).
 
 2. Inicie o Visual Studio.
 
-3. No menu **Arquivo**, escolha **Abrir** > **Projeto/Solução**, navegue até onde você baixou a solução e abra o arquivo de solução.
+3. No menu **Arquivo**, escolha **Abrir** > Projeto/Solução, navegue até onde você baixou a solução e abra o arquivo de solução.
 
 4. Pressione CTRL+SHIFT+B para criar a solução.
 
@@ -172,7 +150,7 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 ## <a id="run"></a>Executar o aplicativo localmente
 
-1. Para iniciar o front-end da Web do aplicativo, pressione CTRL+F5.
+1. Para iniciar o front-end Web do aplicativo, pressione CTRL+F5.
 
 	O navegador padrão é aberto na home page. (O projeto Web é executado porque você o tornou o projeto inicial.)
 
@@ -210,7 +188,7 @@ Você esteve executando o aplicativo no computador local, e ele estava usando um
 
 Você seguirá as etapas abaixo para executar o aplicativo na nuvem:
 
-* Implantar em aplicativos Web. O Visual Studio cria automaticamente um novo aplicativo Web na instância do Banco de Dados SQL e do Serviço de Aplicativo.
+* Implantar em aplicativos Web. O Visual Studio cria automaticamente um novo aplicativo Web no Serviço de Aplicativo e uma instância do Banco de Dados SQL.
 * Configure o aplicativo Web para usar o banco de dados SQL do Azure e a conta de armazenamento.
 
 Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o painel do SDK de Trabalhos Web para ver os recursos de monitoramento sofisticados que ele tem a oferecer.
@@ -225,9 +203,11 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
 
 	![Selecionar destino de publicação do aplicativo Web do Azure](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)
 
-4. Na caixa **Selecionar aplicativo Web existente**, clique em **Entrar** e insira suas credenciais, se você ainda não tiver entrado.
+4. Entre no Azure, se você ainda não tiver entrado.
 
-5. Depois de entrar, clique em **Novo**.
+5. Clique em **Novo**.
+
+	A caixa de diálogo pode parecer um pouco diferente, dependendo da versão do SDK do Azure para .NET que você instalou.
 
 	![Clique em Novo](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
 
@@ -247,7 +227,9 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
 
 11. Na lista suspensa **Servidor de banco de dados**, escolha **Criar novo servidor**.
 
-12. Insira um nome para o servidor de banco de dados, como ContosoAdsServer.
+12. Digite um nome para o servidor de banco de dados, como contosoadsserver + um número ou seu nome para tornar o nome de servidor exclusivo.
+
+	O nome do servidor deve ser exclusivo. Ele pode conter letras minúsculas, números e hifens. Ele não pode conter um hífen final.
 
 	Se a assinatura já tiver um servidor, você poderá selecioná-lo da lista suspensa.
 
@@ -301,7 +283,7 @@ Trata-se de uma melhor prática de segurança [evitar colocar informações conf
 
 Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores da cadeia de conexão no Azure.
 
-7. Em **Gerenciador de Servidores**, clique com o botão direito do mouse em seu aplicativo Web sob o nó **Aplicativos Web** e clique em **Exibir configurações**.
+7. Em **Gerenciador de Servidores**, clique com o botão direito do mouse em seu aplicativo Web em **Azure > {seu grupo de recursos}** e, em seguida, clique em **Exibir Configurações**.
 
 	A janela **Aplicativo Web do Azure** é aberta na guia **Configuração**.
 
@@ -317,9 +299,9 @@ Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores
 
 	![Cadeias de conexão no portal do Azure](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
-10. No **Gerenciador de Servidores**, clique com o botão direito do mouse no aplicativo Web e, em seguida, clique em **Parar Aplicativo Web**.
+10. No **Gerenciador de Servidores**, clique com o botão direito do mouse no aplicativo Web e, em seguida, clique em **Parar**.
 
-12. Depois que o aplicativo Web é interrompido, clique nele novamente com o botão direito do mouse e, em seguida, clique em **Iniciar Aplicativo Web**.
+12. Depois que o aplicativo Web é interrompido, clique nele novamente com o botão direito do mouse e, em seguida, clique em **Iniciar**.
 
 	O Trabalho Web é iniciado automaticamente na publicação, mas para quando você faz uma alteração na configuração. Para reiniciá-lo você pode reiniciar o aplicativo Web ou reiniciar o Trabalho Web no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Normalmente é recomendável reiniciar o aplicativo Web depois de uma alteração na configuração.
 
@@ -333,8 +315,7 @@ Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores
 
 11.	A miniatura será exibida alguns segundos após a atualização da página.
 
-	Se a miniatura aparecer, o Trabalho Web pode não ter sido iniciado automaticamente. Nesse caso, vá até a guia Trabalhos Web
-
+	Se a miniatura não aparecer, você terá que aguardar um minuto para que o trabalho Web seja reiniciado. Se, depois de algum tempo, você ainda não estiver vendo a miniatura quando a página for atualizada, o trabalho Web pode não ter sido iniciado automaticamente. Nesse caso, vá para a guia Trabalhos Web na página [Portal do Azure](https://manage.windowsazure.com) do aplicativo Web e, em seguida, clique em **Iniciar**.
 
 ### Veja o painel SDK de Trabalhos Web
 
@@ -356,11 +337,7 @@ Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores
 
 	O botão **Função de Repetição**, nesta página, faz a estrutura do SDK de Trabalhos Web chamar a função novamente e dá uma chance de primeiro alterar os dados passados para a função.
 
->[AZURE.NOTE] Quando terminar os testes, exclua o aplicativo Web e a instância do Banco de Dados SQL. O aplicativo Web é gratuito, mas a instância do Banco de Dados SQL e a conta de armazenamento acumulam encargos (mínimos, devido ao tamanho reduzido). Além disso, se deixar o aplicativo Web em execução, qualquer pessoa que encontrar a URL poderá criar e exibir anúncios. No portal do Azure, acesse a guia **Painel** de seu aplicativo Web e clique no botão **Excluir** na parte inferior da página. Em seguida, é possível marcar uma caixa de seleção para excluir a instância do Banco de Dados SQL ao mesmo tempo. Se apenas deseja evitar que outros acessem temporariamente o aplicativo Web, em vez disso, clique em **Parar**. Nesse caso, os encargos continuarão acumulando para o Banco de Dados SQL e a conta de armazenamento. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
-
-### Habilitar o AlwaysOn para processos de longa duração
-
-Para garantir que seus Trabalhos Web estejam sempre em execução, e em todas as instâncias de seu aplicativo Web, é preciso habilitar o recurso [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx).
+>[AZURE.NOTE]Quando terminar os testes, exclua o aplicativo Web e a instância do Banco de Dados SQL. O aplicativo Web é gratuito, mas a instância do Banco de Dados SQL e a conta de armazenamento acumulam encargos (mínimos, devido ao tamanho reduzido). Além disso, se deixar o aplicativo Web em execução, qualquer pessoa que encontrar a URL poderá criar e exibir anúncios. No portal do Azure, acesse a guia **Painel** de seu aplicativo Web e clique no botão **Excluir** na parte inferior da página. Em seguida, é possível marcar uma caixa de seleção para excluir a instância do Banco de Dados SQL ao mesmo tempo. Se apenas deseja evitar que outros acessem temporariamente o aplicativo Web, em vez disso, clique em **Parar**. Nesse caso, os encargos continuarão acumulando para o Banco de Dados SQL e a conta de armazenamento. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
 
 ## <a id="create"></a>Criar o aplicativo do zero
 
@@ -477,8 +454,8 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 	- *Global.asax.cs*  
 	- Na pasta *Controllers*: *AdController.cs*
 	- Na pasta *Views\\Shared*: arquivo *\_Layout.cshtml*
-	- Na pasta *Views\\Home*: *Index.cshtml*
-	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*<br/><br/>
+- Na pasta *Views\\Home*: *Index.cshtml*
+	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.<br/><br/>
 
 3. No projeto ContosoAdsWebJob, adicione os seguintes arquivos do projeto baixado.
 
@@ -492,7 +469,7 @@ Agora é possível compilar, executar e implantar o aplicativo conforme instruí
 
 As seções a seguir explicam o código relacionado ao trabalho com os blobs e as filas do SDK de Trabalhos Web e do Armazenamento do Azure.
 
-> [AZURE.NOTE] Para o código específico do SDK do WebJobs, consulte [Program.cs e Functions.cs](#programcs).
+> [AZURE.NOTE]Para o código específico do SDK do WebJobs, vá para as seções [Program.cs e Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -626,7 +603,7 @@ O arquivo *Views\\Home\\Index.cshtml* exibe links de categoria na home page. Os 
 
 No arquivo *AdController.cs*, o construtor chama o método `InitializeStorage` para criar os objetos da Biblioteca do Cliente do Armazenamento do Azure que fornecem uma API para trabalhar com blobs e filas.
 
-Em seguida, o código obtém uma referência para o contêiner do blob de *imagens* como visto anteriormente em *Global.asax.cs*. Enquanto faz isso, ele define uma [política de recuperação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de recuperação de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas de uma falha transitória. A política de recuperação especificada aqui aguarda 3 segundos após cada tentativa, até 3 tentativas.
+Em seguida, o código obtém uma referência para o contêiner do blob de *imagens* como visto anteriormente em *Global.asax.cs*. Enquanto faz isso ele define uma [política de recuperação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de recuperação de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas de uma falha transitória. A política de recuperação especificada aqui aguarda 3 segundos após cada tentativa, até 3 tentativas.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -775,7 +752,7 @@ O SDK de Trabalhos Web chama esse método quando uma mensagem da fila é recebid
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
 		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 
-	Os nomes dos blobs vêm de propriedades do objeto `BlobInformation` recebidas na mensagem da fila (`BlobName` e `BlobNameWithoutExtension`). Para obter toda a funcionalidade da Biblioteca de Clientes de Armazenamento, é possível usar a classe `CloudBlockBlob` para trabalhar com blobs. Se quiser reutilizar código escrito para funcionar com objetos `Stream`, você pode usar a classe `Stream`.
+	Os nomes dos blobs vêm de propriedades do objeto `BlobInformation` recebidas na mensagem da fila (`BlobName` e `BlobNameWithoutExtension`). Para obter toda a funcionalidade da SCL, é possível usar a classe `CloudBlockBlob` para trabalhar com blobs. Se quiser reutilizar código escrito para funcionar com objetos `Stream`, você pode usar a classe `Stream`.
 
 Para saber mais sobre como escrever funções que usam atributos SDK de Trabalhos Web, confira os recursos a seguir:
 
@@ -792,11 +769,25 @@ Para saber mais sobre como escrever funções que usam atributos SDK de Trabalho
 >
 > * O código no método `ConvertImageToThumbnailJPG` (não mostrado) usa classes no namespace `System.Drawing` por uma questão de simplicidade. Entretanto, as classes nesse namespace foram projetadas para uso nos formulários do Windows. Elas não têm suporte para uso em um serviço Windows ou ASP.NET. Para obter mais informações sobre opções de processamento de imagem, consulte [Geração dinâmica de imagem](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Visão aprofundada de redimensionamento de imagens](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
-### SDK de Trabalhos Web versus a função de trabalho de Serviço de Nuvem sem o SDK de Trabalhos Web
+## Próximas etapas
 
-Ao comparar a quantidade de código no método `GenerateThumbnails` desse aplicativo de exemplo com o código da função de trabalho na [versão de Serviço de Nuvem do aplicativo](../cloud-services-dotnet-get-started.md), você pode ver quanto trabalho o SDK de Trabalhos Web está fazendo por você. A vantagem é maior do que parece, porque o aplicativo de exemplo de Serviço de Nuvem não faz todas as coisas (como a manipulação de mensagens suspeitas) que você faria em um aplicativo em produção, algo que o SDK de Trabalhos Web faz para você.
+Neste tutorial, você viu um aplicativo multicamadas simples que usa o SDK de Trabalhos Web no processamento back-end. Esta seção oferece algumas sugestões para saber mais sobre os aplicativos ASP.NET com várias camadas e Trabalhos Web.
 
-Na versão de Serviço de Nuvem do aplicativo, a ID de registro é a única informação na mensagem da fila e o processo em segundo plano obtém a URL da imagem do banco de dados. Na versão do SDK de Trabalhos Web do aplicativo, a mensagem da fila inclui a URL da imagem de forma que ela possa ser fornecida aos atributos `Blob`. Se a mensagem de fila não tivesse a URL de blob, seria possível [utilizar o atributo de Blob no corpo do método em vez de na assinatura do método](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#blobbody).
+### Recursos ausentes
+
+O aplicativo foi mantido simples para um tutorial de introdução. Em um aplicativo do mundo real, você poderia implementar [injeção de dependência](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) e os [padrões de unidade de trabalho e repositório](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), usar [uma interface para o log](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), usar [Migrações Iniciais de Código de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar alterações no modelo de dados e usar [Resiliência de Conexão de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar erros de rede transitórios.
+
+### Dimensionamento de trabalhos
+
+Trabalhos Web são executados no contexto de um aplicativo Web e não são escalonáveis separadamente. Por exemplo, se tiver uma instância de aplicativo Web Padrão, você só pode ter uma instância do processo em segundo plano em execução e ela está usando parte dos recursos do servidor (CPU, memória etc.) que, de outra forma, estariam disponíveis para atender ao conteúdo da Web.
+
+Se o tráfego variar de acordo com a hora do dia ou o dia da semana e se for possível esperar o processamento back-end necessário, você pode agendar os Trabalhos Web para serem executados nos horários de menos tráfego. Se a carga ainda for muito alta para a solução, você poderá executar o back-end como um trabalho Web em um aplicativo Web separado, dedicado para essa finalidade. Em seguida, você pode dimensionar seu aplicativo Web de back-end independentemente do seu aplicativo Web de front-end.
+
+Para saber mais, consulte [Dimensionando Trabalhos Web](websites-webjobs-resources.md#scale).
+
+### Evitando desligamentos de tempo limite de aplicativo Web
+
+Para garantir que seus Trabalhos Web estejam sempre em execução, e em todas as instâncias de seu aplicativo Web, é preciso habilitar o recurso [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx).
 
 ### Usando o SDK de Trabalhos Web fora de Trabalhos Web
 
@@ -806,14 +797,8 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 Para obter mais informações, consulte [Obtendo um painel para desenvolvimento local com o SDK de Trabalhos Web](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), mas observe que ele mostra um nome da cadeia de conexão antigo.
 
-## Próximas etapas
+### Mais documentação de Trabalhos Web
 
-Neste tutorial, você viu um aplicativo multicamadas simples que usa o SDK de Trabalhos Web no processamento back-end. O aplicativo foi mantido simples para um tutorial de introdução. Por exemplo, ele não implementa [injeção de dependência](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ou [os padrões de unidade de trabalho e repositório](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), ele não [usa uma interface para registro em log](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não usa [Migrações Iniciais de Código de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar as alterações de modelo de dados ou [Resiliência de Conexão de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar erros de rede transitórios, e assim por diante.
+Para obter mais informações, consulte [Recursos de documentação de Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-Para obter mais informações, consulte [Recursos recomendados para Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
-
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obter um guia sobre a alteração do portal do Azure para o portal de visualização do Azure, consulte [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715).
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

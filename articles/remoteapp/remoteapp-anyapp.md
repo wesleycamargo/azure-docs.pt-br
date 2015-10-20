@@ -109,4 +109,4 @@ Agora que você já dominou a criação de uma coleção, tente criar uma [cole�
 
 <!--Image references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

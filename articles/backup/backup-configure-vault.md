@@ -34,4 +34,4 @@ Para fazer backup de arquivos e de dados do seu Windows Server no Azure, primeir
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 - [Fórum de Backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

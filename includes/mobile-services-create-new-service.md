@@ -25,4 +25,4 @@ Você criou um novo serviço móvel que pode ser usado por seus aplicativos móv
 <!-- URLs. -->
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

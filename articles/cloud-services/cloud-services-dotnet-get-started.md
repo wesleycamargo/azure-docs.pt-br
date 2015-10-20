@@ -575,7 +575,7 @@ Um código similar obtém uma referência para a fila de *imagens* e cria uma no
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-O arquivo *\_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu “Anúncios".
+O arquivo *\_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Anúncios".
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -813,4 +813,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
 * [Armazenamento do Azure](/documentation/services/storage/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

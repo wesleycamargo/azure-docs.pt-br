@@ -3,7 +3,7 @@
 	description="Crie em questão de minutos seu primeiro banco de dados de nuvem com o Banco de Dados SQL do Azure, o serviço de gerenciamento de bando de dados relacional da Microsoft (RDBMS) na nuvem, usando o Portal do Azure e o exemplo de banco de dados AdventureWorks."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
+	authors="jeffgoll"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
-	ms.author="genemi"/>
+	ms.date="10/09/2015"
+	ms.author="jeffreyg"/>
 
 # Criar seu primeiro banco de dados SQL do Azure
 
@@ -26,15 +26,17 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Este artigo mostra como criar um exemplo de banco de dados SQL em poucos minutos usando o portal do Azure. Você aprenderá a:
+Este artigo mostra como criar um exemplo de banco de dados SQL em poucos minutos usando o portal de visualização do Azure. Você aprenderá a:
 
 - Criar um servidor para hospedar o banco de dados criado e depois configurar uma regra de firewall para ele
 - Criar um banco de dados por meio de um exemplo do AdventureWorks, que contém dados com os quais você pode trabalhar
 
 Você precisará de uma conta do Azure e uma assinatura antes de começar. Se não tiver uma, inscreva-se para fazer uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-## Etapa 1: Entrar e iniciar a configuração do banco de dados SQL
-1. Entre no [Portal do Azure](http://portal.azure.com/).
+> [AZURE.NOTE]Esse guia abrange a configuração de um banco de dados usando o serviço de banco de dados relacional da Microsoft na nuvem, o Banco de Dados SQL do Azure. Outra opção é executar o SQL Server em uma Máquina Virtual do Azure. Consulte [Noções básicas sobre o Banco de Dados SQL e o SQL Server em VMs do Azure](data-management-azure-sql-database-and-sql-server-iaas.md) para obter uma comparação rápida, ou você pode consultar [Provisionar uma máquina virtual do SQL server](virtual-machines-provision-sql-server.md) para obter uma introdução a uma máquina virtual.
+
+## Etapa 1: entrar e iniciar a configuração do banco de dados SQL
+1. Entre no [portal de visualização do Azure](http://portal.azure.com/).
 2. Clique em **Novo** > **Dados + Armazenamento** > **Banco de Dados SQL**.
 
 	![Criar um novo banco de dados SQL](./media/sql-database-get-started/create-db.png)
@@ -43,7 +45,7 @@ Você precisará de uma conta do Azure e uma assinatura antes de começar. Se n�
 
 	![Configurações de banco de dados e de servidor para o banco de dados SQL](./media/sql-database-get-started/get-started-dbandserversettings.png)
 
-## Etapa 2: Escolher as configurações de servidor
+## Etapa 2: escolher as configurações de servidor
 Um banco de dados SQL no Azure reside em um servidor de banco de dados. Um servidor pode hospedar vários bancos de dados. Durante a configuração de um banco de dados, você também pode criar e configurar o servidor que hospedará, ou você pode usar um criado anteriormente. Vamos configurar um novo.
 
 1. Digite um **Nome** para o banco de dados (usamos **AdventureWorks**). Voltaremos aqui para mostrar outras configurações de banco de dados mais tarde.
@@ -64,7 +66,7 @@ Um banco de dados SQL no Azure reside em um servidor de banco de dados. Um servi
 
 O banco de dados e o servidor não foram criados ainda. Isso ocorre após a próxima etapa, em que você escolherá criar o banco de dados por meio do exemplo do AdventureWorks e confirmará as configurações.
 
-## Etapa 4: Configurar e criar o banco de dados
+## Etapa 3: configurar e criar o banco de dados
 1. Na folha do **Banco de dados SQL**, clique em **Selecionar origem** e clique em **Exemplo**. 
 
 	![Criar um banco de dados por meio de um exemplo](./media/sql-database-get-started/new-sample-db.png)
@@ -79,7 +81,7 @@ Volte para o Quadro inicial do Azure, em que um bloco mostra o andamento até qu
 	
 Parabéns! Agora você tem um banco de dados em execução na nuvem. Já está quase pronto. Só falta uma etapa importante. Você precisa criar uma regra no servidor de banco de dados para que você possa se conectar ao banco de dados.
 
-## Etapa 5: Configurar o firewall
+## Etapa 4: configurar o firewall
 
 Você precisa configurar uma regra de firewall no servidor que permita conexões por meio do endereço IP do computador cliente para que você possa trabalhar com o banco de dados. Isso não só ajuda a garantir que você possa se conectar, mas é uma ótima maneira de ver a área onde você pode obter outros detalhes sobre seus servidores SQL no Azure.
 
@@ -114,4 +116,4 @@ Agora que você tem um banco de dados com alguns dados de exemplo, você está p
 
 - Se deseja mover seus bancos de dados SQL Server local para o Azure, veja [Migrando um banco de dados para o Banco de dados SQL do Azure](sql-database-cloud-migrate.md) para obter mais informações.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

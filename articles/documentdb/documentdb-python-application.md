@@ -19,6 +19,12 @@
 
 # Desenvolvimento de aplicativo Web Python Flask com Banco de Dados de Documentos
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
 Para destacar como os clientes podem aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este documento fornece um tutorial completo sobre aplicativo Web Python mostrando como compilar um aplicativo Web de votação usando o Banco de Dados de Documentos do Azure.
 
 Este tutorial mostra como usar o serviço do Banco de Dados de Documentos fornecido pelo Azure para armazenar e acessar dados de um aplicativo Web Python hospedado no Azure e supõe que você tenha experiência prévia com o uso do Python e os sites do Azure.
@@ -355,4 +361,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

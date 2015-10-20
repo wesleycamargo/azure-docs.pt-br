@@ -92,4 +92,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
   [portal do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->
