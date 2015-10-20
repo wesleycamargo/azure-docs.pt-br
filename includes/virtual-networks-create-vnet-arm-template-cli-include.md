@@ -89,4 +89,4 @@ Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -14,12 +14,13 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="10/01/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Artigos para máquinas virtuais no Gerenciamento de Serviços
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Esta é uma lista de artigos sobre como criar e gerenciar recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de recursos.
+
 
 ## Introdução
 
@@ -87,8 +88,6 @@
 
 [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-set-up-endpoints.md)
 
-[Gerenciar suas máquinas virtuais usando a CLI do Azure para Mac, Linux e Windows](virtual-machines-manage-vms-azure-cli.md)
-
 ## Criar cargas de trabalho
 
 [Active Directory](../active-directory/active-directory-new-forest-virtual-machine.md)
@@ -153,4 +152,4 @@
 
 [Referência da API REST de Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

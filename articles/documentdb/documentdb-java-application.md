@@ -19,6 +19,12 @@
 
 # Criar um aplicativo Web Java usando o Banco de Dados de Documentos
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
 Este tutorial de aplicativo Web Java mostra a você como usar o serviço de [Banco de Dados de Documentos do Microsoft Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure. Neste tópico, você aprenderá:
 
 - Como criar um aplicativo básico do JSP no Eclipse.
@@ -780,4 +786,4 @@ Todos os exemplos neste tutorial são incluídos no projeto [tarefas](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

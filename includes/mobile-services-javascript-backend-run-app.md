@@ -19,4 +19,4 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

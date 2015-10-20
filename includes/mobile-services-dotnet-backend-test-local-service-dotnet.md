@@ -19,4 +19,4 @@ Nesta seção, você testará seu novo aplicativo no serviço móvel em execuç�
 
 	Isso envia uma solicitação POST ao serviço móvel local. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na segunda coluna do aplicativo.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

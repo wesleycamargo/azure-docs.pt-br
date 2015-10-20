@@ -1,31 +1,31 @@
 O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
+### Carregar projeto no Android Studio e sincronizar Gradle
+
 1. Navegue até o local onde você salvou os arquivos compactados do projeto e expanda os arquivos em seu computador no diretório de projetos do Android Studio.
 
 2. Abra o Android Studio. Se você estiver trabalhando com um projeto e ele for exibido, feche o projeto (Arquivo => Fechar Projeto).
 
-3. Selecione **Abrir um projeto existente do Android Studio**, navegue até o local do projeto e, em seguida, clique em **OK**.
+3. Selecione **Abrir um projeto existente do Android Studio**, navegue até o local do projeto e, em seguida, clique em **OK**. Isso carregará o projeto e começará a sincronizá-lo com o Gradle.
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. Na janela esquerda do **Gerenciador de Projetos**, certifique-se de que a guia *Projeto* está selecionada, abra o **aplicativo**, **src**, **java** e clique duas vezes em **ToDoactivity**,
+4. Aguarde até que a atividade de sincronização do Gradle seja concluída. Se você encontrar um erro "falha ao localizar destino", isso ocorre porque a versão usada no Android Studio não corresponde à versão do exemplo. A maneira mais fácil de corrigir esse problema é clicar no link **Instalar plataforma(a) ausente(s) e sincronizar o projeto** na mensagem de erro. Você pode receber mensagens de erro de versão adicionais, e deve simplesmente repetir esse processo até que nenhum erro seja exibido.
+    - Há outra maneira de corrigir esse problema, se você deseja executar a versão "mais recente e melhor" do Android. Você pode atualizar **targetSdkVersion** no arquivo *build.gradle* no diretório de *aplicativo* para corresponder à versão já instalada em seu computador, que você pode descobrir clicando no ícone do **Gerenciador de SDK** e verificando qual versão está listada. Em seguida, pressione **Sincronizar Projeto com Arquivos do Gradle**. Você pode receber uma mensagem de erro para a versão das Ferramentas de Compilação e pode corrigi-la da mesma maneira.
 
-   	![](./media/mobile-services-android-get-started/Android-Studio-quickstart.png)
+### Executando o aplicativo
 
+Você pode executar o aplicativo usando o emulador ou um dispositivo real.
 
-5. Se você baixou a versão 2.0 do SDK, você precisa atualizar o código com a Url e a chave do seu serviço móvel:
-	- 	Encontre o método **OnCreate** em **TodoActivity.java** e localize o código que instancia o cliente de serviços móveis. O código está visível na imagem anterior.
-	- 	Substitua "MobileServiceUrl" pela verdadeira Url do serviço móvel.
-	- 	Substitua "AppKey" pela chave do serviço móvel.
-	- 	Para obter mais detalhes, consulte o tutorial [Adicionar Serviços Móveis a um aplicativo existente](../articles/mobile-services/mobile-services-android-get-started-data.md). 
+1. Para executar de um dispositivo, conecte-se ao computador com um cabo USB. Você deve [configurar o dispositivo para o desenvolvimento](https://developer.android.com/training/basics/firstapp/running-app.html). Se estiver desenvolvendo em um computador com o Windows, você deverá baixar e instalar um driver USB.
 
-6. No menu **Executar**, clique em **Executar** para iniciar o projeto no emulador Android.
+2. Para executar usando o emulador Android, você deve definir no mínimo um AVD (Dispositivo Virtual Android). Clique no ícone do Gerenciador do AVD para criar e gerenciar esses dispositivos.
 
-	> [AZURE.IMPORTANT]Para que seja possível executar o projeto no emulador do Android, você deve definir no mínimo um AVD (Dispositivo Virtual Android). Use o Gerenciador do AVD para criar e gerenciar esses dispositivos.
+3. No menu **Executar**, clique em **Executar** para iniciar o projeto e escolha um dispositivo ou emulador na caixa de diálogo exibida.
 
-7. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique em **Adicionar**.
+4. Quando o aplicativo surgir, digite um texto significativo, como _Concluir o tutorial_ e clique em **Adicionar**.
 
-   	![][10]
+   	![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
    	Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na lista.
 
@@ -39,26 +39,4 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-
-<!-- Images. -->
-[0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
-[7]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
-[8]: ./media/mobile-services-android-get-started/Android-Studio-quickstart.png
-[10]: ./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png
-[11]: ./media/mobile-services-android-get-started/mobile-data-tab.png
-[12]: ./media/mobile-services-android-get-started/mobile-data-browse.png
-[14]: ./media/mobile-services-android-get-started/android-studio-import-project.png
-[15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
-
-<!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
-[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Android Studio]: https://developer.android.com/sdk/index.html
-[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-
-[Management Portal]: https://manage.windowsazure.com/
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

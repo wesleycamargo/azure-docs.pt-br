@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
-#Tutorial de aprendizado de máquina: Crie sua primeira experiência no Studio de Aprendizado de Máquina do Azure
+# Tutorial de aprendizado de máquina: Crie sua primeira experiência no Studio de Aprendizado de Máquina do Azure
 
 Neste primeiro tutorial de Aprendizado de Máquina, vamos criar um modelo de regressão linear que prevê o preço de um automóvel com base em variáveis diferentes, como marca e especificações técnicas. Para fazer isso, usaremos o Estúdio de Aprendizado de Máquina do Azure para desenvolver e iterar em um experimento analítico preditivo simples.
 
@@ -27,10 +27,12 @@ Um experimento de Estúdio de Aprendizado de Máquina consiste em arrastar compo
 
 Digite Estúdio de Aprendizado de Máquina:: [https://studio.azureml.net](https://studio.azureml.net), e clique no botão **Introdução**. Você pode escolher Acesso de Convidado ou entrar com sua conta da Microsoft.
 
-E para obter mais informações gerais sobre o Estúdio do Aprendizado de Máquina, consulte [O que é o Estúdio de Aprendizado de Máquina?](machine-learning-what-is-ml-studio.md)
+Para obter mais informações gerais sobre o Estúdio do Aprendizado de Máquina, consulte [O que é o Estúdio de Aprendizado de Máquina?](machine-learning-what-is-ml-studio.md)
+
+>[AZURE.TIP]Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
 
-##Cinco etapas para criar um experimento
+## Cinco etapas para criar um experimento
 
 Neste tutorial de Aprendizado de Máquina, você seguirá cinco etapas básicas para criar uma experiência do Studio de Aprendizado de Máquina para criar, treinar e pontuar o seu modelo:
 
@@ -54,7 +56,7 @@ Neste tutorial de Aprendizado de Máquina, você seguirá cinco etapas básicas 
 
 Há uma série de conjuntos de dados de exemplo incluídos no Estúdio de Aprendizado de Máquina, e você pode importar dados de várias fontes. Para este exemplo, usaremos o conjunto de dados de amostra incluído, **Dados de preço de automóvel (Brutos)**. Esse conjunto de dados inclui entradas para uma série de automóveis individuais, incluindo informações como marca, modelo, especificações técnicas e preço.
 
-1. Inicie um novo experimento clicando em **+NOVO** na parte inferior da janela do Estúdio de Aprendizado de Máquina, selecione **EXPERIMENTAR** e selecione **Experimento em branco**. Selecione o nome de experimento padrão na parte superior da tela e renomeie para algo significativo, por exemplo, **Previsão de preço de automóvel**.
+1. Inicie um novo experimento clicando em **+NOVO** na parte inferior da janela do Estúdio de Aprendizado de Máquina, selecione **EXPERIMENTO** e selecione **Experimento em Branco**. Selecione o nome de experimento padrão na parte superior da tela e renomeie para algo significativo, por exemplo, **Previsão de preço de automóvel**.
 
 2. À esquerda da tela do experimento está uma paleta de conjuntos de dados e módulos. Digite **automóvel** na caixa de pesquisa na parte superior desta paleta para localizar o conjunto de dados rotulado **Dados de preço de automóvel (Brutos)**.
 
@@ -232,4 +234,4 @@ Para obter um passo a passo maior e detalhado das técnicas de modelagem de prev
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

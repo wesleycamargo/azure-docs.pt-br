@@ -87,4 +87,4 @@ O portal de visualização do Microsoft Azure simplifica radicalmente a criaçã
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

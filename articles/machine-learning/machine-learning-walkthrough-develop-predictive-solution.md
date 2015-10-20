@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
 
@@ -30,6 +30,8 @@ Neste passo a passo detalhado, seguiremos o processo de desenvolvimento de um mo
 
 Abra o Estúdio de Aprendizado de Máquina: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Para obter mais informações sobre os primeiros passos no Estúdio de Aprendizado de Máquina, consulte [Página Inicial do Estúdio de Aprendizado de Máquina do Microsoft Azure](https://studio.azureml.net/).
 
+>[AZURE.TIP]Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
+
 Para criar uma solução de avaliação de risco de crédito, vamos acompanhar estas etapas:
 
 1.	[Criar um espaço de trabalho do Aprendizado de Máquina](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -41,4 +43,4 @@ Para criar uma solução de avaliação de risco de crédito, vamos acompanhar e
 
 Este passo a passo é baseado em uma versão simplificada do [Teste de exemplo de previsão de risco de crédito](../machine-learning-sample-credit-risk-prediction.md) incluído no Estúdio de Aprendizado de Máquina.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -495,4 +495,4 @@ Como você é cobrado pelos recursos no Azure, sempre será uma boa ideia exclui
 
 2. Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Um modo de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

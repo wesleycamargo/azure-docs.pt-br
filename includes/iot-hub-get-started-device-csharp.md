@@ -8,7 +8,7 @@ Nesta seção, você escreverá um aplicativo do console do Windows que simula u
 
 2. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e, então, clique em **Gerenciar Pacotes NuGet para Solução...**.
 
-	Isto mostra a janela Gerenciar Pacotes NuGet.
+	Isso exibe a janela Gerenciar Pacotes NuGet.
 
 3. Pesquise por `Microsoft Azure Devices Client`, clique em **Instalar** e aceite os termos de uso.
 
@@ -72,4 +72,4 @@ Nesta seção, você escreverá um aplicativo do console do Windows que simula u
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

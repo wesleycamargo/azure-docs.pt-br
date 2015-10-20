@@ -65,4 +65,4 @@ Para saber mais sobre o uso de chaves e segredos com o Cofre da Chave do Azure, 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

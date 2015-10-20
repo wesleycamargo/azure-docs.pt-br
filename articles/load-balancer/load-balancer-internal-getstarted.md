@@ -332,4 +332,4 @@ Para obter informações adicionais sobre cmdlets de Balanceamento de Carga Inte
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

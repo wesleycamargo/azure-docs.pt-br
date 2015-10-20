@@ -63,4 +63,4 @@ Agora você está pronto para executar as tarefas das instruções deste guia.
 
 [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

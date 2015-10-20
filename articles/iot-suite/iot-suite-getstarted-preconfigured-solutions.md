@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Tutorial de introdução às soluções pré-configuradas do Microsoft Azure IoT Suite | Microsoft Azure"
+	pageTitle="Introdução às soluções pré-configuradas | Microsoft Azure"
 	description="Siga este tutorial para aprender a implantar uma solução pré-configurada do Azure IoT Suite."
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,11 +12,11 @@
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="araguila"/>
 
-# Introdução às soluções da IoT pré-configuradas
+# Tutorial: introdução às soluções da IoT pré-configuradas
 
 ## Introdução
 
@@ -110,9 +110,9 @@ Agora que você criou uma solução de trabalho pré-configurada, você pode pas
 
 -   [Visão geral do IoT Suite][]
 
-[Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
+[Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fja-jp%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
 
 [Orientação sobre como personalizar soluções pré-configuradas]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
 [Visão geral do IoT Suite]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

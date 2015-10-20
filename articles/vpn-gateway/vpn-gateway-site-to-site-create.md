@@ -34,7 +34,7 @@ Você pode selecionar o artigo do modelo de implantação e da ferramenta de imp
 
 Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
-- Um dispositivo VPN compatível e alguém que possa configurá-lo. Consulte [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md).
+- Um dispositivo VPN compatível e alguém que possa configurá-lo. Consulte [Sobre Dispositivos VPN](vpn-gateway-about-vpn-devices.md).
 - Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
 - Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -99,4 +99,4 @@ Você pode adicionar máquinas virtuais à sua rede virtual. Consulte [Como cria
 
 Se você quiser configurar uma conexão entre sua rede virtual clássica e uma rede virtual criada usando o modo do Gerenciador de Recursos do Azure, consulte [Como conectar VNets clássicas a VNets do Gerenciador de Recursos do Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

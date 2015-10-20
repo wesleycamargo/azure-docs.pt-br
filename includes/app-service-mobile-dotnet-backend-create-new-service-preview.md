@@ -35,4 +35,4 @@ Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode s
 <!-- URLs. -->
 [Portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

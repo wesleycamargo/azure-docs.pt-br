@@ -198,4 +198,4 @@ Parabéns! O aplicativo do WordPress agora tem um cache na memória centralizado
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -462,4 +462,4 @@ Para ampliar seu entendimento sobre a Pesquisa do Azure e a integração do ASP.
 - [Estudo de caso do desenvolvedor de Pesquisa do Azure](search-dev-case-study-whattopedia.md)
 - [Fluxo de trabalho típico para o desenvolvimento da Pesquisa do Azure](search-workflow.md) 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

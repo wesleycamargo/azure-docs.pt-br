@@ -59,4 +59,4 @@ Após duas reinicializações, se você ainda estiver tendo problemas de conecti
 	
 Consulte a [Referência do PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) para obter mais informações sobre esse cmdlet.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->
