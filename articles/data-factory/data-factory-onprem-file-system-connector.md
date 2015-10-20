@@ -571,7 +571,7 @@ O **FileSystemSink** suporta as seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. | <p>Há três valores possíveis para a propriedade copyBehavior. </p><ul><li>* *PreserveHierarchy: ** preserva a hierarquia de arquivos na pasta de destino, ou seja, o caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.</li><li>**FlattenHierarchy:** todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino terão o nome gerado automaticamente. </li><li>**MergeFiles:** mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome de arquivo mesclado seria o nome especificado. Caso contrário, seria o nome de arquivo gerado automaticamente.</li></ul> | Não |
+| copyBehavior | Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. | <p>Há três valores possíveis para a propriedade copyBehavior. </p><ul><li>**PreserveHierarchy:** preserva a hierarquia de arquivos na pasta de destino, ou seja, o caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.</li><li>**FlattenHierarchy:** todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino terão o nome gerado automaticamente. </li><li>**MergeFiles:** mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome de arquivo mesclado seria o nome especificado. Caso contrário, seria o nome de arquivo gerado automaticamente.</li></ul> | Não |
 
 ### exemplos de recursiva e copyBehavior
 Esta seção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursivos e copyBehavior.
@@ -599,4 +599,4 @@ false | mergeFiles | <p>Para uma pasta de origem Pasta 1 com a seguinte estrutur
 
  
 
-<!-------HONumber=Oct15_HO1-->
+<!--------HONumber=Oct15_HO1-->
