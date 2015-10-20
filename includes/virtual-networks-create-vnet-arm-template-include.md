@@ -58,4 +58,4 @@ No github, você pode baixar o modelo ARM existente para criar uma rede virtual 
 11. Salve o arquivo.
   
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

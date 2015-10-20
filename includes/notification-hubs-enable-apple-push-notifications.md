@@ -1,11 +1,12 @@
 
-O APNS (Serviço de Notificação por Push da Apple) usa certificados para autenticar suas notificações por push. Siga estas instruções para criar o certificado de push necessário para enviar e receber notificações. Para a documentação oficial do recurso APNS, consulte [Serviço de Notificação por Push da Apple](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
 ##Gerar o arquivo de Solicitação de Assinatura de Certificado
 
-Primeiro, gere o arquivo CSR (Solicitação de Assinatura de Certificado), usado pela Apple para gerar um certificado de push assinado.
+O APNS (Serviço de Notificação por Push da Apple) usa certificados para autenticar suas notificações por push. Siga estas instruções para criar o certificado de push necessário para enviar e receber notificações. Para obter mais informações sobre esses conceitos, consulte a documentação oficial do [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
-1. Na pasta **Utilitários** ou na pasta **Outros**, execute a ferramenta Acesso do Conjunto de Chaves.
+Gere o arquivo CSR (Solicitação de Assinatura de Certificado), usado pela Apple para gerar um certificado de push assinado.
+
+1. Em seu Mac, execute a ferramenta Acesso do Conjunto de Chaves. Ela pode ser executada da pasta **Utilitários** ou da pasta **Outros** no launch pad.
 
 2. Clique em **Acesso do Conjunto de Chaves**, expanda **Assistente de Certificado** e clique em **Solicitar um Certificado de uma Autoridade de Certificação...**.
 
@@ -27,16 +28,18 @@ Em seguida, você registrará seu aplicativo na Apple, habilitará as notificaç
 
 Para poder enviar notificações por push para um aplicativo iOS, você deverá registrar seu aplicativo na Apple e também registrar-se em notificações por push.
 
-1. Se você ainda não registrou seu aplicativo, navegue até o <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Provisionamento do iOS</a> no Apple Developer Center, faça logon com a sua Apple ID, clique em **Identificadores**, em seguida, clique em **IDs de Aplicativo** e, finalmente, clique no sinal de **+** para registrar um novo aplicativo.
+1. Se você ainda não registrou seu aplicativo, navegue até o <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Provisionamento do iOS</a> no Apple Developer Center, faça logon com a sua Apple ID, clique em **Identificadores**, em seguida, clique em **IDs de Aplicativo** e, finalmente, clique no sinal de **+￼￼￼￼￼￼￼** para registrar um novo aplicativo.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
 
-2. Digite um nome descritivo para o seu aplicativo no nome **Descrição de ID do Aplicativo**.
+2. Atualize os três campos a seguir para seu novo aplicativo e, em seguida, clique em **Continuar**:
 
-	Em **ID do Aplicativo Explícita **, insira um **Identificador de Pacote** no formulário `<Organization Identifier>.<Product Name>` como mencionado no [Guia de Distribuição de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=613485). O *Identificador de Organização* e *Nome do Produto* usados deverão corresponder ao identificador da organização e o nome do produto usados quando você criar seu projeto XCode. Na captura de tela abaixo, *NotificationHubs* é usado como um identificador de organização e *GetStarted* é usado como o nome do produto. Garantir que isso corresponda aos valores que você usará em seu projeto XCode permitirá que você use o perfil de publicação correto com XCode.
+	* **Nome**: digite um nome descritivo para o aplicativo no campo **Nome** na seção **Descrição de ID do Aplicativo**.
 	
-	Verifique a opção **Notificações por Push** na seção Serviços de Aplicativo e, em seguida, clique em **Continuar**.
+	* **Identificador de Pacote**: na seção **ID de Aplicativo Explícita**, digite um **Identificador de Pacote** no formato `<Organization Identifier>.<Product Name>`, como mencionado no [Guia de Distribuição de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=613485). O *Identificador de Organização* e *Nome do Produto* usados deverão corresponder ao identificador da organização e o nome do produto usados quando você criar seu projeto XCode. Na captura de tela abaixo, *NotificationHubs* é usado como um identificador de organização e *GetStarted* é usado como o nome do produto. Garantir que isso corresponda aos valores que você usará em seu projeto XCode permitirá que você use o perfil de publicação correto com XCode.
+	
+	* **Notificações por Push**: marque a opção **Notificações por Push** na seção **Serviços de Aplicativos**.
 
 	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
@@ -52,11 +55,11 @@ Para poder enviar notificações por push para um aplicativo iOS, você deverá 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 
-3. Localize a ID de aplicativo que acabou de criar e clique na respectiva linha.
+3. Na Central de Desenvolvedores, em IDs de Aplicativo, localize a ID do aplicativo que você acabou de criar e clique na respectiva linha.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
 
-   	Clicar na ID do aplicativo exibirá os detalhes do aplicativo. Clique no botão **Editar**.
+   	Clicar na ID do aplicativo exibirá os detalhes do aplicativo. Clique no botão **Editar** na parte inferior.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
 
@@ -121,8 +124,8 @@ Posteriormente, você usará esse certificado para gerar um arquivo .p12 para ha
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
 
-  	Isso criará um novo perfil de provisionamento.
+7. Quando o novo perfil de provisionamento for criado, clique para baixá-lo e instalá-lo em seu computador de desenvolvimento do Xcode. Em seguida, clique em **Concluído**.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -278,4 +278,4 @@ Agora que você já aprendeu os conceitos básicos do serviço de retransmissão
   [exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [visão geral dos exemplos de Barramento de Serviço]: service-bus-samples.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

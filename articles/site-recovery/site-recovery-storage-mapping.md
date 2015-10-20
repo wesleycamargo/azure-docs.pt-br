@@ -105,4 +105,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nenhum mapeamento; sendo assim, 
 
 Agora que você tem uma compreensão melhor sobre o mapeamento de armazenamento, comece a ler as [práticas recomendadas](site-recovery-best-practices.md) para se preparar para a implantação.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

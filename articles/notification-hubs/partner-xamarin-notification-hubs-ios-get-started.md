@@ -479,4 +479,4 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

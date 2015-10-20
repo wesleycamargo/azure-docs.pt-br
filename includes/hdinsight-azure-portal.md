@@ -4,4 +4,4 @@
 
 Para obter uma versão deste documento que usa o portal de visualização do Azure, consulte o seguinte link:
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -3,4 +3,4 @@
 
 2. Selecione o serviço em **Aplicativos Web Existentes** e clique em **OK**. Verifique as informações de publicação e clique em **Publicar**. Quando o back-end do aplicativo móvel foi publicado com êxito, você verá uma página de aterrissagem indicando êxito.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

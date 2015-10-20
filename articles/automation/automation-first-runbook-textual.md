@@ -122,4 +122,4 @@ No momento, nosso runbook inicia a máquina virtual que codificamos no runbook, 
 
 - [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

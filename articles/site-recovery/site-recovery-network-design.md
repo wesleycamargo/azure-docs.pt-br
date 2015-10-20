@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerações de infra-estrutura de rede para a Recuperação de Site" 
+	pageTitle="Considerações de infraestrutura de rede para Recuperação de Site" 
 	description="Este artigo aborda considerações de design de rede práticas para failover com Recuperação de Site" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -16,23 +16,23 @@
 	ms.date="08/10/2015" 
 	ms.author="raynew"/>
 
-#  Considerações de infra-estrutura de rede para a Recuperação de Site
+#  Considerações de infraestrutura de rede para Recuperação de Site
 
 O serviço de Azure Site Recovery contribui para uma solução robusta de recuperação de desastre e continuidade de negócios (BCDR), através da proteção e recuperação de seus servidores físicos locais e máquinas virtuais com orquestração e automação de replicação e failover no Azure ou em um datacenter local secundário.
 
-Este artigo tem como objetivo a equipe de virtualização responsável pela arquitetura, implementação e suporte de uma solução BCDR e a infra-estrutura que inclui o System Center VMM e o Azure Site Recovery.
+Este artigo destina-se à equipe de virtualização responsável pela arquitetura, pela implementação e pelo suporte a uma solução BCDR e pela infraestrutura que inclui o System Center VMM e o Azure Site Recovery.
 
 ## Visão geral
 
-A finalidade de sua estratégia de BCDR é manter seus aplicativos de negócios em execução e restaurar as cargas de trabalho com falha e serviços para a organização poder retomar rapidamente as operações normais. Desenvolver estratégias de recuperação de desastres é um desafio, devido à dificuldade inerente de prever eventos imprevisíveis e o alto custo da implementação de uma proteção adequada contra falhas de longo alcance. O Azure Site Recovery ajuda a implementar proteção e o failover de seu data center principal em um data center secundário (ou no Azure) copiando inicialmente (replicando) os dados principais e, em seguida, atualizando periodicamente as réplicas.
+A finalidade de sua estratégia de BCDR é manter seus aplicativos de negócios em execução e restaurar as cargas de trabalho com falha e os serviços para que a organização possa retomar rapidamente a operação normal. Desenvolver estratégias de recuperação de desastres é um desafio, devido à dificuldade inerente de prever eventos imprevisíveis e o alto custo da implementação de uma proteção adequada contra falhas de longo alcance. O Azure Site Recovery ajuda a implementar proteção e failover de seu data center principal em um data center secundário (ou no Azure), copiando inicialmente (replicando) os dados principais e, em seguida, atualizando periodicamente as réplicas.
 
-Como uma parte essencial do planejamento BCDR você precisa definir seu objetivo de tempo de recuperação (RTO) e o objetivo de ponto da recuperação (RPO) para que você possa colocar novamente os dados da organização online o mais rápido possível (com um baixo RTO) e com perda mínima de dados (RPO baixo). O design de rede na sua organização é um potencial gargalo para os objetivos de RTO e RPO e um planejamento de design sólido pode ajudar a evitar esse gargalo.
+Como uma parte essencial do planejamento BCDR, você precisa definir o objetivo do tempo de recuperação (RTO) e o objetivo do ponto de recuperação (RPO) para que possa colocar novamente os dados da organização online o mais rápido possível (com um baixo RTO) e com perda mínima de dados (RPO baixo). O design de rede de sua organização representa um gargalo potencial para os objetivos de RTO e RPO, e um planejamento de design sólido pode ajudar a evitar esse desafio.
 
 
 Se você decidiu usar o serviço de Azure Site Recovery para ajudar a implementar proteção e failover existem algumas questões principais no design de rede para BCDR:
 
 - **Design VMM**: Estou usando o System Center VMM. Como eu devo tratar o design de rede para integrar o VMM e a Recuperação de Site?
-- **Conectividade após o failover**: Estou usando recuperação de Site para executar um failover. Como posso fazer que meus aplicativos e cargas de trabalho estejam disponíveis e acessíveis após a conclusão do failover?
+- **Conectividade após o failover**: Estou usando Recuperação de Site para executar um failover. O que posso fazer para que meus aplicativos e minhas cargas de trabalho estejam disponíveis e acessíveis após a conclusão do failover?
 
 ## Design VMM
 
@@ -40,12 +40,12 @@ A Recuperação de Site pode ser feita como uma camada sobre o seu design de VMM
 
 ### Servidor VMM Autônomo
 
-Nessa topologia, você implantará um servidor VMM em uma máquina virtual no site principal e, em seguida, replica essa máquina virtual para um site secundário com Hyper-V Replica e Recuperação de Site. Talvez você descubra que a instalação do servidor VMM e seu SQL Server de suporte na mesma máquina virtual pode reduzir o tempo de inatividade, porque apenas uma máquina virtual deve ser instanciado. Quando o serviço VMM está usando um SQL Server remoto, você precisará recuperar a instância do SQL Server antes de recuperar o servidor VMM.
+Nessa topologia, você implantará um servidor VMM em uma máquina virtual no site principal e, em seguida, replicará essa máquina virtual para um site secundário com Réplica do Hyper-V e Recuperação de Site. Convém considerar que a instalação do servidor VMM e do respectivo SQL Server de suporte na mesma máquina virtual pode reduzir o tempo de inatividade, porque apenas uma máquina virtual deve ser instanciada. Quando o serviço VMM está usando um SQL Server remoto, você precisa recuperar a instância do SQL Server antes de recuperar o servidor VMM.
 
 Para implantar um único VMM em uma máquina virtual com o Hyper-V Replica:
 
 1. Configure o VMM em uma VM com o SQL Server instalado.
-2. Adicione hosts a serem gerenciados para nuvens no servidor VMM.
+2. Adicione hosts a serem gerenciados a nuvens no servidor VMM.
 3. Faça logon no portal do Azure e, em seguida, configure nuvens para proteção.
 4. Habilite a replicação para todas as VMs que precisam ser protegidas pelo servidor VMM.
 5. Vá para o console do Gerenciador do Hyper-V, escolha o Hyper-V Replica e, em seguida, habilite a replicação na VM do VMM.
@@ -56,13 +56,13 @@ No caso de um desastre, as cargas de trabalho podem ser recuperadas da seguinte 
 1. Faça o failover da VM do VMM para o site de recuperação, usando o Gerenciador do Hyper-V.
 2. Depois que a VM do VMM for recuperada, o usuário poderá fazer logon no Hyper-V Recovery Manager do site secundário.
 3. Após a conclusão do failover não planejado os usuários poderão acessar todos os recursos no site principal.
-4. Observe que a VM do VMM precisa sofrer failover manualmente para o site secundário antes das cargas de trabalho poderem falhar. 
+4. Observe que a VM do VMM precisa sofrer failover manualmente para o site secundário antes de as cargas de trabalho falharem. 
 
 
 ### Servidor VMM clusterizado.
 
 
-[Implantar o VMM em um cluster](https://technet.microsoft.com/pt-br/library/gg610675.aspx) fornece alta disponibilidade e proteção contra failover de hardware. Se você estiver implantando o cluster do VMM com a Recuperação de Site, observe que:
+[Implantar o VMM em um cluster](https://technet.microsoft.com/pt-BR/library/gg610675.aspx) fornece alta disponibilidade e proteção contra failover de hardware. Se você estiver implantando o cluster do VMM com a Recuperação de Site, observerá que:
 
 O servidor do VMM deve ser implantado em um cluster ampliado em sites geograficamente separados. O banco de dados SQL Server usados pelo VMM deve ser protegido com os grupos de disponibilidade AlwaysOn do SQL Server com uma réplica no site secundário. Se o desastre ocorrer o servidor VMM e o SQL Server correspondente irão automaticamente fazer failover para o site de recuperação. Em seguida, é possível realizar failover de cargas de trabalho com a Recuperação de Site.
 
@@ -70,7 +70,7 @@ O servidor do VMM deve ser implantado em um cluster ampliado em sites geografica
 
 ## Conectividade após o failover
 
-Aplicativos modernos são quase sempre dependentes da rede até certo ponto, então mover fisicamente um serviço de um site para outro representa um desafio de rede para certificar-se de que os aplicativos e cargas de trabalho estão acessíveis após o failover. Há duas soluções principais para esse problema:
+Até certo ponto, aplicativos modernos são quase sempre dependentes da rede, então mover fisicamente um serviço de um site para outro representa um desafio de rede para certificar-se de que os aplicativos e as cargas de trabalho estejam acessíveis após o failover. Há duas soluções principais para esse problema:
 
 - **Endereços IP fixos**: A primeira abordagem é manter os endereços IP fixos. Apesar da movimentação dos serviços e dos servidores de hospedagem estarem em locais físicos diferentes, os aplicativos levam a configuração de endereço IP com eles para o novo local.
 - **Endereços IP modificados**: A segunda abordagem exige a alteração de endereço IP durante a transição para o site recuperado. 
@@ -81,7 +81,7 @@ De uma perspectiva de recuperação de desastres, usar endereços IP fixos parec
 
 #### Sub-rede ampliada
 
-Em uma sub-rede ampliada a sub-rede está disponível ao mesmo tempo no local primário e no local de destino. Em simples palavras, isso significa que você pode mover um servidor e sua configuração IP (Camada 3) para o site secundário e a rede roteará o tráfego para o novo local automaticamente. Isso é trivial para se lidar do ponto de vista do servidor, mas há uma série de desafios:
+Em uma sub-rede ampliada a sub-rede está disponível ao mesmo tempo no local primário e no local de destino. Simplificando, isso significa que você pode mover um servidor e sua configuração IP (Camada 3) para o site secundário, e a rede roteará o tráfego para o novo local automaticamente. Isso é trivial para se lidar do ponto de vista do servidor, mas há uma série de desafios:
 
 
 
@@ -190,4 +190,4 @@ A configuração de infra-estrutura de rede do Azure como uma [postagem de blog]
 
 [Saiba](site-recovery-network-mapping.md) como a Recuperação de Site mapeia redes de origem e destino.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

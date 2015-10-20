@@ -171,7 +171,7 @@ Nesta seção você executa o aplicativo localmente para verificar se que ele fu
 
 Nesta seção você criará um repositório Git local e enviará por push a partir desse repositório para o Azure, para implantar seu aplicativo de exemplo no Aplicativo de API em execução no Serviço de Aplicativo do Azure.
 
-1. Se o Git não estiver instalado, instale-o a partir da [página de download do Git](http://git-scm.com/download%20target="_blank").
+1. Se o Git não estiver instalado, instale-o a partir da [página de download do Git](http://git-scm.com/download).
 
 1. Na linha de comando, alterne para o diretório do aplicativo de exemplo e digite os seguintes comandos para inicializar um repositório Git local.
 
@@ -249,4 +249,4 @@ Você implantou um aplicativo Web Node.js que usa um back-end do aplicativo de A
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

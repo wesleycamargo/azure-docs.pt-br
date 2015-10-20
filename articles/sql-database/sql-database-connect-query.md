@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/09/2015"
 	ms.author="genemi"/>
 
 
 # Conectar-se ao Banco de Dados SQL e faça uma consulta com C&#x23;
 
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
 Você deseja gravar um programa em C# que use o ADO.NET para conectar-se a um Banco de Dados SQL do Azure na nuvem.
 
@@ -31,7 +35,7 @@ Este tópico descreve todas as etapas para as pessoas que não tenham experiênc
 Para executar o exemplo de código C#, você deverá ter:
 
 
-- Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Uma conta e uma assinatura do Azure. Você pode se [inscrever em uma avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 
 - Um banco de dados de demonstração **AdventureWorksLT** no serviço Banco de Dados SQL do Azure.
@@ -319,7 +323,7 @@ Você pode usar o [portal de visualização do Azure](http://portal.azure.com/) 
 
 
 
-Para saber mais, confira: <br/>[Como definir configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
+Para saber mais, consulte:<br/> [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
 
 
 
@@ -353,4 +357,4 @@ Para saber mais, confira: <br/>[Como definir configurações de firewall no Banc
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

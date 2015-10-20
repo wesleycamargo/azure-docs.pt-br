@@ -10,6 +10,6 @@ Aqui está uma lista de alguns outros tutoriais que talvez você queira examinar
 - PHP: [como usar Hubs de Notificação do PHP](../articles/notification-hubs/notification-hubs-php-backend-how-to.md).
 
 
-Nesta próxima seção do tutorial, você aprenderá a usar a [interface REST do Hub de Notificação](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) para enviar a mensagem de notificação diretamente para seu aplicativo. Todos os dispositivos registrados recebem a notificação enviada por qualquer dispositivo.
+Na próxima seção do tutorial, você aprenderá a usar a [interface REST do Hub de Notificação](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) para enviar a mensagem de notificação diretamente para seu aplicativo. Todos os dispositivos registrados recebem a notificação enviada por qualquer dispositivo.
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -19,6 +19,10 @@
 
 #Introdução ao SDK do .NET do Banco de Dados de Documentos  
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-get-started.md)
+- [Node.js](documentdb-nodejs-get-started.md)
+
 Bem-vindo à Introdução ao SDK do .NET Banco de Dados de Documentos! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos de Banco de Dados de Documentos.
 
 Abordaremos:
@@ -31,7 +35,7 @@ Abordaremos:
 - Consultar a coleção
 - Excluir o banco de dados
 
-Você não tem tempo? Não se preocupe! A solução completa está disponível em [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Consulte [Obter a solução completa](#GetSolution) para as instruções rápidas.
+Você não tem tempo? Não se preocupe! A solução completa está disponível em [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Consulte [Obter a solução completa](#GetSolution) para as instruções rápidas.
 
 Em seguida, use os botões de votação na parte superior ou inferior desta página para nos enviar comentários. Se quiser que entremos em contato com você diretamente, inclua seu endereço de email em seu comentário.
 
@@ -42,7 +46,7 @@ Agora vamos começar!
 Certifique-se que você tem o seguinte:
 
 - Uma conta ativa do Azure. Se não tem uma, você pode se inscrever para uma [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
+- [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 
 ## Etapa 1: Criar uma conta do Banco de Dados de Documentos
 
@@ -102,7 +106,7 @@ Chame a tarefa assíncrona por meio do seu método **Main**, semelhante ao códi
 		}
 	}
 
-> [AZURE.WARNING]Nunca armazene credenciais no código-fonte. Para simplificar este exemplo, as credenciais são mostradas no código-fonte. Consulte os [Sites do Azure: Como as cadeias de caracteres de Aplicativo e as cadeias de caracteres de Conexão funcionam](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) para obter informações sobre como armazenar credenciais em um ambiente de produção. Veja o nosso aplicativo de exemplo em [GitHub](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs) para obter um exemplo de como armazenar credenciais fora do código-fonte.
+> [AZURE.WARNING]Nunca armazene credenciais no código-fonte. Para simplificar este exemplo, as credenciais são mostradas no código-fonte. Consulte os [Sites do Azure: Como as cadeias de caracteres de Aplicativo e as cadeias de caracteres de Conexão funcionam](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) para obter informações sobre como armazenar credenciais em um ambiente de produção. Veja o nosso aplicativo de exemplo em [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) para obter um exemplo de como armazenar credenciais fora do código-fonte.
 
 Agora que você sabe como conectar uma conta do Banco de Dados de Documentos e criar uma instância da classe **DocumentClient**, vejamos como trabalhar com os recursos do Banco de Dados de Documentos.
 
@@ -456,7 +460,7 @@ Parabéns! Você criou seu primeiro aplicativo do Banco de Dados de Documentos!
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisará do seguinte:
 
 -   [Conta de Banco de Dados de Documentos][documentdb-create-account].
--   A solução [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) disponível no GitHub.
+-   A solução [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) disponível no GitHub.
 
 Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no Visual Studio, clique com o botão direito do mouse na solução **GetStarted** no Gerenciador de Soluções e, em seguida, clique em **Habilitar Pacote de Restauração NuGet**. Em seguida, no arquivo App.config, atualize os valores EndpointUrl e AuthorizationKey conforme descrito em [Conectar-se a uma conta do Banco de Dados de Documentos](#Connect).
 
@@ -474,4 +478,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

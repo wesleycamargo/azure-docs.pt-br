@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introdução aos cmdlets do PowerShell para o Azure Batch | Microsoft Azure"
-	description="Introduz os cmdlets do PowerShell do Azure usados para gerenciar o serviço Azure Batch"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+   description="Introduz os cmdlets do PowerShell do Azure usados para gerenciar o serviço Azure Batch"
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="08/07/2015"
-	ms.author="danlep"/>
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="08/07/2015"
+   ms.author="danlep"/>
 
 # Introdução aos cmdlets do PowerShell para o Azure Batch
 Este artigo é uma breve introdução aos cmdlets do PowerShell do Azure que você pode usar para gerenciar suas contas do Lote e obter informações sobre os trabalhos e tarefas do Lote e outros detalhes.
@@ -162,4 +162,4 @@ Para remover o limite superior, defina **MaxCount** como 0 ou menos.
 * [Referência de cmdlet do Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consultas de lista eficientes](batch-efficient-list-queries.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

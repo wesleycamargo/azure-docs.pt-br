@@ -353,4 +353,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties
     pageTitle="Application Insights para aplicativos do iOS | Microsoft Azure"
-	description="Analise o uso e o desempenho de seu aplicativo iOS com o Application Insights."
-	services="application-insights"
-	documentationCenter="ios"
-	authors="alancameronwills"
-	manager="ronmart"/>
+    description="Analise o uso e o desempenho de seu aplicativo iOS com o Application Insights."
+    services="application-insights"
+    documentationCenter="ios"
+    authors="alancameronwills"
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="04/27/2015"
-	ms.author="awills"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="04/27/2015"
+    ms.author="awills"/>
 
 # Application Insights para aplicativos do iOS
 
@@ -137,4 +137,4 @@ Clique em qualquer gráfico para obter mais detalhes. Por exemplo, falhas:
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -194,4 +194,4 @@ O código a seguir demonstra uma implementação simples de ParallelTaskProcesso
 ###Enviando trabalhos para o Batch Apps
 Um trabalho descreve uma carga de trabalho a ser executada e precisa incluir todas as informações sobre a carga de trabalho, exceto o conteúdo do arquivo. Por exemplo, o trabalho contém definições de configuração que partem do cliente, passam pelo divisor de trabalho e chegam por fim às tarefas. Os exemplos fornecidos no MSDN são exemplos de como enviar trabalhos e fornecer vários clientes, inclusive um portal da Web e um cliente de linha de comando.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

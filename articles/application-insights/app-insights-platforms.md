@@ -27,7 +27,7 @@
 + [C++ (Windows Store)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
 + [Páginas da Web de JavaScript](app-insights-web-track-usage.md)
-+ [Objetivo-C](app-insights-ios.md)
++ [Objetivo-C](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 + [Ruby](https://rubygems.org/gems/application_insights)
@@ -79,4 +79,4 @@ Se não há ainda um SDK para sua linguagem ou plataforma, talvez você deseje c
 
 <!--Link references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

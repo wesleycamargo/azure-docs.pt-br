@@ -141,4 +141,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

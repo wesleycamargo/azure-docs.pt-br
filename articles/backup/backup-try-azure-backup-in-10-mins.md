@@ -46,4 +46,4 @@ Execute as etapas mencionadas no vídeo [Introdução ao Backup do Azure 3 de 3 
 - [Fazer backup de um servidor Windows](backup-azure-backup-windows-server.md)
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -610,4 +610,4 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

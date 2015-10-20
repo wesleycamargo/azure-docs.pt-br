@@ -1,29 +1,29 @@
 <properties
-   pageTitle="Tutorial do REST para Barramento de Serviço | Microsoft Azure"
-	description="Compile um aplicativo host simples de Barramento de Serviço que expõe uma interface baseada em REST."
-	services="service-bus"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Tutorial do REST do Barramento de Serviço usando o sistema de mensagens de retransmissão | Microsoft Azure"
+   description="Compile um aplicativo host simples de retransmissão do Barramento de Serviço que expõe uma interface baseada em REST."
+   services="service-bus"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="" />
 <tags
    ms.service="service-bus"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="07/07/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="10/14/2015"
+   ms.author="sethm" />
 
 # Tutorial do REST para Barramento de Serviço
 
-Este tutorial descreve como compilar um aplicativo host simples de Barramento de Serviço que expõe uma interface baseada em REST. O REST permite que um cliente da Web, como, por exemplo, um navegador da Web, acesse a API de Barramento de Serviço por meio de solicitações HTTP.
+Este tutorial descreve como compilar um aplicativo host simples de Barramento de Serviço que expõe uma interface baseada em REST. O REST permite que um cliente da Web, como, por exemplo, um navegador da Web, acesse as APIs de Barramento de Serviço por meio de solicitações HTTP.
 
 Este tutorial usa o modelo de programação REST do Windows Communication Foundation (WCF) para construir um serviço REST no Barramento de Serviço. Para saber mais, confira [Modelo de programação REST WCF](https://msdn.microsoft.com/library/bb412169.aspx) e [Criando e implementando serviços](https://msdn.microsoft.com/library/ms729746.aspx) na documentação do WCF.
 
 ## Etapa 1: inscrever-se para uma conta do Azure
 
-A primeira etapa é criar um namespace de serviço e obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace de serviço fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
+A primeira etapa é criar um namespace de serviço e obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
 
 ### Para criar um namespace de serviço e obter uma chave SAS
 
@@ -51,7 +51,7 @@ A principal diferença entre um contrato básico de Barramento de Serviço e um 
 
 4. Adicione uma referência a **System.ServiceModel.dll** ao projeto:
 
-	a. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Referências**, na pasta do projeto e clique em **Adicionar Referência**.
+	a. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Referências**, na pasta do projeto e clique em **Adicionar Referência**.
 
 	b. Clique na guia **.NET** na caixa de diálogo **Adicionar Referência** e role para baixo até ver **System.ServiceModel**. Selecione-o e clique em **OK**.
 
@@ -66,19 +66,19 @@ A principal diferença entre um contrato básico de Barramento de Serviço e um 
   	using System.IO;
 	```
 
-	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço. Você usará este namespace na maioria dos seus aplicativos de retransmissão do Barramento de Serviço. Da mesma forma, [System.ServiceModel.Channels](https://msdn.microsoft.com/pt-BR/library/system.servicemodel.channels.aspx) ajuda a definir o canal, que é o objeto por meio do qual você se comunica com o Barramento de Serviço e o navegador da Web do cliente. Por fim, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contém os tipos que permitem a criação de aplicativos baseados na Web.
+	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço. Você usará este namespace na maioria dos seus aplicativos de retransmissão do Barramento de Serviço. Da mesma forma, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) ajuda a definir o canal, que é o objeto por meio do qual você se comunica com o Barramento de Serviço e o navegador da Web do cliente. Por fim, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contém os tipos que permitem a criação de aplicativos baseados na Web.
 
 7. Renomeie o namespace para o programa do padrão do Visual Studio para **Microsoft.ServiceBus.Samples**.
 
- 	```c
+ 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
 		...
 	```
 
-8. Imediatamente após a declaração do namespace, defina uma nova interface chamada **IImageContract** e aplique o atributo **ServiceContractAttribute** à interface com um valor de `http://samples.microsoft.com/ServiceModel/Relay/`. O valor do namespace é diferente do namespace que você usa em todo o escopo do seu código. O valor do namespace é usado como um identificador exclusivo para este contrato e deve ter informações sobre a versão. Para saber mais, consulte [Controle de Versão do Serviço](http://go.microsoft.com/fwlink/?LinkID=180498). Especificar o namespace de forma explícita impede a adição do valor de namespace padrão ao nome do contrato.
+8. Imediatamente após a declaração do namespace, defina uma nova interface chamada **IImageContract** e aplique o atributo **ServiceContractAttribute** à interface com um valor de `http://samples.microsoft.com/ServiceModel/Relay/`. O valor do namespace é diferente do namespace que você usa em todo o escopo do seu código. O valor do namespace é usado como um identificador exclusivo para este contrato e deve ter informações sobre a versão. Para obter mais informações, consulte [Controle de Versão do Serviço](http://go.microsoft.com/fwlink/?LinkID=180498). Especificar o namespace de forma explícita impede a adição do valor de namespace padrão ao nome do contrato.
 
-	```c
+	```
 	[ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
 	public interface IImageContract
 	{
@@ -87,7 +87,7 @@ A principal diferença entre um contrato básico de Barramento de Serviço e um 
 
 9. Dentro da interface `IImageContract`, declare um método para a operação individual exposta pelo contrato `IImageContract` na interface e aplique o atributo `OperationContractAttribute` ao método que você deseja expor como parte do contrato de Barramento de Serviço público.
 
-	```c
+	```
 	public interface IImageContract
 	{
 		[OperationContract]
@@ -97,7 +97,7 @@ A principal diferença entre um contrato básico de Barramento de Serviço e um 
 
 10. Ao lado do atributo **OperationContract**, aplique o atributo **WebGet**.
 
-	```c
+	```
 	public interface IImageContract
 	{
 		[OperationContract, WebGet]
@@ -109,7 +109,7 @@ A principal diferença entre um contrato básico de Barramento de Serviço e um 
 
 11. Logo após a definição `IImageContract`, declare um canal que herde das interfaces `IImageContract` e `IClientChannel`.
 
-	```c
+	```
 	[ServiceContract(Name = "IImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
 	public interface IImageContract
 	{
@@ -126,9 +126,9 @@ A principal diferença entre um contrato básico de Barramento de Serviço e um 
 
 ### Exemplo
 
-O exemplo de código a seguir mostra uma interface básica que define um contrato de Barramento de Serviço.
+O código a seguir mostra uma interface básica que define um contrato de Barramento de Serviço.
 
-```c
+```
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -169,7 +169,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 1. Crie uma nova classe chamada **ImageService** diretamente após a definição da interface **IImageContract**. A classe **ImageService** implementa a interface **IImageContract**.
 
-	```c
+	```
 	class ImageService : IImageContract
 	{
 	}
@@ -178,7 +178,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 2. Aplique o atributo [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) à classe **IImageService** para indicar que a classe é uma implementação de um contrato do WCF.
 
-	```c
+	```
 	[ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
 	class ImageService : IImageContract
 	{
@@ -197,7 +197,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 5. Adicione referências aos assemblies **System.Drawing.dll**, **System.Runtime.Serialization.dll** e **Microsoft.ServiceBus.dll** para o projeto, e adicione também as seguintes instruções `using` associadas.
 
-	```c
+	```
 	using System.Drawing;
 	using System.Drawing.Imaging;
 	using Microsoft.ServiceBus;
@@ -206,7 +206,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 6. Na classe **ImageService**, adicione o seguinte construtor que carrega o bitmap e o prepara para envio ao navegador do cliente.
 
-	```c
+	```
 	class ImageService : IImageContract
 	{
 		const string imageFileName = "image.jpg";
@@ -222,7 +222,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 7. Logo após o código anterior, adicione o seguinte método **GetImage** à classe **ImageService** para retornar uma mensagem HTTP que contém a imagem.
 
-	```c
+	```
 	public Stream GetImage()
 	{
 		MemoryStream stream = new MemoryStream();
@@ -245,7 +245,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 2. No **Gerenciador de Soluções**, clique duas vezes em **App.config**, que atualmente contém os seguintes elementos XML:
 
-	```xml
+	```
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
 	</configuration>
@@ -256,7 +256,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 3. Adicione um elemento XML `<system.serviceModel>` ao arquivo App.config. Este é um elemento do WCF que define um ou mais serviços. Aqui, ele é usado para definir o nome do serviço e o ponto de extremidade.
 
-	```xml
+	```
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
 		<system.serviceModel>
@@ -268,7 +268,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 4. No elemento `system.serviceModel`, adicione um elemento `<bindings>` que tem o seguinte conteúdo. Isso define as associações usadas no aplicativo. É possível definir várias associações, mas para este tutorial você definirá apenas uma.
 
-	```xml
+	```
 	<bindings>
 		<!-- Application Binding -->
 		<webHttpRelayBinding>
@@ -283,7 +283,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 5. Após o elemento `<bindings>`, adicione um elemento `<services>`. Assim como nas associações, você pode definir vários serviços em um único arquivo de configuração. No entanto, para este tutorial, você definirá apenas um.
 
-	```xml
+	```
 	<services>
 		<!-- Application Service -->
 		<service name="Microsoft.ServiceBus.Samples.ImageService"
@@ -302,7 +302,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 6. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS\_KEY" pela chave *Assinatura de Acesso Compartilhado* (SAS) obtida no portal do Azure na Etapa 1.
 
-	```xml
+	```
 	<behaviors>
 		<endpointBehaviors>
 			<behavior name="sbTokenProvider">
@@ -327,7 +327,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 
 O código a seguir mostra o contrato e a implementação do serviço para um serviço baseado em REST que está em execução no Barramento de Serviço usando a associação **WebHttpRelayBinding**.
 
-```c
+```
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -389,7 +389,7 @@ namespace Microsoft.ServiceBus.Samples
 
 O exemplo a seguir mostra o arquivo App.config associado ao serviço.
 
-```xml
+```
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <system.serviceModel>
@@ -445,14 +445,14 @@ Esta etapa descreve como executar um serviço Web usando um aplicativo de consol
 
 1. Na declaração de função `Main()`, crie uma variável para armazenar o namespace de seu projeto de Barramento de Serviço.
 
-	```c
+	```
 	string serviceNamespace = "InsertServiceNamespaceHere";
 	```
 	O Barramento de Serviço usa o nome do namespace para criar um URI exclusivo.
 
 2. Crie uma instância de `Uri` para o endereço básico do serviço que está baseado no namespace.
 
-	```c
+	```
 	Uri address = ServiceBusEnvironment.CreateServiceUri("https", serviceNamespace, "Image");
 	```
 
@@ -460,7 +460,7 @@ Esta etapa descreve como executar um serviço Web usando um aplicativo de consol
 
 - Crie o host do serviço Web usando o endereço URI criado anteriormente nesta seção.
 
-	```c
+	```
 	WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
 	```
 	O host do serviço é o objeto do WCF que instancia o aplicativo host. Este exemplo passa o tipo de host que você deseja criar (um **ImageService**) e também o endereço no qual você deseja expor o aplicativo host.
@@ -469,14 +469,14 @@ Esta etapa descreve como executar um serviço Web usando um aplicativo de consol
 
 1. Abra o arquivo serviço.
 
-	```c
+	```
 	host.Open();
 	```
 	O serviço está em execução.
 
 2. É exibida uma mensagem indicando que o serviço está em execução e dizendo como parar o serviço.
 
-	```c
+	```
 	Console.WriteLine("Copy the following address into a browser to see the image: ");
 	Console.WriteLine(address + "GetImage");
 	Console.WriteLine();
@@ -494,7 +494,7 @@ Esta etapa descreve como executar um serviço Web usando um aplicativo de consol
 
 O exemplo a seguir inclui o contrato e a implementação do serviço das etapas anteriores no tutorial e hospeda o serviço em um aplicativo de console. Compile o código a seguir em um arquivo executável chamado ImageListener.exe.
 
-```c
+```
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -578,8 +578,8 @@ Após compilar a solução, faça o seguinte para executar o aplicativo:
 
 Agora que você compilou um aplicativo que usa o serviço de retransmissão do Barramento de Serviço, confira os seguintes artigos para saber mais sobre o sistema de mensagens de retransmissão:
 
-- [Visão geral da arquitetura de Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md#relays)
+- [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md#relays)
 
 - [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

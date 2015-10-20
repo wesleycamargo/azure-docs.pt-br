@@ -171,4 +171,4 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

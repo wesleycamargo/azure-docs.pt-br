@@ -173,4 +173,4 @@ O exemplo a seguir usa DIG para consultar o domínio contoso.com usando os servi
 
 [Começar a criar conjuntos de registro e registros](dns-getstarted-create-recordset-cli.md)<BR> [Como gerenciar as zonas DNS](dns-operations-dnszones-cli.md)<BR> [Como gerenciar registros DNS](dns-operations-recordsets-cli.md)<BR> [Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)<BR> [Referência da API REST do DNS do Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

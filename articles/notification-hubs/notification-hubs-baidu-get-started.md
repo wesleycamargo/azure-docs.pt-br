@@ -32,7 +32,7 @@ Este tutorial exige o seguinte:
 + [SDK para Android de Serviços Móveis]
 + [SDK do Android Push Baidu]
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
+>[AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fja-jp%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 
 
 ##Criar uma conta de Baidu
@@ -137,7 +137,7 @@ Quando você cria um projeto de envio na nuvem Baidu, você recebe sua ID de apl
 
 	![][33]
 
-Você verá a mensagem **保存成功!** (**Salvo com êxito!**).
+Você verá a mensagem **保存成功！** (**Salvo com êxito!**).
 
 ##Configurar seu Hub de Notificação
 
@@ -480,4 +480,4 @@ Para enviar uma notificação de teste quando estiver usando um aplicativo de co
 [portal do Azure]: https://manage.windowsazure.com/
 [portal do Baidu]: http://www.baidu.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

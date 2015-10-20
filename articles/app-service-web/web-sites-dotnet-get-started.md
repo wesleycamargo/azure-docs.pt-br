@@ -37,11 +37,11 @@ A ilustração a seguir mostra o aplicativo concluído:
 O que você aprenderá:
 
 * Como preparar seu computador para desenvolvimento do Azure ao instalar o [SDK do Azure para .NET](../dotnet-sdk/).
-* Como configurar o Visual Studio para criar um novo aplicativo Web do Serviço de Aplicativo enquanto ele cria um projeto Web.
+* Como configurar o Visual Studio para criar um novo aplicativo Web do Serviço de Aplicativo enquanto ele cria um projeto Web do ASP.NET MVC 5.
 * Como implantar um projeto Web em um aplicativo Web do Serviço de Aplicativo usando o Visual Studio.
 * Como usar o [Portal do Azure](/overview/preview-portal/) para monitorar e gerenciar seu aplicativo Web.
 
-Este tutorial não ensina a escrever código para personalizar o aplicativo Web. Para ver um tutorial mais avançado que mostra como começar a trabalhar com um banco de dados e autenticar usuários, consulte [Implantar um aplicativo MVC ASP.NET seguro com associação, OAuth e Banco de Dados SQL em um aplicativo Web do Azure](/develop/net/tutorials/web-site-with-sql-database/).
+Este é um tutorial rápido e simples que não mostra como personalizar o projeto da Web que você cria. Para obter uma introdução ao desenvolvimento de aplicativos Web do ASP.NET MVC 5, consulte [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) no site do [ASP.NET](http://asp.net/). Para obter links para outros artigos com mais detalhes sobre os aplicativos Web no Serviço de Aplicativo do Azure, consulte a seção [Próximas etapas](#next-steps).
 
 ##<a name="video"></a>Inscrever-se no Microsoft Azure
 
@@ -50,7 +50,7 @@ Você precisa de uma conta do Azure para concluir este tutorial. Você pode:
 * [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que pode usar para testar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
 * [Ativar os benefícios de assinante do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). - todos os meses, sua assinatura do MSDN lhe oferece créditos que podem ser usados para serviços pagos do Azure.
 
-> [AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
+> [AZURE.NOTE]Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
 
 Neste vídeo, Scott Hanselman mostra como é fácil inscrever-se para uma avaliação gratuita do Microsoft Azure. (Duração: 1:58)
 
@@ -70,7 +70,7 @@ O diagrama ilustra o que você está fazendo nas etapas de criação e implanta�
 
 	Se você usar o Visual Studio 2013, as telas serão um pouco diferentes das capturas de tela, mas os procedimentos são essencialmente os mesmos.
 
-2. No menu **Arquivo**, clique em **Novo > Projeto**.
+2. No menu **Arquivo**, clique em **Novo Projeto**.
 
 3. Na caixa de diálogo **Novo Projeto**, clique em **C# > Web > Aplicativo Web ASP.NET**. Se preferir, você pode escolher **Visual Basic**.
 
@@ -236,7 +236,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como adicionar funcionalidade de banco de dados e autorização
 
-	Para obter um tutorial que mostra como acessar um banco de dados e restringir algumas funções de aplicativo a usuários autorizados, consulte [Implantar um aplicativo ASP.NET MVC seguro com associação, OAuth e Banco de Dados SQL em um aplicativo Web do Azure](/develop/net/tutorials/web-site-with-sql-database/).
+	Para obter um tutorial que mostra como acessar um banco de dados e restringir algumas funções de aplicativo a usuários autorizados, consulte [Implantar um aplicativo ASP.NET MVC seguro com associação, OAuth e Banco de Dados SQL em um aplicativo Web do Azure](/develop/net/tutorials/web-site-with-sql-database/). Esse tutorial pressupõe algum conhecimento do MVC 5. Se você for iniciante no MVC 5, consulte [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 
 * Outras maneiras de implantar um projeto Web
 
@@ -268,7 +268,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 * [Como escolher ou criar um grupo de recursos](../azure-preview-portal-using-resource-groups.md)
 
 ## O que mudou
-* Para ver um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e os serviços existentes do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e os serviços existentes do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obter um guia sobre a alteração do portal do Azure para o portal de visualização, consulte [Referência para navegar no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -14,4 +14,4 @@ Esta seção mostra como assegurar que seu aplicativo se conecte ao back-end do 
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

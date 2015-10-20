@@ -235,4 +235,4 @@ Os links a seguir fornecem informações adicionais para uma abordagem sem códi
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

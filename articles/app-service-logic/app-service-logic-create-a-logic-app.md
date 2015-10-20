@@ -21,8 +21,8 @@
 | Referência rápida |
 | --------------- |
 | [Linguagem de definição de aplicativos lógicos](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Documentação do conector de aplicativos lógicos](https://azure.microsoft.com/pt-BR/documentation/articles/app-service-logic-connectors-list/) |
-| [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurelogicapps) |
+| [Documentação do conector de aplicativos lógicos](https://azure.microsoft.com/ja-jp/documentation/articles/app-service-logic-connectors-list/) |
+| [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/ja-jp/home?forum=azurelogicapps) |
 
 Este tópico demonstra como, em apenas alguns minutos, você pode começar a usar os [Aplicativos Lógicos dos Serviços de Aplicativos](app-service-logic-what-are-logic-apps.md). Vamos percorrer um fluxo de trabalho que permite fornecer um conjunto de tweets em que você está interessado a uma pasta do Dropbox.
 
@@ -46,7 +46,7 @@ Primeiro, você precisa criar os dois conectores que usará: [Conector do Dropbo
 4. Selecione as **Configurações do pacote**: aqui, você terá de inserir as informações de seu aplicativo Twitter. Você pode configurar um aplicativo gratuito com estas etapas:
 	1. Vá para a [página de registro do aplicativo Twitter](http://apps.twitter.com)
 	2. Crie um novo aplicativo
-	3. Dê um nome e uma descrição. Você pode inserir qualquer URL do site e deixar a URL de retorno de chamada em branco.
+	3. Dê um nome e uma descrição. Você pode inserir qualquer URL para o site e qualquer URL para a URL de retorno de chamada (não a deixe em branco).
 	4. Depois de registrado, copie a **chave do consumidor** do Twitter no campo **clientId** no Azure e o **segredo do consumidor** do Twitter no **clientSecret**.
 	5. Clique em **OK** no painel do Azure para retornar às configurações de API
 
@@ -184,4 +184,4 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usar os recursos de aplicativos lógicos]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->
