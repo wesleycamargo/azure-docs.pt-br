@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Backup do Azure - Perguntas frequentes
 Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver perguntas adicionais sobre o Backup do Azure, vá para o [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e poste suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -46,7 +46,7 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P9. Como registro meu servidor em outro datacenter?**<br/> R9. Em geral, os dados de backup são enviados para o datacenter do serviço de Backup no qual estão registrados. A maneira mais fácil de alterar o datacenter é desinstalar e reinstalar o agente e registrar-se em um novo datacenter.
 
-**P10. O que acontece se eu renomear um servidor Windows que está fazendo backup de dados no Azure?** <br/> R10. Os backups configurados atualmente serão interrompidos. Você precisará registrar novamente o servidor no cofre de backup e ele será considerado um novo servidor pelos Serviços de Recuperação, portanto, a primeira operação de backup que ocorrer após o registro será um backup completo de todos os dados incluídos no backup e não apenas as alterações desde o último backup. No entanto, se você precisar executar uma operação de recuperação, poderá recuperar os dados que passaram por backup usando Recuperar em outra opção de recuperação de servidor. Para obter mais informações, consulte Renomear um servidor.
+**P10. O que acontece se eu renomear um servidor Windows que está fazendo backup de dados no Azure?** <br/> R10. Os backups configurados atualmente serão interrompidos. Você precisará registrar novamente o servidor no cofre de backup e ele será considerado um novo servidor pelos Serviços de Recuperação, portanto, a primeira operação de backup que ocorrer após o registro será um backup completo de todos os dados incluídos no backup e não apenas as alterações desde o último backup. No entanto, se você precisar executar uma operação de recuperação, poderá recuperar os dados que passaram por backup usando Recuperar em outra opção de recuperação de servidor.
 
 **P11. Em que tipos de unidades posso fazer backup de arquivos e pastas?** <br/> R11. Não é possível fazer backup do seguinte conjunto de unidades/volumes:
 
@@ -99,10 +99,10 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 |S.Não |	Sistema operacional |	Tamanho máximo da fonte de dados |
 | :-------------: |:-------------| :-----|
 |1| Windows Server 2012 ou superior| 54400 GB|
-|2| Windows Server 8 ou superior| 54400 GB|
+|2| Windows 8 ou superior| 54400 GB|
 |3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
 |4| Windows 7 | 1700 GB|
- 
+
 O tamanho da fonte de dados é medido como mencionado abaixo
 
 |	Fonte de dados |	Detalhes |
@@ -120,7 +120,7 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 **P4. Há uma diferença entre a política de retenção de backup do DPM e do Backup do Azure (ou seja, no Windows Server sem o DPM)?**<br/> R4. Não, você tem os mesmos recursos. Você pode especificar as políticas de retenção diária, semanal, mensal e anual.
 
-**P5. Posso configurar minhas políticas de retenção de forma seletiva – ou seja, configurar semanal e diária, mas não anual e mensal?**<br/> R5. Você tem o conjunto completo de botões para criar políticas que melhor definam seus requisitos de conformidade/retenção.
+**P5. Posso configurar minhas políticas de retenção de forma seletiva – ou seja, configurar semanal e diária, mas não anual e mensal?**<br/> R5. Sim, a estrutura de retenção de Backup do Azure permite que você tenha total flexibilidade na definição da política de retenção de acordo com suas necessidades.
 
 **P6. Posso “agendar um backup” às 18h e especificar “políticas de retenção” em um momento diferente?**<br/> R6. Não. As políticas de retenção só podem ser aplicadas em pontos de backup. Na imagem abaixo, a política de retenção está sendo especificada em backups realizados à 00h e às 18h. <br/>
 
@@ -175,4 +175,4 @@ O tamanho da fonte de dados é medido como mencionado abaixo
 
 Assim que os backups começarem a ser executados com êxito com o novo local de cache, você poderá remover a pasta de cache original.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

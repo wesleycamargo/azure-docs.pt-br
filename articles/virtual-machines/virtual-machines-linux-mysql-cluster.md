@@ -19,7 +19,8 @@
 
 # Usando conjuntos de carga balanceada para clusterizar MySQL em Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 A finalidade deste artigo é explorar e ilustrar as diferentes abordagens disponíveis para implantar serviços com base em Linux, altamente disponíveis no Microsoft Azure, explorando a alta disponibilidade do MySQL Server como elemento principal. Há um vídeo ilustrando essa abordagem disponível no [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -339,4 +340,4 @@ As seguintes limitações se aplicam:
 - O ajuste do MySQL é necessário para garantir que a gravação seja feita em um ritmo confortável e os caches sejam liberados para o disco com a maior frequência possível para minimizar a perda de memória
 - O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

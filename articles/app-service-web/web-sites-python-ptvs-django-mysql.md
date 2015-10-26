@@ -218,4 +218,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

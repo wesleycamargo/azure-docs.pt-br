@@ -1,3 +1,3 @@
 Conjunto de dados do Concurso de ferramentas de mineração de dados e descoberta de conhecimento KDD Cup 1999 (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>O conjunto de dados foi transferido por download e armazenado no armazenamento Azure Blob (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network\_intrusion\_detection.csv</a>) e inclui os conjuntos de dados de treinamento e teste. O conjunto de dados de treinamento possui aproximadamente 126 mil linhas e 43 colunas, incluindo os rótulos; 3 colunas são parte das informações de rótulo e 40 colunas, consistindo de recursos numéricos e sequência/categóricos, estão disponíveis para treinamento do modelo. Os dados de teste possuem aproximadamente 22,5 mil exemplos de teste com as mesmas 43 colunas que nos dados de treinamento.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

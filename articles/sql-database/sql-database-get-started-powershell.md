@@ -1,20 +1,20 @@
 <properties 
-    pageTitle="Criar um Banco de Dados SQL do Azure usando o PowerShell"
-	description="Criar um Banco de Dados SQL do Azure usando o PowerShell"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Criar um Banco de Dados SQL do Azure usando o PowerShell" 
+    description="Criar um Banco de Dados SQL do Azure usando o PowerShell" 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags
     ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="09/01/2015"
-	ms.author="sstein"/>
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="powershell"
+    ms.workload="data-management" 
+    ms.date="10/08/2015"
+    ms.author="sstein"/>
 
 # Criar um Banco de Dados SQL usando o PowerShell
 
@@ -30,19 +30,12 @@
 
 Este artigo mostra como criar um Banco de Dados SQL usando o PowerShell.
 
+> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Para concluir este artigo, você precisa do seguinte:
 
-- Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
-- PowerShell do Azure. Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
+Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução, e devido à remoção de Switch-AzureMode, você deve baixar e instalar o Azure PowerShell mais recente executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
-Os cmdlets para criação e gerenciamento de Bancos de Dados SQL do Azure estão localizados no módulo do Gerenciador de Recursos do Azure. Quando você inicia o PowerShell do Azure, os cmdlets no módulo do Azure são importados por padrão. Para alternar para o módulo do Gerenciador de Recursos do Azure, use o cmdlet Switch-AzureMode.
-
-	Switch-AzureMode -Name AzureResourceManager
-
-Se você executar o **Switch-AzureMode** e o aviso: O *cmdlet Switch-AzureMode foi substituído e será removido em uma versão futura* for exibido, não tem problema; basta passar para a próxima etapa e configurar suas credenciais.
-
-Para obter informações detalhadas, confira [Usando o Windows PowerShell com o Gerenciador de Recursos](powershell-azure-resource-manager.md).
+- Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 
 
 ## Configurar suas credenciais e selecionar sua assinatura
@@ -70,16 +63,16 @@ Agora que você tem acesso para executar cmdlets em sua assinatura do Azure sele
 
 Execute o seguinte comando para criar um novo grupo de recursos:
 
-	New-AzureResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
+	New-AzureRMResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
 
 Depois de criar com êxito o novo grupo de recursos, você verá informações na tela que incluem **ProvisioningState : Succeeded**.
 
 
 ### Criar um servidor 
 
-Os Bancos de Dados SQL são criados dentro dos servidores de Banco de Dados SQL. Execute **New-AzureSqlServer** para criar um novo servidor. Substitua ServerName pelo nome do servidor. Esse nome deve ser exclusivo a todos os Servidores SQL do Azure, de modo que você receberá um erro se o nome do servidor já existir. Também vale a pena observar que esse comando pode demorar alguns minutos para ser concluído. Você pode editar o comando para usar qualquer local válido escolhido, mas deve usar o mesmo local que usou para o grupo de recursos criado na etapa anterior.
+Os Bancos de Dados SQL são criados dentro dos servidores de Banco de Dados SQL. Execute **New-AzureRMSqlServer** para criar um novo servidor. Substitua ServerName pelo nome do servidor. Esse nome deve ser exclusivo a todos os Servidores SQL do Azure, de modo que você receberá um erro se o nome do servidor já existir. Também vale a pena observar que esse comando pode demorar alguns minutos para ser concluído. Você pode editar o comando para usar qualquer local válido escolhido, mas deve usar o mesmo local que usou para o grupo de recursos criado na etapa anterior.
 
-	New-AzureSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	New-AzureRMSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
 Ao executar esse comando, uma janela é aberta solicitando um **Nome de usuário** e **Senha**. Essas não são suas credenciais do Azure, insira o nome de usuário e a senha que serão as credenciais de administrador que você deseja criar para o novo servidor.
 
@@ -89,7 +82,7 @@ Os detalhes do servidor são exibidos após a criação bem-sucedida do servidor
 
 Estabeleça uma regra de firewall para acessar o servidor. Execute o comando a seguir substituindo os endereços IP inicial e final pelos valores válidos para o seu computador.
 
-	New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
+	New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
 Os detalhes da regra de firewall são exibidos após a criação bem-sucedida da regra.
 
@@ -105,7 +98,7 @@ Agora que você tem um grupo de recursos, um servidor e uma regra de firewall co
 O comando a seguir cria um novo (em branco) banco de dados SQL na camada de serviço Standard com um nível de desempenho S1:
 
 
-	New-AzureSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
+	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
 
 
 Os detalhes do banco de dados são exibidos após a criação bem-sucedida do banco de dados.
@@ -130,13 +123,13 @@ Os detalhes do banco de dados são exibidos após a criação bem-sucedida do ba
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId $SubscriptionId
     
-    $ResourceGroup = New-AzureResourceGroup -Name $ResourceGroupName -Location $Location
+    $ResourceGroup = New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
     
-    $Server = New-AzureSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
+    $Server = New-AzureRMSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
     
-    $FirewallRule = New-AzureSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
+    $FirewallRule = New-AzureRMSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
     
-    $SqlDatabase = New-AzureSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
+    $SqlDatabase = New-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
     
     $SqlDatabase
     
@@ -151,4 +144,4 @@ Os detalhes do banco de dados são exibidos após a criação bem-sucedida do ba
 
 - [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

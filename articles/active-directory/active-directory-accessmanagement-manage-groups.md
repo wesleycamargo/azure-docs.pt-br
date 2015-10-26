@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -68,4 +68,4 @@ Estes são alguns tópicos que fornecem informações adicionais sobre o Active 
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

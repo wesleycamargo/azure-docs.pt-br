@@ -268,4 +268,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

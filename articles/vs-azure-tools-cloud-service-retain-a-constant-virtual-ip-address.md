@@ -45,4 +45,4 @@ O VIP de um serviço de nuvem é alocado ao implantá-lo pela primeira vez no Az
 
 Para saber mais sobre a publicação do Azure por meio do Visual Studio, consulte o [assistente Publicar aplicativo do Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

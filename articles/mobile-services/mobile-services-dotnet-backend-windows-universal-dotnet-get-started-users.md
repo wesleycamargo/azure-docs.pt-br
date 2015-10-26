@@ -96,4 +96,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

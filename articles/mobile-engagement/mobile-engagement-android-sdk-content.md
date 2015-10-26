@@ -41,4 +41,4 @@ Este documento lista e descreve o conteúdo do arquivo SDK.
 Outros arquivos são uma cópia das licenças de software.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

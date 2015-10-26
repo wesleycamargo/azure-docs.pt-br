@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="10/13/2015"
 	ms.author="coreyp"/>
 
 # Como instalar e configurar o PowerShell do Azure#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="CLI do Azure">CLI do Azure</a></div>
+
+> [AZURE.NOTE]**Visualização do Azure PowerShell 1.0** agora está disponível na [Galeria do PowerShell](http://www.powershellgallery.com/). Há muitas alterações nesta visualização e gostaríamos de usá-las para coletar comentários, que podemos incorporar o Azure PowerShell 1.0. **Essa visualização não se destina a aplicativos de missão crítica**. Se você estiver executando esses críticos, continue a usar o Azure PowerShell 0.9.8. Se você gostaria de usar a visualização 1.0, poderá desinstalá-lo a qualquer momento e voltar para 0.9.8. Para obter instruções de instalação completa, consulte esta [postagem do blog](https://azure.microsoft.com/pt-BR/blog/azps-1-0-pre/).
 
 É possível usar o Windows PowerShell para executar várias tarefas no Azure, interativamente em um prompt de comando ou automaticamente por meio de scripts. O PowerShell no Azure é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell. É possível usar os cmdlets para criar, testar, implantar e gerenciar soluções e serviços entregues pela plataforma Azure. Na maioria dos casos, é possível usar os cmdlets para executar as mesmas tarefas que você pode executar por meio do Portal de Gerenciamento do Azure. Por exemplo, você pode criar e configurar serviços de nuvem, máquinas virtuais, redes virtuais e sites.
 
@@ -60,7 +62,7 @@ Os cmdlets precisam de sua assinatura para que possam gerenciar seus serviços. 
 
 Para ajudar a escolher o método de autenticação apropriado para suas necessidades, considere o seguinte:
 
-- O AD do Azure é o método de autenticação recomendado desde que ele torna mais fácil gerenciar acesso a uma assinatura. Com a atualização na versão 0.8.6, ela habilita o cenário de automação com a autenticação do AD do Azure, bem como se é usada uma conta corporativa ou de estudante. Ele funciona com a API do Gerenciador de Recursos do Azure também.
+- O AD do Azure é o método de autenticação recomendado visto que ele facilita o gerenciamento do acesso a uma assinatura. Com a atualização na versão 0.8.6, ela habilita o cenário de automação com a autenticação do AD do Azure, bem como se é usada uma conta corporativa ou de estudante. Ele funciona com a API do Gerenciador de Recursos do Azure também.
 - Quando você usa o método de certificado, as informações da assinatura estarão disponíveis desde que a assinatura e o certificado sejam válidos. No entanto, esse método dificulta o gerenciamento de acesso a uma assinatura compartilhada, como quando mais de uma pessoa está autorizada a acessar a conta. Além disso, a API do Gerenciador de Recursos do Azure não aceita autenticação de certificado.
 
 Para obter mais informações sobre o gerenciamento de autenticação e assinatura no Azure, consulte [Gerenciar contas, assinaturas e funções administrativas (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkId=324796).
@@ -96,7 +98,7 @@ Para obter mais informações sobre o gerenciamento de autenticação e assinatu
 	>
 	> 4. No Portal de Gerenciamento, selecione **Configurações** e **Administradores**. Selecione **Adicionar** e adicione o novo usuário como um coadministrador. Isso permite que a conta corporativa ou de estudante gerencie sua assinatura do Azure.
 	>
-	> 5. Por fim, faça logoff do portal do Azure e faça logon outra vez usando a nova conta corporativa. Se este for o primeiro logon usando essa conta, você deverá alterar a senha.
+	> 5. Por fim, faça logoff do portal do Azure e faça logon outra vez usando a nova conta corporativa ou de estudante. Se este for o primeiro logon usando essa conta, você deverá alterar a senha.
 	>
 	>Para obter mais informações sobre como se inscrever no Microsoft Azure com uma conta corporativa ou de estudante, consulte [Inscrever-se no Microsoft Azure como uma organização](sign-up-organization.md).
 
@@ -104,7 +106,7 @@ Para obter mais informações sobre o gerenciamento de autenticação e assinatu
 
 O módulo do Azure inclui cmdlets que ajudam você a baixar e importar o certificado.
 
-> [AZURE.NOTE]Os cmdlets no módulo AzureResourceManager requer o método AD do Azure (Add-AzureAccount). Estes cmdlets não suportam publicar arquivos de configuração. Para obter mais informações sobre o cmdlets no módulo AzureResourceManager, consulte [Cmdlets do Gerenciador de Recursos do Azure](http://go.microsoft.com/fwlink/?LinkID=394765).
+> [AZURE.NOTE]Os cmdlets no módulo AzureResourceManager requer o método AD do Azure (Add-AzureAccount). Esses cmdlets não suportam a publicação de arquivos de configuração. Para obter mais informações sobre o cmdlets no módulo AzureResourceManager, consulte [Cmdlets do Gerenciador de Recursos do Azure](http://go.microsoft.com/fwlink/?LinkID=394765).
 
 
 - O cmdlet **Get-AzurePublishSettingsFile** abre uma página da web no Portal de Gerenciamento do Azure, do qual você pode baixar as informações da assinatura. As informações estão contidas em um arquivo .publishsettings.
@@ -145,9 +147,9 @@ Para obter as assinaturas do Azure, digite:
 
 ## <a id="Ex"></a>Como usar os cmdlets: um exemplo ##
 
-Depois que tiver instalado o módulo e configurado seu computador para conectar-se à sua assinatura, você pode criar um aplicativo web do Azure. Este exemplo fará você começar a usar o cmdlets do Azure.
+Depois que tiver instalado o módulo e configurado seu computador para conectar-se à sua assinatura, você poderá criar um aplicativo web do Azure. Este exemplo fará você começar a usar os cmdlets do Azure.
 
-1. Iniciar o console do PowerShell do Azure.
+1. Inicie o console do PowerShell do Azure.
 
 2. Escolha um nome para seu aplicativo web. Escolha um nome que esteja de acordo com as convenções de nomenclatura DNS. Os nomes válidos podem conter somente letras “a” a “'z”, os números “0” a “9” e também o hífen (“-”).
 
@@ -232,7 +234,7 @@ Estes recursos fornecem ajuda para cmdlets específicos:
 
 - Informações de referência sobre os cmdlets nos módulos PowerShell no Azure também estão disponíveis na biblioteca do Azure. Para obter informações, consulte [Referência de cmdlets do Azure](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
 
-Para obter ajuda da comunidade, tente estes fóruns populares:
+Para obter ajuda da comunidade, experimente estes fóruns populares:
 
 - [Fórum do Azure no MSDN](http://go.microsoft.com/fwlink/p/?LinkId=320212)
 - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
@@ -260,4 +262,4 @@ Esses são alguns dos recursos disponíveis que você pode usar para aprender a 
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

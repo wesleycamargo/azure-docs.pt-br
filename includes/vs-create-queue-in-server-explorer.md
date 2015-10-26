@@ -10,4 +10,4 @@ Você pode criar filas do Azure usando o **Gerenciador de Servidores** do Visual
 
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

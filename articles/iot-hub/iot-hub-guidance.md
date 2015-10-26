@@ -1,10 +1,10 @@
 <properties
- pageTitle="Orientação do Hub IoT do Azure | Microsoft Azure"
- description="Uma coleção de tópicos de orientação para soluções que usam o Hub IoT do Azure."
+ pageTitle="Tópicos de orientação para o uso Hub IoT do Azure | Microsoft Azure"
+ description="Uma coleção de tópicos de orientação para desenvolver soluções que usam o Hub IoT do Azure."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -88,4 +88,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

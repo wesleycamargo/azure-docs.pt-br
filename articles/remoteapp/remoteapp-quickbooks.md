@@ -44,4 +44,4 @@ Você também pode conferir minha apresentação do Ignite, [Conceitos básicos 
 
 ![Implantação do QuickBooks + RemoteApp do Azure](./media/remoteapp-quickbooks/ra-quickbooks.png)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

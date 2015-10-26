@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="cephalin"/>
 
 # Integrar um aplicativo Web do Azure à CDN do Azure #
@@ -558,4 +558,4 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 - [Usando a CDN para Azure](../cdn-how-to-use.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

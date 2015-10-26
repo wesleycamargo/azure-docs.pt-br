@@ -249,4 +249,4 @@ Para saber mais sobre pontos de verificação, confira [Adicionando pontos de ve
 
 - [Introduzindo o Fluxo de Trabalho do Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

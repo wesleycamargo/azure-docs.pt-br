@@ -612,4 +612,4 @@ Outro exemplo que ajusta o tamanho do pool com base no número de tarefas, esta 
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – esse cmdlet do PowerShell obtém o arquivo RDP do nó de computação especificado e o salva no local de arquivo especificado ou em um fluxo.
 2.	Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Uma forma de resolver isso é por meio de [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

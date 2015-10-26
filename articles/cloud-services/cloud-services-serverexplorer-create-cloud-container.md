@@ -33,4 +33,4 @@ Para exibir o **Gerenciador de Servidores** no Visual Studio, na barra de menus,
 Agora que você tem um contêiner de serviço de nuvem, pode [criar e implantar](cloud-services-how-to-create-deploy.md) um serviço de nuvem.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

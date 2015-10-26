@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="10/08/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -45,15 +45,14 @@ Use as informações em [Atualizar banco de dados Web/Business do Banco de Dados
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Um banco de dados SQL do Azure. Se você não tiver um banco de dados SQL, crie um executando as etapas neste artigo: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
-- PowerShell do Azure. Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
+- PowerShell do Azure.
 
-Os cmdlets para alteração da camada de serviços do Bancos de Dados SQL do Azure estão localizados no módulo do Gerenciador de Recursos do Azure. Quando você inicia o PowerShell do Azure, os cmdlets no módulo do Azure são importados por padrão. Para alternar para o módulo do Gerenciador de Recursos do Azure, use o cmdlet Switch-AzureMode.
+> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-	Switch-AzureMode -Name AzureResourceManager
 
-Se você executar o **Switch-AzureMode** e o aviso: O *cmdlet Switch-AzureMode foi substituído e será removido em uma versão futura* for exibido, não tem problema; basta passar para a próxima etapa e configurar suas credenciais.
+Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução, e devido à remoção de Switch-AzureMode, você deve baixar e instalar o Azure PowerShell mais recente executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
-Para obter informações detalhadas, confira [Usando o Windows PowerShell com o Gerenciador de Recursos](powershell-azure-resource-manager.md).
+
 
 ## Configurar suas credenciais e selecionar sua assinatura
 
@@ -66,7 +65,7 @@ Depois de se conectar com êxito, você verá algumas informações na tela, inc
 
 ### Selecionar sua assinatura do Azure
 
-Para selecionar a assinatura, é necessário ter a ID ou o nome da assinatura (**-SubscriptionName**). É possível copiar a ID da assinatura nas informações exibidas na etapa anterior ou, se tiver várias assinaturas e precisar de mais detalhes, você pode executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultset. Quando tiver sua assinatura, execute o seguinte cmdlet:
+Para selecionar a assinatura, é necessário ter a ID ou o nome da assinatura (**-SubscriptionName**). É possível copiar a ID de assinatura das informações exibidas na etapa anterior ou, se tiver várias assinaturas e precisar de mais detalhes, você poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do consulto de resultados. Quando tiver sua assinatura, execute o seguinte cmdlet:
 
 	$SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     Select-AzureSubscription -SubscriptionId $SubscriptionId
@@ -79,7 +78,7 @@ Depois de executar **Select-AzureSubscription** com êxito, você retornará ao 
 
 ## Alterar a camada de serviço e o nível de desempenho do banco de dados SQL
 
-Execute o cmdlet **Set-AzureSqlDatabase** e defina o **-RequestedServiceObjectiveName** com o nível de desempenho do tipo de preço desejado, por exemplo, *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
+Execute o cmdlet **Set-AzureRMSqlDatabase** e defina o **-RequestedServiceObjectiveName** com o nível de desempenho do tipo de preço desejado, por exemplo, *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, etc.
 
     $ResourceGroupName = "resourceGroupName"
     
@@ -100,7 +99,7 @@ Execute o cmdlet **Set-AzureSqlDatabase** e defina o **-RequestedServiceObjectiv
 ## Amostra de script do PowerShell para alterar a camada de serviços e o nível de desempenho do banco de dados SQL
 
     
-	Switch-AzureMode -Name AzureResourceManager
+
     
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     
@@ -116,7 +115,7 @@ Execute o cmdlet **Set-AzureSqlDatabase** e defina o **-RequestedServiceObjectiv
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId $SubscriptionId
     
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRMSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
     
     $ScaleRequest
     
@@ -132,6 +131,7 @@ Execute o cmdlet **Set-AzureSqlDatabase** e defina o **-RequestedServiceObjectiv
 ## Recursos adicionais
 
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt163521.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

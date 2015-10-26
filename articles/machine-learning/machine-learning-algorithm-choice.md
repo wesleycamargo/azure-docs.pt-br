@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="09/28/2015"
+	ms.date="10/13/2015"
 	ms.author="brohrer;garye" />
 
 # Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure
@@ -36,6 +36,8 @@ Essas recomendações são comentários e dicas compilados de muitos cientistas 
 Leia os rótulos do caminho e do algoritmo no gráfico, como "Para *&lt;rótulodocaminho&gt;*, use *&lt;algoritmo&gt;*". Por exemplo, "Para*velocidade*, use *regressão logística de duas classes*". Às vezes, mais de uma ramificação se aplicará. Às vezes, nenhuma delas será a solução perfeita. Elas se destinam a serem recomendações gerais, portanto não se preocupe com a exatidão delas. Vários cientistas dados com quem conversei disseram que a única maneira de encontrar o melhor algoritmo é experimentar todos eles.
 
 Veja um exemplo da [Galeria de Análise do Cortana](http://gallery.azureml.net/) de um experimento que experimenta vários algoritmos nos mesmos dados e compara os resultados: [Comparar classificadores multiclasse: reconhecimento de letra](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+
+>[AZURE.TIP]Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
 ## Tipos de aprendizado de máquina
 
@@ -116,7 +118,7 @@ Alguns algoritmos de aprendizado fazem suposições específicas sobre a estrutu
 |[floresta de decisão](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[selva de decisão ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Volume de memória insuficiente|
 |[rede neural](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[um contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Consulte as propriedades do método de duas classes selecionadas| |**Regressão**| | | | | | |[linear ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | |[Linear Bayesiano](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[floresta de decisão](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[árvore de decisão aumentada](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Grande volume de memória| |[quantil rápido de floresta](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuições em vez de previsões de ponto| |[rede neural](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)| |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente linear em log. Para previsão de contagem| |[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Para previsão de ordem de classificação| |**Detecção de anomalias**| | | | | | |[máquina de vetor de suporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especialmente bom para conjuntos de recursos grandes| |[Detecção de anomalias baseada em PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Um algoritmo de clustering|
+|[um contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Consulte as propriedades do método de duas classes selecionadas| |**Regressão**| | | | | | |[linear ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | |[Linear Bayesiano](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[floresta de decisão](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[árvore de decisão aumentada](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Grande volume de memória| |[quantil rápido de floresta](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuições em vez de previsões de ponto| |[rede neural](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)| |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente linear em log. Para previsão de contagem| |[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Para previsão de ordem de classificação| |**Detecção de anomalias**| | | | | | |[computador de vetor de suporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especialmente bom para conjuntos de recursos grandes| |[Detecção de anomalias baseada em PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Um algoritmo de clustering|
 
 
 **Propriedades do algoritmo:**
@@ -155,13 +157,13 @@ Como um espaço de recurso pode ser subdividido em pequenas regiões de forma ar
 
 As árvores de decisão aumentadas evitam o superajuste ao limitarem o número de vezes que podem se subdividir e como poucos pontos de dados são permitidos em cada região. O algoritmo constrói uma sequência de árvores, e cada uma delas aprende a compensar o erro deixado pela árvore anterior. O resultado é um aprendiz muito preciso que tende a usar muita memória. Para obter a descrição técnica completa, confira o [documento original de Friedman](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
-[Regressão rápida de quantil de floresta](https://msdn.microsoft.com/library/azure/dn913093.aspx) é uma variação de árvores de decisão para casos especiais onde você deseja conhecer não apenas o valor típico (médio) dos dados em uma região, mas também sua distribuição na forma de quantis.
+[Regressão rápida de quantil de floresta](https://msdn.microsoft.com/library/azure/dn913093.aspx) é uma variação de árvores de decisão para casos especiais em que você deseja conhecer não apenas o valor típico (médio) dos dados em uma região, mas também sua distribuição na forma de quantis.
 
 ### Redes neurais e perceptrons
 
 As redes neurais são algoritmos de aprendizado inspirados no cérebro que cobrem problemas [multiclasse](https://msdn.microsoft.com/library/azure/dn906030.aspx), de [duas classes](https://msdn.microsoft.com/library/azure/dn905947.aspx) e de [regressão](https://msdn.microsoft.com/library/azure/dn905924.aspx). Elas vêm em uma variedade infinita, mas as redes neurais do Aprendizado de Máquina do Azure estão todas na forma de gráficos acíclicos direcionados. Isso significa que os recursos de entrada são passados para a frente (nunca para trás) por meio de uma sequência de camadas transformadas em saídas. Em cada camada, as entradas são ponderadas em várias combinações, somadas e passadas para a próxima camada. Essa combinação de cálculos simples resulta na capacidade de aprender limites de classe e tendências de dados sofisticados, aparentemente mágicos. As redes de várias camadas desse tipo executam o “aprendizado profundo” que alimenta tantos relatórios técnicos e a ficção científica.
 
-No entanto, esse alto desempenho tem um preço. As redes neurais podem ter um treinamento muito longo, particularmente para grandes conjuntos de dados com muitos recursos. Elas também têm mais parâmetros do que a maioria dos algoritmos, o que significa que a limpeza de parâmetros aumenta muito o tempo de treinamento. E para as pessoas brilhantes que desejam [ especificar sua própria estrutura de rede](http://go.microsoft.com/fwlink/?LinkId=402867), as possibilidades são inesgotáveis.
+No entanto, esse alto desempenho tem um preço. As redes neurais podem ter um treinamento muito longo, particularmente para grandes conjuntos de dados com muitos recursos. Elas também têm mais parâmetros do que a maioria dos algoritmos, o que significa que a limpeza de parâmetros aumenta muito o tempo de treinamento. E para as pessoas brilhantes que desejam [especificar sua própria estrutura de rede](http://go.microsoft.com/fwlink/?LinkId=402867), as possibilidades são inesgotáveis.
 
 ![Limites aprendidos por redes neurais][6]
 ---------------------------
@@ -176,7 +178,7 @@ As máquinas de vetor de suporte (SVMs) encontram o limite que separa as classes
 
 ![Limite de classe de computador de vetor de suporte][7]
 
-***Um limite de classe suporte de máquina de vetor de suporte típico maximiza a margem que separa duas classes***
+***Um limite de classe suporte de computador de vetor de suporte típico maximiza a margem que separa duas classes***
 
 Outro produto da Microsoft Research, a [SVM localmente profunda de duas classes](https://msdn.microsoft.com/library/azure/dn913070.aspx) é uma variante não linear de SVM que mantém a maior parte da eficiência de velocidade e de memória da versão linear. Ela é ideal para casos em que a abordagem linear não oferece respostas exatas o suficiente. Os desenvolvedores a mantiveram rápida ao dividir o problema em pequenos problemas lineares da SVM. Leia a [descrição completa](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) para obter detalhes sobre como eles realizaram esse truque.
 
@@ -186,7 +188,7 @@ Usando uma extensão inteligente de SVMs não lineares, a [SVM de uma classe](ht
 
 Os métodos Bayesianos possuem uma qualidade altamente desejável: eles evitam o superajuste. Eles fazem isso fazendo algumas suposições com antecedência sobre a distribuição provável da resposta. Outro subproduto dessa abordagem é que eles têm muito poucos parâmetros. O Aprendizado de Máquina do Azure tem dois algoritmos Bayesianos para classificação ([Computador do ponto de Bayes de duas classes](https://msdn.microsoft.com/library/azure/dn905930.aspx)) e regressão ([regressão linear Bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)). Observe que eles supõem que os dados podem ser divididos ou ajustados com uma linha reta.
 
-Em uma nota histórica, os computadores de ponto de Bayes foram desenvolvidos na Microsoft Research. Eles têm algum trabalho teórico excepcionalmente belo por trás deles. O aluno interessado será direcionado para o [artigo original no JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e para um [ blog perspicaz de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+Em uma nota histórica, os computadores de ponto de Bayes foram desenvolvidos na Microsoft Research. Eles têm algum trabalho teórico excepcionalmente belo por trás deles. O aluno interessado será direcionado para o [artigo original no JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e para um [blog perspicaz de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### Algoritmos especializados
 
@@ -222,4 +224,4 @@ O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutur
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

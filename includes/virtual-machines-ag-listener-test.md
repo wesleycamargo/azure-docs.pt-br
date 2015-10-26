@@ -14,4 +14,4 @@ Um exemplo seria conectar-se ao ouvinte de uma das VMs no mesmo VNet do Azure (m
 
 Ao testar o ouvinte, certifique-se de realizar failover ao grupo de disponibilidade para garantir que os clientes possam se conectar ao ouvinte através de failovers.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

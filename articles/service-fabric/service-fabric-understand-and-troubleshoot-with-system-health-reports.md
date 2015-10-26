@@ -530,4 +530,4 @@ System.Hosting relatará Erro se a validação durante a atualização falhar ou
 [Atualização de aplicativo da Malha de Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

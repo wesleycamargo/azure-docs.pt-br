@@ -566,4 +566,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

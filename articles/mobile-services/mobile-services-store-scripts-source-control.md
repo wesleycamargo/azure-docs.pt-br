@@ -153,4 +153,4 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -212,7 +212,7 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
 
 **Para instalar o SQuirreL**
 
-1. Baixe o arquivo jar cliente do SQuirreL SQL em [http://squirrel-sql.sourceforge.net/\#installation](http://squirrel-sql.sourceforge.net/#installation).
+1. Baixe o arquivo jar cliente do SQuirreL SQL em [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
 2. Abra/execute o arquivo jar. Ele requer o [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Clique em **Avançar** duas vezes.
 4. Especifique um caminho onde você tenha permissão de gravação e, em seguida, clique em **Avançar**.
@@ -306,4 +306,4 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para obter ma
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

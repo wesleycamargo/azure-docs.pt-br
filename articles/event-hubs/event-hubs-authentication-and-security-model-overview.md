@@ -154,4 +154,4 @@ Para saber mais sobre os Hubs de Eventos, consulte os tópicos a seguir:
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

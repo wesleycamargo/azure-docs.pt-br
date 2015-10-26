@@ -100,4 +100,4 @@ Agora, seu projeto de serviço móvel é mantido no controle de origem e você p
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

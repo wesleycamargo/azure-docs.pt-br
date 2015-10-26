@@ -54,4 +54,4 @@ Crie um cache e explore os novos recursos da camada premium.
 -	[Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

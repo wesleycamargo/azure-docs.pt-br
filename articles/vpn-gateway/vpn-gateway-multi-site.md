@@ -171,4 +171,4 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
 
 Para saber mais sobre gateways de VPN, consulte [Sobre gateways de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

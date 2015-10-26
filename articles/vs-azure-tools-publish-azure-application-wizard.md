@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Assistente Publicar aplicativo do Azure"
-	description="Assistente Publicar aplicativo do Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Assistente Publicar aplicativo do Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Assistente Publicar aplicativo do Azure
 
@@ -141,4 +141,4 @@ Você pode modificar as configurações avançadas e comuns para uma implantaç�
 
 [Teste de desempenho de um serviço de nuvem](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

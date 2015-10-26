@@ -19,11 +19,11 @@
 
 # Anexe um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássico
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação. Você também pode criar recursos com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-attach-disk-preview.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-attach-disk-preview.md).
 
 É possível anexar discos vazios e discos com dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo.
 
-> [AZURE.NOTE]É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual do Azure, ela tem um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. **Não use a unidade D para armazenar dados.** Como seu nome quer dizer, a unidade D oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque não reside no armazenamento do Azure.
+É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual do Azure, ela contém um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. **Não use a unidade D para armazenar dados.** Como seu nome quer dizer, a unidade D oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque não reside no armazenamento do Azure.
 
 ## Passo a passo em vídeo
 
@@ -35,7 +35,7 @@ Veja um passo a passo deste tutorial.
 
 ## <a id="initializeinWS"></a>Como: inicializar um novo disco de dados no Windows Server
 
-1. Conectar-se à máquina virtual. Para obter instruções, veja [Como fazer logon em uma máquina virtual que executa o Windows Server][logon].
+1. Conectar-se à máquina virtual. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server][logon].
 
 2. Depois de entrar na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, selecione **Arquivos e serviços de armazenamento**.
 
@@ -61,4 +61,4 @@ Veja um passo a passo deste tutorial.
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -215,4 +215,4 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 [Introdução aos serviços móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Painel do Dev Center do Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

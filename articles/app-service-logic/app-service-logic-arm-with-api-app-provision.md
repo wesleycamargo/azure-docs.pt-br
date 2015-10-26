@@ -394,4 +394,4 @@ Observe que o aplicativo lógico usa o token para chamar o gateway.
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

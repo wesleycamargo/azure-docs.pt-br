@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -50,11 +50,12 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 
 Os serviços que dão suporte à transferência para um novo grupo de recursos, mas não para uma nova assinatura são:
 
-- Computação (clássico)
+- Máquinas virtuais (clássico)
 - Armazenamento (clássico)
 
 Os serviços que atualmente não dão suporte à transferência de um recurso são:
 
+- Máquinas Virtuais
 - Redes Virtuais
 
 Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de Aplicativo. Para mover os aplicativos Web, as opções são:
@@ -64,17 +65,19 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 ## Usando o PowerShell para mover recursos
 
-Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando **Move-AzureResource**.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+
+Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando **Move-AzureRmResource**.
 
 O primeiro exemplo mostra como mover um recurso para um novo grupo de recursos.
 
-    PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
 
 O segundo exemplo mostra como mover vários recursos para um novo grupo de recursos.
 
-    PS C:\> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
-    PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
+    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
+    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 Para mover para uma nova assinatura, inclua um valor para o parâmetro **DestinationSubscriptionId**.
 
@@ -103,4 +106,4 @@ Na solicitação, inclua um objeto JSON que define o grupo de recursos de destin
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

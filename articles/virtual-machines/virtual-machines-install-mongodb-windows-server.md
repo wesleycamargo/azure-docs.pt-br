@@ -19,7 +19,8 @@
 
 #Instalar o MongoDB em uma máquina virtual na qual o Windows Server está em execução
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como instalar aplicativos em uma máquina virtual criada com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 [O MongoDB][MongoDB] é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Usando o [portal do Azure][AzureManagementPortal], é possível criar uma máquina virtual que executa o Windows Server por meio da Galeria de Imagens, usando o modelo de implantação clássico. Em seguida, você pode instalar e configurar um banco de dados MongoDB na máquina virtual.
 
@@ -50,4 +51,4 @@ Neste tutorial você aprendeu a criar uma máquina virtual do Windows Server e a
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

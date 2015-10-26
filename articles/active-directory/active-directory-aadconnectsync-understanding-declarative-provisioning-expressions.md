@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect Sync: noções básicas sobre expressões de provisionamento declarativo"
+	pageTitle="Azure AD Connect Sync: noções básicas sobre expressões de provisionamento declarativo | Microsoft Azure"
 	description="Explica as expressões de provisionamento declarativo."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -66,9 +66,9 @@ Um parâmetro é definido por um Connector ou por um administrador usando o Powe
 
 O Active Directory Connector forneceu os seguintes parâmetros para Regras de Sincronização de entrada:
 
- 
+
 | Domain.Netbios | Domain.FQDN | Domain.LDAP | | Forest.Netbios | Forest.FQDN | Forest.LDAP |
- 
+
 
 O sistema fornece o seguinte parâmetro:
 
@@ -132,7 +132,7 @@ Para obter uma lista completa de funções, consulte [Azure AD Connect Sync: ref
 
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

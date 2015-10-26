@@ -111,4 +111,4 @@ O envio de mensagens a um tópico particionado, e o recebimento de mensagens a p
 *    [Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 *    [Como usar os tópicos AMQP 1.0 com o Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

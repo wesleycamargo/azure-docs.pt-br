@@ -45,4 +45,4 @@ Usuários RMS mais ativos | 30 dias
 Uso de dispositivo do RMS | 30 dias
 Uso de aplicativos habilitados para RMS | 30 dias
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -398,4 +398,4 @@ Este tutorial foi concluído com êxito.
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

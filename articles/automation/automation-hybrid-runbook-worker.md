@@ -164,4 +164,4 @@ Você pode usar os critérios a seguir para determinar se a Automação do Azure
 - [Como editar um Runbook na Automação do Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

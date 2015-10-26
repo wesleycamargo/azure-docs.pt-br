@@ -22,4 +22,4 @@
 
 * Pressione **Executar** para iniciar o aplicativo e, em seguida, faça logon. Após ter feito o logon você poderá exibir a lista de Tarefas pendentes e fazer atualizações.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -6,9 +6,7 @@ Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeir
 
    	Isso exibe a caixa de diálogo **Criar uma nova tabela**.
 
-3. No **Nome da tabela**, digite _TodoItem_ e, em seguida, clique no botão de verificação.
-
-  Isso cria a nova tabela de armazenamento **TodoItem** com as permissões padrão definidas. Isso significa que qualquer pessoa com a chave de aplicativo, que é distribuída com seu aplicativo, pode acessar e alterar dados na tabela.
+3. No **Nome da tabela**, digite _TodoItem_ e, em seguida, clique no botão de verificação. Isso cria a nova tabela de armazenamento **TodoItem** com as permissões padrão definidas. Isso significa que qualquer pessoa com a chave de aplicativo, que é distribuída com seu aplicativo, pode acessar e alterar dados na tabela.
 
 	>[AZURE.NOTE] O mesmo nome de tabela é usado no Guia de início rápido dos Serviços Móveis. No entanto, cada tabela é criada em um esquema específico para um determinado serviço móvel. Isso é para evitar colisões de dados quando vários serviços móveis usam o mesmo banco de dados.
 
@@ -47,8 +45,8 @@ Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeir
 
   	Este é o requisito mínimo para uma tabela nos Serviços Móveis.
 
-    > [AZURE.NOTE] Quando o esquema dinâmico estiver ativado no seu serviço móvel, novas colunas serão criadas automaticamente quando objetos JSON forem enviados para o serviço móvel por uma operação de inserção ou atualização.
+    > [AZURE.NOTE]Quando o esquema dinâmico estiver ativado no seu serviço móvel, novas colunas serão criadas automaticamente quando objetos JSON forem enviados para o serviço móvel por uma operação de inserção ou atualização.
 
 Agora você está pronto para usar o novo serviço móvel como armazenamento de dados para o aplicativo.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

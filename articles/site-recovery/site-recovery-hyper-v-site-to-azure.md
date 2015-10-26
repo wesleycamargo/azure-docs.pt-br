@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="09/29/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 
@@ -53,7 +53,7 @@ Certifique-se de que ter tudo em colocar antes de começar.
 
 ### Pré-requisitos de máquina virtual
 
-As máquinas virtuais que você deseja proteger devem estar de acordo com os [Pré-requisitos para máquinas virtuais](site-recovery-best-practices.md/#virtual-machines).
+As máquinas virtuais que você deseja proteger devem estar de acordo com os [Pré-requisitos para Máquinas Virtuais](site-recovery-best-practices.md#virtual-machines).
 
 ### Pré-requisitos de provedor e do agente
 
@@ -62,11 +62,11 @@ Como parte da implantação do Azure Site Recovery, você instalará o Provedor 
 - Você deve executar as versões mais recentes do Provedor e do agente.
 - Todos os servidores Hyper-V em um cofre devem ter as mesmas versões.
 - O Provedor precisará se conectar ao Azure Site Recovery pela Internet. Você pode fazer isso sem um proxy, usando as configurações de proxy configuradas no servidor VMM ou usando as configurações personalizadas de proxy definidas durante a instalação do Provedor. Para usar um servidor proxy existente, verifique se as URLs de conexão com o Azure têm permissão no firewall:
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
  
 - Para usar o proxy personalizado, configure-o antes de instalar o Provedor. Durante a instalação do Provedor, você precisará especificar o endereço do servidor proxy e a porta, além das credenciais que podem ser usadas para acesso. Observe que o proxy com base em HTTPS não é suportado.
 
@@ -145,11 +145,11 @@ Instale o Provedor e o agente. Se você estiver instalando em um cluster do Hype
 	- Se o proxy padrão no servidor Hyper-V exigir autenticação, você deverá selecionar o uso de um servidor proxy personalizado. Digite os detalhes do proxy padrão e especifique as credenciais.
 	- Se quiser usar um servidor proxy personalizado, você deverá configurá-lo antes de instalar o Provedor.
 	- As URLs a seguir devem estar acessíveis no host Hyper-v
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 
 	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 
@@ -270,14 +270,10 @@ Há duas maneiras de executar um failover de teste no Azure.
 - Failover de teste sem uma rede do Azure: esse tipo de failover de teste verifica se a máquina virtual é mostrada corretamente no Azure. A máquina virtual não será conectada a nenhuma rede do Azure após o failover.
 - Failover de teste com uma rede do Azure: esse tipo de failover verifica se o ambiente de replicação inteiro é mostrado conforme o esperado e se as máquinas virtuais com failover serão conectadas à rede do Azure de destino especificada. Para a manipulação de sub-rede, para failover de teste, a sub-rede da máquina virtual de teste será determinada com base na sub-rede da máquina virtual de réplica. Isso é diferente da replicação normal quando a sub-rede de uma máquina virtual de réplica baseia-se na sub-rede da máquina virtual de origem.
 
-Se você quiser executar um failover de teste para uma máquina virtual habilitada para proteção no Azure sem especificar uma rede de destino do Azure, não será necessário preparar nada. Para executar um teste de failover com um destino de rede do Azure, você precisará criar uma nova rede do Azure isolada da rede de produção do Azure (o comportamento padrão quando você cria uma nova rede no Azure) e configurar a infraestrutura para que a máquina virtual replicada funcione como esperado. Por exemplo, uma máquina virtual com o Controlador de Domínio e DNS pode ser replicada para o Azure usando o Azure Site Recovery, e pode ser criada na rede de teste usando o Failover de teste. Para realizar um failover de teste, execute as etapas a seguir:
+Se você quiser executar um failover de teste para uma máquina virtual habilitada para proteção no Azure sem especificar uma rede de destino do Azure, não será necessário preparar nada. Para executar um failover de teste com uma rede do Azure de destino, você precisará criar uma nova rede do Azure isolada da rede de produção do Azure (o comportamento padrão quando você cria uma nova rede no Azure). Veja como [executar um failover de teste](site-recovery-failover.md#run-a-test-failover) para obter mais detalhes.
 
 
-1. Realize um failover de teste da máquina virtual com Controlador de Domínio e DNS na mesma rede que você usará para o failover de teste real da máquina virtual local.
-2. Anote os endereços IP que foram alocados às máquinas virtuais DNS em estado de failover.
-3. Na rede virtual do Azure que será usada para o failover, adicione os endereços IP como os endereços dos servidores DNS.
-4. Execute o failover de teste da máquina virtual local de origem, especificando a rede do Azure.
-5. Após verificar o funcionamento esperado do failover de teste, marque o failover de teste como concluído para o plano de recuperação e marque o failover de teste como concluído para as máquinas virtuais do Controlador de Domínio e de DNS.
+Você também precisará configurar a infraestrutura para que a máquina virtual replicada funcione como esperado. Por exemplo, uma máquina virtual com o Controlador de Domínio e DNS pode ser replicada para o Azure usando o Azure Site Recovery, e pode ser criada na rede de teste usando o Failover de teste. Confira a seção [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#considerations-for-test-failover) para obter mais detalhes.
 
 Para executar o failover de teste, faça o seguinte:
 
@@ -309,4 +305,4 @@ Para executar o failover de teste, faça o seguinte:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

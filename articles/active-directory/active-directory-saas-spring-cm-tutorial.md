@@ -73,7 +73,7 @@ Esta descreve como permitir que os usuários se autentiquem no SpringCM com a re
 
 4.  Na página **Configurar logon único no SpringCM**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo do certificado em seu computador.
 
-    ![Configurar o Logon Único](./media/active-directory-saas-spring-cm-tutorial/IC797050.png "Configurar o Logon Único")
+    ![Configurar o logon único](./media/active-directory-saas-spring-cm-tutorial/IC797050.png "Configurar o Logon Único")
 
 5.  Em outra janela do navegador da Web, entre em seu site de empresa **SpringCM** como administrador.
 
@@ -139,6 +139,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-spring-cm-tutorial/IC767830.png "Sim")
   
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

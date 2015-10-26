@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - o que é isso?"
-	description="O Azure Multi-Factor Authentication é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ela fornece uma camada adicional de segurança para logons de usuário e transações."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication - o que é isso?" 
+	description="O Azure Multi-Factor Authentication é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ela fornece uma camada adicional de segurança para logons de usuário e transações." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # O que é o Azure Multi-Factor Authentication?
@@ -204,4 +204,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

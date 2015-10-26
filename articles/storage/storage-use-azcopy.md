@@ -28,10 +28,13 @@ AzCopy é um utilitário de linha de comando projetado para upload, download e c
 > 
 > Observe que, para o AzCopy 4.x, as opções de linha de comandos e funcionalidades podem ser alteradas em versões futuras.
 
+
+Também lançamos uma biblioteca de código aberto com base na principal estrutura de movimentação de dados que alimenta o AzCopy. Veja mais detalhes em [Apresentando a versão de Visualização da Biblioteca de Movimentação de Dados do Armazenamento do Azure](https://azure.microsoft.com/pt-BR/blog/introducing-azure-storage-data-movement-library-preview-2/)
+
 ## Baixar e instalar o AzCopy
 
 1. Baixe a [versão mais recente do AzCopy](http://aka.ms/downloadazcopy) ou a [última versão de teste](http://aka.ms/downloadazcopypr).
-2. Execute a instalação. Por padrão, a instalação do AzCopy cria uma pasta chamada `AzCopy` em `%ProgramFiles(x86)%\Microsoft SDKs\Azure` (em um computador sendo executado no Windows 64 bits) ou `%ProgramFiles%\Microsoft SDKs\Azure` (em um computador sendo executado no Windows 32 bits). No entanto, é possível alterar o caminho da instalação por meio do assistente de instalação.
+2. Execute a instalação. Por padrão, a instalação do AzCopy cria uma pasta chamada `AzCopy` em `%ProgramFiles(x86)%\Microsoft SDKs\Azure` (em um computador que esteja executando o Windows de 64 bits) ou `%ProgramFiles%\Microsoft SDKs\Azure` (em um computador que esteja executando o Windows de 32 bits). No entanto, é possível alterar o caminho da instalação por meio do assistente de instalação.
 3. Se quiser, você pode alterar o local da instalação do AzCopy para o caminho do sistema.
 
 ## Entenda a sintaxe da linha de comando do AZCopy
@@ -56,7 +59,7 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
 
 - Para obter ajuda detalhada da linha de comando para o AzCopy: `AzCopy /?`
 - Para obter ajuda detalhada para qualquer parâmetro do AzCopy: `AzCopy /?:SourceKey`
-- Para exemplos da linha de comando: `AzCopy /?:Samples` 
+- Para obter exemplos da linha de comando: `AzCopy /?:Samples` 
 
 <table>
   <tr>
@@ -232,14 +235,14 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
   </tr>
   <tr>
     <td><b>/XN</b></td>
-    <td>Exclui um recurso de origem mais novo. O recurso não será copiado se a origem for mais nova do que o destino.</td>
+    <td>Exclui um recurso de origem mais novo. O recurso não será copiado se a hora da última modificação na origem for igual ou mais recente do que o destino.</td>
     <td>S</td>
     <td>S<br /> (somente visualização)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/XO</b></td>
-    <td>Exclui um recurso de origem mais antigo. O recurso não será copiado se o recurso de origem for mais antigo do que o destino.</td>
+    <td>Exclui um recurso de origem mais antigo. O recurso não será copiado se a hora da última modificação da origem for igual ou anterior à do destino.</td>
     <td>S</td>
     <td>S<br /> (somente visualização)</td>
     <td>N</td>
@@ -441,7 +444,7 @@ Os exemplos abaixo demonstram vários cenários para copiar blobs com o AzCopy.
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Para obter mais informações sobre como trabalhar com as chaves de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage-create-storage-account/#regeneratestoragekeys).
+Para saber mais sobre como trabalhar com as chaves de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage-create-storage-account/#regeneratestoragekeys).
 
 ### Copiar um blob por meio da cópia no servidor
 
@@ -624,7 +627,7 @@ Depois da operação de cópia, o contêiner de destino incluirá o blob e seus 
 
 **Especificar um ou mais arquivos de resposta de linha única**
 
-Vamos supor um arquivo de resposta chamado `source.txt` que especifique um contêiner de origem:
+Vamos supor que haja um arquivo de resposta chamado `source.txt` que especifique um contêiner de origem:
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer
 
@@ -737,11 +740,11 @@ Observe que se você especificar um caminho relativo depois da opção `/V`, com
 
 Especifique a opção `/MT` para comparar a hora da última modificação do blob de origem com a do arquivo de destino.
 
-**Excluir blobs que sejam mais novos do que o arquivo de destino**
+**Excluir blobs cuja hora da última modificação for a mesma ou mais recente do que o arquivo de destino**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 
-**Excluir blobs que sejam mais antigos do que o arquivo de destino**
+**Excluir blobs cuja hora da última modificação for a mesma ou mais antiga do que o arquivo de destino**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 
@@ -870,7 +873,7 @@ O AzCopy gera um arquivo de dados JSON na pasta local ou no contêiner do blob, 
 
 O arquivo de dados JSON gerado segue o formato de carga para metadados mínimos. Para obter detalhes sobre esse formado de carga, confira [Formato de carga para operações do serviço Tabela](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Observe que ao exportar Entidades da tabela de armazenamento para o Armazenamento de blob, primeiro, o AzCopy exportará entidades da tabela para arquivos de dados temporários locais e, em seguida, os carregará no Blob, esses arquivos de dados temporários são colocados na pasta de arquivos do diário com o caminho padrão “<code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code>”, você pode especificar a opção /Z:[journal-file-folder] para alterar o local da pasta de arquivo de diário e, portanto, alterar o local dos arquivos de dados temporários. O tamanho dos arquivos de dados temporários é decidido pelo tamanho das entidades da tabela e pelo tamanho especificado com a opção /SplitSize, embora o arquivo de dados temporários no disco local será excluído imediatamente depois que ele tiver sido carregado para o Blob, verifique que você tem espaço suficiente no disco local para armazenar esses arquivos de dados temporários antes de serem excluídos,
+Observe que ao exportar Entidades da Tabela de Armazenamento para o Armazenamento de Blob, primeiro, o AzCopy exportará entidades da tabela para arquivos de dados temporários locais e, em seguida, os carregará no Blob, esses arquivos de dados temporários são colocados na pasta de arquivos do diário com o caminho padrão "<code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code>", você pode especificar a opção /Z:[pasta-de-arquivo-de-diário] para alterar o local da pasta de arquivo de diário e, portanto, alterar o local dos arquivos de dados temporários. O tamanho dos arquivos de dados temporários é decidido pelo tamanho das entidades da tabela e pelo tamanho especificado com a opção /SplitSize, embora o arquivo de dados temporários no disco local será excluído imediatamente depois que ele tiver sido carregado para o Blob, verifique que você tem espaço suficiente no disco local para armazenar esses arquivos de dados temporários antes de serem excluídos,
 
 ### Dividir os arquivos exportados
 
@@ -885,7 +888,7 @@ Por exemplo, digamos que o AzCopy gere dois arquivos de dados depois que o usuá
 	myaccount_mytable_20140903T051850.8128447Z_0_0_C3040FE8.json
 	myaccount_mytable_20140903T051850.8128447Z_0_1_0AB9AC20.json
 
-Observe que o menor valor possível para a opção `/SplitSize` é 32 MB. Se o destino especificado for um armazenamento blob, o AzCopy dividirá o arquivo de dados quando alcançar o tamanho limite do blob (200 GB), independentemente de se o usuário tiver especificado a opção `/SplitSize`.
+Observe que o menor valor possível para a opção `/SplitSize` é 32 MB. Se o destino especificado for um armazenamento blob, o AzCopy dividirá o arquivo de dados quando alcançar o tamanho limite do blob (200 GB), independentemente de se o usuário tiver especificado a opção `/SplitSize`.
 
 ### Exportar entidades simultaneamente
 
@@ -925,29 +928,31 @@ Você pode criar um arquivo app.config `AzCopy.exe.config` com a propriedade `Az
 	  </appSettings>
 	</configuration>
 
-Para a propriedade “AzureStorageUseV1MD5” • True - valor padrão, o AzCopy usará a implementação MD5 de .NET. • False – o AzCopy usará o algoritmo MD5 compatível com FIPS.
+Para a propriedade "AzureStorageUseV1MD5" • True - valor padrão, o AzCopy usará a implementação MD5 de .NET. • False – o AzCopy usará o algoritmo MD5 compatível com FIPS.
 
 Observe que os algoritmos compatíveis com FIPS estão desabilitados por padrão em seu computador com Windows. Digite secpol.msc na janela Executar e marque essa opção em Configuração de Segurança -> Segurança -> Políticas Locais > Opções de Segurança > Criptografia do Sistema: usar algoritmos compatíveis com FIPS para criptografia, hash e assinatura.
 
 ## Versões do AzCopy
 
-| Versão | O que há de novo |
-|---------|-----------------------------------------------------------------------------------------------------------------|
-| **V4.2.0** | **Versão de teste atual. Inclui todas as funcionalidades da V3.2.0. Também oferece suporte a SAS de compartilhamento do arquivo de armazenamento, cópia assíncrona do armazenamento de arquivos, exportação de entidades de tabela para CSV e especificação do nome do manifesto ao exportar entidades de Tabela**
-| **V3.2.0** | **Versão atual. Oferece suporte ao Blob anexo e configuração de MD5 compatível com FIPS**
-| V4.1.0 | Inclui todas as funcionalidades da V3.1.0. Suporta cópia de blobs e arquivos de forma síncrona e especifica o tipo de conteúdo para blobs e arquivos de destino
-| V3.1.0 | Suporta cópia de blobs de forma síncrona e especifica o tipo de conteúdo para blobs de destino.
-| V4.0.0 | Inclui todas as funcionalidades do V3.0.0. Também permite copiar arquivos de ou para o armazenamento de arquivos do Azure e copiar entidades de ou para o armazenamento de tabela do Azure.
-| V3.0.0 | Modifica a sintaxe da linha de comando do AzCopy para solicitar os nomes do parâmetro e redefine a ajuda da linha de comando. Essa versão dá suporte apenas copiar para e do armazenamento de blob do Azure.	
-| V2.5.1 | Otimiza o desempenho com o uso das opções /xo e /xn. Corrige bugs relacionados a caracteres especiais nos nomes dos arquivos de origem e os danos nos arquivos de diário quando o usuário insere sintaxe errada na linha de comando.	
-| V2.5.0 | Otimiza o desempenho para cenários de cópia em larga escala e apresenta diversos aperfeiçoamentos de usabilidade importantes.
-| V2.4.1 | Permite a especificação da pasta de destino no assistente de instalação.                     			
-| V2.4.0 | Permite o upload e o download de arquivos para armazenamento de arquivo do Azure.
-| V2.3.0 | Permite contas de armazenamento de redundância geográfica com acesso de leitura.|
-| V2.2.2 | Atualizado para usar a versão da biblioteca do cliente de armazenamento do Azure 3.0.3.
-| V2.2.1 | Problema de desempenho corrigido durante a cópia de arquivos muito grandes dentro da mesma conta de armazenamento.
-| V2.2 | Permite a configuração do delimitador de diretório virtual para nomes de blob. Permite a especificação do caminho de arquivo de diário.|
-| V2.1 | Oferece mais de 20 opções para permitir operações de upload, download e cópia de blob de maneira eficiente.|
+> [AZURE.NOTE]Recomendamos a instalação da versão mais recente do AzCopy para obter melhor desempenho e novos recursos.
+
+| Versão | O que há de novo | Versão da Biblioteca do Cliente .NET referenciada | Versão da API REST de armazenamento de destino |
+|---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
+| [**V4.2.0**](http://xdmrelease.blob.core.windows.net/azcopy-4-2-0-preview/MicrosoftAzureStorageTools.msi) | **Versão de teste atual. Inclui todas as funcionalidades da V3.2.0. Também oferece suporte a SAS de compartilhamento do arquivo de armazenamento, cópia assíncrona do armazenamento de arquivos, exportação de entidades de tabela para CSV e especificação do nome do manifesto ao exportar entidades de Tabela** | **V5.0.0** | **2015-02-21**
+| [**V3.2.0**](http://xdmrelease.blob.core.windows.net/azcopy-3-2-0/MicrosoftAzureStorageTools.msi) | **Versão atual. Oferece suporte ao Blob anexo e configuração de MD5 compatível com FIPS** | **V5.0.0** | **2015-02-21**
+| [V4.1.0](http://xdmrelease.blob.core.windows.net/azcopy-4-1-0-preview/MicrosoftAzureStorageTools.msi) | Inclui todas as funcionalidades da V3.1.0. Suporta cópia de blobs e arquivos de forma síncrona e especifica o tipo de conteúdo para blobs e arquivos de destino | V4.3.0 | 2014-02-14
+| [V3.1.0](http://xdmrelease.blob.core.windows.net/azcopy-3-1-0/MicrosoftAzureStorageTools.msi) | Suporta cópia de blobs de forma síncrona e especifica o tipo de conteúdo para blobs de destino.| V4.3.0 | 2014-02-14
+| [V4.0.0](http://xdmrelease.blob.core.windows.net/azcopy-4-0-0-preview/MicrosoftAzureStorageTools.msi) | Inclui todas as funcionalidades do V3.0.0. Também permite copiar arquivos de ou para o armazenamento de arquivos do Azure e copiar entidades de ou para o armazenamento de tabela do Azure.| V4.2.1 | 2014-02-14
+| [V3.0.0](http://xdmrelease.blob.core.windows.net/azcopy-3-0-0/MicrosoftAzureStorageTools.msi) | Modifica a sintaxe da linha de comando do AzCopy para solicitar os nomes do parâmetro e redefine a ajuda da linha de comando. Essa versão dá suporte apenas copiar para e do armazenamento de blob do Azure.| V4.2.1 | 2014-02-14
+| V2.5.1 | Otimiza o desempenho com o uso das opções /xo e /xn. Corrige bugs relacionados a caracteres especiais nos nomes dos arquivos de origem e os danos nos arquivos de diário quando o usuário insere sintaxe errada na linha de comando.| V4.1.0 | 2014-02-14
+| V2.5.0 | Otimiza o desempenho para cenários de cópia em larga escala e apresenta diversos aperfeiçoamentos de usabilidade importantes.| V4.1.0 | 2014-02-14
+| V2.4.1 | Permite a especificação da pasta de destino no assistente de instalação.| V4.0.0 | 2014-02-14
+| V2.4.0 | Permite o upload e o download de arquivos para armazenamento de arquivo do Azure.| V4.0.0 | 2014-02-14
+| V2.3.0 | Permite contas de armazenamento de redundância geográfica com acesso de leitura.| V3.0.3 | 2013-08-15
+| V2.2.2 | Atualizado para usar a versão da biblioteca do cliente de armazenamento do Azure 3.0.3.| V3.0.3 | 2013-08-15
+| V2.2.1 | Problema de desempenho corrigido durante a cópia de arquivos muito grandes dentro da mesma conta de armazenamento.| V2.1.0 |
+| V2.2 | Permite a configuração do delimitador de diretório virtual para nomes de blob. Permite a especificação do caminho de arquivo de diário.| V2.1.0 |
+| V2.1 | Oferece mais de 20 opções para permitir operações de upload, download e cópia de blob de maneira eficiente.| V2.0.5 |
 
 
 ## Próximas etapas
@@ -961,6 +966,7 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 - [Cria um compartilhamento de arquivos SMB no Azure e no armazenamento de arquivo](storage-dotnet-how-to-use-files.md)
 
 ### Postagens de blog de armazenamento do Azure:
+- [DML: apresentando a versão de visualização da biblioteca de movimentação de dados do armazenamento do azure](https://azure.microsoft.com/pt-BR/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy: Introducing synchronous copy and customized content type (AzCopy: introdução a cópia síncrona e tipo de conteúdo personalizado)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support (AzCopy: anúncio de disponibilidade geral do AzCopy 3.0 mais versão de teste do AzCopy 4.0 com suporte para Tabela e Arquivo)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 - [AzCopy: Optimized for Large-Scale Copy Scenarios (AzCopy: otimizado para cenários de cópia em larga escala)](http://go.microsoft.com/fwlink/?LinkId=507682)
@@ -970,6 +976,4 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 - [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

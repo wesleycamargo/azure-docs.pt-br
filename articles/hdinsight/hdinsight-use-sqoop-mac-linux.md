@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Usar o Sqoop do Hadoop no HDInsight | Microsoft Azure"
+	pageTitle="Usar o Sqoop do Hadoop no HDInsight baseado em Linux | Microsoft Azure"
 	description="Aprenda a usar o Sqoop para importar e exportar entre um Hadoop baseado em Linux no cluster HDInsight e um banco de dados SQL do Azure."
 	editor="cgronlun"
 	manager="paulettm"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Usar o Sqoop com Hadoop no HDInsight (SSH)
@@ -263,4 +263,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

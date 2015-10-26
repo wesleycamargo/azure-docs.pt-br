@@ -63,11 +63,12 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Locatário do Rally Software**, digite a URL usando o padrão "*https://\<nome do locatário>.rally.com*" e clique em **Avançar**.
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-rally-software-tutorial/IC769529.png "Configurar a URL do Aplicativo")
+    ![Configurar a URL do Aplicativo](./media/active-directory-saas-rally-software-tutorial/IC769529.png "Configurar a URL do Aplicativo
+")
 
 4.  Na página **Configurar o logon único no Rally**, clique em Baixar metadados e salve-o em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-rally-software-tutorial/IC769530.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-rally-software-tutorial/IC769530.png "Configurar o logon único")
 
 5.  Faça logon no seu locatário do **Rally Software**.
 
@@ -128,6 +129,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-rally-software-tutorial/IC767830.png "Sim")
   
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

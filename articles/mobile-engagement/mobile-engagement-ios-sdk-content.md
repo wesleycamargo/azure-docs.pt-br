@@ -42,4 +42,4 @@ Este documento lista e descreve o conteúdo do arquivo SDK.
 
 > Controladores de exibição do Engagement e código-fonte do SDK Reach (para usuários avançados que desejam adaptar a classes do Engagement as suas necessidades).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -37,26 +37,27 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 O aplicativo concluído é fornecido também no final desse tutorial.
 
 
-## 1. Registrar um Aplicativo
-
-Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga essas [etapas detalhadas](active-directory-v2-app-registration.md).  Certifique-se de:
+## 1\. Registrar um aplicativo
+Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 
-Essa solução do Visual Studio também contém um "TodoListClient”, que é um aplicativo WPF simples.  O TodoListClient é usado para demonstrar como um usuário se conecta e como um cliente pode emitir solicitações para sua API Web.  Nesse caso, tanto o TodoListClient como TodoListService são representados pelo mesmo aplicativo.  Para configurar o TodoListClient, você deverá também:
+Essa solução do Visual Studio também contém um "TodoListClient”, que é um aplicativo WPF simples. O TodoListClient é usado para demonstrar como um usuário se conecta e como um cliente pode emitir solicitações para sua API Web. Nesse caso, tanto o TodoListClient como TodoListService são representados pelo mesmo aplicativo. Para configurar o TodoListClient, você deverá também:
 
-- Adicionar a plataforma **Móvel** do seu aplicativo.
-- Copiar a **URI de Redirecionamento** do portal. Você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`.
+- Adicione a plataforma **Móvel** de seu aplicativo.
+- Copie o **URI de Redirecionamento** do portal. Você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2. Configure seu aplicativo para usar o pipeline de autenticação OWIN
+## 2\. Configure seu aplicativo para usar o pipeline de autenticação OWIN
 
 Agora que você registrou um aplicativo, é preciso configurar seu aplicativo para se comunicar com o ponto de extremidade v2.0 para validar tokens e solicitações recebidos.
 
--	Para começar, abra a solução e adicione os pacotes NuGet do middleware OWIN ao projeto TodoListService usando o Console do Gerenciador de Pacotes
+-	Para começar, abra a solução e adicione os pacotes do NuGet de middleware OWIN ao projeto TodoListService usando o Console do Gerenciador de Pacotes.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
 ```
 
 -	Adicionar uma classe de inicialização OWIN no projeto TodoListService chamado `Startup.cs`. Clique com o botão direito do mouse no projeto --> **Adicionar** --> **Novo item** --> pesquise por "OWIN". O middleware OWIN invocará o método `Configuration(…)` quando seu aplicativo for iniciado.
@@ -72,7 +73,7 @@ public partial class Startup
 }
 ```
 
--	Abra o arquivo `App_Start\Startup.Auth.cs` e implemente o método `ConfigureAuth(…)`, que irá configurar a API da Web para aceitar tokens do ponto de extremidade v2.0.
+-	Abra o arquivo `App_Start\Startup.Auth.cs` e implemente o método `ConfigureAuth(…)`, que vai configurar a API da Web para aceitar tokens do ponto de extremidade v2.0.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
@@ -142,11 +143,11 @@ Antes que você possa ver o Serviço de Lista de Tarefas em ação, você precis
 
 - No projeto TodoListClient, abra `App.config` e insira seus valores de configuração na seção `<appSettings>`.
   -	Sua ID do Aplicativo `ida:ClientId` que você copiou do portal.
-	- O `ida:RedirectUri` é o **URI de Redirecionamento** a partir do portal.
+	- O `ida:RedirectUri` é o **URI de Redirecionamento** no portal.
 
 Por fim, limpe, compile e execute cada projeto! Agora você tem uma API da Web .NET MVC que aceita tokens de contas da Microsoft pessoais e contas corporativas ou de estudante. Entre na TodoListClient e chame sua API da Web para adicionar tarefas à Lista de Tarefas do usuário.
 
-Para referência, o exemplo concluído (sem seus valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
+Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
@@ -157,4 +158,4 @@ Agora você pode passar para tópicos adicionais. Você pode desejar experimenta
 
 Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

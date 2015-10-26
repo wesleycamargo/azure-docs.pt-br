@@ -357,4 +357,4 @@ Agora, na janela **Propriedades**, defina a propriedade **Copiar para Diretório
 
 Para saber mais sobre o diagnóstico do log no Azure, consulte [Habilitando o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](cloud-services-dotnet-diagnostics.md) e [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

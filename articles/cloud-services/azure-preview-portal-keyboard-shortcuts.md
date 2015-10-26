@@ -24,7 +24,7 @@
 |--------|----------|
 | N | Notificações |
 | / | Procurar Serviços |
-| A | Sessões ativas |
+| Uma | Sessões ativas |
 | B | Cobrança |
 | C | Criar |
 
@@ -50,4 +50,4 @@
 
 Conheça melhor o Portal do Azure: http://azure.microsoft.com.
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

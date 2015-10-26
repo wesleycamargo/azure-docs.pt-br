@@ -79,4 +79,4 @@ Um banco de dados chamado "sample\_shard\_2" e todos os objetos de esquema neces
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

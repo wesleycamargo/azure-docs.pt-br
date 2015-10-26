@@ -271,4 +271,4 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

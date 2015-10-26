@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/09/2015"
 	ms.author="femila"/>
 
 #Configurando o AD do Azure para gerenciamento de acesso de aplicativos de autoatendimento
@@ -49,4 +49,4 @@ Estes são alguns tópicos que fornecem informações adicionais sobre o Active 
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

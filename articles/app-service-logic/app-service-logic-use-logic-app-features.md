@@ -143,4 +143,4 @@ Para iniciar o aplicativo lógico sob demanda, clique no botão **Executar agora
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

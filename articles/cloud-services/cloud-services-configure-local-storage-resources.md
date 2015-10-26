@@ -104,4 +104,4 @@ O código em execução em uma instância de função pode acessar um recurso de
 
 - [Configurar um serviço de nuvem para o Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

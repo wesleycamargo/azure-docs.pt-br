@@ -1,19 +1,19 @@
 <properties 
-	 pageTitle="Como mapear o conteúdo da CDN (rede de distribuição de conteúdo) para um domínio personalizado"
-	description="Este tópico demonstra como mapear conteúdo da CDN para um domínio personalizado."
-	services="cdn"
-	documentationCenter=""
-	authors="zhangmanling"
-	manager="dwrede"
-	editor=""/>
+	 pageTitle="Como mapear o conteúdo da CDN (rede de distribuição de conteúdo) para um domínio personalizado" 
+	 description="Este tópico demonstra como mapear conteúdo da CDN para um domínio personalizado." 
+	 services="cdn" 
+	 documentationCenter="" 
+	 authors="zhangmanling" 
+	 manager="dwrede" 
+	 editor=""/>
 <tags 
-	 ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mazha"/>
+	 ms.service="cdn" 
+	 ms.workload="media" 
+	 ms.tgt_pltfrm="na" 
+	 ms.devlang="na" 
+	 ms.topic="article" 
+	 ms.date="09/01/2015" 
+	 ms.author="mazha"/>
 
 #Como mapear o domínio personalizado para o ponto de extremidade da CDN (Rede de Distribuição de Conteúdo)
 
@@ -90,4 +90,4 @@ Os procedimentos neste tópico mostram como:
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -70,7 +70,7 @@ Apresentamos a seguir uma lista parcial do local acima (listagem completa omitid
     │   │   │   VoiceMailBox.exe.config
     │   │   │   VoiceMailBox.Interfaces.dll
     │   │   │
-    │   │   └───pt-br
+    │   │   └───pt-BR
     │   │           System.Fabric.Common.Internal.Strings.resources.dll
     │   │
     │   └───Config
@@ -91,7 +91,7 @@ Apresentamos a seguir uma lista parcial do local acima (listagem completa omitid
             │   VoicemailBoxWebService.exe
             │   VoicemailBoxWebService.exe.config
             │
-            └───pt-br
+            └───pt-BR
                     System.Fabric.Common.Internal.Strings.resources.dll
 
 A listagem acima mostra os assemblies que implementam o ator VoicemailBox sendo incluído no pacote de códigos dentro do pacote de serviços dentro do pacote de aplicativos.
@@ -242,4 +242,4 @@ Observe que a alteração do provedor de estado requer que o serviço de ator se
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

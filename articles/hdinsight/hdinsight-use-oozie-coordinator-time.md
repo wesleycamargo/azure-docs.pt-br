@@ -285,7 +285,7 @@ Para saber mais, confira [HDInsight: Introdução às tabelas internas e externa
 
 	Será solicitado que você insira suas credenciais de conta do Azure. Esse método de adicionar uma conexão de assinatura expira e, depois de 12 horas, você precisará executar o cmdlet novamente.
 
-	> [AZURE.NOTE] Se você tiver várias assinaturas do Azure e a assinatura padrão não for a que você deseja usar, use o cmdlet <strong>Select-AzureSubscription</strong> para selecionar uma assinatura.
+	> [AZURE.NOTE]Se você tiver várias assinaturas do Azure e a assinatura padrão não for a que você deseja usar, use o cmdlet <strong>Select-AzureSubscription</strong> para selecionar uma assinatura.
 
 3. Copie o seguinte script no painel de script e defina as seis primeiras variáveis:
 
@@ -738,4 +738,4 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -131,4 +131,4 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -13,20 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/09/2015"
    ms.author="maroche"/>
 
 # O que há de novo no Catálogo de Dados do Azure
 
 As atualizações para o **Catálogo de Dados do Azure** são lançadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário, já que algumas versões se concentram em recursos de serviço de back-end. Esta página destacará os novos recursos voltados para o usuário adicionados ao serviço do **Catálogo de Dados do Azure**.
 
+## Novidades da versão da semana de 9 de outubro de 2015
+
+A partir da semana de 9 de outubro de 2015, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
+
+- Suporte para documentação RTF para ativos de dados registrados e contêineres no portal do Catálogo de Dados do Azure. Os usuários agora podem fornecer documentação para ativos de dados como tabelas, visualizações e relatórios e contêineres, como bancos de dados e modelos para cenários nos quais as marcas e descrições não são suficientes. 
+
 ## Novidades da versão da semana de 2 de outubro de 2015
 
 A partir da semana de 2 de outubro de 2015, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
 
-- Suporte ao registro manual de tipos conhecidos de fonte de dados. Os usuários podem inserir manualmente informações de fonte de dados usando o portal de **Catálogo de dados do Azure** para todos os tipos de fonte de dados com suporte do **Catálogo de dados do Azure**.
-- Suporte para a autorização de grupos de segurança do Active Directory do Azure. Os administradores de catálogo podem habilitar o acesso de catálogo para grupos de segurança e para contas de usuário, tornando mais fácil gerenciar o acesso aos **Catálogo de dados do Azure**.
-- Suporte para abrir fontes de dados de Hive no Excel a partir do portal **Catálogo de dados do Azure**.
+- Suporte ao registro manual de tipos conhecidos de fonte de dados. Os usuários podem inserir manualmente informações de fonte de dados usando o portal de **Catálogo de Dados do Azure** para todos os tipos de fonte de dados com suporte do **Catálogo de Dados do Azure**.
+- Suporte para a autorização de grupos de segurança do Active Directory do Azure. Os administradores de catálogo podem habilitar o acesso de catálogo para grupos de segurança e para contas de usuário, tornando mais fácil gerenciar o acesso aos **Catálogo de Dados do Azure**.
+- Suporte para abrir fontes de dados de Hive no Excel no portal **Catálogo de Dados do Azure**.
 
 > [AZURE.NOTE]Para usar o recurso "Abrir no Excel" para fontes de dados de Hive, os usuários devem ter o driver ODBC para Hive instalado.
 
@@ -51,7 +57,7 @@ Desde a semana de 18 de setembro de 2015, os seguintes recursos foram adicionado
 
 Desde a semana de 11 de setembro de 2015, os seguintes recursos foram adicionados ao **Catálogo de Dados do Azure**:
 
-- Suporte para registro e descoberta de objetos do SQL Server Analysis Services via HTTP/HTTPS. Os usuários agora podem se conectar aos servidores SSAS usando uma URL (como https://servername/olap/msmdpump.dll) em vez de um nome de servidor e pode usar a autenticação básica e conexões anônimas além da autenticação do Windows. Para obter informações adicionais sobre conexões HTTP/HTTPS para SSAS, consulte [Configurar o acesso HTTP ao Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+- Suporte para registro e descoberta de objetos do SQL Server Analysis Services via HTTP/HTTPS. Os usuários agora podem se conectar aos servidores SSAS usando uma URL (como https://servername/olap/msmdpump.dll) em vez de um nome do servidor e pode usar a autenticação básica e conexões anônimas além da autenticação do Windows. Para obter informações adicionais sobre conexões HTTP/HTTPS para SSAS, consulte [Configurar o acesso HTTP ao Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
 - Suporte para fontes de dados Hive no HDInsight. Agora, os usuários podem registrar e descobrir tabelas Hive para Apache Hive no Hadoop em fontes de dados HDInsight. Para obter informações adicionais sobre o Hive no HDInsight, consulte o [Centro de documentação do HDInsight](../hdinsight-use-hive/).
 - Suporte ao registro e à descoberta de bancos de dados Oracle e clusters HDFS como contêineres. Ao registrar tabelas e exibições Oracle ou HDFS, o **Catálogo de Dados do Azure** cria uma entrada para o banco de dados, bem como para as tabelas e exibições. O banco de dados pode ser descoberto e anotado usando o portal do **Catálogo de Dados do Azure**. Os usuários também podem pesquisar e filtrar o conteúdo de um banco de dados ou cluster, além de pesquisar e filtrar o conteúdo do catálogo.
 
@@ -84,4 +90,4 @@ Desde 21 de agosto de 2015, os seguintes recursos foram adicionados ao **Catálo
 - Somente Standard Edition: ao adicionar proprietários aos ativos de dados, o **Catálogo de Dados do Azure** agora dá suporte a contas de usuário e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário de ativos de dados selecionados, você pode inserir o nome para exibição do grupo ou o endereço de email do UPN do grupo, se houver.
 - Suporte para fontes de dados do Armazenamento do Blobs do Azure. Agora, os usuários podem registrar e descobrir os blobs e diretórios de armazenamento do Azure.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

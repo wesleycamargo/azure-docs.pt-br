@@ -19,7 +19,8 @@
 
 # Criando e carregando um disco rígido virtual que contém o sistema operacional Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como carregar um VHD com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Esse artigo mostra como carregar um disco rígido virtual (VHD) para que você o use como sua própria imagem para criar outras máquinas virtuais no Azure. Você aprenderá como preparar o sistema operacional para que você o use para criar outras máquinas virtuais com base nessa imagem. Observe que este artigo se refere a máquinas virtuais criadas usando o modelo de implantação clássica.
 
@@ -161,4 +162,4 @@ Para obter mais informações, veja [Add-AzureVhd]((https://msdn.microsoft.com/l
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

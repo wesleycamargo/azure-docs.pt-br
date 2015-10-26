@@ -265,4 +265,4 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

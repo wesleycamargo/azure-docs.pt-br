@@ -56,7 +56,7 @@ Ação corretiva:
 
 + Confirme que você forneceu as credenciais de logon da conta certa do Azure. Em algumas versões anteriores das ferramentas, as credenciais do Microsoft Azure, que você vê na caixa de diálogo Novo Projeto, podem ser diferentes das credenciais que você vê no canto superior direito do Visual Studio.
 + No navegador, verifique se você tem acesso ao [portal do Azure](https://portal.azure.com). Abra Configurações e veja se há alguma restrição.
-+ [Adicione o Application Insights aos seus projetos existentes][start]\: no Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e selecione “Adicionar Application Insights”.
++ [Adicione o Application Insights ao seu projeto existente][start]\: no Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e selecione “Adicionar Application Insights”.
 + Se ainda não estiver funcionando, siga o [procedimento manual](app-insights-start-monitoring-app-health-usage.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto. 
 
 #### <a name="emptykey"></a>Recebo um erro "Chave de instrumentação não pode ser vazio"
@@ -238,9 +238,9 @@ Você pode [gravar um Script do PowerShell](app-insights-powershell-script-creat
 [azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

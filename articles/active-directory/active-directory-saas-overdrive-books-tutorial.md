@@ -61,11 +61,12 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 2.  Na página **Como você deseja que os usuários façam logon no OverDrive**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-overdrive-books-tutorial/IC784466.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-overdrive-books-tutorial/IC784466.png "Configurar logon único")
 
 3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Logon no OverDrive**, digite sua URL usando o seguinte padrão "**http://mslibrarytest.libraryreserve.com*" e, em seguida, clique em **Avançar**.
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configurar a URL do Aplicativo")
+    ![Configurar a URL do Aplicativo](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configurar a URL do Aplicativo
+")
 
 4.  Na página **Configurar logon único no OverDrive**, para baixar o arquivo de metadados e, em seguida, enviá-lo à equipe de suporte do OverDrive.
 
@@ -94,10 +95,10 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Atribuir Usuários](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
 
     ![Sim](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Sim")
   
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 A próxima etapa é escrever um método que usa o comando HTTP PUT estilo REST para criar uma fila.
 
-Cole o código a seguir diretamente após o código `GetToken()` adicionado na etapa anterior:
+Cole o código a seguir diretamente após o código `GetSASToken()` adicionado na etapa anterior:
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -629,4 +629,4 @@ Para saber mais, consulte os seguintes artigos:
 - [Conceitos básicos do Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Tutorial do REST para retransmissão do Barramento de Serviço](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

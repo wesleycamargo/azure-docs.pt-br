@@ -58,6 +58,7 @@ Codecs de vídeo de entrada|Suportado
 AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 
 DNxHD ávido (em MXF) |Sim 
 DVCPro/DVCProHD (em MXF) |Sim 
+Vídeo digital (VD) (em arquivos AVI) |Sim
 JPEG 2000 |Sim 
 MPEG-2 (até perfil e de alto nível 422; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs ® e D10)|Até perfil 422 
 MPEG-1 |Sim 
@@ -118,4 +119,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 [Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

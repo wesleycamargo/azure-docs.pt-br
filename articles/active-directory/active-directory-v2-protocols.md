@@ -475,4 +475,4 @@ O OAuth em Nome do Fluxo, ou concessão de credenciais portadoras do JWT, é des
 
 Atualmente, esse fluxo não tem suporte da visualização do modelo de aplicativo v2.0. Para ver como ele funciona no serviço AD do Azure disponível para o público em geral, consulte [este exemplo de código do AD do Azure](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -39,4 +39,4 @@
 
 Para obter detalhes sobre todos esses comandos de máquina virtual da CLI do Azure, leia [Usando a CLI do Azure com a API de Gerenciamento de Serviços](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

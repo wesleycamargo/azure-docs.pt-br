@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Protegendo os recursos de nuvem usando o Azure Multi-Factor Authentication e o AD FS"
-	description="Esta é a página do Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA e o AD FS na nuvem."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Protegendo os recursos de nuvem usando o Azure Multi-Factor Authentication e o AD FS" 
+	description="Esta é a página do Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA e o AD FS na nuvem." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Protegendo os recursos de nuvem usando o Azure Multi-Factor Authentication e o AD FS
@@ -93,4 +93,4 @@ Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
 É isso! Neste ponto, os usuários federados do Office 365 devem somente ter que usar MFA quando uma declaração for originada fora da intranet corporativa.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

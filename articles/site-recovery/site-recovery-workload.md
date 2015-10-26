@@ -120,4 +120,4 @@ O SAP é um software líder de planejamento de recursos empresariais (ERP), usad
 
 Consulte o documento vinculado para obter uma orientação detalhada sobre a [implantação do Azure Site Recovery para SAP NetWeaver](http://aka.ms/asr-sap)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

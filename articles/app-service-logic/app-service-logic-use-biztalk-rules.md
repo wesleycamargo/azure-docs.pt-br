@@ -109,7 +109,7 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
 
    ![Alt text][4]
 
-2. Em seguida, clique em "Definições de vocabulário". Isso exibe a tela de Criação de Vocabulário. Clique em "Adicionar" para começar a adicionar novas definições de vocabulário. Dois tipos de definições de vocabulário têm suporte – Literal e XML.
+2.Em seguida, clique em "Definições de vocabulário". Isso exibe a tela de Criação de Vocabulário. Clique em "Adicionar" para começar a adicionar novas definições de vocabulário. Dois tipos de definições de vocabulário têm suporte – Literal e XML.
 
 ##Definição literal
 1.	Após você clicar em "Adicionar", uma nova lâmina "Adicionar Definição" abrirá. Insira os valores a seguir
@@ -246,4 +246,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

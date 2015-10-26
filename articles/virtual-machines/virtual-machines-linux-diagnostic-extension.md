@@ -35,7 +35,8 @@ Para a versão 2.0, os dados incluem:
 - Todos os dados de sistema especificados neste [documento](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - Arquivos de log especificados pelo usuário.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 ## Como habilitar a extensão
 A extensão pode ser habilitada por meio do [portal do Azure](https://ms.portal.azure.com/#), Azure PowerShell ou de scripts da CLI do Azure.
@@ -143,4 +144,4 @@ Se tiver habilitado fileCfg ou perfCfg especificado nos Cenários 2 e 3, você p
 - Para a versão 2.0, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
 - Para a versão 2.0, se você tiver habilitado a extensão de Diagnóstico do Linux por meio de script primeiro, não será possível exibir os dados no portal do Azure. Se você tiver habilitado a extensão no portal primeiro, os scripts ainda funcionarão.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

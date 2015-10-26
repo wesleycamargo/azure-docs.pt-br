@@ -317,4 +317,4 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-get-started.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -57,25 +57,26 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No portal do AD do Azure, na página de integração de aplicativos do **15Five**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-15five-tutorial/IC784670.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-15five-tutorial/IC784670.png "Configurar logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no 15Five**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-15five-tutorial/IC784671.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-15five-tutorial/IC784671.png "Configurar logon único")
 
 3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Logon no 15Five**, digite sua URL usando o seguinte padrão "**https://company.15Five.com*" e, em seguida, clique em **Avançar**.
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-15five-tutorial/IC784672.png "Configurar a URL do Aplicativo")
+    ![Configurar a URL do Aplicativo](./media/active-directory-saas-15five-tutorial/IC784672.png "Configurar a URL do Aplicativo
+")
 
 4.  Na página **Configurar logon único no 15Five**, clique em **Baixar metadados** e encaminhe o arquivo de metadados para a equipe de suporte do 15Five.
 
-    ![Configurar o logon único](./media/active-directory-saas-15five-tutorial/IC784673.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-15five-tutorial/IC784673.png "Configurar logon único")
 
     >[AZURE.NOTE]O logon único precisa ser habilitado pela equipe de suporte do 15Five.
 
 5.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-15five-tutorial/IC784674.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-15five-tutorial/IC784674.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
 
 Para permitir que os usuários do AD do Azure façam logon no 15Five, eles devem ser provisionados no 15Five. No caso do 15Five, o provisionamento é uma tarefa manual.
@@ -115,10 +116,10 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Atribuir usuários](./media/active-directory-saas-15five-tutorial/IC784678.png "Atribuir usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-15five-tutorial/IC767830.png "Sim")
 
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

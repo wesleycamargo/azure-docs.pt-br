@@ -56,4 +56,4 @@ Para criar regras em um NSG existente no portal de visualização, siga as etapa
 
 ![Portal de visualização - Nova regra](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

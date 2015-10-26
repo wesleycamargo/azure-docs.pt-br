@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # Depurar um aplicativo de API no Serviço de Aplicativo do Azure
 
 ## Visão geral
 
-Neste tutorial, você aprenderá como depurar o código de API Web ASP.NET que está configurado para ser executado em um [Aplicativo de API](app-service-api-apps-why-best-platform.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Você vai depurar ambos localmente e remotamente (enquanto ele é executado no Azure).
+Neste tutorial, você vai depurar o código de API Web ASP.NET que está configurado para ser executado em um [Aplicativo de API](app-service-api-apps-why-best-platform.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Você depura o código enquanto ele é executado localmente e enquanto é executado remotamente no Azure.
 
 O tutorial funciona com o aplicativo de API que você [criar](app-service-dotnet-create-api-app.md) e [implantar](app-service-dotnet-deploy-api-app.md) nos tutoriais anteriores desta série.
 
@@ -132,8 +132,8 @@ Pode haver ocasiões em que você deseja depurar seu aplicativo de API localment
 
 ## Próximas etapas
 
-Neste tutorial, você viu como depurar aplicativos de API. Para obter mais informações sobre solução de problemas, consulte [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Como os aplicativos de API são aplicativos Web com recursos adicionais para hospedagem de serviços Web, você pode usar as mesmas ferramentas de depuração e solução de problemas para aplicativos de API que você usa em aplicativos Web.
+Neste tutorial, você viu como depurar aplicativos de API.
 
- 
+Para obter mais informações sobre solução de problemas, consulte [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Como os aplicativos de API são aplicativos Web com recursos adicionais para hospedagem de serviços Web, você pode usar as mesmas ferramentas de depuração e solução de problemas para aplicativos de API que você usa em aplicativos Web.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

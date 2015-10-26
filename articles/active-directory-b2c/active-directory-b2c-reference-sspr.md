@@ -36,4 +36,4 @@ Para testar, use o recurso "Executar agora" em qualquer política de entrada (qu
 
 > [AZURE.NOTE]As páginas de redefinição de senha por autoatendimento podem ser personalizadas usando o [recurso de identidade visual da empresa](active-directory-add-company-branding.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

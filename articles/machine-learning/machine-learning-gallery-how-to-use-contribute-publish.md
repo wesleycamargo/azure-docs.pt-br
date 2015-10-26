@@ -136,4 +136,4 @@ A renderização de descrição avançada não está disponível para todos os u
 
 **[LEVE-ME À GALERIA >>](http://gallery.cortanaanalytics.com)**
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

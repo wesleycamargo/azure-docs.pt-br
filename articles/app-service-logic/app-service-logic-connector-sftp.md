@@ -113,4 +113,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -111,4 +111,4 @@ Considere os seguintes pontos para tornar seus aplicativos de Banco de dados SQL
 
 [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

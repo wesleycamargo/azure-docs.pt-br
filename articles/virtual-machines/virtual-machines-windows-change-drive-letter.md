@@ -20,7 +20,8 @@
 
 #Alterar a letra da unidade do disco temporário do Windows em uma máquina virtual criada com o modelo de implantação clássica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Se você precisar usar a unidade D para armazenar dados, siga estas instruções para usar uma unidade diferente para o disco temporário. Nunca use o disco temporário para armazenar os dados que você precisa manter.
 
@@ -74,4 +75,4 @@ Se você quiser usar um disco de dados existente na unidade D, verifique se que 
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

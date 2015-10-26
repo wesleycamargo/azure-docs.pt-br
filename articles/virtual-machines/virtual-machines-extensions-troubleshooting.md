@@ -19,7 +19,8 @@
 
 # Solucionando problemas de falhas da Extensão da VM.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
 
 ## Visão geral dos Modelos do Gerenciador de Recursos do Azure.
 
@@ -84,4 +85,4 @@ Onde "publsher-name" corresponde ao tipo de extensão da saída de "azure vm get
 
 Depois que a extensão tiver sido removida, o modelo poderá ser executado novamente para executar os scripts na VM.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

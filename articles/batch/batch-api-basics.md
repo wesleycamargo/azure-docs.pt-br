@@ -385,4 +385,4 @@ Cada nó em um pool tem um nome exclusivo e o nó no qual uma tarefa é executad
 
 [Visão geral do Lote do Azure]: batch-technical-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

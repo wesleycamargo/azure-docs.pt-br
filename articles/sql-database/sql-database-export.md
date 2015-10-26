@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar e exportar um BACPAC de um banco de dados SQL do Azure"
-	description="Criar e exportar um BACPAC de um banco de dados SQL do Azure no Armazenamento do Azure"
+	description="Criar e exportar um BACPAC de um banco de dados SQL do Azure"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="10/13/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Criar e exportar um BACPAC de um banco de dados SQL
+# Criar e exportar um BACPAC de um banco de dados SQL do Azure
 
 **Banco de dados individual**
 
@@ -25,7 +25,7 @@
 - [Azure Preview Portal](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
-Este artigo mostra como exportar manualmente um BACPAC do seu banco de dados SQL usando o [portal de visualização do Azure](https://portal.azure.com).
+Este artigo fornece instruções para exportar um BACPAC do seu banco de dados SQL do Azure com o [portal de visualização do Azure](https://portal.azure.com).
 
 Um BACPAC é um arquivo .bacpac que contém um esquema de banco de dados e dados. Para obter detalhes, consulte Pacote de backup (.bacpac) em [Aplicativos de camada de dados](https://msdn.microsoft.com/library/ee210546.aspx).
 
@@ -101,4 +101,4 @@ Clicar em **Criar** cria uma solicitação de exportação de banco de dados e a
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

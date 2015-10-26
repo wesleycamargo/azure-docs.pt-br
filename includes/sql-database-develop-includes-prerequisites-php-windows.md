@@ -8,7 +8,7 @@ Para executar o exemplo de código PHP fornecido neste tópico, o computador cli
 - [Drivers da Microsoft para PHP para Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098)
  - `SQLSRV32.EXE` contém as últimas novidades.
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Driver ODBC do Microsoft](https://www.microsoft.com/pt-br/download/details.aspx?id=36434)
+- [Driver ODBC do Microsoft](https://www.microsoft.com/pt-BR/download/details.aspx?id=36434)
 - IIS Express
 - [PHP 5.6 para IIS Express](http://www.microsoft.com/web/downloads/platform.aspx)
  - Baixe usando o instalador da plataforma.
@@ -29,4 +29,4 @@ DateOfLatestFreshnessVerification = 2015-07-10
 DateOfLatestContentUpdate = 2015-07-10
 -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -235,4 +235,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

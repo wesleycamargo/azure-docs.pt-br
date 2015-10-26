@@ -44,14 +44,14 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **Mimecast Admin Console**.
 
-    ![Galeria de aplicativos](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795009.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795009.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **Mimecast Admin Console** e clique em **Concluir** para adicionar o aplicativo.
 
     ![Mimecast Admin Console](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795010.png "Mimecast Admin Console")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Mimecast Admin Console com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Mimecast Admin Console com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -108,7 +108,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     9.  Selecione **Permitir logon único**.
     10. Clique em **Salvar**.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795016.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -125,19 +125,19 @@ Você precisa registrar um domínio antes de criar usuários.
 
     ![Diretórios](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795003.png "Diretórios")
 
-3.  Clique em **Registrar um novo domínio**.
+3.  Clique em **Registrar um Novo Domínio**.
 
-    ![Registrar um novo domínio](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795004.png "Registrar um novo domínio")
+    ![Registrar Novo Domínio](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795004.png "Registrar Novo Domínio")
 
-4.  Após o novo domínio ter sido criado, clique em **Novo endereço**.
+4.  Após o novo domínio ter sido criado, clique em **Novo Endereço**.
 
-    ![Novo endereço](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795005.png "Novo endereço")
+    ![Novo Endereço](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795005.png "Novo Endereço")
 
 5.  Na caixa de diálogo do novo endereço, execute as seguintes etapas:
 
     ![Salvar](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795006.png "Salvar")
 
-    1.  Digite os atributos de **Endereço de email**, **Nome global**, **Senha** e **Confirmar senha** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
+    1.  Digite os atributos de **Endereço de e-mail**, **Nome global**, **Senha** e **Confirmar senha** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
     2.  Clique em **Salvar**.
 
 >[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Mimecast Admin Console ou as APIs fornecidas pelo Mimecast Admin Console para provisionar as contas de usuário do AAD.
@@ -152,12 +152,12 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 2.  Na página de integração de aplicativos do **Mimecast Admin Console**, clique em **Atribuir usuários**.
 
-    ![Atribuir usuários](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795017.png "Atribuir usuários")
+    ![Atribuir Usuários](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795017.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
 
     ![Sim](./media/active-directory-saas-mimecast-admin-console-tutorial/IC767830.png "Sim")
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

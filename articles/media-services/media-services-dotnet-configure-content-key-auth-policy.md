@@ -403,4 +403,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -40,17 +40,17 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 O aplicativo concluído é fornecido também no final desse tutorial.
 
-## 1. Registrar um Aplicativo
-Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga essas [etapas detalhadas](active-directory-v2-app-registration.md).  Certifique-se de:
+## 1\. Registrar um aplicativo
+Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
-- Adicionar a plataforma **Móvel** do seu aplicativo.
-- Copiar a **URI de Redirecionamento** do portal. Você deve usar o valor padrão de ‘urn:ietf:wg:oauth:2.0:oob’.
+- Adicione a plataforma **Móvel** de seu aplicativo.
+- Copie o **URI de Redirecionamento** do portal. Você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`.
 
-## 2. Instalar e Configurar o ADAL
-Agora que você tem um aplicativo registrado na Microsoft, é possível instalar o ADAL e gravar seu código relacionado à identidade.  Para o ADAL conseguir se comunicar ao ponto de extremidade v2.0, você precisa fornecer a ele algumas informações sobre o registro do seu aplicativo.
+## 2\. Instalar e Configurar o ADAL
+Agora que você tem um aplicativo registrado na Microsoft, pode instalar o ADAL e gravar seu código relacionado à identidade. Para que o ADAL possa comunicar o ponto de extremidade v2.0, forneça a ele algumas informações sobre o registro de seu aplicativo.
 
--    Comece adicionando o ADAL ao projeto TodoListClient usando o Console do Gerenciador de Pacotes.
+-	Comece adicionando o ADAL ao projeto TodoListClient usando o Console do Gerenciador de Pacotes.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
@@ -58,9 +58,9 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 
 -	No projeto TodoListClient, abra `app.config`. Substitua os valores dos elementos na seção `<appSettings>` para refletir os valores inseridos no portal de registro do aplicativo. Seu código fará referência a esses valores sempre que ele usar a ADAL.
     -	O `ida:ClientId` é a **ID do Aplicativo** do seu aplicativo que você copiou do portal.
-    -	O `ida:RedirectUri` é o **URI de Redirecionamento** a partir do portal.
-- No projeto do Serviço de Lista de Tarefas, abra `web.config`na raiz do projeto.  
-    - Substitua o `ida:Audience` valor com o mesmo **ID do Aplicativo** a partir do portal.
+    -	O `ida:RedirectUri` é o **URI de Redirecionamento** no portal.
+- No projeto do Serviço de Lista de Tarefas, abra `web.config` na raiz do projeto.  
+    - Substitua o `ida:Audience` valor com a mesma **ID do Aplicativo** no portal.
 
 ## 3\. Usar a ADAL para obter tokens
 O princípio básico da ADAL é que sempre que seu aplicativo precisar de um token de acesso, você simplesmente chama `authContext.AcquireToken(...)`, e a ADAL faz o resto.
@@ -231,11 +231,11 @@ private async void SignIn(remetente do objeto = null, RoutedEventArgs args = nul
 		...
 ```
 
-Parabéns! Agora você tem um aplicativo .NET WPF funcionando que tem a habilidade de autenticar usuários e chamar APIs Web com segurança usando OAuth 2.0.  Execute os dois projetos e conecte-se com uma conta da Microsoft pessoal ou uma conta corporativa ou de estudante.  Adicione tarefas à lista de Tarefas Pendentes do usuário.  Desconecte-se e conecte-se novamente como outro usuário para exibir sus lista de Tarefas Pendentes.  Feche o aplicativo e execute-o novamente.  Observe que a sessão do usuário permanece intacta, isso ocorre porque o aplicativo armazena em cache tokens em um arquivo local.
+Parabéns! Agora você tem um aplicativo WPF .NET de trabalho que pode autenticar usuários e chamar com segurança APIs Web usando Oauth Execute os dois projetos e entre com uma conta da Microsoft pessoal ou uma conta corporativa ou de estudante. Adicione tarefas à lista Tarefas Pendentes daquele usuário. Saia e entre novamente como outro usuário para ver a lista Tarefas Pendentes. Feche o aplicativo e execute-o novamente. Observe que a sessão do usuário permanece intacta, isso ocorre porque o aplicativo armazena em cache tokens em um arquivo local.
 
-O ADAL facilita incorporar recursos de identidade comum em seu aplicativo, usando contas corporativas e pessoais.  Ele faz todo o trabalho sujo para você - gerenciamento de cache, suporte de protocolo OAuth, apresentar o usuário com uma IU de logon, atualizar tokens expirados e mais.  Todo o que você precisa saber é uma chamada à API única, ‘authContext.AcquireTokenAsync(...)’.
+O ADAL facilita a incorporação de recursos de identidade comuns em seu aplicativo, usando tanto a conta corporativa quanto a pessoal. Ele se encarrega de todo o trabalho difícil para você - gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma IU de logon ao usuário, atualização de tokens expirados e mais. Tudo o que você realmente precisa saber é uma única chamada à API, `authContext.AcquireTokenAsync(...)`.
 
-Para referência, a amostra completa (sem seus valores de configuração) [é fornecida como um .zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip) ou você pode cloná-la do GitHub:
+Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
@@ -247,4 +247,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 Para obter recursos adicionais, confira: - [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

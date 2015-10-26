@@ -120,8 +120,8 @@ Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por set
 [exceptions]: app-insights-web-failures-exceptions.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

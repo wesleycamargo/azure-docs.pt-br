@@ -57,11 +57,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No portal do AD do Azure, na página de integração do aplicativo **Innotas**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar logon único **.
 
-    ![Configurar o logon único](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configurar logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Innotas**, selecione **Logon único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-innotas-tutorial/IC777335.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-innotas-tutorial/IC777335.png "Configurar logon único")
 
 3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de entrada do Innotas**, digite sua URL usando o seguinte padrão "*https://\<nome do locatário>.Innotas.com*" e, em seguida, clique em **Próximo**.
 
@@ -69,13 +69,13 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar logon único no Innotas**, baixe seus metadados, clique em **Baixar metadados** e, em seguida, o arquivo de dados localmente como **c:\\InnotasMetaData.xml**.
 
-    ![Configurar o logon único](./media/active-directory-saas-innotas-tutorial/IC777337.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-innotas-tutorial/IC777337.png "Configurar logon único")
 
 5.  Encaminhe esse arquivo de metadados à equipe de suporte do Innotas. A equipe de suporte precisa configurar o logon único para você.
 
-6.  Selecione a confirmação de configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+6.  Selecione a confirmação de configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-innotas-tutorial/IC777338.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-innotas-tutorial/IC777338.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
   
 Não há nenhum item de ação para a configuração de provisionamento de usuário para o Innotas. Quando um usuário atribuído tenta fazer logon no Innotas usando o painel de acesso, o Innotas verifica se o usuário existe. Se não houver conta de usuário ainda, ela é criada automaticamente pelo Innotas.
@@ -91,10 +91,10 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
     ![Atribuir usuários](./media/active-directory-saas-innotas-tutorial/IC777339.png "Atribuir usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
 
     ![Sim](./media/active-directory-saas-innotas-tutorial/IC767830.png "Sim")
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

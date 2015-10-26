@@ -43,4 +43,4 @@
 
 Sua **ToDoActivity** agora está preparada para adicionar notificações por push.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

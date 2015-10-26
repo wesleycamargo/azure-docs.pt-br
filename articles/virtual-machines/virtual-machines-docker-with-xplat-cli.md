@@ -18,7 +18,9 @@
 
 # Usando a extensão VM Docker da interface de linha de comando do Azure (CLI do Azure)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
+
 
 Este tópico descreve como criar uma máquina virtual com a extensão de VM do Docker do modo de gerenciamento de serviço (asm) na CLI do Azure em qualquer plataforma. O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM Docker do [Agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) para criar uma VM Docker que hospede diversos contêineres para seus aplicativos no Azure. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
@@ -85,20 +87,61 @@ Se o comando for bem-sucedido, você verá algo semelhante ao seguinte, dependen
 
 ![](./media/virtual-machines-docker-with-xplat-cli/dockercreateresults.png)
 
-> [AZURE.NOTE]A criação de uma máquina virtual pode levar alguns minutos, mas após seu provisionamento, o daemon do Docker (o serviço Docker) é iniciado e você pode se conectar ao host do contêiner do Docker.
+> [AZURE.NOTE]A criação de uma máquina virtual pode levar alguns minutos, mas após seu provisionamento (o valor de estado é `ReadyRole`), o daemon do Docker (o serviço do Docker) é iniciado e você pode se conectar ao host do contêiner do Docker.
 
 Para testar a VM do Docker que você criou no Azure, digite
 
 `docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
-onde *<vm-name-you-used>* é o nome da máquina virtual que você usou em sua chamada para `azure vm docker create`. Você deve ver algo semelhante ao código a seguir, que indica que sua máquina virtual host do Docker está funcionando no Azure e aguardando seus comandos.
+em que *&lt;vm-name-you-used&gt;* é o nome da máquina virtual que você usou em sua chamada para `azure vm docker create`. Você deve ver algo semelhante ao código a seguir, que indica que sua máquina virtual host do Docker está funcionando no Azure e aguardando seus comandos.
 
-![](./media/virtual-machines-docker-with-xplat-cli/connectingtodockerhost.png)
+Agora você pode tentar se conectar usando o cliente do Docker para obter informações (em algumas configurações de cliente do Docker, como no Mac, talvez você precise usar `sudo`):
+
+	sudo docker --tls -H tcp://testsshasm.cloudapp.net:2376 info
+	Password:
+	Containers: 0
+	Images: 0
+	Storage Driver: devicemapper
+	Pool Name: docker-8:1-131781-pool
+	Pool Blocksize: 65.54 kB
+	Backing Filesystem: extfs
+	Data file: /dev/loop0
+	Metadata file: /dev/loop1
+	Data Space Used: 1.821 GB
+	Data Space Total: 107.4 GB
+	Data Space Available: 28 GB
+	Metadata Space Used: 1.479 MB
+	Metadata Space Total: 2.147 GB
+	Metadata Space Available: 2.146 GB
+	Udev Sync Supported: true
+	Deferred Removal Enabled: false
+	Data loop file: /var/lib/docker/devicemapper/devicemapper/data
+	Metadata loop file: /var/lib/docker/devicemapper/devicemapper/metadata
+	Library Version: 1.02.77 (2012-10-15)
+	Execution Driver: native-0.2
+	Logging Driver: json-file
+	Kernel Version: 3.19.0-28-generic
+	Operating System: Ubuntu 14.04.3 LTS
+	CPUs: 1
+	Total Memory: 1.637 GiB
+	Name: testsshasm
+	WARNING: No swap limit support
+
+Apenas para ter certeza de que está tudo funcionando, é possível examinar a extensão do Docker da VM:
+
+	azure vm extension get testsshasm
+	info: Executing command vm extension get
+	+ Getting virtual machines
+	data: Publisher Extension name ReferenceName Version State
+	data: -------------------- --------------- ------------------------- ------- ------
+	data: Microsoft.Azure.E... DockerExtension DockerExtension 1.* Enable
+	info: vm extension get command OK
 
 ### Autenticação da máquina virtual host do Docker
-Além de criar a VM do Docker, o comando `azure vm docker create` também cria automaticamente os certificados necessários para permitir que seu computador cliente Docker se conecte ao host do contêiner do Azure usando HTTPS, e os certificados são armazenados nas máquinas cliente e host, conforme adequado. Em execuções subsequentes, os certificados existentes são reutilizados e compartilhados com o novo host.
 
-Por padrão, os certificados são colocados em `~/.docker` e o Docker será configurado para ser executado na porta **2376**. Se você desejar usar uma porta ou diretório diferentes, use uma das opções da linha de comando `azure vm docker create` a seguir para configurar a VM host do contêiner do Docker para usar outra porta ou outros certificados para conectar clientes:
+Além de criar a VM do Docker, o comando `azure vm docker create` também cria automaticamente os certificados necessários para permitir que seu computador cliente Docker se conecte ao host do contêiner do Azure usando HTTPS, e os certificados são armazenados nas máquinas cliente e host, conforme adequado. Em tentativas subsequentes, os certificados existentes são reutilizados e compartilhados com o novo host.
+
+Por padrão, os certificados são colocados no `~/.docker` e o Docker será configurado para ser executado na porta **2376**. Se você desejar usar uma porta ou diretório diferentes, use uma das opções da linha de comando `azure vm docker create` a seguir para configurar a VM host do contêiner do Docker para usar outra porta ou outros certificados para conectar clientes:
 
 ```
 -dp, --docker-port [port]              Port to use for docker [2376]
@@ -108,9 +151,6 @@ Por padrão, os certificados são colocados em `~/.docker` e o Docker será conf
 O daemon do Docker no host é configurado para escutar e autenticar conexões clientes na porta especificada usando os certificados gerados pelo comando `azure vm docker create`. O computador cliente deve ter esses certificados para obter acesso ao host do Docker.
 
 > [AZURE.NOTE]Um host em rede em execução sem esses certificados ficará vulnerável a qualquer um que possa conectar-se ao computador. Antes de modificar a configuração padrão, certifique-se de que você compreende os riscos para seu computador e outros aplicativos.
-
-
-
 
 ## Próximas etapas
 
@@ -141,4 +181,4 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

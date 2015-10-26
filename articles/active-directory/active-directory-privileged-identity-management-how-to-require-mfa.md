@@ -28,4 +28,4 @@ Além disso, você pode alterar o requisito de MFA por função, clicando em uma
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

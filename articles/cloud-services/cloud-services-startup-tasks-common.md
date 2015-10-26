@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Tarefas de inicialização comuns para Serviços de Nuvem | Microsoft Azure"
-	description="Oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar na função Web ou função de trabalho de seus serviços de nuvem."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+pageTitle="Tarefas de inicialização comuns para Serviços de Nuvem | Microsoft Azure" 
+description="Oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar na função Web ou função de trabalho de seus serviços de nuvem." 
+services="cloud-services" 
+documentationCenter="" 
+authors="Thraka" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
-	ms.author="adegeo"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="08/24/2015" 
+ms.author="adegeo"/>
 
 # Tarefas de inicialização comuns do Serviço de Nuvem
 
@@ -503,4 +503,4 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md).
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

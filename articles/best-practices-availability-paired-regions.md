@@ -84,4 +84,4 @@ Como mencionado na Figura 2.
 
 ![9Laranja](./media/best-practices-availability-paired-regions/9Orange.png) **Residência dados** – Uma região reside na mesma região geográfica que seu par (com exceção do Sul do Brasil) para atender aos requisitos de residência de dados para fins de jurisdição de vigência fiscal e legal.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

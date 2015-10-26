@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/13/2015"
 	ms.author="dastrock"/>
 
 # Entrar e sair de aplicativo Web com o AD do Azure
@@ -177,4 +177,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

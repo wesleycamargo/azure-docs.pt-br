@@ -193,4 +193,4 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -75,4 +75,4 @@ Você preparou uma implantação e atualizou uma implantação em produção com
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Como implantar um serviço atualizado na produção permutando VIPs no Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

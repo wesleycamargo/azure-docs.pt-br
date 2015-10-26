@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Notas de versão do Application Insights"
-	description="As últimas atualizações."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Notas de versão do Application Insights" 
+	description="As últimas atualizações." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/11/2015" 
 	ms.author="awills"/>
  
 # Notas de versão do SDK ‒ Application Insights
@@ -33,4 +33,4 @@ Leia também nossas [atualizações de serviço](http://azure.microsoft.com/upda
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

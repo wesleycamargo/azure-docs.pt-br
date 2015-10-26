@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -35,20 +35,20 @@ Antes de começar este artigo, você deve ter o seguinte:
 - Crie um grupo de recursos do Azure em sua assinatura. O seguinte é um exemplo de script do PowerShell do Azure. Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).  
 
 
-		# Configure the Azure PowerShell session to access Azure Resource Manager
-		Switch-AzureMode AzureResourceManager
-
 		# Log in to your Azure account
 		Add-AzureAccount
 
 		# Select the Azure subscription you want to use to create the resource group
 		Select-AzureSubscription -SubscriptionName <subscription name>
 
-		# Create an Azure resource group	
-		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
+			# If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
+		# Create an Azure resource group
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+		
 
--	Configure uma origem de entrada e o destino de saída para usar. Consulte [Introdução ao uso do Azure Stream Analytics](stream-analytics-get-started.md) para configurar uma entrada e/ou saída de exemplo a ser usada por este artigo.
+-	Configure uma origem de entrada e o destino de saída para usar. Para mais obter instruções, veja [Adicionar entradas](stream-analytics-add-inputs.md) para configurar uma entrada de exemplo e [Adicionar saídas](stream-analytics-add-outputs.md) para configurar uma saída de exemplo.
 
 
 ## Configurar um projeto
@@ -326,7 +326,7 @@ O método **Excluir** excluirá o trabalho, bem como os sub-recursos subjacentes
 
 
 ## Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/PT-BR/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 
 ## Próximas etapas
@@ -365,4 +365,4 @@ Você tem de aprender as Noções básicas do uso de um SDK do .NET para criar e
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,7 @@
 
 Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI do Azure para automatizar as tarefas comuns de implantação e gerenciamento de máquinas virtuais do Azure a seguir. Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como implantar e gerenciar uma VM usando os modelos do modelo de implantação do Gerenciador de Recursos. Não é possível usar modelos no modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Não é possível usar modelos no modelo de implantação clássico.
 
 
 - [Criar rapidamente uma máquina virtual no Azure](#quick-create-a-vm-in-azure)
@@ -1306,4 +1306,4 @@ Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, veja [Usando
 
 Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

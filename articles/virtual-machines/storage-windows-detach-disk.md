@@ -21,7 +21,7 @@
 
 # Como desanexar um disco de uma máquina virtual Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como desanexar um disco usando o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
@@ -32,4 +32,4 @@
 
 [Como anexar um disco de dados a uma máquina virtual Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

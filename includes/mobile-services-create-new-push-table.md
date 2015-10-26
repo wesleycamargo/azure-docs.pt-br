@@ -20,4 +20,4 @@ Em seguida, você modificará o seu aplicativo para ativar as notificações de 
 <!-- URLs -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introdução ao Azure Multi-Factor Authentication e aos Serviços de Federação do Active Directory"
-	description="Esta é a página do Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA e o AD FS."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Introdução ao Azure Multi-Factor Authentication e aos Serviços de Federação do Active Directory" 
+	description="Esta é a página do Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA e o AD FS." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Introdução ao Azure Multi-Factor Authentication e aos Serviços de Federação do Active Directory
@@ -55,4 +55,4 @@ Para obter informações sobre como configurar o Azure Multi-Factor Authenticati
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/14/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe um fluxo ao vivo de taxa de bits única e o codifica em fluxo de múltiplas taxas de bits.
@@ -31,6 +31,8 @@ Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe
 ##Cenário comum de streaming ao vivo
 
 A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de streaming ao vivo.
+
+>[AZURE.NOTE]Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com na Microsoft se precisar executar um Canal por períodos mais longos.
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -251,6 +253,11 @@ Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisio
 - Você pode parar seu ponto de extremidade de Streaming, a menos que você deseje continuar a fornecer o arquivo morto do evento ao vivo como um fluxo sob demanda. Se o canal estiver no estado Parado, ele não incorrerá em nenhum encargo.
   
 
+##Considerações
+
+- Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com na Microsoft se precisar executar um Canal por períodos mais longos.
+- Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
+
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
 Você pode exibir os roteiros de aprendizagem do AMS aqui:
@@ -266,4 +273,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -110,4 +110,4 @@ Para definir configurações que se aplicam a todo um projeto de serviço de nuv
 |Desenvolvimento|Nessa página, você pode especificar instruções de configuração da compilação e as condições sob as quais eventos de pós-compilação são executados.|
 |Web|Nessa página, você pode definir as configurações relacionadas ao servidor Web.|
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

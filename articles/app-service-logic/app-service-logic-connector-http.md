@@ -86,4 +86,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

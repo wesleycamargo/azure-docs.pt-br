@@ -65,4 +65,4 @@ No futuro, você pode revisar seu aplicativo lógico no controle do código-font
 
 Se você não deseja usar o Visual Studio, mas ainda deseja ter ferramentas para implantar seu aplicativo lógico por meio do controle do código-fonte, você pode sempre utilizar diretamente a [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou o [Powershell](../powershell-azure-resource-manager.md) para automatizar suas implantações.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

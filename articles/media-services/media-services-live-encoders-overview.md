@@ -51,4 +51,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 [Trabalhando com canais habilitados para executar a codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

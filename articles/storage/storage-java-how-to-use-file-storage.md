@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar o Armazenamento de Arquivo do Java | Microsoft Azure"
-	description="Saiba como usar o serviço de arquivos do Azure para carregar, baixar, listar e excluir arquivos. Amostras escritas em Java."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="jimbe"/>
+	pageTitle="Como usar o Armazenamento de Arquivo do Java | Microsoft Azure" 
+	description="Saiba como usar o serviço de arquivos do Azure para carregar, baixar, listar e excluir arquivos. Amostras escritas em Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe" />
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="v-dedomi"/>
 
 # Como usar o Armazenamento de Arquivo no Java
@@ -221,4 +221,4 @@ Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga est
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

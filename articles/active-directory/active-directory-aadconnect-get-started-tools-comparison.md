@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Comparação de ferramentas de integração de diretório"
+<properties
+	pageTitle="Comparação de ferramentas de integração de diretório | Microsoft Azure"
 	description="Esta é a página que fornecerá as tabelas abrangentes que comparam as várias ferramentas de integração de diretório."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 # Comparação de ferramentas de integração de diretório
@@ -82,10 +82,13 @@ Use a seguinte chave para cada uma das tabelas.
 Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM)  
 :-------- |:--------:|:--------:|:--------:|:--------:|
 Filtrar em domínios e unidades organizacionais | ● | ● | ● | ●  
-Filtrar os valores de atributo de objetos | ● | ● | ● | ● 
-Permitir que um conjunto mínimo de atributos seja sincronizado (MinSync) | ● | ● | |   
-Permitir que os modelos de serviço diferentes a sejam aplicados para fluxos de atributo |● | ● | |   
+Filtrar os valores de atributo de objetos | ● | ● | ● | ●
+Permitir que um conjunto mínimo de atributos seja sincronizado (MinSync) | ● | ● | |
+Permitir que os modelos de serviço diferentes a sejam aplicados para fluxos de atributo |● | ● | |
 Permitir a remoção de atributos do fluxo do AD para o AD do Azure | ● | ● | |  
 Permitir a personalização avançada para fluxos de atributo | ● | ● | | ●  
 
-<!---HONumber=August15_HO9-->
+## Próximas etapas
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

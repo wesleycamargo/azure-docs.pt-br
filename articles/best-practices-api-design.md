@@ -523,4 +523,4 @@ Essa abordagem é possivelmente o mais puro dos mecanismos de controle de versã
 - O [Guia RESTful](http://restcookbook.com/) contém uma introdução à criação de APIs RESTful.
 - A [Lista de Verificação de API](https://mathieu.fenniak.net/the-api-checklist/) da Web contém uma lista útil de itens a serem considerados ao projetar e implementar uma API da Web.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

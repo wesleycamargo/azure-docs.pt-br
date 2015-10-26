@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Testando o desempenho de um serviço de nuvem | Microsoft Azure"
-	description="Testar o desempenho de um serviço de nuvem usando o criador de perfil do Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="n/a"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Testar o desempenho de um serviço de nuvem usando o criador de perfil do Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="n/a"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 
 # Testando o desempenho de um serviço de nuvem 
@@ -146,4 +146,4 @@ Uma sessão de criação de perfil é gerada para cada instância de uma funçã
 
 [Publicando em um Serviço de Nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

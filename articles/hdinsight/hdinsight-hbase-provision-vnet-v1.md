@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Provisionar clusters do HBase em uma Rede Virtual | Microsoft Azure"
 	description="Introdução ao uso do HBase no Azure HDInsight. Saiba como criar clusters HBase do HDInsight na rede virtual do Azure."
+	keywords=""
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
@@ -9,12 +10,12 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/07/2015"
+   ms.author="jgao"/>
 
 # Provisionar clusters do HBase na Rede Virtual do Azure
 
@@ -336,7 +337,7 @@ Para usar essa informação em um aplicativo Java, você pode seguir as etapas e
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]Para obter mais informações sobre a resolução do nome em Redes Virtuais do Azure, incluindo como usar seu próprio servidor DNS, consulte [Resolução do Nome (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+> [AZURE.NOTE]Para obter mais informações sobre a resolução do nome em Redes Virtuais do Azure, incluindo como usar seu próprio servidor DNS, consulte [Resolução do Nome (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ##Provisionar um cluster do HBase usando o PowerShell do Azure
 
@@ -433,4 +434,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalhes de provisionamento do novo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usar a Ação de Script para personalizar um cluster HBase"
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

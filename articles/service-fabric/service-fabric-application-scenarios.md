@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Design e cenários de aplicativo com a Malha do Serviço"
-	description="Categorias de aplicativo. Design de aplicativo usando os serviços com e sem monitoração de estado"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Design e cenários de aplicativo com a Malha do Serviço" 
+   description="Categorias de aplicativo. Design de aplicativo usando os serviços com e sem monitoração de estado" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/21/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/21/2015"
+   ms.author="mfussell"/>
 
 # Cenários de Aplicativos Malha do Serviço
 
@@ -68,4 +68,4 @@ Confira também os seguintes tópicos:
  
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

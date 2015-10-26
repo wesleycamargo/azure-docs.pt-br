@@ -266,4 +266,4 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -90,4 +90,4 @@ O AD do Microsoft Azure fornece uma implementação muito eficiente de um proces
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

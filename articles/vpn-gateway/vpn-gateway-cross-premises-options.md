@@ -91,4 +91,4 @@ Para obter mais informações sobre o Rota Expressa, consulte [Visão Geral Téc
 
 Consulte as [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) e as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) para obter mais informações.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

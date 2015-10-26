@@ -98,4 +98,4 @@ Você pode baixar o SQL Azure Migration Wizard do CodePlex:
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Criar uma rede virtual entre locais usando tabelas de configuração
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+ 
 
 Este tópico explica o processo de criação de uma rede virtual entre locais usando as configurações previamente especificadas no seguinte conjunto de tabelas de configuração:
 
@@ -69,4 +70,4 @@ O procedimento a seguir faz referência às informações dessas tabelas para or
 
 [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

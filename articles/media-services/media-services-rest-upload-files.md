@@ -518,4 +518,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

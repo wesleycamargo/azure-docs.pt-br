@@ -289,7 +289,7 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 
 <!--Link references-->
 
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

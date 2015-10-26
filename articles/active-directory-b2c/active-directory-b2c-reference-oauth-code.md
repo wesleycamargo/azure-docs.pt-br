@@ -272,4 +272,4 @@ Se você quiser experimentar essas solicitações por conta própria, primeiro d
 - [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter uma Id de aplicativo e um redirect\_uri. Você deve incluir uma **cliente nativo** em seu aplicativo.
 - [Criar suas regras](active-directory-b2c-reference-policies.md) para obter os nomes de política.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

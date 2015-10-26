@@ -19,7 +19,8 @@
 
 # Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+ 
 
 Com o Azure, você pode usar uma máquina virtual para lidar com tarefas de computação intensiva. Por exemplo, uma máquina virtual pode lidar com tarefas e fornecer resultados às máquinas dos clientes ou aos aplicativos móveis. Depois de ler este artigo, você terá um entendimento de como criar uma máquina virtual que executa um aplicativo Java de computação intensiva que pode ser monitorado por outro aplicativo Java.
 
@@ -519,4 +520,4 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

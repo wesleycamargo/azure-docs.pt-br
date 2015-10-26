@@ -39,18 +39,20 @@ Para as versões do Sqoop com suporte em clusters HDInsight, confira [Novidades 
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para executar scripts do PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte [Executar scripts do Windows PowerShell][powershell-script].
+- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+ Para executar scripts do PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte [Executar scripts do Windows PowerShell][powershell-script].
 
 - **Cluster Azure HDInsight**: para saber mais sobre como provisionar um cluster, confira [Introdução ao HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight][hdinsight-provision]. Você precisará dos seguintes dados para percorrer o tutorial:
 
 	<table border="1">
-<tr><th>Propriedade do cluster</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
-<tr><td>Nome do cluster HDInsight</td><td>$clusterName</td><td></td><td>Nome do cluster HDInsight</td></tr>
-<tr><td>Nome da Conta de Armazenamento do Azure</td><td>$storageAccountName</td><td></td><td>Uma Conta de Armazenamento do Azure disponível para o cluster HDInsight. Para este tutorial, use a conta de armazenamento padrão especificada durante o processo de provisionamento do cluster.</td></tr>
-<tr><td>Nome do contêiner de blob do Azure</td><td>$containerName</td><td></td><td>Para este exemplo, utilize o nome do blob usado para o sistema de arquivos do cluster HDInsight padrão. Por padrão, o contêiner tem o mesmo nome do cluster HDInsight.</td></tr>
-</table>
+	<tr><th>Propriedade do cluster</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
+	<tr><td>Nome do cluster HDInsight</td><td>$clusterName</td><td></td><td>Nome do cluster HDInsight</td></tr>
+	<tr><td>Nome da Conta de Armazenamento do Azure</td><td>$storageAccountName</td><td></td><td>Uma Conta de Armazenamento do Azure disponível para o cluster HDInsight. Para este tutorial, use a conta de armazenamento padrão especificada durante o processo de provisionamento do cluster.</td></tr>
+	<tr><td>Nome do contêiner de blob do Azure</td><td>$containerName</td><td></td><td>Para este exemplo, utilize o nome do blob usado para o sistema de arquivos do cluster HDInsight padrão. Por padrão, o contêiner tem o mesmo nome do cluster HDInsight.</td></tr>
+	</table>
 
-- ****Banco de dados SQL do Azure ou Microsoft SQL Server
+
+
 - **Banco de Dados SQL do Azure**: você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso de sua estação de trabalho. Para saber mais sobre como criar um Banco de Dados SQL e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. Este artigo fornece um script do Windows PowerShell para criar a tabela do Banco de Dados SQL do Azure necessária para este tutorial.
 
 	<table border="1">
@@ -611,4 +613,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

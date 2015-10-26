@@ -841,4 +841,4 @@ Para saber mais sobre o Barramento de Serviço, consulte os tópicos a seguir.
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

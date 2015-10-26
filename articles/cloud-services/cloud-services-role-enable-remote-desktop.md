@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure"
-	description="Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota"
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="Habilitar a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure" 
+description="Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota" 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="10/14/2015" 
+ms.author="saurabh"/>
 
 # Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure
 
@@ -147,4 +147,4 @@ O arquivo [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg
 
 [Como configurar serviços de nuvem](cloud-services-how-to-configure.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

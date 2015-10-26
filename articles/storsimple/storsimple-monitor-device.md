@@ -95,4 +95,4 @@ O **desempenho do dispositivo** acompanha métricas relacionadas ao desempenho d
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

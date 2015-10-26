@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Aplicativo local com armazenamento de blob
@@ -367,4 +367,4 @@ Siga estes links para saber mais sobre as tarefas mais complexas de armazenament
   [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

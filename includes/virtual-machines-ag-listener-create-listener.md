@@ -23,4 +23,4 @@ Nesta etapa, você cria manualmente o ouvinte do grupo de disponibilidade no Ger
 
 1. Na mesma janela de propriedades **endereço IP**, alterar o**Nome do endereço IP**. Esse nome de endereço IP será usado no **$IPResourceName**variável do script do PowerShell. Repita essa etapa para cada recurso IP se sua solução abrange diversas VNets do Azure.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

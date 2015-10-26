@@ -289,4 +289,4 @@ Você concluiu o cabeamento do dispositivo para conexão serial, de energia e ac
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

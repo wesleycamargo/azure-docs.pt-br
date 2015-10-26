@@ -57,11 +57,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No portal do AD do Azure, na página de integração de aplicativos do **Abintegro**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configurar o Logon Único")
+    ![Configurar o Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configurar o logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Abintegro**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790080.png "Configurar o Logon Único")
+    ![Configurar o logon único](./media/active-directory-saas-abintegro-tutorial/IC790080.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Abintegro**, digite a URL usada pelos usuários para fazer logon no Abintegro (p. ex.: `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`) e clique em **Avançar**.
 
@@ -69,7 +69,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar o logon único no Abintegro**, clique em **Baixar metadados** e salve o arquivo de metadados no computador.
 
-    ![Configurar o Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Configurar o Logon Único")
+    ![Configurar o logon único](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Configurar o logon único")
 
 5.  Envie o arquivo de metadados para a equipe de suporte do Abintegro.
 
@@ -77,7 +77,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Configurar o Logon Único")
+    ![Configurar o logon único](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Configurar o Logon Único")
 ##Configurando o provisionamento de usuários
 
 Não há nenhum item de ação para a configuração de provisionamento de usuário para o Abintegro. Quando um usuário atribuído tenta fazer logon no Abintegro usando o painel de acesso, o Abintegro verifica se o usuário existe. Se ainda não houver conta de usuário disponível, ela será criada automaticamente pelo Abintegro.
@@ -93,10 +93,10 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Atribuir Usuários](./media/active-directory-saas-abintegro-tutorial/IC790084.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
 
     ![Sim](./media/active-directory-saas-abintegro-tutorial/IC767830.png "Sim")
 
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

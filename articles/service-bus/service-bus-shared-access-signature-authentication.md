@@ -256,4 +256,4 @@ Para obter uma visão geral de alto nível do SAS no Barramento de Serviço, con
 
 Confira [Autenticação e autorização do Barramento de Serviço](service-bus-authentication-and-authorization.md) para obter mais informações sobre a autenticação do Barramento de Serviço.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

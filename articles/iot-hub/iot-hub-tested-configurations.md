@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Compatibilidade de hardware e plataformas de sistema operacional de IoT Azure | Microsoft Azure"
-	description="Compatibilidade de plataformas de SO e hardware"
+	pageTitle="Compatibilidade de hardware e plataformas de sistema operacional | Microsoft Azure"
+	description="Resume a compatibilidade do SDK IoT dispositivo com plataformas de sistema operacional e hardware do dispositivo."
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="hegate"
-	manager="jamesosb"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -12,18 +12,18 @@
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
-     ms.date="09/29/2015"
+     ms.workload="na"
+     ms.date="10/09/2015"
      ms.author="hegate"/>
 
-# Compatibilidade de plataformas de SO e hardware
+# Compatibilidade de plataformas de SO e hardware com SDKs de dispositivo
 
-Este documento descreve a compatibilidade do dispositivo SDKs com diferentes plataformas de sistema operacional, bem como as configurações específicas de dispositivo incluídas no [Microsoft Azure Certified para o programa de IoT](#certified). Se você já tiver um dispositivo, examine a lista de dispositivos incluídos no programa para localizar informações específicas de dispositivo em compatibilidade. Se não tiver certeza de qual dispositivo usar, veja a seção de compatibilidade da [Plataforma de sistema operacional e bibliotecas](#platforms).
+Este documento descreve a compatibilidade do dispositivo SDKs com diferentes plataformas de sistema operacional, bem como as configurações específicas de dispositivo incluídas no [Microsoft Azure Certified para o programa de IoT](#microsoft-azure-certified-for-iot). Se você já tiver um dispositivo, examine a lista de dispositivos incluídos no programa para localizar informações específicas de dispositivo em compatibilidade. Se não tiver certeza de qual dispositivo usar, veja a seção de compatibilidade da [Plataforma de sistema operacional e bibliotecas](#os-platforms).
 
 
 ## Plataformas de SO
 
-As bibliotecas do Azure IoT foram testadas nas seguintes plataformas de sistema operacional:
+As bibliotecas do Azure IoT foram testadas nas seguintes plataformas do sistema operacional:
 
 
 |Plataformas dos sistemas operacionais Linux/Unix | Versão|
@@ -49,7 +49,7 @@ As bibliotecas do Azure IoT foram testadas nas seguintes plataformas de sistema 
 
 ## Bibliotecas C
 
-O [SDK do dispositivo IoT do Microsoft Azure](c/device/readme.md) foi testado nas seguintes configurações:
+O [SDK do dispositivo IoT do Microsoft Azure](https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md) foi testado nas seguintes configurações:
 
 |Plataforma do SO| Versão|Protocolos|
 |:---------|:----------:|:----------:|
@@ -64,7 +64,8 @@ O [SDK do dispositivo IoT do Microsoft Azure](c/device/readme.md) foi testado na
 
 
 ## Bibliotecas do Node. js
-O [SDK do dispositivo IoT do Microsoft Azure para Node.js](node/device/readme.md) foi testado nas seguintes configurações:
+
+O [SDK do dispositivo IoT do Microsoft Azure para Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md) foi testado nas seguintes configurações:
 
 
 |Tempo de execução| Versão|Protocolos|
@@ -74,14 +75,15 @@ O [SDK do dispositivo IoT do Microsoft Azure para Node.js](node/device/readme.md
 
 
 ## Bibliotecas Java
-O [SDK do dispositivo IoT do Microsoft Azure para Java](java/device/readme.md) foi testado nas seguintes configurações:
+
+O [SDK do dispositivo IoT do Microsoft Azure para Java](https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md) foi testado nas seguintes configurações:
 
 |Tempo de execução| Versão|Protocolos|
 |:---------|:----------:|----|
 |Java SE (Windows)| 1\.7 | HTTPS, AMQP |
 |Java SE (Linux)| 1\.8 | HTTPS, AMQP|
 
-O [SDK do serviço IoT do Microsoft Azure para Java](java/service/readme.md) foi testado nas seguintes configurações:
+O SDK do serviço IoT do Microsoft Azure para Java foi testado nas seguintes configurações:
 
 |Tempo de execução| Versão|Protocolos|
 |:---------|:----------:|:-----|
@@ -89,7 +91,8 @@ O [SDK do serviço IoT do Microsoft Azure para Java](java/service/readme.md) foi
 
 
 ## CSharp
-O [SDK do serviço IoT do Microsoft Azure para .NET](csharp/readme.md) foi testado nas seguintes configurações:
+
+O [SDK do serviço IoT do Microsoft Azure para .NET](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/readme.md) foi testado nas seguintes configurações:
 
 |Plataforma do SO| Versão|Protocolos|
 |:---------|:----------:|:----------:|
@@ -101,20 +104,15 @@ O código de agente gerenciado requer o Microsoft .NET Framework 4.5
 
 ## Certificado para IoT do Microsoft Azure
 
-O certificado para o IoT do Microsoft Azure é o parceiro do programa que conecta o ecossistema IoT mais amplo ao Microsoft Azure de forma que os desenvolvedores e arquitetos entendem os cenários de compatibilidade. Especificamente, fornece uma lista de combinações de dispositivo/SO para ajudá-lo a se familiarizar rapidamente com um projeto IoT – se você estiver em uma prova de conceito ou fase piloto de piloto. Com o certificado do dispositivo e combinações de sistema operacional, seu projeto IoT pode começar rapidamente, com menos trabalho e personalização necessária para garantir que os dispositivos sejam compatíveis com o Azure IoT Suite e o Azure Hub IoT.
-
+**O certificado para o IoT do Microsoft Azure** é o parceiro do programa que conecta o ecossistema IoT mais amplo ao Microsoft Azure de forma que os desenvolvedores e arquitetos entendem os cenários de compatibilidade. Especificamente, fornece uma lista de combinações de dispositivo/SO para ajudá-lo a se familiarizar rapidamente com um projeto IoT – se você estiver em uma prova de conceito ou fase piloto de piloto. Com o certificado do dispositivo e combinações de sistema operacional, seu projeto IoT pode começar rapidamente, com menos trabalho e personalização necessária para garantir que os dispositivos sejam compatíveis com o Azure IoT Suite e o Azure Hub IoT.
 
 ## Certificado para dispositivos de IoT
 
-O certificado para dispositivos IoT testaram a compatibilidade com os SDKs do Azure IoT e estão pronto para serem usados em seu aplicativo IoT. Especificamente, podemos identificar a compatibilidade com base na plataforma do sistema operacional e o do código de idioma.
+**O certificado para dispositivos IoT** testaram a compatibilidade com os SDKs do Azure IoT e estão pronto para serem usados em seu aplicativo IoT. Especificamente, podemos identificar a compatibilidade com base na plataforma do sistema operacional e código de idioma.
 
 #### Lista de dispositivos
 
- Cada dispositivo foi certificado para trabalhar com o SDK no sistema operacional e linguagem escolhidos pelo fabricante do dispositivo. Por exemplo, BeagleBone Black funciona em Debian usando nossa linguagem C, Javascript e Java. Isso significa que os desenvolvedores poderão criar aplicativos em qualquer uma dessas linguagens e combinações de sistema operacional nos dispositivos específicos.
-
-## Próximas etapas
-
-Saiba mais sobre como desenvolver soluções usando certificados para dispositivos IoT [aqui](http://azure.com/iotdev).
+Cada dispositivo foi certificado para trabalhar com o SDK no sistema operacional e linguagem escolhidos pelo fabricante do dispositivo. Por exemplo, BeagleBone Black funciona em Debian usando nossa linguagem C, Javascript e Java. Isso significa que os desenvolvedores poderão criar aplicativos em qualquer uma dessas linguagens e combinações de sistema operacional nos dispositivos específicos.
 
 |Dispositivo| SO testado |Linguagem|
 |:---------|:----------|:----------|
@@ -128,4 +126,8 @@ Saiba mais sobre como desenvolver soluções usando certificados para dispositiv
 |Arrow DragonBoard 410c |Windows 10 IoT básico | C#|
 |Freescale FRDM K64 |mbed 2.0 | C|
 
-<!---HONumber=Oct15_HO2-->
+## Próximas etapas
+
+Saiba mais sobre como desenvolver soluções usando **Certificado para os dispositivos IoT** [aqui](http://azure.com/iotdev).
+
+<!---HONumber=Oct15_HO3-->

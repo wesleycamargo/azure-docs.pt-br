@@ -70,4 +70,4 @@ A captura de tela a seguir mostra um exemplo de caixa de diálogo correspondente
   
 Agora, você pode criar uma conta de teste, aguardar 10 minutos e verificar se a conta foi sincronizada no Jive.com.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

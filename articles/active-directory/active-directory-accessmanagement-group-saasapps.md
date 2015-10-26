@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="10/09/2015"
 	ms.author="femila"/>
 
 
@@ -30,12 +30,12 @@ Esse recurso pode ser usado com centenas de aplicativos que você adiciona na Ga
 1. Abra um navegador de sua escolha e acesse o Portal de Gerenciamento do Azure. No Portal de Gerenciamento do Azure, localize a extensão do Active Directory na barra de navegação à esquerda. Na guia **Diretório**, clique no diretório no qual você deseja atribuir o acesso de um grupo a um aplicativo Saas.
 
 
-2. Clique na guia aplicativos para seu diretório. Clique em um aplicativo que você adicionou na Galeria de aplicativos, clique na guia Usuários e Grupos.
+2. Clique na guia aplicativos para seu diretório. Clique em um aplicativo que você adicionou na Galeria de aplicativos, clique na guia **Usuários e Grupos**.
 
-3. Na guia Usuários e Grupos, em Iniciar com um campo, insira o nome do grupo ao qual você deseja atribuir acesso e clique na marca de seleção no canto superior direito. Você só precisa digitar a primeira parte do nome do grupo. Em seguida, clique no grupo para selecioná-lo, clique no botão **Atribuir acesso** e clique em **Sim**quando vir a mensagem de confirmação.
+3. Na guia Usuários e Grupos, em Iniciar com um campo, insira o nome do grupo ao qual você deseja atribuir acesso e clique na marca de seleção no canto superior direito. Você só precisa digitar a primeira parte do nome do grupo. Em seguida, clique no grupo para selecioná-lo, clique no botão **Atribuir acesso** e clique em **Sim** quando vir a mensagem de confirmação.
 
 
-4. Você também pode ver quais usuários são atribuídos ao aplicativo, diretamente ou por associação em um grupo. Para fazer isso, altere **Mostrar lista suspensa de "Grupos"**para**"Todos usuários"**. A lista mostra usuários no diretório e se cada usuário está ou não atribuído ao aplicativo. A lista também mostra se os usuários atribuídos estão atribuídos diretamente ao aplicativo (tipo de atribuição mostrado como "Direto"), ou por meio de associação de grupo (tipo de atribuição mostrado como "Herdado".)
+4. Você também pode ver quais usuários são atribuídos ao aplicativo, diretamente ou por associação em um grupo. Para fazer isso, altere **Mostrar lista suspensa de "Grupos"** para **"Todos usuários"**. A lista mostra usuários no diretório e se cada usuário está ou não atribuído ao aplicativo. A lista também mostra se os usuários atribuídos estão atribuídos diretamente ao aplicativo (tipo de atribuição mostrado como "Direto"), ou por meio de associação de grupo (tipo de atribuição mostrado como "Herdado".)
 
 
 > [AZURE.NOTE]Você verá a guia Usuários e Grupos somente depois que tiver habilitado Azure AD Premium e Azure AD Basic.
@@ -48,4 +48,4 @@ Estes são alguns tópicos que fornecerão informações adicionais sobre o Acti
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

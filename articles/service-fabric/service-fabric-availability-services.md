@@ -1,20 +1,20 @@
 <properties
    pageTitle="Disponibilidade dos serviços de malha do serviço"
-	description="Descreve a detecção de falhas, failover e recuperação para serviços"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="appi101"
-	manager="timlt"
-	editor=""/>
+   description="Descreve a detecção de falhas, failover e recuperação para serviços"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="appi101"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="aprameyr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="aprameyr"/>
 
 # Disponibilidade dos serviços de malha do serviço
 Os serviços de malha do serviço podem ser com ou sem monitoração de estado. Este artigo fornece uma visão geral de como a malha do serviço mantém a disponibilidade de um serviço no caso de falhas.
@@ -51,4 +51,4 @@ Para obter informações sobre os conceitos de malha do serviço, consulte:
 - [Definir e gerenciar o estado](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

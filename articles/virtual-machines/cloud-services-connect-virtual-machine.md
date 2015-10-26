@@ -20,8 +20,9 @@
 
 # Conectar máquinas virtuais criadas com o modelo clássico de implantação com um serviço de nuvem ou de rede virtual
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o gerenciamento de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

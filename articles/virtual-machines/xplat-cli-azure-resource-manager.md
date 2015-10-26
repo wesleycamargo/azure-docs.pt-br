@@ -16,7 +16,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o gerenciamento de recursos com o modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
 
 Este artigo descreve como criar, gerenciar e excluir recursos e VMs do Azure usando a CLI do Azure para Mac, Linux e Windows usando o modo Gerenciador de Recursos do Azure.
 
@@ -341,4 +342,4 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 [clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

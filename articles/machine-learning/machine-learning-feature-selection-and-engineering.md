@@ -135,4 +135,4 @@ Observe que nem sempre é necessário realizar a engenharia ou a seleção de re
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

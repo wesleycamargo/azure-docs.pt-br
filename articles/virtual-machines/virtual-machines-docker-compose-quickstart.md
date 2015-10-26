@@ -21,7 +21,8 @@
 
 Este artigo mostra como começar a usar Docker e o [Redigir](http://github.com/docker/compose) para definir e executar um aplicativo complexo em uma máquina virtual Linux no Azure. Com o Redigir (o sucessor do *Fig*), use um arquivo de texto simples para definir um aplicativo que consiste em vários contêineres do Docker. Em seguida, você acelera seu aplicativo com um único comando que faz tudo que é necessário para executá-lo na VM. Por exemplo, este artigo mostra como configurar rapidamente um blog WordPress com um banco de dados SQL MariaDB de back-end, mas você também pode usar o Redigir para configurar aplicativos mais complexos.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo se aplica à criação de máquinas virtuais usando o Gerenciador de Recursos e os modelos de implantação clássicos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Se você não estiver familiarizado com o Docker e contêineres, consulte o [Quadro de comunicações de nível elevado do Docker](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 
@@ -48,8 +49,7 @@ Para testar sua instalação do Redigir, execute o comando a seguir.
 $ docker-compose --version
 ```
 
-Você verá uma saída semelhante a
-```
+Você verá uma saída semelhante a ```
 docker-compose 1.3.2
 ```
 
@@ -121,10 +121,11 @@ Agora você deve ver a tela inicial do WordPress, na qual você pode concluir a 
 
 * Confira a [Referência a CLI do Redigir](http://docs.docker.com/compose/cli/) e o [guia do usuário](http://docs.docker.com/compose/) para obter mais exemplos de criação e implantação de aplicativos de vários contêineres.
 * Use um modelo do Gerenciador de Recursos do Azure, seu ou da do [comunidade](http://azure.microsoft.com/documentation/templates/), para implantar uma VM do Azure com Docker e um aplicativo configurado com o Redigir. Por exemplo, o modelo [Implantar um blog WordPress com Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) usa Docker e Redigir para implantar rapidamente o WordPress com um back-end do MySQL em uma VM do Ubuntu.
-* Tente integrar o Redigir do Docker com um cluster [Docker Swarm](virtual-machines-docker-swarm.md). Consulte [Integração do Redigir do Docker/Swarm](https://github.com/docker/compose/blob/master/SWARM.md) para cenários.
+* Tente integrar o Redigir do Docker com um cluster [Docker Swarm](virtual-machines-docker-swarm.md). Consulte
+[Integração do Redigir do Docker/Swarm](https://github.com/docker/compose/blob/master/SWARM.md) para cenários.
 
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

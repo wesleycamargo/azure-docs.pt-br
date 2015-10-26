@@ -42,4 +42,4 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

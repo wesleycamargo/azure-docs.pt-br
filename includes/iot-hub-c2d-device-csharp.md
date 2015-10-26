@@ -37,4 +37,4 @@ Nesta seção, você modificará o aplicativo do dispositivo simulado criado na 
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

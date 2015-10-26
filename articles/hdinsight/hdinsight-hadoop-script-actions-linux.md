@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Desenvolvimento de Ação de Script com o HDInsight | Microsoft Azure"
-	description="Saiba como personalizar os clusters do Hadoop com a Ação de Script."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Desenvolvimento de Ação de script com o HDInsight baseado em Linux | Microsoft Azure"
+    description="Saiba como personalizar os clusters HDInsight baseados em Linux com a ação de Script."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
     ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="larryfr"/>
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/09/2015"
+    ms.author="larryfr"/>
 
 # Desenvolvimento de Ação de Script com o HDInsight
 
@@ -213,4 +213,4 @@ Para o comando acima, substitua __INFILE__ pelo arquivo que contém a BOM. __OUT
 
 [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

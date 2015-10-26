@@ -47,4 +47,4 @@ Para adicionar um dispositivo ao AD do Azure
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

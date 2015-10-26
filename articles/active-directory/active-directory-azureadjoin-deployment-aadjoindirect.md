@@ -87,4 +87,4 @@ Você pode configurar seus funcionários e usuários para usarem seus dispositiv
 * [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure](active-directory-azureadjoin-overview.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -40,4 +40,4 @@ Quando você especifica a propriedade de compactação em um conjunto de dados d
 - Ler dados de um arquivo de texto sem formatação do Sistema de arquivos local, compactá-los usando o formato GZip e gravar os dados compactados em um blob do Azure. Nesse caso, você define um conjunto de dados do Blob do Azure com a propriedade de compactação JSON.  
 - Ler dados compactados em GZIP de um blob do Azure, descompactá-los, compactá-los usando BZIP2 e gravar os dados de resultado em um blob do Azure. Nesse caso, você define o conjunto de dados de entrada do Blob do Azure com o tipo de compactação definido como GZIP, e o conjunto de dados de saída com o tipo de compactação definido como BZIP2.   
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

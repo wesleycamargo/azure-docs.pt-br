@@ -44,7 +44,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **ITRP**.
 
-    ![Galeria de aplicativos](./media/active-directory-saas-itrp-tutorial/IC775565.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-itrp-tutorial/IC775565.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **ITRP** e clique em **Concluir** para adicionar o aplicativo.
 
@@ -96,7 +96,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     5.  Clique em **Salvar**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+9.  No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -138,12 +138,12 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 2.  Na página de integração de aplicativos do **ITRP**, clique em **Atribuir usuários**.
 
-    ![Atribuir usuários](./media/active-directory-saas-itrp-tutorial/IC775588.png "Atribuir usuários")
+    ![Atribuir usuários](./media/active-directory-saas-itrp-tutorial/IC775588.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
 
     ![Sim](./media/active-directory-saas-itrp-tutorial/IC767830.png "Sim")
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

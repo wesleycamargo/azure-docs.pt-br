@@ -69,4 +69,4 @@ Neste método, você adicionou o código de registro do tutorial diretamente no 
 	
 	Isso garante que a autenticação ocorra antes da tentativa de registro por push.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

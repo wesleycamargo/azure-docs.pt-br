@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/12/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 # Informações sobre o uso do HDInsight no Linux
@@ -240,4 +240,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -230,10 +230,10 @@ Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça 
 2. Selecione **Atualizações** no painel esquerdo e selecione **Galeria do Visual Studio**.
 4. Selecione **Ferramentas do Azure Data Factory para Visual Studio** e clique em **Atualizar**. Se você não vir essa entrada, você já tem a versão mais recente das ferramentas. 
 
-Consulte [Monitorar conjuntos de dados e pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) para obter instruções sobre como usar o Portal de Visualização do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
+Confira [Monitorar conjuntos de dados e pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obter instruções sobre como usar o Portal de Visualização do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
 
 
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

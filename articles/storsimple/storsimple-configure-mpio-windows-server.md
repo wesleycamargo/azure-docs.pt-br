@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configurar o MPIO para o dispositivo StorSimple | Microsoft Azure"
-	description="Descreve como configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple conectado a um host que esteja executando o Windows Server 2012 R2."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Descreve como configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple conectado a um host que esteja executando o Windows Server 2012 R2."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple
 
@@ -173,4 +173,4 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 Saiba mais sobre [usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

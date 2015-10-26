@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/24/2015"
-   ms.author="elfish; v-romcal; v-stste"/>
+   ms.date="10/08/2015"
+   ms.author="elfish; v-romcal; sstein"/>
 
 # Recuperar um banco de dados do SQL Azure usando a restauração geográfica no PowerShell do Azure
 
@@ -25,6 +25,8 @@
 ## Visão geral
 
 Este tutorial mostra como recuperar um banco de dados do SQL Azure usando a restauração geográfica no [PowerShell do Azure](../powershell-install-configure.md). A restauração geográfica é a proteção de recuperação de desastres do núcleo incluída para camadas de serviço do banco de dados do SQL Azure Basic, Standard e Premium.
+
+> [AZURE.IMPORTANT]Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0 e posteriores. Você pode verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**.
 
 ## Segurança e restrições
 
@@ -39,13 +41,13 @@ Você deve usar a autenticação baseada em certificado para executar os seguint
 1. Obter a lista de bancos de dados recuperáveis usando o cmdlet [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Especifique os seguintes parâmetros:
 	* **ServerName** onde o banco de dados está localizado.	
 
-	`PS C:\>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
+	`Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
 
 2. Escolha o banco de dados que você deseja recuperar usando o cmdlet [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Especifique os seguintes parâmetros:
 	* **ServerName** onde o banco de dados está localizado.
 	* **DatabaseName** do banco de dados que você está recuperando.
 
-	`PS C:\>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
 	 
 3. Comece a recuperação usando o cmdlet [Start-AzureSqlDatabaseRecovery](http://msdn.microsoft.com/library/dn720224.aspx). Especifique os seguintes parâmetros:
 	* **SourceDatabase** que você deseja recuperar.
@@ -54,14 +56,14 @@ Você deve usar a autenticação baseada em certificado para executar os seguint
 
 	Armazenar o que é retornado para uma variável denominada **$RestoreRequest**. Essa variável contém a ID da solicitação de restauração que é usada para monitorar o status de uma restauração.
 
-	`PS C:\>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
+	`$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
 	
 Uma recuperação de banco de dados pode levar algum tempo para concluir. Para monitorar o status da recuperação, use o cmdlet [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) e especifique os seguintes parâmetros:
 
 * **ServerName** do banco de dados que você está restaurando.
 * **OperationGuid** que é a ID de solicitação de restauração que foi armazenada na variável **$RecoveryRequest** na etapa 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
+	`Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
 
 Os campos **Estado** e **PercentComplete** mostram o status da restauração.
 
@@ -82,4 +84,4 @@ Para obter mais informações, consulte o seguinte:
 [PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

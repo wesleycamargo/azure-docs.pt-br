@@ -149,4 +149,4 @@ Nesse caso, os resultados da consulta primeiro são mapeados para colunas especi
 
 ![Fluxo de mapeamento de coluna-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Adicione notificações de push para seu aplicativo universal do Windows Runtime 8.1 | Aplicativos móveis do Azure"
-	description="Saiba como usar os Aplicativos Móveis do Serviço de Aplicativo do Azure e Hubs de Notificação do Azure para enviar notificações por push para seu aplicativo do Windows."
-	services="app-service\mobile,notification-hubs"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
+	pageTitle="Adicione notificações de push para seu aplicativo universal do Windows Runtime 8.1 | Aplicativos móveis do Azure" 
+	description="Saiba como usar os Aplicativos Móveis do Serviço de Aplicativo do Azure e Hubs de Notificação do Azure para enviar notificações por push para seu aplicativo do Windows." 
+	services="app-service\mobile,notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.service="app-service-mobile" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/14/2015" 
 	ms.author="glenga"/>
 
 # Adicionar notificações de push para seu aplicativo universal do Windows Runtime 8.1
@@ -202,4 +202,4 @@ Seu aplicativo agora está pronto para receber notificações do sistema.
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

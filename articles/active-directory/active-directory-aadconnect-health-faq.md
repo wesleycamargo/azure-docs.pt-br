@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Perguntas frequentes do Azure AD Connect Health"
 	description="Encontre respostas para perguntas frequentes sobre o Azure AD Connect Health. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança, recursos, limitações e suporte."
 	services="active-directory"
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="10/15/2015"
 	ms.author="billmath"/>
 
 
@@ -25,10 +25,9 @@ Encontre respostas para perguntas frequentes sobre o Azure AD Connect Health. Es
 
 
 
-**P: Tenho vários locatários no Active Directory do Azure. Como alternar para aquele com o Azure Active Directory Premium?**
+**P: Eu gerencio vários diretórios do Azure AD. Como alternar para aquele com o Azure Active Directory Premium?**
 
-Você pode alternar o locatário do AD do Azure, selecionando "Início" na barra de navegação à esquerda, e selecionando o nome de usuário conectado no momento no canto superior direito e escolhendo a conta do locatário à direita. Se a conta do locatário não estiver listada aqui, selecione a saída e use as credenciais de administrador global do locatário do Azure Active Directory Premium para efetuar login.
-
+Você pode alternar entre diferentes diretórios do Azure AD selecionando o Nome de usuário conectado atualmente no canto superior direito e escolhendo a conta apropriada. Se a conta não estiver listada, selecione Sair e use as credenciais de administrador global do Diretório que tiver o Azure Active Directory Premium para entrar.
 
 ## Perguntas sobre a instalação
 
@@ -43,7 +42,7 @@ Os números a seguir são uma aproximação.
 - O consumo da CPU: ~ 1% de aumento
 - Consumo de memória: 10% da memória total do sistema
 - Uso de largura de banda de rede: ~ 1 MB / 1000 das solicitações de ADFS
->[AZURE.NOTE]No caso do agente estar sendo capaz de se comunicar no Azure, o agente armazenará os dados localmente, até um limite máximo de 10% da memória total do sistema. Quando o agente atinge 10% da memória física total, se o agente não foi capaz de carregar os dados para o serviço, as novas transações ADFS substituirão quaisquer transações "em cache" considerando as "menos recentemente atendidas".
+>[AZURE.NOTE]Caso o agente não possa se comunicar com o Azure, ele armazenará os dados localmente, até o limite máximo definido. Quando o agente atingir o limite, se ele não puder carregar os dados no serviço, as novas transações do ADFS vão substituir quaisquer transações "em cache" em uma base "menos atendido recentemente".
 
 - Armazenamento de buffer local para o agente de integridade do AD: ~ 20 MB
 - Armazenamento de dados necessário para o canal de auditoria
@@ -60,49 +59,14 @@ Por exemplo, no Windows Server 2008 R2, a instalação do .net Framework 4.5 req
 
 **P: Os Serviços do Azure AD Connect Health funcionam por meio de um proxy http de passagem?**
 
-Sim, o processo de registro e a operação normal podem funcionar através de um proxy explícito configurado para encaminhar solicitações http de saída. “Netsh WinHttp set Proxy” não funciona nesse caso pois o agente usa System.Net para fazer solicitações da web em vez do Serviços HTTP do Microsoft Windows.
+Sim. Para operações em andamento, você pode configurar o Agente de integridade para encaminhar solicitações http de saída usando um HTTP Proxy. Consulte [Configurar agentes do Azure AD Connect Health para usar HTTP Proxy](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy) para saber mais.
 
-Execute a qualquer momento antes de executar o Register-AdHealthAgent (a etapa final da instalação)
-
-
-- Etapa 1 – Adicionar entrada no arquivo machine.config
-
-
-Localize o arquivo machine.config. O arquivo está localizado em %windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>
-
-Adicione a seguinte entrada sob o elemento de <configuration></configuration> no arquivo machine.config.
-		
-	<system.net>  
-			<defaultProxy useDefaultCredentials="true">
-       		<proxy 
-        usesystemdefault="true" 
-        proxyaddress="http://YOUR.PROXY.HERE.com"  
-        bypassonlocal="true"/>
-		</defaultProxy>
-	</system.net> 
-
- 
-
-Mais <defaultProxy> informações podem ser encontradas [aqui] (https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
-
-Essas definições configuram os aplicativos .NET em todo o sistema para usar o proxy definido explicitamente quando fizer solicitações http .NET. Não é recomendável modificar cada app.config individualmente porque a configuração será desfeita durante a atualização automática. Você somente precisará alterar um arquivo e ele será mantido pelas atualizações se você modificar apenas o machine.config.
-
-- Etapa 2 - Configurar Proxy nas opções da Internet
-
-Abra o Internet Explorer -> Configurações -> Opções de Internet -> Conexões -> Configurações da LAN.
-
-Selecione Usar um Servidor Proxy para LAN
-
-Selecionar Avançada, SE você tiver portas de proxy diferente de HTTP e HTTPS/Secure
-
-
+Se precisar configurar um proxy durante o registro do Agente, você precisa modificar as configurações de Proxy do Internet Explorer. <br> Abra o Internet Explorer -> Configurações -> Opções de Internet -> Conexões -> Configurações da LAN.<br> Selecione Usar um Servidor Proxy para LAN.<br> Selecione Avançado SE você tiver portas de proxy diferente de HTTP e HTTPS/Secure.<br>
 
 
 **P: Os serviços do Azure AD Connect Health oferecem suporte à autenticação básica ao se conectar a Proxies Http?**
 
 Não. Um mecanismo para especificar o nome de usuário/senha arbitrariamente para fins de autenticação básica não é suportado.
-
-
 
 
 
@@ -125,7 +89,7 @@ Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. 
 
 **P: Quais portas de firewall eu preciso abrir para o agente do Azure AD Connect Health funcione?**
 
-Você precisará ter as portas TCP/UDP 80 e 443 abertas para o agente do Azure AD Connect Health poder se comunicar com os pontos de extremidade de serviço de integridade do AD do Azure.
+Você precisará ter as portas TCP/UDP 80, 443 e 5671 abertas para o agente do Azure AD Connect Health poder se comunicar com os pontos de extremidade de serviço de integridade do Azure AD.
 
 ## Links relacionados
 
@@ -134,4 +98,4 @@ Você precisará ter as portas TCP/UDP 80 e 443 abertas para o agente do Azure A
 * [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
 * [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Ambiente de teste Configuração de Base com o Gerenciador de Recursos do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo de implantação do Gerenciador de Recursos. Você também pode criar esses recursos com o [modelo de implantação clássico](virtual-machines-base-configuration-test-environment.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-base-configuration-test-environment.md).
 
 Este artigo apresenta instruções passo a passo para criar o ambiente de teste Configuração de Base em uma Rede Virtual do Microsoft Azure usando máquinas virtuais criadas no Gerenciador de Recursos.
 
@@ -56,7 +57,7 @@ Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter um
 
 ## Fase 1: Criar a rede virtual
 
-Em primeiro lugar, se for necessário, use as instruções em [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para instalar o Azure PowerShell no computador local. Abra um prompt do Azure PowerShell.
+Primeiro, se necessário, use as instruções em [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para instalar o Azure PowerShell no computador local. Abra um prompt do Azure PowerShell.
 
 > [AZURE.NOTE]Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0.0 e posteriores. Você pode verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**. Os blocos de comandos do Azure PowerShell neste artigo estão sendo testados e atualizados a fim de dar suporte aos novos cmdlets nas versões 1.0.0 e posteriores do Azure PowerShell. Agradecemos sua paciência.
 
@@ -95,7 +96,7 @@ Para testar se um nome de conta de armazenamento escolhido é globalmente exclus
 	Switch-AzureMode AzureServiceManagement
 	Test-AzureName -Storage <Proposed storage account name>
 
-Se o comando Test-AzureName exibir **False**, o nome proposto será exclusivo. Após encontrar um nome exclusivo, retorne o PowerShell do Azure de volta ao modo do Gerenciador de Recursos usando este comando.
+Se o comando Test-AzureName exibir **False**, o nome proposto é exclusivo. Após encontrar um nome exclusivo, retorne o PowerShell do Azure de volta ao modo do Gerenciador de Recursos usando este comando.
 
 	Switch-AzureMode AzureResourceManager 
 
@@ -335,4 +336,4 @@ Para iniciar as máquinas virtuais na ordem com o Azure PowerShell, preencha o n
 	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

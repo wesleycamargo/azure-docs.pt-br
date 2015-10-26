@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Fornecimento contínuo com o Git e o Visual Studio Online no Azure"
+	pageTitle="Fornecimento contínuo com o Git e o Visual Studio Online no Azure" 
 	description="Saiba como configurar seus projetos de equipe do Visual Studio Online para usarem o Git para serem compilados e implantados automaticamente no recurso Aplicativo Web no Serviço de Aplicativo do Azure ou nos serviços de nuvem."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -273,4 +273,4 @@ Para obter mais dicas de como usar o Git com Visual Studio Online, consulte [Des
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

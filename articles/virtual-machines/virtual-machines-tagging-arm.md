@@ -19,7 +19,8 @@
 
 # Como marcar uma Máquina Virtual no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo abrange a marcação de uma máquina virtual criada no modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
 
 Este artigo descreve as diferentes maneiras de marcar uma máquina virtual no Azure por meio do Gerenciador de Recursos do Azure. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure oferece suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas tem suporte apenas a recursos criados por meio do Gerenciador de Recursos do Azure.
 
@@ -189,4 +190,4 @@ Ao analisar essas marcas juntamente com o uso, as organizações poderão adquir
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

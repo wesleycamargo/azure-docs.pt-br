@@ -235,4 +235,4 @@ Agora que você aprendeu as noções básicas sobre as filas do Barramento de Se
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

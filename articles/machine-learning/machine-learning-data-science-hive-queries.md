@@ -2,6 +2,7 @@
 	pageTitle="Enviar consultas de Hive para clusters do Hadoop no processo de análise avançada | Microsoft Azure" 
 	description="Processar dados de tabelas Hive" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -325,4 +326,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

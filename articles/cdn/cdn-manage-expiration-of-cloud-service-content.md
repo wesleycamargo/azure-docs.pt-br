@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo"
-	description=""
-	services="cdn"
-	documentationCenter=".NET"
-	authors="zhangmanling"
-	manager="dwrede"
-	editor=""/>
+ pageTitle="Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo" 
+ description="" 
+ services="cdn" 
+ documentationCenter=".NET" 
+ authors="zhangmanling" 
+ manager="dwrede" 
+ editor=""/>
 <tags 
- ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mazha"/>
+ ms.service="cdn" 
+ ms.workload="media" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="dotnet" 
+ ms.topic="article" 
+ ms.date="09/01/2015" 
+ ms.author="mazha"/>
 
 #Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo
 
@@ -50,4 +50,4 @@ Por exemplo, para armazenar o conteúdo em cache por uma hora, adicione o seguin
 
 [Como gerenciar a expiração do conteúdo de blob na CDN (Rede de Distribuição de Conteúdo) do Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

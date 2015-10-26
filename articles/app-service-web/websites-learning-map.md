@@ -23,4 +23,4 @@ O test drive dos aplicativos Web do Serviço de Aplicativo do Azure migra rapida
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/websites-learning-map.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

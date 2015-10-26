@@ -358,4 +358,4 @@ Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em noss
 [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

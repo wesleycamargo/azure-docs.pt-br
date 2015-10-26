@@ -193,4 +193,4 @@ As próximas linhas exploram cada máquina virtual. Primeiro o **PowerState** da
 - [Runbooks filhos na Automação do Azure](automation-child-runbooks.md) 
 - [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

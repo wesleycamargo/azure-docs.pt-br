@@ -26,4 +26,4 @@ Para obter mais informações sobre como abordar infecções por malware, consul
 
 ![Entradas de dispositivos possivelmente infectados](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

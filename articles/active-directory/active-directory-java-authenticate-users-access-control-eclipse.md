@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="09/22/2015"
+    ms.date="10/12/2015" 
     ms.author="robmcm" />
 
 # Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse
 
-Este guia mostrará como usar o ACS (Access Control Service) do Azure dentro do plug-in para Eclipse com o Java (da Microsoft Open Technologies). Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas](#next_steps).
+Este guia mostrará como usar o ACS (Serviço de Controle de Acesso) do Azure dentro do Kit de Ferramentas do Azure para Eclipse. Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas](#next_steps).
 
-> [AZURE.NOTE]O Filtro de Controle dos Serviços de Acesso do Azure (da Microsoft Open Technologies) é uma visualização de tecnologia da comunidade. Como software de pré-lançamento, ele não oferece suporte formal da Microsoft Open Technologies, Inc. nem da Microsoft.
+> [AZURE.NOTE]O Filtro de Controle dos Serviços de Acesso do Azure é uma visualização de tecnologia da comunidade. Como software de pré-lançamento, a Microsoft não dá suporte formal a ele.
 
 ## O que é o ACS?
 
@@ -76,7 +76,7 @@ Para concluir as tarefas deste guia, você precisará do seguinte:
 - Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. 
 - Uma distribuição de um servidor web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o Servidor de Aplicativo JBoss ou o Jetty.
 - Uma assinatura do Azure, a qual pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
-- O plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies), lançamento de abril de 2014. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+- O Kit de Ferramentas do Azure para Eclipse, versão de abril de 2014 ou posterior. Para obter mais informações, veja [Instalar o Kit de Ferramentas do Azure para Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Um certificado X.509 para uso com o aplicativo. Você precisará desse certificado no certificado público (.cer) e no formato Troca de Informações Pessoais (.PFX). (As opções para criação desse certificado serão descritas posteriormente neste tutorial).
 - Familiaridade com emulador de computação do Azure e com as técnicas de implantação discutidas em [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
@@ -141,7 +141,7 @@ Nesta tarefa, você carrega um certificado PFX que será usado para assinar soli
 3.  Na página **Adicionar Certificado ou Chave de Autenticação de Token**:
     1. Na seção **Usado para**, clique em **Aplicativo de Terceira Parte Confiável** e selecione **Aplicativo Web do Azure** (que você configurou previamente com o nome do seu aplicativo de terceira parte confiável).
     2. Na seção **Tipo**, selecione **Certificado X.509**.
-    3. Na seção **Certificado**, clique no botão procurar e navegue até o arquivo de certificado x.509 que você deseja usar. Esse será um arquivo .PFX. Selecione o arquivo, clique em **Abrir** e, em seguida, digite a senha do certificado na caixa de texto **Senha**. Observe que, para fins de teste, você deve usar um certificado autoassinado. Para criar um certificado autoassinado, use o botão **Novo** na caixa de diálogo **Biblioteca de Filtros do ACS** (descrita posteriormente) ou use o utilitário **encutil.exe** no [site do projeto][] do Kit de Início do Azure para Java (da Microsoft Open Technologies).
+    3. Na seção **Certificado**, clique no botão procurar e navegue até o arquivo de certificado x.509 que você deseja usar. Esse será um arquivo .PFX. Selecione o arquivo, clique em **Abrir** e, em seguida, digite a senha do certificado na caixa de texto **Senha**. Observe que, para fins de teste, você deve usar um certificado autoassinado. Para criar um certificado autoassinado, use o botão **Novo** na caixa de diálogo **Biblioteca de Filtros do ACS** (descrita posteriormente) ou use o utilitário **encutil.exe** no [site do projeto][] do Kit de Início do Azure para Java.
     4. Verifique se **Tornar Primário** está marcado. Sua página **Adicionar Chave ou Certificado de Autenticação de Tokens** deve ser semelhante à exibida a seguir. ![Adicionar certificado de autenticação de token][add_token_signing_cert]
     5. Clique em **Salvar** para salvar suas configurações e fechar a página **Adicionar Certificado ou Chave de Autenticação de Token**.
 
@@ -310,4 +310,4 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

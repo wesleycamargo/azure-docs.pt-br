@@ -2,7 +2,7 @@
  pageTitle="Informações de Hub IoT para os profissionais de TI | Microsoft Azure"
  description="Informações para ajudar os profissionais de TI a trabalhar com o Hub IoT do Azure como requisitos de porta e fundo de segurança."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,8 +12,8 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="09/28/2015"
  ms.author="dobett"/>
 
 # Configurando e gerenciando o acesso ao Hub IoT
@@ -49,4 +49,4 @@ Este artigo contém informações específicas para os profissionais de TI e des
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

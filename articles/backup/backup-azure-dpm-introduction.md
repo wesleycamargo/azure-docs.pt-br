@@ -85,4 +85,4 @@ E os seguintes não têm suporte:
 
 >[AZURE.NOTE]No System Center 2012 DPM com SP1 em diante, é possível fazer backup de cargas de trabalho protegidas por DPM para o Azure usando o Backup do Microsoft Azure.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

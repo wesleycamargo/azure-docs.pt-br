@@ -83,4 +83,4 @@ Ao chegar na folha, para Application Insights, por exemplo, você pode:- Abrir o
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

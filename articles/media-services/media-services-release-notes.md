@@ -604,4 +604,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

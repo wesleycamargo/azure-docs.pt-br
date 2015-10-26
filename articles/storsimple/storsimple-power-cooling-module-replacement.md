@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Substituir um PCM em seu dispositivo StorSimple | Microsoft Azure"
-	description="Explica como remover e substituir módulo de energia e resfriamento (PCM) em seu dispositivo StorSimple"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Explica como remover e substituir módulo de energia e resfriamento (PCM) em seu dispositivo StorSimple"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple
 
@@ -152,4 +152,4 @@ Siga estas instruções para instalar um PCM em seu dispositivo StorSimple.
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -77,7 +77,7 @@ Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que
 
 1.	Máximo de 200 nomes de métrica exclusivos e 200 nomes de propriedade exclusivos para seu aplicativo. As métricas incluem o envio de dados por meio de TrackMetric, bem como as medidas em outros tipos de dados, como Eventos. Os[ nomes de propriedades e métricas][api] são globais por chave de instrumentação, mas não têm escopo definido segundo o tipo de dados.
 2.	As [propriedades][apiproperties] podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que os valores exclusivos excederem 100, a propriedade ainda pode ser usada para pesquisa e filtragem, mas não para filtros.
-3.	As propriedades padrão como Solicitar Nome e URL da Página são limitadas a 1.000 valores exclusivos por semana. Após 1.000 valores exclusivos, os valores adicionais serão marcados como “Outros valores”. O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
+3.	As propriedades padrão como Solicitar Nome e URL da Página estão limitadas a 1000 valores exclusivos por semana. Depois de 1000 valores exclusivos, os valores adicionais são marcados como "Outros valores". O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
 
 
 ## Access
@@ -245,9 +245,9 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http:/
 [platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

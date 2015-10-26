@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Adicionar Armazenamento do Azure usando serviços conectados no Visual Studio | Microsoft Azure"
-	description="Adicionar Armazenamento do Azure ao seu aplicativo usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Adicionar Armazenamento do Azure ao seu aplicativo usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="mobile"
-	ms.date="08/12/2015"
-	ms.author="patshea"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="mobile"
+   ms.date="08/12/2015"
+   ms.author="patshea" />
 
 # Adicionando armazenamento do Azure usando os serviços conectados do Visual Studio
 
@@ -94,4 +94,4 @@ Quando você acaba de fazer suas escolhas na caixa de diálogo, o Visual Studio 
 
      - [Documentação do Armazenamento em azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Pilha de comunicação padrão fornecida pela Malha de Serviço"
-	description="Este artigo descreve a pilha de comunicação padrão fornecida pela estrutura do Serviço Confiável para que serviços e clientes possam se comunicar."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="timlt"
-	editor=""/>
+   description="Este artigo descreve a pilha de comunicação padrão fornecida pela estrutura do Serviço Confiável para que serviços e clientes possam se comunicar."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # Pilha de comunicação padrão fornecida pela Estrutura de Serviços Confiáveis
 Para autores de serviço que não estejam atrelados a uma implementação específica da pilha de comunicação (WebAPI, WCF etc), a estrutura oferece as peças de comunicação relativas ao Cliente e ao serviço que podem ser usadas para configurar a comunicação entre o Serviço e o Cliente.
@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]A estrutura de comunicação trata de propagar as exceções geradas no serviço para o cliente. Dessa forma, a lógica de manipulação de exceção no cliente que usa o ServiceProxy pode tratar diretamente das exceções potencialmente geradas pelo serviço.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

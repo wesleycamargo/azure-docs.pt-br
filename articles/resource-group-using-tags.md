@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="10/14/2015"
 	ms.author="tomfitz"/>
 
 
@@ -48,15 +48,11 @@ Fixe as marcas mais importantes no seu quadro inicial para acesso rápido e voc�
 
 ## Marcação com o PowerShell
 
-Se você ainda não utilizou o PowerShell do Azure com o Gerenciador de recursos, consulte [Uso do PowerShell do Azure com o Gerenciador de recursos do Azure](../powershell-azure-resource-manager.md). Para os fins deste artigo, vamos supor que você já adicionou uma conta e selecionou uma assinatura com os recursos que deseja marcar.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-A marcação está disponível somente para recursos e grupos de recursos disponíveis do [Gerenciador de Recursos](http://msdn.microsoft.com/library/azure/dn790568.aspx), portanto, a próxima coisa que precisamos fazer é passar a usar o Gerenciador de Recursos.
+As marcas existem diretamente em recursos e grupos de recursos, portanto, para ver quais marcas já estão aplicadas, podemos simplesmente obter um recurso ou grupo de recursos com **Get-AzureRmResource** ou **Get-AzureRmResourceGroup**. Vamos começar com um grupo de recursos.
 
-    Switch-AzureMode AzureResourceManager
-
-As marcas existem diretamente em recursos e grupos de recursos, portanto, para ver quais marcas já estão aplicadas, podemos simplesmente obter um recurso ou grupo de recursos com `Get-AzureResource` ou `Get-AzureResourceGroup`, respectivamente. Vamos começar com um grupo de recursos.
-
-    PS C:\> Get-AzureResourceGroup tag-demo
+    PS C:\> Get-AzureRmResourceGroup tag-demo
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -80,9 +76,9 @@ As marcas existem diretamente em recursos e grupos de recursos, portanto, para v
                     tag-demo-site                    Microsoft.Web/sites                   southcentralus
 
 
-Esse cmdlet retorna vários bits de metadados sobre o grupo de recursos, incluindo quais marcas foram aplicadas, se houver. Para marcar um grupo de recursos, simplesmente use `Set-AzureResourceGroup` e especifique um valor e nome de marca.
+Esse cmdlet retorna vários bits de metadados sobre o grupo de recursos, incluindo quais marcas foram aplicadas, se houver. Para marcar um grupo de recursos, basta usar o comando **Set-AzureRmResourceGroup** e especificar um valor e nome de marca.
 
-    PS C:\> Set-AzureResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
+    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -95,9 +91,9 @@ Esse cmdlet retorna vários bits de metadados sobre o grupo de recursos, incluin
 
 As marcas são atualizadas como um todo, portanto, se você estiver adicionando uma marca a um recurso que já foi marcado, você precisará usar uma matriz com todas as marcas que você deseja manter. Para fazer isso, você pode primeiro selecionar as marcas existentes e adicionar uma nova.
 
-    PS C:\> $tags = (Get-AzureResourceGroup -Name tag-demo).Tags
+    PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureResourceGroup tag-demo -Tag $tags
+    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -112,7 +108,15 @@ As marcas são atualizadas como um todo, portanto, se você estiver adicionando 
 
 Para remover uma ou mais marcas, apenas salve a matriz sem aquela(s) que deseja remover.
 
-O processo é o mesmo para os recursos, exceto pelo fato de que você usará os cmdlets `Get-AzureResource` e `Set-AzureResource`. Para obter recursos ou grupos de recursos com uma marca específica, use o cmdlet `Get-AzureResource` ou `Get-AzureResourceGroup` com o parâmetro `-Tag`.
+O processo é o mesmo para os recursos, exceto se você usar os cmdlets **Get-AzureRmResource** e **Set-AzureRmResource**.
+
+Para obter os grupos de recursos com uma marca específica, use o cmdlet **Find-AzureRmResourceGroup** com o parâmetro **-Tag**.
+
+    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
+    rbacdemo-group
+    tag-demo
+
+Para versões do Azure PowerShell anteriores à visualização 1.0, use os seguintes comandos para obter recursos com uma marca específica.
 
     PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -120,11 +124,11 @@ O processo é o mesmo para os recursos, exceto pelo fato de que você usará os 
     PS C:\> Get-AzureResource -Tag @{ Name="env"; Value="demo" } | %{ $_.Name }
     rbacdemo-web
     rbacdemo-docdb
-    ...
+    ...    
 
-Para obter uma lista de todas as marcas dentro de uma assinatura usando o PowerShell, use o cmdlet `Get-AzureTag`.
+Para obter uma lista de todas as marcas dentro de uma assinatura usando o PowerShell, use o cmdlet **Get-AzureRmTag**.
 
-    PS C:/> Get-AzureTag
+    PS C:/> Get-AzureRmTag
     Name                      Count
     ----                      ------
     env                       8
@@ -132,7 +136,7 @@ Para obter uma lista de todas as marcas dentro de uma assinatura usando o PowerS
 
 Você pode ver as marcas que começam com "hidden-" e "link:". Elas são marcas internas, que você deve ignorar e evitar alterar.
 
-Use o cmdlet `New-AzureTag` para adicionar novas marcas à taxonomia. Essas marcas serão incluídas no preenchimento automático, mesmo que elas ainda não tenham sido aplicadas a nenhum recurso ou grupo de recursos. Para remover um nome/valor de uma marca, primeiramente remova a marca de todos os recursos com os quais ela pode ser usada e, em seguida, use o cmdlet `Remove-AzureTag` para removê-la da taxonomia.
+Use o cmdlet **New-AzureRmTag** para adicionar novas marcas à taxonomia. Essas marcas serão incluídas no preenchimento automático, mesmo que elas ainda não tenham sido aplicadas a nenhum recurso ou grupo de recursos. Para remover um nome/valor de uma marca, primeiramente remova a marca de todos os recursos com os quais ela pode ser usada e, em seguida, use o cmdlet **Remove-AzureRmTag** para removê-la da taxonomia.
 
 ## Marcação com a API REST
 
@@ -143,7 +147,7 @@ O portal e o PowerShell usam a [API REST do Gerenciador de Recursos](http://msdn
 
 Para serviços com suporte, você pode usar marcas para agrupar os dados de cobrança. Por exemplo, [Máquinas Virtuais integrado ao Gerenciador de Recursos do Azure](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) permitem definir e aplicar marcas para organizar o uso de cobrança para máquinas virtuais. Se você estiver executando várias VMs para organizações diferentes, poderá usar as marcas para o uso do grupo por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de tempo de execução, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
 
-Você pode recuperar informações sobre marcas por meio das [APIs RateCard e de Uso de Recursos do Azure](billing-usage-rate-card-overview.md) ou do arquivo de uso (CSV) com valores separados por vírgula que pode ser baixado no [Portal de contas do Azure](https://account.windowsazure.com/) ou no [portal de EA](https://ea.azure.com). Para obter mais informações sobre o acesso programático a informações de cobrança, consulte [Obtenha informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md). Para operações de API REST, confira [Referência da API REST de cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Você pode recuperar as informações sobre marcas por meio das [APIs RateCard e Uso de Recursos do Azure](billing-usage-rate-card-overview.md) ou do arquivo de uso (CSV) com valores separados por vírgula, que pode ser baixado no [Portal de contas do Azure](https://account.windowsazure.com/) ou no [portal de EA](https://ea.azure.com). Para obter mais informações sobre o acesso programático às informações de cobrança, veja [Obter informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md). Para operações da API REST, veja a [Referência da API REST de cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 Quando você baixa o CSV de uso para serviços que dão suporte a marcas de cobrança, as marcas aparecerão na coluna **Marcas**. Para obter mais detalhes, consulte [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
 
@@ -151,8 +155,8 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcas de cobr
 
 ## Próximas etapas
 
-- Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, veja [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md).
-- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, veja [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
-- Para obter uma introdução ao uso do portal de visualização, veja [Usando o portal de visualização do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
+- Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, veja a seção [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md).
+- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, veja a seção [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
+- Para obter uma introdução ao uso do portal de visualização, veja a seção [Usando o portal de visualização do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

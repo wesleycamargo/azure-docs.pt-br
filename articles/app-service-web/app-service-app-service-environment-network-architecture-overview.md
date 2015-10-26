@@ -87,4 +87,4 @@ Os detalhes sobre como usar rotas definidas pelo usu√°rio para conceder acesso √
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -50,4 +50,4 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

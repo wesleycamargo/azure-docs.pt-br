@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Instalar uma floresta do Active Directory em uma rede virtual do Azure"
-	description="Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure."
-	services="active-directory, virtual-network"
-	documentationCenter=""
-	authors="markusvi"
-	manager="TerryLan"
+	pageTitle="Instalar uma floresta do Active Directory em uma rede virtual do Azure" 
+	description="Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure." 
+	services="active-directory, virtual-network" 
+	documentationCenter="" 
+	authors="markusvi" 
+	manager="TerryLan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/23/2015"
+	ms.service="active-directory" 
+	ms.devlang="na" 
+	ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+	ms.date="07/23/2015" 
 	ms.author="markusvi"/>
 
 
@@ -138,4 +138,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

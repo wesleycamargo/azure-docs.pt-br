@@ -1,22 +1,24 @@
-Organizations are using more Software as a Service (SaaS) applications for productivity because cloud technology and tools are becoming more readily available. As the number of SaaS apps grows, it becomes challenging for the administrators to manage accounts and access rights, and for the users to remember their different passwords. Managing these applications individually creates extra work and is less secure.
+As organizações vêm utilizando mais aplicativos de SaaS (Software como serviço) para aumentar a tecnologia, uma vez que a tecnologia e as ferramentas de nuvem estão se tornando mais prontamente disponíveis. À medida que cresce o número de aplicativos de SaaS, torna-se um desafio para os administradores gerenciar contas e direitos de acesso e para os usuários lembrar de suas senhas diferentes. Gerenciar esses aplicativos individualmente cria mais trabalho e é menos seguro.
 
-- Employees who have to keep track of many passwords tend to use less-secure methods to remember them, either writing down passwords or using the same passwords across many accounts.
+- Funcionários que precisam controlar muitas senhas tendem a usar métodos menos seguros para se lembrar delas, anotando as senhas ou usando as mesmas senhas em várias contas.
 
-- When a new employee arrives or one leaves, all their accounts must be individually provisioned or de-provisioned.
+- Quando chega um novo funcionário ou um funcionário deixa a organização, todas as suas contas devem ser provisionadas ou desconfiguradas individualmente.
 
-- Additionally, employees may start using SaaS apps for their work without going through IT, which means they are creating their own accounts on systems that the IT administrators haven't approved and aren't monitoring.  
+- Além disso, os funcionários podem começar a usar aplicativos de SaaS em seu trabalho sem passar pela TI, o que significa que estão criando suas próprias contas em sistemas que os administradores de TI ainda aprovaram e não estão monitorando.
 
-A solution for all of these challenges is single sign-on (SSO). It's the simplest way to manage multiple apps and provide users with a consistent sign-on experience. Azure Active Directory (Azure AD) provides a robust SSO solution and has many available pre-integrated applications, with tutorials for admins to quickly set up a new app and start provisioning users.
+Uma solução para todos esses desafios é o SSO (logon único). É a maneira mais simples de gerenciar vários aplicativos e fornecer aos usuários uma experiência consistente de logon. O Active Directory do Azure (Azure AD) fornece uma robusta solução de SSO e tem muitos aplicativos pré-integrados disponíveis, com tutoriais para os administradores configurarem um novo aplicativo e iniciarem o provisionamento de usuários rapidamente.
 
 
-## How does Azure Active Directory integrate apps?  
+## Como o Active Directory do Azure integra aplicativos?  
 
-Azure AD allows you to integrate your apps and provisioned accounts. This can be done through either of two approaches.
+O Azure AD permite que você integre seus aplicativos e contas provisionadas. Isso pode ser feito por meio de uma de duas abordagens.
 
-- If the app is pre-integrated in the app Gallery, you can go through that portal to set up apps and configure the settings to allow SSO. For any Gallery app, you can get started by follow the simple step-by-step instructions presented in the app gallery and in the Azure portal to enable single sign-on.
+- Se o aplicativo for pré-integrado à Galeria de aplicativos, você pode usar esse portal para instalar aplicativos e configurar suas configurações para permitir o SSO. Para qualquer aplicativo da Galeria, você pode começar seguindo as instruções simples apresentadas na Galeria de aplicativos e no portal do Azure para habilitar o logon único.
 
-- If the app is not in the Gallery, you can still set up most apps in Azure AD as a custom app. This requires a bit more technical expertise to configure. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app.
+- Se o aplicativo não estiver na Galeria, você ainda pode configurar a maioria dos aplicativos no Azure AD como um aplicativo personalizado. Isso requer um pouco mais experiência técnica para ser configurado. Você pode adicionar qualquer aplicativo que ofereça suporte ao SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma página de entrada baseada em HTML como um aplicativo do SSO de senha.
 
-In the case where users have created their own accounts for SaaS apps that aren't managed by IT, the [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) tool provides a solution. This tool monitors the web traffic to identify which apps are being used throughout the organization, and the number of people using each of them. IT can use this information to learn what apps the users prefer and decide which to integrate into Azure AD for SSO.  
+No caso em que usuários criam suas próprias contas para aplicativos de SaaS que não são gerenciados pela IT, a ferramenta [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) oferece uma solução. Essa ferramenta monitora o tráfego da Web para identificar quais aplicativos estão sendo usados em toda a organização e o número de pessoas que usam cada um deles. A TI pode usar essas informações para saber quais aplicativos os usuários preferem e decidir o que integrar ao Azure AD para SSO.
 
-When you integrate an app into Azure AD, you can map the users' established application identities to their respective Azure AD identities.  
+Ao integrar um aplicativo ao Azure AD, você pode mapear as identidades do aplicativo estabelecido pelos usuários para suas respectivas identidades Azure AD.
+
+<!---HONumber=Oct15_HO3-->

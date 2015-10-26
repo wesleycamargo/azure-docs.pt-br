@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Copiar dados de saída para um banco de dados do SQL Server local (Portal do Azure)"
+	pageTitle="Copiar dados de saída para um banco de dados do SQL Server local (Portal do Azure)" 
 	description="Este passo a passo estende o tutorial sobre como usar o Data Factory Editor, de modo que o pipeline copie dados de saída para um banco de dados do SQL Server."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -169,4 +169,4 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

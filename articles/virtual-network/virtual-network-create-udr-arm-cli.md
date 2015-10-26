@@ -31,7 +31,7 @@ Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já cr
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## Criar a UDR para a sub-rede de front-end
+## Criar o UDR para a sub-rede de front-end
 Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end com base no cenário acima, siga as etapas abaixo.
 
 3. Execute o comando **`azure network route-table create`** para criar uma tabela de rotas para a sub-rede de front-end.
@@ -191,4 +191,4 @@ Para habilitar o encaminhamento de IP na NIC usada por **FW1**, siga as etapas a
 
 	- **-f (ou --enable-ip-forwarding)**. *true* ou *false*.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

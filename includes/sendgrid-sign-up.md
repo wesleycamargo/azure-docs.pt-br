@@ -50,7 +50,7 @@ Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-	Para definir suas configurações de entrega de email, clique no botão **Gerenciar**. Isso abrirá a interface da Web do Sendgrid.com, onde você poderá fazer logon e abrir o Painel de Controle do SendGrid.
+	Para definir suas configurações de entrega de email, clique no botão **Gerenciar**. Você será redirecionado para o painel de controle do SendGrid.
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
@@ -76,4 +76,4 @@ Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.
 [Processo de provisionamento do SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [todas as APIs]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

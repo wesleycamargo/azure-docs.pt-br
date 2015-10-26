@@ -25,4 +25,4 @@ Contas de armazenamento | |1,000<sup>5</sup>
 
 <sup>5</sup> As contas de armazenamento devem ser da mesma assinatura do Azure.
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

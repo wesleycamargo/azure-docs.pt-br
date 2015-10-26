@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Compilar um aplicativo HBase usando o Maven | Microsoft Azure"
+	pageTitle="Criar um aplicativo de HBase usando Maven e Java e implantar o HDInsight baseado em Linux| Microsoft Azure"
 	description="Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no HDInsight baseada em Linux na nuvem do Azure."
 	services="hdinsight"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Utilizar o Maven para criar aplicativos Java que usam o HBase com o HDInsight (Hadoop)
@@ -332,7 +332,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE]Se você usou uma chave SSH com a conta, você pode precisar inserir a senha. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
+	> [AZURE.NOTE]Se você tiver usado uma senha para sua conta SSH, a inserção da senha poderá ser solicitada. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
 	>
 	> `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
@@ -361,4 +361,4 @@ Após ter terminado o exemplo, use o comando a seguir na sessão do Azure PowerS
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

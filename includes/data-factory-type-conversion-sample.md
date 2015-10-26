@@ -69,4 +69,4 @@ Em seguida, você definirá o conjunto de dados do SQL Azure da seguinte maneira
 
 Nesse caso, o data factory fará automaticamente as conversões de tipo, inclusive o campo de data e hora, com o formato de data e hora personalizado usando a cultura fr-fr ao mover dados de Blob para o SQL Azure.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

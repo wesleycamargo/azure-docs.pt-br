@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notas de versão do Application Insights para .NET"
-	description="As últimas atualizações."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Notas de versão do Application Insights para .NET" 
+	description="As últimas atualizações." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2015" 
 	ms.author="sergkanz"/>
  
 # Notas de versão do SDK do Application Insights para .NET
@@ -32,14 +32,25 @@ Consulte [Introdução ao Application Insights para .NET](app-insights-start-mon
 * Compare o ApplicationInsights.config com a cópia antiga. A maioria das alterações que você ocorreu porque removemos alguns módulos e tornamos outros parametrizáveis. Reaplique as personalizações feitas no arquivo antigo.
 * Recompile sua solução.
 
+## Versão 2.0.0-beta1
+- O TrackDependency produzirá um JSON válido quando nem todos os campos obrigatórios tiverem sido especificados.
+- A propriedade redundante ```RequestTelemetry.ID``` agora é apenas um proxy para ```RequestTelemetry.Operation.Id```.
+- Nova interface ```ISupportSampling``` e sua implementação explícita pela maioria dos tipos de item de dados.
+- Propriedade ```Count``` DependencyTelemetry marcada como Obsoleta. Use ```SamplingPercentage```.
+- Novo ```CloudContext``` introduzido e propriedades ```RoleName``` e ```RoleInstance``` movidas dele para ```DeviceContext```.
+- Nova propriedade ```AuthenticatedUserId``` em ```UserContext``` para especificar a identidade do usuário autenticado.
+- `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer` adicionado, `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer` que inicializa o contexto do usuário autenticado conforme definido pelo SDK do Javascript.
+- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` adicionado, bem como o suporte de amostragem de taxa fixa como sua implementação.
+- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder` adicionado, que permite a criação de um `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` com um conjunto de `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
+
 ## Versão 1.2
 
 - Inicializadores de telemetria que não têm dependências em bibliotecas do ASP.NET foram movidos de `Microsoft.ApplicationInsights.Web` para o novo nuget de dependência `Microsoft.ApplicationInsights.WindowsServer`
-- `Microsoft.ApplicationInsights.Web.dll` foi renomeado para `Microsoft.AI.Web.dll`.
-- `Microsoft.ApplicationInsights.Web.TelemetryChannel` o nuget foi renomeado em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` o assembly foi renomeado em `Microsoft.AI.ServerTelemetryChannel.dll`. `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` a classe foi renomeada em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
-- Todos os namespaces que fazem parte do Web SDK foram alterados para excluir a parte `Extensibility`. Isso inclui todos os inicializadores de telemetria em Applicationinsights. config e o módulo `ApplicationInsightsWebTracking` no web.config.
+- `Microsoft.ApplicationInsights.Web.dll` foi renomeado em `Microsoft.AI.Web.dll`
+- O nuget `Microsoft.ApplicationInsights.Web.TelemetryChannel` foi renomeado em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. O assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` foi renomeado em `Microsoft.AI.ServerTelemetryChannel.dll`. A classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` foi renomeada em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- Todos os namespaces que fazem parte do SDK Web foram alterados para excluir a parte `Extensibility`. Isso inclui todos os inicializadores de telemetria em ApplicationInsights.config e o módulo `ApplicationInsightsWebTracking` no web.config.
 - As dependências são coletadas usando o agente de instrumentação do tempo de execução (habilitado por meio da extensão do Monitor de Status ou do Site do Azure) não serão marcadas como assíncronas se não houver nenhum HttpContext.Current no thread.
-- A Propriedade `SamplingRatio` de `DependencyTrackingTelemetryModule` não faz nada e foi marcado como obsoleto.
+- A propriedade `SamplingRatio` de `DependencyTrackingTelemetryModule` não faz nada e foi marcada como obsoleta.
 - O assembly `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector` foi renomeado em `Microsoft.AI.PerfCounterCollector`
 - Várias correções de bugs secundários na Web e SDKs de Dispositivos
 
@@ -86,4 +97,4 @@ Não há notas de versão disponíveis para versões anteriores.
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

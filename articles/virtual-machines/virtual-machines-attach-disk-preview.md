@@ -19,7 +19,7 @@
 
 # Como anexar um disco de dados no portal de visualização do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos. Você também pode criar um recurso com o [modelo de implantação clássico](storage-windows-attach-disk.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](storage-windows-attach-disk.md).
 
 Este artigo mostra como anexar discos novos e existentes em uma máquina virtual por meio do portal de visualização do Azure. Antes de fazer isso, revise estas dicas:
 
@@ -35,7 +35,7 @@ Este artigo mostra como anexar discos novos e existentes em uma máquina virtual
 
 2. No menu Hub, clique em **Procurar**.
 
-3. Na folha de pesquisa, role a tela para baixo e clique em **Máquinas Virtuais**.
+3. Na folha de pesquisa, role para baixo e clique em **Máquinas Virtuais**.
 
 	![Procurar máquinas virtuais](./media/virtual-machines-attach-disk-preview/search-blade-preview-portal.png)
 
@@ -51,11 +51,11 @@ Continue seguindo as instruções para anexar um novo disco ou um disco existent
 
 1.	Na folha **Discos**, clique em **Anexar novo**.
 
-2.	Examine as configurações padrões, atualize conforme necessário e clique em **OK**.
+2.	Examine as configurações padrão, atualize conforme necessário e clique em **OK**.
 
  	![Analisar configurações de disco](./media/virtual-machines-attach-disk-preview/attach-new.png)
 
-3.	Depois que o Azure cria o disco e anexa-o à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
+3.	Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
 
 ## Opção 2: Anexar um disco existente
 
@@ -90,4 +90,4 @@ Depois que o disco é adicionado, é necessário prepará-lo para uso em um sist
 
 [Sobre as contas de armazenamento do Azure]: ../storage-whatis-account/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

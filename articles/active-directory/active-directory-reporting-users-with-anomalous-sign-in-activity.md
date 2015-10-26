@@ -22,4 +22,4 @@ Este é um relatório agregado que combina entradas suspeitas dos seguintes rela
 
 ![Usuários com atividade de entrada anômala](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

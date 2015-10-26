@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Conectando-se usando um método alternativo com o Azure Multi-Factor Authentication"
-	description="Esta página descreverá como um usuário pode se conectar usando um método alternativo com o Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Conectando-se usando um método alternativo com o Azure Multi-Factor Authentication" 
+	description="Esta página descreverá como um usuário pode se conectar usando um método alternativo com o Azure MFA." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Conectando-se usando um método alternativo com o Azure Multi-Factor Authentication
@@ -33,4 +33,4 @@ A seção a seguir mostrará como se conectar com um método alternativo quando 
 
 <li>Escolha um método alternativo e conecte-se.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

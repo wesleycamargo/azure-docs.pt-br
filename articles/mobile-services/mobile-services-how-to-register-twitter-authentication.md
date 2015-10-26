@@ -62,4 +62,4 @@ Agora você está pronto para usar um logon do Twitter para autenticação no se
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

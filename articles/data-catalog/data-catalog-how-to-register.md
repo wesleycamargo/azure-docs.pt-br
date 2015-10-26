@@ -94,4 +94,4 @@ O novo registro de uma fonte de dados já registrada executa uma operação de m
 ## Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** facilita a descoberta e a compreensão da fonte de dados ao copiar metadados estruturais e descritivos da fonte de dados no serviço de catálogo. Depois que uma fonte de dados tiver sido registrada, ela poderá ser anotada, gerenciada e descoberta usando o portal do **Catálogo de Dados do Azure**.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

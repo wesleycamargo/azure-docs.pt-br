@@ -309,4 +309,4 @@ Figura 26 Resultado do serviço Web de Problema de recomendação do restaurante
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

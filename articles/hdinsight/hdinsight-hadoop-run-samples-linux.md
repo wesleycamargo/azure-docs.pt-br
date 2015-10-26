@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Executar amostras do Hadoop no HDInsight | Microsoft Azure"
+	pageTitle="Executar amostras do Hadoop no HDInsight baseado em Linux | Microsoft Azure"
 	description="Introdução ao uso de exemplos de MapReduce com HDInsight baseado em Linux. Utilize SSH para se conectar ao cluster e use o comando do Hadoop para executar trabalhos de exemplo."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
 	editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 
@@ -243,4 +243,4 @@ Neste artigo, você aprendeu a executar os exemplos incluídos com os clusters d
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

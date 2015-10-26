@@ -82,7 +82,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho 
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-onedrive/img1.PNG
@@ -97,4 +97,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Definição da API do OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -98,4 +98,4 @@ A folha de detalhes exibirá as informações disponíveis relacionadas à opera
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

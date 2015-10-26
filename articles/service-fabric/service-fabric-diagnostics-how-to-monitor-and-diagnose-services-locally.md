@@ -79,4 +79,4 @@ O mesmo código de rastreamento que você adicionou ao aplicativo acima para dia
 * [Diagnóstico e monitoramento de desempenho de Atores da Malha do Serviço do Azure](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnóstico de Serviços Confiáveis com estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/08/2015"
 	ms.author="genemi"/>
 
 
@@ -220,18 +220,19 @@ O cenário a seguir explica que um banco de dados SQL do Azure V11 excluído pod
 5. Você pode alternar o banco de dados para qualquer camada de serviço compatível, se S0 não for da sua preferência.
 
 
-### Cmdlets do Powershell
+### Cmdlets do PowerShell
 
 
-Os cmdlets do Powershell estão disponíveis para iniciar, parar ou monitorar uma atualização para o Banco de Dados SQL do Azure de V11 para V12 ou de qualquer outra versão anterior à V12.
+Os cmdlets do PowerShell estão disponíveis para iniciar, parar ou monitorar uma atualização para o Banco de Dados SQL do Azure da V11 para a V12 ou de qualquer outra versão anterior à V12.
+
+- [Atualização para o Banco de Dados SQL V12 com o PowerShell](sql-database-upgrade-server.md)
+
+Para ver a documentação de referência sobre esses cmdlets do PowerShell, confira:
 
 
-Para ver a documentação de referência sobre esses cmdlets do Powershell, confira:
-
-
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
 
 O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atualização, a não ser começá-la novamente. O cmdlet Stop- limpa e libera todos os recursos apropriados.
@@ -253,4 +254,4 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

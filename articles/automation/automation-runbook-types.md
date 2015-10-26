@@ -109,4 +109,4 @@ Você deve levar em conta as considerações adicionais a seguir ao determinar q
 - [Aprendendo sobre o fluxo de trabalho do Windows PowerShell](automation-powershell-workflow.md)
 - [Criando ou Importando um Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

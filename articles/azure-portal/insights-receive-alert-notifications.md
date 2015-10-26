@@ -65,4 +65,4 @@ Depois de criar uma regra de alerta, você pode exibir uma visualização de seu
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -53,4 +53,4 @@ Esta etapa aborda apenas os recursos personalizados. Se você personalizou os re
 
 Consulte [Procedimentos de atualização](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

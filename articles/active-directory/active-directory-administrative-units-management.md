@@ -36,4 +36,4 @@ Para obter mais informações sobre requisitos de software e instalação do mó
 ## Próximas etapas
 [Edições do Active Directory do Azure](active-directory-editions.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

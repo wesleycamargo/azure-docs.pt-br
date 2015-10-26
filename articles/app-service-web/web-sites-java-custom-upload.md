@@ -257,4 +257,4 @@ Para obter mais informações sobre Java, consulte o [Centro de desenvolvedores 
 <!-- External Links -->
 [Serviço de Aplicativo do Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

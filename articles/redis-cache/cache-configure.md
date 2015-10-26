@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="10/09/2015"
    ms.author="sdanie" />
 
 # Como configurar o Cache Redis do Azure
@@ -163,11 +163,16 @@ Para obter mais informações sobre os comandos do Redis, veja [http://redis.io/
 
 ## Console do Redis
 
-Você pode emitir com segurança comandos para as suas instâncias do Cache Redis do Azure usando o **Console do Redis**, que está disponível para os caches Standard e Premium. Para acessar o Console do Redis, clique em **Console** na folha **Cache Redis**.
+Você pode emitir com segurança comandos para as suas instâncias do Cache Redis do Azure usando o **Console do Redis**, que está disponível para os caches Standard e Premium.
+
+>[AZURE.IMPORTANT]O Console do Redis não funciona com VNET ou cluster.
+>
+>-	[VNET](cache-how-to-premium-vnet.md) - quando o seu cache é parte de um VNET, somente clientes na VNET podem acessar o cache. Como o Console do Redis usa o cliente redis cli.exe hospedado em máquinas virtuais que não fazem parte da sua VNET, não pode se conectar ao seu cache.
+>-	[Clusters](cache-how-to-premium-clustering.md) - O Console Redis usa o cliente de redis cli.exe que não dá suporte a clusters neste momento. O utilitário redis cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub implementa suporte básico quando iniciado com o `-c` switch. Para obter mais informações, consulte [Reprodução com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [tutorial de cluster Redis](http://redis.io/topics/cluster-tutorial).
+
+Para acessar o Console do Redis, clique em **Console** na folha **Cache Redis**.
 
 ![Console do Redis](./media/cache-configure/redis-console-menu.png)
-
->[AZURE.IMPORTANT]O Console do Redis está disponível apenas para os caches Standard e Premium.
 
 Para emitir comandos em sua instância de cache, simplesmente digite no comando desejado no console.
 
@@ -178,4 +183,4 @@ Para obter a lista de comandos do Redis que estão desabilitados para o Cache Re
 ## Próximas etapas
 -	Para obter mais informações sobre como trabalhar com os comandos do Redis, veja [Como posso executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

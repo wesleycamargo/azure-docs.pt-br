@@ -1,3 +1,13 @@
+<properties services="virtual-machines" title="Setting up PowerShell" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
+
+<tags
+   ms.service="virtual-machines"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm=""
+   ms.workload="infrastructure"
+   ms.date="05/12/2015"
+   ms.author="josephd" />
 
 ## Configurando o PowerShell
 
@@ -68,4 +78,4 @@ Você pode definir a assinatura do Azure atual ao executar estes comandos no pro
 
 Para obter mais informações sobre contas e assinaturas do Azure, consulte [How to: Connect to your subscription (Como: conectar-se à sua assinatura)](powershell-install-configure.md#Connect).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

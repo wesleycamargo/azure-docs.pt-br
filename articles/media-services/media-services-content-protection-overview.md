@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/08/2015" 
 	ms.author="juliako"/>
 
 #Visão geral sobre a proteção de conteúdo
@@ -54,7 +54,7 @@ Para entregar um ativo de armazenamento criptografado, você deve configurar a p
 
 ###Criptografia dinâmica
 
-Os Serviços de Mídia do Microsoft Azure permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES (padrão avançado), usando chaves de criptografia de 128 bits e PlayReady DRM.
+Os Serviços de Mídia do Microsoft Azure permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES ( usando chaves de criptografia de 128 bits) e PlayReady e/ou Widevine DRM.
 
 Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
 
@@ -86,7 +86,7 @@ Ao configurar a política restrita do token, você deve especificar os parâmetr
 
 ###Widevine
 
-O AMS também permite distribuir DASH criptografado com Widevine DRM. PlayReady e Widewine são criptografados de acordo com a especificação de criptografia comum (CENC). Você pode usar o [SDK .NET AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration para usar o Widevine.
+O AMS também permite distribuir DASH MPEG criptografado com Widevine DRM. PlayReady e Widewine são criptografados de acordo com a especificação de criptografia comum (CENC). Você pode usar o [SDK .NET AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration para usar o Widevine.
 
 Atualmente, os Serviços de Mídia não fornece um servidor de licença Widevine. Você pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
 
@@ -136,4 +136,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -20,8 +20,7 @@
 
 Com o modelo de aplicativo v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web com suporte para contas pessoais da Microsoft e contas corporativas ou de estudante. Nos aplicativos Web ASP.NET, você pode conseguir isso usando o middleware OWIN da Microsoft, incluso no .NET Framework 4.5.
 
-  >[AZURE.NOTE]
-	Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+  >[AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
  Aqui usaremos o OWIN para: 
 - Entrada do usuário no aplicativo usando o AD do Azure e o modelo de aplicativo v2.0. 
@@ -37,20 +36,18 @@ Para isso, você precisará:
 
 O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) ou clonar o esqueleto:
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git
-```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
 O aplicativo concluído é fornecido também no final desse tutorial.
 
-## 1. Registrar um aplicativo
-Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md)  Não se esqueça de:
+## 1\. Registrar um aplicativo
+Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 - Adicionar a plataforma **Web** para seu aplicativo.
 - Inserir o **URI de Redirecionamento** correto. O URI de redirecionamento indica ao Azure AD para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `https://localhost:44326/`.
 
-## 2. Configure seu aplicativo para usar o pipeline de autenticação OWIN
+## 2\. Configure seu aplicativo para usar o pipeline de autenticação OWIN
 Aqui, configuraremos middleware OWIN para usar o protocolo de autenticação OpenID Connect. OWIN será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `web.config` na raiz do projeto e insira os valores de configuração do aplicativo na seção `<appSettings>`.
@@ -65,7 +62,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
--	Adicione uma “Classe de Inicialização do OWIN” ao projeto chamado `Startup.cs` Clique com o botão direito do mouse no projeto, selecione --> **Adicionar** --> **Novo Item** --> Pesquise por "OWIN". O middleware OWIN invocará o método `Configuration(...)` quando seu aplicativo for iniciado.
+-	Adicione uma classe de inicialização do OWIN ao projeto chamado `Startup.cs` Clique com o botão direito do mouse no projeto, selecione --> **Adicionar** --> **Novo Item** --> Pesquise por "OWIN". O middleware OWIN invocará o método `Configuration(...)` quando seu aplicativo for iniciado.
 -	Altere a declaração de classe para `public partial class Startup` -já implementamos parte dessa classe para você em outro arquivo. No método `Configuration(...)`, faça uma chamada para ConfigureAuth(...) para configurar a autenticação para seu aplicativo Web  
 
 ```C#
@@ -201,9 +198,7 @@ Por fim, compile e execute seu aplicativo! Entre com uma conta pessoal da Micros
 
 Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
 ## Próximas etapas
 
@@ -215,4 +210,4 @@ Para obter recursos adicionais, confira:
 - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

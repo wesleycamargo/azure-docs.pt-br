@@ -66,4 +66,4 @@ A Graph API habilita muitos cenários de aplicativos. A seguir, os cenários mai
 
 [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

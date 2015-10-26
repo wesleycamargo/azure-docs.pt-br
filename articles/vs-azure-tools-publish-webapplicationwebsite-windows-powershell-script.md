@@ -129,4 +129,4 @@ Você pode editar o arquivo de configuração JSON para alterar o que é implant
 
 Para obter mais informações, consulte [WebApplicationVM de publicação (script do Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

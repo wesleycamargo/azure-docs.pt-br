@@ -68,7 +68,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 		info:    Setting route "RouteToBackEnd" in a route table "UDR-FrontEnd"
 		info:    network route-table route set command OK
 
-	Parâmetros:- **- r (ou --route-table-name)**. Nome da tabela de rota à qual a rota será adicionada. Para o nosso cenário, *UDR-FrontEnd*.- **-a (ou --address-prefix)**. Prefixo de endereço para a sub-rede à qual os pacotes são destinados. Para o nosso cenário, *192.168.2.0/24*. -**-t (ou --next-hop-type)**. Tipo de objeto ao qual o tráfego será enviado. Os valores possíveis são *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *nenhum*. -**-p (ou --next-hop-ip-address**). Endereço IP do próximo salto. Para o nosso cenário, *192.168.0.4*.
+	Parâmetros:- **- r (ou --route-table-name)**. Nome da tabela de rotas à qual a rota será adicionada. Para o nosso cenário, *UDR-FrontEnd*.- **-a (ou --address-prefix)**. Prefixo de endereço para a sub-rede à qual os pacotes são destinados. Para o nosso cenário, *192.168.2.0/24*. -**-t (ou --next-hop-type)**. Tipo de objeto ao qual o tráfego será enviado. Os valores possíveis são *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *nenhum*. -**-p (ou --next-hop-ip-address**). Endereço IP do próximo salto. Para o nosso cenário, *192.168.0.4*.
 
 5. Execute o comando **`azure network vnet subnet route-table add`** para associar a tabela de rotas criada acima à sub-rede de **FrontEnd**.
 
@@ -104,4 +104,4 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
 
 		azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -11,4 +11,4 @@ Em seguida, você precisa alterar a maneira que as notificações por push são 
 UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 ```
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

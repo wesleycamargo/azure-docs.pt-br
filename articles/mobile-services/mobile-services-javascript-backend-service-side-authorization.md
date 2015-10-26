@@ -70,4 +70,4 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

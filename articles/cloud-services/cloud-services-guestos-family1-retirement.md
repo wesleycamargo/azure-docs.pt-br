@@ -81,4 +81,4 @@ Não há mais suporte para serviços de nuvem na família 1 dos sistemas operaci
 ## Próximas etapas
 Examinar as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

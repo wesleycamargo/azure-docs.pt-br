@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Tutorial: Criar um pipeline com a Atividade de Cópia usando o Azure PowerShell"
-	description="Neste tutorial, você criará um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Azure PowerShell."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Tutorial: Criar um pipeline com a Atividade de Cópia usando o Azure PowerShell" 
+	description="Neste tutorial, você criará um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Azure PowerShell." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar e monitorar uma data factory usando o PowerShell do Azure
@@ -229,9 +229,9 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 
 	Consulte a [Referência de script JSON](http://go.microsoft.com/fwlink/?LinkId=516971) para obter detalhes sobre as propriedades JSON.
 
-2.	Execute o comando a seguir para criar a tabela de Data Factory.
+2.	Execute o comando a seguir para criar o conjunto de dados de Data Factory.
 
-		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### Criar tabela de saída
 Nesta parte da etapa, você criará uma tabela de saída denominada **EmpSQLTable** que aponta para uma tabela SQL (**emp**) no banco de dados SQL do Azure que é representada pelo serviço vinculado **AzureSqlLinkedService**. O pipeline copia os dados do blob de entrada na tabela **emp**.
@@ -271,9 +271,9 @@ Nesta parte da etapa, você criará uma tabela de saída denominada **EmpSQLTabl
 	* Há três colunas – **ID**, **FirstName** e **LastName** – na tabela emp no banco de dados, mas ID é uma coluna de identidade, portanto, você precisa especificar somente **FirstName** e **LastName**.
 	* A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1**). O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
 
-2.	Execute o comando a seguir para criar a tabela de Data Factory.
+2.	Execute o comando a seguir para criar o conjunto de dados de Data Factory.
 	
-		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
 ## <a name="CreateAndRunAPipeline"></a>Etapa 4: Criar e executar um pipeline
@@ -432,4 +432,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

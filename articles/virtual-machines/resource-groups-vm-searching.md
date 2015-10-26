@@ -20,9 +20,10 @@
 
 # Navegue e selecione imagens de Máquina Virtual do Azure com o Windows PowerShell e a CLI do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo abrange a pesquisa por imagens de uma máquina virtual no modelo de implantação do Gerenciador de Recursos. Você também pode pesquisar imagens no [modelo de implantação clássica](https://msdn.microsoft.com/library/azure/dn499770.aspx).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
-Este artigo descreve como navegar e selecionar imagens da máquina virtual usando uma instalação recente da CLI do Azure ou do Azure PowerShell. Como pré-requisito, você precisaria alterar para o modo do Gerenciador de Recursos. Com a CLI do Azure, insira esse modo digitando `azure config mode arm`. Com o PowerShell, digite `Switch-AzureMode AzureResourceManager`. Consulte [Usando a CLI do Azure com o Gerenciador de Recursos](xplat-cli-azure-resource-manager.md) e [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md) para obter detalhes mais completos de atualização e configuração.
+
+Este artigo descreve como navegar e selecionar imagens da máquina virtual usando uma instalação recente da CLI do Azure ou do Azure PowerShell. Como pré-requisito, você precisaria alterar para o modo do Gerenciador de Recursos. Com a CLI do Azure, insira esse modo digitando `azure config mode arm`. Com o PowerShell, digite `Switch-AzureMode AzureResourceManager`. Consulte [Usando a CLI do Azure com gerenciamento de recursos](xplat-cli-azure-resource-manager.md) e [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md) para obter detalhes mais completos de atualização e configuração.
 
 ## Tabela de imagens mais usadas
 
@@ -84,7 +85,7 @@ Muitas vezes, no entanto, você ainda não saiba o que está disponível. Nesse 
     data:    AlertLogic.Extension                            westus  
 
 
-Essas listas podem ser muito longas, portanto, a lista de exemplo acima é simplesmente um trecho de código. Vamos supor que percebi que Canonical é, na verdade, um editor de imagem no local Oeste dos EUA. Agora você pode encontrar suas ofertas chamando `azure vm image list-offers` e passar o local e o editor nos prompts, como no exemplo a seguir:
+Essas listas podem ser muito longas, portanto, a lista de exemplo acima é simplesmente um trecho de código. Vamos supor que percebi que Canonical é, na verdade, um editor de imagem no local Oeste dos EUA. Agora você pode encontrar suas ofertas chamando `azure vm image list-offers` e passar o local e o editor em solicitações, como no exemplo a seguir:
 
     azure vm image list-offers
     info:    Executing command vm image list-offers
@@ -96,7 +97,7 @@ Essas listas podem ser muito longas, portanto, a lista de exemplo acima é simpl
     data:    canonical  UbuntuServer  westus  
     info:    vm image list-offers command OK
 
-Agora sabemos que, na região Oeste dos EUA, Canonical publica a oferta **UbuntuServer** no Azure. Mas quais SKUs? Para saber quais, você chama `azure vm image list-skus` e responde ao prompt com o local, editor e oferta que você descobriu.
+Agora sabemos que, na região Oeste dos EUA, Canonical publica a oferta **UbuntuServer** no Azure. Mas quais SKUs? Para saber quais, você chama `azure vm image list-skus` e responde à solicitação com o local, editor e oferta que você descobriu.
 
     azure vm image list-skus
     info:    Executing command vm image list-skus
@@ -243,4 +244,4 @@ Este vídeo demonstra as etapas acima usando o PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

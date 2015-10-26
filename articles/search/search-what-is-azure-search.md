@@ -131,4 +131,4 @@ Você também pode tentar estes tutoriais:
 
 [Como usar a Pesquisa do Azure no .NET](search-howto-dotnet-sdk.md) [Introdução ao .NET da Pesquisa do Azure](search-get-started-dotnet.md) [Pesquisa do Azure: tutoriais, demonstrações em vídeo e exemplos](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

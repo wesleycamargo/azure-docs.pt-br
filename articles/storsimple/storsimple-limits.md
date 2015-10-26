@@ -27,4 +27,4 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 
 Analise os [requisitos de sistema do StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

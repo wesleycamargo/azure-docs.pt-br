@@ -109,4 +109,4 @@ Quando você criar um runbook, verifique se o tempo para executar atividades ent
 
 - [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

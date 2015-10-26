@@ -47,7 +47,7 @@ Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia no comp
 	        ParallelTransferThreadCount = 20
 	    };
 	
-	    var downloadTasks = new List&lt;Task&gt;();
+	    var downloadTasks = new List<Task>();
 	    foreach (IAssetFile outputFile in outputAsset.AssetFiles)
 	    {
 	        // Use the following event handler to check download progress.
@@ -85,4 +85,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 [Fornecer conteúdo de streaming](media-services-deliver-streaming-content.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -152,9 +152,9 @@ Agora, você criará o conjunto de dados de saída para representar os dados arm
 
 	No exemplo anterior, você cria um conjunto de dados chamado **AzureBlobOutput** e especifica a estrutura dos dados que serão produzidos pelo script do Hive. Além disso, você especifica que os resultados são armazenados no contêiner de blob denominado **dados** e na pasta chamada **partitioneddata**. A seção **disponibilidade** especifica que o conjunto de dados de saída é produzido mensalmente.
 
-2. Execute o comando a seguir no Azure PowerShell para criar a tabela do Data Factory.
+2. Execute o comando a seguir no Azure PowerShell para criar o conjunto de dados do Data Factory.
 
-		New-AzureDataFactoryTable $df -File .\OutputTable.json
+		New-AzureDataFactoryDataset $df -File .\OutputTable.json
 
 ## Etapa 3: Criação do seu primeiro pipeline
 Nesta etapa, você criará seu primeiro pipelines.
@@ -268,4 +268,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,8 @@
 
 Com o Azure, você pode usar uma máquina virtual para lidar com tarefas de computação intensiva. Por exemplo, uma máquina virtual pode lidar com tarefas e fornecer resultados às máquinas dos clientes ou aos aplicativos móveis. Depois de concluir o tutorial, você saberá como criar uma máquina virtual que executa um aplicativo .NET de uso intensivo de computação que pode ser monitorado por outro aplicativo .NET.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Este tutorial pressupõe que você saiba como criar aplicativos de console do .NET. Nenhum conhecimento do Azure é assumido.
 
@@ -549,4 +550,4 @@ Em vez de usar TSPSolver para criar ou excluir a fila, é possível criá-la ou 
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

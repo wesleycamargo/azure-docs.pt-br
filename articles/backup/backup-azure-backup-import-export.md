@@ -1,11 +1,11 @@
 <properties
    pageTitle="Backup do Azure - Backup offline ou propagação inicial usando o serviço de Importação/Exportação do Azure | Microsoft Azure"
-	description="Saiba como o Backup do Azure permite que você envie dados fora da rede usando o serviço de Importação/Exportação do Azure. Este artigo explica a propagação offline de dados de backup iniciais usando o serviço de Importação/Exportação do Azure"
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
-	editor=""/>
+   description="Saiba como o Backup do Azure permite que você envie dados fora da rede usando o serviço de Importação/Exportação do Azure. Este artigo explica a propagação offline de dados de backup iniciais usando o serviço de Importação/Exportação do Azure"
+   services="backup"
+   documentationCenter=""
+   authors="aashishr"
+   manager="shreeshd"
+   editor=""/>
 <tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
 
 # Fluxo de trabalho de backup offline no Backup do Azure
@@ -108,4 +108,4 @@ Quando os dados de backup iniciais estiverem disponíveis em sua conta de armaze
 - Se tiver dúvidas sobre o fluxo de trabalho de importação/exportação do Azure, consulte este [artigo](../storage-import-export-service.md).
 - Consulte a seção “Backup Offline” das [perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure se tiver dúvidas sobre o fluxo de trabalho
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

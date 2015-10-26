@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Atividades de movimentação de dados
 A data factory tem um [serviço disponível globalmente](#global) para dar suporte à movimentação de dados com [atividade de cópia](#copyactivity) em uma variedade de armazenamentos de dados listados abaixo. A data factory também tem suporte interno para [mover dados entre pontos locais e a nuvem com segurança](#moveonpremtocloud) usando o gateway de gerenciamento de dados.
+
+Para obter um tutorial rápido sobre como usar a Atividade de Cópia, consulte [Tutorial: uso da Atividade de Cópia em um Pipeline do Azure Data Factory](data-factory-get-started.md). No tutorial, você usará a Atividade de Cópia para copiar dados de um armazenamento de blob do Azure para um banco de dados SQL do Azure. A tabela a seguir lista as fontes e coletores com suporte pela Atividade de cópia.
+
 
 ## Repositórios de dados com suporte para a atividade de cópia
 A atividade de cópia copia os dados de um armazenamento de dados de **origem** para um armazenamento de dados **coletor**. A data factory dá suporte aos seguintes combinações de armazenamentos de dados, fonte e coletor. Clique em um armazenamento de dados para saber como copiar dados de/para ele.
@@ -96,6 +99,6 @@ No caso da atividade de cópia, a seção **typeProperties** varia de acordo com
 
 
 ## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -219,7 +219,7 @@ Nesta seção, você criará um projeto de aplicativo de console que usa o códi
 
 2. Defina uma referência para System.Windows.Forms.
  
-	* No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e, em seguida, clique em **Adicionar Referência**.
+	* No ** Gerenciador de Soluções**, clique com o botão direito do mouse em ** Referências** e, em seguida, clique em ** Adicionar Referência**.
 
 	* Marque a caixa de seleção à esquerda de **System.Windows.Forms**e, em seguida, clique em **OK**.
 	 
@@ -425,7 +425,7 @@ Se você obtiver erros HTTP 405 quando o código chamar GetConsentLinkAsync, ver
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-O erro 405 de método não permitido é emitido porque o cliente tenta fazer uma solicitação HTTP POST não relacionada a SSL, o gateway redireciona para *https://* e o redirecionamento causa uma solicitação GET. A URL de recuperação de um link de consentimento só aceita solicitações POST.
+O erro 405 de método não permitido é emitido porque o cliente tenta fazer uma solicitação HTTP POST não relacionada a SSL, o gateway redireciona para **https://* e o redirecionamento causa uma solicitação GET. A URL de recuperação de um link de consentimento só aceita solicitações POST.
 
 ### <a id="400"></a>Erro HTTP 400 em vez da página de logon do Dropbox
 
@@ -449,7 +449,7 @@ Se você remover %3d%3d do final do valor da cadeia de consulta `error`, ela ser
 
 Você aprender a codificar e configurar um aplicativo de API que se conecta a uma plataforma SaaS. Para obter links para outros tutoriais sobre como lidar com a autenticação em aplicativos da API, consulte [Autenticação para aplicativos de API e aplicativos móveis - próximas etapas](../app-service/app-service-authentication-overview.md#next-steps).
 
-[portal de visualização do Azure]: https://portal.azure.com/
-[portal do Azure]: https://manage.windowsazure.com/
+[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://manage.windowsazure.com/
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

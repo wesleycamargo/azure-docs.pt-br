@@ -29,4 +29,4 @@ Valor de tempo limite de nova tentativa | 1 segundo | 1 segundo
 
 O Gerenciador de Recursos do Azure tem limites para chamadas de API. Você pode fazer chamadas de API em um intervalo dentro dos [limites de API do Gerenciador de Recursos do Azure](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=06-->
+<!---HONumber=Oct15_HO3-->

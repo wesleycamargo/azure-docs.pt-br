@@ -53,4 +53,4 @@ Observe que os Sites do Azure já fornecem funcionalidade de roteamento de tráf
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,8 @@
 
 # Conectar-se a uma máquina virtual do SQL Server no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o uso de um recurso com o modelo de implantação clássica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+ 
  
 ## Visão geral
 
@@ -86,4 +87,4 @@ Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

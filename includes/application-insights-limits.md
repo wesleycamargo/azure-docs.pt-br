@@ -21,4 +21,4 @@ Comprimento do nome da métrica | 100 | 100
  
 [Sobre cotas e preços no Application Insights](app-insights-pricing.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

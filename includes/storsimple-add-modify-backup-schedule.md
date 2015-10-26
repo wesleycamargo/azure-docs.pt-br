@@ -30,4 +30,4 @@
 A página **Políticas de Backup** será atualizada para salvar as alterações na política.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

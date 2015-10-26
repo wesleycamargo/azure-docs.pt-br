@@ -26,7 +26,7 @@ Para projetar tabelas escalonáveis e de alto desempenho, você deve considerar 
 
 Esta seção destaca alguns dos principais recursos do serviço Tabela que são especialmente relevantes para o projeto de desempenho e escalabilidade. Se você for novo no armazenamento do Azure e no serviço Tabela, leia primeiro [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) e [Como usar o armazenamento de tabela do .NET](storage-dotnet-how-to-use-tables.md) antes de ler o restante deste artigo. Embora o foco deste guia seja no serviço Tabela, ele incluirá alguma discussão dos serviços Blob e fila do Azure e como você pode usá-los junto com o serviço Tabela em uma solução.
 
-O que é o serviço Tabela? Como você pode esperar do nome, o serviço Tabela usa um formato tabular para armazenar dados. Na terminologia padrão, cada linha da tabela representa uma entidade e as colunas armazenam várias propriedades da entidade. Cada entidade tem um par de chaves para identificá-la exclusivamente, e uma coluna de carimbo de data/hora que o serviço Tabela usa para controlar quando a entidade foi atualizada (isso ocorre automaticamente e não é possível substituir manualmente o carimbo de data/hora por um valor arbitrário). O serviço Tabela usa este carimbo de data/hora (LMT) da última modificação para gerenciar a simultaneidade otimista.O serviço Tabela usa este carimbo de data/hora (LMT) da última modificação para gerenciar a simultaneidade otimista.
+O que é o serviço Tabela? Como você pode esperar do nome, o serviço Tabela usa um formato tabular para armazenar dados. Na terminologia padrão, cada linha da tabela representa uma entidade e as colunas armazenam várias propriedades da entidade. Cada entidade tem um par de chaves para identificá-la exclusivamente, e uma coluna de carimbo de data/hora que o serviço Tabela usa para controlar quando a entidade foi atualizada (isso ocorre automaticamente e não é possível substituir manualmente o carimbo de data/hora por um valor arbitrário). O serviço Tabela usa este carimbo de data/hora (LMT) da última modificação para gerenciar a simultaneidade otimista.
 
 >[AZURE.NOTE]As operações de API REST do serviço Tabela também retornam um valor **ETag** obtido com o LMT. Neste documento, usaremos os termos ETag e LMT indistintamente porque eles se referem aos mesmos dados subjacentes.
 
@@ -967,7 +967,7 @@ Considere os seguintes pontos ao decidir como armazenar dados de log:
 
 ### Considerações sobre a implementação  
 
-Esta seção discute algumas das considerações a serem lembradas ao implementar os padrões descritos nas seções anteriores. Grande parte dessa seção usa exemplos escritos em c\# que usam a Biblioteca de Cliente de Armazenamento (versão 4.3.0 no momento da redação).
+Esta seção discute algumas das considerações a serem lembradas ao implementar os padrões descritos nas seções anteriores. Grande parte dessa seção usa exemplos escritos em c# que usam a Biblioteca de Cliente de Armazenamento (versão 4.3.0 no momento da redação).
 
 ### Recuperando entidades  
 
@@ -990,7 +990,7 @@ Observe como esse exemplo espera que a entidade recuperada seja do tipo **Employ
 
 #### Recuperando várias entidades usando LINQ  
 
-Você pode recuperar várias entidades usando LINQ com a Biblioteca de cliente de armazenamento e especificando uma consulta com uma cláusula **where**. Para evitar uma verificação de tabela, você sempre deve incluir o valor **PartitionKey** na cláusula where e, se possível, o valor **RowKey** para evitar verificações de tabela e de partição. O serviço Tabela dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula where. O seguinte trecho de código em c\# localiza todos os funcionários cujo sobrenome começa com "B" (supondo que **RowKey** armazena o sobrenome) no departamento de vendas (supondo que **PartitionKey** armazena o nome do departamento):
+Você pode recuperar várias entidades usando LINQ com a Biblioteca de cliente de armazenamento e especificando uma consulta com uma cláusula **where**. Para evitar uma verificação de tabela, você sempre deve incluir o valor **PartitionKey** na cláusula where e, se possível, o valor **RowKey** para evitar verificações de tabela e de partição. O serviço Tabela dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula where. O seguinte trecho de código em c# localiza todos os funcionários cujo sobrenome começa com "B" (supondo que **RowKey** armazena o sobrenome) no departamento de vendas (supondo que **PartitionKey** armazena o nome do departamento):
 
 	TableQuery<EmployeeEntity> employeeQuery =
   			employeeTable.CreateQuery<EmployeeEntity>();
@@ -1044,7 +1044,7 @@ Se você estiver usando a Biblioteca de Cliente de Armazenamento, ela pode autom
   		...
 	}  
 
-O código c\# a seguir trata os tokens de continuação explicitamente:
+O código c# a seguir trata os tokens de continuação explicitamente:
 
 	string filter = TableQuery.GenerateFilterCondition(
   		"PartitionKey", QueryComparisons.Equal, "Sales");
@@ -1072,7 +1072,7 @@ Usando tokens de continuação explicitamente, você pode controlar quando o apl
 
 >[AZURE.NOTE]Um token de continuação normalmente retorna um segmento que contém 1.000 entidades, embora possa ser menos. Este também será o caso se você limitar o número de entradas que uma consulta retorna, usando **Take** para retornar as primeiras n entidades que correspondem aos seus critérios de pesquisa: o serviço Tabela pode retornar um segmento contendo menos de n entidades, junto com um token de continuação para permitir que você recupere as entidades restantes.
 
-O código c\# a seguir mostra como modificar o número de entidades retornadas dentro de um segmento:
+O código c# a seguir mostra como modificar o número de entidades retornadas dentro de um segmento:
 
 	employeeQuery.TakeCount = 50;  
 
@@ -1430,7 +1430,7 @@ No entanto, você ainda deve gerar os tokens SAS que concedem a um aplicativo cl
 
 Desde que você esteja distribuindo suas solicitações por várias partições, pode melhorar a capacidade de resposta do cliente e a taxa de transferência usando consultas assíncronas ou paralelas. Por exemplo, você pode ter duas ou mais instâncias de função de trabalho acessando suas tabelas em paralelo. Você pode ter funções de trabalho individuais responsáveis por determinados conjuntos de partições ou simplesmente ter várias instâncias de função de trabalho, cada uma capaz de acessar todas as partições em uma tabela.
 
-Dentro de uma instância do cliente, você pode melhorar o desempenho executando operações de armazenamento de forma assíncrona. A Biblioteca de Cliente de Armazenamento facilita a gravação de consultas e modificações assíncronas. Por exemplo, você pode começar com o método síncrono que recupera todas as entidades em uma partição, como mostra o código c\# a seguir:
+Dentro de uma instância do cliente, você pode melhorar o desempenho executando operações de armazenamento de forma assíncrona. A Biblioteca de Cliente de Armazenamento facilita a gravação de consultas e modificações assíncronas. Por exemplo, você pode começar com o método síncrono que recupera todas as entidades em uma partição, como mostra o código c# a seguir:
 
 	private static void ManyEntitiesQuery(CloudTable employeeTable, string department)
 	{
@@ -1484,7 +1484,7 @@ O aplicativo cliente pode chamar esse método várias vezes (com valores diferen
 
 Observe que não há qualquer versão assíncrona do método **Execute** na classe **TableQuery**, porque a interface **IEnumerable** não dá suporte a enumeração assíncrona.
 
-Você também pode inserir, atualizar e excluir entidades de forma assíncrona. O exemplo c\# a seguir mostra um método síncrono simples para inserir ou substituir uma entidade funcionário:
+Você também pode inserir, atualizar e excluir entidades de forma assíncrona. O exemplo c# a seguir mostra um método síncrono simples para inserir ou substituir uma entidade funcionário:
 
 	private static void SimpleEmployeeUpsert(CloudTable employeeTable,
   		EmployeeEntity employee)
@@ -1550,4 +1550,4 @@ Também gostaríamos de agradecer aos seguintes MVPs da Microsoft por seus valio
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -2,6 +2,7 @@
 	pageTitle="Planeje um ambiente de análise avançada do Aprendizado de Máquina | Microsoft Azure" 
 	description="Planeje seu ambiente de análise avançada considerando perguntas-chave." 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -79,4 +80,4 @@ Dependendo do cenário, você pode precisar de algumas das ferramentas e recurso
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

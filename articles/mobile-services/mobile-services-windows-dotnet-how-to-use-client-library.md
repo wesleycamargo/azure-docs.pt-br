@@ -745,4 +745,4 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [InvokeApiSync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

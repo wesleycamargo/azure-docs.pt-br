@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar o Armazenamento de Fila do Java | Microsoft Azure"
-	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Java."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Como usar o Armazenamento de Fila do Java | Microsoft Azure" 
+	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Como usar o Armazenamento de Fila no Java
@@ -391,4 +391,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

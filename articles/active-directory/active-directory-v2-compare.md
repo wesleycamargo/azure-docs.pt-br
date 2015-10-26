@@ -121,4 +121,4 @@ Para saber mais sobre as declarações específicas emitidas em tokens de modelo
 ## Limitações de visualização
 Há várias restrições às quais é preciso estar atento ao criar um aplicativo com o modelo de aplicativo v2.0 durante a visualização pública. Consulte o[documento de limitações do modelo de aplicativo v2.0](active-directory-v2-limitations.md) para ver se alguma dessas restrições se aplica ao seu cenário específico.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

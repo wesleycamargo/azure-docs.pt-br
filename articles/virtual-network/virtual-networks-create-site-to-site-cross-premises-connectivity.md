@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Tutorial: criar uma rede virtual para conectividade site a site entre instalações"
-	description="Aprenda a criar uma rede virtual do Azure com conectividade entre locais neste tutorial."
-	services="virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
+	pageTitle="Tutorial: criar uma rede virtual para conectividade site a site entre instalações" 
+	description="Aprenda a criar uma rede virtual do Azure com conectividade entre locais neste tutorial." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 
@@ -99,7 +99,7 @@ Para criar um exemplo de rede virtual que se conecte à rede da empresa:
 	
 4.	Na página **Conectividade entre Servidores DNS e VPN**, insira as informações a seguir e, em seguida, clique na seta de avanço na parte inferior direita.
 
-> [AZURE.NOTE] É possível selecionar simultaneamente as configurações **Ponto a Site** e **Site a Site** nessa página. Para o objetivo deste tutorial, selecionaremos configurar apenas **Site a Site**. Para obter mais informações sobre as configurações nessa página, consulte a seção **Conectividade entre Servidores DNS e VPN** em [Sobre como configurar uma rede virtual no Portal de Gerenciamento](http://go.microsoft.com/fwlink/p/?LinkID=248092).
+> [AZURE.NOTE]É possível selecionar simultaneamente as configurações **Ponto a Site** e **Site a Site** nessa página. Para o objetivo deste tutorial, selecionaremos configurar apenas **Site a Site**. Para obter mais informações sobre as configurações nessa página, consulte a seção **Conectividade entre Servidores DNS e VPN** em [Sobre como configurar uma rede virtual no Portal de Gerenciamento](http://go.microsoft.com/fwlink/p/?LinkID=248092).
 
 	-  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. For the example in this tutorial, type **YourDNS** for the name and **10.1.0.4** for the IP address.
 	-  **Configure Point-To-Site VPN:** Leave this field blank. 
@@ -216,30 +216,30 @@ Esse procedimento pressupõe o seguinte:
 3.	Teste sua conexão executando um dos seguintes comandos:
 
 	<table border="1">
-	<tr>
-	<th>-</th>
-	<th>Cisco ASA</th>
-	<th>Cisco ISR/ASR</th>
-	<th>Juniper SSG/ISG</th>
-	<th>Juniper SRX/J</th>
-	</tr>
-	
-	<tr>
-	<td><b>Verificar as SAs de modo principal</b></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-	</tr>
-	
-	<tr>
-	<td><b>Verificar as SAs de modo rápido</b></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-	</tr>
-	</table>
+<tr>
+<th>-</th>
+<th>Cisco ASA</th>
+<th>Cisco ISR/ASR</th>
+<th>Juniper SSG/ISG</th>
+<th>Juniper SRX/J</th>
+</tr>
+
+<tr>
+<td><b>Verificar as SAs de modo principal</b></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+</tr>
+
+<tr>
+<td><b>Verificar as SAs de modo rápido</b></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+</tr>
+</table>
 
 
 ##  Próximas etapas
@@ -272,4 +272,4 @@ Se você desejar exportar as configurações de rede virtual para um arquivo de 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

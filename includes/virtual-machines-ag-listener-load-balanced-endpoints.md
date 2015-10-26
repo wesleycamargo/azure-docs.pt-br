@@ -18,4 +18,4 @@ Você deve criar um ponto de extremidade de carga equilibrada para cada VM que h
 
 	Após o arquivo de configurações de publicação tiver sido importado, você pode gerenciar sua assinatura do Azure na sessão do PowerShell.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

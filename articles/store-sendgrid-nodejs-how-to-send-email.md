@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar o serviço de email SendGrid (Node.js) | Microsoft Azure"
-	description="Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos usando a API do Node. js."
-	services=""
-	documentationCenter="nodejs"
-	authors="erikre"
-	manager="wpickett"
+	pageTitle="Como usar o serviço de email SendGrid (Node.js) | Microsoft Azure" 
+	description="Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos usando a API do Node. js." 
+	services="" 
+	documentationCenter="nodejs" 
+	authors="erikre" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="erikre"/>
 # Como enviar emails usando o SendGrid do Node.js
 
@@ -65,7 +65,7 @@ Você também pode especificar uma mensagem de HTML a clientes que dão suporte 
 
 Definir propriedades de texto e de html fornece retorno normal ao conteúdo de texto para clientes que não podem dar suporte a mensagens em HTML.
 
-Para obter mais informações sobre todas as propriedades compatíveis com a função de Email, consulte [sendgrid-nodej](https://github.com/sendgrid/sendgrid-nodejs).
+Para obter mais informações sobre todas as propriedades compatíveis com a função de Email, consulte [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs).
 
 ## Como: enviar um email
 
@@ -188,4 +188,4 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
   [serviço de email baseado em nuvem]: https://sendgrid.com/email-solutions
   [entrega de email transacional]: https://sendgrid.com/transactional-email
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

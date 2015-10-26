@@ -5,4 +5,4 @@ Implantações por grupo de recursos|800|800
 Recursos por implantação|800|800
 Bloqueios de Gerenciamento (por escopo exclusivo)|20|20
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

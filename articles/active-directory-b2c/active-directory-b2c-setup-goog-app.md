@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: fornecer registro e conexão aos consumidores com contas do Google+
@@ -40,14 +40,21 @@ Para usar o Google+ como um provedor de identidade no AD (Active Directory) B2C 
 
     ![G + — Tela de consentimento do OAuth](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)
 
-6. Em **Application type** (Tipo de aplicativo), selecione **Web application** (Aplicativo Web).
-7. Forneça um **nome** para o aplicativo, insira [https://login.microsoftonline.com](https://login.microsoftonline.com) no campo **Authorized redirect URIs** e [https://login.microsoftonline.com/te/{tenant}/oauth2/authresp](https://login.microsoftonline.com/te/{tenant}/oauth2/authresp) no campo **Authorized redirect URIs**, em que **{tenant}** deve ser substituído pelo nome do seu locatário (por exemplo, contosob2c.onmicrosoft.com). Clique em **Criar**.
+6. Clique em **Adicionar credenciais** e escolha **ID do cliente OAuth 2.0**.
+
+    ![G + — Tela de consentimento do OAuth](./media/active-directory-b2c-setup-goog-app/google-add-oauth2-client-id.png)
+
+7. Em **Tipo de aplicativo**, selecione **Aplicativo Web**.
+
+    ![G + — Tela de consentimento do OAuth](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
+
+8. Forneça um **nome** para o aplicativo, insira [https://login.microsoftonline.com](https://login.microsoftonline.com) no campo **URIs de redirecionamento autorizados** e [https://login.microsoftonline.com/te/{tenant}/oauth2/authresp](https://login.microsoftonline.com/te/{tenant}/oauth2/authresp) no campo **URIs de redirecionamento autorizados**, em que **{tenant}** deve ser substituído pelo nome do seu locatário (por exemplo, contosob2c.onmicrosoft.com). Clique em **Criar**.
 
     > [AZURE.NOTE]O valor **{tenant}** diferencia letras maiúsculas de minúsculas.
 
     ![G+ — Criar ID de cliente](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
-8. Copie os valores de **Client ID (ID do Cliente)** e **Client secret (Segredo do cliente)**. Você precisará de ambos para configurar o Google+ como um provedor de identidade no seu locatário.
+9. Copie os valores de **ID do cliente** e **Segredo do cliente**. Você precisará de ambos para configurar o Google+ como um provedor de identidade no seu locatário.
 
     > [AZURE.NOTE]O **Segredo do cliente** é uma credencial de segurança importante.
 
@@ -56,11 +63,11 @@ Para usar o Google+ como um provedor de identidade no AD (Active Directory) B2C 
 ## Configurar o Google+ como um provedor de identidade no locatário
 
 1. [Navegue até a folha de recursos do B2C no portal de visualização do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Na folha de recursos do B2C, clique em **Provedores de identidade social**.
-3. Clique em **+Adicionar**, na parte superior da folha.
+2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
+3. Clique em **+Adicionar** na parte superior da folha.
 4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira "G+".
-5. Clique em **Tipo do provedor de identidade**, selecione **Google** e clique em **OK**.
-6. Clique em **Configurar este provedor de identidade** e insira a **ID do Cliente** e o **Segredo do Cliente** do aplicativo do Google+ que você criou anteriormente.
-7. Clique em **OK** e em **Criar** para salvar sua configuração do Google+.
+5. Clique em **Tipo de provedor de identidade**, selecione **Google** e clique em **OK**.
+6. Clique em **Configurar este provedor de identidade** e insira a **ID do cliente** e o **Segredo do cliente** do aplicativo do Google+ que você criou anteriormente.
+7. Clique em **OK** e em **Create** (Criar) para salvar sua configuração do Google+.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

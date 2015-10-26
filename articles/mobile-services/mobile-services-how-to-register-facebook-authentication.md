@@ -73,4 +73,4 @@ Agora você está pronto para usar um logon do Facebook para autenticação em s
 [Serviços Móveis do Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

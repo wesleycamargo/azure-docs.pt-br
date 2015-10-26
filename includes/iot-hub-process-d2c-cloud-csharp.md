@@ -53,7 +53,7 @@ Você também precisará uma fila do Barramento de Serviço para habilitar o pro
 
 5. Clique com o botão direito do mouse no projeto **ProcessDeviceToCloudMessages**, clique em **Adicionar** e clique em **Classe**. Chame a nova classe de **StoreEventProcessor** e clique em **OK** para criar a classe.
 
-6. Adicione as seguintes instruções na parte superior do arquivo SimpleEventProcessor.cs file:
+6. Adicione as seguintes instruções na parte superior do arquivo StoreEventProcessor.cs:
 
         using System.IO;
         using System.Diagnostics;
@@ -96,7 +96,7 @@ Você também precisará uma fila do Barramento de Serviço para habilitar o pro
 
             Task IEventProcessor.OpenAsync(PartitionContext context)
             {
-                Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+                Console.WriteLine("StoreEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
 
                 if (!long.TryParse(context.Lease.Offset, out currentBlockInitOffset))
                 {
@@ -126,7 +126,7 @@ Você também precisará uma fila do Barramento de Serviço para habilitar o pro
                         WriteHighlightedMessage(string.Format("Received interactive message: {0}", messageId));
                         continue;
                     }
-                    
+
                     if (toAppend.Length + data.Length > MAX_BLOCK_SIZE || stopwatch.Elapsed > MAX_CHECKPOINT_TIME)
                     {
                         await AppendAndCheckpoint(context);
@@ -229,7 +229,7 @@ Você também precisará uma fila do Barramento de Serviço para habilitar o pro
 > [AZURE.NOTE]Para simplificar, este tutorial usa uma única instância do [EventProcessorHost]. Consulte o [Guia de programação de Hubs de Eventos] e o tutorial [Processar mensagens do dispositivo para a nuvem] para obter mais informações sobre o processamento de mensagens do dispositivo para a nuvem.
 
 ## Receber mensagens interativas
-Nesta seção, você escreverá um aplicativo de console do Windows que recebe mensagens interativas da fila do Barramento de Serviço. Consulte [Criar aplicativos multicamadas com o Barramento de Serviço] para saber mais sobre como projetar uma solução usando o Barramento de Serviço.
+Nesta seção, você escreverá um aplicativo de console do Windows que recebe mensagens interativas da fila do Barramento de Serviço. Consulte [Criar aplicativos multicamadas com o Barramento de Serviço][] para saber mais sobre como projetar uma solução usando o Barramento de Serviço.
 
 1. Na atual solução do Visual Studio, crie um novo projeto de Aplicativo de Área de Trabalho do Visual C# usando o modelo de projeto do **Aplicativo de Console**. Chame o projeto de **ProcessD2cInteractiveMessages**.
 
@@ -309,9 +309,11 @@ Nesta seção, você escreverá um aplicativo de console do Windows que recebe m
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
+[Criar aplicativos multicamadas com o Barramento de Serviço]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+
 
 <!-- Images -->
-[10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
+[10]: ./media/iot-hub-process-d2c-cloud-csharp/create-identity-csharp1.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
 [20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
@@ -322,4 +324,4 @@ Nesta seção, você escreverá um aplicativo de console do Windows que recebe m
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

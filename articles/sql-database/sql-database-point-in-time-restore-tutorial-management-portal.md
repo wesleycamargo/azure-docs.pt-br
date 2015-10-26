@@ -74,4 +74,4 @@ Para obter mais informações, consulte o seguinte:
 
 [Ponto de banco de dados do SQL Azure em tempo de restauração (blog)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

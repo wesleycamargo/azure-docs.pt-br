@@ -30,4 +30,4 @@ Os Serviços de Nuvem também fornecem monitoramento. Assim como as Máquinas Vi
 
 A natureza da PaaS dos Serviços de Nuvem tem outras implicações também. Uma das mais importantes é que os aplicativos com base nessa tecnologia devem ser escritos para serem executados corretamente quando houver falha de alguma instância da função de trabalho ou da Web. Para isso, um aplicativo dos Serviços de Nuvem não deve manter o estado de suas próprias VMs no sistema de arquivos. Diferentemente das VMs criadas com as Máquinas Virtuais do Azure, as gravações feitas nas VMs dos Serviços de Nuvem não são persistentes; não há nada parecido com um disco de dados das Máquinas Virtuais. Um aplicativo dos Serviços de Nuvem deve gravar explicitamente todo o estado no Banco de Dados SQL, em blobs, tabelas ou em algum outro armazenamento externo. Criar aplicativos dessa forma facilita o dimensionamento deles e os torna mais resistente a falhas, que são metas importantes dos Serviços de Nuvem.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

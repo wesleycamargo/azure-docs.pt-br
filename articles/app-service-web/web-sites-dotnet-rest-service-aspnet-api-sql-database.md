@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Criar um serviço REST usando a API Web ASP.NET e o Banco de Dados SQL no Serviço de Aplicativo do Azure"
-	description="Um tutorial que ensina como implantar um aplicativo que usa a API Web ASP.NET em um aplicativo Web do Azure usando o Visual Studio."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Rick-Anderson"
-	manager="wpickett"
+	pageTitle="Criar um serviço REST usando a API Web ASP.NET e o Banco de Dados SQL no Serviço de Aplicativo do Azure" 
+	description="Um tutorial que ensina como implantar um aplicativo que usa a API Web ASP.NET em um aplicativo Web do Azure usando o Visual Studio." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="riande"/>
 
 # Criar um serviço REST usando a API Web ASP.NET e o Banco de Dados SQL no Serviço de Aplicativo do Azure
@@ -24,7 +25,7 @@ Este tutorial mostra como implantar um aplicativo Web ASP.NET em um [Serviço de
 
 Este tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure. Ao concluir este tutorial, você terá um aplicativo Web simples em funcionamento na nuvem.
  
-Você aprenderá a:
+Você aprenderá:
 
 * Como habilitar seu computador para desenvolvimento do Azure ao instalar o SDK do Azure.
 * Como criar um projeto MVC 5 do Visual Studio ASP.NET e publicá-lo em um aplicativo do Azure.
@@ -32,7 +33,7 @@ Você aprenderá a:
 * Como usar um banco de dados SQL para armazenar dados no Azure.
 * Como publicar atualizações de aplicativo no Azure.
 
-Você criará um aplicativo Web de lista de contatos simples criado no ASP.NET MVC 5 e que usa o ADO.NET Entity Framework para acesso ao banco de dados. A ilustração a seguir mostra o aplicativo concluído:
+Você criará um aplicativo Web de lista de contatos simples desenvolvido no ASP.NET MVC 5 e que usa o ADO.NET Entity Framework para acesso ao banco de dados. A ilustração a seguir mostra o aplicativo concluído:
 
 ![captura de tela do site][intro001]
 
@@ -188,7 +189,7 @@ Você começa criando um modelo de dados simples no código.
 
 A classe **Contatos** define os dados que você armazenará para cada contato, além de uma chave primária, ContactID, exigida pelo banco de dados. Você pode obter mais informações sobre modelos de dados na seção [Próximas etapas](#nextsteps) ao final deste tutorial.
 
-### Criar as páginas da web que permitem que os usuários do aplicativo trabalhem com os contatos
+### Criar as páginas da Web que permitem que os usuários do aplicativo trabalhem com os contatos
 
 No ASP.NET MVC, o recurso de scaffolding pode gerar automaticamente o código que executa as ações CRUD (criar, ler, atualizar e excluir).
 
@@ -543,7 +544,7 @@ Para:
 	**Aviso de Segurança**: neste ponto, o aplicativo não é seguro e está vulnerável a ataques CSRF. Mais à frente no tutorial, removeremos essa vulnerabilidade. Para obter mais informações, consulte [Evitando ataques de solicitação intersite forjada (CSRF)][prevent-csrf-attacks].
 ## Adicionar proteção XSRF
 
-A solicitação entre sites forjada (também conhecida como XSRF ou CSRF) é um ataque contra aplicativos web hospedados, no qual um site mal-intencionado pode influenciar a interação entre um navegador cliente e um site confiável para esse navegador. Esses ataques são possibilitados porque os navegadores da web enviarão tokens de autenticação automaticamente com cada solicitação para um site. O exemplo canônico é um cookie de autenticação, como o tíquete de autenticação de formulários do ASP.NET. No entanto, os sites que usam qualquer mecanismo de autenticação persistente (como a autenticação do Windows, Basic e assim por diante) podem ser direcionados por esses ataques.
+A solicitação entre sites forjada (também conhecida como XSRF ou CSRF) é um ataque contra aplicativos web hospedados, no qual um site mal-intencionado pode influenciar a interação entre um navegador cliente e um site confiável para esse navegador. Esses ataques são possibilitados porque os navegadores da web enviarão tokens de autenticação automaticamente com toda solicitação para um site. O exemplo canônico é um cookie de autenticação, como o tíquete de autenticação de formulários do ASP.NET. No entanto, os sites que usam qualquer mecanismo de autenticação persistente (como a autenticação do Windows, Basic e assim por diante) podem ser alvos desses ataques.
 
 Um ataque XSRF é diferente de um ataque de phishing. Os ataques de phishing exigem a interação da vítima. Em um ataque de phishing, um site mal-intencionado imita o site de destino e a vítima é levada a fornecer informações confidenciais ao invasor. Em um ataque XSRF, normalmente não é necessária nenhuma interação da vítima. Em vez disso, o invasor conta com que o navegador envie automaticamente todos os cookies relevantes ao site de destino.
 
@@ -810,4 +811,4 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

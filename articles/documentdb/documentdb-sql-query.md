@@ -2089,4 +2089,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

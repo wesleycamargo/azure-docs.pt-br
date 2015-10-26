@@ -20,4 +20,4 @@ Enquanto é possível colar um URI MongoLab no seu código, é recomendável con
 [focus-mongolab-websiteconnectionstring]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png
 [button-website-save]: ./media/howto-save-connectioninfo-mongolab/button-website-save.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

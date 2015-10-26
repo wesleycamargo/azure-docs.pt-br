@@ -1,3 +1,5 @@
+<properties writer="kathydav" editor="tysonn" manager="timlt" />
+
 1. Entre no [Portal do Azure](http://manage.windowsazure.com). Confira a oferta [Avaliação Gratuita](http://azure.microsoft.com/pricing/free-trial/) caso você ainda não tenha uma assinatura.
 
 2. Na barra de comandos na parte inferior da janela, clique em **Novo**.
@@ -62,4 +64,4 @@ Você usará SSH ou PuTTY para se conectar à máquina virtual, dependendo do si
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

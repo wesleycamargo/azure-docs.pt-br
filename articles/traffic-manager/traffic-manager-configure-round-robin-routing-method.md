@@ -1,19 +1,19 @@
 <properties
    pageTitle="Configurar o método de roteamento de tráfego de round robin do Gerenciador de Tráfego | Microsoft Azure"
-	description="Este artigo o ajudará a configurar o balanceamento de carga round robin para os pontos de extremidade do Gerenciador de Tráfego."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Este artigo o ajudará a configurar o balanceamento de carga round robin para os pontos de extremidade do Gerenciador de Tráfego."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Configurar o método de roteamento de Round Robin
 
@@ -52,4 +52,4 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

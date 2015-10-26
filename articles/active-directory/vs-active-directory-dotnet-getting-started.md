@@ -77,4 +77,4 @@ Para adicionar um Efetuar login/logout em sua exibição, você pode usar a exib
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

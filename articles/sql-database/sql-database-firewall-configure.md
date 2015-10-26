@@ -135,4 +135,4 @@ Considere os seguintes pontos quando o acesso ao serviço de Banco de Dados SQL 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

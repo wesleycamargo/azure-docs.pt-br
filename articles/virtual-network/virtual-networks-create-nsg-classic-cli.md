@@ -239,4 +239,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Mover dados do MySQL | Azure Data Factory" 
 	description="Saiba mais sobre como mover dados do banco de dados MySQL usando o Azure Data Factory" 
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados do MySQL usando o Azure Data Factory
@@ -310,5 +310,4 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!----HONumber=August15_HO9-->
-
+<!---HONumber=Oct15_HO3-->

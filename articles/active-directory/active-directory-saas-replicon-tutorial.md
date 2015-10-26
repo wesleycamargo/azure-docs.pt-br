@@ -57,11 +57,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No portal do AD do Azure, na página de integração do aplicativo **Replicon**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configurar logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Replicon**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-replicon-tutorial/IC777802.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-replicon-tutorial/IC777802.png "Configurar logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas:
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar logon único no Replicon**, para baixar seus metadados, clique em **Baixar metadados** e salve os metadados no computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-replicon-tutorial/IC777804.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-replicon-tutorial/IC777804.png "Configurar o logon único")
 
 5.  Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do Replicon como administrador.
 
@@ -132,10 +132,10 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Atribuir usuários](./media/active-directory-saas-replicon-tutorial/IC777809.png "Atribuir usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-replicon-tutorial/IC767830.png "Sim")
   
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

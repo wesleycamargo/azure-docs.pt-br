@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Operações de auditoria com o Gerenciador de Recursos
@@ -26,7 +26,9 @@ Você pode recuperar informações de logs de auditoria por meio do Azure PowerS
 
 ## PowerShell
 
-Para recuperar as entradas de log, execute o comando **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** para versões do PowerShell anteriores à 1.0 Preview). Fornecer parâmetros adicionais para filtrar a lista de entradas.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+
+Para recuperar as entradas de log, execute o comando **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** para versões do PowerShell anteriores à Visualização 1.0). Fornecer parâmetros adicionais para filtrar a lista de entradas.
 
 O exemplo a seguir mostra como usar o log de auditoria para ações de pesquisa executadas durante o ciclo de vida da solução. Você pode ver quando a ação ocorreu e quem a solicitou.
 
@@ -151,4 +153,4 @@ Você pode selecionar qualquer operação para obter mais detalhes sobre ela.
 - Para aprender sobre a obtenção de acesso a uma entidade de serviço, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 - Para saber como realizar ações em um recurso para todos os usuários, consulte [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Implantar e gerenciar topologias do Apache Storm no HDInsight| Microsoft Azure"
-   description="Aprenda a implantar, monitorar e gerenciar topologias do Apache Storm usando o Painel do Storm no HDInsight. Use as ferramentas do Hadoop para Visual Studio."
+   pageTitle="Implantar e gerenciar topologias Apache Storm no HDInsight baseado em Linux | Microsoft Azure"
+   description="Aprenda a implantar, monitorar e gerenciar topologias do Apache Storm usando o Painel do Storm no HDInsight baseado em Linux. Use as ferramentas do Hadoop para Visual Studio."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/14/2015"
+   ms.date="10/04/2015"
    ms.author="larryfr"/>
 
 # Implantar e gerenciar topologias Apache Storm no HDInsight baseado nem Linux
@@ -161,4 +161,4 @@ Agora que você aprendeu a implantar e monitorar topologias usando o Painel do S
 
 Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -123,4 +123,4 @@ Agora você poderá referenciar a Biblioteca de Autenticação do Active Directo
  [Introdução a Aplicativos Móveis]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [Adicionar autenticação ao seu aplicativo]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

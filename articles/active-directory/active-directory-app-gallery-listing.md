@@ -57,4 +57,4 @@ Depois que o teste for concluído, o aplicativo poderá ser listado na galeria d
 >
 > Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

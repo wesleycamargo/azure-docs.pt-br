@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Usar o aplicativo móvel como método de contato com o Azure MFA"
-	description="Esta página mostrará aos usuários como usar o aplicativo móvel como o método de contato principal para o Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenp"
+	pageTitle="Usar o aplicativo móvel como método de contato com o Azure MFA" 
+	description="Esta página mostrará aos usuários como usar o aplicativo móvel como o método de contato principal para o Azure MFA." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenp" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Usar o aplicativo móvel como método de contato com o Azure Multi-Factor Authentication
 
 Se desejar usar o aplicativo móvel como o método de contato principal, você poderá usar este artigo. Ele vai ajudar a configurar a autenticação multifator para usar o aplicativo móvel como o método de contato principal.
 
-O aplicativo Azure Authenticator está disponível para [Windows Phone](http://www.windowsphone.com/pt-br/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+O aplicativo Azure Authenticator está disponível para [Windows Phone](http://www.windowsphone.com/pt-BR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
 ## Para usar um aplicativo móvel como método de contato
 
@@ -73,4 +73,4 @@ Se você estiver usando uma conta de terceiros com o aplicativo móvel, insira o
 >[AZURE.NOTE]Se você vir "Adicionar conta de trabalho", isso é para a Junção de Local de Trabalho, e não para autenticação multifator. Você pode ignorar isso.
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

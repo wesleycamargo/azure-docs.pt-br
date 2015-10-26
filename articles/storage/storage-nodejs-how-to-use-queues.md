@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar o Armazenamento de Fila do Node.js | Microsoft Azure"
-	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js."
-	services="storage"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
+	pageTitle="Como usar o Armazenamento de Fila do Node.js | Microsoft Azure" 
+	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js." 
+	services="storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mwasson"/>
 
 
@@ -333,4 +333,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
  [Site com o WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

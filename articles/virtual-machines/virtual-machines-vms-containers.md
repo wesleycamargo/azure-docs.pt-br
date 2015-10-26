@@ -22,7 +22,8 @@
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Máquinas virtuais e contêineres no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+ 
 
 O Azure oferece excelentes soluções de nuvem, baseadas em máquinas virtuais - baseadas na emulação do hardware de um computador físico - para habilitar a movimentação ágil de implantações de software e uma consolidação de recursos consideravelmente melhor do que com hardware físico. Nos últimos anos, em grande parte graças à abordagem do [Docker](https://www.docker.com) a contêineres e ao ecossistema de docker, a tecnologia de contêiner do Linux expandiu radicalmente as maneiras como você pode desenvolver e gerenciar softwares distribuídos. O código de aplicativo em um contêiner fica isolado do da VM host do Azure, bem como de outros contêineres na mesma VM, o que lhe dá mais agilidade no desenvolvimento e na implantação no nível de aplicativo - além da agilidade que as VMs do Azure já oferecem.
 
@@ -240,4 +241,4 @@ Confira o [Docker](https://www.docker.com) e os [Contêineres do Windows Server]
 [microsserviços]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

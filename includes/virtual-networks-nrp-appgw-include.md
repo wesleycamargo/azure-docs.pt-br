@@ -10,4 +10,4 @@ Os Application Gateways contêm os seguintes recursos filhos:
 - **Ouvinte** - O ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). 
 - **Regra** - A regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atingir um ouvinte específico. Atualmente, há suporte apenas para a regra básica. A regra básica é a distribuição de carga round robin.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

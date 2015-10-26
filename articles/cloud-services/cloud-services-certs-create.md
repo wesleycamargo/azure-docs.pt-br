@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Serviços de Nuvem do Azure - tudo o que você deseja saber sobre certificados" 
+	pageTitle="Serviços de nuvem e certificados de gerenciamento | Microsoft Azure" 
 	description="Saiba como criar e usar certificados com o Microsoft Azure" 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015"
+	ms.date="10/09/2015"
 	ms.author="adegeo"/>
 
 # Visão geral sobre certificados para os Serviços de Nuvem do Azure
@@ -69,6 +69,9 @@ Há muitas páginas na Internet que tratam de como fazer isso com o IIS. [Este](
 ### Java
 Você pode usar o Java para [criar um certificado](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
+### Linux
+[Este](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) artigo descreve como criar certificados com SSH.
+
 ## Próximas etapas
 
 [Carregue seu certificado de serviço no Portal do Azure](cloud-services-configure-ssl-certificate.md) (ou no [Portal de Visualização](cloud-services-configure-ssl-certificate-portal.md)) e [configure-o](cloud-services-xml-certs.md) para o serviço de nuvem.
@@ -77,4 +80,4 @@ Carregue um [certificado de API de gerenciamento](../azure-api-management-certs.
 
 >[AZURE.NOTE]O Portal de Visualização do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

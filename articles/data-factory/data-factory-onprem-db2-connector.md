@@ -1,51 +1,51 @@
 <properties 
-	pageTitle="Move data from DB2 | Azure Data Factory"
-	description="Learn about how move data from DB2 Database using Azure Data Factory"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Mover dados do DB2 | Azure Data Factory" 
+	description="Saiba mais sobre como mover dados do banco de dados DB2 usando o Azure Data Factory" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# Move data from DB2 using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from DB2 to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+# Mover dados do DB2 usando o Azure Data Factory
+Este artigo descreve como você pode usar a atividade de cópia em uma Azure Data Factory para mover dados do DB2 para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
-Data factory supports connecting to on-premises DB2 sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.
+A data factory dá suporte à conexão com fontes DB2 locais usando o Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway.
 
-**Note:** You need to leverage the gateway to connect to DB2 even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of DB2 hosted in cloud you can also install the gateway instance in the IaaS VM.
+**Observação:** é necessário utilizar o gateway para se conectar ao DB2, mesmo se ele estiver hospedado em VMs IaaS do Azure. Se estiver tentando se conectar a uma instância do DB2 hospedada na nuvem, você também pode instalar a instância do gateway na VM de IaaS.
 
-Data factory currently supports only moving data from DB2 to other data stores, not from other data stores to DB2.
+Atualmente, a data factory dá suporte apenas para a movimentação de dados do DB2 para outros armazenamentos de dados, não de outros armazenamentos de dados para o DB2.
 
-## Installation 
+## Instalação 
 
-For Data Management Gateway to connect to the DB2 Database, you need to install [IBM DB2 Data Server Driver](http://go.microsoft.com/fwlink/p/?LinkID=274911) on the same system as the Data Management Gateway.
+Para o Gateway de Gerenciamento de Dados para se conectar ao banco de dados DB2, você precisa instalar o [Driver do servidor de dados IBM DB2](http://go.microsoft.com/fwlink/p/?LinkID=274911) no mesmo sistema que o Gateway de Gerenciamento de Dados.
 
-There are known issues reported by IBM on installing the IBM DB2 Data Server Driver on Windows 8, where additional installation steps are needed. For more information about the IBM DB2 Data Server Driver on Windows 8, see [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
+Há problemas conhecidos relatados pela IBM sobre a instalação do Driver do servidor de dados IBM DB2 no Windows 8, em que são necessárias etapas adicionais de instalação conhecidos. Para obter mais informações sobre o Driver do servidor de dados IBM DB2 no Windows 8, consulte [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
 
-## Sample: Copy data from DB2 to Azure Blob
+## Exemplo: copiar dados do DB2 para o Blob do Azure
 
-The sample below shows:
+O exemplo a seguir mostra:
 
-1.	A linked service of type [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
-2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3.	An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
-5.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+1.	Um serviço vinculado do tipo [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
+2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+5.	Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
-The sample copies data from a query result in DB2 database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
+O exemplo copia dados de um resultado de consulta no banco de dados DB2 para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-As a first step, please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
+Na primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [Movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
-**DB2 linked service:**
+**Serviço vinculado do DB2:**
 
 	{
 	    "name": "OnPremDb2LinkedService",
@@ -64,7 +64,7 @@ As a first step, please setup the data management gateway as per the instruction
 	}
 
 
-**Azure Blob storage linked service:**
+**Serviço vinculado do armazenamento de Blob do Azure:**
 
 	{
 	    "name": "AzureStorageLinkedService",
@@ -76,11 +76,11 @@ As a first step, please setup the data management gateway as per the instruction
 	    }
 	}
 
-**DB2 input dataset:**
+**Conjunto de dados de entrada do DB2:**
 
-The sample assumes you have created a table “MyTable” in DB2 and it contains a column called “timestamp” for time series data.
+O exemplo supõe que você criou uma tabela "MyTable" no DB2 e que ela contém uma coluna chamada "timestamp" para dados de série temporal.
 
-Setting “external”: true and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory. Note that the **type** is set to **RelationalTable**.
+Definir “external”: true e especificar a política externalData informa à data factory que essa é uma tabela externa à data factory e não é produzida por uma atividade nessa data factory. Observe que o **type** é definido como **RelationalTable**.
 
 	{
 	    "name": "Db2DataSet",
@@ -104,9 +104,9 @@ Setting “external”: true and specifying externalData policy tells data facto
 	}
 
 
-**Azure Blob output dataset:**
+**Conjunto de dados de saída de Blob do Azure:**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
+Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
 	{
 	    "name": "AzureBlobDb2DataSet",
@@ -162,9 +162,9 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	    }
 	}
 
-**Pipeline with Copy activity:**
+**Pipeline com Atividade de cópia:**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data from the Orders table.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados da tabela Orders.
 
 	{
 	    "name": "CopyDb2ToBlob",
@@ -209,99 +209,99 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	}
 
 
-## DB2 Linked Service properties
+## Propriedades do serviço vinculado do DB2
 
-The following table provides description for JSON elements specific to DB2 linked service.
+A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do DB2.
 
-| Property | Description | Required |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- | 
-| type | The type property must be set to: **OnPremisesDB2** | Yes |
-| server | Name of the DB2 server. | Yes |
-| database | Name of the DB2 database. | Yes |
-| schema | Name of the schema in the database. | No |
-| authenticationType | Type of authentication used to connect to the DB2 database. Possible values are: Anonymous, Basic, and Windows. | Yes |
-| username | Specify user name if you are using Basic or Windows authentication. | No |
-| password | Specify password for the user account you specified for the username. | No |
-| gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises DB2 database. | Yes |
+| type | A propriedade type deve ser definida como: **OnPremisesDB2** | Sim |
+| server | Nome do servidor DB2. | Sim |
+| database | Nome do banco de dados DB2. | Sim |
+| schema | Nome do esquema no banco de dados. | Não |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anonymous, Basic e Windows. | Sim |
+| Nome de Usuário | Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. | Não |
+| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não |
+| gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. | Sim |
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises DB2 data source.
+Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do DB2 local.
 
 
-## DB2 Dataset type properties
+## Propriedades de tipo do conjunto de dados do DB2
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type RelationalTable (which includes DB2 dataset) has the following properties.
+A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties de um conjunto de dados do tipo RelationalTable (que inclui o conjunto de dados do DB2) tem as propriedades a seguir.
 
-| Property | Description | Required |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- | 
-| tableName | Name of the table in the DB2 Database instance that linked service refers to. | Yes |
+| tableName | Nome da tabela na instância do Banco de Dados DB2 à qual o serviço vinculado se refere. | Sim |
 
-## DB2 Copy Activity type properties
+## Propriedades de tipo da atividade de cópia do DB2
 
-For a full list of sections & properties available for defining activities please see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines (Criando pipelines)](data-factory-create-pipelines.md). Propriedades como nome, descrição, tabelas de entrada e saída, diversas políticas, etc. estão disponíveis para todos os tipos de atividades.
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
+As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
-In case of Copy Activity when source is of type **RelationalSource** (which includes DB2) the following properties are available in typeProperties section:
+No caso da atividade de cópia, quando a fonte é do tipo **RelationalSource** (que inclui o DB2), as seguintes propriedades estão disponíveis na seção typeProperties:
 
 
-| Property | Description | Allowed values | Required |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------- | -------------- |
-| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No |
+| query | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. | Não |
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## Type mapping for DB2
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, the Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
+## Mapeamento de tipo para DB2
+Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), A atividade de cópia executa conversões automáticas de tipos de fontes para tipos de coletor, com a abordagem em 2 etapas descritas a seguir:
 
-1. Convert from native source types to .NET type
-2. Convert from .NET type to native sink type
+1. Converter de tipos de fonte nativos para o tipo .NET
+2. Converter do tipo .NET para o tipo de coletor nativo
 
-When moving data to DB2 the following mappings will be used from DB2 type to .NET type.
+Ao mover dados para o DB2 os seguintes mapeamentos serão usados do tipo do DB2 para o tipo do .NET.
 
-DB2 Database type | .NET Framework type 
+Tipo do Banco de Dados DB2 | Tipo .NET Framework 
 ----------------- | ------------------- 
 SmallInt | Int16
-Integer | Int32
+Número inteiro | Int32
 BigInt | Int64
 Real | Single
-Double | Double
-Float | Double
+Duplo | Duplo
+Float | Duplo
 Decimal | Decimal
 DecimalFloat | Decimal
-Numeric | Decimal
-Date | Datetime
-Time | TimeSpan
+Numérico | Decimal
+Data | Datetime
+Hora | TimeSpan
 Timestamp | DateTime
 Xml | Byte
-Char | String
-VarChar | String
-LongVarChar | String
-DB2DynArray | String
-Binary | Byte
+Char | Cadeia de caracteres
+VarChar | Cadeia de caracteres
+LongVarChar | Cadeia de caracteres
+DB2DynArray | Cadeia de caracteres
+Binário | Byte
 VarBinary | Byte
 LongVarBinary | Byte
-Graphic | String
-VarGraphic | String
-LongVarGraphic | String
-Clob | String
+Graphic | Cadeia de caracteres
+VarGraphic | Cadeia de caracteres
+LongVarGraphic | Cadeia de caracteres
+Clob | Cadeia de caracteres
 Blob | Byte
-DbClob | String
+DbClob | Cadeia de caracteres
 SmallInt | Int16
-Integer | Int32
+Número inteiro | Int32
 BigInt | Int64
 Real | Single
-Double | Double
-Float | Double
+Duplo | Duplo
+Float | Duplo
 Decimal | Decimal
 DecimalFloat | Decimal
-Numeric | Decimal
-Date | Datetime
-Time | TimeSpan
+Numérico | Decimal
+Data | Datetime
+Hora | TimeSpan
 Timestamp | DateTime
 Xml | Byte
-Char | String
+Char | Cadeia de caracteres
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
@@ -309,4 +309,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

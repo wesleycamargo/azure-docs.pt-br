@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -216,8 +216,8 @@ Se você encontrar os avisos a seguir ao executar o script, poderá ignorá-los:
 
 Quando o script for concluído, ele produzirá o número estimado de eDTUs necessário para um pool elástico para conter todos os bancos de dados candidatos no servidor de destino. Este eDTU estimado pode ser usado para criar e configurar um pool de banco de dados elástico para conter esses bancos de dados. Depois que o pool for criado e os bancos de dados forem movido para o pool, ele deve ser monitorado atentamente alguns dias e ajustes na configuração do pool de eDTU devem ser feitos conforme necessário.
 
+> [AZURE.IMPORTANT]Este script contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0 e posteriores. Você pode verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Para selecionar todo o script para copiar, clique em qualquer texto no script três vezes (clique triplo).
 
     
     param (
@@ -435,4 +435,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools de ba
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

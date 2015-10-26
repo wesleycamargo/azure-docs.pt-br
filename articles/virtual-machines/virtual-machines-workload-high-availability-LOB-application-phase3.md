@@ -19,7 +19,8 @@
 
 # Carga de trabalho de aplicativo de linha de negócios fase 3: configurar a infraestrutura do SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
 
 Nesta fase de implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você configurará os dois computadores que executam o SQL Server e o computador do nó principal do cluster e, em seguida, vai combiná-los em um cluster do Windows Server.
 
@@ -274,4 +275,4 @@ Para definir a configuração dessa carga de trabalho, vá para a [Fase 4: Confi
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

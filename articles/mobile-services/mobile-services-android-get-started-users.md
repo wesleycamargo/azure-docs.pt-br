@@ -108,4 +108,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

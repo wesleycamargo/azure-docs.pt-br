@@ -1,20 +1,20 @@
 <properties
    pageTitle="Particionamento dos serviços da malha de serviço"
-	description="Descreve como particionar os serviços de malha do serviço"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="appi101"
-	manager="timlt"
-	editor=""/>
+   description="Descreve como particionar os serviços de malha do serviço"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="appi101"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="aprameyr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="aprameyr"/>
 
 # Particionamento dos serviços da malha de serviços
 A malha de serviço facilita a criação de serviços escalonáveis de monitoração de estado através do suporte ao particionamento do estado do serviço e tendo cada partição operando em um subconjunto do estado total. Cada partição torna-se uma unidade que fica [altamente disponível](service-fabric-availability-services.md). As réplicas das partições são distribuídas entre os nós no cluster e são balanceadas.
@@ -54,4 +54,4 @@ Para obter informações sobre os conceitos de malha do serviço, consulte:
 - [Escalabilidade dos serviços da malha de serviço](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # DataStax Enterprise no Ubuntu com um Modelo do Gerenciador de Recursos
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
 
 O DataStax é um dos líderes reconhecidos do setor para o desenvolvimento e fornecimento de soluções com base no Apache Cassandra™ - a tecnologia de banco de dados distribuído NoSQL de software livre, com suporte comercial e pronta para empresas que é amplamente reconhecida como ágil, sempre ativa e escalonável de forma previsível para qualquer porte. O DataStax oferece as opções Enterprise (DSE) e Community (DSC). Além dos recursos trazidos pela edição Community, o Datastax Enterprise tem o certificado de produção Cassandra, com recursos como computação na memória, segurança de nível corporativo, análise integrada rápida e eficiente e gerenciamento corporativo.
 
@@ -503,4 +504,4 @@ Essa abordagem sugere que você:
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

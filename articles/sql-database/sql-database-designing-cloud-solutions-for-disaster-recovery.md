@@ -3,7 +3,7 @@
    description="Aprenda a projetar sua solução de nuvem para recuperação de desastres escolhendo o padrão de failover correto."
    services="sql-database"
    documentationCenter="" 
-   authors="sashan" 
+   authors="anosov1960" 
    manager="jeffreyg" 
    editor="monicar"/>
 
@@ -85,8 +85,7 @@ O gerenciador de tráfego deve ser configurado para roteamento de desempenho par
 Se for detectada uma falha de banco de dados na região primária, você iniciará o failover do banco de dados primário para uma das regiões secundárias, que alterará o local do banco de dados primário. O gerenciador de tráfego excluirá automaticamente o ponto de extremidade offline da tabela de roteamento, mas continuará a rotear o tráfego de usuário final para as instâncias online restantes. Como o banco de dados primário está em uma região diferente, todas as instâncias online devem alterar sua cadeia de conexão SQL de leitura/gravação para se conectar ao novo primário. É importante que você faça essa alteração antes de iniciar o failover de banco de dados. As cadeias de conexão SQL somente leitura devem permanecer inalteradas, pois sempre apontam para o banco de dados na mesma região. As etapas de failover são:
 
 1. alterar as cadeias de conexão SQL de leitura/gravação para apontar para o novo primário
-2. chamar o banco de dados secundário designado para [iniciar o failover de banco de dados](https://msdn.microsoft.com/
-3. /library/azure/dn509573.aspx) 
+2. chamar o banco de dados secundário designado para [iniciar o failover de banco de dados](https://msdn.microsoft.com/library/azure/dn509573.aspx) 
 
 O diagrama a seguir ilustra a nova configuração após o failover. ![Figura 5](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
 
@@ -94,7 +93,7 @@ No caso de uma interrupção em uma das regiões secundários, o gerenciador de 
 
 ![Figura 6](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
 
-A principal **vantagem** desse padrão de design é que você pode dimensionar a carga de trabalho do aplicativo em vários secundários para obter o desempenho de usuário final ideal. As **desvantagens** dessa opção são:
+A principal **vantagem** desse padrão de design é que você pode escalar a carga de trabalho do aplicativo em vários secundários para obter o desempenho ideal do usuário final. As **desvantagens** dessa opção são:
 
 + conexões de leitura e gravação entre as instâncias do aplicativo e o banco de dados tem latência e custos variáveis
 + o desempenho do aplicativo é afetado durante a interrupção
@@ -108,7 +107,7 @@ Essa opção é mais adequada para aplicativos com as seguintes características
 + qualquer perda de dados é um alto risco de negócios; o failover de banco de dados só poderá ser usado como um último recurso, se a interrupção for permanente
 + o aplicativo pode operar em "modo somente leitura" por um período de tempo 
 
-Nesse padrão, o aplicativo alterna para o modo somente leitura quando conectado ao banco de dados secundário. A lógica do aplicativo na região primária está localizada no mesmo banco de dados primário e opera em modo de RW (leitura/gravação); a lógica do aplicativo na região secundária está colocalizada com o mesmo banco de dados secundário e está pronta para operar no modo RO (somente leitura). O gerenciador de tráfego deve ser configurado para usar o [roteamento de failover](traffic-manager-configure-failover-load-balancing.md) com o [monitoramento de ponto de extremidade](traffic-manager-monitoring.md) habilitado para ambas as instâncias do aplicativo.
+Nesse padrão, o aplicativo alterna para o modo somente leitura quando conectado ao banco de dados secundário. A lógica do aplicativo na região primária está localizada no mesmo banco de dados primário e opera em modo de RW (leitura/gravação); a lógica do aplicativo na região secundária está colocalizada com o mesmo banco de dados secundário e está pronta para operar no modo RO (somente leitura). O gerenciador de tráfego deve ser configurado para usar o [roteamento de failover](traffic-manager-configure-failover-load-balancing.md) com o [monitoramento do ponto de extremidade](traffic-manager-monitoring.md) habilitado para ambas as instâncias do aplicativo.
 
 O diagrama a seguir ilustra essa configuração antes de uma interrupção. ![Figura 7](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
 
@@ -124,7 +123,7 @@ No caso de uma interrupção na região secundária, o gerenciador de tráfego m
 
 ![Figura 8](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
 
-Esse padrão de design tem várias **vantagens**:
+Esse padrão de design apresenta várias **vantagens**:
 
 + ele evita a perda de dados durante as interrupções temporárias
 + ele não exige que você implante um aplicativo de monitoramento, pois a recuperação é disparada pelo gerenciador de tráfego 
@@ -148,4 +147,4 @@ A estratégia de DR específica pode combinar ou estender esses padrões para at
 | Implantação ativa-ativa para balanceamento de carga de aplicativo | Acesso de leitura/gravação < 5 s | Tempo de detecção de falha + chamada à API de failover + alteração da cadeia de conexão SQL + teste de verificação de aplicativo
 | Implantação ativa-passiva para preservação de dados | Acesso somente leitura < 5 s Acesso de leitura/gravação = zero | Acesso somente leitura = tempo de detecção de falha de conectividade + teste de verificação de aplicativo <br>Acesso de leitura/gravação = tempo para atenuar a interrupção 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

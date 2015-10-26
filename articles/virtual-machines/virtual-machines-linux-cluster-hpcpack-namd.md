@@ -20,7 +20,8 @@
 
 Este artigo mostra como implantar um cluster do Microsoft HPC Pack no Azure e executar um trabalho do [NAMD](http://www.ks.uiuc.edu/Research/namd/) com **charmrun** em vários nós de computação do Linux em uma rede de cluster virtual para calcular e visualizar a estrutura de um sistema biomolecular grande.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 
 O NAMD (para o programa Nanoscale Molecular Dynamics) é um pacote de dinâmica molecular paralela criado para a simulação de alto desempenho de sistemas biomoleculares grandes que contêm milhões de átomos, como vírus, estruturas celulares e proteínas grandes. O NAMD é dimensionado para centenas de núcleos de simulações típicas e para mais de 500.000 núcleos para as simulações maiores.
@@ -407,4 +408,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

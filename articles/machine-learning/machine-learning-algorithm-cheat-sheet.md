@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/13/2015"
 	ms.author="brohrer;garye" />
 
 
@@ -42,6 +42,8 @@ Baixe a página de dicas úteis de algoritmo de Aprendizado de Máquina e obtenh
 * Para obter uma discussão mais detalhada sobre os diferentes tipos de algoritmos de aprendizado de máquina, como eles são usados e como usar esta página de dicas úteis para escolher o algoritmo correto, confira [Como escolher algoritmos para o Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md).
 * Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Estúdio de Aprendizado de Máquina, consulte [Inicializar modelo][initialize-model] na Ajuda de módulo e no algoritmo do Estúdio de Aprendizado de Máquina.
 * Para obter uma lista completa de algoritmos e módulos no Estúdio de Aprendizado de Máquina, consulte a [Lista de A-Z de módulos do Estúdio de Aprendizado de Máquina][a-z-list] na Ajuda de módulo e no algoritmo de Estúdio de Aprendizado de Máquina.
+* Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
+
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -85,4 +87,4 @@ Baixe a página de dicas úteis de algoritmo de Aprendizado de Máquina e obtenh
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

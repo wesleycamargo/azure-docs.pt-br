@@ -19,7 +19,8 @@
 
 # Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint na Intranet
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Configure seu primeiro ou próximo farm do SharePoint no Microsoft Azure e aproveite a facilidade de configuração e a capacidade de expandir rapidamente o farm a fim de incluir a nova capacidade ou otimização da funcionalidade principal. Muitos farms do SharePoint crescem partindo de uma configuração padrão, de alta disponibilidade, com três camadas para um farm com possivelmente uma dúzia ou mais de servidores otimizados para desempenho ou funções separadas, como pesquisa ou cache distribuído.
 
@@ -128,4 +129,4 @@ Depois de configurado, você poderá expandir esse farm do SharePoint com a orie
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

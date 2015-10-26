@@ -4,4 +4,4 @@
 > 
 > Serviços e recursos criados no portal de visualização do Azure não são visíveis no portal do Azure porque usam um novo modelo de recurso.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

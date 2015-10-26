@@ -115,4 +115,4 @@ Para habilitar a edição de perfil no aplicativo, você precisará criar uma po
 
     > [AZURE.NOTE]É necessário um minuto para que a criação de políticas e as atualizações entrem em vigor.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

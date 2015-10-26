@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Autenticação do Windows e Servidor Azure Multi-Factor Authentication"
-	description="Esta é a página do Azure Multi-Factor Authentication que auxiliará na implantação da Autenticação do Windows e do Servidor Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Autenticação do Windows e Servidor Azure Multi-Factor Authentication" 
+	description="Esta é a página do Azure Multi-Factor Authentication que auxiliará na implantação da Autenticação do Windows e do Servidor Azure Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Autenticação do Windows e Servidor Azure Multi-Factor Authentication
@@ -49,4 +49,4 @@ A seção Autenticação do Windows permite que o administrador habilite e confi
 10. Selecione Sub-rede se desejar especificar um intervalo de IPs usando a notação de sub-rede. Insira o IP inicial da sub-rede e escolha a máscara de rede adequada na lista suspensa. 
 11. Clique no botão OK.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

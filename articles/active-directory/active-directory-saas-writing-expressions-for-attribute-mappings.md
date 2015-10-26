@@ -44,7 +44,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
    3. Outras funções. Por exemplo: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
 
 
-- Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: "Contoso""
+- Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\\). Por exemplo: "Nome da empresa: "Contoso""
 
 
 
@@ -307,4 +307,4 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

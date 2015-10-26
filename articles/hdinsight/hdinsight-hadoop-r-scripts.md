@@ -113,4 +113,4 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

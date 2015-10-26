@@ -44,14 +44,14 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **InsideView**.
 
-    ![Galeria de aplicativos](./media/active-directory-saas-insideview-tutorial/IC794129.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-insideview-tutorial/IC794129.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **InsideView** e clique em **Concluir** para adicionar o aplicativo.
 
     ![InsideView](./media/active-directory-saas-insideview-tutorial/IC794130.png "InsideView")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no InsideView com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no InsideView com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -94,9 +94,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 8.  Na caixa de texto **Mapeamento de sobrenome do Crm**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 9.  Clique em **Salvar**.
 
-8.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+8.  No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configurar o Logon Único")
 ##Configurando o provisionamento de usuários
   
 Para permitir que os usuários do AD do Azure façam logon no InsideView, eles devem ser provisionados no InsideView. No caso do InsideView, o provisionamento é uma tarefa manual.
@@ -115,7 +115,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 2.  Na página de integração de aplicativos do **InsideView**, clique em **Atribuir usuários**.
 
-    ![Atribuir usuários](./media/active-directory-saas-insideview-tutorial/IC794138.png "Atribuir usuários")
+    ![Atribuir Usuários](./media/active-directory-saas-insideview-tutorial/IC794138.png "Atribuir Usuários")
 
 3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
 
@@ -123,4 +123,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

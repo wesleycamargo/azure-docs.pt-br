@@ -48,4 +48,4 @@ O objetivo deste tópico é fornecer as etapas que você precisa executar para c
 
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

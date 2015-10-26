@@ -265,4 +265,4 @@ Para obter exemplos adicionais de um código que chame um aplicativo de API de c
 Para obter informações sobre a autenticação no Serviço de Aplicativo, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

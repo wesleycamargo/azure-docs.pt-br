@@ -19,7 +19,8 @@
 
 # Fase 5 da carga de trabalho da intranet do SharePoint: Criar o grupo de disponibilidade e adicionar os bancos de dados do SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+ 
 
 Na última fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você deve criar um novo grupo de disponibilidade AlwaysOn e adicionar os bancos de dados do farm do SharePoint.
 
@@ -128,4 +129,4 @@ Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

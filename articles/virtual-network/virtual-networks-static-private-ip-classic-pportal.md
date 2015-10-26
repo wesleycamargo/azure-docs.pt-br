@@ -81,4 +81,4 @@ Para adicionar um IP privado estático à VM criada usando as etapas acima, exec
 - Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](../virtual-networks-instance-level-public-ip).
 - Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

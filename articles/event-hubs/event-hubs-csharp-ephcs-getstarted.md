@@ -108,4 +108,4 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -69,4 +69,4 @@ Para saber mais sobre as melhorias de desempenho do Barramento de Serviço, cons
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
   [Particionando entidades de mensagens]: service-bus-partitioning.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

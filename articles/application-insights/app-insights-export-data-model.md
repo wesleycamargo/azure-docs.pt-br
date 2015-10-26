@@ -375,7 +375,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     datetime context.data.eventtime      
 * 
-    A hora do evento de telemetria registrado em UTC. Normalmente, é preenchido no cliente. Se este campo estiver ausente, ele é preenchido no ponto de extremidade de coleta de dados. O formato do campo AAAA-MM-DDTHH:MM:SS.sssZ.    
+    A hora do evento de telemetria registrado em UTC. Normalmente, é preenchido no cliente. Se este campo estiver ausente, ele será preenchido no ponto de extremidade de coleta de dados. O formato do campo AAAA-MM-DDTHH:MM:SS.sssZ.    
 
     *Exemplos*<br/> 2015-05-20T04:00:46.8338283Z
 
@@ -443,7 +443,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     string context.device.language      Max: 100
 * 
-    O idioma do aplicativo no cliente. Se não for fornecida explicitamente no item de telemetria, ele é originado pelo processamento do campo de agente do usuário. 
+    O idioma do aplicativo no cliente. Se não for fornecida explicitamente no item de telemetria, ele será originado pelo processamento do campo de agente do usuário. 
 
 **locale**
 
@@ -457,7 +457,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     string context.device.vmname      Max: 100
 * 
-    O nome da máquina do servidor. Para a computação virtualizada, este item de dados é equivalente ao host subjacente. Para a computação dedicada, esse é o nome doa máquina. 
+    O nome da máquina do servidor. Para a computação virtualizada, este item de dados é equivalente ao host subjacente. Para a computação dedicada, esse é o nome da máquina. 
 
 **networkType**
 
@@ -545,7 +545,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     string context.internal.agentversion      Max: 100
 * 
-    O item de dados interno, representa a versão do agente SDK que produziu o item de telemetria 
+    O item de dados interno representa a versão do agente SDK que produziu o item de telemetria 
 
 **city**
 
@@ -781,7 +781,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     Long sessionmetric.anonymoususersessioncount      
 * 
-    A contagem de visitas do usuário anônimo. É um contador incremental do total de sessões históricas para esse identificador exclusivo de usuário anônimo. Cada sessão com este identificador incrementa o contador. Esse contador é zerado se o identificador de usuário não for visto em um período de 30 dias, quando o contador é redefinido e a próxima visita do identificador de usuário será considerada um novo usuário. 
+    A contagem de visitas do usuário anônimo. É um contador incremental do total de sessões históricas para esse identificador exclusivo de usuário anônimo. Cada sessão com este identificador incrementa o contador. Esse contador será zerado se o identificador de usuário não for visto em um período de 30 dias, quando o contador será redefinido e a próxima visita do identificador de usuário será considerada um novo usuário. 
 
 **authenticatedAccountDurationSinceLastVisit**
 
@@ -793,7 +793,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     Long sessionmetric.authenticatedaccountsessioncount      
 * 
-    A contagem de visitas para o identificador de conta autenticado. É um contador incremental do total de sessões históricas para esse identificador de conta exclusivo. Cada sessão com este identificador incrementa o contador. Esse contador é zerado se o identificador de usuário não for visto em um período de 30 dias, quando o contador é redefinido e a próxima visita do identificador de usuário será considerada um novo usuário. 
+    A contagem de visitas para o identificador de conta autenticado. É um contador incremental do total de sessões históricas para esse identificador de conta exclusivo. Cada sessão com este identificador incrementa o contador. Esse contador será zerado se o identificador de usuário não for visto em um período de 30 dias, quando o contador será redefinido e a próxima visita do identificador de usuário será considerada um novo usuário. 
 
 **authenticatedUserDurationSinceLastVisit**
 
@@ -805,7 +805,7 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 
     Long sessionmetric.authenticatedusersessioncount      
 * 
-    A contagem de visitas para o identificador de usuário autenticado. É um contador incremental do total de sessões históricas para esse identificador exclusivo de usuário autenticado. Cada sessão com este identificador incrementa o contador. Esse contador é zerado se o identificador de usuário não for visto em um período de 30 dias, quando o contador é redefinido e a próxima visita do identificador de usuário será considerada um novo usuário. 
+    A contagem de visitas para o identificador de usuário autenticado. É um contador incremental do total de sessões históricas para esse identificador exclusivo de usuário autenticado. Cada sessão com este identificador incrementa o contador. Esse contador será zerado se o identificador de usuário não for visto em um período de 30 dias, quando o contador será redefinido e a próxima visita do identificador de usuário será considerada um novo usuário. 
 
 **crashCount**
 
@@ -1081,4 +1081,4 @@ O "& lt; telemetryType & gt;" da primeira seção é um espaço reservado para q
 * [Exportação Contínua](app-insights-export-telemetry.md)
 * [Exemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

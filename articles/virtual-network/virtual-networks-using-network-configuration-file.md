@@ -48,4 +48,4 @@ Quando você exporta, todas as configurações para as redes virtuais na sua ass
 3. Na página **Importar o arquivo de configuração de rede**, navegue até o arquivo de configuração de rede e, em seguida, clique na seta **Avançar**.
 4. Na página **Criar sua rede**, você verá as informações na tela mostrando quais seções da sua configuração de rede serão alteradas ou criadas. Se as alterações estiverem corretas para você, clique na marca de seleção para continuar para atualizar ou criar sua rede virtual. 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

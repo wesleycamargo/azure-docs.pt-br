@@ -1,31 +1,23 @@
-
-
-<properties 
-	pageTitle="Usando o provisionamento declarativo do Azure AD Connect"
-	description="Saiba como usar o provisionamento declarativo do Azure AD Connect."
+<properties
+	pageTitle="Alterar a configuração padrão do AD do Azure Connect"
+	description="Saiba como alterar a configuração padrão para o Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="andkjell"
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2015"
-	ms.author="billmath"/>
+	ms.author="andkjell"/>
 
-# Provisionamento declarativo do Azure AD Connect
+# Alterando a configuração padrão do Azure AD Connect
 
+O conteúdo foi removido.
 
-## Usando o provisionamento declarativo 
-Provisionamento declarativo é provisionamento "sem código" e pode ser instalado e configurado usando o Editor de regras de sincronização. O Editor pode ser usado para a instalação e para criar suas próprias regras de provisionamento.
-
-Uma parte essencial de Provisionamento declarativo é a linguagem de expressão usada nos fluxos de atributo. A linguagem usada é um subconjunto de VBA (Visual Basic® for Applications) da Microsoft. Essa linguagem é usada no Microsoft Office e os usuários com experiência em VBScript também a reconhecerão. A Linguagem de expressão de provisionamento declarativo está apenas usando funções e não é uma linguagem estruturada; não existem métodos nem instruções. Em vez disso, as funções serão aninhadas no fluxo do programa expresso.
-
-Para obter mais informações sobre linguagem, consulte [Noções básicas sobre expressões de provisionamento declarativo](https://msdn.microsoft.com/library/azure/dn801048.aspx)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

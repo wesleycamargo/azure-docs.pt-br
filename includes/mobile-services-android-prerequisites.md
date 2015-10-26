@@ -8,4 +8,4 @@ Este tutorial se baseia no código que você baixa no Guia de início rápido do
 [Adicionar Serviços Móveis a um aplicativo existente]: ../articles/mobile-services-android-get-started-data.md
 -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

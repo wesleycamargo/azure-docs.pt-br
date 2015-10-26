@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/09/2015" 
 	ms.author="spelluru"/>
 
 # Notas de versão do Data Factory do Azure
+Consulte o artigo [Data Factory - Log de Alterações do API .NET](data-factory-api-change-log.md) para saber mais sobre as alterações para a SDK do .NET da Data Factory em uma versão específica.
 
 ## Notas da versão de 07/17/2015 da Data Factory
 As seguintes alterações JSON foram introduzidas na versão de julho de 2015 do Azure PowerShell.
@@ -56,7 +57,7 @@ Atividade | AzureMLBatchScoringActivity | AzureMLBatchScoring
 Atividade | StoredProcedureActivity | SqlServerStoredProcedure
 
 ## Novo elemento typeProperties
-O novo elemento **typeProperties** contém propriedades específicas de tipo para um serviço/tabela/atividade vinculado.
+O novo elemento **typeProperties** contém propriedades específicas de tipo para um serviço/tabela/atividade vinculados.
 
 ### Antigo JSON de serviço vinculado
 	{
@@ -353,4 +354,4 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

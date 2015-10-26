@@ -24,4 +24,4 @@ A tabela a seguir descreve os limites e imposições de cota do Banco de Dados d
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/13/2015"
 	ms.author="dastrock"/>
 
 
@@ -204,4 +204,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -126,4 +126,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

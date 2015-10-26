@@ -44,4 +44,4 @@ O AD do Azure fornece vários relatórios para administradores. Mais relatórios
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Identidade do Azure](fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

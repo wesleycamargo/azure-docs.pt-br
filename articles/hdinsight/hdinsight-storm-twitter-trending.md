@@ -140,4 +140,4 @@ Para obter mais exemplos do Storm para HDInsight:
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

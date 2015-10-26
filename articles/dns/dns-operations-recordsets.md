@@ -36,7 +36,7 @@ Conjuntos de registros são criados usando o cmdlet New-AzureDnsRecordSet. Você
 
 >Para um registro definido no vértices da zona, use "@" como o nome do conjunto de registro, incluindo as aspas. O nome totalmente qualificado do conjunto de registros é igual ao nome da zona, nesse caso, "contoso.com".
 
-O DNS do Azure dá suporte aos seguintes tipos de registros: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Conjuntos de registros do tipo SOA são criados automaticamente com cada zona, eles não podem ser criados separadamente.
+O DNS do Azure dá suporte aos seguintes tipos de registros: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Conjuntos de registros do tipo SOA são criados automaticamente com cada zona, eles não podem ser criados separadamente. Observe que [o tipo de registro SPF foi substituído por padrões DNS em favor da criação de registros SPF usando o tipo de registro TXT](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
 
@@ -271,4 +271,4 @@ O objeto do conjunto de registros também pode ser redirecionado em vez de ser p
 [Introdução à criação de conjuntos de registros e registros](../dns-getstarted-create-recordset)<BR> [Executar operações em zonas DNS](../dns-operations-dnszones)<BR> [Automatizar operações usando o SDK do .NET](../dns-sdk)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

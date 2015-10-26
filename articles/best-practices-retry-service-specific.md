@@ -1121,4 +1121,4 @@ O Bloco de Aplicativos para Tratamento de Falhas Transitórias tem as estratégi
 | **Linear (intervalo fixo)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 segundo<br />verdadeiro | O número de tentativas de repetição.<br />O intervalo entre repetições.<br />Se a primeira tentativa de repetição será feita imediatamente. |
 Para exemplos de como usar o Bloco de Aplicativos para Tratamento de Falhas Transitórias, consulte as seções Exemplos anteriormente nesta diretriz para Banco de Dados SQL usando o ADO.NET e Active Directory do Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

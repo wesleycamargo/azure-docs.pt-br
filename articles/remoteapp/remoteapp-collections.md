@@ -91,4 +91,4 @@ OK, acho que desvendamos tudo agora. Há apenas uma coisa que resta fazer: criar
 
 [Criar uma coleção na nuvem](remoteapp-create-cloud-deployment.md) ou [criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md) – basta começar a criar.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -35,4 +35,4 @@ Deseja inscrever-se no Azure como uma organização? [**Inscreva-se agora**](htt
 * [O que é o AD do Azure?](active-directory-whatis.md)
 * [Usar sua infraestrutura de identidade local na nuvem](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

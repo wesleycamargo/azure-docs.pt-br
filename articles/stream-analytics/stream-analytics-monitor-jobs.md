@@ -166,7 +166,7 @@ O código a seguir habilitará o monitoramento para um trabalho de Stream Analyt
 
 
 ## Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/PT-BR/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 
 ## Próximas etapas
@@ -178,4 +178,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -212,4 +212,4 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -43,14 +43,14 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
-## 1. Registrar um aplicativo
-Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md).  Não se esqueça de:
+## 1\. Registrar um aplicativo
+Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
-- Anotar a **Id do aplicativo** atribuída ao aplicativo; você precisará dela em breve.
+- Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 - Adicionar a plataforma **Web** para seu aplicativo.
-- Inserir o **URI de Redirecionamento** correto. O uri de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `http://localhost:3000/auth/openid/return`.
+- Inserir o **URI de Redirecionamento** correto. O URI de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `http://localhost:3000/auth/openid/return`.
 
-## 2. Adicionar pré-requisitos ao seu diretório
+## 2\. Adicionar pré-requisitos ao seu diretório
 
 Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver lá e execute os seguintes comandos:
 
@@ -78,27 +78,27 @@ Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect.  O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
-    -	O `clientID:` é a **Id de Aplicativo** atribuído ao seu aplicativo no portal de registro.
-    -	O `returnURL` é o **Uri de Redirecionamento** inserido no portal.
-    - O `clientSecret` é o segredo gerado no portal
+    -	`clientID:` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
+    -	`returnURL` é o **URI de Redirecionamento** inserido no portal.
+    - O `clientSecret` é o segredo gerado no portal.
 
-- Em seguida, abra o arquivo `app.js` na raiz do projeto e adicione a seguinte chamada para invocar a estratégia `OIDCStrategy` que vem com o `passport-azure-ad`.
+- Em seguida, abra o arquivo `app.js` na raiz do projeto e adicione a seguinte chamada para invocar a estratégia `OIDCStrategy` que vem com `passport-azure-ad`
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Adicione um registro de log 
-var log = bunyan.createLogger({ 
-	name: 'Microsoft OIDC Example Web Application' 
-}); 
+// Add some logging
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
 ```
 
 - Depois disso, use a estratégia que referenciamos para manipular nossas solicitações de logon
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2) 
-// 
+// Use the OIDCStrategy within Passport. (Section 2)
+//
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -228,7 +228,7 @@ app.get('/auth/openid',
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 
@@ -241,16 +241,16 @@ app.get('/auth/openid/return',
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 ```
 
 ## 4\. Usar o Passport para emitir solicitações de entrada e saída ao AD do Azure
 
-Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade v2.0 usando o protocolo de autenticação OpenID Connect. O `passport-azure-ad` cuidou de todos os detalhes para criar as mensagens de autenticação, validar tokens do Azure AD e manter a sessão do usuário. Tudo o que resta é dar aos usuários uma maneira de entrar, sair e coletar informações adicionais sobre o usuário conectado.
+Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade v2.0 usando o protocolo de autenticação OpenID Connect. O `passport-azure-ad` cuidou de todos os detalhes para criar as mensagens de autenticação, validar tokens no Azure AD e manter a sessão do usuário. Tudo o que resta é dar aos usuários uma maneira de entrar, sair e coletar informações adicionais sobre o usuário conectado.
 
-- Primeiro, vamos adicionar os métodos padrão de logon, conta e logoff ao arquivo `app.js`:
+- Primeiramente, vamos adicionar os métodos padrão de logon, conta e logoff ao arquivo `app.js`:
 
 ```JavaScript
 
@@ -280,9 +280,9 @@ app.get('/logout', function(req, res){
 
 -	Vamos examiná-los detalhadamente:
     -	A rota `/` redirecionará para o modo de exibição index.ejs passando o usuário na solicitação (se houver)
-    - A rota `/account` primeiro ***garantirá que sejamos autenticados*** (implementamos isso abaixo) e passará o usuário na solicitação para que possamos obter informações adicionais sobre ele.
+    - A rota `/account` primeiro ***garantirá que sejamos autenticados*** (implementamos isso abaixo) e aprovará o usuário na solicitação para que possamos obter informações adicionais sobre ele.
     - A rota `/login` chamará nosso autenticador azuread-openidconnect de `passport-azuread` e, se não tiver êxito, redirecionará o usuário para /login
-    - O `/logout` simplesmente chamará logout.ejs (e a rota), o que limpa os cookies e, em seguida, retorna o usuário para index. ejs
+    - O `/logout` simplesmente chamará logout.ejs (e a rota), o que limpa os cookies e, em seguida, retorna o usuário para index.ejs
 
 
 - Para a última parte do `app.js`, vamos adicionar o método EnsureAuthenticated que é usado em `/account` acima.
@@ -313,9 +313,9 @@ app.listen(3000);
 
 ## 5\. Criar as exibições e as rotas no express para exibir o usuário no site
 
-Temos nosso `app.js` completo. Agora, basta adicionar rotas e modos de exibição que mostram as informações que precisamos do usuário e lidar com as rotas `/logout` e `/login` criadas.
+Temos nosso `app.js` concluído. Agora, basta adicionar rotas e modos de exibição que mostram as informações que precisamos do usuário e lidar com as rotas `/logout` e `/login` criadas.
 
-- Criar a rota `/routes/index.js` no diretório raiz.
+- Crie a rota `/routes/index.js` no diretório raiz.
 
 ```JavaScript
 
@@ -328,7 +328,7 @@ exports.index = function(req, res){
 };
 ```
 
-- Criar a rota `/routes/user.js` no diretório raiz
+- Crie a rota `/routes/user.js` no diretório raiz
 
 ```JavaScript
 
@@ -356,7 +356,7 @@ Essas rotas simples apenas passarão a solicitação para nossos modos de exibi�
 <% } %>
 ```
 
-- Crie o modo de exibição `/views/account.ejs` no diretório raiz para que possamos exibir as informações adicionais que `passport-azuread` colocou na solicitação do usuário.
+- Crie a exibição `/views/account.ejs` no diretório raiz para que possamos exibir as informações adicionais que `passport-azuread` colocou na solicitação do usuário.
 
 ```Javascript
 <% if (!user) { %>
@@ -387,13 +387,13 @@ Essas rotas simples apenas passarão a solicitação para nossos modos de exibi�
 	<body>
 		<% if (!user) { %>
 			<p>
-			<a href="/">Home</a> | 
+			<a href="/">Home</a> |
 			<a href="/login">Log In</a>
 			</p>
 		<% } else { %>
 			<p>
-			<a href="/">Home</a> | 
-			<a href="/account">Account</a> | 
+			<a href="/">Home</a> |
+			<a href="/account">Account</a> |
 			<a href="/logout">Log Out</a>
 			</p>
 		<% } %>
@@ -411,7 +411,7 @@ Entre com uma conta pessoal da Microsoft ou uma conta corporativa ou de estudant
 
 ##Próximas etapas
 
-Para referência, o exemplo concluído (sem seus valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip), ou você pode cloná-lo do GitHub:
+Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
@@ -419,6 +419,6 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [Proteger uma API da Web com o modelo de aplicativo v 2.0 no node.js >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
 
-Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

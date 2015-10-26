@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Criar o nó principal de um cluster de Pacote HPC em uma VM do Azure com uma imagem do Marketplace
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Este artigo mostra como usar a [imagem de máquina virtual do Pacote HPC da Microsoft](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) no Azure Marketplace para criar o nó principal de um cluster Windows HPC no Azure no modelo de implantação clássico (Gerenciamento de Serviço). O nó principal precisa ser adicionado a um domínio do Active Directory em uma rede virtual do Azure. Você pode usar esse nó principal como prova de implantação de conceito do Pacote HPC no Azure e para adicionar recursos de computação ao cluster para executar cargas de trabalho do HPC.
 
@@ -101,4 +102,4 @@ A seguir estão as etapas de nível superior para criar uma VM do Azure para o n
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

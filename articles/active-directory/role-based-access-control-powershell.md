@@ -164,4 +164,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Configure o acesso baseado em função usando o CLI do Azure](role-based-access-control-xplat-cli-install.md)
 - [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

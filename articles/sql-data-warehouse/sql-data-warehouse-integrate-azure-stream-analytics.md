@@ -96,4 +96,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

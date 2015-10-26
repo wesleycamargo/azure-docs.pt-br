@@ -66,4 +66,4 @@ O fluxograma abaixo ajuda na compreensão do processo de atualização de um apl
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

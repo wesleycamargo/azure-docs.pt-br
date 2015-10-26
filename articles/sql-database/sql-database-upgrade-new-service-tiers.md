@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/28/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -254,9 +254,9 @@ Depois de determinar a camada de serviço e nível de desempenho apropriados par
 | Ferramenta de gerenciamento | Para alterar o nível de desempenho e da camada de serviço de um banco de dados|
 | :---| :---|
 | [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) | clique na guia **ESCALA** na página do painel de seu banco de dados. |
-| [PowerShell do Azure](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use o cmdlet [Set-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546732.aspx). |
-| [API REST de gerenciamento de serviço](http://msdn.microsoft.com/library/azure/dn505719.aspx) | use o comando [Update Database](http://msdn.microsoft.com/library/dn505718.aspx).|
-| [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | use a declaração [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx). |
+| [PowerShell do Azure](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use o cmdlet [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx). |
+| [API REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) | use o comando [Criar ou atualizar banco de dados](https://msdn.microsoft.com/library/azure/mt163685.aspx).|
+| [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | use a declaração [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx). |
 
 Para obter detalhes, consulte [Alterando camadas de serviço e níveis de desempenho de banco de dados](sql-database-scale-up.md)
 
@@ -317,4 +317,4 @@ O serviço de banco de dados SQL do Azure fornece os dados e ferramentas de tele
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

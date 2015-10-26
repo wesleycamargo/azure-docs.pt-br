@@ -204,4 +204,4 @@ Quando os serviços estão em execução, você pode ver os eventos ETW gerados 
 
 [Referência do desenvolvedor para Serviços Confiáveis](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

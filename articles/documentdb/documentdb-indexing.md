@@ -67,4 +67,4 @@ A indexação do Banco de Dados de Documentos foi projetada para eficiência de 
 - Saiba mais sobre como personalizar o índice do Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

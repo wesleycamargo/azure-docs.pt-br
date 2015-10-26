@@ -1,13 +1,12 @@
 <properties 
    pageTitle="Adicionando um Active Directory do Azure usando Serviços Conectados no Visual Studio | Microsoft Azure"
-	description="Adicionar um Active Directory do Azure usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
-
-<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea"/>
+   description="Adicionar um Active Directory do Azure usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
+<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea" />
 
 # Adicionando um Active Directory do Azure usando Serviços Conectados no Visual Studio 
 
@@ -73,4 +72,4 @@ Faça perguntas e obtenha ajuda.
 
  - [Postagem do blog: Introdução ao AD do Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

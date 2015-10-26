@@ -1,26 +1,31 @@
 <properties 
-	pageTitle="Criar e carregar dados nas tabelas Hive do armazenamento de blobs | Microsoft Azure"
-	description="Criar tabelas Hive e carregar dados em blobs para tabelas hive"
-	services="machine-learning,storage"
-	documentationCenter=""
-	authors="hangzh-msft"
-	manager="jacob.spoelstra"
-	editor="cgronlun"/>
+	pageTitle="Criar e carregar dados nas tabelas Hive do armazenamento de blobs | Microsoft Azure" 
+	description="Criar tabelas Hive e carregar dados em blobs para tabelas hive" 
+	services="machine-learning,storage" 
+	documentationCenter="" 
+	authors="hangzh-msft" 
+	manager="jacob.spoelstra" 
+	editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
+	ms.author="hangzh;bradsev" />
 
  
 #Criar e carregar dados nas tabelas Hive do armazenamento de blobs do Azure
+
+Esse **menu** liga os tópicos que descrevem a inclusão de dados em ambientes de destino em que os dados podem ser armazenados e processados durante o Processo de Análise do Cortana (CAPS).
+
+[AZURE.INCLUDE [seletor de dados de ingestão de limite](../../includes/cap-ingest-data-selector.md)]
+
  
 ## Introdução
-Neste documento, são apresentadas consultas de Hive genéricas que criam tabelas Hive e carregam dados do armazenamento de blobs do Azure. Também são fornecida algumas orientações sobre o particionamento de tabelas Hive e sobre como usar a formatação ORC (Colunar de Linha Otimizado) para melhorar o desempenho da consulta.
+Neste **documento**, são apresentadas consultas de Hive genéricas que criam tabelas Hive e carregam dados do armazenamento de blobs do Azure. Também são fornecida algumas orientações sobre o particionamento de tabelas Hive e sobre como usar a formatação ORC (Colunar de Linha Otimizado) para melhorar o desempenho da consulta.
 
 ## Pré-requisitos
 Este artigo supõe que você:
@@ -30,7 +35,7 @@ Este artigo supõe que você:
 * Habilitou o acesso remoto para o cluster, conectou-se e abriu o Console de Linha de Comando do Hadoop. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode). 
 
 ## Carregar dados no armazenamento de blob do Azure
-Se você criou uma máquina virtual do Azure seguindo as instruções fornecidas em [Configurar uma máquina virtual do Azure para análise avançada](machine-learning-data-science-setup-virtual-machine.md), esse arquivo de script deve ter sido baixado no diretório *C:\\Users\<user name>\\Documents\\Data Science Scripts* na máquina virtual. Essas consultas de Hive exigem somente conectar em seu próprio esquema de dados e que a configuração de armazenamento de blobs do Azure nos campos apropriados esteja pronta para envio.
+Se você criou uma máquina virtual do Azure seguindo as instruções fornecidas em [Configurar uma máquina virtual do Azure para análise avançada](machine-learning-data-science-setup-virtual-machine.md), esse arquivo de script deve ter sido baixado no diretório *C:\\Users\\<user name>\\Documents\\Data Science Scripts* na máquina virtual. Essas consultas de Hive exigem somente conectar em seu próprio esquema de dados e que a configuração de armazenamento de blobs do Azure nos campos apropriados esteja pronta para envio.
 
 Supomos que os dados de tabelas Hive estejam em formato de tabela **descompactado** e que os dados foram carregado no contêiner padrão (ou em um adicional) da conta de armazenamento usada pelo cluster do Hadoop.
 
@@ -160,4 +165,4 @@ Os usuários não podem carregar dados diretamente do armazenamento de blob em t
 
 Depois de seguir esse procedimento, você deve ter uma tabela com dados no formato ORC pronta para uso.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

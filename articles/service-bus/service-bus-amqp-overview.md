@@ -105,4 +105,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]: service-bus-amqp-apache.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

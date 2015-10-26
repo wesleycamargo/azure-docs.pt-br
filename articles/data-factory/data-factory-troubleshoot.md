@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Solucionar problemas do Data Factory do Azure"
-	description="Saiba como solucionar problemas com o uso do Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Solucionar problemas do Data Factory do Azure" 
+	description="Saiba como solucionar problemas com o uso do Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Solucionar problemas do Data Factory
@@ -382,4 +382,4 @@ Nesse cenário, o conjunto de dados está em um estado de erro devido a uma falh
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

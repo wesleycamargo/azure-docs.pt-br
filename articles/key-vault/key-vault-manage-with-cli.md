@@ -256,4 +256,4 @@ Aqui está um exemplo de como remover um segredo específica:
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

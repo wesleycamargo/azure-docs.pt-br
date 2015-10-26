@@ -18,4 +18,4 @@ Você precisa de uma conta para implantar aplicativos no Azure. Este artigo desc
 [2]: ./media/create-an-azure-account/antares-iaas-preview-05.png
 [3]: ./media/create-an-azure-account/antares-iaas-preview-06.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

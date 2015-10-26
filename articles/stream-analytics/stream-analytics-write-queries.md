@@ -70,4 +70,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

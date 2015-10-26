@@ -5,4 +5,4 @@
 > 
 > Se não estiver conectado atualmente à sua assinatura do Azure, será solicitado que você faça logon quando visitar o [Portal de visualização](https://portal.azure.com/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

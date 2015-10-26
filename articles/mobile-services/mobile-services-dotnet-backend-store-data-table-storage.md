@@ -155,4 +155,4 @@ Agora que você viu como é fácil usar o armazenamento de tabela com o back-end
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

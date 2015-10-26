@@ -1,20 +1,20 @@
 <properties
    pageTitle="Como anotar fontes de dados"
-	description="Artigo de instruções que destaca como anotar ativos de dados no Catálogo de Dados do Azure, incluindo nomes amigáveis, marcas, descrições e especialistas."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Artigo de instruções que destaca como anotar ativos de dados no Catálogo de Dados do Azure, incluindo nomes amigáveis, marcas, descrições e especialistas."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/17/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/17/2015"
+   ms.author="maroche"/>
 
 
 # Como anotar fontes de dados
@@ -57,4 +57,4 @@ Assim como os metadados extraídos da fonte de dados durante o registro são adi
 ## Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados tiver sido registrada, os usuários poderão fornecer anotações para facilitar a descoberta e a compreensão de dentro do portal do **Catálogo de Dados do Azure**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

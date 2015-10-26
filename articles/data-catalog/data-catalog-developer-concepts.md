@@ -1,20 +1,20 @@
 <properties
    pageTitle="Conceitos de desenvolvedor do Catálogo de Dados do Azure"
-	description="Introdução aos conceitos principais no modelo conceitual do Catálogo de Dados do Azure, conforme exposto pela API REST do Catálogo."
-	services="data-catalog"
-	documentationCenter=""
-	authors="dvana"
-	manager="mblythe"
-	editor=""
-	tags=""/>
+   description="Introdução aos conceitos principais no modelo conceitual do Catálogo de Dados do Azure, conforme exposto pela API REST do Catálogo."
+   services="data-catalog"
+   documentationCenter=""
+   authors="dvana"
+   manager="mblythe"
+   editor=""
+   tags=""/>
 <tags 
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="07/13/2015"
+   ms.author="derrickv"/>
 
 # Conceitos de desenvolvedor do Catálogo de Dados do Azure
 
@@ -258,4 +258,4 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

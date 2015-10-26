@@ -128,4 +128,4 @@ Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web d
 
 Este cenário de API Web encadeada pode ter suporte usando a concessão Credencial de Portador Jwt do OAuth 2.0, também conhecido como fluxo Em nome de. No entanto, o fluxo Em nome de não está implementado atualmente na visualização do AD B2C do Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

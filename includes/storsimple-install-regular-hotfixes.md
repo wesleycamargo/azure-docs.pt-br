@@ -19,4 +19,4 @@
 
 5. Será solicitada a sua confirmação. Digite **Y** para prosseguir com a instalação do hotfix.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

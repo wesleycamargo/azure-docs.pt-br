@@ -1357,4 +1357,4 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

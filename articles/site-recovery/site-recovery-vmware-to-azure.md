@@ -381,7 +381,7 @@ Observe que os quatro primeiros endereços IP em qualquer sub-rede são reservad
 8. Se você estiver executando o Linux:
 	1. Certifique-se de ter os LIS (Linux Integration Services) mais recentes instalados antes de instalar o Software do servidor de destino mestre. Você pode encontrar a versão mais recente dos LIS com instruções sobre como instalá-los [aqui](https://www.microsoft.com/pt-br/download/details.aspx?id=46842). Reinicie a máquina após instalar os LIS.
 	2. Em **Preparar Recursos de Destino do Azure**, clique em **Baixar e Instalar software adicional (somente para o Servidor de Destino Mestre Linux)** para baixar o pacote do servidor de destino mestre do Linux. Copie o arquivo tar baixado na máquina virtual usando um cliente sftp. Como alternativa, você pode fazer logon no servidor de destino mestre Linux implantado e usar *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* para baixar o arquivo.
-2. Faça logon no servidor usando um cliente do Secure Shell. Observe que, se você estiver conectado à rede do Azure pela VPN, use o endereço IP interno. Caso contrário, use o endereço IP externo e o ponto de extremidade público do SSH.
+	2. Faça logon no servidor usando um cliente do Secure Shell. Observe que, se você estiver conectado à rede do Azure pela VPN, use o endereço IP interno. Caso contrário, use o endereço IP externo e o ponto de extremidade público do SSH.
 	3. Extraia os arquivos do instalador compactado executando **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Servidor de destino mestre Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Verifique se você está no diretório no qual extraiu o conteúdo do arquivo tar.
 	5. Copie a senha do servidor de configuração para um arquivo local usando o comando **echo *`<passphrase>`* >passphrase.txt**
@@ -771,4 +771,4 @@ As informações na Seção B se referem a componentes de Código de Terceiros q
 
 O arquivo completo pode ser encontrado no [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=529428). A Microsoft se reserva todos os direitos não expressamente concedidos neste documento, seja por implicação, embargo ou de outra forma.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

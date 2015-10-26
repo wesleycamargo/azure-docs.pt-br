@@ -85,4 +85,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [Definição da API do Conector de Arquivo]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso do Gerenciador de Conexão Híbrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tamram"/>
 
 # Introdução ao Armazenamento do Microsoft Azure
@@ -79,6 +79,8 @@ Para saber como criar uma conta de armazenamento padrão, confira [Criar, gerenc
 ### Contas de Armazenamento Premium
 
 Um Armazenamento premium do Azure tem suporte no momento para discos de Máquina Virtual do Azure apenas. Para obter uma visão geral detalhada do Armazenamento Premium do Azure, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
+
+[AZURE.INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
 ## Armazenamento de Blob
 
@@ -234,4 +236,4 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 - [Como usar o Armazenamento de Fila no Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

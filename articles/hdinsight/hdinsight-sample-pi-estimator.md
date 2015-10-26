@@ -475,4 +475,4 @@ Para obter tutoriais que descrevam outros exemplos e forneçam instruções sobr
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -20,7 +20,7 @@
 
 O SDK .NET do Application Insights consiste em vários pacotes NuGet. O [pacote principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria ao Application Insights. Os [pacotes adicionais](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecem _módulos_ e _inicializadores_ de telemetria para rastreamento automático de telemetria do seu aplicativo e respectivo contexto. Ajustando o arquivo de configuração, você pode habilitar ou desabilitar módulos e inicializadores de telemetria, bem como definir parâmetros para alguns deles.
 
-O arquivo de configuração é chamado `ApplicationInsights.config` ou `ApplicationInsights.xml`, dependendo do tipo do seu aplicativo. Ele é automaticamente adicionado ao seu projeto quando você [instala algumas versões do SDK][start]. Ele também é adicionado a um aplicativo Web pelo [Status Monitor em um servidor IIS][redfield] ou quando você seleciona a [extensão do Application Insights para um site ou VM do Azure][azure].
+O arquivo de configuração é chamado `ApplicationInsights.config` ou `ApplicationInsights.xml`, dependendo do tipo do seu aplicativo. Ele é adicionado automaticamente ao seu projeto quando você [instala algumas versões do SDK][start]. Ele também é adicionado a um aplicativo Web pelo [Status Monitor em um servidor IIS][redfield] ou quando você seleciona a [extensão do Application Insights para um site ou VM do Azure][azure].
 
 Não há um arquivo equivalente para controlar o [SDK em uma página da Web][client].
 
@@ -311,6 +311,6 @@ Para obter uma nova chave, [crie um novo recurso no portal do Application Insigh
 [netlogs]: app-insights-asp-net-trace-logs.md
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

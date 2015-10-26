@@ -19,7 +19,9 @@
 
 # Arquitetura do Gerenciador de Recursos do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
+
 
 Este artigo fornece uma visão geral de ambas as arquiteturas de Gerenciamento de serviços e Gerenciador de Recursos para a criação de aplicativos baseados em infraestrutura e cargas de trabalho.
 
@@ -81,4 +83,4 @@ Você também pode ver a componentização e os relacionamentos dependentes entr
 
 [Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

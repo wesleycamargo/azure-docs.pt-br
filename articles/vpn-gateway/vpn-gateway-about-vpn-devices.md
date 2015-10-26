@@ -156,4 +156,4 @@ Para saber mais sobre gateways de VPN, consulte [Sobre gateways de VPN](vpn-gate
 
 Para configurar uma VPN site a site, consulte [Criar uma rede virtual com uma conexão VPN site a site](vpn-gateway-site-to-site-create.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

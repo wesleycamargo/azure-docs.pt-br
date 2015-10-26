@@ -18,7 +18,8 @@
 
 # Backup automatizado para SQL Server em Máquinas Virtuais do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 
 O Backup Automatizado configura automaticamente o [Backup Gerenciado do Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todos os bancos de dados novos e existentes em uma VM do Azure executando o SQL Server 2014 Standard ou Enterprise. Isso permite que você configure backups regulares do banco de dados que utilizam o durável armazenamento de Blobs do Azure.
@@ -113,4 +114,4 @@ Um recurso relacionado às VMs do SQL Server no Azure é a [Aplicação de patch
 
 Examine outros [recursos para executar o SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

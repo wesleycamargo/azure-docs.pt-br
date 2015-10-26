@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gerenciador de Tráfego - métodos de roteamento de tráfego - | Microsoft Azure"
-	description="Este artigo o ajudará a entender os diferentes métodos de roteamento de tráfego usados pelo Gerenciador de Tráfego"
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Este artigo o ajudará a entender os diferentes métodos de roteamento de tráfego usados pelo Gerenciador de Tráfego"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Métodos de roteamento do Gerenciador de Tráfego
 
@@ -137,4 +137,4 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

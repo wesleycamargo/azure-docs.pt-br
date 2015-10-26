@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Integrar um serviço de nuvem à CDN do Azure"
-	description="Um tutorial que ensina como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado"
-	services="cdn, cloud-services"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Integrar um serviço de nuvem à CDN do Azure" 
+	description="Um tutorial que ensina como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado" 
+	services="cdn, cloud-services" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="cephalin"/>
 
 
@@ -90,7 +90,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE] O processo de publicação para serviços de nuvem leva muito tempo. A opção Habilitar Implantação da Web para todas as funções pode acelerar muito a depuração do serviço de nuvem fornecendo atualizações rápidas (mas temporárias) para suas funções Web. Para saber mais sobre esta opção, consulte [Publicando um Serviço de Nuvem usando as Ferramentas do Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+	>[AZURE.NOTE]O processo de publicação para serviços de nuvem leva muito tempo. A opção Habilitar Implantação da Web para todas as funções pode acelerar muito a depuração do serviço de nuvem fornecendo atualizações rápidas (mas temporárias) para suas funções Web. Para saber mais sobre esta opção, consulte [Publicando um Serviço de Nuvem usando as Ferramentas do Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Quando o **Log de atividades do Microsoft Azure** mostrar que o status da publicação é **Concluído**, crie um ponto de extremidade CDN que esteja integrado a esse serviço de nuvem.
 
@@ -99,7 +99,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png)
 
-	>[AZURE.NOTE] Após a criação do ponto de extremidade da CDN, o portal do Azure mostrará sua URL e o domínio de origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó de CDN.
+	>[AZURE.NOTE]Após a criação do ponto de extremidade da CDN, o portal do Azure mostrará sua URL e o domínio de origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó de CDN.
 
 	Observe que o ponto de extremidade CDN está vinculado ao caminho **cdn/** do serviço de nuvem. Você pode criar uma pasta **cdn** em seu projeto **FunçãoDaWeb1** ou usar o URL reescrito para remover todos o links de entrada deste caminho. Neste tutorial, você adotará a segunda opção.
 
@@ -111,7 +111,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
 
-	>[AZURE.NOTE] Embora habilitar a cadeia de consulta não seja necessário para esta seção do tutorial, é aconselhável fazer isso o quanto antes para maior conveniência, uma vez que qualquer alteração aqui levará tempo para ser propagada para todos os nós da CDN, e você não quer um acúmulo de conteúdo não habilitado para cadeia de consulta no cache da CDN (a atualização do conteúdo da CDN será abordada mais adiante).
+	>[AZURE.NOTE]Embora habilitar a cadeia de consulta não seja necessário para esta seção do tutorial, é aconselhável fazer isso o quanto antes para maior conveniência, uma vez que qualquer alteração aqui levará tempo para ser propagada para todos os nós da CDN, e você não quer um acúmulo de conteúdo não habilitado para cadeia de consulta no cache da CDN (a atualização do conteúdo da CDN será abordada mais adiante).
 
 3. Execute o ping de seu ponto de extremidade da CDN para garantir que ele esteja propagado para os nós de CDN. Talvez seja necessário esperar por até uma hora antes de ele responder a pings.
 
@@ -189,7 +189,7 @@ Com a integração da CDN do Azure a seu serviço de nuvem, você pode especific
 	  ...
 	</system.webServer>
 
-Após você ter feito isso, todos os arquivos estáticos do serviço de nuvem obedecerão à mesma regra do seu cache de CDN. Para ter um controle mais granular das configurações de cache, adicione um arquivo *Web.config* a uma pasta e adicione suas configurações. Por exemplo, adicione um arquivo *Web.config* à pasta *\Content* e substitua o conteúdo pelo seguinte XML:
+Após você ter feito isso, todos os arquivos estáticos do serviço de nuvem obedecerão à mesma regra do seu cache de CDN. Para ter um controle mais granular das configurações de cache, adicione um arquivo *Web.config* a uma pasta e adicione suas configurações. Por exemplo, adicione um arquivo *Web.config* à pasta *\\Content* e substitua o conteúdo pelo seguinte XML:
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -200,7 +200,7 @@ Após você ter feito isso, todos os arquivos estáticos do serviço de nuvem ob
 	  </system.webServer>
 	</configuration>
 
-Esta configuração faz com que todos os arquivos estáticos da pasta *\Content* sejam armazenados em cache por 15 dias.
+Esta configuração faz com que todos os arquivos estáticos da pasta *\\Content* sejam armazenados em cache por 15 dias.
 
 Para obter mais informações sobre como configurar o elemento `<clientCache>`, consulte [Cache do Cliente <clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -400,7 +400,7 @@ No projeto **FunçãoDaWeb1** criado em [Integrar um ponto de extremidade da CDN
 		...
     }
 
-A primeira instrução `bundles.Add()` adiciona um grupo de script ao diretório virtual `~/bundles/jquery`. Depois, abra *Views\\Shared_Layout.cshtml* para ver como a marcação do grupo de script é renderizada. Você deve encontrar a seguinte linha de código Razor:
+A primeira instrução `bundles.Add()` adiciona um grupo de script ao diretório virtual `~/bundles/jquery`. Depois, abra *Views\\Shared\_Layout.cshtml* para ver como a marcação do grupo de script é renderizada. Você deve encontrar a seguinte linha de código Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -459,8 +459,8 @@ Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto
 	
 	-	A origem do URL da CDN é `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, que é na realidade o diretório virtual do grupo de scripts em seu serviço de nuvem.
 	-	Como você está usando um construtor CDN, a marcação do script CDN para o grupo não contém mais a cadeia da versão gerada automaticamente na URL renderizada. Você deve gerar manualmente uma cadeia de versão única sempre que o grupo de scripts for modificado para gerar uma perda de cache em sua CDN do Azure. Ao mesmo tempo, essa cadeia de versão única deve permanecer constante ao longo da vida útil da implantação para maximizar as ocorrências no cache na CDN do Azure após a implantação do grupo.
-	-	A cadeia de consulta v=<W.X.Y.Z> efetua pull de *Properties\AssemblyInfo.cs* no projeto de função Web. Você pode ter um fluxo de trabalho de implantação que inclua o incremento da versão de assembly sempre que você publicar no Azure. Ou pode apenar modificar *Properties\AssemblyInfo.cs* em seu projeto para incrementar automaticamente a cadeia da versão sempre que compilar, usando o caractere curinga “*”. Por exemplo:
-	
+	-	A cadeia de consulta v=<W.X.Y.Z> efetua pull de *Properties\\AssemblyInfo.cs* no projeto de função Web. Você pode ter um fluxo de trabalho de implantação que inclua o incremento da versão de assembly sempre que você publicar no Azure. Ou pode apenar modificar *Properties\\AssemblyInfo.cs* em seu projeto para incrementar automaticamente a cadeia da versão sempre que compilar, usando o caractere curinga “*”. Por exemplo:
+
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
 		Qualquer outra estratégia para simplificar a geração de uma cadeia única para a vida útil de uma implantação funcionará aqui.
@@ -555,7 +555,7 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	
 	Há, no entanto, um bom [Fallback de Grupo de Estilo](https://github.com/EmberConsultingGroup/StyleBundleFallback) oferecido pelo [Ember Consulting Group](https://github.com/EmberConsultingGroup).
 
-2. Para usar a solução alternativa para CSS, crie um novo arquivo .cs na pasta *App_Start* de seu projeto de função Web, nomeie esse arquivo como *StyleBundleExtensions.cs* e substitua seu conteúdo pelo [código do GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
+2. Para usar a solução alternativa para CSS, crie um novo arquivo .cs na pasta *App\_Start* de seu projeto de função Web, nomeie esse arquivo como *StyleBundleExtensions.cs* e substitua seu conteúdo pelo [código do GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
 4. Em *App_Start\StyleFundleExtensions.cs*, renomeie o namespace como nome da sua função Web (por exemplo, **FunçãoDaWeb1**).
 
@@ -622,4 +622,4 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 - [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Usando a CDN para Azure](cdn-how-to-use.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

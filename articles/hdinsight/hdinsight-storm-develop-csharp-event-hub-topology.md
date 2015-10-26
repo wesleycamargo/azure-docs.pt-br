@@ -557,4 +557,4 @@ Neste documento, você aprendeu a usar o Bolt e o Spout dos Hub de Eventos Java 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

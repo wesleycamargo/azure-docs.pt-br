@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="10/12/2015"
    ms.author="telmos" />
 
 # Encaminhamento IP e rotas definidas pelo usuário
-Ao adicionar máquinas virtuais (VMs) a uma rede virtual (VNet) no Azure, você observará que as máquinas virtuais são capazes de se comunicar automaticamente com outras VMs na rede. Não é necessário especificar um gateway, mesmo que as VMs estejam em sub-redes diferentes. O mesmo vale para a comunicação entre as VMs para a Internet pública e até mesmo em suas instalações de rede quando houver uma conexão híbrida do Azure para o seu próprio datacenter.
+Ao adicionar VMs (máquinas virtuais) a uma VNet (rede virtual) no Azure, você observará que as VMs podem se comunicar automaticamente com outras VMs na rede. Não é necessário especificar um gateway, mesmo que as VMs estejam em sub-redes diferentes. O mesmo vale para a comunicação entre as VMs para a Internet pública e até mesmo em suas instalações de rede quando houver uma conexão híbrida do Azure para o seu próprio datacenter.
 
 Esse fluxo de comunicação é possível porque o Azure usa uma série de rotas do sistema para definir como o tráfego IP flui. As rotas de sistema controlam o fluxo de comunicação nos seguintes cenários:
 
@@ -32,9 +32,11 @@ A figura a seguir mostra uma configuração simples com uma VNet, duas sub-redes
 
 Embora o uso de rotas do sistema facilite o tráfego automaticamente para a sua implantação, há casos em que você deseja controlar o roteamento de pacotes por meio de um dispositivo virtual. Você pode fazer isso criando rotas definidas pelo usuário que especificam o próximo salto para os pacotes que fluem para uma sub-rede específica indo, então, para o dispositivo virtual e habilitar o encaminhamento de IP para a VM em execução como o dispositivo virtual.
 
-A figura abaixo mostra um exemplo de rotas definidas pelo usuário e encaminhamento de IP para forçar os pacotes que vão de uma sub-rede front-end para a Internet a passar por um dispositivo virtual, e todos os pacotes que vão da sub-rede front-end para a sub-rede de back-end a passar por um dispositivo diferente. Observe que o tráfego da sub-rede de back-end para a sub-rede de front-end ainda está atravessando a rota do sistema, ignorando o dispositivo.
+A figura abaixo mostra um exemplo das rotas definidas pelo usuário e do encaminhamento IP para forçar os pacotes enviados para uma sub-rede de outra a passar por um dispositivo virtual em uma terceira sub-rede.
 
 ![Rotas de sistema no Azure](./media/virtual-networks-udr-overview/Figure2.png)
+
+>[AZURE.IMPORTANT]As rotas definidas pelo usuário só são aplicadas ao tráfego que sai de uma sub-rede. Não é possível criar rotas para especificar como o tráfego entra em uma sub-rede por meio da Internet, por exemplo. Além disso, o dispositivo para o qual o tráfego é encaminhado não pode estar na mesma sub-rede em que se origina o tráfego. Sempre crie uma sub-rede separada para seus dispositivos.
 
 ## Roteamento
 Os pacotes são roteados através de uma rede TCP/IP com base em uma tabela de rotas definida em cada nó na rede física. Uma tabela de rotas é uma coleção de rotas individuais usadas para decidir para onde encaminhar pacotes com base no endereço IP de destino. Uma rota consiste no seguinte:
@@ -51,9 +53,9 @@ Os pacotes são roteados através de uma rede TCP/IP com base em uma tabela de r
 ## Rotas do sistema
 Cada sub-rede criada em uma rede virtual é associada automaticamente a uma tabela de rota que contém as seguintes regras de rota do sistema:
 
-- **Regra VNet local**: esta regra é criada automaticamente para todas as sub-redes em uma rede virtual. Ela especifica que há um link direto entre as VMs na VNet e não há nenhum próximo salto intermediário.
-- **Regra local**: essa regra se aplica a todo o tráfego destinado ao intervalo de endereços local e usa o gateway de VPN como o destino do próximo salto.
-- **Regra de Internet**: essa regra processa todo o tráfego destinado à Internet pública e usa o gateway de internet de infraestrutura como o próximo salto para todo o tráfego destinado à Internet.
+- **Regra de VNet local**: essa regra é criada automaticamente para todas as sub-redes em uma rede virtual. Ela especifica que há um link direto entre as VMs na VNet e não há nenhum próximo salto intermediário.
+- **Regra local**: essa regra se aplica a todo o tráfego destinado ao intervalo de endereços locais e usa o gateway de VPN como o destino do próximo salto.
+- **Regra de Internet**: essa regra manipula todo o tráfego destinado à Internet pública e usa o gateway de Internet de infraestrutura como o próximo salto para todo o tráfego destinado à Internet.
 
 ## Rotas definidas pelo usuário
 Para a maioria dos ambientes, serão necessárias apenas as rotas de sistema já definidas pelo Azure. No entanto, talvez seja necessário criar uma tabela de rotas e adicionar uma ou mais rotas em casos específicos, como:
@@ -69,7 +71,7 @@ As sub-redes contam com rotas de sistema até que uma tabela de rotas seja assoc
 1. Rota BGP (quando o ExpressRoute é usado)
 1. Rota de sistema
 
-Para saber como criar rotas definidas pelo usuário, consulte [Como criar rotas e habilitar o encaminhamento de IP no Azure](../virtual-networks-udr-how-to#How-to-manage-routes).
+Para saber como criar rotas definidas pelo usuário, veja [Como criar rotas e habilitar o encaminhamento IP no Azure](../virtual-networks-udr-how-to#How-to-manage-routes).
 
 >[AZURE.IMPORTANT]As rotas definidas pelo usuário são aplicadas apenas a VMs do Azure e a serviços de nuvem. Por exemplo, se desejar adicionar um dispositivo virtual de firewall entre sua rede local e o Azure, você terá que criar uma rota definida pelo usuário para as tabelas de rotas do Azure que encaminham todo o tráfego direcionado ao espaço de endereço local para o dispositivo virtual. No entanto, o tráfego de entrada do espaço de endereço local fluirá através de seu gateway de VPN ou circuito do ExpressRoute diretamente para o ambiente do Azure, ignorando o dispositivo virtual.
 
@@ -83,11 +85,9 @@ Conforme descrito acima, uma das principais razões para criar uma rota definida
 
 Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada não endereçado a si mesma. Para permitir que uma VM receba o tráfego endereçado a outros destinos, você deve habilitar o Encaminhamento IP para a VM. Esta é uma configuração do Azure, não uma configuração no sistema operacional convidado.
 
-Para saber como habilitar o Encaminhamento IP para uma máquina virtual no Azure, consulte [Como criar rotas e habilitar o Encaminhamento IP no Azure](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding).
-
 ## Próximas etapas
 
 - Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](../virtual-network-create-udr-arm-template) e associá-las a sub-redes. 
 - Saiba como [criar rotas no modelo de implantação clássico](../virtual-network-create-udr-classic-ps) e associá-las a sub-redes.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

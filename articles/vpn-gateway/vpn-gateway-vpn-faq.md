@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Perguntas frequentes sobre o Gateway de VPN de rede virtual | Microsoft Azure"
-	description="Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de rede virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN"
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de rede virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN"
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc" />
 
 # Perguntas frequentes de gateway de VPN
 
@@ -252,4 +252,4 @@ Exibir mais perguntas frequentes sobre redes para obter detalhes adicionais:
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

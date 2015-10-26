@@ -94,4 +94,4 @@ O caso de uso canônico para o qual o BigTable (e, por extensão, o HBase) foi c
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

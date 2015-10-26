@@ -171,4 +171,4 @@ Consulte os seguintes tópicos avançados para saber mais e obter exemplos do us
 - [Guia do desenvolvedor de Hubs de Evento](../event-hubs-programming-guide.md)
 - [Sistema de Mensagens Agenciado: filtros avançados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

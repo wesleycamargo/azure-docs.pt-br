@@ -408,7 +408,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 		# Define the MapReduce job.
 		$TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
 
-	> [AZURE.NOTE] TallyProperties-v01.jar vem com a instalação personalizada do Conector para Hadoop do Banco de Dados de Documentos.
+	> [AZURE.NOTE]TallyProperties-v01.jar vem com a instalação personalizada do Conector para Hadoop do Banco de Dados de Documentos.
 
 3. Adicione o comando a seguir para enviar o trabalho MapReduce.
 
@@ -493,4 +493,4 @@ Para saber mais, consulte os seguintes artigos:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

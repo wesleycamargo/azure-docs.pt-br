@@ -272,7 +272,7 @@ Assim como os extras de evento, a classe de pacote é usada para abstrair as inf
 
 ### Exemplo
 
-Aqui está um exemplo de código para enviar a data de nascimento e gênero do usuário:
+Aqui está um exemplo de código para enviar a data de nascimento e sexo do usuário:
 
 			Bundle appInfo = new Bundle();
 			appInfo.putString("status", "premium");
@@ -298,4 +298,4 @@ No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

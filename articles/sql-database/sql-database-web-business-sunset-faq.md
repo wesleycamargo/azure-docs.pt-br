@@ -66,4 +66,4 @@ Os bancos de dados SQL Basic, Standard e Premium do Azure são cobrados por hora
 
 [Atualizar os bancos de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

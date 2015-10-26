@@ -92,4 +92,4 @@
 Agora, o serviço usa a marca de ID do usuário para enviar notificações por push (com o texto do item inserido) para todos os registros criados pelo usuário conectado.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

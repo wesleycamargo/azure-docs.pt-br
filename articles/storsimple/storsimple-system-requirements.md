@@ -197,4 +197,4 @@ Além dos requisitos de rede acima, para obter o desempenho ideal de sua soluç�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->
