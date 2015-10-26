@@ -53,4 +53,4 @@ Se tiver máquinas virtuais hospedadas pelo Azure, você pode acessá-las no Ger
 
 Para saber mais sobre como usar funções do Azure no Visual Studio, consulte [usando a área de trabalho remota com funções do Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

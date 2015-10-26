@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="10/12/2015" 
 	ms.author="raynew"/>
 
 # Failover na Recuperação de Site
@@ -94,13 +94,7 @@ Na execução de um failover de teste, é solicitado que você selecione as conf
 **Failover em um site do VMM secundário — com rede** | Selecionar uma rede VM existente | O failover verifica se as máquinas virtuais são criadas | <p>A máquina virtual de teste será criada no mesmo host que o host no qual está a máquina virtual de réplica. Ela não é adicionada à nuvem em que a máquina virtual de réplica está localizada.</p><p>Crie uma rede VM isolada da rede de produção</p><p>Se você estiver usando uma rede baseada em VLAN, é recomendável criar uma rede lógica separada (não usada em produção) no VMM para esse fim. Essa rede lógica é usada para criar redes VM para fins de failover de teste.</p><p>A rede lógica deve ser associada a pelo menos um dos adaptadores de rede de todos os servidores Hyper-V que hospedam máquinas virtuais.</p><p>Para redes lógicas de VLAN, os sites de rede adicionados à rede lógica devem ser isolados.</p><p>Se você está estiver usando uma rede lógica baseada na Virtualização de Rede do Windows, o Azure Site Recovery criará automaticamente redes VM isoladas.</p>
 **Failover em um site do VMM secundário — criar uma rede** | Uma rede de teste temporária será criada automaticamente com base na configuração especificada em **Rede Lógica** e seus sites de rede relacionados | O failover verifica se as máquinas virtuais são criadas | <p>Use essa opção se o plano de recuperação usa mais de uma rede VM. Caso esteja usando redes da Virtualização de Rede do Windows, essa opção pode ser usada para criar automaticamente redes VM com as mesmas configurações (sub-redes e pools de endereços IP) na rede da máquina virtual de réplica. Essas redes VM são removidas automaticamente depois que o failover de teste é concluído.</p><p>A máquina virtual de teste será criada no mesmo host que o host no qual está a máquina virtual de réplica. Ela não é adicionada à nuvem na qual a máquina virtual de réplica está localizada.</p>
 
-Observe que:
-
-- Ao replicar em um site secundário, o tipo de rede usado pelo computador de réplica não precisa corresponder ao tipo da rede lógica usado para o failover de teste, mas algumas combinações podem não funcionar. Quando a réplica usa isolamento baseado em VLAN e DHCP, a rede VM da réplica não precisa de um pool de endereços IP estáticos. Desse modo, usar a Virtualização de Rede do Windows para o failover de teste não funcionará porque nenhum pool de endereços está disponível. Além disso, o failover de teste não funcionará se a rede de réplica for Sem Isolamento e a rede de teste for Virtualização de Rede do Windows. Isso porque a rede Sem Isolamento não tem as sub-redes necessárias para criar uma rede da Virtualização de Rede do Windows.
-- O modo como as máquinas virtuais de réplica são conectadas às redes VM mapeadas após o failover depende de como a rede VM é configurada no console do VMM:
-	- **Rede VM configurada sem isolamento ou com isolamento VLAN**: se DHCP for definido para a rede VM, a máquina virtual de réplica será conectada à ID da VLAN usando as configurações que são especificadas para o site da rede na rede lógica associada. A máquina virtual receberá seu endereço IP do servidor DHCP disponível. Não é necessário um pool de endereços IP estáticos definido para a rede VM de destino. Se um pool de endereços IP estáticos for usado para a rede VM, a máquina virtual de réplica será conectada à ID da VLAN usando as configurações que são especificadas para o site da rede na rede lógica associada. A máquina virtual receberá seu endereço IP do pool definido para a rede VM. Se um pool de endereços IP estáticos não for definido na rede VM de destino, a alocação do endereço IP falhará. O pool de endereços IP deve ser criado em servidores VMM de origem e de destino que você pretende usar para proteção e recuperação.
-	- **Rede VM com Virtualização de Rede do Windows**: quando uma rede VM é configurada com essa definição, um pool estático deve ser definido para a rede VM de destino, independentemente de a rede VM de origem estar configurada para usar DHCP ou um pool de endereços IP estáticos. Quando você define DHCP, o servidor VMM de destino atua como um servidor DHCP e fornece um endereço IP do pool que está definido para a rede VM de destino. Quando é definido o uso de um pool de endereços IP estáticos para o servidor de origem, o servidor VMM de destino aloca um endereço IP do pool. Em ambos os casos, a alocação de endereço IP falhará se um pool de endereços IP estáticos não for definido.
-
+>[AZURE.NOTE]O IP fornecido a uma máquina virtual em um Failover de Teste é o mesmo IP que ela receberia executando um failover planejado ou não planejado, considerando que esse IP está disponível na rede de Failover de Teste. Se o mesmo IP não estiver disponível na rede de failover de teste, a máquina virtual receberá alguns outros IP disponíveis na rede de failover de teste.
 
 
 
@@ -119,58 +113,50 @@ Este procedimento descreve como executar um failover de teste para um plano de r
 
 > [AZURE.NOTE]Se um failover de teste continuar por mais de duas semanas, ele será concluído à força. Todos os elementos ou máquinas virtuais criados automaticamente durante o failover de teste serão excluídos.
   
-#### Exemplo
 
-Execute um exemplo de failover de teste como se segue:
+### Executar um failover de teste de um site primário local para um site secundário local
 
-1. Faça um failover de teste da máquina virtual do Active Directory e da máquina virtual do DNS na mesma rede que você usará para o failover de teste da máquina virtual local.
-2. Observe os endereços IP que são alocados para esses computadores com failover.
-3. Na rede virtual do Azure que será usada para o failover de teste, adicione os endereços IP como os endereços dos servidores DNS e do Active Directory.
-4. Faça um failover de teste da máquina virtual, especificando a rede do Azure.
-5. Depois de confirmar que a falha de teste funcionou conforme esperado, conclua o failover das máquinas virtuais e, em seguida, das máquinas virtuais do Active Directory e DNS.
-
-### Executar um failover de teste de um site primário local em um site secundário
-
-Você precisará realizar várias tarefas para executar um failover de teste, incluindo fazer uma cópia do Active Directory e colocar servidores de teste DHCP e DNS no ambiente de teste. Isso pode ser feito de duas maneiras:
+Você precisará realizar várias tarefas para executar um failover de teste, incluindo fazer uma cópia do controlador de domínio e colocar servidores DHCP e DNS de teste no ambiente de teste. Isso pode ser feito de duas maneiras:
 
 - Se deseja executar um failover de teste usando uma rede existente, prepare o Active Directory, DHCP e DNS nessa rede.
 - Se deseja executar um failover de teste usando a opção para criar redes VM automaticamente, adicione uma etapa manual antes do Grupo-1 no plano de recuperação que usará para o failover de teste e, em seguida, adicione os recursos de infraestrutura à rede criada automaticamente antes de executar o failover de teste.
 
-#### Preparar o Active Directory
-Para executar um failover de teste em um teste de aplicativo, você precisará de uma cópia do ambiente de produção do Active Directory no ambiente de teste. Veja o que fazer.
+#### Elementos a serem observados
 
-1. **Criar uma cópia**: crie uma cópia do Active Directory usando um dos seguintes métodos:
+- Ao replicar em um site secundário, o tipo de rede usado pelo computador de réplica não precisa corresponder ao tipo da rede lógica usado para o failover de teste, mas algumas combinações podem não funcionar. Quando a réplica usa isolamento baseado em VLAN e DHCP, a rede VM da réplica não precisa de um pool de endereços IP estáticos. Desse modo, usar a Virtualização de Rede do Windows para o failover de teste não funcionará porque nenhum pool de endereços está disponível. Além disso, o failover de teste não funcionará se a rede de réplica for Sem Isolamento e a rede de teste for Virtualização de Rede do Windows. Isso porque a rede Sem Isolamento não tem as sub-redes necessárias para criar uma rede da Virtualização de Rede do Windows.
+- O modo como as máquinas virtuais de réplica são conectadas às redes VM mapeadas após o failover depende de como a rede VM é configurada no console do VMM:
+	- **Rede VM configurada sem isolamento ou com isolamento VLAN**: se DHCP for definido para a rede VM, a máquina virtual de réplica será conectada à ID da VLAN usando as configurações que são especificadas para o site da rede na rede lógica associada. A máquina virtual receberá seu endereço IP do servidor DHCP disponível. Não é necessário um pool de endereços IP estáticos definido para a rede VM de destino. Se um pool de endereços IP estáticos for usado para a rede VM, a máquina virtual de réplica será conectada à ID da VLAN usando as configurações que são especificadas para o site da rede na rede lógica associada. A máquina virtual receberá seu endereço IP do pool definido para a rede VM. Se um pool de endereços IP estáticos não for definido na rede VM de destino, a alocação do endereço IP falhará. O pool de endereços IP deve ser criado em servidores VMM de origem e de destino que você pretende usar para proteção e recuperação.
+	- **Rede VM com Virtualização de Rede do Windows**: quando uma rede VM é configurada com essa definição, um pool estático deve ser definido para a rede VM de destino, independentemente de a rede VM de origem estar configurada para usar DHCP ou um pool de endereços IP estáticos. Quando você define DHCP, o servidor VMM de destino atua como um servidor DHCP e fornece um endereço IP do pool que está definido para a rede VM de destino. Quando é definido o uso de um pool de endereços IP estáticos para o servidor de origem, o servidor VMM de destino aloca um endereço IP do pool. Em ambos os casos, a alocação de endereço IP falhará se um pool de endereços IP estáticos não for definido.
 
-	- Replicação do Hyper-V — você pode iniciar a replicação do Active Directory usando a replicação do Hyper-V, assim como faria para outras máquinas virtuais. Ao fazer um failover de teste de um plano de recuperação, você também pode fazer um failover de teste da máquina virtual do Active Directory.
-	- Replicação do Active Directory — você pode usar a replicação do Active Directory para criar uma cópia da sua instalação do Active Directory no site de réplica. Quando você faz um failover de teste de um plano de recuperação, é possível criar uma cópia da máquina virtual do Active Directory tirando um instantâneo da instalação do Active Directory de réplica. É possível usar essa cópia para o failover de teste. Depois que o failover de teste é concluído, você pode excluir a cópia do Active Directory.
+#### Executar teste
 
-2. **Importar e exportar**: você pode criar uma cópia de uma máquina virtual do Active Directory exportando-a e depois importando-a com um novo GUID.
-3. **Adicionar à rede**: adicione o Active Directory à rede que é criada pelo failover de teste. Observe o seguinte: 
+Este procedimento descreve como executar um failover de teste para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual ou servidor físico na guia **Máquinas Virtuais**.
 
-	- É importante garantir que a rede à qual você vai adicionar o Active Directory está completamente isolada da rede de produção. Se você usar uma rede do tipo Rede do Windows como sua rede de teste, o sistema garantirá o isolamento das redes VM automaticamente criadas, desde que você não adicione uma gateway externo à rede. Se estiver usando isolamento baseado em VLAN, você terá que garantir que as redes VM criadas estejam isoladas do ambiente de produção.
-	- A sequência de etapas que talvez você precise seguir será um pouco diferente, dependendo de o Active Directory e o DNS estarem em execução na mesma máquina virtual ou em máquinas virtuais diferentes:
-		- Mesma máquina virtual — se o Active Directory e o DNS estiverem na mesma máquina virtual, você poderá usar a mesma máquina virtual como um recurso DNS para o failover de teste. Você pode optar por limpar todas as entradas no DNS e recriar as zonas necessárias no DNS. 
-		- Máquina virtual diferente — se o Active Directory e o DNS estiverem em máquinas virtuais diferentes, você precisará criar um recurso DNS para o failover de teste. Você pode usar um servidor DNS atualizado e criar todas as zonas necessárias. Por exemplo, se o domínio do Active Directory for contoso.com, você poderá criar uma zona com o nome contoso.com. 
+1. Selecione **Planos de Recuperação** > *nome\_planoderecuperação*. Clique em **Failover** > **Failover de Teste**.
+2. Na página **Confirmar Failover de Teste**, especifique como as máquinas virtuais devem ser conectadas às redes após o failover de teste.
+3. Acompanhe o progresso do failover na guia **Trabalhos**. Quando o failover atingir a fase **Concluir teste***, clique em **Concluir Teste** para finalizar o failover de teste.
+4. Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
+4. Depois de concluído, verifique se as máquinas virtuais iniciam com sucesso.
+5. Depois de verificar que máquinas virtuais foram iniciadas com êxito, conclua o teste de failover para limpar o ambiente isolado. Se você optar por criar automaticamente as redes VM, a limpeza excluirá todas as máquinas virtuais de teste e a redes de teste.
 
-4. **Atualizar o Active Directory no DNS**: em ambos os casos, as entradas que correspondem ao Active Directory devem ser atualizadas no DNS. Faça isso da seguinte forma:
+> [AZURE.NOTE]Se um failover de teste continuar por mais de duas semanas, ele será concluído à força. Todos os elementos ou máquinas virtuais criados automaticamente durante o failover de teste serão excluídos.
 
-	- Assegure-se de que as configurações a seguir estejam definidas antes que outra máquina virtual apareça no plano de recuperação:
-		- A zona deve ser nomeada depois do nome raiz da floresta.
-		- A zona deve ter backup em arquivo.
-		- A zona deve ser habilitada para atualizações seguras e não seguras.
-		- Se o Active Directory e o DNS estiverem em duas máquinas virtuais separadas, o resolvedor da máquina virtual do Active Directory deve apontar para o endereço IP da máquina virtual do DNS.
-	- Execute o seguinte comando no Active Directory: nltest /dsregdns.
 
 #### Preparar o DHCP
 
 Se as máquinas virtuais envolvidas no failover de teste usarem DHCP, um servidor DHCP de teste deverá ser criado na rede isolada que é criada para fins de failover de teste.
 
-#### Preparar o DNS
+
+### Preparar o Active Directory
+Para executar um failover de teste em um teste de aplicativo, você precisará de uma cópia do ambiente de produção do Active Directory no ambiente de teste. Leia a seção [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#considerations-for-test-failover]) para obter mais detalhes.
+
+
+### Preparar o DNS
 
 Prepare um servidor DNS para o failover de teste da seguinte forma:
 
-- **DHCP**: se as máquinas virtuais usarem DHCP, o endereço IP do DNS de teste deverá ser atualizado no servidor DHCP de teste. Quando você usa um tipo de rede da Virtualização de Rede do Windows, o servidor VMM atua como o servidor DHCP. Portanto, o endereço IP do DNS deve ser atualizado no pool de endereços IP estáticos que é usado para failover de teste. Nesse caso, as máquinas virtuais se registrarão no servidor DNS relevante.
-- **Endereço estático**: se as máquinas virtuais usarem um endereço IP estático, o endereço IP do servidor DNS de teste deverá ser atualizado nos pools de endereços IP estáticos que são usados para failover de teste. Você precisará atualizar o DNS com o endereço IP das máquinas virtuais de teste. É possível usar o seguinte script de exemplo para este fim: 
+- **DHCP**: se as máquinas virtuais usarem DHCP, o endereço IP do DNS de teste deverá ser atualizado no servidor DHCP de teste. Quando você usa um tipo de rede da Virtualização de Rede do Windows, o servidor VMM atua como o servidor DHCP. Portanto, o endereço IP do DNS deve ser atualizado na rede de failover de teste. Nesse caso, as máquinas virtuais se registrarão no servidor DNS relevante.
+- **Endereço estático** – se as máquinas virtuais usarem um endereço IP estático, o endereço IP do servidor DNS de teste deverá ser atualizado na rede de failover de teste. Talvez você precise atualizar o DNS com o endereço IP das máquinas virtuais de teste. É possível usar o seguinte script de exemplo para este fim: 
 
 	    Param(
 	    [string]$Zone,
@@ -182,25 +168,7 @@ Prepare um servidor DNS para o failover de teste da seguinte forma:
 	    $newrecord.RecordData[0].IPv4Address  =  $IP
 	    Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-- **Adicionar zona**: use o script a seguir para adicionar uma zona no servidor DNS, permitir atualizações não seguras e adicionar uma entrada para si própria no DNS:
 
-	    dnscmd /zoneadd contoso.com  /Primary 
-	    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1 
-	    dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM> 
-	    dnscmd /config contoso.com /allowupdate 1
-
-#### Executar teste
-
-Este procedimento descreve como executar um failover não planejado para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual ou servidor físico na guia **Máquinas Virtuais**.
-
-1. Selecione **Planos de Recuperação** > *nome\_planoderecuperação*. Clique em **Failover** > **Failover de Teste**.
-2. Na página **Confirmar Failover de Teste**, especifique como as máquinas virtuais devem ser conectadas às redes após o failover de teste.
-3. Acompanhe o progresso do failover na guia **Trabalhos**. Quando o failover atingir a fase **Concluir teste***, clique em **Concluir Teste** para finalizar o failover de teste.
-4. Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
-4. Depois de concluído, verifique se as máquinas virtuais iniciam com sucesso.
-5. Depois de verificar que máquinas virtuais foram iniciadas com êxito, conclua o teste de failover para limpar o ambiente isolado. Se você optar por criar automaticamente as redes VM, a limpeza excluirá todas as máquinas virtuais de teste e a redes de teste.
-
-Observe que, se um failover de teste continuar por mais de duas semanas, ele será concluído à força e todos os elementos ou máquinas virtuais criados automaticamente durante o failover de teste serão excluídos.
 
 ## Executar um failover planejado (primário para secundário)
 
@@ -282,4 +250,4 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

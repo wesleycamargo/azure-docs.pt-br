@@ -99,7 +99,6 @@ A Microsoft dá suporte a pelo menos duas versões recentes de cada família de 
 
 > [AZURE.WARNING]A desativação da família 1 do SO convidado começou em 1º de junho de 2013 e está programada para ser concluída em breve. Não crie novas instalações usando essa família do SO convidado, e atualize as instalações antigas que ainda a utilizam. Para obter mais informações, consulte [Informações de desativação da Família 1 do SO convidado do Azure][fam1retire]
 
-O SO convidado inclui uma configuração diferente dos padrões do Windows Server. Para obter mais informações, consulte [Diferenças entre o SO convidado do Azure e o padrão do Windows Server][server and gos].
 
 ### Família do SO convidado, versão e explicação de versão
 As famílias de SO convidado são baseadas em versões lançadas do Microsoft Windows Server. O SO convidado é o sistema operacional subjacente sobre o qual os serviços de nuvem do Azure são executados. Cada SO convidado tem uma família, uma versão e um número de lançamento.
@@ -232,7 +231,7 @@ Esta página contém informações sobre as próximas versões do SO convidado. 
 
 O Microsoft Azure está constantemente lançando atualizações. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por um número muito grande de fatores para que se possa listá-los aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível fornecer uma data e hora exatas em que a função (ou funções) será reinicializada. Atualizaremos o [Feed RSS de atualização do SO convidado][rss] com as informações mais recentes que tivermos, mas considere esse horário como uma janela aproximada. Estamos cientes de que isso causa problemas para clientes e estamos trabalhando em um plano limitar ou programar as reinicializações.
 
-Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no Portal de Gerenciamento do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração. Para obter mais informações, consulte [Atualizar o SO convidado no Portal de Gerenciamento do Azure][update guest os portal] e [Atualizar o SO convidado do Azure modificando o arquivo de configuração de serviço][update guest os svc].
+Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no Portal de Gerenciamento do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração.
 
 Para uma grande variedade de informações valiosas sobre reinicializações e indicações para mais detalhes técnicos sobre atualizações de SO de Host e de Convidado, consulte a postagem no blog MSDN intitulada [Instância de Função reinicia devido a atualizações do SO][restarts].
 
@@ -324,7 +323,7 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 | 2\.19 versão 1 | WA-GUEST-OS-2.19\_201309-01 | 23 de setembro de 2013 | N/D | 14 de maio de 2014 |
 
 
-[Configurações de atualização de SO convidado do Azure]: https://msdn.microsoft.com/library/azure/ff729420.aspx
+[Configurações de atualização de SO convidado do Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -344,4 +343,4 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

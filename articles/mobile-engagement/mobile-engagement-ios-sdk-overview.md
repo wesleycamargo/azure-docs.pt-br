@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #SDK do iOS para o Mobile Engagement do Azure
 
@@ -32,9 +32,12 @@ Clique para ver o [Conteúdo do SDK](mobile-engagement-ios-sdk-content.md)
 
 ##Notas de versão
 
-###3\.1.0 (26/08/2015)
+##3\.2.0 (10/08/2015)
 
--   Corrija o bug de compatibilidade do iOS 9 com uma biblioteca de terceiros. Ele estava causando falhas ao enviar resultados de pesquisas, informações do aplicativo ou dados adicionais.
+-   Habilitado Bitcode no SDK para fazê-lo funcionar com **Xcode 7**.
+-   Bugs corrigidos relacionados a notificações no aplicativo.
+-   Feitas notificações no aplicativo mais confiáveis no caso de pouca bateria e outros cenários.
+-   Removidos logs do console extra gerados pela biblioteca de terceiros.
 
 Para a versão anterior, consulte as [notas de versão completas](mobile-engagement-ios-release-notes.md)
 
@@ -59,4 +62,4 @@ O método `application:didReceiveRemoteNotification:` precisa ser substituído p
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

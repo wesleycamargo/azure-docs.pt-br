@@ -1,6 +1,8 @@
-<properties  
+<properties 
+	title="Multi-tenant applications with elastic database tools and row-level security" 
 	pageTitle="Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha" 
-	description="Saiba como usar as ferramentas de banco de dados elástico com segurança em nível de linha para criar um aplicativo com uma camada de dados altamente dimensionável no Banco de Dados SQL que dá suporte a fragmentos multilocatários."  
+	description="Saiba como usar as ferramentas de banco de dados elástico com segurança em nível de linha para criar um aplicativo com uma camada de dados altamente dimensionável no Banco de Dados SQL que dá suporte a fragmentos multilocatários." 
+	metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
@@ -339,4 +341,4 @@ Ferramentas de banco de dados elástico e segurança em nível de linha podem se
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

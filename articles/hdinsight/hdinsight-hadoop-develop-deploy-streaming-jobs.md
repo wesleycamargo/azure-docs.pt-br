@@ -43,7 +43,7 @@ Antes de começar este tutorial, você deve ter feito o seguinte:
 - Obtenha uma assinatura do Azure. Para obter instruções, consulte [Opções de compra][azure-purchase-options], [Ofertas para membros][azure-member-offers] ou [Avaliação gratuita][azure-free-trial].
 
 
-##<a name="develop"></a>Desenvolver um programa C&\#35 de streaming do Hadoop para a contagem de palavras
+##<a name="develop"></a>Desenvolver um programa C&#35 de streaming do Hadoop para a contagem de palavras
 
 A solução de contagem de palavras contém dois projetos de aplicativo de console: mapeador e redutor. O aplicativo mapeador transmite cada palavra no console e o aplicativo redutor conta o número de palavras que são transmitidas de um documento. Tanto o mapeador, quanto o redutor leem caracteres, linha por linha, do fluxo de entrada padrão (stdin) e gravam no fluxo de saída padrão (stdout).
 
@@ -555,4 +555,4 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Fluxo do aplicativo MapReduce de contagem de palavras"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -172,4 +172,4 @@ Agora que você aprendeu os conceitos básicos de mensagens assíncronas no Barr
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
   [namespaces emparelhados e implicações de custo]: service-bus-paired-namespaces.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

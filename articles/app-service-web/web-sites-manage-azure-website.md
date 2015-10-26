@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure"
-	description="Links para recursos para gerenciar um aplicativo Web no Serviço de Aplicativo do Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="erikre"
-	manager="wpickett"
+	pageTitle="Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure" 
+	description="Links para recursos para gerenciar um aplicativo Web no Serviço de Aplicativo do Azure." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="erikre" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/31/2015" 
 	ms.author="erikre"/>
 
 # Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure
@@ -103,4 +103,4 @@ Se você usar o Visual Studio Online, é possível configurar a implantação co
 
   
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

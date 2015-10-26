@@ -56,4 +56,4 @@ Observe que, no caso de gatilhos *Push*, você *não* verá os horários de iní
 Há um recurso adicional que, atualmente, não está disponível na interface do usuário (em breve), mas está disponível via [API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). Quando você atualiza a definição de um aplicativo lógico, a versão anterior da definição é armazenada. Isso ocorre porque, se você já tiver uma execução em andamento, essa execução fará referência à versão do aplicativo lógico que existia quando a execução teve início. Definições de execuções não podem mudar enquanto estiverem em andamento. O histórico de versão de API REST fornece acesso a essas informações.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -79,4 +79,4 @@ O SUSE Linux Enterprise Server no Azure é uma plataforma testada que fornece co
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

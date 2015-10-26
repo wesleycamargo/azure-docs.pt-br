@@ -80,4 +80,4 @@ Você pode usar os métodos de ciclo de vida do ASP.NET além daqueles fornecido
 ## Próximas etapas
 Saiba como [criar um pacote de serviços de nuvem](cloud-services-model-and-package.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -102,7 +102,7 @@ Agora você poderá referenciar a Biblioteca de Autenticação do Active Directo
 
 5. No código para o método `loginAndGetData` acima, substitua **INSERIR-URI-DO-RECURSO-AQUI** pelo URI da **ID do Aplicativo** para o seu Aplicativo Móvel. Se você acompanhou o tópico [Como configurar seu aplicativo móvel com o Active Directory do Azure], o URI da ID do aplicativo deve ser similar a https://contosogateway.azurewebsites.net/login/aad.
 
-6. No código, para o método `loginAndGetData` acima, substitua **INSERIR-ID-DO-CLIENTE-AQUI** pela ID do cliente copiada do aplicativo do cliente nativo.
+6. No código, para o método `loginAndGetData` acima, substitua **￼INSERIR-ID-DO-CLIENTE-AQUI** pela ID do cliente copiada do aplicativo do cliente nativo.
 
 7. No código para o método `loginAndGetData` acima, substitua **INSERIR-URI-DE-REDIRECIONAMENTO-AQUI** pelo ponto de extremidade de logon/feito para seu Gateway do Serviço de Aplicativo. Esse deve ser semelhante a https://contosogateway.azurewebsites.net/login/done.
 
@@ -123,4 +123,4 @@ Agora você poderá referenciar a Biblioteca de Autenticação do Active Directo
  [Introdução a Aplicativos Móveis]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [Adicionar autenticação ao seu aplicativo]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

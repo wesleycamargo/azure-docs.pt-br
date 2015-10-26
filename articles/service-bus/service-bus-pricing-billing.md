@@ -147,4 +147,4 @@ Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independen
 
 [Perguntas Frequentes sobre Preços do Barramento de Serviço](service-bus-pricing-faq.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

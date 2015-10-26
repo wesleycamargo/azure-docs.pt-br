@@ -125,4 +125,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 [Como gerar miniatura usando o codificador de mídia padrão com o .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Visão geral de codificação dos Serviços de Mídia](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

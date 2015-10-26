@@ -193,4 +193,4 @@ Este tutorial demonstrou as noções básicas sobre a habilitação de um aplica
 [Site de Exemplos de Código do Desenvolvedor]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

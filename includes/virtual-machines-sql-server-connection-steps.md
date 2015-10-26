@@ -183,4 +183,4 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 
 	![Conectar-se usando SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

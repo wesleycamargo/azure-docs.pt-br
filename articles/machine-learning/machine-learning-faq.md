@@ -93,8 +93,7 @@ Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do 
 
 **Eu posso ler dados da Amazon S3?**
 
-Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento.
-<!--
+Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento. <!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -215,8 +214,7 @@ Após um modelo de previsão ser colocado em produção, você pode monitorá-lo
 
 Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode gravá-la em um blob. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo Gravador.
 
- ** Posso criar serviços Web apenas de modelos criados no Estúdio? 
-Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+ **** Posso criar serviços Web apenas de modelos criados no Estúdio? Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
 
 
 ##Escalabilidade
@@ -309,4 +307,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!-----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

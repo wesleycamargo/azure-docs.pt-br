@@ -301,4 +301,4 @@ Depois que o pipeline é executado, você poderá ver os dados aparecerem no con
 
 Observe que não utilizamos a funcionalidade fornecida pelo ADF para dados de pipe incrementalmente. Para obter mais detalhes sobre como fazer isso e outros recursos fornecidos pelo ADF, consulte a [documentação do ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

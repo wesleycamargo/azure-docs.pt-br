@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Usar a CLI do Azure com o Gerenciamento de Serviços | Microsoft Azure"
-	description="Saiba como usar as ferramentas de linha de comando para Mac, Linux e Windows para gerenciar o Azure usando a CLI do Azure no modo de implantação clássico (Gerenciamento de Serviços)."
+	description="Saiba como usar as ferramentas de linha de comando para Mac, Linux e Windows para gerenciar o Azure usando a CLI do Azure no modo clássico (Gerenciamento de Serviços do Azure)."
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,24 +14,26 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação. Você também pode criar um recurso com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-deploy-rmtemplates-azure-cli.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar e gerenciar um recurso com comandos da CLI no modelo de implantação clássico. Você também pode criar e gerenciar um recurso com comandos da CLI no [modelo de implantação do Gerenciador de Recursos](azure-cli-arm-commands.md).
 
-Este tópico descreve como usar a CLI do Azure no modo **asm** para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. Essa funcionalidade é semelhante àquela fornecida pelos cmdlets de gerenciamento de serviço Windows PowerShell instalados com o SDK do Azure para .NET, Node.JS e PHP.
+Este tópico descreve como usar a CLI do Azure no modo asm (Gerenciamento de Serviços) para criar, gerenciar e excluir serviços na linha de comando de computadores com Mac, Linux e Windows. É possível realizar muitas das mesmas tarefas usando as várias bibliotecas dos SDKs do Azure, com o Azure PowerShell, e usando o Portal do Azure. O uso dos serviços do Azure com o modo de Gerenciamento de Serviços é conceitualmente semelhante à criação e ao gerenciamento de conceitos e serviços individuais do Azure, como Sites, Máquinas Virtuais, Redes Virtuais, Armazenamento e assim por diante.
 
-> [AZURE.NOTE]O uso dos serviços do Azure com o modo **asm** é conceitualmente semelhante a pensar sobre conceitos e serviços individuais do Azure, como sites, máquinas virtuais, redes virtuais, armazenamento e assim por diante. A funcionalidade mais rica com um modelo logicamente agrupado e hierárquico de recursos está disponível na linha de comando usando o modo **arm**. Para alternar para esse modo, confira [Usando a interface de linha de comando do Azure com o Gerenciador de Recursos](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE]Para começar, primeiro [instale a CLI do Azure](../xplat-cli-install.md) e [faça logon para usar os recursos do Azure associados à sua conta](../xplat-cli-connect.md).
 
-Para obter instruções sobre a instalação, confira [Instalar e configurar a interface de linha de comando do Azure](../xplat-cli-install.md).
+## Escopo do artigo
+
+Este artigo fornece a sintaxe e as opções para os comandos mais usados da CLI do Azure para o modelo de implantação clássico (Gerenciamento de Serviços). Não é uma referência completa, e a sua versão da CLI poderá mostrar alguns comandos ou parâmetros diferentes. Para ver as atuais opções e a sintaxe de comandos na linha de comando no modo de Gerenciamento de Serviços, digite `azure help` ou, para exibir a ajuda para um comando específico, `azure help [command]`. Você também encontrará exemplos da CLI na documentação de criação e gerenciamento de serviços específicos do Azure.
 
 Parâmetros opcionais são mostrados entre colchetes (por exemplo, [parâmetro]). Todos os outros parâmetros são obrigatórios.
 
 Além dos parâmetros opcionais específicos aos comandos documentados aqui, há três parâmetros opcionais que podem ser usados para exibir saída detalhada, como opções de solicitação e códigos de status. O parâmetro -v fornece saída detalhada e o parâmetro -vv fornece saída mais detalhada ainda. A opção --json produzirá o resultado no formato json bruto.
 
-## Definição do modo **asm**
+## Definindo o modo de Gerenciamento de Serviços
 
 Atualmente, o modo de gerenciamento de serviços é habilitado por padrão quando você instala a CLI. Se necessário, use o seguinte comando para habilitar os comandos de gerenciamento de serviço de CLI do Azure.
 
@@ -2348,4 +2350,4 @@ Remove uma entrada de servidor DNS da configuração de rede.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

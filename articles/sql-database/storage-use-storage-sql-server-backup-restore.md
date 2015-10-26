@@ -73,4 +73,4 @@ Para uma explicação completa da criação de uma conta de armazenamento e real
 
 [Práticas recomendadas de backup e restauração (Serviço de armazenamento de blob do Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

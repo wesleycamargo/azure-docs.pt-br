@@ -59,4 +59,4 @@ Para tópicos mais avançados relacionados à Malha de Serviço, consulte os art
 
 - [Visão geral de Restrições de Posicionamento](service-fabric-placement-constraint.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

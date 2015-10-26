@@ -235,4 +235,4 @@ Para aplicativos de API que usam metadados dinâmicos, você pode fazer uso de a
 Neste artigo, você viu como aprimorar a experiência do usuário do seu aplicativo API quando ele é usado no designer de Aplicativos Lógicos. Como melhor prática, é recomendável que você forneça nomes amigáveis adequados para todas as operações (ações e gatilhos), parâmetros e propriedades. Também é recomendável que você forneça no máximo 5 operações básicas. Para parâmetros de entrada, a recomendação é restringir o número de propriedades básicas para não mais do que 4 e, para propriedades, a recomendação é de 5 ou menos. O restante das suas operações e propriedades devem ser marcadas como avançadas.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

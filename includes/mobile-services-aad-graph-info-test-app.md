@@ -10,4 +10,4 @@ As instruções e capturas de tela abaixo se aplicam ao teste de um cliente da W
 
     ![](./media/mobile-services-aad-graph-info-test-app/custom-greeting.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

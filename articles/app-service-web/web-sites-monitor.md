@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="cephalin"/>
+	ms.date="10/14/2015"
+	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitorar aplicativos Web no Serviço de Aplicativo do Azure
 
@@ -22,9 +22,17 @@
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
+##Política de Retenção de Métricas
+
+>[AZURE.NOTE]A política de retenção para a métrica do aplicativo varia de acordo com a granularidade.
+
+- Métricas de granularidade de **minuto** são mantidas por **24 horas**
+- Métricas de granularidade de **Hora** são mantidas por **7 dias**
+- Métricas de granularidade de **Dia** são mantidas por **30 dias**
+
 ##<a name="websitemetrics"></a>Como: adicionar métricas de aplicativo Web
 
-1. No [portal do Azure](https://manage.windowsazure.com), na página do aplicativo Web, clique na guia **Monitoramento** para exibir a página de gerenciamento **Monitoramento**. Por padrão, o gráfico na página **Monitoramento** exibe as mesmas métricas do gráfico na página **Painel**.
+1. No [portal do Azure](https://manage.windowsazure.com), na página do aplicativo Web, clique na guia **Monitoramento** para exibir a página de gerenciamento **Monitorar**. Por padrão, o gráfico na página **Monitoramento** exibe as mesmas métricas do gráfico na página **Painel**.
 
 2. Para exibir as métricas adicionais para o aplicativo Web, clique em **Adicionar métricas** na parte inferior da página para exibir a caixa de diálogo **Escolher métricas**.
 
@@ -36,13 +44,15 @@
 
 6. Para remover as métricas da página **Monitor**, selecione a métrica que você deseja remover e, em seguida, clique no ícone **Excluir métrica** na parte inferior da página.
 
+
+
 ##<a name="howtoreceivealerts"></a>Como: receber alertas de métricas de aplicativo Web
 
 No modo de aplicativo Web **Padrão**, você pode receber alertas com base nas métricas de monitoramento de seu aplicativo Web. O recurso de alerta requer que você primeiro configure um ponto de extremidade da web para monitoramento, que você pode fazer na seção **Monitoramento** da página **Configurar**. Também é possível optar por ter o email enviado quando uma métrica escolhida atingir um valor especificado. Para obter mais informações, consulte [Como: receber notificações de alerta e gerenciar regras de alerta no Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 ##<a name="howtoviewusage"></a>Como: exibir cotas de uso de um site
 
-Os aplicativos Web podem ser configurados para serem executados em modo **Compartilhado** ou **Padrão** por meio da página de gerenciamento **Escala** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Cada assinatura do Azure tem acesso a um pool de recursos fornecidos com a finalidade de execução de até 100 aplicativos Web por região em modo **Compartilhado**. O pool de recursos disponíveis para cada assinatura de aplicativo Web para essa finalidade é compartilhado por outros aplicativos Web na mesma localização geográfica configurados para serem executados em modo **Compartilhado**. Como esses recursos são compartilhados para uso por outros aplicativos Web, todas as assinaturas são limitadas em termos de uso desses recursos. Limites aplicados ao uso da assinatura desses recursos são expressos como cotas de uso listadas na seção de visão geral sobre o uso da página de gerenciamento **Painel** de cada aplicativo Web.
+Os aplicativos Web podem ser configurados para serem executados no modo **Compartilhado** ou **Padrão** na página de gerenciamento **Escala** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Cada assinatura do Azure tem acesso a um pool de recursos fornecidos com a finalidade de execução de até 100 aplicativos Web por região em modo **Compartilhado**. O pool de recursos disponíveis para cada assinatura de aplicativo Web para essa finalidade é compartilhado por outros aplicativos Web na mesma localização geográfica configurados para serem executados em modo **Compartilhado**. Como esses recursos são compartilhados para uso por outros aplicativos Web, todas as assinaturas são limitadas em termos de uso desses recursos. Limites aplicados ao uso da assinatura desses recursos são expressos como cotas de uso listadas na seção de visão geral sobre o uso da página de gerenciamento **Painel** de cada aplicativo Web.
 
 >[AZURE.NOTE]Quando um aplicativo Web está configurado para executar no modo **Padrão**, são alocados recursos dedicados equivalentes aos tamanhos das máquinas virtuais **Pequeno** (padrão), **Médio** ou **Grande** na tabela em [Tamanhos de máquinas virtuais e do Serviço de Nuvem do Azure][vmsizes]. Não há limites para os recursos usados por uma assinatura para a execução de aplicativos Web no modo **Padrão**. No entanto, o número de aplicativos Web no modo **Padrão** que podem ser criados por região é 500.
 
@@ -66,7 +76,7 @@ As cotas não são uma questão de desempenho ou custo, mas a maneira como o Azu
 
 ##<a name="howtoconfigdiagnostics"></a>Como: configurar o diagnóstico e baixar para um aplicativo Web
 
-Os diagnósticos são habilitados na guia **Configurar** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Há dois tipos de diagnóstico: um **diagnóstico dos aplicativos** e **diagnósticos do site**.
+O diagnóstico é habilitado na guia **Configurar** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Há dois tipos de diagnóstico: um **diagnóstico dos aplicativos** e **diagnósticos do site**.
 
 #### Diagnóstico de Aplicativo ####
 
@@ -279,4 +289,4 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

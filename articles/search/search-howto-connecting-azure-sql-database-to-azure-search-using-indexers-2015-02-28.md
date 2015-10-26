@@ -279,4 +279,4 @@ R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e o
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

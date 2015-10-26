@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 # Configurar a proteção entre sites locais do VMM com SAN
@@ -347,7 +347,8 @@ Teste a implantação para garantir que as máquinas virtuais e os dados execute
 	![Adicionar máquinas virtuais](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
 5. Depois que um plano de recuperação tiver sido criado, ele aparecerá na lista da guia **Planos de Recuperação**.
 6. Na guia **Planos de Recuperação**, selecione o plano e clique em **Failover de Teste**.
-7. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Observe que com essa opção habilitada a falha em máquinas virtuais de réplica não será conectada a nenhuma rede. Isso irá testar se a máquina virtual falha conforme o esperado, mas não testa seu ambiente de rede de replicação. Se você quiser executar um failover de teste mais abrangente, confira <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Testar uma implantação local no MSDN</a>.
+7. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Observe que com essa opção habilitada a falha em máquinas virtuais de réplica não será conectada a nenhuma rede. Isso irá testar se a máquina virtual falha conforme o esperado, mas não testa seu ambiente de rede de replicação. Veja como [executar um failover de teste](site-recovery-failover.md#run-a-test-failover) para obter mais detalhes sobre como usar diferentes opções de rede.
+
 
 	![Selecionar rede de teste](./media/site-recovery-vmm-san/SRSAN_TestFailover1.png)
 
@@ -382,4 +383,4 @@ A partir de **Painel**, você pode baixar as últimas versões dos arquivos de i
 
 Para saber mais sobre a interação com trabalhos e o painel, confira [Operações e monitoramento](http://go.microsoft.com/fwlink/?LinkId=398534).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

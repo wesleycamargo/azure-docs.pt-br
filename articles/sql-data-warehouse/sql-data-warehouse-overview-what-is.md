@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/08/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -68,6 +68,8 @@ O SQL Data Warehouse é implantado facilmente em questão de segundos. Esse serv
 ## Próximas etapas
 Saiba mais sobre a [carga de trabalho do data warehouse]. [Provisione] e carregue os [dados de exemplo] para começar.
 
+>[AZURE.NOTE]Queremos melhorar este artigo. Se você optar por responder "não" à pergunta "Este artigo foi útil?", inclua uma breve sugestão sobre como melhorar o artigo ou o que está faltando. Obrigado!
+
 <!--Image references-->
 
 <!--Article references-->
@@ -79,4 +81,4 @@ Saiba mais sobre a [carga de trabalho do data warehouse]. [Provisione] e carregu
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

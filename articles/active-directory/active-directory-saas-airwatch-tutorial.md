@@ -51,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791915.png "AirWatch")
 ##Configurando o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no AirWatch com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML. Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no AirWatch com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML. Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -114,13 +114,13 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Atributo](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Atributo")
 
-    1.  Na caixa de texto **Identificador de Objeto**, digite **http://schemas.microsoft.com/identity/claims/objectidentifier**.
-    2.  Na caixa de texto **Nome de usuário**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    3.  Na caixa de texto **Nome de Exibição**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    4.  Na caixa de texto **Nome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    5.  Na caixa de texto **Sobrenome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    6.  Na caixa de texto **Email**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    7.  Clique em **Salvar**.
+    1.  Na caixa de texto **Identificador de Objeto**, digite ****http://schemas.microsoft.com/identity/claims/objectidentifier**.
+2.  Na caixa de texto **Nome de usuário**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+3.  Na caixa de texto **Nome de Exibição**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+4.  Na caixa de texto **Nome**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+5.  Na caixa de texto **Sobrenome**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+6.  Na caixa de texto **Email**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+7.  Clique em **Salvar**.
 
 14. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
@@ -166,6 +166,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Sim")
 
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

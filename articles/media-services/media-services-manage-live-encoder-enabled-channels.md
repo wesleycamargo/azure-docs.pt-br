@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/14/2015"
 	ms.author="juliako"/>
 
 #Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure
@@ -48,6 +48,8 @@ O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que 
 ##<a id="scenario"></a>Cenário comum de streaming ao vivo
 
 A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de streaming ao vivo.
+
+>[AZURE.NOTE]Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com na Microsoft se precisar executar um Canal por períodos mais longos.
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -260,6 +262,8 @@ Pode haver até 8 conjuntos de fluxo de áudio especificados se a entrada para o
 
 Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste canal. Atualmente, o único valor permitido é **Default720p** (padrão).
 
+Observe que, se você precisar de predefinições personalizadas, você deverá entrar em contato com amslived em Microsoft.com.
+
 **Default720p** codificará o vídeo nas 7 camadas a seguir.
 
 
@@ -267,13 +271,13 @@ Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste ca
 
 Taxa de bits|Largura|Altura|MáxFPS|Perfil|Nome do fluxo de saída
 ---|---|---|---|---|---
-3500|1280|720|30|Alto|Video\_1280x720\_30fps\_3500kbps
-2200|960|540|30|Principal|Video\_960x540\_30fps\_2200kbps
-1350|704|396|30|Principal|Video\_704x396\_30fps\_1350kbps
-850|512|288|30|Principal|Video\_512x288\_30fps\_850kbps
-550|384|216|30|Principal|Video\_384x216\_30fps\_550kbps
-350|340|192|30|Linha de base|Video\_340x192\_30fps\_350kbps
-200|340|192|30|Linha de base|Video\_340x192\_30fps\_200kbps
+3500|1280|720|30|Alto|Video\_1280x720\_3500kbps
+2200|960|540|30|Principal|Video\_960x540\_2200kbps
+1350|704|396|30|Principal|Video\_704x396\_1350kbps
+850|512|288|30|Principal|Video\_512x288\_850kbps
+550|384|216|30|Principal|Video\_384x216\_550kbps
+350|340|192|30|Linha de base|Video\_340x192\_350kbps
+200|340|192|30|Linha de base|Video\_340x192\_200kbps
 
 
 ####Fluxo de áudio de saída
@@ -374,7 +378,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 Estado de canal|Indicadores da interface do usuário do portal|Cobrado?
 ---|---|---
 Iniciando|Iniciando|Nenhum (estado transitório)
-Executando|Pronto (nenhum programa em execução)<br/>ou<br/>Transmissão (pelo menos um programa em execução)|Sim
+Executando|Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (pelo menos um programa em execução)|Sim
 Parando|Parando|Nenhum (estado transitório)
 Parada|Parada|Não
 
@@ -391,6 +395,8 @@ Parada|Parada|Não
 - Por padrão, você pode adicionar somente 5 canais à sua conta de Serviços de Mídia. Essa é uma cota flexível em todas as novas contas. Para obter mais informações, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
 - Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
 - Você será cobrado apenas quando o canal estiver no estado **Executando**. Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
+- Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com na Microsoft se precisar executar um Canal por períodos mais longos.
+- Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
 
 ##Problemas conhecidos
 
@@ -426,4 +432,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

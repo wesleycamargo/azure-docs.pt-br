@@ -24,4 +24,4 @@
 
 4. Para ativar o sistema, inverta os comutadores de energia em ambos os PCMs para a posição LIGADO.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

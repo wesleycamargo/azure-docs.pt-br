@@ -1053,4 +1053,4 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 [Suporte para package.json nos Serviços Móveis do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

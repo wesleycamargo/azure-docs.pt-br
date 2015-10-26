@@ -19,7 +19,8 @@
 
 # Detalhes de configuração do Farm de Servidores do SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+ 
 
 O Farm de Servidores do SharePoint é um recurso do portal de visualização do Azure que cria automaticamente um farm pré-configurado do SharePoint 2013 para você. Existem duas configurações de farm:
 
@@ -141,4 +142,4 @@ O recurso Farm do SharePoint Server do Portal de Visualização do Azure cria m�
 
 [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,18 +1,18 @@
 <properties
-   pageTitle="Conectando seu dispositivo à solução de monitoramento remoto Azure IoT Suite | Microsoft Azure"
-   description="Descreve como conectar seu dispositivo à solução de monitoramento remoto Azure IoT Suite pré-configurada com um exemplo envolvendo temperatura e umidade."
-   services="iot-hub"
+   pageTitle="Conecte um dispositivo a uma solução pré-configurada | Microsoft Azure"
+   description="Descreve como conectar um dispositivo à solução de monitoramento remoto Azure IoT Suite pré-configurada usando um exemplo envolvendo dados de temperatura e umidade."
+   services=""
    documentationCenter="na"
    authors="hegate"
-   manager="jamesosb"
+   manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="iot-hub"
+   ms.service="na"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na"
+   ms.workload="nana"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 
@@ -309,4 +309,4 @@ Agora que o dispositivo está conectado e enviando dados de temperatura gerados 
 
 Há várias maneiras de estender a funcionalidade deste exemplo: conectar o sensor real ao seu dispositivo para enviar a data real; implementar a funcionalidade de comando e controle, etc. Use nosso [guia](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) sobre como estender a solução de monitoramento remoto para saber mais sobre isso.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

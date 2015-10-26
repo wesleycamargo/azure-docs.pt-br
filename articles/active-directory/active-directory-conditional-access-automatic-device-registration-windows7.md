@@ -52,4 +52,4 @@ Em seguida, abra um prompt de comando no computador com o Windows 7 e execute o 
 
 O Log de Eventos do Windows no computador Windows 7 exibirá as mensagens relacionadas ao Ingresso no Local de Trabalho. Você pode encontrar mensagens de eventos de Ingresso no Local de Trabalho bem-sucedidas e malsucedidas. O Log de Eventos pode ser encontrado no Visualizador de Eventos em Logs de Aplicativos e Serviços > Ingresso no Local de Trabalho da Microsoft.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,8 @@
 
 # Criar um cluster HPC (computação de alto desempenho) em VMs do Azure com o script de implantação do Pacote HPC IaaS
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 
 Execute o script do PowerShell de implantação do Pacote HPC IaaS em um computador cliente para implantar um cluster Pacote HPC completo nos serviços de infraestrutura do Azure (IaaS). O script fornece várias opções de implantação e pode adicionar nós de computação de cluster que executam sistemas operacionais Windows Server ou distribuições Linux com suporte.
@@ -389,4 +390,4 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 
 * Experimente as ferramentas do Pacote HPC para iniciar, parar, adicionar e remover nós de computação de um cluster que você queira criar. Consulte [Gerenciar nós de computação em um cluster Pacote HPC no Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Recursos do manifesto do serviço da Malha de Serviço"
-	description="Como descrever os recursos em um manifesto do serviço"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="Como descrever os recursos em um manifesto do serviço"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # Recursos do Manifesto do Serviço
 
@@ -69,4 +69,4 @@ A ACL é automaticamente aplicada aos pontos de extremidade HTTP pela Malha de S
 ```
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,8 +1,9 @@
 <properties 
+	title="Elastic database jobs overview" 
 	pageTitle="Visão geral sobre trabalhos de bancos de dados elásticos" 
 	description="Ilustra o serviço do trabalho de banco de dados elástico" 
-	services="sql-database" 
-	documentationCenter=""  
+	metaKeywords="azure sql database elastic databases" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -86,4 +87,4 @@ Há vários tipos de tarefas de trabalho que realizarão a execução de trabalh
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

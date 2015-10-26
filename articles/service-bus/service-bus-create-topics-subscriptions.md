@@ -150,4 +150,4 @@ Todos os motivos para usar o enfileiramento de mensagens descrito em [Criar apli
 
 Consulte [Criar aplicativos que usem os tópicos e as assinaturas do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para ver como usar as filas no cenário de varejo de PDV.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

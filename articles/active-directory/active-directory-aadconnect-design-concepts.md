@@ -1,20 +1,20 @@
 <properties
    pageTitle="Conceitos de design do Azure AD Connect | Microsoft Azure"
-	description="Este tópico detalha determinadas áreas de design da implementação"
-	services="active-directory"
-	documentationCenter=""
-	authors="AndKjell"
-	manager="stevenpo"
-	editor=""/>
+   description="Este tópico detalha determinadas áreas de design da implementação"
+   services="active-directory"
+   documentationCenter=""
+   authors="AndKjell"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="Identity"
-	ms.date="09/03/2015"
-	ms.author="andkjell"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="Identity"
+   ms.date="10/13/2015"
+   ms.author="andkjell"/>
 
 # Conceitos de design do Azure AD Connect
 O objetivo deste tópico é descrever as áreas que devem ser consideradas durante o design de implementação do Azure AD Connect. Trata-se de um aprofundamento em determinadas áreas e esses conceitos também são descritos brevemente em outros tópicos.
@@ -66,4 +66,7 @@ Por esse motivo, as seguintes restrições se aplicam ao Azure AD Connect:
 - Se você instalar outro servidor do Azure AD Connect, você deverá selecionar o mesmo atributo sourceAnchor usado anteriormente. Se você usava o DirSync anteriormente e mudou para o Azure AD Connect, será preciso usar **objectGUID**, já que ele é o atributo usado pelo DirSync.
 - Se o valor de sourceAnchor for alterado após o objeto ser exportado para o AD do Azure, a sincronização do Azure AD Connect gerará um erro e não permitirá nenhuma outra alteração no objeto antes de o problema ser corrigido e o sourceAnchor ser alterado de volta no diretório de origem.
 
-<!---HONumber=September15_HO1-->
+## Próximas etapas
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

@@ -171,4 +171,4 @@ Seu Aplicativo do Active Directory do Azure foi atualizado para incluir a permis
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

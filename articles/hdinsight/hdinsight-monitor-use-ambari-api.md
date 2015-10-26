@@ -50,7 +50,7 @@ Nome do cluster HDInsight|$clusterName||O nome do seu cluster HDInsight.
 Nome de usuário do cluster|$clusterUsername||Nome de usuário do cluster especificado no provisionamento.
 Senha do cluster|$clusterPassword||Senha do usuário do cluster.
 
-	> [AZURE.NOTE] Preencha os valores na tabela. Isso poderá ser útil para percorrer este tutorial.
+	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -175,4 +175,4 @@ Você aprendeu como usar as chamadas de API para monitoramento da Ambari. Para o
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -205,4 +205,4 @@ O objetivo desta seção é testar a sua configuração de logon único do Azure
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

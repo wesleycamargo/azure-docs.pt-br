@@ -298,4 +298,4 @@ A etapa final é testar ambas as versões do aplicativo e validar se esses carre
 
 Você concluiu o tutorial para carregar imagens.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

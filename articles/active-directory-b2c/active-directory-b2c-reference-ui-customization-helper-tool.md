@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: uma Ferramenta Auxiliar usada para demonstrar o recurso de Personalização da Interface do Usuário (IU) da Página
@@ -22,7 +22,7 @@ Este artigo é um complemento do [artigo principal sobre personalização da int
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Obter um locatário B2C
+## Obter um locatário do Azure AD B2C
 
 Para personalizar algo, você precisará [obter um locatário do AD B2C do Azure](active-directory-b2c-get-started.md), caso ainda não tenha um.
 
@@ -90,4 +90,4 @@ Agora que você carregou o conteúdo de exemplo em sua própria conta de armazen
         
 Agora, você pode usar o botão **Executar Agora** ou seu próprio aplicativo para executar a política novamente. O resultado deve ser quase o mesmo — você usou o mesmo HTML e CSS de exemplo em ambos os casos. No entanto, as políticas agora estão fazendo referência à sua própria instância do Armazenamento de Blob do Azure, e você é livre para editar e recarregar os arquivos como quiser. Para saber mais sobre como personalizar o HTML e CSS, consulte o [artigo principal sobre personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

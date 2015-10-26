@@ -68,10 +68,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 		data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
 		info:    network nsg create command OK
 
-	Parâmetros:
-	- **-g (or --resource-group)**. Nome do grupo de recursos em que o NSG será criado. Para o nosso cenário, *TestRG*.
-	- **-l (or --location)**. A região do Azure em que o novo NSG será criado. Para o nosso cenário, *westus*.
-	- **-n (or --name)**. Nome para o novo NGS. Para o nosso cenário, *NSG-FrontEnd*.
+	Parâmetros: - **-g (or --resource-group)**. Nome do grupo de recursos em que o NSG será criado. Para o nosso cenário, *TestRG*. - **-l (or --location)**. A região do Azure em que o novo NSG será criado. Para o nosso cenário, *westus*. - **-n (or --name)**. Nome para o novo NGS. Para o nosso cenário, *NSG-FrontEnd*.
 
 4. Execute o comando **azure network nsg rule create** para criar uma regra que permite o acesso à porta 3389 (RDP) por meio da Internet.
 
@@ -105,7 +102,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 	- **-n (or --name)**. Nome para a nova regra. Para o nosso cenário, *rdp-rule*.
 	- **-c (or --access)**. Nível de acesso para a regra (Negar ou Permitir).
 	- **-p (or --protocol)**. Protocolo (Tcp, Udp ou *) para a regra.
-	- **-r (or --direction)**. Direção da conexão (Entrada ou Saída).
+- **-r (or --direction)**. Direção da conexão (Entrada ou Saída).
 	- **-y (or --priority)**. Prioridade da regra.
 	- **-f (or --source-address-prefix)**. Prefixo do endereço de origem no CIDR ou uso de marcas padrão.
 	- **-o (or --source-port-range)**. Porta de origem ou intervalo de porta.
@@ -269,4 +266,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

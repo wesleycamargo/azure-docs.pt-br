@@ -401,19 +401,11 @@ As restrições a seguir ocorrem durante o uso do JMS sobre o AMQP 1.0 com o Bar
 Está pronto(a) para saber mais? Visite os links a seguir:
 
 - [Visão geral do AMQP do Barramento de Serviço]
-- [Usando o Barramento de Serviço do .NET com AMQP]
-- [Usando o Barramento de Serviço do Python com AMQP]
-- [Usando o Barramento de Serviço do PHP com AMQP]
-- [Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]
 - [AMQP no Barramento de Serviço para Windows Server]
 
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
-[Usando o Barramento de Serviço do .NET com AMQP]: service-bus-amqp-dotnet.md
-[Usando o Barramento de Serviço do Python com AMQP]: service-bus-amqp-python.md
-[Usando o Barramento de Serviço do PHP com AMQP]: service-bus-amqp-php.md
-[Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]: service-bus-amqp-apache.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

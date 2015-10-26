@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Conjunto de dados
@@ -103,7 +103,7 @@ As fontes de dados com suporte e os tipos de conjunto de dados são alinhados. C
 
 ## <a name="Availability"></a> Disponibilidade do conjunto de dados
 
-A seção Disponibilidade em um conjunto de dados define a janela de processamento ou o modelo de divisão para a produção de conjunto de dados. Consulte o tópico Divisão do conjunto de dados para obter mais detalhes sobre o modelo de divisão e dependência de conjunto de dados.
+A seção Disponibilidade em um conjunto de dados define a janela de processamento ou o modelo de divisão para a produção de conjunto de dados. Consulte o artigo [Cronograma e Execução](data-factory-scheduling-and-execution.md) para obter mais detalhes sobre o modelo de divisão e dependência de conjunto de dados.
 
 | Propriedade | Descrição | Obrigatório | Padrão |
 | -------- | ----------- | -------- | ------- |
@@ -121,7 +121,7 @@ A seção Disponibilidade em um conjunto de dados define a janela de processamen
 	{	
 		"frequency": "Hour",		
 		"interval": "23",	
-		"anchorDataTime":"2007-04-19T08:00:00"	
+		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
 
@@ -209,7 +209,7 @@ Se precisar executar um pipeline mensalmente em uma data e hora específicas (di
 	}
 
 ## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md).
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md).
 
 
 
@@ -217,4 +217,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

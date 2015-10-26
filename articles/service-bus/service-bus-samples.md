@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="service-bus-samples"
+   pageTitle="Visão geral de exemplos do Barramento de Serviço | Microsoft Azure"
    description="Categoriza e descreve exemplos do Barramento de Serviço com links para cada um."
    services="service-bus"
    documentationCenter="na"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/08/2015"
    ms.author="sethm" />
 
 # Exemplos do Barramento de Serviço
 
 Os exemplos do Barramento de Serviço demonstram os principais recursos do Barramento de Serviço (serviço de nuvem) e o Barramento de Serviço para o Windows Server. Este tópico categoriza e descreve os exemplos disponíveis, com links para cada um.
 
->[AZURE.NOTE]Os exemplos do Barramento de Serviço não são instalados com o SDK. Para obter os exemplos, visite a [página de exemplos do SDK do Azure](https://code.msdn.microsoft.com/windowsazure).
+>[AZURE.NOTE]Os exemplos do Barramento de Serviço não são instalados com o SDK. Para obter os exemplos, visite a [página de exemplos do SDK do Azure](https://code.msdn.microsoft.com).
 
 ## Sistema de mensagens agenciado do Barramento de Serviço
 
@@ -57,7 +57,7 @@ Estes exemplos descrevem a funcionalidade básica da retransmissão e do sistema
 |---|---|---|---|
 |[Introdução: Sistema de mensagens com filas](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3)|Demonstra como usar o Barramento de Serviço do Microsoft Azure para enviar e receber mensagens de uma fila.|1\.8|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
 |[Introdução: Sistema de mensagens com tópicos](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5)|Demonstra como usar o Barramento de Serviço do Microsoft Azure para enviar e receber mensagens de um tópico com várias assinaturas.|1\.8|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
-|[Introdução aos Hubs de Eventos](http://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097)|Demonstra os recursos básicos dos Hubs de Eventos, como a criação de um Hub de Eventos, o envio de eventos para um Hub de Eventos, o consumo de eventos usando o Processador de Eventos.|2\.4|Barramento de Serviço do Microsoft Azure|
+|[Introdução aos Hubs de Eventos](http://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)|Demonstra os recursos básicos dos Hubs de Eventos, como a criação de um Hub de Eventos, o envio de eventos para um Hub de Eventos, o consumo de eventos usando o Processador de Eventos.|2\.4|Barramento de Serviço do Microsoft Azure|
 
 ### Explorando os recursos
 
@@ -65,9 +65,9 @@ Os exemplos a seguir demonstram diversos recursos do Barramento de Serviço.
 
 |Nome do exemplo|Descrição|Versão mínima do SDK|Disponibilidade|
 |---|---|---|---|
-|[Provedores de token HTTP](http://code.msdn.microsoft.com/windowsazure/Service-Bus-HTTP-Token-38f2cfc5)|Demonstra as maneiras diferentes de autenticar um cliente HTTP/REST com o Barramento de Serviço.|2,1|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
-|[Cliente HTTP do Barramento de Serviço](http://code.msdn.microsoft.com/windowsazure/Service-Bus-HTTP-client-fe7da74a)|Demonstra como enviar e receber mensagens do Barramento de Serviço via HTTP/REST.|2\.3|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
-|[Encaminhamento automático do Barramento de Serviço](http://code.msdn.microsoft.com/windowsazure/Service-Bus-Autoforwarding-b9df470b)|Demonstra como encaminhar automaticamente as mensagens de uma fila, de uma assinatura ou de uma fila de mensagens mortas para outra fila ou tópico. Isso também demonstra como enviar uma mensagem para uma fila ou tópico por meio de uma fila de transferência.|2\.3|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
+|[Provedores de token HTTP](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5)|Demonstra as maneiras diferentes de autenticar um cliente HTTP/REST com o Barramento de Serviço.|2,1|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
+|[Cliente HTTP do Barramento de Serviço](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a)|Demonstra como enviar e receber mensagens do Barramento de Serviço via HTTP/REST.|2\.3|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
+|[Encaminhamento automático do Barramento de Serviço](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b)|Demonstra como encaminhar automaticamente as mensagens de uma fila, de uma assinatura ou de uma fila de mensagens mortas para outra fila ou tópico. Isso também demonstra como enviar uma mensagem para uma fila ou tópico por meio de uma fila de transferência.|2\.3|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
 |[Sistema de Mensagens Agenciado: exemplo de sessão de canal WCF](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451)|Demonstra como usar o Barramento de Serviço do Microsoft Azure usando canais do Windows Communication Foundation (WCF). O exemplo mostra o uso de canais do WCF para enviar e receber mensagens por meio de uma fila do Barramento de Serviço. O exemplo mostra a comunicação de sessão e sem sessão no Barramento de Serviço.|1\.8|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
 |[Sistema de Mensagens Agenciado: Transações](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e)|Demonstra como usar os recursos do sistema de mensagens do Barramento de Serviço do Microsoft Azure em um escopo de transação para garantir que lotes de operações do sistema de mensagens sejam atomicamente confirmados.|1\.8|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
 |[Sistema de Mensagens Agenciado: Operações de gerenciamento usando REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88)|Demonstra como realizar operações de gerenciamento no Barramento de Serviço usando REST.|1\.8|Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server|
@@ -132,4 +132,4 @@ Consulte os tópicos a seguir para obter mais visões gerais do Barramento de Se
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

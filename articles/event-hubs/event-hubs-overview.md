@@ -167,4 +167,4 @@ Agora que já aprendeu sobre conceitos de Hubs de Evento, você pode passar para
 [solução de mensagens na fila]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gerenciar clusters Hadoop no HDInsight usando o portal do Azure | Microsoft Azure"
-	description="Saiba como administrar o serviço do HDInsight. Crie um cluster HDInsight, abra o console interativo do JavaScript e abra o console de comando Hadoop."
+	pageTitle="Gerenciar clusters Hadoop baseados em Linux no HDInsight usando o portal do Azure | Microsoft Azure"
+	description="Aprenda a criar e gerenciar cluster HDInsight baseados em Linux usando o portal do Azure."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Gerenciar clusters Hadoop no HDInsight usando o portal de visualização do Azure
@@ -195,4 +195,4 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o portal do 
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

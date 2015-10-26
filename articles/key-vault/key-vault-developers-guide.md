@@ -67,4 +67,4 @@ Os artigos a seguir apresentam orientação específica da tarefa:
 
 - Este download contém o aplicativo de exemplo HelloKeyVault e um exemplo de serviço Web do Azure. [Exemplos de código de Cofre da Chave do Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

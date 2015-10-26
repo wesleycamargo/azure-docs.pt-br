@@ -181,4 +181,4 @@ Ao configurar o logon único para um aplicativo, o portal de gerenciamento do Az
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=06-->
+<!---HONumber=Oct15_HO3-->

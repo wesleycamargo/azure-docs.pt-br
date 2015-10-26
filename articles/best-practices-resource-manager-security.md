@@ -337,4 +337,4 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 - Para configurar o roteamento e o encaminhamento IP, consulte [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network/virtual-networks-udr-how-to.md) 
 - Para obter uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

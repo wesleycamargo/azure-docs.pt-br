@@ -101,4 +101,4 @@ Outros cmdlets do RemoteApp:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

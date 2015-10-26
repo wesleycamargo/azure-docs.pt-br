@@ -18,8 +18,7 @@
 
 # Visualização do modelo de aplicativo v2.0: proteger uma API da Web usando node.js
 
-> [AZURE.NOTE]
-Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+> [AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
 Com o modelo de aplicativo v2.0, você pode proteger uma API da Web usando tokens de acesso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), permitindo que os usuários com contas pessoal, corporativa ou escolar da Microsoft acessem de forma segura sua API da Web.
 
@@ -35,15 +34,15 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-O aplicativo completo também é fornecido no fim deste tutorial.
+O aplicativo completo também é fornecido no final deste tutorial.
 
 
-## 1. Registrar um aplicativo
-Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md).  Não se esqueça de:
+## 1\. Registrar um aplicativo
+Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
-- Anotar a **Id do aplicativo** atribuída ao aplicativo; você precisará dela em breve.
+- Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 - Adicione a plataforma **Móvel** de seu aplicativo.
-- Copie o **URI de Redirecionamento** do portal. Use um valor padrão de`urn:ietf:wg:oauth:2.0:oob`.
+- Copie o **URI de Redirecionamento** do portal. Você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`.
 
 
 ## 2: baixar node.js para sua plataforma
@@ -55,11 +54,11 @@ Instale o Node.js a partir de [http://nodejs.org](http://nodejs.org).
 
 Para usar este exemplo com êxito, você deve ter uma instalação do MongoDB funcionando corretamente. Nós usaremos o MongoDB para tornar nossa API REST persistente entre instâncias de servidor.
 
-instalar o MongoDB em sua plataforma [http://mongodb.org](http://www.mongodb.org).
+Instalar o MongoDB a partir de [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] este passo a passo presume que você usa os pontos de extremidade de servidor e de instalação padrão para MongoDB, que, no momento da redação deste artigo, é: mongodb://localhost
+> [AZURE.NOTE]Este passo a passo presume que você use os pontos de extremidade de servidor e de instalação padrão para MongoDB que, no momento da redação deste artigo, são: mongodb://localhost
 
-## 4: instalar os módulos Restify em sua API da Web
+## 4: instalar os módulos Restify em sua API Web
 
 Usaremos Resitfy para criar nossa API REST. O Restify é uma estrutura de aplicativo do Node.js mínima e flexível, derivada do Express, que tem um conjunto robusto de recursos para a criação de APIs REST no Connect.
 
@@ -79,7 +78,7 @@ Este comando instala o Restify.
 
 Ao usar npm em alguns sistemas operacionais, você poderá receber uma mensagem de Erro: EPERM, chmod '/usr/local/bin/...' e uma solicitação para tentar executar a conta como administrador. Se isso ocorrer, use o comando sudo para executar o npm com um nível de privilégio mais elevado.
 
-#### Você obteve um erro com relação ao DTrace?
+#### Você obteve um erro relacionado ao DTrace?
 
 Você pode ver algo assim ao instalar Restify:
 
@@ -149,7 +148,7 @@ A saída do comando deve ter aparência semelhante à seguinte:
 
 Em seguida, adicionaremos a estratégia de OAuth, usando o passport-azuread, um conjunto de estratégias que conectam o Active Directory do Azure com o Passport. Usaremos essa estratégia para Tokens de portador neste exemplo de API Rest.
 
-> [AZURE.NOTE] Embora o OAuth2 forneça uma estrutura na qual qualquer tipo de token conhecido pode ser emitido, somente determinados tipos de token passaram a ser amplamente usados. Para proteger os pontos de extremidade, que mostraram ser tokens de portador. Os tokens de portador são o tipo de token mais amplamente emitido em OAuth2, e muitas implementações assumem que os tokens de portador são o único tipo de token emitido.
+> [AZURE.NOTE]Embora o OAuth2 forneça uma estrutura na qual qualquer tipo de token conhecido pode ser emitido, somente determinados tipos de token passaram a ser amplamente usados. Para proteger os pontos de extremidade, que mostraram ser tokens de portador. Os tokens de portador são o tipo de token mais amplamente emitido em OAuth2, e muitas implementações assumem que os tokens de portador são o único tipo de token emitido.
 
 Na linha de comando, altere os diretórios para o diretório azuread.
 
@@ -268,12 +267,11 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 ### Valores necessários
 
-*IdentityMetadata*: é onde o passport-azure-ad irá procurar os dados de configuração para o IdP, bem como as chaves para validar os tokens JWT. Provavelmente, você não deseja alterar isso se estiver usando o Active Directory do Azure.
+*IdentityMetadata*: é onde passport-azure-ad vai procurar os dados de configuração para o IdP, bem como as chaves para validar os tokens JWT. Provavelmente, você não deseja alterar isso se estiver usando o Active Directory do Azure.
 
-*público*: O URI de redirecionamento do portal.
+*audience*: o URI de redirecionamento do portal.
 
-> [AZURE.NOTE]
-Revertemos as nossas chaves em intervalos frequentes. Certifique-se de estar extraindo sempre da URL "openid\_keys" e de que o aplicativo pode acessar a Internet.
+> [AZURE.NOTE]Revertemos as nossas chaves em intervalos frequentes. Certifique-se de estar extraindo sempre da URL "openid\_keys" e de que o aplicativo pode acessar a Internet.
 
 
 ## 11: adicionar configuração ao arquivo server.js
@@ -314,7 +312,7 @@ Agora todos os essa preparação passará a compensar, enquanto agrupamos esses 
 
 Para este passo a passo usaremos MongoDB para armazenar nossas tarefas conforme discutido em ***Etapa 4***.
 
-Se você se lembrar do arquivo config.js criado na Etapa 11, chamamos nosso banco de dados de *tasklist*, já que era isso que colocamos no final da nossa URL de conexão mogoose\_auth\_local. Você não precisa criar esse banco de dados com antecedência no MongoDB, ele criará isso para nós na primeira execução do nosso aplicativo de servidor (supondo que ele ainda não exista).
+Se você se lembra do arquivo js que criamos na Etapa 11, chamamos de nosso banco de dados *tasklist*, uma vez que foi o que usamos no final da nossa URL de conexão mogoose\_auth\_local. Você não precisa criar esse banco de dados com antecedência no MongoDB, ele criará isso para nós na primeira execução do nosso aplicativo de servidor (supondo que ele ainda não exista).
 
 Agora que dissemos ao servidor qual banco de dados MongoDB, gostaríamos de usar, precisamos escrever algum código adicional para criar o modelo e o esquema para as tarefas do nosso servidor.
 
@@ -650,8 +648,7 @@ Primeiro, certifique-se de que sua instância do monogoDB está em execução.
 
 Em seguida, vá até o diretório e inicie a ondulação.
 
-`$ cd azuread`
-`$ node server.js`
+`$ cd azuread` `$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -717,8 +714,7 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]
-Ao escrever APIs você deve sempre vincular os dados a algo exclusivo do token que o usuário não poderá falsificar. Quando esse servidor armazena itens TODO, armazena-os com base na ID da assinatura do usuário no token que colocamos no campo "proprietário" (chamado por meio de token.sub). Isso garante que somente esse usuário pode acessar seus TODOs e ninguém pode acessar os TODOs inseridos. Não há exposição na API do "proprietário" então um usuário externo pode solicitar outros TODOs mesmo se estiverem autenticados.
+> [AZURE.TIP]Ao escrever APIs você deve sempre vincular os dados a algo exclusivo do token que o usuário não poderá falsificar. Quando esse servidor armazena itens TODO, armazena-os com base na ID da assinatura do usuário no token que colocamos no campo "proprietário" (chamado por meio de token.sub). Isso garante que somente esse usuário pode acessar seus TODOs e ninguém pode acessar os TODOs inseridos. Não há exposição na API do "proprietário" então um usuário externo pode solicitar outros TODOs mesmo se estiverem autenticados.
 
 Em seguida, vamos usar a estratégia de Open ID Connect Bearer que vem com o passport-azure-ad. Apenas olhe o código por enquanto, eu o explicarei daqui a pouco. Colocar isso depois que você leu acima:
 
@@ -767,10 +763,9 @@ passport.use(oidcStrategy);
 
 O Passport usa um padrão semelhante para todas as Estratégias (Twitter, Facebook etc.) que todos os gravadores de Estratégia seguem. Observando a estratégia, você verá que passamos a ela uma function() que tem um token e um done como parâmetros. A estratégia retorna corretamente para nós após concluir seu trabalho. Depois disso, vamos armazenar o usuário e acrescentar o token, para que não precisemos pedi-lo novamente.
 
-> [AZURE.IMPORTANT]
-O código acima usa qualquer usuário que tente se autenticar em nosso servidor. Isso é conhecido como registro automático. Em servidores de produção, não convém permitir que qualquer pessoa entre sem primeiro passar por um processo de registro que você decide. Esse geralmente é o padrão que você vê em aplicativos de consumidor que lhe permitem registrar-se com o Facebook, mas depois pedem que você preencha informações adicionais. Se esse não fosse um programa de linha de comando, poderíamos ter apenas extraído o e-mail do objeto de token que é retornado e pedido que ele preenchesse informações adicionais. Como esse é um servidor de teste, basta adicioná-los ao banco de dados na memória.
+> [AZURE.IMPORTANT]O código acima usa qualquer usuário que tente se autenticar em nosso servidor. Isso é conhecido como registro automático. Em servidores de produção, não convém permitir que qualquer pessoa entre sem primeiro passar por um processo de registro que você decide. Esse geralmente é o padrão que você vê em aplicativos de consumidor que lhe permitem registrar-se com o Facebook, mas depois pedem que você preencha informações adicionais. Se esse não fosse um programa de linha de comando, poderíamos ter apenas extraído o e-mail do objeto de token que é retornado e pedido que ele preenchesse informações adicionais. Como esse é um servidor de teste, basta adicioná-los ao banco de dados na memória.
 
-### 2. Por fim, proteger alguns pontos de extremidade
+### 2\. Por fim, proteger alguns pontos de extremidade
 
 Você pode proteger pontos de extremidade, especificando a chamada passport.authenticate() com o protocolo que você deseja usar.
 
@@ -848,7 +843,7 @@ Se você estava apenas procurando obter informações sobre como implementar uma
 
 ## Próximas etapas
 
-Para referência, o exemplo concluído (sem seus valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip), ou você pode cloná-lo do GitHub:
+Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
@@ -856,8 +851,6 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [Proteger um aplicativo Web com o modelo de aplicativo v2.0 no Node. js >>](active-directory-v2-devquickstarts-node-web.md)
 
-Para obter recursos adicionais, confira:
-- [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

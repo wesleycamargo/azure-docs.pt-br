@@ -377,4 +377,4 @@ O módulo AzureResourceManager inclui cmdlets que ajudam você a evitar erros.
 - Para saber mais sobre como implantar modelos, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./resource-group-template-deploy.md)
 - Para obter um exemplo detalhado da implantação de um projeto, consulte [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

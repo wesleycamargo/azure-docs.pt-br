@@ -343,4 +343,4 @@ Consulte a sessão [Enviar trabalhos MapReduce](#mapreduce) neste artigo.
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

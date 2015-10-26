@@ -18,7 +18,7 @@ ms.service="virtual-machines"
 
 # Enviar trabalhos HPC de um computador local para um cluster de Pacote HPC no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo se aplica ao gerenciamento de recursos criados com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Este artigo mostra como configurar um computador cliente local executando o Windows para executar ferramentas de envio de trabalho do Pacote HPC que se comunicam com um cluster de Pacote HPC no Azure via HTTPS. Isso fornece uma maneira simples e flexível para uma variedade de usuários de enviar trabalhos para um cluster de Pacote HPC baseado em nuvem sem a necessidade de se conectar diretamente à VM do nó principal para executar as ferramentas de envio de trabalho.
 
@@ -183,4 +183,4 @@ Para verificar a configuração, tente executar trabalhos no cluster no Azure us
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

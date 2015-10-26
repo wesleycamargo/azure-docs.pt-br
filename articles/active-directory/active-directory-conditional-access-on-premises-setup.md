@@ -238,4 +238,4 @@ Agora, quando os usuários acessam seu aplicativo e um dispositivo que não est�
 
 ![Captura de tela de um erro quando os usuários não tiverem registrado seu dispositivo com o AD do Azure](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

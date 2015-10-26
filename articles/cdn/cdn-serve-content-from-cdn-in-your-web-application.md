@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Fornecer conteúdo da CDN do Azure em seu aplicativo Web"
-	description="Um tutorial que ensina a usar o conteúdo de uma CDN para melhorar o desempenho do seu aplicativo Web."
-	services="cdn"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Fornecer conteúdo da CDN do Azure em seu aplicativo Web" 
+	description="Um tutorial que ensina a usar o conteúdo de uma CDN para melhorar o desempenho do seu aplicativo Web." 
+	services="cdn" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="cephalin"/>
 
 # Fornecer conteúdo da CDN do Azure em seu aplicativo Web #
@@ -271,4 +271,4 @@ Sem integração aos Aplicativos Web do Serviço de Aplicativo ou aos Serviços 
 - [Usando a CDN para Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

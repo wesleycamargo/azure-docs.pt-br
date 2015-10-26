@@ -1,20 +1,20 @@
 <properties
    pageTitle="Migrando para o Banco de Dados SQL usando SSMS"
-	description="Banco de Dados SQL do Microsoft Azure, migrar banco de dados sql, migrar usando ssms"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   description="Banco de Dados SQL do Microsoft Azure, migrar banco de dados sql, migrar usando ssms"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #Migrando um banco de dados compatível usando SSMS
 
@@ -76,4 +76,4 @@ O processo de implantação pode ser dividido em duas etapas: exportação e imp
 ##Alternativas
 Também é possível usar o utilitário de linha de comando sqlpackage.exe para implantar o banco de dados ou exportar e importar um BACPAC. Sqlpackage.exe usa a mesma tecnologia DAC que o SSMS. Portanto, o resultado é o mesmo. Para obter mais informações, consulte [SqlPackage.exe no MSDN](https://msdn.microsoft.com/library/hh550080.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

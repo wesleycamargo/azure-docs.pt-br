@@ -103,4 +103,4 @@ Para se conectar a um serviço Web do AM do Azure, use a biblioteca **urllib2** 
 2. Atribua apiKey com a chave de um serviço Web. Veja como obter uma chave de autorização AM do Azure.
 3. Atribua serviceUri com o URI de solicitação. Veja como obter um URI de solicitação.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -14,4 +14,4 @@
 
     Ambos os controladores serão reiniciados. Quando a reinicialização estiver concluída, outra mensagem será exibida indicando que o dispositivo está em modo de Manutenção.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Página de dicas úteis de consulta do Banco de Dados de Documentos | Microsoft Azure"
-	description="Uma página de dicas úteis de consulta imprimível que ajuda você a usar gramática de tipo SQL do Banco de Dados de Documentos para consultar documentos JSON no banco de dados NoSQL."
-	services="documentdb"
-	documentationCenter=""
-	authors="mimig1"
-	manager="jhubbard"
+	pageTitle="Página de dicas úteis de consulta do Banco de Dados de Documentos | Microsoft Azure" 
+	description="Uma página de dicas úteis de consulta imprimível que ajuda você a usar gramática de tipo SQL do Banco de Dados de Documentos para consultar documentos JSON no banco de dados NoSQL." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/20/2015" 
 	ms.author="mimig"/>
 
 # Página de dicas úteis de consulta SQL do Banco de Dados de Documentos baixável
@@ -38,4 +38,4 @@ Escreva suas consultas mais rápido baixando a página de dicas úteis de consul
 - Para examinar passo a passo as opções de consulta disponíveis no Banco de Dados de Documentos, consulte [Consultar Banco de Dados de Documentos](documentdb-sql-query.md).
 - Para obter a documentação de referência relacionada, consulte [Idioma de consulta SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

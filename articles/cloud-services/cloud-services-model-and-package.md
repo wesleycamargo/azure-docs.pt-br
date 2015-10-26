@@ -1,5 +1,5 @@
 <properties
-    pageTitle="O que é um modelo de serviço de nuvem e o pacote no Azure?"
+    pageTitle="O que é um modelo de serviço de nuvem e pacote | Microsoft Azure"
     description="Descreve o modelo de serviço de nuvem (.csdef, .cscfg) e o pacote (.cspkg) no Azure"
     services="cloud-services"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="10/09/2015"
     ms.author="adegeo"/>
 
 # Qual é o modelo de serviço de nuvem e como empacotá-lo?
@@ -251,11 +251,7 @@ Onde as variáveis são definidas da seguinte maneira:
 
 Estou criando um pacote de serviço de nuvem e desejo...
 
-<!--
-* [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
--->
-
+* [Configurar recursos de armazenamento local](cloud-services-configure-local-storage-resources.md)
 * [Configurar área de trabalho remota para uma instância de serviço de nuvem][remotedesktop]
 * [Implantar um projeto de serviço de nuvem][deploy]
 
@@ -269,9 +265,9 @@ Estou usando o Visual Studio e desejo...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/PT-BR/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/PT-BR/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/PT-BR/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

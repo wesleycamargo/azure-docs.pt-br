@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Criar uma VM com diversos NICs"
-	description="Saiba como criar e configurar máquinas virtuais com várias placas de rede"
-	services="virtual-network, virtual-machines"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Saiba como criar e configurar máquinas virtuais com várias placas de rede"
+   services="virtual-network, virtual-machines"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/10/2015"
+   ms.author="telmos" />
 
 # Criar uma VM com diversos NICs
 
@@ -249,4 +249,4 @@ Para adicionar uma rota padrão à NIC secundária, siga as etapas abaixo:
 
 Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, recomendamos que as NICs secundárias sejam restritas a fluxos de tráfego somente dentro da mesma sub-rede. No entanto, se determinados cenários exigirem conectividade fora da sub-rede, os usuários devem habilitar a política com base em roteamento para garantir que o tráfego de entrada e saída use a mesma NIC.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

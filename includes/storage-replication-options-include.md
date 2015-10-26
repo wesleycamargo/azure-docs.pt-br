@@ -9,7 +9,7 @@ Os dados da sua conta de armazenamento do Microsoft Azure sempre são replicados
 
 	O ZRS proporciona maior durabilidade que o LRS, todavia, para durabilidade máxima recomendamos que você utilize o armazenamento com redundância geográfica, descrito abaixo.
 
-	> [AZURE.NOTE]O ZRS está disponível atualmente apenas para blobs de bloco.
+	> [AZURE.NOTE]O ZRS está atualmente disponível apenas para blobs de blocos e tem suporte apenas nas versões de 14/02/2014 e posteriores.
 	> 
 	> Depois que tiver criado sua conta de armazenamento e selecionado ZRS, você não poderá convertê-la para utilizar nenhum outro tipo de replicação, ou vice-versa.
 
@@ -26,4 +26,4 @@ Para informações sobre preços de replicação de conta de armazenamento, conf
 
 Para obter detalhes arquitetônicos sobre a durabilidade com o armazenamento do Azure, confira o [Artigo de SOSP do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

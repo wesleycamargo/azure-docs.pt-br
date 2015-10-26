@@ -85,4 +85,4 @@ O modelo de aplicativo v2.0 é compatível com Open ID Connect e OAuth 2.0. No e
 
 Para entender melhor o escopo da funcionalidade de protocolo compatível no modelo de aplicativo v2.0, leia nossa [Referência de Protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

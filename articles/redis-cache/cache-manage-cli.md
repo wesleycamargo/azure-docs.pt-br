@@ -254,4 +254,4 @@ Para saber mais sobre esse comando, execute o comando `azure rediscache list-key
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

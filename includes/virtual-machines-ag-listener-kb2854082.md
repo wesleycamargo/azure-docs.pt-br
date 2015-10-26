@@ -8,4 +8,4 @@ Na sessão da área de trabalho remota para cada um de nós do cluster, baixe [K
 > - Todos os nós de cluster estão online antes de instalar o hotfix em qualquer nó, e
 > - Permite a instalação do hotfix para executar até a conclusão em um nó, incluindo reinicialização completa do servidor, antes de instalar o hotfix em qualquer outro nó do cluster.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -17,4 +17,4 @@ As instruções e capturas de tela abaixo se aplicam ao teste de um cliente da W
 
     ![](./media/mobile-services-aad-rbac-test-app/success.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

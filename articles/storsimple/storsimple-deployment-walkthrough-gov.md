@@ -48,7 +48,7 @@ Execute estas etapas necessárias para configurar o dispositivo StorSimple e con
 | Etapa 4: concluir a instalação mínima do dispositivo</br>Opcional: atualizar o dispositivo StorSimple. | Use o serviço de gerenciamento para concluir a instalação do dispositivo e habilitá-lo para fornecer armazenamento. |
 | Etapa 5: criar um contêiner de volume. | Crie um contêiner para provisionar volumes. Um contêiner de volume tem a conta de armazenamento, largura de banda e configurações de criptografia para todos os volumes contidos nele. |
 | Etapa 6: criar um volume. | Provisione volumes de armazenamento no dispositivo StorSimple para seus servidores. |
-| Etapa 7: montar, inicializar e formatar um volume.</br>Opcional: configurar o MPIO. | Conecte os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os servidores podem tolerar a falha de link, rede e interface. |
+| Etapa 7: montar, inicializar e formatar um volume.</br>Opcional: configurar o MPIO. | Conecte os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os servidores possam tolerar a falha de link, rede e interface. |
 | Etapa 8: fazer um backup. | Configure a política de backup para proteger seus dados |
 | | |
 | **OUTROS PROCEDIMENTOS** | Talvez seja necessário consultar esses procedimentos conforme você implantar sua solução. |
@@ -238,7 +238,7 @@ Para se conectar ao Windows PowerShell para StorSimple, você precisa usar um so
 
 Atualizar seu dispositivo pode demorar várias horas. Execute as etapas a seguir para verificar e aplicar atualizações em seu dispositivo.
 
-<!-- > [AZURE.NOTE] Se você tiver um gateway configurado em uma interface de rede que não seja Data 0, você precisará desabilitar as interfaces de rede Data 2 e Data 3 antes de instalar a atualização. Vá para **Dispositivos > Configurar** e desabilite as interfaces Data 2 e Data 3. Você deve reabilitar essas interfaces depois que o dispositivo for atualizado.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### Para atualizar seu dispositivo
 
@@ -277,4 +277,4 @@ Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

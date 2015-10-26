@@ -153,4 +153,4 @@ Se você verificou que há conectividade e o problema continuar, contate o Supor
 
 Saiba mais sobre a [versão da Atualização 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

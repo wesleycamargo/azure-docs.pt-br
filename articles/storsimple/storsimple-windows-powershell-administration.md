@@ -197,4 +197,4 @@ Você pode atualizar facilmente a Ajuda na interface do Windows PowerShell. Exec
 ## Próximas etapas
 Se você tiver problemas com seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima, consulte [Ferramentas para solucionar problemas em implantações de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

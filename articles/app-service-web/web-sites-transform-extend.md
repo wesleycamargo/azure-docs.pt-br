@@ -182,4 +182,4 @@ Observe que a URL se parece com a URL do aplicativo Web, exceto por usar HTTPS e
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

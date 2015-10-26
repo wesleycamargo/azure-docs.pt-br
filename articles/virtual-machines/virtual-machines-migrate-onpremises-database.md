@@ -19,7 +19,8 @@
 
 # Migrar um banco de dados para o SQL Server em uma VM do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Existem vários métodos para migrar um banco de dados de usuário do SQL Server local para o SQL Server em uma VM do Azure. Este artigo abordará resumidamente vários métodos, recomendará o melhor método para diversos cenários e incluirá um [tutorial](#azure-vm-deployment-wizard-tutorial) para orientá-lo com relação ao uso do assistente para **Implantar um Banco de Dados do SQL Server em uma VM do Microsoft Azure**.
 
@@ -167,4 +168,4 @@ Use o [método do Serviço de Importação/Exportação do Windows](../storage-i
 
 Para obter mais informações sobre como executar o SQL Server em Máquinas Virtuais do Azure, veja [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

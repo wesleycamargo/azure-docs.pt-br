@@ -3,8 +3,7 @@
 #Tutorial: Integração do Active Directory do Azure ao TimeOffManager
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=534748).
   
-O objetivo deste tutorial é mostrar a integração do Azure com o TimeOffManager.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o TimeOffManager. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do TimeOffManager
@@ -46,7 +45,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na caixa **Pesquisar**, digite **TimeOffManager**.
 
-    ![Galeria de aplicativos](./media/active-directory-saas-timeoffmanager-tutorial/IC795910.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-timeoffmanager-tutorial/IC795910.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **TimeOffManager** e clique em **Concluir** para adicionar o aplicativo.
 
@@ -54,9 +53,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TimeOffManager com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
-Como parte desse procedimento, é necessário carregar um certificado codificado em base 64 no locatário do TimeOffManager.  
-Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TimeOffManager com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário carregar um certificado codificado em base 64 no locatário do TimeOffManager. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -128,9 +125,7 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
 
 ##Configurando o provisionamento de usuários
   
-Para permitir que os usuários do AD do Azure façam logon no TimeOffManager, eles deverão ser provisionados no TimeOffManager.  
-O TimeOffManager dá suporte ao provisionamento de usuário just in time. Não há nenhum item de ação para você.  
-Os usuários são adicionados automaticamente durante o primeiro logon usando o logon único.
+Para permitir que os usuários do AD do Azure façam logon no TimeOffManager, eles deverão ser provisionados no TimeOffManager. O TimeOffManager dá suporte ao provisionamento de usuário just in time. Não há nenhum item de ação para você. Os usuários são adicionados automaticamente durante o primeiro logon usando o logon único.
 
 >[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do TimeOffManager ou as APIs fornecidas pelo TimeOffManager para provisionar as contas de usuário do AAD.
 
@@ -144,7 +139,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 2.  Na página de integração de aplicativos do **TimeOffManager**, clique em **Atribuir usuários**.
 
-    ![Atribuir usuários](./media/active-directory-saas-timeoffmanager-tutorial/IC795922.png "Atribuir usuários")
+    ![Atribuir usuários](./media/active-directory-saas-timeoffmanager-tutorial/IC795922.png "Atribuir Usuários")
 
 3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
 
@@ -152,4 +147,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

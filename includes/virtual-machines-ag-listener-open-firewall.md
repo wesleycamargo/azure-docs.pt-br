@@ -16,4 +16,4 @@ Nesta etapa, você pode criar uma regra de firewall para abrir a porta de invest
 
 1. Repita as etapas acima para a porta do ouvinte do grupo de disponibilidade (conforme especificado anteriormente no parâmetro $EndpointPort do script) e especifique um nome de regra apropriado, como **Porta do ouvinte AlwaysOn**.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

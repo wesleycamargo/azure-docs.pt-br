@@ -66,7 +66,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configurar a URL do Aplicativo")
 
     1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no **Cherwell** (por exemplo: **https://pictdev.cherwellondemand.com/cherwellclient*).
-    2.  Clique em **Próximo**.
+2.  Clique em **Próximo**.
 
 4.  Na página **Configurar logon único no Cherwell**, execute as seguintes etapas.
 
@@ -106,6 +106,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-cherwell-tutorial/IC767830.png "Sim")
 
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -82,10 +82,9 @@ Quando o `TaskService` recebe solicitações de `TaskClient`, ele verifica se h�
   
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Se você quiser saber como uma API web autentica com segurança solicitações usando o AD B2C do Azure, confira nosso
-[artigo Introdução à API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
+Se você quiser saber como uma API web autentica com segurança solicitações usando o AD B2C do Azure, confira nosso [artigo Introdução à API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Executar políticas
+## 6\. Executar políticas
 Agora que o `TaskService` está pronto para autenticar solicitações, podemos implementar a `TaskClient`. Seu aplicativo se comunica com o AD B2C do Azure enviando solicitações de autenticação HTTP, especificando a política que deseja executar como parte da solicitação. Para aplicativos de área de trabalho do .NET, você pode usar a **biblioteca de autenticação do Active Directory (ADAL)** para enviar mensagens de autenticação OAuth 2.0, executar políticas e obter tokens para chamar APIs web.
 
 #### Instale o ADAL
@@ -330,9 +329,7 @@ Você pode fazer experiências à vontade com as políticas e observar o efeito 
 
 Para referência, o exemplo concluído [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
 <!--
 
@@ -346,4 +343,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -55,11 +55,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No portal do AD do Azure, na página de integração de aplicativos do **Bonus.ly**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configurar logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Bonus.ly **, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-bonus-tutorial/IC773683.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-bonus-tutorial/IC773683.png "Configurar logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Locatário do Bonus.ly**, digite a URL usando o padrão "*https://\<nome do locatário>.Bonus.ly*" e clique em **Avançar**.
 
@@ -67,7 +67,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar logon único no Bonus.ly**, clique em **Baixar certificado** e salve o arquivo de certificado localmente como **c:\\Bonusly.cer**.
 
-    ![Configurar o logon único](./media/active-directory-saas-bonus-tutorial/IC773685.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-bonus-tutorial/IC773685.png "Configurar o logon único")
 
 5.  Em outra janela do navegador, faça logon no seu locatário do **Bonus.ly**.
 
@@ -92,7 +92,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 10. No portal do AD do Microsoft Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-bonus-tutorial/IC773689.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-bonus-tutorial/IC773689.png "Configurar logon único")
 ##Configurando o provisionamento de usuários
 
 Para permitir que os usuários do AD do Azure façam logon no Bonus.ly, eles devem ser provisionados no Bonus.ly. No caso do Bonus.ly, o provisionamento é uma tarefa manual.
@@ -144,6 +144,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-bonus-tutorial/IC767830.png "Sim")
 
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

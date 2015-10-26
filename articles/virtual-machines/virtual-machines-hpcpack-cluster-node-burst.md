@@ -10,7 +10,8 @@ ms.service="virtual-machines"
 
 # Adicionar nós de “disparo contínuo” sob demanda (instâncias de função de trabalho) como recursos de computação a um cluster HPC Pack no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aplica-se à criação de um recurso com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Este artigo mostra como adicionar os nós de “disparo contínuo” do Azure (instâncias de função de trabalho em execução em um serviço de nuvem) sob demanda como recursos de computação a um nó de cabeçalho do HPC Pack existente no Azure. Isso permite escalar verticalmente a capacidade de computação do cluster HPC no Azure, sem manter um conjunto de VMs de nó de computação pré-configuradas.
 
@@ -79,4 +80,4 @@ Se você encontrar problemas ao implantar nós do Azure, veja [Solucionar proble
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

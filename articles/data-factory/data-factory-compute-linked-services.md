@@ -247,4 +247,4 @@ Você pode criar um serviço vinculado do SQL do Azure e usá-lo com a [Atividad
  
    
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

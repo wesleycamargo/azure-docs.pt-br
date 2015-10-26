@@ -2,10 +2,11 @@
 	pageTitle="Enviar consultas de Hive para clusters do Hadoop no processo e tecnologia de análise avançada | Microsoft Azure"
 	description="Processar dados de tabelas Hive com consultas de Hive."
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Enviar consultas de Hive para clusters do Hadoop do HDInsight no processo e tecnologia de análise avançada 
 
@@ -319,4 +320,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

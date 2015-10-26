@@ -32,9 +32,9 @@ Para concluir este tutorial, você precisará dos produtos a seguir. Todos estã
 
 - **Visual Studio** - para baixar uma versão de avaliação gratuita do Visual Studio 2013 ou do Visual Studio 2015, consulte [Downloads do Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Instale um deles antes de continuar. (As capturas de tela neste tutorial foram feitas usando o Visual Studio 2013)
 
-- **SQL Server 2014 Express with Tools** - baixe o Microsoft SQL Server Express gratuitamente na [página do Banco de dados da plataforma da web da Microsoft](https://www.microsoft.com/pt-br/download/details.aspx?id=42299). Posteriormente neste tutorial, você verá como [instalar o SQL Server](#InstallSQLDB) para garantir que ele esteja configurado corretamente.
+- **SQL Server 2014 Express with Tools** - baixe o Microsoft SQL Server Express gratuitamente na [página do Banco de dados da plataforma da web da Microsoft](https://www.microsoft.com/pt-BR/download/details.aspx?id=42299). Posteriormente neste tutorial, você verá como [instalar o SQL Server](#InstallSQLDB) para garantir que ele esteja configurado corretamente.
 
-- **SQL Server Management Studio Express** - este item está incluso no item para download SQL Server 2014 Express with Tools mencionado acima, mas se você precisar instalá-lo separadamente, poderá baixá-lo e instalá-lo a partir da [página de download do SQL Server Express](https://www.microsoft.com/pt-br/download/details.aspx?id=42299).
+- **SQL Server Management Studio Express** - este item está incluso no item para download SQL Server 2014 Express with Tools mencionado acima, mas se você precisar instalá-lo separadamente, poderá baixá-lo e instalá-lo a partir da [página de download do SQL Server Express](https://www.microsoft.com/pt-BR/download/details.aspx?id=42299).
 
 O tutorial pressupõe que você tem uma assinatura do Azure, que você tem o Visual Studio 2013 instalado e que você instalou ou habilitou o .NET Framework 3.5. O tutorial mostra a você como instalar o SQL Server 2014 Express em uma configuração que funciona bem com o recurso de Conexões Híbridas do Azure (uma instância padrão com uma porta TCP estática). Antes de iniciar o tutorial, baixe (mas não instale) o SQL Server 2014 Express with Tools do local mencionado acima, se você ainda não tiver o SQL Server instalado.
 
@@ -430,4 +430,4 @@ Agora que a infraestrutura de conexão híbrida está concluída, é o momento d
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=06-->
+<!---HONumber=Oct15_HO3-->

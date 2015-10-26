@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Migração usando o Visual Studio e SSDT"
-	description="Banco de Dados SQL do Microsoft Azure, migração de banco de dados, importar banco de dados, exportar banco de dados, assistente de migração"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Migração usando o Visual Studio e SSDT" 
+   description="Banco de Dados SQL do Microsoft Azure, migração de banco de dados, importar banco de dados, exportar banco de dados, assistente de migração" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="carlrabeler" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #Atualizar o banco de dados no local e implantar o Banco de Dados SQL do Azure
 
@@ -82,4 +82,4 @@ Com essa opção:
 
 14.	Implante o esquema de banco de dados compatível com o V12 do SQL do Azure e os dados para o Banco de Dados SQL do Azure usando SSMS. Consulte [Migrar um banco de dados compatível usando SSMS.](sql-database-migrate-ssms.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

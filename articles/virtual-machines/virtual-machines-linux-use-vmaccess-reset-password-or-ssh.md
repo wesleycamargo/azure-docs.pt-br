@@ -19,7 +19,8 @@
 
 # Como redefinir uma senha ou SSH para máquinas virtuais Linux #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Se você não pode se conectar a uma máquina virtual Linux devido a uma senha esquecida, uma chave do Secure Shell (SSH) incorreta ou um problema com a configuração do SSH, use o Portal de Visualização do Azure ou a extensão de VMAccessForLinux para redefinir a senha ou chave SSH ou corrigir a configuração do SSH. Observe que este artigo se refere às máquinas virtuais criadas usando o modelo de implantação **Clássico**.
 
@@ -265,4 +266,4 @@ Para exibir o status da extensão VMAccess, execute este comando.
 [Recursos e extensões de VM do Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

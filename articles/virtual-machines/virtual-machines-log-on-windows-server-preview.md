@@ -19,17 +19,17 @@
 
 # Como fazer logon em uma máquina virtual executando o Windows Server 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o logon em uma VM do Windows usando o modelo de implantação do Gerenciador de Recursos. Você também pode criar um recurso com o [modelo de implantação clássico](virtual-machines-log-on-windows-server.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-log-on-windows-server.md).
 
 Você usará o botão **Conectar** no portal de visualização do Azure para iniciar uma sessão de área de trabalho remota. Primeiro, conecte-se à máquina virtual, em seguida faça logon.
 
 ## Conectar-se à máquina virtual
 
-1. Se você ainda não o fez, entre no [portal de visualização do Azure](https://portal.azure.com/).
+1. Se você ainda não fez isso, entre no [portal de visualização do Azure](https://portal.azure.com/).
 
 2.	No menu Hub, clique em **Procurar**.
 
-3.	Na folha de pesquisa, role para baixo e clique em **Máquinas virtuais**.
+3.	Na folha de pesquisa, role para baixo e clique em **Máquinas Virtuais**.
 
 	![Procurar máquinas virtuais](./media/virtual-machines-log-on-windows-server-preview/search-blade-preview-portal.png)
 
@@ -45,6 +45,6 @@ Você usará o botão **Conectar** no portal de visualização do Azure para ini
 
 ## Solucionar problemas
 
-Se as dicas sobre como fazer logon não ajudarem ou não forem o que você precisa, consulte [Solucionar problemas de conexões de área de trabalho remota com uma máquina virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
+Se as dicas sobre como fazer logon não forem úteis para resolver seu problema, veja [Solucionar problemas de conexões da Área de Trabalho Remota com uma Máquina Virtual do Azure baseada em Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

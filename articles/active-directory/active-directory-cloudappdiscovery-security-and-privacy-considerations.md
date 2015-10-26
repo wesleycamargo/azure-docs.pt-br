@@ -177,4 +177,4 @@ Em um esforço para proteger os metadados coletados seguros, por padrão somente
 
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

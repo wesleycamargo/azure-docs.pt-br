@@ -13,9 +13,12 @@
 	ms.workload="infrastructure-services"
 	ms.date="06/22/2015"
 	ms.author="bbenz" />
+
+	
 #Configurando o Oracle GoldenGate para o Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso criado com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Este tutorial demonstra como configurar Oracle GoldenGate para o ambiente de máquinas virtuais do Azure para alta disponibilidade e recuperação de desastres. O tutorial tem como foco a [replicação bidirecional](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) de bancos de dados não RAC da Oracle e requer que os dois sites estejam ativos.
 
@@ -599,4 +602,4 @@ Crie a área de trabalho remota para Site A e verifique se a replicação ocorre
 ##Recursos adicionais
 [Imagens de Máquina Virtual Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -86,11 +86,11 @@ Certificados de cliente são necessários para autenticar solicitações ao serv
 8.    [Configurar clientes permitidos no arquivo de configuração de serviço](Configure#Allowed#Clients#in#the#Service#Configuration#File)
 
 ### Usar certificados de cliente existente
-1.    [Localizar a chave pública de AC] (Localizar a \#chave pública de \#AC)
+1.    [Localizar a chave pública de AC] (Localizar a #chave pública de #AC)
 2.    [Carregar o Certificado de Autoridade de Certificação no serviço de nuvem](Upload#CA#certificate#to#cloud#service)
 3.    [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](Update#CA#Certificate#in#Service#Configuration#File)
 4.    [Copie as impressões digitais de certificados de cliente](Copy#Client#Certificate#Thumbprints)
-5.    [Configurar clientes permitidos no Arquivo de Configuração de Serviço] (Configurar \#clientes \#permitidos \#no \#Arquivo de \#Configuração de Serviço)
+5.    [Configurar clientes permitidos no Arquivo de Configuração de Serviço] (Configurar #clientes #permitidos #no #Arquivo de #Configuração de Serviço)
 6.    [Configurar a verificação de revogação de certificado do cliente](Configure#Client#Certificate#Revocation#Check)
 
 ## Endereços IP permitidos
@@ -474,4 +474,4 @@ As credenciais armazenadas neste banco de dados são criptografadas. No entanto,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=06-->
+<!---HONumber=Oct15_HO3-->

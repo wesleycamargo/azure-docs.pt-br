@@ -94,4 +94,4 @@ Você também pode fornecer uma explicação adicional para ajudar os usuários 
 
 Se seu aplicativo oferecer suporte ao Azure AD e a contas da Microsoft, você precisa incluir dois botões de login separados em seu aplicativo. Estamos trabalhando ativamente em uma atualização que permitirá que você integre uma vez e ofereça suporte a contas pessoais e comerciais da Microsoft. Quando isso estiver disponível, você poderá mostrar um único botão de "login na Microsoft" em seu aplicativo.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

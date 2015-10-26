@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como monitorar um serviço de nuvem | Microsoft Azure"
-	description="Saiba como monitorar serviços de nuvem usando o Portal de Gerenciamento do Azure."
-	services="cloud-services"
-	documentationCenter=""
-	authors="rboucher"
-	manager="jwhit"
+	pageTitle="Como monitorar um serviço de nuvem | Microsoft Azure" 
+	description="Saiba como monitorar serviços de nuvem usando o Portal de Gerenciamento do Azure." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="rboucher" 
+	manager="jwhit" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="robb"/>
 
 
@@ -192,4 +192,4 @@ Por exemplo, as tabelas a seguir armazenariam os dados agregados do monitorament
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

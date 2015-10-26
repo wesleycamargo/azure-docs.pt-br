@@ -204,4 +204,4 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
   [armazenamento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

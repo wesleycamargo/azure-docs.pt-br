@@ -70,4 +70,4 @@ Agora vamos supor que John Doe precise entrar no Portal de Gerenciamento do Azur
 ##Próximas etapas
 Para obter mais informações sobre a relação entre assinaturas e diretórios, consulte [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

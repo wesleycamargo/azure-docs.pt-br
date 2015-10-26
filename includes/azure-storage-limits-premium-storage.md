@@ -14,4 +14,4 @@ Tamanho do disco | 128 GiB | 512 GiB | 1024 GiB (1 TB)
 IOPS por disco | 500 | 2\.300 | 5\.000
 Taxa de transferência por disco | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

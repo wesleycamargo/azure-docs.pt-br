@@ -123,7 +123,7 @@ Abaixo é mostrado como fazer uma chamada externa usando a classe **CallFactory*
     // Make the call.
     Call call = callFactory.create(params);
 
-Para obter mais informações sobre os parâmetros passados para o método **CallFactory.create**, consulte [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
+Para obter mais informações sobre os parâmetros passados para o método **CallFactory.create**, consulte http://www.twilio.com/docs/api/rest/making-calls.
 
 Como mencionado, esse código utiliza um site fornecido pelo Twilio para retornar a resposta de TwiML. Em vez disso, você pode usar seu próprio site para fornecer a resposta de TwiML; para obter mais informações, consulte [Como fornecer respostas de TwiML em um aplicativo Java no Azure](#howto_provide_twiml_responses).
 
@@ -232,4 +232,4 @@ Agora que você já conhece os princípios do serviço Twilio, acesse estes link
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

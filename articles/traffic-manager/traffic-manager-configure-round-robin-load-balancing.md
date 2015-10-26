@@ -52,4 +52,4 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

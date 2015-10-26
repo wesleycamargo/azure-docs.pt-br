@@ -19,9 +19,7 @@
 
 # Adicionar as notificações por push ao seu aplicativo iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do iOS] de forma que sempre que um registro for inserido, uma notificação por push seja enviada. Este tutorial se baseia no [tutorial de Início Rápido de iOS] , que você deve concluir primeiro. Se você não usar o projeto baixado de início rápido do servidor, deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
@@ -112,4 +110,4 @@ O [simulador de iOS não dá suporte a notificações por push](https://develope
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

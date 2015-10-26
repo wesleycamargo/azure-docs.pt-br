@@ -4,19 +4,19 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Carregar arquivos de dispositivos para a nuvem com o Hub IoT
+# Tutorial: Como carregar arquivos de dispositivos para a nuvem com o Hub IoT
 
 ## Introdução
 
@@ -99,10 +99,6 @@ Informações adicionais sobre o Hub IoT:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introdução ao Hub Iot]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/iotdev
+[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

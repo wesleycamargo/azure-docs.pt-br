@@ -58,4 +58,4 @@ Por exemplo, você pode remover uma função de serviço Web e decidir posterior
 
 Saiba como configurar funções no Visual Studio lendo [Configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md),
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

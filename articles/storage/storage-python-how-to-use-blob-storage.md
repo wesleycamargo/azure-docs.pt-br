@@ -116,4 +116,4 @@ Para obter mais informações, veja também o [Centro de Desenvolvedores do Pyth
 [pacote do Python Azure]: https://pypi.python.org/pypi/azure
 [pacote de armazenamento do Python Azure]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

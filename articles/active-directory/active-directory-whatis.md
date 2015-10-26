@@ -58,7 +58,7 @@ Sua organização pode usar o AD do Azure para melhorar a produtividade dos func
 -	Capacite os funcionários com acesso aos aplicativos na nuvem da mais alta qualidade e recursos de serviço e autoatendimento de onde quer que eles precisem para trabalharem nos dispositivos que adoram usar.
 -	Gerencie com facilidade e segurança o acesso de funcionários e fornecedores a suas contas de mídia social corporativa.
 -	Aprimore a segurança dos aplicativos com o acesso condicional e a autenticação multifator do AD do Azure.
--	Implemente um gerenciamento de acesso de aplicativo de autoatendimento consistente, permitindo que os proprietários de negócios se movam rapidamente e também reduzindo a sobrecarga e os custos de TI.
+-	Implemente um gerenciamento de acesso de aplicativo de autoatendimento consistente, permitindo que os proprietários de negócios migrem rapidamente e, ao mesmo tempo, reduzam a sobrecarga e os custos de TI.
 -	Monitore o uso dos aplicativos e proteja sua empresa contra ameaças avançadas com monitoramento e relatórios de segurança.
 -	Proteja o acesso móvel (remoto) a aplicativos locais.
 
@@ -68,7 +68,7 @@ Sua organização pode usar o AD do Azure para melhorar a produtividade dos func
 
 
 ## Como posso começar?
--	Se você for um administrador de TI:
+-	Se você for administrador de TI:
  - [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/) - você pode se inscrever em uma avaliação gratuita de 30 dias hoje mesmo e implantar sua primeira solução de nuvem em menos de 5 minutos usando este link
  - Leia nossa "Introdução ao AD do Azure" para obter dicas e truques sobre como colocar um locatário do AD do Azure em funcionamento rapidamente
 -	Se você for um desenvolvedor:
@@ -104,4 +104,4 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 
 - [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

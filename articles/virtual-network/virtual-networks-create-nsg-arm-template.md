@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="10/08/2015"
    ms.author="telmos" />
 
 # Como criar NSGs usando um modelo
@@ -97,19 +97,10 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
 1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
-2. Execute o cmdlet **Switch-AzureMode** para alternar para modo do Gerenciador de Recursos, como mostrado abaixo.
 
-		Switch-AzureMode AzureResourceManager
+3. Execute o cmdlet **New-AzureRMResourceGroup** para criar um grupo de recursos usando o modelo.
 
-	Este é o resultado esperado para o comando descrito acima:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]O cmdlet Switch-AzureMode será preterido em breve. Quando isso acontecer, todos os cmdlets do Gerenciador de Recursos serão renomeados.
-
-3. Execute o cmdlet **New-AzureResourceGroup** para criar um grupo de recursos usando o modelo.
-
-		New-AzureResourceGroup -Name TestRG -Location uswest `
+		New-AzureRMResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
 
@@ -147,13 +138,13 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
 		                    
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Implantar o modelo ARM usando a CLI do Azure
 
 Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
@@ -162,7 +153,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 		info:    New mode is arm
 
-4. Execute o cmdlet **azure group deployment create** para implantar a nova VNet usando os arquivos de modelo e de parâmetro baixados e modificados acima. A lista exibida após a saída explicar os parâmetros usados.
+4. Execute o cmdlet **azure group deployment create** para implantar a nova VNet usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
@@ -175,7 +166,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 		info:    Initializing template configurations and parameters
 		info:    Creating a deployment
 		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 		data:    Name:                TestRG
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded
@@ -183,9 +174,9 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 		data:    
 		info:    group create command OK
 
-	- **-n (or --name)**. Nome do grupo de recursos a ser criado.
-	- **-l (or --location)**. Região do Azure em que o grupo de recursos será criado.
-	- **-f (or --template-file)**. Caminho para o arquivo de modelo ARM.
-	- **-e (or --parameters-file)**. Caminho para o arquivo de parâmetros ARM.
+	- **-n (ou --name)**. Nome do grupo de recursos a ser criado.
+	- **-l (ou --location)**. Região do Azure em que o grupo de recursos será criado.
+	- **-f (ou --template-file)**. Caminho para o arquivo de modelo ARM.
+	- **-e (ou --parameters-file)**. Caminho para o arquivo de parâmetros ARM.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

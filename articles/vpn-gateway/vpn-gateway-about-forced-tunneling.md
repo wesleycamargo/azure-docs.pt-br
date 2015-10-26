@@ -1,13 +1,12 @@
-<properties pageTitle="Configurar túnel forçado para gateways de VPN do Microsoft Azure | Microsoft Azure" description="Se você tiver uma rede virtual com um gateway de VPN entre locais, poderá redirecionar ou "forçar" todo o tráfego de Internet para sua instalação local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor=""/>
-
+<properties pageTitle="Configurar túnel forçado para gateways de VPN do Microsoft Azure | Microsoft Azure" description="Se você tiver uma rede virtual com um gateway de VPN entre locais, poderá redirecionar ou "forçar" todo o tráfego de Internet para sua instalação local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" />
 <tags  
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc" />
 
 # Configurar o túnel forçado
 
@@ -152,4 +151,4 @@ Abaixo estão alguns cmdlets adicionais do PowerShell que podem ser úteis ao tr
 
 Para obter informações sobre como proteger o tráfego de rede. Consulte [O que é um grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

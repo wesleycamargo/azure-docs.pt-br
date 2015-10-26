@@ -195,4 +195,4 @@ Também foram feitos ajustes em alguns nomes de variáveis e tarefas de compila�
 
 Para saber como adicionar recursos ao seu Grupo de Recursos do Azure no Visual Studio, consulte [Adicionar recursos a um Grupo de Recursos do Azure](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory - Terminologia"
-	description="Este artigo apresenta a terminologia usada na criação de data factories usando o serviço Azure Data Factory"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure Data Factory - Terminologia" 
+	description="Este artigo apresenta a terminologia usada na criação de data factories usando o serviço Azure Data Factory" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 #Azure Data Factory - Terminologia
@@ -110,4 +110,4 @@ Uma característica importante do Hub é que um pipeline é executado em um úni
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

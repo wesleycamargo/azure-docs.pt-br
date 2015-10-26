@@ -450,4 +450,4 @@ Os recursos a seguir estão atualmente em visualização pública e serão adici
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 - [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

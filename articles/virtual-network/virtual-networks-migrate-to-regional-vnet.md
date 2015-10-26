@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Como migrar de grupos de afinidades para uma rede virtual regional (VNet)"
-	description="Saiba como migrar de grupos de afinidades para VNets regionais"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Saiba como migrar de grupos de afinidades para VNets regionais"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="telmos" />
 
 # Como migrar de grupos de afinidades para uma rede virtual regional (VNet)
 
@@ -41,9 +41,9 @@ As redes virtuais que estão associadas a grupos de afinidades serão habilitada
 	
 	Edite as seguintes linhas no arquivo de configuração de rede substituindo os valores pelos seus:
 
-	**Valor antigo:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**Valor antigo:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Novo valor:** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**Novo valor:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Salve suas alterações e [importe](../virtual-networks-using-network-configuration-file/) a configuração de rede para o Azure.
 
@@ -66,4 +66,4 @@ Máquinas virtuais que estão atualmente em um grupo de afinidades não precisam
 Quando uma máquina virtual é implantada, ela é implantada em uma única unidade de escala. Os grupos de afinidades pode restringir o conjunto de tamanhos de VM disponíveis para uma nova implantação de VM, mas qualquer VM existente já implantada fica restrita ao conjunto de tamanhos de VM disponíveis na unidade de escala em que a VM estiver implantada. Por isso, a remoção de uma máquina virtual do grupo de afinidades não terá consequências.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

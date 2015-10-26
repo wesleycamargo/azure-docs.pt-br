@@ -72,7 +72,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Para verificar se seu domínio foi configurado corretamente, certifique-se de que está em “**Etapa 4 Implantada para Usuários**” e revise “**Minhas Configurações de Domínio**”.
 
-    ![Domínio Implantado para o Usuário](./media/active-directory-saas-work-com-tutorial/IC784377.png "Domínio Implantado para o Usuário")
+    ![Domínio implantado para o usuário](./media/active-directory-saas-work-com-tutorial/IC784377.png "Domínio implantado para o usuário")
 
 5.  Em uma janela de navegador da Web diferente, faça logon no seu portal do Azure.
 
@@ -86,9 +86,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon do Work.com**, digite a URL usada pelos seus usuários para fazer logon no seu aplicativo Work.com (p. ex.: “ **http://company.my.salesforce.com*”)e, em seguida, clique em **Avançar**:
 
-    ![Configurar a URL do Aplicativo  
-](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurar a URL do Aplicativo
-")
+    ![Configurar a URL do Aplicativo](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurar a URL do Aplicativo")
 
 9.  Na página **Configurar logon único no Work.com**, para baixar seu certificado, clique em **Baixar certificado** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -113,7 +111,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 14. Na seção de **Configurações de Logon Único de SAML**, execute as seguintes etapas:
 
-    ![Configuração de Logon Único do SAML](./media/active-directory-saas-work-com-tutorial/IC794114.png "Configuração de Logon Único do SAML")
+    ![Configuração de Logon Único do SAML](./media/active-directory-saas-work-com-tutorial/IC794114.png "Configuração de logon único do SAML")
 
     1.  Na caixa de texto **Nome**, digite um nome para sua configuração.  
 
@@ -135,11 +133,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 16. Na página **Meu Domínio**, na seção **Identidade Visual da Página de Logon**, clique em **Editar**.
 
-    ![Identidade Visual da Página de Logon](./media/active-directory-saas-work-com-tutorial/IC767826.png "Identidade Visual da Página de Logon")
+    ![Identidade visual da página de logon](./media/active-directory-saas-work-com-tutorial/IC767826.png "Identidade visual da página de logon")
 
 17. Na página **Identidade Visual da Página de Logon**, na seção **Serviço de Autenticação**, o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
 
-    ![Identidade Visual da Página de Logon](./media/active-directory-saas-work-com-tutorial/IC784366.png "Identidade Visual da Página de Logon")
+    ![Identidade visual da página de logon](./media/active-directory-saas-work-com-tutorial/IC784366.png "Identidade visual da página de logon")
 
 18. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
@@ -163,11 +161,11 @@ Para que os usuários do Active Directory do Azure possam entrar, eles devem ser
 
 4.  Clique em **Novo Usuário**.
 
-    ![Todos os Usuários](./media/active-directory-saas-work-com-tutorial/IC794117.png "Todos os Usuários")
+    ![Todos os Usuários](./media/active-directory-saas-work-com-tutorial/IC794117.png "Todos os usuários")
 
 5.  Na seção Editar Usuário, execute as seguintes etapas:
 
-    ![Editar Usuário](./media/active-directory-saas-work-com-tutorial/IC794118.png "Editar Usuário")
+    ![Editar usuário](./media/active-directory-saas-work-com-tutorial/IC794118.png "Editar usuário")
 
     1.  Digite os atributos **Sobrenome**, **Alias**, **Email**, **Nome de Usuário** e **Apelido** de uma conta válida do Active Directory do Azure, que você deseja provisionar nas caixas de texto relacionadas.
     2.  Selecione **Função**, **Licença de Usuário** e **Perfil**.
@@ -197,4 +195,4 @@ Agora, você deveria aguardar 10 minutos e verificar se a conta foi sincronizada
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

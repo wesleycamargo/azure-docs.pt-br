@@ -96,4 +96,4 @@ Para recuperar dados de outro servidor DPM:
 ## Próximas etapas:
 • [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Gerenciando o Azure AD Connect"
+<properties
+	pageTitle="Gerenciando o Azure AD Connect | Microsoft Azure"
 	description="Aprenda a estender configuração padrão e tarefas operacionais para o Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -7,19 +7,16 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/01/2015"
 	ms.author="billmath"/>
 
-# Gerenciando o Azure AD Connect 
-
-
-
+# Gerenciando o Azure AD Connect
 A seguir estão tópicos operacionais avançados que permitem que você personalize o Azure Active Directory Connect para atender às necessidades e requisitos de sua organização.
 
 ## Atribuir licenças aos usuários do Azure AD Premium e do Enterprise Mobility
@@ -41,7 +38,6 @@ Se você quiser verificar o status de uma sincronização, você pode fazer isso
 
 ### Como verificar a tarefa de sincronização agendada
 --------------------------------------------------------------------------------
-
 1. Entre no portal do Azure como administrador.
 2. Selecione **Active Directory** à esquerda.
 3. Na página do Active Directory, clique duas vezes no diretório que tenha os usuários que você deseja habilitar.
@@ -56,8 +52,6 @@ Se você precisar executar uma tarefa de sincronização, você pode fazer isso 
 <center>![Nuvem](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
 
-
-
 ## Tarefas adicionais disponíveis no Azure AD Connect
 Após a instalação inicial do Azure AD Connect, você pode sempre iniciar o assistente novamente de um atalho da área de trabalho ou da página inicial do Azure AD Connect. Você observará que executar novamente o assistente fornece algumas novas opções na forma de tarefas adicionais.
 
@@ -66,31 +60,13 @@ A tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de ca
 ![Regra de junção](./media/active-directory-aadconnect-whats-next/addtasks.png)
 
 
-Tarefas adicionais | Descrição 
+Tarefas adicionais | Descrição
 ------------- | ------------- |
 Exibir o cenário selecionado |Permite que você exiba sua solução atual para o Azure AD Connect. Isso inclui configurações gerais, diretórios sincronizados, configurações de sincronização, etc.
 Personalizar opções de sincronização | Permite que você altere a configuração atual, incluindo a adição de florestas do Active Directory para a configuração ou habilitando opções de sincronização como usuário, grupo, dispositivo ou write-back de senha.
 Habilitar o modo de preparação | Isso permite que você prepare as informações que posteriormente serão sincronizadas, mas nada será exportado para o Azure AD ou Active Directory. Isso permite que você visualize as sincronizações antes que elas ocorram.
 
+## Próximas etapas
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
- 
-
-
-
-
-
-
-## Documentação adicional
-Para obter documentação adicional sobre como trabalhar com o Azure AD Connect, consulte a seguir:
-
-- [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
-- [Alterando a configuração padrão do Azure AD Connect](active-directory-aadconnect-whats-next-change-default-config.md)
-- [Usando o editor de regras de sincronização do Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
-- [Usando provisionamento declarativo](active-directory-aadconnect-whats-next-declarative-prov.md)
-
-Além disso, algumas das documentações criadas para o Azure AD Sync ainda são relevantes e aplicam-se ao Azure AD Connect. Embora todos os esforços estejam sendo feitos para trazer essa documentação para o Azure.com, uma parte dela ainda reside na biblioteca de escopo do MSDN. Para obter documentação adicional, consulte [Azure AD Connect no MSDN](active-directory-aadconnect.md) e [Azure AD Sync no MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
-
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

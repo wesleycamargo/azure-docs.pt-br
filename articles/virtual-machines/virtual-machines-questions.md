@@ -19,7 +19,8 @@
 
 # Perguntas frequentes sobre as Máquinas Virtuais do Azure criadas com o modelo de implantação clássico
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo trata das respostas a perguntas sobre os recursos criados com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Este artigo trata de algumas perguntas comuns que os usuários fazem sobre as máquinas virtuais do Azure criadas com o modelo de implantação clássico, com base no feedback da equipe de Suporte de VM do Azure, bem como fóruns, grupos de notícias e comentários em outros artigos. Para obter informações básicas, comece com [Sobre as máquinas virtuais](virtual-machines-about.md).
 
@@ -150,4 +151,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

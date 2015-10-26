@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/14/2015"
    ms.author="tomfitz"/>
 
-# Gerenciar e auditar o acesso a recursos
+# Gerenciar o acesso a recursos
 
 Com o Gerenciador de Recursos do Azure, você pode garantir que os usuários em sua organização tenham as permissões apropriadas para gerenciar ou acessar recursos. O Gerenciador de Recursos se beneficia de controle de acesso baseado em função (RBAC) para que você pode facilmente aplicar diretivas de segurança para recursos individuais ou grupos de recursos. Por exemplo, você pode conceder um acesso de usuário a uma máquina virtual específica em uma assinatura ou oferecer ao usuário a capacidade de gerenciar todos os sites em uma assinatura, mas nenhum outro recurso.
+
+Este tópico se concentra nos comandos que você usa para atribuir funções e permissões. Para obter uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 ## Conceitos
 
@@ -55,90 +57,86 @@ Neste tópico, você verá como executar os seguintes cenários comuns por meio 
 
 
 ## Como usar o PowerShell para gerenciar o acesso
-Se você ainda não tiver a versão mais recente do Azure PowerShell instalado, consulte [Instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Abra o console do PowerShell do Azure.
 
-1. Faça logon em sua conta do Azure com suas credenciais. O comando retorna as informações sobre sua conta.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-        PS C:\> Add-AzureAccount
-          
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-2. Se você tiver várias assinaturas, forneça a ID da assinatura que deseja usar para implantação.
-
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
-
-3. Alterne para o módulo Gerenciador de Recursos do Azure.
-
-        PS C:\> Switch-AzureMode AzureResourceManager
 
 ### Exibir funções disponíveis
-Para exibir as funções disponíveis para sua assinatura, execute o comando **Get-AzureRoleDefinition**.
+Para exibir as funções disponíveis para sua assinatura, execute o comando **Get-AzureRmRoleDefinition**.
 
-    PS C:\> Get-AzureRoleDefinition
+    PS C:\> Get-AzureRmRoleDefinition
+    
+    Name             : API Management Service Contributor
+    Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+    IsCustom         : False
+    Description      : Lets you manage API Management services, but not access to them.
+    Actions          : {Microsoft.ApiManagement/Services/*, Microsoft.Authorization/*/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/resources/read...}
+    NotActions       : {}
+    AssignableScopes : {/}
 
-    Name                          Id                            Actions                  NotActions
-    ----                          --                            -------                  ----------
-    API Management Service Con... /subscriptions/####... {Microsoft.ApiManagement/S...   {}
-    Application Insights Compo... /subscriptions/####... {Microsoft.Insights/compon...   {}
+    Name             : Application Insights Component Contributor
+    Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+    IsCustom         : False
+    Description      : Lets you manage Application Insights components, but not access to them.
+    Actions          : {Microsoft.Insights/components/*, Microsoft.Insights/webtests/*, Microsoft.Authorization/*/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/read...}
+    NotActions       : {}
+    AssignableScopes : {/}
     ...
 
 ### Conceda permissão de leitor a um grupo para a assinatura.
-1. Analise a definição de função do **Leitor**, fornecendo o nome da função ao executar o comando **Get-AzureRoleDefinition**. Certifique-se de que as ações permitidas são as que você pretende atribuir.
+1. Analise a definição de função do **Leitor**, fornecendo o nome da função ao executar o comando **Get-AzureRmRoleDefinition**. Certifique-se de que as ações permitidas são as que você pretende atribuir.
 
-        PS C:\> Get-AzureRoleDefinition Reader
+        PS C:\> Get-AzureRmRoleDefinition Reader
    
-        Name            Id                            Actions           NotActions
-        ----            --                            -------           ----------
-        Reader          /subscriptions/####...        {*/read}          {}
+        Name             : Reader
+        Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+        IsCustom         : False
+        Description      : Lets you view everything, but not make any changes.
+        Actions          : {*/read}
+        NotActions       : {}
+        AssignableScopes : {/}
 
-2. Obter grupo de segurança necessário, executando o comando **Get-AzureADGroup**. Forneça o nome real do grupo em sua assinatura. ExampleAuditorGroup é mostrado abaixo.
+2. Obter grupo de segurança necessário, executando o comando **Get-AzureRmADGroup**. Forneça o nome real do grupo em sua assinatura. ExampleAuditorGroup é mostrado abaixo.
 
-        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:\> $group = Get-AzureRmAdGroup -SearchString ExampleAuditorGroup
 
 3. Crie a atribuição de função para o grupo de segurança de auditor. Quando o comando for concluído, a nova atribuição de função é retornada.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:\> New-AzureRmRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
-        Mail               :
-        RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
-        DisplayName        : Auditors
-        RoleDefinitionName : Reader
-        Actions            : {*/read}
-        NotActions         : {}
-        Scope              : /subscriptions/####
-        ObjectId           : ####
 
 ###Conceda permissões de Colaborador para um aplicativo para um grupo de recursos.
-1. Examine a definição de função do **Colaborador**, fornecendo o nome da função ao executar o comando **Get-AzureRoleDefinition**. Certifique-se de que as ações permitidas são as que você pretende atribuir.
+1. Examine a definição de função do **Colaborador**, fornecendo o nome da função ao executar o comando **Get-AzureRmRoleDefinition**. Certifique-se de que as ações permitidas são as que você pretende atribuir.
 
-        PS C:\> Get-AzureRoleDefinition Contributor
+        PS C:\> Get-AzureRmRoleDefinition Contributor
 
-2. Obtenha o Id do objeto principal de serviço executando o comando **Get-AzureADServicePrincipal** e forneça o nome do aplicativo em sua assinatura. ExampleApplication é mostrado abaixo.
+2. Obtenha a ID do objeto da entidade de serviço executando o comando **Get-AzureRmADServicePrincipal** e forneça o nome do aplicativo em sua assinatura. ExampleApplication é mostrado abaixo.
 
-        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:\> $service = Get-AzureRmADServicePrincipal -SearchString ExampleApplicationName
 
-3. Crie as atribuições de função para a entidade de serviço executando o comando **New-AzureRoleAssignment**.
+3. Crie as atribuições de função para a entidade de serviço executando o comando **New-AzureRmRoleAssignment**.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:\> New-AzureRmRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 Para obter uma explicação mais completa da configuração de um aplicativo do Active Directory do Azure e uma entidade de serviço, consulte [Autenticar uma entidade de serviço com o Gerenciador de recursos do Azure](../resource-group-authenticate-service-principal.md).
 
 ###Conceda permissões de proprietário para um usuário de um recurso.
-1. Analise a definição de função do **Proprietário**, fornecendo o nome da função ao executar o comando **Get-AzureRoleDefinition**. Certifique-se de que as ações permitidas são as que você pretende atribuir.
+1. Analise a definição de função do **Proprietário**, fornecendo o nome da função ao executar o comando **Get-AzureRmRoleDefinition**. Certifique-se de que as ações permitidas são as que você pretende atribuir.
 
-        PS C:\> Get-AzureRoleDefinition Owner
+        PS C:\> Get-AzureRmRoleDefinition Owner
 
 2. Crie as atribuições de função do usuário.
 
-        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:\> New-AzureRmRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###Lista dos logs de auditoria do grupo de recursos.
-Para obter o log de auditoria de um grupo de recursos, execute o comando **Get-AzureResourceGroupLog**.
+Para obter o log de auditoria para um grupo de recursos, execute o comando **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** para versões do Azure PowerShell antes da visualização 1.0).
 
-      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroupName
 
 ## Como usar a CLI do Azure para Mac, Linux e Windows
 
@@ -264,10 +262,10 @@ Crie a atribuição de função.
 
 ## Próximas etapas
 
-- [Controle de acesso baseado em função no portal do Microsoft Azure](../role-based-access-control-configure.md)
-- [Criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](../resource-group-create-service-principal-portal.md)
-- [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](../resource-group-authenticate-service-principal.md)
+- Para aprender mais sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](../role-based-access-control-configure.md).
+- Para saber mais sobre como trabalhar com entidades de serviço para gerenciar o acesso para aplicativos em sua assinatura, consulte [Autenticar uma entidade de serviço por meio do Gerenciador de recursos do Azure](../resource-group-authenticate-service-principal.md) e [criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](../resource-group-create-service-principal-portal.md).
+- Para saber mais sobre a auditoria de operações em sua organização, consulte [Operações com o Gerenciador de Recursos de Auditoria](../resource-group-audit.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

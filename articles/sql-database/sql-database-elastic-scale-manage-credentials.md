@@ -60,4 +60,4 @@ A [biblioteca cliente do Banco de Dados Elástico](http://www.nuget.org/packages
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

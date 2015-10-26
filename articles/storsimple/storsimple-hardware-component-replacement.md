@@ -142,4 +142,4 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 
 Examine todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

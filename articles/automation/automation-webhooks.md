@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/28/2015"
+   ms.date="10/08/2015"
    ms.author="bwren;sngun"/>
 
 # Webhooks da Automação do Azure
@@ -156,7 +156,8 @@ O seguinte exemplo de runbook aceita a solicitação do exemplo anterior e inici
             # Start each virtual machine
 			foreach ($VM in $VMList)
 			{
-				Write-Output "Starting $VM.Name."
+				$VMName = $VM.Name
+				Write-Output "Starting $VMName"
 				Start-AzureVM -Name $VM.Name -ServiceName $VM.ServiceName
 			}
 		}
@@ -254,4 +255,4 @@ O seguinte exemplo de runbook é acionado quando a regra de alerta é ativada e 
 - [Exibindo o status de um trabalho de runbook](automation-viewing-the-status-of-a-runbook-job.md)
 - [Usando a Automação do Azure para executar ações mediante Alertas do Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

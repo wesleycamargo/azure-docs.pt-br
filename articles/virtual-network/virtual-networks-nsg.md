@@ -164,4 +164,4 @@ Lembre-se de exibir todos os [limites relacionados aos serviços de rede no Azur
 - [Implantar NSGs no modelo de implantação clássico](virtual-networks-create-nsg-classic-ps.md).
 - [Implantar NSGs no Gerenciador de Recursos](virtual-networks-create-nsg-arm-pportal.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

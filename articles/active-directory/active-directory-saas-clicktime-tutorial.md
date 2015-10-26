@@ -63,7 +63,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 2.  Na página **Como você deseja que os usuários façam logon no ClickTime**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-clicktime-tutorial/IC777278.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-clicktime-tutorial/IC777278.png "Configurar logon único")
 
 3.  Na página **Configurar logon único no ClickTime**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo do certificado em seu computador.
 
@@ -88,7 +88,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 7.  No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar logon único](./media/active-directory-saas-clicktime-tutorial/IC777281.png "Configurar logon único")
+    ![Configurar logon único](./media/active-directory-saas-clicktime-tutorial/IC777281.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
 
 Para permitir que os usuários do Azure AD façam logon no ClickTime, eles devem ser provisionados no ClickTime. No caso do ClickTime, o provisionamento é uma tarefa manual.
@@ -136,4 +136,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

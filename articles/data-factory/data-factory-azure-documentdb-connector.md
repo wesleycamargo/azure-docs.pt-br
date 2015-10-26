@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mover dados para e do Banco de Dados de Documentos | Azure Data Factory"
-	description="Saiba como mover dados para/da coleção Banco de Dados de Documentos do Azure usando o Azure Data Factory"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Mover dados para e do Banco de Dados de Documentos | Azure Data Factory" 
+	description="Saiba como mover dados para/da coleção Banco de Dados de Documentos do Azure usando o Azure Data Factory" 
+	services="data-factory, documentdb" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="multiple" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do Banco de Dados de Documentos usando o Azure Data Factory
@@ -399,6 +399,21 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 | writeBatchSize | Número de solicitações paralelas para o serviço Banco de Dados de Documentos criar documentos.<p>Você pode ajustar o desempenho ao copiar dados para/do Banco de Dados de Documentos usando essa propriedade. Você pode esperar um melhor desempenho quando você aumenta writeBatchSize, pois mais solicitações paralelas para Banco de Dados de Documentos são enviadas. No entanto, será necessário evitar a limitação que pode gerar a mensagem de erro: "Taxa de solicitação é grande".</p><p>A limitação é decidida por vários fatores, incluindo o tamanho dos documentos, o número de termos em documentos, indexação política da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter mais taxa de transferência disponível (solicitação de 2.500 unidades/segundo).</p> | Valor inteiro | Não |
 | writeBatchTimeout | Tempo de espera para a operação ser concluída antes de atingir o tempo limite. | (Unidade = timespan) Exemplo: "00:30:00" (30 minutos). | Não |
  
- 
+## Apêndice
+1. **Pergunta:** a atividade de cópia dá suporte à atualização de registros existentes?
 
-<!---HONumber=August15_HO9-->
+	**Resposta:** Não.
+
+2. **Pergunta:** Como uma nova tentativa de uma cópia para o Banco de Dados de Documentos lida com os registro já copiados?
+
+	**Resposta:** se os registros têm um campo "ID" e a operação de cópia tenta inserir um registro com a mesma ID, a operação de cópia gerará um erro.
+ 
+3. **Pergunta:** o suporte do Data Factory faz [intervalo ou o particionamento de dados baseado em hash](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+
+	**Resposta:** Não. 
+4. **Pergunta:** posso especificar mais de uma coleção de Banco de Dados de Documentos para uma tabela?
+	
+	**Resposta:** Não. Somente uma coleção pode ser especificada no momento.
+     
+
+<!---HONumber=Oct15_HO3-->

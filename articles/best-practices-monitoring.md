@@ -1,21 +1,21 @@
 <properties
    pageTitle="Diretrizes de monitoramento e diagnóstico | Microsoft Azure"
-	description="Práticas recomendadas para monitoramento de aplicativos distribuídos na nuvem."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="masimms"
-	editor=""
-	tags=""/>
+   description="Práticas recomendadas para monitoramento de aplicativos distribuídos na nuvem."
+   services=""
+   documentationCenter="na"
+   authors="dragon119"
+   manager="masimms"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="best-practice"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="04/28/2015"
-	ms.author="masashin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="04/28/2015"
+   ms.author="masashin"/>
 
 # Diretrizes de monitoramento e diagnóstico
 
@@ -612,4 +612,4 @@ Em muitos casos, relatórios podem ser gerados por processos em lotes de acordo 
 - A página [Noções básicas sobre alertas e notificações de monitoramento no Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) no site da Microsoft.
 - A página do [Application Insights](app-insights-get-started/) no site da Microsoft.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

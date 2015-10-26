@@ -105,10 +105,6 @@ Após a realização destas etapas, o Proton estará instalado no computador e p
 Está pronto(a) para saber mais? Visite os links a seguir:
 
 - [Visão geral do AMQP do Barramento de Serviço]
-- [Usando o Barramento de Serviço do .NET com AMQP]
-- [Usando o Barramento de Serviço do Java com AMQP]
-- [Usando o Barramento de Serviço do Python com AMQP]
-- [Usando o Barramento de Serviço do PHP com AMQP]
 
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -117,9 +113,5 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
 [portal do Azure]: http://manage.windowsazure.com
-[Usando o Barramento de Serviço do .NET com AMQP]: service-bus-amqp-dotnet.md
-[Usando o Barramento de Serviço do Java com AMQP]: service-bus-amqp-java.md
-[Usando o Barramento de Serviço do Python com AMQP]: service-bus-amqp-python.md
-[Usando o Barramento de Serviço do PHP com AMQP]: service-bus-amqp-php.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

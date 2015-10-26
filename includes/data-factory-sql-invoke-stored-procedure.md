@@ -60,4 +60,4 @@ No banco de dados, defina o tipo de tabela com o mesmo nome que SqlWriterTableTy
 
 O recurso de procedimento armazenado se beneficia de [parâmetros com valores de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

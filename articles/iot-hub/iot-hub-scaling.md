@@ -2,9 +2,9 @@
  pageTitle="Dimensionamento no Hub IoT do Azure | Microsoft Azure"
  description="Descreve como dimensionar o Hub IoT do Azure."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -62,7 +62,7 @@ Enquanto um único Hub IoT pode ser dimensionado para milhões de dispositivos, 
 
 ## Próximas etapas
 
-Para saber mais sobre o Hub IoT do Azure, consulte estes links:
+Para saber mais sobre o Hub IoT do Azure, siga estes links:
 
 - [Introdução aos Hubs IoT (Tutorial)][lnk-get-started]
 - [O que é o Hub IoT do Azure?][]
@@ -73,4 +73,4 @@ Para saber mais sobre o Hub IoT do Azure, consulte estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

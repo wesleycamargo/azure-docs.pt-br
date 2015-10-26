@@ -49,4 +49,4 @@ Quer saber mais sobre como gerenciar o AD do Azure? Como obter um diretório? Co
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Identidade do Azure](fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

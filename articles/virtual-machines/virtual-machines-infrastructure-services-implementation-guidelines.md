@@ -440,4 +440,4 @@ Essa configuração inclui:
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

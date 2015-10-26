@@ -189,4 +189,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [Atualizar localizadores dos Serviços de Mídia depois de implantar chaves de armazenamento](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

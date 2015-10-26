@@ -51,44 +51,43 @@ Antes de começar este tutorial, você deve ter o seguinte:
 </table>
 
 - ****Banco de dados SQL do Azure ou Microsoft SQL Server
-- **Banco de Dados SQL do Azure**: você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso de sua estação de trabalho. Para saber mais sobre como criar um Banco de Dados SQL e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. Este artigo fornece um script do Windows PowerShell para criar a tabela do Banco de Dados SQL do Azure necessária para este tutorial.
 
-	<table border="1">
-	<tr><th>Propriedade de banco de dados SQL do Azure</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
-	<tr><td>Nome do servidor de banco de dados SQL do Azure.</td><td>$sqlDatabaseServer</td><td></td><td>O servidor do banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
-	<tr><td>Nome de logon do banco de dados SQL do Azure</td><td>$sqlDatabaseLogin</td><td></td><td>O nome de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
-	<tr><td>Senha de logon do banco de dados SQL do Azure</td><td>$sqlDatabasePassword</td><td></td><td>A senha de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
-	<tr><td>Nome do banco de dados SQL do Azure</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
-	</table>
+	- **Banco de Dados SQL do Azure**: você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso de sua estação de trabalho. Para saber mais sobre como criar um Banco de Dados SQL e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. Este artigo fornece um script do Windows PowerShell para criar a tabela do Banco de Dados SQL do Azure necessária para este tutorial.
+	
+		<table border="1">
+<tr><th>Propriedade de banco de dados SQL do Azure</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
+<tr><td>Nome do servidor de banco de dados SQL do Azure.</td><td>$sqlDatabaseServer</td><td></td><td>O servidor do banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
+<tr><td>Nome de logon do banco de dados SQL do Azure</td><td>$sqlDatabaseLogin</td><td></td><td>O nome de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
+<tr><td>Senha de logon do banco de dados SQL do Azure</td><td>$sqlDatabasePassword</td><td></td><td>A senha de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
+<tr><td>Nome do banco de dados SQL do Azure</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
+</table>> [AZURE.NOTE]Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no portal de visualização do Azure. Para saber mais sobre como criar um Banco de Dados SQL do Azure e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue].
+	
+	* **Servidor SQL**: se o cluster HDInsight estiver na mesma rede virtual do Azure que um SQL Server, você pode usar as etapas neste artigo para importar e exportar dados para um banco de dados SQL Server.
+	
+		> [AZURE.NOTE]O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade.
+	
+		* Para criar e configurar uma rede virtual, confira [Tarefas de configuração de rede virtual](../services/virtual-machines/).
+	
+			* Ao usar o SQL Server no datacenter, você deve configurar a rede virtual como *site a site* ou *ponto a site*.
+	
+				> [AZURE.NOTE]Para redes virtuais **ponto a site**, o SQL Server deve estar executando o aplicativo de configuração de cliente VPN, que está disponível no **Painel** de configuração da rede virtual do Azure.
+	
+			* Ao usar o SQL Server em uma Máquina Virtual do Azure, qualquer configuração de rede virtual pode ser usada, desde que a máquina virtual que hospeda o SQL Server seja membro da mesma rede virtual que o HDInsight.
+	
+		* Para provisionar um cluster HDInsight em uma rede virtual, confira [Provisionar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md)
+	
+		> [AZURE.NOTE]O SQL Server também deve permitir autenticação. Você deve usar um logon do SQL Server para as etapas neste artigo.
+	
+		<table border="1">
+<tr><th>Propriedades do banco de dados do SQL Server</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
+<tr><td>Nome do SQL Server</td><td>$sqlDatabaseServer</td><td></td><td>O SQL Server para o qual o Sqoop exportará os dados ou por meio do qual ele importará os dados. </td></tr>
+<tr><td>Nome de logon do SQL Server</td><td>$sqlDatabaseLogin</td><td></td><td>Seu nome de logon do SQL Server.</td></tr>
+<tr><td>Senha de Logon do SQL Server</td><td>$sqlDatabasePassword</td><td></td><td>Sua senha de logon do SQL Server.</td></tr>
+<tr><td>Nome do banco de dados SQL Server</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL Server para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
+</table>
 
-	> [AZURE.NOTE] Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no portal de visualização do Azure. Para saber mais sobre como criar um Banco de Dados SQL do Azure e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue].
 
-* **Servidor SQL**: se o cluster HDInsight estiver na mesma rede virtual do Azure que um SQL Server, você pode usar as etapas neste artigo para importar e exportar dados para um banco de dados SQL Server.
-
-	> [AZURE.NOTE] O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade.
-
-	* Para criar e configurar uma rede virtual, confira [Tarefas de configuração de rede virtual](../services/virtual-machines/).
-
-		* Ao usar o SQL Server no datacenter, você deve configurar a rede virtual como *site a site* ou *ponto a site*.
-
-			> [AZURE.NOTE] Para redes virtuais **ponto a site**, o SQL Server deve estar executando o aplicativo de configuração de cliente VPN, que está disponível no **Painel** de configuração da rede virtual do Azure.
-
-		* Ao usar o SQL Server em uma Máquina Virtual do Azure, qualquer configuração de rede virtual pode ser usada, desde que a máquina virtual que hospeda o SQL Server seja membro da mesma rede virtual que o HDInsight.
-
-	* Para provisionar um cluster HDInsight em uma rede virtual, confira [Provisionar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md)
-
-	> [AZURE.NOTE] O SQL Server também deve permitir autenticação. Você deve usar um logon do SQL Server para as etapas neste artigo.
-
-	<table border="1">
-	<tr><th>Propriedades do banco de dados do SQL Server</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
-	<tr><td>Nome do SQL Server</td><td>$sqlDatabaseServer</td><td></td><td>O SQL Server para o qual o Sqoop exportará os dados ou por meio do qual ele importará os dados. </td></tr>
-	<tr><td>Nome de logon do SQL Server</td><td>$sqlDatabaseLogin</td><td></td><td>Seu nome de logon do SQL Server.</td></tr>
-	<tr><td>Senha de Logon do SQL Server</td><td>$sqlDatabasePassword</td><td></td><td>Sua senha de logon do SQL Server.</td></tr>
-	<tr><td>Nome do banco de dados SQL Server</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL Server para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
-	</table>
-
-
-> [AZURE.NOTE] Preencher valores nas tabelas anteriores. Isso poderá ser útil para percorrer este tutorial.
+> [AZURE.NOTE]Preencher valores nas tabelas anteriores. Isso poderá ser útil para percorrer este tutorial.
 
 ##Compreender o cenário
 O cluster HDInsight é fornecido com alguns dados de exemplo. Você irá usar as seguintes amostras:
@@ -103,19 +102,19 @@ O cluster HDInsight é fornecido com alguns dados de exemplo. Você irá usar as
 - Uma tabela Hive chamada *hivesampletable* que faz referência ao arquivo de dados localizado em */hive/warehouse/hivesampletable*. A tabela contém alguns dados de dispositivo móvel. O esquema da tabela Hive é:
 
 	<table border="1">
-	<tr><th>Campo</th><th>Tipo de dados</th></tr>
-	<tr><td>clientid</td><td>cadeia de caracteres</td></tr>
-	<tr><td>querytime</td><td>cadeia de caracteres</td></tr>
-	<tr><td>market</td><td>cadeia de caracteres</td></tr>
-	<tr><td>deviceplatform</td><td>cadeia de caracteres</td></tr>
-	<tr><td>devicemake</td><td>cadeia de caracteres</td></tr>
-	<tr><td>devicemodel</td><td>cadeia de caracteres</td></tr>
-	<tr><td>state</td><td>cadeia de caracteres</td></tr>
-	<tr><td>country</td><td>cadeia de caracteres</td></tr>
-	<tr><td>querydwelltime</td><td>double</td></tr>
-	<tr><td>sessionid</td><td>bigint</td></tr>
-	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-	</table>
+<tr><th>Campo</th><th>Tipo de dados</th></tr>
+<tr><td>clientid</td><td>cadeia de caracteres</td></tr>
+<tr><td>querytime</td><td>cadeia de caracteres</td></tr>
+<tr><td>market</td><td>cadeia de caracteres</td></tr>
+<tr><td>deviceplatform</td><td>cadeia de caracteres</td></tr>
+<tr><td>devicemake</td><td>cadeia de caracteres</td></tr>
+<tr><td>devicemodel</td><td>cadeia de caracteres</td></tr>
+<tr><td>state</td><td>cadeia de caracteres</td></tr>
+<tr><td>country</td><td>cadeia de caracteres</td></tr>
+<tr><td>querydwelltime</td><td>double</td></tr>
+<tr><td>sessionid</td><td>bigint</td></tr>
+<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+</table>
 
 Primeiro, você exportará o *sample.log* e a *hivesampletable* para o banco de dados SQL do Azure ou SQL Server e, em seguida, importará a tabela que contém os dados de dispositivos móveis de volta para o HDInsight usando o seguinte caminho:
 
@@ -127,8 +126,7 @@ O HDInsight usa o armazenamento de Blob do Azure para armazenamento de dados. Pa
 
 Ao provisionar um cluster HDInsight, uma conta de Armazenamento do Azure e um contêiner de armazenamento de blob específico dessa conta são designados como o sistema de arquivos padrão, exatamente como no HDFS. Além dessa conta de armazenamento, você pode adicionar mais contas de armazenamento da mesma assinatura do Azure ou de diferentes assinaturas do Azure durante o processo de provisionamento.
 
-Para saber mais sobre como adicionar mais contas de armazenamento, confira [Provisionar clusters HDInsight][hdinsight-provision]. Para simplificar o script do Windows PowerShell usado neste tutorial, todos os arquivos são armazenados no contêiner do sistema de arquivos padrão, localizado em */tutoriais/usesqoop*. Por padrão, esse contêiner tem o mesmo nome do cluster HDInsight.
- A sintaxe do é:
+Para saber mais sobre como adicionar mais contas de armazenamento, confira [Provisionar clusters HDInsight][hdinsight-provision]. Para simplificar o script do Windows PowerShell usado neste tutorial, todos os arquivos são armazenados no contêiner do sistema de arquivos padrão, localizado em */tutoriais/usesqoop*. Por padrão, esse contêiner tem o mesmo nome do cluster HDInsight. A sintaxe do é:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
@@ -611,4 +609,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -59,11 +59,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No portal do AD do Azure, na página de integração de aplicativos do **TalentLMS**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configurar logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no TalentLMS**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-talentlms-tutorial/IC777293.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-talentlms-tutorial/IC777293.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do TalentLMS**, digite a URL usando o padrão "*https://\<nome do locatário>.TalentLMSapp.com*" e clique em **Avançar**.
 
@@ -134,10 +134,10 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
     ![Atribuir usuários](./media/active-directory-saas-talentlms-tutorial/IC777300.png "Atribuir usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-talentlms-tutorial/IC767830.png "Sim")
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

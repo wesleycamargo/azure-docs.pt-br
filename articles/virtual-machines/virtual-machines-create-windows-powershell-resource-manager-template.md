@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar uma VM com o modelo ARM | Microsoft Azure"
-	description="Use um modelo do Gerenciador de Recursos para criar facilmente uma nova máquina virtual do Windows com o PowerShell ou a CLI do Azure."
+	pageTitle="Criar uma VM com um modelo | Microsoft Azure"
+	description="Use um modelo do Gerenciador de Recursos para criar facilmente uma nova máquina virtual do Windows com o PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -14,22 +14,20 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos. Você não pode criar esse recurso com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Você não pode criar esse recurso com o modelo de implantação clássica.
 
-Você pode criar facilmente uma nova máquina virtual do Azure baseada no Windows usando um modelo do Gerenciador de Recursos com o Azure PowerShell ou a CLI do Azure. Este modelo cria uma única máquina virtual que executa o Windows em uma nova rede virtual com uma única sub-rede em um novo grupo de recursos.
+Você pode criar facilmente uma nova máquina virtual do Azure baseada no Windows usando um modelo do Gerenciador de Recursos com o PowerShell do Azure. Esse modelo cria uma única máquina virtual que executa o Windows em uma nova rede virtual com uma única sub-rede em um novo grupo de recursos.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
-Antes de mergulhar de cabeça, verifique se você tem o PowerShell e a CLI do Azure configurados e prontos.
+Antes de se aprofundar, verifique se você tem o Azure PowerShell configurado e pronto para usar.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-[AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
 ## Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos usando o Azure PowerShell
 
@@ -224,10 +222,10 @@ Preencha um nome de implantação do Azure, o nome do grupo de recursos e o loca
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-Ao executar o comando **New-AzureResourceGroupDeployment**, você será solicitado a fornecer os valores dos parâmetros na seção "parâmetros" do arquivo JSON. Quando você tiver especificado todos os valores de parâmetros, o comando criará o grupo de recursos e a máquina virtual.
+Ao executar o comando **New-AzureRmResourceGroupDeployment**, você será solicitado a fornecer os valores dos parâmetros na seção “parâmetros” do arquivo JSON. Quando você tiver especificado todos os valores de parâmetros, o comando criará o grupo de recursos e a máquina virtual.
 
 Aqui está um exemplo.
 
@@ -235,12 +233,12 @@ Aqui está um exemplo.
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Você verá algo semelhante a:
 
-	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: newsaacct
@@ -278,49 +276,6 @@ Você verá algo semelhante a:
 
 Agora você tem uma nova máquina virtual do Windows chamada MyWindowsVM em seu novo grupo de recursos.
 
-## Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos usando o CLI do Azure
-
-Siga estas etapas para criar uma máquina virtual do Windows usando um modelo do Gerenciador de Recursos no repositório de modelos do Github com os comandos do CLI do Azure.
-
-Preencha o nome de um grupo de recursos e local do Azure (como westus para Oeste dos EUA; remova os colchetes) e, em seguida, execute estes comandos.
-
-	azure group create [resource group] [location]
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json [resource group] firstdeployment
-
-Aqui está um exemplo de um comando da CLI do Azure definido para o modelo.
-
-	azure group create testrg westus
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
-
-Você verá algo semelhante a:
-
-	azure group create testrg westus
-	info:    Executing command group create
-	+ Getting resource group testrg
-	+ Creating resource group testrg
-	info:    Created resource group testrg
-	data:    Id:                  /subscriptions/2c73c582-4b11-4800-96f9-a9bd790a861c/resourceGroups/testrg
-	data:    Name:                testrg
-	data:    Location:            westus
-	data:    Provisioning State:  Succeeded
-	data:    Tags:
-	data:
-	info:    group create command OK
-
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
-	info:    Executing command group deployment create
-	info:    Supply values for the following parameters
-	newStorageAccountName: newstorage
-	adminUsername: ops
-	adminPassword: Pa$$W0rd1
-	dnsNameForPublicIP: contoso
-	windowsOSVersion: 2012-R2-Datacenter
-	+ Initializing template configurations and parameters
-	+ Creating a deployment
-	info:    Created template deployment "firstdeployment"
-	+ Registering providers
-
-
 ## Recursos adicionais
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
@@ -333,6 +288,6 @@ Você verá algo semelhante a:
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Como instalar e configurar o Azure PowerShell](install-configure-powershell.md)
+[Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

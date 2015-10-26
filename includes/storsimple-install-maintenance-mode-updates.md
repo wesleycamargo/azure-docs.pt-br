@@ -26,4 +26,4 @@
 
 8. Depois que ambos os controladores estiverem atualizados, saia do modo de Manutenção. Consulte [Etapa 4: Sair do modo de manutenção](storsimple-update-device.md#step4) para obter instruções.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -81,7 +81,7 @@ Você pode configurar seu aplicativo para usar a biblioteca do Twilio para PHP d
 
 1. Baixar a biblioteca da Twilio para PHP do GitHub ([https://github.com/twilio/twilio-php][twilio_php]) e adicionar o diretório **Serviços** ao seu aplicativo.
 
-	\-OU-
+	-OU-
 
 2. Instalar a biblioteca da Twilio para PHP como um pacote PEAR. Ela pode ser instalada com os seguintes comandos:
 
@@ -267,4 +267,4 @@ Agora que você já conhece os princípios do serviço Twilio, acesse estes link
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

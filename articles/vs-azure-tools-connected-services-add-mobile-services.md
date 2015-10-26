@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Adicionando Serviços Móveis usando serviços conectados no Visual Studio | Microsoft Azure"
-	description="Adicionar Serviços Móveis usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Adicionar Serviços Móveis usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="mobile"
-	ms.date="08/12/2015"
-	ms.author="patshea"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="mobile"
+   ms.date="08/12/2015"
+   ms.author="patshea" />
 
 # Adicionando Serviços Móveis usando os serviços conectados do Visual Studio
 
@@ -89,4 +89,4 @@ Faça perguntas e obtenha ajuda:
 
  - [Documentação dos Serviços Móveis do Azure em azure.microsoft.com](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="O que é o Catálogo de Dados do Azure"
-	description="Visão geral do catálogo de dados do Microsoft Azure, incluindo seus recursos e os problemas que ele deve resolver conforme foi projetado. O Catálogo de Dados do Azure fornece recursos que permitem que qualquer usuário – desde analistas a cientistas de dados e desenvolvedores – registre, descubra, entenda e consuma fontes de dados."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Visão geral do catálogo de dados do Microsoft Azure, incluindo seus recursos e os problemas que ele deve resolver conforme foi projetado. O Catálogo de Dados do Azure fornece recursos que permitem que qualquer usuário – desde analistas a cientistas de dados e desenvolvedores – registre, descubra, entenda e consuma fontes de dados."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/21/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/21/2015"
+   ms.author="maroche"/>
 
 # O que é o Catálogo de Dados do Azure?
 
@@ -122,4 +122,4 @@ O objetivo final da descoberta de dados é localizar os dados necessários e us�
 
 > [AZURE.NOTE]Para obter a visualização do Catálogo de Dados do Azure, somente o Microsoft Excel e o Gerenciador de Relatórios do SQL Server Reporting Services terão suporte direto e estarão disponíveis no menu **Abrir no**.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -115,4 +115,4 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

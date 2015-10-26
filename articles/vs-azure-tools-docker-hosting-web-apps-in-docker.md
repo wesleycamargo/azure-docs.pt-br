@@ -1,19 +1,19 @@
 <properties
    pageTitle="Hospedando aplicativos Web no Docker | Microsoft Azure"
-	description="Saiba como usar o Visual Studio para hospedar um aplicativo Web em um contêiner do Docker."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Saiba como usar o Visual Studio para hospedar um aplicativo Web em um contêiner do Docker."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # Hospedando aplicativos Web no Docker
 
@@ -80,7 +80,7 @@ Nestes procedimentos, você vai criar um novo projeto de aplicativo Web ASP.NET 
     |Imagem|Escolha uma imagem de SO a ser usada no host do Docker, se houver. Neste exemplo, escolha uma imagem do Ubuntu Server. (Observe que uma imagem do Windows Server agora está disponível na lista de imagens disponíveis).|
     |Nome de Usuário|Insira um nome de usuário exclusivo para a máquina virtual.|
     |Senhas|Insira uma senha para o usuário e confirme-a.|
-    |Diretório de certificados |Especifica a pasta em que os certificados do Docker estão armazenados. Embora você possa criar uma nova pasta ou apontar para uma existente, é recomendável usar a pasta de certificados padrão (C:\\Users\[*nome de usuário*]\\.docker). Caso contrário, as opções de autenticação não poderão ser recuperadas automaticamente se você reutilizar o mesmo host em outro projeto ou sistema.|
+    |Diretório de certificados |Especifica a pasta em que os certificados do Docker estão armazenados. Embora você possa criar uma nova pasta ou apontar para uma existente, é recomendável usar a pasta de certificados padrão (C:\\Users\\[*nome de usuário*]\\.docker). Caso contrário, as opções de autenticação não poderão ser recuperadas automaticamente se você reutilizar o mesmo host em outro projeto ou sistema.|
 
 1. Escolha o botão de reticências (...) ao lado da entrada **Diretório de certificados** e crie uma nova pasta para os certificados do Docker ou navegue até uma pasta de certificados existentes do Docker.
 
@@ -177,4 +177,4 @@ Em caso de problemas ao usar o Docker no Visual Studio, consulte [Solucionando e
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Noções básicas sobre entradas do Stream Analytics
@@ -94,15 +94,15 @@ Quando seus dados forem provenientes de uma fonte do Hub IoT, é possível acess
 
 | PROPRIEDADE | DESCRIÇÃO |
 |------|------|
-| System.Input.EventProcessedUtcTime | A data e a hora em que o evento foi processado. |
-| System.Input.EventEnqueuedUtcTime | A data e a hora em que o evento foi recebido pelo Hub IoT. |
-| System.Input.PartitionId | A ID de partição com base em zero para o adaptador de entrada. |
-| System.Input.MessageId | Usado para correlacionar a comunicação bidirecional no Hub IoT. |
-| System.Input.CorrelationId | Usado em respostas a mensagens e comentários no Hub IoT. |
-| System.Input.ConnectionDeviceId | A ID autenticada usada para enviar esta mensagem, marcada nas mensagens associadas ao serviço pelo Hub IoT. |
-| System.Input.ConnectionDeviceGenerationId | A ID de geração do dispositivo autenticado usado para enviar esta mensagem, marcada nas mensagens associadas ao serviço pelo Hub IoT. |
-| System.Input.EnqueuedTime | Hora em que a mensagem foi recebida pelo Hub IoT. |
-| System.Input.StreamId | Propriedade de evento personalizado adicionada pelo dispositivo do remetente. |
+| EventProcessedUtcTime | A data e a hora em que o evento foi processado. |
+| EventEnqueuedUtcTime | A data e a hora em que o evento foi recebido pelo Hub IoT. |
+| PartitionId | A ID de partição com base em zero para o adaptador de entrada. |
+| IoTHub.MessageId | Usado para correlacionar a comunicação bidirecional no Hub IoT. |
+| IoTHub.CorrelationId | Usado em respostas a mensagens e comentários no Hub IoT. |
+| IoTHub.ConnectionDeviceId | A ID autenticada usada para enviar esta mensagem, marcada nas mensagens associadas ao serviço pelo Hub IoT. |
+| IoTHub.ConnectionDeviceGenerationId | A ID de geração do dispositivo autenticado usado para enviar esta mensagem, marcada nas mensagens associadas ao serviço pelo Hub IoT. |
+| IoTHub.EnqueuedTime | Hora do recebimento da mensagem pelo Hub IoT. |
+| IoTHub.StreamId | Propriedade de evento personalizado adicionada pelo dispositivo do remetente. |
 
 ## Como criar uma entrada do fluxo de dados do armazenamento de Blob ##
 
@@ -201,4 +201,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

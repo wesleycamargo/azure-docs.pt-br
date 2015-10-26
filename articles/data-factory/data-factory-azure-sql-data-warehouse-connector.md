@@ -521,4 +521,4 @@ O mapeamento é o mesmo que o [mapeamento de tipo de dados do SQL Server para o 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

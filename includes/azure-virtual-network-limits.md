@@ -43,4 +43,4 @@ Application gateways | 10
 
 Contate o suporte caso precise aumentar esses limites.
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

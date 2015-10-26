@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gerenciando as configurações do Azure MFA"
-	description="Este documento fornecerá aos usuários informações sobre onde eles precisam ir para gerenciar as configurações do Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Gerenciando as configurações do Azure MFA" 
+	description="Este documento fornecerá aos usuários informações sobre onde eles precisam ir para gerenciar as configurações do Azure MFA." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Alterando as configurações com o Azure Multi-Factor Authentication
@@ -71,4 +71,4 @@ Se você usar uma multi-factor authentication com o Azure, talvez seja convenien
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

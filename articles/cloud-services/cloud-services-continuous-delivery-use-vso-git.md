@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Fornecimento contínuo com o Git e o Visual Studio Online no Azure"
+	pageTitle="Fornecimento contínuo com o Git e o Visual Studio Online no Azure" 
 	description="Saiba como configurar seus projetos de equipe do Visual Studio Online para usarem o Git para serem compilados e implantados automaticamente no recurso Aplicativo Web no Serviço de Aplicativo do Azure ou nos serviços de nuvem."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -23,8 +23,7 @@ Você pode usar os projetos de equipe do Visual Studio Online para hospedar um r
 Você precisará do Visual Studio 2013 e do SDK do Azure instalados. Se você ainda não tiver o Visual Studio 2013, baixe-o selecionando o link **Introdução gratuita (a página pode estar em inglês)** em [www.visualstudio.com](http://www.visualstudio.com). Instale o SDK do Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE]Você precisa de uma conta do Visual Studio online para concluir este tutorial:
-> você pode [abrir uma conta do Visual Studio Online gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Você precisa de uma conta do Visual Studio online para concluir este tutorial: você pode [abrir uma conta do Visual Studio Online gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Para configurar um serviço de nuvem para compilação e implantação automática no Azure usando o Visual Studio Online, siga essas etapas.
 
@@ -273,4 +272,4 @@ Para obter mais dicas de como usar o Git com Visual Studio Online, consulte [Des
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

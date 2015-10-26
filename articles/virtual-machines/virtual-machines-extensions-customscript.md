@@ -23,7 +23,7 @@ Este artigo fornece uma visão geral de como usar a extensão de Script Personal
 
 As extensões de VM (máquina virtual) são criadas pela Microsoft e por editores confiáveis de terceiros para estender a funcionalidade da VM. Para obter uma visão geral das extensões de VM, veja [Recursos e extensões de VM do Azure](virtual-machines-extensions-features.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação. Você também pode criar um recurso com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-extensions-customscript%20-with%20template.md).
+Link:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Visão geral da extensão de Script Personalizado
@@ -32,7 +32,7 @@ A extensão de Script Personalizado para Windows permite executar scripts do Pow
 
 ### Pré-requisitos para execução da Extensão de Script Personalizado
 
-1. Clique <a href="http://azure.microsoft.com/downloads" target="_blank">aqui</a> para instalar a versão 0.8.0 ou posterior dos cmdlets do Azure PowerShell.
+1. Instale a versão 0.8.0 ou posterior dos cmdlets do Azure PowerShell <a href="http://azure.microsoft.com/downloads" target="_blank">aqui</a>.
 2. Se os scripts forem executados em uma VM existente, verifique se o Agente de VM está habilitado na VM; se não estiver, siga este <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">artigo</a> para instalar um.
 3. Carregue os scripts que você deseja executar na máquina virtual para o armazenamento do Azure. Os scripts podem vir de um único ou vários contêineres de armazenamento.
 4. O script deve ser criado de forma que o script de entrada, que é iniciado pela extensão, inicie outros scripts.
@@ -91,4 +91,4 @@ Para saber como usar a extensão de Script Personalizado com modelos, confira a 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

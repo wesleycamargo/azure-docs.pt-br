@@ -18,7 +18,7 @@
 
 # O modelo do Gerenciador de Recursos de farm do SharePoint de três servidores
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos. Você não pode criar esse recurso com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Você não pode criar esse recurso com o modelo de implantação clássica.
 
 Este tópico orienta você quanto à estrutura do arquivo de modelo azuredeploy.json para o farm do SharePoint de três servidores. Você pode ver o conteúdo do modelo em seu navegador clicando [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
@@ -376,4 +376,4 @@ Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de R
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

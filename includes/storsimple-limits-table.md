@@ -24,4 +24,4 @@
 
 &#42; A taxa de transferência máxima por tipo de E/S foi medida com cenários 100% de gravação e 100% de leitura. A taxa de transferência real pode ser menor e depende da combinação de E/S e das condições da rede.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

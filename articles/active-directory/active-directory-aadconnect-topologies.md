@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Topologias para o Azure AD Connect
@@ -159,7 +159,12 @@ Diretórios do AD do Azure são isolados por padrão. Não há suporte para alte
 
 Há suporte para o uso do FIM2010/MIM2016 local para usuários GALsync entre duas organizações do Exchange. Os usuários em uma organização aparecerão como usuários/contatos externos em outras organizações. Esses ADs locais diferentes poderão então ser sincronizados para seus próprios diretórios do AD do Azure.
 
-## Próximas etapas
-Para saber como instalar o Azure AD Connect para esses cenários, veja [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Para saber mais sobre a configuração do Azure AD Connect Sync, veja [Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO4-->
+## Próximas etapas
+Para saber como instalar o Azure AD Connect para esses cenários, veja [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+
+Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

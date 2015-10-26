@@ -26,13 +26,7 @@ Para usar o conector do OneDrive, primeiro você precisa criar uma instância do
 2.	Em "Tudo", pesquise "Conector do OneDrive".
 3.	Configure o Conector do OneDrive da seguinte maneira:
 
-	![][1]
-	- **Nome** - dê um nome para o Conector do OneDrive
-	- **Plano do Serviço de Aplicativo** - selecione ou crie um plano de serviço de aplicativo
-	- **Camada de preços** - escolha uma camada de preços para o conector
-	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
-	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
-	- **Local** - escolha o local geográfico onde quer que o conector seja implantado
+	![][1] - **Nome** - dê um nome para o Conector do OneDrive - **Plano do Serviço de Aplicativo** - selecione ou crie um plano de serviço de aplicativo - **Camada de preços** - escolha uma camada de preços para o conector - **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir - **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado - **Local** -escolha o local geográfico onde quer que o conector seja implantado
 
 4. Clique em Criar. Será criado um novo Conector do OneDrive.
 5. Após criar a instância do aplicativo de API, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o conector do OneDrive.
@@ -49,8 +43,7 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector do OneD
 	![][2]
 4.	Você pode soltar o aplicativo de API do Conector do OneDrive no editor clicando em "Conector do OneDrive". Clique no botão Autorizar. Forneça suas credenciais de Microsoft (se não for conectado automaticamente). Clique em "Sim" para permitir o acesso.
 
-	![][3]
-	![][4]
+	![][3] ![][4]
 
 5.	Agora você pode usar o Conector do OneDrive no fluxo. Atualmente, os gatilhos não estão disponíveis no conector do OneDrive. As ações disponíveis são: Obter Arquivo, Carregar um Arquivo, Excluir Arquivos e Listar Arquivos.
 
@@ -82,7 +75,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho 
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-onedrive/img1.PNG
@@ -97,4 +90,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Definição da API do OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

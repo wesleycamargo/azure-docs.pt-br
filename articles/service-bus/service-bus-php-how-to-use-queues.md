@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar as filas de Barramento de Serviço (PHP) | Microsoft Azure" 
+	pageTitle="Como usar as filas de Barramento de Serviço com PHP | Microsoft Azure" 
 	description="Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de código escritos em PHP." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="10/14/2015" 
 	ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
@@ -198,21 +198,13 @@ Se houver falha do aplicativo após o processamento da mensagem, mas antes da so
 
 ## Próximas etapas
 
-Agora que você aprendeu as noções básicas sobre filas do Barramento de Serviço, confira o tópico [Filas, tópicos e assinaturas][] para obter mais informações.
+Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja a seção [Filas, tópicos e assinaturas][] para obter mais informações.
 
-Para obter mais informações, veja também o [Centro de Desenvolvedores do PHP](/develop/php/).
+Para obter mais informações, veja o [Centro de Desenvolvedores PHP](/develop/php/).
 
-[Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-[Azure Management Portal]: http://manage.windowsazure.com/
-[Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
-[Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-[Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
-[Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
-[Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
 [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

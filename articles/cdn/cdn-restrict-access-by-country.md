@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN - restringir o acesso ao seu conteúdo por país"
-	description="Quando um usuário solicita o conteúdo, por padrão, o conteúdo é apresentado, independentemente de onde o usuário fez essa solicitação. Em alguns casos, você talvez queira restringir o acesso ao seu conteúdo por país. Este tópico explica como usar o recurso **Filtragem de País** para configurar o serviço para permitir ou bloquear o acesso por país."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="CDN - restringir o acesso ao seu conteúdo por país" 
+	description="Quando um usuário solicita o conteúdo, por padrão, o conteúdo é apresentado, independentemente de onde o usuário fez essa solicitação. Em alguns casos, você talvez queira restringir o acesso ao seu conteúdo por país. Este tópico explica como usar o recurso **Filtragem de País** para configurar o serviço para permitir ou bloquear o acesso por país." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Restringir o acesso ao seu conteúdo por país
@@ -65,4 +65,4 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 - A configuração de filtragem de país associada com o caminho relativo será aplicada recursivamente para esse caminho.
 - Apenas uma regra pode ser aplicada no mesmo caminho relativo (você não pode criar vários filtros de país que apontam para o mesmo caminho relativo). No entanto, uma pasta pode ter vários filtros de país. Isso é devido à natureza recursiva de filtros de país. Em outras palavras, uma subpasta de uma pasta configurada anteriormente pode ter um filtro de país diferente atribuído.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

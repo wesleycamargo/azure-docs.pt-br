@@ -7,7 +7,7 @@ Cada coluna contém as seguintes propriedades:
 | -------- | ----------- | -------- |
 | name | Nome da coluna. | Sim |
 | type | Tipo de dados da coluna. Consulte a seção de conversões de tipo abaixo para obter mais detalhes sobre quando deve você especificar informações de tipo | Não |
-| culture | Cultura baseada em .NET a ser usada quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. O padrão é "pt-br". | Não |
+| culture | Cultura baseada em .NET a ser usada quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. O padrão é "pt-BR". | Não |
 | formato | O formato de cadeia de caracteres a ser usado quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. | Não |
 
 O exemplo a seguir mostra a seção da estrutura JSON para uma tabela que tem três colunas userid, name e lastlogindate.
@@ -47,4 +47,4 @@ O data factory dá suporte aos valores de tipo baseados em .NET compatíveis com
 
 Para Datetime e Datetimeoffset, você também pode especificar as cadeias de caracteres para "cultura" e "formato" para facilitar a análise de sua cadeia de caracteres Datetime personalizada. Consulte o exemplo de conversão de tipo abaixo.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

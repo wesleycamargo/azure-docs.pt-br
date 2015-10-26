@@ -23,4 +23,4 @@ Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o arma
 
 Isso conclui o tutorial **Introdução aos dados** para Android.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

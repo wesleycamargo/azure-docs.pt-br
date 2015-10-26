@@ -95,4 +95,4 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 [Hospedando um aplicativo multilocatário no Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

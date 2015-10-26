@@ -41,16 +41,15 @@ O gatilho **Novo tweet** foi arquivado. Atualmente, ele ainda está disponível 
 
 ## Criar o conector do Twitter
 
-> [AZURE.IMPORTANT]Criar um conector do Twitter atualmente requer o registro de um aplicativo de API com o Twitter. Você pode registrar um aplicativo gratuitamente em [http://apps.twitter.com](http://apps.twitter.com). Você precisará da chave e do segredo API do Twitter para criar um conector.
+> [AZURE.IMPORTANT]Ao criar um Conector do Twitter, você pode optar por registrar seu próprio aplicativo com o Twitter e usar as teclas do aplicativo com o Conector do Twitter. Você pode registrar um aplicativo gratuitamente em [http://apps.twitter.com](http://apps.twitter.com). Durante o registro, certifique-se de fornecer uma URL de retorno de chamada. Após o Conector do Twitter ser criado, você pode alterar a URL de retorno de chamada. Você precisará da chave e do segredo API do Twitter para criar um conector.
 
 Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
-1. Crie um aplicativo gratuito do Twitter em [http://apps.twitter.com](http://apps.twitter.com).
-    * Ao registrar o aplicativo, você pode colocar qualquer URL do site e deixar a URL de retorno de chamada em branco.
+1. [Opcional] Crie um aplicativo gratuito do Twitter em [http://apps.twitter.com](http://apps.twitter.com).
+    * Ao registrar o aplicativo, você pode colocar qualquer URL do site. Especifique qualquer URL de retorno de chamada (não deixe em branco), você pode atualizá-la mais tarde.
 2. No quadro inicial do Azure, selecione **Marketplace**.
 3. Procure "Conector do Twitter", selecione-o e selecione **Criar**.
-4. Clique em ‘Configurações do pacote’ e cole a 'Chave do consumidor' do seu aplicativo do Twitter no campo 'clientId'. Cole o ‘Segredo do Consumidor' do seu aplicativo do Twitter no campo 'clientSecret':  
-	![][10]
+4. [Opcional] Clique em ‘Configurações do pacote’ e cole a 'Chave do consumidor' do seu aplicativo do Twitter no campo 'clientId'. Cole o ‘Segredo do Consumidor' do seu aplicativo do Twitter no campo 'clientSecret': ![][10]
 5. Inserir outras configurações necessárias no Nome do conector, Serviço de aplicativo, e Grupo de recursos.
 6.	Clique em **Criar**.
 
@@ -60,29 +59,22 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 ## Usando o Conector do Twitter em seu aplicativo lógico
 Após a criação do aplicativo de API, você poderá usar o conector do Twitter como ação ou gatilho para seus aplicativos lógicos. Para fazer isso:
 
-1.	Crie um novo Aplicativo Lógico ou abra um Aplicativo Lógico existente:  
-	![][2]
-2.	Abra **Gatilhos e Ações** para abrir o designer de Aplicativos Lógicos:  
-	![][3]
-3.	O conector do Twitter está listado no lado direito. Selecione-o para adicioná-lo automaticamente ao aplicativo lógico:  
-	![][4]
-4.	Selecione **Autorizar**, insira suas credenciais do Twitter e selecione **Autorizar aplicativo**:  
-	![][5]
+1.	Crie um novo Aplicativo Lógico ou abra um Aplicativo Lógico existente: ![][2]
+2.	Abra **Gatilhos e Ações** para abrir o designer de Aplicativos Lógicos: ![][3]
+3.	O conector do Twitter está listado no lado direito. Selecione-o para adicioná-lo automaticamente ao aplicativo lógico: ![][4]
+4.	Selecione **Autorizar**, insira suas credenciais do Twitter e selecione **Autorizar aplicativo**: ![][5]
 
 
-Agora você pode configurar o conector do Twitter para compilar seu fluxo de trabalho. Você pode usar os Tweets recuperados do gatilho do Twitter em outras ações no fluxo:  
-	![][6]
+Agora você pode configurar o conector do Twitter para compilar seu fluxo de trabalho. Você pode usar os Tweets recuperados do gatilho do Twitter em outras ações no fluxo: ![][6]
 
-De maneira semelhante, você pode usar as ações do Twitter no fluxo de trabalho. Selecione uma ação do Twitter e configure as entradas para a ação:  
-	![][7] 
-	![][8]
+De maneira semelhante, você pode usar as ações do Twitter no fluxo de trabalho. Selecione uma ação do Twitter e configure as entradas para a ação: ![][7] ![][8]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
 >[AZURE.NOTE]Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 
-Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Exibir a referência da API REST do Swagger em [Conectores e referência dos Aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -98,4 +90,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

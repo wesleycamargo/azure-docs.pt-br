@@ -159,4 +159,4 @@ Projetos do LightSwitch não são compatíveis com esta versão. Esse problema s
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

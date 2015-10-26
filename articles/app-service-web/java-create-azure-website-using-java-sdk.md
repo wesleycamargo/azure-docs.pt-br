@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Criar um aplicativo Web no Serviço de Aplicativo do Azure usando o SDK do Azure para Java"
-	description="Aprenda a criar um aplicativo Web no Serviço de Aplicativo do Azure programaticamente, usando o SDK do Azure para Java."
+	pageTitle="Criar um aplicativo Web no Serviço de Aplicativo do Azure usando o SDK do Azure para Java" 
+	description="Aprenda a criar um aplicativo Web no Serviço de Aplicativo do Azure programaticamente, usando o SDK do Azure para Java." 
 	tags="azure-classic-portal"
-	services="app-service\web"
-	documentationCenter="Java"
-	authors="donntrenton"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter="Java" 
+	authors="donntrenton" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -432,7 +432,7 @@ Para obter mais informações sobre como implantar arquivos WAR, consulte [Adici
 
 Selecione um cliente FTP de terceiros para publicar o aplicativo. Este procedimento descreve duas opções: o console Kudu integrado ao Azure e o FileZilla, uma ferramenta conhecida com uma interface do usuário gráfica e prática.
 
-> **Observação:** o plug-in do Azure para Eclipse com Java 2.4 dá suporte à implantação de contas de armazenamento e serviços de nuvem, mas não dá suporte à implantação de aplicativos Web. Você pode implantar contas de armazenamento e serviços de nuvem usando um projeto de implantação do Azure conforme descrito em [Criando um Aplicativo Olá Mundo do Azure no Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), mas não para aplicativos Web. Use outros métodos como FTP ou GitHub para transferir arquivos para seu aplicativo Web.
+> **Observação:** o kit de ferramentas do Azure para Eclipse dá suporte à implantação de contas de armazenamento e serviços de nuvem, mas não dá suporte à implantação de aplicativos Web. Você pode implantar contas de armazenamento e serviços de nuvem usando um projeto de implantação do Azure conforme descrito em [Criando um Aplicativo Olá Mundo do Azure no Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), mas não para aplicativos Web. Use outros métodos como FTP ou GitHub para transferir arquivos para seu aplicativo Web.
 
 > **Observação:** não é recomendável usar FTP no prompt de comando do Windows (o utilitário de linha de comando FTP.EXE que acompanha o Windows). Os clientes FTP que usam FTP ativo, como FTP.EXE, muitas vezes não funcionam através de firewalls. O FTP ativo especifica um endereço interno baseado em LAN, ao qual a conexão por meio de um servidor FTP provavelmente falhará.
 
@@ -600,4 +600,4 @@ Este procedimento cria um aplicativo Web do Serviço de Aplicativo. Você será 
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

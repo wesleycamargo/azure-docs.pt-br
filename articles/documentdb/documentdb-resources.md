@@ -33,9 +33,9 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 ##Modelo de recursos hierárquico
 Como o diagrama a seguir ilustra, o **modelo de recursos** hierárquico do Banco de Dados de Documentos é formado por conjuntos de recursos em uma conta de banco de dados, cada um podendo ser acessado por meio de um URI lógico e estável. Neste artigo, um conjunto de recursos será chamado de **feed**.
 
->[AZURE.NOTE] Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET.](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE]Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET.](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![][1] **Modelo de recurso hierárquico em uma conta de banco de dados**
+![Modelo de recursos hierárquico do Banco de Dados de Documentos][1] **Modelo de recurso hierárquico em uma conta de banco de dados**
 
 Para começar a trabalhar com os recursos, você deve [criar uma conta de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md) usando sua assinatura do Azure. Uma conta do banco de dados pode consistir em um conjunto de **bancos de dados**, cada um contendo diversas **coleções**, cada uma delas, por sua vez, contendo **procedimentos armazenados, gatilhos, UDFs, documentos** e **anexos** relacionados. Um banco de dados também tem **usuários** associados, cada um com um conjunto de **permissões** para acessar coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos e anexos possuem conteúdos JSON arbitrários, definidos pelo usuário.
 
@@ -56,16 +56,12 @@ Para começar a trabalhar com os recursos, você deve [criar uma conta de banco 
 ##Recursos definidos pelo sistema versus usuário
 Recursos como contas do banco de dados, bancos de dados, coleções, usuários, permissões, procedimentos armazenados, gatilhos e UDFs, todos têm um esquema fixo e são chamados de recursos do sistema. Em contraste, recursos como documentos e anexos não possuem restrições sobre o esquema e são exemplos de recursos definidos pelo usuário. No Banco de Dados de Documentos, ambos os recursos definidos pelo sistema e pelo usuário são representados e gerenciados como JSON em conformidade com o padrão. Todos os recursos, definidos pelo usuário ou pelo sistema, possuem as seguintes propriedades em comum.
 
->[AZURE.NOTE] Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
+>[AZURE.NOTE]Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
 
 
 Propriedade |Configurável pelo usuário ou gerada pelo sistema?|Finalidade
 ---|---|---
-_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso.
-_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista.
-_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso.
-_self|Gerado pelo sistema|URI endereçável exclusivo do recurso.
-id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário.
+_\_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso. \_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista. \_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso. \_self|Gerado pelo sistema|URI endereçável exclusivo do recurso. id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário.
 
 ###Representação da conexão dos recursos
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.
@@ -73,16 +69,7 @@ O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para 
 ###Endereçamento de um recurso
 Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{\_rid}:
 
-|Valor da \_self |Descrição
-|-------------------|-----------
-|/dbs |Feed de banco de dados em uma conta de banco de dados
-|/dbs/{_rid-db} |Banco de dados com a propriedade de ID exclusiva com o valor {_rid-db}
-|/dbs/{_rid-db}/colls/ |Feed de coleções em um banco de dados
-|/dbs/{_rid-db}/colls/{_rid-coll} |Coleção com a propriedade de ID exclusiva com o valor {_rid-coll}
-|/dbs/{_rid-db}/users/ |Feed de usuários em um banco de dados
-|/dbs/{_rid-db}/users/{_rid-user} |Usuário com a propriedade de ID exclusiva com o valor {_rid-user}
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed de permissões em um banco de dados
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Permissão com a propriedade de ID exclusiva com o valor {_rid-permission}.
+|Valor da \_self |Descrição |-------------------|----------- |/dbs |Feed de banco de dados em uma conta de banco de dados |/dbs/{\_rid-db} |Banco de dados com a propriedade de ID exclusiva com o valor {\_rid-db} |/dbs/{\_rid-db}/colls/ |Feed de coleções em um banco de dados |/dbs/{\_rid-db}/colls/{\_rid-coll} |Coleção com a propriedade de ID exclusiva com o valor {\_rid-coll}|/dbs/{\_rid-db}/users/ |Feed de usuários em um banco de dados |/dbs/{\_rid-db}/users/{\_rid-user} |Usuário com a propriedade de ID exclusiva com o valor {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed de permissões em um banco de dados |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permissão com a propriedade de ID exclusiva com o valor {\_rid-permission}.
   
 Um recurso também possui um nome exclusivo definido pelo usuário exposto pela propriedade de ID do recurso. A ID é uma cadeia de caracteres definida pelo usuário, com até 256 caracteres e exclusiva no contexto de um recurso pai específico. Por exemplo, o valor da propriedade de ID de todos os documentos dentro de uma determinada coleção é exclusivo, mas não é garantido que seja exclusivo nas coleções. Do mesmo modo, o valor da propriedade de ID de todas as permissões para um determinado usuário é exclusivo, mas não é garantido que seja exclusivo em todos os usuários. A propriedade \_rid é usada para construir o link endereçável \_self de um recurso.
 
@@ -110,9 +97,7 @@ Observe que, além de provisionar, configurar e gerenciar sua conta de banco de 
 ##Bancos de dados
 Um banco de dados do Banco de Dados de Documentos é um contêiner lógico de uma ou mais coleções e usuários, conforme mostrado no diagrama a seguir. Você pode criar qualquer número de bancos de dados em uma conta de banco de dados do Banco de Dados de Documentos, sujeito aos limites de oferta.
 
-![][2]
-
-**Um banco de dados é um contêiner lógico de usuários e coleções**
+![Modelo hierárquico de coleções e conta de banco de dados][2] **Um banco de dados é um contêiner lógico de usuários e coleções**
 
 Um banco de dados pode conter praticamente um armazenamento de documentos ilimitado, particionado por coleções, que formam os domínios de transação para os documentos contidos neles.
 
@@ -364,7 +349,7 @@ Sendo um verdadeiro serviço de banco de dados aberto, o Banco de Dados de Docum
 Como ocorre com todos os outros recursos, documentos podem ser criados, substituídos, excluídos, lidos, enumerados e consultados facilmente usando APIs REST ou qualquer [SDK cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). Excluir um documento libera imediatamente a cota correspondente a todos os anexos aninhados. O nível de consistência de leitura dos documentos segue a política de consistência da conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar documentos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida.
 
 ##Anexos e mídia
->[AZURE.NOTE] Anexos e recursos de mídia são recursos de visualização.
+>[AZURE.NOTE]Anexos e recursos de mídia são recursos de visualização.
  
 O Banco de Dados de Documentos permite armazenar blobs/mídias binários no Banco de Dados de Documentos ou em seu próprio repositório de mídia. Ele também permite representar os metadados de uma mídia de acordo com um documento especial chamado anexo. Um anexo no Banco de Dados de Documentos é um documento especial (JSON) que faz referência à mídia/ao blob armazenada/o em outro lugar. Um anexo é simplesmente um documento especial que captura os metadados (p. ex., localização, autor etc.) de uma mídia em um armazenamento remoto de mídia.
 
@@ -393,9 +378,7 @@ Como seus aplicativos precisam ser escalados conforme o crescimento do usuário,
 
 Independentemente da estratégia de fragmentação específica escolhida, você pode modelar seus usuários reais como usuários no banco de dados do Banco de Dados de Documentos e associar permissões de refinamento a cada usuário.
 
-![][3]
-
-**Estratégias de fragmentação e modelagem de usuários**
+![Coleções do usuário][3] **Estratégias de fragmentação e modelagem de usuários**
 
 Assim como todos os outros recursos, os usuários no Banco de Dados de Documentos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de um recurso do usuário. Vale destacar que excluir um usuário automaticamente assegura que você não poderá acessar nenhuma das permissões contidas nele. Embora o Banco de Dados de Documentos recupere a cota das permissões como parte do usuário excluído em segundo plano, as permissões excluídas estão disponíveis imediatamente mais uma vez para uso.
 
@@ -415,4 +398,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

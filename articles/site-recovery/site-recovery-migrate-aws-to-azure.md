@@ -29,8 +29,8 @@ Este artigo descreve como usar a Recuperação de Site para migrar ou fazer fail
 
 Veja o que você precisa antes de iniciar:
 
-- **Servidor de Configuração**: uma máquina virtual do Azure, que atua como o servidor de configuração. O servidor de configuração coordena a comunicação entre computadores locais e servidores do Azure.
-- **Servidor de destino mestre**: uma máquina virtual do Azure, que atua como o servidor de destino mestre. Este servidor recebe e retém os dados replicados das máquinas protegidas.
+- **Servidor de configuração**: uma máquina virtual do Azure que atua como o servidor de configuração. O servidor de configuração coordena a comunicação entre computadores locais e servidores do Azure.
+- **Servidor de destino mestre**: uma máquina virtual do Azure, que atua como o servidor de destino mestre. Esse servidor recebe e retém os dados replicados dos computadores protegidos.
 - **Um servidos de processo**: uma máquina virtual que executa o Windows Server 2012 R2. Máquinas virtuais protegidas enviam dados de replicação para esse servidor.
 - **Instâncias de VM EC2**: As instâncias que você deseja migrar e, em seguida, proteger.
 
@@ -61,9 +61,9 @@ Veja o que você precisa antes de iniciar:
 8. [Habilite a proteção para máquinas virtuais](site-recovery-vmware-to-azure.md#step-9-enable-protection). Habilite a proteção para instâncias adicionando-as a um grupo de proteção. Observe que:
 
 	- Você pode descobrir as instâncias de EC2 que você deseja migrar para o Azure usando o endereço IP privado da instância, que pode ser obtido a partir do console EC2.
-	-  Na guia para o grupo de proteção que você criou, clique em Adicionar Máquinas > Máquinas Físicas ![Descoberta EC2](./media/site-recovery-migrate-aws-to-azure/ASR_AWSMigration4.png)
+	-  Na guia para o grupo de proteção que você criou, clique em Adicionar Máquinas > Máquinas Físicas ![Descoberta de EC2](./media/site-recovery-migrate-aws-to-azure/ASR_AWSMigration4.png)
 	- Especifique o endereço IP privado da instância.
-		- ![Descoberta EC2](./media/site-recovery-migrate-aws-to-azure/ASR_AWSMigration5.png)
+		- ![Descoberta de EC2](./media/site-recovery-migrate-aws-to-azure/ASR_AWSMigration5.png)
 	- Será possível habilitar a proteção, e a replicação inicial será executada de acordo com as configurações de replicação inicial para o grupo de proteção
 9. [Execute um failover não planejado](site-recovery-failover.md#run-an-unplanned-failover). Depois que a replicação inicial for concluída, você pode executar um failover não planejado do AWS para o Azure. Opcionalmente, é possível criar um plano de recuperação e executar um failover não planejado, para migrar várias máquinas virtuais do AWS para o Azure. [Leia mais](site-recovery-create-recovery-plans.md) sobre planos de recuperação.
 		
@@ -71,4 +71,4 @@ Veja o que você precisa antes de iniciar:
 
 Publicar comentários ou perguntas no [Fórum de Recuperação de Site](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

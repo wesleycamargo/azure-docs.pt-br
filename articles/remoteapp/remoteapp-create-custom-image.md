@@ -142,4 +142,4 @@ Agora que você tem a sua imagem de modelo personalizada, você precisará atual
 - [Como criar uma coleção na nuvem do RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

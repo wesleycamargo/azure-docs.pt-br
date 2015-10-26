@@ -22,7 +22,6 @@
 
 Este guia apresenta o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento das máquinas virtuais do Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## O que é Automação do Azure?
 
@@ -35,7 +34,7 @@ Você pode reduzir o custo operacional e liberar a equipe de TI e DevOps para se
 
 ## Como a Automação do Azure pode ajudar a gerenciar máquinas virtuais do Azure?
 
-As máquinas virtuais podem ser gerenciadas na Automação do Azure usando [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). A Automação do Azure inclui cmdlets do PowerShell do Azure, então você pode executar todas as suas tarefas de gerenciamento de máquina virtual dentro do serviço. Você também pode combinar os cmdlets na Automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
+As máquinas virtuais podem ser gerenciadas na Automação do Azure usando [PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). A Automação do Azure inclui cmdlets do PowerShell do Azure, então você pode executar todas as suas tarefas de gerenciamento de máquina virtual dentro do serviço. Você também pode combinar os cmdlets na Automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
 
 
 ## Próximas etapas
@@ -44,4 +43,4 @@ Agora que você aprendeu os fundamentos da Automação do Azure e como ela pode 
 
 [Introdução à Automação do Azure](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Administração do StorSimple Snapshot Manager | Microsoft Azure"
-	description="Oferece uma visão geral e links para mais informações sobre tarefas e fluxos de trabalho da solução StorSimple Snapshot Manager."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Oferece uma visão geral e links para mais informações sobre tarefas e fluxos de trabalho da solução StorSimple Snapshot Manager."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/28/2015"
+   ms.author="v-sharos" />
 
 # Use o StorSimple Snapshot Manager para administrar sua solução de StorSimple
 
@@ -60,4 +60,4 @@ Você pode usar o StorSimple Snapshot Manager para monitorar e gerenciar trabalh
 
 [Baixar o StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

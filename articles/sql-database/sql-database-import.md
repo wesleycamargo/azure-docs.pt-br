@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Importar um BACPAC para um Banco de Dados SQL do Azure"
-	description="Importar um BACPAC para um Banco de Dados SQL do Azure"
+	pageTitle="Importar um arquivo BACPAC para criar um novo banco de dados SQL do Azure"
+	description="Crie um novo banco de dados SQL do Azure importando um arquivo BACPAC existente."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,14 +10,15 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="10/13/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Importar um BACPAC para um Banco de Dados SQL
+# Importar um arquivo BACPAC para criar um novo banco de dados SQL do Azure
+
 
 **Banco de dados individual**
 
@@ -25,11 +26,11 @@
 - [Azure Preview Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-Este artigo mostra como criar um Banco de Dados SQL importando um BACPAC com o [portal de visualização do Azure](https://portal.azure.com).
+Este artigo fornece instruções para criar um novo banco de dados SQL do Azure por meio de um arquivo BACPAC usando o [portal de visualização do Azure](https://portal.azure.com).
 
 Um BACPAC é um arquivo .bacpac que contém um esquema de banco de dados e dados. Para obter detalhes, consulte Pacote de backup (.bacpac) em [Aplicativos de camada de dados](https://msdn.microsoft.com/library/ee210546.aspx).
 
-O banco de dados é criado de um BACPAC importado de um contêiner de blob de armazenamento do Azure. Se não tiver um arquivo .bacpac no armazenamento do Azure, você poderá criar um seguindo as etapas em [Criar e exportar um BACPAC de um Banco de Dados SQL do Azure](sql-database-backup.md).
+O banco de dados é criado de um BACPAC importado de um contêiner de blob de armazenamento do Azure. Se não tiver um arquivo .bacpac no armazenamento do Azure, você poderá criar um seguindo as etapas descritas em [Criar e exportar um BACPAC de um Banco de Dados SQL do Azure](sql-database-export.md).
 
 
 > [AZURE.NOTE]O Banco de Dados SQL do Azure cria e mantém backups automaticamente de cada banco de dados de usuário que você pode restaurar. Para obter detalhes, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
@@ -109,4 +110,4 @@ Clicar em **Criar** envia para o serviço uma solicitação para importar o banc
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -74,4 +74,4 @@ Mapeamento de armazenamento|Não aplicável|Mapeia classificações de armazenam
 Depois de concluir esta visão geral, [leia as práticas recomendadas](site-recovery-best-practices.md) para começar a planejar a implantação.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

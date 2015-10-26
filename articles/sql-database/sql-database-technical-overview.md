@@ -69,4 +69,4 @@ O SQL Server possui uma tradição de segurança de dados sólida que o banco de
 
 - Comece [criando seu primeiro banco de dados](sql-database-get-started.md). Compile seu primeiro aplicativo em [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) ou [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

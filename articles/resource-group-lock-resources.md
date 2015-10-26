@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Bloquear recursos com o Gerenciador de Recursos do Azure
@@ -93,11 +93,13 @@ Para obter exemplos, confira [API REST para bloqueios de gerenciamento](https://
 
 ## Criando um bloqueio com o Azure PowerShell
 
-Você pode bloquear os recursos implantados com o Azure PowerShell usando o **New-AzureResourceLock** como mostrado abaixo. Por meio do PowerShell, você só poderá definir o **LockLevel** como **CanNotDelete**.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+Você pode bloquear os recursos implantados com o Azure PowerShell usando o **New-AzureRmResourceLock** como mostrado abaixo. Por meio do PowerShell, você só poderá definir o **LockLevel** como **CanNotDelete**.
 
-O PowerShell fornece outros comandos para trabalhar com bloqueios, tais como **Set-AzureResourceLock** para atualizar um bloqueio e **Remove-AzureResourceLock** para excluir um bloqueio.
+    PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
+
+O Azure PowerShell fornece outros comandos para trabalhar com bloqueios, tais como **Set-AzureRmResourceLock** para atualizar um bloqueio e **Remove-AzureRmResourceLock** para excluir um bloqueio.
 
 ## Próximas etapas
 
@@ -105,4 +107,4 @@ O PowerShell fornece outros comandos para trabalhar com bloqueios, tais como **S
 - Para saber mais sobre a organização lógica de recursos, confira [Usando marcas para organizar os recursos](resource-group-using-tags.md)
 - Para alterar o grupo de recursos em que um recurso reside, confira [Mover recursos para um novo grupo de recursos](resource-group-move-resources.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

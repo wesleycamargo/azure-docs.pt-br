@@ -42,4 +42,4 @@ Outros benefícios a serem consideradas para VMs:
 
 **Resiliência** – o Azure monitora o hardware físico que hospeda cada VM em execução. Se um servidor físico executando uma VM falhar, o Azure observa isso, a VM é movida para novo hardware e reinicia a VM. Esse processo é chamado, às vezes, recuperação de serviço. Azure também protege os dados de uma máquina virtual, mantendo cópias redundantes dos VHDs no armazenamento de blob.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

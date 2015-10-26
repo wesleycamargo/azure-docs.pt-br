@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configurar o método de roteamento de tráfego de failover do Gerenciador de Tráfego | Microsoft Azure"
-	description="Este artigo ajudará você a configurar o método de roteamento de tráfego de failover no Gerenciador de Tráfego"
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Este artigo ajudará você a configurar o método de roteamento de tráfego de failover no Gerenciador de Tráfego"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Configurar o método de roteamento de Failover
 
@@ -53,4 +53,4 @@ Observe que os Sites do Azure já fornecem funcionalidade de roteamento de tráf
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

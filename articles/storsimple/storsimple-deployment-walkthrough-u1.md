@@ -50,7 +50,7 @@ Execute estas etapas necessárias para configurar o dispositivo StorSimple e con
 | Etapa 4: concluir a instalação mínima do dispositivo</br>Opcional: atualizar o dispositivo StorSimple. | Use o serviço de gerenciamento para concluir a instalação do dispositivo e habilitá-lo para fornecer armazenamento. |
 | Etapa 5: criar um contêiner de volume. | Crie um contêiner para provisionar volumes. Um contêiner de volume tem a conta de armazenamento, largura de banda e configurações de criptografia para todos os volumes contidos nele. |
 | Etapa 6: criar um volume. | Provisione volumes de armazenamento no dispositivo StorSimple para seus servidores. |
-| Etapa 7: montar, inicializar e formatar um volume.</br>Opcional: configurar o MPIO. | Conecte os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os servidores podem tolerar a falha de link, rede e interface. |
+| Etapa 7: montar, inicializar e formatar um volume.</br>Opcional: configurar o MPIO. | Conecte os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os servidores possam tolerar a falha de link, rede e interface. |
 | Etapa 8: fazer um backup. | Configure a política de backup para proteger seus dados |
 | | |
 | **OUTROS PROCEDIMENTOS** | Talvez seja necessário consultar esses procedimentos conforme você implantar sua solução. |
@@ -202,7 +202,7 @@ As etapas a seguir são executadas no host do Windows Server.
 
 > - Para obter instruções de instalação e configuração do MPIO e iSCSI no host do Windows Server, vá para [Configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md). Elas também incluirão as etapas para montar, inicializar e formatar volumes StorSimple.
 
-> - Para obter instruções de instalação e configuração do MPIO e iSCSI em um host do Linux, vá para [Configurar o MPIO para seu host do Linux StorSimple](storsimple-configure-mpio-linux.md).
+> - Para obter instruções de instalação e configuração do MPIO e iSCSI em um host do Linux, vá para [Configurar o MPIO para seu host do Linux do StorSimple](storsimple-configure-mpio-on-linux.md)
 
 Se você decidir não configurar o MPIO, execute as etapas a seguir para montar, inicializar e formatar os volumes StorSimple em um host do Windows Server.
 
@@ -238,8 +238,7 @@ Para se conectar ao Windows PowerShell para StorSimple, você precisa usar um so
 
 ## Verificar e aplicar atualizações
 
-Atualizar seu dispositivo pode demorar várias horas. Execute as etapas a seguir para verificar e aplicar atualizações em seu dispositivo.
-<!-- > can take 1-4 hours-->
+Atualizar seu dispositivo pode demorar várias horas. Execute as etapas a seguir para verificar e aplicar atualizações em seu dispositivo.<!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -273,7 +272,7 @@ Execute as seguintes etapas no Portal de Gerenciamento para criar um backup manu
 
 Multipath I/O (MPIO) é um recurso opcional e não é instalado no Windows Server por padrão. Ele deve ser instalado como um recurso por meio do Gerenciador de Servidores. Para obter instruções de instalação de MPIO, vá para [Configurar MPIO para o seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
-Para obter instruções de instalação do MPIO para um dispositivo StorSimple conectado a um host do Linux, vá para [Configurar o MPIO para seu host do Linux](storsimple-configure-mpio-linux.md).
+Para obter instruções de instalação do MPIO para um dispositivo do StorSimple conectado a um host do Linux, vá para [Configurar o MPIO para seu host do Linux](storsimple-configure-mpio-on-linux.md).
 
 
 > [AZURE.NOTE]Não há suporte para MPIO em um dispositivo virtual StorSimple.
@@ -287,4 +286,4 @@ Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 Use o [Serviço StorSimple Manager](storsimple-manager-service-administration.md) para gerenciar o seu dispositivo StorSimple.
  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

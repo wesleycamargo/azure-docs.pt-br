@@ -67,9 +67,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon no Wikispaces**, digite sua URL usando o seguinte padrão "**http://company.wikispaces.net*" e, em seguida, clique em **Próximo**.
 
-    ![Configurar a URL do Aplicativo  
-](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configurar a URL do Aplicativo
-")
+    ![Configurar a URL do Aplicativo](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configurar a URL do Aplicativo")
 
 4.  Na página **Configure o logon único no Wikispaces**, clique em **Baixar metadados** e salve o arquivo de metadados em seu computador.
 
@@ -101,7 +99,7 @@ Para permitir que os usuários do AD do Azure façam logon no Wikispaces, eles d
 
 4.  Na seção **Convidar Pessoas**, execute as seguintes etapas:
 
-    ![Convidar pessoas](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Convidar pessoas")
+    ![Convidar pessoas](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Convidar Pessoas")
 
     1.  Digite **Nomes de Usuário ou Endereço de Email** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
     2.  Clique em **Enviar**.  
@@ -128,4 +126,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

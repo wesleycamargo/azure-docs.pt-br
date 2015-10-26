@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 
 # Implantar um domínio altamente disponível dos Serviços de Domínio do Active Directory com um modelo do Gerenciador de Recursos do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos. Você não pode criar esse recurso com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Você não pode criar esse recurso com o modelo de implantação clássica.
 
 Use as instruções neste artigo para implantar um domínio do Active Directory altamente disponível usando um modelo do Gerenciador de Recursos. Este modelo cria duas máquinas virtuais em uma nova rede virtual na mesma subrrede.
 
@@ -54,8 +54,8 @@ Preencha o nome de uma implantação do Azure, um novo nome do Grupo de Recursos
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/active-directory-new-domain-ha-2-dc/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup -Name $RGName -Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Aqui está um exemplo.
 
@@ -63,12 +63,12 @@ Aqui está um exemplo.
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/active-directory-new-domain-ha-2-dc/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup -Name $RGName -Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Em seguida, execute o bloco de comando no prompt do Azure PowerShell.
 
-Ao executar o comando **New-AzureResourceGroupDeployment**, você receberá uma solicitação para fornecer os valores para uma série de parâmetros. Depois que você especificar todos os valores de parâmetro **New-AzureResourceGroupDeployment** criará e configurará as máquinas virtuais.
+Ao executar o comando **New-AzureRmResourceGroupDeployment**, você será solicitado a fornecer os valores de uma série de parâmetros. Depois de especificar todos os valores de parâmetros, **New-AzureRmResourceGroupDeployment** criará e configurará as máquinas virtuais.
 
 Quando a execução do modelo for concluída, você terá uma nova configuração de domínio do Active Directory com dois servidores no seu grupo de recursos novo.
 
@@ -108,4 +108,4 @@ Após a conclusão da execução do modelo, você terá uma nova configuração 
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

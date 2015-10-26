@@ -121,4 +121,4 @@ O código de exemplo a seguir baixa todos os blobs de um contêiner. Ele usa lis
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

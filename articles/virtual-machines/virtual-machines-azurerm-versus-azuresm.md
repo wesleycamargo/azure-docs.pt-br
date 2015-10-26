@@ -21,7 +21,7 @@
 
 A inclusão de recursos de Computação, Rede e Armazenamento no Gerenciador de Recursos do Azure simplificará fundamentalmente a implantação e o gerenciamento de aplicativos complexos em execução no IaaS. Muitos aplicativos exigem uma combinação de recursos, incluindo uma Rede Virtual, uma Conta de Armazenamento, uma Máquina Virtual e uma Interface de Rede. O Gerenciador de Recursos do Azure oferece a capacidade de criar um modelo JSON para implantar e gerenciar todos esses recursos juntos como um único aplicativo.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ## Vantagens da integração de Computação, Rede e Armazenamento no Gerenciador de Recursos do Azure
@@ -116,4 +116,4 @@ Não há suporte para isso no momento. Você não pode conectar as Redes Virtuai
 
 Um conjunto abrangente de modelos iniciais pode ser encontrado em [modelos de início rápido do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

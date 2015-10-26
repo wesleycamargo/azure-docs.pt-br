@@ -382,4 +382,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -39,4 +39,4 @@ NodeProperty — um mapa definido pelo usuário ou sistema de uma cadeia de cara
 Para obter mais informações: [Cenários de aplicativo](../service-fabric-application-scenarios).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

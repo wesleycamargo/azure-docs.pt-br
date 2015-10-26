@@ -22,4 +22,4 @@ Este relatório indica os usuários que obtiveram êxito após várias tentativa
 
 ![Entradas após várias falhas](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

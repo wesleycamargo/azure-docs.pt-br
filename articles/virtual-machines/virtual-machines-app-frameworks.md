@@ -21,7 +21,8 @@
 
 Use esse conteúdo para criar ótimos itens, rapidamente.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
 
 | Modelo | Descrição | Exibição do modelo | Implantá-lo agora mesmo |
 |:---|:---|:---:|:---:|
@@ -52,4 +53,4 @@ Descubra todos os modelos à sua disposição no [GitHub](https://github.com/Azu
 
 Saiba mais sobre o [Gerenciador de Recursos do Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

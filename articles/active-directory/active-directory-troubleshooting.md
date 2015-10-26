@@ -1,20 +1,20 @@
 <properties
    pageTitle="Solução de problemas: o item “Active Directory” está ausente ou não está disponível | Microsoft Azure"
-	description="O que fazer quando o item de menu do Active Directory não aparece no Portal de Gerenciamento do Azure."
-	services="active-directory"
-	documentationCenter="na"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="O que fazer quando o item de menu do Active Directory não aparece no Portal de Gerenciamento do Azure."
+   services="active-directory"
+   documentationCenter="na"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/24/2015"
+   ms.author="mbaldwin"/>
 
 # Solução de problemas: o item “Active Directory” está ausente ou não está disponível
 
@@ -54,4 +54,4 @@ No entanto, enquanto a página está carregando, o item fica esmaecido e é marc
 
 ![Captura de tela: Active Directory não disponível](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

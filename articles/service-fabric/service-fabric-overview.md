@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Visão geral da Service Fabric | Microsoft Azure"
-	description="Uma visão geral da Malha do Serviço onde aplicativos são compostos por microsserviços. A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor="masnider"/>
+   pageTitle="Visão geral da Service Fabric | Microsoft Azure" 
+   description="Uma visão geral da Malha do Serviço onde aplicativos são compostos por microsserviços. A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor="masnider"/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/25/2015"
+   ms.author="mfussell"/>
 
 # Visão geral da Malha do Serviço
 A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem. A Malha do Serviço resolve os desafios significativos do desenvolvimento e gerenciamento de aplicativos em nuvem. Ao usar a Malha do Serviço, desenvolvedores e administradores podem evitar a resolução de problemas complexos de infraestrutura e, em vez disso, se concentram na implementação de cargas de trabalho essenciais e exigentes sabendo que elas são escalonáveis, confiáveis e gerenciáveis. A Malha do Serviço representa a plataforma de middleware de última geração para criação e gerenciamento de serviços dimensionáveis de nuvem de Camada 1 e nível corporativo.
@@ -98,4 +98,4 @@ Ao usar a Malha do Serviço, você pode:
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

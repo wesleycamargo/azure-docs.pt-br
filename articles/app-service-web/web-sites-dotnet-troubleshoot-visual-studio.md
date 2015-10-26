@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-Este tutorial mostra como usar ferramentas do Visual Studio que ajudam a depurar um aplicativo Web enquanto ele é executado em um [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), seja executando-o no [modo de depuração](http://www.visualstudio.com/pt-br/get-started/debug-your-app-vs.aspx) remotamente ou então exibindo logs do aplicativo e do servidor Web.
+Este tutorial mostra como usar ferramentas do Visual Studio que ajudam a depurar um aplicativo Web enquanto ele é executado em um [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), seja executando-o no [modo de depuração](http://www.visualstudio.com/pt-BR/get-started/debug-your-app-vs.aspx) remotamente ou então exibindo logs do aplicativo e do servidor Web.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -740,7 +740,7 @@ Além disso, observe que você não precisa usar o rastreamento do ASP.NET ou do
 
 Para obter mais informações sobre como analisar logs de servidor web, consulte os seguintes recursos:
 
-* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/> Uma ferramenta para exibir dados em logs de servidor web (arquivos *.log*).
+* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/> Uma ferramenta para exibir dados em logs de servidor Web (arquivos *.log*).
 * [Solucionando problemas de desempenho do IIS ou erros de aplicativo usando o LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/> Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
 * [Postagens no blog por Robert McMurray sobre como usar o LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [O código de status HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](http://support.microsoft.com/kb/943891)
@@ -761,4 +761,4 @@ Se você quiser depurar um serviço de nuvem do Azure em vez de um aplicativo We
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

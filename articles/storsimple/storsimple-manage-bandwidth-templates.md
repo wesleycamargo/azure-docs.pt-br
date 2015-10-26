@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para gerenciar modelos de largura de banda do StorSimple
@@ -174,7 +174,6 @@ Siga estas práticas recomendadas para seu dispositivo StorSimple:
 
 ## Próximas etapas
 
-- Leia mais sobre os [componentes do StorSimple](storsimple-components.md). 
-- Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

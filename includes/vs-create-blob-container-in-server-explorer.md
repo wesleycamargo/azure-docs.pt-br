@@ -12,4 +12,4 @@ Por padrão, o novo contêiner é privado e você deve especificar sua chave de 
 
 [Image1]: ./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

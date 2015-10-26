@@ -18,8 +18,7 @@
 
 # Visualização do modelo de aplicativo v2.0: chamando uma API Web de um aplicativo Web .NET
 
-> [AZURE.NOTE]
-	Essas informações se aplicam à visualização pública do ponto de extremidade v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+> [AZURE.NOTE]Essas informações se aplicam à visualização pública do ponto de extremidade v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
 Com o modelo de aplicativo v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web e APIs Web com suporte para contas pessoais da Microsoft e contas corporativas ou de estudante. Aqui, vamos criar um aplicativo Web do MVC que:
 
@@ -42,26 +41,26 @@ Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](http
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-Alternatively, you can [download the completed app as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) or clone the completed app:
+Como alternativa, você pode [baixar o aplicativo concluído como. zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) ou clonar o aplicativo concluído:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1. Registrar um aplicativo
+## 1\. Registrar um aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
-- Anotar a **Id do aplicativo** atribuída ao aplicativo; você precisará dela em breve.
-- Criar um **Segredo de Aplicativo** do tipo **Senha** e anote seu valor para uso posterior.
+- Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
+- Crie um **Segredo de Aplicativo** do tipo **Senha** e anote seu valor para uso posterior.
 - Adicionar a plataforma **Web** para seu aplicativo.
-- Inserir o **URI de Redirecionamento** correto. O uri de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `https://localhost:44326/`.
+- Inserir o **URI de Redirecionamento** correto. O URI de redirecionamento indica ao AD do Azure para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `https://localhost:44326/`.
 
 
 ## 2\. Conectar o usuário com o OpenID Connect
-Aqui, configuraremos o middleware OWIN para usar o [protocolo de autenticação OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). OWIN será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
+Aqui, configuraremos middleware OWIN para usar o [protocolo de autenticação OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). OWIN será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `web.config` na raiz do projeto `TodoList-WebApp` e insira os valores de configuração do aplicativo na seção `<appSettings>`.
-    -	O `ida:ClientId` é a **Id de Aplicativo** atribuído ao seu aplicativo no portal de registro.
+    -	`ida:ClientId` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
 	- O `ida:ClientSecret` é o **Segredo de Aplicativo** criado no portal de registro.
-    -	O `ida:RedirectUri` é o **Uri de Redirecionamento** inserido no portal.
+    -	`ida:RedirectUri` é o **URI de Redirecionamento** inserido no portal.
 - Abra o arquivo `web.config` na raiz do projeto `TodoList-Service` e substitua `ida:Audience` pela mesma **Id de Aplicativo**, como acima.
 
 
@@ -114,14 +113,12 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3. Usar o ADAL para obter um token de acesso quando o usuário se conecta
-Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjunto com o OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) para resgatar o authorization\_code de um token de acesso para o Serviço Lista de Tarefas. O ADAL pode facilitar esse processo para você:
+## 3\. Usar o ADAL para obter um token de acesso quando o usuário se conecta
+Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjunto com o OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) para resgatar o authorization\_code de um token de acesso para o Serviço Lista de Tarefas Pendentes. O ADAL pode facilitar esse processo para você:
 
 - Primeiramente, instale a versão de visualização do ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
-- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - E adicione outra instrução `using` para o arquivo `App_Start\Startup.Auth.cs` para ADAL. - Agora, adicione um novo método, o manipulador de eventos `OnAuthorizationCodeReceived`. Esse manipulador usará o ADAL para adquirir um token de acesso para a API Lista de Tarefas Pendentes e armazenará o token no cache do token do ADAL para depois:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -143,14 +140,14 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4. Chamar a API Web da Lista de Tarefas
-Agora é hora de usar de fato o access\_token que você acabou de adquirir na etapa 3. Abra o arquivo `Controllers\TodoListController.cs` do aplicativo Web, que faz todas as solicitações CRUD à API da Lista de Tarefas.
+## 4\. Chamar a API Web da Lista de Tarefas
+Agora é hora de usar de fato o access\_token que você acabou de adquirir na etapa 3. Abra o arquivo `Controllers\TodoListController.cs` do aplicativo Web, que faz todas as solicitações CRUD à API da Lista de Tarefas Pendentes.
 
 - Aqui, você pode usar o ADAL novamente para buscar access\_tokens no cache do ADAL. Primeiramente, adicione uma instrução `using` para ADAL a este arquivo.
 
     `using Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory;`
 
-- Na ação `Index`, use o método `AcquireTokenSilentAsync`do ADAL para obter um access\_token que possa ser usado para ler dados no serviço Lista de Tarefas:
+- Na ação `Index`, use o método `AcquireTokenSilentAsync` do ADAL para obter um access\_token que possa ser usado para ler dados no serviço Lista de Tarefas Pendentes:
 
 ```C#
 ...
@@ -165,8 +162,8 @@ result = await authContext.AcquireTokenSilentAsync(new string[] { Startup.client
 ...
 ```
 
-- O exemplo adiciona o token resultante à solicitação HTTP GET, como o cabeçalho `Authorization`, que o serviço Lista de Tarefas usa para autenticar a solicitação.
-- Se o serviço Lista de Tarefas retornar uma resposta `401 Unauthorized`, access\_tokens em ADAL se tornarão inválidos por algum motivo. Nesse caso, você deve descartar todos os access\_token do cache do ADAL e mostrar ao usuário uma mensagem que ele pode precisar para entrar novamente, que reiniciará o fluxo de aquisição de token.
+- O exemplo adiciona o token resultante à solicitação HTTP GET, como o cabeçalho `Authorization`, que o serviço Lista de Tarefas Pendentes usa para autenticar a solicitação.
+- Se o serviço Lista de Tarefas Pendentes retornar uma resposta `401 Unauthorized`, access\_tokens em ADAL se tornarão inválidos por algum motivo. Nesse caso, você deve descartar todos os access\_token do cache do ADAL e mostrar ao usuário uma mensagem que ele pode precisar para entrar novamente, que reiniciará o fluxo de aquisição de token.
 
 ```C#
 ...
@@ -203,8 +200,6 @@ Para referência, o exemplo concluído (sem seus valores de configuração) [é 
 
 ## Próximas etapas
 
-Para obter recursos adicionais, confira:
-- [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md)
-- [Marca "adal" da StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Para obter recursos adicionais, confira: - [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

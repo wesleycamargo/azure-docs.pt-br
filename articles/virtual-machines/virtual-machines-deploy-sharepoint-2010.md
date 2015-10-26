@@ -20,7 +20,8 @@
 
 # Implantação do SharePoint 2010 em máquinas virtuais do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 O Microsoft SharePoint Server 2010 oferece alta flexibilidade de implantação, o que pode ajudar as organizações a determinarem os cenários de implantação adequados às suas necessidades e objetivos de negócios. Hospedada e gerenciada no Microsoft Azure, a oferta de Máquinas Virtuais do Azure oferece uma infraestrutura completa, confiável e disponível para dar suporte a diversos tipos de cargas de trabalho de aplicativos e bancos de dados sob demanda, como implantações do SharePoint e do Microsoft SQL Server.
 
@@ -287,4 +288,4 @@ Uma implantação bem-sucedida do SharePoint Server nas máquinas virtuais do Az
 
 [Testar o SharePoint Server 2016 IT Preview no Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

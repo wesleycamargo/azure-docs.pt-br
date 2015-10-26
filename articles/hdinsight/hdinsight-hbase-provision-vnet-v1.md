@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Provisionar clusters do HBase em uma Rede Virtual | Microsoft Azure"
 	description="Introdução ao uso do HBase no Azure HDInsight. Saiba como criar clusters HBase do HDInsight na rede virtual do Azure."
+	keywords=""
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
@@ -9,12 +10,12 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/07/2015"
+   ms.author="jgao"/>
 
 # Provisionar clusters do HBase na Rede Virtual do Azure
 
@@ -127,14 +128,12 @@ Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenam
 
 	<table border='1'>
 	<tr><th>Propriedade</th><th>Valor</th></tr>
-		<tr><td>Nós de dados</td><td>Selecione o número dos nós de dados que você deseja implantar. Para fins de teste, crie um cluster de nó único. <br />O limite de tamanho do cluster varia para as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.</td></tr>
-		<tr><td>Região/Rede virtual</td><td><p>Selecione uma região ou rede virtual do Azure, se você já tiver criado uma. Para este tutorial, selecione a rede que você criou anteriormente e, em seguida, selecione uma sub-rede correspondente. O nome padrão é <b>Sub-rede-1</b>.</p></td></tr>
-		<tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM para o nó principal.</p></td></tr>
-		<tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
-		<tr><td>Tamanho do Zookeeper</td><td><p>Selecione um tamanho de VM para o nó Zookeper.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
+	<tr><td>Nós de dados</td><td>Selecione o número dos nós de dados que você deseja implantar. Para fins de teste, crie um cluster de nó único. <br />O limite de tamanho do cluster varia para as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.</td></tr>
+	<tr><td>Região/Rede virtual</td><td><p>Selecione uma região ou rede virtual do Azure, se você já tiver criado uma. Para este tutorial, selecione a rede que você criou anteriormente e, em seguida, selecione uma sub-rede correspondente. O nome padrão é <b>Sub-rede-1</b>.</p></td></tr>
+	<tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM para o nó principal.</p></td></tr>
+	<tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
+	<tr><td>Tamanho do Zookeeper</td><td><p>Selecione um tamanho de VM para o nó Zookeper.</p></td></tr>
+</table>>[AZURE.NOTE]O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
 
 	Clique no botão direito.
 
@@ -143,45 +142,43 @@ Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenam
 	![Fornecer conta de armazenamento para o cluster Hadoop do HDInsight](./media/hdinsight-hbase-provision-vnet/hbasewizard3.png)
 
 	<table border='1'>
-		<tr><th>Propriedade</th><th>Valor</th></tr>
-		<tr><td>Nome de usuário HTTP</td>
-			<td>Especifique o nome do usuário do cluster HDInsight.</td></tr>
-		<tr><td>Senha/Confirmar senha HTTP</td>
-			<td>Especifique a senha do usuário do cluster HDInsight.</td></tr>
-		<tr><td>Habilitar área de trabalho remota para o cluster</td>
-			<td>Marque esta caixa de seleção para especificar uma data de expiração, senha e nome de usuário para um usuário de área de trabalho remota que possa acessar remotamente os nós do cluster após seu provisionamento. Você também pode habilitar área de trabalho remota mais tarde, depois que o cluster for provisionado. Para instruções, consulte <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar-se a clusters HDInsight usando RDP</a>.</td></tr>
-	</table>
+	<tr><th>Propriedade</th><th>Valor</th></tr>
+	<tr><td>Nome de usuário HTTP</td>
+		<td>Especifique o nome do usuário do cluster HDInsight.</td></tr>
+	<tr><td>Senha/Confirmar senha HTTP</td>
+		<td>Especifique a senha do usuário do cluster HDInsight.</td></tr>
+	<tr><td>Habilitar área de trabalho remota para o cluster</td>
+		<td>Marque esta caixa de seleção para especificar uma data de expiração, senha e nome de usuário para um usuário de área de trabalho remota que possa acessar remotamente os nós do cluster após seu provisionamento. Você também pode habilitar área de trabalho remota mais tarde, depois que o cluster for provisionado. Para instruções, consulte <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar-se a clusters HDInsight usando RDP</a>.</td></tr>
+</table>
 
 6. Na página **Conta de Armazenamento**, forneça os seguintes valores:
 
     ![Fornecer conta de armazenamento para o cluster Hadoop do HDInsight](./media/hdinsight-hbase-provision-vnet/hbasewizard4.png)
 
 	<table border='1'>
-		<tr><th>Propriedade</th><th>Valor</th></tr>
-		<tr><td>Conta de armazenamento</td>
-			<td>Especifique a conta de Armazenamento do Azure que será usada como o sistema de arquivos padrão para o cluster HDInsight. Você pode escolher uma destas três opções:
-			<ul>
-				<li><strong>Usar Armazenamento Existente</strong></li>
-				<li><strong>Criar Novo Armazenamento</strong></li>
-				<li><strong>Usar Armazenamento de Outra Assinatura</strong></li>
-			</ul>
-			</td></tr>
-		<tr><td>Nome da conta</td>
-			<td><ul>
-				<li>Se você optar por usar um armazenamento existente, para <strong>Nome da conta</strong>, selecione uma conta de armazenamento existente. A lista suspensa exibe somente as contas de armazenamento localizadas no mesmo datacenter onde você optou por provisionar o cluster.</li>
-				<li>Se você selecionar uma das opções <strong>Criar novo armazenamento</strong> ou <strong>Usar armazenamento de outra assinatura</strong>, deverá fornecer o nome da conta de armazenamento.</li>
-			</ul></td></tr>
-		<tr><td>Chave de conta</td>
-			<td>Se você escolheu a opção <strong>Usar Armazenamento de Outra Assinatura</strong>, especifique a chave dessa conta do Armazenamento.</td></tr>
-		<tr><td>Contêiner padrão</td>
-			<td><p>Especifique o contêiner padrão da conta do Armazenamento que é utilizado como sistema de arquivos padrão para o cluster HDInsight. Se você tiver escolhido <strong>Usar Armazenamento Existente</strong> no campo <strong>Conta de Armazenamento</strong> e não existir nenhum contêiner nessa conta, por padrão, o contêiner será criado com o mesmo nome que o nome do cluster. Se um contêiner com o nome do cluster já existir, será acrescentado um número de sequência ao nome do contêiner. Por exemplo, meucontêiner1, meucontêiner2 e assim por diante. No entanto, se a conta do Armazenamento tiver um contêiner com um nome diferente do nome do cluster especificado, você poderá usar esse contêiner também.</p>
-	        <p>Se você optou por criar um novo armazenamento ou usar o armazenamento de outra assinatura do Azure, especifique o nome do contêiner padrão.</p>
-	    </td></tr>
-		<tr><td>Contas de armazenamento adicionais</td>
-			<td>Se necessário, especifique contas de armazenamento adicionais para o cluster. O HDInsight dá suporte a várias contas do Armazenamento. Não há nenhum limite quanto ao número de contas do Armazenamento que um cluster pode usar. No entanto, se criar um cluster usando o Portal do Azure, você terá um limite de sete contas, devido a restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de <strong>Conta de Armazenamento</strong> ao assistente, em que você pode especificar as informações da conta. Por exemplo, na captura de tela acima, nenhuma conta de armazenamento adicional está selecionada, e portanto, não ocorre adição de uma página extra ao assistente.</td></tr>
-	</table>
-
-	Clique na seta à direita.
+	<tr><th>Propriedade</th><th>Valor</th></tr>
+	<tr><td>Conta de armazenamento</td>
+		<td>Especifique a conta de Armazenamento do Azure que será usada como o sistema de arquivos padrão para o cluster HDInsight. Você pode escolher uma destas três opções:
+		<ul>
+			<li><strong>Usar Armazenamento Existente</strong></li>
+			<li><strong>Criar Novo Armazenamento</strong></li>
+			<li><strong>Usar Armazenamento de Outra Assinatura</strong></li>
+		</ul>
+		</td></tr>
+	<tr><td>Nome da conta</td>
+		<td><ul>
+			<li>Se você optar por usar um armazenamento existente, para <strong>Nome da conta</strong>, selecione uma conta de armazenamento existente. A lista suspensa exibe somente as contas de armazenamento localizadas no mesmo datacenter onde você optou por provisionar o cluster.</li>
+			<li>Se você selecionar uma das opções <strong>Criar novo armazenamento</strong> ou <strong>Usar armazenamento de outra assinatura</strong>, deverá fornecer o nome da conta de armazenamento.</li>
+		</ul></td></tr>
+	<tr><td>Chave de conta</td>
+		<td>Se você escolheu a opção <strong>Usar Armazenamento de Outra Assinatura</strong>, especifique a chave dessa conta do Armazenamento.</td></tr>
+	<tr><td>Contêiner padrão</td>
+		<td><p>Especifique o contêiner padrão da conta do Armazenamento que é utilizado como sistema de arquivos padrão para o cluster HDInsight. Se você tiver escolhido <strong>Usar Armazenamento Existente</strong> no campo <strong>Conta de Armazenamento</strong> e não existir nenhum contêiner nessa conta, por padrão, o contêiner será criado com o mesmo nome que o nome do cluster. Se um contêiner com o nome do cluster já existir, será acrescentado um número de sequência ao nome do contêiner. Por exemplo, meucontêiner1, meucontêiner2 e assim por diante. No entanto, se a conta do Armazenamento tiver um contêiner com um nome diferente do nome do cluster especificado, você poderá usar esse contêiner também.</p>
+        <p>Se você optou por criar um novo armazenamento ou usar o armazenamento de outra assinatura do Azure, especifique o nome do contêiner padrão.</p>
+    </td></tr>
+	<tr><td>Contas de armazenamento adicionais</td>
+		<td>Se necessário, especifique contas de armazenamento adicionais para o cluster. O HDInsight dá suporte a várias contas do Armazenamento. Não há nenhum limite quanto ao número de contas do Armazenamento que um cluster pode usar. No entanto, se criar um cluster usando o Portal do Azure, você terá um limite de sete contas, devido a restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de <strong>Conta de Armazenamento</strong> ao assistente, em que você pode especificar as informações da conta. Por exemplo, na captura de tela acima, nenhuma conta de armazenamento adicional está selecionada, e portanto, não ocorre adição de uma página extra ao assistente.</td></tr>
+</table>Clique na seta à direita.
 
 7. Na página **Ações de Script** selecione a marca de seleção no canto inferior direito. Não clique no botão **Adicionar ação de script**, já que este tutorial não requer uma configuração de cluster personalizado.
 
@@ -336,7 +333,7 @@ Para usar essa informação em um aplicativo Java, você pode seguir as etapas e
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]Para obter mais informações sobre a resolução do nome em Redes Virtuais do Azure, incluindo como usar seu próprio servidor DNS, consulte [Resolução do Nome (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+> [AZURE.NOTE]Para obter mais informações sobre a resolução do nome em Redes Virtuais do Azure, incluindo como usar seu próprio servidor DNS, consulte [Resolução do Nome (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ##Provisionar um cluster do HBase usando o PowerShell do Azure
 
@@ -433,4 +430,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalhes de provisionamento do novo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usar a Ação de Script para personalizar um cluster HBase"
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

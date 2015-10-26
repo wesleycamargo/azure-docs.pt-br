@@ -79,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    Você deve ver as seguintes versões:
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433
+    Você deve ver as seguintes versões: - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
  
 9. Execute o seguinte cmdlet para confirmar se a atualização do firmware foi aplicada corretamente:
 
@@ -131,10 +128,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        Se o dispositivo ainda estiver offline após alguns minutos, você precisará verificar se a rede de firewall foi configurada como o descrito em [requisitos de rede para o dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Se você não tiver suporte a HTTP 1.1, verifique a porta 9354 para garantir que ela está aberta para comunicação de saída. Essa porta é usada para comunicação entre o serviço StorSimple Manager e seu dispositivo StorSimple.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

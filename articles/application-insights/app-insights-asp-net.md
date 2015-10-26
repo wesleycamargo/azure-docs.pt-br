@@ -12,21 +12,26 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/13/2015" 
 	ms.author="awills"/>
 
 
-# Application Insights para ASP.NET
+# Configurar o Application Insights para ASP.NET
 
 *O Application Insights está em modo de visualização.*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+<a name="selector1"></a>
+
+O [Application Insights do Visual Studio](http://azure.microsoft.com/services/application-insights) monitora seus aplicativos em tempo real para ajudá-lo a [detectar e diagnosticar problemas de desempenho e exceções][detect] e [descobrir como seu aplicativo é usado][knowUsers]. Ele funciona ao instalar um SDK em seu aplicativo. O SDK envia dados de telemetria sobre seu aplicativo para o serviço Application Insights, em que você pode analisar e visualizar o comportamento do aplicativo.
 
 
-[O Application Insights do Visual Studio](http://azure.microsoft.com/services/application-insights) monitora seus aplicativos em tempo real para ajudá-lo a [detectar e diagnosticar problemas de desempenho e exceções][detect], e [descobrir como seu aplicativo é usado][knowUsers]. Ele pode ser usado com uma ampla variedade de tipos de aplicativos. Ele funciona para aplicativos hospedados em seus próprios servidores IIS locais ou em máquinas virtuais do Azure, bem como aplicativos Web do Azure. ([Aplicativos de dispositivos e servidores Java também são abordados][start].)
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
+Adicione o SDK ao seu aplicativo no Visual Studio e você obterá gráficos de falhas, tempos de resposta e solicitações do servidor.
 
 ![Gráficos de exemplo de monitoramento de desempenho](./media/app-insights-asp-net/10-perf.png)
 
+Você também poderá usar a API para monitorar o uso em detalhes.
 
 #### Antes de começar
 
@@ -85,19 +90,27 @@ Abra o recurso Application Insights no [Portal do Azure][portal].
 
 ![Clique com o botão direito do mouse no seu projeto e abra o portal do Azure.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
+### Métrica: dados agregados
 
 Procure dados nos gráficos de Visão Geral. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
 
-![Clique para obter mais dados](./media/app-insights-asp-net/12-first-perf.png)
+![Clique por mais dados](./media/app-insights-asp-net/12-first-perf.png)
 
 Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobre métricas.][perf]
 
-Agora implante seu aplicativo e assista a acumulação dos dados.
+* *Nenhum dado de usuário ou página?* - [Adicione dados de usuário e página](../article/application-insights/app-insights-asp-net-client.md)
 
+### Pesquisa: eventos individuais
 
-Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
+Abra a Pesquisa investigar solicitações individuais e seus eventos associados.
 
-#### Não há dados?
+![](./media/app-insights-asp-net/21-search.png)
+
+[Saiba mais sobre a pesquisa](app-insights-diagnostic-search.md)
+
+* *Não há eventos associados?* Configure [exceções de servidor](../article/application-insights/app-insights-asp-net-exception-mvc.md) e [dependências](../article/application-insights/app-insights-asp-net-dependencies.md).
+
+### Não há dados?
 
 * Tenha certeza de que está olhando para coisa certa. Entre no [Portal do Azure](https://portal.azure.com), clique em "Procurar >", "Application Insights" e selecione seu aplicativo.
 * Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
@@ -105,104 +118,23 @@ Quando você executa no modo de depuração, a telemetria é expressa através d
 * Aguarde alguns segundos e clique em Atualizar.
 * Consulte [Solucionar problemas][qna].
 
+
+## Publicar seu aplicativo
+
+Agora implante seu aplicativo e assista a acumulação dos dados.
+
+Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
+
 #### Problemas no servidor de compilação?
 
 Consulte [este item de solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+## Próximas etapas
 
-## Adicionar monitoramento de navegador
-
-O monitoramento de navegador fornece dados sobre usuários, sessões, exibições de página e todas as exceções ou falhas que ocorrem no navegador.
-
-![Escolha Novo, Serviços de Desenvolvedor, Application Insights.](./media/app-insights-asp-net/16-page-views.png)
-
-Você também poderá escrever seu próprio código para rastrear como os usuários trabalham com seu aplicativo, até o nível detalhado de cliques e pressionamentos de teclas.
-
-Adicione um trecho de código JavaScript em cada página. Obtenha o código do recurso Application Insights:
-
-![Em seu aplicativo Web, abra Início Rápido e clique em “Obter código para monitorar minhas páginas na Web”](./media/app-insights-asp-net/02-monitor-web-page.png)
-
-Observe que o código contém a chave de instrumentação que identifica o recurso de aplicativo.
-
-[Saiba mais sobre rastreamento de página da Web.](app-insights-web-track-usage.md)
-
-
-## Acompanhamento de uso
-
-Ao entregar uma nova história de usuário, você desejará saber o quanto seus clientes a estão usando, e se estão atingindo suas metas ou enfrentando dificuldades. Obtenha uma visão detalhada da atividade do usuário inserindo TrackEvent() e outras chamadas em seu código, tanto no cliente quanto no servidor.
-
-[Usar a API para rastrear o uso][api]
-
-
-## Logs de diagnóstico
-
-[Capture rastreamentos de log][netlogs] de sua estrutura favorita de registros de log para ajudar no diagnóstico de problemas. As entradas do log aparecerão na [pesquisa de diagnóstico][diagnostic] juntamente com os eventos do Application Insights Telemetry.
-
-## Publicar seu aplicativo
-
-Se você ainda não publicou seu aplicativo (já que adicionou o Application Insights), faça isso agora. Observe os dados aumentarem nos gráficos, à medida que as pessoas usam seu aplicativo.
-
-
-#### Nenhum dado depois de publicar no servidor?
-
-Abra estas portas para tráfego de saída no firewall do servidor:
-
-+ `dc.services.visualstudio.com:443`
-+ `f5.services.visualstudio.com:443`
-
-
-## Desenvolvimento, teste e lançamento
-
-Em um aplicativo importante, é aconselhável enviar dados de telemetria de diferentes carimbos (compilações de depuração, teste e produção) em [recursos separados](app-insights-separate-resources.md).
-
-## Acompanhar Versão do aplicativo
-
-Certifique-se que `buildinfo.config` é gerado pelo processo de compilação. No arquivo. csproj, adicione:
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
-```
-
-Quando ele tem as informações de compilação, o módulo da Web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite a você filtrar por versão ao executar [pesquisas de diagnóstico][diagnostic] ou ao [explorar métricas][metrics].
-
-
-
-## Adicionar acompanhamento de dependência e contadores de desempenho do sistema
-
-As [métricas de dependência](app-insights-dependencies.md) podem ser valiosas para ajudar com o diagnóstico de problemas de desempenho. Elas medem as chamadas do seu aplicativo aos bancos de dados, APIs REST e outros componentes externos.
-
-![](./media/app-insights-asp-net/04-dependencies.png)
-
-Esta etapa também habilita o [relatório de contadores de desempenho](app-insights-web-monitor-performance.md#system-performance-counters) como o uso de CPU, memória e a ocupação de rede.
-
-#### Se seu aplicativo for executado em seu servidor IIS
-
-Faça logon no servidor com direitos de administrador e instale o [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
-
-Você precisa verificar se algumas [portas adicionais estão abertas no firewall do servidor](app-insights-monitor-performance-live-website-now.md#troubleshooting).
-
-#### Se seu aplicativo for um Aplicativo Web do Azure
-
-No painel de controle do Aplicativo Web do Azure, adicione a extensão do Application Insights.
-
-![Em seu aplicativo Web, clique em Configurações, Extensões, Adicionar, Application Insights](./media/app-insights-asp-net/05-extend.png)
-
-(Você também pode adicionar a extensão a um aplicativo que já está ativo, mesmo se você não tiver instalado o SDK nele.)
-
-#### Para monitorar funções de serviços de nuvem do Azure
-
-Há um [procedimento manual para adicionar o monitor de status](app-insights-cloudservices.md).
-
-## Testes de disponibilidade na Web
-
-[Configure testes da Web][availability] para testar externamente se o aplicativo está ativo e responsivo.
-
-
-![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
-
+- [Dados do usuário e da página](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [Exceções](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [Dependências](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
+- [Disponibilidade](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -238,8 +170,8 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

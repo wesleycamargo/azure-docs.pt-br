@@ -1,20 +1,20 @@
 <properties
    pageTitle="Depurando seu aplicativo da Malha do Serviço no Visual Studio usando F5"
-	description="Melhore a confiabilidade e o desempenho dos seus serviços usando o Visual Studio e um cluster de desenvolvimento local."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor=""/>
+   description="Melhore a confiabilidade e o desempenho dos seus serviços usando o Visual Studio e um cluster de desenvolvimento local."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/26/2015"
-	ms.author="jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/26/2015"
+   ms.author="jesseb"/>
 
 # Depurando seu aplicativo da Malha do Serviço no Visual Studio usando F5
 
@@ -66,4 +66,4 @@ Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malh
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

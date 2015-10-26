@@ -378,4 +378,4 @@ Pronto para a próxima etapa? Os links a seguir levam você a materiais adiciona
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -149,4 +149,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

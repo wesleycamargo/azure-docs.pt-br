@@ -28,7 +28,7 @@ Que tipo de aplicativo você tem?
 
 * [Aplicativo Web do Azure ‒ funções Web e de trabalho](app-insights-cloudservices.md)
 * [Aplicativo Web no IIS na VM do Azure](../insights-perf-analytics.md)
-* [Aplicativo fora do Azure](app-insights-get-started.md)
+* [Aplicativo fora do Azure](app-insights-overview.md)
 
 
 
@@ -39,4 +39,4 @@ Que tipo de aplicativo você tem?
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

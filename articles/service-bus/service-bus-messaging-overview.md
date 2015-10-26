@@ -56,4 +56,4 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Como usar tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

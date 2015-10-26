@@ -255,4 +255,4 @@ Para obter mais informações sobre a autenticação do Barramento de Serviço, 
 
 Encontre mais exemplos de SAS no C# e no JavaScript [nesta postagem no blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

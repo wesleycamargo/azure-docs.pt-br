@@ -1,20 +1,20 @@
 <properties
    pageTitle="Considerações sobre o desempenho do Gerenciador de Tráfego do Azure | Microsoft Azure"
-	description="Compreenda o desempenho no Gerenciador de Tráfego e como testar o desempenho de seu site ao usar o Gerenciador de Tráfego"
-	services="traffic-manager"
-	documentationCenter=""
-	authors="kwill-MSFT"
-	manager="adinah"
-	editor="joaoma"/>
+   description="Compreenda o desempenho no Gerenciador de Tráfego e como testar o desempenho de seu site ao usar o Gerenciador de Tráfego"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="kwill-MSFT"
+   manager="adinah"
+   editor="joaoma" />
 
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 
 # Considerações de desempenho sobre Gerenciador de Tráfego
@@ -98,4 +98,4 @@ Considerando as informações acima, sabemos que o único impacto no desempenho 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

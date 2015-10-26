@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="10/13/2015"
    ms.author="tomfitz"/>
 
 # Funções de modelo do Gerenciador de Recursos do Azure
@@ -493,6 +493,41 @@ O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em let
     }
 
 
+## uniqueString
+
+**uniqueString (stringForCreatingUniqueString, ...)**
+
+Executa um hash de 64 bits das cadeias de caracteres fornecidas para criar uma cadeia de caracteres exclusiva. Essa função é útil quando você precisa criar um nome exclusivo para um recurso. Você fornece valores de parâmetros que representam o nível de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para sua assinatura, grupo de recursos ou implantação.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| stringForCreatingUniqueString | Sim | A cadeia de caracteres de base usada na função de hash para criar uma cadeia de caracteres exclusiva.
+| parâmetros extras conforme necessário | Não | Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade.
+
+O valor retornado não é uma cadeia de caracteres totalmente aleatória, mas na verdade, o resultado de uma função de hash. O valor retornado tem 13 caracteres. Não é garantido que ele seja globalmente exclusivo. Você talvez queira combinar o valor com um prefixo de sua convenção de nomenclatura para criar um nome mais amigável.
+
+Os exemplos a seguir mostram como usar uniqueString para criar um valor exclusivo para níveis diferentes mais usados.
+
+Exclusivo com base na assinatura
+
+    "[uniqueString(subscription().subscriptionId)]"
+
+Exclusivo com base no grupo de recursos
+
+    "[uniqueString(resourceGroup().id)]"
+
+Exclusivo com base na implantação de um grupo de recursos
+
+    "[uniqueString(resourceGroup().id, deployment().name)]"
+    
+O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazenamento com base em seu grupo de recursos.
+
+    "resources": [{ 
+        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "type": "Microsoft.Storage/storageAccounts", 
+        ...
+
+
 ## variáveis
 
 **variables (NomedaVariável)**
@@ -505,9 +540,9 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 
 
 ## Próximas etapas
-- Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
-- Para mesclar diversos modelos, consulte [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
-- Para iterar um número de vezes especificado ao criar um tipo de recurso, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-- Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
+- Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
+- Para mesclar diversos modelos, veja a seção [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
+- Para iterar um número de vezes especificado ao criar um tipo de recurso, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
+- Para saber como implantar o modelo que você criou, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

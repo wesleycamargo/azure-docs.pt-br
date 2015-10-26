@@ -325,4 +325,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 [1]: ./media/search-api-scoring-profiles-2014-10-20-Preview/scoring_interpolations.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -122,4 +122,4 @@ Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](ht
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

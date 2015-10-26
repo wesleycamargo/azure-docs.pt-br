@@ -386,4 +386,4 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

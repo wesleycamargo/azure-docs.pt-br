@@ -126,4 +126,4 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 [Xamarin Android: Habilitar a sincronização offline]: ../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
 [Windows 8.1: Habilitar a sincronização offline]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data-preview.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

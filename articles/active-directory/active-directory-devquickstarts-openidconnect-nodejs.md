@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="brandwe"/>
 
 # Entrar e sair de aplicativo Web com o AD do Azure
@@ -40,18 +40,19 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
-## 1. Registrar um Aplicativo
+## 1\. Registrar um Aplicativo
 - Entre no Portal de Gerenciamento do Azure.
-- Clique em **Active Directory** no painel de navegação à esquerda
+- Clique em **Active Directory** no painel de navegação à esquerda.
 - Selecione o locatário em que você deseja registrar o aplicativo.
-- Clique na guia **Aplicativos** e clique em Adicionar na lista de botões.
-- Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.
-    - O **Nome** do aplicativo descreverá seu aplicativo para os usuários finais.
-    -	A **URL de logon** é a URL base do seu aplicativo.  O padrão do esqueleto é `http://localhost:3000/auth/openid/return``.
-    - O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo.  A convenção é usar `https://<tenant-domain>/<app-name>`, , por exemplo `https://contoso.onmicrosoft.com/my-first-aad-app`
-- Depois de concluir o registro, o AAD atribuirá a seu aplicativo um identificador de cliente único.  Você precisará desse valor nas próximas seções, então copie-o da guia Configurar.
+- Clique na guia **Aplicativos** e clique em adicionar na lista de botões.
+- Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.  
 
-## 2. Adicionar pré-requisitos ao seu diretório
+    - O **nome** do aplicativo descreverá seu aplicativo para os usuários finais
+    -	A **URL de logon** é a URL base do seu aplicativo. O padrão do esqueleto é http://localhost:3000/auth/openid/return``.
+    - O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo. A convenção é usar `https://<tenant-domain>/<app-name>`, por exemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`
+- Depois de concluir o registro, o AAD atribuirá a seu aplicativo um identificador de cliente único. Você precisará desse valor nas próximas seções, então copie-o da guia Configurar.
+
+## 2\. Adicionar pré-requisitos ao seu diretório
 
 Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver lá e execute os seguintes comandos:
 
@@ -70,23 +71,26 @@ Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver
 
 Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 
-## 3. Configurar seu aplicativo para usar a estratégia passport-node-js
-Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect.  O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
+## 3\. Configurar seu aplicativo para usar a estratégia passport-node-js
+Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect. O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
--	Para começar, abra o arquivo `web.config` na raiz do projeto e insira os valores de configuração do aplicativo na seção `<appSettings>.
-    -	O `clientID`: é a **Id de Aplicativo** atribuído ao seu aplicativo no portal de registro.
-    -	O `returnURL` é o **Uri de Redirecionamento** inserido no portal.
+-	Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
+    -	O `clientID:` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
+    -	O `returnURL` é o **URI de Redirecionamento** inserido no portal.
     - O `clientSecret` é o segredo gerado no portal
 
-- Em seguida, abra o arquivo `app.js`  na raiz do projeto e adicione a seguinte chamada para invocar a estratégia `OIDCStrategy` que vem com o `passport-azure-ad`
+- Em seguida, abra o arquivo `app.js` na raiz do projeto e adicione a seguinte chamada para invocar a estratégia `OIDCStrategy` que vem com `passport-azure-ad`
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// adicionar um agente
+// add a logger
 
-var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); ```
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
+```
 
 - Depois disso, use a estratégia que referenciamos para manipular nossas solicitações de logon
 
@@ -285,9 +289,9 @@ app.listen(3000);
 
 ## 5\. Criar as exibições e as rotas no express para exibir o usuário no site
 
-Temos nosso `app.js` completo. Agora, basta adicionar rotas e modos de exibição que mostram as informações que precisamos do usuário e lidar com as rotas `/logout` e `/login` criadas.
+Temos nosso `app.js` concluído. Agora, basta adicionar rotas e modos de exibição que mostram as informações que precisamos do usuário e lidar com as rotas `/logout` e `/login` criadas.
 
-- Criar a rota `/routes/index.js` no diretório raiz.
+- Crie a rota `/routes/index.js` no diretório raiz.
 
 ```JavaScript
 /*
@@ -299,7 +303,7 @@ exports.index = function(req, res){
 };
 ```
 
-- Criar a rota `/routes/user.js` no diretório raiz
+- Crie a rota `/routes/user.js` no diretório raiz
 
 ```JavaScript
 /*
@@ -327,7 +331,7 @@ Essas rotas simples apenas passarão a solicitação para nossos modos de exibi�
 
 ```
 
-- Crie o modo de exibição `/views/account.ejs` no diretório raiz para que possamos exibir as informações adicionais que `passport-azuread` colocou na solicitação do usuário.
+- Crie a exibição `/views/account.ejs` no diretório raiz para que possamos exibir as informações adicionais que `passport-azuread` colocou na solicitação do usuário.
 
 ```Javascript
 <% if (!user) { %>
@@ -351,36 +355,16 @@ Essas rotas simples apenas passarão a solicitação para nossos modos de exibi�
 
 ```HTML
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Passport-OpenID Example</title>
-	</head>
-	<body>
-		<% if (!user) { %>
-			<p>
-			<a href="/">Home</a> | 
-			<a href="/login">Log In</a>
-			</p>
-		<% } else { %>
-			<p>
-			<a href="/">Home</a> | 
-			<a href="/account">Account</a> | 
-			<a href="/logout">Log Out</a>
-			</p>
-		<% } %>
-		<%- body %>
-	</body>
-</html>```
+<!DOCTYPE html> <html> <head> <title>Passport-OpenID Example</title> </head> <body> <% if (!user) { %> <p> <a href="/">Home</a> | <a href="/login">Log In</a> </p> <% } ou { %> <p> <a href="/">Home</a> | <a href="/account">Account</a> | <a href="/logout">Log Out</a> </p> <% } %> <%- body %> </body> </html>```
 
-Finally, build and run your app! 
+Por fim, compile e execute seu aplicativo!
 
-Run `node app.js` and navigate to `http://localhost:3000`
+Execute `node app.js` e navegue até `http://localhost:3000`
 
 
-Sign in with either a personal Microsoft Account or a work or school account, and notice how the user's identity is reflected in the /account list.  You now have a web app secured using industry standard protocols that can authenticate users with both their personal and work/school accounts.
+Entre com uma conta pessoal da Microsoft ou uma conta corporativa ou de estudante e observe como a identidade do usuário é exibida na lista /account. Agora você tem um aplicativo Web protegido por protocolos padrão do setor, que podem autenticar usuários com as respectivas contas pessoais e corporativas ou de estudante.
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip), or you can clone it from GitHub:
+Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -391,4 +375,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

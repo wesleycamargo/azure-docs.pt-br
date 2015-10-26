@@ -21,4 +21,4 @@ Este tutorial se baseia no aplicativo [GetStartedWithMobileServices](http://go.m
 
 7. Repita as etapas 3 e 4 para verificar se o exemplo se comporta da mesma maneira.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

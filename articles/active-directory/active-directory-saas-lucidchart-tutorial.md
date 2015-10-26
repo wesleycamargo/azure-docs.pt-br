@@ -44,7 +44,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **Lucidchart**.
 
-    ![Galeria de aplicativos](./media/active-directory-saas-lucidchart-tutorial/IC791184.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-lucidchart-tutorial/IC791184.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **Lucidchart** e clique em **Concluir** para adicionar o aplicativo.
 
@@ -86,7 +86,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Selecione **Habilitar autenticação SAML** e, em seguida, clique em **Opcional**.![Configurações da autenticação SAML](./media/active-directory-saas-lucidchart-tutorial/IC791192.png "Configurações da autenticação SAML")
     2.  Na caixa de texto **Domínio**, digite seu domínio e, em seguida, clique em **Alterar certificado**.![Alterar certificado](./media/active-directory-saas-lucidchart-tutorial/IC791193.png "Alterar certificado")
     3.  Abra o arquivo de metadados baixado, copie o conteúdo e, em seguida, cole-o na caixa de texto **Carregar metadados**.![Carregar metadados](./media/active-directory-saas-lucidchart-tutorial/IC791194.png "Carregar metadados")
-    4.  Selecione **Adicionar automaticamente novo usuário à equipe** e, em seguida, clique em **Salvar alterações**.![Salvar alterações](./media/active-directory-saas-lucidchart-tutorial/IC791195.png "Salvar alterações")
+    4.  Selecione **Adicionar automaticamente novo usuário à equipe** e, em seguida, clique em **Salvar alterações**.![Salvar alterações](./media/active-directory-saas-lucidchart-tutorial/IC791195.png "Salvar Alterações")
 
 9.  Selecione a confirmação de configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
@@ -104,7 +104,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 2.  Na página de integração de aplicativos do **Lucidchart**, clique em **Atribuir usuários**.
 
-    ![Atribuir usuários](./media/active-directory-saas-lucidchart-tutorial/IC791197.png "Atribuir usuários")
+    ![Atribuir Usuários](./media/active-directory-saas-lucidchart-tutorial/IC791197.png "Atribuir Usuários")
 
 3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
 
@@ -112,4 +112,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

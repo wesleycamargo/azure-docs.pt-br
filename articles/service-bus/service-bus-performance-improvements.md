@@ -292,4 +292,4 @@ Para saber mais sobre a otimização do desempenho do Barramento de Serviço, co
   [Particionando entidades do sistema de mensagens]: service-bus-partitioning.md
   
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

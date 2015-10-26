@@ -133,4 +133,4 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 
 - Se você continuar enfrentando problemas de dispositivo, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

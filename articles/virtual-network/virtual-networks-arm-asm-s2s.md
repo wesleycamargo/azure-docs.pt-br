@@ -363,4 +363,4 @@ Agora que as duas redes virtuais estão conectadas, é hora de testar a conectiv
 - Saiba mais sobre [o Provedor de recursos de rede (NRP) para ARM](../resource-groups-networking.md).
 - Exiba as diretrizes gerais sobre como [criar uma conexão VPN S2S entre uma rede virtual clássica e uma rede virtual do ARM](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

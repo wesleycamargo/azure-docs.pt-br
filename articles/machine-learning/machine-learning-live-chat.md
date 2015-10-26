@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
-    ms.author="luisca"/>
+    ms.date="10/14/2015" 
+    ms.author="olgali"/>
 #Obtenha ajuda sobre o Aprendizado de Máquina no suporte por chat ao vivo
 
 O [Estúdio de Aprendizado de Máquina do Azure](machine-learning-what-is-ml-studio.md) fornece uma interface intuitiva para criar modelos de aprendizado de máquina. Há uma [Galeria](machine-learning-gallery-how-to-use-contribute-publish.md) e [Fóruns](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) para orientá-lo nesse caminho.
@@ -31,4 +31,4 @@ Os membros da equipe, na verdade, respondem à sua pergunta. Se você não vir o
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

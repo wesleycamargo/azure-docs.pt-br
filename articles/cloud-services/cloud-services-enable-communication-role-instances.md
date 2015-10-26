@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Habilitar a comunicação para instâncias de função nos serviços de nuvem | Microsoft Azure"
-	description=""
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+pageTitle="Habilitar a comunicação para instâncias de função nos serviços de nuvem | Microsoft Azure" 
+description="" 
+services="cloud-services" 
+documentationCenter="" 
+authors="Thraka" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="adegeo"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="08/18/2015" 
+ms.author="adegeo"/>
 
 # Habilitar a comunicação para instâncias de função no Azure
 
@@ -359,4 +359,4 @@ Veja uma referência de esquema XML para os elementos usados acima [aqui](https:
 ## Próximas etapas
 Leia mais sobre o [modelo](cloud-services-model-and-package.md) de Serviço de Nuvem.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

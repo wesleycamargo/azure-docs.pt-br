@@ -1,22 +1,76 @@
-## NSG (grupo de segurança de rede)
-Um recurso NSG habilita a criação de limite de segurança para cargas de trabalho, por meio de regras de permissão e recusa. Essas regras podem ser aplicadas no nível do NIC (nível de instância VM) ou no nível de sub-rede (grupo de VMs).
+## Grupo de Segurança de Rede
+Um recurso NSG habilita a criação de limite de segurança para cargas de trabalho, por meio de regras de permissão e recusa. Essas regras podem ser aplicadas a uma VM, NIC ou sub-rede.
 
-As propriedades principais de um recurso NSG incluem:
+|Propriedade|Descrição|Valores de exemplo|
+|---|---|---|
+|**sub-redes**|Lista de IDS de sub-rede às quais o NSG é aplicado.|/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd|
+|**securityRules**|Lista de regras de segurança que compõem o NSG|Veja [Regra de segurança](#Security-rule) abaixo|
+|**defaultSecurityRules**|Lista de regras de segurança padrão presentes em cada NSG|Veja [Regras de segurança padrão](#Default-security-rules) abaixo|
 
 - **Regra de segurança** - um NSG um pode ter várias regras de segurança definidas. Cada regra pode permitir ou negar diferentes tipos de tráfego.
 
 ### Regra de segurança
-Uma regra de segurança é um recurso de filho de um NSG.
+Uma regra de segurança é um recurso filho de um NSG que contém as propriedades abaixo.
 
-As propriedades principais de uma regra de segurança incluem:
+|Propriedade|Descrição|Valores de exemplo|
+|---|---|---|
+|**description**|Descrição da regra|Permitir tráfego de entrada para todas as VMs na sub-rede X|
+|**protocol**|Protocolo para fazer a correspondência da regra|TCP, UDP ou *| |**sourcePortRange**|Intervalo de portas de origem para fazer a correspondência da regra|80, 100-200, *| |**destinationPortRange**|Intervalo de portas de destino para fazer a correspondência da regra|80, 100-200, *| |**sourceAddressPrefix**|Prefixo de endereço de origem para fazer a correspondência da regra|10\.10.10.1, 10.10.10.0/24, Rede Virtual|
+|**destinationAddressPrefix**|Prefixo de endereço de destino para fazer a correspondência da regra|10\.10.10.1, 10.10.10.0/24, Rede Virtual|
+|**direction**|Direção do tráfego para fazer a correspondência da regra|entrada ou saída|
+|**prioridade**|Prioridade da regra. As regras são verificadas em ordem de prioridade, e depois que uma regra é aplicada, nenhuma outra regra é testada quanto à correspondência.|10, 100, 65000|
+|**access**|Tipo de acesso a ser aplicado se a regra for correspondente|permitir ou negar|
 
-- **Protocolo** – protocolo de rede ao qual essa regra se aplica.
-- **Intervalo de portas de origem** - porta de origem ou o intervalo de portas, de 0 a 65535. Um caractere curinga pode ser usado para corresponder a todas as portas. 
-- **Intervalo de portas de destino** - porta de destino ou intervalo de portas, de 0 a 65535. Um caractere curinga pode ser usado para corresponder a todas as portas.
-- **Prefixo de endereço de origem** – intervalo de endereços IP de origem. 
-- **Prefixo de endereço de destino** – intervalo de endereços IP de destino.
-- **Acesso** – *Permitir* ou *Bloquear* tráfego.
-- **Prioridade** – um valor entre 100 e 4096. O número de prioridade deve ser exclusivo para cada regra na coleção de regras de segurança. Quanto menor o número da prioridade, maior será a prioridade da regra.
-- **Direção** – especifica se a regra será aplicada ao tráfego na direção de *entrada* ou *saída*. 
+Exemplo de NSG no formato JSON:
 
-<!---HONumber=Sept15_HO4-->
+	{
+	    "name": "NSG-BackEnd",
+	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd",
+	    "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+	    "type": "Microsoft.Network/networkSecurityGroups",
+	    "location": "westus",
+	    "tags": {
+	        "displayName": "NSG - Front End"
+	    },
+	    "properties": {
+	        "provisioningState": "Succeeded",
+	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	        "securityRules": [
+	            {
+	                "name": "rdp-rule",
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/rdp-rule",
+	                "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+	                "properties": {
+	                    "provisioningState": "Succeeded",
+	                    "description": "Allow RDP",
+	                    "protocol": "Tcp",
+	                    "sourcePortRange": "*",
+	                    "destinationPortRange": "3389",
+	                    "sourceAddressPrefix": "Internet",
+	                    "destinationAddressPrefix": "*",
+	                    "access": "Allow",
+	                    "priority": 100,
+	                    "direction": "Inbound"
+	                }
+	            }
+	        ],
+	        "defaultSecurityRules": [
+	            { [...],
+	        "subnets": [
+	            {
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
+	            }
+	        ]
+	    }
+	}
+
+### Regras de segurança padrão
+As regras de segurança padrão têm as mesmas propriedades disponíveis nas regras de segurança. Elas existem para fornecer a conectividade básica entre os recursos com NSGs aplicados. Certifique-se de que você sabe quais [regras de segurança padrão](./virtual-networks-nsg.md#Default-Rules) existem.
+
+### Recursos adicionais
+
+- Obtenha mais informações sobre [NSGs](virtual-networks-nsg.md).
+- Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) para obter NSGs.
+- Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) para obter regras de segurança.
+
+<!---HONumber=Oct15_HO3-->

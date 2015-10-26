@@ -34,4 +34,4 @@ Quando você criar recursos por meio do portal ou implantando um modelo por meio
 - Para obter mais detalhes sobre como criar links entre recursos, consulte [Vinculação de recursos no Gerenciador de Recursos do Azure](../resource-group-link-resources.md).
 - Para saber mais sobre como trabalhar com grupos de recursos por meio do portal de visualização, consulte [Usando o Portal de visualização do Azure para gerenciar seus recursos do Azure](resource-group-portal.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

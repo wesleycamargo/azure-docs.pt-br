@@ -7,4 +7,4 @@ As propriedades principais de um DNS do Azure incluem:
 - **Zonas de DNS** - Informações de zona de domínio para hospedar registros de DNS de um domínio específico.
 - **Conjuntos de registro DNS** - uma coleção de registros de um tipo específico. Os tipos com suporte são A, AAAA, CNAME, MX, NS, SOA, SRV e TXT.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

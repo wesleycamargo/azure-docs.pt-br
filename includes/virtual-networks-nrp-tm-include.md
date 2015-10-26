@@ -20,4 +20,4 @@ As propriedades principais de um ponto de extremidade incluem:
 - **Peso** - peso de ponto de extremidade usado no gerenciamento de tráfego. 
 - **Prioridade** - prioridade do ponto de extremidade, usada para definir uma ação de failover. 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -25,8 +25,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Procure "Conector do Twilio", selecione-o e selecione **Criar**.
-3. Configure o conector do Twilio da seguinte maneira: 
-	![][1]  
+3. Configure o conector do Twilio da seguinte maneira: ![][1]  
 	- **Local** - escolha a região geográfica onde você quer que o conector seja implantado
 	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
 	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
@@ -44,12 +43,9 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 ## Usando o conector do Twilio em seu aplicativo lógico ##
 Depois de criar seu aplicativo de API, você pode usar o conector do Twilio como ação para seu aplicativo lógico. Para fazer isso, você precisa:
 
-1.	Criar um novo Aplicativo Lógico e escolher o mesmo grupo de recursos que tem o conector do Twilio: 
-	![][2]
-2.	Abra "Gatilhos e Ações" para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo: 
-	![][3]
-3.	O conector do Twilio seria exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito: 
-	![][4]
+1.	Criar um novo Aplicativo Lógico e escolher o mesmo grupo de recursos que tem o conector do Twilio: ![][2]
+2.	Abra "Gatilhos e Ações" para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo: ![][3]
+3.	O conector do Twilio seria exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito: ![][4]
 4. Você pode soltar o aplicativo de API do conector do Twilio no editor clicando em "Conector do Twilio".
 
 5.	Agora você pode usar o conector do Twilio no fluxo. Você pode usar a ação "Enviar mensagem" no fluxo para enviar uma mensagem. Configure as propriedades de entrada para a ação "Enviar Mensagem" da seguinte maneira:
@@ -57,8 +53,7 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Twilio como
 	- **Para o Número de Telefone** - O número de telefone de destino. O formato aceito é: +, seguido do código do país e do número de telefone. Por exemplo, +16175551212 Se você omitir o +, o Twilio usará o código do país que você inseriu no número ‘De’.
 	- **Texto** - O texto da mensagem que você deseja enviar.
 
-	![][5] 
-	![][6]
+	![][5] ![][6]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
@@ -77,4 +72,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

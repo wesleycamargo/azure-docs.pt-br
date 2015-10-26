@@ -18,7 +18,8 @@
 
 # Como começar rapidamente com Docker no Azure Marketplace
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+ 
 
 A maneira mais rápida de começar a usar o [Docker] é ir para o Azure Marketplace e criar uma máquina virtual usando o modelo de imagem do **Docker no servidor do Ubuntu** criado por [Canonical] em conjunto com [MSOpenTech]. Isso cria uma VM de servidor do Ubuntu e instala automaticamente a [Extensão de VM do Docker](virtual-machines-docker-vm-extension.md) juntamente com o mecanismo de Docker **mais recente** previamente instalado e em execução no Azure.
 
@@ -77,4 +78,4 @@ Você vai querer começar a usar o [Docker]!
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

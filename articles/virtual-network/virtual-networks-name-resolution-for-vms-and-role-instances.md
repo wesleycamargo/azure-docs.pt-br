@@ -177,4 +177,4 @@ O arquivo de configuração de serviço é criado para cada serviço de nuvem ad
 
 [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

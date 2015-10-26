@@ -67,4 +67,4 @@ Você pode encontrar mais detalhes sobre a criação de um AlwaysOn do SQL no [T
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

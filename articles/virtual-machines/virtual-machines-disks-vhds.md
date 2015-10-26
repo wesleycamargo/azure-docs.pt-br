@@ -19,7 +19,8 @@
 
 # Sobre discos e VHDs para máquinas virtuais do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como aprender sobre recursos criados com o modelo de implantação do Gerenciador de Recursos e o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Todas as máquinas virtuais no Azure são configuradas com pelo menos dois discos quando você cria a máquina virtual – um é um disco do sistema operacional e o outro é um disco local temporário, às vezes chamado de disco de recursos. O disco do sistema operacional é criado por meio de uma imagem, e o disco do sistema operacional e a imagem na verdade são VHDs (discos rígidos virtuais) armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter discos de dados e eles também são armazenados em VHDs.
 
@@ -67,4 +68,4 @@ Máquinas virtuais do Windows:
 -  [Capturar uma máquina virtual do Windows](virtual-machines-capture-image-windows-server.md)
 -  [Desanexar um disco](storage-windows-detach-disk.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

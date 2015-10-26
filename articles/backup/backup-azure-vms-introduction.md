@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Backup de máquinas virtuais do Azure
 
@@ -87,7 +87,7 @@ A imagem abaixo mostra os relacionamentos entre as várias entidades do Backup d
 
 5. Clique em **Criar cofre**. Pode levar algum tempo para que o cofre de backup seja criado. Monitore as notificações de status na parte inferior do portal. ![Criar notificação de cofre](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. Uma mensagem confirmará que o cofre foi criado com êxito e ele será listado na página de Serviços de Recuperação como Ativo. Certifique-se de que a opção de redundância de armazenamento apropriada esteja selecionada logo depois que o cofre for criado. Leia mais sobre [como definir a opção de redundância de armazenamento no cofre de backup](../backup-azure-backup-create-vault.md#storage-redundancy-options). ![Lista de cofres de backup](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. Uma mensagem confirmará que o cofre foi criado com êxito e ele será listado na página de Serviços de Recuperação como Ativo. Certifique-se de que a opção de redundância de armazenamento apropriada esteja selecionada logo depois que o cofre for criado. Leia mais sobre [como definir a opção de redundância de armazenamento no cofre de backup](backup-configure-vault.md#azure-backup---storage-redundancy-options). ![Lista de cofres de backup](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. Clicar no cofre de backup abre a página **Início Rápido**, em que são mostradas as instruções para backup de máquinas virtuais do Azure. ![Instruções de backup de máquina virtual na página Painel](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
@@ -104,7 +104,8 @@ Saiba mais sobre o [Agente de VM](https://go.microsoft.com/fwLink/?LinkID=390493
 - Não há suporte para o backup de máquinas virtuais usando o armazenamento Premium.
 - Não há suporte para o backup de máquinas virtuais com vários IPs reservados.
 - Não há suporte para o backup de máquinas virtuais com um IP reservado e nenhum ponto de extremidade definido.
-- Não há suporte para o backup de máquinas virtuais usando várias NICs ou em uma configuração de balanceamento de carga.
+- Não há suporte para o backup de máquinas virtuais usando vários NICs que não têm suporte.
+- O backup de máquinas virtuais em uma configuração de balanceamento de carga (voltado para Internet e interno) não tem suporte.
 - Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Primeiro, exclua a máquina virtual existente e todos os discos associados e, em seguida, restaure os dados do backup.
 - Não há suporte para backup e restauração entre regiões.
 - Há suporte para o backup de máquinas virtuais com o serviço de Backup do Azure em todas as regiões públicas do Azure. Veja aqui uma [lista de verificação](http://azure.microsoft.com/regions/#services) das regiões com suporte. Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
@@ -122,4 +123,4 @@ Para começar a usar o backup de máquinas virtuais, saiba como:
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Gerenciar o backup de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

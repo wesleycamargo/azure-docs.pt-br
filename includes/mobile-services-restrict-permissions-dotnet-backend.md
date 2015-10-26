@@ -24,4 +24,4 @@ Por padrão, todas as solicitações de recursos dos serviços móveis são rest
  
 4. Republique seu projeto.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

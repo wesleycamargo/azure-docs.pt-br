@@ -182,7 +182,7 @@ Você pode ajustar as seguintes configurações de nível superior para um traba
 - **Iniciar saída** - Use essa configuração para especificar quando esta tarefa começará a produzir saída resultante. Se a consulta associada inclui uma janela, o trabalho começará a pegar a entrada por meio de fontes de entrada no início da duração da janela necessárias para produzir o primeiro evento de saída na hora especificada. Há duas opções, **Hora de início do trabalho** e **Personalizado**. A configuração padrão é a **Hora de início do trabalho**. Para a opção **Personalizada**, você deve especificar data e hora. Essa configuração é útil para especificar quantos dados históricos nas fontes de entrada para consumir ou para pegar a inclusão de dados de uma hora específica, como quando um trabalho foi passado interrompido. 
 - **Política de fora de ordem** - As configurações para manipular eventos que não chegam ao trabalho de Stream Analytics em sequência. Você pode designar um limite de tempo para reordenar eventos, especificando uma janela de tolerância a falhas e também determinando uma ação em eventos fora essa janela: **Remover** ou **Ajustar**. **Remover** removerá todos os eventos recebidos fora de ordem e **Ajustar** alterará o Sistema. O carimbo de data/hora de eventos fora de ordem para o carimbo de data/hora do evento ordenado recebido mais recentemente. 
 - **Política de entrada tardia** - Ao ler por meio de fontes de entrada que têm várias partições e uma ou mais partições se atrasar ou não tiver dados, o trabalho de streaming precisará decidir como lidar com essa situação para manter os eventos que fluem através do sistema. A configuração de entrada 'Máximo permitido de atraso de chegada' controla esse comportamento e é definida por padrão para aguardar indefinidamente pelos dados, o que significa que os carimbos de data/hora dos eventos não serão alterados, mas também aqueles eventos fluirão com base na partição de entrada mais lenta e pararão de fluir se uma ou mais partições de entrada não tiverem dados de entrada. Isso é útil se os dados forem distribuídos uniformemente entre as partições de entrada e a consistência de tempo entre os eventos for crítica. O usuário também pode optar por apenas esperar por um período limitado, o 'Máximo permitido de atraso de chegada' determina o intervalo após o qual o trabalho decidirá avançar, deixando as partições de intervalo de entrada para trás e atuando em eventos de acordo com a configuração de 'Ação para eventos tardios’, descartando seus eventos ou ajustando os carimbos de data/hora de seus eventos se os dados chegarem mais tarde. Isso será útil se a latência for crítica e a mudança de carimbo de data/hora for tolerada, mas a entrada não puder ser distribuída uniformemente.
-- **Localidade** - Use essa configuração para especificar a preferência de internacionalização para o trabalho de Stream Analytics. Enquanto carimbos de dados de localidade neutra, configurações que afetam como o trabalho será analisado, comparar e classificar dados. Para a versão de visualização, há suporte apenas para **PT-BR**.
+- **Localidade** - Use essa configuração para especificar a preferência de internacionalização para o trabalho de Stream Analytics. Enquanto carimbos de dados de localidade neutra, configurações que afetam como o trabalho será analisado, comparar e classificar dados. Para a versão de visualização, há suporte apenas para **pt-BR**.
 
 ### Status
 
@@ -193,7 +193,7 @@ O status dos trabalhos de Stream Analytics pode ser inspecionado no portal do Az
 
 
 ## Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/PT-BR/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 
 ## Próximas etapas
@@ -207,4 +207,4 @@ Agora que você está familiarizado com os principais conceitos do Stream Analyt
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

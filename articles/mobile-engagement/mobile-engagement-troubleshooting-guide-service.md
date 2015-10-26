@@ -89,4 +89,4 @@ A seguir, possíveis problemas que podem ser encontrados na execução do Mobile
     - Usem um arquivo que seja menor do que o tamanho máximo de 35 MB.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

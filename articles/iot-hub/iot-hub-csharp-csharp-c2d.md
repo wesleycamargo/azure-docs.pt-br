@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Enviar mensagens da nuvem para o dispositivo com o HuB IoT| Microsoft Azure"
+	pageTitle="Enviar mensagens da nuvem para o dispositivo com o Hub IoT| Microsoft Azure"
 	description="Siga este tutorial para aprender a enviar mensagens da nuvem para o dispositivo usando o Hub IoT do Azure com C#."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Enviar mensagens da nuvem para o dispositivo com o HuB IoT
+# Tutorial: Como enviar mensagens da nuvem para o dispositivo com o Hub IoT
 
 ## Introdução
 
@@ -28,7 +28,7 @@ Encontre mais informações sobre as mensagens da nuvem para o dispositivo no [G
 
 No final deste tutorial, você executará dois aplicativos de console do Windows:
 
-* **SimulatedDevice**, uma versão modificada do aplicativo criado na [Introdução ao Hub IoT], que se conecta a seu hub IoT e recebe mensagens da nuvem para o dispositivo. 
+* **SimulatedDevice**, uma versão modificada do aplicativo criado na [Introdução ao Hub IoT], que se conecta a seu hub IoT e recebe mensagens da nuvem para o dispositivo.
 * **SendCloudToDevice**, que envia uma mensagem da nuvem para o dispositivo para dispositivo simulado por meio do Hub IoT e, em seguida, recebe seu reconhecimento de entrega.
 
 > [AZURE.NOTE]O Hub IoT tem suporte SDK para várias plataformas de dispositivo e idiomas (incluindo C, Java e Javascript) no entanto, SDKs de dispositivo IoT do Azure. Consulte o [Centro de Desenvolvedores do IoT do Azure] para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, do Hub IoT do Azure. SDKs de serviço de IoT do Azure para Jave e Node estarão disponíveis em breve.
@@ -79,10 +79,6 @@ Informações adicionais sobre o Hub IoT:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introdução ao Hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/iotdev
+[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

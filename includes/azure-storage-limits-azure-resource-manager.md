@@ -5,4 +5,4 @@ Recurso|Limite padrão
 Operações de gerenciamento de conta de armazenamento (leitura)|800 a cada 5 minutos
 Operações de gerenciamento de conta de armazenamento (gravação)|200 por hora
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

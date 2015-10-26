@@ -68,7 +68,7 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 **Vídeo**:
  
 - Codec: H.264 
-- Perfil: Alto (Nível 4.0) 
+- Perfil: Alto (nível 4.0) 
 - Taxa de bits: 5.000 kbps 
 - Quadro-chave: 2 segundos (60 segundos) 
 - Taxa de quadros: 30
@@ -123,7 +123,7 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 ##Reprodução de teste
   
-1. Navegue até a ferramenta AMSE e clique com o botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **com o Azure Media Player**.  
+1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **com o Azure Media Player**.  
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
@@ -160,4 +160,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

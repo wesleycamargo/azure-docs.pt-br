@@ -13,12 +13,13 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="10/08/2015"
  ms.author="danlep"/>
 
 # Opções para criar e gerenciar um cluster HPC (computação de alto desempenho) no Azure com o Microsoft HPC Pack
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo se aplica à criação de recursos com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack e do Azure para criar e gerenciar um cluster HPC (computação de alto desempenho) baseado em nuvem. [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) é a solução de HPC gratuita da Microsoft fundamentada nas tecnologias Microsoft Azure e Windows Server e que dá suporte a cargas de trabalho do HPC no Windows e Linux. Um cluster HPC Pack baseado em nuvem oferece a um administrador de cluster ou a um ISV (fornecedor de software independente) uma plataforma flexível e escalonável para executar aplicativos de computação intensiva, ao mesmo tempo que reduz o investimento em uma infraestrutura de cluster de cálculo local.
 
@@ -46,7 +47,7 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 ### Script de implantação do PowerShell
 
-* [Criar um cluster HPC com o script de implantação de IaaS do HPC Pack](virtual-machines-hpcpackcluster-powershell-script.md)
+* [Criar um cluster HPC com o script de implantação de IaaS do HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md)
 
 ### Tutoriais
 
@@ -94,4 +95,4 @@ Aproveite os serviços de computação e de infraestrutura do Microsoft HPC Pack
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

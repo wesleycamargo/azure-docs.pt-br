@@ -10,4 +10,4 @@ DTU para bancos de dados individuais é o mesmo que eDTU para bancos de dados el
 
 Um exemplo simples pode ajudar: pegue um pool de banco de dados elástico Basic com 1000 DTUs e solte 800 bancos de dados nele. Contanto que apenas 200 bancos de dados, do total de 800, estejam sendo usados a qualquer momento (5 DTU X 200 = 1000), você não atingirá a capacidade do pool, e o desempenho do banco de dados não será afetado. Este exemplo foi simplificado para manter a clareza. O cálculo real é um pouco mais detalhado. O portal faz os cálculos para você e faz também uma recomendação com base no histórico de uso do banco de dados. Consulte [Considerações de preço e desempenho para um pool de banco de dados elástico](../articles/sql-database/sql-database-elastic-pool-guidance.md) para aprender como as recomendações funcionam ou para fazer os cálculos você mesmo.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

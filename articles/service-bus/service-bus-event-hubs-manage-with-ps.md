@@ -274,4 +274,4 @@ Alguns scripts prontos também estão disponíveis para download : - [Scripts do
 [API do .NET para Barramento de Serviço]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 [Instalar e configurar o PowerShell do Azure]: ../install-configure-powershell.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

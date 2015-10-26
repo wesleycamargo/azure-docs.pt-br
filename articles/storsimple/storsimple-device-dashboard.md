@@ -100,4 +100,4 @@ Talvez você precise do IQN de destino do dispositivo ao configurar o protocolo 
 - Saiba mais sobre o [painel de serviços do StorSimple Manager](storsimple-service-dashboard.md).
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

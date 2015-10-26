@@ -78,4 +78,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

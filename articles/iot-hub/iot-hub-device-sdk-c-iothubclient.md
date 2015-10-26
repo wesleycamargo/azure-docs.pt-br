@@ -1,18 +1,18 @@
 <properties
-	pageTitle="SDK do dispositivo IoT do Azure para C — mais sobre o IoTHubClient"
-	description="Detalhes adicionais sobre a biblioteca IoTHubClient no SDK do dispositivo IoT do Azure para C"
+	pageTitle="SDK do dispositivo IoT do Azure para C - IoTHubClient | Microsoft Azure"
+	description="Aprenda mais sobre a biblioteca do IoTHubClient no SDK do dispositivo IoT do Azure para C"
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="MichelBarnett"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="michelb"/>
 
@@ -276,4 +276,4 @@ Há duas opções que normalmente são usadas:
 
 Este artigo detalha o comportamento da biblioteca **IoTHubClient** encontrada no **SDK do dispositivo IoT do Azure para C**. Com essas informações, você deve ter uma boa compreensão dos recursos da biblioteca **IoTHubClient**. No [próximo artigo](iot-hub-device-sdk-c-serializer.md), forneceremos detalhes semelhantes sobre a biblioteca do **serializador**.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

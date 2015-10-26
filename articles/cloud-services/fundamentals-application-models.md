@@ -40,12 +40,9 @@ A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada
 
 A Azure também oferece outros modelos de hospedagem de computação para fins mais especializados, como os seguintes:
 
-* [Serviços Móveis](/services/mobile-services/)  
-  Otimizado para fornecer um back-end de nuvem para aplicativos que são executados em dispositivos móveis.
-* [Lote](/services/batch/)  
-  Otimizado para processar grandes volumes de tarefas semelhantes, idealmente a cargas de trabalho que prestam-se para executar como tarefas paralelas em vários computadores.
-* [HDInsight (Hadoop)](/services/hdinsight/)  
-  Otimizado para execução de trabalhos [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) em clusters de Hadoop. 
+* [Serviços Móveis](/services/mobile-services/) Otimizado para fornecer um back-end de nuvem para aplicativos que são executados em dispositivos móveis.
+* [Lote](/services/batch/) Otimizado para processar grandes volumes de tarefas semelhantes, idealmente a cargas de trabalho que prestam-se para executar como tarefas paralelas em vários computadores.
+* [HDInsight (Hadoop)](/services/hdinsight/) Otimizado para execução de trabalhos [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) em clusters de Hadoop. 
 
 ## Qual devo usar? Fazendo uma escolha
 
@@ -81,4 +78,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * Saiba mais sobre [Serviço de Nuvem](services/cloud-services/)
 * Saiba mais sobre [Máquinas virtuais](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

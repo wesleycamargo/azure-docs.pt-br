@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aplicativo Web do .NET no Serviço de Aplicativo do Azure com o gerenciamento de desempenho de aplicativo New Relic"
-	description="Saiba como usar o monitoramento de desempenho do New Relic para aplicativos ASP.NET em execução no Serviço de Aplicativo do Azure."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Aplicativo Web do .NET no Serviço de Aplicativo do Azure com o gerenciamento de desempenho de aplicativo New Relic" 
+	description="Saiba como usar o monitoramento de desempenho do New Relic para aplicativos ASP.NET em execução no Serviço de Aplicativo do Azure." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -38,8 +38,7 @@ Para obter informações sobre preços, consulte a [Página New Relic no Azure M
 
 Azure clientes recebem uma assinatura de avaliação de 2 semanas do nova Relíquia Pro ao implantar o agente Relíquia de novo.
 
-Inscrever-se para o New Relic usando o Azure Marketplace
---
+Inscrever-se para o New Relic usando o Azure Marketplace --
 
 O New Relic integra-se perfeitamente com as funções Web, as funções de trabalho e o Serviço de Aplicativo do Azure.
 
@@ -168,7 +167,6 @@ Confira estes recursos adicionais para obter mais informações:
 * Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
-[webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
 [vswebsite]: web-sites-dotnet-get-started.md
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
@@ -180,4 +178,4 @@ Confira estes recursos adicionais para obter mais informações:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

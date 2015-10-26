@@ -17,9 +17,11 @@
  ms.date="09/03/2015"
  ms.author="rasquill"/>
 #Sobre os recursos e extensões de máquina virtual
+
 O Microsoft Azure fornece extensões de VM criadas pela Microsoft e pelos provedores de terceiros confiáveis para habilitar a segurança, o tempo de execução, a depuração, o gerenciamento e outros recursos que você pode aproveitar para aumentar sua produtividade com as máquinas virtuais do Azure. Este tópico descreve os vários recursos que as extensões de VM do Azure fornecem às máquinas virtuais Windows e Linux para o seu uso e aponta em direção à documentação para cada uma delas.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo trata dos recursos criados com o modelo de implantação do Gerenciador de Recursos ou o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 Para obter detalhes sobre os Agentes de VM e como eles funcionam para dar suporte às Extensões de VM, veja [Visão geral de Agente de VM e Extensões de VM](https://msdn.microsoft.com/library/dn832621.aspx).
@@ -101,4 +103,4 @@ Essas extensões dão suporte para outros recursos VM que podem ser úteis.
 |**BGInfo**|Apresenta uma visão consolidada útil das informações do servidor na área de trabalho ao usar o RDP.|[Extensão BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Instala, configura e mantém os drivers de dispositivo de rede de acesso remoto direto à memória (RDMA) em uma VM de tamanho A8 ou A9 que executa o Windows Server 2012 R2 ou o Windows Server 2012. Habilita VMs A8 ou A9 clusterizadas para usar a rede RDMA ao executar aplicativos MPI paralelos.|[Sobre as instâncias de computação intensiva A8, A9, A10 e A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

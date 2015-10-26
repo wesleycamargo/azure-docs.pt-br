@@ -1,21 +1,21 @@
 <properties
    pageTitle="Diretrizes para implementação de API | Microsoft Azure"
-	description="Diretrizes para modo de implementação de uma API."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="masimms"
-	editor=""
-	tags=""/>
+   description="Diretrizes para modo de implementação de uma API."
+   services=""
+   documentationCenter="na"
+   authors="dragon119"
+   manager="masimms"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="best-practice"
-	ms.devlang="rest-api"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="05/13/2015"
-	ms.author="masashin"/>
+   ms.devlang="rest-api"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="05/13/2015"
+   ms.author="masashin"/>
 
 # Diretrizes para implementação de API
 
@@ -1152,4 +1152,4 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 - A página [Verificando o Código Pelo Uso de Testes de Unidade](https://msdn.microsoft.com/library/dd264975.aspx), no site da Microsoft, fornece informações detalhadas sobre criação e gerenciamento de testes de unidade pelo uso do Visual Studio.
 - A página [Executar testes de desempenho em um aplicativo antes do lançamento](https://msdn.microsoft.com/library/dn250793.aspx) no site da Microsoft descreve como usar o Visual Studio Ultimate para criar um projeto de teste de carga e desempenho da Web.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

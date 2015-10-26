@@ -18,9 +18,7 @@
 
 # Habilitar sincronização offline para seu aplicativo móvel iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## Visão geral
 
@@ -160,9 +158,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     | ID | Cadeia de caracteres, marcadas como obrigatórias | chave primária no repositório remoto |
     | concluído | Booliano | campo de item de tarefa |
     | texto | Cadeia de caracteres | campo de item de tarefa |
-    | ms\_createdAt | Data | (opcional) é mapeado para \_\_createdAt propriedade do sistema | 
-	| ms\_updatedAt | Data | (opcional) é mapeado para \_\_updatedAt propriedade do sistema | 
-	| ms\_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para \_\_versão |
+    | ms\_createdAt | Data | (opcional) é mapeado para \_\_createdAt propriedade do sistema | | ms\_updatedAt | Data | (opcional) é mapeado para \_\_updatedAt propriedade do sistema | | ms\_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para \_\_versão |
 
 
 ## <a name="setup-sync"></a>Alterar o comportamento de sincronização do aplicativo
@@ -226,14 +222,14 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
     Se você deseja recusar a sincronização incremental, passe `nil` como a ID da consulta. Nesse caso, todos os registros serão recuperados em cada chamada de `pullWithQuery`, que é potencialmente ineficiente.
 
-<!-- * Para remover registros de armazenamento local do dispositivo quando eles tiverem sido excluídos do banco de dados do serviço móvel, você deve habilitar a [Exclusão Reversível]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
  -->
 
 ## Recursos adicionais
 
 * [Sincronização de dados offline em Aplicativos Móveis do Azure]
 
-* [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure] \(Observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
+* [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure] (Observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
 
 <!-- URLs. -->
 
@@ -250,4 +246,4 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!-----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

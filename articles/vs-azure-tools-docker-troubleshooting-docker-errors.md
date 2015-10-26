@@ -1,19 +1,19 @@
 <properties
    pageTitle="Solucionando problemas de erros do cliente Docker no Windows usando o Visual Studio | Microsoft Azure"
-	description="Solucione os problemas encontrados na utilização do Visual Studio para criar e implantar aplicativos Web no Docker ou no Windows usando o Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Solucione os problemas encontrados na utilização do Visual Studio para criar e implantar aplicativos Web no Docker ou no Windows usando o Visual Studio."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # Solucionando problemas do Docker
 
@@ -100,4 +100,4 @@ R: Uma maneira é usar o OpenSSL no servidor para gerar os certificados e chaves
 
 Outra opção é baixar o OpenSSL para Windows e gerar os certificados e as chaves necessários e, em seguida, carregar a Autoridade de Certificação, os certificados de servidor e as chaves no computador Linux. Para saber mais sobre como estabelecer uma conexão segura com o Docker, consulte [Protegendo o soquete daemon do Docker com HTTPS](https://docs.docker.com/articles/https/).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

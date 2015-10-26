@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Cotas do Barramento de Serviço"
-   description="Limites e cotas do Barramento de Serviço"
+   pageTitle="Cotas e limites do Barramento de Serviço do Microsoft Azure | Microsoft Azure"
+   description="Limites e cotas do Barramento de Serviço do Azure"
    services="service-bus"
    documentationCenter="na"
    authors="sethmanheim"
@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
+   ms.workload="na"
+   ms.date="10/14/2015"
    ms.author="sethm" />
 
 # Cotas do Barramento de Serviço
@@ -23,4 +23,4 @@ Esta seção lista as cotas básicas e limites nas mensagens do Barramento de Se
 
 [AZURE.INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -164,4 +164,4 @@ Se você quiser testar suas configurações de logon único, abra o Painel de Ac
 
 Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

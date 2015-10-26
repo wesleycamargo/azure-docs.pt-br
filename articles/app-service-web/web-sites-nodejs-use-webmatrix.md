@@ -126,4 +126,4 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

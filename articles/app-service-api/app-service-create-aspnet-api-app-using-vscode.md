@@ -140,28 +140,28 @@ namespace ContactsList.Models
 3. Clique com o botão direito do mouse na pasta **controladores** e adicione um arquivo *ContactsController.cs*, para que ele apareça da seguinte maneira:
 
 	<pre class="prettyprint">
-	using System.Collections.Generic;
-	using Microsoft.AspNet.Mvc;
-	using ContactsList.Models;
-	
-	namespace ContactsList.Controllers
-	{
-	    [Route("api/[controller]")]
-	    public class ContactsController : Controller
-	    {
-	        // GET: api/Contacts
-	        [HttpGet]
-	        public IEnumerable&lt;Contact&gt; Get()
-	        {
-	            return new Contact[]{
-	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-	            };
-	        }
-	    }
-	}
-	</pre>
+using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
+using ContactsList.Models;
+
+namespace ContactsList.Controllers
+{
+    [Route("api/[controller]")]
+    public class ContactsController : Controller
+    {
+        // GET: api/Contacts
+        [HttpGet]
+        public IEnumerable&lt;Contact> Get()
+        {
+            return new Contact[]{
+                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+            };
+        }
+    }
+}
+</pre>
 
 4. Assegure que todos os arquivos estejam salvos, selecionando **Arquivo** > **Salvar Tudo**.
 5. Na **Paleta de Comandos**, digite o seguinte para executar o comando localmente:
@@ -399,8 +399,7 @@ Nesta seção você criará um repositório Git local e enviará por push por me
 
 	![Inicializar Git](./media/app-service-create-aspnet-api-app-using-vscode/19-initgit.png)
 
-5. 
-6. Adicione uma mensagem de confirmação e marque a caixa de seleção **Confirmar Todos**.
+5. Adicione uma mensagem de confirmação e marque a caixa de seleção **Confirmar Todos**.
 
 	![Confirmar Tudo do Git](./media/app-service-create-aspnet-api-app-using-vscode/20-git-commit.png)
 
@@ -411,13 +410,13 @@ Nesta seção você criará um repositório Git local e enviará por push por me
 cd c:\VSCodeProjects\ContactsList
 </pre>
 
-7. Crie uma referência remota para enviar atualizações por push para o aplicativo Web (host de aplicativo de API) criado anteriormente, usando a URL de Git (com final “.git”) que você copiou anteriormente:
+8. Crie uma referência remota para enviar atualizações por push para o aplicativo Web (host de aplicativo de API) criado anteriormente, usando a URL de Git (com final “.git”) que você copiou anteriormente:
 
 	<pre class="prettyprint">
 git remote add azure [URL para repositório remoto]
 </pre>
 
-8. Envie as alterações por push ao Azure usando o seguinte comando:
+9. Envie as alterações por push ao Azure usando o seguinte comando:
 
 	<pre class="prettyprint">
 git push azure master
@@ -449,4 +448,4 @@ No Portal de Visualização do Azure, vá até a folha **HOST DE APLICATIVO DE A
 Neste tutorial, você aprendeu como criar um aplicativo de API no Visual Studio Code. Para obter mais informações sobre o Visual Studio Code, consulte [Visual Studio Code](https://code.visualstudio.com/Docs/). Para obter informações sobre aplicativos de API, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

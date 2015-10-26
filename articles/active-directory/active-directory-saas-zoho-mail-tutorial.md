@@ -67,9 +67,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de logon no Zoho Mail**, digite sua URL usando o seguinte padrão "**http://company.ZohoMail.com*" e, em seguida, clique em **Próximo**.
 
-    ![Configurar a URL do Aplicativo  
-](./media/active-directory-saas-zoho-mail-tutorial/IC789605.png "Configurar a URL do Aplicativo
-")
+    ![Configurar a URL do Aplicativo](./media/active-directory-saas-zoho-mail-tutorial/IC789605.png "Configurar a URL do Aplicativo")
 
 4.  Na página **Configurar logon único no Zoho Mail**, clique em **Baixar certificado** e, em seguida, salve o arquivo de certificado em seu computador.
 
@@ -147,4 +145,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

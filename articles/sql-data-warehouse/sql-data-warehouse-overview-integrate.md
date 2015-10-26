@@ -71,4 +71,4 @@ Veja [Integrar com o Stream Analytics do Azure](../sql-data-warehouse-integrate-
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

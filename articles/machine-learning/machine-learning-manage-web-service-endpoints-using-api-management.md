@@ -384,4 +384,4 @@ Este guia mostra um exemplo de trabalho do Python. Você precisa modificar com o
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

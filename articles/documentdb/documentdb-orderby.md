@@ -177,4 +177,4 @@ Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-docum
 * [Amostras de Order By do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=06-->
+<!---HONumber=Oct15_HO3-->

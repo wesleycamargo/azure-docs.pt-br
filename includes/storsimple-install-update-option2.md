@@ -12,4 +12,4 @@
 
 7. Agora você pode [usar o Portal de Gerenciamento para instalar a Atualização 1.2](#use-the-management-portal-to-install-update-1). Siga as instruções a partir da etapa 3 deste procedimento. Depois de instalar todas as atualizações, você pode reabilitar a interface de rede que você desabilitou.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

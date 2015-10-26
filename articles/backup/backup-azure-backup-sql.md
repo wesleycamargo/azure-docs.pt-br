@@ -165,4 +165,4 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 
 • [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

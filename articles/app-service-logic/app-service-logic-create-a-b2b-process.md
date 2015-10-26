@@ -73,4 +73,4 @@ Este tutorial supõe que você tenha uma compreensão básica dos Serviços de A
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

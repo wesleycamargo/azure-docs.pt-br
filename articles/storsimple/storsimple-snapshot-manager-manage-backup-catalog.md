@@ -208,4 +208,4 @@ Você deve fazer backup regularmente do banco de dados do StorSimple Snapshot Ma
 - Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 - [Saiba mais sobre fluxos de trabalho e tarefas do StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

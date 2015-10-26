@@ -24,7 +24,7 @@
 |--------|----------|
 | N | Notificações |
 | / | Procurar Serviços |
-| A | Sessões ativas |
+| Uma | Sessões ativas |
 | B | Cobrança |
 | C | Criar |
 
@@ -37,17 +37,11 @@
 | J | Folha aberta anterior |
 | K | Próxima folha aberta |
 | L | Última folha aberta |
-| - | Minimizar folha ou restaurar de maximizada |
-| + | Maximizar a folha ou restaurar de minimizada |
-| # | Fechar folha atual |
-| ¦ | Fechar todas as folhas |
-| , | Mover o foco para a barra de comandos |
-|. | Mover o foco para a barra de navegação |
-|? | Exibir atalhos de teclado |
+| - | Minimizar folha ou restaurar de maximizada | | + | Maximizar a folha ou restaurar de minimizada | | # | Fechar folha atual | | ¦ | Fechar todas as folhas | | , | Mover o foco para a barra de comandos | |. | Mover o foco para a barra de navegação | |? | Exibir atalhos de teclado |
 
 
 ## Próximas etapas
 
 Conheça melhor o Portal do Azure: http://azure.microsoft.com.
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

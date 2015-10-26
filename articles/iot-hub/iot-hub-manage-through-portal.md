@@ -1,18 +1,18 @@
 <properties
- pageTitle="Gerenciar Hubs IoT do Azure por meio do portal do Azure | Microsoft Azure"
+ pageTitle="Usar o portal do Azure para gerenciar Hubs IoT | Microsoft Azure"
  description="Uma visão geral de como criar e gerenciar os Hubs IoT do Azure por meio do Portal do Azure"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="nasing"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="azure-iot"
+ ms.service="iot-hub"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="nasing"/>
 
@@ -42,23 +42,23 @@ Você pode criar um Hub IoT do Azure usando os métodos listados na seção ante
 
 Para criar um Hub IoT, o usuário deverá dar um nome ao hub. Observe que esse nome deve ser exclusivo nos hubs. A eliminação de duplicação de hubs não é permitida no back-end e, portanto, é recomendável que esse hub tenha o nome mais exclusivo possível.
 
-### Escolher a camada de preços 
+### Escolher a camada de preços
 
 O cliente pode escolher entre três camadas: **Gratuita**, **Standard 1** e **Standard 2**. A camada gratuita só permite 10 dispositivos conectados ao Hub IoT.
 
 **S1 (Baixa Frequência)**: a edição S1 (Baixa Frequência) do Hubs IoT foi projetada para soluções IoT com um grande número de dispositivos gerando quantidades relativamente pequenas de dados por dispositivo. Cada unidade da edição S1 (Baixa Frequência) permite a conectividade de até 500 dispositivos ou de até 50.000 mensagens por dia em todos os dispositivos conectados.
 
 **S2 (Alta Frequência)**: a edição S2 (Alta Frequência) do Hub IoT foi projetada para soluções IoT nas quais os dispositivos geram grandes quantidades de dados. Cada unidade da edição S2 (Alta Frequência) permite a conectividade de até 500 dispositivos ou de até 1,5 milhão de mensagens por dia em todos os dispositivos conectados.
- 
+
 ![][4]
 
 > [AZURE.NOTE]O Hub IoT só permite um hub gratuito por assinatura.
 
-### Unidades do Hub IoT 
+### Unidades do Hub IoT
 
 Uma unidade IoT inclui 500 dispositivos e, portanto, escolher o número de unidades IoT significa que o número total de dispositivos com suporte para esse hub será o número de unidades multiplicado por 500. Por exemplo, se você quiser que o Hub IoT ofereça suporte a 1000 dispositivos, escolha 2 unidades.
 
-### Dispositivo para partições de nuvem e grupo de recursos 
+### Dispositivo para partições de nuvem e grupo de recursos
 
 Você pode alterar o número de partições para um Hub IoT. As partições padrão são definidas como 4; no entanto, você pode escolher um número diferente de partições em uma lista suspensa.
 
@@ -66,7 +66,7 @@ Para grupos de recursos, não será necessário criar explicitamente um grupo de
 
 ![][5]
 
-### Escolher assinaturas 
+### Escolher assinaturas
 
 O Hub IoT do Azure mostra automaticamente a lista de assinaturas à qual a conta do usuário está vinculada. Você pode escolher uma dessas opções para associar o Hub IoT à assinatura.
 
@@ -89,23 +89,23 @@ Você poderá alterar as configurações de um Hub IoT existente depois que ele 
 **Políticas de Acesso Compartilhado**: são as políticas que definem as permissões para que dispositivos e serviços se conectem ao Hub IoT. Você pode acessar essas políticas clicando em **Políticas de Acesso Compartilhado** em **Configurações**. Nesta folha, você pode modificar as políticas existentes ou adicionar uma nova política.
 
 ### Criar uma nova política
- 
+
 - Clique no botão **Adicionar** para abrir uma folha em que você poderá inserir o nome da nova política e as permissões que deseja associar a essa política, como mostrado na figura a seguir.
- 
+
 	Há algumas permissões que podem ser associadas a essas políticas compartilhadas. As duas primeiras políticas, **Leitura do Registro** e **Gravação do Registro**, destinam-se à concessão de direitos de acesso de leitura e gravação ao repositório de identidade do dispositivo ou ao registro de identidade. Observe que a escolha da opção de gravação escolherá automaticamente a opção de leitura.
 
  	A política de conexão do serviço concede permissão ao grupo de consumidores para serviços que estejam se conectando ao Hub IoT, enquanto a conexão do dispositivo concede permissões para o lado do dispositivo do Hub IoT.
-     
+
 - Clique em criar política para adicionar essa política recém-criada à lista existente.
 
 ![][10]
 
-## Mensagens 
+## Mensagens
 
 Clique nas políticas do **Sistema de Mensagens** para exibir uma lista de propriedades do sistema de mensagens para o Hub IoT que está sendo modificado. Existem dois tipos principais de propriedades que podem ser modificadas ou copiadas: **Nuvem para o Dispositivo** e **Dispositivo para a Nuvem**.
 
 - **Configurações de Nuvem para o Dispositivo**: tem duas subconfigurações: **TTL (Vida Útil) da Nuvem para o Dispositivo** e **Tempo de retenção** para as mensagens. Quando o Hub IoT é criado, essas duas configurações são criadas com um valor padrão de uma hora. No entanto, você pode personalizá-los usando os controles deslizantes ou simplesmente digitando os valores.
- 
+
 - **Configurações de Dispositivo para a Nuvem**: tem várias subconfigurações, algumas das quais são nomeadas/atribuídas quando o Hub IoT é criado e só poderão ser copiadas para outras subconfigurações que sejam personalizáveis. Todas elas serão listadas na próxima seção.
 
 **Partições**: esse valor é definido quando o Hub IoT é criado e pode ser alterado por meio dessa configuração.
@@ -135,7 +135,7 @@ Mudar de uma camada alta (S2) para uma camada baixa (S1) só será permitido qua
 
 Você pode navegar até o Hub IoT que deseja excluir clicando em **Procurar** e escolhendo o hub apropriado para excluir. Clicar no botão **Excluir** abaixo do nome do hub excluirá o hub.
 
-  
+
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
   [5]: ./media/iot-hub-manage-through-portal/location1.png
   [8]: ./media/iot-hub-manage-through-portal/portal-settings.png
@@ -143,4 +143,4 @@ Você pode navegar até o Hub IoT que deseja excluir clicando em **Procurar** e 
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

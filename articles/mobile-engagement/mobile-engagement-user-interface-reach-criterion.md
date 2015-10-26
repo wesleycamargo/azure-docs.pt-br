@@ -71,7 +71,7 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 - Loja: loja, indefinido
 - Fonte: fonte, indefinido
 - **Perfil do usuário**     
-- Gênero: masculino ou feminino, indefinido
+- Sexo: masculino ou feminino, indefinido
 - Data de nascimento: operador, data, indefinido
 - Aceitação: verdadeiro ou falso, indefinido
 - **Informações do aplicativo**      
@@ -174,4 +174,4 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -126,11 +126,11 @@ No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/libra
 
 Este exemplo de código demonstra o uso de transações nas quais você:
 
-\- Inicia uma transação
+- Inicia uma transação
 
-\-Inserir uma linha de dados, outra linha de dados de atualização
+-Inserir uma linha de dados, outra linha de dados de atualização
 
-\-Confirmar a transação se a inserção e a atualização tiverem sido bem-sucedidas e reverter a transação se uma delas tiver falhado
+-Confirmar a transação se a inserção e a atualização tiverem sido bem-sucedidas e reverter a transação se uma delas tiver falhado
 
 
 	function Transactions()
@@ -180,4 +180,4 @@ Para saber mais sobre o uso e a instalação de PHP, confira [Acessando os Banco
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

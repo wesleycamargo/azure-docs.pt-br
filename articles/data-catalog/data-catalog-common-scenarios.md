@@ -1,20 +1,20 @@
 <properties
    pageTitle="Cenários comuns de Catálogo de Dados do Azure"
-	description="Uma visão geral dos cenários comuns para o Catálogo de Dados do Azure, incluindo o registro e a descoberta de fontes de dados de alto valor, a habilitação de business intelligence de autoatendimento e a captura de conhecimento local existente sobre fontes de dados e processos."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Uma visão geral dos cenários comuns para o Catálogo de Dados do Azure, incluindo o registro e a descoberta de fontes de dados de alto valor, a habilitação de business intelligence de autoatendimento e a captura de conhecimento local existente sobre fontes de dados e processos."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="07/31/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
 
 
 # Cenários comuns de Catálogo de Dados do Azure
@@ -66,4 +66,4 @@ Essa transferência contínua de conhecimento do grupo faz parte do processo de 
 
 O Catálogo de Dados do Azure fornece um local para compartilhar esse conhecimento de grupo, tornando-o facilmente identificável. Especialistas em dados podem anotar diretamente os ativos de dados e também incluir links para a documentação existente. Isso não apenas captura o conhecimento em si, mas também o coloca na mesma experiência usada para descoberta de fonte de dados. Quando alguém usa o catálogo para descobrir um fonte de dados, não encontrará apenas a fonte em si, mas também o conhecimento do especialista que anteriormente existia somente na mente do próprio especialista.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

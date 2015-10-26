@@ -218,4 +218,4 @@ Para obter tutoriais que executam outras amostras e fornecem instruções sobre 
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

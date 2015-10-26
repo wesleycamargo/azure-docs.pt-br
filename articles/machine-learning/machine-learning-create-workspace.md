@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
-	ms.author="garye"/>
+	ms.date="10/13/2015" 
+	ms.author="garye;bradsev"/>
 
 
 # Criar um espaço de trabalho de Aprendizado de Máquina do Azure 
+
+Esse menu liga os tópicos que descrevem como configurar os vários ambientes de ciência de dados usados pelo Processo de Análise do Cortana (CAP).
+
+[AZURE.INCLUDE [configuração do ambiente de ciência de dados](../../includes/cap-setup-environments.md)]
 
 Para usar o Estúdio de Aprendizado de Máquina do Azure, você precisa ter um espaço de trabalho de do Aprendizado de Máquina. Esse espaço de trabalho contém as ferramentas necessárias para criar, gerenciar e publicar testes.
 
@@ -63,4 +67,4 @@ Para saber mais sobre como gerenciar seu espaço de trabalho, consulte [Gerencia
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -960,4 +960,4 @@ Nesta seção você irá criar e configurar um projeto de aplicativo de console 
 
 Agora você pode usar um gerenciador de tráfego para rotear solicitações entre dois datacenters e, portanto, realizar o failover no caso de qualquer interrupção.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

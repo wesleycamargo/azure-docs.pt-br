@@ -30,7 +30,7 @@ Você precisará fazer o seguinte para usar o código deste tópico:
 4. Se estiver usando o Eclipse para criar esse aplicativo Java, inclua o JAR da Twilio em seu arquivo de implantação de aplicativo (WAR) usando o recurso do assembly de implantação do Eclipse. Se não estiver usando o Eclipse para criar esse aplicativo Java, verifique se o JAR da Twilio está incluído na mesma função do Azure que seu aplicativo Java e adicionado ao caminho de classe de seu aplicativo.
 5. Verifique se seu keystore de cacerts contém o certificado de autoridade da Equifax Secure Certificate com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (o número de série é 35:DE:F4:CF e a impressão digital SHA1 é D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Esse é o certificado da CA (autoridade de certificação) do serviço [https://api.twilio.com][twilio_api_service], que é chamado quando você usa APIs da Twilio. Para obter informações sobre como adicionar esse certificado da CA a seu repositório de cacerts de JDK, consulte [Adicionando um certificado ao repositório de certificados da CA do Java][add_ca_cert].
 
-Além disso, familiaridade com as informações em [Criando um aplicativo Hello World usando o plug-in do Azure para Eclipse com o Java (da Microsoft Open Technologies)][azure_java_eclipse_hello_world] ou com outras técnicas de hospedagem de aplicativos Java no Azure, se você não estiver usando o Eclipse, é altamente recomendável.
+Além disso, é altamente recomendável você se familiarizar com as informações de [Criando um aplicativo Hello World usando o Kit de Ferramenta do Azure para Eclipse][azure_java_eclipse_hello_world] ou com outras técnicas de hospedagem de aplicativos Java no Azure se você não estiver usando o Eclipse.
 
 ## Criar um formulário da web para fazer uma chamada
 
@@ -163,7 +163,7 @@ Além de fazer a chamada, o makecall.jsp exibe o ponto de extremidade da Twilio,
 ![Resposta de chamada do Azure usando a Twilio e o Java][twilio_java_response]
 
 ## Executar o aplicativo
-As seguintes são as etapas de alto nível para executar seu aplicativo. Os detalhes dessas etapas podem ser localizados em [Criando um aplicativo Hello World usando o plug-in do Azure para Eclipse com o Java (da Microsoft Open Technologies)][azure_java_eclipse_hello_world].
+As seguintes são as etapas de alto nível para executar seu aplicativo. Os detalhes dessas etapas podem ser localizados em [Criando um aplicativo Hello World usando o Kit de Ferramentas do Azure para Eclipse][azure_java_eclipse_hello_world].
 
 1. Exporte o WAR TwilioCloud para a pasta **approot** do Azure. 
 2. Modifique o **startup.cmd** para descompactar seu WAR TwilioCloud.
@@ -209,4 +209,4 @@ Para obter informações adicionais sobre a Twilio, consulte [https://www.twilio
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

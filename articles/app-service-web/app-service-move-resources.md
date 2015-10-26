@@ -26,4 +26,4 @@ Atualmente, os aplicativos Web do Azure dão suporte para os seguintes cenários
 	* Observação: o grupo de recursos de destino não pode conter nenhum recurso Microsoft.Web nesse cenário
 * Mover aplicativos Web individuais para um grupo de recursos diferente, enquanto ainda os hospeda em seu plano de serviço de aplicativo atual (o plano de serviço de aplicativo permanece no grupo de recursos antigo)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

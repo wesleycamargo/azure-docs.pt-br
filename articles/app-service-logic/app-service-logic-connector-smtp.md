@@ -59,33 +59,25 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 ## Usando o Conector de SMTP em seu aplicativo lógico
 Após a criação do conector, você poderá usar o conector de SMTP como uma ação para seu aplicativo lógico. Para fazer isso:
 
-1.	Crie um novo aplicativo lógico:
-
-	![][2]
-2.	Abra **Gatilhos e ações** para abrir o designer de aplicativos lógicos e configurar seu fluxo de trabalho:
-
-	![][3]
-3.	O conector de SMTP é listado na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito. Selecione-o:
-
-	![][4]
+1.	Crie um novo aplicativo lógico: ![][2]
+2.	Abra **Gatilhos e Ações** para abrir o designer de Aplicativos Lógicos e configurar seu fluxo de trabalho: ![][3]
+3.	O conector de SMTP é listado na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito. Selecione-o: ![][4]
 4.	Selecione o conector de SMTP para adicioná-lo automaticamente ao designer de fluxo de trabalho.
 
-Agora você pode configurar o conector de SMTP para usar em seu fluxo de trabalho. Selecione a ação **Enviar email** e configure as propriedades de entrada:
+Agora você pode configurar o conector de SMTP para usar em seu fluxo de trabalho. Selecione a ação **Enviar Email** e configure as propriedades de entrada:
 
-	Propriedade | Descrição
+	Property | Description
 	--- | ---
-	Para | Insira o endereço de email do(s) destinatário(s). Separe vários endereços de email com um ponto e vírgula (;). Por exemplo, insira: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Insira o endereço de email do(s) destinatário(s) de cópia carbono.  Separe vários endereços de email com um ponto e vírgula (;). Por exemplo, insira: *recipient1@domain.com;recipient2@domain.com*.
-	Assunto | Insira o assunto do email.
-	Corpo | Insira o corpo do email.
-	Is HTML | Quando essa propriedade está definida como true, o conteúdo do corpo é enviado como HTML.
-	Bcc | Insira o endereço de email do(s) destinatário(s) de cópia oculta. Separe vários endereços de email com um ponto e vírgula (;). Por exemplo, insira: *recipient1@domain.com;recipient2@domain.com*.
-	Prioridade | Insira a Prioridade do email. As opções são Normal, Baixa e Alta.
-	Anexos | Os anexos a serem enviados com o email. A propriedade contém os seguintes campos: <ul><li>Conteúdo (String)</li><li>Codificação de transferência de conteúdo (Enum) (“none”|”base64”)</li><li> Tipo de Conteúdo (String)</li><li>ID de Conteúdo (String)</li><li>Nome do Arquivo (String)</li></ul>
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-
-![][5]
-![][6]
+![][5] ![][6]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
@@ -104,4 +96,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

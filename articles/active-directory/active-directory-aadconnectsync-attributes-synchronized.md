@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -71,7 +71,7 @@ Este tópico lista os atributos que são sincronizados pela sincronização do A
 | facsimiletelephonenumber| X| X| | |
 | givenName| X| X| | |
 | homePhone| X| X| | |
-| informações| X| X| X| |
+| informações| X| X| X| Atualmente, este atributo não é consumido para grupos.|
 | Initials| X| X| | |
 | l| X| X| | |
 | legacyExchangeDN| X| X| X| |
@@ -97,11 +97,11 @@ Este tópico lista os atributos que são sincronizados pela sincronização do A
 | msExchELCExpirySuspensionStart| X| | | |
 | msExchELCMailboxFlags| X| | | |
 | msExchEnableModeration| X| | X| |
-| msExchExtensionCustomAttribute1| X| X| X| |
-| msExchExtensionCustomAttribute2| X| X| X| |
-| msExchExtensionCustomAttribute3| X| X| X| |
-| msExchExtensionCustomAttribute4| X| X| X| |
-| msExchExtensionCustomAttribute5| X| X| X| |
+| msExchExtensionCustomAttribute1| X| X| X| Atualmente, este atributo não é consumido pelo Exchange Online. |
+| msExchExtensionCustomAttribute2| X| X| X| Atualmente, este atributo não é consumido pelo Exchange Online. |
+| msExchExtensionCustomAttribute3| X| X| X| Atualmente, este atributo não é consumido pelo Exchange Online. |
+| msExchExtensionCustomAttribute4| X| X| X| Atualmente, este atributo não é consumido pelo Exchange Online. |
+| msExchExtensionCustomAttribute5| X| X| X| Atualmente, este atributo não é consumido pelo Exchange Online. |
 | msExchHideFromAddressLists| X| X| X| |
 | msExchImmutableID| X| | | |
 | msExchLitigationHoldDate| X| X| X| |
@@ -409,11 +409,9 @@ Este é um conjunto de atributos que podem ser usados se o diretório do AD do A
 - Ao usar uma ID Alternativa, o atributo local userPrincipalName será sincronizado com o atributo do AD do Azure onPremisesUserPrincipalName. O atributo de ID Alternativa, por exemplo, email, será sincronizado com o atributo do AD do Azure userPrincipalName.
 
 
-## Recursos adicionais
+## Próximas etapas
+Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-* [Sincronização do Azure AD Connect: personalizando as opções de sincronização](active-directory-aadconnectsync-whatis.md)
-* [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!--Image references-->
-
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -56,4 +56,4 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

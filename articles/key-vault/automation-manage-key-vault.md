@@ -45,4 +45,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 * Consulte o [Tutorial de introdução](../automation-create-runbook-from-samples.md) da Automação do Azure.
 * Consulte os [scripts do PowerShell do Cofre da Chave do Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

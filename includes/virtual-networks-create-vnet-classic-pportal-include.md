@@ -35,4 +35,4 @@ Para criar uma rede virtual clássica com base no cenário acima, siga as etapas
 
 	![Criar rede virtual no portal de visualização](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

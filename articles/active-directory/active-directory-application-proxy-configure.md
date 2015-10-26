@@ -31,4 +31,4 @@ Para começar a usar o proxy de aplicativo, siga estas etapas: 1. [Habilite os s
 
 [Blog do Microsoft Azure](http://azure.microsoft.com/blog/) [Habilitar serviços do proxy do aplicativo](active-directory-application-proxy-enable.md) [Publicar aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md) [Solucionar problemas de proxy de aplicativo](active-directory-application-proxy-troubleshoot.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

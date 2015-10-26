@@ -268,7 +268,7 @@ Os clusters HDInsight são fornecidos com uma tabela Hive de exemplo chamada *hi
 
 **Para executar um trabalho do Hive usando o PowerShell do Azure**
 
-1.	Abra o **PowerShell do Azure**. Para saber mais sobre como abrir a janela do console do PowerShell do Azure, confira [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+1.	Abra o **PowerShell do Azure**. Para saber mais sobre como abrir a janela do console do PowerShell do Azure, confira [Instalar e configurar o PowerShell do Azure￼][powershell-install-configure].
 
 2. Defina as duas primeiras variáveis nos comandos a seguir e, em seguida, execute os comandos:
 
@@ -585,4 +585,4 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

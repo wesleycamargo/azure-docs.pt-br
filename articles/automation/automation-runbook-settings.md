@@ -60,4 +60,4 @@ Os comandos de exemplo a seguir mostram como definir as propriedades de um runbo
 - [Saída de Runbook e Mensagens](../automation-runbook-output-and-messages) 
 - [Criando ou Importando um Runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

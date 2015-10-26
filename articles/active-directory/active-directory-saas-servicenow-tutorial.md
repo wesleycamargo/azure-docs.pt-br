@@ -3,8 +3,7 @@
 #Tutorial: Integração do Active Directory do Azure com o ServiceNow
 >[AZURE.TIP]Para comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=521880).
   
-O objetivo deste tutorial é mostrar a integração do Azure ao ServiceNow.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao ServiceNow. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário no ServiceNow
@@ -43,11 +42,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-servicenow-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
-6.  Na caixa **pesquisar**, digite **ServiceNow**.
+6.  Na caixa **pesquisar**, digite ** ServiceNow**.
 
     ![Galeria de aplicativos](./media/active-directory-saas-servicenow-tutorial/IC701016.png "Galeria de aplicativos")
 
-7.  No painel de resultados, selecione **ServiceNow** e clique em **Concluir** para adicionar o aplicativo.
+7.  No painel de resultados, selecione ** ServiceNow** e clique em **Concluir** para adicionar o aplicativo.
 
     ![ServiceNow](./media/active-directory-saas-servicenow-tutorial/IC701017.png "ServiceNow")
 ##Configurando o logon único
@@ -79,48 +78,48 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
 6. Na página **Propriedades do Logon único do SAML 2.0**, execute as seguintes etapas:
 
-     6.1. Para **Ativar autenticação externa**, selecione **Sim**.
+     6\.1. Para **Ativar autenticação externa**, selecione **Sim**.
 
 
-     6.2. Na caixa de texto **A URL do Provedor de Identidade que emitirá o token de segurança do SAML2 com informações do usuário**, digite **https://sts.windows.net/<GUID do locatário>/**.
+     6\.2. Na caixa de texto **A URL do Provedor de Identidade que emitirá o token de segurança do SAML2 com informações do usuário**, digite **https://sts.windows.net/<GUID do locatário>/**.
 
 
-     6.3. Na caixa de texto **A base URL para o serviço AuthnRequest do Provedor de Identidade**, digite **https://login.windows.net/<GUID do locatário>/saml2**.
+     6\.3. Na caixa de texto **A base URL para o serviço AuthnRequest do Provedor de Identidade**, digite **https://login.windows.net/<GUID do locatário>/saml2**.
 
 
-     6.4. Na caixa de texto **A base URL para o serviço SingleLogoutRequest do Provedor de Identidade**, digite **https://login.windows.net/<GUID do locatário>/saml2**.
+     6\.4. Na caixa de texto **A base URL para o serviço SingleLogoutRequest do Provedor de Identidade**, digite **https://login.windows.net/<GUID do locatário>/saml2**.
 
 
-     6.5. Na caixa de texto **A ligação de protocolo para serviço SingleLogoutRequest do provedor de identidade**, digite **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
+     6\.5. Na caixa de texto **A ligação de protocolo para serviço SingleLogoutRequest do provedor de identidade**, digite **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
-     6.6. Para **Entrar em LogoutRequest**, selecione **Sim**.
+     6\.6. Para **Entrar em LogoutRequest**, selecione **Sim**.
 
-     6.7. Na caixa de texto **Quando o logon único do SAML 2.0 falhar porque a sessão não foi autenticada ou por ser o primeiro logon, redirecione para essa URL**, digite **https://login.windows.net/<GUID do locatário>/saml2**.
+     6\.7. Na caixa de texto **Quando o logon único do SAML 2.0 falhar porque a sessão não foi autenticada ou por ser o primeiro logon, redirecione para essa URL**, digite **https://login.windows.net/<GUID do locatário>/saml2**.
 
   
 
-7. Na seção **Propriedades do Provedor de Serviço (Service-Now)**, execute as seguintes etapas:
+7. Na seção **Propriedades do Provedor de Serviço (Service-Now) **, execute as seguintes etapas:
 
-     7.1. Na caixa de texto **A URL para a home page de instância do Service-now**, digite a URL para a home page de instância do ServiceNow. A URL da página inicial da instância do ServiceNow é uma concatenação do seu **URL de locatário do ServiceNow** e **/navpage.do**: **https://<InstanceName>.service-now.com/navpage.do** <br><br>   ![Home page de instância do Service-now](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Home page de instância do Service-now")
+     7\.1. Na caixa de texto **A URL para a home page de instância do Service-now**, digite a URL para a home page de instância do ServiceNow. A URL da página inicial da instância do ServiceNow é uma concatenação do seu **URL de locatário do ServiceNow** e **/navpage.do**: **https://<InstanceName>.service-now.com/navpage.do** <br><br> ![Home page de instância do Service-now](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Home page de instância do Service-now")
 
 
-     7.2. Na caixa de texto **A identificação da entidade ou o emissor**, digite a URL do seu locatário.
+     7\.2. Na caixa de texto **A identificação da entidade ou o emissor**, digite a URL do seu locatário.
 
-     7.3. Na caixa de texto **URI do público que aceita o token SAML2**, digite a URL do seu locatário.
+     7\.3. Na caixa de texto **URI do público que aceita o token SAML2**, digite a URL do seu locatário.
 
-     7.4. Na caixa de texto **O campo da tabela de usuário para corresponder ao elemento NameID do assunto na SAMLResponse**, digite **email**.
+     7\.4. Na caixa de texto **O campo da tabela de usuário para corresponder ao elemento NameID do assunto na SAMLResponse**, digite **email**.
 
-     7.5. Na caixa de texto **A política NameID para usar para retornar ao Assunto do NameID na SAMLResponse**, digite **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
+     7\.5. Na caixa de texto **A política NameID para usar para retornar ao Assunto do NameID na SAMLResponse**, digite **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
 
-     7.6 Deixe desmarcada **Criar uma solicitação de AuthnContextClass na instrução AuthnRequest**.
+     7\.6 Deixe desmarcada **Criar uma solicitação de AuthnContextClass na instrução AuthnRequest**.
 
-     7.7 Na caixa de texto **O método AuthnContextClassRef que será incluído em nosso SAML 2.0 AuthnRequest para o Provedor de Identidade**, digite **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+     7\.7 Na caixa de texto **O método AuthnContextClassRef que será incluído em nosso SAML 2.0 AuthnRequest para o Provedor de Identidade**, digite ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
 
 
 
 8. Na seção **Configurações Avançadas**, execute as seguintes etapas:
 
-     8.1. Na caixa de texto **O número de segundos antes da restrição "notBefore", ou após a restrição "notOnOrAfter" para considerar ainda válido**, digite **60**.
+     8\.1. Na caixa de texto **O número de segundos antes da restrição "notBefore", ou após a restrição "notOnOrAfter" para considerar ainda válido**, digite **60**.
 
 
 9. Para salvar a configuração, clique em **Salvar**.
@@ -131,21 +130,21 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
 11. Para carregar seu certificado, na página de certificados, execute as seguintes etapas:
 
-     11.1. Clique em **Novo**.
+     11\.1. Clique em **Novo**.
 
-     11.2. Na caixa de texto **Nome**, digite **SAML 2.0**.
+     11\.2. Na caixa de texto **Nome**, digite **SAML 2.0**.
 
-     11.3. Selecione **Ativo**.
+     11\.3. Selecione **Ativo**.
 
-     11.4. Para **Formato**, selecione **PEM**.
+     11\.4. Para **Formato**, selecione **PEM**.
 
-     11.5. Crie um arquivo codificado em base-64 a partir do certificado baixado.  > [AZURE.NOTE]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+     11\.5. Crie um arquivo codificado em base-64 a partir do certificado baixado.[AZURE.NOTE]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-     11.6. Em **Bloco de notas**, abra o arquivo codificado em Base 64 e, em seguida, copie o conteúdo desse arquivo para a área de transferência.
+     11\.6. Em **Bloco de notas**, abra o arquivo codificado em Base 64 e, em seguida, copie o conteúdo desse arquivo para a área de transferência.
 
-     11.7. Na caixa de texto **Certificado PEM**, cole o conteúdo da área de transferência.
+     11\.7. Na caixa de texto **Certificado PEM**, cole o conteúdo da área de transferência.
 
-     11.8. Clique em **Enviar**.
+     11\.8. Clique em **Enviar**.
 
 
 
@@ -166,19 +165,19 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 2. Na página **Inserir suas credenciais do ServiceNow para habilitar o provisionamento automático de usuários**, forneça as seguintes configurações: Configurar Provisionamento do Usuário
 
-     2.1. Na caixa de texto **Nome de Instância do ServiceNow**, digite o nome da instância do ServiceNow.
+     2\.1. Na caixa de texto **Nome de Instância do ServiceNow**, digite o nome da instância do ServiceNow.
 
-     2.2. Na caixa de texto **Nome de Usuário Administrador do ServiceNow**, digite o nome da conta de administrador do ServiceNow.
+     2\.2. Na caixa de texto **Nome de Usuário Administrador do ServiceNow**, digite o nome da conta de administrador do ServiceNow.
 
-     2.3. Na caixa de texto **Senha de Administrador do ServiceNow**, digite a senha para essa conta.
+     2\.3. Na caixa de texto **Senha de Administrador do ServiceNow**, digite a senha para essa conta.
 
-     2.4. Clique em **validar** para verificar a sua configuração.
+     2\.4. Clique em **validar** para verificar a sua configuração.
 
-     2.5. Clique no botão **Avançar** para abrir a página **Próximas etapas**.
+     2\.5. Clique no botão **Avançar** para abrir a página **Próximas etapas**.
 
-     2.6. Se você deseja provisionar esse aplicativo a todos os usuários, selecione “**Provisionar automaticamente todas as contas de usuário no diretório para este aplicativo**”. <br><br> ![Próximas etapas](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Próximas etapas")
+     2\.6. Se você deseja provisionar esse aplicativo a todos os usuários, selecione “** Provisionar automaticamente todas as contas de usuário no diretório para este aplicativo**”. <br><br> ![Próximas etapas](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Próximas etapas")
 
-     2.7. Na página **Próximas etapas**, clique em **Concluir** para salvar sua configuração.
+     2\.7. Na página **Próximas etapas**, clique em **Concluir** para salvar sua configuração.
 
 
 
@@ -198,7 +197,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 1.  No portal do AD do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **ServiceNow**, clique **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **ServiceNow **, clique **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-servicenow-tutorial/IC769499.png "Atribuir usuários")
 
@@ -214,4 +213,4 @@ Se você quiser testar suas configurações de logon único, abra o Painel de Ac
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

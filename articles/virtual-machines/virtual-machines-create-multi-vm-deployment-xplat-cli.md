@@ -19,7 +19,8 @@
 
 # Criar uma implantação de várias VMs usando a CLI do Azure
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+ 
 
 O script a seguir mostra como configurar uma implantação de serviço de várias nuvens e VMs em uma VNET usando a Interface de Linha de Comando (CLI do Azure).
 
@@ -70,4 +71,4 @@ Embora você possa encontrar mais informações usando a opção -help em qualqu
 * [Como fazer logon em uma máquina virtual que executa o Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

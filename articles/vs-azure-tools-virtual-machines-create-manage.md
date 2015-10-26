@@ -177,4 +177,4 @@ Como você configura sua máquina virtual e instala o software, é uma boa ideia
 
 Para saber mais sobre a criação de máquinas virtuais, consulte [criar uma máquina Virtual executando Linux](virtual-machines-linux-tutorial.md) e [criar uma máquina virtual executando o Windows no portal de visualização do Azure](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

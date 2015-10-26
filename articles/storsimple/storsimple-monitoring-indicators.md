@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Indicadores de monitoramento do StorSimple | Microsoft Azure"
-	description="Descreve os LEDs e os alarmes usados para monitorar o status do dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+    pageTitle="Indicadores de monitoramento do StorSimple | Microsoft Azure" 
+    description="Descreve os LEDs e os alarmes usados para monitorar o status do dispositivo StorSimple."
+    services="storsimple"
+    documentationCenter="NA"
+    authors="SharS"
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="TBD"
+    ms.date="08/31/2015"
+    ms.author="v-sharos" />
 
 # Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo   
 
@@ -256,4 +256,4 @@ Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimpl
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

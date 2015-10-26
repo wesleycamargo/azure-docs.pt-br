@@ -11,4 +11,4 @@ Os balanceadores de carga contêm os seguintes recursos filho:
 - **Sondas** – sondas permitem que você controle a integridade das instâncias de VMs. Se um teste de integridade falhar, a instância VM será retirada automaticamente do rodízio.
 - **Regras de NAT de entrada** – regras de NAT definindo o tráfego de entrada fluindo pelo IP front-end e distribuído para o IP de back-end.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

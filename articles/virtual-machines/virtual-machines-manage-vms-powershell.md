@@ -19,7 +19,8 @@
 
 # Gerenciar suas máquinas virtuais usando o Azure PowerShell
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Muitas tarefas realizadas diariamente para gerenciar suas VMs podem ser automatizadas usando cmdlets do Azure PowerShell. Este artigo fornece comandos de exemplo para tarefas mais simples e links para artigos que mostram os comandos para tarefas mais complexas.
 
@@ -96,4 +97,4 @@ Para criar uma nova máquina virtual baseada no Windows no Azure, use as instru�
 - Como membro de um conjunto de balanceamento de carga existente.
 - Com um endereço IP estático.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

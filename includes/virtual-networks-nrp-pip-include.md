@@ -1,5 +1,5 @@
 ## Endereço IP público
-Um recurso de endereço IP público pode fornecer tanto um endereço IP público dinâmico quanto um reservado. Embora você possa criar um endereço IP público como um objeto autônomo, você precisa associá-la a outro objeto para usar o endereço em si. Você pode associar um endereço IP público a um balanceador de carga, Application Gateway ou uma NIC para fornecer acesso à Internet a esses recursos.
+Um recurso de endereço IP público fornece um endereço IP para Internet dinâmico ou reservado. Embora você possa criar um endereço IP público como um objeto autônomo, você precisa associá-la a outro objeto para usar o endereço em si. Você pode associar um endereço IP público a um balanceador de carga, Application Gateway ou uma NIC para fornecer acesso à Internet a esses recursos.
 
 |Propriedade|Descrição|Valores de exemplo|
 |---|---|---|
@@ -40,4 +40,4 @@ Endereço IP de público exemplo, no formato JSON:
 - Saiba mais sobre [endereços IP públicos em nível de instância](virtual-networks-instance-level-public-ip.md).
 - Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) para endereços IP públicos.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

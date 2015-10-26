@@ -103,7 +103,11 @@ Você define parâmetros com a seguinte estrutura:
        "<parameterName>" : {
          "type" : "<type-of-parameter-value>",
          "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+         "allowedValues": [ "<optional-array-of-allowed-values>" ],
+         "minValue": <optional-minimum-value-for-int-parameters>,
+         "maxValue": <optional-maximum-value-for-int-parameters>,
+         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
        }
     }
 
@@ -113,6 +117,10 @@ Você define parâmetros com a seguinte estrutura:
 | type | Sim | Tipo do valor do parâmetro. Consulte a lista de tipos permitidos abaixo.
 | defaultValue | Não | Valor padrão do parâmetro, se nenhum valor for fornecido para o parâmetro.
 | allowedValues | Não | Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido.
+| minValue | Não | O valor mínimo para parâmetros de tipo int, esse valor é inclusivo.
+| maxValue | Não | O valor máximo para parâmetros de tipo int, esse valor é inclusivo.
+| minLength | Não | O comprimento mínimo para cadeia, secureString e parâmetros do tipo de matriz, esse valor é inclusivo.
+| maxLength | Não | O comprimento máximo para cadeia, secureString e parâmetros do tipo de matriz, esse valor é inclusivo.
 
 Os valores e tipos permitidos são:
 
@@ -130,10 +138,13 @@ O seguinte exemplo mostra como definir parâmetros:
 
     "parameters": {
        "siteName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
        },
        "siteLocation": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2
        },
        "hostingPlanName": {
           "type": "string"
@@ -148,6 +159,14 @@ O seguinte exemplo mostra como definir parâmetros:
             "Premium"
           ],
           "defaultValue": "Free"
+       },
+       "instancesCount": {
+          "type": "int",
+          "maxValue": 10
+       },
+       "numberOfWorkers": {
+          "type": "int",
+          "minValue": 1
        }
     }
 
@@ -316,7 +335,7 @@ O exemplo a seguir mostra um valor que é retornado na seção de saídas.
 ## Cenários mais avançados.
 Este tópico fornece uma introdução do modelo. No entanto, o cenário pode exigir tarefas mais avançadas.
 
-Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para obter mais informações, consulte [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
+Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para saber mais, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
 
 Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 
@@ -407,7 +426,7 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
 ## Próximas etapas
 - Para obter detalhes sobre as funções que você pode usar de dentro de um modelo, consulte [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
 - Para saber como implantar o modelo que você criou, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
-- Para obter um exemplo detalhado de implantação de um aplicativo, consulte [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para ver um exemplo detalhado da implantação de um aplicativo, confira [Provisionar e implantar microsserviços de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

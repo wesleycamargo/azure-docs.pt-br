@@ -9,4 +9,4 @@ Os limites e tamanhos do Cache Redis do Azure são diferentes para cada camada d
 
 Para obter informações sobre os limites de configuração do Cache Redis do Azure, veja [Configuração padrão do servidor do Redis](redis-cache/cache-configure.md#default-redis-server-configuration).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

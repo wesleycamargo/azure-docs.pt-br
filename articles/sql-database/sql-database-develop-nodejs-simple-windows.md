@@ -224,4 +224,4 @@ Para que este exemplo de código funcione, você deve primeiro ter ou criar um p
 
 Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

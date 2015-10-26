@@ -119,4 +119,4 @@ Para habilitar o encaminhamento de IP na VM FW1, siga as etapas abaixo.
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

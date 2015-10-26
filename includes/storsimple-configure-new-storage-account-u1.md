@@ -35,7 +35,7 @@
 	  		
  - Se você tiver selecionado **Openstack** como seu provedor de serviços de nuvem, forneça um **Nome de Host**, uma **Chave de Acesso** e uma **Chave Secreta**.
 
-        > [AZURE.NOTE] Para todos os provedores de serviço de nuvem, exceto o Azure, um nome amigável é permitido. Você pode usar nomes amigáveis e criar mais de uma conta de armazenamento com o mesmo conjunto de credenciais.
+        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
@@ -47,4 +47,4 @@
 
 7. A conta de armazenamento recém-criada será exibida na página **Configurar** em **Contas de armazenamento**. Clique em **Salvar** para salvar a nova conta de armazenamento. Clique em **OK** quando solicitado para confirmar.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

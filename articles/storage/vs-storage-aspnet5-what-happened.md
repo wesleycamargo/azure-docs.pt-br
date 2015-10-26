@@ -47,4 +47,4 @@ No arquivo config.json do seu projeto, foi criado um elemento com a cadeia de co
 
 Para obter mais informações, veja [ASP.NET 5](http://www.asp.net/vnext).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

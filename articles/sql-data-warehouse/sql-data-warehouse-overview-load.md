@@ -189,4 +189,4 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 [Documentação do Armazenamento do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-create-storage-account/
 [Documentação da Rota Expressa]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

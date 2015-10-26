@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para clonar um volume
@@ -21,7 +21,7 @@
 
 A página **Catálogo de Backup** do serviço StorSimple Manager exibe todos os conjuntos de backup criados após a realização de backups manuais ou automatizados. Você pode usar esta página para listar todos os backups para uma política de backup ou volume, selecionar ou excluir os backups, ou usar um backup para restaurar ou clonar um volume.
 
-  ![Página Catálogo de backup](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
+![Página Catálogo de backup](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 Este tutorial descreve como você pode usar um conjunto de backups para clonar um volume individual. Ele também explica a diferença entre os clones *transitório* e *permanente*.
 
@@ -41,17 +41,16 @@ Você pode criar um clone no mesmo dispositivo, em outro dispositivo ou mesmo em
 
 4. No assistente Clonar Volume, em **Especificar nome e local**:
 
-  1. Identificar um dispositivo de destino. Esse é o local onde o clone será criado. Você pode escolher o mesmo dispositivo ou especificar outro dispositivo. Se você escolher um volume associado com outros provedores de serviços de nuvem (não do Azure), a lista suspensa do dispositivo de destino mostrará apenas os dispositivos físicos. Não é possível clonar um volume associado a outros provedores de serviços de nuvem em um dispositivo virtual.
+  1. Identificar um dispositivo de destino. Esse é o local onde o clone será criado. Você pode escolher o mesmo dispositivo ou especificar outro dispositivo. Se você escolher um volume associado a outros provedores de serviço de nuvem (não do Azure), a lista suspensa do dispositivo de destino mostrará apenas os dispositivos físicos. Não é possível clonar um volume associado a outros provedores de serviço de nuvem em um dispositivo virtual.
 
-        >  [AZURE.NOTE] Verifique se a capacidade necessária para o clone é menor que a capacidade disponível no dispositivo de destino.
-
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Especifique um nome de volume exclusivo para o clone. O nome deve conter entre 3 e 127 caracteres.
-  3. Clique no ícone de seta ![ícone-de-seta](./media/storsimple-clone-volume/HCS_ArrowIcon.png)para prosseguir para a próxima página.
+  3. Clique no ícone de seta ![ícone-de-seta](./media/storsimple-clone-volume/HCS_ArrowIcon.png) para continuar para a próxima página.
 
 5. Em **Especificar os hosts que podem usar este volume**:
 
   1. Especificar um registro de controle de acesso (ACR) para o clone. Você pode adicionar um novo ACR ou escolher na lista existente.
-  2. Clique no ícone de verificação ![ícone-de-verificação](./media/storsimple-clone-volume/HCS_CheckIcon.png)para concluir a operação.
+  2. Clique no ícone de verificação ![check-icon](./media/storsimple-clone-volume/HCS_CheckIcon.png)para concluir a operação.
 
 6. Um trabalho de clone será iniciado e você será notificado quando o clone for criado com êxito. Clique em **Exibir Trabalho** para monitorar o trabalho de clone na página **Trabalhos**.
 
@@ -89,10 +88,10 @@ Para assistir a um vídeo que demonstra como você pode usar os recursos de clon
 Você precisa verificar um bug de teste no ambiente de produção. Você cria um clone do volume no ambiente de produção. Para melhorar o desempenho, você precisa fazer um instantâneo de nuvem do clone. O volume clonado agora é independente, o que resulta em um desempenho mais rápido. Nesse cenário, é usado um clone permanente.
 
 ## Próximas etapas
-Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-restore-from-backup-set.md).
+- Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

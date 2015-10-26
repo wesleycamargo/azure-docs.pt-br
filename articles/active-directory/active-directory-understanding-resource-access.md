@@ -64,4 +64,4 @@ Operações como mover recursos entre as assinaturas podem ser mais difíceis co
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,8 @@
 
 Este artigo mostra como começar a usar Docker e o [Redigir](http://github.com/docker/compose) para definir e executar um aplicativo complexo em uma máquina virtual Linux no Azure. Com o Redigir (o sucessor do *Fig*), use um arquivo de texto simples para definir um aplicativo que consiste em vários contêineres do Docker. Em seguida, você acelera seu aplicativo com um único comando que faz tudo que é necessário para executá-lo na VM. Por exemplo, este artigo mostra como configurar rapidamente um blog WordPress com um banco de dados SQL MariaDB de back-end, mas você também pode usar o Redigir para configurar aplicativos mais complexos.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo se aplica à criação de máquinas virtuais usando o Gerenciador de Recursos e os modelos de implantação clássicos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Se você não estiver familiarizado com o Docker e contêineres, consulte o [Quadro de comunicações de nível elevado do Docker](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 
@@ -48,8 +49,7 @@ Para testar sua instalação do Redigir, execute o comando a seguir.
 $ docker-compose --version
 ```
 
-Você verá uma saída semelhante a
-```
+Você verá uma saída semelhante a ```
 docker-compose 1.3.2
 ```
 
@@ -60,18 +60,9 @@ Em seguida, você criará um arquivo `docker-compose.yml`, que é apenas um arqu
 
 Crie um diretório de trabalho na sua VM e use seu editor de texto favorito para criar `docker-compose.yml`. Para testar um exemplo simples, copie o texto a seguir no arquivo. Essa configuração usa imagens do [Registro do DockerHub](https://registry.hub.docker.com/_/wordpress/) para instalar o WordPress (o sistema de blog e gerenciamento de conteúdo de software livre) e um banco de dados SQL MariaDB de back-end vinculado.
 
- ```
- wordpress:
-  image: wordpress
-  links:
-    - db:mysql
-  ports:
-    - 8080:80
+ ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
 
-db:
-  image: mariadb
-  environment:
-    MYSQL_ROOT_PASSWORD: <your password>
+db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
 
 ```
 
@@ -87,9 +78,7 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress_db_1...
-Creating wordpress_wordpress_1...
-```
+Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
 
 >[AZURE.NOTE]Não se esqueça de usar a opção **-d** na inicialização para que os contêineres sejam executados continuamente em segundo plano.
 
@@ -127,4 +116,4 @@ Agora você deve ver a tela inicial do WordPress, na qual você pode concluir a 
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

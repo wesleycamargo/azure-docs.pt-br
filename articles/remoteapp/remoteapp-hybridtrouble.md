@@ -81,4 +81,4 @@ Verifique se os detalhes do domínio fornecidos são válidos e se o controlador
 
 O nome de domínio criado ou adicionado deve ser um nome de domínio interno (não o seu nome de domínio do Azure AD) e deve estar no formato DNS resolvível (contoso. local). Por exemplo, você tem um nome interno do Active Directory (Contoso) e um UPN do Active Directory (contoso.com): deve, então, usar o nome interno ao criar sua coleção.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

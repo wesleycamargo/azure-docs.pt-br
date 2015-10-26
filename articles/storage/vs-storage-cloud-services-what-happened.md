@@ -43,4 +43,4 @@ Elementos foram criados com a cadeia de conexão e chave da conta de armazenamen
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->
