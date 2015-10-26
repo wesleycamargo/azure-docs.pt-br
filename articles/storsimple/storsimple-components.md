@@ -226,4 +226,4 @@ Aprenda sobre a [segurança do StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -64,11 +64,11 @@ Picos de dados podem ser processados por Hubs de eventos do Azure que oferecem i
 
 Para obter uma solução de IoT de exemplo usando o Banco de Dados de Documentos, EventHubs e Storm, consulte os [repositórios de exemplo do hdinsight-storm no GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-Para obter mais informações sobre as ofertas do Azure para IoT, consulte [Criar a Internet das Coisas](http://www.microsoft.com/pt-br/server-cloud/internet-of-things.aspx).
+Para obter mais informações sobre as ofertas do Azure para IoT, consulte [Criar a Internet das Coisas](http://www.microsoft.com/pt-BR/server-cloud/internet-of-things.aspx).
 
 ## Próximas etapas
  
-Para começar a usar o Banco de Dados de Documentos, você pode criar uma [conta](http://azure.microsoft.com/pricing/free-trial/) e seguir nosso [guia de aprendizado](documentdb-learning-map.md) para conhecer o Banco de Dados de Documentos e localizar as informações necessárias.
+Para começar a usar o Banco de Dados de Documentos, você pode criar uma [conta](http://azure.microsoft.com/pricing/free-trial/) e seguir nosso [roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para conhecer o Banco de Dados de Documentos e localizar as informações necessárias.
 
 Ou, se você quiser ler mais sobre os clientes que usam o Banco de Dados de Documentos, as histórias dos clientes a seguir estão disponíveis:
 
@@ -79,4 +79,4 @@ Ou, se você quiser ler mais sobre os clientes que usam o Banco de Dados de Docu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). A loja do futuro utiliza pesquisa rápida e um fluxo de dados fácil.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

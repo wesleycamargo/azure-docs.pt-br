@@ -23,7 +23,7 @@ Este artigo fornece uma visão geral de como gravar modelos do Gerenciador de Re
 
 Para obter uma visão geral da extensão de Script Personalizado, consulte o artigo [aqui](virtual-machines-extensions-customscript.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos. Você também pode criar um recurso com o [modelo de implantação clássico](virtual-machines-extensions-customscript.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-extensions-customscript.md).
 
 Desde seu lançamento, a extensão de Script Personalizado foi amplamente usada para configurar as cargas de trabalho de VMs do Windows e do Linux. Com a introdução dos modelos do Gerenciador de Recursos do Azure, os usuários agora podem criar um modelo único que não apenas provisiona a VM, mas também configura as cargas de trabalho nela.
 
@@ -35,7 +35,7 @@ O modelo do Gerenciador de Recursos do Azure permite que você especifique de fo
 
 ### Pré-requisitos para execução da extensão de Script Personalizado
 
-1. Clique <a href="http://azure.microsoft.com/downloads" target="_blank">aqui</a> para instalar os cmdlets do Azure PowerShell ou a CLI do Azure mais recentes.
+1. Instale os Cmdlets do Azure PowerShell ou a CLI do Azure mais recente <a href="http://azure.microsoft.com/downloads" target="_blank">aqui</a>.
 2. Se os scripts serão executados em uma VM existente, verifique se o agente de VM está habilitado na VM. Caso contrário, siga este <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">artigo</a> para instalar uma.
 3. Carregue os scripts que você deseja executar na máquina virtual para o armazenamento do Azure. Os scripts podem vir de um único ou vários contêineres de armazenamento.
 4. Como alternativa, os scripts também podem ser carregados para uma conta do Github.
@@ -100,4 +100,4 @@ Confira os exemplos abaixo para ver amostras completas de configuração de apli
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensão de Script Personalizado em uma VM do Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensão de Script Personalizado em uma VM do Windows</a>.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

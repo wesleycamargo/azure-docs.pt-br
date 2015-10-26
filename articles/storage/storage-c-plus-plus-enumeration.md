@@ -184,4 +184,4 @@ Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de C
 -	[Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

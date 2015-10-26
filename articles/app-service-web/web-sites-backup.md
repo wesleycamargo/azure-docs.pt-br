@@ -222,4 +222,4 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

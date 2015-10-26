@@ -325,4 +325,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Aplicativo Node.js na Web com armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

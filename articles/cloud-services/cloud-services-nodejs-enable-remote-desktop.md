@@ -116,4 +116,4 @@ Quando você não precisar mais de conexões de área de trabalho remota para as
   [Usando a Área de Trabalho Remota com as funções do Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

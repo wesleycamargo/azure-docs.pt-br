@@ -120,4 +120,4 @@ A imagem abaixo mostra o mesmo exemplo mostrado acima, mas usa o conjunto de par
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

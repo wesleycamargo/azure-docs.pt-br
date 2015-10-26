@@ -1,20 +1,20 @@
 <properties
    pageTitle="Como se conectar a fontes de dados"
-	description="Artigo de instruções que destaca como se conectar a fontes de dados descobertas com o Catálogo de Dados do Azure."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Artigo de instruções que destaca como se conectar a fontes de dados descobertas com o Catálogo de Dados do Azure."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/19/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/19/2015"
+   ms.author="maroche"/>
 
 
 # Como se conectar a fontes de dados
@@ -51,4 +51,4 @@ Para facilitar a descoberta de uma fonte de dados para usuários que não tenham
 ##Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados tiver sido registrada e descoberta, os usuários poderão se conectar à fonte de dados do menu “Abrir no...” do portal **Catálogo de Dados do Azure** ou usando as ferramentas de dados escolhidas por eles.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

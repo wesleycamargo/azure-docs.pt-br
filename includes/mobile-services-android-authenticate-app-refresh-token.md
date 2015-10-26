@@ -285,4 +285,4 @@ Nesta seção, você definirá um ServiceFilter que detectará uma resposta de c
 
        Nesse código, `RefreshTokenCacheFilter` é usado além do `ProgressFilter`. Também durante o `onCreate`, queremos carregar o cache de token. Então `false` é passado para o método `authenticate`.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

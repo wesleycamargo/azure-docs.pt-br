@@ -71,7 +71,7 @@ Se sua conta estiver nos EUA, agora você pode fazer isso facilmente no Centro d
 
     Esta não é uma lista completa. O destinatário deve considerar a atualização de qualquer segredo associado ao serviço, se for necessário restringir o acesso a seus recursos. A maioria dos recursos pode ser atualizada da seguinte maneira:
 
-    1.   Vá para o portal do Azure: [*https://portal.azure.com*](https://portal.azure.com)
+    1.   Vá para o portal do Azure: [**https://portal.azure.com*](https://portal.azure.com)
 
     2.    Clique em Procurar tudo - & gt; Todos os recursos
 
@@ -111,4 +111,4 @@ Se sua conta estiver nos EUA, agora você pode fazer isso facilmente no Centro d
 4. Atualizar alertas de cobrança para essa assinatura no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nesta assinatura. Você pode fazê-lo no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions).
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

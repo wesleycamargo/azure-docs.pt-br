@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Segurança para seu dispositivo StorSimple | Microsoft Azure"
-	description="Descreve considerações, diretrizes e convenções de segurança e explica como instalar e operar seu dispositivo StorSimple com segurança."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Descreve considerações, diretrizes e convenções de segurança e explica como instalar e operar seu dispositivo StorSimple com segurança."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/26/2015"
+   ms.author="alkohli" />
 
 # Instalar e operar seu dispositivo StorSimple com segurança
 
@@ -179,4 +179,4 @@ Depois de revisar esses avisos de segurança, as próximas etapas serão desemba
 
 - Para um dispositivo 8600, acesse [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

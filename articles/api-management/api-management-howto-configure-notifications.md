@@ -114,4 +114,4 @@ Clique em **Visualização** ou **Enviar um teste** para ver como o email ficar�
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

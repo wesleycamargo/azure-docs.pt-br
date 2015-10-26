@@ -71,4 +71,4 @@ Com a Junção do Azure AD, você obtém o seguinte:
 * [Saiba mais sobre os cenários de uso e considerações de implantação para a Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

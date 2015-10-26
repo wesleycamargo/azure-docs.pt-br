@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect Sync: noções básicas de usuários e contatos"
+	pageTitle="Azure AD Connect Sync: noções básicas sobre usuários e contatos | Microsoft Azure"
 	description="Explica usuários e contatos no Azure AD Connect Sync."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -72,7 +72,7 @@ Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

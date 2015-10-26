@@ -89,4 +89,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

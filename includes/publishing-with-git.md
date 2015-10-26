@@ -298,4 +298,4 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Usando o Dropbox para compartilhar repositórios do Git]: https://gist.github.com/trey/2722927
 [Envio contínuo ao Azure por meio do Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

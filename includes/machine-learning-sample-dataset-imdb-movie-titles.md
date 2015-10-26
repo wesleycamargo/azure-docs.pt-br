@@ -1,3 +1,3 @@
 O conjunto de dados contém informações sobre filmes que foram classificados em tweets do Twitter: ID de filme no IMDB, nome e gênero do filme, ano de produção. Há 17 mil filmes no conjunto de dados. O conjunto de dados foi introduzido no artigo "S. Dooms, T. De Pessemier e L. Martens. MovieTweetings: um conjunto de dados de classificação de filmes coletado do Twitter. Oficina de crowdsourcing and computação humana para sistemas recomendados, CrowdRec em RecSys 2013."
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

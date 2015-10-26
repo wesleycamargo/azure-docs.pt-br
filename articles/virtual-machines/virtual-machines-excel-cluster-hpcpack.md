@@ -21,7 +21,8 @@
 
 Este artigo mostra como implantar um cluster de HPC Pack nos serviços de infraestrutura do Azure (IaaS) usando um modelo de início rápido do Azure ou um script de implantação do Azure PowerShell. Você usará as imagens de VM do Azure Marketplace projetadas para executar cargas de trabalho de arquitetura orientada a serviços (SOA) ou Microsoft Excel com o HPC Pack. Você pode usar o cluster para executar os serviços SOA e HPC simples do Excel de um computador de cliente local. Os serviços do Excel HPC incluem descarregamento de pasta de trabalho do Excel e funções definidas pelo usuário do Excel ou UDFs.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda os recursos criados usando o modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
 
 Em um alto nível, o diagrama a seguir mostra o cluster de HPC Pack que você criará.
 
@@ -388,4 +389,4 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

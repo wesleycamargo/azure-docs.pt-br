@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -25,24 +25,23 @@ Saiba como monitorar e gerenciar os recursos do Stream Analytics com os cmdlets 
 
 ## Pré-requisitos para a execução de cmdlets do PowerShell do Azure para Stream Analytics
 
-1.	Instalar e configurar o PowerShell do Azure.
+ - Crie um grupo de recursos do Azure em sua assinatura. O seguinte é um exemplo de script do PowerShell do Azure. Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).  
 
-	Siga as instruções em [Como instalar e configurar o PowerShell do Azure][powershell-install] para instalar o PowerShell do Azure.
 
-	Para se conectar à sua assinatura do Azure usando o método do Active Directory do Azure:
-
+ 		# Log in to your Azure account
 		Add-AzureAccount
 
-	Para selecionar sua assinatura do Azure com o serviço Stream Analytics do Azure habilitado, use o método:
+		# Select the Azure subscription you want to use to create the resource group
+		Select-AzureSubscription -SubscriptionName <subscription name>
+ 
+		# Create an Azure resource group	
+			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
-		Select-AzureSubscription
+		# Create an Azure resource group
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+		
 
-
-2.	Configure o modo do Azure.
-
-	Depois de instalar o PowerShell do Azure, execute o cmdlet [Switch-AzureMode][msdn-switch-azuremode] para definir o modo apropriado do Azure para acessar os cmdlets de Stream Analytics:
-
-		Switch-AzureMode AzureResourceManager
 
 > [AZURE.NOTE]Os trabalhos do Stream Analytics criados programaticamente não têm monitoramento habilitado por padrão. Você pode habilitar manualmente o monitoramento no Portal do Azure, navegando até a página de monitoramento do trabalho e clicando no botão Ativar ou você pode fazer isso programaticamente, seguindo as etapas em [Stream Analytics do Azure - Monitorar programaticamente os trabalhos de Stream Analytics](stream-analytics-monitor-jobs.md)
 
@@ -259,7 +258,7 @@ Testa a capacidade do Stream Analytics de se conectar a uma saída especificada.
 Esse comando do PowerShell testa o status de conexão da entrada Output no StreamingJob.
 
 ## Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/PT-BR/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 
 ## Próximas etapas
@@ -288,4 +287,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

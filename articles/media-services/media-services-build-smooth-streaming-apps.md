@@ -980,4 +980,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

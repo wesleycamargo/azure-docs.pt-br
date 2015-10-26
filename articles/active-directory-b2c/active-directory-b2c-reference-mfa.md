@@ -53,4 +53,4 @@ Você pode usar o recurso "Executar agora" da política para verificar a experi�
 
 Quando o consumidor entra (usando uma conta local ou social), se um número de telefone verificado está anexado à conta de consumidor, ele deve verificá-lo. Se nenhum número de telefone estiver anexado, o consumidor é solicitado a fornecer um e a verificá-lo; após a verificação bem-sucedida, o número de telefone é anexado à conta de consumidor para uso posterior.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

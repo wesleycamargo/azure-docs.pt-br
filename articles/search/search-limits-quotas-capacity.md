@@ -131,4 +131,4 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 - Máximo de 1000 documentos retornados por página de resultados da pesquisa
 - Máximo de 100 sugestões retornadas por solicitação de Sugerir API
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

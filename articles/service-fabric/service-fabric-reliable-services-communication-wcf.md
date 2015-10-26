@@ -1,20 +1,20 @@
 <properties
    pageTitle="Pilha de comunicação baseada no WCF fornecida pelo API de Serviços Confiáveis"
-	description="Este artigo descreve a pilha de comunicação baseada no WCF fornecida pelo API do Serviço Confiável."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="vipulm"
-	editor=""/>
+   description="Este artigo descreve a pilha de comunicação baseada no WCF fornecida pelo API do Serviço Confiável."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="vipulm"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # Pilha de comunicação baseada no WCF para Serviços Confiáveis
 A estrutura de serviços confiáveis permite que os autores de serviço decidam qual pilha de comunicação desejam usar para seu serviço. Eles podem ligar a pilha de comunicação de sua escolha por meio de `ICommunicationListener` retornado do método [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). A estrutura fornece uma implementação baseada no WCF da pilha de comunicação para autores de serviço que desejam usar comunicação baseada no WCF.
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 ```
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

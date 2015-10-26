@@ -64,4 +64,4 @@ Para usar os cmdlets do Windows PowerShell, primeiro você deve instalá-los.
 
 	- Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

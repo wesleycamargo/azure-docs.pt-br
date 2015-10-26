@@ -1,8 +1,8 @@
 <properties
- pageTitle="Gerenciamento de dispositivos IoT | Microsoft Azure"
- description="Uma visão geral do gerenciamento de dispositivos do Hub IoT do Azure"
+ pageTitle="Gerenciar dispositivos IoT | Microsoft Azure"
+ description="Uma visão geral de uso Hub IoT e o Pacote IoT para gerenciar os seus dispositivos IoT"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="juanjperez"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="juanpere"/>
 
@@ -118,4 +118,4 @@ O fornecimento do pacote de atualização pode ser feito por meio de um serviço
 
 Depois de concluir uma atualização de firmware, o dispositivo deve ser capaz de verificar e identificar um estado válido. Se o dispositivo não entrar com êxito nesse estado válido, o software no dispositivo deverá iniciar uma reversão para um estado válido conhecido. O estado válido conhecido pode ser o último estado válido conhecido ou uma imagem de firmware do dispositivo conhecida como 'estado dourado', armazenada em uma partição do armazenamento.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

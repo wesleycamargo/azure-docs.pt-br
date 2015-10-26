@@ -92,7 +92,7 @@ As etapas nesta seção são necessárias, mas podem não abordar todos os cená
 
 ![Desative os membros da federação de fragmentos][3]
 
-Quando o aplicativo tiver sido modificado com a inclusão de APIs da ferramenta de banco de dados elástico, a última etapa na migração de um aplicativo de Federações é **SWITCH OUT** os membros da federação (para mais informações, consulte a referência do MSDN para [ALTER FEDERATION (Banco de Dados SQL do Azure)](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx). O resultado final de emitir um **SWITCH OUT** com relação a um membro da federação em particular é a remoção de todas as restrições da federação e metadados renderizando o membro da federação como um Banco de Dados SQL do Azure normal, não diferente de qualquer outro Banco de Dados SQL do Azure.
+Quando o aplicativo tiver sido modificado com a inclusão de APIs da ferramenta de banco de dados elástico, a última etapa na migração de um aplicativo de Federações é **SWITCH OUT** os membros da federação (para mais informações, consulte a referência do MSDN para [ALTER FEDERATION (Banco de Dados SQL do Azure]http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx)). O resultado final de emitir um **SWITCH OUT** com relação a um membro da federação em particular é a remoção de todas as restrições da federação e metadados renderizando o membro da federação como um Banco de Dados SQL do Azure normal, não diferente de qualquer outro Banco de Dados SQL do Azure.
 
 Observe que a emissão de uma operação de **SWITCH OUT** em relação a um membro da federação é uma operação unidirecional e não pode ser desfeita. Depois de realizadas, o banco de dados resultante não pode ser adicionado de volta a uma federação, e os comandos USE FEDERATION não funcionarão mais para esse banco de dados.
 
@@ -150,4 +150,4 @@ Se seu aplicativo ainda não estiver pronto para funcionar sem federações, con
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

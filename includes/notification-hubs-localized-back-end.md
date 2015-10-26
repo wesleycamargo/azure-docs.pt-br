@@ -52,4 +52,4 @@ No Agendador de Serviço Móvel, substitua seu script por:
 	
 Observe como nesse caso não é necessário enviar várias notificações para localidades e plataformas diferentes.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -153,4 +153,4 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -28,4 +28,4 @@ Os limites a seguir se aplicam aos recursos da Rota Expressa por assinatura.
 | 5 Gbps | 10 | 50 |
 | 10 Gbps | 10 | 100 |
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

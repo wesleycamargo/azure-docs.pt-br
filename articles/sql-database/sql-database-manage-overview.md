@@ -44,4 +44,4 @@ Você pode usar ferramentas de linha de comando, como o PowerShell para gerencia
 Para saber mais sobre como gerenciar seus Bancos de Dados SQL do Azure com ferramentas de linha de comando, [clique aqui](sql-database-command-line-tools.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

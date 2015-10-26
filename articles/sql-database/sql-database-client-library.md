@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Criar e gerenciar Banco de Dados SQL do Azure com C#"
-	description="Este artigo mostra como criar e gerenciar um Banco de Dados SQL do Azure com C# usando a Biblioteca de Banco de Dados SQL do Azure para .NET."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Criar e gerenciar Banco de Dados SQL do Azure com C#" 
+   description="Este artigo mostra como criar e gerenciar um Banco de Dados SQL do Azure com C# usando a Biblioteca de Banco de Dados SQL do Azure para .NET." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="08/25/2015"
+   ms.author="sstein"/>
 
 # Criar e gerenciar Banco de Dados SQL com C&#x23;
 
@@ -798,4 +798,4 @@ Para excluir um grupo de recursos:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

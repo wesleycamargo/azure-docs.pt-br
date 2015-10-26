@@ -21,7 +21,8 @@
 
 Uma pilha “LAMP" é um grupo de software livre que é tipicamente instalado em conjunto para habilitar um servidor a hospedar sites dinâmicos e aplicativos Web. Na verdade, este termo é um acrônimo que representa o sistema operacional Linux com o servidor Web Apache. Os dados do site são armazenados em um banco de dados MySQL e o conteúdo dinâmico é processado pelo PHP.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos ou com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Neste guia, vamos obter uma pilha LAMP instalada em uma imagem do Linux e implantá-la no Microsoft Azure.
 
@@ -146,7 +147,7 @@ Uma vez instalado, inicie o Apache com este comando:
 	sudo service httpd start
 
 ####Testar Apache
-Para verificar se o Apache foi instalado com êxito, navegue até o nome DNS do seu servidor Apache (para a URL de exemplo neste artigo, http://lampdemo.cloudapp.net/)). A página deve exibir as palavras “It works!" ![][14]
+Para verificar se o Apache foi instalado com êxito, navegue até o nome DNS do seu servidor Apache (para a URL de exemplo neste artigo, http://lampdemo.cloudapp.net/)). A página deve exibir as palavras “It works!”![][14]
 
 ####Solucionar problemas
 Se o Apache estiver sendo executado, mas você não conseguir ver a página padrão do Apache acima, você precisará verificar o seguinte:
@@ -333,7 +334,7 @@ Você também deve alterar o perfil /etc/mysql/my.cnf. Se você tiver linhas com
 	skip-networking
 	bind-address = 127.0.0.1  
 
-Você deve comentá-las (adicionar um \# no início das linhas) e, em seguida, reiniciar o MySQL.
+Você deve comentá-las (adicionar um # no início das linhas) e, em seguida, reiniciar o MySQL.
 
 Para adicionar um ponto de extremidade para permitir o acesso remoto, consulte as instruções na Fase 1: Criar uma imagem para criar um novo ponto de extremidade. O número padrão da porta TCP de acesso do MySQL é 3306. Aqui está um exemplo:
 
@@ -350,7 +351,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
 	>[AZURE.NOTE]Talvez seja necessário fazer logon novamente se você quiser modificar um arquivo em /var/www/html /.
--	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**var/www/html** para publicar seu site. ![][18]
+-	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**var/www/html** para publicar seu site.![][18]
 
 
 
@@ -432,7 +433,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 
 -	**Possível causa raiz** Você não definiu o nome do servidor do Apache.
 
--	**Solução** Insira uma linha "ServerName localhost" em httpd.conf (versão Red Hat) ou apache2.conf (versão Debian) em /etc/apache2 e reinicie o Apache. O aviso desaparecerá.
+-	**Solução** Insira uma linha “ServerName localhost” em httpd.conf (versão Red Hat) ou apache2.conf (versão Debian) em /etc/apache2 e reinicie o Apache. O aviso desaparecerá.
 
 
 
@@ -455,4 +456,4 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

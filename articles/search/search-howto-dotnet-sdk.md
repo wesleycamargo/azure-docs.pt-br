@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/06/2015"
+   ms.date="10/07/2015"
    ms.author="brjohnst"/>
 
 # Como usar a Pesquisa do Azure de um aplicativo .NET #
@@ -337,7 +337,7 @@ A primeira coisa a observar é que cada propriedade pública de `Hotel` correspo
 
 Um segundo fator importante sobre a classe `Hotel` são os tipos de dados das propriedades públicas. Os tipos .NET dessas propriedades são mapeados para seus tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade de cadeia de caracteres `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Há mapeamentos de tipo semelhantes entre `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` etc. As regras específicas para o mapeamento de tipos estão documentadas com o método `Documents.Get` no [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
  
-> [AZURE.NOTE]Ao criar suas próprias classes de modelo para mapear para um índice de Pesquisa do Azure, declare as propriedades de tipos de valor como `bool` e `int` como anuláveis (por exemplo: `bool?` em vez de `bool`). Isso é necessário, pois todos os tipos de campo primitivo na Pesquisa do Azure são anuláveis. Se você usar tipos não anuláveis, poderá obter resultados inesperados durante a indexação de valores padrão como `0` e `false`.
+> [AZURE.NOTE]Ao criar suas próprias classes de modelo para mapear para um índice de Pesquisa do Azure, certifique-se de declarar as propriedades de tipos de valor como `bool` e `int` como anuláveis (por exemplo: `bool?` em vez de `bool`). Isso é necessário, pois todos os tipos de campo primitivo na Pesquisa do Azure são anuláveis. Se usar tipos não anuláveis, você poderá obter resultados inesperados durante a indexação de valores padrão como `0` e `false`. Em especial, esses valores padrão serão convertidos para nulos durante a indexação. Em uma versão futura do SDK, como alternativa, o uso de tipos não anuláveis resultará em uma exceção lançada.
 
 Essa capacidade de usar suas próprias classes como documentos funciona em ambas as direções; Você também pode recuperar os resultados da pesquisa e fazer com que o SDK os desserialize automaticamente para um tipo de sua escolha, como veremos na próxima seção.
 
@@ -627,4 +627,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

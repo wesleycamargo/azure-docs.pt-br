@@ -38,4 +38,4 @@ A Malha do Serviço apresenta um modelo de integridade que fornece uma funcional
 - [Usando relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Adicionando relatórios de integridade personalizados da Malha do Serviço](service-fabric-report-health.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

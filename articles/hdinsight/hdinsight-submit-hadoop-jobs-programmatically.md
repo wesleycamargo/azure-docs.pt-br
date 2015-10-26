@@ -585,4 +585,4 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

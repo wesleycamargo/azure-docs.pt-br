@@ -48,7 +48,7 @@ Alterar licença de usuário | A licença atribuída a um usuário no diretório
 Atualizar usuário | Um usuário no diretório foi atualizado. [Veja abaixo](#quotupdate-userquot-attributes) os atributos que podem ser atualizados.
 Definir alteração forçada de senha de usuário | Defina a propriedade que força o usuário a alterar sua senha no logon.
 **Eventos de grupo** |
-Criar grupo | Criou um grupo no diretório.
+Adicionar grupo | Criou um grupo no diretório.
 Atualizar grupo | Atualizou um grupo no diretório.
 Excluir grupo | Excluiu um grupo no diretório.
 Adicionar membro ao grupo | Adicionou um membro a um grupo no diretório.
@@ -108,4 +108,4 @@ TelephoneNumber | O número de telefone do usuário.
 
 Registros de auditoria são um controle necessário para muitas regulamentações de conformidade. Para clientes que usam o Relatório de Auditoria do Active Directory do Azure para atender aos seus regulamentos de conformidade, recomenda-se que o cliente envie uma cópia deste tópico de ajuda com a cópia do relatório de auditoria exportado do cliente para ajudar a explicar os detalhes do relatório. Se o auditor gostaria de entender os regulamentos de conformidade que o Azure atende atualmente, indique a [Página de conformidade](http://azure.microsoft.com/support/trust-center/compliance/) da Central de confiabilidade do Microsoft Azure ao auditor.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -54,8 +54,8 @@ As Coleções Confiáveis escolhem automaticamente o nível de isolamento a ser 
 
 Há dois níveis de isolamento com suporte nas Coleções Confiáveis:
 
-- **Leitura repetida**: "Especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída. (https://msdn.microsoft.com/pt-br/library/ms173763.aspx)"
-- **Instantâneo**: "Especifica que os dados lidos por qualquer instrução em uma transação serão a versão transacionalmente consistente dos dados que existiam no início da transação. A transação pode reconhecer apenas modificações de dados que foram confirmadas antes do início da transação. Modificações de dados feitas por outras transações após o início da transação atual não são visíveis para instruções em execução na transação atual. O efeito é como se as instruções em uma transação obtivessem um instantâneo dos dados confirmados conforme existiam no início da transação. (https://msdn.microsoft.com/pt-br/library/ms173763.aspx)"
+- **Leitura repetida**: "Especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída. (https://msdn.microsoft.com/pt-BR/library/ms173763.aspx)"
+- **Instantâneo**: "Especifica que os dados lidos por qualquer instrução em uma transação serão a versão transacionalmente consistente dos dados que existiam no início da transação. A transação pode reconhecer apenas modificações de dados que foram confirmadas antes do início da transação. Modificações de dados feitas por outras transações após o início da transação atual não são visíveis para instruções em execução na transação atual. O efeito é como se as instruções em uma transação obtivessem um instantâneo dos dados confirmados conforme existiam no início da transação. (https://msdn.microsoft.com/pt-BR/library/ms173763.aspx)"
 
 O Dicionário Confiável e a Fila Confiável dão suporte Read Your Writes. Em outras palavras, qualquer gravação em uma transação será visível para uma leitura seguinte que pertence à mesma transação.
 
@@ -118,4 +118,4 @@ Eis aqui algumas coisas que se deve manter em mente:
 - [Uso avançado do modelo de programação de Serviços Confiáveis](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
 - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

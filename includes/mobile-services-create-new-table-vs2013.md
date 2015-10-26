@@ -15,4 +15,4 @@ Antes de armazenar dados em seu novo serviço móvel, você deve criar uma nova 
 	>
 	>Novas tabelas são criadas com as colunas Id, \_\_createdAt, \_\_updatedAt e \_\_version. Quando o esquema dinâmico está habilitado, os Serviços Móveis geram automaticamente novas colunas com base em um objeto JSON na solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

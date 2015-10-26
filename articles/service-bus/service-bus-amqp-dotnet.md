@@ -168,10 +168,6 @@ As APIs .NET expõem diversas configurações que controlam o comportamento do p
 Está pronto(a) para saber mais? Visite os links a seguir:
 
 - [Visão geral do AMQP do Barramento de Serviço]
-- [Usando o Barramento de Serviço do Java com AMQP]
-- [Usando o Barramento de Serviço do Python com AMQP]
-- [Usando o Barramento de Serviço do PHP com AMQP]
-- [Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]
 - [AMQP no Barramento de Serviço para Windows Server]
 
   [Como usar as Filas do Service Bus]: service-bus-dotnet-how-to-use-queues.md
@@ -203,10 +199,6 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
-[Usando o Barramento de Serviço do Java com AMQP]: service-bus-amqp-java.md
-[Usando o Barramento de Serviço do Python com AMQP]: service-bus-amqp-python.md
-[Usando o Barramento de Serviço do PHP com AMQP]: service-bus-amqp-php.md
-[Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]: service-bus-amqp-apache.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

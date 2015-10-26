@@ -21,7 +21,7 @@
 
 Este artigo descreve como criar e gerenciar máquinas virtuais do Windows usando o Azure PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar uma VM do Windows com o modelo de implantação clássico. Você também pode criar um recurso de VM do Windows com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-deploy-rmtemplates-powershell.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-deploy-rmtemplates-powershell.md).
 
 
 
@@ -43,7 +43,7 @@ Em seguida, se tiver várias assinaturas do Azure, você precisará definir sua 
 
 	Get-AzureSubscription | sort SubscriptionName | Select SubscriptionName
 
-Agora, substitua tudo entre aspas, inclusive os caracteres < and >, pelo nome da assinatura correta e execute estes comandos:
+Agora, substitua tudo entre aspas, incluindo os caracteres < and >, pelo nome da assinatura correta e execute estes comandos:
 
 	$subscrName="<subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscrName –Current
@@ -74,7 +74,7 @@ Agora, crie e defina a conta de Armazenamento usando os comandos a seguir. Preen
 
 Em seguida, você precisa de um serviço de nuvem. Se não tiver um serviço de nuvem existente, você deverá criar um. Você deve escolher um nome exclusivo que contenha apenas letras, números e hifens. O primeiro e o último caractere no campo devem ser uma letra ou um número.
 
-Por exemplo, você poderia nomeá-lo como TestCS-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestCS-Tailspin.
+Por exemplo, você pode nomeá-lo TestCS-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestCS-Tailspin.
 
 Você pode testar a exclusividade do nome usando este comando do Azure PowerShell:
 
@@ -209,4 +209,4 @@ Para anexar discos de dados de um arquivo .vhd existente no armazenamento de blo
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

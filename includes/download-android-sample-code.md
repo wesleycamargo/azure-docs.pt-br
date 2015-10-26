@@ -15,4 +15,4 @@ Este tutorial é baseado no **GetStartedWithData**, que é um aplicativo do Andr
 	O projeto agora está pronto para ser trabalhado.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

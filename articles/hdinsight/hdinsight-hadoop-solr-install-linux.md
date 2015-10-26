@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Use a ação de Script no HDInsight para instalar o Solr em cluster do Hadoop | Microsoft Azure"
-	description="Saiba como personalizar o cluster HDInsight com o Solr. Você usará uma opção de configuração de Ação de Script para usar um script para instalar o Solr."
+	pageTitle="Use a ação de Script para instalar o Solr no HDInsight baseado em Linux | Microsoft Azure"
+	description="Saiba como instalar o Solr em clusters baseados Hadoop HDInsight baseados em Linux usando as ações de script."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Instalar e usar o Solr em clusters HDInsight do Hadoop
@@ -284,7 +284,7 @@ Para obter mais informações sobre como trabalhar com backups e restaurações 
 
 - [Instalar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md). Use a personalização do cluster para instalar o Giraph em clusters de Hadoop do HDInsight. O Giraph permite que você realize processamento de tabelas usando o Hadoop, além de poder ser usado com o HDInsight do Azure.
 
-- [Instalar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar o Hue em clusters de Hadoop do HDInsight. O Hue é um conjunto de aplicativos da Web usado para interagir com um cluster de Hadoop.
+- [Instalar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar o Hue em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
 
 
 
@@ -294,4 +294,4 @@ Para obter mais informações sobre como trabalhar com backups e restaurações 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

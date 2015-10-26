@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Escolher uma estrutura"
+   pageTitle="Escolhendo uma estrutura do Service Fabric | Microsoft Azure"
    description="A malha de serviço oferece duas estruturas de alto nível para criar serviços: as APIs de atores e as APIs de serviços. Entender o valor de cada ajudará você a tomar as decisões corretas em relação à arquitetura do seu aplicativo."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="seanmck"/>
 
 # Escolher uma estrutura para seu serviço
@@ -36,4 +36,4 @@ Lembre-se que é perfeitamente aceitável usar diferentes estruturas para servi�
 - [Saiba mais sobre as APIs de atores confiáveis](service-fabric-reliable-actors-introduction.md)
 - [Saiba mais sobre as APIs de serviços confiáveis](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

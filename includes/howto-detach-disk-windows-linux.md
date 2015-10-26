@@ -1,3 +1,4 @@
+<properties writer="kathydav" editor="tysonn" manager="timlt" />
 
 Quando não precisar mais de um disco de dados conectado a uma máquina virtual, você poderá desanexá-lo facilmente. Essa ação remove o disco da máquina virtual, mas não o remove do armazenamento. Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
 
@@ -31,4 +32,4 @@ Depois de localizar o nome do disco, você estará pronto para desanexá-lo:
 
 O disco permanece no armazenamento mas não esteja conectado a uma máquina virtual.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

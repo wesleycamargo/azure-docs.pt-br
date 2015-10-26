@@ -19,7 +19,8 @@
 
 # Configurar um ambiente de nuvem híbrida para teste
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+ 
 
 Este tópico orienta a criação de um ambiente de nuvem híbrida com o Microsoft Azure para testes. Veja abaixo a configuração resultante.
 
@@ -328,4 +329,4 @@ Em seguida, faça logon no RRAS1 como administrador local e execute estes comand
 Em seguida, vá para o Portal de Gerenciamento do Azure em seu computador local e aguarde até que a rede virtual TestVNET mostre um status de Conectado.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

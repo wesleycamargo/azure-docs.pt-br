@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Relatórios do Azure Multi-Factor Authentication"
-	description="Descreve como usar o recurso de relatórios do Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Relatórios do Azure Multi-Factor Authentication" 
+	description="Descreve como usar o recurso de relatórios do Azure Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Relatórios no Azure Multi-Factor Authentication
@@ -50,4 +50,4 @@ Em fila|Lista os relatórios em fila para processamento e seu status. Um link pa
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

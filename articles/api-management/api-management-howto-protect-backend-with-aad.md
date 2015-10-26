@@ -547,4 +547,4 @@ Para outra demonstração de configuração e uso dessa diretiva, consulte [Abor
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [Gerenciar sua primeira API]: api-management-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

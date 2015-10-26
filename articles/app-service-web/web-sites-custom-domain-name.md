@@ -56,7 +56,7 @@ O DNS (Sistema de Nomes de Domínio) usa registros de dados para mapear nomes de
 - Um registro A de **(Endereço)** mapeia um nome de domínio para um endereço IP.
 - Um registro CNAME de **(Endereço)** mapeia um nome de domínio para outro nome de domínio. O DNS usa o segundo nome para consultar o endereço. Os usuários verão apenas o primeiro nome de domínio no navegador. Por exemplo, você poderia mapear contoso.com para *&lt;seuaplicativoweb&gt;*.azurewebsites.net.
 
-Se Endereço IP for alterado, um padrão CNAME ainda será válido, ao passo que o registro A precisará ser atualizado. No entanto, alguns registradores de domínio não permitem registros CNAME para o domínio raiz ou domínios curinga. Nesse caso, será preciso usar um registro A.
+Se o Endereço IP for alterado, um padrão CNAME ainda será válido, ao passo que o registro A precisará ser atualizado. No entanto, alguns registradores de domínio não permitem registros CNAME para o domínio raiz ou domínios curinga. Nesse caso, será preciso usar um registro A.
 
 > [AZURE.NOTE]O endereço IP pode ser alterado se você excluir e recriar seu aplicativo Web ou alterar o modo do aplicativo Web de volta para Gratuito.
 
@@ -104,17 +104,17 @@ Em muitas ferramentas de registradores, basta digitar apenas a parte de subdomí
   </tr>
 </table>
 
-Considerando que o nome de domínio é “contoso.com”, isso criaria os seguintes registros:
+Considerando que o nome de domínio personalizado é “contoso.com”, isso criaria os seguintes registros:
 
 - **contoso.com** mapeado para 127.0.0.1.
 - **www.contoso.com** mapeado para **contoso.azurewebsites.net**.
 
->[AZURE.NOTE]Você pode usar o DNS do Azure para hospedar os registros de domínio necessárias para seu aplicativo Web. Para configurar seu domínio personalizado e criar seus registros no DNS do Azure, consulte [Criar registros de DNS personalizados para um aplicativo Web](../dns-web-sites-custom-domain).
+>[AZURE.NOTE]Você pode usar o DNS do Azure para hospedar os registros de domínio necessários para seu aplicativo Web. Para configurar seu domínio personalizado e criar seus registros no DNS do Azure, consulte [Criar registros de DNS personalizados para um aplicativo Web](../dns-web-sites-custom-domain).
 
 <a name="awverify" />
 ## Criar um registro awverify (apenas registros A)
 
-Ao criar um registro A, os o aplicativo Web também exige um registro CNAME especial, utilizado para verificar a existência do domínio que você está tentando utilizar. Esse registro CNAME deve ter o seguinte formato.
+Ao criar um registro A, o aplicativo Web também exige um registro CNAME especial, utilizado para verificar a existência do domínio que você está tentando utilizar. Esse registro CNAME deve ter o seguinte formato.
 
 - *Se o registro A mapeia o domínio raiz ou um domínio curinga:* crie um registro CNAME que mapeia de **awverify.&lt;seudominio&gt;** para **awverify.&lt;onomedeseuaplicativoweb&gt;.azurewebsites.net**. Por exemplo, se o registro A for para **contoso.com**, crie um registro CNAME para **awverify.contoso.com**.
 - *Se o registro A mapeia o domínio raiz ou um subdomínio específico:* crie um registro CNAME que mapeia de **awverify.&lt;seudominio&gt;** para **awverify.&lt;onomedeseuaplicativoweb&gt;.azurewebsites.net**. Por exemplo, se o registro A for para **blogs.contoso.com**, crie um registro CNAME para **awverify.blogs.contoso.com**.
@@ -147,4 +147,4 @@ Para obter mais informações, consulte: [Introdução ao DNS do Azure](../dns/d
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

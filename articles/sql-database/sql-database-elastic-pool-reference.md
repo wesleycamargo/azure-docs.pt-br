@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -149,17 +149,17 @@ Os servidores V12 de Banco de Dados SQL do Azure estão localizados em grupos de
 
 Vários comandos da API REST e os cmdlets do PowerShell estão disponíveis para criar e gerenciar pools elásticos. Para obter detalhes e exemplos de código, consulte [Criar e gerenciar um pool de banco de dados elástico do banco de dados SQL usando o PowerShell](sql-database-elastic-pool-powershell.md), e [Criar e gerenciar o banco de dados SQL com o C#](sql-database-client-library.md).
 
-
+> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 | [Cmdlets do PowerShell](https://msdn.microsoft.com/library/mt163521.aspx) | [Comandos da API REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
-| [New-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125987.aspx) | [Criar um pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163596.aspx) |
-| [Set-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125994.aspx) | [Definir as configurações de desempenho de um pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163641.aspx) |
-| [Remove-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125830.aspx) | [Excluir um pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163672.aspx) |
-| [Get-AzureSqLElasticPool](https://msdn.microsoft.com/library/mt126017.aspx) | [Obtém os pools de banco de dados elástico e seus valores de propriedade](https://msdn.microsoft.com/pt-BR/library/mt163646.aspx) |
-| [Get-AzureSqlElasticPoolActivity](https://msdn.microsoft.com/library/mt125837.aspx) | [Obter o status de operações do pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163669.aspx) |
-| [Get-AzureSqlElasticPoolDatabase](https://msdn.microsoft.com/library/mt125960.aspx) | [Obter bancos de dados em um pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163646.aspx) |
-| [Get-AzureSqlElasticPoolDatabaseActivity](https://msdn.microsoft.com/library/mt125973.aspx) | [Obtém o status de mover bancos de dados dentro e fora de um pool](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [New-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [Criar um pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163596.aspx) |
+| [Set-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) | [Definir as configurações de desempenho de um pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163641.aspx) |
+| [Remove-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619355.aspx) | [Excluir um pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163672.aspx) |
+| [Get-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603517.aspx) | [Obtém os pools de banco de dados elástico e seus valores de propriedade](https://msdn.microsoft.com/pt-BR/library/mt163646.aspx) |
+| [Get-AzureRMSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) | [Obter o status de operações do pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureRMSqlElasticPoolDatabase](https://msdn.microsoft.com/library/azure/mt619484.aspx) | [Obter bancos de dados em um pool de banco de dados elástico](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureRMSqlElasticPoolDatabaseActivity]() | [Obtém o status de mover bancos de dados dentro e fora de um pool](https://msdn.microsoft.com/library/mt163669.aspx) |
 
 ## Transact-SQL
 
@@ -208,4 +208,4 @@ O preço unitário por eDTU de um pool elástico é maior que o preço unitário
 | 40891 | EX_USER | O DTU mínimo por banco de dados (%d) não pode exceder o DTU máximo por banco de dados (%d). | DTU mínimo por banco de dados; DTU máximo por banco de dados. | Tentativa de definir o DTU mínimo por banco de dados superior ao DTU máximo por banco de dados. | Certifique-se de que o DTU mínimo por banco de dados não exceda o DTU máximo por banco de dados. |
 | TBD | EX_USER | O tamanho do armazenamento para um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço '%.*ls'. | camada de serviço do pool elástico | O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. | Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

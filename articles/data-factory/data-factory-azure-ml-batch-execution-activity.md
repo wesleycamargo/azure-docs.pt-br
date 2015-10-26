@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Criar pipelines de previsão usando a atividade de Execução em Lote de Aprendizado de Máquina do Azure | Microsoft Azure"
-	description="Descreve como criar pipelines de previsão usando a Azure Data Factory e o Aprendizado de Máquina do Azure"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Criar pipelines de previsão usando a atividade de Execução em Lote de Aprendizado de Máquina do Azure | Microsoft Azure" 
+	description="Descreve como criar pipelines de previsão usando a Azure Data Factory e o Aprendizado de Máquina do Azure" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="spelluru"/>
 
 # Criar pipelines de previsão usando a atividade de Lote de Aprendizado de Máquina do Azure   
@@ -261,7 +261,7 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
 	"typeProperties": {
     	"globalParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -348,7 +348,9 @@ Se você deseja continuar usando a atividade AzureMLBatchScoring, consulte o art
 **R:** Sim. Consulte a seção **Uso de um módulo Leitor para ler dados de vários arquivos no Blob do Azure** para obter detalhes.
 
 
+## Consulte também
 
+- [Postagem do blog do Azure: Introdução ao Azure Data Factory e Aprendizado de Máquina do Azure](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 
 
@@ -361,4 +363,4 @@ Se você deseja continuar usando a atividade AzureMLBatchScoring, consulte o art
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

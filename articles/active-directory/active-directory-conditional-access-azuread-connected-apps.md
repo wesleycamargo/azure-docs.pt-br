@@ -86,4 +86,4 @@ O exemplo a seguir mostra como habilitar a MFA local usando o [cmdlet Set-MsolDo
 
 Além de definir esse sinalizador, a instância do AD FS do locatário federado deve ser configurada para realizar a autenticação multifator. Siga as instruções para implantar a Azure Multi-Factor Authentication local.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

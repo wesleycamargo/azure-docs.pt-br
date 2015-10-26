@@ -232,4 +232,4 @@ Para obter mais informações sobre como usar modelos, consulte [Notificar usuá
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

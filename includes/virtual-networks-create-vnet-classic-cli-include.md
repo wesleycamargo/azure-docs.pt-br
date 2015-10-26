@@ -65,4 +65,4 @@ Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de 
 			data:
 			info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

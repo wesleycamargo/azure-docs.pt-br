@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Visão geral do DNS do Azure | Microsoft Azure"
-	description="Visão geral dos serviços de hospedagem do DNS do Azure no Microsoft Azure e comece a hospedar seu domínio no Microsoft Azure"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="Visão geral do DNS do Azure | Microsoft Azure" 
+   description="Visão geral dos serviços de hospedagem do DNS do Azure no Microsoft Azure e comece a hospedar seu domínio no Microsoft Azure" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/12/2015"
+   ms.author="joaoma"/>
 
 # Visão geral do DNS do Azure
 
@@ -40,4 +40,4 @@ O serviço se baseia no ARM (Azure Resource Manager, Gerenciador de Recursos do 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

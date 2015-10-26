@@ -17,7 +17,7 @@
  
 # Exemplo de código: analisar dados exportados do Application Insights
 
-Este artigo mostra como processar dados JSON exportados do Application Insights. Como um exemplo, escreveremos um código para mover seus dados de telemetria do [Visual Studio Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export]. (Você também pode fazer isso [usando o Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), mas nosso objetivo aqui é mostrar alguns códigos.)
+Este artigo mostra como processar dados JSON exportados do Application Insights. Como um exemplo, escreveremos um código para mover seus dados de telemetria do [Visual Studio Application Insights][start] em um banco de dados SQL do Azure usando a [Exportação Contínua][export]. (Você também pode fazer isso [usando o Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), mas nosso objetivo aqui é mostrar alguns códigos.)
 
 A exportação contínua move a telemetria no armazenamento do Azure no formato JSON, por isso vamos escrever um código para analisar objetos JSON e criar linhas em uma tabela de banco de dados.
 
@@ -539,8 +539,8 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -44,14 +44,14 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **Intacct**.
 
-    ![Galeria de aplicativos](./media/active-directory-saas-intacct-tutorial/IC790031.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-intacct-tutorial/IC790031.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **Intacct** e clique em **Concluir** para adicionar o aplicativo.
 
     ![Intacct](./media/active-directory-saas-intacct-tutorial/IC790032.png "Intacct")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Intacct com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Intacct com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -83,7 +83,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 8.  Na seção **Configurar logon único**, execute as seguintes etapas:
 
-    ![Logon único](./media/active-directory-saas-intacct-tutorial/IC790039.png "Logon único")
+    ![Logon Único](./media/active-directory-saas-intacct-tutorial/IC790039.png "Logon Único")
 
     1.  Selecione **Habilitar logon único**.
     2.  Como **tipo de provedor de identidade**, selecione **SAML 2.0**.
@@ -137,7 +137,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 2.  Na página de integração de aplicativos do **Intacct**, clique em **Atribuir usuários**.
 
-    ![Atribuir usuários](./media/active-directory-saas-intacct-tutorial/IC790044.png "Atribuir usuários")
+    ![Atribuir usuários](./media/active-directory-saas-intacct-tutorial/IC790044.png "Atribuir Usuários")
 
 3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
 
@@ -145,4 +145,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

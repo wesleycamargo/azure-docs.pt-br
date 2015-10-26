@@ -106,4 +106,4 @@ Você pode enviar solicitações para [User Voice](http://feedback.azure.com/for
 - [Criando ou importando um runbook na Automação do Azure](automation-creating-importing-runbook.md)
 - [Aprendendo o fluxo de trabalho do PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

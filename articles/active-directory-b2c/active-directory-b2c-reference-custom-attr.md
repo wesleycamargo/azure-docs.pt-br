@@ -46,4 +46,4 @@ O atributo personalizado agora está disponível na lista de **Atributos de usu�
 
 Você pode usar o recurso "Executar agora" da política para verificar a experiência do consumidor. Agora você deve ver "ShoeSize" na lista de atributos que estão sendo coletados durante a inscrição do consumidor e vê-lo no token enviado de volta ao seu aplicativo.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

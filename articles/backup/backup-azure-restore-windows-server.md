@@ -1,11 +1,11 @@
 <properties
    pageTitle="Restaurar dados para um Windows Server ou Windows Client do Azure | Microsoft Azure"
-	description="Saiba como restaurar de um Windows Server ou Windows Client."
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="jwhit"
-	editor=""/>
+   description="Saiba como restaurar de um Windows Server ou Windows Client."
+   services="backup"
+   documentationCenter=""
+   authors="aashishr"
+   manager="jwhit"
+   editor=""/>
 
 <tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
 
@@ -109,4 +109,4 @@ A terminologia usada nessas etapas inclui:
 - [Fazer backup de máquinas virtuais do Azure](backup-azure-vms-introduction.md)
 - [Fazer backup de cargas de trabalho Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

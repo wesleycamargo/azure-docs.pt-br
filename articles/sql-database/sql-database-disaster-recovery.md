@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Recuperação de desastres do Banco de Dados SQL"
-	description="Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Replicação geográfica e Restauração geográfica do Banco de Dados SQL do Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Recuperação de desastres do Banco de Dados SQL" 
+   description="Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Replicação geográfica e Restauração geográfica do Banco de Dados SQL do Azure." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 # Recuperar um Banco de Dados SQL do Azure de uma interrupção
 
@@ -103,4 +103,4 @@ Use REST para executar a recuperação do banco de dados de forma programática.
 Após a recuperação do banco de dados, você poderá configurá-lo para uso seguindo o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

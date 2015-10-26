@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Exemplos de aplicativos de aprendizado de máquina no Azure Marketplace | Microsoft Azure"
-	description="Os exemplos de aplicativos de aprendizado de máquina do Azure Marketplace mostram como você pode publicar seus serviços de aprendizado de máquina no Azure Marketplace para assinantes pagantes usarem os seus aplicativos."
-	services="machine-learning"
-	documentationCenter=""
-	authors="LuisCabrer"
-	manager="paulettm"
+	pageTitle="Exemplos de aplicativos de aprendizado de máquina no Azure Marketplace | Microsoft Azure" 
+	description="Os exemplos de aplicativos de aprendizado de máquina do Azure Marketplace mostram como você pode publicar seus serviços de aprendizado de máquina no Azure Marketplace para assinantes pagantes usarem os seus aplicativos." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 # Aplicativos de aprendizado de máquina no Azure Marketplace
@@ -63,4 +63,4 @@ Essa API pode ser usada para analisar texto não estruturado para tarefas como a
 
 [Documentação](https://churn.cloudapp.net/documentation)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

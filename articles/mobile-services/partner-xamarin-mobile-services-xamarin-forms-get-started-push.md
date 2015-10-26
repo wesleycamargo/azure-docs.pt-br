@@ -293,7 +293,7 @@ Agora, seu serviço móvel está configurado para funcionar com o APNS.
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("PT-BR"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("pt-BR"));
 
             var push = client.GetPush();
 
@@ -847,4 +847,4 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 [Exemplo completo da notificação por push do Azure para Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -205,4 +205,4 @@ Verifique se o ponto de extremidade da Área de Trabalho Remota para a máquina 
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

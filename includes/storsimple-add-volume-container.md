@@ -22,4 +22,4 @@
 O contêiner de volume será salvo, e o contêiner de volume recém-criado será listado na página **Contêiner de volume**.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

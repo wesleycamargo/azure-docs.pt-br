@@ -172,4 +172,4 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

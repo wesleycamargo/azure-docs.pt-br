@@ -75,7 +75,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 6.  Selecione a confirmação de configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar logon único](./media/active-directory-saas-e-builder-tutorial/IC777385.png "Configurar logon único")
+    ![Configurar logon único](./media/active-directory-saas-e-builder-tutorial/IC777385.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
   
 Não há qualquer item de ação para a configuração do provisionamento de usuário para o e-Builder. Quando um usuário atribuído tentar fazer logon no e-Builder usando o painel de acesso, o e-Builder verificará se o usuário existe. Se ainda não houver uma conta de usuário, ela será automaticamente criada pelo e-Builder.
@@ -97,4 +97,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -183,4 +183,4 @@ Habilite a proteção para VMs nas nuvens VMM:
 
 Em caso de dúvidas e comentários sobre esse cenário, visite o [fórum do Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - O que vem a seguir"
-	description="Esta é a página do Azure Multi-Factor Authentication que descreve o que fazer depois com o MFA. Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication - O que vem a seguir" 
+	description="Esta é a página do Azure Multi-Factor Authentication que descreve o que fazer depois com o MFA. Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Configurando o Azure Multi-Factor Authentication
@@ -365,4 +365,4 @@ Para garantir que as contas de usuário sejam protegidas, você deve restaurar a
 <li>Na página Configurações de serviço, em Gerenciar configurações de usuário do dispositivo, marque/desmarque elar seleção de **Permite aos usuários suspender o Multi-Factor Authentication, fazendo com que um dispositivo seja lembrado**.</li>
 ![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Defina o número de dias que você deseja permitir a suspensão. O padrão é 14 dias.</li> <li>Clique em Salvar.</li> <li>Clique em Fechar.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

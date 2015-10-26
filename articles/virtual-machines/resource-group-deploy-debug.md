@@ -3,8 +3,8 @@
    description="Descreve problemas comuns com a implantação de recursos criados usando o modelo de implantação do Gerenciador de Recursos, além de mostrar como detectar e corrigir esses problemas."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
-   authors="squillace"
-   manager="timlt"
+   authors="tfitzmac"
+   manager="wpickett"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="09/18/2015"
-   ms.author="rasquill"/>
+   ms.date="10/14/2015"
+   ms.author="tomfitz;rasquill"/>
 
 # Solucionando problemas de implantações de grupos de recursos no Azure
 
@@ -26,14 +26,16 @@ Este tópico mostra como recuperar informações para solução de problemas por
 
 Também são descritas neste tópico as soluções para erros comuns que os usuários encontram.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a solução de problemas de grupos de recursos criados com o modelo de implantação do Gerenciador de Recursos. Não é possível criar grupos de recursos com o modelo de implantação clássica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássica. Não é possível criar grupos de recursos com o modelo de implantação clássica.
 
 
 ## Solucionar problemas com o PowerShell
 
-Você pode obter o status geral de uma implantação com o comando **Get-AzureResourceGroupDeployment**. No exemplo abaixo, a implantação falhou.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-    PS C:\> Get-AzureResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
+Você pode obter o status geral de uma implantação com o comando **Get-AzureRmResourceGroupDeployment**. No exemplo abaixo, a implantação falhou.
+
+    PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 
     DeploymentName    : ExampleDeployment
     ResourceGroupName : ExampleGroup
@@ -52,9 +54,9 @@ Você pode obter o status geral de uma implantação com o comando **Get-AzureRe
 
     Outputs           :
 
-Geralmente, cada implantação é composta por várias operações, e cada operação representa uma etapa no processo de implantação. Para descobrir o que deu errado com uma implantação, geralmente você precisa ver os detalhes sobre as operações de implantação. É possível ver o status das operações com **Get-AzureResourceGroupDeploymentOperation**.
+Geralmente, cada implantação é composta por várias operações, e cada operação representa uma etapa no processo de implantação. Para descobrir o que deu errado com uma implantação, geralmente você precisa ver os detalhes sobre as operações de implantação. É possível ver o status das operações com **Get-AzureRmResourceGroupDeploymentOperation**.
 
-    PS C:\> Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
+    PS C:\> Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
     Id                        OperationId          Properties         
     -----------               ----------           -------------
     /subscriptions/xxxxx...   347A111792B648D8     @{ProvisioningState=Failed; Timestam...
@@ -64,7 +66,7 @@ O comando mostra duas operações na implantação. O estado de provisionamento 
 
 Você pode recuperar a mensagem de status com o seguinte comando:
 
-    PS C:\> (Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
+    PS C:\> (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -157,7 +159,7 @@ A API REST do Gerenciador de Recurso fornece URIs para recuperar informações s
 
 A implantação falhará se suas credenciais do Azure tiverem expirado ou se você não tiver entrado em sua conta do Azure. Suas credenciais poderão expirar se a sessão ficar aberta por muito tempo. Você pode atualizar as credenciais com as seguintes opções:
 
-- Com o PowerShell, use o cmdlet **Add-AzureAccount**. As credenciais em um arquivo de configurações de publicação não são suficientes para os cmdlets no módulo AzureResourceManager.
+- Para o PowerShell, use o cmdlet **AzureRmAccount Login** (ou **Add-AzureAccount** para versões do PowerShell antes da visualização 1.0). As credenciais em um arquivo de configurações de publicação não são suficientes para os cmdlets no módulo AzureResourceManager.
 - Com a CLI do Azure, use **azure login**. Para obter ajuda com erros de autenticação, certifique-se de que você tenha [configurado a CLI do Azure corretamente](../xplat-cli-connect.md).
 
 ## Verificando o formato dos modelos e parâmetros
@@ -166,9 +168,9 @@ Se o arquivo de modelo ou parâmetro não estiver no formato correto, a implanta
 
 ### PowerShell
 
-No PowerShell, use **Test-AzureResourceGroupTemplate**.
+Para o PowerShell, use **Test-AzureRmResourceGroupDeployment** (ou **Test-AzureResourceGroupTemplate** para versões do PowerShell antes da visualização 1.0).
 
-    PS C:\> Test-AzureResourceGroupTemplate -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
+    PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
 
 ### CLI do Azure
@@ -198,7 +200,7 @@ Ao especificar um local para um recurso, você deve usar um dos locais que dá s
 
 ### PowerShell
 
-Para o PowerShell, você pode ver a lista completa de recursos e locais usando o comando **Get-AzureLocation**.
+Para versões do PowerShell antes da visualização 1.0, você pode ver a lista completa de recursos e locais usando o comando **Get-AzureLocation**.
 
     PS C:\> Get-AzureLocation
 
@@ -219,9 +221,36 @@ Para o PowerShell, você pode ver a lista completa de recursos e locais usando o
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
+Para visualização do PowerShell 1.0, use **Get-AzureRmResourceProvider** para obter os locais com suporte.
+
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+
+    ProviderNamespace RegistrationState ResourceTypes               Locations
+    ----------------- ----------------- -------------               ---------
+    Microsoft.Web     Registered        {sites/extensions}          {Brazil South, ...
+    Microsoft.Web     Registered        {sites/slots/extensions}    {Brazil South, ...
+    Microsoft.Web     Registered        {sites/instances}           {Brazil South, ...
+    ...
+
+É possível especificar um tipo específico de recuso com:
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+
+    Brazil South
+    East Asia
+    East US
+    Japan East
+    Japan West
+    North Central US
+    North Europe
+    South Central US
+    West Europe
+    West US
+    Southeast Asia
+
 ### CLI do Azure
 
-Para a CLI do Azure, você pode usar **azure location list**. Como a lista de locais pode ser longa e existem muitos provedores, você pode usar ferramentas para examinar os provedores e locais antes de usar um local que ainda não está disponível. O script a seguir usa **jq** para descobrir os locais onde está disponível o provedor de recursos para máquinas virtuais do Azure.
+Para a CLI do Azure, você pode usar a **lista local do Azure**. Como a lista de locais pode ser longa e existem muitos provedores, você pode usar ferramentas para examinar os provedores e locais antes de usar um local que ainda não está disponível. O script a seguir usa **jq** para descobrir os locais nos quais está disponível o provedor de recursos para máquinas virtuais do Azure.
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
     {
@@ -239,7 +268,7 @@ Para alguns recursos, especialmente contas de armazenamento, servidores de banco
 
 ## Problemas de autenticação, assinatura, função e cota
 
-Pode haver um ou mais dos diversos problemas impedindo a implantação bem-sucedida envolvendo o Active Directory do Azure, a autenticação e autorização. Independentemente de como você gerencia os grupos de recursos do Azure, a identidade que você usa para entrar em sua conta devem ser objetos do Active Directory do Azure ou entidades de serviço, que também são chamadas de contas corporativas ou estudante, ou IDs organizacionais.
+Pode haver um ou mais dos diversos problemas impedindo a implantação bem-sucedida envolvendo o Active Directory do Azure, a autenticação e autorização. Independentemente de como gerenciar os grupos de recursos do Azure, a identidade que você usa para entrar em sua conta deve ser um objeto do Active Directory do Azure. Essa identidade pode ser um trabalho ou conta de escola que você criou ou foi atribuída a você, ou você pode criar uma Entidade de Serviço para aplicativos.
 
 Mas o Active Directory do Azure permite que você ou seu administrador controlem quais identidades podem acessar os recursos com um alto grau de precisão. Se suas implantações estiverem falhando, examine as próprias solicitações em busca de sinais de problemas de autenticação ou autorização, bem como os logs de implantação de seu grupo de recursos. Você pode descobrir que embora tenha permissões para alguns recursos, não tem permissões para outros. Usando a CLI do Azure, você pode examinar locatários e usuários do Active Directory do Azure que usam os comandos `azure ad`. (Para ver uma lista completa de comandos da CLI do Azure, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure](azure-cli-arm-commands.md).)
 
@@ -272,7 +301,7 @@ Os recursos são gerenciados por provedores de recursos, e uma conta ou assinatu
 
 ### PowerShell
 
-Para obter uma lista de provedores de recursos e o status do registro, use **Get-AzureProvider**.
+Para obter uma lista de provedores de recursos e o status do registro, use **Get-AzureProvider** para versões do PowerShell antes da visualização 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -284,6 +313,18 @@ Para obter uma lista de provedores de recursos e o status do registro, use **Get
     ...
 
 Para registrar um provedor, use **Register-AzureProvider**.
+
+Para visualização do PowerShell 1.0, use **Get-AzureRmResourceProvider**.
+
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    Microsoft.Batch                 Registered        {batchAccounts}
+
+Para registrar um provedor, use **Register-AzureRmResourceProvider**.
 
 ### CLI do Azure
 
@@ -375,4 +416,4 @@ Para dominar a criação de modelos, leia [Criando modelos do Gerenciador de Rec
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

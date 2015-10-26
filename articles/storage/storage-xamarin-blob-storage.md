@@ -179,4 +179,4 @@ Saiba mais sobre blobs, tabelas e filas consultando os links a seguir:
 [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

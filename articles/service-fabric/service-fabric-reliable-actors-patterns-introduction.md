@@ -70,4 +70,4 @@ Os principais benefícios de Atores de Malha do Azure são: 1) **produtividade d
 
 * *Assincronismo explícito.* O modelo de programação de Atores de Malha do Azure torna explícita a natureza assíncrona de um aplicativo distribuído e orienta os programadores a produzirem códigos assíncronos sem bloqueio. Isso permite um alto grau de paralelismo distribuído e produtividade geral sem o uso explícito de vários threads.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

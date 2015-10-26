@@ -179,4 +179,4 @@ Alguns scripts prontos também estão disponíveis para download:- [Scripts do P
 [API do .NET para o Barramento de Serviço]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

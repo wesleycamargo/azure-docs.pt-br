@@ -6,4 +6,4 @@
 
 Você pode solicitar para atualizar os limites flexíveis abrindo um tíquete de suporte.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

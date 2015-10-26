@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure AD Connect - entrada do usuário"
+<properties
+	pageTitle="Azure AD Connect - entrada do usuário | Microsoft Azure"
 	description="Entrada do usuário do Azure AD Connect para configurações personalizadas."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -62,6 +62,5 @@ Para a maioria das organizações que desejam apenas habilitar o usuário a faze
 	- Autenticação multifator local usando um provedor de terceiros ou cartões inteligentes (saiba mais sobre provedores MFA de terceiros para o AD FS no Windows Server 2012 R2)
 	- Recursos de integração do Active Directory, como o bloqueio de conta suave ou a política de horas de trabalho e senha do AD
 	- Acesso condicional para recursos locais e de nuvem usando o registro de dispositivos, a associação de AD do Azure ou políticas do Intune MDM
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

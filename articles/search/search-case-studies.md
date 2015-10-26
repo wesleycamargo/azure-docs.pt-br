@@ -48,4 +48,4 @@ Saiba como uma startup sueca criou um portal que conecta compradores a varejista
 [5]: ./media/search-case-studies/weichert_m.png
 [6]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

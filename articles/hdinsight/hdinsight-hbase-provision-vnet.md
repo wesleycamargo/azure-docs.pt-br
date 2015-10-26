@@ -200,13 +200,13 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 			     Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName FQDNSuffix
 			     This command shows the FQDN suffix of hosts in the cluster.
 			#>
-			
+
 				$DnsSuffix = ".azurehdinsight.net"
-				
+
 				$ClusterFQDN = $ClusterDnsName + $DnsSuffix
 				$webclient = new-object System.Net.WebClient
 				$webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
-			
+
 				if($PropertyName -eq "ZookeeperQuorum")
 				{
 					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum"
@@ -227,7 +227,7 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 					$Response1 = $webclient.DownloadString($Url1)
 					$JsonObject1 = $Response1 | ConvertFrom-Json
 					$PortNumber = $JsonObject1.items[0].properties.'hbase.rest.port'
-					
+
 					$Url2 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/hbase/components/hbrest"
 					$Response2 = $webclient.DownloadString($Url2)
 					$JsonObject2 = $Response2 | ConvertFrom-Json
@@ -304,7 +304,7 @@ Para usar essa informação em um aplicativo Java, você pode seguir as etapas e
 		$storageAccountName = "<AzureStorageAccountName>" # Do not use the full name here
 		$storageAccountKey = "<AzureStorageAccountKey>"
 		$storageContainerName = "<AzureBlobStorageContainer>"
-		
+
 		$password = ConvertTo-SecureString $hadoopUserPassword -AsPlainText -Force
 		$creds = New-Object System.Management.Automation.PSCredential ($hadoopUserName, $password)
 
@@ -384,4 +384,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

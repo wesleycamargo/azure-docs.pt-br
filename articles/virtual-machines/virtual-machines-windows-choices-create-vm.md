@@ -99,4 +99,4 @@ Use uma imagem baseada em uma máquina virtual existente do Azure *capturando* e
 
 [Ambientes de teste de nuvem híbrida do Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

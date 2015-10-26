@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Usando o Gerenciador de Conexão Híbrida | Serviço de aplicativo do Microsoft Azure"
-	description="Instalar e configurar o Gerenciador de Conexão Híbrida e conectar-se aos conectores locais no Serviço de Aplicativo do Azure"
-	services="app-service\logic"
+	pageTitle="Usando o Gerenciador de Conexão Híbrida | Serviço de aplicativo do Microsoft Azure" 
+	description="Instalar e configurar o Gerenciador de Conexão Híbrida e conectar-se aos conectores locais no Serviço de Aplicativo do Azure" 
+	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger"
-	manager="dwrede"
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/23/2015" 
 	ms.author="mandia"/>
 
 # Conecte-se aos conectores locais no serviço de aplicativo do Azure usando o Gerenciador de Conexão Híbrida
@@ -133,4 +133,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

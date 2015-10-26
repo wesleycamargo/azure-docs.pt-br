@@ -104,4 +104,4 @@ Consulte [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/lib
 
 Consulte [Operações para Bancos de Dados SQL do Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=06-->
+<!---HONumber=Oct15_HO3-->

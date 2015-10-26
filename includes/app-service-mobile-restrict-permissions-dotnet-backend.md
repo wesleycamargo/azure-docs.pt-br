@@ -13,4 +13,4 @@ Por padrão, APIs em um back-end de aplicativo móvel podem ser chamadas de form
    
 3. Publique novamente o projeto do servidor.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

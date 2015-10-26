@@ -21,7 +21,8 @@
 
 Há muitos fatores que afetam o desempenho do MySQL no Azure, tanto na configuração de software como na seleção de hardware virtual. Este artigo se concentra na otimização de desempenho por meio de armazenamento, sistema e configurações de banco de dados.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 ##Usando o RAID em uma máquina virtual do Azure
 O armazenamento é o principal fator que afeta o desempenho do banco de dados em ambientes de nuvem. Em comparação com um único disco, o RAID pode fornecer acesso mais rápido por meio de simultaneidade. Confira [Níveis do RAID padrão](http://en.wikipedia.org/wiki/Standard_RAID_levels) para obter mais detalhes.
@@ -347,4 +348,4 @@ Parâmetros de configuração de otimização mais detalhados, consulte as instr
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

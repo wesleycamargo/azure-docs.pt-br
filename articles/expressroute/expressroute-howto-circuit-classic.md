@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/13/2015"
    ms.author="cherylmc"/>
 
 # Criar e modificar um circuito da Rota Expressa
@@ -322,6 +322,6 @@ Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisi
 ## Próximas etapas
 
 - [Configurar o roteamento](expressroute-howto-routing-classic.md)
-- [Vincular uma rede virtual a um circuito da Rota Expressa](expresssroute-howto-linkvnet-classic.md) 
+- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

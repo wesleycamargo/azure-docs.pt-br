@@ -87,4 +87,4 @@ Para obter detalhes sobre preços, confira [Preços do Agendador](http://azure.m
  [Autenticação de saída do Agendador](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -46,7 +46,7 @@ Para instalar as Bibliotecas de Clientes do PHP através do computador, siga est
 
 2. Crie um arquivo chamado **composer.json** na raiz do seu projeto e adicione o seguinte código a ele:
 
-		{
+         {
              "repositories": [
                  {
                      "type": "pear",
@@ -59,7 +59,7 @@ Para instalar as Bibliotecas de Clientes do PHP através do computador, siga est
                  "pear-pear.php.net/mail_mimedecode" : "*",
                  "microsoft/windowsazure": "*"
              }
-		}
+         }
 
 3. Baixe o **[composer.phar][composer-phar]** na raiz do seu projeto.
 
@@ -431,4 +431,4 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

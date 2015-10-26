@@ -112,4 +112,4 @@ Para atualizar o serviço Web, abra o teste preditivo original que você usou pa
 
 Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para obter mais informações, consulte [Treinar novamente os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md).
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

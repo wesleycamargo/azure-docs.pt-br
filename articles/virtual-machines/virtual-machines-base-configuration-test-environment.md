@@ -19,7 +19,7 @@
 
 # Ambiente de teste de configuração básica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação. Você também pode criar esses recursos com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-base-configuration-test-environment-resource-manager.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-base-configuration-test-environment-resource-manager.md).
 
 Este artigo apresenta instruções passo a passo para criar o ambiente de teste de Configuração de Base em uma Rede Virtual do Azure.
 
@@ -288,4 +288,4 @@ Para iniciar as máquinas virtuais em ordem com o PowerShell do Azure, preencha 
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

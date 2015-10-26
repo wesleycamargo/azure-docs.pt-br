@@ -98,4 +98,4 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 - [Conectar ao clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Usando o SDK .NET do HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

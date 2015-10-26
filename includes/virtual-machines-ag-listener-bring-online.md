@@ -20,4 +20,4 @@
 
 1. Na caixa **Porta**, especifique o número da porta para o ouvinte do grupo de disponibilidade usando o $EndpointPort usado anteriormente (neste tutorial, 1433 era o padrão) e clique em **OK**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

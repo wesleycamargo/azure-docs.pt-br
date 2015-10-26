@@ -110,4 +110,4 @@ Se você precisar passar um valor de modelo vinculado para o modelo principal, p
 - [Criação de modelos](./resource-group-authoring-templates.md)
 - [Implantação de modelos](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

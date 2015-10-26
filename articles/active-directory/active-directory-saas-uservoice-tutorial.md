@@ -67,8 +67,7 @@ O objetivo desta seção é descrever como permitir a autenticação dos usuári
 
 3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de entrada do UserVoice**, digite sua URL usando o seguinte padrão "*https://\<nome do locatário>. UserVoice.com*" e, em seguida, clique em **próximo**.
 
-    ![Configurar a URL do Aplicativo  
-](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Configurar a URL do Aplicativo
+    ![Configurar a URL do Aplicativo](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Configurar a URL do Aplicativo
 ")
 
 4.  Na página **Configurar logon único no UserVoice**, clique em **Baixar certificado** para baixar seu certificado e, em seguida, salve o arquivo do certificado em seu computador como **c:\\UserVoice.cer**.
@@ -151,4 +150,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

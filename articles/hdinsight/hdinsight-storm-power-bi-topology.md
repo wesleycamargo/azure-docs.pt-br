@@ -139,4 +139,4 @@ Neste documento, você aprendeu como enviar dados de uma topologia Storm no Powe
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

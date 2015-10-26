@@ -19,7 +19,8 @@
 
 # Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
 
 Configure seu primeiro ou próximo aplicativo de linha de negócios baseado na Web e somente para intranet no Microsoft Azure e aproveite a facilidade de configuração e a capacidade de expandir rapidamente o aplicativo para incluir novas capacidades.
  
@@ -105,4 +106,4 @@ Uma vez configurado, você pode expandir facilmente esse aplicativo de linha de 
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Fluxo de trabalho para a configuração de um circuito da Rota Expressa | Microsoft Azure"
+   pageTitle="Fluxos de trabalho para a configuração de um circuito da Rota Expressa | Microsoft Azure"
    description="Esta página fornece uma orientação pelos fluxos de trabalho de configuração de emparelhamentos e circuito de Rota Expressa"
    documentationCenter="na"
    services="expressroute"
@@ -12,10 +12,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc"/>
 
-# Fluxos de trabalho de provisionamento e estados do circuito da Rota Expressa
+# Fluxos de trabalho da Rota Expressa para provisionamento e estados do circuito
 Esta página fornece uma orientação de alto nível pelos fluxos de trabalho de provisionamento do serviço e de configuração do roteamento.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
@@ -119,6 +119,6 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
 
 	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
-	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
+	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

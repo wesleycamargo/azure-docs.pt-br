@@ -57,4 +57,4 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Visão geral da arquitetura de Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -234,4 +234,4 @@ A melhor parte é que você só precisa passar por esse processo uma vez. Quando
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figura 13 - Criar novos campos para as informações de marcas"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figura 14 - Preenchendo a estrutura da conta com as informações das pesquisas"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -92,4 +92,4 @@ Para obter mais informações sobre a Malha de Serviços, consulte:
 [Configuração de Serviços Confiáveis](../Service-Fabric/service-fabric-reliable-services-configuration.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

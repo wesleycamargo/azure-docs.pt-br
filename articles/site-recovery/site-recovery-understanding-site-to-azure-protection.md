@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Noções básicas sobre o site para a proteção do Azure"
-	description="Use este artigo para entender os conceitos técnicos que ajudam você a instalar, configurar e gerenciar com êxito o Azure Site Recovery."
-	services="site-recovery"
-	documentationCenter=""
-	authors="anbacker"
-	manager="mkjain"
+	pageTitle="Noções básicas sobre o site para a proteção do Azure" 
+	description="Use este artigo para entender os conceitos técnicos que ajudam você a instalar, configurar e gerenciar com êxito o Azure Site Recovery." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="anbacker" 
+	manager="mkjain" 
 	editor=""/>
 
 <tags 
-	ms.service="site-recovery"
+	ms.service="site-recovery" 
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="09/01/2015"
+	ms.workload="storage-backup-recovery" 
+	ms.date="09/01/2015" 
 	ms.author="anbacker"/>
 
 
@@ -79,4 +79,4 @@ Há uma lógica de repetição interna quando ocorrem erros de replicação. Ela
 - [Contatando o Suporte da Microsoft](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [Erros de ASR comuns e suas resoluções](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2015" 
-	ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
@@ -23,6 +16,15 @@ Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no W
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Configuração e registro
+Para começar:
+
+1. [Baixe o PowerShell mais recente](https://github.com/Azure/azure-powershell/releases) (a versão mínima exigida é: 1.0.0)
+2. Habilite os commandlets do Backup do Azure alternando para o modo *AzureResourceManager* usando o commandlet **Switch-AzureMode**:
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
 As seguintes tarefas de configuração e de registro podem ser automatizadas com o PowerShell:
 
 - Criar um cofre de backup
@@ -32,14 +34,17 @@ As seguintes tarefas de configuração e de registro podem ser automatizadas com
 - Configurações de criptografia
 
 ### Criar um cofre de backup
-Você pode criar um novo cofre de backup usando o commandlet **New-AzureBackupVault**. O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
+
+> [AZURE.WARNING]Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito executando o seguinte comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+Você pode criar um novo cofre de backup usando o commandlet **New-AzureRMBackupVault**. O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-Você pode obter uma lista de todos os cofres de backup em uma determinada assinatura usando o commandlet **Get-AzureBackupVault**.
+Você pode obter uma lista de todos os cofres de backup em uma determinada assinatura usando o commandlet **Get-AzureRMBackupVault**.
 
 
 ### Instalando o agente de Backup do Azure
@@ -48,7 +53,7 @@ Antes de instalar o agente de Backup do Azure, você precisa ter o instalador ba
 Para instalar o agente, execute o comando a seguir em um console do Azure PowerShell com privilégios elevados:
 
 ```
-PS C:> MARSAgentInstaller.exe /q
+PS C:\> MARSAgentInstaller.exe /q
 ```
 
 Isso instala o agente com todas as opções padrão. A instalação demora alguns minutos, em segundo plano. Se você não especificar a opção */nu*, a janela do **Windows Update** será aberta no final da instalação para verificar se há atualizações. Uma vez instalado, o agente será exibido na lista de programas instalados.
@@ -62,7 +67,7 @@ Para ver a lista de programas instalados, vá para **Painel de controle** > **Pr
 Para ver todas as opções disponíveis por meio da linha de comando, use o seguinte comando:
 
 ```
-PS C:> MARSAgentInstaller.exe /?
+PS C:\> MARSAgentInstaller.exe /?
 ```
 
 As opções disponíveis incluem:
@@ -87,7 +92,7 @@ Antes de poder se registrar no serviço de Backup do Azure, você precisa garant
 - Ter uma assinatura válida do Azure
 - Ter um cofre de backup
 
-Para baixar as credenciais do cofre, execute o commandlet **Get-AzureBackupVaultCredentials** em um console do Azure PowerShell e as armazene em um local conveniente como *C:\\Downloads*.
+Para baixar as credenciais do cofre, execute o commandlet **Get-AzureRMBackupVaultCredentials** em um console do Azure PowerShell e as armazene em um local conveniente como *C:\\Downloads*.
 
 ```
 PS C:\> $credspath = "C:"
@@ -587,7 +592,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Próximas etapas
 Para obter mais informações sobre o Backup do Azure para Windows Server/Client, consulte
 
-- [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
+- [Introdução ao Backup do Azure](backup-configure-vault.md)
 - [Fazer backup de servidores Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

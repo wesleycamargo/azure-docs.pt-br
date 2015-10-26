@@ -81,4 +81,4 @@ A análise de recuperação de desastres será realizada usando um servidor de d
 
 - Conclua a análise verificando a integridade do aplicativo após a recuperação (isto é, cadeias de conexão, logons, teste de funcionalidade básica ou outras validações que fazem parte dos procedimentos de aprovações padrão do aplicativo).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -137,4 +137,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

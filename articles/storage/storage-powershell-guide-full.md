@@ -736,4 +736,4 @@ Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerSh
 [Next Steps]: #next
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -53,4 +53,4 @@ Verifique [obter mais informações](remoteapp-ad.md) sobre a configuração do 
 Se você estiver usando a imagem do modelo do Office 365 ProPlus em sua coleção *ou* se você criou uma imagem personalizada que usa o Office 365, é possível adicionar apenas usuários do Active Directory do Azure que têm assinaturas do Office 365 para o domínio padrão da sua assinatura. Consulte [Usando o Office 365 com o Azure RemoteApp](remoteapp-o365.md) para obter mais informações.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

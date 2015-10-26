@@ -44,4 +44,4 @@ As informações a seguir podem ajudá-lo a configurar e usar o RemoteApp do Azu
 	- Desabilite atualizações automáticas de software para aplicativos publicados - em vez disso, aplique-as manualmente à imagem do modelo e teste-as antes da implantação do modelo.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

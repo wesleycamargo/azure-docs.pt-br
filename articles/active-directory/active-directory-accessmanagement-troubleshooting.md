@@ -5,7 +5,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="Curtis"
 	tags="azure-classic-portal"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 
@@ -30,9 +30,7 @@
 Estes são alguns tópicos que fornecerão informações adicionais sobre o Active Directory do Azure
 
 * [Gerenciamento do acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
-
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
-
 * [Integração das identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

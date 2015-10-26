@@ -615,4 +615,4 @@ Observe que as duas implementações do controlador tornam exclusivo o uso dos D
 
 Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

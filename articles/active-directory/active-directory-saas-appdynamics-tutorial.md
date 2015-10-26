@@ -51,17 +51,17 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![AppDynamics](./media/active-directory-saas-appdynamics-tutorial/IC790211.png "AppDynamics")
 ##Configurando o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no AppDynamics com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML. Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no AppDynamics com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML. Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
 1.  No portal do AD do Azure, na página de integração de aplicativos do **AppDynamics**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o Logon Único](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Configurar o Logon Único")
+    ![Configurar o Logon Único](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Configurar o logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no AppDynamics**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o Logon Único](./media/active-directory-saas-appdynamics-tutorial/IC790213.png "Configurar o Logon Único")
+    ![Configurar o logon único](./media/active-directory-saas-appdynamics-tutorial/IC790213.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do AppDynamics**, digite a URL usada pelos usuários para fazer logon no AppDynamics (por exemplo: ("**https://companyname.saas.appdynamics.com*") e clique em **Avançar**.
 
@@ -69,7 +69,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar logon único no AppDynamics**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
-    ![Configurar o Logon Único](./media/active-directory-saas-appdynamics-tutorial/IC790215.png "Configurar o Logon Único")
+    ![Configurar o logon único](./media/active-directory-saas-appdynamics-tutorial/IC790215.png "Configurar o Logon Único")
 
 5.  Em outra janela do navegador da Web, faça logon em seu site de empresa AppDynamics como um administrador.
 
@@ -131,10 +131,10 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Atribuir Usuários](./media/active-directory-saas-appdynamics-tutorial/IC790231.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
 
     ![Sim](./media/active-directory-saas-appdynamics-tutorial/IC767830.png "Sim")
 
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

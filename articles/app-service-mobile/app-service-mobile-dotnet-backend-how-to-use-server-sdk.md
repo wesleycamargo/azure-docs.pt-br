@@ -77,7 +77,7 @@ Os seguintes pacotes com base em extensão no NuGet fornecem vários recursos m�
 
 - [Microsoft.Azure.Mobile.Server.Quickstart] dá suporte à configuração básica de Aplicativos Móveis. Adicionado à configuração chamando o método de extensão **UseDefaultConfiguration** durante a inicialização. Essa extensão inclui as seguintes extensões: Notificações, Autenticação, Entidade, Tabelas, pacotes Crossdomain e Home. Isso é equivalente ao projeto do servidor de início rápido que você baixa no portal do Azure.
 
-- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) adiciona uma home page simples à raiz do site da Web. Adicionar à configuração chamando o método de extensão **AddMobileAppHomeController**.
+- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implementa a página padrão *este aplicativo móvel está em execução* na raiz do site. Adicionar à configuração chamando o método de extensão **AddMobileAppHomeController**.
 
 - [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) inclui classes para trabalhar com dados e define o pipeline de dados. Adicionar à configuração chamando o método de extensão **AddTables**.
 
@@ -191,7 +191,7 @@ Você pode adicionar notificações por push para seu projeto do servidor, esten
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-Neste ponto, você pode usar o cliente de Hubs de Notificação para enviar notificações por push para dispositivos registrados. Para obter mais informações, consulte [Adicionar notificações por push ao seu aplicativo](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, consulte [Visão Geral de Hubs de Notificação](../notification-hubs/notification-hubs-overview.md).
+Neste ponto, você pode usar o cliente de Hubs de Notificação para enviar notificações por push para dispositivos registrados. Para obter mais informações, consulte [Adicionar notificações por push para seu aplicativo](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, consulte [Visão Geral de Hubs de Notificação](../notification-hubs/notification-hubs-overview.md).
 
 ## Como publicar o projeto do servidor
 
@@ -205,4 +205,4 @@ Use as etapas a seguir para publicar o seu projeto do servidor no Azure.
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

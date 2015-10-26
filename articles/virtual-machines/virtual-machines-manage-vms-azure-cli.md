@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Gerenciar suas VMs do Azure usando a CLI do Azure | Microsoft Azure"
-   description="Descreve como gerenciar suas VMs do Azure usando a CLI do Azure para Mac, Linux e Windows."
+   pageTitle="Gerenciar máquinas virtuais com a CLI | Microsoft Azure"
+   description="Automatize o gerenciamento de suas VMs do Gerenciador de Recursos do Azure usando a CLI (Interface de Linha de Comando) do Azure."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 
    <tags
    ms.service="virtual-machines"
@@ -14,16 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="danlep"/>
 
-# Gerenciar suas máquinas virtuais usando a CLI do Azure para Mac, Linux e Windows
+# Gerenciar suas máquinas virtuais do Gerenciador de Recursos usando a CLI do Azure para Mac, Linux e Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar um recurso criado com o modelo de implantação clássico. Você também pode gerenciar um recurso criado com o [modelo de implantação do Gerenciador de Recursos](virtual-machines-how-to-automate-azure-resource-manager.md).
 
-Muitas tarefas realizadas diariamente para gerenciar suas VMs podem ser automatizadas usando a CLI do Azure. Este artigo fornece comandos de exemplo para tarefas mais simples e links para artigos que mostram os comandos para tarefas mais complexas.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-how-to-automate-azure-resource-manager.md).
 
->[AZURE.NOTE]Se ainda não instalou e configurou a CLI do Azure, você pode obter instruções [aqui](../xplat-cli-install.md). Se você quiser um início rápido para as mesmas tarefas no PowerShell, consulte [Gerenciar suas VMs usando o PowerShell do Azure](virtual-machines-manage-vms-powershell.md).
+Várias das tarefas que você realiza diariamente para gerenciar suas VMs podem ser automatizadas por meio da CLI (Interface de Linha de Comando) do Azure para Mac, Linux e Windows. Este artigo fornece comandos de exemplo para tarefas mais simples e links para artigos que mostram os comandos para tarefas mais complexas.
+
+>[AZURE.NOTE]Se você ainda não instalou a CLI do Azure, é possível obter instruções [aqui](../xplat-cli-install.md) e saber como se conectar à sua assinatura [aqui](../xplat-cli-connect.md). Também é necessário configurar a CLI no modo arm (Gerenciador de Recursos do Azure).
 
 ## Como Usar os Comandos de Exemplo
 Você precisará substituir parte do texto nos comandos por texto apropriado para seu ambiente. Os símbolos < and > indicam o texto que você precisa substituir. Ao substituir o texto, remova os símbolos, mas mantenha as aspas.
@@ -81,6 +82,8 @@ Para criar uma nova VM baseada no Linux, você precisará ter vários valores à
 
 ## Próximas etapas
 
-Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, consulte [Usando a CLI do Microsoft Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-resource-manager.md). Para saber mais sobre recursos do Azure e seus conceitos, consulte [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
+* Para obter mais exemplos de uso da CLI do Azure com o modo do Gerenciador de Recursos do Azure, veja [Usando a CLI do Microsoft Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=Oct15_HO1-->
+* Para saber mais sobre recursos do Azure e seus conceitos, consulte [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
+
+<!---HONumber=Oct15_HO3-->

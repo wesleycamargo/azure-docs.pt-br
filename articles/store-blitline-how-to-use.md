@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Como usar o Blitline para processar imagens - guia de recursos Azure"
-	description="Aprenda a usar o serviço Blitline para processar imagens em um aplicativo do Azure."
-	services=""
-	documentationCenter=".net"
-	authors="blitline-dev"
-	manager="jason@blitline.com"
+	pageTitle="Como usar o Blitline para processar imagens - guia de recursos Azure" 
+	description="Aprenda a usar o serviço Blitline para processar imagens em um aplicativo do Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="blitline-dev" 
+	manager="jason@blitline.com" 
 	editor="jason@blitline.com"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/09/2014" 
 	ms.author="support@blitline.com"/>
 # Como usar o Blitline com o Azure e o Armazenamento do Azure
 
@@ -132,4 +132,4 @@ Acesse blitline.com para ler sobre todos os nossos outros recursos (as páginas 
 * Exemplos da API do Blitline <http://www.blitline.com/docs/examples>
 * Biblioteca de Nuget de terceiros <http://nuget.org/packages/Blitline.Net>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

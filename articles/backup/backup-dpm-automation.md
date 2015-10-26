@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2015" 
-	ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
@@ -37,16 +30,35 @@ Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## Configuração e registro
+Para começar:
 
-### Criar um cofre de backup
-Você pode criar um novo cofre de backup usando o commandlet **New-AzureBackupVault**. O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
+1. [Baixe o PowerShell mais recente](https://github.com/Azure/azure-powershell/releases) (a versão mínima exigida é: 1.0.0)
+2. Habilite os commandlets do Backup do Azure alternando para o modo *AzureResourceManager* usando o commandlet **Switch-AzureMode**:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
+As seguintes tarefas de configuração e de registro podem ser automatizadas com o PowerShell:
+
+- Criar um cofre de backup
+- Instalando o agente de Backup do Azure
+- Registrando-se no serviço de Backup do Azure
+- Configurações de rede
+- Configurações de criptografia
+
+### Criar um cofre de backup
+
+> [AZURE.WARNING]Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito executando o seguinte comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+Você pode criar um novo cofre de backup usando o commandlet **New-AzureRMBackupVault**. O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
+
+```
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
 ```
 
-Você pode obter uma lista de todos os cofres de backup em uma determinada assinatura usando o commandlet **Get-AzureBackupVault**.
+Você pode obter uma lista de todos os cofres de backup em uma determinada assinatura usando o commandlet **Get-AzureRMBackupVault**.
 
 
 ### Instalando o agente de Backup do Azure em um Servidor de DPM
@@ -307,6 +319,6 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados.
 
 ## Próximas etapas
-Para obter mais informações sobre o Backup do Azure para DPM, consulte [Introdução ao Backup de DPM do Azure](backup-azure-dpm-introduction.md)
+Para obter mais informações sobre o Backup do Azure para DPM, consulte [Introdução ao Backup de DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

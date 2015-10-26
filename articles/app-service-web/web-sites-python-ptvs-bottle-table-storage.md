@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Bottle e Armazenamento de Tabela do Azure com Ferramentas Python 2.2 para Visual Studio"
-	description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Bottle que armazena dados no Armazenamento de Tabelas do Azure e implante o aplicativo Web em Aplicativos Web do Serviço de Aplicativo do Azure."
-	services="app-service\web"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	pageTitle="Bottle e Armazenamento de Tabela do Azure com Ferramentas Python 2.2 para Visual Studio" 
+	description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Bottle que armazena dados no Armazenamento de Tabelas do Azure e implante o aplicativo Web em Aplicativos Web do Serviço de Aplicativo do Azure." 
+	services="app-service\web" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -213,4 +213,4 @@ Siga estes links para aprender mais sobre o Python Tools para Visual Studio, Bot
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

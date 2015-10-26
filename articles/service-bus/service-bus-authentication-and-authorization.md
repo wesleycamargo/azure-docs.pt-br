@@ -73,4 +73,4 @@ Para obter uma visão geral de alto nível do SAS no Barramento de Serviço, con
 
 Você pode encontrar mais informações sobre tokens de ACS em [Como solicitar um token do ACS usando o protocolo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

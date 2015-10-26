@@ -44,15 +44,15 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **Jobscience**.
 
-    ![Galeria de aplicativos](./media/active-directory-saas-jobscience-tutorial/IC784342.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-jobscience-tutorial/IC784342.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **Jobscience** e clique em **Concluir** para adicionar o aplicativo.
 
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Jobscience com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
-Configurar o logon único para Jobscience exige que você recupere um valor de impressão digital de um certificado.  
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Jobscience com sua conta do AD do Azure usando federação baseada em protocolo SAML.
+Configurar o logon único para Jobscience exige que você recupere um valor de impressão digital de um certificado.
 Se você não estiver familiarizado com esse procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
@@ -67,7 +67,7 @@ Se você não estiver familiarizado com esse procedimento, consulte [Como recupe
 
     ![Meu Domínio](./media/active-directory-saas-jobscience-tutorial/IC767825.png "Meu Domínio")
 
-4.  Para verificar se seu domínio foi configurado corretamente, certifique-se de que está em "**Etapa 4 Implantada para Usuários”** e leia "**Minhas configurações de domínio**".
+4.  Para verificar se seu domínio foi configurado corretamente, certifique-se de que está em “**Etapa 4 Implantada para Usuários**” e revise “**Minhas Configurações de Domínio**”.
 
     ![Domínio implantado para o usuário](./media/active-directory-saas-jobscience-tutorial/IC784377.png "Domínio implantado para o usuário")
 
@@ -91,7 +91,7 @@ Se você não estiver familiarizado com esse procedimento, consulte [Como recupe
 
 10. No site da empresa Jobscience, clique em **Controles de segurança** e, em seguida, clique em **Configurações de logon único**.
 
-    ![Controles de segurança](./media/active-directory-saas-jobscience-tutorial/IC784364.png "Controles de segurança")
+    ![Controles de Segurança](./media/active-directory-saas-jobscience-tutorial/IC784364.png "Controles de segurança")
 
 11. Na seção de **Configurações de logon único**, execute as seguintes etapas:
 
@@ -132,7 +132,7 @@ Se você não estiver familiarizado com esse procedimento, consulte [Como recupe
   
 Para obter o SP iniciado pelo logon único na URL de logon, clique em **Configurações de logon único** na seção do menu **Controles de segurança**.
 
-![Controles de segurança](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Controles de segurança")
+![Controles de Segurança](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Controles de segurança")
   
 Clique no perfil SSO que você criou na etapa anterior. Esta página mostra o logon único na URL para a sua empresa (por exemplo, **https://companyname.my.salesforce.com?so=companyid*).
 ##Configurando o provisionamento de usuários
@@ -153,7 +153,7 @@ Para permitir que os usuários do AD do Azure façam logon no Jobscience, eles d
 
 4.  Clique em **Novo Usuário**.
 
-    ![Todos os usuários](./media/active-directory-saas-jobscience-tutorial/IC784370.png "Todos os usuários")
+    ![Todos os Usuários](./media/active-directory-saas-jobscience-tutorial/IC784370.png "Todos os usuários")
 
 5.  No diálogo **Editar usuário**, execute as seguintes etapas:
 
@@ -176,7 +176,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 2.  Na página de integração de aplicativos **Jobscience**, clique em **Atribuir usuários**.
 
-    ![Atribuir usuários](./media/active-directory-saas-jobscience-tutorial/IC784372.png "Atribuir usuários")
+    ![Atribuir Usuários](./media/active-directory-saas-jobscience-tutorial/IC784372.png "Atribuir Usuários")
 
 3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
 
@@ -184,4 +184,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

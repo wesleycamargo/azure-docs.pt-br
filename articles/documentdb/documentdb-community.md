@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/07/2015"
+  ms.date="10/12/2015"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -35,6 +35,7 @@ Agregações (Group-by, Pivot-table, and N-dimensional Cube) e Transformações 
 
 Confira em [Github](https://github.com/lmaccherone/documentdb-lumenize) e em [npm](https://www.npmjs.com/package/lumenize).
 
+
 ### Estudo do Banco de Dados de Documentos
 
 *de Ming Liu*
@@ -42,6 +43,7 @@ Confira em [Github](https://github.com/lmaccherone/documentdb-lumenize) e em [np
 Um visualizador/gerenciador de gerenciamento de clientes para o serviço do Banco de Dados de Documentos do Microsoft Azure.
 
 Confira em [Github](https://github.com/mingaliu/DocumentDBStudio).
+
 
 <br/><br/>
 
@@ -86,27 +88,55 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 ### Eventos recentes e futuros
 
 | Nome do evento | Local padrão | Data | Hashtag |
-| --------------------------------------------------------------- | ------------- | ------------------- | ------- |
+| ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | Columbus, OH | 23 de outubro de 2015 | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Seattle, WA | 27 a 30 de outubro de 2015 | [#Summit15](https://twitter.com/hashtag/Summit15) |
-| [Grupo de usuários de integração](http://www.integrationusergroup.com/) | Evento virtual | 9 de novembro de 2015 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
+| [Grupo de usuários de integração](http://www.integrationusergroup.com/) | Webinar | 9 de novembro de 2015 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
+| [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Montreal, QC, Canadá | 01 de dezembro de 2015 | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
+
+*Você está hospedando um evento? [Fale conosco](mailto:askdocdb@microsoft.com) para sabermos como podemos ajudar!*
 
 ### Eventos e gravações anteriores
 
 | Nome do evento | Local padrão | Data | Gravação |
-| ---------- | -------- | ---- | ------- |
-| [Grupo de usuários de integração](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk&event_date=2015-10-05) | Evento virtual | 5 de outubro de 2015 | [Banco de Dados de Documentos do Azure para a integração da área de saúde](http://fast.wistia.net/embed/iframe/ee3b1nfe3o) |
-| [AzureCon](https://azure.microsoft.com/azurecon/) | Evento virtual | 29 de setembro de 2015 | [Trabalhando com dados NoSQL no Banco de Dados de Documentos](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQL sábado #430 - Sófia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Sófia, Bulgária | 10 de outubro de 2015 | n/d |
+| [SQL sábado #429 - Sofia 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Oporto, Portugal | 3 de outubro de 2015 | n/d |
+| [AzureCon](https://azure.microsoft.com/azurecon/) | Evento virtual | 29 de setembro de 2015 | [Plataforma de dados e análise do Aure](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[Trabalhando com os Dados NoSQL no Banco de Dados de Documentos](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| [SQL sábado #434 - Holanda 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | Utrecht, Países Baixos | 26 de setembro de 2015 | n/d |
+| [Meetup: Desenvolvedores do Azure na Área da Baía de São Francisco](http://www.meetup.com/bayazure/events/223943785/) | San Francisco, CA | 15 de setembro de 2015 | n/d |
+| [NoSQL agora!](http://nosql2015.dataversity.net/) | São José, CA | 18 a 20 de agosto de 2015 | n/d |
 | [@Scale Seattle](http://www.atscaleconference.com/) | Seattle, WA | 17 de junho de 2015 | [Indexação agnóstica de esquema com o Banco de Dados de Documentos do Azure](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
-| [Capítulo virtual de tecnologias PASS em memória](http://imvc.sqlpass.org/) | Evento virtual | 25 de maio de 2015 | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
+| [Atualização técnica 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | Lisboa, Portugal | 15 de junho de 2015 | [Banco de Dados de Documentos 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
 | [Mês do banco de dados](http://www.databasemonth.com/database/azure-documentdb) | Nova Iorque, NY | 19 de maio de 2015 | [Banco de Dados de Documentos do Azure: serviço do Banco de Dados de Documentos multilocatário, massivamente escalonável](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
-| [Ignite](http://ignite.microsoft.com/) | Chicago, IL | 4 a 8 de maio de 2015 | [Vídeo SELECT Latest FROM DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[Vídeo Banco de Dados de Documentos e Azure HDInsight: melhor em conjunto](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [Meetup: O grupo de usuários London SQL Server](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Londres, Reino Unido | 19 de maio de 2015 | n/d |
+| [Ignite](http://ignite.microsoft.com/) | Chicago, IL | 4 a 8 de maio de 2015 | [SELECIONAR o último vídeo DO Banco de Dados de Documentos](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[Banco de Dados de Documentos e Azure HDInsight: vídeo Melhor Juntos](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Build 2015](http://www.buildwindows.com/) | San Francisco, CA | 29 de abril a 1 de maio de 2015 | [Criar a próxima grande ideia com o serviço NoSQL do Azure: Banco de Dados de Documentos](https://channel9.msdn.com/Events/Build/2015/2-729) |
-| [#DevHangout - devacademy.la](https://www.youtube.com/user/devacademyla) | Evento virtual | 11 de março de 2015 | [Banco de Dados de Documentos, o banco de dados NoSql do Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
-| [Capítulo virtual PASS de arquitetura de dados](https://dataarch.sqlpass.org/) | Evento virtual | 25 de fevereiro de 2015 | [Introdução ao Banco de Dados de Documentos](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+| [Global Azure Bootcamp 2015 - Espanha](http://azurebootcamp.es/) | Madri, Espanha | 25 de abril de 2015 | [#DEAN Banco de Dados de Documentos + Express + AngularJS + NodeJS em execução no Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
+| [Meetup: Nuvem da Microsoft de Charlotte](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Charlotte, Carolina do Norte | 8 de abril de 2015 | n/d |
+| [Meetup: Grupo de usuários do Azure Dinamarca](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Copenhague, Dinamarca | 19 de maio de 2015 | n/d |
+| [Meetup: Grupo de Desenvolvedores do Aplicativo Web de Seatlle](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | Seattle, WA | 14 de maio de 2015 | n/d |
+| [Meetup: Meetup Azure de Istambul](http://www.meetup.com/istanbul-azure-meetup/events/220325538/) | Istambul, Turquia | 7 de março de 2015 | n/d |
+| [Meetup: Grupo de Usuário .Net da Área dos Grandes Lagos](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) | Southfield, MI | 18 de fevereiro de 2015 | n/d |
 | [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) | Estocolmo, Suécia | 28 a 29 de janeiro de 2015 | [Banco de Dados de Documentos no Azure, a nova opção de NoSQL para a nuvem](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
 
-*Você está hospedando um evento? [Fale conosco](mailto:askdocdb@microsoft.com) para sabermos como podemos ajudar!*
+### Vídeos e Podcasts
+
+| Mostrar | Data | Episódio |
+| ------------------------------------------- | ------------------ | ------- |
+| Grupo de usuários de integração | 5 de outubro de 2015 | [Banco de Dados de Documentos do Azure para a integração da área de saúde](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
+| Itália DX - #TecHeroes | 2 de outubro de 2015 | [#TecHeroes - Banco de Dados de Documentos](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
+| .NET arrebenta! Podcast | 29 de setembro de 2015 | [Dados no Banco de Dados de Documentos com Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
+| Dados expostos | 28 de setembro de 2015 | [Novidades no Banco de Dados de Documentos do Azure desde GA](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
+| O Podcast do Azure | 17 de setembro de 2015 | [Episódio 94: reestruturação de azpodcast.com](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
+| Cobertura em Nuvem | 4 de setembro de 2015 | [Episódio 185: Atualizações dos Banco de Dados de Documentos com Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
+| CodeChat 033 | 28 de julho de 2015 | [Greg Doerr em Banco de Dados de Documentos do Azure](https://channel9.msdn.com/Shows/codechat/033) |
+| Capítulo virtual de tecnologias PASS em memória | 25 de maio de 2015 | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
+| Dados expostos | 8 de abril de 2015 | [Disponibilidade Geral do Banco de Dados de Documentos e O que é de novo!](https://channel9.msdn.com/Shows/Data-Exposed/DocumentDB-General-Availability-and-Whats-New) |
+| Dados expostos | 17 de março de 2015 | [Java SDK para Banco de Dados de Documentos](https://channel9.msdn.com/Shows/Data-Exposed/Java-SDK-for-DocumentDB) |
+| #DevHangout | 11 de março de 2015 | [Banco de Dados de Documentos, o banco de dados NoSql do Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
+| Capítulo virtual PASS de arquitetura de dados | 25 de fevereiro de 2015 | [Introdução ao Banco de Dados de Documentos](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+
 
 ### Aulas online
 
@@ -152,13 +182,10 @@ Nós estamos disponíveis no horário comercial no IRC todas as sextas, das 11h 
 
 ## Entre em contato com a equipe
 
-<hr/>
+| | |
+| -------------------------------------------------------- | --- |
+|![Equipe](./media/documentdb-community/documentdb-team.png) | Você precisa de ajuda técnica? Tem dúvidas? Se perguntando se NoSQL é ideal para você?<br/><br/>Você pode [Agendar um chat individual diretamente com a equipe de engenharia DocumentDB](http://www.askdocdb.com/).<br/><br/>Nós também pode solucionar um [email](mailto:askdocdb@microsoft.com) ou tweet conosco em [@DocumentDB](https://twitter.com/DocumentDB). |
 
-Você precisa de ajuda técnica? Tem dúvidas? Quer saber se o NoSQL é ideal para você?
-
-Você pode [agendar um bate-papo presencial diretamente com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/).
-
-Você também poderá entrar em contato conosco por [e-mail](mailto:askdocdb@microsoft.com) ou enviar um tweet para [@DocumentDB](https://twitter.com/DocumentDB).
 
 <br/><br/>
 
@@ -186,4 +213,4 @@ Esses projetos são ativamente desenvolvidos pela equipe do Banco de Dados de Do
 | Conector do Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Ferramenta de migração de dados | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Centro de download da Microsoft.](http://www.microsoft.com/pt-BR/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

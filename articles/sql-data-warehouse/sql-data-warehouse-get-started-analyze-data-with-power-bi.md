@@ -78,4 +78,4 @@ Agora que proporcionamos a você uma introdução à verificação de dados de e
 [connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

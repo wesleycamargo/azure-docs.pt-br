@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # Implantar um Aplicativo de API no Serviço de Aplicativo do Azure 
 
 ## Visão geral
 
-Neste tutorial, você implantará o projeto de API Web que criou no [tutorial anterior](app-service-dotnet-create-api-app.md) para um novo [aplicativo de API](app-service-api-apps-why-best-platform.md). Você usará o Visual Studio para criar o recurso de aplicativo de API no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) e implantar seu código de API Web no aplicativo de API do Azure.
+Neste tutorial, você implanta o projeto de API Web que criou no [tutorial anterior](app-service-dotnet-create-api-app.md) para um novo [aplicativo de API](app-service-api-apps-why-best-platform.md). Você usa o Visual Studio para criar o recurso de aplicativo de API no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) e implantar seu código de API Web no aplicativo de API do Azure.
 
 ### Outras opções de implantação
 
@@ -121,7 +121,10 @@ Em seguida, faça uma alteração na definição de API e veja a alteração no 
 
 ## Próximas etapas
 
-Você viu como os recursos de implantação direta do Visual Studio facilitam o processo de iteração e implantação rapidamente e testam se sua API funciona corretamente. No [próximo tutorial](../app-service-dotnet-remotely-debug-api-app.md), você verá como depurar seu aplicativo de API enquanto ele é executado no Azure.
- 
+Você viu como os recursos de implantação direta do Visual Studio facilitam testar se sua API funciona corretamente. No [próximo tutorial](../app-service-dotnet-remotely-debug-api-app.md), você verá como depurar seu aplicativo de API enquanto ele é executado no Azure.
 
-<!---HONumber=Oct15_HO2-->
+Aplicativos de API são aplicativos Web com recursos adicionais para hospedar APIs, o que significa que você pode usar qualquer método de implantação que funciona com aplicativos Web. Para obter mais informações sobre a implantação de aplicativos Web, consulte [Implantar um aplicativo Web no Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md).
+
+Para obter informações sobre recursos de aplicativos de API, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md).
+
+<!---HONumber=Oct15_HO3-->

@@ -36,4 +36,4 @@ Observe que quando um serviço relata carga, esses relatórios de carga substitu
 Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

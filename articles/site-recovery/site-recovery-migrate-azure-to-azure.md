@@ -30,7 +30,7 @@ Este artigo descreve como usar o Site Recovery para migrar máquinas virtuais Ia
 Veja o que você precisa antes de iniciar:
 
 - **Servidor de configuração**: uma máquina virtual do Azure que atua como o servidor de configuração. O servidor de configuração coordena a comunicação entre computadores locais e servidores do Azure.
-- **Servidor de destino mestre**: uma máquina virtual do Azure que atua como o servidor de destino mestre. Esse servidor recebe e retém os dados replicados dos computadores protegidos.
+- **Servidor de destino mestre**: uma máquina virtual do Azure, que atua como o servidor de destino mestre. Esse servidor recebe e retém os dados replicados dos computadores protegidos.
 - **Um servidos de processo**: uma máquina virtual que executa o Windows Server 2012 R2. Máquinas virtuais protegidas enviam dados de replicação para esse servidor.
 - **Máquinas virtuais IaaS**: as VMs que você deseja migrar.
 
@@ -42,7 +42,7 @@ Veja o que você precisa antes de iniciar:
 1. [Criar um cofre](site-recovery-vmware-to-azure.md/#step-1-create-a-vault)
 2. [Implantar um servidor de configuração](site-recovery-vmware-to-azure.md#step-2-deploy-a-configuration-server) como uma VM do Azure.
 3. [Implantar o servidor de destino mestre](site-recovery-vmware-to-azure.md#step-2-deploy-a-configuration-server) como uma VM do Azure.
-4. [Implantar servidor de processo](site-recovery-vmware-to-azure.md#step-4-deploy-the-on-premises-process-server). Observe que:
+4. [Implantar um servidor de processo](site-recovery-vmware-to-azure.md#step-4-deploy-the-on-premises-process-server). Observe que:
 
 	- Você deve implantar o servidor de processo na mesma rede virtual/sub-rede que as VMs IaaS que deseja migrar. ![VMs IaaS](./media/site-recovery-migrate-azure-to-azure/ASR_MigrateAzure1.png)
 
@@ -69,4 +69,4 @@ Veja o que você precisa antes de iniciar:
 
 Poste comentários ou dúvidas no [fórum do Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -27,7 +27,7 @@
    - Gateway
    - Endereço IP do servidor DNS Primário
     
-		Observe que o sistema valida as configurações de rede após cada etapa no processo.
+		Note que o sistema validará as configurações de rede após cada etapa no processo.
    
       >[AZURE.NOTE]Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você receber a mensagem de erro "Verificar a conectividade de rede com Dados 0", verifique a conexão de rede física na interface de rede DADOS 0 de seu controlador ativo.
 
@@ -68,4 +68,4 @@
      
        
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -9,4 +9,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
   - Usar o [Armazenamento de blobs](./storage-dotnet-how-to-use-queues.md) para armazenar dados não estruturados.
   - Usar o [Banco de Dados SQL](../sql-database/sql-database-dotnet-how-to-use.md) para armazenar dados relacionais.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

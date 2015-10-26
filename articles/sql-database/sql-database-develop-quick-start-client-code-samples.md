@@ -94,4 +94,4 @@ Esta seção fornece links para tópicos com exemplo de código para programas c
 - [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md)
 - [Entity Framework 6 aqui, EF 7 em GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=06-->
+<!---HONumber=Oct15_HO3-->

@@ -54,7 +54,7 @@ Crie um plano de recuperação da seguinte forma:
 	- Se estiver replicando do VMM no VMM usando SAN, selecione VMM em **Tipo de Origem** e os servidores VMM de origem e de destino. Clique em **SAN** para ver as nuvens que estão configuradas para a replicação SAN.
 	- Se estiver replicando do VMM no Azure, selecione VMM em **Tipo de Origem**. Selecione o servidor do VMM de origem e **Azure** como o destino.
 	- Se estiver replicando de um site do Hyper-V, selecione site do Hyper-V em Tipo de Origem. Selecione o site como a origem e **Azure **como o destino.
-- Se estiver replicando do site VMware ou de um servidor local físico no Azure, selecione um servidor de configuração como a origem e **Azure** como o destino.
+	- Se estiver replicando do site VMware ou de um servidor local físico no Azure, selecione um servidor de configuração como a origem e **Azure** como o destino.
 
 2\. Em **Selecionar máquinas virtuais**, selecione as máquinas virtuais (ou o grupo de replicação) que deseja adicionar ao grupo padrão (Grupo 1) no plano de recuperação.
 
@@ -124,4 +124,4 @@ Você pode estender o seu plano de recuperação executando um runbook da automa
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -270,4 +270,4 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
  - Para saber mais sobre a Pesquisa do Azure, clique [aqui](/services/search/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

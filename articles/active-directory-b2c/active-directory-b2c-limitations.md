@@ -52,7 +52,7 @@ Na visualização do AD B2C do Azure, você tem a capacidade de [compilar uma AP
 
 ### Cadeias de API Web (Em nome de)
 
-Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo AD B2C do Azure. Este cenário é comum em clientes nativos que têm um back-end de API Web que, por sua vez, chama um serviço Microsoft Online, como o Graph API do AD do Azure.
+Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web downstream, ambas protegidas pelo AD B2C do Azure. Este cenário é comum em clientes nativos que têm um back-end de API Web que, por sua vez, chama um serviço Microsoft Online, como o Graph API do AD do Azure.
 
 Este cenário de API Web encadeada pode ter suporte usando a concessão Credencial de Portador Jwt do OAuth 2.0, também conhecido como fluxo Em nome de. No entanto, o fluxo Em nome de não está implementado atualmente na visualização do AD B2C do Azure.
 
@@ -88,4 +88,4 @@ Se você redefinir a senha para um consumidor baseado em conta local no Portal d
 
 Você não poderá excluir um locatário do AD B2C do Azure no portal do Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

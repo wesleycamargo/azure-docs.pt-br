@@ -3,7 +3,7 @@
 	description="Aprenda a usar os aplicativos móveis do Serviço de Aplicativos do Azure para autenticar usuários de seu aplicativo Windows usando uma variedade de provedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson"
+	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
 
@@ -62,4 +62,4 @@ Em seguida, você atualizará o aplicativo para autenticar usuários antes de so
 [Introdução ao seu aplicativo móvel]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

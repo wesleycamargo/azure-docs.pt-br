@@ -21,7 +21,7 @@
 
 Este tópico descreve o [CoreOS] e mostra como criar um cluster de três máquinas virtuais CoreOS no Azure rapidamente. Ele usa os elementos mais básicos das implantações do CoreOS e os exemplos do [CoreOS com Azure], o [Tutorial de Tim Park sobre o CoreOS] e o [Tutorial de Patrick Chanezon sobre o CoreOS] a fim de demonstrar os requisitos mínimos para compreender a estrutura básica de uma implantação CoreOS e obter um cluster de três máquinas virtuais que executam sem problemas.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o uso do CLI do Azure para criar as máquinas virtuais do CoreOS com o modelo de implantação clássico. Também é possível criar máquinas virtuais do CoreOS usando modelos no [modelo de implantação do Gerenciador de Recursos](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
 
 ## <a id='intro'>CoreOS, clusters e contêineres do Linux</a>
@@ -45,7 +45,7 @@ No momento, o CoreOS parte do pressuposto de que todos que podem executar SSH no
 
 ## <a id='usingcoreos'>Como usar o CoreOS no Azure</a>
 
-Esta seção descreve como criar um serviço de nuvem do Azure com três máquinas virtuais do CoreOS por meio da [CLI do Azure (Interface de Linha de Comando do Azure)]. Estas são as etapas básicas:
+Esta seção descreve como criar um serviço de nuvem do Azure com três máquinas virtuais CoreOS por meio da [CLI do Azure (Interface de Linha de Comando do Azure)]. Estas são as etapas básicas:
 
 1. Criar certificados SSH e chaves para garantir a segurança da comunicação com a máquina virtual CoreOS
 2. Obter a ID etcd do cluster para intercomunicação
@@ -77,7 +77,7 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 ### Criar um arquivo de configuração de nuvem
 
-No mesmo diretório de trabalho, use o editor de texto de sua preferência para criar um arquivo com o texto exibido a seguir e salve-o como `cloud-config.yaml`. (Você salvá-lo com o nome que desejar, mas precisará fazer referência ao nome desse arquivo na opção **--custom-data** do comando **azure vm create** ao criar suas VMs na próxima etapa.)
+No mesmo diretório de trabalho, use o editor de texto de sua preferência para criar um arquivo com o texto exibido a seguir e salve-o como `cloud-config.yaml`. Você pode atribuir o nome que desejar a ele, mas precisará fazer referência ao nome desse arquivo na opção **--custom-data** do comando **azure vm create** ao criar suas VMs na próxima etapa.
 
 > [AZURE.NOTE]Lembre-se de digitar `cat etcdid` para recuperar a ID de descoberta do etcd do arquivo `etcdid` criado anteriormente e substituir `<token>` no arquivo `cloud-config.yaml` a seguir pelo número gerado por meio de seu arquivo `etcdid`. Se não puder validar o cluster ao final, é possível que tenha pulado uma das etapas.
 
@@ -146,7 +146,7 @@ Após a conexão, digite `sudo fleetctl list-machines` para ver se o cluster já
 
 ### Testar o cluster CoreOS no localhost
 
-Por fim, vamos testar o cluster do CoreOS no cliente Linux local. Você poderá instalar **fleetctl** usando **npm** ou instalar **fleet** e criar **fleetctl** no seu cliente local. **fleet** requer **golang**, portanto, talvez seja necessário instalá-lo primeiro digitando:
+Por fim, vamos testar o cluster do CoreOS no cliente Linux local. Você poderá instalar **fleetctl** usando **npm** ou instalar **fleet** e criar **fleetctl** no seu cliente local. **fleet** requer **golang**; portanto, talvez seja necessário instalá-lo primeiro digitando:
 
 `sudo apt-get install golang`
 
@@ -209,4 +209,4 @@ Agora você deve ter um cluster CoreOS com três nós no Azure. Aqui, você pode
 [YAML]: http://yaml.org/
 [Introdução ao Fleet no CoreOS no Azure]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

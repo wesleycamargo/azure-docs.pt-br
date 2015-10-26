@@ -19,7 +19,8 @@
 
 # Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo abrange solução de problemas de acesso do aplicativo em uma máquina virtual criada com o modelo de implantação clássica ou o modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Se você não conseguir acessar um aplicativo em execução em uma máquina virtual do Azure, este artigo descreve uma abordagem metódica para isolar a origem do problema e corrigi-lo.
 
@@ -112,4 +113,4 @@ Se tiver executado as etapas de 1 a 3 neste artigo e precisar de mais ajuda para
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

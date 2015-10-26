@@ -19,7 +19,8 @@
 
 # Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+ 
 
 Este tópico orienta a criação de um ambiente de nuvem híbrida para testar a Sincronização de Diretórios (DirSync) do Office 365 com sincronização de senha hospedada no Microsoft Azure. Veja abaixo a configuração resultante.
 
@@ -199,4 +200,4 @@ Este ambiente agora está pronto para você executar testes de aplicativos do Of
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -90,4 +90,4 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 
 [Conectar usuários usando o AD do Azure](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

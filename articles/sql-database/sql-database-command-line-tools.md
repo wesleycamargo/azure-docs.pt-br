@@ -3,9 +3,9 @@
 	description="Gerenciamento do Banco de Dados SQL do Azure com o PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="TigerMint" 
-	manager="" 
-	editor=""/>
+	authors="stevestein" 
+	manager="jeffreyg" 
+	editor="monicar"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,33 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
-	ms.author="vinsonyu"/>
+	ms.date="10/08/2015" 
+	ms.author="sstein; vinsonyu"/>
 
 # Gerenciar o Banco de Dados SQL do Azure com o PowerShell
 
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-manage-portal.md)
-- [SSMS](sql-database-manage-azure-ssms.md)
+- [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-Este tópico fornece comandos do PowerShell para executar muitas tarefas do Banco de Dados SQL do Azure usando os cmdlets do Gerenciador de Recursos do Azure.
+Este tópico fornece comandos do PowerShell para executar várias tarefas do Banco de Dados SQL do Azure.
 
 
-## Pré-requisitos
+> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam as novas convenções de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Para executar cmdlets do PowerShell, você precisa ter o PowerShell do Azure instalado e em execução e, dependendo da versão, talvez seja preciso alterná-lo para o modo de gerenciador de recursos a fim de acessar os cmdlets do PowerShell do Gerenciador de Recursos do Azure.
 
-Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-
-Os cmdlets para criação e gerenciamento de Bancos de Dados SQL do Azure estão localizados no módulo do Gerenciador de Recursos do Azure. Quando você inicia o PowerShell do Azure, os cmdlets no módulo do Azure são importados por padrão. Para alternar para o módulo do Gerenciador de Recursos do Azure, use o cmdlet **Switch-AzureMode**.
-
-	Switch-AzureMode -Name AzureResourceManager
-
-Se for exibido um aviso informando “O cmdlet Switch-AzureMode foi substituído e será removido em uma versão futura”, você poderá ignorá-lo e passar para a próxima seção.
-
-Para obter informações detalhadas, confira [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
+Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução, e devido à remoção de Switch-AzureMode, você deve baixar e instalar o Azure PowerShell mais recente executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 
 
@@ -68,56 +59,56 @@ Crie um grupo de recursos que conterá o servidor. Você pode editar o próximo 
 
 Para obter uma lista de locais válidos de servidor do Banco de Dados SQL do Azure, execute os seguintes cmdlets:
 
-	$AzureSQLLocations = Get-AzureLocation | Where-Object Name -Like "*SQL/Servers"
+	$AzureSQLLocations = Get-AzureRMLocation | Where-Object Name -Like "*SQL/Servers"
 	$AzureSQLLocations.Locations
 
 Caso já tenha um grupo de recursos, você poderá pular para a criação de um servidor, ou poderá editar e executar o seguinte comando para criar um novo grupo de recursos:
 
-	New-AzureResourceGroup -Name "resourcegroupJapanWest" -Location "Japan West"
+	New-AzureRMResourceGroup -Name "resourcegroupJapanWest" -Location "Japan West"
 
 ## Criar um servidor 
 
-Para criar um novo servidor V12, use o comando [New-AzureSqlServer](https://msdn.microsoft.com/library/mt163526.aspx). Substitua server12 pelo nome do seu servidor. Esse nome deve ser exclusivo para Servidores do SQL do Azure. Você poderá receber um erro se o nome do servidor já existir. Também vale a pena observar que esse comando pode demorar alguns minutos para ser concluído. Os detalhes do servidor e o prompt do PowerShell serão exibidos após a criação do servidor. Você pode editar o comando para usar qualquer local válido.
+Para criar um novo servidor V12, use o cmdlet [New-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx). Substitua server12 pelo nome do seu servidor. Esse nome deve ser exclusivo a todos os SQL Servers do Azure; caso contrário, você receberá um erro se o nome do servidor já existir. Também vale a pena observar que esse comando pode demorar alguns minutos para ser concluído. Os detalhes do servidor e o prompt do PowerShell serão exibidos após a criação do servidor. Você pode editar o comando para usar qualquer local válido.
 
-	New-AzureSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
+	New-AzureRMSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
 Ao executar esse comando, uma janela é aberta solicitando um **Nome de usuário** e **Senha**. Essas não são suas credenciais do Azure, insira o nome de usuário e a senha que serão as credenciais de administrador que você deseja criar para o novo servidor.
 
 ## Criar uma regra de firewall de servidor
 
-Para criar uma regra de firewall a fim de acessar o servidor, use o comando [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx). Execute o comando a seguir substituindo os endereços IP inicial e final pelos valores válidos para o seu cliente.
+Para criar uma regra de firewall para acessar o servidor, use o comando [New-AzureRMSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx). Execute o comando a seguir substituindo os endereços IP inicial e final pelos valores válidos para o seu cliente.
 
 Se o servidor precisar permitir o acesso a outros serviços do Azure, adicione a opção **- AllowAllAzureIPs** que adicionará uma regra de firewall especial e permitirá que todo o tráfego do azure acesse o servidor.
 
-	New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+	New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
 Para saber mais, confira [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 ## Criar um banco de dados SQL
 
-Para criar um banco de dados, use o comando [New-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125915.aspx). É necessário um servidor para criar um banco de dados. O exemplo a seguir cria um banco de dados SQL denominado TestDB12. O banco de dados é criado como um banco de dados Padrão S1.
+Para criar um banco de dados, use o comando [New-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx). É necessário um servidor para criar um banco de dados. O exemplo a seguir cria um banco de dados SQL denominado TestDB12. O banco de dados é criado como um banco de dados Padrão S1.
 
-	New-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S1"
+	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S1"
 
 
 ## Alterar o nível de desempenho do banco de dados SQL
 
-Você pode dimensionar o banco de dados verticalmente com o comando [Set-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125814.aspx). O exemplo a seguir escala verticalmente um banco de dados SQL denominado TestDB12 de seu nível de desempenho atual para um nível Padrão S3.
+É possível escalar o banco de dados vertical ou horizontalmente com o comando [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx). O exemplo a seguir escala verticalmente um banco de dados SQL denominado TestDB12 de seu nível de desempenho atual para um nível Padrão S3.
 
-	Set-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S3"
+	Set-AzureRMSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S3"
 
 
 ## Excluir um banco de dados SQL
 
-Você pode excluir um banco de dados SQL com o comando [Remove-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125977.aspx). O exemplo a seguir exclui um banco de dados SQL denominado TestDB12.
+Você pode excluir um banco de dados SQL com o comando [Remove-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368.aspx). O exemplo a seguir exclui um banco de dados SQL denominado TestDB12.
 
-	Remove-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12"
+	Remove-AzureRMSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12"
 
 ## Excluir um servidor
 
-Também é possível excluir um servidor com o comando [Remove-AzureSqlServer](https://msdn.microsoft.com/library/mt125891.aspx). O exemplo a seguir exclui um servidor chamado server12.
+Também é possível excluir um servidor com o comando [Remove-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx). O exemplo a seguir exclui um servidor chamado server12.
 
-	Remove-AzureSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
+	Remove-AzureRMSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
 
 
@@ -128,18 +119,16 @@ Se você estiver criando novamente esses recursos do SQL do Azure ou semelhantes
 
 ## Próximas etapas
 
-Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre aspas, incluindo os caracteres < and >, por seus valores a fim de criar um servidor, uma regra de firewall e um banco de dados:
+Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre aspas, incluindo os caracteres < and > pelos seus valores para criar um servidor, uma regra de firewall e um banco de dados:
 
 
-    New-AzureResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
-    New-AzureSqlServer -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -Location "<Location>" -ServerVersion "12.0"
-    New-AzureSqlServerFirewallRule -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -FirewallRuleName "<firewallRuleName>" -StartIpAddress "<192.168.0.198>" -EndIpAddress "<192.168.0.199>"
-    New-AzureSqlDatabase -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -DatabaseName "<databaseName>" -Edition <Standard> -RequestedServiceObjectiveName "<S1>"
+    New-AzureRMResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
+    New-AzureRMSqlServer -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -Location "<Location>" -ServerVersion "12.0"
+    New-AzureRMSqlServerFirewallRule -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -FirewallRuleName "<firewallRuleName>" -StartIpAddress "<192.168.0.198>" -EndIpAddress "<192.168.0.199>"
+    New-AzureRMSqlDatabase -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -DatabaseName "<databaseName>" -Edition <Standard> -RequestedServiceObjectiveName "<S1>"
 
 ## Informações relacionadas
 
-- [Cmdlets do Gerenciador de Recursos do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/mt163521.aspx)
-- [Cmdlets do Gerenciamento de Serviço do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn546726.aspx)
- 
+- [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

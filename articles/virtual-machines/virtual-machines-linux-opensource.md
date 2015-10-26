@@ -23,7 +23,8 @@
 
 Este documento tenta listar, em um único local, todos os tópicos escritos pela Microsoft e seus parceiros sobre a execução de máquinas virtuais baseadas em Linux, bem como outros ambientes e aplicativos de software livre no Microsoft Azure. Como tanto o Azure, quanto o mundo da computação de software livre são alvos em rápida evolução, é quase certo que este documento esteja desatualizado, *apesar* do fato de que sempre fazemos o possível para adicionar continuamente tópicos mais recentes e remover aqueles desatualizados. Se tivermos deixado passar algo, avise nos comentários ou envie uma solicitação pull para nosso [repositório GitHub](https://github.com/Azure/azure-content/).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo lista os tópicos independentemente do modelo de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 ## Observações gerais
 As seções são divididas à direita desta página. (Os links podem ocorrer em mais de uma seção, assim como os tópicos podem abordar mais de um conceito, distribuição ou tecnologia.) Além disso, há vários tópicos que descrevem diversas opções do Linux, repositórios de imagens, estudos de caso e tópicos de instruções para carregar suas próprias imagens personalizadas:
@@ -310,4 +311,4 @@ Esta seção começa com uma entrada de blog que contém uma série de vídeos e
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

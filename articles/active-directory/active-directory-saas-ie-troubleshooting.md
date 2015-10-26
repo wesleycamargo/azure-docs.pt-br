@@ -105,4 +105,4 @@ Se você encontrar problemas ao desinstalar a extensão, também pode removê-lo
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

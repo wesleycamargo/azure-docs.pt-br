@@ -48,4 +48,4 @@ Você pode incluir emoticons Emoji em notificações por push. Atualmente, o Mob
 [4]: ./media/mobile-engagement-use-emoji-with-push/notification_ios.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

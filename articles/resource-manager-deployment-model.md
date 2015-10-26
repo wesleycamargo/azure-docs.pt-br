@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/07/2015"
    ms.author="tomfitz"/>
 
 # Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica
@@ -50,9 +50,13 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Comandos do PowerShell executados no modo **AzureResourceManager**.
+  - Para versões do Azure PowerShell anteriores à visualização 1.0, os comandos são executados no modo **AzureResourceManager**.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
+
+  - Para visualização do Azure PowerShell 1.0, use a versão de comandos do Gerenciador de Recursos. Esses comandos têm o formato *verb-AzureRm*, conforme mostrado abaixo.
+
+            PS C:\> Get-AzureRmResourceGroupDeployment
 
   - [API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) para operações REST.
   - Comandos do CLI do Azure executados no modo **arm**.
@@ -73,13 +77,17 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Ou pelo portal de visualização, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
+        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Comandos do PowerShell executados no modo **AzureServiceManagement** (que é o modo padrão e, portanto, se você não alternar especificamente para AzureResourceManager, estará executando no modo AzureServiceManagement).
+  - Para versões do Azure PowerShell anteriores à visualização 1.0, os comandos são executados no modo **AzureServiceManagement** (que é o modo padrão e, portanto, se você não alternar especificamente para AzureResourceManager, estará executando no modo AzureServiceManagement).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
+
+  - Para visualização do Azure PowerShell 1.0, use a versão de comandos do Gerenciamento de Serviços. Esses nomes de comandos **não têm** o formato *verb-AzureRm*, conforme mostrado abaixo.
+
+            PS C:\> Get-AzureDeployment
 
   - [API REST do Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/ee460799.aspx) para operações REST.
   - Comandos CLI do Azure executados no modo **asm** ou padrão.
@@ -111,13 +119,13 @@ Ao usar modelos declarativos, você pode ser capaz de simplificar scripts para i
 
 As marcas permitem que você organize recursos de modo lógico. Somente os recursos criados por meio do Gerenciador de Recursos oferecem suporte a marcas. Não é possível aplicar marcas a recursos clássicos.
 
-Para saber mais sobre como usar marcas no Gerenciador de Recursos, consulte [Usando marcas para organizar os recursos do Azure](resource-group-using-tags.md).
+Para saber mais sobre como usar marcas no Gerenciador de Recursos, veja a seção [Usando marcas para organizar os recursos do Azure](resource-group-using-tags.md).
 
 ## Operações com suporte para os modelos de implantação
 
 Os recursos que você criou no modelo de implantação clássica não oferecem suporte a operações do Gerenciador de Recursos. Em alguns casos, um comando do Gerenciador de Recursos pode recuperar informações sobre um recurso criado por meio da implantação clássica ou pode executar tarefas administrativas, como mover um recurso clássico para outro grupo de recursos, mas esses casos não devem dar a impressão de que o tipo oferece suporte às operações do Gerenciador de Recursos. Por exemplo, suponha que você tenha um grupo de recursos que contenha máquinas virtuais que foram criadas com o Gerenciador de Recursos e o modelo clássico. Ao executar o seguinte comando do PowerShell, você verá todas as máquinas virtuais:
 
-    PS C:\> Get-AzureResourceGroup -Name ExampleGroup
+    PS C:\> Get-AzureRmResourceGroup -Name ExampleGroup
     ...
     Resources :
      Name                 Type                                          Location
@@ -147,15 +155,15 @@ Há algumas considerações importantes ao trabalhar com máquinas virtuais.
 - As máquinas virtuais implantadas com o modelo de implantação do Gerenciador de Recursos devem ser incluídas em uma rede virtual.
 - As máquinas virtuais implantadas com o modelo de implantação clássica não precisam ser incluídas em uma rede virtual.
 
-Para obter uma lista de comandos equivalentes da CLI do Azure durante a transição da implantação clássica para o Gerenciador de Recursos, consulte [Comandos equivalentes do Gerenciador de Recursos e do Gerenciamento de Serviços para operações de VM](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
+Para obter uma lista de comandos equivalentes do CLI do Azure durante a transição da implantação clássica para o Gerenciador de Recursos, veja a seção [Comandos equivalentes do Gerenciador de Recursos e do Gerenciamento de Serviços para operações de VM](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
 
 Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
-Para obter informações sobre como conectar redes virtuais de diferentes modelos de implantação, consulte [Conectando VNets clássicas a VNets novas](./virtual-network/virtual-networks-arm-asm-s2s.md).
+Para saber como conectar redes virtuais por meio de modelos diferentes de implantação, veja a seção [Conectando VNets clássicas a VNets novas](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Próximas etapas
 
-- Para saber mais sobre como criar modelos de implantação declarativa, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
-- Para ver os comandos para implantar um modelo, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+- Para saber como criar modelos de implantação declarativa, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+- Para visualizar os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Substituir o chassi em um dispositivo StorSimple | Microsoft Azure"
-	description="Descreve como remover e substituir o chassi em seu dispositivo StorSimple primário ou compartimento EBOD."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Descreve como remover e substituir o chassi em seu dispositivo StorSimple primário ou compartimento EBOD."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Substituir o chassi em seu dispositivo StorSimple
 
@@ -63,4 +63,4 @@ Execute as seguintes etapas para instalar o chassi em um dispositivo Microsoft A
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -24,7 +24,8 @@
 
 O [Armazenamento Premium do Azure](../storage-premium-storage-preview-portal.md) é o armazenamento de última geração que oferece baixa latência e E/S de taxa de transferência alta. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](http://azure.microsoft.com/services/virtual-machines/) do SQL Server no IaaS.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda o uso de um recurso com o modelo de implantação clássica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+ 
 
 Este artigo fornece informações de planejamento e diretrizes para migração de uma Máquina Virtual executando o SQL Server para usar o Armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows de convidado. O exemplo no [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) mostra uma migração de ponta a ponta abrangente e completa de como mover VMs maiores para aproveitar o armazenamento SSD local aprimorado com o PowerShell.
 
@@ -1148,4 +1149,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -17,7 +17,7 @@
 
 # Usando o portal do Application Insights
 
-Após de ter [Configurado o Application Insights no seu projeto](app-insights-get-started.md), os dados de telemetria sobre desempenho e uso do aplicativo aparecerá no recurso do Application Insights do projeto no [portal do Azure](https://portal.azure.com).
+Após de ter [Configurado o Application Insights no seu projeto](app-insights-overview.md), os dados de telemetria sobre desempenho e uso do aplicativo aparecerá no recurso do Application Insights do projeto no [portal do Azure](https://portal.azure.com).
 
 ## Localizar a telemetria no Azure
 
@@ -139,4 +139,4 @@ Para ver a pesquisa novamente, **vá até a folha de visão geral** e abra Favor
 
 Se você os salvou com o intervalo de tempo Relativo, a folha reaberta contém os dados mais recentes. Se você os salvou com o intervalo de tempo Absoluto, consulte os mesmos dados, sempre.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

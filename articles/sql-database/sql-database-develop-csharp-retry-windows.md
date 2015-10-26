@@ -281,4 +281,4 @@ Execute o programa com o parâmetro “test” e verifique se ele primeiro falha
 
 - [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

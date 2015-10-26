@@ -44,7 +44,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **Jitbit Helpdesk**.
 
-    ![Galeria de aplicativos](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777677.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777677.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **Jitbit Helpdesk** e clique em **Concluir** para adicionar o aplicativo.
 
@@ -59,11 +59,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No portal do AD do Azure, na página de integração do aplicativo **Jitbit Helpdesk**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar logon único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777678.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777678.png "Configurar logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Jitbit Helpdesk**, selecione **Logon único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777679.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777679.png "Configurar logon único")
 
 3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de entrada do Jitbit Helpdesk**, digite sua URL usando o seguinte padrão "*https://\<nome do locatário>.Jitbit.com*" e, em seguida, clique em **Próximo**.
 
@@ -71,7 +71,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar logon único no Jitbit Helpdesk**, clique em **Baixar certificado** e, em seguida, salve o arquivo do certificado em seu computador como **c:\\Jitbit Helpdesk.cer**.
 
-    ![Configurar o logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777680.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777680.png "Configurar logon único")
 
 5.  Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Jitbit Helpdesk como administrador.
 
@@ -98,7 +98,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777684.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777684.png "Configurar logon único")
 ##Configurando o provisionamento de usuários
   
 Para permitir que os usuários do AD do Azure façam logon no Jitbit Helpdesk, eles devem ser provisionados no Helpdesk. No caso do Jitbit Helpdesk, o provisionamento é uma tarefa manual.
@@ -145,4 +145,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

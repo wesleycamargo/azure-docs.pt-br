@@ -2,4 +2,4 @@
 > 
 > Embora essas bibliotecas sejam usadas pelas classes de armazenamento de tabela do Azure, elas são dependências necessárias para a programação com a Biblioteca de Cliente de Armazenamento.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

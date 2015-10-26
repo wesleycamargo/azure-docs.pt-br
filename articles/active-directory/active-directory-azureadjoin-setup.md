@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 # Configuração da Junção do Azure AD na sua organização
@@ -33,10 +33,14 @@ Para criar e gerenciar usuários manualmente no Azure AD, consulte [Gerenciament
 5. Role até a seção **Dispositivos**.
 6. Na guia **dispositivos**, defina o seguinte:  
    * **Número máximo de dispositivos por usuário**: selecione o número máximo de dispositivos que um usuário pode ter no Azure AD. Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos.
-   * **Exigir autenticação multifator para unir dispositivos**: habilitar quando os usuários devem fornecer um segundo fator de autenticação para unir seu dispositivo ao AD do Azure. Para obter mais informações sobre a autenticação multifator, consulte [Introdução à Autenticação Multifator do Azure na nuvem](multi-factor-authentication-get-started-cloud/)
-   * **Usuários podem unir dispositivos ao Azure AD**: selecione os usuários e grupos que têm permissão para unir dispositivos ao Azure AD.
-   * **Administradores adicionais em dispositivos unidos do Azure AD**: com o Azure AD Premium ou a EMS (Enterprise Mobility Suite), você pode escolher quais usuários recebem direitos de administrador local no dispositivo. Os administradores globais e o proprietário do dispositivo recebem direitos de administrador local por padrão.
+   * **Exigir autenticação multifator para unir dispositivos**: habilitar quando os usuários devem fornecer um segundo fator de autenticação para unir seu dispositivo ao AD do Azure. Para obter mais informações sobre a autenticação multifator, consulte [Introdução ao Azure Multi-Factor Authentication na nuvem](multi-factor-authentication-get-started-cloud/).
+   *  **Usuários podem unir dispositivos ao Azure AD**: selecione os usuários e grupos que têm permissão para unir dispositivos ao Azure AD.   
+    * **Administradores adicionais em dispositivos unidos do Azure AD**: com o Azure AD Premium ou a EMS (Enterprise Mobility Suite), você pode escolher quais usuários recebem direitos de administrador local no dispositivo. Os administradores globais e o proprietário do dispositivo recebem direitos de administrador local por padrão.
+   
+>[AZURE.NOTE]Se os usuários encontram o erro "**Limite de registro de dispositivos atingido**" (código de erro: **0x801C000E - DSREG\_ E\_ DEVICE\_ REGISTRATION\_ QUOTA\_EXCCEEDED**), você precisa alterar o máximo de dispositivos permitidos por usuário. Na seção **Os usuários podem associar dispositivos do Azure AD**, selecione **Adicionar** e defina o número de dispositivos que você deseja permitir por usuário.
+      
 
+    
 <center>![](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 Após você configurar a Junção do Azure AD para seus usuários, eles podem se conectar ao Azure AD por meio de seus dispositivos pessoais ou corporativos.
 
@@ -51,4 +55,4 @@ A seguir estão os três cenários de como você pode habilitar seus usuários p
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

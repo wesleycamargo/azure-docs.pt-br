@@ -1,20 +1,20 @@
 <properties
    pageTitle="Visão geral do modelo de programação de Serviços Confiáveis da Malha de Serviços"
-	description="Saiba mais sobre o modelo de programação dos Serviços Confiáveis da Malha de Serviços e comece a desenvolver seus próprios serviços."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="masnider"
-	manager="timlt"
-	editor="jessebenson; mani-ramaswamy"/>
+   description="Saiba mais sobre o modelo de programação dos Serviços Confiáveis da Malha de Serviços e comece a desenvolver seus próprios serviços."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="masnider"
+   manager="timlt"
+   editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="masnider;jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="masnider;jesseb"/>
 
 # Visão geral dos Serviços Confiáveis
 A Malha de Serviços simplifica o desenvolvimento e o gerenciamento de serviços confiáveis com e sem estado. Este documento aborda:
@@ -130,4 +130,4 @@ Se um dos seguintes itens caracterizar as necessidades de serviço do aplicativo
 + [Leia o modelo de programação de Atores Confiáveis](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

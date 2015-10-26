@@ -8,4 +8,4 @@ Nesse cenário, você criará uma VM denominada **DNS01** na sub-rede **Front-en
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

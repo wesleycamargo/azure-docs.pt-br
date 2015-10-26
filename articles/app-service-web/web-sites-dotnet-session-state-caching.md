@@ -109,4 +109,4 @@ Você também pode usar o Cache de Redis para armazenar em cache objetos no seu 
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

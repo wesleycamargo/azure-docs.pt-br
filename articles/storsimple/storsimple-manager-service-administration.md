@@ -116,4 +116,4 @@ Se você não conseguir resolver os problemas e precisar criar uma solicitação
 
 -  [Contatar Suporte da Microsoft](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

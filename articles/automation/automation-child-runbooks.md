@@ -94,4 +94,4 @@ A tabela a seguir resume as diferenças entre os dois métodos para chamar um ru
 - [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 - [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

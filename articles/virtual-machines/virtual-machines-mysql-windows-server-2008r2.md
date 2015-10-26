@@ -20,7 +20,8 @@
 
 # Instalar o MySQL em uma máquina virtual criada com o modelo de implantação clássico que executa o Windows Server 2012 R2
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 [MySQL](http://www.mysql.com) é um banco de dados SQL fonte aberto popular. Usando o [portal do Azure](http://manage.windowsazure.com), é possível criar uma máquina virtual que executa o Windows Server 2012 R2 na Galeria de Imagens. Em seguida, você pode instalá-la e configurá-la como um servidor MySQL.
 
@@ -129,4 +130,4 @@ Para testar sua conexão remota com o serviço do servidor MySQL em execução n
 
 Para obter informações sobre o MySQL, confira a [Documentação do MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

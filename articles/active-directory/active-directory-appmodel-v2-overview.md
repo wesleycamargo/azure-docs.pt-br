@@ -57,4 +57,4 @@ Estes links serão úteis na exploração em profundidade da plataforma:
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -234,4 +234,4 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 - Saiba mais sobre [erros do StorSimple](storsimple-troubleshoot-operational-device.md).
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

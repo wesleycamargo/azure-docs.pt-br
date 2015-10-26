@@ -57,11 +57,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No portal do AD do Azure, na página de integração de aplicativos do **ScreenSteps**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configurar logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no ScreenSteps**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-screensteps-tutorial/IC778520.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-screensteps-tutorial/IC778520.png "Configurar logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do ScreenSteps**, digite sua URL usando o seguinte padrão "*https://\<nome do locatário>.ScreenSteps.com*" e clique em **Avançar**.
 
@@ -69,7 +69,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar logon único no ScreenSteps**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-screensteps-tutorial/IC778522.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-screensteps-tutorial/IC778522.png "Configurar o logon único")
 
 5.  Em outra janela do navegador da Web, faça logon em seu site de empresa ScreenSteps como um administrador.
 
@@ -153,6 +153,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Atribuir usuários](./media/active-directory-saas-screensteps-tutorial/IC778548.png "Atribuir usuários")
   
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

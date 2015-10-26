@@ -19,7 +19,8 @@
 
 # Fase 3 da carga de trabalho do farm da intranet do SharePoint: Configurar a infraestrutura do SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Nesta fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, crie e configure os dois computadores SQL Server e o computador do nó principal do cluster no Gerenciamento de Serviços e combine-os em um cluster do Windows Server.
 
@@ -232,4 +233,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 4: conf
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

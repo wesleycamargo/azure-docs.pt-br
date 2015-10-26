@@ -52,4 +52,4 @@ O Log de Eventos do Windows no computador Windows 8.1 exibirá mensagens relacio
 
 A Política de Grupo permite que uma Tarefa Agendada no sistema que é executada no contexto do usuário seja disparada no momento da entrada do usuário. A tarefa registrará silenciosamente o usuário e o dispositivo com o Azure AD depois que a entrada for concluída. A Tarefa Agendada pode ser encontrada em dispositivos Windows 8.1 na Biblioteca do Agendador de Tarefas em **Microsoft** > **Windows** > **Ingresso no Local de Trabalho**. A tarefa será executada e registrada em todo e qualquer usuário do Active Directory que entrar.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

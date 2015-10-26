@@ -316,4 +316,4 @@ Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Pr
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

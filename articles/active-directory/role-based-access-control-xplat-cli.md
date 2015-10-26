@@ -151,4 +151,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Configurar o controle de acesso com base em função usando o Windows PowerShell](role-based-access-control-powershell.md)
 - [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

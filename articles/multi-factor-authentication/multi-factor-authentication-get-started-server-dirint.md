@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Integração de diretórios entre o Azure Multi-Factor Authentication autenticação multifator do Azure e o Active Directory"
-	description="Esta é a página de autenticação multifator do Azure que descreve como integrar o servidor Azure Multi-Factor Authentication ao Active Directory para sincronizar os diretórios."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Integração de diretórios entre o Azure Multi-Factor Authentication autenticação multifator do Azure e o Active Directory" 
+	description="Esta é a página de autenticação multifator do Azure que descreve como integrar o servidor Azure Multi-Factor Authentication ao Active Directory para sincronizar os diretórios." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Integração de diretórios entre o Azure MFA Server e o Active Directory
@@ -137,4 +137,4 @@ Os servidores adicionais Multi-Factor Auth podem ser configurados para servir co
 
 ![Servidores Multi-Factor Auth](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

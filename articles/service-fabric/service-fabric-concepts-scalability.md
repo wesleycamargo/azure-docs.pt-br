@@ -1,20 +1,20 @@
 <properties
    pageTitle="Escalabilidade dos serviços da malha de serviço"
-	description="Descreve como dimensionar os serviços de malha do serviço"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="appi101"
-	manager="timlt"
-	editor=""/>
+   description="Descreve como dimensionar os serviços de malha do serviço"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="appi101"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="aprameyr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="aprameyr"/>
 
 # Dimensionamento de aplicativos da malha de serviço
 A malha de serviços facilita a criação de aplicativos escalonáveis balanceando a carga dos serviços, partições e réplicas em todos os nós em um cluster. Isso permite a utilização máxima dos recursos.
@@ -61,4 +61,4 @@ Para obter informações sobre os conceitos de malha do serviço, consulte:
 - [Definir e gerenciar o estado](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

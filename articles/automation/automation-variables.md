@@ -188,4 +188,4 @@ A imagem a seguir mostra como filtrar os objetos que são armazenados em uma var
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

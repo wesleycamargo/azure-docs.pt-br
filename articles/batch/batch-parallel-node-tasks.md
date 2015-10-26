@@ -127,4 +127,4 @@ O [Explorador do Lote][batch_explorer], um dos [aplicativos de exemplo][github_s
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

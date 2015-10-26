@@ -61,15 +61,16 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 2.  Na página **Como você deseja que os usuários façam logon no OfficeSpace Software**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-officespace-software-tutorial/IC777767.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-officespace-software-tutorial/IC777767.png "Configurar logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do OfficeSpace Software**, digite a URL usada pelos seus usuários para fazer logon em seu aplicativo OfficeSpace Software (por exemplo: “ **https://company.officespacesoftware.com*") e clique em **Avançar**:
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-officespace-software-tutorial/IC775556.png "Configurar a URL do Aplicativo")
+    ![Configurar a URL do Aplicativo](./media/active-directory-saas-officespace-software-tutorial/IC775556.png "Configurar a URL do Aplicativo
+")
 
 4.  Na página **Configurar logon único no OfficeSpace Software**, para baixar o certificado, clique em **Baixar certificado** e salve o arquivo do certificado em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-officespace-software-tutorial/IC793769.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-officespace-software-tutorial/IC793769.png "Configurar o logon único")
 
 5.  Em uma janela diferente do navegador da Web, faça logon em seu site de empresa do OfficeSpace Software como administrador.
 
@@ -118,6 +119,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-officespace-software-tutorial/IC767830.png "Sim")
   
-Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

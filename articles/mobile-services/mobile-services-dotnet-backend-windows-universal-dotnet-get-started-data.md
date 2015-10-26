@@ -121,4 +121,4 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do a
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

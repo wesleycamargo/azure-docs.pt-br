@@ -43,4 +43,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 * Confira o [Guia de introdução](../automation-intro.md) da Automação do Azure.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Como configurar a autenticação do Google para seu aplicativo de Serviços de Aplicativos"
 	description="Saiba como configurar a autenticação do Google para seu aplicativo de Serviços de Aplicativos."
-	services="app-service\mobile"
+    services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson"
+	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
 
@@ -67,4 +67,4 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

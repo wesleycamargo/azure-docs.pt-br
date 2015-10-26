@@ -21,7 +21,8 @@
 
 Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que contém o sistema operacional FreeBSD para que você o use como sua própria imagem para criar uma VM (máquina virtual) no Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 ##Pré-requisitos##
 Este artigo pressupõe que você tenha os seguintes itens:
@@ -208,4 +209,4 @@ Depois de carregar o VHD, você pode adicioná-lo como uma imagem à lista de im
 
 	![imagem freebsd no azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

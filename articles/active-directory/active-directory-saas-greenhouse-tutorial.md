@@ -65,7 +65,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon**, digite sua URL usando o seguinte padrão "**https://company.greenhouse.io*" e clique em **Avançar**.
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Configurar a URL do Aplicativo")
+    ![Configurar a URL do Aplicativo](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Configurar a URL do Aplicativo
+")
 
 4.  Na página **Configurar logon único no Greenhouse**, clique em **Baixar metadados** e salve o arquivo de metadados em seu computador.
 
@@ -77,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 6.  No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar logon único](./media/active-directory-saas-greenhouse-tutorial/IC790790.png "Configurar logon único")
+    ![Configurar logon único](./media/active-directory-saas-greenhouse-tutorial/IC790790.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
   
 Para permitir que os usuários do Azure AD façam logon no Greenhouse, eles devem ser provisionados no Greenhouse. No caso do Greenhouse, o provisionamento é uma tarefa manual.
@@ -123,4 +124,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

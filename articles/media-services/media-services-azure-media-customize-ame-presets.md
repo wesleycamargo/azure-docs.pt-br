@@ -517,4 +517,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 [Esquema XML do Codificador de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

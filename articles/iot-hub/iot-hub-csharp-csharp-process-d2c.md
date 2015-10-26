@@ -4,7 +4,7 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Processando mensagens de dispositivo para nuvem de Hub IoT
+# Tutorial: Como processar mensagens de dispositivo para nuvem do Hub IoT
 
 ## Introdução
 
@@ -73,7 +73,7 @@ Agora você está pronto para executar os aplicativos.
 
 ## Próximas etapas
 
-Neste tutorial, você aprendeu como processar de maneira confiável o *ponto de dados* e mensagens *interativas* mensagens de dispositivo para a nuvem usando [EventProcessorHost]. A lógica de processamento de mensagem de análoga pode ser implementada com
+Neste tutorial, você aprendeu como processar de maneira confiável o *ponto de dados* e mensagens *interativas* mensagens de dispositivo para a nuvem usando [EventProcessorHost]. A lógica de processamento de mensagem de análoga pode ser implementada com:
 
 - [Carregando arquivos de dispositivos], descreve um padrão que faz uso das mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
 
@@ -118,10 +118,6 @@ Informações adicionais sobre o Hub IoT:
 [Introdução ao Hub Iot]: iot-hub-csharp-csharp-getstarted.md
 [Introdução com Hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/iotdev
+[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

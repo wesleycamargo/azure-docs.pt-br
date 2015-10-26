@@ -168,7 +168,7 @@ E/S de pico da rede
 
 </td>
 <td>
-\~5 Mbps
+~5 Mbps
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ E/S de pico da rede
 
 </td>
 <td>
-\~100 Mbps
+~100 Mbps
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ E/S de pico da rede
 
 </td>
 <td>
-\~200 Mbps
+~200 Mbps
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ E/S de pico da rede
 
 </td>
 <td>
-\~400 Mbps
+~400 Mbps
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ E/S de pico da rede
 
 </td>
 <td>
-\~800 Mbps
+~800 Mbps
 
 </td>
 </tr>
@@ -346,4 +346,4 @@ Para obter mais informações sobre como implantar, atualizar e reconfigurar sua
   [Migrando aplicativos para o Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [Configurar um aplicativo do Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

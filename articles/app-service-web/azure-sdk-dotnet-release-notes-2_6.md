@@ -106,4 +106,4 @@ A conta de armazenamento de diagnóstico agora pode ser especificada no arquivo 
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -117,4 +117,4 @@ Por exemplo, você pode usar o seguinte URI para acessar um formulário da Web p
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Como mapear o conteúdo da CDN para um domínio personalizado</a>
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

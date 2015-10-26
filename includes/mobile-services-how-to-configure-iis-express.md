@@ -39,4 +39,4 @@
 <!-- URLs. -->
 [Como adicionar uma nova regra de porta do Firewall do Windows]: http://go.microsoft.com/fwlink/?LinkId=392240
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

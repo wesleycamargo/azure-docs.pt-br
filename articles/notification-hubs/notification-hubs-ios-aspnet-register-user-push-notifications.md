@@ -240,4 +240,4 @@ Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuár
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Introdução aos Hubs de Notificação]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

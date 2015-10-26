@@ -148,4 +148,4 @@ Siga as etapas abaixo para verificar se a implantação da extensão obteve êxi
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

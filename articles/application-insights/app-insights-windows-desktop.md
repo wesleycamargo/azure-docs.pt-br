@@ -299,4 +299,4 @@ O código do canal de persistência está no [github](https://github.com/Microso
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -36,6 +36,9 @@ Para acompanhar este tutorial, você precisará:
 
 Primeiramente, você criará os objetos que o PolyBase exige para se conectar e consultar dados no armazenamento de blob do Azure.
 
+> [AZURE.IMPORTANT]Os tipos de conta do Armazenamento do Azure com suporte pelo PolyBase são: + Armazenamento com Redundância Local Standard (LRS Standard) + Armazenamento com Redundância Geográfica Standard (GRS Standard) + Armazenamento com Redundância Geográfica com Acesso de Leitura Standard (RAGRS Standard). Os tipos de conta do Armazenamento com Redundância de Zona Standard (ZRS Standard) e Armazenamento com Redundância Local Premium (LRS Premium) NÃO têm suporte pelo PolyBase. Se estiver criando uma nova conta do Armazenamento do Azure, lembre-se de selecionar um tipo de conta de armazenamento com suporte pelo PolyBase do Tipo de Preço.
+
+
 ## Criar chave mestra do banco de dados
 Conecte-se ao banco de dados em seu servidor para criar uma chave mestre de banco de dados. Essa chave é usada para criptografar sua credencial na próxima etapa.
 
@@ -176,7 +179,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 
 Tópico de referência: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
-Também vale a pena lembrar que as tabelas externas estão visíveis nos dois `sys.tables` e, mais especificamente, nas exibições do catálogo `sys.external_tables`.
+Também vale a pena lembrar que as tabelas externas estão visíveis nos dois `sys.tables` e, mais especificamente, nas exibições do catálogo do `sys.external_tables`.
 
 ## Rotação de chaves de armazenamento
 
@@ -325,4 +328,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

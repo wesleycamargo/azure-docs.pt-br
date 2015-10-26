@@ -16,4 +16,4 @@ Tamanho da solicitação de API do Gerenciador de Recursos|4194304 bytes|4194304
 
 <sup>3</sup>Esses recursos não são mais necessários com os Grupos de Recursos do Azure e o Gerenciador de Recursos do Azure.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

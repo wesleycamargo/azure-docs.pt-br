@@ -55,4 +55,4 @@ A seguir estão as coisas que você precisará habilitar em sua sub-rede de rede
 
 Agora há suporte para o [túnel forçado](vpn-gateway-about-forced-tunneling.md) para todas as novas coleções do RemoteApp do Azure. Atualmente, não há suporte para a migração de uma coleção existente para dar suporte a túnel forçado. Você precisará excluir todas as coleções existentes usando a VNET que você está vinculando ao RemoteApp do Azure e criar uma nova coleção para habilitar o túnel forçado em suas coleções.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

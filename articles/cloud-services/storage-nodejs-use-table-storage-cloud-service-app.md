@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aplicativo Web com armazenamento de tabela (Node.js) | Microsoft Azure"
-	description="Um tutorial que tem como base o tutorial Aplicativo Web com o Express adicionando os serviços de Armazenamento do Azure e o módulo Azure."
-	services="cloud-services, storage"
-	documentationCenter="nodejs"
-	authors="TomArcher"
-	manager="wpickett"
+	pageTitle="Aplicativo Web com armazenamento de tabela (Node.js) | Microsoft Azure" 
+	description="Um tutorial que tem como base o tutorial Aplicativo Web com o Express adicionando os serviços de Armazenamento do Azure e o módulo Azure." 
+	services="cloud-services, storage" 
+	documentationCenter="nodejs" 
+	authors="TomArcher" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tarcher"/>
 
 
@@ -408,4 +408,4 @@ As etapas a seguir mostram como parar e excluir o aplicativo.
  
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

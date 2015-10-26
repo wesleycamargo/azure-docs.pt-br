@@ -93,4 +93,4 @@ Dispositivos virtuais dependem de [encaminhamento IP e rotas definidas pelo usu�
 - [Reservar um endereço IP público](../virtual-networks-reserved-public-ip.md).
 - Saiba mais sobre [encaminhamento IP e rotas definidas pelo usuário](virtual-networks-udr-overview.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

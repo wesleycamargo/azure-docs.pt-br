@@ -10,4 +10,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila do Azure
   - Usar o [Armazenamento de Tabela](./storage-dotnet-how-to-use-tables.md) para armazenar dados estruturados.
   - Usar o [Banco de Dados SQL](../sql-database/sql-database-dotnet-how-to-use.md) para armazenar dados relacionais.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -27,4 +27,4 @@ Se você estiver procurando o conjunto completo de limites de serviço do Micros
 - [Como as assinaturas do Azure estão associadas ao AD do Azure](active-directory-how-subscriptions-associated-directory.md)
 - [Terminologia do AD do Azure](active-directory-terminology.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

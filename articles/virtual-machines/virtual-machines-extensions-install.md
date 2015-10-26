@@ -16,9 +16,10 @@
  ms.date="08/25/2015"
  ms.author="rasquill"/>
 #Gerenciar extensões de máquina virtual
+
 Descreve como localizar, adicionar, modificar ou remover extensões de VM com máquinas virtuais Windows ou Linux no Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como gerenciar extensões usando o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]modelo do Gerenciador de Recursos
 
 
 ##Usando extensões de VM
@@ -141,4 +142,4 @@ Você pode usar as APIs REST a seguir para saber se uma extensão requer uma con
 
 >[AZURE.NOTE]As extensões também podem usar as configurações que são definidas com JSON. Quando esses tipos de extensões são usados, apenas o elemento **SampleConfig** é usado.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

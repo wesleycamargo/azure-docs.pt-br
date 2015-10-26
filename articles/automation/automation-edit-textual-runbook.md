@@ -144,4 +144,4 @@ Os seguintes comandos de exemplo mostram como substituir o conteúdo existente d
 - [Agendas](automation-schedules.md)
 - [Variáveis](automation-variables.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -98,4 +98,4 @@ Use as etapas a seguir para comprar os nomes de domínio e atribuir ao seu aplic
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao aplicativo Web.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

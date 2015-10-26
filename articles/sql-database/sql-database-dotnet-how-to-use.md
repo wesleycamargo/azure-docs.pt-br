@@ -211,4 +211,4 @@ Para obter mais informações, consulte [EntityClient Provider para o Entity Fra
 Agora que você aprendeu as noções básicas de conexão ao banco de dados SQL, consulte [Desenvolvimento: tópicos de instruções (banco de dados SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

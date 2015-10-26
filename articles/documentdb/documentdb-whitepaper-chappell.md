@@ -31,4 +31,4 @@ Este white paper também explica o seguinte:
 **Download do PDF**: [Apresentando o Banco de Dados de Documentos ‒ um banco de dados NoSQL para o Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

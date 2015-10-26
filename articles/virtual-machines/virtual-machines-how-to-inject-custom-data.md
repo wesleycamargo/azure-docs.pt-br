@@ -22,7 +22,8 @@
 
 Injetar um script ou outros dados em uma máquina virtual do Azure quando provisionada é um cenário muito comum, independentemente de o sistema operacional ser uma distribuição do Windows ou do Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Este tópico descreve como:
 
@@ -82,4 +83,4 @@ Para obter mais informações, consulte [Documentação de cloud-init para Ubunt
 
 [Interface de linha de comando do Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

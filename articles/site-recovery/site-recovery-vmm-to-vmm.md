@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 # Configurar a proteção entre os sites VMM locais
@@ -309,10 +309,7 @@ Depois que um plano de recuperação tiver sido criado, ele aparecerá na lista 
 ###Execute um teste de failover
 
 1. Na guia **Planos de Recuperação**, selecione o plano e clique em **Failover de Teste**.
-2. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Observe que com essa opção habilitada a falha em máquinas virtuais de réplica não será conectada a nenhuma rede. Isso irá testar se a máquina virtual falha conforme o esperado, mas não testa seu ambiente de rede de replicação. Se você quiser executar um failover de teste mais abrangente, confira <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Testar uma implantação local no MSDN</a>.
-
-	![Selecionar rede de teste](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_TestFailover1.png)
-
+2. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Observe que com essa opção habilitada a falha em máquinas virtuais de réplica não será conectada a nenhuma rede. Isso irá testar se a máquina virtual falha conforme o esperado, mas não testa seu ambiente de rede de replicação. Veja como [executar um failover de teste](site-recovery-failover.md#run-a-test-failover) para obter mais detalhes sobre como usar diferentes opções de rede.
 
 7. A máquina virtual de teste será criada no mesmo host como o host em que a máquina virtual de réplica existe. Ela não é adicionada à mesma nuvem na qual a máquina virtual de réplica está localizada.
 
@@ -341,20 +338,20 @@ Execute este script de exemplo para atualizar o DNS especificando o endereço IP
 
 
 
-##<a name="privacy"></a>Informações de privacidade para Recuperação de Site
+##<a name="privacy"></a>Informações de privacidade da Recuperação de Site
 
 Esta seção fornece informações adicionais de privacidade para o serviço Microsoft Azure Site Recovery ("Serviço"). Para exibir a política de privacidade dos serviços do Microsoft Azure, confira a [Política de Privacidade do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=324899).
 
 **Recurso: Registro**
 
 - **O que ele faz**: registra o servidor no serviço para que as máquinas virtuais possam ser protegidas
-- **Informações coletadas**: após o registro, o Serviço coleta, processa e transmite as informações de certificado de gerenciamento do servidor VMM designado para fornecer recuperação de desastres usando o nome do Serviço do servidor VMM e o nome de nuvens de máquinas virtuais no servidor VMM.
-- **Uso de informações**:
+- **Informações coletadas**: após o registro, o Serviço coleta, processa e transmite as informações do certificado de gerenciamento do servidor VMM designado para fornecer a recuperação de desastre usando o nome do Serviço do servidor VMM e o nome das nuvens de máquinas virtuais no servidor VMM.
+- **Uso das informações**:
 	- Certificado de gerenciamento: usado para ajudar a identificar e autenticar o servidor VMM registrado para acessar o Serviço. O Serviço usa a parte da chave pública do certificado para proteger um token que somente o servidor VMM registrado pode acessar. O servidor precisa usar esse token para obter acesso aos recursos do Serviço.
 	- Nome do servidor VMM: o nome do servidor VMM é necessário para identificar e se comunicar com o servidor VMM apropriado no qual as nuvens estão localizadas.
 	- Nomes de nuvem do servidor VMM: o nome de nuvem é necessário ao se usar o recurso de emparelhamento/desemparelhamento da nuvem do Serviço descrito abaixo. Quando você decide emparelhar sua nuvem de um data center primário com outra nuvem no data center de recuperação, os nomes de todas as nuvens do data center de recuperação são apresentados.
 
-- **Escolha**: essa informação é uma parte essencial do processo de registro do Serviço porque ajuda você e o Serviço a identificar o servidor VMM para o qual você deseja fornecer a proteção do Azure Site Recovery, além de identificar o servidor VMM registrado correto. Se você não quiser enviar essas informações ao Serviço, não use esse Serviço. Se registrar seu servidor e, mais tarde, quiser cancelar o registro, você poderá fazer isso excluindo as informações do servidor VMM do portal do Serviço (que é o portal do Azure).
+- **Escolha**: essas informações são uma parte essencial do processo de registro do Serviço porque ajuda você e o Serviço a identificar o servidor VMM para o qual você deseja fornecer a proteção do Azure Site Recovery, além de identificar o servidor VMM registrado correto. Se você não quiser enviar essas informações ao Serviço, não use esse Serviço. Se registrar seu servidor e, mais tarde, quiser cancelar o registro, você poderá fazer isso excluindo as informações do servidor VMM do portal do Serviço (que é o portal do Azure).
 
 **Recurso: Habilitar a proteção do Azure Site Recovery**
 
@@ -362,17 +359,17 @@ Esta seção fornece informações adicionais de privacidade para o serviço Mic
 
 - **Informações coletadas**: o Serviço coleta, processa e transmite metadados para a máquina virtual, que inclui o nome, a ID, a rede virtual e o nome da nuvem à qual ele pertence.
 
-- **Uso de informações**: o Serviço usa as informações acima para popular as informações da máquina virtual no portal do Serviço.
+- **Uso das informações**: o Serviço usa as informações acima para popular as informações da máquina virtual no portal do Serviço.
 
 - **Escolha**: essa é uma parte essencial do serviço e não pode ser desativada. Se não quiser que essas informações sejam enviadas ao serviço, não habilite a proteção do Azure Site Recovery para máquinas virtuais. Observe que todos os dados enviados pelo Provedor ao Serviço são enviados via HTTPS.
 
 **Recurso: Plano de recuperação**
 
-- **O que ele faz**: esse recurso o ajuda a criar um plano de orquestração para o datacenter de "recuperação". Você pode definir a ordem na qual as máquinas virtuais ou um grupo de máquinas virtuais devem ser iniciados no local de recuperação. Você também pode especificar scripts automatizados para execução ou qualquer ação manual a ser executada no momento da recuperação para cada máquina virtual. O failover (abordado na próxima seção) costuma ser disparado no nível do Plano de Recuperação para a recuperação coordenada.
+- **O que ele faz**: esse recurso ajuda você a criar um plano de orquestração para o datacenter de “recuperação”. Você pode definir a ordem na qual as máquinas virtuais ou um grupo de máquinas virtuais devem ser iniciados no local de recuperação. Você também pode especificar scripts automatizados para execução ou qualquer ação manual a ser executada no momento da recuperação para cada máquina virtual. O failover (abordado na próxima seção) costuma ser disparado no nível do Plano de Recuperação para a recuperação coordenada.
 
 - **Informações coletadas**: o Serviço coleta, processa e transmite metadados para o plano de recuperação, incluindo metadados de máquina virtual e metadados de scripts de automação e anotações de ações manuais.
 
-- **Uso de informações**: os metadados descritos acima são usados para criar o plano de recuperação no portal do Serviço.
+- **Uso das informações**: os metadados descritos acima são usados para criar o plano de recuperação no portal do Serviço.
 
 - **Escolha**: essa é uma parte essencial do serviço e não pode ser desativada. Se não quiser que essas informações sejam enviadas ao serviço, não crie Planos de Recuperação nesse Serviço.
 
@@ -382,19 +379,19 @@ Esta seção fornece informações adicionais de privacidade para o serviço Mic
 
 - **Informações coletadas**: como parte do recurso de mapeamento de rede, o Serviço coleta, processa e transmite os metadados das redes lógicas para cada site (primário e datacenter).
 
-- **Uso de informações**: o Serviço usa os metadados para popular o portal do Serviço, em que você pode mapear as informações de rede.
+- **Uso das informações**: o Serviço usa os metadados para popular o portal do Serviço, em que você pode mapear as informações de rede.
 
 - **Escolha**: essa é uma parte essencial do Serviço e não pode ser desativada. Se não quiser que essas informações sejam enviadas ao Serviço, não use o recurso de mapeamento de rede.
 
 **Recurso: Failover — planejado, não planejado, teste**
 
-- **O que ele faz**: esse recurso ajuda o failover de uma máquina virtual de um datacenter gerenciado do VMM para outro datacenter gerenciado do VMM. A ação de failover é disparada pelo usuário em seu portal do Serviço. As possíveis razões para um failover incluem um evento não planejado (por exemplo, no caso de desastre natural; um evento planejado (por exemplo, o balanceamento de carga do data center); um failover de teste (por exemplo, um ensaio de plano de recuperação).
+- **O que ele faz**: esse recurso ajuda o failover de uma máquina virtual de um datacenter gerenciado pelo VMM para outro datacenter gerenciado pelo VMM. A ação de failover é disparada pelo usuário em seu portal do Serviço. As possíveis razões para um failover incluem um evento não planejado (por exemplo, no caso de desastre natural; um evento planejado (por exemplo, o balanceamento de carga do data center); um failover de teste (por exemplo, um ensaio de plano de recuperação).
 
 O Provedor no servidor VMM é notificado do evento pelo Serviço e executa uma ação de failover no host Hyper-V por meio das interfaces do VMM. O failover real da máquina virtual de um host Hyper-V para outro (normalmente em execução em um data center de "recuperação" diferente) é tratado pela tecnologia de replicação do Hyper-V do Windows Server 2012 ou Windows Server 2012 R2. Depois que o failover for concluído, o Provedor instalado no servidor VMM do data center de "recuperação" enviará as informações de êxito ao serviço.
 
 - **Informações coletadas**: o Serviço usa as informações acima para popular o status das informações de ação de failover no portal do Serviço.
 
-- **Uso de informações**: o Serviço usa as informações acima do modo descrito a seguir:
+- **Uso das informações**: o Serviço usa as informações acima da seguinte forma:
 
 	- Certificado de gerenciamento: usado para ajudar a identificar e autenticar o servidor VMM registrado para acessar o Serviço. O Serviço usa a parte da chave pública do certificado para proteger um token que somente o servidor VMM registrado pode acessar. O servidor precisa usar esse token para obter acesso aos recursos do Serviço.
 	- Nome do servidor VMM: o nome do servidor VMM é necessário para identificar e se comunicar com o servidor VMM apropriado no qual as nuvens estão localizadas.
@@ -402,4 +399,4 @@ O Provedor no servidor VMM é notificado do evento pelo Serviço e executa uma a
 
 - **Escolha**: essa é uma parte essencial do serviço e não pode ser desativada. Se não quiser que essas informações sejam enviadas ao Serviço, não use esse Serviço.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

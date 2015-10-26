@@ -40,4 +40,4 @@ Durante o carregamento, você verá uma mensagem de que seu arquivo está sendo 
 
 Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu espaço de trabalho. Você pode encontrar o conjunto de dados, juntamente com todos os conjuntos de dados de exemplo pré-carregados, na lista **Conjuntos de Dados Salvos** na paleta de módulos quando estiver editando um experimento. Você pode arrastar e soltar o conjunto de dados na tela do experimento quando quiser usar esse conjunto de dados para outras análises e aprendizado de máquina.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

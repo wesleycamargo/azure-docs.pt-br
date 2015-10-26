@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Passo a passo: monitorar o Microsoft Dynamics CRM com o Application Insights"
-	description="Obtenha a telemetria do Microsoft Dynamics CRM Online usando o Application Insights. Passo a passo da instalação, obtenção de dados, visualização e exportação."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="Passo a passo: monitorar o Microsoft Dynamics CRM com o Application Insights" 
+	description="Obtenha a telemetria do Microsoft Dynamics CRM Online usando o Application Insights. Passo a passo da instalação, obtenção de dados, visualização e exportação." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Passo a passo: Ativar a telemetria para o Microsoft Dynamics CRM Online usando o Application Insights
@@ -60,7 +60,7 @@ Para monitorar seu aplicativo, você adiciona um SDK do Application Insights a e
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Copie o código do Application Insights.
+4. Copie o código do Application Insights. Ao copiar, certifique-se de ignorar marcas <script>. Consulte a captura de tela abaixo:
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -151,7 +151,7 @@ Você pode fazer análises ainda mais profundas se [exportar os dados para o Mic
 
 ## Solução do exemplo do Dynamics CRM
 
-[Aqui está a solução do exemplo implementada no Dynamics CRM](https://dynamicsandappinsights.codeplex.com/)
+[Aqui está a solução do exemplo implementada no Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## Saiba mais
 
@@ -161,4 +161,4 @@ Você pode fazer análises ainda mais profundas se [exportar os dados para o Mic
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Fase 2 da carga de trabalho do farm da intranet do SharePoint: configurar controladores de domínio
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Nesta fase de implantação de um farm do SharePoint 2013 apenas para intranet com Grupos de disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você configura dois controladores de domínio na rede virtual do Azure no Gerenciamento de Serviços. As solicitações da Web do cliente por recursos de farm do SharePoint podem ser autenticadas na rede virtual do Azure, em vez de enviar esse tráfego de autenticação pela conexão de VPN ou Rota Expressa do Azure à rede local.
 
@@ -248,4 +249,4 @@ Para continuar a configuração dessa carga de trabalho, vá para a [Fase 3: con
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

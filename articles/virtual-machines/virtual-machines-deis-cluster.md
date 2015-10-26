@@ -21,7 +21,8 @@
 
 Este artigo percorre o provisionamento de um cluster [Deis](http://deis.io/) no Azure. Ele abrange todas as etapas, desde criar os certificados necessários até implantar e dimensionar uma aplicativo **Go** de exemplo no cluster provisionado.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como criar um recurso com o modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
 
 O diagrama a seguir mostra a arquitetura do sistema implantado. Um administrador de sistema gerencia o cluster usando ferramentas do Deis como **deis** e **deisctl**. São estabelecidas conexões por meio de um balanceador de carga do Azure, que encaminha as conexões a um dos nós membro no cluster. Os clientes também acessam aplicativos implantados por meio do balanceador de carga. Nesse caso, o balanceador de carga encaminha o tráfego para um uma malha de roteadores Deis, que encaminha o tráfego a contêineres Docker correspondentes hospedados no cluster.
 
@@ -257,4 +258,4 @@ Este artigo percorreu todas as etapas para provisionar um novo cluster Deis no A
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

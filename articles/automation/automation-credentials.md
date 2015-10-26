@@ -103,4 +103,4 @@ A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráf
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

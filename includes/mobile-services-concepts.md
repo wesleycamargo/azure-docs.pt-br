@@ -22,4 +22,4 @@ A seguir, encontram-se importantes recursos e conceitos dos Serviços Móveis:
 + **Escala:** a capacidade de adicionar, com um custo adicional, mais poder de processamento, desempenho e armazenamento, conforme seu aplicativo se torna mais popular.
 + **Trabalho agendado:** código personalizado que é executado em um cronograma predeterminado ou sob demanda.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

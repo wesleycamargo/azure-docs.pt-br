@@ -10,7 +10,7 @@ Na maioria dos casos, ao ler repositórios relacionais, convém ler apenas os da
 	
 	  "source": {
 	    "type": "SqlSource",
-	    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm\'', WindowStart, WindowEnd)"
+	    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 	  },
 
 A consulta anterior lê dados de 'MyTable' dentro do intervalo de duração da fatia. A reexecução dessa fatia também garante esse comportamento todas as vezes.
@@ -24,4 +24,4 @@ Em outros casos, talvez seja conveniente ler a tabela inteira (por exemplo, para
 	          },
 	
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

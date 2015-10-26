@@ -70,4 +70,4 @@ Use as seguintes etapas para criar um novo locatário B2C do AD do Azure. Os rec
 
 Mover para [registrar um aplicativo com AD B2C do Azure e criar um aplicativo de início rápido](active-directory-b2c-app-registration.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

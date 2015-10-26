@@ -90,4 +90,4 @@ Agora, você pode tratar essa parte como qualquer outra parte de métrica, perso
 Para saber mais sobre a capacidade do Banco de Dados de Documentos, consulte [Gerenciar a capacidade do Banco de Dados de Documentos](documentdb-manage.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -253,4 +253,4 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 [Implantar o dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

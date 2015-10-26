@@ -40,37 +40,37 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Ope
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
-> [AZURE.WARNING] 	Para Visualização do B2C, você deve usar a mesma ID do Aplicativo/ID do cliente e políticas tanto para o servidor de tarefa API Web quanto para o cliente que se conecta a ele. Isso é verdadeiro para nossos tutoriais do Android e iOS. Se você tiver criado anteriormente um aplicativo em qualquer um desses guias de início rápido, use esses valores em vez de criar novos abaixo.
+> [AZURE.WARNING]Para Visualização do B2C, você deve usar a mesma ID do Aplicativo/ID do cliente e políticas tanto para o servidor de tarefa API Web quanto para o cliente que se conecta a ele. Isso é verdadeiro para nossos tutoriais do Android e iOS. Se você tiver criado anteriormente um aplicativo em qualquer um desses guias de início rápido, use esses valores em vez de criar novos abaixo.
 
-## 1. Obter um diretório AD B2C do Azure
+## 1\. Obter um diretório AD B2C do Azure
 
 Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos e assim por diante.
 Se você não tiver um, acesse [criar um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir.
 
 ## 2. Criar um aplicativo
 
-Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azure algumas informações que ele precisa para se comunicar de forma segura com seu aplicativo. O aplicativo cliente e a API Web serão representados por uma única **ID do Aplicativo** nesse caso, pois abrangem um aplicativo lógico. Para criar um aplicativo, siga [estas instruções](active-directory-b2c-app-registration.md). Certifique-se de
+Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azure algumas informações que ele precisa para se comunicar de forma segura com seu aplicativo. O aplicativo cliente e a API Web serão representados por uma única **ID do Aplicativo** nesse caso, pois abrangem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). Certifique-se de
 
-- Incluir um **aplicativo Web/API Web** no aplicativo
-- Digitar `http://localhost/TodoListService` como uma **URL de Resposta** – é a URL padrão para este exemplo de código.
+- Incluir um **aplicativo Web/api Web** no aplicativo
+- Digitar `http://localhost/TodoListService` como uma **URL de Resposta** - é a URL padrão para este exemplo de código.
 - Criar um **Segredo do Aplicativo** para seu aplicativo e copiá-lo. Você precisará dele em breve.
 - Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você também precisará dela em breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3. Criar suas políticas
+## 3\. Criar suas políticas
 
 No AD B2C do Azure, cada experiência do usuário é definida por uma [**política**](active-directory-b2c-reference-policies.md). Este aplicativo contém três experiências de identidade: inscrição, entrada e entrada com o Facebook. Você precisará criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar suas três políticas, não se esqueça de:
 
 - Escolha o **Nome de Exibição** e alguns outros atributos de inscrição em sua política de inscrição.
-- Escolha as declarações de aplicativo **Nome de Exibição** e **ID do Objeto** em cada política. Você pode escolher outras declarações também.
+- Escolha as declarações de aplicativo **Nome de Exibição** e **ID de objeto** em cada política. Você pode escolher outras declarações também.
 - Copie o **Nome** de cada política após criá-lo. Ele deve ter o prefixo `b2c_1_`. Em breve, você precisará esses nomes de política. 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Depois de criar suas três políticas com êxito, você está pronto para criar o aplicativo.
 
-Observe que este artigo não aborda como usar as políticas que você acabou de criar. Para saber mais sobre como as políticas funcionam no AD B2C do Azure, você deve começar com o [Tutorial de introdução do aplicativo Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Observe que este artigo não aborda como usar as políticas que você acabou de criar. Se quiser aprender sobre como as políticas funcionam no AD B2C do Azure, comece com o [tutorial de introdução ao aplicativo Web da .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 
 
@@ -111,11 +111,10 @@ Aqui, configuraremos o middleware Express para usar o protocolo de autenticaçã
 - Em seguida, abra o arquivo `app.js` na raiz do projeto e adicione a seguinte chamada para invocar a estratégia `OIDCStrategy` que vem com `passport-azure-ad`
 
 
-```
-JavaScript
+```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Adicione um registro de log
+// Add some logging
 var log = bunyan.createLogger({
     name: 'Microsoft OIDC Example Web Application'
 });
@@ -435,4 +434,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

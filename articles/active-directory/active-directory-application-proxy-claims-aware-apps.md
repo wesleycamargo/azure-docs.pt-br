@@ -49,4 +49,4 @@ Antes de executar este procedimento, certifique-se de que o STS para o qual o ap
 
 ![Adicionar um ponto de extremidade - definir valor de URL Confiável - captura de tela](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

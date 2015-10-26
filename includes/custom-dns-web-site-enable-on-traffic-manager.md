@@ -26,4 +26,4 @@ Se ainda não tiver adicionado o aplicativo Web como um ponto de extremidade do 
 
 Nesse ponto, você deve poder inserir o nome de domínio personalizado do Gerenciador de Tráfego (contoso.trafficmanager.net) no navegador e ver se ele te leva com êxito ao aplicativo Web.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Sincronização do Azure AD Connect: considerações e tarefas operacionais"
+   pageTitle="Sincronização do Azure AD Connect: considerações e tarefas operacionais | Microsoft Azure"
    description="Este tópico descreve as tarefas operacionais para a sincronização do Azure Connect AD e como preparar para operar esse componente."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="msStevenPo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Sincronização do Azure AD Connect: considerações e tarefas operacionais
@@ -28,7 +28,7 @@ O modo de teste pode ser usado para vários cenários, incluindo:
 
 Com um servidor no modo de preparo, você pode fazer alterações na configuração e visualizar as alterações antes de tornar o servidor ativo. Ele também permite executar sincronização e importação totais para verificar se todas as alterações são esperadas antes de você fazê-las em seu ambiente de produção.
 
-Durante a instalação, você pode selecionar o servidor em *modo de preparo*. Isso tornará o servidor ativo para importação e sincronização, mas não fará qualquer exportação. Um servidor em modo de preparo não irá executar a sincronização de senha ou habilitar write-back de senha, mesmo que você selecione esses recursos. Quando você desabilita o modo de preparo, o servidor inicia a exportação e habilita a sincronização de senha e o write-back de senha (se habilitado).
+Durante a instalação, você pode selecionar o servidor em **modo de preparo**. Isso tornará o servidor ativo para importação e sincronização, mas não fará qualquer exportação. Um servidor em modo de preparo não irá executar a sincronização de senha ou habilitar write-back de senha, mesmo que você selecione esses recursos. Quando você desabilita o modo de preparo, o servidor inicia a exportação e habilita a sincronização de senha e o write-back de senha (se habilitado).
 
 Um servidor em modo de preparo continuará a receber alterações do Active Directory e do Azure AD. Portanto, ele sempre terá uma cópia das alterações mais recentes e poderá assumir as responsabilidades de outro servidor rapidamente. Se você fizer alterações de configuração no servidor primário, é sua responsabilidade para fazer as mesmas alterações para os servidores em modo de preparo.
 
@@ -44,15 +44,15 @@ Para aplicar esse método, siga estas etapas:
 
 **Preparar**
 
-1. Instale o Azure AD Connect, selecione *modo de preparo* e desmarque *Iniciar sincronização* na última página do assistente de instalação. Isso nos permite executar o mecanismo de sincronização manualmente.
-2. Faça o logon e o logoff e, no menu Iniciar, selecione *Serviço de Sincronização*.
+1. Instale o Azure AD Connect, selecione **modo de preparo** e desmarque **Iniciar sincronização** na última página do assistente de instalação. Isso nos permite executar o mecanismo de sincronização manualmente.
+2. Faça o logon e o logoff e, no menu Iniciar, selecione **Serviço de Sincronização**.
 
 **Importar e sincronizar**
 
-1. Selecione *conectores* e selecione o primeiro conector com o tipo *Serviços de Domínio do Active Directory*. Clique em *executar*, selecione *Importação Completa* e *OK*. Faça isso para todos os conectores desse tipo.
-2. Selecione o Conector com o tipo *Active Directory do Azure (Microsoft)*. Clique em *executar*, selecione*Importação Completa* e *OK*.
-4. Verifique se Conectores ainda está selecionado e, para cada conector com tipo *Serviços de Domínio do Active Directory*, clique em *Executar*, selecione *Sincronização Delta* e *OK*.
-5. Selecione o Conector com o tipo *Active Directory do Azure (Microsoft)*. Clique em *Executar*, selecione *Sincronização Delta*e OK.
+1. Selecione **Conectores** e selecione o primeiro conector com o tipo **Serviços de Domínio do Active Directory**. Clique em **Executar**, selecione **Importação Completa** e **OK**. Faça isso para todos os conectores desse tipo.
+2. Selecione o Conector com o tipo **Active Directory do Azure (Microsoft)**. Clique em **Executar**, selecione **Importação Completa** e **OK**.
+4. Verifique se Conectores ainda está selecionado e, para cada conector com tipo **Serviços de Domínio do Active Directory**, clique em **Executar**, selecione **Sincronização Delta** e **OK**.
+5. Selecione o Conector com o tipo **Active Directory do Azure (Microsoft)**. Clique em **Executar**, selecione **Sincronização Delta** e OK.
 
 Você agora preparou a exportação das alterações para o Azure AD e AD local (se estiver usando implantação híbrida do Exchange). As próximas etapas permitirão que você inspecione o que está prestes a ser alterado antes de realmente começar a exportação para os diretórios.
 
@@ -88,7 +88,7 @@ Parte do design de implementação é planejar o que fazer em caso de desastre, 
 Dependendo das respostas a essas perguntas e da política da sua organização, uma das estratégias abaixo pode ser implementada:
 
 -	Recriar quando necessário.
--	Ter um servidor em espera reserva, conhecido como *modo de preparo*.
+-	Ter um servidor em espera reserva, conhecido como **modo de preparo**.
 -	Usar máquinas virtuais.
 
 Uma vez que a sincronização do Azure AD Connect tem uma dependência em um banco de dados SQL, você também deve examinar a seção Alta Disponibilidade do SQL se não usar o SQL Express, que vem com o Azure AD Connect.
@@ -99,7 +99,7 @@ Uma estratégia viável é planejar para a recriação do servidor quando necess
 O servidor do mecanismo de sincronização não armazena qualquer estado sobre os objetos para que o banco de dados possa ser reconstruído com os dados no Active Directory e no Azure AD. O atributo **sourceAnchor** é usado para unir os objetos do local e da nuvem. Se você recriar o servidor com objetos locais existentes e a nuvem, o mecanismo de sincronização na reinstalação corresponderá esses dois novamente. As coisas que você precisa documentar e salvar são as alterações de configuração feitas no servidor, como regras de sincronização e de filtragem. Eles devem ser aplicados novamente antes de iniciar a sincronização.
 
 ### Ter um servidor em espera reserva - modo de preparo
-Se você tiver um ambiente mais complexo, é recomendável ter um ou mais servidores em espera. Durante a instalação, você pode habilitar um servidor em *modo de preparo*.
+Se você tiver um ambiente mais complexo, é recomendável ter um ou mais servidores em espera. Durante a instalação, você pode habilitar um servidor em **modo de preparo**.
 
 Para obter mais detalhes, consulte [modo de preparo](#staging-mode).
 
@@ -110,6 +110,8 @@ Um método comum e com suporte é a execução do mecanismo de sincronização e
 Quando não estiver usando o SQL Server Express que vem com o Azure AD Connect, a alta disponibilidade do SQL Server também deve ser considerada. A única solução de alta disponibilidade com suporte é o SQL clustering. Soluções sem suporte incluem espelhamento e Sempre ativo.
 
 ## Próximas etapas
-Para saber mais sobre a configuração do da sincronização do Azure AD Connect, consulte [Sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO2-->
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

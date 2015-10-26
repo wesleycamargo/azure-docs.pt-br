@@ -723,4 +723,4 @@ Talvez você tenha uma API que esteja chamando e deseje aguardar uma determinada
 
 Consulte a [documentação da API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para todas as opções que você tem para criar e gerenciar Aplicativos lógicos.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

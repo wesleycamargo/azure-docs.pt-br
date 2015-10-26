@@ -53,4 +53,4 @@ Para instruções sobre como usar a ferramenta de mesclagem e divisão, consulte
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -133,4 +133,4 @@ Para obter artigos sobre o uso de clusters nativos do Apache Spark no portal de 
 * [Mensagens de erro detalhadas](hdinsight-debug-jobs.md)
 * [Obtenha ajuda no fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

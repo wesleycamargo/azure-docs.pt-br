@@ -467,4 +467,4 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

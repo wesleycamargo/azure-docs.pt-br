@@ -19,7 +19,8 @@
 
 # Fase 1 da carga de trabalho do farm da intranet do SharePoint: Configurar o Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de recursos com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Nesta fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, crie a infraestrutura de rede e de armazenamento do Azure no Gerenciamento de Serviços do Azure. Conclua esta fase antes de passar para a [Fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Consulte [Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure](virtual-machines-workload-intranet-sharepoint-overview.md) para conhecer todas as fases.
 
@@ -173,4 +174,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 2: Conf
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

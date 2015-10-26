@@ -378,4 +378,4 @@ Para saber mais, consulte os recursos a seguir.
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referência do SDK do Armazenamento do Azure para APIs de nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -51,4 +51,4 @@ Se um projeto é atualizado automaticamente ou se você especificar que deseja a
 
 1. Compile o projeto e resolva os erros resultantes das alterações de API. Para obter informações sobre como modificar seu código para a nova versão, consulte a documentação da API específica.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

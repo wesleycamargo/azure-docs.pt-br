@@ -142,4 +142,4 @@ Os Serviços BizTalk do Microsoft Azure são atualizados em etapas regulares par
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

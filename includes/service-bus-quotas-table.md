@@ -3,10 +3,10 @@ A tabela a seguir lista as informações de cota específicas às mensagens do B
 |Nome da Cota|Escopo|Tipo|Comportamento quando excedido|Valor|
 |---|---|---|---|---|
 | Número máximo de namespaces por assinatura do Azure|Namespace|Estático|Solicitações subsequentes por namespaces adicionais serão rejeitadas pelo portal de gerenciamento do Azure.|100|
-|Tamanho do tópico/fila|Entidade|Definido na criação do tópico/fila.|Mensagens de entrada serão rejeitadas e uma exceção será recebida pelo código de chamada.|1,2,3,4 ou 5 GB.<br /><br />Se [particionamento](https://msdn.microsoft.com/library/dn520246.aspx) for habilitado, o tamanho máximo do tópico/fila será de 80 GB.|
+|Tamanho do tópico/fila|Entidade|Definido na criação do tópico/fila.|Mensagens de entrada serão rejeitadas e uma exceção será recebida pelo código de chamada.|1,2,3,4 ou 5 GB.<br /><br />Se [particionamento](service-bus-partitioning.md) for habilitado, o tamanho máximo do tópico/fila será de 80 GB.|
 |Número de conexões simultâneas em um namespace|Namespace|Estático|Solicitações subsequentes de conexões adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Operações REST não são consideradas conexões TCP simultâneas.|NetMessaging: 1.000<br /><br />AMQP: 5.000|
 |Número de conexões simultâneas em uma entidade de fila/tópico/assinatura|Entidade|Estático|Solicitações subsequentes de conexões adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Operações REST não são consideradas conexões TCP simultâneas.|Limitado pelo limite de conexões simultâneas por namespace.|
-|Número de solicitações de recebimento simultâneas em uma entidade de fila/tópico/assinatura|Entidade|Estático|Solicitações de recebimento subsequentes serão rejeitadas e uma exceção será recebida pelo código de chamada. Essa cota aplica-se ao número combinado de operações de recebimento simultâneas em todas as assinaturas em um tópico.|5.000|
+|Número de solicitações de recebimento simultâneas em uma entidade de fila/tópico/assinatura|Entidade|Estático|Solicitações de recebimento subsequentes serão rejeitadas e uma exceção será recebida pelo código de chamada. Essa cota aplica-se ao número combinado de operações de recebimento simultâneas em todas as assinaturas em um tópico.|5\.000|
 |Número de ouvintes simultâneos em uma retransmissão|Entidade|Estático|Solicitações subsequentes de conexões adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada.|25|
 |Número de ouvintes de retransmissão simultâneos|Todo o sistema|Estático|Solicitações subsequentes de conexões adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada.|2.000|
 |Número de conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço|Todo o sistema|Estático|-|5.000|
@@ -25,3 +25,5 @@ A tabela a seguir lista as informações de cota específicas às mensagens do B
 |Tamanho de filtros/ações de SQL|Todo o sistema|Estático|Solicitações subsequentes para criação de filtros adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada.|Comprimento máximo da cadeia de caracteres de condição do filtro: 1024 (1 K).<br /><br />Comprimento máximo da cadeia de caracteres de ação da regra: 1024 (1 K).<br /><br />Número máximo de expressões por ação da regra: 32.|
 
 <!---HONumber=August15_HO6-->
+
+<!---HONumber=Oct15_HO3-->

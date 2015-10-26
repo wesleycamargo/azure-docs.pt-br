@@ -49,4 +49,4 @@ Para criar uma rede virtual usando um arquivo netcfg por meio do portal do Azure
 
 	![Nova rede virtual](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

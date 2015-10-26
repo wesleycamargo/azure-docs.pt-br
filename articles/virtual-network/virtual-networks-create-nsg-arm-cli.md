@@ -269,4 +269,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

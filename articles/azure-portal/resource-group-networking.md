@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Provedor de recursos de rede"
-	description="Provedor de recursos de rede"
-	services="azure-portal"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Provedor de recursos de rede"
+   services="azure-portal"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="azure-portal"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="04/22/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="04/22/2015"
+   ms.author="telmos" />
 
 # Provedor de recursos de rede
 Uma necessidade básica para sucesso nos negócios de hoje é a capacidade de compilar e gerenciar aplicativos com reconhecimento de rede de grande escala de uma maneira ágil, flexível, segura e repetível. O ARM (Gerenciador de Recursos do Azure) permite que você crie aplicativos como um único conjunto de recursos em grupos de recursos. Esses recursos são gerenciados por meio de vários provedores de recursos no ARM.
@@ -296,13 +296,13 @@ As propriedades principais de uma regra de segurança incluem:
 - **Direção** – especifica se a regra será aplicada ao tráfego na direção de *entrada* ou *saída*. 
 
 ## Gateway de VPN 
-Um recurso de gateway VPN permite que você crie uma conexão segura entre seu data center local e o Azure. Um recurso de gateway VPN pode ser configurado de três maneiras diferentes:
+Um recurso de gateway de VPN permite que você crie uma conexão segura entre seu data center local e o Azure. Um recurso de gateway de VPN pode ser configurado de três maneiras diferentes:
  
 - **Ponto a Site** – você pode acessar com segurança os recursos do Azure hospedados em uma VNET com um cliente VPN, em qualquer computador. 
 - **Conexão multissite** – você pode conectar-se com segurança por meio de seus data centers locais para recursos em execução em uma VNET. 
 - **VNET para VNET** – você pode conectar-se com segurança entre VNETS do Azure na mesma região ou em regiões diferentes, para criar cargas de trabalho com redundância geográfica.
 
-Propriedades principais de um gateway VPN incluem:
+Propriedades principais de um gateway de VPN incluem:
  
 - **Tipo de gateway** - gateway roteado dinamicamente ou estaticamente. 
 - **Prefixo do Pool de endereços do cliente de VPN** – endereços IP a serem atribuídos a clientes conectando-se em configuração de ponto a site.
@@ -363,4 +363,4 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 
 [Implantações de modelo](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

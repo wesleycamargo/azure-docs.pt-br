@@ -63,4 +63,4 @@ Nesse cenário, um desenvolvedor tem um aplicativo em execução num servidor qu
 
 [Exemplos de código do Active Directory do Azure](active-directory-code-samples.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

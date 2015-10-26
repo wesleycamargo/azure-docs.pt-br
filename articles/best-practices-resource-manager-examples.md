@@ -254,4 +254,4 @@ Por fim, pode haver um desejo de garantir que determinados recursos não sejam e
 - Para obter recomendações de como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
 - Para saber mais sobre o estado de compartilhamento dentro e fora dos modelos, consulte [O estado de compartilhamento em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

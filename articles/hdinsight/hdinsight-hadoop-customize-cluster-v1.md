@@ -57,7 +57,7 @@ Nome | Script
 **Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Confira [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark].
 **Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Confira [Instalar e usar o R em clusters HDInsight][hdinsight-install-r].
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Confira [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md).
-\- **Instalar o Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Confira [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md).
+- **Instalar o Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Confira [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
 
 
@@ -176,4 +176,4 @@ Confira [Desenvolver scripts de Ação de Script para o HDInsight][hdinsight-wri
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Estágios durante o provisionamento de cluster"
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

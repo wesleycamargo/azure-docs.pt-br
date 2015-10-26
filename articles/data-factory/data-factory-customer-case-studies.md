@@ -48,4 +48,4 @@ O Data Factory é um serviço de gerenciamento de informações baseado em nuvem
 
 [Encontrando uma conexão mais adequada com os clientes por meio de Aprendizado de Máquina na Nuvem](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

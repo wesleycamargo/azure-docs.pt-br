@@ -66,4 +66,4 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

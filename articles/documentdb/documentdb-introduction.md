@@ -110,4 +110,4 @@ Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro d
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

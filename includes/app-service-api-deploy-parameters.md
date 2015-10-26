@@ -34,4 +34,4 @@ O local para o novo aplicativo de API. Você pode obter os locais válidos execu
       "type": "string"
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

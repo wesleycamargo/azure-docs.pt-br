@@ -68,9 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de logon do Zscaler One**, digite a URL usada pelos seus usuários para fazer logon no seu aplicativo Zscaler One e, em seguida, clique em **Avançar**.
 
-	![Configurar a URL do Aplicativo  
-](./media/active-directory-saas-zscaler-one-tutorial/IC800219.png "Configurar a URL do Aplicativo
-")
+	![Configurar a URL do Aplicativo](./media/active-directory-saas-zscaler-one-tutorial/IC800219.png "Configurar a URL do Aplicativo")
 
 	>[AZURE.NOTE]Você pode obter o valor real para o ambiente de sua equipe de suporte Zscaler One se necessário.
 
@@ -190,4 +188,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/azure/dn308586.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

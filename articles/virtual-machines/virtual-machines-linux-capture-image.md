@@ -20,7 +20,8 @@
 
 # Como capturar uma máquina virtual Linux para ser usada como um modelo
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como capturar uma imagem com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 Esse artigo mostra como capturar a máquina virtual do Azure executando Linux para que você a use como modelo para criar outras máquinas virtuais. O modelo inclui o disco do SO e os discos de dados anexados à máquina virtual. Isso não inclui a configuração da rede, então você precisará configurá-la quando você criar as outras máquinas virtuais que usam o modelo.
 
@@ -99,4 +100,4 @@ A imagem está pronta para ser usada como modelo para criar uma nova máquina vi
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Como criar uma máquina virtual que executa Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

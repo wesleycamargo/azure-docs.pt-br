@@ -99,4 +99,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
     ![Sim](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Sim")
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

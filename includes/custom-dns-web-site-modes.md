@@ -2,4 +2,4 @@ A configuração de um nome de domínio personalizado está disponível somente 
 
 Para obter mais informações sobre os modos de plano de Serviço de Aplicativo, inclusive sobre como alterar o modo do site, consulte [Como dimensionar aplicativos Web](../article/app-service-web/web-sites-scale.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -125,7 +125,7 @@ Esta etapa mostra como adicionar suporte para logon federado usando o Windows Id
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-> [AZURE.NOTE]Os valores **audienceuris** e **realm** devem ser precedidos por "spn:".
+	> [AZURE.NOTE]Os valores **audienceuris** e **realm** devem ser precedidos por "spn:".
 
 4. No Eclipse, clique com o botão direito no projeto **phpSample**, clique em **Novo** e, em seguida, clique em **Arquivo PHP**.
 
@@ -206,4 +206,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 [Código de exemplo de PHP para o Active Directory do Azure]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

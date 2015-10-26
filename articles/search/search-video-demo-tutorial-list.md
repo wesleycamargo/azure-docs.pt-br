@@ -91,4 +91,4 @@ No CodePlex, você pode encontrar vários exemplos publicados durante a visualiz
 - [**Exemplo de Sincronização do SQL Server com a Pesquisa do Azure**](http://sqlserver2azuresearch.codeplex.com/) é um aplicativo do console do Windows que carrega um conjunto de linhas do SQL Server de um banco de dados local incorporado.
 - [**Demonstração de Perfis de Pontuação**](https://azuresearchscoringprofiles.codeplex.com/) é um aplicativo do console do Windows que define, executa e atualiza um perfil de pontuação para ajustar os resultados da pesquisa.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

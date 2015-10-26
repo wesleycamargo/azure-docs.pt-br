@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Integrando suas identidades locais ao Active Directory do Azure."
-	description="Este é o Azure AD Connect que descreve o que ele é e por que usá-lo."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Integrando suas identidades locais ao Active Directory do Azure." 
+	description="Este é o Azure AD Connect que descreve o que ele é e por que usá-lo." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Criando uma autenticação multifator em aplicativos personalizados (SDK)
@@ -191,4 +191,4 @@ No código de servidor a seguir, o Multi-Factor Authentication é configurado e 
 	    }
 	}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

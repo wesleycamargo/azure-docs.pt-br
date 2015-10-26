@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/07/2015"
 	ms.author="rkarlin"/>
 
 
@@ -81,13 +81,22 @@ Se o registro falhar durante a instalação do Assistente de conector, você pod
 
 
 ## Consulte também
+Você pode fazer muito mais com o Proxy de Aplicativo:
 
-[Usando o proxy de aplicativo para publicar aplicativos para acesso remoto seguro](active-directory-application-proxy-configure.md)
 
-[Habilitar os serviços do Proxy de Aplicativo](active-directory-application-proxy-enable.md)
+- [Publique aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md)
+- [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
+- [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
+- [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
+- [Trabalho com aplicativos com reconhecimento de declaração](active-directory-application-proxy-claims-aware-apps.md)
+
+## Saiba mais sobre o Proxy de Aplicativo
+- [Veja nossa ajuda online](active-directory-application-proxy-enable.md)
+- [Confira o blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
+- [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -124,4 +124,4 @@ Esta atualização não pode ser aplicada ao dispositivo virtual. Novos disposit
 - [Instalar a Atualização 1.2 no seu dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

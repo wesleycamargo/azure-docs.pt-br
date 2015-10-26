@@ -116,4 +116,4 @@ Seu aplicativo agora está pronto e a entidade de serviço criada em seu locatá
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

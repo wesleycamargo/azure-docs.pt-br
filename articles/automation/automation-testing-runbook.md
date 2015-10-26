@@ -55,4 +55,4 @@ No portal do Azure, você só poderá trabalhar com os [runbooks do Fluxo de Tra
 - [Editando runbooks textuais na Automação do Azure](automation-edit-textual-runbook.md)
 - [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

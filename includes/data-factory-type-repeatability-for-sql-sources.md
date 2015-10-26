@@ -68,4 +68,4 @@ A Azure Data Factory vai popular essa coluna para garantir que a origem e destin
 
 Semelhante ao mecanismo 1, a atividade de cópia limpará primeiro automaticamente os dados para a fatia determinada da tabela SQL de destino e, em seguida, executará a atividade de cópia normalmente para inserir os dados da origem para o destino, nessa fatia.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -312,4 +312,4 @@ Você pode remover a configuração de emparelhamento executando o seguinte cmdl
 -  Para saber mais sobre fluxos de trabalho, consulte [Fluxos de trabalho da Rota Expressa](expressroute-workflows.md).
 -  Para saber mais sobre o emparelhamento de circuito, consulte [Circuitos e domínios de roteamento da Rota Expressa](expressroute-circuit-peerings.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

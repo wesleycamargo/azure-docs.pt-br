@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein"/>
 
 # Atualização para o Banco de Dados SQL V12 com o PowerShell
@@ -33,16 +33,9 @@ Durante o processo de atualização para o Banco de Dados SQL V12, você também
 
 Para atualizar um servidor para a V12 com o PowerShell, você precisa ter o Azure PowerShell instalado e em execução e, dependendo da versão, talvez seja preciso alterná-lo para o modo de gerenciador de recursos, a fim de acessar os Cmdlets do PowerShell do Gerenciador de Recursos do Azure.
 
-Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+> [AZURE.IMPORTANT]A partir da liberação da Visualização do Azure PowerShell 1.0, o cmdlet Switch-AzureMode não está mais disponível, e os cmdlets contidos no módulo do Gerenciador de Recursos do Azure foram renomeados. Os exemplos neste artigo usam a nova convenção de nomenclatura do PowerShell 1.0 Preview. Para obter informações detalhadas, veja [Substituição de Switch-AzureMode no Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Os cmdlets para criação e gerenciamento de Bancos de Dados SQL do Azure estão localizados no módulo do Gerenciador de Recursos do Azure. Quando você inicia o PowerShell do Azure, os cmdlets no módulo do Azure são importados por padrão. Para alternar para o módulo do Gerenciador de Recursos do Azure, use o cmdlet **Switch-AzureMode**.
-
-	Switch-AzureMode -Name AzureResourceManager
-
-Se for exibido um aviso informando “O cmdlet Switch-AzureMode foi substituído e será removido em uma versão futura”, você poderá ignorá-lo e passar para a próxima seção.
-
-Para obter informações detalhadas, confira [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
-
+Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução, e devido à remoção de Switch-AzureMode, você deve baixar e instalar o Azure PowerShell mais recente executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 
 ## Configurar suas credenciais e selecionar sua assinatura
@@ -65,9 +58,9 @@ Os comandos a seguir serão executados na assinatura que você acabou de selecio
 
 Para obter a recomendação para a atualização do servidor, execute o seguinte cmdlet:
 
-    $hint = Get-AzureSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
+    $hint = Get-AzureRMSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
 
-Para obter mais informações, confira [as recomendações de pool de banco de dados elástico do Banco de Dados SQL do Azure](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) e [as recomendações de tipo de preço do Banco de Dados SQL do Azure](sql-database-service-tier-advisor.md).
+Para obter mais informações, confira [as recomendações sobre pool de banco de dados elástico do Banco de Dados SQL do Azure](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) e [as recomendações sobre tipo de preço do Banco de Dados SQL do Azure](sql-database-service-tier-advisor.md).
 
 
 
@@ -75,7 +68,7 @@ Para obter mais informações, confira [as recomendações de pool de banco de d
 
 Para iniciar a atualização do servidor, execute o seguinte cmdlet:
 
-    Start-AzureSqlServerUpgrade -ResourceGroupName “resourcegroup1” -ServerName “server1” -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureRMSqlServerUpgrade -ResourceGroupName “resourcegroup1” -ServerName “server1” -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 Quando você executar este comando, o processo de atualização será iniciado. Você pode personalizar a saída da recomendação e fornecer a recomendação editada para esse cmdlet.
@@ -88,10 +81,6 @@ Quando você executar este comando, o processo de atualização será iniciado. 
     #
     Add-AzureAccount
     
-    # Switch mode
-    #
-    Switch-AzureMode -Name AzureResourceManager
-
     # Setting the variables
     #
     $SubscriptionName = 'YOUR_SUBSCRIPTION' 
@@ -100,15 +89,15 @@ Quando você executar este comando, o processo de atualização será iniciado. 
     
     # Selecting the right subscription 
     # 
-    Select-AzureSubscription $SubscriptionName 
+    Select-AzureSubscription -SubscriptionName $SubscriptionName 
     
     # Getting the upgrade recommendations 
     #
-    $hint = Get-AzureSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+    $hint = Get-AzureRMSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
     
     # Starting the upgrade process 
     #
-    Start-AzureSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureRMSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 ## Mapeamento de atualização personalizada
@@ -142,23 +131,17 @@ Os parâmetros ElasticPoolCollection e DatabaseCollection são opcionais:
      
     # Starting the upgrade
     #
-    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
+    Start-AzureRMSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
+
     
 
 
 
 
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
-
-
-
 ## Informações relacionadas
 
-- [Cmdlets do Gerenciador de Recursos do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/mt163521.aspx)
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

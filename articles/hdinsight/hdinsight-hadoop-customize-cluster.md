@@ -135,7 +135,7 @@ Execute as seguintes etapas:
 </td></tr>
 </table>
 
-4. Finalmente, inicie a criação de um cluster personalizado com o Spark instalado.
+4. Por fim, inicie a criação de um cluster personalizado com o Spark instalado.
 
 		# Start creating a cluster with Spark installed
 		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
@@ -294,4 +294,4 @@ Confira [Desenvolver scripts de Ação de Script para o HDInsight][hdinsight-wri
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

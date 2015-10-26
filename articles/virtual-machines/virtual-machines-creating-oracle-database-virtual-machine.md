@@ -17,7 +17,8 @@
 	
 #Criar uma máquina virtual do Oracle Database no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda a criação de um recurso com o modelo clássico de implantação.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 
 O exemplo a seguir mostra como você pode criar uma máquina virtual (VM) com base em uma imagem do Banco de Dados Oracle fornecida pela Microsoft em execução no Windows Server 2012 no Azure. Há duas etapas. Primeiro, crie a VM e depois crie o Banco de Dados Oracle dentro da VM. O exemplo mostrado é a versão do Oracle Database 12c, mas as etapas são praticamente idênticas para a versão 11g.
 
@@ -199,4 +200,4 @@ Agora que você configurou sua máquina virtual e criou o banco de dados, consul
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

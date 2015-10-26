@@ -153,4 +153,4 @@ A etapa final no runbook é enviar a saída, se a solicitação de inicializaç�
 - [Runbooks filhos na Automação do Azure](automation-child-runbooks.md) 
 - [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

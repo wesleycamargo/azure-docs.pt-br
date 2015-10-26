@@ -180,10 +180,6 @@ As tabelas a seguir mostram o mapeamento entre as propriedades de mensagem padr�
 Está pronto(a) para saber mais? Visite os links a seguir:
 
 - [Visão geral do AMQP do Barramento de Serviço]
-- [Usando o Barramento de Serviço do .NET com AMQP]
-- [Usando o Barramento de Serviço do Java com AMQP]
-- [Usando o Barramento de Serviço do Python com AMQP]
-- [Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]
 - [AMQP no Barramento de Serviço para Windows Server]
 
 
@@ -192,9 +188,5 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
-[Usando o Barramento de Serviço do .NET com AMQP]: service-bus-amqp-dotnet.md
-[Usando o Barramento de Serviço do Java com AMQP]: service-bus-amqp-java.md
-[Usando o Barramento de Serviço do Python com AMQP]: service-bus-amqp-python.md
-[Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]: service-bus-amqp-apache.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

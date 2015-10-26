@@ -8,4 +8,4 @@
 
 	Isso baixa o projeto do Visual Studio que implementa o serviço móvel. Salve o arquivo de projeto compactado em seu computador local e anote onde ele foi salvo.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

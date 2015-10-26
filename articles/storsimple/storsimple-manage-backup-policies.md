@@ -88,4 +88,4 @@ Execute as etapas a seguir no Portal de Gerenciamento para criar uma política d
 
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -77,4 +77,4 @@ Para obter instruções sobre como monitorar os níveis de desempenho do portal 
 Para obter mais informações sobre como escolher os níveis de desempenho para as coleções, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

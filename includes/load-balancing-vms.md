@@ -1,3 +1,7 @@
+<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Balanceamento de carga para Serviços de infraestrutura do Azure" description="Descreve os recursos para executar o balanceamento de carga com o Gerenciador de Tráfego e o balanceador de carga." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
+
 #Balanceamento de carga para Serviços de infraestrutura do Azure#
 
 Existem dois níveis de balanceamento de carga para serviços de infraestrutura do Azure:
@@ -58,4 +62,4 @@ Para obter mais informações, consulte [Balanceamento de carga interno](../load
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

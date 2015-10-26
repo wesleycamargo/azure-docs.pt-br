@@ -285,4 +285,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

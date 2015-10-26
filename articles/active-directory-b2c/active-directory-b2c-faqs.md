@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Visualização Active Directory B2C do Azure: perguntas frequentes
@@ -22,9 +22,9 @@ Esta página responde a perguntas frequentes sobre a visualização AD B2C do Az
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-### Posso usar o AD B2C do Azure no diretório existente de AD do Azure, com base em funcionário?
+### Posso usar o AD B2C do Azure no locatário existente de AD do Azure, com base em funcionário?
 
-No momento, os recursos do AD B2C do Azure não podem ser ativados no seu diretório existente do AD do Azure. É recomendável que você crie um diretório separado para usar recursos do AD B2C do Azure, ou seja, para gerenciar seus consumidores.
+No momento, os recursos do AD B2C do Azure não podem ser ativados no seu locatário existente do AD do Azure. É recomendável que você crie um locatário separado para usar recursos do AD B2C do Azure, ou seja, para gerenciar seus consumidores.
 
 ### Posso usar AD B2C do Azure para fornecer logon Social (Facebook e Google +) para o Office 365?
 
@@ -32,9 +32,9 @@ O AD B2C do Azure não pode ser usado com o Office 365. Em geral, ele não pode 
 
 ### O que são "Contas locais" no AD B2C do Azure? Como elas são diferentes de "Conta corporativa ou de estudante" no AD do Azure?
 
-Em um diretório do AD do Azure, cada usuário no diretório (exceto usuários com contas existente da Microsoft) entram com um endereço de email do formulário `<xyz>@<directory domain>` em que `<directory domain>` é um dos domínios verificados no diretório ou do domínio inicial `<...>.onmicrosoft.com`. Esse tipo de conta é uma "conta corporativa ou de estudante", também conhecida como uma "conta organizacional".
+Em um locatário do AD do Azure, cada usuário no locatário (exceto usuários com contas existente da Microsoft) entram com um endereço de email do formulário `<xyz>@<tenant domain>` em que `<tenant domain>` é um dos domínios verificados no locatário ou do domínio inicial `<...>.onmicrosoft.com`. Esse tipo de conta é uma "conta corporativa ou de estudante", também conhecida como uma "conta organizacional".
 
-Em um diretório AD B2C do Azure, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email arbitrário (exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com)). Esse tipo de conta é "conta local". Hoje, também apoiamos nomes de usuário arbitrários (apenas sequências de caracteres simples) como contas locais (exemplo, joe, bob, sarah ou jim). Você pode escolher um destes dois “tipos” de conta no serviço do AD B2C do Azure.
+Em um locatário AD B2C do Azure, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email arbitrário (exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com)). Esse tipo de conta é "conta local". Hoje, também apoiamos nomes de usuário arbitrários (apenas sequências de caracteres simples) como contas locais (exemplo, joe, bob, sarah ou jim). Você pode escolher um destes dois “tipos” de conta no serviço do AD B2C do Azure.
 
 ### A quais provedores de identidade social você oferece suporte? A quais você planeja oferecer suporte no futuro?
 
@@ -55,7 +55,7 @@ Não, você pode hospedar seu aplicativo em qualquer lugar (na nuvem ou localmen
 
 ### Vários diretórios do AD B2C do Azure. Como posso gerenciá-los no Portal de Visualização do Azure?
 
-Cada diretório AD B2C do Azure tem sua própria folha de recursos B2C no portal de visualização do Azure. Leia [aqui](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sobre como você navegar até uma folha específica de recursos B2C do diretório no portal de visualização do Azure. Alternando entre diretórios do AD B2C do Azure no portal de visualização do Azure não manterá a folha de recursos do B2C aberta na maioria dos navegadores.
+Cada locatário AD B2C do Azure tem sua própria folha de recursos B2C no portal de visualização do Azure. Leia [aqui](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sobre como você navegar até uma folha específica de recursos B2C do locatário no portal de visualização do Azure. Alternando entre diretórios do AD B2C do Azure no portal de visualização do Azure não manterá a folha de recursos do B2C aberta na maioria dos navegadores.
 
 ### Como personalizar os emails de verificação (o campo de remetente e o conteúdo, ou seja, o campo “De:") enviados pelo AD B2C do Azure?
 
@@ -87,7 +87,7 @@ Atualmente, AD B2C do Azure é otimizado para o inglês apenas. Planejamos impla
 
 ### Posso usar minhas próprias URLs nas minhas páginas de inscrição e entrada atendidas pelo AD B2C do Azure? Por exemplo, alterar as URLs de login.microsoftonline.com para login.contoso.com?
 
-Não atualmente. Mas esse recurso está em nosso roteiro.
+Não atualmente. Esse recurso está em nosso roteiro. Observe também que “verificar” seu domínio na guia **Domínios** do seu locatário no portal do Azure não fará isso.
 
 ### Posso obter AD B2C do Azure como parte do EMS (Enterprise Mobility Suite)?
 
@@ -95,7 +95,7 @@ Não, o AD B2C do Azure é um serviço pré-pago do Azure e não faz parte do EM
 
 ### Como faço para relatar problemas com o AD B2C do Azure?
 
-Confira [Este tópico de suporte](active-directory-b2c-support.md) no AD B2C do Azure.
+Confira [este tópico de suporte](active-directory-b2c-support.md) no AD B2C do Azure.
 
 ### Quando o AD B2C do Azure estará disponível?
 
@@ -105,4 +105,4 @@ Não podemos fornecer informações sobre a data de disponibilidade geral no mom
 
 Também convém analisar as [restrições de visualização, restrições e limitações](active-directory-b2c-limitations.md) atuais.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

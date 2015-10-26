@@ -1,20 +1,20 @@
 <properties
    pageTitle="Executando o teste de caos."
-	description="Este artigo fala sobre os cenários de malha de serviço predefinidos fornecidos pela Microsoft."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="anmolah"
-	manager="timlt"
-	editor=""/>
+   description="Este artigo fala sobre os cenários de malha de serviço predefinidos fornecidos pela Microsoft."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="anmolah"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="anmola"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="anmola"/>
 
 # Cenários de teste
 Sistemas grandes distribuídos como infraestruturas de nuvem não são confiáveis por natureza. A Malha do Serviço fornece aos desenvolvedores a capacidade de gravar os serviços para serem executados sobre infraestruturas não confiáveis. Para gravar serviços de alta qualidade, os desenvolvedores precisam ser capazes de induzir essa infraestrutura confiável a testar a estabilidade dos seus serviços. A Malha do Serviço fornece aos desenvolvedores a capacidade de induzir ações de falha para testar serviços na presença de falhas. No entanto, falhas simuladas direcionadas não o levarão tão longe. Para elevar o teste a um outro patamar, a Malha do Serviço fornece cenários de teste predefinidos. Os cenários simulam falhas intercaladas contínuas, amigáveis e não amigáveis, em todo o cluster por longos períodos de tempo. Quando configurado com a taxa e o tipo de falha, ele é executado como uma ferramenta do lado do cliente, por meio de APIs do C# ou PowerShell para gerar falhas no cluster e no serviço. Como parte do recurso de capacidade de teste, fornecemos os cenários a seguir.
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -8,9 +8,9 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="trinadhk"; "jimpark"/>
 
-# Restaurar uma máquina virtual
+# Restaurar uma máquina virtual do Azure
 Você pode restaurar uma máquina virtual em uma nova VM por meio de backups armazenados no cofre de backup do Azure usando a ação de restauração.
 
 ## Restaurar o fluxo de trabalho
@@ -105,4 +105,4 @@ Leia mais sobre o [problema de reversão de USN](https://technet.microsoft.com/l
 - [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

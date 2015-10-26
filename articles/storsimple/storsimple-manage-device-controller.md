@@ -224,4 +224,4 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 - Para saber mais sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -68,14 +68,14 @@ O que ele pode fazer | O que não pode fazer
 
 O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de administrador global para o diretório. Somente os administradores globais podem atribuir outras funções de administrador.
 
-## Atribuir ou remover funções de administrador 
+## Atribuir ou remover funções de administrador
 
 
 1. No Portal de Gerenciamento, clique em **Active Directory** e no nome do diretório da sua organização.
 2. Na página **Usuários**, clique no nome de exibição do usuário que deseja editar.
-3. Selecione o menu suspenso **Função Organizacional** e selecione a função de administrador que você deseja atribuir a este usuário ou selecione **Usuário** se você quiser remover uma função de administrador existente. 
+3. Selecione o menu suspenso **Função Organizacional** e selecione a função de administrador que você deseja atribuir a este usuário ou selecione **Usuário** se você quiser remover uma função de administrador existente.
 4. No campo **Endereço de email alternativo**, digite um endereço de email. Este endereço de email é usado para notificações importantes, incluindo redefinição automática de senha, por isso, o usuário deve ser capaz de acessar a conta de email independentemente de poder acessar o Azure ou não.
-5. Selecione **Permitir** ou **Bloquear** para especificar se deseja permitir que o usuário entre e acesse os serviços. 
+5. Selecione **Permitir** ou **Bloquear** para especificar se deseja permitir que o usuário entre e acesse os serviços.
 6. Especifique um local na lista suspensa **Local de Uso**.
 7. Ao terminar, clique em **Salvar**.
 
@@ -85,4 +85,4 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 - [Gerenciar senhas](active-directory-manage-passwords.md)
 - [Gerenciar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

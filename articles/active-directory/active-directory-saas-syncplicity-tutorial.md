@@ -73,7 +73,7 @@ Esta descreve como permitir que os usuários se autentiquem no Syncplicity com a
 
 4.  Na página **Configurar logon único no Syncplicity**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo do certificado em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-syncplicity-tutorial/IC769543.png "Configurar o logon único")
+    ![Configurar logon único](./media/active-directory-saas-syncplicity-tutorial/IC769543.png "Configurar o logon único")
 
 5.  Entre no locatário do **Syncplicity**.
 
@@ -147,4 +147,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

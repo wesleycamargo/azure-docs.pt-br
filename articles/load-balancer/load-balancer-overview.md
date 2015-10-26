@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Visão geral do balanceador de carga do Azure | Microsoft Azure"
-	description="Visão geral dos recursos do balanceador de carga, arquitetura e implementação do Azure. É importante entender como o balanceador de carga funciona e aproveitá-lo na nuvem"
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Visão geral dos recursos do balanceador de carga, arquitetura e implementação do Azure. É importante entender como o balanceador de carga funciona e aproveitá-lo na nuvem"
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/10/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="07/10/2015"
+   ms.author="joaoma" />
 
 
 # Visão geral do balanceador de carga 
@@ -99,4 +99,4 @@ Você pode obter mais de um endereço IP público de balanceamento de carga atri
 [Introdução - Balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

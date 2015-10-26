@@ -203,4 +203,4 @@ Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte [Geren
 
 <!--MSDN references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

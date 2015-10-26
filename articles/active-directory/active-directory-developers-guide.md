@@ -137,4 +137,4 @@ O [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 
 
 - [Active Directory do Azure no Twitter](https://twitter.com/azuread): avisos do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

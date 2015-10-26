@@ -2,4 +2,4 @@ Além de conectar automaticamente os clientes com a réplica primária, um ouvin
 
 Para obter outras informações sobre como usar o SQL Server no Azure, consulte[SQL Server em máquinas virtuais Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

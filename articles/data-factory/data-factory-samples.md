@@ -1,19 +1,19 @@
 <properties 	
-	pageTitle="Azure Data Factory - Exemplos"
-	description="Fornece detalhes sobre os exemplos fornecidos com o serviço Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure Data Factory - Exemplos" 
+	description="Fornece detalhes sobre os exemplos fornecidos com o serviço Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/13/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Exemplos
@@ -59,4 +59,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

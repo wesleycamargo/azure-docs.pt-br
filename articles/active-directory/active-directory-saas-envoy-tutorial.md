@@ -61,7 +61,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 2.  Na página **Como você deseja que os usuários façam logon no Envoy**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-envoy-tutorial/IC776779.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-envoy-tutorial/IC776779.png "Configurar logon único")
 
 3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de Entrada do Envoy**, digite sua URL usando o seguinte padrão "*https://\<nome do locatário>.Envoy.com*" e clique em **Avançar**.
 
@@ -100,7 +100,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 10. No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar logon único](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configurar logon único")
+    ![Configurar logon único](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
   
 Não há qualquer item de ação para a configuração do provisionamento de usuário para o Envoy. Quando um usuário atribuído tenta fazer logon no Envoy usando o painel de acesso, o Envoy verifica se o usuário existe. Se ainda não houver uma conta de usuário, ela será criada automaticamente pelo Envoy.
@@ -122,4 +122,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

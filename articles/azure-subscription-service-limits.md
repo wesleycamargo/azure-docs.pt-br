@@ -256,5 +256,6 @@ Para obter os limites de Banco de Dados SQL, consulte [Limites de recurso do Ban
 [Entendendo os limites e aumentos do Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+## Limites específicos de serviço
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

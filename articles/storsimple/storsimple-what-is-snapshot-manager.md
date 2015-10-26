@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="v-sharos" />
 
 # O que é o StorSimple Snapshot Manager
@@ -23,7 +23,7 @@ O StorSimple Snapshot Manager é um snap-in do Microsoft Management Console (MMC
 
 Esta visão geral apresenta o StorSimple Snapshot Manager, descreve seus recursos e explica sua função no Microsoft Azure StorSimple.
 
-Para obter uma visão geral do sistema inteiro Microsoft Azure StorSimple, incluindo o dispositivo do StorSimple, o serviço do StorSimple Manager, o StorSimple Snapshot Manager e o Adaptador do StorSimple para o SharePoint, consulte [O que é o StorSimple?](storsimple-overview.md) e [Quais são os componentes do StorSimple?](storsimple-components.md).
+Para obter uma visão geral do sistema inteiro do Microsoft Azure StorSimple, incluindo o dispositivo StorSimple, o serviço do StorSimple Manager, o StorSimple Snapshot Manager e o Adaptador do StorSimple para o SharePoint, veja [StorSimple série 8000: uma solução de armazenamento de nuvem híbrida](storsimple-overview.md).
  
 ## Arquitetura e finalidade do StorSimple Snapshot Manager
 
@@ -52,9 +52,9 @@ Você pode usar o StorSimple Snapshot Manager para configurar e fazer backup dos
 
 - **Volumes dinâmicos**– Um volume dinâmico é um volume criado em um disco dinâmico. Discos dinâmicos usam um banco de dados para rastrear informações sobre volumes contidos em discos dinâmicos de um computador.
 
-- **Volumes dinâmicos com espelhamento** – Volumes dinâmicos com espelhamento são construídos na arquitetura RAID 1. Com o RAID 1, dados idênticos são gravados em dois ou mais discos, produzindo um conjunto espelhado. Uma solicitação de leitura pode ser processada por qualquer disco que contenha os dados solicitados.
+- **Volumes dinâmicos com espelhamento** – Volumes dinâmicos com espelhamento são construídos com a arquitetura RAID 1. Com o RAID 1, dados idênticos são gravados em dois ou mais discos, produzindo um conjunto espelhado. Uma solicitação de leitura pode ser processada por qualquer disco que contenha os dados solicitados.
 
-- **Volumes Compartilhados Clusterizados** – Com volumes compartilhados clusterizados, vários nós em um cluster de failover podem ler ou gravar simultaneamente no mesmo disco. O failover de um nó para outro nó pode ocorrer rapidamente, sem exigir uma alteração na propriedade, montagem ou desmontagem da unidade e remoção de um volume.
+- **Volumes compartilhados clusterizados** – Com CSVs (volumes compartilhados clusterizados), vários nós em um cluster de failover podem ler ou gravar simultaneamente no mesmo disco. O failover de um nó para outro nó pode ocorrer rapidamente, sem exigir uma alteração na propriedade, montagem ou desmontagem da unidade e remoção de um volume.
 
 >[AZURE.IMPORTANT]Não misture CSVs e não CSVs no mesmo instantâneo. Não há suporte para a combinação de CSVs e não CSVs em um instantâneo.
  
@@ -63,15 +63,17 @@ Você pode usar o StorSimple Snapshot Manager para restaurar grupos de volume in
 - [Grupos de volumes e volumes](#volumes-and-volume-groups) 
 - [Tipos de backup e políticas de backup](#backup-types-and-backup-policies) 
 
-Para saber mais sobre os recursos do StorSimple Snapshot Manager e como usá-los, consulte [Interface de usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
+Para obter mais informações sobre os recursos do StorSimple Snapshot Manager e como usá-los, veja [Interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 
 ## Grupos de volumes e volumes
 
 Com o StorSimple Snapshot Manager, você cria volumes e em seguida os configura em grupos de volumes.
 
-O StorSimple Snapshot Manager usa grupos de volumes para criar cópias de backup consistentes com o aplicativo. A consistência com aplicativos existe quando todos os arquivos e bancos de dados relacionados são sincronizados e representam o estado real de um aplicativo em um momento específico. Grupos de volumes (que também são conhecidos como *grupos de consistência*) formam a base de um trabalho de backup ou de restauração.
+O StorSimple Snapshot Manager usa grupos de volumes para criar cópias de backup consistentes com o aplicativo. A consistência com aplicativos existe quando todos os arquivos e bancos de dados relacionados são sincronizados e representam o estado real de um aplicativo em um momento específico. Os grupos de volumes (que também são conhecidos como *grupos de consistência*) formam a base de um trabalho de backup ou de restauração.
 
->[AZURE.NOTE]Grupos de volumes e contêineres de volume são coisas distintas. Um contêiner de volume contém um ou mais volumes que compartilham uma conta de armazenamento em nuvem e outros atributos, como o consumo de largura de banda e criptografia. Um contêiner de volume único pode conter até 256 volumes do StorSimple escassamente provisionados. Para saber mais sobre contêineres de volume, vá para [Gerenciar contêineres de volume](storsimple-manage-volume-containers.md). Grupos de volumes são conjuntos de volumes que você configura para facilitar as operações de backup. Se você selecionar dois volumes que pertencem a diferentes contêineres de volumes, coloque-os em um único grupo de volumes e, em seguida, crie uma política de backup para ele; será feito backup de cada volume no contêiner de volume apropriado, usando a conta de armazenamento apropriada.
+Grupos de volumes e contêineres de volume são coisas distintas. Um contêiner de volume contém um ou mais volumes que compartilham uma conta de armazenamento em nuvem e outros atributos, como o consumo de largura de banda e criptografia. Um contêiner de volume único pode conter até 256 volumes do StorSimple escassamente provisionados. Para obter mais informações sobre contêineres de volume, vá para [Gerenciar contêineres de volume](storsimple-manage-volume-containers.md). Grupos de volumes são conjuntos de volumes que você configura para facilitar as operações de backup. Se você selecionar dois volumes que pertencem a diferentes contêineres de volumes, coloque-os em um único grupo de volumes e, em seguida, crie uma política de backup para ele; será feito backup de cada volume no contêiner de volume apropriado, usando a conta de armazenamento apropriada.
+
+>[AZURE.NOTE]Todos os volumes em um grupo de volumes devem vir de um único provedor de serviço de nuvem.
 
 ## Integração com o Serviço de Cópias de Sombra de Volume do Windows
 
@@ -109,9 +111,9 @@ Com o StorSimple Snapshot Manager, você pode fazer backup de dados e armazená-
 
 Você pode usar o StorSimple Snapshot Manager para criar os seguintes tipos de backups:
 
-- **Instantâneos locais** – Instantâneos locais são cópias momentâneas de dados de volume armazenados no dispositivo StorSimple. Normalmente, esse tipo de backup pode ser criado e restaurado rapidamente. Você pode usar um instantâneo local como faria com uma cópia de backup local.
+- **Instantâneos locais** – Instantâneos locais são cópias pontuais de dados de volume armazenados no dispositivo StorSimple. Normalmente, esse tipo de backup pode ser criado e restaurado rapidamente. Você pode usar um instantâneo local como faria com uma cópia de backup local.
 
-- **Instantâneos de nuvem** – Instantâneos de nuvem são cópias momentâneas de dados de volume armazenados na nuvem. Um instantâneo de nuvem é equivalente a um instantâneo duplicado em um sistema de armazenamento externo diferente. Instantâneos de nuvem são particularmente úteis em cenários de recuperação de desastres.
+- **Instantâneos de nuvem** – Instantâneos de nuvem são cópias pontuais de dados de volume armazenados na nuvem. Um instantâneo de nuvem é equivalente a um instantâneo duplicado em um sistema de armazenamento externo diferente. Instantâneos de nuvem são particularmente úteis em cenários de recuperação de desastres.
 
 ### Backups agendados e sob demanda
 
@@ -125,21 +127,21 @@ Configure as seguintes informações para cada política de backup que você cri
 
 - **Nome** – O nome exclusivo da política de backup selecionada.
 
-- **Tipo** – O tipo de política de backup; instantâneo local ou instantâneo de nuvem.
+- **Tipo** – O tipo de política de backup: instantâneo local ou instantâneo de nuvem.
 
 - **Grupo de volumes** – O grupo de volumes ao qual a política de backup selecionada está atribuída.
 
-- **Retenção** – O número de cópias de backup a reter. Se você verificar a caixa **Todas**, todas as cópias de backup são mantidas até que seja atingido o número máximo de cópias de backup por volume, no momento em que a diretiva falhará e gerará uma mensagem de erro. Como alternativa, você pode especificar vários backups a serem retidos (entre 1 e 64).
+- **Retenção** – O número de cópias de backup a serem retidas. Se você marcar a caixa **Todas**, todas as cópias de backup serão mantidas até que seja atingido o número máximo de cópias de backup por volume; nesse momento, a política falhará e gerará uma mensagem de erro. Como alternativa, você pode especificar vários backups a serem retidos (entre 1 e 64).
 
 - **Data** – A data em que a política de backup foi criada.
 
-Para saber mais sobre como configurar políticas de backup, vá para [Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup](storsimple-snapshot-manager-manage-backup-policies.md).
+Para obter mais informações sobre como configurar políticas de backup, vá para [Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup](storsimple-snapshot-manager-manage-backup-policies.md).
 
 ### Gerenciamento e monitoramento do trabalho de backup
 
 Você pode usar o StorSimple Snapshot Manager para monitorar e gerenciar trabalhos de backup futuros, agendados e concluídos. Além disso, o StorSimple Snapshot Manager fornece um catálogo de até 64 backups concluídos. Você pode usar o catálogo para localizar e restaurar volumes ou arquivos individuais.
 
-Para saber mais sobre como monitorar trabalhos de backup, vá para [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).
+Para obter informações sobre como monitorar trabalhos de backup, vá para [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
 
 ## Próximas etapas
@@ -148,4 +150,4 @@ Para saber mais sobre como monitorar trabalhos de backup, vá para [Usar o StorS
 
 - Baixe o [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

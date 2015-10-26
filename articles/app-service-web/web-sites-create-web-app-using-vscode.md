@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
-	ms.author="erikre;tarcher"/>
+	ms.date="10/12/2015" 
+	ms.author="erikre"/>
 
 # Criar um aplicativo Web ASP.NET 5 no Visual Studio Code
 
@@ -27,8 +27,8 @@ Este tutorial mostra como criar um aplicativo Web ASP.NET 5 usando [Código do V
 ## Pré-requisitos  
 
 * Instale o [Código do VS](http://code.visualstudio.com/Docs/setup).
-* Instale o [Node.js](http://nodejs.org/download/) - o [Node.js](http://nodejs.org/) é uma plataforma para a criação rápida e dimensionável de aplicativos de servidor usando JavaScript. O nó é o tempo de execução (Nó) e [npm](http://www.npmjs.com/) é o Gerenciador de Pacotes para os módulos do Nó. Você usará o npm para criar o scaffolding de um aplicativo Web ASP.NET 5 neste tutorial.
-* Instale o Git - você pode instalá-lo de um destes locais: [Chocolatey](https://chocolatey.org/packages/git) ou [git scm.com](http://git-scm.com/downloads). Se você for iniciante no Git, escolha [git-scm.com](http://git-scm.com/downloads) e selecione a opção para usar Git com GitBash no prompt de comando do Windows. Depois de instalar o Git, também será necessário definir o nome de usuário e email do Git, pois eles são necessários posteriormente no tutorial (ao realizar uma confirmação do Código do VS).  
+* Instale o [Node.js](http://nodejs.org) - o Node.js é uma plataforma para a compilação rápida e escalonável de aplicativos de servidor com o uso do JavaScript. O nó é o tempo de execução (Nó) e [npm](http://www.npmjs.com/) é o Gerenciador de Pacotes para os módulos do Nó. Você usará o npm para criar o scaffolding de um aplicativo Web ASP.NET 5 neste tutorial.
+* Instale o Git - você pode instalá-lo de um destes locais: [Chocolatey](https://chocolatey.org/packages/git) ou [git scm.com](http://git-scm.com/downloads). Se você for iniciante no Git, escolha [git-scm.com](http://git-scm.com/downloads) e selecione a opção para **Usar o Git no prompt de comando do Windows**. Depois de instalar o Git, também será necessário definir o nome de usuário e email do Git, pois eles são necessários posteriormente no tutorial (ao realizar uma confirmação do Código do VS).  
 
 ## Instalar o ASP.NET 5 e DNX
 O ASP.NET 5/DNX é uma pilha enxuta do .NET para criar aplicativos da Web e de nuvem modernos e executados em OS X, Linux e Windows. Ele foi criado do zero para fornecer uma estrutura de desenvolvimento otimizada para aplicativos que são implantados na nuvem ou então executados localmente. Ele consiste em componentes modulares com sobrecarga mínima, para que você mantenha a flexibilidade durante a construção de suas soluções.
@@ -65,7 +65,7 @@ Este tutorial é projetado para começar a criar aplicativos com as versões de 
 
 	![Local DNVM](./media/web-sites-create-web-app-using-vscode/00b-dnvm-list.png)
 
-6. Se mais de um tempo de execução DNX estiver listado, digite o seguinte no prompt de comando para definir o tempo de execução DNX ativo para a mesma versão que é usada pelo gerador de ASP.NET 5 quando você cria seu aplicativo Web mais adiante neste tutorial.
+6. Se mais de um tempo de execução DNX estiver listado, digite o seguinte no prompt de comando para definir o tempo de execução DNX ativo para a mesma versão que é usada pelo gerador de ASP.NET 5 quando você cria seu aplicativo Web mais adiante neste tutorial. *Você não precisará alterar o tempo de execução ativo se ele estiver definido como o mais recente disponível.*
 
 		dnvm use 1.0.0-beta4 –p
 
@@ -75,7 +75,7 @@ Este tutorial é projetado para começar a criar aplicativos com as versões de 
 
 Esta seção mostra como criar o scaffolding de um novo aplicativo Web do ASP.NET do aplicativo. Você usará o gerenciador de pacotes do nó (npm) para instalar o [Yeoman](http://yeoman.io/) (ferramenta de scaffolding do aplicativo - o equivalente em código VS à operação do Visual Studio **Arquivo > Novo Projeto**), [Grunt](http://gruntjs.com/) (executor de tarefa JavaScript) e [Bower](http://bower.io/) (gerenciador de pacotes no cliente).
 
-1. Abra um prompt de comando com direitos de administrador e navegue até o local onde você deseja criar seu projeto ASP.NET.
+1. Abra um prompt de comando com direitos de administrador e navegue até o local onde você deseja criar seu projeto ASP.NET. Por exemplo, crie um diretório *vscodeprojects* na raiz da unidade C:.
 
 2. Digite o seguinte no prompt de comando para instalar as ferramentas de suporte e o Yeoman.
 
@@ -85,11 +85,11 @@ Esta seção mostra como criar o scaffolding de um novo aplicativo Web do ASP.NE
 
 		yo aspnet
 
-4. Use as teclas de direção para selecionar o tipo **Aplicativo Web** no menu do gerador de ASP.NET 5 e pressione &lt;Enter>.
+4. Use as teclas de direção para selecionar o tipo **Aplicativo Web** no menu do gerador do ASP.NET 5 e pressione **<Enter>**.
 
 	![Yoman - gerador do ASP.NET 5](./media/web-sites-create-web-app-using-vscode/01-yo-aspnet.png)
 
-5. Defina o nome de seu novo aplicativo Web ASP.NET como **SampleWebApp**. Como esse nome é usado em todo o tutorial, se você selecionar um nome diferente, precisará substituir cada ocorrência de **SampleWebApp**. Quando você pressionar &lt;Enter>, Yeoman criará uma nova pasta chamada **SampleWebApp** e os arquivos necessários para seu novo aplicativo.
+5. Defina o nome de seu novo aplicativo Web ASP.NET como **SampleWebApp**. Como esse nome é usado em todo o tutorial, se você selecionar um nome diferente, precisará substituir cada ocorrência de **SampleWebApp**. Ao pressionar **&lt;Enter>**, o Yeoman criará uma nova pasta chamada **SampleWebApp** e os arquivos necessários para o seu novo aplicativo.
 
 6. Abra o código do VS digitando o seguinte no prompt de comando.
 
@@ -121,17 +121,23 @@ Agora que criou o aplicativo Web e recuperou todos os pacotes do NuGet para o ap
 
 1. Na **Paleta de Comandos** no Código do VS, digite o seguinte para executar o comando localmente:
 
-		dnx: kestrel - (SampleWebApp, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
+		dnx: kestrel - (SampleWebApp, Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini)
 
 	A janela de comando exibirá a mensagem *Iniciado*. Se a janela de comando não exibir a mensagem *Iniciado*, verifique o canto inferior esquerdo do Código do VS em busca de erros em seu projeto.
+	
+	> [AZURE.NOTE]Emitir um comando na **Paleta de Comandos** requer um caractere **>** no início da linha de comando. Além disso, é possível exibir os detalhes do comando kestrel no arquivo *project.json*.
 
-5. Abra uma janela de navegador e navegue até a URL a seguir.
+2. Abra uma janela de navegador e navegue até a URL a seguir.
 
-	****http://localhost:5001**
+	****http://localhost:5000**
+
+	> [AZURE.NOTE]O comando kestrel especificado no arquivo *project.json* aponta para um arquivo de detalhes de hospedagem (*hosting.ini*) que especifica o local do aplicativo local. Nesse caso, o aplicativo poderá ser visto na URL anterior.
 
 	A página padrão do aplicativo Web será exibida da maneira a seguir.
 
 	![Aplicativo Web local em um navegador](./media/web-sites-create-web-app-using-vscode/08-web-app.png)
+
+3. Feche o navegador. Na Janela Comando, pressione **Ctrl + C** para encerrar o aplicativo ou feche a Janela Comando.
 
 ## Criar um aplicativo Web no portal de visualização do Azure
 
@@ -161,7 +167,7 @@ O Git é um sistema de controle de versão distribuído que você pode usar para
 
 1. Entre no [portal de visualização do Azure](https://portal.azure.com).
 
-2. Clique em **Procurar Tudo**.
+2. Clique em **Procurar**.
 
 3. Clique em **aplicativos Web** para exibir uma lista dos aplicativos Web associados à sua assinatura do Azure.
 
@@ -175,24 +181,21 @@ O Git é um sistema de controle de versão distribuído que você pode usar para
 
 7. Clique em **OK**.
 
-	![Repositório do Git Local do Azure](./media/web-sites-create-web-app-using-vscode/15-azure-localrepository.png)
+	![Repositório Git Local do Azure](./media/web-sites-create-web-app-using-vscode/15-azure-localrepository.png)
 
 8. Se você não configurou previamente as credenciais de implantação para publicação de um Aplicativo Web ou outro aplicativo de Serviço de Aplicativo, configure-as agora:
 
-	* Clique em **FTP** para definir credenciais de implantação.
+	* Clique em **Configurações** > **Credenciais de implantação**. A folha **Definir credenciais de implantação** será exibida.
 
 	* Digite um nome de usuário e senha. Você precisará dessa senha posteriormente ao configurar o Git.
 
 	* Clique em **Salvar**.
 
-	![Credenciais de implantação do Azure](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
-
-9. Na folha de seu aplicativo Web, clique em **Configurações > Propriedades**. A URL do repositório Git remoto na qual você vai implantar é mostrada em **
-10.  URL**.
+9. Na folha de seu aplicativo Web, clique em **Configurações > Propriedades**. A URL do repositório Git remoto na qual você implantará é mostrada em **GIT URL**.
 
 10. Copie o valor de **URL do GIT** para uso posterior no tutorial.
 
-	![URL do Git do Azure](./media/web-sites-create-web-app-using-vscode/17-azure-giturl.png)
+	![URL Git do Azure](./media/web-sites-create-web-app-using-vscode/17-azure-giturl.png)
 
 ## Publicar seu aplicativo Web no serviço de aplicativo do Azure
 
@@ -206,29 +209,35 @@ Nesta seção, você criará um repositório do Git local e enviará esse reposi
 
 	![Inicializar Git](./media/web-sites-create-web-app-using-vscode/19-initgit.png)
 
-3. Adicione uma mensagem de confirmação e clique no ícone de verificação **Confirmar Tudo**.
+3. Abra a Janela Comando e altere os diretórios para o diretório do seu aplicativo Web. Digite o seguinte comando:
+
+		git config core.autocrlf false
+
+	Esse comando previne um problema de texto envolvendo as terminações CRLF e LF.
+
+4. No Código do VS, adicione uma mensagem de confirmação e clique no ícone de verificação **Confirmar Tudo**.
 
 	![Confirmar Tudo do Git](./media/web-sites-create-web-app-using-vscode/20-git-commit.png)
 
-4. Após a conclusão do processamento do Git, você verá que não há nenhum arquivo listado na janela do Git em **Alterações**.
+5. Após a conclusão do processamento do Git, você verá que não há nenhum arquivo listado na janela do Git em **Alterações**.
 
 	![Sem alterações do Git](./media/web-sites-create-web-app-using-vscode/no-changes.png)
 
-5. Abra um prompt de comando e altere os diretórios para o diretório que hospeda seu aplicativo Web.
+6. Retorne à Janela do Comando em que o prompt de comando aponta para o diretório em que o aplicativo Web está localizado.
 
-6. Crie uma referência remota para enviar atualizações para seu aplicativo Web usando a URL do Git (terminando em ".git") que você copiou anteriormente.
+7. Crie uma referência remota para enviar atualizações para seu aplicativo Web usando a URL do Git (terminando em ".git") que você copiou anteriormente.
 
 		git remote add azure [URL for remote repository]
 
-7. Configure o Git para salvar suas credenciais localmente para que elas possam ser acrescentadas automaticamente aos seus comandos por push gerados no VS Code.
+8. Configure o Git para salvar suas credenciais localmente para que elas possam ser acrescentadas automaticamente aos seus comandos por push gerados no VS Code.
 
 		git config credential.helper store
 
-8. Envie as alterações por push ao Azure usando o comando a seguir. Depois desse push inicial no Azure, você poderá executar todos os comandos por push no VS Code.
+9. Envie as alterações por push ao Azure usando o comando a seguir. Depois desse push inicial no Azure, você poderá executar todos os comandos por push no VS Code.
 
 		git push -u azure master
 
-	Será solicitada a senha que você criou anteriormente. **Observação: a senha não será visível.**
+	Será solicitada a senha que você criou anteriormente no Azure. **Observação: a senha não será visível.**
 
 	A saída deste comando termina com uma mensagem de que a implantação foi bem-sucedida.
 
@@ -236,7 +245,7 @@ Nesta seção, você criará um repositório do Git local e enviará esse reposi
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Se fizer alterações no seu aplicativo, você poderá republicar diretamente no VS Code usando a funcionalidade Git interna selecionando a opção **Confirmar Tudo** seguida pela opção **Enviar por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Tudo ** e dos botões **Atualizar**.
+> [AZURE.NOTE]Se fizer alterações no seu aplicativo, você poderá republicá-las diretamente no Código do VS usando a funcionalidade interna do Git selecionando a opção **Confirmar Tudo** seguida pela opção **Enviar por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Tudo** e dos botões **Atualizar**.
 
 Se precisa colaborar em um projeto, você deve considerar envios por push ao GitHub entre os envios por push ao Azure.
 
@@ -249,11 +258,12 @@ Isso pode ser feito de duas maneiras:
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* No portal de visualização do Azure, localize a folha de seu aplicativo Web e clique em **Procurar** para exibir seu aplicativo no navegador padrão.
+* No portal de visualização do Azure, localize a folha de seu aplicativo Web e clique em **Procurar** para exibir seu aplicativo
+* no navegador padrão.
 
 ![Aplicativo Web do Azure](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
 
 ## Resumo
-Neste tutorial, você aprendeu a criar um aplicativo Web no código do VS e implantá-lo no Azure. Para obter mais informações sobre o código do VS, consulte o artigo [Por que o Código do Visual Studio?](https://code.visualstudio.com/Docs/). Para obter informações sobre os aplicativos Web do Serviço de Aplicativo, consulte [Visão geral de aplicativos Web](app-service-web-overview.md).
+Neste tutorial, você aprendeu a criar um aplicativo Web no código do VS e implantá-lo no Azure. Para obter mais informações sobre o Código do VS, confira o artigo [Por que o Código do Visual Studio?](https://code.visualstudio.com/Docs/) Para obter informações sobre os aplicativos Web do Serviço de Aplicativo, consulte [Visão geral de aplicativos Web](app-service-web-overview.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

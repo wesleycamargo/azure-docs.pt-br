@@ -104,4 +104,4 @@ O SDK de Trabalhos Web oferece várias vantagens, mesmo que você não precise t
 Para obter mais informações sobre o SDK de Trabalhos Web, consulte [Recursos recomendados para Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -45,4 +45,4 @@ Basicamente, você pode calcular o número de discos altamente utilizados com su
 - **ZRS**: armazenamento com redundância de zona. Disponível apenas para blobs de blocos. 
 - **LRS**: armazenamento com redundância local. 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

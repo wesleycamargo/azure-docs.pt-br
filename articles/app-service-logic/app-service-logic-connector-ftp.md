@@ -160,4 +160,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

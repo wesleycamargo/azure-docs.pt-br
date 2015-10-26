@@ -1,24 +1,28 @@
 <properties 
-	pageTitle="Personalizar os clusters do Hadoop para Processo e Tecnologia de Análise Avançada | Microsoft Azure"
+	pageTitle="Personalizar os clusters do Hadoop para Processo e Tecnologia de Análise Avançada | Microsoft Azure" 
 	description="Módulos de Python populares disponibilizados em clusters do Hadoop do Azure HDInsight personalizados."
-	services="machine-learning"
-	documentationCenter=""
-	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="hangzh-msft" 
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/13/2015" 
+	ms.author="hangzh;bradsev" />
 
 # Personalizar os clusters do Hadoop do Azure HDInsight para Processo e Tecnologia de Análise Avançada
 
-Este artigo descreve como personalizar um cluster do Hadoop do HDInsight instalando Anaconda de 64 bits (Python 2.7) em cada nó quando o cluster está sendo provisionado no serviço HDInsight. Essa personalização prepara o cluster para uso com o ADAPT (processo e tecnologia de análise avançada) usado no Aprendizado de Máquina do Azure. Ele também mostra como acessar o nó principal para enviar trabalhos personalizados para o cluster.
+Esse menu liga os tópicos que descrevem como configurar os vários ambientes de ciência de dados usados pelo Processo de Análise do Cortana (CAP).
+
+[AZURE.INCLUDE [configuração do ambiente de ciência de dados](../../includes/cap-setup-environments.md)]
+
+Este artigo descreve como personalizar um cluster do Hadoop do HDInsight instalando Anaconda de 64 bits (Python 2.7) em cada nó quando o cluster está sendo provisionado no serviço HDInsight. Essa personalização prepara o cluster para uso com o processo de análise do Cortana. Ele também mostra como acessar o nó principal para enviar trabalhos personalizados para o cluster.
 
 Essa personalização disponibiliza convenientemente muitos módulos Python populares incluídos no Anaconda para uso em UDFs (Funções Definidas pelo Usuário) projetadas para processar os registros Hive do cluster. Para obter instruções sobre os procedimentos usados neste cenário, consulte [Enviar consultas Hive de clusters do Hadoop do HDInsight no processo de análise avançada](machine-learning-data-science-hive-queries.md).
 
@@ -98,4 +102,4 @@ Consulte [Enviar consultas de Hive para clusters do Hadoop do HDInsight no proce
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

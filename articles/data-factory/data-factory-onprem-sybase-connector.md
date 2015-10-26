@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mover dados do Sybase | Azure Data Factory"
-	description="Saiba mais sobre como mover dados do banco de dados Sybase usando o Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Mover dados do Sybase | Azure Data Factory" 
+	description="Saiba mais sobre como mover dados do banco de dados Sybase usando o Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados do Sybase usando o Azure Data Factory 
@@ -264,4 +264,4 @@ Sybase dá suporte a T-SQL e tipos T-SQL. Para uma tabela de mapeamento de tipos
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

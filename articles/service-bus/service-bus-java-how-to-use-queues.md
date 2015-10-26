@@ -188,4 +188,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/d
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

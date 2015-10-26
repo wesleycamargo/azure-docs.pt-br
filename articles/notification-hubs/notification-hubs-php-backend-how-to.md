@@ -257,4 +257,4 @@ Para saber mais, veja também o [Centro de Desenvolvedores do PHP](/develop/php/
 [tutorial Introdução]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

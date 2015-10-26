@@ -1,20 +1,20 @@
 <properties
    pageTitle="Ação de capacidade de teste | Microsoft Azure"
-	description="Este artigo fala sobre as ações da Possibilidade de Teste encontradas na Malha de Serviço do Microsoft Azure."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="heeldin"
-	manager="timlt"
-	editor=""/>
+   description="Este artigo fala sobre as ações da Possibilidade de Teste encontradas na Malha de Serviço do Microsoft Azure."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="heeldin"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/31/2015"
-	ms.author="heeldin;motanv"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/31/2015"
+   ms.author="heeldin;motanv"/>
 
 # Ações da Possibilidade de Teste
 Para simular uma infraestrutura não confiável, a Malha de Serviços fornece aos desenvolvedores maneiras de simular várias falhas e transições de estado reais. Elas são expostas como ações de Possibilidade de teste. As ações são as APIs de nível baixo que causam uma injeção de falha específica, transição de estado ou validação. Combinando essas ações, um desenvolvedor de serviço pode criar cenários de teste abrangentes para seus serviços.
@@ -234,4 +234,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Falhas de comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

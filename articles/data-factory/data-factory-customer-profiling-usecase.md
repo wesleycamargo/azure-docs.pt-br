@@ -48,4 +48,4 @@ Neste caso de uso de exemplo, o Azure Data Factory é usado para coordenar as at
 
 Ao otimizar suas análises de perfil do usuário e o alinhamento com as metas de negócios, a empresa de jogos é capaz coletar rapidamente os padrões de uso e analisar a eficácia de suas campanhas de marketing para todos os seus produtos de jogos diferentes.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

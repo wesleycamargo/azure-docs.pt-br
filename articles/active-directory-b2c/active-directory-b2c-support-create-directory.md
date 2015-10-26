@@ -34,4 +34,4 @@ Há problemas conhecidos que você pode encontrar durante a [criação de um loc
 	- Exclua o locatário recém-criado e tente novamente.
 - Se nenhuma das resoluções acima funcionar, contate o Suporte. Leia [este artigo](active-directory-b2c-support.md) sobre como arquivar solicitações de suporte para o Azure AD B2C.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

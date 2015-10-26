@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Saída e mensagens do runbook na Automação do Azure | Microsoft Azure"
-	description="Descreve como criar e recuperar a saída e mensagens de erro de runbooks na Automação do Azure."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn"/>
+   description="Descreve como criar e recuperar a saída e mensagens de erro de runbooks na Automação do Azure."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
 <tags 
    ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/17/2015"
-	ms.author="bwren"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/17/2015"
+   ms.author="bwren" />
 
 # Saída e mensagens do runbook na Automação do Azure
 
@@ -168,4 +168,4 @@ O exemplo a seguir inicia um runbook de exemplo e aguarda a sua conclusão. Depo
 - [Controlar um trabalho de runbook](automation-runbook-execution.md)
 - [Runbooks filhos](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

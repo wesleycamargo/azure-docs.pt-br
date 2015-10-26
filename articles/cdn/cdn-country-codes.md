@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN - códigos do país"
-	description="O recurso Filtragem de País usa códigos do país para definir os países nos quais uma solicitação será permitida ou bloqueada para um diretório protegido."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="CDN - códigos do país" 
+	description="O recurso Filtragem de País usa códigos do país para definir os países nos quais uma solicitação será permitida ou bloqueada para um diretório protegido." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Códigos de país
@@ -149,7 +149,7 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 | LB | Líbano | |
 | LS | Lesoto | |
 | LR | Libéria | |
-| LY | Líbia | |
+| LY | Jamahiriya Árabe da Líbia | |
 | LI | Liechtenstein | |
 | LT | Lituânia | |
 | LU | Luxemburgo | |
@@ -193,7 +193,7 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 | OM | Omã | |
 | PK | Paquistão | |
 | PW | Palau | |
-| PS | Autoridade Palestina | |
+| PS | Território Palestino | |
 | PA | Panamá | |
 | PG | Papua-Nova Guiné | |
 | PY | Paraguai | |
@@ -268,4 +268,4 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 | ZM | Zâmbia | |
 | ZW | Zimbábue | |
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Criar um aplicativo Web Orchard CMS do Azure Marketplace"
-	description="Um tutorial que ensina a criar um novo aplicativo Web no Azure. Aprenda também como iniciar e gerenciar seu aplicativo Web usando o Portal do Azure"
+	pageTitle="Criar um aplicativo Web Orchard CMS do Azure Marketplace" 
+	description="Um tutorial que ensina a criar um novo aplicativo Web no Azure. Aprenda também como iniciar e gerenciar seu aplicativo Web usando o Portal do Azure" 
 	tags="azure-portal"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="tfitzmac"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # Criar um aplicativo Web Orchard CMS do Azure Marketplace
@@ -91,4 +91,4 @@ Você criará um aplicativo Web Orchard CMS que usa um modelo padrão. O [Orchar
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

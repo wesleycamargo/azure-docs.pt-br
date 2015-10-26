@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="10/08/2015"
    ms.author="jdial"/>
 
 # Ambientes de desenvolvimento e teste no Microsoft Azure
@@ -178,9 +178,9 @@ Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](
 
   **Método 2:** PowerShell
 
-  Verifique se você tem o PowerShell instalado em um computador com o Windows e conectado à sua assinatura, conforme detalhado no artigo [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md). Em um prompt de comando do PowerShell, digite o comando a seguir para criar o grupo de recursos no ambiente de desenvolvimento.
+  Verifique se você tem o PowerShell instalado em um computador com o Windows e conectado à sua assinatura, conforme detalhado no artigo [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md). Em um prompt de comando do PowerShell, digite o comando a seguir para criar o grupo de recursos no ambiente de desenvolvimento. Se estiver usando o Azure PowerShell 1.0 Preview, o comando será **New-AzureRmResourceGroup**, como mostrado abaixo. Se estiver usando uma versão do Azure PowerShell anterior ao 1.0 Preview, o comando será **New-AzureResourceGroup**.
 
-	New-AzureResourceGroup -Name TestApp1-Development -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
   O comando retornará o seguinte se tiver êxito:
 
@@ -200,15 +200,15 @@ Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](
 
   Para criar o grupo de recursos para o ambiente de testes, digite o seguinte comando:
 
-	New-AzureResourceGroup -Name TestApp1-Test -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Test -Location "Central US"
 
   Para criar o grupo de recursos para o ambiente de pré-produção, digite o seguinte comando:
 
-	New-AzureResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
 
- **Etapa 6:** implante recursos do Azure para os grupos de recursos de cada ambiente usando o arquivo de modelo do aplicativo e os arquivos de parâmetros de cada ambiente, com um dos métodos a seguir. Ambos os métodos obterão exatamente o mesmo resultado.
+ **Etapa 6:** implante recursos do Azure nos grupos de recursos de cada ambiente usando o arquivo de modelo do aplicativo e os arquivos de parâmetro de cada ambiente, com um dos métodos a seguir. Ambos os métodos obterão exatamente o mesmo resultado.
 
-  **Método 1:** CLI (interface de linha de comando) do Azure
+  **Método 1:** CLI (Interface de Linha de Comando) do Azure
 
   Na linha de comando da CLI, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de desenvolvimento, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
 
@@ -256,9 +256,9 @@ Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](
   
   **Método 2:** PowerShell
 
-  Em um prompt de comando do PowerShell, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de desenvolvimento, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
+  Em um prompt de comando do PowerShell, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de desenvolvimento, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores. Se estiver usando o Azure PowerShell 1.0 Preview, o comando será **New-AzureRmResourceGroupDeployment**, como mostrado abaixo. Se estiver usando uma versão do Azure PowerShell anterior ao 1.0 Preview, o comando será **New-AzureResourceGroupDeployment**.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
 
   O comando retornará o seguinte se tiver êxito:
 
@@ -292,18 +292,18 @@ Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](
 
   Em um prompt de comando do PowerShell, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de testes, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
 
   Em um prompt de comando do PowerShell, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de pré-produção, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
 
 Os arquivos de modelos e parâmetros podem ter o controle de versão e ser mantidos com o código do aplicativo e em um sistema de controle de origem. Você também pode salvar os comandos anteriores em arquivos de script e salvá-los com seu código.
 
 ## Manter ambientes
 Durante o desenvolvimento, a configuração dos recursos do Azure em diferentes ambientes pode ser alterada inconsistentemente de forma intencional ou acidental. Isso pode causar problemas desnecessários e resolução de problemas durante o ciclo de desenvolvimento do aplicativo.
 
-  **Etapa 7:** altere os ambientes. Abra o [Portal de Visualização do Azure](https://portal.azure.com) e entre nele com a mesma conta usada para concluir as etapas acima. Conforme mostrado na figura abaixo, clique em Procurar Tudo --> Grupos de Recursos (talvez seja necessário rolar para baixo na folha Procurar para ver os grupos de recursos). Você verá todos os três grupos de recursos criados usando um dos métodos das etapas anteriores. Clique no grupo de recursos TestApp1-Development, conforme mostrado abaixo.
+  **Etapa 7:** altere os ambientes. Abra o [Portal de Visualização do Azure](https://portal.azure.com) e entre nele com a mesma conta que você usou para concluir as etapas acima. Conforme mostrado na figura abaixo, clique em Procurar Tudo --> Grupos de Recursos (talvez seja necessário rolar para baixo na folha Procurar para ver os grupos de recursos). Você verá todos os três grupos de recursos criados usando um dos métodos das etapas anteriores. Clique no grupo de recursos TestApp1-Development, conforme mostrado abaixo.
 
   ![Portal](./media/solution-dev-test-environments-preview-portal/portal1.png)
 
@@ -313,9 +313,9 @@ Durante o desenvolvimento, a configuração dos recursos do Azure em diferentes 
 
   Clique em "Sim" quando o portal exibir uma mensagem perguntando se você tem certeza de que deseja excluir o recurso. O conteúdo do grupo de recursos agora é diferente do que deveria ser. Além disso, você pode experimentar excluir vários recursos de vários grupos de recursos ou até mesmo alterar definições de configuração para alguns dos recursos.
 
-> [AZURE.NOTE]Em vez de usar o Portal de Visualização do Azure para excluir um recurso de um grupo de recursos, você pode usar o comando do PowerShell [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) ou o comando "azure resource delete" da CLI para realizar a mesma tarefa.
+> [AZURE.NOTE]Em vez de usar o Portal de Visualização do Azure para excluir um recurso de um grupo de recursos, você pode usar o comando [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) do PowerShell ou o comando “azure resource delete” da CLI para realizar a mesma tarefa.
 
-  **Etapa 8:** reimplante os ambientes para os grupos de recursos usando os mesmos comandos que você usou na etapa 6, mas substitua "Deployment1" por "Deployment2". Conforme mostrado na seção Resumo da imagem abaixo, você verá que todos os recursos do modelo existem no grupo de recursos TestApp1-Development novamente. Uma das vantagens da implantação de seus ambientes com modelos do Gerenciador de Recursos do Azure é que você pode facilmente reimplantar os ambientes de volta para um estado conhecido a qualquer momento.
+  **Etapa 8:** implante novamente os ambientes nos grupos de recursos usando os mesmos comandos que você usou na Etapa 6, mas substitua “Deployment1” por “Deployment2”. Conforme mostrado na seção Resumo da imagem abaixo, você verá que todos os recursos do modelo existem no grupo de recursos TestApp1-Development novamente. Uma das vantagens da implantação de seus ambientes com modelos do Gerenciador de Recursos do Azure é que você pode facilmente reimplantar os ambientes de volta para um estado conhecido a qualquer momento.
 
   ![Portal](./media/solution-dev-test-environments-preview-portal/portal3.png)
 
@@ -324,7 +324,7 @@ Durante o desenvolvimento, a configuração dos recursos do Azure em diferentes 
 ## Excluir ambientes
 Quando tiver concluído o trabalho em um ambiente, convém excluí-lo para não incorrer em cobranças de uso de recursos do Azure que você não está usando. Excluir ambientes é ainda mais fácil do que criá-los. Nas etapas anteriores, grupos de recursos individuais do Azure foram criados para cada ambiente. Quando você exclui um grupo de recursos, todos os recursos que ele contém também são excluídos. Tendo isso em mente, um dos métodos a seguir excluirá os ambientes (grupos de recursos), junto com todos os recursos do Azure dentro deles que você implantou anteriormente.
 
-  **Etapa 9:** exclua os ambientes usando qualquer um dos métodos abaixo. Ambos os métodos obterão exatamente o mesmo resultado.
+  **Etapa 9:** exclua os ambientes usando um dos métodos abaixo. Ambos os métodos obterão exatamente o mesmo resultado.
 
   **Método 1: CLI do Azure**
 
@@ -346,9 +346,9 @@ Quando tiver concluído o trabalho em um ambiente, convém excluí-lo para não 
   
   **Método 2:** PowerShell
 
-  Em um prompt do PowerShell, digite o seguinte:
+  Se estiver usando o Azure PowerShell 1.0 Preview, o comando para excluir o grupo de recursos será **Remove-AzureRmResourceGroup**, como mostrado abaixo. Se estiver usando uma versão do Azure PowerShell anterior ao 1.0 Preview, o comando será **Remove-AzureResourceGroup**. Em um prompt do PowerShell, digite o seguinte:
 
-	Remove-AzureResourceGroup -Name TestApp1-Development
+	Remove-AzureRmResourceGroup -Name TestApp1-Development
 
   O comando retornará o seguinte se você digitar "y" quando for solicitado:
 
@@ -358,8 +358,8 @@ Quando tiver concluído o trabalho em um ambiente, convém excluí-lo para não 
 
   Em um prompt do PowerShell, digite o seguinte para excluir os ambientes restantes:
 
-	Remove-AzureResourceGroup -Name TestApp1-Test
-	Remove-AzureResourceGroup -Name TestApp1-Pre-Production
+	Remove-AzureRmResourceGroup -Name TestApp1-Test
+	Remove-AzureRmResourceGroup -Name TestApp1-Pre-Production
 
 Independentemente do método que você usar, depois de concluir a execução de comandos, os grupos de recursos e todos os recursos que eles continham deixarão de existir, e você não incorrerá em despesas de cobrança para os recursos.
 
@@ -372,16 +372,16 @@ Agora que viu como é fácil criar, manter e excluir os ambientes de desenvolvim
 
 ## Próximas etapas
 
-- [Delegar controle administrativo](role-based-access-control-configure.md) para recursos diferentes em cada ambiente atribuindo usuários ou grupos do AD do Microsoft Azure a funções específicas que têm a capacidade de executar um subconjunto de operações nos recursos do Azure.
-- [Atribuir marcas](resource-group-using-tags.md) aos grupos de recursos para cada ambiente e/ou os recursos individuais. Você pode adicionar uma marca de "Ambiente" aos grupos de recursos e definir seu valor para corresponder aos nomes de seu ambiente. As marcas podem ser particularmente úteis quando você precisar organizar os recursos de gerenciamento ou de cobrança.
-- Monitorar alertas e cobrança para recursos do grupo de recursos no [Portal de Visualização do Azure](https://portal.azure.com).
+- [Delegue controle administrativo](role-based-access-control-configure.md) para diferentes recursos em cada ambiente, atribuindo grupos ou usuários do AD do Microsoft Azure a funções específicas que têm a capacidade de executar um subconjunto de operações nos recursos do Azure.
+- [Atribua marcas](resource-group-using-tags.md) aos grupos de recursos de cada ambiente e/ou aos recursos individuais. Você pode adicionar uma marca de "Ambiente" aos grupos de recursos e definir seu valor para corresponder aos nomes de seu ambiente. As marcas podem ser particularmente úteis quando você precisar organizar os recursos de gerenciamento ou de cobrança.
+- Monitore alertas e cobrança de recursos do grupo de recursos no [Portal de Visualização do Azure](https://portal.azure.com).
 
 ## Recursos adicionais
 
-- [Criar e implantar modelos do Gerenciador de Recursos do Azure no Visual Studio](http://msdn.microsoft.com/library/azure/Dn872471.aspx) com o SDK 2.6 do Azure instalado.
-- Crie seu aplicativo usando o [Visual Studio Enterprise](https://www.visualstudio.com/products/visual-studio-enterprise-vs), [código do Visual Studio](http://www.visualstudio.com/products/code-vs) ou a [Matriz da Web](http://www.microsoft.com/web/webmatrix/).
-- [Implantar um aplicativo Web](app-service-web/web-sites-deploy.md) para os ambientes que você criou.
-- Usar o [Release Management para Visual Studio](http://msdn.microsoft.com/Library/vs/alm/Release/overview) para criar pipelines de implantação gerenciados e contínuos a fim de liberar com rapidez, facilidade e frequência.
-- Solicitar um convite para a visualização do [Laboratório de Desenvolvimento/Testes do Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Ele o habilita a gerenciar ambientes de laboratório de desenvolvimento e teste usando modelos e configurar cotas e políticas para uso em sua organização.
+- [Crie e implante modelos do Gerenciador de Recursos do Azure no Visual Studio](http://msdn.microsoft.com/library/azure/Dn872471.aspx) com o SDK 2.6 do Azure instalado.
+- Crie seu aplicativo usando o [Visual Studio Enterprise](https://www.visualstudio.com/products/visual-studio-enterprise-vs), o [Código do Visual Studio](http://www.visualstudio.com/products/code-vs) ou a [Matriz da Web](http://www.microsoft.com/web/webmatrix/).
+- [Implante um aplicativo Web](app-service-web/web-sites-deploy.md) nos ambientes que você criou.
+- Use o [Release Management para Visual Studio](http://msdn.microsoft.com/Library/vs/alm/Release/overview) para criar pipelines de implantação gerenciados e contínuos, a fim de liberar com rapidez, facilidade e frequência.
+- Solicite um convite para a visualização do [Laboratório de Desenvolvimento/Teste do Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Ele o habilita a gerenciar ambientes de laboratório de desenvolvimento e teste usando modelos e configurar cotas e políticas para uso em sua organização.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

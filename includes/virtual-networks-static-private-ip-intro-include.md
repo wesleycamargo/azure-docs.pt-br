@@ -2,4 +2,4 @@ Suas máquinas virtuais (VMs) de IaaS e instâncias de função de PaaS em uma r
 
 Em alguns casos, convém que uma VM ou instância de função tenha um endereço IP estático; por exemplo, se a sua VM executar DNS ou for um controlador de domínio. Você pode fazer isso definindo um endereço IP privado estático.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

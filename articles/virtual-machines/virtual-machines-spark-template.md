@@ -21,7 +21,7 @@
 
 Apache Spark é um mecanismo rápido para processamento de dados em grande escala. O Spark tem um mecanismo de execução DAG avançado que oferece suporte ao fluxo de dados cíclicos e computação na memória, e pode acessar várias fontes de dados, incluindo HDFS, Spark, HBase e S3.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artigo aborda como implantar um recurso com o modelo de implantação do Gerenciador de Recursos. Não é possível implantar este recurso com o modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Não é possível implantar este recurso com o modelo de implantação clássico.
 
 
 Além de executar nos gerenciadores de cluster Mesos ou YARN, o Spark fornece um modo simples de implantação autônoma. Este tutorial mostrará como usar um exemplo de modelo do Gerenciador de Recursos do Azure para implantar um cluster Spark em VMs do Ubuntu por meio do [Azure PowerShell](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli-install.md).
@@ -847,4 +847,4 @@ Descubra mais [estruturas de aplicativo](virtual-machines-app-frameworks.md).
 
 [Solucionar problemas de implantações de modelo](resource-group-deploy-debug.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

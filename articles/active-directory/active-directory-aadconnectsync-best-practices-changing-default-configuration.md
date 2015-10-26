@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Práticas recomendadas para alterar a configuração padrão | Microsoft Azure"
+	pageTitle="Práticas recomendadas para alterar a configuração padrão | Microsoft Azure | Microsoft Azure"
 	description="Fornece práticas recomendadas para alterar a configuração padrão da sincronização do Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -55,11 +55,11 @@ Quando você precisar alterar a configuração padrão, faça o seguinte:
 
 
 
-## Recursos adicionais
+## Próximas etapas
+Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-* [Sincronização do Azure AD Connect: personalizando as opções de sincronização](active-directory-aadconnectsync-whatis.md)
-* [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

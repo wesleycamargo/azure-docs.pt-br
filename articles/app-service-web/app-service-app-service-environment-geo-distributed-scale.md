@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="10/08/2015" 
 	ms.author="stefsch"/>
 
 # Escala distribuída geograficamente com ambientes de Serviço de Aplicativo
@@ -43,6 +43,7 @@ Antes de criar uma superfície de aplicativo distribuído, é bom ter algumas in
 - **Estratégia para escalonar a superfície do aplicativo:** a superfície do aplicativo será distribuída em vários Ambientes de Serviço de Aplicativo em uma única região? Várias regiões? Uma combinação de ambas as abordagens? A decisão deve se basear nas expectativas da origem do tráfego do cliente e em como o resto da infraestrutura de back-end de suporte de um aplicativo pode ser escalonado. Por exemplo, com um aplicativo 100% sem monitoração de estado, ele pode ser altamente dimensionado usando uma combinação de vários Ambientes de Serviço de Aplicativo por região do Azure, multiplicado por Ambientes de Serviço de Aplicativo implantado em várias regiões do Azure. Com mais de 15 regiões públicas do Azure disponíveis para escolha, os clientes podem realmente criar uma superfície de aplicativo de hiperescala mundial. Para o aplicativo de exemplo usado neste artigo, três Ambientes de Serviço de Aplicativo foram criados em uma única região do Azure (centro-sul dos EUA).
 - **Convenção de nomenclatura para os Ambientes de Serviço de Aplicativo:** cada Ambiente de Serviço de Aplicativo requer um nome exclusivo. Além de um ou dois Ambientes de Serviço de Aplicativo, é útil ter uma convenção de nomenclatura para ajudar a identificar cada Ambiente de Aplicativo de Serviço. Para o aplicativo de exemplo, foi usada uma convenção de nomenclatura simples. Os nomes dos três Ambientes de Serviço de Aplicativo são *fe1ase*, *fe2ase* e *fe3ase*.
 - **Convenção de nomenclatura para os aplicativos:** como várias instâncias do aplicativo serão implantadas, é necessário um nome para cada instância do aplicativo implantado. Um recurso pouco conhecido, mas muito conveniente dos Ambientes de Serviço de Aplicativo é que o mesmo nome de aplicativo pode ser usado em vários Ambientes de Serviço de Aplicativo. Como cada Ambiente de Serviço de Aplicativo tem um sufixo de domínio exclusivo, os desenvolvedores podem optar por usar novamente o mesmo nome de aplicativo em cada ambiente. Por exemplo um desenvolvedor poderia ter aplicativos nomeados da seguinte forma: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc. No entanto, no caso do aplicativo de exemplo, cada instância do aplicativo também tem um nome exclusivo. Os nomes de instância de aplicativo usados são *webfrontend1*, *webfrontend2* e *webfrontend3*.
+
 
 ## Configurando o perfil do Gerenciador de Tráfego ##
 Quando várias instâncias de um aplicativo são implantadas em vários Ambientes de Serviço de Aplicativo, as instâncias de aplicativos individuais podem ser registradas com o Gerenciador de Tráfego. Para o aplicativo de exemplo, um perfil do Gerenciador de Tráfego é necessário para *scalable-ase-demo.trafficmanager.net* que seja capaz de direcionar os clientes para uma das seguintes instâncias de aplicativo implantadas:
@@ -124,4 +125,4 @@ Documentação sobre a visualização do [suporte de Gerenciador de Recursos do 
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

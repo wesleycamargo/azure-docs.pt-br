@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Atividade de procedimento armazenado do SQL Server
@@ -50,63 +50,129 @@ outputs | Conjunto(s) de dado(s) de saída produzidos pela atividade de procedim
 storedProcedureName | Especifique o nome do procedimento armazenado no banco de dados SQL do Azure ou SQL Data Warehouse do Azure que é representado pelo serviço vinculado utilizado pela tabela de saída. | Sim
 storedProcedureParameters | Especificar valores para parâmetros de procedimento armazenado | Não
 
-## Exemplo
+## Exemplo passo a passo
 
-Vamos considerar um exemplo em que você deseja criar uma tabela no banco de dados SQL do Azure com duas colunas:
+### Tabela de exemplo e procedimento armazenado
+1. Crie a seguinte **tabela** em seu Banco de Dados SQL do Azure usando o Estúdio de Gerenciamento do SQL Server ou qualquer outra ferramenta com a qual você estiver confortável. A coluna datetimestamp é a data e a hora em que a ID correspondente é gerada. 
 
-Coluna | Tipo
------- | ----
-ID | Um uniqueidentifier
-Datetime | Data e hora em que a ID correspondente foi gerada
+		CREATE TABLE dbo.sampletable
+		(
+			Id uniqueidentifier,
+			datetimestamp nvarchar(127)
+		)
+		GO
 
-![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
+		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
+		GO
 
-	CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
-	AS
+	ID é a única identificada e a coluna datetimestamp é a data e a hora em que a ID correspondente é gerada. ![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
+
+2. Crie o seguinte **procedimento armazenado** que insere dados no **sampletable**.
+
+		CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+		AS
+		
+		BEGIN
+		    INSERT INTO [sampletable]
+		    VALUES (newid(), @DateTime)
+		END
+
+	> [AZURE.IMPORTANT]O **nome** e o **uso de maiúsculas** do parâmetro (DateTime, neste exemplo) devem corresponder àqueles do parâmetro especificado no JSON do pipeline/atividade. Na definição do procedimento armazenado, certifique-se de que **@** seja usado como um prefixo para o parâmetro.
 	
-	BEGIN
-	    INSERT INTO [sampletable]
-	    VALUES (newid(), @DateTime)
-	END
+### Criar uma data factory  
+4. Depois de fazer logon no [Portal de Visualização do Azure](http://portal.azure.com/), faça o seguinte:
+	1.	Clique em **NOVO** no menu à esquerda. 
+	2.	Clique em **Análise de dados** na folha **Criar**.
+	3.	Clique em **Data Factory** na folha **Análise de dados**.
+4.	Na folha **Nova data factory**, insira **SProcDF** como o Nome. Nomes de Azure Data Factory são globalmente exclusivos. Será necessário prefixar o nome da fábrica de dados com seu nome, para habilitar a criação bem-sucedida de fábrica. 
+3.	Se não criou nenhum grupo de recursos, você precisará criar um grupo de recursos. Para fazer isso:
+	1.	Clique em **NOME DO GRUPO DE RECURSOS**.
+	2.	Selecione **Criar um novo grupo de recursos** na folha **Grupo de recursos**.
+	3.	Digite **ADFTutorialResourceGroup** como o **Nome** na folha **Criar grupo de recursos**.
+	4.	Clique em **OK**.
+4.	Depois de selecionar o grupo de recursos, verifique se que você está usando a assinatura correta na qual deseja que a data factory seja criada.
+5.	Clique em **Criar** na folha **Nova data factory**.
+6.	Você verá a data factory que está sendo criada no **Quadro inicial** do Portal de Visualização do Azure. Após a data factory ter sido criada com êxito, você verá a página da data factory, que exibe seu conteúdo.
 
-> [AZURE.NOTE]O **nome** e o **uso de maiúsculas** do parâmetro (DateTime, neste exemplo) devem corresponder àqueles do parâmetro especificado na atividade JSON abaixo. Na definição do procedimento armazenado, certifique-se de que **@** seja usado como um prefixo para o parâmetro.
+### Criar um serviço vinculado do SQL do Azure  
+Depois de criar a data factory, você deve criar um serviço do SQL Azure vinculado que vincula seu banco de dados SQL na data factory. Isso é o banco de dados que contém a tabela sampletable e o procedimento armazenado sp\_sample.
 
-Para executar esse procedimento armazenado em um pipeline de Data Factory, você precisa fazer o seguinte:
+7.	Clique em **Criar e implantar** na folha **DATA FACTORY** para **SProcDF**. Isso inicia o Data Factory Editor. 
+2.	Clique em **Novo armazenamento de dados** no comando barra e escolha **SQL Azure**. Você deve ver o script JSON para criar um serviço vinculado do SQL Azure no editor. 
+4. Substitua o **servername** com o nome do seu servidor de banco de dados SQL, **databasename** com o banco de dados em que você criou a tabela e o procedimento armazenado, * ***username@servername** com a conta de usuário que tenha acesso ao banco de dados, e **senha** com a senha da conta de usuário.
+5. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
-1.	Crie um [serviço vinculado](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties) para registrar a cadeia de conexão do banco de dados SQL do Azure em que o procedimento armazenado deve ser executado.
-2.	Crie um [conjunto de dados](data-factory-azure-sql-connector.md/#azure-sql-dataset-type-properties) apontando para a tabela de saída no banco de dados SQL do Azure. Vamos chamar esse conjunto de dados de sprocsampleout. Esse conjunto de dados deve referenciar o serviço vinculado na etapa n.º 1. 
-3.	Crie o procedimento armazenado no Banco de Dados SQL do Azure.
-4.	Crie o [pipeline](data-factory-azure-sql-connector.md/#azure-sql-copy-activity-type-properties) abaixo com a atividade SqlServerStoredProcedure para invocar o procedimento armazenado no Banco de Dados SQL do Azure.
+### Criar um conjunto de dados de saída
+6. Clique em **Novo conjunto de dados** na barra de comando e selecione **SQL Azure**.
+7. Copiar/colar o script JSON a seguir no editor de JSON.
+
+		{			    
+			"name": "sprocsampleout",
+			"properties": {
+				"type": "AzureSqlTable",
+				"linkedServiceName": "AzureSqlLinkedService",
+				"typeProperties": {
+					"tableName": "sampletable"
+				},
+				"availability": {
+					"frequency": "Hour",
+					"interval": 1
+				}
+			}
+		}
+7. Clique em **Implantar** na barra de comando para implantar o conjunto de dados. 
+
+### Criar um pipeline com atividade de SqlServerStoredProcedure
+AGora, crie um pipeline com atividade de SqlServerStoredProcedure.
+ 
+9. Clique em **... (reticências)** na barra de comandos e clique em **Novo pipeline**. 
+9. Copiar/colar o seguinte trecho JSON. O **storedProcedureName** definido como **sp\_sample**. O nome e o uso de maiúsculas e minúsculas do parâmetro **DateTime** deve corresponder ao nome e o uso de maiúsculas e minúsculas do parâmetro na definição do procedimento armazenado.  
 
 		{
 		    "name": "SprocActivitySamplePipeline",
-		    "properties":
-		    {
-		        "activities":
-		        [
+		    "properties": {
+		        "activities": [
 		            {
-		            	"name": "SprocActivitySample",
-		             	"type": " SqlServerStoredProcedure",
-		             	"outputs": [ {"name": "sprocsampleout"} ],
-		             	"typeProperties":
-		              	{
-		                	"storedProcedureName": "sp_sample",
-			        		"storedProcedureParameters": 
-		        			{
-		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        			}
-						}
-	            	}
-		        ]
-		     }
+		                "type": "SqlServerStoredProcedure",
+		                "typeProperties": {
+		                    "storedProcedureName": "sp_sample",
+		                    "storedProcedureParameters": {
+		                        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		                    }
+		                },
+		                "outputs": [
+		                    {
+		                        "name": "sprocsampleout"
+		                    }
+		                ],
+		                "scheduler": {
+		                    "frequency": "Hour",
+		                    "interval": 1
+		                },
+		                "name": "SprocActivitySample"
+		            }
+		        ],
+		        "start": "2015-01-02T00:00:00Z",
+		        "end": "2015-01-03T00:00:00Z",
+		        "isPaused": false
+		    }
 		}
-5.	Implante o [pipeline](data-factory-create-pipelines.md).
-6.	[Monitore o pipeline](data-factory-monitor-manage-pipelines.md) usando as exibições de gerenciamento e monitoramento de data factory.
+9. Clique em **Implantar** na barra de ferramentas para implantar o pipeline.  
+
+### Monitorar o Pipeline
+
+6. Clique em **X** para fechar as folhas do Data Factory Editor e para navegar de volta para a folha do Data Factory, e clique em **Diagrama**.
+7. Na Exibição de diagrama, você terá uma visão geral dos pipelines e conjuntos de dados usados neste tutorial. 
+8. Na Exibição de Diagrama, clique duas vezes no conjunto de dados **sprocsampleout**. Você verá as partes no estado pronto. Deve haver 24 partes porque uma parte é produzida para cada hora entre 01/02/2015 e 01/03/2015. 
+10. Quando uma parte estiver no estado **pronto**, executar **Selecionar * de sampledata** consultar o banco de dados SQL Azure para verificar que os dados foram inseridos na tabela pelo procedimento armazenado.
+
+	![Dados de saída](./media/data-factory-stored-proc-activity/output.png)
+
+	Consulte [Monitorar o pipeline](data-factory-monitor-manage-pipelines.md) para obter informações detalhadas sobre o monitoramento de pipelines da Azure Data Factory.
 
 > [AZURE.NOTE]No exemplo acima, SprocActivitySample não tem entradas. Se você deseja encadear isso com uma atividade upstream (ou seja, antes do processamento), a saída(s) de atividade upstream pode ser usada como entrada(s) nessa atividade. Nesse caso, essa atividade não será executada até que a atividade de upstream seja concluída e a saída(s) das atividades de upstream esteja disponível (com status Pronta). A entrada(s) não pode ser usada diretamente como um parâmetro para a atividade de procedimento armazenado
-> 
-> Os nomes e o uso de letras maiúsculas e minúsculas (superior/inferior) de parâmetros de procedimento armazenado no arquivo JSON devem corresponder aos nomes de parâmetros de procedimento armazenado no banco de dados de destino.
 
+## Passando um valor estático 
 Agora, vamos considerar adicionar outra coluna denominada 'Cenário' na tabela que contém um valor estático chamado 'Exemplo de documento'.
 
 ![Dados de exemplo 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
@@ -132,4 +198,4 @@ Para fazer isso, passe o parâmetro Cenário e o valor da atividade de procedime
 		}
 	}
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

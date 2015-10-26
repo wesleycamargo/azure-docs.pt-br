@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mover dados do PostgreSQL | Azure Data Factory"
-	description="Saiba mais sobre como mover dados do banco de dados PostgreSQL usando o Azure Data Factory"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Mover dados do PostgreSQL | Azure Data Factory" 
+	description="Saiba mais sobre como mover dados do banco de dados PostgreSQL usando o Azure Data Factory" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados do PostgreSQL usando o Azure Data Factory
@@ -306,4 +306,4 @@ texto | | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

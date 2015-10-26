@@ -137,4 +137,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Azure Management Portal]: https://manage.windowsazure.com/
 [o projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

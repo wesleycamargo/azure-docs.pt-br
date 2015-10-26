@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/09/2015" 
 	ms.author="sdanie"/>
 
 # Como monitorar o Cache Redis do Azure
@@ -143,6 +143,33 @@ Para exibir as métricas de determinado período de tempo em um gráfico, passe 
 
 ![Exibir detalhes do gráfico][redis-cache-view-chart-details]
 
+## Como monitorar um cache premium com clustering
+
+Os caches premium têm [clustering](cache-how-to-premium-clustering.md) habilitado pode ter até 10 fragmentos. Cada fragmento tem suas próprias métricas e essas métricas agregadas para fornecer métricas de cache como um todo. Cada métrica inclui duas versões. Uma métrica mede o desempenho de todo o cache e uma segunda versão da métrica que inclui `(Shard 0-9)` no desempenho de medidas do nome para um fragmento único em um cache. Por exemplo, se um cache tiver três fragmentos, `Cache Hits` será a quantidade total de ocorrências para todo o cache,`Cache Hits (Shard 2)` e será apenas as ocorrências para esse fragmento do cache.
+
+Cada gráfico de monitoramento exibe as métricas de nível superior para o cache com as métricas para cada fragmento de cache.
+
+![Monitoramento][redis-cache-premium-monitor]
+
+Passar o mouse sobre os pontos de dados exibe os detalhes para esse ponto no tempo.
+
+![Monitoramento][redis-cache-premium-point-summary]
+
+Os valores maiores normalmente são os valores agregados ao cache enquanto os menores valores são as métricas individuais para o fragmento. Observe que neste exemplo há três fragmentos e os acertos de cache são distribuídos uniformemente entre os fragmentos.
+
+![Monitoramento][redis-cache-premium-point-shard]
+
+Para ver mais detalhes, clique no gráfico para exibir uma exibição expandida na folha **métrica**.
+
+![Monitoramento][redis-cache-premium-chart-detail]
+
+Por padrão, cada gráfico inclui o contador de desempenho do cache de nível superior, bem como os contadores de desempenho para os fragmentos individuais. Você pode personalizá-los na folha **Editar gráfico**.
+
+![Monitoramento][redis-cache-premium-edit]
+
+Para obter mais informações sobre contadores de desempenho disponíveis, consulte as [Métricas disponíveis e intervalos de relatório](#available-metrics-and-reporting-intervals).
+
+
 ## Operações e alertas
 
 A seção **Operações** tem as seções **Eventos** e **Regras de alerta**.
@@ -222,4 +249,14 @@ Para obter mais informações sobre os alertas no Azure, consulte [Receber notif
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=Oct15_HO2-->
+[redis-cache-premium-monitor]: ./media/cache-how-to-monitor/redis-cache-premium-monitor.png
+
+[redis-cache-premium-edit]: ./media/cache-how-to-monitor/redis-cache-premium-edit.png
+
+[redis-cache-premium-chart-detail]: ./media/cache-how-to-monitor/redis-cache-premium-chart-detail.png
+
+[redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
+
+[redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
+
+<!---HONumber=Oct15_HO3-->

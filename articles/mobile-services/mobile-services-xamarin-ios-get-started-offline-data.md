@@ -184,4 +184,4 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [extensão Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

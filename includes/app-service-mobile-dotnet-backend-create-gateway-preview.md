@@ -10,4 +10,4 @@ Em seguida, você usará esse gateway com um provedor de autenticação.
 <!-- URLs. -->
 [Portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

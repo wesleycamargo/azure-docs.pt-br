@@ -242,4 +242,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

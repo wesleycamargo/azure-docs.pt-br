@@ -3,4 +3,4 @@
 
 * No Portal do Azure, clique em **Serviços Móveis** > seu aplicativo > a guia **Enviar por Push** > **configurações de notificação por push da Apple** > "**Upload**. Carregue o arquivo. p12, verificando se o **modo** correto está selecionado (Área Restrita ou Produção, dependendo de o certificado SSL de cliente gerado ser de Desenvolvimento ou de Distribuição.) Agora, seu serviço móvel está configurado para funcionar com notificações por push no iOS!
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

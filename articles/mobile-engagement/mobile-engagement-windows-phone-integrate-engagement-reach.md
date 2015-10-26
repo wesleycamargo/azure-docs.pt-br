@@ -266,4 +266,4 @@ Você pode definir o retorno de chamada em seu método `Application_Launching` d
 [Requisitos adicionais para tipos específicos de aplicativo]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

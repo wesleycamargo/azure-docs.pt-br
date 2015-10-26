@@ -205,4 +205,4 @@ Para obter exemplos adicionais de um código que chame um aplicativo de API de c
 Para obter informações sobre como usar a autenticação em aplicativos de API, consulte [Autenticação para aplicativos de API e aplicativos móveis no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

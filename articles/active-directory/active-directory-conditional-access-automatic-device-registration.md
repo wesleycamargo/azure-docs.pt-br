@@ -85,4 +85,4 @@ Empresas que usam ambos os dispositivos móveis e tradicionais ou que usam o Off
 
 Você pode saber mais sobre como implantar o registro de dispositivos com o AD FS [aqui](https://technet.microsoft.com/pt-BR/library/dn486831.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 
@@ -28,12 +28,10 @@
 
 3. Em seguida, selecione uma condição (Not Equals, Equals, Not Starts With, Starts With, Not Contains, Contains, Not Match, Match) e finalmente especificar um valor para a propriedade do usuário selecionado. Por exemplo, se um grupo é atribuído a um aplicativo de SaaS e você habilita associações dinâmicas a este grupo, definindo uma regra na qual **Adicionar usuários em que** é definido como o jobTitle that Equals(-eq)Sales Rep, todos os usuários no diretório do AD do Azure, cujos cargos são definidos como representante de vendas, terão acesso a esse aplicativo SaaS.
 
-Estes são alguns tópicos que fornecem informações adicionais sobre o Active Directory do Azure
+Estes são alguns tópicos que fornecem informações adicionais sobre o Active Directory do Azure:
 
-* [Gerenciamento do acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
-
+* [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
-
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

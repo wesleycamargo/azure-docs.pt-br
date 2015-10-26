@@ -265,4 +265,4 @@ Para começar a explorar a consulta de Banco de Dados Elástico, siga nosso tuto
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

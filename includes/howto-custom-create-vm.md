@@ -58,4 +58,4 @@ Depois que a máquina virtual é criada, ela é iniciada automaticamente. Quando
 - [Como fazer logon em uma máquina virtual executando o Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

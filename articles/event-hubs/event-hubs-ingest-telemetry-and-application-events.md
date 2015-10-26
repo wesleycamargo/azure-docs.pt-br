@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ingestão de telemetria e eventos de aplicativo em escala" 
+	pageTitle="Ingestão de telemetria e eventos de aplicativo em escala| Microsoft Azure" 
 	description="Saiba como realizar a ingestão de telemetria e eventos de aplicativo em escala em suas soluções de negócios." 
 	services="event-hubs,service-bus" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sethm"/>
 
 # Ingestão de telemetria e eventos de aplicativo em escala
@@ -29,11 +29,12 @@ Os aplicativos modernos criam uma grande quantidade de informações enquanto es
  
 ## Compilação
 - [Referência da API REST dos Hubs de Eventos](https://msdn.microsoft.com/library/azure/dn790674.aspx)
-- [Exemplos de Código dos Hubs de Eventos](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
+- [Exemplos de Código dos Hubs de Eventos](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Serviços relacionados
-- [Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
-- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [Barramento de Serviço](http://azure.microsoft.com/services/service-bus/)
+- [Armazenamento do Azure](http://azure.microsoft.com/services/storage/)
+- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

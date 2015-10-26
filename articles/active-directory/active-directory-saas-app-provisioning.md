@@ -100,7 +100,7 @@ Clique em um aplicativo para ver um tutorial sobre como configurar o provisionam
 - [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
 - [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
 - [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-- [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx) (provisionamento de entrada)
+- [Workday](http://go.microsoft.com/fwlink/?LinkId=690250) (provisionamento de entrada)
 
 Para que um aplicativo dê suporte a provisionamento automatizado de usuários, primeiro ele deve fornecer os pontos de extremidade necessários que permitam que programas externos automatizem a criação, a manutenção e a remoção de usuários. Portanto, nem todos os aplicativos SaaS são compatíveis com esse recurso. Para aplicativos que dão suporte a isso, a equipe de engenharia do Azure AD será capaz de criar um conector de provisionamento para eles e esse trabalho é priorizado de acordo com as necessidades de clientes atuais e potenciais.
 
@@ -108,4 +108,4 @@ Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o supo
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

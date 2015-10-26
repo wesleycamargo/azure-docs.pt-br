@@ -208,7 +208,7 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 6. Use o seguinte comando para executar o programa SimpleApp.scala:
 
 
-		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
+		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
 
 4. Quando o programa é encerrado, o resultado é exibido no console.
 
@@ -234,4 +234,4 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

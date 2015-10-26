@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="10/12/2015" 
 	ms.author="genemi"/>
 
 # Como usar o Banco de Dados SQL do Azure em Java
@@ -37,7 +37,7 @@ A seguir estão os pré-requisitos se você pretende usar o Banco de Dados SQL c
 
 * Um JDK (Java Developer Kit) versão 1.6 ou posterior.
 * Uma assinatura de Azure, que pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
-* Se estiver usando o Eclipse, você precisará do Eclipse IDE para desenvolvedores de Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. Também precisará do plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies). Durante a instalação desse plug-in, certifique-se de que o Microsoft JDBC Driver 4.0 para SQL Server esteja incluído. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+* Se estiver usando o Eclipse, você precisará do Eclipse IDE para desenvolvedores de Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. Você precisará também do Kit de Ferramentas do Azure para Eclipse. Durante a instalação desse plug-in, certifique-se de que o Microsoft JDBC Driver 4.0 para SQL Server esteja incluído. Para obter mais informações, veja [Instalar o Kit de Ferramentas do Azure para Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 * Se não estiver usando o Eclipse, você precisará do Microsoft JDBC Driver 4.0 para SQL Server, que pode ser baixado em <http://www.microsoft.com/download/details.aspx?id=11774>.
 
 ## Criando um Banco de Dados SQL do Azure
@@ -688,7 +688,7 @@ Para usar o Banco de Dados SQL em Java em uma implantação do Azure, além de t
 3. Na caixa de diálogo **Nova Diretiva de Assembly**, clique em **Entradas do Caminho de Compilação Java** e, em seguida, clique em **Avançar**.
 4. Selecione **Microsoft JDBC Driver 4.0 para SQL Server** e clique em **Concluir**.
 5. Clique em **OK** para fechar a caixa de diálogo **Propriedades**.
-6. Exporte o arquivo WAR de seu projeto para a pasta approot e recompile seu projeto do Azure, de acordo com as etapas documentadas em [Criando um aplicativo Hello World usando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies) (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). Este tópico também descreve como executar seu aplicativo no emulador de computação e no Azure.
+6. Exporte o arquivo WAR de seu projeto para a pasta approot e recompile seu projeto do Azure, de acordo com as etapas documentadas em [Criando um aplicativo Hello World usando o Kit de Ferramentas do Azure para Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). Este tópico também descreve como executar seu aplicativo no emulador de computação e no Azure.
 
 **Empacotando o Microsoft JDBC Driver 4.0 para SQL Server se não estiver usando o Eclipse**
 
@@ -728,4 +728,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,21 @@
 <properties 
-	pageTitle="Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL | Microsoft Azure"
-	description="Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL"
-	services="machine-learning"
-	documentationCenter=""
+	pageTitle="Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL | Microsoft Azure" 
+	description="Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
 	authors="msolhab"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="msolhab"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
+	ms.author="msolhab" />
 
 # Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL
 
@@ -184,4 +185,4 @@ ou
 Para obter um exemplo passo a passo de ponta a ponta usando o ADAPT (Processo e Tecnologia de Análise Avançada) com um conjunto de dados público, confira [Processo e Tecnologia de Análise Avançada em Ação: usando o SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

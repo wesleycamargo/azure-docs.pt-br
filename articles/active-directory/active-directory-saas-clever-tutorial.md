@@ -100,7 +100,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 10. Para adicionar os mapeamentos de atributo necessários, execute as seguintes etapas:
 
-    ![Atributos de token saml](./media/active-directory-saas-clever-tutorial/IC795921.png "Atributos de token saml")
+    ![atributos de token saml](./media/active-directory-saas-clever-tutorial/IC795921.png "atributos de token saml")
 
 	|Nome do atributo|Valor do atributo|
     |---|---|
@@ -129,7 +129,7 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 2.  Na página de integração de aplicativos do **Clever**, clique em **Atribuir usuários**.
 
-    ![Atribuir Usuários](./media/active-directory-saas-clever-tutorial/IC798987.png "Atribuir Usuários")
+    ![Atribuir usuários](./media/active-directory-saas-clever-tutorial/IC798987.png "Atribuir Usuários")
 
 3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
 
@@ -137,4 +137,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->
