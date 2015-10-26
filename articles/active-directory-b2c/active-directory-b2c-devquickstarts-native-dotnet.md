@@ -329,7 +329,9 @@ Você pode fazer experiências à vontade com as políticas e observar o efeito 
 
 Para referência, o exemplo concluído [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
+```
 
 <!--
 

@@ -47,7 +47,8 @@ Clique em [Exemplo](#bkmk_ex) para examinar um exemplo mais detalhado de um perf
 
 A pontuação calcula um resultado de pesquisa para cada item em um conjunto de resultados ordenados por classificação. É atribuída uma pontuação de pesquisa a cada item em um conjunto de resultados de pesquisa, e depois eles são classificados do mais alto para o mais baixo. Os itens com as pontuações mais altas são retornados para o aplicativo. Por padrão, os 50 primeiros são retornados, mas você pode usar o parâmetro `$top` para retornar um número maior ou menor de itens (até 1000 em uma única resposta).
 
-Por padrão, uma pontuação de pesquisa é calculada com base nas propriedades estatísticas dos dados e da consulta. O Azure Search localiza documentos que incluem os termos de pesquisa na cadeia de caracteres de consulta (alguns deles ou todos, dependendo do `searchMode`), favorecendo documentos que contêm muitas instâncias do termo de pesquisa. A pontuação de pesquisa aumentará ainda mais se o termo for raro no corpus de dados, mas comum no documento. A base para essa abordagem de cálculo de relevância é conhecida como TF-IDF (ou frequência do termo ‒ frequência inversa do documento). Supondo que não haja uma classificação personalizada, os resultados são então classificados pela pontuação de pesquisa antes de serem retornados ao aplicativo que fez a chamada. Se `$top` não for especificado, 50 itens com a pontuação de pesquisa mais alta serão retornados.
+Por padrão, uma pontuação de pesquisa é calculada com base nas propriedades estatísticas dos dados e da consulta. O Azure Search localiza documentos que incluem os termos de pesquisa na cadeia de caracteres de consulta (alguns deles ou todos, dependendo do `searchMode`), favorecendo documentos que contêm muitas instâncias do termo de pesquisa. A pontuação de pesquisa aumentará ainda mais se o termo for raro no corpus de dados, mas comum no documento. A base para essa abordagem de cálculo de relevância é conhecida como TF-IDF (ou frequência do termo ‒ frequência inversa do documento).
+Supondo que não haja uma classificação personalizada, os resultados são então classificados pela pontuação de pesquisa antes de serem retornados ao aplicativo que fez a chamada. Se `$top` não for especificado, 50 itens com a pontuação de pesquisa mais alta serão retornados.
 
 Os valores de pontuação de pesquisa podem ser repetidos em todo um conjunto de resultados. Por exemplo, você pode ter 10 itens com uma pontuação de 1,2, 20 itens com uma pontuação de 1,0 e 20 itens com uma pontuação de 0,5. Quando várias ocorrências têm a mesma pontuação de pesquisa, a ordenação dos mesmos itens pontuados não é definida e não é estável. Execute a consulta novamente, e você poderá ver itens mudando de posição. Se houver dois itens com uma pontuação idêntica, não há garantia de qual deles aparecerá primeiro.
 
@@ -285,7 +286,8 @@ A tabela a seguir fornece vários exemplos.
 
 **Consulte também**
 
-Criação de Índice da API de REST do Serviço de Pesquisa do Azure (API de Pesquisa do Azure) \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Criação de Índice da API de REST do Serviço de Pesquisa do Azure (API de Pesquisa do Azure)
+______________________________________
 
  
 

@@ -52,7 +52,7 @@ O aplicativo completo também é fornecido no final deste tutorial.
     - O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo. A convenção é usar `https://<tenant-domain>/<app-name>`, por exemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Depois de concluir o registro, o AAD atribuirá a seu aplicativo um identificador de cliente único. Você precisará desse valor nas próximas seções, então copie-o da guia Configurar.
 
-## 2\. Adicionar pré-requisitos ao seu diretório
+## 2. Adicionar pré-requisitos ao seu diretório
 
 Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver lá e execute os seguintes comandos:
 
@@ -71,8 +71,8 @@ Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver
 
 Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 
-## 3\. Configurar seu aplicativo para usar a estratégia passport-node-js
-Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect. O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
+## 3. Configurar seu aplicativo para usar a estratégia passport-node-js
+Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect.  O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
     -	O `clientID:` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
@@ -243,11 +243,11 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
+## 4. Usar o Passport para emitir solicitações de entrada e saída ao AD do Azure
 
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
+Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade v2.0 usando o protocolo de autenticação OpenID Connect.  O `passport-azure-ad`  cuidou de todos os detalhes difíceis da criação de mensagens de autenticação, validação de tokens do AD do Azure e manutenção da sessão do usuário.  Tudo o que resta é dar aos usuários uma maneira de entrar, sair e coletar informações adicionais sobre o usuário conectado.
 
-- First, lets add the default, login, account, and logout methods to our `app.js` file:
+- Primeiro, vamos adicionar os métodos padrão de logon, conta e logoff ao arquivo `app.js`:
 
 ```JavaScript
 
@@ -263,14 +263,14 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
-    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
-    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
-    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
+-	Vamos examiná-los detalhadamente:
+    -	A rota `/`  redirecionará para o modo de exibição index.ejs passando o usuário na solicitação (se houver).
+    - A rota `/account` primeiro ***garantirá que sejamos autenticados*** (implementamos isso abaixo) e passará o usuário na solicitação para que possamos obter informações adicionais sobre ele.
+    - A rota `/login` chamará nosso autenticador azuread-openidconnect de `passport-azuread`  e, se não tiver êxito, redirecionará o usuário para /login.
+    - O `/logout` simplesmente chamará logout.ejs (e a rota), o que limpa os cookies e, em seguida, retorna o usuário para index. ejs.
 
 
-- For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
+- Para a última parte do `app.js`, vamos adicionar o método EnsureAuthenticated que é usado em `/account`  acima.
 
 ```JavaScript
 
@@ -355,7 +355,27 @@ Essas rotas simples apenas passarão a solicitação para nossos modos de exibi�
 
 ```HTML
 
-<!DOCTYPE html> <html> <head> <title>Passport-OpenID Example</title> </head> <body> <% if (!user) { %> <p> <a href="/">Home</a> | <a href="/login">Log In</a> </p> <% } ou { %> <p> <a href="/">Home</a> | <a href="/account">Account</a> | <a href="/logout">Log Out</a> </p> <% } %> <%- body %> </body> </html>```
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Passport-OpenID Example</title>
+	</head>
+	<body>
+		<% if (!user) { %>
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/login">Log In</a>
+			</p>
+		<% } else { %>
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/account">Account</a> | 
+			<a href="/logout">Log Out</a>
+			</p>
+		<% } %>
+		<%- body %>
+	</body>
+</html>```
 
 Por fim, compile e execute seu aplicativo!
 

@@ -34,7 +34,9 @@ Para isso, você precisará:
 
 O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) ou clonar o esqueleto:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
+```
+git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git
+```
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
@@ -42,9 +44,10 @@ O aplicativo completo também é fornecido no final deste tutorial.
 
 ## 1\. Obter um diretório AD B2C do Azure
 
-Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos e assim por diante. Se você não tiver um, acesse [criar um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir.
+Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos e assim por diante.
+Se você não tiver um, acesse [criar um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir.
 
-## 2\. Criar um aplicativo
+## 2. Criar um aplicativo
 
 Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azure algumas informações que ele precisa para se comunicar de forma segura com seu aplicativo. O aplicativo cliente e a API Web serão representados por uma única **ID do Aplicativo** nesse caso, pois abrangem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). Certifique-se de
 
@@ -71,7 +74,7 @@ Observe que este artigo não aborda como usar as políticas que você acabou de 
 
 
 
-## 4\. Adicionar pré-requisitos ao seu diretório
+## 4. Adicionar pré-requisitos ao seu diretório
 
 Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver lá e execute os seguintes comandos:
 
@@ -95,7 +98,7 @@ Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver
 
 Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 
-## 5\. Configurar seu aplicativo para usar a estratégia passport-node-js
+## 5. Configurar seu aplicativo para usar a estratégia passport-node-js
 Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect. O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
@@ -412,7 +415,9 @@ Registre-se ou entre no aplicativo com o email ou Facebook. Saia e faça logon n
 
 Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git
+```
 
 Agora você pode ir para tópicos mais avançados. Você pode desejar experimentar:
 

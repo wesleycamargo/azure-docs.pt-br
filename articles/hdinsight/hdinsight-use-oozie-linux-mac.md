@@ -477,7 +477,11 @@ A IU da Web do Oozie fornece um modo de exibição baseado na web sobre o status
 
 Para acessar a interface do usuário do Oozie da Web, use as seguintes etapas:
 
-1. Crie um túnel SSH para o cluster HDInsight. Para obter mais informações sobre como fazer isso, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IUs da Web](hdinsight-linux-ambari-ssh-tunnel.md).
+1. Crie um túnel SSH para o cluster HDInsight. Para obter informações sobre como fazer isso, consulte um destes procedimentos:
+
+	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
+
+	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
 
 2. Quando um túnel tiver sido criado, abra a interface do usuário da Web do Ambari no navegador da Web. O URI do site Ambari é ****https://CLUSTERNAME.azurehdinsight.net**. Substitua **NOMEDOCLUSTER** pelo nome do cluster do HDInsight baseado em Linux.
 

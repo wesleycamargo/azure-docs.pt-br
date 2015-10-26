@@ -3,7 +3,8 @@
 #Tutorial: Integração do Active Directory do Azure com o ServiceNow
 >[AZURE.TIP]Para comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=521880).
   
-O objetivo deste tutorial é mostrar a integração do Azure ao ServiceNow. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao ServiceNow.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário no ServiceNow

@@ -30,7 +30,7 @@ Para criar um aplicativo que aceita a inscrição e a conexão do consumidor, pr
 
 Você pode navegar para a folha de recursos do B2C de uma das duas maneiras a seguir.
 
-### 1\. Diretamente no Portal de Visualização do Azure
+### 1. Diretamente no Portal de Visualização do Azure
 
 Se você tiver a folha de recursos B2C fixada em seu quadro inicial, você a verá assim que entrar no [Portal de visualização do Azure](https://portal.azure.com/) como o Administrador Global do locatário B2C.
 
@@ -48,11 +48,12 @@ Você também pode encontrar o link **Gerenciar configurações B2C** (na seçã
 ## Registrar um aplicativo
 
 1. Na folha de recursos B2C no portal de visualização do Azure, clique em **Aplicativos**.
-2. Clique em **+Adicionar** na parte superior da folha.
+2. Clique em **+ Adicionar** na parte superior da folha.
 3. O **Nome** do aplicativo descreverá seu aplicativo para os consumidores. Por exemplo, digite "Aplicativo B2C da Contoso".
 4. Se você estiver escrevendo um aplicativo baseado na web, alterne o botão **incluir o aplicativo web / API da web** para **Sim**. O **Reply URLs** são pontos de extremidade em que o AD B2C do Azure retornará quaisquer tokens de suas solicitações de aplicativo. Por exemplo, insira: `https://localhost:44321/`. Se seu aplicativo incluir um componente do lado do servidor (API) que precisa ser protegido, você desejará criar (e copiar) um **segredo do aplicativo** também clicando no botão **Gerar chave**.
 
-    > [AZURE.NOTE]**Segredo do aplicativo** é uma credencial de segurança importante.
+    > [AZURE.NOTE]
+    **Segredo do aplicativo** é uma credencial de segurança importante.
 
 5. Se você estiver escrevendo um aplicativo móvel, alterne o **incluir cliente nativo** para **Sim**. Copie o padrão **URI de redirecionamento** criado automaticamente para você.
 6. Clique em **Criar** para registrar seu aplicativo.

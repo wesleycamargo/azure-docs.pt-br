@@ -30,7 +30,8 @@ Para obter informações sobre planos do serviço de aplicativo, consulte [O que
 
 > [AZURE.NOTE]Antes de alternar de um aplicativo Web do modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, primeiro você deve remover os limites de gastos em vigor para sua assinatura do Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
+<a name="scalingsharedorbasic"></a>
+<!-- ===================================== -->
 ## Dimensionando para o modo Compartilhado ou Básico
 <!-- ===================================== -->
 
@@ -50,7 +51,8 @@ Para obter informações sobre planos do serviço de aplicativo, consulte [O que
 	
 	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
 	
-<a name="scalingstandard"></a> <!-- ================================= -->
+<a name="scalingstandard"></a>
+<!-- ================================= -->
 ## Dimensionando para o modo Standard ou Premium
 <!-- ================================= -->
 

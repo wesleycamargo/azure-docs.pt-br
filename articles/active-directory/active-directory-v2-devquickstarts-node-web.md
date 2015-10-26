@@ -74,8 +74,8 @@ Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver
 
 Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 
-## 3\. Configurar seu aplicativo para usar a estratégia passport-node-js
-Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect. O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
+## 3. Configurar seu aplicativo para usar a estratégia passport-node-js
+Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect.  O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
     -	`clientID:` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.

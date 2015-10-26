@@ -104,7 +104,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 	- **-n (or --name)**. Nome para a nova regra. Para o nosso cenário, *rdp-rule*.
 	- **-c (or --action)**. Nível de acesso para a regra (Negar ou Permitir).
 	- **-p (or --protocol)**. Protocolo (Tcp, Udp ou *) para a regra.
-- **-r (or --type)**. Direção da conexão (Entrada ou Saída).
+	- **-r (or --type)**. Direção da conexão (Entrada ou Saída).
 	- **-y (or --priority)**. Prioridade da regra.
 	- **-f (or --source-address-prefix)**. Prefixo do endereço de origem no CIDR ou uso de marcas padrão.
 	- **-o (or --source-port-range)**. Porta de origem ou intervalo de porta.

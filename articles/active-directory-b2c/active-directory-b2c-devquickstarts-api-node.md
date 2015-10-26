@@ -36,20 +36,23 @@ Para isso, você precisará:
 
 O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/skeleton.zip) ou clonar o esqueleto:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
+```
+git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
+```
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
 > [AZURE.WARNING]Para Visualização do B2C, você deve usar a mesma ID do Aplicativo/ID do cliente e políticas tanto para o servidor de tarefa API Web quanto para o cliente que se conecta a ele. Isso é verdadeiro para nossos tutoriais do Android e iOS. Se você tiver criado anteriormente um aplicativo em qualquer um desses guias de início rápido, use esses valores em vez de criar novos abaixo.
 
 
-## 1\. Obter um diretório AD B2C do Azure
+## 1. Obter um diretório AD B2C do Azure
 
 Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos e assim por diante. Se você não tiver um, acesse [criar um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir.
 
-## 2\. Criar um aplicativo
+## 2. Criar um aplicativo
 
-Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azure algumas informações que ele precisa para se comunicar de forma segura com seu aplicativo. O aplicativo cliente e a API Web serão representados por uma única **ID do Aplicativo** nesse caso, pois abrangem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). Certifique-se de
+Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azure algumas informações que ele precisa para se comunicar de forma segura com seu aplicativo. O aplicativo cliente e a API Web serão representados por uma única **ID do Aplicativo** nesse caso, pois abrangem um aplicativo lógico. Para criar um aplicativo,
+siga [estas instruções](active-directory-b2c-app-registration.md). Certifique-se de
 
 - Incluir um **aplicativo Web/api Web** no aplicativo
 - Digitar `http://localhost/TodoListService` como uma **URL de Resposta** - é a URL padrão para este exemplo de código.
@@ -58,7 +61,7 @@ Agora você precisa criar um aplicativo no diretório B2C, que dá ao AD do Azur
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3\. Criar suas políticas
+## 3. Criar suas políticas
 
 No AD B2C do Azure, cada experiência do usuário é definida por uma [**política**](active-directory-b2c-reference-policies.md). Este aplicativo contém três experiências de identidade: inscrição, entrada e entrada com o Facebook. Você precisará criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar suas três políticas, não se esqueça de:
 
@@ -878,7 +881,9 @@ Se você estava apenas procurando obter informações sobre como implementar uma
 
 Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
+```
 
 
 ## Próximas etapas

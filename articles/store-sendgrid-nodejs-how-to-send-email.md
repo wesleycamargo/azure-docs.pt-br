@@ -21,7 +21,7 @@ Este guia demonstra como executar tarefas comuns de programação com o serviço
 
 ## O que é o serviço de email SendGrid?
 
-O SendGrid é um [serviço de email baseado em nuvem] que oferece [entrega de email transacional], escalabilidade e análise em tempo real confiáveis com APIs flexíveis que facilitam a integração personalizada. Os cenários comuns de uso do SendGrid incluem:
+O SendGrid é um [serviço de email baseado em nuvem](https://sendgrid.com/email-solutions) que oferece [entrega de email transacional](https://sendgrid.com/transactional-email), escalabilidade e análise em tempo real confiáveis com APIs flexíveis que facilitam a integração personalizada. Os cenários comuns de uso do SendGrid incluem:
 
 -   Envio automático de recibos para os clientes
 -   Administração de listas de distribuição para enviar aos clientes mensalmente panfletos eletrônicos e ofertas especiais
@@ -65,7 +65,7 @@ Você também pode especificar uma mensagem de HTML a clientes que dão suporte 
 
 Definir propriedades de texto e de html fornece retorno normal ao conteúdo de texto para clientes que não podem dar suporte a mensagens em HTML.
 
-Para obter mais informações sobre todas as propriedades compatíveis com a função de Email, consulte [sendgrid-nodej][].
+Para obter mais informações sobre todas as propriedades compatíveis com a função de Email, consulte [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs).
 
 ## Como: enviar um email
 
@@ -114,7 +114,7 @@ Os anexos podem ser adicionados a uma mensagem, especificando o(s) nome(s) e cam
 
 ## Como usar filtros para habilitar rodapés e acompanhamento
 
-O SendGrid fornece a funcionalidade adicional de email por meio do uso de filtros. Essas são as configurações que podem ser adicionadas a uma mensagem de email para habilitar uma funcionalidade específica, como habilitar rastreamento de cliques, Google analytics, rastreamento de assinatura e assim por diante. Para obter uma lista completa de filtros, consulte [Configurações de filtro][].
+O SendGrid fornece a funcionalidade adicional de email por meio do uso de filtros. Essas são as configurações que podem ser adicionadas a uma mensagem de email para habilitar uma funcionalidade específica, como habilitar rastreamento de cliques, Google analytics, rastreamento de assinatura e assim por diante. Para obter uma lista completa de filtros, consulte [Configurações de filtro](https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html).
 
 Os filtros podem ser aplicados a uma mensagem pela propriedade **filtros**. Cada filtro é especificado por um hash que tem configurações específicas de filtro. Os exemplos a seguir demonstram os filtros de rodapé e de acompanhamento de cliques:
 
@@ -168,18 +168,24 @@ ou definir um filtro usando
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
-Para obter mais informações, consulte [sendgrid-nodejs][].
+Para obter mais informações, consulte [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs).
 
 ## Como: usar serviços adicionais do SendGrid
 
-O SendGrid oferece APIs baseadas na Web que podem ser usadas para aproveitar a funcionalidade adicional do SendGrid do aplicativo do Azure. Para obter detalhes completos, consulte a [Documentação da API do SendGrid][].
+O SendGrid oferece APIs baseadas na Web que podem ser usadas para aproveitar a funcionalidade adicional do SendGrid do aplicativo do Azure. Para obter detalhes completos, consulte a [Documentação da API do SendGrid](https://sendgrid.com/docs).
 
 ## Próximas etapas
 
 Agora que você já conhece as noções básicas do serviço de email SendGrid, siga estes links para saber mais.
 
--   Repositório do módulo SendGrid Node.js: [sendgrid-nodejs][]
+-   Repositório do módulo SendGrid Node.js: [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)
 -   Documentação da API do SendGrid: <https://sendgrid.com/docs>
--   Oferta especial do SendGrid para clientes do Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html) [oferta especial]: https://sendgrid.com/windowsazure.html [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs [configurações de filtro]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html [documentação da API do SendGrid]: https://sendgrid.com/docs [serviço de email baseado em nuvem]: https://sendgrid.com/email-solutions [entrega de email transacional]: https://sendgrid.com/transactional-email
+-   Oferta especial do SendGrid para clientes do Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+  [oferta especial]: https://sendgrid.com/windowsazure.html
+  [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
+  [configurações de filtro]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [documentação da API do SendGrid]: https://sendgrid.com/docs
+  [serviço de email baseado em nuvem]: https://sendgrid.com/email-solutions
+  [entrega de email transacional]: https://sendgrid.com/transactional-email
 
 <!---HONumber=Oct15_HO3-->

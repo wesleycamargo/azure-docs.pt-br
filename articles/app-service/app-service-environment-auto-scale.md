@@ -40,7 +40,7 @@ Ou configurar um perfil de dimensionamento automático:
  
 ![][scale-profile]
  
-Os perfis de dimensionamento automático são úteis para definir limites na sua escala. Dessa forma, você pode ter tanto uma experiência de desempenho consistente, definindo um valor de escala de limite inferior \(1\), quanto um limite de gastos previsível, definindo um limite superior \(2\).
+Os perfis de dimensionamento automático são úteis para definir limites na sua escala. Dessa forma, você pode ter tanto uma experiência de desempenho consistente, definindo um valor de escala de limite inferior (1), quanto um limite de gastos previsível, definindo um limite superior (2).
  
 ![][scale-profile2]
  
@@ -56,7 +56,7 @@ O dimensionamento automático de um **ambiente de Serviço de Aplicativo** pode 
 ###Introdução ao cenário
 Matheus é um SysAdmin de uma empresa, e migrou uma parte das cargas de trabalho que ele gerencia para um **ambiente de Serviço de Aplicativo**.
 
-O **ambiente de serviço de aplicativo** está configurado para dimensionamento manual da seguinte maneira: \* Front-ends: 3 \* Pool de trabalho 1: 10 \* Pool de trabalho 2: 5 \* Pool de trabalho 3: 5
+O **ambiente de serviço de aplicativo** está configurado para dimensionamento manual da seguinte maneira: * Front-ends: 3 * Pool de trabalho 1: 10 * Pool de trabalho 2: 5 * Pool de trabalho 3: 5
 
 **O pool de trabalho 1** é usado para cargas de trabalho de produção, embora o **pool de trabalho 2** e o **pool de trabalho 3** sejam usados para cargas de trabalho de desenvolvimento e controle de qualidade.
 
@@ -77,23 +77,23 @@ Matheus está familiarizado com o aplicativo e sabe que os horários de pico de 
 |	**Hora de início:** 9:00 |	**Hora de início:** 9:00 |
 |	**Fuso horário:** UTC-08 |	**Fuso horário:** UTC-08 |
 | | |
-|	**Regra de dimensionamento automático \(escalar verticalmente\)** |	**Regra de dimensionamento automático \(escalar verticalmente\)** |
-|	**Recurso:** Produção \(ambiente de Serviço de Aplicativo\) |	**Recurso:** Produção \(ambiente de Serviço de Aplicativo\) |
+|	**Regra de dimensionamento automático (escalar verticalmente)** |	**Regra de dimensionamento automático (escalar verticalmente)** |
+|	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |
 |	**Métrica:** % da CPU |	**Métrica:** % da CPU |
 |	**Operação:** Mais de 60% |	**Operação:** Mais de 80% |
 |	**Duração:** 5 minutos |	**Duração:** 10 minutos |
 |	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
 |	**Ação:** Aumentar a contagem em 2 |	**Ação:** Aumentar a contagem em 1 |
-|	**Tempo de resfriamento \(minutos\):** 15 |	**Tempo de resfriamento \(minutos\):** 20 |
+|	**Tempo de resfriamento (minutos):** 15 |	**Tempo de resfriamento (minutos):** 20 |
 | | |
-|	**Regra de dimensionamento automático \(reduzir verticalmente\)** |	**Regra de dimensionamento automático \(reduzir verticalmente\)** |
-|	**Recurso:** Produção \(ambiente de Serviço de Aplicativo\) |	**Recurso:** Produção \(ambiente de Serviço de Aplicativo\) |
+|	**Regra de dimensionamento automático (reduzir verticalmente)** |	**Regra de dimensionamento automático (reduzir verticalmente)** |
+|	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |
 |	**Métrica:** % da CPU |	**Métrica:** % da CPU |
 |	**Operação:** Menos de 30% |	**Operação:** Menos de 20% |
 |	**Duração:** 10 minutos |	**Duração:** 15 minutos |
 |	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
 |	**Ação:** Reduzir a contagem em 1 |	**Ação:** Reduzir a contagem em 1 |
-|	**Tempo de resfriamento \(minutos\):** 20 |	**Tempo de resfriamento \(minutos\):** 10 |
+|	**Tempo de resfriamento (minutos):** 20 |	**Tempo de resfriamento (minutos):** 10 |
 
 ###Taxa de inflação do plano de Serviço de Aplicativo
 Os **planos de Serviço de Aplicativo** configurados para dimensionamento automático escalam ou reduzem a uma taxa máxima por hora. Essa taxa pode ser calculada com base nos valores fornecidos na regra de dimensionamento automático.
@@ -148,23 +148,23 @@ Com essas informações, Matheus pode definir o seguinte perfil e regras de dime
 |	**Hora de início:** 7:00 |	**Hora de início:** 9:00 |
 |	**Fuso horário:** UTC-08 |	**Fuso horário:** UTC-08 |
 | | |
-|	**Regra de dimensionamento automático \(escalar verticalmente\)** |	**Regra de dimensionamento automático \(escalar verticalmente\)** |
+|	**Regra de dimensionamento automático (escalar verticalmente)** |	**Regra de dimensionamento automático (escalar verticalmente)** |
 |	**Recurso:** Pool de trabalho 1 |	**Recurso:** Pool de trabalho 1 |
 |	**Métrica:** WorkersAvailable |	**Métrica:** WorkersAvailable |
 |	**Operação:** menos de 8 |	**Operação:** menos de 3 |
 |	**Duração:** 20 minutos |	**Duração:** 30 minutos |
 |	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
 |	**Ação:** Aumentar a contagem em 8 |	**Ação:** Aumentar a contagem em 3 |
-|	**Tempo de resfriamento \(minutos\):** 90 |	**Tempo de resfriamento \(minutos\):** 90 |
+|	**Tempo de resfriamento (minutos):** 90 |	**Tempo de resfriamento (minutos):** 90 |
 | | |
-|	**Regra de dimensionamento automático \(reduzir verticalmente\)** |	**Regra de dimensionamento automático \(reduzir verticalmente\)** |
+|	**Regra de dimensionamento automático (reduzir verticalmente)** |	**Regra de dimensionamento automático (reduzir verticalmente)** |
 |	**Recurso:** Pool de trabalho 1 |	**Recurso:** Pool de trabalho 1 |
 |	**Métrica:** WorkersAvailable |	**Métrica:** WorkersAvailable |
 |	**Operação:** maior que 8 |	**Operação:** menos de 3 |
 |	**Duração:** 20 minutos |	**Duração:** 15 minutos |
 |	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
 |	**Ação:** Diminuir a contagem em 2 |	**Ação:** Diminuir a contagem em 3 |
-|	**Tempo de resfriamento \(minutos\):** 90 |	**Tempo de resfriamento \(minutos\):** 90 |
+|	**Tempo de resfriamento (minutos):** 90 |	**Tempo de resfriamento (minutos):** 90 |
 
 O intervalo de Destino definido no perfil é calculado pelas instâncias do mínimas definidas no perfil para o **plano de Serviço de Aplicativo** + buffer.
 
@@ -192,23 +192,23 @@ Para este cenário, Matheus sabe que a taxa de erro aumenta quando os front-ends
 |	**Hora de início:** 9:00 |
 |	**Fuso horário:** UTC-08 |
 | |
-|	**Regra de dimensionamento automático \(escalar verticalmente\)** |
+|	**Regra de dimensionamento automático (escalar verticalmente)** |
 |	**Recurso:** Pool de front-end |
 |	**Métrica:** % da CPU |
 |	**Operação:** Mais de 60% |
 |	**Duração:** 20 minutos |
 |	**Agregação de tempo:** Média |
 |	**Ação:** Aumentar a contagem em 3 |
-|	**Tempo de resfriamento \(minutos\):** 90 |
+|	**Tempo de resfriamento (minutos):** 90 |
 | |
-|	**Regra de dimensionamento automático \(reduzir verticalmente\)** |
+|	**Regra de dimensionamento automático (reduzir verticalmente)** |
 |	**Recurso:** Pool de trabalho 1 |
 |	**Métrica:** % da CPU |
 |	**Operação:** Menos de 30% |
 |	**Duração:** 20 minutos |
 |	**Agregação de tempo:** Média |
 |	**Ação:** Diminuir a contagem em 3 |
-|	**Tempo de resfriamento \(minutos\):** 90 |
+|	**Tempo de resfriamento (minutos):** 90 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png

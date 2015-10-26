@@ -22,13 +22,15 @@
 
 Este guia descreve como adicionar o monitoramento de desempenho de classe mundial do New Relic aos seus aplicativos hospedados no Windows Azure. Abordaremos o processo simples e rápido para adicionar New Relic ao seu aplicativo e apresentar alguns dos recursos do New Relic. Para obter mais informações sobre como usar o novo Relíquia, consulte [usando o novo Relíquia](#using-new-relic)
 
-O que é o New Relic? --
+O que é o New Relic? 
+--
 
 O New Relic é uma ferramenta focada no desenvolvedor que monitora seus aplicativos de produção e fornece informações detalhadas sobre seu desempenho e confiabilidade. Ele foi projetado para economizar tempo ao identificar e diagnosticar problemas de desempenho, e ele coloca as informações necessárias para solucionar esses problemas em suas mãos.
 
 O New Relic controla o tempo de carregamento e taxa de transferência da sua transação da web, tanto do servidor quanto dos navegadores dos seus usuários. Ele mostra quanto tempo você gasta no banco de dados, analisa consultas lentas e solicitações da web, fornece monitoramento de tempo de atividade e alertas, faixas exceções de aplicativos e muito mais.
 
-New Relic com preços especiais por meio da Azure Store --
+New Relic com preços especiais por meio da Azure Store 
+--
 
 O New Relic Standard é oferecido gratuitamente aos usuários do Azure, o New Relic Pro é oferecido com base no tamanho da instância para os Serviços de Nuvem do Azure
 
@@ -38,7 +40,8 @@ Para informações sobre preços, consulte o [página nova Relíquia no armazena
 
 Azure clientes recebem uma assinatura de avaliação de 2 semanas do nova Relíquia Pro ao implantar o agente Relíquia de novo.
 
-Inscreva-se no New Relic usando a Azure Store --
+Inscreva-se no New Relic usando a Azure Store 
+--
 
 Relíquia nova integra-se perfeitamente com funções de funções do Azure da Web e de trabalho.
 

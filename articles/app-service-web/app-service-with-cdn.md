@@ -38,7 +38,9 @@ Este tutorial tem os seguintes pré-requisitos:
 -	Uma [conta do Microsoft Azure](http://azure.microsoft.com/account/) ativa
 -	Visual Studio 2013 com o [SDK do Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: +, você pode [Abrir uma conta do Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como aplicativos Web. + Você pode [ativar os benefícios de assinante MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
+> [AZURE.NOTE] Você precisa de uma conta do Azure para concluir este tutorial: 
+> + você pode [Abrir uma conta do Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como aplicativos Web. 
+> + Você pode [ativar os benefícios de assinante MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
 
 ## Implantar um aplicativo Web do Azure com um ponto de extremidade integrado da CDN ##
 
@@ -92,7 +94,7 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 	![](media/app-service-with-cdn/11-access-success.png)
 
-1. Em seguida, tente acessar o arquivo **~/Content/bootstrap.css** em seu projeto ASP.NET. Na janela do navegador, vá para **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
+1. Em seguida, tente acessar o arquivo **\~/Content/bootstrap.css** em seu projeto ASP.NET. Na janela do navegador, vá para **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Em minha configuração, essa URL é:
 
 		http://az673227.vo.msecnd.net/Content/bootstrap.css
 
@@ -160,7 +162,7 @@ Você tem uma ação `Index` simples que permite que os clientes especifiquem os
 
 Siga as etapas acima para configurar esta ação do controlador:
 
-1. Na pasta *\\Controllers*, crie um novo arquivo .cs chamado *MemeGeneratorController.cs* e substitua o conteúdo pelo código a seguir. Substitua o caminho do arquivo por `~/Content/chuck.bmp` e o nome da CDN por `yourCDNName`.
+1. Na pasta *\Controllers*, crie um novo arquivo .cs chamado *MemeGeneratorController.cs* e substitua o conteúdo pelo código a seguir. Certifique-se de substituir a porção destacada pelo nome de sua CDN e caminho do arquivo.
 
 
         using System;
@@ -487,9 +489,9 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	
 	Há, no entanto, um bom [Fallback de Grupo de Estilo](https://github.com/EmberConsultingGroup/StyleBundleFallback) oferecido pelo [Ember Consulting Group](https://github.com/EmberConsultingGroup).
 
-2. Para usar a solução alternativa para CSS, crie um novo arquivo .cs na pasta *App\_Start* de seu projeto ASP.NET, nomeie esse arquivo como *StyleBundleExtensions.cs* e substitua seu conteúdo pelo [código do GitHub￼￼￼￼￼￼￼](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
+2. Para usar a solução alternativa para CSS, crie um novo arquivo .cs na pasta *App\_Start* de seu projeto ASP.NET, nomeie esse arquivo como *StyleBundleExtensions.cs* e substitua seu conteúdo pelo [código do GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. Em *App\_Start\\StyleFundleExtensions.cs*, renomeie o namespace como o namespace de seu aplicativo ASP.NET (por exemplo, **cdnwebapp**).
+4. Em *App_Start\StyleFundleExtensions.cs*, renomeie o namespace como o namespace de seu aplicativo ASP.NET (por exemplo, **cdnwebapp**).
 
 3. Volte para `App_Start\BundleConfig.cs` e modifique a última instrução `bundles.Add` conforme mostrado abaixo.
 	

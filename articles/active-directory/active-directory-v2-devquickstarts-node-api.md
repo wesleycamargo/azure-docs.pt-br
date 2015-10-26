@@ -18,7 +18,8 @@
 
 # Visualização do modelo de aplicativo v2.0: proteger uma API da Web usando node.js
 
-> [AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
 Com o modelo de aplicativo v2.0, você pode proteger uma API da Web usando tokens de acesso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), permitindo que os usuários com contas pessoal, corporativa ou escolar da Microsoft acessem de forma segura sua API da Web.
 
@@ -271,7 +272,8 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 *audience*: o URI de redirecionamento do portal.
 
-> [AZURE.NOTE]Revertemos as nossas chaves em intervalos frequentes. Certifique-se de estar extraindo sempre da URL "openid\_keys" e de que o aplicativo pode acessar a Internet.
+> [AZURE.NOTE]
+Revertemos as nossas chaves em intervalos frequentes. Certifique-se de estar extraindo sempre da URL "openid\_keys" e de que o aplicativo pode acessar a Internet.
 
 
 ## 11: adicionar configuração ao arquivo server.js
@@ -648,7 +650,8 @@ Primeiro, certifique-se de que sua instância do monogoDB está em execução.
 
 Em seguida, vá até o diretório e inicie a ondulação.
 
-`$ cd azuread` `$ node server.js`
+`$ cd azuread`
+`$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -714,7 +717,8 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]Ao escrever APIs você deve sempre vincular os dados a algo exclusivo do token que o usuário não poderá falsificar. Quando esse servidor armazena itens TODO, armazena-os com base na ID da assinatura do usuário no token que colocamos no campo "proprietário" (chamado por meio de token.sub). Isso garante que somente esse usuário pode acessar seus TODOs e ninguém pode acessar os TODOs inseridos. Não há exposição na API do "proprietário" então um usuário externo pode solicitar outros TODOs mesmo se estiverem autenticados.
+> [AZURE.TIP]
+Ao escrever APIs você deve sempre vincular os dados a algo exclusivo do token que o usuário não poderá falsificar. Quando esse servidor armazena itens TODO, armazena-os com base na ID da assinatura do usuário no token que colocamos no campo "proprietário" (chamado por meio de token.sub). Isso garante que somente esse usuário pode acessar seus TODOs e ninguém pode acessar os TODOs inseridos. Não há exposição na API do "proprietário" então um usuário externo pode solicitar outros TODOs mesmo se estiverem autenticados.
 
 Em seguida, vamos usar a estratégia de Open ID Connect Bearer que vem com o passport-azure-ad. Apenas olhe o código por enquanto, eu o explicarei daqui a pouco. Colocar isso depois que você leu acima:
 
@@ -763,7 +767,8 @@ passport.use(oidcStrategy);
 
 O Passport usa um padrão semelhante para todas as Estratégias (Twitter, Facebook etc.) que todos os gravadores de Estratégia seguem. Observando a estratégia, você verá que passamos a ela uma function() que tem um token e um done como parâmetros. A estratégia retorna corretamente para nós após concluir seu trabalho. Depois disso, vamos armazenar o usuário e acrescentar o token, para que não precisemos pedi-lo novamente.
 
-> [AZURE.IMPORTANT]O código acima usa qualquer usuário que tente se autenticar em nosso servidor. Isso é conhecido como registro automático. Em servidores de produção, não convém permitir que qualquer pessoa entre sem primeiro passar por um processo de registro que você decide. Esse geralmente é o padrão que você vê em aplicativos de consumidor que lhe permitem registrar-se com o Facebook, mas depois pedem que você preencha informações adicionais. Se esse não fosse um programa de linha de comando, poderíamos ter apenas extraído o e-mail do objeto de token que é retornado e pedido que ele preenchesse informações adicionais. Como esse é um servidor de teste, basta adicioná-los ao banco de dados na memória.
+> [AZURE.IMPORTANT]
+O código acima usa qualquer usuário que tente se autenticar em nosso servidor. Isso é conhecido como registro automático. Em servidores de produção, não convém permitir que qualquer pessoa entre sem primeiro passar por um processo de registro que você decide. Esse geralmente é o padrão que você vê em aplicativos de consumidor que lhe permitem registrar-se com o Facebook, mas depois pedem que você preencha informações adicionais. Se esse não fosse um programa de linha de comando, poderíamos ter apenas extraído o e-mail do objeto de token que é retornado e pedido que ele preenchesse informações adicionais. Como esse é um servidor de teste, basta adicioná-los ao banco de dados na memória.
 
 ### 2\. Por fim, proteger alguns pontos de extremidade
 
@@ -851,6 +856,8 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [Proteger um aplicativo Web com o modelo de aplicativo v2.0 no Node. js >>](active-directory-v2-devquickstarts-node-web.md)
 
-Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obter recursos adicionais, confira:
+- [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 <!---HONumber=Oct15_HO3-->

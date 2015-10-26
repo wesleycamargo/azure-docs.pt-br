@@ -173,7 +173,10 @@ Neste tutorial, você aprendeu a usar o armazenamento de Blob do Azure e SAS com
 
 Saiba mais sobre blobs, tabelas e filas consultando os links a seguir:
 
-[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) [Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md) [Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md) [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
+[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)  
+[Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md)  
+[Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md)  
+[Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
  
 
 <!---HONumber=Oct15_HO3-->

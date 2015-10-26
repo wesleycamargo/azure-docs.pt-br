@@ -35,7 +35,9 @@ Antes de instalar ou atualizar o snap-in StorSimple Snapshot Manager para o Cons
 
 As etapas a seguir oferecem uma visão geral de alto nível das tarefas de configuração que você deve concluir antes de instalar o StorSimple Snapshot Manager. Para obter informações de instalação e configuração completas do Microsoft Azure StorSimple, incluindo requisitos de sistema e instruções passo a passo, consulte [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Antes de começar, releia a [Lista de verificação de implantação](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) e os [Pré-requisitos de implantação](storsimple-deployment-walkthrough.md#deployment-prerequisites) em [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).<br>
+>[AZURE.IMPORTANT]Antes de começar, releia a [lista de verificação de pré-instalação](storsimple-deployment-walkthrough.md#pre-installation-checklist) 
+> e os [pré-requisitos de implantação](storsimple-deployment-walkthrough.md#deployment-prerequisites) em [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+<br>
  
 ### Antes de instalar o StorSimple Snapshot Manager
 

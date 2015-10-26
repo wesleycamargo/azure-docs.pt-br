@@ -22,7 +22,10 @@ Com o modelo de aplicativo v2.0, você pode adicionar autenticação rapidamente
 
   >[AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço do AD do Azure disponível ao público geral, consulte o [Guia do Desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
- Aqui usaremos o OWIN para: - Entrada do usuário no aplicativo usando o AD do Azure e o modelo de aplicativo v2.0. - Exibir algumas informações sobre o usuário. - Saída do usuário do aplicativo.
+ Aqui usaremos o OWIN para: 
+- Entrada do usuário no aplicativo usando o AD do Azure e o modelo de aplicativo v2.0. 
+- Exibir algumas informações sobre o usuário. 
+- Saída do usuário do aplicativo.
 
 Para isso, você precisará:
 
@@ -203,6 +206,8 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [Proteger uma API da Web com o modelo de aplicativo da v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obter recursos adicionais, confira: 
+- [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) 
+- [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 <!---HONumber=Oct15_HO3-->

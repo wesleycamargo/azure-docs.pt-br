@@ -64,7 +64,8 @@ Se você estiver usando esse tutorial para configurar uma rede virtual entre ins
 
 -  Um dispositivo VPN com um endereço IPv4 público. Você precisará do endereço IP para concluir o assistente. O dispositivo VPN não pode ser localizado por trás de um tradutor de endereço de rede (NAT) e deve atender aos padrões mínimos de dispositivos. Consulte [Sobre dispositivos VPN da rede virtual](http://go.microsoft.com/fwlink/p/?LinkID=248098) para obter mais informações.
 
-	Observação: você pode usar o Serviço de Roteamento e Acesso Remoto (RRAS) no Windows Server como parte da sua solução de VPN. No entanto, este tutorial não explicará as etapas de configuração do RRAS. Para saber mais sobre a configuração do RRAS, confira [Modelos do serviço de roteamento e acesso remoto](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
+	Observação: você pode usar o Serviço de Roteamento e Acesso Remoto (RRAS) no Windows Server como parte da sua solução de VPN. No entanto, este tutorial não explicará as etapas de configuração do RRAS.
+	Para saber mais sobre a configuração do RRAS, confira [Modelos do serviço de roteamento e acesso remoto](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
 
 -  Experimente com a configuração de um roteador para uma conexão de modo de túnel ou com alguém que possa ajudá-lo com esta etapa.
 
@@ -252,15 +253,15 @@ Se você desejar exportar as configurações de rede virtual para um arquivo de 
 
 ## Consulte também
 
--  [Visão geral técnica da rede virtual do Azure](../virtual-network/virtual-networks-overview.md)
+-  [Visão geral técnica da rede virtual do Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
--  [Perguntas frequentes sobre rede virtual](virtual-networks-faq.md)
+-  [Perguntas frequentes sobre rede virtual](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
 -  [Configurar uma rede virtual usando arquivos de configuração de rede](virtual-networks-using-network-configuration-file.md)
 
 -  [Adicionar uma máquina virtual a uma rede virtual](../virtual-machines/virtual-machines-create-custom.md)
 
--  [Sobre dispositivos VPN para Rede Virtual(http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
+-  [Sobre dispositivos VPN para Rede Virtual](http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
 
 -  [Resolução de nomes de máquinas virtuais e instâncias de função](http://go.microsoft.com/fwlink/p/?LinkId=248097)
 -  [Configurar um ambiente de nuvem híbrida para teste](virtual-networks-setup-hybrid-cloud-environment-testing.md)

@@ -25,7 +25,8 @@ Você pode arquivar solicitações de suporte para o Active Directory (AD) B2C d
 1. [Navegue até a folha de recursos do B2C no portal de visualização do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Alterne do locatário B2C para outro que tenha uma assinatura do Azure associada a ele. Normalmente, o segundo é o locatário de funcionário ou o locatário padrão criado quando você se inscreveu para uma assinatura do Azure. Leia [este artigo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) para saber mais sobre a relação entre as assinaturas do Azure e os diretórios do Azure AD.
 
-    > [AZURE.IMPORTANT]Esta etapa é obrigatória. O processo falhará se você ignorar esta etapa.
+    > [AZURE.IMPORTANT]
+    Esta etapa é obrigatória. O processo falhará se você ignorar esta etapa.
 
     ![Suporte — alternar diretórios](./media/active-directory-b2c-support/support-switch-dir.png)
 
@@ -46,7 +47,8 @@ Você pode arquivar solicitações de suporte para o Active Directory (AD) B2C d
 
 Se tiver ignorado a etapa 2 descrita acima e tentar criar uma solicitação de suporte no contexto do seu locatário B2C, você verá o erro a seguir.
 
-> [AZURE.IMPORTANT]Não tente se inscrever em uma nova assinatura do Azure em seu locatário B2C.
+> [AZURE.IMPORTANT]
+> Não tente se inscrever em uma nova assinatura do Azure em seu locatário B2C.
 
 ![Suporte — sem assinatura](./media/active-directory-b2c-support/support-no-sub.png)
 

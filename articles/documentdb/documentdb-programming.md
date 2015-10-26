@@ -475,7 +475,9 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
 ## API de consulta integrada da linguagem JavaScript
 Além de emitir consultas usando a gramática SQL do Banco de Dados de Documentos, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Banco de Dados de Documentos.
 
-> [AZURE.NOTE]`__` (double-underscore) é um alias para `getContext().getCollection()`. <br/> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
+> [AZURE.NOTE]`__` (double-underscore) é um alias para `getContext().getCollection()`.
+> <br/>
+> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
 
 As funções com suporte incluem: <ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li> Inicia uma chamada encadeada que deve ser terminada com value(). </li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li> Filtra a entrada usando uma função de predicado que retorna verdadeiro/falso para filtrar a entrada/saída de documentos de entrada no conjunto resultante. Esta tem um comportamento semelhante a uma cláusula WHERE no SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li> Aplica uma projeção dada uma função de transformação que mapeia cada item de entrada para um valor ou objeto JavaScript. Esta tem um comportamento semelhante a uma cláusula SELECT no SQL. </li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li> Este é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada. </li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li> Combina e nivela as matrizes de cada item de entrada a uma única matriz. Esta tem um comportamento semelhante a SelectMany no LINQ. </li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li> Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem crescente utilizando o predicado em questão. Esta tem um comportamento semelhante a uma cláusula ORDER BY no SQL. </li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li> Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem decrescente utilizando o predicado em questão. Esta se comporta de forma semelhante a uma cláusula ORDER BY x DESC no SQL. </li> </ul> </li> </ul>
 
@@ -661,7 +663,8 @@ Todas as operações do Banco de Dados de Documentos podem ser realizadas de man
 	}
 
 
-O procedimento armazenado é registrado executando uma solicitação POST em relação à URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs com o corpo contendo o procedimento armazenado a ser criado. Disparadores e UDFs podem ser registrados da mesma forma, emitindo um POST para /triggers e /udfs respectivamente. Este procedimento armazenado pode, então, ser executado emitindo uma solicitação POST ao link de recursos:
+O procedimento armazenado é registrado executando uma solicitação POST em relação à URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs com o corpo contendo o procedimento armazenado a ser criado. Disparadores e UDFs podem ser registrados da mesma forma, emitindo um POST para /triggers e /udfs respectivamente.
+Este procedimento armazenado pode, então, ser executado emitindo uma solicitação POST ao link de recursos:
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>

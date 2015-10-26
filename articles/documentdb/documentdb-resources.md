@@ -61,7 +61,11 @@ Recursos como contas do banco de dados, bancos de dados, coleções, usuários, 
 
 Propriedade |Configurável pelo usuário ou gerada pelo sistema?|Finalidade
 ---|---|---
-_\_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso. \_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista. \_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso. \_self|Gerado pelo sistema|URI endereçável exclusivo do recurso. id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário.
+_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso.
+_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista.
+_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso.
+_self|Gerado pelo sistema|URI endereçável exclusivo do recurso.
+id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário.
 
 ###Representação da conexão dos recursos
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.
@@ -69,7 +73,16 @@ O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para 
 ###Endereçamento de um recurso
 Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{\_rid}:
 
-|Valor da \_self |Descrição |-------------------|----------- |/dbs |Feed de banco de dados em uma conta de banco de dados |/dbs/{\_rid-db} |Banco de dados com a propriedade de ID exclusiva com o valor {\_rid-db} |/dbs/{\_rid-db}/colls/ |Feed de coleções em um banco de dados |/dbs/{\_rid-db}/colls/{\_rid-coll} |Coleção com a propriedade de ID exclusiva com o valor {\_rid-coll}|/dbs/{\_rid-db}/users/ |Feed de usuários em um banco de dados |/dbs/{\_rid-db}/users/{\_rid-user} |Usuário com a propriedade de ID exclusiva com o valor {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed de permissões em um banco de dados |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permissão com a propriedade de ID exclusiva com o valor {\_rid-permission}.
+|Valor da \_self |Descrição
+|-------------------|-----------
+|/dbs |Feed de banco de dados em uma conta de banco de dados
+|/dbs/{_rid-db} |Banco de dados com a propriedade de ID exclusiva com o valor {_rid-db}
+|/dbs/{_rid-db}/colls/ |Feed de coleções em um banco de dados
+|/dbs/{_rid-db}/colls/{_rid-coll} |Coleção com a propriedade de ID exclusiva com o valor {_rid-coll}
+|/dbs/{_rid-db}/users/ |Feed de usuários em um banco de dados
+|/dbs/{_rid-db}/users/{_rid-user} |Usuário com a propriedade de ID exclusiva com o valor {_rid-user}
+|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed de permissões em um banco de dados
+|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Permissão com a propriedade de ID exclusiva com o valor {_rid-permission}.
   
 Um recurso também possui um nome exclusivo definido pelo usuário exposto pela propriedade de ID do recurso. A ID é uma cadeia de caracteres definida pelo usuário, com até 256 caracteres e exclusiva no contexto de um recurso pai específico. Por exemplo, o valor da propriedade de ID de todos os documentos dentro de uma determinada coleção é exclusivo, mas não é garantido que seja exclusivo nas coleções. Do mesmo modo, o valor da propriedade de ID de todas as permissões para um determinado usuário é exclusivo, mas não é garantido que seja exclusivo em todos os usuários. A propriedade \_rid é usada para construir o link endereçável \_self de um recurso.
 
@@ -97,7 +110,9 @@ Observe que, além de provisionar, configurar e gerenciar sua conta de banco de 
 ##Bancos de dados
 Um banco de dados do Banco de Dados de Documentos é um contêiner lógico de uma ou mais coleções e usuários, conforme mostrado no diagrama a seguir. Você pode criar qualquer número de bancos de dados em uma conta de banco de dados do Banco de Dados de Documentos, sujeito aos limites de oferta.
 
-![Modelo hierárquico de coleções e conta de banco de dados][2] **Um banco de dados é um contêiner lógico de usuários e coleções**
+![Modelo hierárquico de coleções e conta de banco de dados][2] 
+
+**Um banco de dados é um contêiner lógico de usuários e coleções**
 
 Um banco de dados pode conter praticamente um armazenamento de documentos ilimitado, particionado por coleções, que formam os domínios de transação para os documentos contidos neles.
 
@@ -378,7 +393,9 @@ Como seus aplicativos precisam ser escalados conforme o crescimento do usuário,
 
 Independentemente da estratégia de fragmentação específica escolhida, você pode modelar seus usuários reais como usuários no banco de dados do Banco de Dados de Documentos e associar permissões de refinamento a cada usuário.
 
-![Coleções do usuário][3] **Estratégias de fragmentação e modelagem de usuários**
+![Coleções do usuário][3] 
+
+**Estratégias de fragmentação e modelagem de usuários**
 
 Assim como todos os outros recursos, os usuários no Banco de Dados de Documentos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de um recurso do usuário. Vale destacar que excluir um usuário automaticamente assegura que você não poderá acessar nenhuma das permissões contidas nele. Embora o Banco de Dados de Documentos recupere a cota das permissões como parte do usuário excluído em segundo plano, as permissões excluídas estão disponíveis imediatamente mais uma vez para uso.
 

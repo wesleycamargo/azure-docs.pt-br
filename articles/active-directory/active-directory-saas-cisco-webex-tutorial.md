@@ -51,7 +51,9 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
 ##Configurando o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários autentiquem no Cisco Webex com a própria conta do Azure AD usando a federação baseada em protocolo SAML. Como parte deste procedimento, será necessário criar um certificado codificado em base-64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+O objetivo desta seção é descrever como permitir que os usuários autentiquem no Cisco Webex com a própria conta do Azure AD usando a federação baseada em protocolo SAML.
+Como parte deste procedimento, será necessário criar um certificado codificado em base-64.
+Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -63,7 +65,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Configurar logon único](./media/active-directory-saas-cisco-webex-tutorial/IC777618.png "Configurar logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas e clique em **Avançar**.
+3.  Na página de caixa de diálogo **Configurar URL do Aplicativo**, execute as seguintes etapas e clique em **Avançar**.
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "Configurar a URL do aplicativo")
 

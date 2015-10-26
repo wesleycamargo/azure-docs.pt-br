@@ -1,5 +1,5 @@
 
-1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis**, clique em seu serviço móvel e, em seguida, clique na guia **Painel**.
+1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), clique em **Serviços Móveis**, clique em seu serviço móvel e, em seguida, clique na guia **Painel**.
 
 2. (Opcional) Se você já tiver configurado as credenciais de controle do código-fonte de Serviços Móveis ou Websites para sua assinatura do Azure, poderá pular para a etapa 4. Caso contrário, clique em **Configurar o controle do código-fonte** em **Visão rápida** e clique em **Sim** para confirmar.
 

@@ -49,7 +49,9 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
 ##Configurando o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Central Desktop com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML. Como parte deste procedimento, é necessário carregar um certificado codificado em base 64 no locatário do Desktop Central. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Central Desktop com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.  
+Como parte deste procedimento, é necessário carregar um certificado codificado em base 64 no locatário do Desktop Central.  
+Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 
 
@@ -65,10 +67,10 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
 
-    -   Na caixa de texto **URL de Logon do Central Desktop**, digite a URL do seu locatário do Central Desktop (por exemplo: **http://contoso.centraldesktop.com*).
--   Na caixa de texto URL de Resposta do Central Desktop, digite a URL AssertionConsumerService do Central Desktop (por exemplo: https://contoso.centraldesktop.com/saml2-assertion.php).
+    -   Na caixa de texto **URL de Logon do Central Desktop**, digite a URL do seu locatário do Central Desktop (por exemplo: *http://contoso.centraldesktop.com*).
+    -   Na caixa de texto URL de Resposta do Central Desktop, digite a URL AssertionConsumerService do Central Desktop (por exemplo: https://contoso.centraldesktop.com/saml2-assertion.php).
 
-    >[AZURE.NOTE]Você pode obter o valor nos metadados do Central Desktop (por exemplo: **http://contoso.centraldesktop.com*).
+    >[AZURE.NOTE]Você pode obter o valor nos metadados do Central Desktop (por exemplo: *http://contoso.centraldesktop.com*).
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "Configurar a URL do aplicativo")
 

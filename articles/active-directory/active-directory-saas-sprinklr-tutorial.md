@@ -3,7 +3,8 @@
 #Tutorial: Integração do Active Directory do Azure com o Sprinklr
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=526454).
   
-O objetivo deste tutorial é mostrar a integração do Azure com o Sprinklr. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o Sprinklr.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do Sprinklr
@@ -53,7 +54,9 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Sprinklr com sua conta do AD do Azure usando federação baseada no protocolo SAML. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Sprinklr com sua conta do AD do Azure usando federação baseada no protocolo SAML.  
+Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64.  
+Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 

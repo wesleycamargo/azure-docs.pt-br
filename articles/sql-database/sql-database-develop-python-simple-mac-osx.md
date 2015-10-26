@@ -83,7 +83,7 @@ A função [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssq
 
 ## Inserir uma linha, passar parâmetros e recuperar a chave primária gerada
 
-No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente valores de [chave primária](https://msdn.microsoft.com/library/ms179610.aspx).
+No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente [valores de chave primária](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	import pymssql

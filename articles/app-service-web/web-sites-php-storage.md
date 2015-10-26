@@ -41,7 +41,8 @@ Para instalar as Bibliotecas de Clientes do PHP através do computador, siga est
 
 1. [Instalação do Git][install-git]
 
-	> [AZURE.NOTE]No Windows, também será necessário adicionar o Git executável à variável de ambiente PATH.
+> [AZURE.NOTE]
+> No Windows, também será necessário adicionar o Git executável à variável de ambiente PATH.
 
 2. Crie um arquivo chamado **composer.json** na raiz do seu projeto e adicione o seguinte código a ele:
 
@@ -280,7 +281,7 @@ O aplicativo de lista de tarefa tem a capacidade de marcar um item como concluí
 
 * O primeiro passo para atualização de uma entidade é buscá-la da tabela:
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
