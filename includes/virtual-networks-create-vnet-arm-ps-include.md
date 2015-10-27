@@ -1,12 +1,11 @@
 ## Como criar uma VNet usando o PowerShell
-
 Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 
 1. Se você nunca tiver usado o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o final para entrar no Azure e selecionar sua assinatura.
 	
-3. Se necessário, execute o cmdlet **New-AzureRMResourceGroup** para criar um novo grupo de recursos, como mostrado abaixo. Para o nosso cenário, crie um grupo de recursos chamado *TestRG*. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
+3. Se necessário, crie um novo grupo de recursos, como mostrado abaixo. Para o nosso cenário, crie um grupo de recursos chamado *TestRG*. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
 
-		New-AzureRMResourceGroup -Name TestRG -Location centralus
+		New-AzureResourceGroup -Name TestRG -Location centralus
 
 	Saída esperada:
 	
@@ -21,9 +20,9 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 		
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG	
 
-4. Execute o cmdlet **New-AzureRMVirtualNetwork** para criar uma nova Rede Virtual, como mostrado abaixo.
+4. Crie uma nova Rede Virtual chamada *TestVNet*, como mostrado abaixo.
 
-		New-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
+		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
 	Saída esperada:
@@ -46,15 +45,15 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 		NetworkInterfaces : null
 		Subnets           : []
 
-5. Execute o cmdlet **Get-AzureRMVirtualNetwork** para armazenar o objeto de rede virtual em uma variável, conforme mostrado abaixo.
+5. Armazene o objeto de rede virtual em uma variável, como mostrado abaixo.
 
-		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
-	>[AZURE.TIP]Você pode combinar as etapas 4 e 5 executando **$vnet = New-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP]Você pode combinar as etapas 4 e 5 executando **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
-6. Execute o cmdlet **Add-AzureRMVirtualNetworkSubnetConfig** para adicionar uma sub-rede à nova Vnet, como mostrado abaixo.
+6. Adicione uma sub-rede à nova variável de Rede Virtual, como mostrado abaixo.
 
-		Add-AzureRMVirtualNetworkSubnetConfig -Name FrontEnd `
+		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
 	Saída esperada:
@@ -90,12 +89,12 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 
 7. Repita a etapa 6 acima para cada sub-rede que você deseja criar. O comando a seguir cria a sub-rede *BackEnd* para o nosso cenário.
 
-		Add-AzureRMVirtualNetworkSubnetConfig -Name BackEnd `
+		Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
 
-8. Embora você crie sub-redes, elas atualmente só existem na variável local usada para recuperar a VNet criada na etapa 4 acima. Para salvar as alterações no Azure, execute o cmdlet **Set-AzureRMVirtualNetwork**, como mostrado abaixo.
+8. Embora você crie sub-redes, elas atualmente só existem na variável local usada para recuperar a VNet criada na etapa 4 acima. Para salvar as alterações no Azure, execute o cmdlet **Set-AzureVirtualNetwork**, como mostrado abaixo.
 
-		Set-AzureRMVirtualNetwork -VirtualNetwork $vnet	
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
 	Saída esperada:
 
@@ -138,4 +137,4 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 		                      }
 		                    ]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

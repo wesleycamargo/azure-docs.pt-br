@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Se você for iniciante no desenvolvimento para dispositivos móveis usando o Microsoft Azure, [comece com os Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md) em vez dos Serviços Móveis do Azure; isso lhe dá [vantagens adicionais](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP]Se você for iniciante no desenvolvimento para dispositivos móveis usando o Microsoft Azure, [comece com os Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md) em vez dos Serviços Móveis do Azure; isso lhe dará [vantagens adicionais](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin iOS usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples _To do list_ que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você criará usa as linguagens do .NET com suporte usando o Visual Studio para a lógica de negócios do lado do servidor e para gerenciar o serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte [Versão de back-end do JavaScript] neste tópico.
 
@@ -33,7 +33,7 @@ Uma captura de tela do aplicativo completo está disponível abaixo:
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais de Serviços Móveis para aplicativos Xamarin iOS.
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, confira <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fja-jp%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Avaliação Gratuita do Azure</a>.<br /> Esse tutorial requer o <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Uma versão de avaliação gratuita está disponível.
+>[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação. Para obter detalhes, confira <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Avaliação Gratuita do Azure</a>.<br /> Esse tutorial requer o <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Uma versão de avaliação gratuita está disponível.
 
 ## Criar um novo serviço móvel
 
@@ -138,4 +138,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

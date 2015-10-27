@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Conectar a Pesquisa do Azure aos aplicativos Web do ASP.NET | Microsoft Azure"
+	pageTitle="Conectar a Pesquisa do Azure aos aplicativos Web do MVC ASP.NET | Microsoft Azure"
 	description="Conecte um aplicativo Web do ASP.NET à Pesquisa do Azure. Saiba como conectar, consultar e renderizar os resultados usando a biblioteca do .NET ou a API REST."
 	services="search"
 	documentationCenter=""
@@ -16,9 +16,9 @@
 	ms.date="08/26/2015"
 	ms.author="heidist"/>
 
-#Como integrar a Pesquisa do Azure nos Aplicativos Web do ASP.NET
+#Como integrar a Pesquisa do Azure aos Aplicativos Web MVC do ASP.NET
 
-O ASP.NET é a estrutura predominante de aplicativos Web em soluções personalizadas que são integradas à Pesquisa do Azure. Neste artigo, você aprenderá como conectar seu aplicativo Web do ASP.NET à Pesquisa do Azure, entender os padrões de design para operações comuns e analisar algumas práticas de codificação que podem ajudá-lo a ter uma experiência de desenvolvimento sem problemas.
+O MVC ASP.NET é a estrutura predominante de aplicativos Web em soluções personalizadas que são integradas à Pesquisa do Azure. Neste artigo, você aprenderá como conectar seu aplicativo Web do ASP.NET à Pesquisa do Azure, entender os padrões de design para operações comuns e analisar algumas práticas de codificação que podem ajudá-lo a ter uma experiência de desenvolvimento sem problemas.
 
 ##Exemplos e demonstrações que usam o ASP.NET e a Pesquisa do Azure
 
@@ -462,4 +462,4 @@ Para ampliar seu entendimento sobre a Pesquisa do Azure e a integração do ASP.
 - [Estudo de caso do desenvolvedor de Pesquisa do Azure](search-dev-case-study-whattopedia.md)
 - [Fluxo de trabalho típico para o desenvolvimento da Pesquisa do Azure](search-workflow.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

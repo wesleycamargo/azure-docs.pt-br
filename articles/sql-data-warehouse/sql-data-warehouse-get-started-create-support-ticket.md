@@ -10,10 +10,10 @@
 <tags
     ms.service="sql-data-warehouse"
     ms.devlang="NA"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="10/05/2015"
+    ms.date="10/20/2015"
     ms.author="sahaj08"/>
 
 # Criar um tíquete de suporte para o SQL Data Warehouse
@@ -84,4 +84,4 @@ Além disso, você pode se conectar com a comunidade do SQL Data Warehouse usand
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Fórum do MSDN do Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

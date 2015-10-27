@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="08/04/2015"
+	ms.date="10/21/2015"
 	ms.author="tamram"/>
 
 # Como usar o armazenamento de Fila do .NET
@@ -123,9 +123,9 @@ Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem re
 
 	// Get the message from the queue and update the message contents.
     CloudQueueMessage message = queue.GetMessage();
-    message.SetMessageContent("Updated contents.") ;
+    message.SetMessageContent("Updated contents.");
     queue.UpdateMessage(message,
-        TimeSpan.FromSeconds(0.0),  // Make it visible immediately.
+        TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
 ## Remover a próxima mensagem da fila
@@ -199,7 +199,7 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Prime
 
 ## Obter o tamanho da fila
 
-Você pode obter uma estimativa do número de mensagens em uma fila. O método **FetchAttributes** solicita que o serviço Fila recupere os atributos da fila, incluindo a contagem de mensagens. A propriedade **ApproximateMethodCount** retorna o último valor recuperado pelo método **FetchAttributes**, sem chamar o serviço Fila.
+Você pode obter uma estimativa do número de mensagens em uma fila. O método **FetchAttributes** solicita que o serviço Fila recupere os atributos da fila, incluindo a contagem de mensagens. A propriedade **ApproximateMessageCount** retorna o último valor recuperado pelo método **FetchAttributes**, sem chamar o serviço Fila.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -263,4 +263,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

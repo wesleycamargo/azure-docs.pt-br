@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/16/2015"
+	ms.date="10/16/2015"
 	ms.author="awills"/>
 
 # Application Insights para aplicativos da Windows Store e Windows Phone
@@ -71,7 +71,7 @@ Se for um aplicativo Windows Universal, repita as etapas tanto para o projeto do
 	```xml
 
 		<?xml version="1.0" encoding="utf-8" ?>
-		<ApplicationInsights>
+		<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
@@ -232,4 +232,4 @@ Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

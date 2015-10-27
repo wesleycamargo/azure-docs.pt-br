@@ -19,6 +19,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
+Estas são algumas das implementações das quais ouvimos falar, incluindo algumas de terceiros.
 
 ## Idiomas
 
@@ -37,21 +38,24 @@
 
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
-+ [ASP.NET - já ativo](app-insights-monitor-performance-live-website-now.md)
++ [ASP.NET – para aplicativos que já estejam em tempo real](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Aplicativos Web do Azure e máquinas virtuais](../insights-perf-analytics.md)
-+ [Serviços de nuvem do Azure](app-insights-cloudservices.md) &#151; incluindo funções Web e de trabalho
++ [Serviços de Nuvem do Azure](app-insights-cloudservices.md) &#151; incluindo funções Web e de trabalho
++ [Concreto](https://github.com/fidmor89/appInsights-Concrete)
 + [CRM Online do Microsoft Dynamics](app-insights-sample-mscrm.md)
++ [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
-+ [J2EE - já ativo](app-insights-java-live.md)
++ [J2EE – para aplicativos que já estejam em tempo real](app-insights-java-live.md)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Orchard](https://orchardazureappinsights.codeplex.com) 
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
++ Registro semântico [SLAB](https://github.com/fidmor89/SLAB_AppInsights)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
 + [Funções de trabalho, serviços e aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md)
@@ -63,7 +67,7 @@
 
 +	[Log4Net, NLog ou System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J ou Logback](app-insights-java-trace-logs.md)
-+   [Registro semântico](https://github.com/fidmor89/SLAB_AppInsights)&#151; é integrado com o [Bloco de aplicativos do registro semântico](https://msdn.microsoft.com/library/dn440729.aspx)
++   O [Registro semântico](https://github.com/fidmor89/SLAB_AppInsights)&#151;é integrado ao [Bloco de Aplicativos do Registro Semântico](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Teste de carga baseado em nuvem](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> Criar seu próprio SDK
@@ -79,4 +83,4 @@ Se não há ainda um SDK para sua linguagem ou plataforma, talvez você deseje c
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

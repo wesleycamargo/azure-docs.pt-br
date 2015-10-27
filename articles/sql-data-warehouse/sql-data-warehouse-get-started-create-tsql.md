@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/07/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm"/>
 
 #Criar um SQL Data Warehouse com o TSQL 
@@ -64,16 +64,16 @@ SERVICE\_OBJECTIVE indicará o número de DWUs com os quais sua instância será
 + DW1500
 + DW2000
 
-Para obter informações sobre o impacto de cobrança desses parâmetros, consulte nossa [página de preços][].
+Para saber mais sobre o impacto de cobrança desses parâmetros, consulte nossa [página de preços][].
 
 ## Próximas etapas
-Após o provisionamento do SQL Data Warehouse, você pode [carregar dados de amostra][] ou conferir como [desenvolver][], [carregar][] ou [migrar][].
+Após o provisionamento do SQL Data Warehouse, você poderá [carregar dados de exemplo][] ou conferir como [desenvolver][], [carregar][] ou [migrar][].
 
-[conexão e consulta]: ./sql-data-warehouse-get-started-connect-query.md
-[migrar]: https://azure.microsoft.com/ja-jp/documentation/articles/sql-data-warehouse-overview-migrate/
-[desenvolver]: https://azure.microsoft.com/ja-jp/documentation/articles/sql-data-warehouse-overview-develop/
-[carregar]: https://azure.microsoft.com/ja-jp/documentation/articles/sql-data-warehouse-overview-load/
-[carregar dados de amostra]: https://azure.microsoft.com/ja-jp/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[página de preços]: https://azure.microsoft.com/ja-jp/pricing/details/sql-data-warehouse/
+[conexão e consulta]: ./sql-data-warehouse-get-started-connect.md
+[migrar]: ./sql-data-warehouse-overview-migrate.md
+[desenvolver]: ./sql-data-warehouse-overview-develop.md
+[carregar]: ./sql-data-warehouse-overview-load.md
+[carregar dados de exemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[página de preços]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

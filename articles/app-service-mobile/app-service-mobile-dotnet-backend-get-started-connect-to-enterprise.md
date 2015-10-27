@@ -5,10 +5,10 @@
 	authors="mattchenderson"
 	manager="dwrede"
 	editor="na"
-	services="app-service"/>
+	services="app-service\mobile"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
@@ -188,4 +188,4 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Extensão de Serviço de Aplicativo do back-end .NET de aplicativos móveis]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

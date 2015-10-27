@@ -174,6 +174,7 @@ Esta lista pode mudar de tempos em tempos.
   * No servidor, se você encontrar uma mensagem sobre "permissões insuficientes", tente fazer o seguinte:
     * No Gerenciador do IIS, selecione o pool de aplicativos, abra as **Configurações Avançadas** e, em **Modelo de Processo**, observe a identidade.
     * No painel de controle de gerenciamento do computador, adicione essa identidade ao grupo Usuários do Monitor de Desempenho.
+  * Se você tiver o MMA/SCOM instalado em seu servidor, algumas versões poderão entrar em conflito. Desinstale o SCOM e o Monitor de Status e reinstale as versões mais recentes.
   * Consulte [Solucionar problemas][qna].
 
 ## Requisitos do Sistema
@@ -215,4 +216,4 @@ Suporte ao IIS: IIS 7, 7,5, 8 e 8.5 (o IIS é obrigatório)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
