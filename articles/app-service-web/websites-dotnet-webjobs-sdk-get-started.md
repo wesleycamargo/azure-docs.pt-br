@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Criar um WebJob do .NET no Serviço de Aplicativo do Azure | Microsoft Azure"
 	description="Criar um aplicativo de várias camadas usando o MVC ASP.NET e o Azure. O front-end é executado em um aplicativo Web no Serviço de Aplicativo do Azure e o back-end é executado como um WebJob. O aplicativo usa o Entity Framework, banco de dados SQL e filas do armazenamento do Azure e blobs."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -69,13 +69,11 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 1. Abra a janela **Gerenciador de Servidores** no Visual Studio.
 
-2. Clique com o botão direito do mouse no nó **Azure** e clique em **Conectar ao Microsoft Azure**.
-![Conecte-se ao Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Clique com o botão direito do mouse no nó **Azure** e clique em **Conectar ao Microsoft Azure**. ![Conecte-se ao Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Entre utilizando suas credenciais do Azure.
 
-5. Clique com botão direito do mouse em **Armazenamento** sob o nó do Azure e, em seguida, clique em **Criar conta de armazenamento**. 
-![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Clique com botão direito do mouse em **Armazenamento** sob o nó do Azure e, em seguida, clique em **Criar conta de armazenamento**. ![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Na caixa de diálogo **Criar conta de armazenamento**, digite um nome para a conta de armazenamento.
 
@@ -801,4 +799,4 @@ Para obter mais informações, consulte [Obtendo um painel para desenvolvimento 
 
 Para obter mais informações, consulte [Recursos de documentação de Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

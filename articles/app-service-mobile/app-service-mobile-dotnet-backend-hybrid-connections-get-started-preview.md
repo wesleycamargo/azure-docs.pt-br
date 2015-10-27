@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Conectar seu aplicativo móvel do Azure a um SQL Server local utilizando Conexões Híbridas | Microsoft Azure"
 	description="Saiba como se conectar a um SQL Server local de um aplicativo móvel do Serviço de Aplicativo usando Conexões Híbridas"
-	services="app-service"
+	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
@@ -164,4 +164,4 @@ Por fim, você precisa publicar o back-end de aplicativo móvel no Azure e verif
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

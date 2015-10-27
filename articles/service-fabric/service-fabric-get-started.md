@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configurar o ambiente de desenvolvimento da Malha do Serviço | Microsoft Azure"
-   description="Instale o tempo de execução da Malha do Serviço, o SDK e as ferramentas e crie um cluster de desenvolvimento local."
+   pageTitle="Configurar o ambiente de desenvolvimento | Microsoft Azure"
+   description="Instale o tempo de execução, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir a instalação, você estará pronto para criar aplicativos."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="samgeo"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# Configurar o ambiente de desenvolvimento da Malha do Serviço
- Este artigo aborda tudo o que você precisa para começar a criar aplicativos da [Malha do Serviço][1], incluindo a instalação do tempo de execução, do SDK e das ferramentas, bem como a configuração de um cluster local.
+# Preparar seu ambiente de desenvolvimento
+ Para compilar e executar os [aplicativos do Service Fabric][1] em seu computador de desenvolvimento, você precisará instalar as ferramentas de tempo de execução, o SDK e configurar um cluster local.
 
- >[AZURE.NOTE]Estas instruções têm como objetivo a configuração de novos PCs. Se você instalou uma versão anterior do Service Fabric em seu computador, siga as [instruções para atualizar seu ambiente de desenvolvimento](service-fabric-update-your-development-environment.md).
+ >[AZURE.NOTE]Estas instruções destinam-se à configuração de novos computadores. Se você tiver instalado uma versão anterior do Service Fabric em seu computador, siga as [instruções para atualizar seu ambiente de desenvolvimento](service-fabric-update-your-development-environment.md).
 
 ## Pré-requisitos
 ### Versões de sistema operacional com suporte
@@ -33,7 +33,7 @@ Há suporte para as seguintes versões de sistema operacional:
 
 As ferramentas da Malha de Serviço dependem do Visual Studio 2015, que pode ser encontrado [aqui][2].
 
-> [AZURE.NOTE]Se não estiver executando uma das versões de sistema operacional com suporte ou prefere não instalar o Visual Studio 2015 no seu computador, você poderá configurar uma máquina virtual do Azure com o Windows Server 2012 R2 e o Visual Studio 2015 pré-instalados usando uma imagem da Galeria da VM.
+> [AZURE.NOTE]Se não estiver executando uma das versões de sistema operacional com suporte ou se preferir não instalar o Visual Studio 2015 no seu computador, você poderá configurar uma máquina virtual do Azure com o Windows Server 2012 R2 e o Visual Studio 2015 pré-instalados usando uma imagem da galeria de máquinas virtuais do Azure.
 
 ## Instalar o tempo de execução, o SDK e as ferramentas
 
@@ -106,4 +106,4 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Link do WebPI"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

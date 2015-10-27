@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Desenvolvimento de aplicativo Web com o ASP.NET MVC usando o Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba como usar o Banco de Dados de Documentos com o .NET para compilar um aplicativo Web de lista de tarefas pendentes. Você vai armazenar e acessar dados por meio de um aplicativo Web ASP.NET MVC hospedado nos Sites do Azure." 
-	keywords="Github, visual studio, web application development, application development, database tutorial, mvc applications, json data, documentdb, azure, Microsoft azure"
+	keywords="GitHub, visual studio, desenvolvimento de aplicativos web, desenvolvimento de aplicativos, tutorial do banco de dados, aplicativos mvc, dados json, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -18,7 +18,7 @@
 	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
-#<a name="_Toc395809351"></a>Desenvolvimento de aplicativo Web com ASP.NET MVC usando Banco de Dados de Documentos
+#<a name="_Toc395809351"></a>Desenvolvimento de aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -32,9 +32,9 @@ Para destacar como você pode aproveitar com eficiência o Banco de Dados de Doc
 
 Este passo a passo mostra como usar o serviço Banco de Dados de Documentos fornecido pelo Azure para armazenar e acessar dados por meio de um aplicativo Web ASP.NET MVC hospedado no Azure.
 
-> [AZURE.TIP]Este tutorial pressupõe que você tem experiência anterior com o ASP.NET MVC e com os Sites do Azure. Se estiver começando a usar o ASP.NET ou as [ferramentas que são pré-requisitos](#_Toc395637760), recomendamos baixar o [projeto de exemplo completo do GitHub][] e seguir as instruções nesse exemplo. Depois de compilá-lo, você poderá consultar esse artigo para obter informações sobre o código no contexto do projeto.
+> [AZURE.TIP]Este tutorial pressupõe que você tem experiência anterior com o ASP.NET MVC e com os Sites do Azure. Se estiver começando a usar o ASP.NET ou as [ferramentas de pré-requisito](#_Toc395637760), recomendamos baixar o projeto de exemplo completo do [GitHub][] e seguir as instruções nesse exemplo. Depois de compilá-lo, você poderá consultar esse artigo para obter informações sobre o código no contexto do projeto.
 
-## <a name="_Toc395637760"></a>Pré-requisitos para esse tutorial de banco de dados
+## <a name="_Toc395637760"></a>Pré-requisitos para este tutorial de banco de dados
 
 Antes de seguir as instruções deste artigo, verifique se você possui o seguinte:
 
@@ -91,7 +91,7 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 
 	Vamos ignorar a execução local do projeto porque tenho certeza de que vimos o aplicativo "Hello World" do ASP.NET. Vamos passar direto para a adição do Banco de Dados de Documentos a este projeto e a criação de nosso aplicativo.
 
-## <a name="_Toc395637767"></a>Etapa 3: adicionar o Banco de Dados de Documentos ao seu projeto de aplicativo Web
+## <a name="_Toc395637767"></a>Etapa 3: Adicionar o Banco de Dados de Documentos ao seu projeto de aplicativo Web
 
 Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários para esta solução, vamos para o verdadeiro propósito deste tutorial, que é adicionar o Banco de Dados de Documentos do Azure ao nosso aplicativo Web.
 
@@ -540,19 +540,6 @@ Existe uma última ação para realizarmos, que é adicionar a capacidade de edi
 
 2. Adicione o seguinte à classe **ItemController**.
 
-    	[HttpPost]
-   		[ValidateAntiForgeryToken]
-    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
-    	{
-     	   if (ModelState.IsValid)
-    	    {
-    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
-    	        return RedirectToAction("Index");
-    	    }
-
-  	      return View(item);
- 	   	}
-		
 		public ActionResult Edit(string id)
 		{
 		    if (string.IsNullOrEmpty(id))
@@ -569,6 +556,19 @@ Existe uma última ação para realizarmos, que é adicionar a capacidade de edi
 		 	
 		    return View(item);
 		}
+		
+    	[HttpPost]
+   		[ValidateAntiForgeryToken]
+    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
+    	{
+     	   if (ModelState.IsValid)
+    	    {
+    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
+    	        return RedirectToAction("Index");
+    	    }
+
+  	      return View(item);
+ 	   	}
 		
 	
 	O primeiro método lida com o Http GET que ocorrerá quando o usuário clicar no link **Editar** na exibição **Índice**. Esse método busca um [**Documento**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) do Banco de Dados de Documentos e o transfere para a exibição **Editar**.
@@ -587,7 +587,7 @@ Para testar o aplicativo em seu computador local, faça o seguinte:
 
 	![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial de banco de dados](./media/documentdb-dotnet-application/image24.png)
 
-	Se encontrar erros neste ponto, você poderá comparar seu código com o projeto de exemplo no [GitHub][].
+	Se encontrar erros neste ponto, você poderá comparar seu código ao projeto de exemplo no [GitHub][].
 
 2. Clique no link **Criar Novo** e adicione valores ao campos **Nome** e **Descrição**. Deixe a caixa de seleção **Concluído** desmarcada, caso contrário, o novo **Item** será adicionado em um estado concluído e não aparecerá na lista inicial.
 
@@ -632,6 +632,5 @@ Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs dispon�
 [Prevenindo solicitação intersite forjada]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
-[projeto de exemplo completo do GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

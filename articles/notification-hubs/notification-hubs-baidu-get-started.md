@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="09/03/2015"
+	ms.date="10/19/2015"
 	ms.author="wesmc"/>
 
 # Introdução aos Hubs de Notificação usando o Baidu
@@ -32,7 +32,7 @@ Este tutorial exige o seguinte:
 + [SDK para Android de Serviços Móveis]
 + [SDK do Android Push Baidu]
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fja-jp%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
+>[AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 
 
 ##Criar uma conta de Baidu
@@ -398,21 +398,46 @@ Você verá a mensagem **保存成功！** (**Salvo com êxito!**).
 
 ##Enviar notificações para seu aplicativo
 
-Você pode enviar notificações usando os Hubs de Notificação do Azure de qualquer back-end que use nossa <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>. Neste tutorial, mostramos isso usando um aplicativo de console do .NET.
+
+Você pode testar o recebimento de notificações em seu aplicativo ao enviar notificações no portal do Azure usando a guia de depuração no hub de notificação, como mostrado na tela abaixo.
+
+![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
+
+Notificações por push normalmente são enviadas em um serviço de back-end como Serviços Móveis ou ASP.NET usando uma biblioteca compatível. Você também pode usar a API REST diretamente para enviar mensagens de notificação se uma biblioteca não está disponível para o back-end.
+
+Neste tutorial, optamos pela simplicidade e só demonstraremos os testes do aplicativo cliente enviando notificações usando o SDK do .NET para hubs de notificação em um aplicativo de console em vez de um serviço de back-end. Recomendamos o tutorial [Usar Hubs de Notificação para enviar notificações por push aos usuários](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) como a próxima etapa de envio de notificações de back-end do ASP.NET. No entanto, as abordagens a seguir podem ser usadas para o envio de notificações:
+
+* **Interface REST**: você pode dar suporte à notificação em qualquer plataforma de back-end usando a [interface REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+
+* **SDK dos Hubs de Notificações do Microsoft Azure**: no Gerenciador de Pacotes do Nuget para o Visual Studio, execute [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+
+* **Node.js**: [como usar os Hubs de Notificação de Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
+
+* **Serviços Móveis do Azure**: para obter um exemplo de como enviar notificações de um back-end de Serviços Móveis do Azure integrado aos Hubs de Notificação, confira "Introdução às notificações por push nos Serviços Móveis" ([back-end do .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [back-end do JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+
+* **Java/PHP**: para obter um exemplo de como enviar notificações usando as APIs REST, confira "Como usar os Hubs de Notificação do Java/PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+
+##(Opcional) Enviar notificações de um aplicativo de console do .NET.
+
+Nesta seção, vamos mostrar o envio de uma notificação usando um aplicativo de console do .NET.
 
 1. Crie um novo aplicativo de console do Visual C#:
 
 	![][30]
 
-2. Adicione uma referência ao SDK do Barramento de Serviço do Azure com o <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">pacote NuGet do WindowsAzure.ServiceBus</a>. No menu principal do Visual Studio, clique em **Ferramentas**, em **Gerenciador de Pacotes da Biblioteca** e em **Console do Gerenciador de Pacotes**. Em seguida, na janela do console, digite o seguinte e pressione Enter:
+2. Na janela do Console do Gerenciador de Pacotes, defina o **Projeto padrão** como o seu novo projeto de aplicativo do console e execute o seguinte comando na janela do console:
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
+
+	Isso adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacote NuGet Microsoft.Azure.Notification Hubs</a>.
+
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. Abra o arquivo **Program.cs** e adicione o seguinte usando a instrução:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
-4. Na classe `Program`, adicione o seguinte método e substitua *DefaultFullSharedAccessSignatureSASConnectionString* e *NotificationHubName* pelos valores que você tem.
+4. Na classe `Program`, adicione o método a seguir e substitua *DefaultFullSharedAccessSignatureSASConnectionString* e *NotificationHubName* pelos valores que você tem.
 
 		private static async void SendNotificationAsync()
 		{
@@ -434,7 +459,7 @@ Para testar este aplicativo com o emulador, na barra de ferramentas superior do 
 
 O aplicativo recupera 'userId' e 'channelId' do serviço de notificação por push do Baidu e é registrado no hub de notificação.
 
-Para enviar uma notificação de teste quando estiver usando um aplicativo de console do .NET, basta pressionar a tecla F5 no Visual Studio para executar o aplicativo. O aplicativo enviará uma notificação que será exibida na área superior da notificação do seu dispositivo ou emulador.
+Para enviar uma notificação de teste, você poderá usar a guia de depuração do portal. Se você criar o aplicativo de console do .NET para o Visual Studio, bastará pressionar a tecla F5 no Visual Studio para executar o aplicativo. O aplicativo enviará uma notificação que será exibida na área superior da notificação do seu dispositivo ou emulador.
 
 
 <!-- Images. -->
@@ -480,4 +505,4 @@ Para enviar uma notificação de teste quando estiver usando um aplicativo de co
 [portal do Azure]: https://manage.windowsazure.com/
 [portal do Baidu]: http://www.baidu.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

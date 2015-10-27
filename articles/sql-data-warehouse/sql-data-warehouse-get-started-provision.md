@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Criar um SQL Data Warehouse usando o portal de visualização do Azure#
@@ -121,6 +121,6 @@ Agora que você configurou o firewall poderá fazer conexões da área de trabal
 
 ## Próximas etapas
 
-Agora que você criou um banco de dados de exemplo para o SQL Data Warehouse, saiba como usar o SQL Data Warehouse em [Conectar e consultar](./sql-data-warehouse-get-started-connect-query.md).
+Agora que você criou um banco de dados de exemplo para o SQL Data Warehouse, está pronto para [Conectar](./sql-data-warehouse-get-started-connect.md) ao seu banco de dados.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
