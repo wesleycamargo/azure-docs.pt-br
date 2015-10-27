@@ -170,6 +170,8 @@ Use o Visual Studio Enterprise ou Ultimate para registrar uma sessão da Web.
 
     ![Selecione teste da Web em várias etapas.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
+    Defina os locais de teste, a frequência e os parâmetros de alerta da mesma forma que para testes de ping.
+
 Exiba seus resultados de teste quaisquer eventuais falhas do mesmo modo que faria para testes de url única.
 
 Uma razão comum para falha é executar o teste por um período excessivamente longo. Ele não deve ser executado por mais de dois minutos.
@@ -244,4 +246,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

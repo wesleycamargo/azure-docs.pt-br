@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/15/2015"
 	ms.author="awills"/>
 
 # Introdução ao Application Insights em um projeto Web Java
@@ -25,7 +25,7 @@
 
 ![dados de exemplo](./media/app-insights-java-get-started/5-results.png)
 
-[Testes na Web do Application Insights][availability] monitoram a disponibilidade do aplicativo.
+O Application Insights oferece suporte a aplicativos Java em execução no Windows, no Unix ou no Linux.
 
 Você precisará de:
 
@@ -106,7 +106,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 
 Adicione manualmente o SDK:
 
-1. Baixe o [Application Insights SDK para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
+1. Baixe o [SDK do Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
 2. Extraia os binários do arquivo de zip e adicione-os ao projeto.
 
 ### Perguntas...
@@ -117,7 +117,7 @@ Adicione manualmente o SDK:
  * `applicationinsights-web` fornece métricas que rastreiam as contagens de solicitação de HTTP e tempos de resposta. Você pode omitir isso se não quiser que essa telemetria seja coletada automaticamente. Por exemplo, se quiser escrevê-la você mesmo.
 
 * *Para atualizar o SDK ao publicar alterações*
- * Baixe o [Application Insights SDK para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) mais recente e substitua os antigos.
+ * Baixe o [SDK do Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) mais recente e substitua os antigos.
  * As alterações descritas nas [notas de versão do SDK](app-insights-release-notes-java.md).
 
 
@@ -271,7 +271,7 @@ Exceções sem tratamento são coletadas automaticamente:
 
 Para coletar dados em outras exceções, você tem duas opções:
 
-* [Inserir chamadas a trackException() em seu código][apiexceptions]. 
+* [Inserir chamadas a TrackException() em seu código][apiexceptions]. 
 * [Instalar o Agente Java em seu servidor](app-insights-java-agent.md). Especifique os métodos que deseja inspecionar.
 
 
@@ -383,7 +383,7 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 
 ## Próximas etapas
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
+Para saber mais, consulte o [Centro do desenvolvedor para Java](/develop/java/).
 
 <!--Link references-->
 
@@ -396,4 +396,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/d
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

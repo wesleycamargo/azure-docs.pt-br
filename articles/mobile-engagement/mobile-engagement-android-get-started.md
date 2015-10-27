@@ -35,7 +35,7 @@ Este tutorial exige o seguinte:
 
 > [AZURE.IMPORTANT]Concluir este tutorial é um pré-requisito para todos os outros tutoriais do Mobile Engagement para aplicativos Android, e para concluí-lo, você deve ter uma conta do Azure ativa. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
 
-##<a id="setup-azme"></a>Configurar o Mobile Engagement para seu aplicativo iOS
+##<a id="setup-azme"></a>Configuração do Mobile Engagement para seu aplicativo Android
 
 [AZURE.INCLUDE [Criar Aplicativo de Mobile Engagement no Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -328,4 +328,4 @@ Agora criaremos uma campanha simples de notificação por push que enviará uma 
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

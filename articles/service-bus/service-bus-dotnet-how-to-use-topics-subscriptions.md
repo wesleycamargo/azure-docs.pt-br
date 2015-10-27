@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Como usar os tópicos de Barramento de Serviço (.NET) | Microsoft Azure"
-    description="Aprenda a usar assinaturas e tópicos do barramento de serviço no Azure. Os códigos de exemplo são escritos para aplicativos .NET."
+    pageTitle="Usar os tópicos de Barramento de Serviço (.NET) | Microsoft Azure"
+    description="Saiba como usar as assinaturas e os tópicos do Barramento de Serviço no Azure. Os códigos de exemplo são escritos para aplicativos .NET."
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -9,16 +9,18 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/06/2015"
+    ms.date="10/15/2015"
     ms.author="sethm"/>
 
-# Como usar tópicos e assinaturas do Barramento de Serviço do Azure
+# Como usar os tópicos e assinaturas do Barramento de Serviço
 
-Este artigo descreve como usar tópicos e assinaturas do Barramento de Serviço. Os exemplos são escritos em C# e utilizam APIs .NET. Os cenários abordados incluem a criação de tópicos e assinaturas, a criação de filtros de assinatura, o envio de mensagens para um tópico, o recebimento de mensagens de uma assinatura e a exclusão de tópicos e assinaturas. Para obter mais informações sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#Next-steps).
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+Este artigo descreve como usar tópicos e assinaturas do Barramento de Serviço. Os exemplos são escritos em C# e utilizam APIs .NET. Os cenários abordados incluem a criação de tópicos e assinaturas, a criação de filtros de assinatura, o envio de mensagens para um tópico, o recebimento de mensagens de uma assinatura e a exclusão de tópicos e assinaturas. Para saber mais sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#Next-steps).
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -35,7 +37,7 @@ O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API
 Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
 
 1.  No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
-2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e, em seguida, feche essa caixa de diálogo a seguir.
+2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo a seguir.
 
     ![][7]
 
@@ -48,11 +50,11 @@ O Barramento de Serviço usa uma cadeia de conexão para armazenar pontos de ext
 - Ao usar os Serviços de Nuvem do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração de serviço do Azure (arquivos .csdef e .cscfg).
 - Ao usar sites do Azure ou Máquinas Virtuais do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração do .NET (por exemplo, o arquivo Web.config).
 
-Nos dois casos, você pode recuperar a cadeia de conexão usando o método `CloudConfigurationManager.GetSetting`, conforme mostrado mais adiante neste artigo.
+Nos dois casos, você pode recuperar a cadeia de conexão usando o método `CloudConfigurationManager.GetSetting`, como mostrado mais adiante neste artigo.
 
 ### Configure sua cadeia de conexão ao usar Serviços de Nuvem
 
-O mecanismo de configuração de serviço é exclusivo para projetos de Serviços de Nuvem do Azure e permite que você altere dinamicamente os parâmetros de configuração no portal do Azure sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (****.csdef**), conforme mostrado no próximo exemplo.
+O mecanismo de configuração de serviço é exclusivo para projetos de Serviços de Nuvem do Azure e permite que você altere dinamicamente os parâmetros de configuração no portal do Azure sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (****.csdef**), como mostrado no próximo exemplo.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -124,7 +126,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-Há sobrecargas do método [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) que permitem ajustar as propriedades do tópico, por exemplo, definir o valor de TTL (time-to-live) padrão a ser aplicado às mensagens enviadas ao tópico. Essas configurações são aplicadas usando a classe [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). O exemplo a seguir mostra como criar um tópico chamado **TestTopic** com um tamanho máximo de 5 GB e uma mensagem padrão de TTL de 1 minuto.
+Há sobrecargas do método [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) que permitem ajustar as propriedades do tópico, por exemplo, definir o valor de vida útil (TTL) padrão a ser aplicado às mensagens enviadas ao tópico. Essas configurações são aplicadas usando a classe [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). O exemplo a seguir mostra como criar um tópico chamado **TestTopic** com um tamanho máximo de 5 GB e uma mensagem padrão de TTL de 1 minuto.
 
 ```
 // Configure Topic Settings.
@@ -153,7 +155,7 @@ Você também pode criar assinaturas de tópico com a classe [`NamespaceManager`
 
 ### Criar uma assinatura com o filtro padrão (MatchAll)
 
-**MatchAll** será o filtro padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando você usa o filtro **MatchAll**, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada "AllMessages" e usa o filtro padrão **MatchAll**.
+**MatchAll** será o filtro padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando você usa o filtro **MatchAll**, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada 'AllMessages' e usa o filtro padrão **MatchAll**.
 
 ```
 string connectionString =
@@ -234,7 +236,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Os tópicos do Barramento de Serviço oferecem suporte a um [tamanho máximo de mensagem de 256 KB](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades do aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em um tópico mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, confira [Particionamento de entidades de mensagens](https://msdn.microsoft.com/library/azure/dn520246.aspx).
+Os tópicos do Barramento de Serviço oferecem suporte a um [tamanho máximo de mensagem de 256 KB](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades do aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em um tópico mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, confira [Particionando entidades de mensagens](https://msdn.microsoft.com/library/azure/dn520246.aspx).
 
 ## Como receber mensagens de uma assinatura
 
@@ -244,7 +246,7 @@ Quando o modo **ReceiveAndDelete** for usado, o recebimento será uma operação
 
 No modo **PeekLock** (que é o modo padrão), o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) na mensagem recebida. Quando o Barramento de Serviço vê a chamada **Complete**, ele marca a mensagem como sendo consumida e remove-a da assinatura.
 
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **PeekLock**. Para especificar outro valor de [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), você pode usar outra sobrecarga para [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.createfromconnectionstring.aspx). Este exemplo usa o retorno de chamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) para processar mensagens assim que chegam à assinatura **HighMessages**.
+O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **PeekLock** padrão. Para especificar outro valor de [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), você pode usar outra sobrecarga para [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.createfromconnectionstring.aspx). Este exemplo usa o retorno de chamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) para processar mensagens assim que chegam à assinatura **HighMessages**.
 
 ```
 string connectionString =
@@ -281,7 +283,7 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-Este exemplo configura o retorno de chamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) usando um objeto [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [Preenchimento automático](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) é definido como **false** para habilitar o controle manual de quando chamar [Concluída](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) na mensagem recebida. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) é definido como 1 minuto que faz com que o cliente aguarde um minuto para uma mensagem antes que a chamada expire e o cliente faça uma nova chamada para verificar se há mensagens. Esse valor de propriedade reduz o número de vezes que o cliente faz chamadas passíveis de cobrança que não recuperam mensagens.
+Este exemplo configura o retorno de chamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) usando um objeto [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) é definido como **false** para habilitar o controle manual de quando chamar [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) na mensagem recebida. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) é definido como 1 minuto que faz com que o cliente aguarde um minuto para uma mensagem antes que a chamada expire e o cliente faça uma nova chamada para verificar se há mensagens. Esse valor de propriedade reduz o número de vezes que o cliente faz chamadas passíveis de cobrança que não recuperam mensagens.
 
 ## Como tratar falhas do aplicativo e mensagens ilegíveis
 
@@ -289,7 +291,7 @@ O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recupera
 
 Também há um tempo limite associado a uma mensagem bloqueada na assinatura e, se houver falha no processamento da mensagem pelo aplicativo antes da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Se houver falha do aplicativo após o processamento da mensagem, mas antes de a solicitação [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso geralmente é chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem pode ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) da mensagem, que permanecerá constante nas tentativas da entrega.
+Se houver falha do aplicativo após o processamento da mensagem, mas antes de a solicitação [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) da mensagem, que permanecerá constante nas tentativas da entrega.
 
 ## Excluir tópicos e assinaturas
 
@@ -310,10 +312,10 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
 Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
 
--   Confira [Filas, tópicos e assinaturas][].
+-   Consulte [Filas, tópicos e assinaturas][].
 -   Referência da API para [SqlFilter][].
 -   Compile um aplicativo de trabalho que envia e recebe mensagens de e para uma fila do Barramento de Serviço: [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço][].
--   Exemplos do Barramento de Serviço: baixe em [Exemplos do Azure][] ou confira [visão geral](service-bus-samples.md).
+-   Exemplos do Barramento de Serviço: baixe em [Exemplos do Azure][] ou consulte a [visão geral](service-bus-samples.md).
 
   [Azure portal]: http://manage.windowsazure.com
 
@@ -325,4 +327,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço]: service-bus-brokered-tutorial-dotnet.md
   [Exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

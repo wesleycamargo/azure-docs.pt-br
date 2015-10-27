@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Como criar um aplicativo Web em um Ambiente do Serviço de Aplicativo"
 	description="Fluxo de criação de aplicativos Web e planos do serviço de aplicativo examinado para um ambiente do serviço de aplicativo"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -100,4 +100,4 @@ Depois de criar seu aplicativo Web e ASP, é uma boa ideia dimensioná-lo, aumen
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

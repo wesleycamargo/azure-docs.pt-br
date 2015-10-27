@@ -185,23 +185,23 @@ Para montar o compartilhamento de arquivos de um cliente local, siga estas etapa
 - Instale uma versão do Windows que dê suporte a SMB 3.0. O Windows aproveitará a criptografia SMB 3.0 para transferir dados com segurança entre o cliente local e o compartilhamento de arquivo do Azure na nuvem. 
 - Abra o acesso à Internet para a porta 445 (TCP de saída) em sua rede local, conforme exigido pelo protocolo SMB. 
 
-[AZURE.NOTE]Alguns provedores de serviços de Internet podem bloquear a porta 445; portanto, é necessário verificar com seu provedor de serviços.
+> [AZURE.NOTE]Alguns provedores de serviços de Internet podem bloquear a porta 445; portanto, é necessário verificar com seu provedor de serviços.
 
 ## Desenvolver com o armazenamento de arquivo
 
-Para trabalhar com o armazenamento de arquivos programaticamente, você pode usar as bibliotecas de cliente de armazenamento para .NET e Java ou APIs REST de armazenamento do Azure. O exemplo nesta seção demonstra como trabalhar com um compartilhamento de arquivos usando a [Biblioteca de cliente de armazenamento do Azure .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) de um aplicativo de console simples em execução na área de trabalho.
+Para trabalhar com o armazenamento de arquivos programaticamente, você pode usar as bibliotecas de cliente de armazenamento para .NET e Java ou APIs REST de armazenamento do Azure. O exemplo nesta seção demonstra como trabalhar com um compartilhamento de arquivos usando a [Biblioteca de Clientes de Armazenamento do Azure .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) de um aplicativo de console simples em execução na área de trabalho.
 
 ### Criar o aplicativo do console e obter o assembly
 
 Para criar um novo aplicativo de console no Visual Studio e instalar o pacote NuGet no Armazenamento do Azure:
 
-1. No Visual Studio, escolha **Arquivo > Novo Projeto** e, em seguida, **Windows > Aplicativo de Console** na lista de modelos do Visual C#.
+1. No Visual Studio, escolha **Arquivo > Novo Projeto** e **Windows > Aplicativo de Console** na lista de modelos do Visual C#.
 2. Forneça um nome para o aplicativo de console e clique em **OK**.
 3. Após o projeto ser criado, clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
 
 ### Salvar suas credenciais da conta de armazenamento no arquivo app.config
 
-Em seguida, salve suas credenciais no arquivo app.config do projeto. Edite o arquivo app.config para que ele pareça semelhante ao exemplo a seguir, substituindo `myaccount` pelo nome da conta de armazenamento e `mykey` pela chave da conta de armazenamento.
+Em seguida, salve suas credenciais no arquivo app.config do projeto. Edite o arquivo app.config para que ele se pareça com o exemplo a seguir, substituindo `myaccount` pelo nome da conta de armazenamento e `mykey` pela chave da conta de armazenamento.
 
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
@@ -226,7 +226,7 @@ Abra o arquivo program.cs no Gerenciador de Soluções e adicione as seguintes d
 
 ### Recuperar sua cadeia de conexão programaticamente
 
-Você pode recuperar suas credenciais salvas por meio do arquivo app.config usando a classe `Microsoft.WindowsAzure.CloudConfigurationManager` ou a classe `System.Configuration.ConfigurationManager `. O pacote do Gerenciador de Configuração do Microsoft Azure, que inclui a classe `Microsoft.WindowsAzure.CloudConfigurationManager`, está disponível em [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager).
+Você pode recuperar suas credenciais salvas por meio do arquivo app.config usando a classe `Microsoft.WindowsAzure.CloudConfigurationManager` ou a classe `System.Configuration.ConfigurationManager `. O pacote do Gerenciador de Configuração do Microsoft Azure, que inclui a classe `Microsoft.WindowsAzure.CloudConfigurationManager`, está disponível no [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager).
 
 O exemplo aqui mostra como recuperar suas credenciais usando a classe `CloudConfigurationManager` e encapsulá-las com a classe `CloudStorageAccount`. Adicione o código a seguir ao método `Main()` em program.cs.
 
@@ -510,7 +510,7 @@ Você pode habilitar métricas para armazenamento de arquivos no portal do Azure
 
 	Você não tem esse nível de controle sobre as permissões se montar o compartilhamento de arquivos via SMB. No entanto, você pode conseguir isso criando uma SAS (assinatura de acesso compartilhado) por meio de bibliotecas de API REST ou de cliente.
 
-12. **O desempenho era lento durante a tentativa de descompactar arquivos no armazenamento de arquivo. O que devo fazer?**
+12. **O desempenho era lento durante a tentativa de descompactar arquivos no armazenamento Arquivo. O que devo fazer?**
 
 	Para transferir grandes quantidades de arquivos para o armazenamento de arquivos, recomendamos que você use o AzCopy, o Azure Powershell (Windows) ou a CLI do Azure (Unix/Linux), já que essas ferramentas foram otimizadas para transferência de rede.
 
@@ -540,4 +540,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

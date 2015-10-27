@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Criar um WebJob do .NET no Serviço de Aplicativo do Azure | Microsoft Azure"
 	description="Criar um aplicativo de várias camadas usando o MVC ASP.NET e o Azure. O front-end é executado em um aplicativo Web no Serviço de Aplicativo do Azure e o back-end é executado como um WebJob. O aplicativo usa o Entity Framework, banco de dados SQL e filas do armazenamento do Azure e blobs."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -119,10 +119,12 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 	A cadeia de conexão de armazenamento é um exemplo que tem espaços reservados para a chave de acesso e para o nome da conta de armazenamento. Isso será substituído com uma cadeia de conexão que tem o nome e a chave da sua conta de armazenamento.
 
-	<pre class="prettyprint">&lt;connectionStrings>
-  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
-  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
-&lt;/connectionStrings></pre>A cadeia de conexão de armazenamento se chama AzureWebJobsStorage porque esse é o nome usado pelo SDK de Trabalhos Web por padrão. O mesmo nome é usado aqui, de modo que você só precisa definir um valor de cadeia de conexão no ambiente do Azure.
+	<pre class="prettyprint">&lt;connectionStrings&gt;
+	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
+	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+	&lt;/connectionStrings&gt;</pre>
+
+	A cadeia de conexão de armazenamento se chama AzureWebJobsStorage porque esse é o nome usado pelo SDK de Trabalhos Web por padrão. O mesmo nome é usado aqui, de modo que você só precisa definir um valor de cadeia de conexão no ambiente do Azure.
 
 2. No **Gerenciador de Servidores**, clique com botão direito do mouse na sua conta de armazenamento sob o nó de **armazenamento** e, em seguida, clique em **Propriedades**.
 
@@ -140,7 +142,17 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 6. Abra o arquivo *App.config* no projeto ContosoAdsWebJob.
 
-	Esse arquivo tem duas cadeias de conexão de armazenamento: uma para dados do aplicativo e outra para registro em log. Para este tutorial você vai usar a mesma conta em ambas. As cadeias de conexão têm espaços reservados para as chaves de conta de armazenamento. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	Esse arquivo tem duas cadeias de conexão de armazenamento: uma para dados do aplicativo e outra para registro em log. Para este tutorial você vai usar a mesma conta em ambas. As cadeias de conexão têm espaços reservados para as chaves de conta de armazenamento.
+  	<pre class="prettyprint">&lt;configuration&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
+    &lt;/connectionStrings&gt;
+        &lt;startup&gt;
+            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
+    &lt;/startup&gt;
+&lt;/configuration&gt;</pre>
 
 	Por padrão, o SDK de Trabalhos Web procura cadeias de conexão chamadas AzureWebJobsStorage e AzureWebJobsDashboard. Como alternativa, é possível [armazenar a cadeia de conexão, por mais que você queira passá-la explicitamente para o `JobHost` objeto](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -454,7 +466,7 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 	- *Global.asax.cs*  
 	- Na pasta *Controllers*: *AdController.cs*
 	- Na pasta *Views\\Shared*: arquivo *\_Layout.cshtml*
-- Na pasta *Views\\Home*: *Index.cshtml*
+	- Na pasta *Views\\Home*: *Index.cshtml*
 	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.<br/><br/>
 
 3. No projeto ContosoAdsWebJob, adicione os seguintes arquivos do projeto baixado.
@@ -801,4 +813,4 @@ Para obter mais informações, consulte [Obtendo um painel para desenvolvimento 
 
 Para obter mais informações, consulte [Recursos de documentação de Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

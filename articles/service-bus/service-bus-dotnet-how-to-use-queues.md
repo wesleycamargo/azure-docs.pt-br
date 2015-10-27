@@ -16,9 +16,11 @@
     ms.date="10/07/2015"
     ms.author="sethm"/>
 
-# Como usar as filas do Barramento de Serviço do Azure
+# Como usar filas do Barramento de Serviço
 
-Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários cobertos incluem criar filas e enviar e receber mensagens. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps).
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
+Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários cobertos incluem criar filas e enviar e receber mensagens. Para saber mais sobre filas, confira a seção [Próximas etapas](#next-steps).
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -30,12 +32,12 @@ Quando você cria um aplicativo que usa o Barramento de Serviço, você deve adi
 
 ## Adicionar o pacote NuGet do Barramento de Serviço
 
-O pacote **NuGet** de Barramento de Serviço é a maneira mais fácil de obter a API do Barramento de Serviço e de configurar seu aplicativo com todas as dependências de Barramento de serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
+O pacote **NuGet** de Barramento de Serviço é a maneira mais fácil de obter a API do Barramento de Serviço e configurar seu aplicativo com todas as dependências do Barramento de Serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
 
 Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
 
 1.  No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
-2.  Pesquise "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e, em seguida, feche essa caixa de diálogo.
+2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo.
 
     ![][7]
 
@@ -48,11 +50,11 @@ O Barramento de Serviço usa uma cadeia de conexão para armazenar pontos de ext
 - Ao usar os Serviços de Nuvem do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração de serviço do Azure (arquivos .csdef e .cscfg).
 - Ao usar sites do Azure ou Máquinas Virtuais do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração do .NET (por exemplo, o arquivo Web.config).
 
-Nos dois casos, você pode recuperar sua cadeia de conexão usando o método [CloudConfigurationManager.GetSetting][GetSetting], conforme mostrado neste artigo.
+Nos dois casos, você pode recuperar sua cadeia de conexão usando o método [CloudConfigurationManager.GetSetting][GetSetting], como mostrado neste artigo.
 
 ### Configure sua cadeia de conexão ao usar Serviços de Nuvem
 
-O mecanismo de configuração de serviço é exclusivo para projetos de Serviços de Nuvem do Azure e permite que você altere dinamicamente os parâmetros de configuração no portal do Azure sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (.csdef), conforme mostrado no próximo exemplo.
+O mecanismo de configuração de serviço é exclusivo para projetos de Serviços de Nuvem do Azure e permite que você altere dinamicamente os parâmetros de configuração no portal do Azure sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (.csdef), como mostrado no próximo exemplo.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -99,7 +101,7 @@ Use o nome da SAS e os valores de chave recuperados no portal do Azure, conforme
 
 ## Criar uma fila
 
-Você pode executar operações de gerenciamento de filas do Barramento de Serviço usando classe [NamespaceManager][]. A classe fornece métodos para criar, enumerar e excluir filas.
+Você pode executar operações de gerenciamento de filas do Barramento de Serviço usando a classe [NamespaceManager][]. A classe fornece métodos para criar, enumerar e excluir filas.
 
 Este exemplo constrói um objeto [NamespaceManager][] usando a classe [CloudConfigurationManager][] do Azure com uma cadeia de conexão que consiste do endereço básico de um namespace de serviço do Barramento de Serviço e as credenciais SAS apropriadas com permissões para gerenciá-lo. Essa cadeia de conexão está no formato mostrado no exemplo a seguir.
 
@@ -123,7 +125,7 @@ if (!namespaceManager.QueueExists("TestQueue"))
 }
 ```
 
-Há sobrecargas do método [CreateQueue](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx) que permitem que você ajuste as propriedades da fila (por exemplo, para definir o valor de "time-to-live" (TTL) padrão a ser aplicado às mensagens enviadas para a fila). Essas configurações são aplicadas usando a classe [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). O exemplo a seguir mostra como criar uma fila chamada `TestQueue` com um tamanho máximo de 5 GB e uma mensagem padrão de vida útil de 1 minuto.
+Há sobrecargas do método [CreateQueue](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx) que permitem que você ajuste as propriedades da fila (por exemplo, para definir o valor de vida útil (TTL) padrão a ser aplicado às mensagens enviadas para a fila). Essas configurações são aplicadas usando a classe [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). O exemplo a seguir mostra como criar uma fila chamada `TestQueue` com um tamanho máximo de 5 GB e uma mensagem padrão de vida útil de 1 minuto.
 
 ```
 // Configure queue settings.
@@ -162,7 +164,7 @@ QueueClient Client =
 Client.Send(new BrokeredMessage());
 ```
 
-As mensagens enviadas para e recebidas de filas de Barramento de Serviço são instâncias da classe [BrokeredMessage][]. Os objetos [BrokeredMessage][] têm um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem, passando qualquer objeto serializável para o construtor do objeto [BrokeredMessage][] e o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **System.IO.Stream**.
+As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe [BrokeredMessage][]. Os objetos [BrokeredMessage][] têm um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem, passando qualquer objeto serializável para o construtor do objeto [BrokeredMessage][] e o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **System.IO.Stream**.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste ao objeto `TestQueue` [QueueClient][] obtido no exemplo de código anterior.
 
@@ -181,7 +183,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-As filas do Barramento de Serviço dão suporte a um [tamanho máximo de mensagem de 256 KB](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para obter mais informações, consulte [Particionando entidades de mensagens](service-bus-partitioning.md).
+As filas do Barramento de Serviço dão suporte a um [tamanho máximo de mensagem de 256 KB](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, confira [Particionando entidades de mensagens](service-bus-partitioning.md).
 
 ## Como receber mensagens de uma fila
 
@@ -191,7 +193,7 @@ Ao usar o modo **ReceiveAndDelete**, o recebimento é uma operação única; ist
 
 No modo **PeekLock** (que é o modo padrão), o recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando [Complete][] na mensagem recebida. Quando o Barramento de Serviço vê a chamada [Complete][], ele marca a mensagem como sendo consumida e a remove da fila.
 
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **PeekLock**. Para especificar outro valor de [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), você pode usar outra sobrecarga para [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx). Este exemplo usa o retorno de chamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) para processar mensagens assim que chegarem em `TestQueue`.
+O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **PeekLock** padrão. Para especificar outro valor de [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), você pode usar outra sobrecarga para [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx). Este exemplo usa o retorno de chamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) para processar mensagens assim que chegarem em `TestQueue`.
 
 ```
 string connectionString =
@@ -234,7 +236,7 @@ O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recupera
 
 Também há um tempo limite associado a uma mensagem bloqueada na fila e, se houver falha no processamento da mensagem pelo aplicativo por expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Se houver falha do aplicativo após o processamento da mensagem, mas antes de a solicitação [Complete][] ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso geralmente é chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem pode ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) da mensagem, que permanece constante nas tentativas da entrega.
+Se houver falha do aplicativo após o processamento da mensagem, mas antes de a solicitação [Complete][] ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) da mensagem, que permanece constante nas tentativas da entrega.
 
 ## Próximas etapas
 
@@ -242,14 +244,14 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 
 -   Leia sobre entidades de mensagens do Barramento de Serviço em [Filas, tópicos e assinaturas][].
 -   Compile um aplicativo de trabalho que envia e recebe mensagens de e para uma fila do Barramento de Serviço com o [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço][].
--   Baixe exemplos de Barramento de Serviço dos [exemplos do Azure][] ou consulte a [Visão geral dos exemplos de Barramento de Serviço][].
+-   Baixe exemplos de Barramento de Serviço dos [exemplos do Azure][] ou consulte a [visão geral dos exemplos de Barramento de Serviço][].
 
   [Azure portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço]: service-bus-brokered-tutorial-dotnet.md
   [exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [Visão geral dos exemplos de Barramento de Serviço]: service-bus-samples.md
+  [visão geral dos exemplos de Barramento de Serviço]: service-bus-samples.md
   [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
   [CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager
   [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
@@ -257,4 +259,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

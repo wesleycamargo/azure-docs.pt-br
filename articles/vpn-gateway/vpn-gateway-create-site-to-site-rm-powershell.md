@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # Criar uma rede virtual com uma conexão VPN site a site usando o PowerShell
@@ -31,17 +31,18 @@ Este artigo mostrará a você como criar uma rede virtual e uma conexão VPN sit
 
 Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
-- Um dispositivo VPN compatível e alguém que possa configurá-lo. Veja [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md).
+- Um dispositivo VPN compatível e alguém que possa configurá-lo. Veja [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). Se você não estiver familiarizado com a configuração de seu dispositivo VPN ou se não estiver familiarizado com os intervalos de endereços IP localizados em sua configuração de rede local, será necessário coordenar com alguém que possa fornecer os detalhes para você.
 
 - Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
-
->[AZURE.IMPORTANT]Se você não estiver familiarizado com a configuração de seu dispositivo VPN ou se não estiver familiarizado com os intervalos de endereços IP localizados em sua configuração de rede local, será necessário coordenar com alguém que possa fornecer os detalhes para você.
 	
 - Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- A versão mais recente dos cmdlets do Azure PowerShell. Você pode baixar e instalar a versão mais recente na seção Windows PowerShell da [página de download](http://azure.microsoft.com/downloads/). Este artigo foi escrito para o Azure PowerShell *0.9.8*.
+- Cmdlets do Azure PowerShell 0.9.8. Você pode baixar e instalar essa versão na seção Windows PowerShell da [página Download](http://azure.microsoft.com/downloads/). Este artigo foi escrito para a versão 0.9.8, embora seja possível usar estas etapas (com pequenas modificações nos cmdlets) com o PowerShell 1.0 Preview.
 
->[AZURE.NOTE]Se você estiver executando aplicativos críticos, continue a usar o Azure PowerShell 0.9.8. Na maioria dos casos, a única diferença entre as duas versões é que o cmdlet de Visualização 1.0 segue o padrão {verbo}-AzureRm{substantivo}, enquanto o 0.9.8 nome não inclui Rm. Por exemplo, New-AzureRmResourceGroup em vez de New-AzureResourceGroup. Para obter informações sobre a Visualização do Azure PowerShell 1.0, consulte esta [postagem de blog](https://azure.microsoft.com/blog/azps-1-0-pre/). Para obter mais informações sobre os cmdlets da Visualização do Azure PowerShell 1.0, consulte [Cmdlets do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/mt125356.aspx).
+**Sobre o uso destas etapas com o Azure PowerShell 1.0 Preview**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
+	
 
 
 ## 1\. Conecte-se as suas assinaturas 
@@ -49,13 +50,13 @@ Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
 Abra o console do PowerShell e conecte-se à sua conta.
 
-**Observação:** as instruções a seguir são baseadas na versão 0.9.8 dos cmdlets do Azure PowerShell.
+**Observação:** as instruções a seguir se baseiam na versão 0.9.8 dos cmdlets do Azure PowerShell.
 
 Use o exemplo a seguir para ajudar com a conexão:
 
 		Add-AzureAccount
 
-Se você tem mais de uma assinatura, use *Select-AzureSubscription* para conectar-se à assinatura que deseja usar.
+Se você tiver mais de uma assinatura, use *Select-AzureSubscription* para se conectar à assinatura que deseja usar.
 
 		Select-AzureSubscription "yoursubscription"
 
@@ -65,8 +66,8 @@ Em seguida, alterne para o modo Gerenciador de Recursos do Azure.
 
 ## 2\. Criar uma rede virtual e uma sub-rede de gateway
 
-- Se você já tiver uma rede virtual com uma sub-rede de gateway, pule para **Etapa 3 - adicionar seu site local**. 
-- Se você já tem uma rede virtual e deseja adicionar uma sub-rede de gateway à sua VNet, consulte [Adicionar uma sub-rede de gateway a uma VNet](#gatewaysubnet).
+- Se você já tiver uma rede virtual com uma sub-rede de gateway, pule para **Etapa 3 - Adicionar seu site local**. 
+- Se você já tiver uma rede virtual e quiser adicionar uma sub-rede de gateway à sua Rede Virtual, consulte [Adicionar uma sub-rede de gateway a uma Rede Virtual](#gatewaysubnet).
 
 ### Para criar uma rede virtual e uma sub-rede de gateway
 
@@ -79,13 +80,13 @@ Em primeiro lugar, crie um grupo de recursos:
 
 Em seguida, crie sua rede virtual. Verifique se os espaços de endereço especificados não se sobrepõem a qualquer espaço de endereço em sua rede local.
 
-O exemplo abaixo cria uma rede virtual denominada *testvnet* e duas sub-redes, uma chamada *GatewaySubnet* e outra chamada *Subnet1*. É importante criar uma sub-rede especificamente chamada de *GatewaySubnet*. Se você usar outro nome, a configuração de conexão falhará.
+O exemplo abaixo cria uma rede virtual denominada *testvnet* e duas sub-redes, uma chamada *GatewaySubnet* e outra chamada *Subnet1*. É importante criar uma sub-rede especificamente chamada *GatewaySubnet*. Se você usar outro nome, a configuração de conexão falhará.
 
 		$subnet1 = New-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
 		$subnet2 = New-AzureVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
 		New-AzureVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="gatewaysubnet"></a>Para adicionar uma sub-rede de gateway a uma VNet (opcional)
+### <a name="gatewaysubnet"></a>Para adicionar uma sub-rede de gateway a uma Rede Virtual (opcional)
 
 Essa etapa será necessária somente se você precisar adicionar um gateway de sub-rede a uma VNet.
 
@@ -146,13 +147,13 @@ Nesta etapa, você criará o gateway de rede virtual. Observe que criar um gatew
 Use os seguintes valores:
 
 - O Tipo de Gateway é *Vpn*.
-- O VpnType pode ser RouteBased* (referenciado como um Gateway Dinâmico em algumas documentações) ou *Policy Based* (referenciado como um Gateway Estático em algumas documentações). Para obter mais informações sobre tipos de gateway de VPN, consulte [Sobre Gateways de VPN](vpn-gateway-about-vpngateways.md). 	
+- O VpnType pode ser RouteBased* (mencionado como um Gateway Dinâmico em algumas documentações) ou *Baseado em Políticas* (mencionado como um Gateway Estático em algumas documentações). Para saber mais sobre os tipos de gateway de VPN, consulte [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md). 	
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
 ## 7\. Configurar o dispositivo de VPN
 
-Neste ponto, você precisará do endereço IP público do gateway de rede virtual para configurar seu dispositivo VPN local. Fale com o fabricante do dispositivo para obter informações específicas de configuração. Além disso, consulte [Dispositivos VPN](http://go.microsoft.com/fwlink/p/?linkid=615099) para obter mais informações.
+Neste ponto, você precisará do endereço IP público do gateway de rede virtual para configurar seu dispositivo VPN local. Fale com o fabricante do dispositivo para obter informações específicas de configuração. Além disso, consulte [Dispositivos VPN](http://go.microsoft.com/fwlink/p/?linkid=615099) para saber mais.
 
 Para localizar o endereço IP público do seu gateway de rede virtual, use o exemplo a seguir:
 
@@ -177,7 +178,7 @@ Você pode usar o seguinte exemplo de cmdlet, configurando os valores para que c
 
 		Get-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
- Após o cmdlet ter sido concluído, role pelos valores para exibi-los. No exemplo abaixo, o status da conexão é exibido como *Conectado* e você pode ver os bytes em ingresso e egresso.
+ Após o cmdlet ter sido concluído, role pelos valores para exibi-los. No exemplo abaixo, o status da conexão é exibido como *Conectado* e é possível ver os bytes de entrada e saída.
 
 	Body:
 	{
@@ -214,13 +215,13 @@ Se você precisar alterar os prefixos para seu site local, use as instruções a
 ### Adicionar ou remover prefixos sem uma conexão de gateway de VPN
 
 
-- **Para adicionar** prefixos de endereço adicionais a um site local que você criou, mas que ainda não tem uma conexão de gateway de VPN, use o exemplo a seguir.
+- **Para adicionar** prefixos de endereço adicionais a um site local que você criou, mas que ainda não tenha uma conexão de gateway de VPN, use o exemplo a seguir.
 
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
 
-- **Para remover** um prefixo de endereço de um site local que não tem uma conexão VPN, use o exemplo abaixo. Exclua os prefixos de que você não precisa mais. Neste exemplo, não é mais necessário prefixar 20.0.0.0/24 (do exemplo anterior), portanto, iremos atualizar o site local e excluir o prefixo.
+- **Para remover** um prefixo de endereço de um site local que não tenha uma conexão VPN, use o exemplo abaixo. Exclua os prefixos de que você não precisa mais. Neste exemplo, não é mais necessário prefixar 20.0.0.0/24 (do exemplo anterior), portanto, iremos atualizar o site local e excluir o prefixo.
 
 		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
@@ -251,6 +252,6 @@ Você pode usar o exemplo a seguir como uma diretriz.
 
 ## Próximas etapas
 
-Adicione uma máquina virtual à rede virtual. [Criar uma Máquina Virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
+Adicione uma máquina virtual à rede virtual. [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

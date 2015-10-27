@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Como Criar um Ambiente do Serviço de Aplicativo" 
 	description="Descrição do fluxo de criação para ambientes do serviço de aplicativo" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
@@ -146,4 +146,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

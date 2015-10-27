@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar um aplicativo lógico | Microsoft Azure"
-	description="Saiba como criar um aplicativo lógico básico dos Serviços de Aplicativos"
+	description="Saiba como criar um Aplicativo Lógico conectando serviços SaaS"
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="10/16/2015"
 	ms.author="stepsic"/>
 
-# Criar um novo aplicativo lógico
+# Criar um novo aplicativo lógico conectando serviços SaaS
 
 | Referência rápida |
 | --------------- |
 | [Linguagem de definição de aplicativos lógicos](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Documentação do conector de aplicativos lógicos](https://azure.microsoft.com/ja-jp/documentation/articles/app-service-logic-connectors-list/) |
-| [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/ja-jp/home?forum=azurelogicapps) |
+| [Documentação do conector de aplicativos lógicos](https://azure.microsoft.com/pt-BR/documentation/articles/app-service-logic-connectors-list/) |
+| [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurelogicapps) |
 
 Este tópico demonstra como, em apenas alguns minutos, você pode começar a usar os [Aplicativos Lógicos dos Serviços de Aplicativos](app-service-logic-what-are-logic-apps.md). Vamos percorrer um fluxo de trabalho que permite fornecer um conjunto de tweets em que você está interessado a uma pasta do Dropbox.
 
@@ -94,15 +94,19 @@ São os gatilhos que fazem seu aplicativo lógico ser executado. Em seguida, voc
 
 1. Ainda na exibição **Criar aplicativo lógico**, clique em **Gatilhos e ações**.
 
-	Isso exibirá um designer de tela cheia que exibe seu fluxo. Ao lado direito, há uma lista de todos os serviços que podem ter gatilhos.
+	Isso exibirá um designer de tela cheia que exibe seu fluxo e alguns modelos para começar.
+	
+2. Para este tutorial, vamos **Criar do zero**. Você sempre poderá usar um modelo se ele parecer útil.
+    
+    Agora, no lado direito, há uma lista de todos os serviços que podem ter gatilhos.
 
-2. Na seção superior, clique em **Recorrência**.
+3. Na seção superior, clique em **Recorrência**.
 
 	Isso adiciona uma caixa onde você pode especificar as configurações de recorrência.
 
 	![Recorrência](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-3.  Escolha uma **Frequência** e um **Intervalo** de recorrência (como a cada 1 hora) e clique na marca de seleção verde.
+4.  Escolha uma **Frequência** e um **Intervalo** de recorrência (como a cada 1 hora) e clique na marca de seleção verde.
 
 Agora, você adicionará uma ação ao fluxo.
 
@@ -112,13 +116,13 @@ As ações são o que seu fluxo de trabalho faz. Você pode ter qualquer quantid
 
 1. No painel direito, clique em **Conector do Twitter**.
 
-2. Depois de ser carregado, clique em **Autorizar**, entre em sua conta do Twitter e clique em **Autorizar aplicativo**.
+2. Depois que ele carregar, clique em **Autorizar**, entre em sua conta do Twitter e clique em **Autorizar aplicativo**.
 
 	Isso concede ao conector acesso à sua conta do Twitter. Uma lista de possíveis operações fornecidas pelo conector do Twitter é exibida.
 
 	![Ações](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE]O botão **Autorizar** usa segurança OAUTH para se conectar aos serviços SaaS, como o Twitter. Mais informações sobre OAUTH em [Segurança OAUTH](app-service-logic-oauth-security.md).
+	> [AZURE.NOTE]O botão **Autorizar** usa a segurança OAUTH para se conectar aos serviços SaaS, como o Twitter. Mais informações sobre OAUTH em [Segurança OAUTH](app-service-logic-oauth-security.md).
 
 3. Clique em **Pesquisar tweets**, e em **Especificar uma consulta**, digite algo como `#MicrosoftAzure` e clique na marca de seleção verde.
 
@@ -132,7 +136,7 @@ A etapa final é adicionar uma ação que carrega um tweet em um arquivo do Drop
 
 1. No painel direito, clique em **Conector do Dropbox**.
 
-2. Após o provisionamento ser concluído, clique no botão **Autorizar**, entre em sua conta do Dropbox e clique em **Permitir**.
+2. Após a conclusão do provisionamento, clique em **Autorizar**, entre em sua conta do Dropbox e clique em **Permitir**.
 
 	![Autorizar o conector do Dropbox](./media/app-service-logic-create-a-logic-app/authorize.png)
 
@@ -169,7 +173,7 @@ A etapa final é adicionar uma ação que carrega um tweet em um arquivo do Drop
 
 Agora seu aplicativo lógico está em execução. Sempre que o fluxo de trabalho agendado é executado, ele procura tweets com a hashtag específica. Quando encontra uma tweet correspondente, ele o coloca no seu Dropbox. Por fim, você verá como desabilitar o aplicativo ou como está seu desempenho.
 
-1. Clique em **Navegar** no lado esquerdo da tela e selecione **Aplicativos Lógicos**.
+1. Clique em **Procurar** no lado esquerdo da tela e selecione **Aplicativos Lógicos**.
 
 2. Clique no novo aplicativo lógico que você acabou de criar para ver o status atual e as informações gerais.
 
@@ -184,4 +188,4 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usar os recursos de aplicativos lógicos]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
