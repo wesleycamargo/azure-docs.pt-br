@@ -83,7 +83,13 @@ Agora, o seu hub de notificação está configurado para funcionar com o GCM e v
 
 ###Incluir código
 
-1. Baixe o <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">SDK do Android para Hubs de Notificação</a>. Extraia o arquivo .zip e copie **notificationhubs\\notification-hubs-0.3.jar** e **notifications\\notifications-1.0.1.jar** para o diretório **app\\libs** do seu projeto. Você pode fazer isso arrastando os arquivos diretamente para a pasta **libs** na janela Exibição do Projeto do Android Studio. Atualize a pasta **libs**.
+1. Baixe o <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">SDK do Android para Hubs de Notificação</a>. Extraia o arquivo .zip e copie **notificationhubs\\notification-hubs-0.4.jar** e **notifications\\notifications-1.0.1.jar** para o diretório **app\\libs** do seu projeto. Você pode fazer isso arrastando os arquivos diretamente para a pasta **libs** na janela Exibição do Projeto do Android Studio. Atualize a pasta **libs**.
+
+
+
+	A documentação de referência para esses dois pacotes está localizada nos links abaixo:
+	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
+	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
 
 
     > [AZURE.NOTE]Os números no fim do nome do arquivo podem ser alterados em versões subsequentes do SDK.
@@ -120,7 +126,10 @@ Agora, o seu hub de notificação está configurado para funcionar com o GCM e v
 	    private static Boolean isVisible = false;
 
 
-	Não se esqueça de atualizar os três espaços reservados: * **SENDER\_ID**: defina `SENDER_ID` como o número do projeto obtido anteriormente do projeto criado no [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: defina `HubListenConnectionString` como a cadeia de conexão **DefaultListenAccessSignature** para seu hub. Você pode copiar essa cadeia de conexão clicando em **Exibir Cadeia de Conexão** na guia **Painel** de seu hub no [Portal do Azure]. * **HubName**: use o nome do seu hub de notificação que aparece na parte superior da página do Azure para o hub (**não** é a URL completa). Por exemplo, use `"myhub"`.
+	Não se esqueça de atualizar os três espaços reservados:
+	* **SENDER\_ID**: defina `SENDER_ID` como o número do projeto obtido anteriormente do projeto criado no [Google Cloud Console](http://cloud.google.com/console).
+	* **HubListenConnectionString**: defina `HubListenConnectionString` como a cadeia de conexão **DefaultListenAccessSignature** para seu hub. Você pode copiar essa cadeia de conexão clicando em **Exibir Cadeia de Conexão** na guia **Painel** de seu hub no [portal do Azure].
+	* **HubName**: use o nome do seu hub de notificação que aparece na parte superior da página do Azure para o hub (**não** é a URL completa). Por exemplo, use `"myhub"`.
 
 
 
