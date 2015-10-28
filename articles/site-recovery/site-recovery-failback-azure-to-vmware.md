@@ -152,7 +152,7 @@ Para obter a ID de SCSI de cada disco SCSI em uma máquina virtual Linux, você 
 
 OBSERVAÇÃO: verifique se o sistema tem conexão com a Internet antes de baixar e instalar os pacotes adicionais.
 
-# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 O comando acima baixará os 15 pacotes mencionados abaixo do repositório CentOS 6.6 e os instalará.
 
@@ -188,17 +188,21 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 OBSERVAÇÃO: se a máquina de origem usar o sistema de arquivos Reiser ou XFS para o dispositivo raiz ou de inicialização, será necessário baixar e instalar os pacotes a seguir no Destino mestre do Linux antes da proteção.
 
-# cd /usr/local
+\# cd /usr/local
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+\# wget
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+\# wget
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
+reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+\# wget
+<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Aplicar alterações de configuração personalizadas
 
@@ -214,11 +218,11 @@ Para aplicar alterações de configuração personalizadas, execute as etapas me
 
 3. Execute o comando abaixo para conceder a permissão.
 
-# **chmod 755 ./ApplyCustomChanges.sh**
+\# **chmod 755 ./ApplyCustomChanges.sh**
 
 4. Execute o comando abaixo para executar o script.
 
-**# ./ApplyCustomChanges.sh**
+**\# ./ApplyCustomChanges.sh**
 
 OBSERVAÇÃO: execute o script apenas uma vez no servidor. **REINICIALIZE** o servidor após a execução bem-sucedida do script acima.
 
@@ -510,7 +514,9 @@ Após a criação do plano, você poderá optar por recuperar as máquinas virtu
 
 Se o Status de Replicação for OK, a proteção terá sido concluída e o limite de RPO terá sido atingido. Para confirmar a integridade do par de replicação, acesse as propriedades da máquina virtual e verifique a integridade da replicação.
 
-**Desative as máquinas virtuais do Azure antes de iniciar a recuperação. Isso garantirá a não existência de partições e o atendimento de seus clientes finais por uma cópia do aplicativo. Continue com as etapas abaixo somente após desativar as VMs do Azure.**
+**Desative as máquinas virtuais do Azure antes de iniciar a recuperação.
+Isso garantirá a não existência de partições e o atendimento de seus clientes finais por uma cópia do aplicativo.
+Continue com as etapas abaixo somente após desativar as VMs do Azure.**
 
 Para começar a recuperação das máquinas virtuais de volta para o local, é necessário iniciar o plano salvo.
 
@@ -554,4 +560,4 @@ Após a conclusão do failback, convém proteger mais uma vez as máquinas virtu
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
