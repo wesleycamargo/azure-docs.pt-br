@@ -40,7 +40,7 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
-## 1\. Registrar um Aplicativo
+## 1. Registrar um Aplicativo
 - Entre no Portal de Gerenciamento do Azure.
 - Clique em **Active Directory** no painel de navegação à esquerda.
 - Selecione o locatário em que você deseja registrar o aplicativo.
@@ -135,7 +135,8 @@ passport.use(new OIDCStrategy({
 O Passport usa um padrão semelhante para todas as Estratégias (Twitter, Facebook etc.) que todos os gravadores de Estratégia seguem. Observando a estratégia, você verá que passamos a ela uma function() que tem um token e um done como parâmetros. A estratégia retorna corretamente para nós após concluir seu trabalho. Depois disso, vamos armazenar o usuário e acrescentar o token, para que não precisemos pedi-lo novamente.
 
 
-> [AZURE.IMPORTANT]O código acima usa qualquer usuário que tente se autenticar em nosso servidor. Isso é conhecido como registro automático. Em servidores de produção, não convém permitir que qualquer pessoa entre sem primeiro passar por um processo de registro que você decide. Esse geralmente é o padrão que você vê em aplicativos de consumidor que lhe permitem registrar-se com o Facebook, mas depois pedem que você preencha informações adicionais. Se esse não fosse um aplicativo de exemplo, poderíamos ter apenas extraído o email do objeto de token que é retornado e pedido que ele preenchesse informações adicionais. Como esse é um servidor de teste, basta adicioná-los ao banco de dados na memória.
+> [AZURE.IMPORTANT] 
+O código acima usa qualquer usuário que tente se autenticar em nosso servidor. Isso é conhecido como registro automático. Em servidores de produção, não convém permitir que qualquer pessoa entre sem primeiro passar por um processo de registro que você decide. Esse geralmente é o padrão que você vê em aplicativos de consumidor que lhe permitem registrar-se com o Facebook, mas depois pedem que você preencha informações adicionais. Se esse não fosse um aplicativo de exemplo, poderíamos ter apenas extraído o email do objeto de token que é retornado e pedido que ele preenchesse informações adicionais. Como esse é um servidor de teste, basta adicioná-los ao banco de dados na memória.
 
 - Em seguida, vamos adicionar os métodos que nos permitirão acompanhar os usuários conectados conforme exigido pelo Passport. Isso inclui a serialização e a desserialização de informações do usuário:
 
@@ -253,13 +254,25 @@ Seu aplicativo agora está configurado corretamente para se comunicar com o pont
 
 //Rotas (Seção 4)
 
-app.get('/', function(req, res){ res.render('index', { user: req.user }); });
+app.get('/', function(req, res){
+  res.render('index', { user: req.user });
+});
 
-app.get('/account', ensureAuthenticated, function(req, res){ res.render('account', { user: req.user }); });
+app.get('/account', ensureAuthenticated, function(req, res){
+  res.render('account', { user: req.user });
+});
 
-app.get('/login', passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }), function(req, res) { log.info('Login was called in the Sample'); res.redirect('/'); });
+app.get('/login',
+  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+  function(req, res) {
+    log.info('Login was called in the Sample');
+    res.redirect('/');
+});
 
-app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 ```
 
@@ -276,7 +289,15 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 // Middleware de rota simples para garantir a autenticação do usuário. (Seção 4)
 
-// Use esse middleware de roteiro em qualquer recurso que precise ser protegido. Se // a solicitação for autenticada (normalmente por meio de uma sessão de logon persistente), // ela continuará. Caso contrário, o usuário será redirecionado para // login page. function ensureAuthenticated(req, res, next) { if (req.isAuthenticated()) { return next(); } res.redirect('/login') } ```
+// Use esse middleware de roteiro em qualquer recurso que precise ser protegido.  Se
+//   a solicitação for autenticada (normalmente por meio de uma sessão de logon persistente),
+//   ela continuará. Caso contrário, o usuário será redirecionado para
+//   login page.
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
+}
+```
 
 - Por fim, vamos realmente criar o servidor em `app.js`:
 
@@ -287,7 +308,7 @@ app.listen(3000);
 ```
 
 
-## 5\. Criar as exibições e as rotas no express para exibir o usuário no site
+## 5. Criar as exibições e as rotas no express para exibir o usuário no site
 
 Temos nosso `app.js` concluído. Agora, basta adicionar rotas e modos de exibição que mostram as informações que precisamos do usuário e lidar com as rotas `/logout` e `/login` criadas.
 
@@ -375,9 +396,10 @@ Essas rotas simples apenas passarão a solicitação para nossos modos de exibi�
 		<% } %>
 		<%- body %>
 	</body>
-</html>```
+</html>
+```
 
-Por fim, compile e execute seu aplicativo!
+Por fim, compile e execute seu aplicativo! 
 
 Execute `node app.js` e navegue até `http://localhost:3000`
 
@@ -395,4 +417,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
