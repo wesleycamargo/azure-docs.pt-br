@@ -63,7 +63,7 @@ Crie um plano de recuperação da seguinte forma:
 Depois de adicionar máquinas virtuais protegidas ou grupos de replicação ao grupo de planos de recuperação padrão e criar o plano, você pode personalizá-lo:
 
 - **Adicionar novos grupos**: você pode incluir grupos de plano de recuperação adicionais. Os grupos adicionados são numerados na ordem em que você os adiciona. É possível adicionar até sete grupos. Você pode adicionar mais computadores ou grupos de replicação a esses novos grupos. Observe que uma máquina virtual ou um grupo de replicação pode ser incluído apenas em um grupo de planos de recuperação.
-- ****Adicionar um script **: você pode adicionar scripts antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, este adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Observe que só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
+- **Adicionar um script **: você pode adicionar scripts antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, este adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Observe que só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
 - **Adicionar uma ação manual**: você pode adicionar ações manuais que são executadas antes ou depois de um grupo de planos de recuperação. Quando o plano de recuperação é executado, ele é interrompido no ponto em que você inseriu a ação manual, e uma caixa de diálogo solicita que você especifique que a ação manual foi concluída.
 
 ### Estender os planos de recuperação com scripts
@@ -124,4 +124,4 @@ Você pode estender o seu plano de recuperação executando um runbook da automa
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
