@@ -111,10 +111,10 @@ O provedor é executado nos servidores VMM, em servidores de host Hyper-V se voc
 - Se você quiser que o servidor no qual o provedor está em execução se conecte à Internet usando um servidor proxy, use as configurações de proxy existentes ou especifique um proxy personalizado.
 - O proxy precisa permitir que esses endereços passem pelo firewall:
 
-	-  **.accesscontrol.windows.net
--  .backup.windowsazure.com
-	-  **.blob.core.windows.net
--  **.store.core.windows.net
+	-  *.accesscontrol.windows.net
+	-  .backup.windowsazure.com
+	-  *.blob.core.windows.net
+	-  *.store.core.windows.net
 
 - Se você tiver regras baseadas no endereço IP em seu firewall, certifique-se de que elas permitam a comunicação do servidor de configuração com os endereços IP descritos em [Intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) e com HTTPS (443). Você precisará incluir em uma lista válida os intervalos de endereços IP da região do Azure que você pretende usar e do Oeste dos EUA.
 - Se você estiver implantando a Recuperação de Site com o VMM e usar um proxy personalizado, uma conta de RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas nas configurações personalizadas de proxy no portal de Recuperação de Site. Será necessário configurar o servidor proxy para que essa conta possa ser autenticada.
@@ -178,4 +178,4 @@ Para obter informações detalhadas sobre o planejamento desses componentes leia
 
 Comece a configurar os componentes para seu cenário de implantação. [Saiba mais](site-recovery-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
