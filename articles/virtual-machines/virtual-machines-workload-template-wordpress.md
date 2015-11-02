@@ -19,7 +19,7 @@
 
 # Implantar um servidor WordPress no Ubuntu com um modelo do Gerenciador de Recursos do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Você não pode criar esse recurso com o modelo de implantação clássica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássica. Você não pode criar esse recurso com o modelo de implantação clássica.
 
 Use as instruções neste artigo para implantar um servidor WordPress em execução no Ubuntu usando um modelo do Gerenciador de Recursos. Este modelo cria uma única máquina virtual em uma nova rede virtual.
 
@@ -43,9 +43,9 @@ Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recurso
 
 Dependendo do modelo, pode levar algum tempo para o Azure criar a carga de trabalho. Ao concluir, você terá um novo servidor WordPress em execução no Ubuntu no seu grupo de recursos novos ou existentes.
 
-## Azure PowerShell
+## PowerShell do Azure
 
-Antes de começar, verifique se você tem a versão correta do Azure PowerShell instalada, faça logon e alterne para o novo modo do Gerenciador de Recursos. Para obter detalhes, clique [aqui](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Preencha o nome de uma implantação do Azure, um novo nome do Grupo de Recursos e um local de datacenter do Azure no seguinte conjunto de comandos. Remova tudo que estiver entre aspas, incluindo os caracteres < and >.
 
@@ -67,7 +67,7 @@ Aqui está um exemplo.
 
 Em seguida, execute o bloco de comando no prompt do Azure PowerShell.
 
-Ao executar o comando **New-AzureRmResourceGroupDeployment**, você será solicitado a fornecer os valores de uma série de parâmetros. Depois de especificar todos os valores de parâmetros, **New-AzureRmResourceGroupDeployment** criará e configurará as máquinas virtuais.
+Ao executar o comando **New-AzureRmResourceGroupDeployment**, será solicitado que você forneça os valores de uma série de parâmetros. Depois de especificar todos os valores de parâmetros, **New-AzureRmResourceGroupDeployment** criará e configurará as máquinas virtuais.
 
 Quando a execução do modelo for concluída, você terá o servidor WordPress em execução no Ubuntu no seu novo grupo de recursos.
 
@@ -106,4 +106,4 @@ Quando a execução do modelo for concluída, você terá o servidor WordPress e
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

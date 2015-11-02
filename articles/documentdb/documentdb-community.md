@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/12/2015"
+  ms.date="10/20/2015"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -126,7 +126,8 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 | ------------------------------------------- | ------------------ | ------- |
 | Grupo de usuários de integração | 5 de outubro de 2015 | [Banco de Dados de Documentos do Azure para a integração da área de saúde](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
 | Itália DX - #TecHeroes | 2 de outubro de 2015 | [#TecHeroes - Banco de Dados de Documentos](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
-| .NET arrebenta! Podcast | 29 de setembro de 2015 | [Dados no Banco de Dados de Documentos com Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
+| Microsoft Cloud Show - podcast | 30 de setembro de 2015 | [Episódio 099 - O Banco de Dados de Documentos do Azure com Andrew Liu](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
+| .NET Rocks! - podcast | 29 de setembro de 2015 | [Dados no Banco de Dados de Documentos com Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
 | Dados expostos | 28 de setembro de 2015 | [Novidades no Banco de Dados de Documentos do Azure desde GA](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
 | O Podcast do Azure | 17 de setembro de 2015 | [Episódio 94: reestruturação de azpodcast.com](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
 | Cobertura em Nuvem | 4 de setembro de 2015 | [Episódio 185: Atualizações dos Banco de Dados de Documentos com Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
@@ -184,7 +185,7 @@ Nós estamos disponíveis no horário comercial no IRC todas as sextas, das 11h 
 
 | | |
 | -------------------------------------------------------- | --- |
-|![Equipe](./media/documentdb-community/documentdb-team.png) | Você precisa de ajuda técnica? Tem dúvidas? Se perguntando se NoSQL é ideal para você?<br/><br/>Você pode [Agendar um chat individual diretamente com a equipe de engenharia DocumentDB](http://www.askdocdb.com/).<br/><br/>Nós também pode solucionar um [email](mailto:askdocdb@microsoft.com) ou tweet conosco em [@DocumentDB](https://twitter.com/DocumentDB). |
+|![Equipe](./media/documentdb-community/documentdb-team.png) | Você precisa de ajuda técnica? Tem dúvidas? Se perguntando se o NoSQL é ideal para você?<br/><br/>Você pode [Agendar um chat individual diretamente com a equipe de engenharia DocumentDB](http://www.askdocdb.com/).<br/><br/>Você também pode nos enviar um [email](mailto:askdocdb@microsoft.com) ou enviar um tweet para [@DocumentDB](https://twitter.com/DocumentDB). |
 
 
 <br/><br/>
@@ -213,4 +214,4 @@ Esses projetos são ativamente desenvolvidos pela equipe do Banco de Dados de Do
 | Conector do Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Ferramenta de migração de dados | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Centro de download da Microsoft.](http://www.microsoft.com/pt-BR/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

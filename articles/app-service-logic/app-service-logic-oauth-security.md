@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="10/15/2015"
 	ms.author="mandia"/>
 
 
 # Saiba mais sobre a segurança OAuth em conectores de SaaS
-Muitos dos conectores de SaaS (software como serviço), como Facebook, Twitter, Dropbox e assim por diante, exigem que os usuários autorizem o uso do protocolo OAuth. Ao usar esses Conectores de SaaS por meio de Aplicativos Lógicos, fornecemos uma experiência do usuário simplificada na qual você clica em "Autorizar" no designer de Aplicativos Lógicos. Ao **Autorizar**, você será solicitado a se conectar (se já não o tiver feito) e a fornecer consentimento para se conectar ao serviço SaaS em seu nome. Quando você fornece consentimento e autoriza, seus Aplicativos Lógicos podem acessar esses serviços SaaS.
+Muitos dos conectores de SaaS (software como serviço), como Facebook, Twitter, DropBox e assim por diante, exigem que os usuários autentiquem usando o protocolo OAUTH. Ao usar esses Conectores de SaaS por meio de Aplicativos Lógicos, fornecemos uma experiência do usuário simplificada na qual você clica em "Autorizar" no designer de Aplicativos Lógicos. Ao **Autorizar**, você será solicitado a se conectar (se já não o tiver feito) e a fornecer consentimento para se conectar ao serviço SaaS em seu nome. Após seu consentimento e autorização, seus Aplicativos Lógicos poderão acessar esses serviços SaaS.
 
 ## Criar seu próprio aplicativo de SaaS
 Essa experiência simplificada é possível porque criamos e registramos anteriormente o aplicativo nesses serviços SaaS. Em alguns casos, você pode registrar e usar seu próprio aplicativo. Isso é necessário, por exemplo, quando você quer usar os conectores de SaaS em seus aplicativos personalizados, por exemplo, ao [Deploy a SaaS connector API app (Implantar um aplicativo de API de conector SaaS)](app-service-api-connnect-your-app-to-saas-connector.md). Este exemplo usa o Conector do Dropbox, mas o processo é o mesmo para todos os conectores que dependem de OAuth.
@@ -48,4 +48,4 @@ Agora você pode usar o Conector por meio de Aplicativos Lógicos. Ao usar o Con
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

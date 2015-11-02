@@ -257,6 +257,8 @@ A seguir, a saída do controlador 1 (o controlador ativo). Somente a interface D
 
 Você pode usar o cmdlet `Test-Connection` para determinar se o seu dispositivo StorSimple pode se conectar à rede externa. Se todos os parâmetros de rede, incluindo o DNS, estiverem configurados corretamente no assistente de instalação, você poderá usar o cmdlet `Test-Connection` para executar o ping em um endereço conhecido fora da rede, como outlook.com.
 
+Você deve habilitar o ping para solucionar problemas de conectividade com esse cmdlet, se o ping estiver desabilitado.
+
 Consulte os seguintes exemplos de saída do cmdlet `Test-Connection`.
 
 > [AZURE.NOTE]No primeiro exemplo, o dispositivo está configurado com um DNS incorreto. No segundo exemplo, o DNS está correto.
@@ -324,7 +326,7 @@ Use o cmdlet `Test-HcsmConnection` para um dispositivo que já está conectado e
  
 Os arquivos de log CiSCommandletLog0Curr.errlog e CiSAgentsvc0Curr.errlog terão mais informações, como os detalhes da exceção.
 
-Para obter mais informações sobre como usar o cmdlet, acesse [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) na documentação de referência do Windows PowerShell.
+Para saber mais sobre como usar o cmdlet, acesse [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) na documentação de referência do Windows PowerShell.
 
 > [AZURE.IMPORTANT]Você pode executar esse cmdlet para o controlador passivo e o ativo.
  
@@ -537,7 +539,7 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 
      >[AZURE.NOTE]O assistente de instalação deve ser executado no controlador ativo. Para verificar se você está conectado ao controlador ativo, examine a faixa apresentada no console serial. A faixa indica se você está conectado ao controlador 0 ou 1, e se o controlador está ativo ou passivo. Para obter mais informações, consulte [Identificar um controlador ativo em seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
  
-2. Certifique-se de que o dispositivo esteja conectado corretamente: verifique a cabeamento de rede no backplane do dispositivo. O cabeamento é específico para o modelo do dispositivo. Para obter mais informações, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+2. Certifique-se de que o dispositivo esteja conectado corretamente: verifique a cabeamento de rede no backplane do dispositivo. O cabeamento é específico para o modelo do dispositivo. Para saber mais, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
      >[AZURE.NOTE]Se você estiver usando portas de rede 10 GbE, precisará usar os adaptadores de QSFP-SFP e os cabos SFP fornecidos. Para obter mais informações, consulte a [lista de cabos, comutadores e transceptores recomendados pelo fornecedor OEM para portas Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
  
@@ -561,7 +563,7 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 
 6. Use o cmdlet Test-Connection para verificar se há conectividade com a rede externa. Para obter mais informações, vá até [Solucionar problemas com o cmdlet Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
 
-7. Verifique se há interferência de firewall. Se você tiver verificado que as configurações de IP Virtual (VIP), sub-rede, gateway e DNS estão todos corretas e ainda assim ter problemas de conectividade, é possível que seu firewall esteja bloqueando a comunicação entre o dispositivo e a rede externa. Você precisa garantir que as portas 80 e 443 estejam disponíveis no seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte os [Requisitos de rede do dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+7. Verifique se há interferência de firewall. Se você tiver verificado que as configurações de IP Virtual (VIP), sub-rede, gateway e DNS estão todos corretas e ainda assim ter problemas de conectividade, é possível que seu firewall esteja bloqueando a comunicação entre o dispositivo e a rede externa. Você precisa garantir que as portas 80 e 443 estejam disponíveis no seu dispositivo StorSimple para comunicação de saída. Para saber mais, consulte os [Requisitos de rede do dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
 8. Examine os logs. Acesse [Pacotes de suporte e logs do dispositivo disponíveis para solução de problemas](#support-packages-and-device-logs-available-for-troubleshooting).
 
@@ -575,4 +577,4 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

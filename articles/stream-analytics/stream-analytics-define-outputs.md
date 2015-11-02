@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Definir saídas | Microsoft Azure" 
 	description="Noções básicas sobre saídas do Stream Analytics" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="análise de big data, serviço de nuvem, internet das coisas, serviço gerenciado, processamento de fluxo, streaming analytics, dados de streaming"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -39,7 +39,7 @@ Um [banco de dados SQL do Azure](http://azure.microsoft.com/services/sql-databas
 
 ## Armazenamento de Blob ##
 
-O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, confira a documentação em [Como usar blobs](./articles/storage-dotnet-how-to-use-blobs.md).
+O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, consulte a documentação em [Como usar blobs](./articles/storage-dotnet-how-to-use-blobs.md).
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de blob.
 
@@ -265,4 +265,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

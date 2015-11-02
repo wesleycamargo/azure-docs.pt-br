@@ -5,17 +5,23 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/25/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Configure um gateway de VPN no portal do Azure
+
+>[AZURE.NOTE]É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para saber mais sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md).
+
+Este artigo foi escrito para o modelo de implantação clássico e para o Portal do Azure (não para o Portal de Visualização). No momento, se você quiser configurar um Gateway de VPN para o modelo de implantação clássico usando um portal, use o Portal do Azure.
 
 Se você quiser criar uma conexão segura entre locais entre o Azure e sua rede local, será necessário configurar um gateway de VPN. Existem diferentes tipos de gateways e o tipo de gateway que você criará dependerá do seu plano de design de rede e o dispositivo VPN local que deseja usar. Por exemplo, algumas opções de conectividade, como uma conexão ponto a site, exigem um gateway de roteamento dinâmico. Se você quiser configurar seu gateway para oferecer suporte a conexões ponto a site (P2S) e uma conexão de site a site (S2S), precisará configurar um gateway de roteamento dinâmico, embora a site a site possa ser configurada com qualquer tipo de roteamento de gateway. Além disso, você precisará certificar-se de que o dispositivo que deseja usar para sua conexão site a site oferecerá suporte ao tipo de gateway que deseja criar. Consulte [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md).
 
@@ -145,10 +151,10 @@ Antes de alterar seu tipo de gateway, verifique se o seu dispositivo VPN dará s
 
 Você pode saber mais sobre a conectividade entre locais para redes virtuais neste artigo: [Sobre conectividade segura entre locais para redes virtuais](vpn-gateway-cross-premises-options.md).
 
-Você pode adicionar máquinas virtuais à sua rede virtual. Consulte [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
+Você pode adicionar máquinas virtuais à sua rede virtual. Confira [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Se você quiser configurar uma conexão VPN ponto a site, veja [Configurar uma conexão VPN ponto a site](vpn-gateway-point-to-site-create.md).
+Se você quiser configurar uma conexão VPN ponto a site, consulte [Configurar uma conexão VPN ponto a site](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

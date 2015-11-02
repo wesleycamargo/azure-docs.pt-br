@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
 
@@ -89,15 +89,15 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 
 
 ## Próximas etapas
-A imagem está pronta para ser usada como modelo para criar uma nova máquina virtual. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você acabou de criar. Veja [Usando a CLI do Azure com a API de Gerenciamento de Serviços](virtual-machines-command-line-tools.md) para obter detalhes sobre o comando. Como alternativa, é possível usar o [Portal de Gerenciamento][] para criar uma máquina virtual personalizada usando o método **Da Galeria** e selecionando a imagem que você acabou de criar. Veja [Como criar uma máquina virtual personalizada][] para obter mais detalhes.
+A imagem está pronta para ser usada como modelo para criar uma nova máquina virtual. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você acabou de criar. Veja [Usando a CLI do Azure com a API de Gerenciamento de Serviços](virtual-machines-command-line-tools.md) para obter detalhes sobre o comando. Como alternativa, é possível usar o [Portal de Gerenciamento][] para criar uma máquina virtual personalizada usando o método **Da Galeria** e selecionando a imagem que você acabou de criar. Consulte [Como criar uma máquina virtual personalizada][] para obter mais detalhes.
 
 **Consulte também:** [Guia do usuário do agente Linux para o Azure](virtual-machines-linux-agent-user-guide.md)
 
 [Portal de Gerenciamento]: http://manage.windowsazure.com
 [ Como fazer logon em uma máquina virtual executando o Linux]: virtual-machines-linux-how-to-log-on.md
-[Sobre imagens da máquina virtual no Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[Como criar uma máquina virtual personalizada]: virtual-machines-create-custom.md
+[Sobre imagens da máquina virtual no Azure]: virtual-machines-images.md
+[Como criar uma máquina virtual personalizada]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Como criar uma máquina virtual que executa Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

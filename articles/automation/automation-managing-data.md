@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gerenciando dados da Automação do Azure"
+   pageTitle="Gerenciando os dados da Automação do Azure | Microsoft Azure"
    description="Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure. Atualmente, inclui a Retenção de dados e o backup da Recuperação de desastres na Automação do Azure."
    services="automation"
    documentationCenter=""
@@ -62,14 +62,9 @@ Você não pode exportar certificados da Automação do Azure. Você deve garant
 
 ##Replicação geográfica na Automação do Azure
 
-A Automação do Azure dá suporte à replicação geográfica. Com a replicação geográfica, a Automação do Azure mantém seus dados duráveis em duas regiões. Ao criar uma Conta de automação no portal do Azure, você escolhe a região onde ela deve ser criada, que é a região primária. A região onde seus dados são replicados geograficamente é conhecida como a região secundária. Regiões primária e secundária conversam entre si para replicar geograficamente as atualizações feitas na Conta de automação. Como a região secundária armazena uma cópia das informações, se houver o failover de uma Conta de automação da região primária para a secundária, todas as suas informações da Conta de automação ainda estariam disponíveis na região secundária.
+A replicação geográfica, padrão em contas da Automação do Azure, faz o backup de dados da conta em uma região geográfica diferente para obter redundância. Você pode escolher uma região primária durante a configuração de sua conta e, em seguida, uma região secundária é atribuída automaticamente a ela. Os dados secundários, copiados da região primária, são atualizados continuamente em caso de perda de dados.
 
-A replicação geográfica é interna nas Contas de automação e é oferecida sem custo adicional. Você não tem controle para escolher a região secundária, ela é determinada automaticamente com base na sua escolha de região primária.
-
- 
-###Local das réplicas geográficas
-
-Atualmente, as Contas de automação podem ser criadas nas cinco regiões abaixo, e o suporte para mais regiões será adicionado no futuro. A tabela a seguir mostra os emparelhamentos de regiões primárias e secundárias.
+A tabela a seguir mostra os emparelhamentos disponíveis das regiões primárias e secundárias.
 
 |Primário |Secundário
 | ---------------   |----------------
@@ -79,9 +74,6 @@ Atualmente, as Contas de automação podem ser criadas nas cinco regiões abaixo
 |Sudeste da Ásia |Ásia Oriental
 |Leste do Japão |Oeste do Japão
 
+No evento improvável de os dados de uma região primária serem perdidos, a Microsoft tentará recuperá-los. Se não for possível recuperar os dados primários, o failover geográfico será executado e os clientes afetados receberão uma notificação em suas assinaturas.
 
-###Recuperação de desastres na Automação do Azure
-
-Quando um grande desastre afeta a região primária, em primeiro lugar a equipe de Automação tenta restaurar a região primária. Em alguns casos, quando não é possível restaurar a região primária, o failover geográfico é executado e os clientes afetados são notificados por meio de sua assinatura.
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -42,6 +42,7 @@ Os números a seguir são uma aproximação.
 - O consumo da CPU: ~ 1% de aumento
 - Consumo de memória: 10% da memória total do sistema
 - Uso de largura de banda de rede: ~ 1 MB / 1000 das solicitações de ADFS
+
 >[AZURE.NOTE]Caso o agente não possa se comunicar com o Azure, ele armazenará os dados localmente, até o limite máximo definido. Quando o agente atingir o limite, se ele não puder carregar os dados no serviço, as novas transações do ADFS vão substituir quaisquer transações "em cache" em uma base "menos atendido recentemente".
 
 - Armazenamento de buffer local para o agente de integridade do AD: ~ 20 MB
@@ -98,4 +99,4 @@ Você precisará ter as portas TCP/UDP 80, 443 e 5671 abertas para o agente do A
 * [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
 * [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

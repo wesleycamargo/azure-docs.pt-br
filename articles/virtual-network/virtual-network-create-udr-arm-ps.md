@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="telmos" />
 
 #Criar UDR (Rotas Definidas pelo Usuário) no PowerShell
@@ -34,25 +34,33 @@ O exemplo de comando PowerShell abaixo espera um ambiente simples já criado com
 ## Criar o UDR para a sub-rede de front-end
 Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end com base no cenário acima, siga as etapas abaixo.
 
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+
 3. Crie uma rota usada para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) a ser roteado para o dispositivo virtual **FW1** (192.168.0.4).
 
-		$route = New-AzureRMRouteConfig -Name RouteToBackEnd `
+		$route = New-AzureRouteConfig -Name RouteToBackEnd `
 		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Crie uma tabela de rotas chamada **UDR-FrontEnd** na região **westus** que contém a rota criada acima.
 
-		$routeTable = New-AzureRMRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-FrontEnd -Route $route
 
 5. Crie uma variável que contém a VNet na qual está a sub-rede. Em nosso cenário, a VNet é chamada **TestVNet**.
 
-		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. Associe a tabela de rotas criada acima à sub-rede **FrontEnd**.
 		
-		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
+
+>[AZURE.WARNING]A saída do comando acima mostra o conteúdo do objeto de configuração da rede virtual, que existe apenas no computador no qual você está executando o PowerShell. Você precisa executar o cmdlet **Set-AzureVirtualNetwork** para salvar essas configurações no Azure.
+
+7. Salve a nova configuração de sub-rede no Azure.
+
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
 	Saída esperada:
 
@@ -92,7 +100,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
 		                        },
 		                        "RouteTable": {
 		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
@@ -100,26 +108,30 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 		                        "ProvisioningState": "Succeeded"
 		                      },
 								...
-		                    ]
+		                    ]	
 
 ## Criar o UDR para a sub-rede de back-end
 Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end com base no cenário acima, siga as etapas abaixo.
 
 1. Crie uma rota usada para enviar todo o tráfego destinado à sub-rede de front-end (192.168.1.0/24) a ser roteado para o dispositivo virtual **FW1** (192.168.0.4).
 
-		$route = New-AzureRMRouteConfig -Name RouteToFrontEnd `
+		$route = New-AzureRouteConfig -Name RouteToFrontEnd `
 		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Crie uma tabela de rotas chamada **UDR-BackEnd** na região **uswest** que contém a rota criada acima.
 
-		$routeTable = New-AzureRMRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-BackEnd -Route $route
 
 5. Associe a tabela de rotas criada acima à sub-rede **BackEnd**.
 
-		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
+
+7. Salve a nova configuração de sub-rede no Azure.
+
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
 	Saída esperada:
 
@@ -159,7 +171,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BacEnd"
 		                        },
 		                        "RouteTable": {
 		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
@@ -169,16 +181,16 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
 		                    ]
 
 ## Habilite o encaminhamento de IP em FW1
-Para habilitar o encaminhamento IP na NIC usada por **FW1**, siga as etapas abaixo.
+Para habilitar o encaminhamento de IP na NIC usada por **FW1**, execute as etapas abaixo.
 
 1. Crie uma variável que contém as configurações para a NIC usada por FW1. Em nosso cenário, a NIC é chamada **NICFW1**.
 
-		$nicfw1 = Get-AzureRMNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+		$nicfw1 = Get-AzureNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. Habilite o encaminhamento de IP e salve as configurações de NIC.
 
 		$nicfw1.EnableIPForwarding = 1
-		Set-AzureRMNetworkInterface -NetworkInterface $nicfw1
+		Set-AzureNetworkInterface -NetworkInterface $nicfw1
 
 	Saída esperada:
 
@@ -224,4 +236,4 @@ Para habilitar o encaminhamento IP na NIC usada por **FW1**, siga as etapas abai
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Comparação: Apache Storm vs. Stream Analytics do Azure | Microsoft Azure"
 	description="Saiba como usar a Stream Analytics para análise de sentimento Twitter em tempo real. Orientações passo a passo de geração de eventos aos dados em um painel em tempo real."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="twitter em tempo real, análise de sentimento, análise de mídia social, ferramenta de análise de mídia social"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -323,7 +323,7 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
             </td>
             <td width="204" valign="top">
                 <p>
-                    Um trabalho de streaming pode ter várias saídas. Saídas com suporte: hubs de evento do Azure, armazenamento de blobs do Azure, tabelas do Azure, banco de dados SQL Azure e PowerBI.
+                    Um trabalho de streaming pode ter várias saídas. Saídas com suporte: hubs de eventos do Azure, armazenamento de blobs do Azure, tabelas do Azure, banco de dados SQL Azure e PowerBI.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -590,4 +590,4 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

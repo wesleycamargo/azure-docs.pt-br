@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="sethm" />
 
 # Usando o Barramento de Serviço do .NET com AMQP 1.0
@@ -201,4 +201,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

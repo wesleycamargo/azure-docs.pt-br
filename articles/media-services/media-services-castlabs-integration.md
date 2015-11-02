@@ -3,7 +3,7 @@
 	description="Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine. A licença do PlayReady vem do servidor de licenças do PlayReady dos serviços de mídia e a licença do Widevine é fornecida pelo servidor de licenças do castLabs." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Mingfeiy,Juliako" 
+	authors="Mingfeiy,willzhan,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -26,6 +26,8 @@
 ##Visão geral
 
 Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine. A licença do PlayReady vem do servidor de licenças do PlayReady dos serviços de mídia e a licença do Widevine é fornecida pelo servidor de licenças do **castLabs**.
+
+Para reproduzir o conteúdo de streaming protegido por CENC (PlayReady e/ou Widevine), use o [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Consulte o [documento sobre AMP](http://amp.azure.net/libs/amp/latest/docs/) para obter detalhes.
 
 O diagrama a seguir demonstra uma arquitetura de integração de alto nível dos serviços de mídia do Azure e do castLabs.
 
@@ -98,24 +100,18 @@ Para usar o aplicativo Web (STS):
 
 ##Reproduzir um vídeo
 
-Para reproduzir um vídeo criptografado com criptografia comum (PlayReady), é possível usar o [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Ao executar o aplicativo de console, a ID de chave de conteúdo e a URL de manifesto são exibidos.
+Para reproduzir um vídeo criptografado com criptografia comum (PlayReady e/ou Widevine), é possível usar o [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Ao executar o aplicativo de console, a ID de chave de conteúdo e a URL de manifesto são exibidos.
 
 1.	Abra uma nova guia e inicie seu STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2.	Vá para [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 3.	Cole na URL de streaming.
 4.	Clique na caixa de seleção **Opções avançadas**.
-5.	Selecione PlayReady na lista suspensa **Proteção**.
-6.	Cole o token que você obteve no seu STS na caixa de texto do token.
+5.	Selecione PlayReady e/ou Widevine na lista suspensa **Proteção**.
+6.	Cole o token que você obteve no seu STS na caixa de texto do token. 
+	
+	O servidor de licença do castLab não precisa do prefixo "Portador =" na frente do token. Nesse caso, remova-o antes de enviar o token.
 7.	Atualize o player.
 8.	O vídeo deve estar em reprodução.
-
-Para reproduzir o vídeo protegido em HTML5 com o Chrome com o player castLabs, entre em contato com o yanmf@microsoft.com para obter acesso ao player. Quando você tem acesso, há duas coisas para as quais deve estar atento:
-
-1.	O player do castLabs precisa ter acesso ao arquivo de manifesto MPEG-DASH, de forma a ser acrescentado (formato = mpd-tempo-csf) ao seu arquivo de manifesto para obter o arquivo de manifesto de MPEG-DASH, em vez do padrão Smooth Streaming.
-
-2.	O servidor de licença do castLab não precisa do prefixo "Portador =" na frente do token. Nesse caso, remova-o antes de enviar o token.
-
- 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -124,4 +120,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

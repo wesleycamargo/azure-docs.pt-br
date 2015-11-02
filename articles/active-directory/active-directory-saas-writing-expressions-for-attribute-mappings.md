@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure"
+	pageTitle="Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure | Microsoft Azure"
 	description="Aprenda a usar o mapeamentos de expressão para transformar valores de atributo em um formato aceitável durante o provisionamento automatizado de objetos de aplicativo SaaS no Active Directory do Azure."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -307,4 +307,4 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

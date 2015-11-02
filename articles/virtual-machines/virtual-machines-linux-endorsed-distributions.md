@@ -24,6 +24,8 @@
 
 As imagens Linux na Galeria do Azure são fornecidas por alguns parceiros, e estamos trabalhando com várias comunidades Linux para adicionar ainda mais opções à lista de Distribuições Endossadas. Enquanto isso, para distribuições não disponíveis na Galeria, você sempre pode Trazer o Próprio Linux seguindo as diretrizes [nesta página](virtual-machines-linux-create-upload-vhd.md).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 ## Distribuições e versões com suporte ##
 
@@ -38,9 +40,9 @@ Distribuição|Versão|Drivers|Agente
 Canonical Ubuntu|Ubuntu 12.04, 14.04, 14.10 e 15.04|No kernel|Pacote: no repositório, em "walinuxagent" <p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 CentOS by OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [download do LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: no Kernel|Pacote: no repositório <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic, em "WALinuxAgent"<p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |No kernel|Fonte: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
-Oracle Linux| 6\.4+, 7.0+|No kernel|Pacote: no repositório, em "WALinuxAgent"<p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Oracle Linux| 6\.4+, 7.0+|No kernel|Pacote: no repositório, em "WALinuxAgent" <p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ e <p><p> SLES para SAP 11.3+ |No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent"<p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE |openSUSE 13.1+|No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent" <p><p>Código fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent" <p><p>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
 ## Parceiros
 
@@ -79,4 +81,4 @@ O SUSE Linux Enterprise Server no Azure é uma plataforma testada que fornece co
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

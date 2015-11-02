@@ -14,16 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Diretrizes de implementação dos Serviços de Infraestrutura do Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 O Azure é uma excelente plataforma para implementar configurações de desenvolvimento/teste ou de verificação de conceito, pois requer muito pouco investimento para testar uma abordagem específica para uma implementação das soluções. No entanto, você deve ser capaz de distinguir entre as práticas fáceis de um ambiente de desenvolvimento/teste e as práticas mais difíceis e detalhadas para uma implementação totalmente funcional e pronta para a produção de uma carga de trabalho de TI.
 
 Esta diretriz identifica muitas áreas para as quais o planejamento é essencial para o sucesso de uma carga de trabalho de TI no Azure. Também fornece planejamento de uma ordem para a criação dos recursos necessários. Embora haja alguma flexibilidade, recomendamos que você aplique a ordem deste artigo ao seu planejamento e à sua tomada de decisões.
 
-Este artigo foi adaptado do conteúdo na postagem de blog [Diretrizes de implementação do Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Obrigado Santiago Cánepa (gerente de desenvolvimento de aplicativos da Microsoft,) e Hugo Salcedo (gerente de desenvolvimento de aplicativos da Microsoft) pelo material original.
+Este artigo foi adaptado do conteúdo da postagem de blog [Diretrizes de implementação do Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Obrigado Santiago Cánepa (gerente de desenvolvimento de aplicativos da Microsoft,) e Hugo Salcedo (gerente de desenvolvimento de aplicativos da Microsoft) pelo material original.
 
 > [AZURE.NOTE]Grupos de afinidade foram preteridos. Seu uso não é descrito aqui. Para saber mais, consulte [Sobre Redes Virtuais regionais e grupos de afinidade](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
@@ -94,7 +96,7 @@ Recomendamos que o nome da Máquina Virtual do Azure seja igual ao nome do compu
 
 ### Nomes de contas de armazenamento
 
-As contas de armazenamento têm regras especiais para os nomes. Você pode usar apenas letras minúsculas e números. Consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para obter mais informações. Além disso, o nome da conta de armazenamento, em combinação com core.windows.net, deve ser um nome DNS exclusivo globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
+As contas de armazenamento têm regras especiais para os nomes. Você pode usar apenas letras minúsculas e números. Consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para saber mais. Além disso, o nome da conta de armazenamento, em combinação com core.windows.net, deve ser um nome DNS exclusivo globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
 
 - minhacontadearmazenamento.blob.core.windows.net
 - minhacontadearmazenamento.table.core.windows.net
@@ -159,7 +161,7 @@ O Armazenamento do Azure é parte integrante de muitas soluções do Azure. O Ar
 
 Há dois tipos de conta de armazenamento disponíveis no Azure: Uma conta de armazenamento padrão fornece acesso ao armazenamento Blob (usado para armazenar discos da Máquina Virtual do Azure), armazenamento de Tabela, armazenamento de Fila e armazenamento de Arquivo. O armazenamento Premium é projetado para aplicativos de alto desempenho, como SQL Servers em um cluster AlwaysOn, e atualmente dá suporte somente para discos de Máquina Virtual do Azure.
 
-As contas de armazenamento são vinculadas às metas de escalabilidade. Confira [Assinatura do Microsoft Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md#storage-limits) para se familiarizar com os limites atuais de armazenamento do Azure. Veja também [Metas de desempenho e escalabilidade do Armazenamento do Azure](../storage-scalability-targets.md).
+As contas de armazenamento são vinculadas às metas de escalabilidade. Consulte [Assinatura do Microsoft Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md#storage-limits) para se familiarizar com os limites atuais de armazenamento do Azure. Consulte também [Metas de desempenho e escalabilidade do armazenamento do Azure](../storage-scalability-targets.md).
 
 O Azure cria máquinas virtuais com um disco do sistema operacional, um disco temporário e zero ou mais discos de dados opcionais. O disco do sistema operacional e os discos de dados são blobs de página do Azure, enquanto o disco temporário é armazenado localmente no nó em que a máquina reside. Isso torna o disco temporário impróprio para dados que devam persistir durante uma reciclagem de sistema, pois a máquina pode migrar silenciosamente de um nó para outro, perdendo os dados desse disco. Não armazene nada na unidade temporária.
 
@@ -178,7 +180,7 @@ Se você estiver usando a distribuição de disco para os discos de dados do Azu
 - Use a Configuração de Distribuição de Armazenamento
 - Evite usar opções de cache de disco de dados do Azure (política de cache = Nenhuma)
 
-Para saber mais, confira [Espaços de armazenamento: design para desempenho](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Para saber mais, consulte [Espaços de armazenamento: design para desempenho](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
 ### Várias contas de armazenamento
 
@@ -440,4 +442,4 @@ Essa configuração inclui:
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

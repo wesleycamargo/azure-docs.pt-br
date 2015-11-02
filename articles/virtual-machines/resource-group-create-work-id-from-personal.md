@@ -19,10 +19,9 @@
 
 # Criando uma identidade corporativa ou de estudante no Active Directory do Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Se você criou uma conta pessoal do Azure ou tiver uma assinatura pessoal do MSDN e criou a conta do Azure para aproveitar os créditos Azure no MSDN, você usou uma identidade da *conta da Microsoft* para criá-la. Para que muitos recursos excelentes do Azure (como os [modelos de grupo de recursos](../resource-group-overview.md)) funcionem, é necessário ter uma conta corporativa ou de estudante (uma identidade gerenciada pelo Active Directory do Azure).
-
-
-> [AZURE.NOTE]O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda o uso de ambos os modelos, mas a Microsoft recomenda as mais novas implantações usem o modelo do Gerenciador de Recursos.
 
 
 Felizmente, uma das melhores vantagens da conta pessoal do Azure é que ela vem com um domínio do Active Directory do Azure que pode ser usado para criar uma nova conta corporativa ou de estudante que, por sua vez, pode ser usada com recursos do Azure que a exigem.
@@ -145,4 +144,4 @@ Agora você pode usar sua nova identidade do Active Directory do Azure para usar
     data:
     info:    group create command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

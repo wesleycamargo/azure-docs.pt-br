@@ -2,7 +2,7 @@
 	pageTitle="Importar dados no Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba como usar a ferramenta de migração de dados de software livre do Banco de Dados de Documentos para importar dados no Banco de Dados de Documentos de várias fontes, incluindo arquivos JSON, arquivos CSV, SQL, MongoDB, armazenamento de tabelas do Azure e coleções de Bancos de Dados de Documentos." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="andrewhoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="anhoh"/>
 
 # Importar dados no Banco de Dados de Documentos #
 
@@ -35,7 +35,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes itens instalados:
 
-- [Microsoft .NET Framework 4.51](http://www.microsoft.com/net/downloads) ou superior.
+- [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) ou superior.
 
 ##<a id="Overviewl"></a>Visão geral da ferramenta de migração de dados do Banco de Dados de Documentos ##
 
@@ -137,7 +137,7 @@ Que retorna os seguintes resultados (parciais):
 
 Observe os aliases como Address.AddressType e Address.Location.StateProvinceName. Especificando um separador de aninhamento de “.”, a ferramenta de importação cria os sub-documentos Address e Address.Location durante a importação. Aqui está um exemplo de um documento resultante no Banco de Dados de Documentos:
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
+*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "\#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
  
 Aqui estão alguns exemplos de linha de comando para importar do SQL Server:
 
@@ -477,4 +477,4 @@ Na tela de Configuração avançada, especifique a localização do arquivo de l
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

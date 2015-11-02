@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2015"
-   ms.author="vturecek"/>
+   ms.date="09/29/2015"
+   ms.author="claudioc"/>
 
 # Padrão de design de Atores Confiáveis: gráficos e redes distribuídos
 Os Atores Confiáveis do Service Fabric representam uma opção natural para soluções complexas de modelagem que envolvam relações e a modelagem dessas relações como objetos.
@@ -57,7 +57,7 @@ Public class SocialPersonState
     public SocialStatus _lastStatus; // this is my last update
 }
 
-public class SocialPerson : Actor, ISocialPerson
+public class SocialPerson : Actor<SocialPersonState>, ISocialPerson
 {
     public override Task ActivateAsync()
     {
@@ -224,4 +224,4 @@ Tudo o que ele realmente faz é aproveitar a capacidade dos atores confiáveis p
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

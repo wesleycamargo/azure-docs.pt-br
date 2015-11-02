@@ -1,7 +1,7 @@
 <properties
     pageTitle="O que é o Aprendizado de Máquina no Azure? | Microsoft Azure"
     description="Explica conceitos básicos do serviço de Aprendizado de Máquina totalmente gerenciado, uma tecnologia de nuvem que você pode usar para criar, operacionalizar e lucrar com soluções."
-	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
+	keywords="o que é aprendizado de máquina, tecnologia de nuvem, preditivo, o que é análise preditiva, operacionalizar"
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/28/2015"
+    ms.date="10/20/2015"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -32,13 +32,15 @@ O Aprendizado de Máquina do Azure é um serviço de análise de previsão poder
 
 O Aprendizado de Máquina do Azure não apenas fornece ferramentas para criar modelos de análise preditiva, mas também fornece um serviço totalmente gerenciado que você pode usar para implantar seus modelos preditivos como serviços Web prontos para consumo. O Aprendizado de Máquina do Azure fornece ferramentas para criar soluções de análise preditiva completas na nuvem: criar, testar, operacionalizar e gerenciar modelos preditivos rapidamente. Você não precisa comprar nenhum hardware nem gerenciar máquinas virtuais manualmente.
 
+![O que aprendizado da máquina? Fluxo de trabalho básico para colocar em operação a análise preditiva no Aprendizado de Máquina do Azure.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
+
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## O que é análise preditiva?
 
 A análise preditiva usa várias técnicas estatísticas - neste caso, aprendizado de máquina - para analisar os dados atuais ou coletados em busca de padrões ou tendências, para prever eventos futuros.
 
-O Aprendizado de Máquina do Azure é uma maneira especialmente poderosa de fazer análise preditiva: você pode trabalhar em uma biblioteca de algoritmos pronta para uso, criar modelos em um PC conectado à Internet sem a compra de equipamentos ou infraestrutura adicionais e implantar sua solução preditiva rapidamente. Você também pode encontrar exemplos e soluções prontos para uso no [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) ou [Galeria de Análise do Cortana](http://gallery.azureml.net/).
+O Aprendizado de Máquina do Azure é uma maneira especialmente poderosa de fazer análise preditiva: você pode trabalhar em uma biblioteca de algoritmos pronta para uso, criar modelos em um PC conectado à Internet sem a compra de equipamentos ou infraestrutura adicionais e implantar sua solução preditiva rapidamente. Você também pode encontrar exemplos e soluções prontas para uso no [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) ou no [Cortana Analytics Gallery](http://gallery.azureml.net/).
 
 ## Crie soluções completas de aprendizado de máquina em nuvem
 
@@ -51,9 +53,9 @@ Crie modelos preditivos no [Estúdio de Aprendizado de Máquina](machine-learnin
 ![O que é análise preditiva: exemplo de um experimento de análise preditiva no Estúdio de Aprendizado de Máquina do Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Use uma ampla biblioteca de [algoritmos e módulos de aprendizado de máquina](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) no Estúdio de Aprendizado de Máquina para começar imediatamente seus modelos preditivos. Escolha em uma biblioteca de experimentos de exemplo, pacotes R e Python e algoritmos de ponta provenientes de empresas da Microsoft, como Xbox e Bing. Estenda os módulos do Estúdio com seus próprios scripts [R](machine-learning-r-quickstart.md) e [Python](machine-learning-execute-python-scripts.md) personalizados.
-* Na [Galeria de Análise do Cortana](machine-learning-gallery-how-to-use-contribute-publish.md), você pode começar o Aprendizado de Máquina do Azure e aprender com outros participantes da comunidade. Teste experimentos criados por outros usuários, faça perguntas ou envie comentários sobre experimentos ou publique experimentos de sua própria autoria. Você também pode compartilhar links para experimentos por meio de redes sociais, como o LinkedIn e o Twitter.  
+* No [Cortana Analytics Gallery](machine-learning-gallery-how-to-use-contribute-publish.md), você pode começar a usar o Aprendizado de Máquina do Azure, além de aprender com outras pessoas na comunidade. Teste experimentos criados por outros usuários, faça perguntas ou envie comentários sobre experimentos ou publique experimentos de sua própria autoria. Você também pode compartilhar links para experimentos por meio de redes sociais, como o LinkedIn e o Twitter.  
 
-	![Tente exemplos de experimento de previsão ou contribua com o seu próprio na Galeria de Análise do Cortana do Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
+	![Tente exemplos de experimento de previsão ou contribua com o seu próprio na Galeria de Análise do Cortana do Azure](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
 
 ### Operacionalizar soluções de análise preditiva: comprar serviços Web ou publicar os seus próprios
 
@@ -116,4 +118,4 @@ Você pode aprender os fundamentos da análise de previsão e do aprendizado da 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

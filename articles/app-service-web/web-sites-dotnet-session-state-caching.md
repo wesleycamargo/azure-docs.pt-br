@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Estado de sessão com cache Redis do Azure no Serviço de Aplicativo do Azure" 
 	description="Aprenda a usar o serviço de cache do Azure para dar suporte a cache de estado de sessão do ASP.NET." 
-	services="app-service" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-web" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -109,4 +109,4 @@ Você também pode usar o Cache de Redis para armazenar em cache objetos no seu 
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

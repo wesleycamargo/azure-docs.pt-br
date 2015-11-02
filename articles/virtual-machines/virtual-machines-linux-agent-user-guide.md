@@ -21,6 +21,8 @@
 
 #Guia do usuário do agente Linux para o Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##Introdução
 
 O Agente Linux do Azure (/usr/sbin/waagent) gerencia a interação entre uma máquina virtual e o Controlador de Malha do Azure. Ele faz o seguinte:
@@ -212,7 +214,7 @@ Tipo: Padrão Booliano: y
 
 Isso permite que o usuário habilite ou desabilite a funcionalidade de provisionamento no agente. Os valores válidos são "y" ou "n". Se o provisionamento for desabilitado, as chaves SSH de host e usuário da imagem serão preservadas e qualquer configuração especificada na API de provisionamento do Azure será ignorada.
 
-**Observação:** esse parâmetro segue o padrão "n" nas imagens de nuvem do Ubuntu que usam cloud-init para provisionamento.
+**Observação:** esse parâmetro segue o padrão "n" do Ubuntu Cloud Images, que usa cloud-init para provisionamento.
 
 **Provisioning.DeleteRootPassword:**
 
@@ -318,4 +320,4 @@ Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpa
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

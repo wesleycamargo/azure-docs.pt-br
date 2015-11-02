@@ -1,8 +1,7 @@
 <properties
 	pageTitle="Dados de exemplo nas tabelas Hive do Azure HDInsight | Microsoft Azure"
-	description="Reduzir os dados de amostragem em Tabelas Hive do Azure HDInsight"
+	description="Reduzir os dados de amostragem em Tabelas Hive do Azure HDInsight (Hadoop)"
 	services="machine-learning,hdinsight"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -14,12 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/20/2015"
 	ms.author="hangzh;bradsev" />
 
 # Dados de exemplo nas tabelas Hive do Azure HDInsight
 
-Se o conjunto de dados que você deseja analisar for grande, geralmente é uma boa ideia reduzir a amostra de dados para reduzi-la a um tamanho menor, porém representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no ADAPT (Processo e Tecnologia de Análise Avançada) do Aprendizado de Máquina do Azure é habilitar a criação rápida de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
+Os links neste **menu** levam você até os tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## Introdução
+
+Se o conjunto de dados que você deseja analisar for grande, geralmente é uma boa ideia reduzir a amostra de dados para reduzi-la a um tamanho menor, porém representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
 Neste artigo, descreveremos como reduzir os dados de exemplo nas tabelas Hive do Azure HDInsight usando consultas de Hive. Abordaremos três métodos de amostragem popularmente usados:
 
@@ -100,4 +105,4 @@ Veja um exemplo de consulta:
 Para obter informações sobre os métodos de amostragem mais avançados disponíveis no Hive, consulte [Amostragem LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

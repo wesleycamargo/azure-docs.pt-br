@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="07/02/2015"
+   ms.date="10/21/2015"
    ms.author="rasquill"/>
 
 # Criar estruturas de aplicativo usando modelos
 
-Use esse conteúdo para criar ótimos itens, rapidamente.
+Use esse conteúdo para criar ótimos itens, rapidamente. Além desses modelos, você pode pesquisar por meio de modelos] (https://azure.microsoft.com/documentation/templates/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
@@ -53,4 +53,4 @@ Descubra todos os modelos à sua disposição no [GitHub](https://github.com/Azu
 
 Saiba mais sobre o [Gerenciador de Recursos do Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

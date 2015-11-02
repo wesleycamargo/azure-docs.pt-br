@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Saiba mais: Gerenciamento de senha do Azure AD | Microsoft Azure"
-	description="Tópicos avançados sobre o gerenciamento de senha do Azure AD, incluindo como funciona o write-back de senha, segurança de write-back de senha, como funciona o portal de redefinição de senha e quais dados são usados na redefinição de senha."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Saiba mais: Gerenciamento de senha do Azure AD | Microsoft Azure" 
+	description="Tópicos avançados sobre o gerenciamento de senha do Azure AD, incluindo como funciona o write-back de senha, segurança de write-back de senha, como funciona o portal de redefinição de senha e quais dados são usados na redefinição de senha." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Saiba mais sobre Gerenciamento de Senha
@@ -73,7 +73,7 @@ A tabela a seguir descreve quais os cenários com suporte para quais versões de
 O write-back de senha é um serviço altamente seguro e sólido. Para garantir que as suas informações estarão protegidas, habilitamos um modelo de segurança com quatro camadas que é descrito abaixo.
 
 - **Retransmissão de barramento de serviço específica do locatário**: quando você configurar o serviço, configuramos uma retransmissão do barramento de serviço específica do locatário que é protegida por uma senha forte gerada aleatoriamente a qual a Microsoft nunca tem acesso.
-- **Chave de criptografia de senha criptograficamente forte e bloqueada**: depois que a retransmissão do barramento de serviço é criada, podemos criar uma chave simétrica forte que usamos para criptografar a senha quando ela é transmitida. Essa chave reside somente no repositório secreto do locatário na nuvem, que é bem bloqueado e auditado, assim como qualquer senha no diretório.
+- **Chave de criptografia de senha criptograficamente forte e bloqueada**: depois que a retransmissão do barramento de serviço é criada, podemos criar uma chave simétrica forte que usamos para criptografar a senha quando ela é transmitida. Essa chave existe apenas no repositório secreto de sua empresa na nuvem, que é amplamente bloqueado e auditado, assim como qualquer senha no diretório.
 - **TLS padrão da indústria**: quando uma redefinição de senha ou a operação de alteração ocorre na nuvem, podemos levar a senha de texto sem formatação e criptografá-la com sua chave pública. Vamos então colocá-la em uma mensagem HTTPS que é enviada por um canal criptografado usando certificados SSL da Microsoft para a sua retransmissão do barramento de serviço. Depois que essa mensagem é recebida no Barramento de Serviço, o agente local acorda, autentica para o barramento de serviço usando a senha forte que foi gerada, recebe a mensagem criptografada, descriptografa usando a chave particular que nós geramos e tenta definir a senha por meio da API do AD DS SetPassword. Essa etapa é o que nos permite impor a política de senha local do AD (complexidade, idade, histórico, filtros, etc.) na nuvem.
 - **Políticas de expiração de mensagem**: por fim, se por algum motivo a mensagem ficar no barramento de serviço porque o serviço local está inativo, o tempo limite terá sido atingido e ela será removida após alguns minutos para aumentar ainda mais a segurança.
 
@@ -281,4 +281,4 @@ A tabela a seguir descreve onde e como esses dados são usados durante a redefin
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

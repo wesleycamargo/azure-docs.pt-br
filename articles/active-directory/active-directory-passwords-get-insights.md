@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Obter percepções: relatórios de gerenciamento de senhas do AD do Azure | Microsoft Azure"
-	description="Este artigo descreve como usar os relatórios para obter informações sobre operações de gerenciamento de senhas em sua organização."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Obter percepções: relatórios de gerenciamento de senhas do AD do Azure | Microsoft Azure" 
+	description="Este artigo descreve como usar os relatórios para obter informações sobre operações de gerenciamento de senhas em sua organização." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Como obter percepções operacionais com relatórios de gerenciamento de senhas
@@ -48,6 +48,16 @@ Para localizar os relatórios de gerenciamento de senhas, siga as etapas abaixo:
 
     ![][001]
 
+## Como acessar os Relatórios de Gerenciamento de Senhas de uma API
+A partir de agosto de 2015, os Eventos e os Relatórios do AD do Azure agora oferecem suporte ao recuperar todas as informações incluídas nos relatórios de Redefinição de Senhas e de Registro da Redefinição de Senhas.
+
+Para acessar esses dados, você precisará gravar um pequeno aplicativo ou script para recuperá-los de nossos servidores. [Saiba como começar com a API de Relatório do AD do Azure](active-directory-reporting-api-getting-started.md).
+
+Quando você tiver um script de trabalho, em seguida desejará examinar os eventos de registro e redefinição de senhas que podem ser recuperados para atender suas situações.
+
+- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): lista as colunas disponíveis para os eventos de redefinição de senhas
+- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): lista as colunas disponíveis para os eventos do registro de redefinição de senhas
+
 ## Exibir atividade de registro de redefinição de senhas
 
 O relatório de atividade de registro de redefinição de senhas mostra todos os registros de redefinição de senhas que ocorreram na sua organização. Um registro de redefinição de senhas é exibido no relatório para qualquer usuário que registrou com êxito as informações de autenticação no portal de registro de senha de redefinição de senhas ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
@@ -71,7 +81,7 @@ A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 
 Coluna|Valores permitidos e seus significados
 ---|---
-Dados Registrados| **Email alternativo**– email alternativo do usuário usado ou email de autenticação para autenticar o<p><p>**Telefone do Office**– telefone comercial usado pelo usuário para autenticar<p>**Celular** - celular usado pelo usuário ou telefone de autenticação para autenticar as<p>**Perguntas de segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email alternativo + Celular)** – ocorre quando uma política de 2 acessos for especificada e mostra quais os dois métodos usados pelo usuário para autenticação da solicitação de redefinição de sua senha.
+Dados Registrados| **Email Alternativo** – email alternativo usado pelo usuário ou email de autenticação para autenticar<p><p>**Telefone Comercial**– telefone comercial usado pelo usuário para autenticar<p>**Celular** - celular usado pelo usuário ou telefone de autenticação para autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha.
 
 ## Exibir atividade de redefinição de senha
 
@@ -96,11 +106,10 @@ A lista a seguir explica cada uma das colunas do relatório em detalhes:
 ### Descrição dos valores de relatório
 A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 
-
 Coluna|Valores permitidos e seus significados
 ---|---
-Métodos usados|**Email alternativo**– email alternativo do usuário usado ou email de autenticação para autenticar o<p>**Telefone do Office**– telefone comercial usado pelo usuário para autenticar<p>**Celular** - celular usado pelo usuário ou telefone de autenticação para autenticar as<p>**Perguntas de segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email alternativo + Celular)** – ocorre quando uma política de 2 acessos for especificada e mostra quais os dois métodos usados pelo usuário para autenticação da solicitação de redefinição de sua senha.
-Result|**Abandonado**– usuário iniciou a redefinição de senha mas, em seguida, parou na metade sem concluir<p>**Bloqueado** – a conta de usuário foi impedida de usar a redefinição devido à tentativa de uso da página de redefinição de senha ou do acesso de redefinição da senha muitas vezes em um período de 24 horas<p>**Cancelado** – usuário iniciou a redefinição de senha do usuário, mas, em seguida, clicou no botão de Cancelar no meio do processo<p>**Administrador contatado** – o usuário teve um problema durante a sessão que não foi possível resolver , então o usuário clicou no link "Entre em contato com seu administrador" em vez de concluir o fluxo de redefinição de senha<p>**Falha** – usuário não foi capaz de redefinir uma senha, provavelmente porque o usuário não foi configurado para usar o recurso (por exemplo, nenhuma licença, sem informações de autenticação, senha gerenciada localmente, mas gravação desativada).<p>** Bem-sucedida** – a redefinição de senha foi bem-sucedida.
+Métodos usados|**Email Alternativo** – email alternativo usado pelo usuário ou email de autenticação para autenticar<p>**Telefone Comercial**– telefone comercial usado pelo usuário para autenticar<p>**Celular** - celular usado pelo usuário ou telefone de autenticação para autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha.
+Result|**Abandonado** – o usuário iniciou a redefinição de senha mas, em seguida, parou na metade sem concluir<p>**Bloqueado** – a conta de usuário foi impedida de usar a redefinição de senha devido à tentativa de usar a página de redefinição de senha ou um acesso de redefinição de senha muitas vezes em um período de 24 horas<p>**Cancelado** – o usuário iniciou a redefinição de senha do usuário, mas, em seguida, clicou no botão Cancelar no meio do processo<p>**Administrador Contatado** – o usuário teve um problema durante a sessão que não foi possível resolver, então, o usuário clicou no link "Entre em contato com seu administrador" em vez de concluir o fluxo de redefinição de senha<p>**Falha** – o usuário não foi capaz de redefinir uma senha, provavelmente porque ele não foi configurado para usar o recurso (por exemplo, nenhuma licença, sem informações de autenticação, senha gerenciada localmente, mas o write-back está desativado).<p>** Bem-sucedida** – a redefinição de senha foi bem-sucedida.
 Detalhes|Consulte a tabela abaixo.
 
 ### Valores permitidos para a coluna de detalhes
@@ -141,7 +150,7 @@ A senha do usuário é gerenciada localmente. Você pode habilitar o Write-back 
 Não foi possível acessar o serviço de redefinição de senha no local. Verifique o log de eventos de seu computador de sincronização|Falha
 Encontramos um problema durante a redefinição de senha local do usuário. Verifique o log de eventos de seu computador de sincronização | Falha
 Este usuário não é membro do grupo de usuários de redefinição de senha. Adicione esse usuário ao grupo para resolver o problema.|Falha
-A redefinição de senha foi desabilitada inteiramente para este locatário. Consulte[aqui](http://aka.ms/ssprtroubleshoot)para resolver o problema. | Falha
+A redefinição de senha foi desabilitada inteiramente para este locatário. Confira [aqui](http://aka.ms/ssprtroubleshoot) para resolver isto. | Falha
 O usuário redefiniu a senha com êxito|Bem-sucedido
 
 **Recursos adicionais**
@@ -163,4 +172,4 @@ O usuário redefiniu a senha com êxito|Bem-sucedido
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

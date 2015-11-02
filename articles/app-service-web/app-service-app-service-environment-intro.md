@@ -34,6 +34,8 @@ Para obter uma visão geral sobre como os Ambientes de Serviço de Aplicativo pe
 
 Para uma análise aprofundada sobre a expansão horizontal usando vários Ambientes de Serviço de Aplicativo, consulte o artigo sobre como configurar uma [Pegada de aplicativo distribuído geograficamente][GeodistributedAppFootprint].
 
+Para ver como a arquitetura de segurança exibida no AzureCon Deep Dive foi configurada, consulte o artigo sobre a implementação de uma [arquitetura de segurança em camadas](app-service-app-service-environment-layered-security.md) com os Ambientes do Serviço de Aplicativo.
+
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Recursos de computação dedicados ##
@@ -101,4 +103,4 @@ Para obter detalhes sobre como usar um Ambiente de Serviço de Aplicativo com o 
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

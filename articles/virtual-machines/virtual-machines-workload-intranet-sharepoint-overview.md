@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modelo de implantação do Gerenciador de Recursos.
 
 Este tópico contém links com instruções passo a passo para implantar um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server com o modelo de implantação clássico. O farm contém estes computadores:
 
@@ -77,4 +76,4 @@ Para iniciar a configuração dessa carga de trabalho, vá para [Fase 1: configu
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

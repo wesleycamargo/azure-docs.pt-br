@@ -3,7 +3,7 @@
 	description="Este tópico fornece uma visão geral e oferece uma comparação dos codificadores de Mídia sob Demanda do Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015"  
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure
 
 ##Visão Geral de Codificação
 
-Os codificadores compactam mídia digital usando codecs. Normalmente, os codificadores têm várias configurações que permitem especificar propriedades da mídia gerada, por exemplo, os codecs usados, o formato do arquivo, a resolução e taxa de bits. Formatos de arquivo são contêineres que armazenam o vídeo compactado, bem como informações sobre quais codecs foram usados para compactar o vídeo.
+Os Serviços de Mídia do Azure fornecem várias opções para a codificação de mídia na nuvem.
 
-Codecs têm dois componentes: um para compactar arquivos de mídia digital para transmissão e outro para descompactar arquivos de mídia digital para reprodução. Há codecs de áudio para compactar e descompactar áudio e codecs de vídeo para compactar e descompactar vídeo. Os codecs podem usar compactação com ou sem perdas. Codecs sem perdas preservam todas as informações quando ocorre a compressão. Quando o arquivo é descompactado, o resultado é um arquivo idêntico ao da mídia de entrada, o que torna os codecs sem perdas adequados para arquivamento e armazenamento. Codecs com perdas perdem algumas informações durante a codificação e produzem arquivos menores (que o original) à custa da qualidade do vídeo e servem para streaming pela Internet.
-
-É importante compreender a diferença entre codecs e formatos de arquivo. Codecs são o software que implementa os algoritmos de compactação/descompactação. Já os formatos de arquivo são contêineres que armazenam o vídeo compactado. Para obter mais informações, consulte [Codificação versus Empacotamento](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+Ao começar a usar os Serviços de Mídia é importante compreender a diferença entre codecs e formatos de arquivo. Codecs são o software que implementa os algoritmos de compactação/descompactação. Já os formatos de arquivo são contêineres que armazenam o vídeo compactado.
 
 Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você distribuir o conteúdo de taxa de bits adaptável MP4 ou Smooth Streaming codificado em formatos de streaming suportados pelo Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sem a necessidade de empacotar novamente nesses formatos de fluxo contínuo.
 
@@ -41,7 +39,7 @@ Os Serviços de Mídia são compatíveis com os seguintes codificadores sob dema
 
 Este artigo fornece uma breve visão geral dos codificadores de mídia sob demanda e fornece links para artigos que oferecem informações mais detalhadas. O tópico também fornece uma comparação entre os codificadores.
 
-Observe que, por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codificação ativa por vez. Você pode reservar unidades de codificação que permitem ter várias tarefas de codificação em execução simultaneamente, uma para cada unidade reservada de codificação que você comprar. Para obter informações, consulte [Dimensionamento das unidades de codificação](media-services-portal-encoding-units.md).
+Observe que, por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codificação ativa por vez. Você pode reservar unidades de codificação que permitem ter várias tarefas de codificação em execução simultaneamente, uma para cada unidade reservada de codificação que você comprar. Para saber mais, consulte [Dimensionamento das unidades de codificação](media-services-portal-encoding-units.md).
 
 ##Media Encoder Standard
 
@@ -66,7 +64,7 @@ Em comparação com o Codificador de Mídia do Azure, este codificador suporta m
 
 ###Predefinições
 
-O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ###Metadados de entrada e saída
 
@@ -76,7 +74,7 @@ Os metadados de saída dos codificadores estão descritos [aqui](http://msdn.mic
 
 ###Miniatura
 
-Para obter informações sobre como gerar miniaturas, consulte [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-dotnet-generate-thumbnail-with-mes.md).
+Para saber mais sobre como gerar miniaturas, consulte [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-dotnet-generate-thumbnail-with-mes.md).
 
 ###Sobreposições de áudio e/ou vídeo
 
@@ -256,4 +254,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

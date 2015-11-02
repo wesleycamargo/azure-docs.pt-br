@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Passo a passo: exportar telemetria para o Banco de Dados SQL do Application Insights" 
-	description="Codifique sua própria análise de telemetria no Application Insights usando o recurso de exportação contínua." 
+	description="Exportar dados continuamente do Application Insights para o SQL usando o Stream Analytics" 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -314,4 +314,4 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

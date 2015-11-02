@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Interações RESTful com recursos do Banco de Dados de Documentos | Microsoft Azure" 
 	description="Analise os métodos HTTP neste tutorial de serviços Web RESTful. Saiba como executar as interações RESTful com os recursos do Banco de Dados de Documentos do Microsoft Azure usando verbos HTTP."
-	keywords="http methods, restful services tutorial, restful web services tutorial, http verbs, documentdb, azure, Microsoft azure"
+	keywords="métodos http, tutorial de serviços restful, tutorial de serviços Web restful, http detalhado, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb" 
 	authors="h0n" 
 	manager="jhubbard" 
@@ -205,4 +205,4 @@ Explore a [referência da API REST do Banco de Dados de Documentos do Azure](htt
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

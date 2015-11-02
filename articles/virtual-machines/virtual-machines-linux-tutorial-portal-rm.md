@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criar uma máquina virtual do Azure executando o Linux no Portal do Azure"
+	pageTitle="Criar uma máquina virtual do Azure executando o Linux no Portal do Azure | Microsoft Azure"
 	description="Use o Portal do Azure para criar uma máquina virtual do Azure executando o Linux com os grupos de recursos do Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Criar uma Máquina Virtual executando o Linux usando o Portal de Visualização do Azure
@@ -23,7 +23,9 @@
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 - [Azure Preview Portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-É fácil criar uma VM (Virtual Machine - Máquina Virtual) que executa o Linux. Este tutorial mostra como usar o Portal de Visualização do Azure para criar uma VM rapidamente e usa o `~/.ssh/id_rsa.pub`arquivo de chave pública para proteger a sua conexão **SSH** com a VM. Você também pode criar VMs do Linux usando [suas próprias imagens como modelos](virtual-machines-linux-create-upload-vhd.md).
+<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+
+É fácil criar uma VM (Virtual Machine - Máquina Virtual) que executa o Linux. Este tutorial mostra como usar o portal de Visualização do Azure para criar uma VM rapidamente e usa o `~/.ssh/id_rsa.pub`arquivo de chave pública para proteger a sua conexão **SSH** com a VM. Você também pode criar VMs do Linux usando [suas próprias imagens como modelos](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE]Este tutorial cria uma máquina virtual do Azure gerenciada pela API do grupo de recursos do Azure. Para obter detalhes, consulte [Visão geral do grupo de recursos do Azure](resource-group-overview.md).
 
@@ -39,9 +41,9 @@ Vá para o Azure Marketplace no portal de Visualização para localizar a imagem
 
 	![escolhendo uma imagem de VM](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
 
-	> [AZURE.TIP]Para localizar outras imagens, clique em **Marketplace**e, em seguida, pesquise por ou filtre itens disponíveis.
+	> [AZURE.TIP]Para localizar outras imagens, clique em **Marketplace**e pesquise ou filtre os itens disponíveis.
 
-3. Na parte inferior da página **Ubuntu Server 14.04 LTS**, selecione **Usar a pilha do Gerenciador de Recursos** para criar a VM no Gerenciador de Recursos do Azure. Observe que, para a maioria das novas cargas de trabalho, recomendamos a pilha do Gerenciador de Recursos. Para considerações, consulte [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md).
+3. Na parte inferior da página **Ubuntu Server 14.04 LTS**, selecione **Usar a pilha do Gerenciador de Recursos** para criar a VM no Gerenciador de Recursos do Azure. Observe que, para a maioria das novas cargas de trabalho, recomendamos a pilha do Gerenciador de Recursos. Para obter considerações, consulte [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md).
 
 4. Em seguida, clique em ![botão criar](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
 
@@ -51,7 +53,7 @@ Vá para o Azure Marketplace no portal de Visualização para localizar a imagem
 
 Depois de selecionar a imagem, você poderá usar as configurações padrão do Azure para a maior parte da configuração e criar rapidamente a VM.
 
-1. Na folha **Criar a máquina virtual**, clique em **Noções básicas**. Insira o **Nome** desejado para a máquina virtual e um arquivo de chave pública (no formato **ssh-rsa**; nesse caso, do arquivo `~/.ssh/id_rsa.pub`). Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova VM, bem como um **Grupo de recursos** novo ou existente e um **Local** de data center do Azure.
+1. Na folha **Criar máquina virtual**, clique em **Noções básicas**. Insira o **Nome** desejado para a máquina virtual e um arquivo de chave pública (no formato **ssh-rsa**; nesse caso, do arquivo `~/.ssh/id_rsa.pub`). Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova VM, bem como um **Grupo de recursos** novo ou existente e um **Local** de data center do Azure.
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 
@@ -65,17 +67,17 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-3-settings.png)
 
-6. Clique em **Resumo** para revisar suas opções de configuração. Quando você terminar a revisão ou a atualização das configurações, clique em ![Botão OK](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
+6. Clique em **Resumo** para examinar suas opções de configuração. Quando você terminar a revisão ou a atualização das configurações, clique em ![Botão OK](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
 
 	![resumo da criação](media/virtual-machines-linux-tutorial-portal-rm/summarybeforecreation.png)
 
-8. Enquanto o Azure criar a VM, é possível acompanhar o progresso em **Notificações**, no menu Hub. Após o Azure criar a máquina virtual, você a verá no Quadro Inicial a menos que tenha desmarcado **Fixar no Quadro Inicial** na folha **Criar máquina virtual**.
+8. Enquanto o Azure cria a VM, é possível acompanhar o andamento em **Notificações**, no menu Hub. Após o Azure criar a máquina virtual, você a verá no Quadro Inicial, a menos que tenha desmarcado **Fixar no Quadro Inicial** na folha **Criar máquina virtual**.
 
 	> [AZURE.NOTE]Observe que o resumo não contém um nome de DNS público da forma que o faz quando uma máquina virtual é criada em um Serviço de Nuvem usando a pilha de computação do gerenciamento de serviço.
 
-## Conecte-se à sua VM Linux do Azure usando o **ssh**
+## Conecte-se à sua VM do Linux do Azure usando o **ssh**
 
-Agora você pode se conectar à VM do Ubuntu usando o **ssh** da maneira padrão. No entanto, você precisará descobrir o endereço IP alocado à VM do Azure, abrindo o bloco para a VM e seus recursos. Você pode fazê-lo clicando em **Procurar**, selecionando **Recente** e procurando pela VM criada ou clicando no bloco criado para você no Quadro inicial. Em ambos os casos, localize e copie o valor de **Endereço IP Público**, conforme mostrado no gráfico a seguir.
+Agora você pode se conectar à VM do Ubuntu usando o **ssh** da maneira padrão. No entanto, você precisará descobrir o endereço IP alocado à VM do Azure, abrindo o bloco para a VM e seus recursos. Você pode fazê-lo clicando em **Procurar**, selecionando **Recente** e procurando pela VM criada ou clicando no bloco criado para você no Quadro Inicial. Em ambos os casos, localize e copie o valor de **Endereço IP Público**, como mostrado no gráfico a seguir.
 
 ![resumo da criação bem-sucedida](media/virtual-machines-linux-tutorial-portal-rm/successresultwithip.png)
 
@@ -128,4 +130,4 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

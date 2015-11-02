@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2015"
+   ms.date="10/16/2015"
    ms.author="kareni"/>
 
 
@@ -229,7 +229,7 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre Usando marcas para organizar os recursos do Azure Serviços que oferecem suporte a marcas de emissão são:
+- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre Usando marcas para organizar os recursos do Azure Serviços que oferecem suporte a marcas de emissão são:  
     - Máquinas Virtuais
     - Armazenamento e
     - Serviços de rede fornecidos com a [API do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -262,4 +262,4 @@ Navegue até a seção **Gerenciar contas, assinaturas e funções administrativ
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

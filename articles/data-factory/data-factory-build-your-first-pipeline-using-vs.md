@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # Criar seu primeiro pipeline do Azure Data Factory usando o Visual Studio
@@ -205,23 +205,27 @@ Quando você publica a solução na próxima etapa, o arquivo HQL é carregado p
 
 21. Na página Configurar data factory, faça o seguinte:
 	1. Selecione a opção **Criar Novo Data Factory**.
-	2. Insira **FirstPipelineUsingVS** em **Nome**.
+	2. Insira **FirstPipelineUsingVS** em **Nome**. 
+	
+		> [AZURE.IMPORTANT]O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro **O nome do data factory "FirstPipelineUsingVS" não está disponível** durante a publicação, altere o nome (por exemplo, seunomeFirstPipelineUsingVS). Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+		> 
+		> O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 	3. Selecione a assinatura certa para o campo **Assinatura**. 
-	4. Selecione o **grupo de recursos** para o data factory a ser criado. 
-	5. Selecione a **região** do data factory. 
+	4. Selecione o **grupo de recursos** para a data factory a ser criada. 
+	5. Selecione a **região** da data factory. 
 	6. Clique em **Avançar** para alternar para a página **Publicar Itens**. (Pressione **TAB** para sair do campo Nome se o botão **Avançar** estiver desabilitado). 
 23. Na página **Publicar Itens**, verifique se todas as entidades de Data Factories estão selecionadas e clique em **Avançar** para alternar para a página **Resumo**.     
 24. Analise o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
-25. Na página **Status da Implantação**, você deverá ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado. 
+25. Na página **Status da Implantação**, você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado. 
  
 
 ## Use o Gerenciador de Servidores para examinar as entidades de data factory
 
 1. No **Visual Studio**, clique em **Exibir** no menu e em **Gerenciador de Servidores**.
-2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, insira a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Insira a **senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.
+2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, digite a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Digite a **Senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.
 
 	![Gerenciador de Servidores](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
-3. Clique com o botão direito do mouse em um data factory e selecione **Exportar Data Factory para Novo Projeto** para criar um projeto do Visual Studio com base em um data factory existente.
+3. Clique com o botão direito em uma data factory e selecione **Exportar Data Factory para Novo Projeto** para criar um projeto do Visual Studio com base em uma data factory existente.
 
 	![Exportar data factory](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
 
@@ -237,9 +241,9 @@ Confira [Monitorar conjuntos de dados e pipeline](data-factory-monitor-manage-pi
  
 
 ## Próximas etapas
-Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL Azure, consulte [Tutorial: Copiar dados de um blob do Azure para o SQL Azure](data-factory-get-started.md).
+Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, consulte [Tutorial: Copiar dados de um Blob do Azure para o SQL do Azure](data-factory-get-started.md).
   
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

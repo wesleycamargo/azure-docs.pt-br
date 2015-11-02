@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Análise de uso para aplicativos Web com o Application Insights" 
-	description="Visão geral da análise de uso com o Application Insights" 
+	description="Visão geral da análise de uso de aplicativos Web com o Application Insights" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -391,4 +391,4 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

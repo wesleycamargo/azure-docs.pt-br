@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ciclo de vida de aplicativo da Malha de Serviços do Azure | Microsoft Azure"
-   description="Descreve o desenvolvimento, implantação, testes, atualização, manutenção e remoção de aplicativos da Malha de Serviços."
+   pageTitle="Ciclo de vida de aplicativo da Service Fabric | Microsoft Azure"
+   description="Descreve o desenvolvimento, implantação, testes, atualização, manutenção e remoção de aplicativos da Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="10/15/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
@@ -118,4 +118,4 @@ Para saber mais sobre o desenvolvimento, o teste e o gerenciamento de aplicativo
 - [Exemplo de ciclo de vida de um aplicativo baseado em REST](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

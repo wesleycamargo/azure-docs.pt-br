@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/23/2015"
+   ms.date="10/13/2015"
    ms.author="alkohli" />
 
 # Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
@@ -22,25 +22,25 @@ Seu Microsoft Azure StorSimple 8600 é um dispositivo de compartimento duplo e c
 
 ## Desempacotar o dispositivo StorSimple 8600
 
-As etapas a seguir fornecem instruções claras e detalhadas sobre como desempacotar seu dispositivo de armazenamento StorSimple 8600. Este dispositivo é fornecido em duas caixas separadas, uma para o compartimento principal e outra para o compartimento EBOD.
+As etapas a seguir fornecem instruções claras e detalhadas sobre como desempacotar seu dispositivo de armazenamento StorSimple 8600. Este dispositivo é fornecido em duas caixas, uma para o compartimento principal e outra para o compartimento EBOD. Em seguida, essas duas caixas são colocadas em uma única caixa.
 
 ### Preparar para desempacotar o dispositivo
 
 Antes de desempacotar o dispositivo, leia as informações a seguir.
 
->[AZURE.WARNING]![ícone de peso pesado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
->
-> 1. Se for manejar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do dispositivo. Um dispositivo completamente configurado pode pesar até 32 kg (70 lbs.).
->
-> 2. Coloque a caixa em uma superfície plana e nivelada.
+
+![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
+
+1. Se for manejar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do dispositivo. Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs.).
+1. Coloque a caixa em uma superfície plana e nivelada.
 
 Conclua as etapas a seguir para desempacotar o dispositivo.
 
 #### Para desempacotar o dispositivo
 
-1. Inspecione as caixas e a espuma da embalagem para verificar se não há amassados, cortes, danos por água ou qualquer outro dano visível. Se a caixa ou a embalagem estiver muito danificada, não a abra. Contate o Suporte da Microsoft para receber ajuda e saber se o dispositivo está em boas condições de funcionamento.
+1. Inspecione a caixa e a espuma da embalagem para verificar se não há amassados, cortes, danos por água ou qualquer outro dano visível. Se a caixa ou a embalagem estiver muito danificada, não a abra. [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para receber ajuda e saber se o dispositivo está em boas condições de funcionamento.
 
-2. Abra as duas caixas e desempacote os compartimentos principal e EBOD. A figura a seguir mostra o dispositivo de armazenamento desempacotado.
+2. Abra a caixa externa e, em seguida, remova as duas caixas correspondentes aos compartimentos principal e EBOD. Agora você pode desempacotar os compartimentos principal e EBOD A figura a seguir mostra a visão desempacotada de um dos compartimentos.
 
     ![Desempacotar o dispositivo de armazenamento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
  
@@ -64,11 +64,11 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
   - 1 cabo cruzado Ethernet
   - 2 cabos seriais de console
   - 1 conversor serial USB para acesso serial
-  - 4 adaptadores exclusivos QSFP para SFP+ para serem usados com interfaces de rede de 10 GbE
+  - 4 adaptadores QSFP para SFP+ para serem usados com interfaces de rede de 10 GbE
   - 2 kits de montagem em rack (4 trilhos laterais com hardware de montagem, 2 para o compartimento principal e 2 para o compartimento EBOD), 1 em cada caixa
   - Documentação de Introdução
 
-    Se você não recebeu algum dos itens listados acima, contate o Suporte da Microsoft.
+    Se você não recebeu algum dos itens listados acima, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
 A próxima etapa é montar o dispositivo em rack.
 
@@ -90,9 +90,9 @@ Os compartimentos devem ser instalados em um rack padrão de 19 polegadas (48 cm
 
 3. Verifique se um slot de 4U (2 X 2U) está disponível no rack em que você pretende montar os compartimentos.
 
->[AZURE.WARNING]![ícone de peso pesado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
-> 
-> Se for instalar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do dispositivo. Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs.).
+![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
+
+ Se for instalar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do dispositivo. Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs.).
 
 ### Pré-requisitos do rack
 
@@ -108,9 +108,7 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
 
 #### Para instalar o compartimento EBOD nos trilhos
 
-1. Com o compartimento na superfície de trabalho, remova as tampas do flange frontal direito e esquerdo, soltando-as. As tampas do flange estão apenas encaixadas nos flanges.
-
-2. Normalmente, esses trilhos são instalados na fábrica. Caso contrário, instale as corrediças do trilho esquerdo e direito nas laterais dos chassis do compartimento. Elas são presas por seis parafusos métricos em cada lado. Para ajudar com a orientação, as corrediças do trilho são marcadas com **LH – Frontal** e **RH – Frontal**, e a extremidade que é afixada na parte traseira do compartimento é afunilada.
+2. Execute esta etapa somente se não houver trilhos internos instalados em seu dispositivo. Normalmente, os trilhos internos são instalados na fábrica. Caso contrário, instale as corrediças do trilho esquerdo e direito nas laterais dos chassis do compartimento. Elas são presas por seis parafusos métricos em cada lado. Para ajudar com a orientação, as corrediças do trilho são marcadas com **LH – Frontal** e **RH – Frontal**, e a extremidade que é afixada na parte traseira do compartimento é afunilada.
 
     ![Fixando as corrediças do trilho nos chassis do compartimento](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
@@ -139,7 +137,7 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
      2 | Parafuso da coluna do rack frontal para orifício quadrado
      3 | Pinos de localização do trilho frontal esquerdo
      4 | Parafuso de travamento
-     5 | Pinos de localização do trilho frontal direito
+     5 | Pinos de localização do trilho posterior esquerdo
 
 ### Montando o compartimento EBOD no rack 
 
@@ -155,7 +153,9 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
 
     **Montando o compartimento no rack**
 
-3. Prenda o compartimento no rack usando um parafuso Phillips fornecido em cada flange, esquerdo e direito.
+3. Remova as tampas do flange frontal direito e esquerdo, soltando-as. As tampas do flange estão apenas encaixadas nos flanges.
+
+4. Prenda o compartimento no rack usando um parafuso Phillips fornecido em cada flange, esquerdo e direito.
 
 4. Instale as tampas do flange pressionando-as na posição e encaixando-as no lugar.
 
@@ -195,7 +195,7 @@ Antes de começar a cabear o dispositivo, você precisará dos seguintes itens:
 - Cabos de rede
 - Cabos seriais fornecidos
 - Conversor USB-serial com o driver apropriado instalado em seu computador (se necessário)
-- Adaptadores exclusivos QSFP para SFP+ fornecidos para serem usados com interfaces de rede de 10 GbE
+- Quatro adaptadores QSFP para SFP+ para serem usados com interfaces de rede de 10 GbE
 - [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### Cabeamento de energia e SAS
@@ -228,16 +228,9 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
      2,3 | Interfaces de rede de 10 GbE
      6 | Portas seriais
 
-2. Para alta disponibilidade, o dispositivo exige um mínimo de duas conexões para cada controlador.
-    1. A porta DATA 0 é habilitada e configurada automaticamente por meio do console serial do dispositivo. Além da DATA 0, outra porta de dados também precisa ser configurada por meio do Portal de Gerenciamento.
-    2. Identifique as interfaces de rede idênticas em cada controlador. Por exemplo, se você optar por conectar DATA 0 e DATA 3 em um dos controladores, precisará conectar DATA 0 e DATA 3 correspondentes no outro controlador. 
 
-3. Para alta disponibilidade, certifique-se de conectar:
-   1. Interfaces idênticas em cada controlador à rede relevante para garantir disponibilidade em uma falha do controlador.
-   2. Interfaces de cada controlador a pelo menos dois comutadores diferentes para garantir disponibilidade em uma falha do comutador.
-   3. Porta DATA 0 à LAN primária (rede com acesso à Internet). As outras portas de dados podem ser conectadas ao segmento SAN/iSCSI LAN (VLAN) da rede, dependendo da função pretendida.
 
-No mínimo, configure uma interface de rede para acesso à nuvem e uma para iSCSI. Para alta disponibilidade e desempenho, configure dois pares de interfaces de rede em cada controlador. Consulte o diagrama a seguir para cabeamento de rede. (A configuração mínima de rede é mostrada pelas linhas azuis sólidas. Para alta disponibilidade e desempenho, a configuração adicional necessária é mostrada pelas linhas pontilhadas).
+1. Consulte o diagrama a seguir para cabeamento de rede. (A configuração mínima de rede é mostrada pelas linhas azuis sólidas. Para alta disponibilidade e desempenho, a configuração adicional necessária é mostrada pelas linhas pontilhadas).
 
 ![Cabear o dispositivo 4U para rede](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
@@ -256,6 +249,22 @@ H,I | Hosts (por exemplo, servidores de arquivos)
 0-5 | Interfaces de rede
 6 | Compartimento principal
 7 | Compartimento EBOD
+
+Ao cabear o dispositivo, a configuração mínima exige:
+
+
+- Pelo menos duas interfaces de rede conectadas em cada controlador com uma para acesso à nuvem e outra para iSCSI. A porta DATA 0 é habilitada e configurada automaticamente por meio do console serial do dispositivo. Além da DATA 0, outra porta de dados também precisa ser configurada por meio do Portal de Gerenciamento. Nesse caso, conecte a porta DATA 0 à LAN primária (rede com acesso à Internet). As outras portas de dados podem ser conectadas ao segmento SAN/iSCSI LAN (VLAN) da rede, dependendo da função pretendida.
+
+- Interfaces idênticas em cada controlador conectadas à mesma rede para garantir a disponibilidade caso ocorra um failover do controlador. Por exemplo, se você optar por conectar DATA 0 e DATA 3 em um dos controladores, precisará conectar DATA 0 e DATA 3 correspondentes no outro controlador.
+	
+Lembre-se disso no caso de alta disponibilidade e desempenho:
+
+
+- Quando for possível, configure um par de interfaces de rede para acesso à nuvem (1 GbE) e outro par para iSCSI (10 GbE recomendados) em cada controlador. 
+
+- Quando for possível, conecte as interfaces de rede de cada controlador a pelo menos dois comutadores diferentes para garantir disponibilidade no caso de falha do comutador. A figura ilustra duas interfaces de rede de 10 GbE, DATA 2 e DATA 3, de cada controlador conectado a dois comutadores diferentes. Para saber mais, consulte **Interfaces de rede** em [Requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+
+>[AZURE.NOTE]Se você usar transceptores SFP+ com suas interfaces de rede 10 GbE, use os adaptadores QSFP-SFP+ fornecidos. Saiba mais em [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Cabeamento de porta serial
 
@@ -289,4 +298,4 @@ Você concluiu o cabeamento do dispositivo para conexão serial, de energia e ac
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

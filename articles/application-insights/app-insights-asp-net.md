@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights para ASP.NET" 
-	description="Analise o uso, a disponibilidade e o desempenho de seu aplicativo Web local ou do Microsoft Azure com o Application Insights." 
+	description="Com o Application Insights, analise o desempenho, a disponibilidade e o padrão de uso de seu aplicativo Web local ou no Microsoft Azure." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -174,4 +174,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

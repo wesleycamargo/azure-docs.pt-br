@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Gerenciador de Recursos do Azure
@@ -78,9 +78,11 @@ Antes de começar, verifique se possui os seguintes itens:
 
 - Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- A versão mais recente dos cmdlets do Azure PowerShell. Você pode baixar e instalar a versão mais recente na seção Windows PowerShell da [página de download](http://azure.microsoft.com/downloads/). Este artigo foi escrito para o Azure PowerShell *0.9.8*.
+- Cmdlets do Azure PowerShell 0.9.8. Você pode baixar e instalar essa versão na seção Windows PowerShell da [página Download](http://azure.microsoft.com/downloads/). Este artigo foi escrito para a versão 0.9.8, embora seja possível usar estas etapas (com pequenas modificações nos cmdlets) com o PowerShell 1.0 Preview.
 
->[AZURE.NOTE]Se estiver executando aplicativos críticos, continue usando o Azure PowerShell 0.9.8. Na maioria dos casos, a única diferença entre as duas versões é que o nome do cmdlet da Visualização 1.0 segue o padrão {verbo}-AzureRm{substantivo}, enquanto que o nome da versão 0.9.8 não inclui Rm. Por exemplo, New-AzureRmResourceGroup em vez de New-AzureResourceGroup. Para obter informações sobre a Visualização do Azure PowerShell 1.0, confira esta [postagem no blog](https://azure.microsoft.com/blog/azps-1-0-pre/). Para obter mais informações sobre os cmdlets da Visualização do Azure PowerShell 1.0, veja [Cmdlets do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/mt125356.aspx).
+**Sobre o uso destas etapas com o Azure PowerShell 1.0 Preview**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
 
 
 ## 1\. Planejar seus intervalos de endereços IP
@@ -113,9 +115,7 @@ Valores para VNet2:
 
 ## 2\. Conecte-se as suas assinaturas 
 
-Abra o console do PowerShell e conecte-se à sua conta. Para as instruções abaixo, usamos o Azure PowerShell versão 0.9.8. Você pode baixar e instalar a versão mais recente na seção Windows PowerShell da [página de Download](http://azure.microsoft.com/downloads/).
-
-Use o exemplo a seguir para ajudar com a conexão:
+Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar com a conexão:
 
 		Add-AzureAccount
 
@@ -249,8 +249,8 @@ Depois de verificar se suas sub-redes do gateway estão configuradas corretament
 
 ## Próximas etapas
 
-Você pode adicionar máquinas virtuais às suas redes virtuais. [Crie uma Máquina Virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
+Você pode adicionar máquinas virtuais às suas redes virtuais. [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md)
 
-Para obter mais informações sobre Gateways de VPN, confira [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-faq.md).
+Para saber mais sobre Gateways de VPN, consulte [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-faq.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

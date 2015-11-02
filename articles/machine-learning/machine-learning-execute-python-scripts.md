@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Executar scripts de aprendizado de máquina do Python | Microsoft Azure" 
 	description="Descreve princípios de design subjacentes ao suporte a Python no Aprendizado de Máquina do Azure e seus cenários de uso básico, recursos e limitações." 
-	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
+	keywords="aprendizado de máquina em python, pandas, python pandas, scripts python, executar scripts python"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
@@ -167,11 +167,11 @@ Nos próximos meses, esperamos fornecer funcionalidades adicionais para o módul
 
 ## Próximas etapas
 
-Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
+Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

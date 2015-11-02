@@ -13,13 +13,13 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="10/12/2015"
+  ms.date="10/16/2015"
   ms.author="stevenpo"/>
 
 
 # Gerenciando o acesso a aplicativos
 
-Gerenciamento de acesso contínuo, avaliação de uso e relatórios continuam a ser um desafio depois que um aplicativo é integrado ao sistema de identidade da sua organização. Em muitos casos, seu administrador de TI ou o suporte técnico deve ter um papel ativo contínuo em gerenciar o acesso aos seus aplicativos. Às vezes, a atribuição é executada por uma equipe de TI geral ou de divisão. Em muitos casos, a decisão de atribuição deve ser delegada ao tomador de decisões comerciais, exigindo sua aprovação antes de a TI fazer a atribuição. Outras organizações investem na integração com um sistema de gerenciamento automatizado de identidade e acesso existente, como RBAC (controle de acesso baseado em função) ou ABAC (controle de acesso baseado em atributos). A integração e o desenvolvimento de regras tendem a ser especializados e caros. Em cada abordagem de gerenciamento, monitoramento e relatórios exigem um investimento separado, caro e complexo.
+Gerenciamento de acesso contínuo, avaliação de uso e relatórios continuam a ser um desafio depois que um aplicativo é integrado ao sistema de identidade da sua organização. Em muitos casos, seu administrador de TI ou o suporte técnico deve ter um papel ativo contínuo em gerenciar o acesso aos seus aplicativos. Às vezes, a atribuição é executada por uma equipe de TI geral ou de divisão. Frequentemente, a decisão de atribuição deve ser delegada ao tomador de decisões comerciais, exigindo sua aprovação antes de a TI fazer a atribuição. Outras organizações investem na integração com um sistema de gerenciamento automatizado de identidade e acesso existente, como RBAC (controle de acesso baseado em função) ou ABAC (controle de acesso baseado em atributos). A integração e o desenvolvimento de regras tendem a ser especializados e caros. Em cada abordagem de gerenciamento, monitoramento e relatórios exigem um investimento separado, caro e complexo.
 
 ## Como o Active Directory do Azure ajuda?
 
@@ -28,7 +28,10 @@ Gerenciamento de acesso contínuo, avaliação de uso e relatórios continuam a 
  - [Adicionando novos aplicativos](active-directory-sso-newly-acquired-saas-apps.md)
  - [Adicionando aplicativos existentes](active-directory-sso-integrate-existing-apps)
 
- A atribuição de aplicativo do AD do Azure se concentra em dois modos de atribuição principais: - Atribuição individual - um administrador de TI com privilégios globais, de AU ou de usuário pode selecionar as contas de usuário individuais e conceder a elas acesso ao aplicativo. - Atribuição baseada em grupo (somente no AD do Azure pago) - um administrador de TI com privilégios globais, de AU ou de usuário pode atribuir um grupo ao aplicativo. O acesso de um usuário específico é determinado dependendo se ele é membro do grupo no momento em que tenta acessar o aplicativo. Nesse modo, um administrador pode efetivamente criar uma regra de atribuição informando que "qualquer membro atual do grupo atribuído tem acesso ao aplicativo". Com essa opção de atribuição, os administradores podem se beneficiar de qualquer uma das opções de gerenciamento de grupo do AD do Azure, incluindo grupos dinâmicos baseados em atributo, grupos de sistema externo (por exemplo, AD no local ou Workday), grupos gerenciados de autoatendimento ou por administrador. Um único grupo pode ser atribuído facilmente a vários aplicativos, garantindo que os aplicativos com afinidade de atribuição possam compartilhar as regras de atribuição, reduzindo a complexidade do gerenciamento geral.
+ A atribuição de aplicativo do AD do Azure se concentra em dois modos de atribuição principais:
+
+- **Atribuição individual** Um administrador de TI com privilégio global, de usuário ou AU pode selecionar as contas de usuário individuais e conceder a elas acesso ao aplicativo.
+- **Atribuição baseada em grupo (somente no AD do Azure pago)** Um administrador de TI com privilégio global, de usuário ou AU pode atribuir um grupo ao aplicativo. O acesso de um usuário específico é determinado dependendo se ele é membro do grupo no momento em que tenta acessar o aplicativo. Nesse modo, um administrador pode efetivamente criar uma regra de atribuição informando que "qualquer membro atual do grupo atribuído tem acesso ao aplicativo". Com essa opção de atribuição, os administradores podem se beneficiar de qualquer uma das opções de gerenciamento de grupo do AD do Azure, incluindo grupos dinâmicos baseados em atributo, grupos de sistema externo (por exemplo, AD no local ou Workday), grupos gerenciados de autoatendimento ou por administrador. Um único grupo pode ser atribuído facilmente a vários aplicativos, garantindo que os aplicativos com afinidade de atribuição possam compartilhar as regras de atribuição, reduzindo a complexidade do gerenciamento geral.
 
 Usando esses dois modos de atribuição, os administradores podem obter qualquer abordagem de gerenciamento de atribuição desejada.
 
@@ -49,12 +52,11 @@ Nesse caso, todos os usuários atribuídos poderiam ser provisionados automatica
 
  Os administradores podem empregar o [acesso condicional do AD do Azure](active-directory-conditional-access.md) para definir políticas de acesso para funções específicas. Essas políticas podem incluir se o acesso é permitido fora do ambiente corporativo e até mesmo requisitos de autenticação multifator ou dispositivo para obter acesso em vários casos.
 
-
 ## Como posso começar?
 
 Primeiro, se você ainda não estiver usando o AD do Azure e for um administrador de TI:
 
- - [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/) - você pode inscrever-se em uma avaliação gratuita por 30 dias hoje mesmo e implantar sua primeira solução de nuvem em menos de 5 minutos usando este link
+ - [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/) - você pode se inscrever em uma avaliação gratuita de 30 dias hoje mesmo e implantar sua primeira solução de nuvem em menos de 5 minutos usando este link
 
 Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 
@@ -69,4 +71,4 @@ Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 - [Protegendo aplicativos com acesso condicional](active-directory-conditional-access.md)
 - [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

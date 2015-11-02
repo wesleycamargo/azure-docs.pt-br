@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Página de dicas úteis de algoritmo de Aprendizado de Máquina | Microsoft Azure"
 	description="Uma página de dicas úteis de algoritmo de Aprendizado de Máquina que pode ser impressa o ajuda a escolher o algoritmo certo para o seu modelo de previsão no Estúdio de Aprendizado de Máquina do Azure."
-	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"
+	keywords="folha de consulta de algoritmo, folha de consulta, algoritmo de aprendizado de máquina"
 	services="machine-learning"
 	documentationCenter=""
 	authors="brohrer"
@@ -87,4 +87,4 @@ Baixe a página de dicas úteis de algoritmo de Aprendizado de Máquina e obtenh
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

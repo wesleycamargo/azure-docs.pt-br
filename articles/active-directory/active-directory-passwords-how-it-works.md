@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Como funciona: Gerenciamento de Senhas do AD do Azure | Microsoft Azure"
-	description="Saiba mais sobre os diferentes componentes do Gerenciamento de Senhas do AD do Azure, incluindo onde os usuários se registram, redefinem e alteram suas senhas e onde os administradores configuram, relatam e habilitam o gerenciamento de senhas do Active Directory local."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Como funciona: Gerenciamento de Senhas do AD do Azure | Microsoft Azure" 
+	description="Saiba mais sobre os diferentes componentes do Gerenciamento de Senhas do AD do Azure, incluindo onde os usuários se registram, redefinem e alteram suas senhas e onde os administradores configuram, relatam e habilitam o gerenciamento de senhas do Active Directory local." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Como funciona o gerenciamento de senhas
@@ -38,7 +38,8 @@ Você pode configurar políticas de Gerenciamento de Senhas para um diretório e
  - Perguntas de segurança (autenticação baseada em conhecimento)
 - Definir o número de perguntas que um usuário deve registrar para usar o método de autenticação de perguntas de segurança (visível somente se perguntas de segurança estiverem ativadas)
 - Definir o número de perguntas que um usuário deve fornecer durante a redefinição para usar o método de autenticação de perguntas de segurança (visível somente se perguntas de segurança estiverem ativadas)
-- Definir as perguntas de segurança personalizadas que um usuário pode optar por registrar para usar o método de autenticação de perguntas de segurança (visível apenas se perguntas de segurança estiverem habilitadas)
+- Usar perguntas de segurança pré-configuradas e localizadas que um usuário pode escolher ao se registrar para a redefinição de senha (estará visível apenas se as perguntas de segurança estiverem ativadas)
+- Definir as perguntas de segurança personalizadas que um usuário pode escolher ao se registrar para a redefinição de senha (estará visível apenas se as perguntas de segurança estiverem ativadas)
 - Exigir que os usuários se registrem para a redefinição de senha ao irem para o Painel de Acesso ao Aplicativo em [http://myapps.microsoft.com](http://myapps.microsoft.com).
 - Exigir que os usuários reconfirmem seus dados previamente registrados depois de um número configurável de dias (visível apenas se o registro imposto estiver habilitado)
 - Fornecer um email de assistência técnica personalizada ou uma URL que será exibido aos usuários caso eles tenham um problema ao redefinir suas senhas
@@ -121,4 +122,4 @@ Para obter mais informações sobre o Azure AD Connect, consulte [Introdução: 
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

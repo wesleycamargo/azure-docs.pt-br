@@ -47,7 +47,7 @@ Após habilitar a área de trabalho remota (Windows), comunicação remota do Wi
 
 Em um cliente REST, siga estas instruções:
 
-1. Certifique-se de que você tenha um certificado do cliente para se conectar ao Portal do Azure. Para obter um certificado do cliente, siga as etapas apresentadas em [Como baixar e importar configurações de publicação e informações de assinatura] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx).
+1. Certifique-se de que você tenha um certificado do cliente para se conectar ao Portal do Azure. Para obter um certificado do cliente, execute as etapas apresentadas em [Como baixar e importar configurações de publicação e informações de assinatura](https://msdn.microsoft.com/library/dn385850.aspx). 
 
 1. Defina uma entrada de cabeçalho chamada x-ms-version com um valor de 2013-11-01.
 
@@ -71,4 +71,4 @@ Você pode modificar o nome de host para qualquer máquina virtual ou instância
 
 [Especificar configurações de DNS usando arquivos de configuração de rede](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

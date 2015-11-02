@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Explorar métricas no Application Insights" 
-	description="Analise o uso, disponibilidade e desempenho de seu local ou um aplicativo Web do Microsoft Azure com o Application Insights." 
+	description="Como interpretar os gráficos no gerenciador de métricas e como personalizar as folhas do gerenciador de métricas." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -212,4 +212,4 @@ Se desejar exibições ainda mais avançadas, você pode [exportar para o Power 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

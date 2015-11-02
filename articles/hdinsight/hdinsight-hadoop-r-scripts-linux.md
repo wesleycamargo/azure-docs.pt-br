@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/20/2015"
 	ms.author="larryfr"/>
 
 # Instalar e usar R em clusters Hadoop do HDInsight (visualização)
@@ -62,7 +62,7 @@ O script [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r
 
 > [AZURE.NOTE]Você também pode usar o Azure PowerShell ou o SDK do .NET do HDInsight para criar um cluster usando esse script. Para saber mais sobre como usar esses métodos, consulte [Personalizar clusters HDInsight com ações de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Inicie o provisionamento de um cluster usando as etapas em [Provisionar clusters de HDInsight baseados em Linux](hdinsight-provision-linux-clusters.md#portal), mas não conclua o provisionamento.
+1. Inicie o provisionamento de um cluster usando as etapas em [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), mas não conclua o provisionamento.
 
 2. Na folha **Configuração opcional**, selecione **Ações de script** e forneça as informações a seguir:
 
@@ -75,7 +75,7 @@ O script [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r
 
 3. Na parte inferior das **Ações de Script**, use o botão **Selecionar** para salvar a configuração. Por fim, use o botão **Selecionar** na parte inferior da folha **Configuração Opcional** para salvar as informações da configuração opcional.
 
-4. Continue o provisionamento do cluster, conforme descrito em [Provisionar clusters do HDInsight baseados em Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continue o provisionamento do cluster conforme descrito em [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
 ## Executar scripts de R
 
@@ -148,4 +148,4 @@ Após a conclusão do provisionamento do cluster, use as seguintes etapas para u
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -25,11 +25,11 @@ Este tópico descreve como criar rapidamente uma máquina virtual Azure baseada 
 
 ## Criar sua primeira máquina virtual do Windows
 
-Se você já instalou o Azure PowerShell, você deve ter o Azure PowerShell versão 1.0.0 ou posterior. Você pode verificar a versão do PowerShell do Azure instalada com este comando no prompt de comando do PowerShell do Azure.
+Se você já instalou o Azure PowerShell, você deve ter o Azure PowerShell versão 1.0.0 ou posterior. Você pode verificar a versão do Azure PowerShell instalada com o comando este comando no prompt de comando do Azure PowerShell.
 
 	Get-Module azure | format-table version
 
-Se você ainda não fez isso ou se precisa atualizar a versão instalada do PowerShell do Azure, use as instruções em [Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do PowerShell do Azure.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Primeiro, você deve fazer logon no Azure com este comando.
 
@@ -137,4 +137,4 @@ Aqui está um exemplo do que você pode ver:
 
 [Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

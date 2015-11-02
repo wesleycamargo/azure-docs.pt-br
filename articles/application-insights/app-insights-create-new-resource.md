@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Criar um novo recurso do Application Insights" 
-	description="Configurar um novo aplicativo e obter uma nova chave de instrumentação. O Application Insights monitora o desempenho e o uso de aplicativos em tempo real." 
+	description="Configure o monitoramento do Application Insights para um novo aplicativo ativo. Abordagem baseada na Web." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -94,4 +94,4 @@ Você pode escrever um [script do PowerShell](app-insights-powershell-script-cre
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -4,7 +4,7 @@
    services="cloud-services" 
    documentationCenter=".net" 
    authors="cawaMS" 
-   manager="dwrede" 
+   manager="paulyuk" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/29/2015"
+   ms.date="10/14/2015"
    ms.author="cawa"/>
 
 # Como usar o Visual Studio para criar um contêiner de Serviço de Nuvem
@@ -33,4 +33,4 @@ Para exibir o **Gerenciador de Servidores** no Visual Studio, na barra de menus,
 Agora que você tem um contêiner de serviço de nuvem, pode [criar e implantar](cloud-services-how-to-create-deploy.md) um serviço de nuvem.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

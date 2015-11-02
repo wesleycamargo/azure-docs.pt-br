@@ -18,7 +18,9 @@
 
 # Como usar filas do Barramento de Serviço
 
-Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em Java e usam o [SDK do Azure para Java][]. Os cenários cobertos incluem **criação de filas**, **envio e recebimento de mensagens** e **exclusão de filas**.
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
+Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em Java e usam o [SDK do Azure para Java][]. Os cenários cobertos incluem a **criação de filas**, o **envio e recebimento de mensagens** e a **exclusão de filas**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
@@ -90,7 +92,7 @@ Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo ob
         System.exit(-1);
     }
 
-As mensagens enviadas para e recebidas de filas de Barramento de Serviço são instâncias da classe [BrokeredMessage][]. Os objetos [BrokeredMessage][] têm um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do [BrokeredMessage][] e o serializador adequado então será usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **java.IO.InputStream**.
+As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe [BrokeredMessage][]. Os objetos [BrokeredMessage][] têm um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do [BrokeredMessage][] e o serializador adequado então será usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **java.IO.InputStream**.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste para o objeto `TestQueue` **MessageSender** obtido no trecho de código anterior:
 
@@ -177,9 +179,9 @@ Se houver falha do aplicativo após o processamento da mensagem, mas antes da so
 
 ## Próximas etapas
 
-Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][] para obter mais informações.
+Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, consulte [Filas, tópicos e assinaturas][] para obter mais informações.
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
+Para saber mais, consulte o [Centro do desenvolvedor para Java](/develop/java/).
 
 
   [SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
@@ -188,4 +190,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/d
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

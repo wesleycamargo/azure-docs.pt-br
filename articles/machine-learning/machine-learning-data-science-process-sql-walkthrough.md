@@ -1,8 +1,7 @@
 <properties
-	pageTitle="Processo e Tecnologia de Análise Avançada em ação: usando o SQL Server | Microsoft Azure"
+	pageTitle="O Processo de Análise do Cortana em ação: usando SQL Server | Microsoft Azure"
 	description="Processo e Tecnologia de Análise Avançada em ação"  
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -14,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015" 
+	ms.date="10/18/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
 
-# Processo e Tecnologia de Análise Avançada em ação: usando o SQL Server
+# Processo de Análise do Cortana em ação: usando SQL Server
 
 Neste tutorial, você obtém uma explicação passo a passo sobre como criar e implantar um modelo usando um conjunto de dados disponível publicamente -- o conjunto de dados [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). O procedimento segue o guia ADAPT (Azure Advanced Analytics Process and Technology).
 
@@ -715,4 +714,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

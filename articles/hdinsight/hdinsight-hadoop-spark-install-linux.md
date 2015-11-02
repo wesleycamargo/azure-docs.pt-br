@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use a ação de Script no HDInsight para instalar o Spark em um cluster do Hadoop | Microsoft Azure" 
-	description="Saiba como personalizar um cluster do HDInsight com o Spark. Você usará uma opção de configuração de Ação de Script para usar um script para instalar o Spark" 
+	pageTitle="Usar ação de Script para instalar o Apache Spark no HDInsight baseado em Linux (Hadoop) | Microsoft Azure" 
+	description="Saiba como instalar o Spark em um cluster HDInsight baseado em Linux usando as Ações de Script. Ações de script permitem que você personalize o cluster durante a criação, alterando a configuração do cluster ou instalando serviços e utilitários." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/19/2015" 
 	ms.author="larryfr"/>
 
 # Instalar e usar o Spark em clusters Hadoop do HDInsight
@@ -40,24 +40,28 @@ Você pode modificar esse script ou criar seu próprio script para instalar outr
 
 Esse script instala a versão 1.5.1 do Spark em `/usr/hdp/current/spark`.
 
+> [AZURE.WARNING]Você pode descobrir que alguns binários Spark 1.3.1 estão instalados por padrão no cluster HDInsight. Eles não devem ser usados e serão removidos da imagem do cluster HDInsight em uma atualização futura.
+
 ## <a name="install"></a>Instalar o Spark usando ações de script
 
 Um exemplo de script para instalar Spark em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente leitura em [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Esta seção fornece instruções sobre como usar o exemplo de script durante a criação do cluster usando o Portal do Azure.
 
-> [AZURE.NOTE]Você também pode usar o Azure PowerShell ou o SDK do .NET do HDInsight para criar um cluster usando esse script. Para saber mais sobre como usar esses métodos, consulte [Personalizar clusters HDInsight com ações de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE]Você também pode usar o Azure PowerShell ou o SDK do .NET do HDInsight para criar um cluster usando esse script. Para obter mais informações sobre como usar esses métodos, consulte [Personalizar clusters HDInsight com Ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Inicie a criação de um cluster usando as etapas em [Criar clusters de HDInsight baseados em Linux](hdinsight-provision-linux-clusters.md#portal), mas não conclua a criação.
 
-2. Na folha **Configuração opcional**, selecione **Ações de script** e forneça as informações a seguir:
+2. Na folha **Configuração Opcional**, selecione **Ações de Script** e forneça as informações a seguir:
 
-	* __NOME__: insira um nome fácil para a ação de script.
-	* __URI do script__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
-	* __CABEÇALHO__: marque essa opção
-	* __TRABALHO__: marque essa opção
-	* __ZOOKEEPER__: marque essa opção para instalar no nó Zookeeper.
-	* __PARÂMETROS__: deixe esse campo em branco
+	* __NOME__: insira um nome amigável para a ação de script.
+	* __URI DO SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
+	* __CABEÇALHO__: marque esta opção
+	* __Trabalho__: desmarque essa opção
+	* __ZOOKEEPER__: desmarque essa opção
+	* __PARÂMETROS__: deixe este campo em branco
+    
+    > [AZURE.NOTE]O exemplo de script Spark instala somente componentes nos nós principais para que os outros tipos de nós possam ser desmarcados.
 
-3. Na parte inferior das **Ações de Script**, use o botão **Selecionar** para salvar a configuração. Por fim, use o botão **Selecionar** na parte inferior da folha **Configuração Opcional** para salvar as informações da configuração opcional.
+3. Na parte inferior das **Ações de Script**, use o botão **Selecionar** para salvar a configuração. Por fim, use o botão **Selecionar** na parte inferior da folha **Configuração Opcional** para salvar as informações de configuração opcional.
 
 4. Continue o provisionamento do cluster, conforme descrito em [Criar clusters do HDInsight baseados em Linux](hdinsight-provision-linux-clusters.md#portal).
 
@@ -172,7 +176,7 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 
 	> [AZURE.NOTE]Lembre-se de manter as linhas em branco entre cada entrada.
 	
-	Use __Ctrl+X__ e __Y__ e __Enter__ para salvar o arquivo.
+	Use __Ctrl+X__ e, em seguida, __Y__ e __Enter__ para salvar o arquivo.
 
 4. Use o seguinte comando para criar um novo arquivo chamado __SimpleApp.scala__ no diretório __SimpleScalaApp/src/main/scala__:
 
@@ -197,7 +201,7 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 		  }
 		}
 
-	Use __Ctrl+X__, __Y__ e __Enter__ para salvar o arquivo.
+	Use __Ctrl+X__ e, em seguida, __Y__ e __Enter__ para salvar o arquivo.
 
 5. No diretório __SimpleScalaApp__, use o seguinte comando para compilar o aplicativo e armazená-lo em um arquivo jar:
 
@@ -216,7 +220,7 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 
 ## Próximas etapas
 
-- [Instalar e usar a Matiz em clusters do HDInsight](hdinsight-hadoop-hue-linux.md). A Matiz é uma interface da Web que torna mais fácil criar, executar e salvar trabalhos Pig e Hive, bem como procurar o armazenamento padrão do cluster do HDInsight.
+- [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md). A Matiz é uma interface da Web que torna mais fácil criar, executar e salvar trabalhos Pig e Hive, bem como procurar o armazenamento padrão do cluster do HDInsight.
 
 - [Instalar o R em clusters HDInsight][hdinsight-install-r] fornece instruções sobre como usar a personalização do cluster para instalar e usar o R em clusters Hadoop no HDInsight. R é uma linguagem e ambiente de software livre para computação estatística. Ele fornece centenas de funções estatísticas internas e sua própria linguagem de programação, que combina aspectos de programação funcional e de programação orientada a objetos. Ele também fornece recursos abrangentes de gráficos.
 
@@ -224,7 +228,7 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 
 - [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite que você execute operações poderosas nos dados armazenados.
 
-- [Instalar a Matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar o Hue em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
+- [Instalar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar o Hue em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
 
 
 
@@ -234,4 +238,4 @@ Nesta seção, você criará um aplicativo Scala que conta o número de linhas q
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

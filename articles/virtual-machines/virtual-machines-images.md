@@ -19,6 +19,8 @@
 
 # Sobre imagens de máquinas virtuais
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+
 As imagens são usadas no Azure para fornecer uma nova máquina virtual com um sistema operacional. Uma imagem também pode ter um ou mais discos de dados. As imagens estão disponíveis de várias fontes:
 
 -	O Azure oferece imagens no [Marketplace](http://azure.microsoft.com/gallery/virtual-machines/). Você encontrará as versões recentes do Windows Server e as distribuições do sistema operacional Linux. Algumas imagens também contêm aplicativos, como o SQL Server. Assinantes de MSDN Benefício e Pré-pago têm acesso a imagens adicionais.
@@ -57,4 +59,4 @@ Para obter exemplos de como usar as ferramentas em uma implantação clássica:
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

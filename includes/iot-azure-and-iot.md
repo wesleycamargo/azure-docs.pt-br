@@ -28,9 +28,9 @@ As soluções de IoT podem incluir loops automáticos de comentários. Por exemp
 
 Muitas soluções de IoT permitem aos usuários exibir e analisar os dados coletados de seus dispositivos. Essas exibições podem assumir a forma de painéis ou de relatórios de BI.
 
-[img-solution-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
+[img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -55,4 +55,4 @@ Realize as seguintes etapas de configuração para criar uma rede virtual do Azu
 ---
 [**Próxima etapa - Habilitar os Serviços de Domínio do Azure AD.**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

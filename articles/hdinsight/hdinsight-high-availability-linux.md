@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Disponibilidade dos clusters Hadoop no HDInsight | Microsoft Azure"
-	description="Clusters de HDInsight baseados em Linux melhoram a confiabilidade e disponibilidade usando um nó principal adicional."
+	pageTitle="Recursos de alta disponibilidade do HDInsight baseados em Linux (Hadoop) | Microsoft Azure"
+	description="Saiba como clusters HDInsight baseados em Linux melhoram a confiabilidade e a disponibilidade usando um nó principal adicional. Você aprenderá como isso afeta os serviços do Hadoop, como o Ambari e o Hive, e também como se conectar individualmente com cada nó principal usando SSH."
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 #Disponibilidade e confiabilidade dos clusters Hadoop em HDInsight
@@ -166,4 +166,4 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

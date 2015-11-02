@@ -2,7 +2,6 @@
 	pageTitle="Consumir um serviço Web de Aprendizado de Máquina | Microsoft Azure"
 	description="Depois que um serviço de aprendizado de máquina é implantado, o serviço Web RESTFul disponibilizado pode ser consumido como serviço de solicitação-resposta ou como um serviço de execução em lote."
 	services="machine-learning"
-	solutions="big-data"
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="09/09/2015" 
+	ms.date="10/19/2015"
 	ms.author="bradsev" />
 
 
@@ -33,6 +32,8 @@ Isso significa que os serviços podem ser consumidos em aplicativos Web, aplicat
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Um serviço Web de Aprendizado de Máquina do Azure pode ser consumido de duas maneiras diferentes, como um serviço de solicitação-resposta ou como um serviço de execução de lote. Em cada cenário, a funcionalidade é fornecida por meio do serviço Web RESTFul que é disponibilizado para consumo depois que o teste tiver sido implantado. Implantando um serviço Web de Aprendizado de Máquina no Azure com um ponto de extremidade de serviço Web do Azure, em que o serviço é escalado automaticamente com base no uso, você pode evitar custos antecipados e contínuos de recursos de hardware.
+
+> [AZURE.TIP]Para conhecer uma maneira simples de criar um aplicativo Web a fim de acessar seu serviço da Web, consulte [Consumir um serviço Web de Aprendizado de Máquina do Azure com um modelo de aplicativo Web](machine-learning-consume-web-service-with-web-app-template.md).
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
@@ -432,4 +433,4 @@ O exemplo de código abaixo demonstra como você pode enviar e monitorar um trab
 	    }
 	}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

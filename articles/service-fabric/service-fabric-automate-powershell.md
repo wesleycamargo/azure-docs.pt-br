@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/16/2015"
 	ms.author="ryanwi"/>
 
 # Implantar, atualizar, testar e remover aplicativos do Service Fabric usando o PowerShell
@@ -34,13 +34,13 @@ Connect-ServiceFabricCluster
 
 ## TAREFA: Implantar um aplicativo do Service Fabric
 
-Depois de compilar o aplicativo, e do empacotamento do aplicativo, você poderá implantar o aplicativo em um cluster do Service Fabric. Primeiro, empacote o aplicativo HelloWorldStateful no Visual Studio clicando com o botão direito do mouse em **HelloWorldStatefulApplication** no Gerenciador de Soluções e selecionando **Pacote**. Consulte [Modelar um aplicativo no Service Fabric](service-fabric-application-model.md) para saber mais sobre os manifestos de aplicativo e de serviço e sobre o layout do pacote. A implantação envolve o carregamento do pacote de aplicativos, o registro do tipo de aplicativo e a criação da instância do aplicativo. Use as instruções desta seção para implantar um novo aplicativo em um cluster.
+Depois de compilar o aplicativo, e do empacotamento do aplicativo, você poderá implantar o aplicativo em um cluster local do Service Fabric. Primeiro, empacote o aplicativo HelloWorldStateful no Visual Studio clicando com o botão direito do mouse em **HelloWorldStatefulApplication** no Gerenciador de Soluções e selecionando **Pacote**. Consulte [Modelar um aplicativo no Service Fabric](service-fabric-application-model.md) para saber mais sobre os manifestos de aplicativo e de serviço e sobre o layout do pacote. A implantação envolve o carregamento do pacote de aplicativos, o registro do tipo de aplicativo e a criação da instância do aplicativo. Use as instruções desta seção para implantar um novo aplicativo em um cluster.
 
 ### Etapa 1: Carregar o pacote do aplicativo
 O carregamento do pacote de aplicativos em ImageStore coloca-o em um local acessível por componentes internos do Service Fabric. O pacote de aplicativos contém o manifesto de aplicativo necessário, os manifestos de serviço e os pacotes de dados/configuração/código, a fim de criar as instâncias do aplicativo e do serviço. O comando [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt125905.aspx) carregará o pacote. Por exemplo:
 
 ```powershell
-Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ### Etapa 2: Registrar o tipo de aplicativo
@@ -107,7 +107,7 @@ O aplicativo está compilado, empacotado e pronto para ser atualizado. Se você 
 Agora, copie o pacote de aplicativos atualizado para o ImageStore do Service Fabric (onde os pacotes de aplicativo são armazenados pelo Service Fabric). O parâmetro *ApplicationPackagePathInImageStore* informa à Malha de serviço onde ela pode encontrar o pacote do aplicativo. O comando a seguir copiará o pacote de aplicativos para *HelloWorldStatefulV2* na ImageStore:
 
 ```powershell
-Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore   -ApplicationPackagePathInImageStore HelloWorldStatefulV2
+Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStatefulV2
 ```
 
 A próxima etapa será registrar a nova versão do aplicativo no Service Fabric, o que pode ser feito usando o cmdlet [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125958.aspx) :
@@ -190,7 +190,7 @@ Unregister-ServiceFabricApplicationType HelloWorldStatefulApplication 1.0.0.0
 Após o cancelamento do registro do tipo de aplicativo, o pacote de aplicativos pode ser removido da ImageStore usando o cmdlet [Remove-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt163532.aspx).
 
 ```powershell
-Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ## Recursos adicionais
@@ -202,4 +202,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Cmdlets de capacidade de teste do Azure Service Fabric](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

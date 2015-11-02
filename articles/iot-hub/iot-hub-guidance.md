@@ -69,7 +69,7 @@ O padrão do serviço do token é a maneira recomendada de implementar um regist
 
 Para saber mais sobre o Hub IoT do Azure, siga estes links:
 
-- [Introdução aos Hubs IoT (Tutorial)][lnk-get-started]
+- [Introdução ao Hub IoT (Tutorial)][lnk-get-started]
 - [O que é o Hub IoT do Azure?][]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
@@ -88,4 +88,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

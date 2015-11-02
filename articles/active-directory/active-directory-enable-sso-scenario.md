@@ -1,90 +1,127 @@
-<properties 
-    pageTitle="Posso depender do AD do Azure para habilitar o logon único (SSO) para todos os meus aplicativos | Microsoft Azure" 
-    description="Saiba como o Active Directory do Azure ajuda a estender o escopo de uma identidade e seu gerenciamento." 
-    services="active-directory" 
-    authors="markusvi"  
-    documentationCenter="na" 
-    manager="stevenpo"/>
+<properties
+   pageTitle="Gerenciando aplicativos com o Active Directory do Azure | Microsoft Azure"
+   description="Este artigo apresenta os benefícios da integração do Active Directory do Azure com seus aplicativos locais, de nuvem e SaaS."
+   services="active-directory"
+   documentationCenter=""
+   authors="ihenkel"
+   manager="stevenpo"
+   editor=""/>
 
-<tags 
-    ms.service="active-directory" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-    ms.date="10/12/2015" 
-    ms.author="markvi" />
+   <tags
+      ms.service="active-directory"
+      ms.devlang="na"
+      ms.topic="article"
+      ms.tgt_pltfrm="na"
+      ms.workload="identity"
+      ms.date="10/16/2015"
+      ms.author="inhenk"/>
 
+# Gerenciando aplicativos com o AD do Azure (Active Directory do Azure)
 
-# Posso depender do AD do Azure para habilitar o logon único (SSO) para todos os meus aplicativos
-Este artigo destina-se a tomadores de decisões de TI que desejam conhecer o valor comercial que o Active Directory do Azure fornece aos aplicativos que sua organização usa.
+## Visão geral
 
-## Aplicativos em execução em um ambiente baseado em nuvem  
+Além do fluxo de trabalho ou do conteúdo real, as empresas têm dois requisitos básicos para todos os aplicativos:
 
-Hoje, em um mundo baseado na nuvem, você pode encontrar milhares de aplicativos para fazer qualquer trabalho. Os departamentos de TI muitas vezes nem conhecem todos os aplicativos SaaS que são usados em suas organizações. Em muitos casos, o uso do aplicativo é conhecido, mas obter algum nível de controle e de segurança é caro e demorado. Muitos dos aplicativos não oferecem suporte a integração com sistemas de identidade corporativa. Em outros casos, integrações únicas são evitadas devido ao custo e à complexidade.
+1. Para aumentar a produtividade, os aplicativos devem ser fáceis de descobrir e acessar
 
-Como resultado,
+2. Para habilitar a segurança e governança, a organização precisa controlar e supervisionar quem pode e, na verdade, está acessando cada aplicativo
 
-- Muitas organizações têm preocupações com o acesso não autorizado a dados corporativos, perda de dados e outros riscos de segurança inerentes ao aplicativo introduzido por aplicativos não gerenciados. Como elas ainda não sabem quantos ou quais aplicativos estão sendo usados, começar a criar um plano para lidar com esses riscos parece preocupante.
-- Os administradores precisam gerenciar individualmente todos os provedores de serviços IAM introduzidos por aplicativos gerenciados no seu ambiente. Isso inclui tarefas como criar e excluir usuários e grupos, bem como conceder ou revogar acesso a esses aplicativos.
-- Os usuários precisam memorizar várias credenciais para acessar os aplicativos com que precisam trabalhar. Senhas esquecidas representam um enorme impacto nos custos operacionais de muitas organizações. O que todos esses problemas têm em comum é que eles têm um impacto negativo na produtividade dos usuários e nos custos operacionais.  
- 
-## Como o Active Directory do Azure ajuda?
-O Active Directory do Azure ajuda a resolver esses problemas, permitindo que você facilmente estenda sua infraestrutura existente de identidade para a nuvem e com isso:
+No mundo dos aplicativos em nuvem, a melhor maneira de alcançar isso é usando a identidade para controlar “*QUEM tem permissão para fazer O QUE*”.
 
-- Estenda o alcance de seus usuários móveis para qualquer aplicativo 
-- Estenda o alcance do gerenciamento de acesso para qualquer aplicativo em nuvem 
-- Detecte os aplicativos usados acessados pelos usuários
+Na terminologia de computação:
 
+- *Quem* é conhecido como a *identidade* – um repositório de dados que consiste em usuários e grupos
 
-### Estenda o alcance de sua identidade para qualquer aplicativo 
+- *O que* é conhecido como o *gerenciamento de acesso* – gerenciamento de acesso aos recursos protegidos
 
-Por padrão, o Active Directory do Azure fornece SSO para aplicativos que são hospedados no Azure e em outros serviços online da Microsoft como o Office 365, o CRM Online e o Intune.
+Ambos os componentes juntos são conhecidos como *IAM (Gerenciamento de Identidades e Acesso)*, que é definido pelo grupo [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) como “*a disciplina de segurança que permite que os indivíduos certos acessem os recursos certos nos momentos certos para os motivos certos*”.
 
-Além disso, ele pode ser seu agente de identidade para logon único para aplicativos em qualquer nuvem pública, como Google, Amazon, IBM e outras. <br> Se um aplicativo é amplamente conhecido ou popular, iremos pré-integrá-lo à galeria de aplicativos do Active Directory do Azure. Hoje, você pode encontrar em torno de 2.500 aplicativos pré-integrados na galeria de aplicativos e o número está crescendo continuamente. <br> Basta alguns cliques para configurar o SSO para qualquer um dos aplicativos pré-integrados da galeria de aplicativos. E se meu aplicativo não estiver na galeria de aplicativos ainda? Você pode integrar qualquer aplicativo público ao seu Active Directory do Azure usando um assistente e, assim, habilitar o SSO para eles. Para obter mais detalhes, consulte [Implantando o logon único usando o Active Directory do Azure para aplicativos SaaS recém-adquiridos](active-directory-single-sign-on-newly-acquired-saas-apps.md) e [Integrar o SSO do Active Directory do Azure com aplicativos existentes](active-directory-sso-integrate-existing-apps.md)<br> E quanto aos aplicativos desenvolvidos pela sua organização? Podemos fornecer a documentação relacionada que permite que os desenvolvedores integrem facilmente aplicativos desenvolvidos pela sua organização ao Active Directory do Azure. Se você quiser saber mais sobre isso, consulte [AD do Azure e aplicativos: orientando desenvolvedores](active-directory-applications-guiding-developers-for-lob-applications.md).
+Certo, então, qual é o problema? Se o IAM *não for gerenciado* em um só lugar com uma solução integrada:
 
-Fornecendo suporte aos aplicativos pré-integrados, a aplicativos públicos que não estão na galeria de aplicativos e aplicativos que sua organização desenvolveu, o Active Directory do Azure permite oferecer o SSO para todos os seus aplicativos em nuvem.
+- Os administradores de identidades precisam criar e atualizar individualmente as contas de usuário em todos os aplicativos de maneira separada, uma atividade demorada e redundante.
 
-O valor do Active Directory do Azure vai além de "simples" aplicativos em nuvem. Com o Active Directory do Azure, você também pode estender o alcance de identidades do Azure, fornecendo acesso remoto seguro aos aplicativos locais por meio do SSO. Isso significa acesso remoto que não exige tecnologias como VPNs ou outras infraestruturas tradicionais de acesso remoto para acessar aplicativos Web locais. O Active Directory do Azure oferece essa funcionalidade por meio de recursos de proxy de aplicativo.
+- Os usuários precisam memorizar várias credenciais para acessar os aplicativos de que precisam para trabalhar, especialmente porque eles são incentivados a não usar a mesma senha para cada aplicativo por razões de segurança. Como resultado, os usuários tendem a anotar suas senhas ou usar outras soluções de gerenciamento de senhas que apresentam outros riscos de segurança de dados.
 
-O modelo tradicional de SSO é baseado em um mapeamento de duas contas individuais em dois repositórios de identidades. Com o Active Directory do Azure, você pode mapear até mesmo uma conta individual com uma conta corporativa compartilhada, como sua conta do Twitter corporativa. Ao implementar o SSO para suas contas compartilhadas corporativas, não é necessário compartilhar as credenciais da conta com os usuários, o que melhora significativamente a proteção dessas contas. Para saber mais sobre isso, veja [Compartilhando contas com o AD do Azure](active-directory-sharing-accounts.md)
+- Atividades demoradas e redundantes reduzem a quantidade de tempo que os usuários e administradores trabalham em atividades comerciais que aumentam o resultado dos negócios.
 
-Ao estender o alcance de suas identidades, uma única senha fornece acesso a milhares de aplicativos.
+Portanto, o que geralmente impede que as organizações adotem soluções integradas de IAM?
 
+- A maioria das soluções técnicas baseiam-se em plataformas de software que precisam ser implantadas e adaptadas por cada organização para seus próprios aplicativos.
 
+- Aplicativos de nuvem normalmente são adotados a uma taxa mais alta do que a organização de TI pode integrar com as soluções de IAM existentes.
 
-### Estendendo o alcance do gerenciamento de acesso para qualquer aplicativo em nuvem
+- As ferramentas de monitoramento e de segurança exigem integração e personalização adicional para obter cenários de E2E abrangentes.
 
-Gerenciar o acesso a seus aplicativos em nuvem é caro se você tiver que fazer isso manualmente para cada aplicativo. Com o Active Directory do Azure, você pode gerenciar o acesso aos seus aplicativos em nuvem com base em grupos de um ponto central - o portal do Azure. Você pode atribuir acesso para usuários individuais ou grupos. Para obter mais detalhes, consulte [Gerenciar o acesso aos aplicativos](active-directory-managing-access-to-apps.md).
+## AD do Azure (Active Directory do Azure) integrado com aplicativos
 
-Alguns aplicativos, como Salesforce, Box, Google Apps e Concur, fornecem interfaces de automação para criação e remoção ou desativação das contas. Se um provedor oferece uma interface desse tipo, ele é aproveitado pelo Active Directory do Azure. Em outras palavras, o Active Directory do Azure fornece suporte para o provisionamento automatizado de usuários para aplicativos que oferecem uma interface de automação relacionada.
+O AD do Azure (Active Directory do Azure) é a solução abrangente de IDaaS (Identidade como Serviço) da Microsoft que habilita o IAM como um serviço de nuvem e fornece gerenciamento de acesso interno, SSO (logon único) e relatórios [pré-integrados com milhares de aplicativos](https://azure.microsoft.com/marketplace/active-directory/), incluindo Salesforce, Google Apps, Box, Concur e muito mais. Com o AD do Azure, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) terão os mesmos recursos de gerenciamento de identidades e de acesso, liberando você para se concentrar em seu negócio principal.
 
-Com o provisionamento automatizado de usuários:
+O valor do AD do Azure vai além de “simples” aplicativos em nuvem. Você também pode usá-lo com aplicativos locais, fornecendo acesso remoto seguro, evitando a necessidade de VPNs ou de outro sistema de gerenciamento de acesso remoto tradicional.
 
-- Quando um usuário tiver recebido acesso a um aplicativo relacionado, o Active Directory do Azure provisionará automaticamente a conta de SSO necessária ao aplicativo.
-- Quando uma conta de usuário no Active Directory do Azure for excluída, a conta no aplicativo é desativada ou excluída. A configuração do provisionamento automatizado de usuários oferece os seguintes benefícios:
-- 	Reduz os custos operacionais porque automatiza tarefas administrativas que precisam ser executadas por sua equipe de TI.
-- Melhora a segurança do seu ambiente, pois diminui a chance de que exista acesso desnecessário a aplicativos.
+E se você precisar implementar um aplicativo que ainda não está listado na galeria de aplicativos? Embora isso seja um pouco mais demorado do que configurar o SSO para aplicativos da galeria de aplicativos, o AD do Azure fornece um assistente que ajuda você com a configuração.
 
-Para obter mais detalhes sobre o provisionamento automatizado de usuários, consulte [Provisionamento e desprovisionamento automatizados de usuários para aplicativos SaaS com o Active Directory do Azure](active-directory-saas-app-provisioning.md).
+Ao fornecer o gerenciamento de acesso central e SSO (logon único) para todos os seus aplicativos, o AD do Azure oferece a solução para problemas de produtividade e segurança de dados.
 
+- Os usuários podem acessar vários aplicativos com um único logon, proporcionando mais tempo para a geração de receitas ou para a realização de atividades de operações de negócios.
 
-### Detectando os aplicativos usados acessados pelos usuários
+- Os administradores de identidades podem gerenciar o acesso a aplicativos em um único lugar.
 
-Com o provisionamento de conta e o SSO, o Active Directory do Azure fornece mecanismos poderosos para aprimorar como os usuários e administradores podem trabalhar com aplicativos em seu ambiente dos quais você tem conhecimento. No entanto, nas empresas modernas, os departamentos de TI geralmente não estão cientes de todos os aplicativos de nuvem que são usados. Com o Cloud App Discovery, o Active Directory do Azure fornece também uma solução para detectar esses aplicativos. Com o Cloud App Discovery é possível:
+O benefício para o usuário e para a sua empresa é óbvio. Vamos examinar mais de perto os benefícios para um administrador de identidades e para a organização.
 
-- Descobrir aplicativos em uso e medir o uso pelo número de usuários, volume de tráfego ou número de solicitações Web ao aplicativo.
-- Identificar os usuários que estão usando um aplicativo.
-- Exportar dados para adição de análise offline.
-- Priorizar aplicativos a serem colocados sob o controle da TI e integrá-los facilmente para habilitar o gerenciamento de usuário e logon único.
+## Benefícios de aplicativos integrados
 
-Para obter mais detalhes sobre o Cloud App Discovery, consulte [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
+O processo de SSO tem duas etapas:
 
+- Autenticação, o processo de validação da identidade do usuário.
 
-## Como posso começar?
+- Autorização, a decisão para habilitar ou bloquear o acesso a um recurso com uma política de acesso.
 
-Primeiro, se você ainda não estiver usando o AD do Azure e for um administrador de TI:
+Ao usar o AD do Azure para gerenciar aplicativos e habilitar o SSO:
 
-- [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory) - você pode se inscrever em uma avaliação gratuita de 30 dias hoje mesmo e implantar sua primeira solução de nuvem em menos de 5 minutos usando este link
+- A autenticação é feita na conta local (por exemplo, AD) ou do AD do Azure do usuário.
 
-<!---HONumber=Oct15_HO3-->
+- A autorização é executada na política de atribuição e de proteção do AD do Azure, garantindo uma experiência do usuário final consistente e permitindo que você adicione atribuição, locais e condições de MFA em qualquer aplicativo, independentemente de seus recursos internos.
+
+É importante entender que a forma como a autorização é imposta no aplicativo de destino varia, dependendo de como o aplicativo foi integrado com o AD do Azure.
+
+- **Aplicativos pré-integrados pelo provedor de serviços** Como o Office 365 e o Azure, estes são aplicativos criados diretamente no AD do Azure e que dependem dele para seus recursos abrangentes de gerenciamento de identidades e de acesso. O acesso a esses aplicativos é habilitado por meio de informações de diretório e emissão de token.
+
+- **Aplicativos pré-integrados pela Microsoft e aplicativos personalizados** Estes são aplicativos de nuvem independentes que dependem de um diretório interno de aplicativos e que podem funcionar independentemente do AD do Azure. O acesso a esses aplicativos é habilitado por meio da emissão de uma credencial específica de aplicativo mapeada para uma conta de aplicativo. Dependendo dos recursos do aplicativo, a credencial pode ser um token de federação ou o nome de usuário e a senha de uma conta provisionada anteriormente no aplicativo.
+
+- **Aplicativos locais** Os aplicativos publicados por meio do proxy de aplicativo do AD do Azure que habilitam principalmente o acesso aos aplicativos locais. Esses aplicativos dependem de uma central no diretório local como o Windows Server Active Directory. O acesso a esses aplicativos é habilitado por meio do disparo do proxy para entregar o conteúdo do aplicativo para o usuário final, ao mesmo tempo que respeita o requisito de logon local.
+
+Por exemplo, se um usuário ingressar em sua organização, você precisa criar uma conta para o usuário no AD do Azure para as operações de logon primárias. Se esse usuário precisar ter acesso a um aplicativo gerenciado, como o Salesforce, você também precisará criar uma conta para este usuário no Salesforce e vinculá-la à conta do Azure para que o SSO funcione. Quando o usuário sair de sua organização, é aconselhável excluir a conta do AD do Azure e todas as contas equivalentes nos repositórios de IAM dos aplicativos aos quais o usuário tinha acesso.
+
+## Detecção de acesso
+
+Nas empresas modernas, os departamentos de TI geralmente não estão cientes de todos os aplicativos de nuvem que são usados. Em conjunto com o Cloud App Discovery, o AD do Azure fornece uma solução para detectar esses aplicativos.
+
+## Gerenciamento de contas
+
+Tradicionalmente, o gerenciamento de contas nos vários aplicativos é um processo manual realizado pela equipe de TI ou de suporte na organização. O AD do Azure automatizou por completo o gerenciamento de contas em todos os aplicativos integrados do provedor de serviços e os aplicativos pré-integrados pela Microsoft que dão suporte ao provisionamento automatizado de usuários ou JIT do SAML.
+
+## Provisionamento automatizado de usuários
+
+Alguns aplicativos fornecem interfaces de automação para a criação e remoção (ou desativação) de contas. Se um provedor oferecer uma interface desse tipo, ele será aproveitado pelo AD do Azure. Isso reduz os custos operacionais, pois as tarefas administrativas ocorrem automaticamente, e melhora a segurança do seu ambiente, já que ela diminui a probabilidade de acesso não autorizado.
+
+## Gerenciamento de acesso
+
+Com o AD do Azure, você pode gerenciar o acesso a aplicativos que usam atribuições individuais ou orientadas por regras. Você também pode delegar o gerenciamento de acesso para as pessoas certas na organização, garantindo a melhor supervisão e reduzindo a carga sobre a assistência técnica.
+
+## Aplicativos locais
+
+O proxy de aplicativo interno permite que você publique seus aplicativos locais para seus usuários, resultando em uma experiência de acesso consistente com o aplicativo em nuvem moderno e nos benefícios dos recursos de monitoramento, relatórios e segurança do AD do Azure.
+
+## Relatórios e monitoramento
+
+O AD do Azure fornece recursos integrados de relatórios e monitoramento que permitem saber quem tem acesso aos aplicativos e quando eles realmente os usaram.
+
+## Recursos relacionados
+
+Com o AD do Azure, é possível proteger seus aplicativos com políticas de acesso granular e MFA pré-integrado. Para saber mais sobre o Azure MFA, veja [Azure MFA](https://azure.microsoft.com/services/multi-factor-authentication/).
+
+## Introdução
+
+Para começar a integrar aplicativos com o AD do Azure, confira o [Guia de introdução: integrando o Active Directory do Azure com aplicativos](active-directory-integrating-applications-getting-started.md).
+
+<!---HONumber=Oct15_HO4-->

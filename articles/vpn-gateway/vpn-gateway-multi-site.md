@@ -5,17 +5,23 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Conectar vários sites locais a uma rede virtual
+
+>[AZURE.NOTE]É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para saber mais sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md).
+
+Este artigo se aplica a Gateways de Vnets e VPN criados usando o modelo de implantação clássico (Gerenciamento de Serviço).
 
 É possível conectar vários sites locais a uma única rede virtual. Isso é especialmente atraente para criar soluções de nuvem híbrida. Criar uma conexão de múltiplos sites ao gateway de rede virtual do Azure é muito semelhante à criação de outras conexões site a site. Na verdade, você pode usar o gateway de VPN existente do Azure desde que tenha um gateway de VPN baseado em rota (ou roteamento dinâmico) configurado para sua rede virtual.
 
@@ -47,7 +53,7 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
 
 ## Criar sua rede virtual e o gateway
 
-1. **Crie uma VPN site a site com um gateway de roteamento dinâmico.** Se você já tiver uma, ótimo! Você pode continuar para [Exportar as definições de configuração de rede virtual](#export). Caso contrário, faça o seguinte:
+1. **Crie uma VPN site a site com um gateway de roteamento dinâmico.** Se você já tiver uma, ótimo! Continue em [Exportar as definições de configuração de rede virtual](#export). Caso contrário, faça o seguinte:
 
 	**Se você já tiver uma rede virtual site a site, mas ela tiver um gateway de roteamento estático:** **1.** Altere o tipo de gateway para roteamento dinâmico. Uma VPN de múltiplos sites requer um gateway de roteamento dinâmico. Para alterar o tipo de gateway, você precisará primeiro excluir o gateway existente e, em seguida, criar um novo. Para obter instruções, consulte [Alterar o tipo de roteamento do gateway de VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configure seu novo gateway e crie seu túnel de VPN. Para obter instruções, consulte [Configurar um gateway de VPN no Portal de Gerenciamento](vpn-gateway-configure-vpn-gateway-mp.md).
 	
@@ -123,7 +129,7 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-1. **Salve o arquivo de configuração de rede e importe-o.** Para importar o arquivo de configuração da rede, consulte Para importar as definições da sua rede. Ao importar esse arquivo com as alterações, os novos túneis serão adicionados. Os túneis usarão o gateway dinâmico que você criou anteriormente.
+1. **Salve o arquivo de configuração de rede e importe-o.** Para importar o arquivo de configuração da rede, consulte [Para importar as definições da sua rede](../virtual-network/../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). Ao importar esse arquivo com as alterações, os novos túneis serão adicionados. Os túneis usarão o gateway dinâmico que você criou anteriormente.
 
 
 
@@ -171,4 +177,4 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
 
 Para saber mais sobre gateways de VPN, consulte [Sobre gateways de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

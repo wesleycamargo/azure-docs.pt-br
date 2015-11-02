@@ -3,8 +3,8 @@
 	description="Como gerenciar a simultaneidade para os serviços Blob, Fila, Tabela e Arquivo" 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	authors="jasonnewyork" 
+	manager="tadb" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="tamram"/>
+	ms.author="jahogg"/>
 
 # Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
 
@@ -273,4 +273,4 @@ Para obter mais informações sobre Armazenamento do Azure, consulte:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

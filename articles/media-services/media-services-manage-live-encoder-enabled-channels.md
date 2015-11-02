@@ -3,7 +3,7 @@
 	description="Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com taxa de bits única de um codificador local e, em seguida, executa a codificação ao vivo para fluxo de taxa de bits adaptável com os Serviços de Mídia. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"
+	ms.date="10/20/2015"  
 	ms.author="juliako"/>
 
 #Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure
@@ -29,10 +29,37 @@ A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, vo
 
 - **Nenhum** – especifique esse valor, se você planeja usar um codificador ao vivo local, que emitirá um fluxo de múltiplas taxas de bits. Nesse caso, o fluxo de entrada foi transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Para obter mais informações sobre como trabalhar com canais desse tipo, consulte [Trabalhando com canais que recebem fluxo ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md).
 
-- **Standard** – Escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits.
+- **Standard** – Escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Lembre-se de que há um impacto de cobrança para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças. É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra.
 
 >[AZURE.NOTE]Este tópico discute os atributos de canais habilitados para executar a codificação ativa (tipo de codificação **Standard**). Para obter informações sobre como trabalhar com canais não habilitados a realizar codificação ao vivo, consulte [Trabalhando com canais que recebem fluxo ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md).
 
+
+##Implicações de cobrança
+
+Um canal de codificação ativo começará a ser cobrado assim que seu estado mudar para "Em execução" por meio da API. Você também pode exibir o estado no Portal do Azure ou na ferramenta Gerenciador de Serviços de Mídia do Azure (http://aka.ms/amse).
+
+A tabela a seguir mostra como os estados de Canal são mapeados para os estados de cobrança na API e no Portal. Observe que os estados são ligeiramente diferentes entre a API e o Portal UX. Assim que um canal estiver no estado "Em execução" por meio da API, ou no estado "Pronto" ou "Streaming" no Portal do Azure, a cobrança estará ativa. Para parar a cobrança do Canal, você terá de Parar o Canal por meio da API ou no Portal do Azure. Você é responsável por parar seus canais quando terminar com o canal de codificação ativo. A falha ao interromper um canal de codificação resultará em cobrança contínua.
+
+###<a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança 
+
+O estado atual de um canal. Os valores possíveis incluem:
+
+- **Parado**. Esse é o estado inicial do Canal após sua criação (a menos que o início automático tenha sido selecionado no portal). Não há cobrança nesse estado. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
+- **Iniciando**. O canal está sendo iniciado. Não há cobrança nesse estado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
+- **Executando**. O canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional. 
+- **Parando**. O canal está sendo parado. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
+- **Excluindo**. O canal está sendo excluído. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
+
+A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança.
+ 
+Estado de canal|Indicadores da interface do usuário do portal|Trata-se de cobrança?
+---|---|---
+Iniciando|Iniciando|Nenhum (estado transitório)
+Executando|Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (pelo menos um programa em execução)|SIM
+Parando|Parando|Nenhum (estado transitório)
+Parada|Parada|Não
+
+##Fluxo de trabalho da codificação ativa
 O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que um canal recebe um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG TS); em seguida, ele codifica o fluxo em um fluxo de múltiplas taxas de bits.
 
 ![Fluxo de trabalho ao vivo][live-overview]
@@ -49,7 +76,7 @@ O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que 
 
 A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de streaming ao vivo.
 
->[AZURE.NOTE]Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com na Microsoft se precisar executar um Canal por períodos mais longos.
+>[AZURE.NOTE]Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived no em Microsoft ponto com se precisar executar um Canal por longos períodos. Lembre-se de que há um impacto de cobrança para a codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças por hora. É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra.
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -76,6 +103,9 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
 1. Exclua o programa (e, opcionalmente, exclua o ativo).   
+
+>[AZURE.NOTE]É muito importante não esquecer de interromper um canal de codificação ativa. Lembre-se de que há um impacto de cobrança por hora para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças. É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra.
+
 
 A seção [tarefas de streaming ao vivo](media-services-manage-channels-overview.md#tasks) conduz a tópicos que demonstram como realizar as tarefas descritas acima.
 
@@ -383,7 +413,7 @@ Parando|Parando|Nenhum (estado transitório)
 Parada|Parada|Não
 
 
->[AZURE.NOTE]Atualmente, a inicialização do Canal pode levar até mais de 20 minutos. A redefinição de canal pode levar até 5 minutos.
+>[AZURE.NOTE]Atualmente, a média de início de Canal é de cerca de 2 minutos, mas às vezes pode levar até 20 minutos ou mais. A redefinição de canal pode levar até 5 minutos.
 
 
 ##<a id="Considerations"></a>Considerações
@@ -397,12 +427,14 @@ Parada|Parada|Não
 - Você será cobrado apenas quando o canal estiver no estado **Executando**. Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
 - Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com na Microsoft se precisar executar um Canal por períodos mais longos.
 - Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
+- Não se esqueça de PARAR SEUS CANAIS quando terminar. Caso contrário, a cobrança continuará. 
 
 ##Problemas conhecidos
 
-- A inicialização do canal pode levar mais de 20 minutos.
-- O suporte RTP é fornecido na para difusores profissionais. Leia as observações sobre RTP [neste](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- O tempo de inicialização do canal foi aprimorado para uma média de 2 minutos, mas em momentos de maior demanda pode ainda levar até 20 minutos ou mais.
+- O suporte RTP é fornecido na para difusores profissionais. Examine as observações sobre RTP [neste](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - As imagens fixas devem estar de acordo com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um Canal com um slate padrão que seja maior que 1920 x 1080, a solicitação será um erro.
+- Mais uma vez... não se esqueça de PARAR SEUS CANAIS quando concluir o streaming. Caso contrário, a cobrança continuará.
 
 ###Como criar canais que realizam codificação ativas, de um fluxo com taxa de bits única para fluxo com taxa de bits adaptável 
 
@@ -432,4 +464,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

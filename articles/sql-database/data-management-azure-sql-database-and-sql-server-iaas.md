@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Noções básicas sobre o Banco de Dados SQL do Azure e SQL Server em máquinas virtuais do Azure" 
+	pageTitle="Noções básicas sobre o Banco de Dados SQL do Azure e SQL Server em máquinas virtuais do Azure | Microsoft Azure" 
 	description="Aprenda sobre o banco de dados SQL do Azure e SQL Server em máquinas virtuais do Azure. Revise comuns motivadores comerciais para determinar qual tecnologia SQL funciona melhor para seu aplicativo." 
 	services="sql-database, virtual-machines" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/19/2015" 
 	ms.author="selcint"/>
 
 # Noções básicas sobre o Banco de Dados SQL do Azure e SQL Server em máquinas virtuais do Azure
 
-O Microsoft Azure fornece duas opções para hospedar o SQL Server: **Banco de Dados SQL do Azure** e **SQL Server na Máquina Virtual do Azure**. Neste artigo, vamos começar examinando como cada opção se ajusta ao panorama na Plataforma de Dados da Microsoft e, em seguida, vamos para discussões mais profundas com base nos requisitos de negócios que motivam sua escolha. Se você priorizar economia ou administração mínima à frente de tudo, este artigo pode ajudá-lo a decidir qual abordagem é a melhor, com base em como cada uma delas cumpre os requisitos de negócios com os quais você se preocupa mais.
+O Microsoft Azure fornece duas opções para hospedar o SQL Server: [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) e [SQL Server nas VMs do Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Neste artigo, vamos começar examinando como cada opção se ajusta ao panorama na Plataforma de Dados da Microsoft e, em seguida, vamos para discussões mais profundas com base nos requisitos de negócios que motivam sua escolha. Se você priorizar economia ou administração mínima à frente de tudo, este artigo pode ajudá-lo a decidir qual abordagem é a melhor, com base em como cada uma delas cumpre os requisitos de negócios com os quais você se preocupa mais.
 
 - [Plataforma de Dados da Microsoft](#platform)
 - [Uma análise mais profunda do Banco de Dados SQL do Azure e SQL Server na VM do Azure](#close)	
@@ -34,7 +34,7 @@ O Microsoft Azure fornece duas opções para hospedar o SQL Server: **Banco de D
 - [Recursos adicionais](#resources)	
 
 
-##<a name="platform"></a>Plataforma de Dados da Microsoft
+##<a name="platform"></a>Plataforma de dados da Microsoft
 
 Uma das primeiras coisas a compreender em qualquer discussão do Azure versus bancos de dados local do SQL Server é que você pode usá-lo. A Plataforma de Dados da Microsoft aproveita a tecnologia do SQL Server e o torna disponível em computadores locais físicos, ambientes de nuvem privada, ambientes de nuvem privada hospedados por terceiros e nuvem pública. Isso permite que você atenda a necessidades comerciais exclusivas e diversificadas através de uma combinação de implantações locais e hospedadas em nuvem, ao usar o mesmo conjunto de produtos de servidor, ferramentas de desenvolvimento e experiência nesses ambientes.
 
@@ -158,7 +158,7 @@ Aqui está o cálculo do custo detalhado para seu aplicativo em execução no Ba
 
 *Custo total do aplicativo = custos minimizados de desenvolvimento/modificação do software + custos de administração + custos de licenciamento do SQL Server e Windows Server + custos do Armazenamento do Azure*
 
-**Observação importante:** atualmente, o Banco de Dados SQL do Azure não oferece suporte a todos os recursos do SQL Server. Para obter informações detalhadas de comparação, confira [Diretrizes e limitações do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ff394102.aspx). Lembre-se disso quando você desejar mover um banco de dados existente para o Banco de Dados SQL do Azure, pois talvez seja necessário algum orçamento adicional no novo design de banco de dados. O Banco de Dados SQL do Azure é uma oferta de plataforma como serviço da Microsoft. Quando você migra um aplicativo existente do SQL Server local para o Banco de Dados SQL do Azure, recomendamos que você atualize o aplicativo para aproveitar todas as vantagens da oferta de plataforma como serviço. Por exemplo, comece a usar os [Sites do Azure](http://azure.microsoft.com/documentation/services/websites/) ou os [Serviços de Nuvem do Azure](http://azure.microsoft.com/services/cloud-services/) na camada de aplicativo para aumentar os benefícios de custo. Além disso, valide seu aplicativo em diferentes níveis de serviço do Banco de Dados SQL do Azure SQL e verifique qual deles se adequa melhor às necessidades do seu aplicativo. Esse processo ajuda a obter melhores resultados de desempenho e custos minimizados. Para obter mais informações, veja [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+> [AZURE.IMPORTANT]atualmente, o Banco de Dados SQL do Azure não dá suporte a todos os recursos do SQL Server. Para obter informações detalhadas de comparação, confira [Diretrizes e limitações do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ff394102.aspx). Lembre-se disso quando você desejar mover um banco de dados existente para o Banco de Dados SQL do Azure, pois talvez seja necessário algum orçamento adicional no novo design de banco de dados. O Banco de Dados SQL do Azure é uma oferta de plataforma como serviço da Microsoft. Quando você migra um aplicativo existente do SQL Server local para o Banco de Dados SQL do Azure, recomendamos que você atualize o aplicativo para aproveitar todas as vantagens da oferta de plataforma como serviço. Por exemplo, comece a usar os [Sites do Azure](http://azure.microsoft.com/documentation/services/websites/) ou os [Serviços de Nuvem do Azure](http://azure.microsoft.com/services/cloud-services/) na camada de aplicativo para aumentar os benefícios de custo. Além disso, valide seu aplicativo em diferentes níveis de serviço do Banco de Dados SQL do Azure SQL e verifique qual deles se adequa melhor às necessidades do seu aplicativo. Esse processo ajuda a obter melhores resultados de desempenho e custos minimizados. Para saber mais, consulte [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
 
 Para obter uma estimativa de custo detalhada, use a [Calculadora de Preços do Azure](http://azure.microsoft.com/pricing/calculator/).
 
@@ -179,7 +179,7 @@ Por outro lado, você pode ter conhecimento na empresa e desejo de manter contro
 
 Para alguns de nós, atender às obrigações de tempo de um contrato de nível de serviço (SLA) é a principal prioridade. Nesta seção, vamos examinar o que significa SLA para cada opção de hospedagem do banco de dados.
 
-Para o **Banco de Dados SQL do Azure**, de acordo com as camadas de serviço Basic, Standard e Premium, a Microsoft fornece um SLA de 99,99% de disponibilidade. Observe que a disponibilidade do SLA aborda a capacidade de se conectar ao banco de dados. Em outras palavras, é um SLA de nível de banco de dados. Para obter as informações mais recentes sobre SLAs, consulte [Contrato de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/). Para obter as informações mais recentes sobre as Camadas de Serviço (Edições) do Banco de Dados SQL do Azure e os planos de continuidade dos negócios com suporte, veja [Camadas de Serviço do Banco de Dados SQL do Azure](sql-database-service-tiers).
+Para o **Banco de Dados SQL do Azure**, de acordo com as camadas de serviço Basic, Standard e Premium, a Microsoft fornece um SLA de 99,99% de disponibilidade. Observe que a disponibilidade do SLA aborda a capacidade de se conectar ao banco de dados. Em outras palavras, é um SLA de nível de banco de dados. Para obter as informações mais recentes sobre SLAs, consulte [Contrato de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/). Para obter as informações mais recentes sobre as Camadas de Serviço (Edições) do Banco de Dados SQL do Azure e os planos de continuidade dos negócios com suporte, veja [Camadas de Serviço do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
 
 Para **máquinas virtuais hospedadas no Azure**, a Microsoft fornece um SLA de disponibilidade de 99,95%, sendo que essa disponibilidade é para a VM, e não para os processos em execução dentro da VM (por exemplo, o SQL Server). O [SLA de VM](http://www.microsoft.com/download/details.aspx?id=38427) exige que você hospede pelo menos duas VMs em um conjunto de disponibilidade. Com essa configuração, o Azure garante que pelo menos uma das VMs estará disponível 99,95% do tempo. Para o banco de dados alta disponibilidade (HA) em VMs, você deve configurar uma das opções de alta disponibilidade com suporte no SQL Server, como grupos de disponibilidade AlwaysOn. Observe que a configuração AlwaysOn no Azure requer o gerenciamento e a configuração manuais, e você paga um adicional para cada banco de dados secundário que opera.
 
@@ -202,16 +202,21 @@ Escolha **Banco de Dados SQL do Azure** se:
 
 - Você deseja que a Microsoft execute operações de gerenciamento comuns em seus bancos de dados e exija SLAs de maior disponibilidade para bancos de dados. Essa abordagem pode minimizar os custos de administração e ao mesmo tempo fornece uma disponibilidade garantida do banco de dados.
 
+    [Criar seu primeiro banco de dados SQL do Azure](sql-database-get-started.md)
+
+
 Escolha **SQL Server na VM do Azure** se:
 
 - Você tiver aplicativos locais existentes e desejar manter seu próprio hardware ou considerar soluções híbridas. Essa abordagem permite que você obtenha acesso a alta capacidade de banco de dados mais rapidamente e também conecta seus aplicativos locais à nuvem por meio de um túnel seguro.
 
 - Você tiver recursos de TI existentes, precisar de plenos direitos administrativos sobre o SQL Server e exigir a compatibilidade total com o SQL Server local (por exemplo, alguns recursos não existem no Banco de Dados SQL do Azure). Essa abordagem permite minimizar os custos de desenvolvimento ou modificações de aplicativos existentes com a flexibilidade para executar a maioria dos aplicativos. Além disso, ela fornece controle total sobre a VM, o sistema operacional e a configuração de banco de dados.
 
-> [AZURE.NOTE]- Você deseja experimentar o SQL Server 2016 CTP2? Inscreva-se no Microsoft Azure e vá até [aqui](http://aka.ms/sql2016vm "aqui") para criar uma Máquina Virtual com o SQL Server 2016 CTP2 já instalado.
+    [Provisionar uma máquina virtual do SQL Server no Azure](virtual-machines-provision-sql-server.md)
+
+> [AZURE.NOTE]Você deseja experimentar o SQL Server 2016 CTP2? Inscreva-se no Microsoft Azure e vá [aqui](http://aka.ms/sql2016vm "aqui") para criar uma Máquina Virtual com o SQL Server 2016 CTP2 já instalado.
 
 
-##<a name="ack"></a>Confirmações
+##<a name="ack"></a>Agradecimentos
 
 Este artigo do grupo Microsoft Cloud e Enterprise Content Services foi produzido com a ajuda de muitas pessoas dentro da comunidade Microsoft.
 
@@ -251,6 +256,5 @@ Obrigado a todos por dar vida a este artigo!
 
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="10/15/2015"
 	ms.author="jgao"/>
 
 
@@ -34,7 +34,7 @@ Este tutorial mostra como:
 - Executar o mesmo trabalho de MapReduce no Azure HDInsight
 - Recuperar os resultados do trabalho de MapReduce
 
-##<a name="prerequisites"></a>Pré-requisitos
+##Pré-requisitos
 
 Antes de começar este tutorial, você deve ter feito o seguinte:
 
@@ -43,7 +43,7 @@ Antes de começar este tutorial, você deve ter feito o seguinte:
 - Obtenha uma assinatura do Azure. Para obter instruções, consulte [Opções de compra][azure-purchase-options], [Ofertas para membros][azure-member-offers] ou [Avaliação gratuita][azure-free-trial].
 
 
-##<a name="develop"></a>Desenvolver um programa C&#35 de streaming do Hadoop para a contagem de palavras
+##Desenvolver um programa C&#35 de streaming do Hadoop para a contagem de palavras
 
 A solução de contagem de palavras contém dois projetos de aplicativo de console: mapeador e redutor. O aplicativo mapeador transmite cada palavra no console e o aplicativo redutor conta o número de palavras que são transmitidas de um documento. Tanto o mapeador, quanto o redutor leem caracteres, linha por linha, do fluxo de entrada padrão (stdin) e gravam no fluxo de saída padrão (stdout).
 
@@ -156,7 +156,7 @@ Os executáveis do mapeador e do redutor encontram-se em:
 - C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
 
-##<a name="test"></a>Testar o programa no emulador
+##Testar o programa no emulador
 
 Faça o seguinte para testar o programa no Emulador do HDInsight:
 
@@ -288,7 +288,7 @@ Este tutorial usa os arquivos .txt localizados no diretório %hadoop\_home%.
 
 	Você pode acrescentar "|more" no final do comando para obter a exibição da página.
 
-##<a id="upload"></a>Carregar dados no armazenamento de Blob do Azure
+##Carregar dados no armazenamento de Blob do Azure
 O Azure HDInsight usa o armazenamento de Blob do Azure como o sistema de arquivos padrão. Você pode configurar um cluster HDInsight para usar armazenamento de Blob adicional para os arquivos de dados. Nesta seção, você criará uma conta do Armazenamento do Azure e carregará os arquivos de dados no armazenamento de Blob. Os arquivos de dados são os arquivos .txt no diretório %hadoop\_home%\\share\\doc\\hadoop\\common.
 
 
@@ -377,7 +377,7 @@ O Azure HDInsight usa o armazenamento de Blob do Azure como o sistema de arquivo
 	Você deverá ver os dois arquivos do aplicativo listados.
 
 
-##<a name="run"></a>Executar o trabalho do MapReduce no Azure HDInsight
+##Executar o trabalho MapReduce no Azure HDInsight
 
 Esta seção fornece um script do PowerShell do Azure que executa todas as tarefas relacionadas à execução de um trabalho do MapReduce. A lista de tarefas inclui:
 
@@ -493,7 +493,7 @@ Esta seção fornece um script do PowerShell do Azure que executa todas as taref
 Para ver um exemplo com HDInsight .NET SDK no envio de trabalhos de streaming do Hadoop, consulte [Enviar trabalhos do Hadoop programaticamente][hdinsight-submit-jobs].
 
 
-##<a name="retrieve"></a>Recuperar a saída do trabalho de MapReduce
+##Recuperar a saída do trabalho MapReduce
 Esta seção mostra como baixar e exibir a saída. Para obter informações sobre como exibir os resultados no Excel, consulte [Conectar o Excel ao HDInsight com o Driver de ODBC do Microsoft Hive][hdinsight-ODBC] e [Conectar o Excel ao HDInsight com o Power Query][hdinsight-power-query].
 
 
@@ -520,7 +520,7 @@ Esta seção mostra como baixar e exibir a saída. Para obter informações sobr
 
 
 
-##<a id="nextsteps"></a>Próximas etapas
+##Próximas etapas
 Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming do Hadoop, a testar o aplicativo no Emulador do HDInsight e a escrever um script do PowerShell do Azure para provisionar um cluster HDInsight e executar um trabalho MapReduce no cluster. Para saber mais, consulte os seguintes artigos:
 
 - [Introdução ao Azure HDInsight](../hdinsight-get-started.md)
@@ -555,4 +555,4 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Fluxo do aplicativo MapReduce de contagem de palavras"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

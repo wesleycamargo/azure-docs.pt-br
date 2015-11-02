@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Conceitos e modelo de recursos hierárquico do Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba mais sobre modelo hierárquico de bancos de dados, coleções, UDF (função definida pelo usuário), documentos e permissões do Banco de Dados de Documentos para gerenciar recursos e muito mais."
-	keywords="Hierarchical Model, documentdb, azure, Microsoft azure"	
+	keywords="Modelo hierárquico, banco de dados de documentos, azure, Microsoft azure"	
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -33,7 +33,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 ##Modelo de recursos hierárquico
 Como o diagrama a seguir ilustra, o **modelo de recursos** hierárquico do Banco de Dados de Documentos é formado por conjuntos de recursos em uma conta de banco de dados, cada um podendo ser acessado por meio de um URI lógico e estável. Neste artigo, um conjunto de recursos será chamado de **feed**.
 
->[AZURE.NOTE]Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET.](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE] Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET.](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ![Modelo de recursos hierárquico do Banco de Dados de Documentos][1] **Modelo de recurso hierárquico em uma conta de banco de dados**
 
@@ -56,7 +56,7 @@ Para começar a trabalhar com os recursos, você deve [criar uma conta de banco 
 ##Recursos definidos pelo sistema versus usuário
 Recursos como contas do banco de dados, bancos de dados, coleções, usuários, permissões, procedimentos armazenados, gatilhos e UDFs, todos têm um esquema fixo e são chamados de recursos do sistema. Em contraste, recursos como documentos e anexos não possuem restrições sobre o esquema e são exemplos de recursos definidos pelo usuário. No Banco de Dados de Documentos, ambos os recursos definidos pelo sistema e pelo usuário são representados e gerenciados como JSON em conformidade com o padrão. Todos os recursos, definidos pelo usuário ou pelo sistema, possuem as seguintes propriedades em comum.
 
->[AZURE.NOTE]Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
+>[AZURE.NOTE] Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
 
 
 Propriedade |Configurável pelo usuário ou gerada pelo sistema?|Finalidade
@@ -67,10 +67,10 @@ _ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso
 _self|Gerado pelo sistema|URI endereçável exclusivo do recurso.
 id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário.
 
-###Representação da conexão dos recursos
+### Representação da conexão dos recursos
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.
  
-###Endereçamento de um recurso
+### Endereçamento de um recurso
 Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{\_rid}:
 
 |Valor da \_self |Descrição
@@ -90,12 +90,12 @@ Cada recurso também tem um identificador de recurso hierárquico gerado pelo si
 
 Os valores das propriedades \_self e \_rid são representações alternativas e canônicas de um recurso.
 
-##Contas de banco de dados
+## Contas de banco de dados
 Você pode provisionar uma ou mais contas do Banco de Dados de Documentos usando sua assinatura do Azure. Cada conta de banco de dados da camada Padrão terá a capacidade mínima de uma coleção S1.
 
 Você pode [criar e gerenciar contas de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md) por meio do portal do Azure em [http://portal.azure.com/](http://portal.azure.com/). Criar e gerenciar uma conta do banco de dados requer acesso administrativo e pode ser feito somente com sua assinatura do Azure.
 
-###Propriedades de contas de banco de dados
+### Propriedades de contas de banco de dados
 Como parte do provisionamento e gerenciamento de uma conta do banco de dados, você pode configurar e ler as seguintes propriedades:
 
 Nome da Propriedade|Descrição
@@ -107,7 +107,7 @@ MediaStorageUsageInMB (READ)|Uso atual do armazenamento de mídia para a conta d
 
 Observe que, além de provisionar, configurar e gerenciar sua conta de banco de dados por meio do Portal do Azure, também é possível criar e gerenciar programaticamente contas do Banco de Dados de Documentos por meio das [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) e das [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-##Bancos de dados
+## Bancos de dados
 Um banco de dados do Banco de Dados de Documentos é um contêiner lógico de uma ou mais coleções e usuários, conforme mostrado no diagrama a seguir. Você pode criar qualquer número de bancos de dados em uma conta de banco de dados do Banco de Dados de Documentos, sujeito aos limites de oferta.
 
 ![Modelo hierárquico de coleções e conta de banco de dados][2] 
@@ -364,7 +364,7 @@ Sendo um verdadeiro serviço de banco de dados aberto, o Banco de Dados de Docum
 Como ocorre com todos os outros recursos, documentos podem ser criados, substituídos, excluídos, lidos, enumerados e consultados facilmente usando APIs REST ou qualquer [SDK cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). Excluir um documento libera imediatamente a cota correspondente a todos os anexos aninhados. O nível de consistência de leitura dos documentos segue a política de consistência da conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar documentos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida.
 
 ##Anexos e mídia
->[AZURE.NOTE]Anexos e recursos de mídia são recursos de visualização.
+>[AZURE.NOTE] Anexos e recursos de mídia são recursos de visualização.
  
 O Banco de Dados de Documentos permite armazenar blobs/mídias binários no Banco de Dados de Documentos ou em seu próprio repositório de mídia. Ele também permite representar os metadados de uma mídia de acordo com um documento especial chamado anexo. Um anexo no Banco de Dados de Documentos é um documento especial (JSON) que faz referência à mídia/ao blob armazenada/o em outro lugar. Um anexo é simplesmente um documento especial que captura os metadados (p. ex., localização, autor etc.) de uma mídia em um armazenamento remoto de mídia.
 
@@ -393,20 +393,20 @@ Como seus aplicativos precisam ser escalados conforme o crescimento do usuário,
 
 Independentemente da estratégia de fragmentação específica escolhida, você pode modelar seus usuários reais como usuários no banco de dados do Banco de Dados de Documentos e associar permissões de refinamento a cada usuário.
 
-![Coleções do usuário][3] 
+![Coleções do usuário][3]
 
 **Estratégias de fragmentação e modelagem de usuários**
 
 Assim como todos os outros recursos, os usuários no Banco de Dados de Documentos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de um recurso do usuário. Vale destacar que excluir um usuário automaticamente assegura que você não poderá acessar nenhuma das permissões contidas nele. Embora o Banco de Dados de Documentos recupere a cota das permissões como parte do usuário excluído em segundo plano, as permissões excluídas estão disponíveis imediatamente mais uma vez para uso.
 
-##Permissões
+## Permissões
 Da perspectiva de controle de acesso, recursos como contas do banco de dados, bancos de dados, usuários e permissões são considerados recursos *administrativos*, uma vez que requerem permissões administrativas. Por outro lado, recursos que incluem as coleções, documentos, anexos, procedimentos armazenados, gatilhos e UDFs têm seu escopo definido em um determinado banco de dados e são considerados como *recursos do aplicativo*. Correspondente aos dois tipos de recursos e à funções que os acessam (ou seja, o administrador e o usuário), o modelo de autorização define dois tipos de *chaves de acesso*: *chave mestra* e *chave de recurso*. A chave mestre é uma parte da conta do banco de dados e é fornecida ao desenvolvedor (ou administrador) que está provisionando a conta do banco de dados. Essa chave mestre possui uma semântica do administrador, e ela pode ser usada para autorizar o acesso aos recursos administrativos e do aplicativo. Em contraste, uma chave de recurso é uma chave de acesso granular que permite o acesso a um recurso de aplicativo *específico*. Portanto, ela captura a relação entre o usuário de um banco de dados e as permissões que o usuário possui para um recurso específico (p. ex., coleção, documento, anexo, procedimento armazenado, gatilho ou UDF).
 
 A única maneira de obter uma chave de recurso é criar um recurso de permissão em um determinado usuário. Observe que, a fim de criar ou recuperar uma permissão, uma chave mestre deve ser apresentada no cabeçalho de autorização. Um recurso de permissão vincula o recurso, seu acesso e o usuário. Após criar um recurso de permissão, o usuário só precisa apresentar a chave de recurso associada para obter acesso ao recurso relevante. Portanto, uma chave de recurso pode ser visualizada como uma representação lógica e compacta do recurso de permissão.
 
 Assim como todos os outros recursos, as permissões no Banco de Dados de Documentos podem ser criadas, substituídas, excluídas, lidas ou enumeradas facilmente usando as APIs REST ou qualquer SDK do cliente. O Banco de Dados de Documentos sempre oferece uma coerência forte para leitura ou consulta dos metadados de uma permissão.
 
-##Próximas etapas
+## Próximas etapas
 Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interações RESTful com recursos do Banco de Dados de Documentos](documentdb-interactions-with-resources.md).
 
 
@@ -415,4 +415,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

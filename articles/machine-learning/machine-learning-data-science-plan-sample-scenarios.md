@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="10/18/2015"
 	ms.author="msolhab;bradsev" />
 
 
 # Cenários para análises avançadas no Aprendizado de Máquina do Azure
 
-Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados com o processo ADAPT (Processo e Tecnologia de Análise Avançada) no Aprendizado de Máquina do Azure. Ele ilustra as opções disponíveis no processamento de sequências que dependem de características de dados, locais de origem e repositórios de destino no Azure.
+Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados com o Processo de Análise do Cortana (CAP). Ele ilustra as opções disponíveis no processamento de sequências que dependem de características de dados, locais de origem e repositórios de destino no Azure.
 
 A **árvore de decisão** para selecionar os cenários de exemplo apropriados para seus dados e objetivo é apresentada na seção anterior.
 
@@ -32,8 +32,6 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 *   [Criar uma conta de armazenamento](storage-whatis-account.md)
 *   [Criar um espaço de trabalho de AM do Azure](machine-learning/machine-learning-create-workspace.md)
-
-
 
 
 ## <a name="smalllocal"></a>Cenário 1: conjunto de dados tabular pequeno a médio em arquivos locais
@@ -298,8 +296,8 @@ O diagrama a seguir resume os cenários descritos acima e as opções do Process
 Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Processo e Tecnologia de Análise Avançada usando conjuntos de dados públicos, consulte:
 
 
-* [Processo e Tecnologia de Análise Avançada em ação: usando o SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Processo e Tecnologia de Análise Avançada em ação: uso de clusters HDInsight Hadoop](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Processo de Análise do Cortana em ação: usando SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
+* [Processo de Análise do Cortana em ação: usando clusters Hadoop do HDInsight](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -316,4 +314,4 @@ Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Pr
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

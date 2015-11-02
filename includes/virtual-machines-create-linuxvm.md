@@ -8,6 +8,8 @@
 
         azure vm image list | grep "Linux"
 
+   Em uma janela de prompt de comando do Windows, use find em vez de grep.
+
 4. Use `azure vm create` para criar uma nova máquina virtual com a imagem do Linux da lista acima. Essa etapa cria um novo serviço de nuvem, bem como uma nova conta de armazenamento. Você também pode conectar essa máquina virtual a um serviço de nuvem existente com uma opção `-c`. Ela também cria um ponto de extremidade SSH para fazer logon na máquina virtual Linux com a opção `-e`.
 
         ~$ azure vm create "MyTestVM" b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64 "adminUser" -z "Small" -e -l "West US"
@@ -39,4 +41,4 @@
 
 Para obter detalhes sobre todos esses comandos de máquina virtual da CLI do Azure, leia [Usando a CLI do Azure com a API de Gerenciamento de Serviços](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

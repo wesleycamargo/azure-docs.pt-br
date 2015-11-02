@@ -2,7 +2,7 @@
 	pageTitle="Exibir procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos| Microsoft Azure"
 	description="Saiba mais sobre o Gerenciador de Script do Banco de Dados de Documentos, uma ferramenta do Portal de Visualização do Azure que permite exibir artefatos de programação do Banco de Dados de Documentos no servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário."
 	services="documentdb"
-	authors="stephbaron"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="09/02/2015"
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Exibir, editar e criar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos
 
@@ -106,4 +106,4 @@ O Gerenciador de Script permite que você execute facilmente operações de CRUD
 Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
