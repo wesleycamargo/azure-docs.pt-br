@@ -57,9 +57,11 @@ A hierarquia de navegação para a interface do usuário do StorSimple Manager �
 |Página de aterrisagem|Páginas de nível de serviço|Páginas de nível de dispositivo|Páginas de nível de dispositivo|
 |---|---|---|---|
 |Serviço StorSimple Manager|Painel de serviço|Painel do dispositivo||
-||Dispositivos →|Monitor| ||Catálogo de backup|Contêineres de volume|Volumes| ||Configurar (Serviço)|Políticas de backup|| ||Trabalhos|Configurar (Dispositivo)| ||Alertas|Manutenção|
-
-![Vídeo disponível](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponível**
+||Dispositivos →|Monitor|| 
+||Catálogo de backup|Contêineres de volume|Volumes| 
+||Configurar (Serviço)|Políticas de backup|| 
+||Trabalhos|Configurar (Dispositivo)|| 
+||Alertas|Manutenção||
 
 Para assistir a um vídeo com orientações sobre a interface de usuário do serviço StorSimple Manager, clique [aqui](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 

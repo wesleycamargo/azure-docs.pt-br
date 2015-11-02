@@ -57,8 +57,8 @@ Embora a ferramenta de importação inclua uma interface gráfica do usuário (d
 
 O código-fonte da ferramenta de migração está disponível no GitHub [nesse repositório](https://github.com/azure/azure-documentdb-datamigrationtool) e há uma versão compilada no [Centro de Download da Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Você pode compilar a solução ou simplesmente baixar e extrair a versão compilada em um diretório de sua escolha. Em seguida, execute um:
 
-- **Dtui.exe**: Versão da interface gráfica da ferramenta
-- **Dt.exe**: Versão de linha de comando da ferramenta
+- Dtui.exe: Versão da interface gráfica da ferramenta
+- Dt.exe: Versão de linha de comando da ferramenta
 
 ##<a id="JSON"></a>Importar arquivos JSON ##
 
@@ -137,7 +137,7 @@ Que retorna os seguintes resultados (parciais):
 
 Observe os aliases como Address.AddressType e Address.Location.StateProvinceName. Especificando um separador de aninhamento de “.”, a ferramenta de importação cria os sub-documentos Address e Address.Location durante a importação. Aqui está um exemplo de um documento resultante no Banco de Dados de Documentos:
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
+*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "\#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
  
 Aqui estão alguns exemplos de linha de comando para importar do SQL Server:
 
