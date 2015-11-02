@@ -31,7 +31,8 @@ Para concluir este tutorial, você também precisa do seguinte:
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Conta de armazenamento do Azure](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/pt-BR/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-BR/download/details.aspx?id=40855)
-- [PowerShell do Azure](../install-configure-powershell.md)
+
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 São necessários cerca de 30 minutos para a conclusão destas etapas.
 
@@ -383,4 +384,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 	![Criar um aplicativo do AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

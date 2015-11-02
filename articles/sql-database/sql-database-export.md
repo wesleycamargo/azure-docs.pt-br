@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -45,19 +45,21 @@ Para concluir este artigo, você precisa do seguinte:
 
 Abra a folha Banco de Dados SQL do banco de dados que você deseja exportar como um arquivo .bacpac:
 
-1.	Vá para o [Portal de Visualização do Azure](https://portal.azure.com).
+> [AZURE.IMPORTANT]Para garantir um arquivo BACPAC com consistência transacional, primeiro você deve [criar uma cópia do banco de dados](sql-database-copy.md) e, em seguida, exportar essa cópia.
+
+1.	Acesse o [Portal de Visualização do Azure](https://portal.azure.com).
 2.	Clique em **PROCURAR TUDO**.
-3.	Clique em **Bancos de dados SQL**.
+3.	Clique em **Banco de Dados SQL**.
 2.	Clique no banco de dados que deseja exportar como um BACPAC.
-3.	Na folha Banco de Dados SQL, clique em **Exportar** para abrir a folha **Exportar banco de dados**:
+3.	Na folha do Banco de Dados SQL, clique em **Exportar** para abrir a folha **Exportar banco de dados**:
 
     ![botão exportar][1]
 
-1.  Clique em **Armazenamento** e selecione sua conta de armazenamento e o contêiner de blob em que o BACPAC será armazenado:
+1.  Clique em **Armazenamento** e selecione a conta de armazenamento o contêiner de blob no qual o BACPAC será armazenado:
 
     ![exportar banco de dados][2]
 
-1.  Insira o **logon** e a **senha do administrador do servidor** do Azure SQL Server que contém o banco de dados do qual está fazendo backup.
+1.  Insira o **Logon de administrador de servidor** e a **Senha** do servidor SQL do Azure que contém o banco de dados do qual você está realizando backup.
 1.  Clique em **Criar** para exportar o banco de dados.
 
 Clicar em **Criar** cria uma solicitação de exportação de banco de dados e a envia ao serviço. Dependendo do tamanho do banco de dados, a operação de exportação pode demorar a ser concluída.
@@ -101,4 +103,4 @@ Clicar em **Criar** cria uma solicitação de exportação de banco de dados e a
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

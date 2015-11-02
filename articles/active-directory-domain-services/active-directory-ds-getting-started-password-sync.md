@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Serviços de Domínio do AD do Azure *(Visualização)* - Introdução
@@ -55,6 +55,18 @@ Você precisará instalar a versão GA do AD do Azure Connect em um computador i
 Instruções de instalação para o AD do Azure Connect estão disponíveis no seguinte artigo - [Introdução ao AD do Azure Connect](../active-directory/active-directory-aadconnect.md)
 
 
+#### Habilitar a sincronização de credenciais herdadas no AD do Azure
+
+Habilite a sincronização de credenciais herdadas necessárias para a autenticação NTLM nos Serviços de Domínio do AD do Azure. Faça isso criando a seguinte chave de registro no computador onde o Azure AD Connect foi instalado.
+
+Crie a seguinte chave de registro DWORD e atribua a ela o valor 1.
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
+
+Set its value to 1.
+```
+
 #### Forçar a sincronização de senha completa para o AD do Azure
 
 Para forçar a sincronização de senha completa e habilitar os hashes de senha de todos os usuários locais (incluindo os hashes de credenciais necessários para a autenticação NTLM/Kerberos) para sincronizar com seu locatário do AD do Azure, execute o seguinte script do PowerShell em cada floresta do AD.
@@ -75,4 +87,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 Dependendo do tamanho do seu diretório (número de usuários, grupos etc.), a sincronização de credenciais com o AD do Azure e depois com os Serviços de Domínio do AD do Azure pode ser demorada.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

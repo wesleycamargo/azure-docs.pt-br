@@ -1,7 +1,7 @@
 <properties
 	pageTitle="O que é o Hadoop no HDInsight: análise de Big Data na nuvem | Microsoft Azure"
 	description="Uma introdução aos componentes do Hadoop na nuvem no HDInsight. Saiba como o HDInsight usa clusters Hadoop para gerenciar, analisar e gerar relatórios de Big Data."
-	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
+	keywords="big data, análise de big data, hadoop, introdução ao hadoop, o que é o hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -78,7 +78,7 @@ Estes são exemplos de script fornecidos pela equipe do HDInsight:
 * [Hue](hdinsight-hadoop-hue-linux.md)
 
 	> [AZURE.NOTE]O script de Hue está disponível somente para clusters baseados em Linux.
-	
+
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 
 * [R](hdinsight-hadoop-r-scripts-linux.md)
@@ -87,7 +87,7 @@ Estes são exemplos de script fornecidos pela equipe do HDInsight:
 
 * [Spark](hdinsight-hadoop-spark-install-linux.md)
 
-Para obter informações sobre como desenvolver suas próprias ações de Script, consulte [Desenvolvimento de Ação de Script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Para saber mais sobre como desenvolver suas próprias ações de Script, consulte [Desenvolvimento de Ação de Script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ## Quais são os componentes do Hadoop?
 
@@ -229,7 +229,7 @@ Amplie esta introdução ao Hadoop no HDInsight e à análise de Big Data com os
 
 * <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a>: saiba mais sobre a biblioteca de software Apache Hadoop, uma estrutura que permite o processamento distribuído de grandes conjuntos de dados entre clusters de computadores.
 
-* <a target="_blank" href="http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html">HDFS</a>: saiba mais sobre a arquitetura e o design do Sistema de Arquivos Distribuído do Hadoop, o principal sistema de armazenamento usado pelos aplicativos Hadoop.
+* <a target="_blank" href="http://hadoop.apache.org/docs/r1.0.4/hdfs_design.html">HDFS</a>: saiba mais sobre a arquitetura e o design do Sistema de Arquivos Distribuído do Hadoop, o principal sistema de armazenamento usado pelos aplicativos Hadoop.
 
 * <a target="_blank" href="http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">Tutorial do MapReduce</a>: saiba mais sobre a estrutura de programação para escrever aplicativos Hadoop que processam rapidamente grandes volumes de dados em paralelo em grandes clusters de nós de computação.
 
@@ -272,6 +272,5 @@ Use a análise de Big Data nos dados da sua organização para obter insights de
 [marketing-page]: ../services/hdinsight/
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

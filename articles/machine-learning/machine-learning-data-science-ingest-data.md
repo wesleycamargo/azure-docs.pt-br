@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ingestão de dados | Microsoft Azure" 
+	pageTitle="Carregar dados em ambientes de armazenamento para análise | Microsoft Azure" 
 	description="Mover dados de e para o Armazenamento de Blobs do Azure" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="10/19/2015" 
 	ms.author="bradsev" />
 
-# Ingestão de dados
+# Carregar dados em ambientes de armazenamento para análise
 
 ## Introdução
 
@@ -28,4 +28,4 @@ Esse **menu** liga os tópicos que descrevem como ingerir dados em ambientes de 
 
 Necessidades comerciais e técnicos, bem como o local inicial, formato e tamanho de seus dados que determinarão os ambientes de destino no qual os dados precisam ser incluídos para atingir as metas de sua análise. Não é incomum para um cenário exigir dados a serem movidos entre vários ambientes para atingir a variedade de tarefas necessárias para construir um modelo de previsão. Essa sequência de tarefas pode incluir, por exemplo, a exploração de dados, pré-processamento, limpar, redução da resolução e treinamento de modelo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

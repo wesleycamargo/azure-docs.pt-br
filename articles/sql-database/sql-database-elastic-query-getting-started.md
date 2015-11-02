@@ -1,8 +1,6 @@
 <properties
-	title="Getting started with elastic database query"
-	pageTitle="Introdução à consulta de banco de dados elástico"
-	description="como usar a consulta de banco de dados elástico"
-	metaKeywords="azure sql database elastic queries"
+	pageTitle="Introdução às consultas elásticas para fragmentação (particionamento horizontal) | Microsoft Azure"
+	description="como usar consultas de banco de dados entre bancos de dados"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -14,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="sidneyh" />
+	ms.date="10/15/2015"
+	ms.author="SilviaDoomra" />
 
-# Introdução à consulta de Banco de Dados Elástico
+# Introdução às consultas elásticas para fragmentação (particionamento horizontal)
 
 A consulta de banco de dados elástico (visualização) para o Banco de Dados SQL do Azure permite executar consultas T-SQL que abrangem vários bancos de dados usando um único ponto de conexão. Para obter mais informações sobre o recurso de consulta de Banco de Dados Elástico, consulte a [página de visão geral do recurso](sql-database-elastic-query-overview.md).
 
@@ -126,7 +124,7 @@ Você observará que a consulta agrega os resultados de todos os fragmentos e fo
 Todas as linhas da tabela **Clientes**, armazenada em fragmentos diferentes populam a planilha do Excel.
 
 ## Próximas etapas
-Agora você pode usar funções de dados avançados do Excel. Você pode usar a cadeia de conexão com o nome do servidor, nome do banco de dados e credenciais para conectar suas ferramentas de integração de dados e BI ao banco de dados de consulta elástico. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Você pode consultar o banco de dados de consulta elástico e tabelas externas como qualquer outro banco de dados e tabela do SQL Server que se conectariam à sua ferramenta.
+Agora você pode usar funções avançadas de visualização de dados do Excel. Você pode usar a cadeia de conexão com o nome do servidor, nome do banco de dados e credenciais para conectar suas ferramentas de integração de dados e BI ao banco de dados de consulta elástico. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Você pode consultar o banco de dados de consulta elástico e tabelas externas como qualquer outro banco de dados e tabela do SQL Server que se conectariam à sua ferramenta.
 
 ### Custo
 Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico. No entanto, neste momento esse recurso está disponível apenas em bancos de dados Premium como um ponto de extremidade, mas os fragmentos podem ser de qualquer camada de serviço.
@@ -144,4 +142,4 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

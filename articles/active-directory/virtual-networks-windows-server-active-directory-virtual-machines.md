@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Windows Server Active Directory nas VMs do Azure" 
+	pageTitle="Windows Server Active Directory nas VMs do Azure | Microsoft Azure" 
 	description="Você pode executar os serviços de domínio do Windows Server Active Directory (AD DS) ou os serviços de federação do Active Directory (AD FS) em máquinas virtuais do Azure." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="terrylan" 
-	editor="LisaToft"
+	manager="stevenpo" 
 	tags="azure-classic-portal"/>
 
 <tags 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 
@@ -48,4 +47,4 @@ Este tópico de navegação contém links para outros tópicos sobre como implan
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

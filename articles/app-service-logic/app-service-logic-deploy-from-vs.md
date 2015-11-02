@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # Implantar com o Visual Studio
@@ -31,7 +31,7 @@ Você deve ter o Azure SDK 2.7 ou posterior instalado para que você siga as eta
 
 2. Na caixa de diálogo, encontre **Nuvem** e, em seguida, selecione **Grupo de Recursos do Azure**. Digite um **Nome** e, em seguida, clique em **OK**. ![Adicionar novo projeto](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. Agora você precisa selecionar se deseja um **Aplicativo lógico** ou **Aplicativo lógico + aplicativo de API**. Selecionar **Aplicativo lógico** exige que você aponte para APIs existentes. Se você selecionar **Aplicativo lógico + aplicativo de API**, você também pode criar, simultaneamente, uma API nova e vazia. ![Selecionar modelo do Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+3. Agora você precisa selecionar se deseja um **Aplicativo lógico** ou um **Aplicativo lógico + aplicativo de API**. Selecionar **Aplicativo lógico** exige que você aponte para APIs existentes. Se você selecionar **Aplicativo lógico + aplicativo de API**, você também pode criar, simultaneamente, uma API nova e vazia. ![Selecionar modelo do Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
 4. Depois que você tiver selecionado o **Modelo**, aperte **OK**.
 
@@ -39,13 +39,13 @@ Agora seu projeto de Aplicativo lógico será adicionado à sua solução. Você
 
 ## Configurando seu aplicativo lógico
 
-Depois que você tiver um projeto, você pode editar a definição de seu aplicativo lógico no VS. Clique no arquivo JSON no Gerenciador de Soluções. Você verá uma definição de espaço reservado que você pode preencher com a lógica do seu aplicativo.
+Depois que você tiver um projeto, poderá editar a definição de seu aplicativo lógico no Visual Studio. Clique no arquivo JSON no Gerenciador de Soluções. Você verá uma definição de espaço reservado que você pode preencher com a lógica do seu aplicativo.
 
 Recomenda-se para usar **parâmetros** em toda a sua definição. Isso será útil se você deseja implantar tanto em um ambiente de desenvolvimento quanto em um ambiente de produção. Nesse caso, você deve colocar todas as configurações específicas de ambiente no arquivo `.param`, e utilizar os parâmetros em vez das cadeias de caracteres em si.
 
-Hoje, o Visual Studio não tem um designer interno, portanto, se você quiser usar uma interface gráfica (em vez de escrever JSON), você precisará usar o Portal do Azure.
+Hoje, o Visual Studio não tem um designer interno de JSON, portanto, se você quiser usar uma interface gráfica (em vez de escrever JSON), será necessário usar o Portal do Azure.
 
-Se você criou um aplicativo lógico anteriormente no Portal do Azure e agora deseja verificá-lo no controle do código-fonte, você pode fazê-lo de três maneiras diferentes: - Navegar até **Visualização de código** no portal e copiar a definição. - Usar a [API REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) dos aplicativos lógicos para obter a definição. - Usar o [Powershell do Gerenciador de recursos do Azure](../powershell-azure-resource-manager.md), especificamente o [`Get-AzureResource` comando](https://msdn.microsoft.com/library/dn654579.aspx), para baixar a definição.
+Se você criou um aplicativo lógico anteriormente no Portal do Azure e agora deseja verificá-lo no controle do código-fonte, terá maneiras diferentes: - Navegar até **Visualização de código** no portal e copiar a definição. - Usar a [API REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) dos aplicativos lógicos para obter a definição. - Usar o [powershell do Gerenciador de recursos do Azure](../powershell-azure-resource-manager.md), especificamente o [`Get-AzureResource` comando](https://msdn.microsoft.com/library/dn654579.aspx), para baixar a definição.
 
 ## Implantação de seu aplicativo lógico
 
@@ -61,8 +61,8 @@ Finalmente, depois de configurar seu aplicativo, você pode implantar diretament
     
 4. O status da implantação aparecerá na janela **Saída** (talvez você precise escolher **Provisionamento do Azure**. ![Saída](./media/app-service-logic-deploy-from-vs/output.png)
 
-No futuro, você pode revisar seu aplicativo lógico no controle do código-fonte e usar o Visual Studio para implantar novas versões. Observe que se você modificar diretamente a definição no Portal do Azure, na próxima vez que você implantar por meio do Visual Studio essas alterações serão substituídas.
+No futuro, você pode revisar seu aplicativo lógico no controle do código-fonte e usar o Visual Studio para implantar novas versões. Observe que se você modificar a definição diretamente no Portal do Azure, na próxima vez que você implantar por meio do Visual Studio essas alterações serão substituídas.
 
-Se você não deseja usar o Visual Studio, mas ainda deseja ter ferramentas para implantar seu aplicativo lógico por meio do controle do código-fonte, você pode sempre utilizar diretamente a [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou o [Powershell](../powershell-azure-resource-manager.md) para automatizar suas implantações.
+Se você não quiser usar o Visual Studio, mas ainda quiser usar ferramentas para implantar seu aplicativo lógico por meio do controle do código-fonte, use diretamente a [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou o [Powershell](../powershell-azure-resource-manager.md) para automatizar suas implantações.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

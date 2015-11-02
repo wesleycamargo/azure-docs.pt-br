@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="10/20/2015" 
 	ms.author="arramac"/>
 
 # Classificando dados do Banco de Dados de Documentos usando Order By
@@ -125,7 +125,7 @@ Aqui está como você pode criar uma coleção com indexação "Todos os Interva
         });
 
 ## Exemplos
-Vejamos este [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) que demonstra como usar Order By, incluindo a criação de políticas de indexação e paginação usando Order By. Os exemplos são de software livre e nós o encorajamos a enviar solicitações pull com contribuições que poderiam beneficiar outros desenvolvedores do Banco de Dados de Documentos. Consulte as [Diretrizes de contribuição](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obter instruções sobre como contribuir.
+Vejamos este [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) que demonstra como usar Order By, incluindo a criação de políticas de indexação e paginação usando Order By. Os exemplos são de software livre e nós o encorajamos a enviar solicitações pull com contribuições que poderiam beneficiar outros desenvolvedores do Banco de Dados de Documentos. Consulte as [Diretrizes de contribuição](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obter instruções sobre como contribuir.
 
 ## Qual é o próximo passo?
 
@@ -152,7 +152,7 @@ A sobrecarga de armazenamento de indexação será proporcional ao número de pr
 
 **Como faço para consultar os meus dados existentes no Banco de Dados de Documentos usando Order By**
 
-Esse recurso receberá suporte com a disponibilidade da melhoria das Políticas de Indexação Dinâmica mencionada na seção [Qual é o próximo passo](what's-coming-next). Para fazer isso hoje, é preciso exportar os seus dados e reimportá-los em uma nova coleção do Banco de Dados de Documentos criada com um índice de intervalo/Order By. A ferramenta de importação do Banco de Dados de Documentos pode ser usada para migrar dados entre coleções.
+Para classificar os resultados da consulta usando Order By, você deve modificar a política de indexação da coleção a fim de usar um tipo de indexação de Intervalo em relação a propriedade usada para classificar. Consulte [Modificando a política indexação](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection).
 
 **Quais são as limitações atuais de Order By?**
 
@@ -168,13 +168,13 @@ Não é possível executar o seguinte:
 
 ## Próximas etapas
 
-Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) e comece a ordenar os seus dados!
+Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) e comece a ordenar os seus dados!
 
 ## Referências
 * [Referência de consulta do Banco de Dados de Documentos](documentdb-sql-query.md)
 * [Referência de políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 * [Referência de SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [Amostras de Order By do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
+* [Amostras de Order By do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

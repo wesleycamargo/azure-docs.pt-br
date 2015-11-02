@@ -2,9 +2,8 @@
 	pageTitle="Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL | Microsoft Azure" 
 	description="Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/01/2015" 
-	ms.author="msolhab" />
+	ms.author="bradsev" />
 
 # Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL
 
@@ -180,9 +179,9 @@ ou
 
  >[AZURE.NOTE]Você pode optar por criar os índices antes de importar os dados em massa. Criar índices antes da importação em massa retardará o carregamento de dados.
 
-### Exemplo de Processo e Tecnologia de Análise Avançada em ação
+## Exemplo de Processo e Tecnologia de Análise Avançada em ação
 
-Para obter um exemplo passo a passo de ponta a ponta usando o ADAPT (Processo e Tecnologia de Análise Avançada) com um conjunto de dados público, confira [Processo e Tecnologia de Análise Avançada em Ação: usando o SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+Para obter um exemplo passo a passo completo do Processo de Análise do Cortana com um conjunto de dados público, consulte [Processo de Análise do Cortana em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

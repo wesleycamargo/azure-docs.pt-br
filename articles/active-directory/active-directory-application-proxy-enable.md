@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Habilitando o Proxy de Aplicativo do AD do Azure."
+	pageTitle="Habilitando o Proxy de Aplicativo do AD do Azure | Microsoft Azure"
 	description="Aborda como colocar em funcionamento com o Proxy de aplicativo do Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Habilitando o Proxy de Aplicativo do AD do Azure.
@@ -64,7 +64,7 @@ Se o firewall reforça o tráfego de acordo com os usuários de origem, abra ess
 4. Quando a instalação for concluída, dois novos serviços são adicionados ao seu servidor, conforme mostrado abaixo. Esses são o serviço de conector, que permite a conectividade, e um serviço de atualização automatizada que verifica periodicamente novas versões do conector e atualiza o conector conforme necessário. Clique em Concluir na janela de instalação para concluir a instalação ![Serviço de conector de Proxy de aplicativo!](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
 5. Agora você está pronto para publicar aplicativos com o Proxy de aplicativo.
 
-Se você deseja desinstalar o conector, depois de desinstalar o serviço de conector e o serviço do atualizador, certifique-se de reiniciar o computador para remover completamente o serviço. <p>Para fins de alta disponibilidade, você deve implantar pelo menos um conector adicional. Para implantar um conector adicional, repita as etapas 2 e 3 acima. Cada conector deve ser registrado separadamente.
+Se você deseja desinstalar o conector, depois de desinstalar o serviço de conector e o serviço do atualizador, certifique-se de reiniciar o computador para remover completamente o serviço. <p>Para fins de alta disponibilidade, você deve implantar pelo menos um Conector adicional. Para implantar um conector adicional, repita as etapas 2 e 3 acima. Cada conector deve ser registrado separadamente.
 
 
 
@@ -76,7 +76,7 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 - [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 - [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
 - [Trabalho com aplicativos com reconhecimento de declaração](active-directory-application-proxy-claims-aware-apps.md)
-- [Solucionar problemas que surgirem com o Proxy de aplicativo](active-directory-application-proxy-troubleshoot.md)
+- [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
 
 ## Saiba mais sobre o Proxy de Aplicativo
 - [Veja nossa ajuda online](active-directory-application-proxy-enable.md)
@@ -85,8 +85,8 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 
 ## Recursos adicionais
 
-* [Inscrever-se no Azure como uma organização](..sign-up-organization.md)
-* [Identidade do Azure](..fundamentals-identity.md)
+* [Inscrever-se no Azure como uma organização](sign-up-organization.md)
+* [Identidade do Azure](fundamentals-identity.md)
 * [Publicar os aplicativos com Proxy de Aplicativo](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

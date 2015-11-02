@@ -43,11 +43,7 @@ Essas tarefas usam somente o PowerShell:
 - [Reiniciar uma máquina virtual](#restart)
 - [Excluir uma máquina virtual](#delete)
 
-Antes de começar, verifique se que você tem o PowerShell do Azure pronto para o uso.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Modelos e grupos de recursos do Gerenciador de Recursos do Azure
 
@@ -59,7 +55,7 @@ Depois de definir um modelo de recurso com base em JSON, você pode usá-lo com 
 
 Os recursos que você criar usando os modelos do Gerenciador de Recursos do Azure são implantados em um *grupo de recursos do Azure* novo ou existente. Um grupo de recursos permite que você gerencie vários recursos implantados juntos como um grupo lógico. Isso significa que você pode gerenciar o ciclo de vida total do grupo/aplicativo.
 
-Se estiver interessado em criar modelos, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+Se você estiver interessado na criação de modelos, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
 ### Criar um grupos de recursos
 
@@ -69,9 +65,9 @@ No comando a seguir, substitua *nome do grupo de recursos* pelo nome do novo gru
 
 	New-AzureRmResourceGroup -Name "resource group name" -Location "Azure location"
 
-## <a id="windowsvm"></a>TAREFA: criar uma máquina virtual
+## <a id="windowsvm"></a>TAREFA: Criar uma máquina virtual
 
-Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, veja [Implantar uma VM simples do Windows no Oeste dos EUA](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
+Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, consulte [Implantar uma VM simples do Windows no Oeste dos EUA](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
@@ -83,7 +79,7 @@ Aqui está um exemplo:
 
 	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-Você será solicitado a fornecer os valores dos parâmetros na seção **parâmetros** do arquivo JSON:
+Será solicitado que você forneça os valores dos parâmetros na seção **parameters** do arquivo JSON:
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -128,9 +124,9 @@ Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada 
 
 [AZURE.VIDEO deploy-a-windows-virtual-machine-with-azure-resource-manager-templates-and-powershell]
 
-## <a id="customvm"></a>TAREFA: criar uma máquina virtual com um disco especializado
+## <a id="customvm"></a>TAREFA: Criar uma máquina virtual com um disco especializado
 
-Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, veja [Criar uma máquina virtual a partir de um disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
+Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, consulte [Criar uma máquina virtual de um disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
 
 No comando a seguir, substitua *nome da implantação* pelo nome que deseja usar para a implantação e *nome do grupo de recursos* pelo nome do grupo de recursos existente e execute-o:
 
@@ -140,7 +136,7 @@ Aqui está um exemplo:
 
 	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-Você será solicitado a fornecer os valores dos parâmetros na seção **parâmetros** do arquivo JSON:
+Será solicitado que você forneça os valores dos parâmetros na seção **parameters** do arquivo JSON:
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -157,9 +153,9 @@ Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada 
 
 [AZURE.VIDEO create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell]
 
-## <a id="multivm"></a>TAREFA: criar várias máquinas virtuais em uma rede virtual com um balanceador externo de carga
+## <a id="multivm"></a>TAREFA: Criar várias máquinas virtuais em uma rede virtual com um balanceador externo de carga
 
-Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, veja [Criar uma máquina virtual a partir de um disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
+Essa tarefa usa um modelo da galeria de modelos. Para saber mais sobre o modelo, consulte [Criar uma máquina virtual de um disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
@@ -167,7 +163,7 @@ No comando a seguir, substitua *nome da implantação* pelo nome que deseja usar
 
 	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
-Você será solicitado a fornecer os valores dos parâmetros na seção **parâmetros** do arquivo JSON:
+Será solicitado que você forneça os valores dos parâmetros na seção **parameters** do arquivo JSON:
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -372,7 +368,7 @@ Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
 ## Recursos adicionais
-[Modelos de Início Rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas do Aplicativo](virtual-machines-app-frameworks.md)
+[Modelos de Início Rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas do aplicativo](virtual-machines-app-frameworks.md)
 
 [Computação do Azure, provedores de rede e armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -380,4 +376,4 @@ Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada 
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

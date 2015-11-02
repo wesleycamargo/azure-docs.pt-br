@@ -1,58 +1,50 @@
-<properties 
-	pageTitle="Como descobrir aplicativos na nuvem não aprovados, usados em minha organização" 
-	description="Este tópico descreve o que é o Cloud App Discovery e por que usá-lo." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="swadhwa" 
+<properties
+	pageTitle="Encontrando aplicativos em nuvem não autorizados com o Cloud App Discovery | Microsoft Azure"
+	description="Este tópico descreve o que é o Cloud App Discovery e por que usá-lo."
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="swadhwa"
 	editor="lisatoft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/23/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/16/2015"
 	ms.author="markusvi"/>
 
-# Como descobrir aplicativos na nuvem não aprovados, usados em minha organização
+# Localizando aplicativos em nuvem não autorizados com o Cloud App Discovery
 
-Nas empresas modernas, os departamentos de TI geralmente não estão cientes de todos os aplicativos na nuvem usados pelos usuários para realizar seu trabalho. Como resultado, os administradores geralmente têm preocupações relativas a acesso não autorizado a dados corporativos, possível vazamento de dados e outros riscos de segurança inerentes nos aplicativos. Como eles não sabem quantos ou quais aplicativos são usados, até mesmo começar a criar um plano para lidar com esses riscos parece ser desanimador.
+## Visão geral
+Nas empresas modernas, os departamentos de TI geralmente não estão cientes de todos os aplicativos em nuvem que os membros de sua organização usam para realizar seu trabalho. É fácil ver por que os administradores teriam preocupações sobre o acesso não autorizado aos dados corporativos, perda de dados e outros riscos de segurança. Essa falta de reconhecimento pode fazer com que a criação de um plano para lidar com esses riscos de segurança pareça assustadora.
 
-Você pode resolver esses problemas usando o Cloud App Discovery. Cloud App Discovery é um recurso Premium do Active Directory do Azure que permite descobrir aplicativos na nuvem usados pelos funcionários de sua organização.
-
+O Cloud App Discovery é um recurso Premium do Active Directory (AD) do Azure que permite descobrir os aplicativos em nuvem usados pelas pessoas em sua organização.
 
 **Com o Cloud App Discovery é possível:**
 
-* Descobrir aplicativos em uso e medir o uso pelo número de usuários, volume de tráfego ou número de solicitações ao aplicativo na Web. 
-* Identificar os usuários que estão usando um aplicativo. 
-* Exportar dados para adição de análise offline. 
-* Priorizar aplicativos para colocar sob o controle da TI e integrá-los facilmente para habilitar o gerenciamento de usuário e logon único. 
+- Descubra os aplicativos em nuvem usados e meça o uso pelo número de usuários, volume de tráfego ou número de solicitações Web para o aplicativo.
+- Identificar os usuários que estão usando um aplicativo.
+- Exporte os dados para a análise offline.
+- Coloque esses aplicativos sob controle da TI e habilite o logon único para o gerenciamento de usuário.
 
-Com o Cloud App Discovery, a parte de recuperação de dados é realizada por agentes executados em computadores em seus ambientes. As informações de uso do aplicativo coletadas pelos agentes são enviadas por um canal criptografado seguro para o serviço Cloud App Discovery. O serviço Cloud App Discovery avalia os dados e gera relatórios que você pode usar para analisar o ambiente.
+## Como ele funciona
+1. Os agentes de uso dos aplicativos são instalados nos computadores dos usuários.
+2. As informações de uso do aplicativo coletadas pelos agentes são enviadas por um canal criptografado seguro para o serviço Cloud App Discovery.
+3. O serviço Cloud App Discovery avalia os dados e gera relatórios.
 
+![Diagrama do Cloud App Discovery](./media/active-directory-cloudappdiscovery/cad01.png)
 
-<center>![Como funciona o Cloud App Discovery](./media/active-directory-cloudappdiscovery/cad01.png)</center>
+Para iniciar com o Cloud App Discovery, confira [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
-##Próximas etapas
+## Artigos relacionados
+- [Considerações de privacidade e segurança no Cloud App Discovery](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)  
+- [Guia de Implantação da Política de Grupo do Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)
+- [Guia de Implantação do System Center do Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)
+- [Configurações de Registro do Cloud App Discovery para Servidores Proxy com Portas Personalizadas](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+- [Cloud App Discovery - Log de Alteração de Agente ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
+- [Cloud App Discovery - Perguntas Frequentes](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-
-* Para saber mais sobre como Cloud App Discovery funciona, consulte [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) 
-* Para considerações de segurança e privacidade, consulte [Considerações de privacidade e segurança do Cloud App Discovery](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) 
-* Para obter informações sobre como implantar o agente Cloud App Discovery em um ambiente corporativo com: 
- * Gerenciamento de Política de Grupo do Active Directory, consulte [Guia de implantação de política de grupo do Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx) 
- * Microsoft System Center Configuration Manager, consulte [Guia de implantação do System Center do Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx) 
- * Servidores proxy com portas personalizadas, consulte [Configurações de Registro do Cloud App Discovery para servidores proxy com portas personalizadas](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) 
-
-
-
-
-
-**Recursos adicionais**
-
-
-* [Cloud App Discovery - Log de alteração de agente ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
-* [Cloud App Discovery - Perguntas frequentes](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

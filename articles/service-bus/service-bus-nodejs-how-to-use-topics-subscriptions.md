@@ -19,7 +19,9 @@
 
 # Como Usar tópicos do barramento de serviço e assinaturas
 
-Este guia descreve como usar tópicos do barramento de serviço e assinaturas de aplicativos Node.js. Os cenários abordados incluem a **criação de tópicos e assinaturas**, **criação de filtros de assinatura**, **envio de mensagens** para um tópico, **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**. Para obter mais informações sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#next-steps).
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+Este guia descreve como usar tópicos do barramento de serviço e assinaturas de aplicativos Node.js. Os cenários abordados incluem a **criação de tópicos e assinaturas**, a **criação de filtros de assinatura**, o **envio de mensagens** para um tópico, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**. Para saber mais sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#next-steps).
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -51,7 +53,7 @@ Para usar o barramento de serviço, baixe o pacote do Node.js do azure. Este pac
 	└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 	```
 
-3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure**, que contém as bibliotecas necessárias para acessar os tópicos do Barramento de Serviço.
+3.  Você pode executar manualmente o comando **ls** para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure**, que contém as bibliotecas necessárias para acessar os tópicos do Barramento de Serviço.
 
 ### Importar o módulo
 
@@ -77,7 +79,7 @@ O objeto **ServiceBusService** permite que você trabalhe com tópicos. O códig
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Ao chamar **createTopicIfNotExists** no objeto **ServiceBusService**, o tópico especificado (se houver) será retornado ou um novo tópico com o nome especificado será criado. O seguinte código usa o **createTopicIfNotExists** para criar ou conectar-se ao tópico denominado 'MyTopic':
+Ao chamar **createTopicIfNotExists** no objeto **ServiceBusService**, o tópico especificado (se houver) será retornado ou um novo tópico com o nome especificado será criado. O código a seguir usa o **createTopicIfNotExists** para criar ou conectar-se ao tópico denominado 'MyTopic':
 
 ```
 serviceBusService.createTopicIfNotExists('MyTopic',function(error){
@@ -128,7 +130,7 @@ Dois filtros que implementam a lógica de repetição estão incluídos no SDK d
 
 As assinaturas do tópico também são criadas com o objeto **ServiceBusService**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da assinatura.
 
-> [AZURE.NOTE]As assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão associadas sejam excluídos. Se seu aplicativo contiver a lógica para criar uma assinatura, ele deve primeiro verificar se a assinatura já existe usando o método **getSubscription**.
+> [AZURE.NOTE]As assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão associadas sejam excluídos. Se seu aplicativo contiver a lógica para criar uma assinatura, ele deverá primeiro verificar se a assinatura já existe usando o método **getSubscription**.
 
 ### Criar uma assinatura com o filtro padrão (MatchAll)
 
@@ -259,7 +261,7 @@ O comportamento padrão da leitura e da exclusão da mensagem como parte da oper
 
 Se o parâmetro **isPeekLock** estiver definido como **true**, o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio do processo de recebimento, chamando o método **deleteMessage** e fornecendo a mensagem a ser excluída como um parâmetro. O método **deleteMessage** marcará a mensagem como tendo sido consumida e a removerá da assinatura.
 
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando **receiveSubscriptionMessage**. O exemplo primeiro recebe e exclui uma mensagem da assinatura “LowMessages” e, em seguida, recebe uma mensagem da assinatura “HighMessages” usando **isPeekLock** definido como true. Em seguida, ele exclui a mensagem usando **deleteMessage**:
+O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando **receiveSubscriptionMessage**. O exemplo primeiro recebe e exclui uma mensagem da assinatura “LowMessages” e recebe uma mensagem da assinatura “HighMessages” usando **isPeekLock** definido como true. Em seguida, ele exclui a mensagem usando **deleteMessage**:
 
     serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
         if(!error){
@@ -310,7 +312,7 @@ A exclusão de um tópico também excluirá todas as assinaturas registradas com
 
 Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
 
--   Confira [Filas, tópicos e assinaturas][].
+-   Consulte [Filas, tópicos e assinaturas][].
 -   Referência da API para [SqlFilter][].
 -   Visite o repositório [SDK do Azure para o nó][] no GitHub.
 
@@ -325,4 +327,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Aplicativo Node.js na Web com armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

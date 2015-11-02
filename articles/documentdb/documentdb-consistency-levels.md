@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Níveis de consistência no Banco de Dados de Documentos | Microsoft Azure" 
 	description="Analise como o Banco de Dados de Documentos tem quatro níveis de consistência com níveis de desempenho associados para ajudar a equilibrar as compensações eventuais entre consistência, disponibilidade e latência." 
-	keywords="eventual consistency, documentdb, azure, Microsoft azure"
+	keywords="consistência eventual, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -40,9 +40,9 @@ Você pode configurar um nível de consistência padrão, na conta do banco de d
  
 A consistência forte oferece garantias absolutas na consistência de dados, mas oferece o nível mais baixo de desempenho de leitura e gravação.
 
-**Bounded staleness**: A consistência Bounded staleness garante a ordem total de propagação das gravações com a possibilidade de ler o atraso por trás de gravações da maioria dos prefixos K. A leitura sempre é confirmada pela maioria do quorum de réplicas. A resposta de uma solicitação de leitura especifica sua atualização relativa (em termos de K).
+**Bounded staleness**: A consistência Bounded staleness garante a ordem total de propagação das gravações com a possibilidade de ler o atraso por trás de gravações da maioria dos prefixos K. A leitura sempre é confirmada pela maioria do quorum de réplicas. A resposta de uma solicitação de leitura especifica sua atualização relativa (em termos de K). Com o bounded staleness, você pode definir um limite configurável de envelhecimento (como prefixos ou hora) para leituras de latência de compensação e consistência no estado estável.
 
-A Bounded staleness oferece um comportamento mais previsível para consistência de leitura, enquanto oferece gravações com a menor latência. Como as leituras são confirmadas pela maioria do quorum, a latência de leitura não é a menor oferecida pelo sistema.
+A Bounded staleness oferece um comportamento mais previsível para consistência de leitura, enquanto oferece gravações com a menor latência. Como as leituras são confirmadas pela maioria do quorum, a latência de leitura não é a menor oferecida pelo sistema. Bounded Staleness é uma opção para cenários em que você deseja uma consistência sólida mas a consistência sólida não é prática. Se você configurar o "intervalo de envelhecimento" da consistência Bounded Staleness de forma aleatoriamente grande, ele ainda preservará a ordem global e total de gravações. Isso proporciona uma garantia mais sólida do que Sessão ou Eventual.
 
 >[AZURE.NOTE]Bounded staleness garante leituras monotônicas apenas em solicitações de leitura explícitas. A resposta do servidor ecoada para solicitações de gravação não oferece garantias de bounded staleness.
 
@@ -88,4 +88,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 -	Werner Vogels. Eventual Consistent - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

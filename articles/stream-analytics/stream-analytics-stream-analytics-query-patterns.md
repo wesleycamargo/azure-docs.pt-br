@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Padrões de consulta do Stream Analytics do Azure | Microsoft Azure"
 	description="Padrões de consulta comuns do Stream Analytics"
-	keywords="stream analytics, sample, query, language, guide, patterns"
+	keywords="stream analytics, exemplo, consulta, linguagem, guia, padrões"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -21,7 +21,7 @@
 # Padrões de consulta comuns do Stream Analytics  #
 
 ## Introdução ##
-As consultas na Stream Analytics do Azure são expressas em uma linguagem de consulta do tipo SQL, que está documentada [aqui](https://msdn.microsoft.com/library/azure/dn834998.aspx). Este documento descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
+As consultas no Stream Analytics do Azure são expressas em uma linguagem de consulta do tipo SQL, que está documentada [aqui](https://msdn.microsoft.com/library/azure/dn834998.aspx). Este documento descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
 
 ## Noções básicas ##
 
@@ -52,7 +52,7 @@ As consultas na Stream Analytics do Azure são expressas em uma linguagem de con
 		Make,
     	TumblingWindow(second, 10)
 
-**Explicação**: use uma instrução de CONVERSÃO no campo Peso para especificar seu tipo (consulte a lista de Tipos de dados com suporte [aqui](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
+**Explicação**: use uma instrução CAST no campo Peso para especificar seu tipo (consulte a lista de Tipos de Dados com suporte [aqui](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
 ## Usando Like/Not like para fazer correspondência de padrões ##
 **Descrição**: verifique se um valor de campo no evento corresponde a um determinado padrão. Por exemplo, retornar placas de carro que comecem com A e terminem com 9
@@ -310,7 +310,7 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
 ## Localizar o último evento em uma janela ##
-**Descrição**: localizar o último carro em cada intervalo de 10 minutos.
+**Descrição**: localize o último carro a cada intervalo de 10 minutos.
 
 **Entrada**:
 
@@ -455,4 +455,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Habilitar a comunicação para instâncias de função nos serviços de nuvem | Microsoft Azure" 
-description="" 
+pageTitle="Comunicação para funções nos Serviços de Nuvem | Microsoft Azure" 
+description="As instâncias de função nos Serviços de Nuvem podem ter pontos de extremidade (http, https, tcp, udp) definidos que se comunicam com a parte externa ou entre outras instâncias de função." 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -359,4 +359,4 @@ Veja uma referência de esquema XML para os elementos usados acima [aqui](https:
 ## Próximas etapas
 Leia mais sobre o [modelo](cloud-services-model-and-package.md) de Serviço de Nuvem.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Introdução ao Emulador do Hadoop para HDInsight | Microsoft Azure"
 	description="Use um emulador instalado com um tutorial do MapReduce e outros exemplos para conhecer o ecossistema do Hadoop. O Emulador do HDInsight funciona como uma área restrita do Hadoop."
-	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
+	keywords="emulador, ecossistema do hadoop, sandbox do hadoop, tutorial sobre mapreduce"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -128,7 +128,7 @@ O programa MapReduce de contagem de palavras foi empacotado em *hadoop-mapreduce
 
 O trabalho do MapReduce para contar palavras usa dois argumentos:
 
-- Uma pasta de entrada. Você usará *hdfs://localhost/user/HDIUser* como pasta de entrada.
+- Uma pasta de entrada. Você usará **hdfs://localhost/user/HDIUser* como a pasta de entrada.
 - Uma pasta de saída. Você usará **hdfs://localhost/user/HDIUser/WordCount_Output* como pasta de saída. A pasta de saída não pode ser uma pasta existente, ou o trabalho do MapReduce falhará. Se você quiser executar o trabalho do MapReduce pela segunda vez, especifique uma pasta de saída diferente ou exclua a pasta de saída existente.
 
 **Para executar o trabalho do MapReduce de contagem de palavras**
@@ -498,4 +498,4 @@ Neste tutorial do MapReduce, você instalou o Emulador do HDInsight (uma área r
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

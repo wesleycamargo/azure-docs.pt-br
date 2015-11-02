@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Implantar um aplicativo de API com um gateway existente" 
 	description="Use um modelo do Gerenciador de Recursos do Azure para implantar um aplicativo de API que usa um gateway e um plano de Serviço de Aplicativo existentes." 
-	services="app-service\api" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-api" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -191,4 +191,4 @@ Observe que os nomes do aplicativo Web responsável pela hospedagem e do gateway
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

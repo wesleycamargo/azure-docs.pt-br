@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Tutorial de início rápido para a linguagem R para Aprendizado de Máquina | Microsoft Azure"
 	description="Use este tutorial de programação R para começar a usar rapidamente a linguagem R com Studio de Aprendizado de Máquina do Azure para criar uma solução de previsão."
-	keywords="quickstart,r language,r programming language,r programming tutorial"
+	keywords="guia de início rápido, linguagem r, linguagem de programação r, tutorial de programação r"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -174,7 +174,7 @@ Vamos começar carregando o arquivo **csdairydata.csv** no Estúdio de Aprendiza
 
 Agora que temos alguns dados no Estúdio de Aprendizado de Máquina, precisamos criar um teste para fazer a análise.
 
-- Clique em __+NOVO__ na parte inferior esquerda e selecione **Teste** e **Teste em branco**.
+- Clique em __+ NOVO__ na parte inferior esquerda e selecione **Teste** e **Teste em branco**.
 
 - Você pode nomear o seu teste selecionando e modificando o título **Teste criado em...** no início da página. Por exemplo, alterando-o para **Análise da AC**.
 
@@ -910,7 +910,7 @@ O código a seguir extrai os valores de intervalo da lista de objetos ccf, que t
 
 A primeira linha de código é um pouco complicada, e algumas explicações podem ajudá-lo a entendê-la. Trabalhando de dentro para fora, temos o seguinte:
 
-1.  O operador '**[[**' com o argumento '**1**' seleciona o vetor de correlações nos intervalos do primeiro elemento da lista de objetos ccf.
+1.  O operador '**[[**' com o argumento '**1**' seleciona o vetor de correlações nas defasagens do primeiro elemento da lista de objetos ccf.
 
 2.  A função `do.call()` aplica-se à função `rbind()` nos elementos de lista retornados por `lapply()`.
 
@@ -1346,4 +1346,4 @@ Alguns ótimos recursos na Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

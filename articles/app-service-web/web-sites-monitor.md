@@ -289,4 +289,4 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

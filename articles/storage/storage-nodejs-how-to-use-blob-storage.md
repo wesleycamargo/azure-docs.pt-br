@@ -201,7 +201,7 @@ O `result` contém uma coleção de `entries`, que é uma matriz de objetos que 
 
 Para baixar dados de um blob, use o seguinte:
 
-* **getBlobToFile** – grava o conteúdo do blob em um arquivo
+* **getBlobToLocalFile** – grava o conteúdo do blob em um arquivo
 
 * **getBlobToStream** – grava o conteúdo do blob em um fluxo
 
@@ -378,4 +378,4 @@ Para saber mais, consulte os recursos a seguir.
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referência do SDK do Armazenamento do Azure para APIs de nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

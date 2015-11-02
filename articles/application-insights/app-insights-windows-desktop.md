@@ -62,11 +62,11 @@ O núcleo SDK fornece apenas uma API: diferentemente dos SDKs Web ou de disposit
 
     * Se você instalou somente o pacote de API principal Microsoft.ApplicationInsights, deve definir a chave no código, por exemplo, em main(): 
 
-     `TelemetryConfiguration.Active.InstrumentationKey = "`*sua chave*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*sua chave*`";`
 
     * Se você instalou um dos outros pacotes, pode definir a chave usando código ou defini-la em ApplicationInsights.config:
  
-     `<InstrumentationKey>`*sua chave*`</InstrumentationKey>`
+    `<InstrumentationKey>`*sua chave*`</InstrumentationKey>`
 
 
 
@@ -299,4 +299,4 @@ O código do canal de persistência está no [github](https://github.com/Microso
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

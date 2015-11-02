@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Fase 3 da carga de trabalho do farm da intranet do SharePoint: Configurar a infraestrutura do SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modelo de implantação do Gerenciador de Recursos.
 
 Nesta fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, crie e configure os dois computadores SQL Server e o computador do nó principal do cluster no Gerenciamento de Serviços e combine-os em um cluster do Windows Server.
 
@@ -144,7 +143,7 @@ Use o procedimento a seguir duas vezes, uma vez para cada SQL Server, para permi
 
 O SQL Server exige uma porta que os clientes usem para acessar o servidor de banco de dados. Ele também precisa de portas para se conectar com o SQL Server Management Studio e gerenciar o grupo de alta disponibilidade. Em seguida, execute o seguinte comando em um prompt de comando de nível de administrador do Windows PowerShell duas vezes, uma vez para cada SQL Server, para adicionar uma regra de firewall que permita o tráfego de entrada para o SQL Server.
 
-	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 4234, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
+	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 1434, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
 
 Saia como administrador local de cada uma das máquinas virtuais do SQL Server.
 
@@ -164,7 +163,7 @@ Os Grupos de Disponibilidade AlwaysOn do SQL Server dependem do recurso de Clust
 - O SQL Server secundário
 - O nó principal do cluster
 
-O cluster de failover requer pelo menos três VMs. Duas máquinas hospedam o SQL Server. A segunda VM do SQL Server é uma réplica secundária síncrona, que garante que nenhum dado seja perdido se a máquina primária falhar. A terceira máquina não precisa hospedar o SQL Server. O nó principal do cluster funciona como uma testemunha de quorum no WSFC. Como o cluster do WSFC depende de um quorum para monitorar a integridade, o nó principal é necessário para garantir que o cluster do WSFC esteja sempre online. Se apenas duas máquinas estiverem em um cluster e uma falhar, não haverá quorum. Para saber mais, consulte [Configuração de modos de quorum WSFC e votação (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
+O cluster de failover requer pelo menos três VMs. Duas máquinas hospedam o SQL Server. A segunda VM do SQL Server é uma réplica secundária síncrona, que garante que nenhum dado seja perdido se a máquina primária falhar. A terceira máquina não precisa hospedar o SQL Server. O nó principal do cluster fornecem um quorum no WSFC. Como o cluster do WSFC depende de um quorum para monitorar a integridade, o nó principal é necessário para garantir que o cluster do WSFC esteja sempre online. Se apenas duas máquinas estiverem em um cluster e uma falhar, não haverá quorum. Para saber mais, consulte [Configuração de modos de quorum WSFC e votação (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
 
 Para os computadores do SQL Server e o nó principal do cluster, execute o seguinte comando em um prompt de comando de nível de administrador do Windows PowerShell.
 
@@ -233,4 +232,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 4: conf
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

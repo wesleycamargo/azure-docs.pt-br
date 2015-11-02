@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Como usar as filas de Barramento de Serviço (Ruby) | Microsoft Azure"
+	pageTitle="Como usar as filas do Barramento de Serviço com o Ruby | Microsoft Azure"
 	description="Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,12 +14,11 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
-
-
-
+	ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Este guia mostra como usar as filas do Barramento de Serviço. Os exemplos são gravados no Ruby e usam a gema do Azure. Os cenários abrangidos incluem **criar filas, enviar e receber mensagens** e **excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps).
 
@@ -152,4 +151,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 Para fazer uma comparação entre as filas de Service Bus do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o serviço Fila do Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

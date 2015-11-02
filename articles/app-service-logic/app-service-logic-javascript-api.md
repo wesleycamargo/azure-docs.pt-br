@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="10/15/2015"
    ms.author="stepsic"/>
 
 #Aplicativo de API de JavaScript
@@ -73,7 +73,7 @@ Por exemplo, imagine que você está usando o gatilho do Office 365 **Novo Email
 }
 ```
 
-Mas é recomendável carregar esses anexos em uma postagem do Yammer. Infelizmente, o esquema dos anexos do Yammer é ligeiramente diferente. Agora, você pode analisar isso dentro do aplicativo lógico. Para o objeto de contexto, passe: `@triggerBody()`, e para a expressão, passe:
+Mas é recomendável carregar esses anexos em uma postagem do Yammer. Infelizmente, o esquema dos anexos do Yammer é ligeiramente diferente. Agora você pode analisar isso dentro do Aplicativo lógico. Para o objeto de contexto, passe: `@triggerBody()`, e para a expressão, passe:
 
 ```
 return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name; return a;})
@@ -91,4 +91,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

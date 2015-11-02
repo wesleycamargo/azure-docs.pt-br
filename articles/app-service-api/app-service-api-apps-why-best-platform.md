@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="10/15/2015" 
 	ms.author="tdykstra"/>
 
-# O que são Aplicativos de API?
+# O que são aplicativos de API?
 
-Os aplicativos de API desse pacote fornecem uma rica plataforma e ecossistema para compilar, hospedar, consumir e distribuir APIs na nuvem e localmente. Implante sua API como um aplicativo de API e beneficie-se da segurança de nível corporativo, do controle de acesso simples, conectividade híbrida e SaaS, geração automática do SDK e integração perfeita com [Aplicativos Lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+Os Aplicativos de API fornecem uma plataforma rica para compilação, hospedagem e consumo de APIs na nuvem e localmente. Implante sua API como um aplicativo de API e beneficie-se da segurança de nível corporativo, do controle de acesso simples, conectividade híbrida e SaaS, geração automática do SDK e integração perfeita com [Aplicativos Lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 O recurso Aplicativos de API faz parte do [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md), que também inclui Aplicativos Web, Aplicativos Móveis e Aplicativos Lógicos.
 
@@ -46,18 +46,6 @@ Além disso, os aplicativos de API incluem [recursos de Aplicativo Web do Servi�
 >
 >Aplicativos de API estão atualmente em visualização pública. Os [Aplicativos Web do Serviço de Aplicativo](../app-service-web/app-service-web-overview.md) são um serviço GA (Geralmente Disponível) destinado à compilação e hospedagem de aplicativos críticos seguros em escala global. Se você estiver procurando por um serviço GA para compilação de sua API hoje, os aplicativos Web são uma ótima opção. Quando os Aplicativos de API ficarem disponíveis, forneceremos um caminho para usar os aplicativos Web existentes e aproveitar os recursos adicionais dos Aplicativos de API.
 
-### Recursos de Aplicativos de API disponíveis futuramente
-
-Em breve, a plataforma de aplicativos da API também criará um rico ecossistema de APIs, facilitando o compartilhamento do código:
-
-- **Marketplaces públicos e privados** - O [Azure Marketplace](http://azure.microsoft.com/marketplace/) facilitará a localização e implantação de seus aplicativos de API pré-empacotados de assinatura do Azure desenvolvidos pela Microsoft e terceiros. E você poderá empacotar e publicar seus próprios aplicativos de API que desenvolve, para que outros desenvolvedores possam implantá-los em suas assinaturas do Azure. Quando você publicar suas APIs no Azure Marketplace, poderá torná-las visíveis apenas para outros membros de sua organização. 
-
-- **Implantação automática de dependência** - Sempre que você implantar um aplicativo de API do Marketplace na assinatura do Azure, o Azure implantará automaticamente aplicativos de API dependentes e criará os recursos necessários. Um pacote do aplicativo de API especificará os aplicativos de API do quais ele depende e os recursos do Azure que ele necessita.
-
-- **Atualizações automáticas** - Quando você atualizar o código para um de seus pacotes de aplicativo de API que compartilhou, poderá enviar a atualização por push para qualquer pessoa que tenha instalado e esteja executando seu aplicativo de API. Isso funcionará para alterações de espaço contínuo e usuários que optaram por receber atualizações.
-
-Muitos desses recursos, como marketplace público e atualizações automáticas, já estão disponíveis para aplicativos de API fornecidos pela Microsoft.
-
 ## Conceitos de aplicativos de API ##
 
 - **Gateway** - Um aplicativo Web que lida com funções de administração de API e autenticação para todos os aplicativos de API em um grupo de recursos. 
@@ -76,4 +64,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

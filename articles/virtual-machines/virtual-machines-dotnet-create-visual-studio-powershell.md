@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Criando uma VM para um projeto da web usando o Visual Studio | Microsoft Azure"
-	description="Criar uma máquina virtual para um site"
+	description="Criar uma máquina virtual para um aplicativo Web"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kempb"
 	manager="douge"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,21 +14,23 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="10/19/2015"
 	ms.author="kempb"/>
 
-# Criar uma máquina virtual para um site com o Visual Studio
+# Criando uma máquina virtual para um aplicativo Web com o Visual Studio
 
-Ao criar um projeto Web para um site do Azure, você pode provisionar uma máquina virtual no Azure. Em seguida, é possível configurar a máquina virtual com software adicional ou usar a máquina virtual para fins de diagnóstico ou depuração.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
-Para criar uma máquina virtual ao criar um site, siga estas etapas:
+Ao criar um projeto de aplicativo Web para o Azure, você pode provisionar uma máquina virtual no Azure. Em seguida, é possível configurar a máquina virtual com software adicional ou usar a máquina virtual para fins de diagnóstico ou depuração.
+
+Para criar uma máquina virtual ao criar um aplicativo Web, execute estas etapas:
 
 1. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto** > **Web** e, em seguida, escolha **Aplicativo Web ASP.NET** (sob os nós **Visual C#** ou **Visual Basic**).
 2. Na caixa de diálogo **Novo Projeto do ASP.NET**, selecione o tipo de aplicativo Web desejado e, na seção Azure da caixa de diálogo (no canto inferior direito), não se esqueça de marcar a caixa de seleção **Hospedar na nuvem** (ela é rotulada como **Criar recursos remotos** em algumas instalações).
 
 	![][0]
 
-3. Na lista suspensa no Microsoft Azure, escolha **Máquina Virtual** e, em seguida, clique no botão **OK**.
+3. Para este exemplo, na lista suspensa em Microsoft Azure, escolha **Máquina Virtual (v1)** e, em seguida, clique no botão **OK**.
 4. Conecte-se ao Azure, se for solicitado. A caixa de diálogo **Criar Máquina Virtual** é exibida.
 
 	![][2]
@@ -46,13 +49,13 @@ Para criar uma máquina virtual ao criar um site, siga estas etapas:
 
 	* Cria a máquina virtual, caso ela ainda não exista.
 	* Cria uma conta de armazenamento com um nome começando por `devtest`, mas apenas se ainda não houver uma conta de armazenamento assim na região especificada.
-	* Cria um serviço de nuvem como um contêiner para a máquina virtual e cria uma função web para o site.
+	* Cria um serviço de nuvem como um contêiner para a máquina virtual e cria uma função Web para o aplicativo Web.
 	* Configura a Implantação da Web na máquina virtual.
 	* Configura IIS e ASP.NET na máquina virtual.
 
 	![][4]
 
-<br/> 13. (Opcional) Você pode se conectar à nova máquina virtual. Em **Gerenciador de Servidores**, expanda o nó **Máquinas Virtuais**, escolha o nó para a máquina virtual que você criou e, no menu de atalho, escolha **Conectar-se à área de trabalho remota**.
+13. (Opcional) Você pode se conectar à nova máquina virtual. Em **Gerenciador de Servidores**, expanda o nó **Máquinas Virtuais**, escolha o nó para a máquina virtual que você criou e, no menu de atalho, escolha **Conectar-se à área de trabalho remota**. Como alternativa, no **Gerenciador de Nuvem**, você pode escolher **Abrir no Portal** no menu de atalho e conectar-se à máquina virtual nesse local.
 
  ![][5]
 
@@ -68,4 +71,4 @@ Se você quiser personalizar os scripts publicados que criou, leia informações
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

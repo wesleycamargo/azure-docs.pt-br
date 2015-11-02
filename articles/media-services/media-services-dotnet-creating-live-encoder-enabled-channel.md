@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Use o SDK do .NET para criar canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits (Visualização)" 
-	description="Este tutorial orienta você pelas etapas de criação de um Canal que recebe um fluxo ao vivo de taxa de bits única e o codifica em fluxo de múltiplas taxas de bits." 
+	pageTitle="Crie canais que realizam codificação ativa de um fluxo com taxa de bits única para um fluxo com múltiplas taxas de bits usando o SDK do .NET" 
+	description="Este tutorial orienta você pelas etapas de criação de um Canal que recebe um fluxo em tempo real de taxa de bits única e o codifica em um fluxo de múltiplas taxas de bits usando o SDK do .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,13 +11,13 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
-#Use o SDK do .NET para criar canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits (Visualização)
+#Crie canais que realizam codificação ativa de um fluxo com taxa de bits única para um fluxo com múltiplas taxas de bits usando o SDK do .NET
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -517,4 +517,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

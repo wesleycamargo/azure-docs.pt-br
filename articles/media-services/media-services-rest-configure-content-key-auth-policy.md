@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configurar política de autorização de chave de conteúdo usando REST" 
-	description="Saiba como configurar uma política de autorização para uma chave de conteúdo." 
+	pageTitle="Configurar política de autorização de chave de conteúdo usando a API REST dos Serviços de Mídia" 
+	description="Saiba como configurar uma política de autorização para uma chave de conteúdo usando a API REST dos Serviços de Mídia." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -481,4 +481,4 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

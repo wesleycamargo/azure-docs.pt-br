@@ -20,6 +20,8 @@
 
 # Utilizando privilégios de raiz nas máquinas virtuais Linux do Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Por padrão, o usuário `root` encontra-se desabilitado nas máquinas virtuais Linux no Azure. Os usuários podem executar comandos com privilégios elevados usando o comando `sudo`. No entanto, a experiência pode variar dependendo de como o sistema foi fornecido.
 
 1. **Chave SSH e senha OU senha apenas**: a máquina virtual foi provisionada com um certificado (arquivo `.CER`) ou chave SSH, bem como uma senha, ou apenas com um nome de usuário e uma senha. Neste caso, `sudo` solicitará a senha do usuário antes de executar o comando.
@@ -53,4 +55,4 @@ Nesse caso, o usuário **não** será solicitado para uma senha. Depois de press
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

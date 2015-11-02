@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Criando filtros com .NET SDK dos Serviços de Mídia" 
+	pageTitle="Criando filtros com o SDK do .NET dos Serviços de Mídia do Azure" 
 	description="Este tópico descreve como criar filtros para que seu cliente possa usá-los na transmissão de seções específicas de um fluxo. Os Serviços de Mídia criam manifestos dinâmicos para atingir esse streaming seletivo." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="dwrede,cenkdin" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
-#Criando filtros com .NET SDK dos Serviços de Mídia
+#Criando filtros com o SDK do .NET dos Serviços de Mídia do Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
@@ -147,4 +147,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

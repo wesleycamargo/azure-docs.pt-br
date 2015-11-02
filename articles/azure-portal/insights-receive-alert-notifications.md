@@ -57,6 +57,7 @@ Depois de criar uma regra de alerta, você pode exibir uma visualização de seu
 
 ## Próximas etapas
 
+* [Configurar webhooks em seus alertas](insights-webhooks-alerts.md) para direcionar notificações a vários canais
 * [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
 * [Ative o monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para coletar métricas detalhadas de alta frequência em seu serviço.
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
@@ -65,4 +66,4 @@ Depois de criar uma regra de alerta, você pode exibir uma visualização de seu
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

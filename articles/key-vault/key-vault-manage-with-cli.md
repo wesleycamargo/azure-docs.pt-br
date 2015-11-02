@@ -132,7 +132,7 @@ Se você quiser que o Cofre da Chave do Azure crie uma chave protegida por softw
 
 No entanto, se você tiver uma chave existente em um arquivo PEM salvo como arquivo local em um arquivo chamado softkey.pem que você deseja carregar no Cofre da Chave do Azure, digite o seguinte para importar a chave do arquivo PEM, o qual protege a chave pelo software no serviço de Cofre da Chave:
 
-    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' –-password 'PaSSWORD' --destination software
+    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
 Agora você pode fazer referência à chave que criada ou carregada no Cofre da Chave do Azure, usando o URI. Use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obter sempre a versão atual e use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.
 
@@ -145,7 +145,7 @@ Agora, você pode fazer referência a essa senha que foi adicionada ao Cofre da 
 Vamos exibir a chave ou o segredo que você acabou de criar:
 
 - Para exibir a chave, digite: `azure keyvault key list --vault-name 'ContosoKeyVault'`
-- Para exibir o segredo, digite: `azure keyvault secret list -–vault-name 'ContosoKeyVault'`
+- Para exibir o segredo, digite: `azure keyvault secret list --vault-name 'ContosoKeyVault'`
 
 
 ## Registrar um aplicativo com o Active Directory do Azure
@@ -207,7 +207,7 @@ Você pode adicionar chaves protegidas por software (conforme mostrado anteriorm
 
 Você pode usar o comando a seguir para importar uma chave de um arquivo PEM para seu computador. Esse comando importa a chave para os HSMs no serviço de Cofre da Chave:
 
-    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' –-password 'PaSSWORD'
+    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' --password 'PaSSWORD'
 
 O próximo comando importa um pacote de BYOK ("traga sua própria chave"). Isso permite gerar sua chave no HSM local e transferi-la para os HSMs no serviço de Cofre da Chave, sem que a chave deixe os limites do HSM:
 
@@ -237,7 +237,7 @@ Este comando lista uma exibição em tabela de todas as chaves e propriedades se
 
 Este comando exibe uma lista completa de propriedades para a chave especificada:
 
-    azure keyvault key show --vault-name 'ContosoKeyVault' –-key-name 'ContosoFirstKey'
+    azure keyvault key show --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey'
 
 Este comando lista uma exibição em tabela de todos os nomes de segredos e propriedades selecionadas:
 
@@ -256,4 +256,4 @@ Aqui está um exemplo de como remover um segredo específica:
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configurar políticas de entrega de ativos usando REST" 
-	description="Este tópico mostra como configurar políticas de entrega de ativos diferentes." 
+	pageTitle="Configurar políticas de entrega de ativos usando API REST dos Serviços de Mídia" 
+	description="Este tópico mostra como configurar políticas de entrega de ativos diferentes usando a API REST dos Serviços de Mídia." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #Como: configurar políticas de entrega de ativos
@@ -436,4 +436,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

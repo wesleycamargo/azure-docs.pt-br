@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/08/2015"
+    ms.date="10/20/2015"
     ms.author="sstein"/>
 
 # Criar um Banco de Dados SQL usando o PowerShell
@@ -44,22 +44,22 @@ Agora, executando o módulo Gerenciador de Recursos do Azure, você terá acesso
 
 Primeiramente, você deve estabelecer acesso à sua conta do Azure, de modo que ao executar o cmdlet a seguir seja exibida uma tela de conexão para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal do Azure.
 
-	Add-AzureAccount
+	Add-AzureRMAccount
 
 Depois de se conectar com êxito, você verá algumas informações na tela, incluindo a ID usada para entrar e as assinaturas do Azure as quais você tem acesso.
 
 
 ### Selecionar sua assinatura do Azure
 
-Para selecionar a assinatura, você precisa da ID da assinatura. Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
+Para selecionar a assinatura, você precisa da ID da assinatura. Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureRMSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRMSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-Depois de executar **Select-AzureSubscription** com êxito, você retornará ao prompt do PowerShell. Se tiver mais de uma assinatura, você poderá executar **Get-AzureSubscription** e verificar se a assinatura que deseja usar mostra **IsCurrent: True**.
+Depois de executar **Select-AzureRMSubscription** com êxito, você retornará ao prompt do PowerShell. Se tiver mais de uma assinatura, você poderá executar **Get-AzureRMSubscription** e verificar se a assinatura que deseja usar mostra **IsCurrent: True**.
 
 ## Criar um grupo de recursos, servidor e regra de firewall
 
-Agora que você tem acesso para executar cmdlets em sua assinatura do Azure selecionada, a próxima etapa é estabelecer o grupo de recursos que contém o servidor no qual o banco de dados será criado. Você pode editar o próximo comando a fim de usar qualquer local válido de sua escolha. Execute **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obter uma lista de locais válidos.
+Agora que você tem acesso para executar cmdlets em sua assinatura do Azure selecionada, a próxima etapa é estabelecer o grupo de recursos que contém o servidor no qual o banco de dados será criado. Você pode editar o próximo comando a fim de usar qualquer local válido de sua escolha. Execute **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obter uma lista de locais válidos.
 
 Execute o seguinte comando para criar um novo grupo de recursos:
 
@@ -88,7 +88,7 @@ Os detalhes da regra de firewall são exibidos após a criação bem-sucedida da
 
 Para permitir que outros serviços do Azure acessem o servidor, adicione uma regra de firewall e defina StartIpAddress e EndIpAddress como 0.0.0.0. Observe que isso permite que o tráfego do Azure de qualquer assinatura do Azure acesse o servidor.
 
-Para saber mais, confira [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+Para saber mais, confira [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
 
 
 ## Criar um banco de dados SQL
@@ -120,8 +120,8 @@ Os detalhes do banco de dados são exibidos após a criação bem-sucedida do ba
     $DatabasePerfomanceLevel = "S1"
     
     
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRMAccount
+    Select-AzureRMSubscription -SubscriptionId $SubscriptionId
     
     $ResourceGroup = New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
     
@@ -144,4 +144,4 @@ Os detalhes do banco de dados são exibidos após a criação bem-sucedida do ba
 
 - [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

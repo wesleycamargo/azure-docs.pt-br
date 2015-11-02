@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Logon único com Proxy de Aplicativo"
+	pageTitle="Logon único com Proxy de Aplicativo | Microsoft Azure"
 	description="Aborda como fornecer o logon único usando o Proxy de Aplicativo do AD do Azure."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 
@@ -89,9 +89,7 @@ A configuração do Active Directory varia, dependendo se o conector de Proxy de
 
 1. Publique seu aplicativo seguindo as instruções descritas em [Publicar aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-publish.md). Não deixe de selecionar **Active Directory do Azure** como o **Método de Pré-autenticação**.
 2. Depois que o aplicativo aparecer na lista de aplicativos, selecione-o e clique em **Configurar**.
-3. Em **Propriedades**, defina o **Método de Autenticação Interna** para **Autenticação Integrada do Windows**.
-
-![Configuração de Aplicativo Avançada](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
+3. Em **Propriedades**, defina o **Método de Autenticação Interna** como **Autenticação Integrada do Windows**.<br>![Configuração de Aplicativo Avançada](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
 
 4. Insira o **SPN do Aplicativo Interno** do servidor de aplicativos. Neste exemplo, o SPN para nosso aplicativo publicado é http/lob.contoso.com.
 
@@ -99,7 +97,7 @@ A configuração do Active Directory varia, dependendo se o conector de Proxy de
 
 | | |
 | --- | --- |
-| Método de autenticação interna | Se você usar o AD do Azure para pré-autenticação, poderá definir um método de autenticação interna para permitir que os usuários aproveitem o logon único (SSO) para este aplicativo. <br><br> Selecione **IWA ** (Autenticação Integrada do Windows) se o aplicativo usar IWA, e você poderá configurar a KCD (Delegação Restrita de Kerberos) a fim de habilitar o SSO para este aplicativo. Aplicativos que usam IWA devem ser configurados usando a KCD; caso contrário, o Proxy de Aplicativo não conseguirá publicar esses aplicativos. <br><br> Selecione **Nenhum** se seu aplicativo não usar IWA. |
+| Método de autenticação interna | Se você usar o AD do Azure para pré-autenticação, poderá definir um método de autenticação interna para permitir que os usuários aproveitem o logon único (SSO) para este aplicativo. <br><br> Selecione **IWA** (Autenticação Integrada do Windows) se o aplicativo usar IWA, e você poderá configurar a KCD (Delegação Restrita de Kerberos) a fim de habilitar o SSO para este aplicativo. Aplicativos que usam IWA devem ser configurados usando a KCD; caso contrário, o Proxy de Aplicativo não conseguirá publicar esses aplicativos. <br><br> Selecione **Nenhum** se seu aplicativo não usar IWA. |
 | SPN do aplicativo interno | Esse é o SPN (Nome da Entidade de Serviço) do aplicativo interno, conforme configurado no AD do Azure local. O SPN é usado pelo Conector do Proxy de Aplicativo para buscar tokens Kerberos para o aplicativo usando o KCD. |
 
 <!--Image references-->
@@ -108,14 +106,14 @@ A configuração do Active Directory varia, dependendo se o conector de Proxy de
 
 
 ## SSO para aplicativos não Windows
-O fluxo de delegação de Kerberos no Proxy de Aplicativo do AD do Azure é iniciado quando o AD do Azure autentica o usuário na nuvem. Depois que a solicitação chega no local, o conector do Proxy de Aplicativo do AD do Azure emite um tíquete Kerberos em nome do usuário para interagir com o Active Directory local. Esse processo é conhecido como KCD (delegação restrita do Kerberos). Na próxima fase, uma solicitação é enviada ao aplicativo de back-end com esse tíquete Kerberos. Há vários protocolos que definem como enviar essas solicitações. A maioria dos servidores não Windows espera Negotiate/SPNego, que agora tem suporte no Proxy de Aplicativo do AD do Azure. ![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
+O fluxo de delegação de Kerberos no Proxy de Aplicativo do AD do Azure é iniciado quando o AD do Azure autentica o usuário na nuvem. Depois que a solicitação chega no local, o conector do Proxy de Aplicativo do AD do Azure emite um tíquete Kerberos em nome do usuário para interagir com o Active Directory local. Esse processo é conhecido como KCD (delegação restrita do Kerberos). Na próxima fase, uma solicitação é enviada ao aplicativo de back-end com esse tíquete Kerberos. Há vários protocolos que definem como enviar essas solicitações. A maioria dos servidores não Windows espera Negotiate/SPNego, que agora tem suporte no Proxy de Aplicativo do AD do Azure. <br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
 ### Identidade delegada parcial
-Aplicativos não Windows normalmente obtém a identidade do usuário na forma de um nome de usuário ou nome de conta SAM, não um endereço de email (username@domain). Isso é diferente da maioria dos sistemas baseados no Windows que preferem um UPN, que é mais conclusivo e garante que nenhuma duplicação entre domínios. Por esse motivo, o Proxy de Aplicativo permite que você selecione qual identidade aparece no tíquete Kerberos, por aplicativo. Algumas dessas opções são adequadas para sistemas que não aceitam o formato de endereço de email. ![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png) Se a identidade parcial é usada, e essa identidade não pode ser exclusiva para todos os domínios ou florestas em sua organização, convém publicar esses aplicativos duas vezes usando dois grupos diferentes de conector. Como cada aplicativo tem um público de usuários diferente, você pode ingressar seus conectores em um domínio diferente.
+Aplicativos não Windows normalmente obtém a identidade do usuário na forma de um nome de usuário ou nome de conta SAM, não um endereço de email (username@domain). Isso é diferente da maioria dos sistemas baseados no Windows que preferem um UPN, que é mais conclusivo e garante que nenhuma duplicação entre domínios. Por esse motivo, o Proxy de Aplicativo permite que você selecione qual identidade aparece no tíquete Kerberos, por aplicativo. Algumas dessas opções são adequadas para sistemas que não aceitam o formato de endereço de email.<br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png) Se a identidade parcial é usada, e talvez essa identidade não seja exclusiva para todos os domínios ou florestas em sua organização, convém publicar esses aplicativos duas vezes usando dois grupos diferentes de Conector. Como cada aplicativo tem um público de usuários diferente, é possível ingressar seus Conectores em um domínio diferente.
 
  
 ## Trabalhando com o SSO as identidades no local e na nuvem não são idênticas
-A menos que configurado de outra forma, o Proxy de Aplicativo pressupõe que os usuários têm a mesma identidade na nuvem e no local. Você pode configurar, para cada aplicativo, qual identidade deve ser usada ao executar o logon único. Esse recurso permite que muitas organizações que têm identidades diferentes no local e na nuvem usem o logon único da nuvem para aplicativos locais sem exigir que os usuários insiram senhas e nomes de usuários diferentes. Isso inclui as organizações que:
+A menos que configurado de outra forma, o Proxy de Aplicativo pressupõe que os usuários têm a mesma identidade na nuvem e no local. Você pode configurar, para cada aplicativo, qual identidade deve ser usada ao executar o logon único. Esse recurso permite que muitas organizações com identidades diferentes no local e na nuvem usem o logon único da nuvem para aplicativos locais, sem exigir que os usuários insiram senhas e nomes de usuários diferentes. Isso inclui as organizações que:
 
 
 - Têm vários domínios internamente (joe@us.contoso.com, joe@eu.contoso.com) e um único domínio na nuvem (joe@contoso.com).
@@ -129,9 +127,8 @@ A menos que configurado de outra forma, o Proxy de Aplicativo pressupõe que os 
 
 - Usem aliases diferentes no local e na nuvem. Por exemplo, joe-johns@contoso.com vs. joej@contoso.com Isso também ajuda com aplicativos que não aceitam endereços na forma de endereço de email, que é um cenário muito comum para servidores back-end não Windows.
 ### Configurando o SSO para diferentes identidades na nuvem e no local
-1. Defina as configurações do Azure AD Connect para que a identidade principal seja o endereço de email (email). Isso é feito como parte do processo de personalizar, alterando o campo UPN nas configurações de sincronização.
-
-![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png) Observação: Essas configurações também determinam como os usuários fazem logon no Office365, em dispositivos Windows 10 e outros aplicativos que usam o AD do Azure como seu armazenamento de identidade. 2. Nas definições de configuração de aplicativo para o aplicativo que você deseja modificar, selecione a **identidade de logon delegada** a ser usada:
+1. Defina as configurações do Azure AD Connect para que a identidade principal seja o endereço de email (email). Isso é feito como parte do processo de personalização, alterando o campo UPN nas configurações de sincronização.<br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png) OBSERVAÇÃO: essas configurações também determinam como os usuários fazem logon no Office365, em dispositivos Windows 10 e outros aplicativos que usam o AD do Azure como seu armazenamento de identidade.
+2. Nas definições de configuração de aplicativo para o aplicativo que você deseja modificar, selecione a **Identidade de Logon Delegada** a ser usada: 
 
 
 - UPN: joe@contoso.com
@@ -146,7 +143,7 @@ A menos que configurado de outra forma, o Proxy de Aplicativo pressupõe que os 
 - Parte do nome de usuário do UPN alternativo: joed
 
 
-- Nome de conta SAM local: dependendo da configuração do controlador de domínio local ![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
+- Nome da conta SAM local: dependendo da configuração do controlador de domínio local ![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
 ### Solucionando problemas de SSO para diferentes identidades
 Se houver um erro no processo de SSO, ele aparecerá no log de eventos do computador do conector conforme explicado na [Solução de problemas](active-directory-application-proxy-troubleshoot.md). Porém, em alguns casos, a solicitação será enviada com êxito para o aplicativo de back-end embora este aplicativo responderá em várias outras respostas HTTP. Nesses casos, a solução de problemas deve começar examinando o número de evento 24029 na máquina do conector no log de eventos de sessão do Proxy de Aplicativo. A identidade do usuário que foi usada para delegação será exibida no campo "usuário" nos detalhes do evento ("joe@contoso55.com" no exemplo abaixo). Para ativar o log de sessão, selecione **Mostrar Logs Analíticos e de Depuração** no menu de exibição do visualizador de eventos.
@@ -172,4 +169,4 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 - [Confira o blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 - [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/12/2015"
    ms.author="maroche"/>
 
 
@@ -52,7 +52,7 @@ Na visualização atual, o **Catálogo de Dados do Azure** dá suporte ao regist
 ## Metadados estruturais
 Quando você estiver registrando uma fonte de dados, a ferramenta de registro vai extrair informações sobre a estrutura dos objetos selecionados — isso é referido como metadados estruturais.
 
-Para todos os objetos, esses metadados estruturais vão incluir o local do objeto, para que as ferramentas do cliente descubram os dados. Outros metadados estruturais incluem o tipo e o nome do objeto e o nome de coluna/atributo e tipo de dados.
+Para todos os objetos, esses metadados estruturais incluirão o local do objeto, assim os usuários que descobrirem os dados poderão usar essas informações para se conectar ao objeto usando as ferramentas de cliente de sua preferência. Outros metadados estruturais incluem o tipo e o nome do objeto e o nome de coluna/atributo e tipo de dados.
 
 ## Metadados descritivos
 Além dos principais metadados estruturais extraídos da fonte de dados, a ferramenta de registro da fonte de dados também vai extrair metadados descritivos. Para SQL Server Analysis Services e SQL Server Reporting Services, isso é retirado das propriedades expostas por esses serviços. Para o SQL Server, os valores fornecidos usando a propriedade estendida de ms\_description serão extraídos. Para o Banco de dados Oracle, a ferramenta de registro da fonte de dados vai extrair a coluna COMMENTS da exibição ALL\_TAB\_COMMENTS.
@@ -94,4 +94,4 @@ O novo registro de uma fonte de dados já registrada executa uma operação de m
 ## Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** facilita a descoberta e a compreensão da fonte de dados ao copiar metadados estruturais e descritivos da fonte de dados no serviço de catálogo. Depois que uma fonte de dados tiver sido registrada, ela poderá ser anotada, gerenciada e descoberta usando o portal do **Catálogo de Dados do Azure**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

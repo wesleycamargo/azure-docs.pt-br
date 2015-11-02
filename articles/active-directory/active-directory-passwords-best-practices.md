@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Práticas recomendadas: Gerenciamento de Senhas do AD do Azure | Microsoft Azure"
-	description="Práticas recomendadas de implantação e uso, documentação de usuário final de exemplo e guias de treinamento para Gerenciamento de Senhas no Active Directory do Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Práticas recomendadas: Gerenciamento de Senhas do AD do Azure | Microsoft Azure" 
+	description="Práticas recomendadas de implantação e uso, documentação do usuário final de exemplo e guias de treinamento para o Gerenciamento de Senhas no Active Directory do Azure." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Implantando o gerenciamento de senhas e treinando os usuários para usá-lo
@@ -24,6 +24,7 @@ Após habilitar a redefinição de senha, a próxima etapa que você precisa tom
   * [Maneiras de popular os dados de autenticação por conta própria](#ways-to-populate-authentication-data)
 * [**As melhores maneiras de distribuir a redefinição de senhas para sua organização**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
   * [Distribuição baseada em email + exemplo de comunicações por email](#email-based-rollout)
+  * [Criar seu próprio portal de gerenciamento de senhas personalizado para os usuários](#creating-your-own-password-portal)
   * [Como usar o registro imposto para forçar os usuários a se registrarem ao entrar](#using-enforced-registration)
   * [Como carregar dados de autenticação para contas de usuário](#uploading-data-yourself)
 * [**Material de treinamento de suporte e usuário de exemplo (em breve!)**](#sample-training-materials)
@@ -71,7 +72,18 @@ Talvez a abordagem mais simples para informar os usuários de que devem se regis
 
   ![][001]
 
-Você pode baixar o modelo de email [aqui](http://1drv.ms/1xWFtQM).
+Você pode [baixar o modelo de email aqui](http://1drv.ms/1xWFtQM).
+
+### Criando seu próprio portal de senha
+Uma estratégia que funciona bem para os clientes maiores que implantam recursos de gerenciamento de senhas é criar um único "portal de senha" que os usuários poderão usar para gerenciar tudo relacionado a suas senhas em um único lugar.
+
+Muitos de nossos clientes maiores escolhem criar uma entrada DNS de raiz, como https://passwords.contoso.com com links para o portal de redefinição de senha do AD do Azure, portal de registro de redefinição de senha e páginas de alteração de senha. Dessa forma, em quaisquer comunicações por email ou folhetos enviados, você poderá incluir uma URL única e fácil de lembrar que os usuários poderão seguir para quando tiverem um segundo para começarem a usar o serviço.
+
+Para continuar aqui, criamos uma página simples que usa os paradigmas mais recentes de design da IU responsiva e que funcionará em todos os navegadores e dispositivos móveis.
+
+  ![][007]
+  
+Você pode [baixar o modelo de site aqui](https://github.com/kenhoff/password-reset-page). Recomendamos a personalização do logotipo e cores segundo as necessidades de sua organização.
 
 ### Usando o registro imposto
 Se quiser que seus usuários se inscrevam na redefinição de senha por conta própria, você também poderá forçá-los a se registrar quando entrarem no painel de acesso em [http://myapps.microsoft.com](http://myapps.microsoft.com). Você pode habilitar essa opção na guia **Configurar** em seu diretório, habilitando a opção **Exigir que os Usuários se Registrem ao Entrar no Painel de Acesso**.
@@ -98,12 +110,12 @@ Você pode carregar os dados de autenticação por meio do [Portal de Gerenciame
 1.	Navegue até sei diretório na **Extensão do Active Directory** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 2.	Clique na guia **Usuários**.
 3.	Selecione na lista o usuário em que você está interessado.
-4.	Na primeira guia, você encontrará **Email Alternativo**, que pode ser usado como uma propriedade para habilitar a redefinição de senha.
+4.	Na primeira guia, você encontrará **Email Alternativo**, que pode ser usado como uma propriedade para habilitar a redefinição de senha. 
 
     ![][005]
 
 5.	Clique na guia **Informações de Trabalho**.
-6.	Nessa página, você encontrará **Telefone Comercial**, **Celular**, **Telefone de Autenticação** e **Email de Autenticação**. Essas propriedades também podem ser definidas para permitir que um usuário redefina sua senha.
+6.	Nessa página, você encontrará **Telefone Comercial**, **Celular**, **Telefone de Autenticação** e **Email de Autenticação**. Essas propriedades também podem ser definidas para permitir que um usuário redefina sua senha. 
 
     ![][006]
 
@@ -136,5 +148,6 @@ Estamos trabalhando no material de treinamento de exemplo que você pode usar pa
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
+[007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Visualização dos Serviços de Domínio do Active Directory do Azure: perguntas frequentes
 
 Esta página responde a perguntas frequentes sobre a visualização dos Serviços de Domínio do Active Directory do Azure. Continue verificando as atualizações.
 
-### 1\. Configuração
+### Guia de Solução de Problemas
+Consulte nosso [Guia de solução de problemas](active-directory-ds-troubleshooting.md) a fim de obter soluções para os problemas comuns encontrados ao configurar ou administrar os Serviços de Domínio do AD do Azure.
+
+
+### Configuração
 
 #### Posso criar vários domínios para um único diretório do AD do Azure?
 Não. Você só pode criar um único domínio atendido pelos Serviços de Domínio do AD do Azure para um único diretório do AD do Azure.
@@ -35,7 +39,7 @@ A implantação do PowerShell/automatizada dos Serviços de Domínio do AD do Az
 Não. Os Serviços de Domínio do AD do Azure podem ser configurados somente no antigo portal de gerenciamento do Azure (ou seja, https://manage.windowsazure.com). Esperamos estender o suporte para o novo portal de gerenciamento do Microsoft Azure (ou seja, https://portal.azure.com) no futuro.
 
 
-### 2\. Administração e operações
+### Administração e operações
 
 #### Habilitei os Serviços de Domínio do AD do Azure. Qual conta de usuário eu posso usar para ingressar computadores no domínio para este domínio?
 As contas de usuário que você adicionou ao grupo administrativo (ou seja, "Administradores do controlador de domínio do AAD") poderiam ingressar computadores no domínio. Além disso, os usuários desse grupo recebem acesso de área de trabalho remoto para computadores que ingressaram no domínio.
@@ -47,7 +51,7 @@ Não. Como esse é um serviço gerenciado, você não receberá privilégios adm
 Não. Associações de grupo não podem ser modificadas em domínios atendidos pelos Serviços de Domínio do AD do Azure. O mesmo se aplica a atributos de usuário. No entanto, é possível alterar associações de grupo ou atributos de usuário no AD do Azure ou em seu domínio local. Essas alterações serão sincronizadas automaticamente nos Serviços de Domínio do AD do Azure.
 
 
-### 3\. Disponibilidade e cobrança
+### Disponibilidade e cobrança
 
 #### É um serviço pago?
 O serviço está disponível por um preço reduzido especial para a duração do período de visualização pública. A cobrança começará com o preço total quando o serviço estiver disponível (GA). Consulte a página de preços para obter mais informações.
@@ -64,4 +68,4 @@ Consulte nossa [página de regiões](active-directory-ds-regions.md) para ver um
 #### Quando os Serviços de Domínio do AD do Azure estão disponíveis completamente?
 Atualmente, não é possível compartilhar cronogramas para quando o serviço estará disponível.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Gerenciar um espaço de trabalho de Aprendizado de Máquina | Microsoft Azure" 
-	description="Gerencie o acesso aos espaços de trabalho de aprendizado de máquina do Azure e implante e gerencie serviços Web da API ML" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Gerenciar um espaço de trabalho de Aprendizado de Máquina | Microsoft Azure"
+	description="Gerencie o acesso aos espaços de trabalho de aprendizado de máquina do Azure e implante e gerencie serviços Web da API ML"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/15/2015"
 	ms.author="garye"/>
 
 
-# Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure 
+# Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure
 Usando o portal de gerenciamento do Azure, você pode gerenciar seus espaços de trabalho do Aprendizado de Máquina para:
 
 - Monitorar como o espaço de trabalho está sendo usado
@@ -43,7 +43,7 @@ A página do espaço de trabalho tem três guias:
 - **CONFIGURAR** - permite que você gerencie o acesso ao espaço de trabalho
 - **SERVIÇOS WEB** - permite que você gerencie serviços Web que foram publicados deste espaço de trabalho
 
-  
+
 ## Para monitorar como o espaço de trabalho está sendo usado
 
 Clique na guia **PAINEL**.
@@ -62,11 +62,11 @@ No painel, você pode exibir o uso geral do espaço de trabalho e ter uma visão
 Clique na guia **CONFIGURAR**.
 
 Na guia Configuração, você pode
- 
-- Suspender o acesso ao espaço de trabalho do Aprendizado de Máquina clicando em NEGAR. Os usuários não poderão mais abrir o espaço de trabalho no Estúdio de Aprendizado de Máquina. Para restaurar o acesso, clique em PERMITIR.
-- Altere o proprietário do espaço de trabalho especificando uma Conta da Microsoft diferente. 
 
-Para gerenciar quem tem acesso ao espaço de trabalho no Estúdio de Aprendizado de Máquina, clique em **Entrar no Estúdio AM** na guia **PAINEL** (consulte a observação acima sobre **Entrar no Estúdio AM**). Isso abre o espaço de trabalho no Estúdio de Aprendizado de Máquina. Daqui, clique na guia **CONFIGURAÇÕES** e, em seguida, em **USUÁRIOS**. Você pode clicar em **CONVIDAR MAIS USUÁRIOS** para fornecer aos usuários acesso ao espaço de trabalho, ou selecionar um usuário e clicar em **REMOVER**.
+- Suspender o acesso ao espaço de trabalho do Aprendizado de Máquina clicando em NEGAR. Os usuários não poderão mais abrir o espaço de trabalho no Estúdio de Aprendizado de Máquina. Para restaurar o acesso, clique em PERMITIR.
+- Altere o proprietário do espaço de trabalho especificando uma Conta da Microsoft diferente.
+
+Para gerenciar as contas adicionais quem têm acesso ao espaço de trabalho no Estúdio de Aprendizado de Máquina, clique em **Entrar no Estúdio AM** na guia **PAINEL** (consulte a observação acima sobre **Entrar no Estúdio AM**). Isso abre o espaço de trabalho no Estúdio de Aprendizado de Máquina. Daqui, clique na guia **CONFIGURAÇÕES** e, em seguida, em **USUÁRIOS**. Você pode clicar em **CONVIDAR MAIS USUÁRIOS** para fornecer aos usuários acesso ao espaço de trabalho, ou selecionar um usuário e clicar em **REMOVER**.
 
 
 ## Para gerenciar os serviços Web neste espaço de trabalho
@@ -77,10 +77,10 @@ Isso exibe uma lista de serviços Web publicados desse espaço de trabalho. Para
 
 Um serviço Web pode ter um ou mais pontos de extremidade definidos.
 
-- Você pode definir pontos de extremidade adicionais além do ponto de extremidade "Padrão". Para adicionar o ponto de extremidade, clique em **ADICIONAR PONTO DE EXTREMIDADE** na parte inferior da página.
+- Você pode definir mais pontos de extremidade além do ponto de extremidade "Padrão". Para adicionar o ponto de extremidade, clique em **ADICIONAR PONTO DE EXTREMIDADE** na parte inferior da página.
 
 - Para excluir um ponto de extremidade (você não pode excluir o ponto de extremidade "Padrão"), clique em qualquer lugar na linha de ponto de extremidade, exceto no nome, e clique em **EXCLUIR PONTO DE EXTREMIDADE** na parte inferior da página. Isso remove o ponto de extremidade do serviço Web.
- 
+
     > [AZURE.NOTE]Se um aplicativo estiver usando o ponto de extremidade do serviço Web quando o ponto de extremidade for excluído, o aplicativo receberá um erro na próxima vez que tentar acessar o serviço.
 
 Clique no nome de um ponto de extremidade de serviço Web para abri-lo. O gráfico de uso mostra os recursos de computação e de previsão que estão sendo usados pelo ponto de extremidade de serviço Web. Você pode alterar o modo de exibição para exibir valores relativos ou absolutos e pode alterar o período de tempo exibido no gráfico.
@@ -89,9 +89,9 @@ Esta página fornece as informações de que você precisa para acessar o ponto 
 
 Você também pode publicar o serviço Web para o mercado de dados do Azure nessa página. Para obter mais informações, consulte [Publicar o Serviço Web do Aprendizado de Máquina do Azure no Azure Marketplace][marketplace].
 
+Clique na guia **CONFIGURAR** para editar a descrição, controlar o número de conexões simultâneas permitidas pelo serviço Web ou configurar um rastreamento de diagnóstico.
+
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties      
     pageTitle="Particionar e dimensionar dados no Banco de Dados de Documentos com fragmentação | Microsoft Azure"      
     description="Saiba como dimensionar dados com uma técnica chamada fragmentação. Saiba mais sobre fragmentos, como particionar dados no Banco de Dados de Documentos e quando usar o particionamento hash e por intervalos."         
-    keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
+    keywords="Dados de escala, fragmentos, fragmentação, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb"      
     authors="arramac"      
     manager="jhubbard"      
@@ -38,7 +38,7 @@ Coleções não são o mesmo que tabelas em bancos de dados relacionais. As cole
 
 ## Particionando com o Banco de Dados de Documentos
 
-Há duas abordagens que podem ser usadas para particionar dados com o Banco de Dados de Documentos do Azure (ou qualquer sistema distribuído para esse fim) — e elas são * particionamento por intervalos* e *particionamento hash*. Isso envolve escolher um único nome de propriedade JSON dentro do seu documento como sua *chave de partição*, geralmente a propriedade de ID natural, por exemplo, "userID" para armazenamento do usuário ou "deviceId" para cenários IoT. Em dados seriais de tempo, o "carimbo de data/hora" é usado como a chave de partição, uma vez que os dados geralmente são inseridos e pesquisados por intervalos de tempo. Embora seja comum usar uma única propriedade, essa pode ser uma propriedade diferente para diferentes tipos de documento, por exemplo, use "id" para documentos de usuário e "ownerUserId" para comentários. A próxima etapa é rotear todas as operações, como criações e consultas, para as coleções certas usando a chave de partição incluída em uma solicitação.
+Há duas abordagens que podem ser usadas para particionar dados com o Banco de Dados de Documentos do Azure (ou qualquer sistema distribuído para esse fim) — e elas são *particionamento por intervalos* e *particionamento hash*. Isso envolve escolher um único nome de propriedade JSON dentro do seu documento como sua *chave de partição*, geralmente a propriedade de ID natural, por exemplo, "userID" para armazenamento do usuário ou "deviceId" para cenários IoT. Em dados seriais de tempo, o "carimbo de data/hora" é usado como a chave de partição, uma vez que os dados geralmente são inseridos e pesquisados por intervalos de tempo. Embora seja comum usar uma única propriedade, essa pode ser uma propriedade diferente para diferentes tipos de documento, por exemplo, use "id" para documentos de usuário e "ownerUserId" para comentários. A próxima etapa é rotear todas as operações, como criações e consultas, para as coleções certas usando a chave de partição incluída em uma solicitação.
 
 Vejamos essas técnicas com mais detalhes.
 
@@ -112,4 +112,4 @@ Neste artigo, apresentamos algumas técnicas comuns para particionar dados com o
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

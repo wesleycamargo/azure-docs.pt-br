@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Dimensionar trabalhos do Stream Analytics para aumentar a produtividade | Microsoft Azure"
 	description="Aprenda a dimensionar trabalhos do Stream Analytics configurando partições de entrada, ajustando a definição da consulta e definindo unidades de streaming de trabalho."
-	keywords="analytics jobs,data stream,data streaming"
+	keywords="trabalhos de análise, fluxo de dados, streaming de dados"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -265,4 +265,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

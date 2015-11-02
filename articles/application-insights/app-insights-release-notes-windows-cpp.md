@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notas de versão do SDK do Application Insights C++" 
-	description="As últimas atualizações." 
+	description="As atualizações mais recentes para o SDK de C++." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -37,4 +37,4 @@ Consulte [Introdução aos aplicativos do Application Insights para Windows Phon
 Primeira versão
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

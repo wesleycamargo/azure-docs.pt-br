@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/07/2015" 
+  ms.date="10/20/2015" 
   ms.author="tamram"/>
 
 # Replicação de Armazenamento do Azure
@@ -88,8 +88,10 @@ Quando você cria uma conta de armazenamento, pode selecionar a região primári
 |Oeste do Japão |Leste do Japão
 |Sul do Brasil |Centro-Sul dos Estados Unidos
 |Leste da Austrália |Sudeste da Austrália
-|Sudeste da Austrália|Leste da Austrália  
-
+|Sudeste da Austrália|Leste da Austrália
+|Sul da Índia |Centro da Índia
+|Centro da Índia |Sul da Índia
+  
 
 ## Armazenamento com redundância geográfica com acesso de leitura
 
@@ -104,4 +106,4 @@ Quando você habilita o acesso somente leitura aos dados na região secundária,
 - [Emulador de Armazenamento do Microsoft Azure 3.1 com RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Artigo SOSP de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

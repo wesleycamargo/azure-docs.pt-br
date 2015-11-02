@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Configurações de Registro do Cloud App Discovery para serviços de proxy" 
+	pageTitle="Configurações de registro do Cloud App Discovery para serviços de proxy | Microsoft Azure" 
 	description="O objetivo deste tópico é fornecer as etapas que você precisa executar para configurar a porta necessária nos computadores que executam o agente Cloud App Discovery." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="swadhwa" 
-	editor="lisatoft"/>
+	manager="stevenpo"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 # Configurações de Registro do Cloud App Discovery para serviços de proxy
@@ -48,4 +47,4 @@ O objetivo deste tópico é fornecer as etapas que você precisa executar para c
 
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
