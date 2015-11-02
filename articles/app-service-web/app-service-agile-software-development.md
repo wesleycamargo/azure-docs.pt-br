@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -264,7 +264,7 @@ Como você projetou intencionalmente os ambientes de teste e desenvolvimento par
 
 ## Resumo ##
 
-O desenvolvimento de software Agile é indispensável para muitas empresas que desejam adotar o Azure como sua plataforma de aplicativos. Neste tutorial, você aprendeu a criar e eliminar réplicas exatas ou réplicas muito semelhantes do ambiente de produção com facilidade, mesmo para aplicativos complexos. Você também aprendeu como aproveitar essa capacidade para criar um processo de desenvolvimento capaz de compilar e testar cada confirmação única no Azure. Este tutorial mostrou como você pode usar Serviço de Aplicativo do Azure e o Gerenciador de Recursos do Azure em conjunto de modo mais adequado, a fim de criar uma solução de DevOps útil para metodologias Agile.
+O desenvolvimento de software Agile é indispensável para muitas empresas que desejam adotar o Azure como sua plataforma de aplicativos. Neste tutorial, você aprendeu a criar e eliminar réplicas exatas ou réplicas muito semelhantes do ambiente de produção com facilidade, mesmo para aplicativos complexos. Você também aprendeu como aproveitar essa capacidade para criar um processo de desenvolvimento capaz de compilar e testar cada confirmação única no Azure. Este tutorial mostrou como você pode usar Serviço de Aplicativo do Azure e o Gerenciador de Recursos do Azure em conjunto de modo mais adequado, a fim de criar uma solução de DevOps útil para metodologias Agile. Em seguida, você pode criar esse cenário executando técnicas avançadas de DevOps, por exemplo, [teste em produção](app-service-web-test-in-production-get-start.md). Para conhecer um cenário comum de teste em produção, consulte [Implantação de liberação de versões de pré-lançamento (teste beta) no Serviço de Aplicativo do Azure](app-service-web-test-in-production-controlled-test-flight.md).
 
 ## Mais recursos ##
 
@@ -281,4 +281,4 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 -	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

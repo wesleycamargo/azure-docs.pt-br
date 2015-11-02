@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Alertas do Stream Analytics | Microsoft Azure" 
 	description="Noções básicas sobre alertas do Stream Analytics" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="análise de big data, serviço de nuvem, internet das coisas, serviço gerenciado, processamento de fluxo, streaming analytics, dados de streaming"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -24,9 +24,9 @@
 
 Você pode configurar uma regra para disparar um alerta quando uma métrica atinge uma condição que você especifica.
 
-Por exemplo, "Se Eventos de Saída dos últimos 15 minutos forem inferiores a 100, enviar notificação por email à id de email: xyz@company.com”.
+Por exemplo, “Se Eventos de Saída dos últimos 15 minutos forem inferiores a 100, enviar notificação por email à id de email: xyz@company.com”.
 
-As regras podem ser configuradas em métricas por meio do portal ou [de modo programático](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) pelos dados dos Logs de Operação.
+As regras podem ser configuradas em métricas por meio do portal ou [de modo programático](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) pelos dados dos Logs de Operação”.
 
 ## Configurando alertas pelo Portal do Azure
 
@@ -85,4 +85,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

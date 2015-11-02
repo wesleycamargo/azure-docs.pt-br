@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Consultar dados do armazenamento de blob compatível com o HDFS | Microsoft Azure"
 	description="O HDInsight usa armazenamento de Blob como armazenamento de big data para HDFS. Aprenda a consultar dados do armazenamento de blob e armazenar os resultados da análise."
-	keywords="blob storage,hdfs,structured data,unstructured data"
+	keywords="blob de armazenamento, hdfs, dados estruturados, dados não estruturados"
 	services="hdinsight,storage"
 	documentationCenter=""
 	tags="azure-portal"
@@ -316,4 +316,4 @@ Para obter mais informações, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

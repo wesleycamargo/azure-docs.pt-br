@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # Criar seu primeiro pipeline do Azure Data Factory usando o Data Factory Editor (Portal do Azure)
@@ -47,7 +47,10 @@ Este artigo não fornece uma visão geral conceitual do serviço Azure Data Fact
 
 	![Folha Nova data factory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]Nomes de Azure Data Factory são globalmente exclusivos. Será necessário prefixar o nome da fábrica de dados com seu nome, para habilitar a criação bem-sucedida de fábrica. 
+	> [AZURE.IMPORTANT]O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory "DataFactoryMyFirstPipeline" não está disponível**, altere o nome da data factory (por exemplo, seunomeDataFactoryMyFirstPipeline) e tente criá-la novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+	>  
+	> O nome da data factory pode ser registrada futuramente como um nome DNS e tornar-se publicamente visível.
+
 3.	Se não criou nenhum grupo de recursos, você precisará criar um grupo de recursos. Para fazer isso:
 	1.	Clique em **NOME DO GRUPO DE RECURSOS**.
 	2.	Selecione **Criar um novo grupo de recursos** na folha **Grupo de recursos**.
@@ -78,7 +81,7 @@ Nesta etapa, você vinculará sua conta de Armazenamento do Azure e um cluster d
 	![Serviço vinculado de armazenamento do Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Você deve ver o script JSON para criar um serviço de armazenamento vinculado do Azure no editor. 
-4. Substitua **nome da conta** pelo nome da sua conta de armazenamento do Azure e **chave de conta** pela chave de acesso da sua conta de armazenamento do Azure. Para saber como obter a chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
+4. Substitua **nome da conta** pelo nome da sua conta de armazenamento do Azure e **chave de conta** pela chave de acesso da sua conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
 5. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
 	![Botão Implantar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -223,7 +226,7 @@ Nesta etapa, você criará seu primeiro pipelines.
 9. Quando o processamento for concluído, você verá a fatia com o estado **Pronto**. Observe que a criação de um cluster do HDInsight sob demanda geralmente leva algum tempo. 
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. Quando a fatia estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contêiner de **dados** em seu armazenamento de blob para os dados de saída.  
+10. Quando a fatia estiver no estado **Ready**, verifique a pasta **partitioneddata** no contêiner de **dados** em seu armazenamento de blob para os dados de saída.  
  
 
  
@@ -233,6 +236,6 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
   
 
 ## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

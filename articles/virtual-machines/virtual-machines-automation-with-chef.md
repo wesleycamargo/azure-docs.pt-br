@@ -17,6 +17,8 @@ ms.author="diviso"/>
 
 # Automatizando a implantação de máquina virtual do Azure com o Chef
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 O Chef é uma excelente ferramenta para a entrega de automação e configurações de estado de desejado.
 
 Com nossa versão mais recente da api de nuvem, o Chef fornece integração perfeita com o Azure, dando a você a capacidade de provisionar e implantar os estados de configuração por meio de um único comando.
@@ -237,4 +239,4 @@ Espero que isso tenha sido útil! Siga adiante e comece sua jornada de infraestr
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

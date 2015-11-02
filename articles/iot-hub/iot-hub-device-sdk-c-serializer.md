@@ -570,6 +570,20 @@ O parâmetro **nArithmetic** tem mais a ver com o funcionamento interno da lingu
 
 Se você quiser alterar esses parâmetros, modifique os valores no arquivo macro\_utils.tt, recompile a solução macro\_utils\_h\_generator.sln e execute o programa compilado. Quando você faz isso, um novo arquivo macro\_utils.h é gerado e colocado no diretório .\\common\\inc.
 
+Para usar a nova versão do macro\_utils.h, você precisará remover o pacote NuGet **serializador** da sua solução e em seu lugar incluir o projeto **serializador** do Visual Studio. Isso permite que seu código compile em relação ao código-fonte da biblioteca do serializador, que inclui a macro\_utils.h atualizada. Digamos que você queira fazer isso para **simplesample\_amqp**. Você começaria movendo o pacote NuGet para a biblioteca de serializador da solução:
+
+   ![](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.PNG)
+
+E, em seguida, adicionaria esse projeto à sua solução do Visual Studio:
+
+> .\\c\\serializer\\build\\windows\\serializer.vcxproj
+
+Quando terminar, sua solução deve ter esta aparência:
+
+   ![](media/iot-hub-device-sdk-c-serializer/05-serializer-project.PNG)
+
+Agora, quando você compila a solução, a macro\_utils.h atualizada será incluída no seu binário.
+
 Esteja ciente principalmente de que o aumento desses valores pode exceder os limites do compilador. Nesse ponto, **nMacroParameters** é o principal parâmetro com o qual se preocupar. A especificação C99 estipula a permissão de no mínimo 127 parâmetros em uma definição de macro. Por acaso, o compilador da Microsoft segue exatamente a especificação (e tem um limite de 127), portanto, não será possível aumentar **nMacroParameters** além do padrão. Mas outros compiladores podem permitir que você faça isso (por exemplo, o compilador GNU dá suporte a um limite superior).
 
 Até o momento, abordamos quase tudo o que você precisa saber sobre como escrever um código com a biblioteca do **serializador**. Antes da conclusão, vamos rever alguns tópicos dos artigos anteriores sobre os quais você pode estar se perguntando.
@@ -640,6 +654,6 @@ Caso contrário, todos os outros recursos listados acima funcionará da mesma fo
 
 Este artigo apresenta detalhes sobre os aspectos exclusivos da biblioteca do **serializador** contida no **SDK do dispositivo IoT do Azure para C**. Com base nas informações fornecidas, você deverá ter uma boa compreensão de como usar modelos para enviar eventos e receber mensagens do Hub IoT.
 
-Isso também conclui a série de três partes sobre como desenvolver aplicativos com o **SDK do dispositivo IoT do Azure para C**. Essas informações devem ser suficientes para começar, mas também proporcionam um entendimento muito detalhado do funcionamento das APIs. Se você ainda estiver procurando detalhes adicionais, haverá alguns exemplos no SDK que não foram abordados aqui. Caso contrário, a [documentação do SDK](https://github.com/Azure/azure-iot-sdks) é um ótimo recurso para obter mais informações.
+Isso também conclui a série de três partes sobre como desenvolver aplicativos com o **SDK do dispositivo IoT do Azure para C**. Essas informações devem ser suficientes para começar, mas também proporcionam um entendimento muito detalhado do funcionamento das APIs. Se você ainda estiver procurando detalhes adicionais, haverá alguns exemplos no SDK que não foram abordados aqui. Caso contrário, a [documentação do SDK](https://github.com/Azure/azure-iot-sdks) é um ótimo recurso para saber mais.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

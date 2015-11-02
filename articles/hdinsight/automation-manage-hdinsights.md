@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Gerenciar o Azure HDInsight usando a Automação do Azure"
-	description="Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar o Azure HDInsight."
+	description="Saiba como o serviço de Automação do Azure pode ser usado para gerenciar o Azure HDInsight."
 	services="HDInsight, automation"
 	documentationCenter=""
 	authors="elcooper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="10/20/2015"
 	ms.author="elcooper"/>
 
 
@@ -44,4 +44,4 @@ Agora que você aprendeu as noções básicas da Automação do Azure e como ela
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

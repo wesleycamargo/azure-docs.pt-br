@@ -169,7 +169,7 @@ O seguinte exemplo de runbook aceita a solicitação do exemplo anterior e inici
 
 ## Iniciar runbooks em resposta a um alerta do Azure
 
-Runbooks habilitados para Webhook podem ser usados para reagir a [alertas do Azure](Azure-portal/insights-receive-alert-notifications.md). Recursos no Azure podem ser monitorados por meio da coleta de estatísticas, como desempenho, disponibilidade e uso, com a ajuda dos alertas do Azure. Você pode receber um alerta com base em métricas de monitoramento ou em eventos para seus recursos do Azure. Quando o valor de uma métrica especificada ultrapassar o limite atribuído ou se o evento configurado for disparado e uma notificação for enviada ao administrador ou coadministradores do serviço para resolver o alerta, consulte [alertas do Azure](Azure-portal/insights-receive-alert-notifications.md) para obter mais informações sobre eventos e métricas.
+Runbooks habilitados para Webhook podem ser usados para reagir a [alertas do Azure](Azure-portal/insights-receive-alert-notifications.md). Recursos no Azure podem ser monitorados por meio da coleta de estatísticas, como desempenho, disponibilidade e uso, com a ajuda dos alertas do Azure. Você pode receber um alerta com base em métricas de monitoramento ou em eventos para seus recursos do Azure. No momento, as Contas de Automação oferecem suporte apenas para métricas. Quando o valor de uma métrica especificada ultrapassar o limite atribuído ou se o evento configurado for disparado e uma notificação for enviada ao administrador ou coadministradores do serviço para resolver o alerta, consulte [alertas do Azure](Azure-portal/insights-receive-alert-notifications.md) para obter mais informações sobre eventos e métricas.
 
 Além de usar alertas do Azure como um sistema de notificação, você também pode disparar runbooks em resposta a alertas. A Automação do Azure fornece a capacidade de executar runbooks habilitados para webhook com alertas do Azure. Quando uma métrica excede o valor do limite configurado, a regra do alerta fica ativa e dispara o webhook de automação, que por sua vez executa o runbook.
 
@@ -255,4 +255,4 @@ O seguinte exemplo de runbook é acionado quando a regra de alerta é ativada e 
 - [Exibindo o status de um trabalho de runbook](automation-viewing-the-status-of-a-runbook-job.md)
 - [Usando a Automação do Azure para executar ações mediante Alertas do Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

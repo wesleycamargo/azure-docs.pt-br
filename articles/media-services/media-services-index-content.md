@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Indexando arquivos de mídia com o Indexador de Mídia do Azure" 
-	description="O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar o indexador de mídia." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="Indexando arquivos de mídia com o Indexador de Mídia do Azure"
+	description="O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar o indexador de mídia."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako,johndeu"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/21/2015"   
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/15/2015"   
 	ms.author="juliako"/>
 
 
@@ -29,14 +29,14 @@ O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arqui
 >[AZURE.IMPORTANT]Quanto a indexação de conteúdo, certifique-se de usar os arquivos de mídia com fala muito clara (sem música em segundo plano, ruído, efeitos ou assovio no microfone). Alguns exemplos de conteúdo apropriado são: reuniões, palestras e apresentações registradas. O seguinte conteúdo pode não ser adequado para indexação: filmes, programas de TV, tudo com áudio misto e efeitos de som, com conteúdo mal gravado com ruídos de fundo (assovio).
 
 
-Um trabalho de indexação gera as seguintes saídas:
+Um trabalho de indexação pode gerar as seguintes saídas:
 
 - Arquivos de legenda nos seguintes formatos: **SAMI**, **TTML** e **WebVTT**.
 
 	Arquivos de legenda incluem uma marca chamada Recognizability, que classifica um trabalho de indexação com base no quanto a fala é reconhecível no vídeo de origem. Você pode usar o valor de Recognizability para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.
 - Arquivo de palavra-chave (XML).
 - Áudio de indexação de arquivo de blob (AIB) para uso com o SQL Server.
-	
+
 	Para obter mais informações, consulte [Usando arquivos de AIB com o indexador de mídia do Azure e SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
@@ -44,84 +44,84 @@ Este tópico mostra como criar trabalhos de indexação **Indexar um ativo** e *
 
 Para as atualizações mais recentes do indexador de mídia do Azure, consulte [blogs dos serviços de mídia](http://azure.microsoft.com/blog/topics/media-services/).
 
-##Usando arquivos de configuração e de manifesto para tarefas de indexação
+## Usando arquivos de configuração e de manifesto para tarefas de indexação
 
-Você pode especificar mais detalhes para as tarefas de indexação usando uma configuração de tarefa. Por exemplo, você pode especificar quais metadados usar para o arquivo de mídia. Esses metadados são usados pelo mecanismo de idioma para expandir seu vocabulário e melhora significativamente a precisão do reconhecimento de fala.
+Você pode especificar mais detalhes para as tarefas de indexação usando uma configuração de tarefa. Por exemplo, você pode especificar quais metadados usar para o arquivo de mídia. Esses metadados são usados pelo mecanismo de idioma para expandir seu vocabulário e melhora significativamente a precisão do reconhecimento de fala. Também é possível especificar os arquivos de saída desejados.
 
 Você também pode processar vários arquivos de mídia ao mesmo tempo usando um arquivo de manifesto.
 
 Para obter mais informações, consulte [Predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
-##Indexe um ativo
+## Indexe um ativo
 
 O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho para indexar o ativo.
 
 Observe que, se nenhum arquivo de configuração for especificado, o arquivo de mídia será indexado com todas as configurações padrão.
-	
+
 	static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
 	{
 	    // Create an asset and upload the input media file to storage.
 	    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
 	        "My Indexing Input Asset",
 	        AssetCreationOptions.None);
-	
+
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
-	
+
 	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
+
 	    // Read configuration from file if specified.
 	    string configuration = string.IsNullOrEmpty(configurationFile) ? "" : File.ReadAllText(configurationFile);
-	
+
 	    // Create a task with the encoding details, using a string preset.
 	    ITask task = job.Tasks.AddNew("My Indexing Task",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
-	
+
 	    // Specify the input asset to be indexed.
 	    task.InputAssets.Add(asset);
-	
-	    // Add an output asset to contain the results of the job. 
+
+	    // Add an output asset to contain the results of the job.
 	    task.OutputAssets.AddNew("My Indexing Output Asset", AssetCreationOptions.None);
-	
+
 	    // Use the following event handler to check job progress.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
+
 	    // Launch the job.
 	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
+
+	    // Check job execution and wait for job to finish.
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
+
+	    // If job state is Error, the event handling
+	    // method for job progress should log errors.  Here we check
 	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
-	
+
 	    // Download the job outputs.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
+
 	    return true;
 	}
-	
+
 	static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
 	{
 	    IAsset asset = _context.Assets.Create(assetName, options);
-	
+
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
 	    assetFile.Upload(filePath);
-	
+
 	    return asset;
 	}
-	        
+
 	static void DownloadAsset(IAsset asset, string outputDirectory)
 	{
 	    foreach (IAssetFile file in asset.AssetFiles)
@@ -129,7 +129,7 @@ Observe que, se nenhum arquivo de configuração for especificado, o arquivo de 
 	        file.Download(Path.Combine(outputDirectory, file.Name));
 	    }
 	}
-	
+
 	static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
 	    var processor = _context.MediaProcessors
@@ -137,17 +137,17 @@ Observe que, se nenhum arquivo de configuração for especificado, o arquivo de 
 	    .ToList()
 	    .OrderBy(p => new Version(p.Version))
 	    .LastOrDefault();
-	
+
 	    if (processor == null)
 	        throw new ArgumentException(string.Format("Unknown media processor",
 	                                                   mediaProcessorName));
-	
-	    return processor;
-	} 
-	
-###<a id="output_files"></a>Arquivos de saída
 
-O trabalho de indexação gera os seguintes arquivos de saída. Os arquivos serão armazenados no primeiro ativo de saída.
+	    return processor;
+	}
+
+### <a id="output_files"></a>Arquivos de saída
+
+Por padrão, um trabalho de indexação gera os seguintes arquivos de saída. Os arquivos serão armazenados no primeiro ativo de saída.
 
 
 <table border="1">
@@ -162,105 +162,110 @@ Ele requer a instalação do complemento do indexador SQL em uma máquina execut
 Para baixar o complemento, clique em Complemento de SQL do <a href="http://aka.ms/indexersql">Indexador de Mídia do Azure</a>.
 <br/><br/>
 Também é possível utilizar outros mecanismos de pesquisa, como o Apache Lucene/Solr para indexar apenas vídeo com base na legenda codificada e arquivos XML de palavra-chave, mas isso resulta em resultados de pesquisa menos precisos.</td></tr>
-<tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
+<tr><td>InputFileName.smi<br/>InputFileName.ttml<br/>InputFileName.vtt</td>
 <td>Arquivos de legenda (CC) nos formatos SAMI, TTML e WebVTT.
 <br/><br/>
 Eles podem ser usados para tornar os arquivos de áudio e vídeo acessíveis para pessoas com deficiência auditiva.
 <br/><br/>
 Arquivos de legenda incluem uma marca chamada <b>Recognizability</b>, que classifica um trabalho de indexação com base no quanto a fala é reconhecível no vídeo de origem. Você pode usar o valor de <b>Recognizability</b> para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.</td></tr>
-<tr><td>InputFileName.kw.xml</td>
-<td>Arquivo de palavra-chave.
+<tr><td>InputFileName.kw.xml
+<br/>
+InputFileName.info
+</td>
+<td>Arquivos de palavra-chave e de informações.
 <br/><br/>
 O arquivo de palavra-chave é um arquivo XML que contém as palavras-chave extraídas do conteúdo de fala, com frequência e informações de deslocamento.
 <br/><br/>
-O arquivo pode ser usado para várias finalidades, como para executar análise de fala ou expor aos mecanismos de pesquisa como Bing, Google ou Microsoft SharePoint para tornar os arquivos de mídia mais detectáveis ou usado para entregar anúncios mais relevantes.</td></tr>
+Um arquivo de informações é um arquivo de texto sem formatação com informações completas sobre cada termo reconhecido. A primeira linha é especial e contém a pontuação de Recognizability. Cada linha subsequente é uma lista separada por tabulações dos seguintes dados: tempo de início, tempo de término, palavra/frase, confiança. Os tempos são fornecidos em segundos, e a confiança é fornecida como um número de 0 a 1.  <br/><br/>Exemplo de linha: "1,20 &#160;&#160;&#160;1,45 &#160;&#160;&#160;palavra &#160;&#160;&#160;0,67"
+<br/><br/>
+Esses arquivos podem ser usados para várias finalidades, por exemplo, para a execução da análise de fala ou exposição aos mecanismos de pesquisa como Bing, Google ou Microsoft SharePoint, a fim de tornar os arquivos de mídia mais detectáveis, ou até mesmo usados para entregar anúncios mais relevantes.</td></tr>
 </table>
 
 Se nem todos os arquivos de mídia de entrada são indexados com êxito, o trabalho de indexação falhará com o código de erro 4000. Para obter mais informações, consulte [Códigos de erro](#error_codes).
 
-##Vários arquivos de índice
+## Vários arquivos de índice
 
 O método a seguir carrega vários arquivos de mídia como um ativo e cria um trabalho para indexar todos esses arquivos em um lote.
 
 Um arquivo de manifesto com a extensão .lst é criado e carregado para o ativo. O arquivo de manifesto contém a lista de todos os arquivos de ativo. Para obter mais informações, consulte [Predefinição de tarefa para o indexador de mídia do Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
-	
+
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
 	    // Create an asset and upload to storage.
 	    IAsset asset = CreateAssetAndUploadMultipleFiles(inputMediaFiles,
 	        "My Indexing Input Asset - Batch Mode",
 	        AssetCreationOptions.None);
-	
+
 	    // Create a manifest file that contains all the asset file names and upload to storage.
 	    string manifestFile = "input.lst";            
 	    File.WriteAllLines(manifestFile, asset.AssetFiles.Select(f => f.Name).ToArray());
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(manifestFile));
 	    assetFile.Upload(manifestFile);
-	
+
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
-	
+
 	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
+
 	    // Read configuration.
 	    string configuration = File.ReadAllText("batch.config");
-	
+
 	    // Create a task with the encoding details, using a string preset.
 	    ITask task = job.Tasks.AddNew("My Indexing Task - Batch Mode",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
-	
+
 	    // Specify the input asset to be indexed.
 	    task.InputAssets.Add(asset);
-	
+
 	    // Add an output asset to contain the results of the job.
 	    task.OutputAssets.AddNew("My Indexing Output Asset - Batch Mode", AssetCreationOptions.None);
-	
+
 	    // Use the following event handler to check job progress.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
+
 	    // Launch the job.
 	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
+
+	    // Check job execution and wait for job to finish.
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
+
+	    // If job state is Error, the event handling
+	    // method for job progress should log errors.  Here we check
 	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
-	
+
 	    // Download the job outputs.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
+
 	    return true;
 	}
-	
+
 	private static IAsset CreateAssetAndUploadMultipleFiles(string[] filePaths, string assetName, AssetCreationOptions options)
 	{
 	    IAsset asset = _context.Assets.Create(assetName, options);
-	
+
 	    foreach (string filePath in filePaths)
 	    {
 	        var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
 	        assetFile.Upload(filePath);
 	    }
-	
+
 	    return asset;
 	}
 
 
-###Arquivos de saída
+### Arquivos de saída
 
-Quando houver mais de um arquivo de mídia de entrada, o WAMI gerará um arquivo de manifesto para as saídas de trabalho, chamado 'JobResult.txt'. Para cada mídia de entrada de arquivo, os arquivos AIB, SAMI, TTML, WebVTT e arquivos de palavra-chave resultantes são numerados em sequência, como listado abaixo.
+Quando houver mais de um arquivo de mídia de entrada, o Indexador gerará um arquivo de manifesto para as saídas do trabalho, chamado de “JobResult.txt”. Para cada mídia de entrada de arquivo, os arquivos AIB, SAMI, TTML, WebVTT e arquivos de palavra-chave resultantes são numerados em sequência, como listado abaixo.
 
 Para obter descrições dos arquivos de saída, consulte [Arquivos de saída](#output_files).
 
@@ -300,7 +305,7 @@ Error: indica se este arquivo de mídia é indexado com êxito. 0 para êxito, c
 
 Se nem todos os arquivos de mídia de entrada são indexados com êxito, o trabalho de indexação falhará com o código de erro 4000. Para obter mais informações, consulte [Códigos de erro](#error_codes).
 
-###Trabalho parcialmente bem-sucedido
+### Trabalho parcialmente bem-sucedido
 
 Se nem todos os arquivos de mídia de entrada são indexados com êxito, o trabalho de indexação falhará com o código de erro 4000. Para obter mais informações, consulte [Códigos de erro](#error_codes).
 
@@ -354,4 +359,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 <!-- URLs. -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

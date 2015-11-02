@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Personalização do gerenciamento de senhas para atender às necessidades da sua organização
@@ -393,7 +393,56 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
             </tr>
             <tr>
               <td>
-                <p>Pergunta de segurança</p>
+                <p>Perguntas de segurança com base em conhecimento</p>
+              </td>
+              <td>
+                <p>Define as perguntas de segurança pré-configuradas para escolha dos usuários durante o registro para a redefinição de senha e ao redefinir suas senhas.</p>
+                <p>
+                  
+                </p>
+                <p>(Visível apenas se a caixa de seleção <strong>Perguntas de segurança</strong> estiver habilitada.)</p>
+              </td>
+              <td>
+                <p>
+                  <strong>Observação:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Todas as perguntas baseadas em conhecimento serão localizadas no conjunto completo de idiomas do O365, com base na localidade do navegador do usuário.<br><br></li>
+                  <li class="unordered">
+												É possível definir até 20 perguntas no total (a soma de suas perguntas personalizadas e baseadas em um conhecimento).<br><br></li>
+                 <li class="unordered">
+												O limite mínimo para a resposta é de três caracteres.<br><br></li>
+                  <li class="unordered">
+												O limite máximo para a resposta é de 40 caracteres.<br><br></li>
+                  <li class="unordered">
+												Os usuários não podem responder à mesma pergunta duas vezes.<br><br></li>
+                  <li class="unordered">
+												Os usuários não podem fornecer a mesma resposta a duas perguntas diferentes duas vezes.<br><br></li>
+                  <li class="unordered">
+												Qualquer conjunto de caracteres pode ser usado para definir as respostas (incluindo caracteres Unicode).<br><br></li>
+                  <li class="unordered">
+												O número de perguntas definidas deve ser maior ou igual ao número de perguntas obrigatórias para o registro.<br><br></li>
+                </ul>
+                <p>
+                  <strong>Portal de registro:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Determina a quais perguntas um usuário é capaz de responder ao se registrar para a redefinição de senha.<br><br></li>
+                </ul>
+                <p>
+                  <strong>Portal de redefinição de senha:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Determina quais perguntas um usuário é capaz de usar para redefinir uma senha.<br><br></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Perguntas de segurança personalizadas</p>
               </td>
               <td>
                 <p>Define as perguntas de segurança que os usuários podem escolher ao se registrar para a redefinição de senha e ao redefinir as suas senhas.</p>
@@ -408,7 +457,7 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
                 </p>
                 <ul>
                   <li class="unordered">
-												Até 20 perguntas podem ser definidas.<br><br></li>
+												É possível definir até 20 perguntas no total (a soma de suas perguntas personalizadas e baseadas em um conhecimento).<br><br></li>
                   <li class="unordered">
 												O limite máximo para a pergunta é de 200 caracteres.<br><br></li>
                   <li class="unordered">
@@ -424,7 +473,7 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
                   <li class="unordered">
 												O número de perguntas definidas deve ser maior ou igual ao número de perguntas obrigatórias para o registro.<br><br></li>
                   <li class="unordered">
-												A definição de perguntas diferentes para diferentes localidades ainda não tem suporte, mas terá futuramente.<br><br></li>
+												A definição de perguntas diferentes para localidades diferentes não tem suporte para perguntas personalizadas. Todas as perguntas personalizadas serão exibidas no idioma inserido na interface de usuário administrativa, mesmo se a localidade do navegador do usuário for diferente. Se você precisar que essas perguntas estejam localizadas, use as perguntas "baseadas em conhecimento".<br><br></li>
                 </ul>
                 <p>
                   <strong>Portal de registro:</strong>
@@ -727,6 +776,6 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
 * [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
 * [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
 * [Saiba mais](active-directory-passwords-learn-more.md)
-* [Gerenciamento de senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [Gerenciamento de senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

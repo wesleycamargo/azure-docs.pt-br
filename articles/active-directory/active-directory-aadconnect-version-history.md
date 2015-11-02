@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: histórico de lançamento de versão
@@ -42,12 +42,32 @@ Lançamento: agosto de 2015
 - O write-back de senha falha em algumas configurações devido a uma senha incorreta no Active Directory Connector.
 - O DirSync não pode ser atualizado se dn for usado na filtragem de atributo.
 
+**Recursos de visualização removidos:**
+
+- O recurso de visualização [Write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback) foi temporariamente removido com base nos comentários de nossos clientes de visualização. Ele será adicionado novamente após solucionarmos as questões indicadas nos comentários fornecidos.
+
 ## 1\.0.8641.0
 Lançamento: junho de 2015
 
 **Versão inicial do Azure AD Connect.**
 
 Nome alterado de Azure AD Sync para Azure AD Connect.
+
+**Novos recursos:**
+
+- Instalação das [Configurações expressas](active-directory-aadconnect-get-started-express.md)
+- É possível [configurar o ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+- É possível [atualizar do DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+- [Impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
+- Apresentação do [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode)
+
+**Novos recursos de visualização:**
+
+- [Write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback)
+- [Write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback)
+- [Write-back de dispositivo](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [Extensões de diretório](active-directory-aadconnect-feature-preview.md#directory-extensions)
+
 
 ## 1\.0.494.0501
 Lançamento: maio de 2015
@@ -96,7 +116,7 @@ Lançamento: dezembro de 2014
 
 **Novos recursos:**
 
-- Agora há suporte para a sincronização de senha com a filtragem baseada em atributo. Para obter mais detalhes, consulte a Sincronização de senha com filtragem.
+- Agora há suporte para a sincronização de senha com a filtragem baseada em atributo. Para saber mais detalhes, consulte [Sincronização de senha com filtragem](active-directory-aadconnectsync-configure-filtering.md).
 - O atributo msDS-ExternalDirectoryObjectID é gravado para o AD. Isso adiciona suporte para aplicativos do Office 365 usando OAuth2 para acessar caixas de correio Online e Local em uma Implantação Híbrida do Exchange.
 
 **Problemas de atualização corrigidos:**
@@ -138,6 +158,6 @@ Lançamento: setembro de 2014
 **Versão inicial do Azure AD Sync.**
 
 ## Próximas etapas
-Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

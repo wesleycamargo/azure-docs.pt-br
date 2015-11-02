@@ -76,7 +76,7 @@ A DSC da Automação do Azure permite que você importe, crie e compile configur
 
 ###Configuração de nó###
 
-Quando uma Configuração da DSC é compilada, uma ou mais configurações de nó são produzidas, dependendo dos blocos de Nó na configuração. Uma configuração de nó é o mesmo que um "MOF" ou "documento de configuração" (se você estiver familiarizado com esses termos da DSC do PS) e representa uma "função", como servidor Web ou trabalhador, o estado desejado que um ou mais nós devem assumir. Nomes de configurações de nó na DSC de Automação do Azure assumem a forma de "<Configuration-name>.<Node configuration-block-name>".
+Quando uma Configuração da DSC é compilada, uma ou mais configurações de nó são produzidas, dependendo dos blocos de Nó na configuração. Uma configuração de nó é o mesmo que um "MOF" ou "documento de configuração" (se você estiver familiarizado com esses termos da DSC do PS) e representa uma "função", como servidor Web ou trabalhador, o estado desejado que um ou mais nós devem assumir. Nomes de configurações de nó na DSC de Automação do Azure assumem a forma de “Configuration Name.NodeConfigurationBlockName”.
 
 Os nós da DSC do PS ficam cientes de configurações de nós que eles devem aplicar via push da DSC ou métodos de pull. A DSC da Automação do Azure utiliza o método de pull da DSC, em que nós solicitam configurações de nó que devem aplicar do servidor de pull da DSC da Automação do Azure. Como os nós fazem a solicitação à DSC da Automação do Azure, eles podem estar atrás de firewalls, ter todas as portas de entrada fechadas etc. Eles só precisam de acesso de saída à Internet.
 
@@ -97,7 +97,7 @@ A DSC da Automação do Azure é fornecida com todos os mesmos recursos internos
 
 
 ###Trabalho de compilação###
-Um trabalho de compilação na DSC da Automação do Azure é uma instância da compilação de uma configuração para criar uma ou mais configurações de nó. Eles são semelhantes aos trabalhos de runbook da Automação do Azure, com a exceção de que não executam realmente tarefa alguma, exceto a criação de configurações de nó. As configurações do nó criadas por um trabalho de compilação são colocadas automaticamente no servidor de pull da DSC de Automação do Azure e substituem versões anteriores das configurações de nó, se elas existirem para essa configuração. O nome de uma configuração de nó produzida por um trabalho de compilação tem o formato "<Configuration-name>.<Node configuration-block-name>". Por exemplo, a compilação da configuração a seguir geraria uma única configuração de nó chamada "MyConfiguration.webserver"
+Um trabalho de compilação na DSC da Automação do Azure é uma instância da compilação de uma configuração para criar uma ou mais configurações de nó. Eles são semelhantes aos trabalhos de runbook da Automação do Azure, com a exceção de que não executam realmente tarefa alguma, exceto a criação de configurações de nó. As configurações do nó criadas por um trabalho de compilação são colocadas automaticamente no servidor de pull da DSC de Automação do Azure e substituem versões anteriores das configurações de nó, se elas existirem para essa configuração. O nome de uma configuração de nó produzida por um trabalho de compilação assume a forma de “ConfigurationName.NodeConfigurationBlockName”. Por exemplo, a compilação da configuração a seguir geraria uma única configuração de nó chamada "MyConfiguration.webserver"
 
 
 ![texto alternativo](./media/automation-dsc-overview/AADSC_5.png)
@@ -121,7 +121,7 @@ Passar de uma conta de automação vazia para um conjunto gerenciado de nós con
 
 - No momento, a DSC da Automação do Azure não dá suporte a configurações da DSC parciais ou compostas.
 
-- A última versão do WMF 5 deve ser instalada para que o agente da DSC do PowerShell para Windows possa se comunicar com a Automação do Azure. No momento, o agente da DSC do PowerShell para Linux não dá suporte à comunicação com a automação do Azure. Isso deve ser atualizado em breve.
+- A última versão do WMF 5 deve ser instalada para que o agente da DSC do PowerShell para Windows possa se comunicar com a Automação do Azure. A versão mais recente do agente DSC do PowerShell para Linux deve ser instalada para que o Linux possa se comunicar com a Automação do Azure.
 
 - A Automação do Azure não dá suporte ao uso de módulos do PowerShell lado a lado. Isso significa que todas as configurações em uma conta da Automação devem trabalhar com a última versão de um módulo de PowerShell importado para essa conta da Automação de automação e com quaisquer recursos da DSC do PowerShell que o módulo contenha e que a configuração use.
 
@@ -145,4 +145,4 @@ Passar de uma conta de automação vazia para um conjunto gerenciado de nós con
 - [preço da DSC de Automação do Azure](http://azure.microsoft.com/pricing/details/automation/)
 - [Implantação contínua em VMs de IaaS usando o DSC de Automação do Azure e o Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

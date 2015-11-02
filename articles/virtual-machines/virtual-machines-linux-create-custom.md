@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-# Como criar uma máquina virtual personalizada que executa Linux no Azure
+# Como criar uma VM personalizada do Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] []Resource Manager model](virtual-machines-linux-tutorial.md).
 
@@ -30,14 +30,9 @@ Este tópico descreve como criar uma máquina virtual *personalizada* com a CLI 
 
 > [AZURE.IMPORTANT]Se você quiser que sua máquina virtual use uma rede virtual para que possa se conectar às suas máquinas virtuais diretamente pelo nome do host ou estabelecer conexões entre locais, use o método Da Galeria e especifique a rede virtual ao criar a máquina virtual. Uma máquina virtual pode ser configurada para ingressar em uma rede virtual somente quando você criar a máquina virtual. Para mais detalhes sobre redes virtuais, consulte [Visão geral da rede virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-<p/>
-
-
-- [Criar uma máquina virtual que executa Linux](virtual-machines-linux-tutorial.md)
-
 
 ## Como criar uma máquina virtual do Linux usando o modelo de implantação clássica
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -20,6 +20,26 @@
 
 # Notas de versão dos componentes do Hadoop no Azure HDInsight
 
+## Notas da versão de 20/10/2015 do HDInsight
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight 2.1.10.716.1846990 (Windows) (HDP 1.3.12.0-01795 - inalterado)
+* HDInsight 3.0.6.716.1846990 (Windows) (HDP 2.0.13.0-2117 - inalterado)
+* HDInsight 3.1.4.716.1846990 (Windows) (HDP 2.1.16.0-2374)
+* HDInsight 3.2.7.716.1846990 (Windows) (HDP 2.2.7.1-0004)
+* HDInsight 3.2.1000.0.5930166 (Linux) (HDP 2.2.7.1-0004)
+* SDK 1.5.8
+
+Esta versão contém as atualizações a seguir.
+
+| Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versão do HDP padrão alterado para HDP 2.2 | A versão padrão para clusters HDInsight do Windows foi alterada para HDP 2.2. O HDInsight versão 3.2 (HDP 2.2) está disponível desde fevereiro de 2015. Essa alteração só inverte a versão padrão do cluster quando uma seleção explícita não é feita durante o provisionamento de cluster usando o portal do Azure, cmdlets do PowerShell ou o SDK. | O Barramento de | Todos| N/D |
+|Alterações no formato de nome de VM para a implantação de vários HDInsight em clusters Linux em uma única rede virtual | O suporte para a implantação de vários clusters HDInsight Linux em uma única rede virtual está sendo adicionado nesta versão. Como parte disso, o formato de nomes de máquina virtual do cluster foi alterado de headnode * workernode * e zookeepernode para * hn * *wn e zk *, respectivamente. Não é uma prática recomendada formar uma dependência direta do formato de nomes de máquina virtual, já que isso está sujeito a alterações. Use "hostname -f" no computador local ou nas APIs Ambari para determinar a lista de hosts e o mapeamento de componentes para hosts. Você pode encontrar mais informações em [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) e em [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | O Barramento de | Clusters HDInsight no Linux | N/D |
+| Alterações de configuração | Para clusters de HDInsight 3.1, as seguintes configurações agora estão habilitadas: <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. Isso permite que o servidor de linha do tempo do aplicativo e o servidor de log sejam capazes de fornecer logs.</li></ul>Para clusters HDInsight 3.2, as seguintes configurações foram modificadas: <ul><li>mapreduce.fileoutputcommitter.algorithm.version foi definida como 2. Isso permite o uso da versão V2 do FileOutputCommitter.</li></ul> | O Barramento de | Todos | N/D |
+
+
 ## Notas da versão de 09/09/2015 do HDInsight
 
 Os números completos da versão dos clusters HDInsight implantados com essa versão são:
@@ -1099,7 +1119,7 @@ Sobre a mensagem de erro do Azure PowerShell e do SDK do HDInsight: “*O cluste
 
 * Esse erro é um [problema de compatibilidade](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conhecido que pode ocorrer devido a uma diferença entre a versão do SDK do HDInsight ou PowerShell do Azure e a versão do cluster. Clusters criados a partir de 15/08 dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Mas essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK do HDInsight ou PowerShell do Azure. O resultado é uma falha em algumas operações de envio de trabalho. Se você usar APIs do SDK do HDInsight ou cmdlets do Azure PowerShell (**Use-AzureHDInsightCluster** ou **Invoke-Hive**) para enviar trabalhos, essas operações podem falhar com a mensagem de erro “*O cluster <clustername> não está configurado para acessar serviços HTTP*”. Ou, dependendo da operação, você pode receber outras mensagens de erro, como “*Não é possível se conectar ao cluster*”.
 
-* Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no NuGet e às Ferramentas do PowerShell do Azure em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure/).
+* Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e às Ferramentas do PowerShell do Azure em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure/).
 
 
 
@@ -1346,4 +1366,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

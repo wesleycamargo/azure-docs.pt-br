@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tecnologia e processo de análise avançada em ação: usar clusters do Hadoop | Microsoft Azure"
+	pageTitle="O Processo de Análise do Cortana em ação: usar clusters Hadoop | Microsoft Azure"
 	description="Usando o ADAPT (Processo e Tecnologia de Análises Avançadas) para um cenário de ponta a ponta empregando um cluster Hadoop do HDInsight para criar e implantar um modelo usando um conjunto de dados disponível publicamente."
 	services="machine-learning,hdinsight"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/18/2015"
 	ms.author="hangzh;bradsev" />
 
 
-# Processo e Tecnologia de Análise Avançada em Ação: uso de clusters HDInsight Hadoop
+# O Processo de Análise do Cortana em ação: usando clusters Hadoop do HDInsight
 
-Neste passo a passo, você usar o processo de análise avançada e tecnologia (ADAPT) em um cenário de ponta a ponta usando um [Cluster Hadoop do Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e destacar dados de engenharia dos conjuntos de dados publicamente disponíveis de [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados. Modelos de dados são criados com o Aprendizado de Máquina do Azure para lidar com classificação binária e multiclasse e tarefas preditivas de regressão.
+Neste passo a passo, você usa o Processo de Análise do Cortana em um cenário de ponta a ponta usando um [Cluster Hadoop do Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e destacar dados de engenharia dos conjuntos de dados publicamente disponíveis de [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados. Modelos de dados são criados com o Aprendizado de Máquina do Azure para lidar com classificação binária e multiclasse e tarefas preditivas de regressão.
 
-Para um passo a passo que mostra como manipular um conjunto de dados maior (1 terabyte) para um cenário semelhante usando clusters Hadoop do HDInsight para o processamento de dados, consulte [Processo e tecnologia de análise avançada e a tecnologia em ação - Usando clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md).
+Para um passo a passo que mostra como manipular um conjunto de dados maior (1 terabyte) para um cenário semelhante usando clusters Hadoop do HDInsight para o processamento de dados, consulte [Processo de Análise do Cortana - Usando clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
 Também é possível usar um bloco de anotações iPython para executar as tarefas apresentadas passo a passo usando o conjunto de dados de 1 TB. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
@@ -794,9 +794,7 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 ## Referências
 
-•	[Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

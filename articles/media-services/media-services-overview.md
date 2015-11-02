@@ -3,7 +3,7 @@
 	description="Este tópico oferece uma visão geral dos Serviços de Mídia do Azure" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 #Visão geral e cenários comuns do Serviços de Mídia do Azure
@@ -74,7 +74,7 @@ Esta seção descreve cenários comuns e fornece links para tópicos relevantes.
 	
 	É recomendável aplicar a opção de criptografia de armazenamento a seu ativo para proteger o conteúdo durante o carregamento e enquanto ele estiver em repouso no armazenamento.
  
-1. Codificar para MP4 definir a taxa de bits adaptável.
+1. Codifique para um conjunto de arquivos MP4 com taxa de bits adaptável.
 
 	É recomendável aplicar a opção de criptografia de armazenamento ao ativo de saída para proteger o conteúdo em repouso.
 	
@@ -93,7 +93,7 @@ Esta seção descreve cenários comuns e fornece links para tópicos relevantes.
 Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo criptografado.
 
 1. Carregue um arquivo mezanino de alta qualidade em um ativo. Aplique a opção de criptografia de armazenamento ao ativo.
-1. Codifique para conjunto MP4 de taxa de bits adaptável. Aplique a opção de criptografia de armazenamento ao ativo de saída.
+1. Codifique para um conjunto de arquivos MP4 com taxa de bits adaptável. Aplique a opção de criptografia de armazenamento ao ativo de saída.
 1. Crie uma chave de conteúdo de criptografia para o ativo que você quer que seja criptografado dinamicamente durante a reprodução.
 2. Configure a política de autorização de chave de conteúdo.
 1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
@@ -113,7 +113,7 @@ Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos
 ###Entregar o download progressivo 
 
 1. Carregar um arquivo mezzanine de alta qualidade em um ativo.
-1. Codificar para conjunto de MP4 com taxa de bits adaptável ou para um único MP4.
+1. Codificar em um único arquivo MP4.
 1. Publicar o ativo criando um localizador OnDemand ou SAS
 
 	Se estiver usando o localizador OnDemand, verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você planeja baixar conteúdo de forma progressiva.
@@ -227,4 +227,4 @@ O [Suporte do Azure](http://azure.microsoft.com/support/options/) fornece opçõ
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

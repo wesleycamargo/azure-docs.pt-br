@@ -3,8 +3,8 @@
    description="Projete tabelas escalonáveis e de alto desempenho no Armazenamento de Tabelas do Azure"
    services="storage"
    documentationCenter="na"
-   authors="tamram" 
-   manager="carolz"
+   authors="jasonnewyork" 
+   manager="tadb"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage"
    ms.date="08/03/2015"
-   ms.author="tamram"/>
+   ms.author="jahogg"/>
 
 # Guia de Design de tabela de armazenamento do Azure: projetando tabelas escalonáveis e de alto desempenho
 
@@ -1550,4 +1550,4 @@ Também gostaríamos de agradecer aos seguintes MVPs da Microsoft por seus valio
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

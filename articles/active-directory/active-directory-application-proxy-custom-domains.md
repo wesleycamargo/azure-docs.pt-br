@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Trabalhando com Domínios Personalizados no Proxy de Aplicativo do AD do Azure"
+	pageTitle="Trabalhando com Domínios Personalizados no Proxy de Aplicativo do AD do Azure | Microsoft Azure"
 	description="Aborda como trabalhar com domínios personalizados no Proxy de Aplicativo do AD do Azure."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Trabalhando com domínios personalizados no Proxy de Aplicativo do AD do Azure
@@ -50,7 +50,7 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 
 ## Recursos adicionais
 
-* [Inscrever-se no Azure como uma organização](..sign-up-organization.md)
-* [Identidade do Azure](..fundamentals-identity.md)
+* [Inscrever-se no Azure como uma organização](sign-up-organization.md)
+* [Identidade do Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

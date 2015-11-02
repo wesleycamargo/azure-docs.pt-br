@@ -14,13 +14,13 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="10/19/2015"
    ms.author="cherylmc"/>
 
 # Configurar uma rede virtual para Rota Expressa
 
-Essas etapas o orientarão ao longo da configuração de uma rede virtual e de um gateway para uso com Rota Expressa usando o modelo de implantação clássico. Não há suporte para essa configuração em VNets e gateways criados usando o modelo do Gerenciador de Recursos. Quando estiver disponível, forneceremos um link desta página para a documentação.
- 
+Essas etapas o orientarão ao longo da configuração de uma rede virtual e de um gateway para uso com Rota Expressa usando o modelo de implantação clássico e o Gerenciamento de Serviço. Atualmente, não temos uma documentação para configuração de uma Rede virtual para a Rota Expressa usando o modelo de implantação do Gerenciador de Recursos. Quando publicarmos um artigo, adicionaremos um link para ele.
+
 >[AZURE.IMPORTANT]É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para obter informações sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md).
 
 1. Faça logon no **Portal do Azure**.
@@ -60,14 +60,14 @@ Essas etapas o orientarão ao longo da configuração de uma rede virtual e de u
 
 10. Quando a criação do gateway for iniciada, você verá uma mensagem informando que o gateway foi iniciado. Pode levar até 15 minutos para que o gateway seja criado.
 
-11. Vincule sua rede a um circuito. Siga as instruções no artigo [Como vincular VNets a circuitos de Rota Expressa](expressroute-howto-linkvnets-classic.md).
+11. Vincule sua rede a um circuito. Siga as instruções no artigo [Como vincular VNets a circuitos de Rota Expressa](expressroute-howto-linkvnet-classic.md).
 
 ## Próximas etapas
 
-- Se quiser adicionar máquinas virtuais à sua rede virtual, consulte [Como criar uma máquina virtual personalizada](../virtual-machines-create-custom.md).
+- Se quiser adicionar máquinas virtuais à sua rede virtual, consulte [Roteiros de aprendizado sobre máquinas virtuais](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
 - Para obter mais informações sobre a Rota Expressa, consulte [Visão geral técnica da Rota Expressa](expressroute-introduction.md).
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

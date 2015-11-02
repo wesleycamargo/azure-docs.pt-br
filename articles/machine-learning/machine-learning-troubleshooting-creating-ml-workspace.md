@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="Solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina | Microsoft Azure" 
-	description="Soluções para problemas comuns na criação e conexão a um espaço de trabalho de aprendizado de máquina do Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina | Microsoft Azure"
+	description="Soluções para problemas comuns na criação e conexão a um espaço de trabalho de aprendizado de máquina do Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/01/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/15/2015"
 	ms.author="garye"/>
 
 
-#Guia de solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina
+# Guia de solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina
 
 Este guia fornece soluções para alguns desafios encontrados com frequência quando você configura espaços de trabalho do Aprendizado de Máquina do Azure.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##Proprietário do espaço de trabalho
+## Proprietário do espaço de trabalho
 
 Quando você cria um novo espaço de trabalho do Aprendizado de Máquina, a ID que você insere no campo PROPRIETÁRIO DO ESPAÇO DE TRABALHO deve ser uma conta da Microsoft válida (anteriormente conhecida como Windows Live ID), por exemplo, john-contoso@live.com ou john-contoso@hotmail.com. Não pode ser uma conta que não seja da Microsoft, como seu e-mail corporativo. Para criar uma conta gratuita da Microsoft, acesse [www.live.com](http://www.live.com).
 
@@ -33,17 +33,21 @@ Para obter mais informações sobre como gerenciar um espaço de trabalho, consu
 
 [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure]: machine-learning-manage-workspace.md
 
-##Regiões permitidas
+## Regiões permitidas
 
-O Aprendizado de Máquina está disponível na região Centro-Sul dos EUA. Se sua assinatura não incluir o Centro-Sul dos EUA, você poderá ver a mensagem de erro "você não tem assinaturas nas regiões permitidas. Regiões permitidas: Centro-Sul dos EUA."
+No momento, o Aprendizado de Máquina está disponível em um número limitado de regiões. Se sua assinatura não incluir uma dessas regiões, talvez você receba a mensagem de erro “Você não tem assinaturas nas regiões permitidas”.
 
-Para resolver isso, conforme mostrado na captura de tela a seguir, selecione **Contatar Suporte da Microsoft** no portal de gerenciamento do Azure e escolha **Cobrança** como o **TIPO DE SUPORTE** para solicitar que essa região seja adicionada à sua assinatura.
+Para solicitar a adição de uma região à sua assinatura, selecione **Contate o Suporte da Microsoft** no Portal de Gerenciamento do Azure, escolha **Cobrança** como o tipo de problema e siga as indicações para enviar sua solicitação.
 
 ![Contatar Suporte da Microsoft][screen1]
 
-##Conta de armazenamento
- 
-O serviço de Aprendizado de Máquina precisa de uma conta de armazenamento para armazenar dados. Você pode usar uma conta de armazenamento existente da região Centro-Sul dos EUA ou pode criar uma nova conta de armazenamento ao criar o novo espaço de trabalho do Aprendizado de Máquina (se você tiver cota para criar uma nova conta de armazenamento). Para ver se você pode criar uma nova conta de armazenamento, no portal de gerenciamento, vá para **Configurações** e, em seguida, clique em **Uso**.
+## Conta de armazenamento
+
+O serviço de Aprendizado de Máquina precisa de uma conta de armazenamento para armazenar dados. Você pode usar uma conta de armazenamento existente, ou pode criar uma nova conta de armazenamento ao criar o novo espaço de trabalho de Aprendizado de Máquina (se você tiver cota para criar uma nova conta de armazenamento).
+
+<!-- These instructions no longer work, but I'm not sure what to replace them with
+To see if you can create a new storage account, in the management portal, go to **Settings** and then click **Usage**.
+-->
 
 ![Criar espaço de trabalho][screen2]
 
@@ -53,17 +57,17 @@ Depois que o novo espaço de trabalho do Aprendizado de Máquina for criado, voc
 
 **Para excluir cookies do navegador**
 
-	If you use Internet Explorer, click the **Tools** button in the upper-right corner and select **Internet options**.  
+Se você usa o Internet Explorer, clique no botão **Ferramentas** no canto superior direito e selecione **Opções da Internet**.
 
-	![Internet options][screen4]
+![Opções da Internet][screen4]
 
-	Under the **General** tab, click **Delete…**
+Na guia **Geral**, clique em **Excluir…**
 
-	![General tab][screen5]
+![Guia Geral][screen5]
 
-	In the **Delete Browsing History** dialog box, make sure **Cookies and website data** is selected, and click **Delete**.
+Na caixa de diálogo **Excluir Histórico de Navegação**, selecione **Cookies e dados de sites** e clique em **Excluir**.
 
-	![Delete cookies][screen6]
+![Excluir cookies][screen6]
 
 Depois que os cookies forem excluídos, reinicie o navegador e vá para a página [Aprendizado de Máquina do Microsoft Azure](https://studio.azureml.net). Quando forem solicitados nome de usuário e senha, insira os dados da mesma conta da Microsoft que você especificou como conta do proprietário do espaço de trabalho.
 
@@ -75,6 +79,5 @@ Nosso objetivo é tornar a experiência do Aprendizado de Máquina o mais simple
 [screen4]: media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
 [screen5]: media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

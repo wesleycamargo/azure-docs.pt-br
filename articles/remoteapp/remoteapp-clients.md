@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/09/2015"
+    ms.date="10/10/2015"
     ms.author="elizapo" />
 
 
@@ -28,11 +28,10 @@ Neste tópico, vamos analisar os clientes com suporte atualmente e como baixá-l
 
 Você pode acessar o RemoteApp usando as etapas a seguir se seu dispositivo estiver executando um dos seguintes sistemas operacionais:
 
- - Visualização do Windows 10
+ - Windows 10 
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
- - Windows RT
  - Windows Phone 8,1
  - iOS
  - Mac OS X
@@ -208,4 +207,4 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 	![Feed de demonstração do Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

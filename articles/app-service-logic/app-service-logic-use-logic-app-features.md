@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # Usar recursos de aplicativos lógicos
@@ -143,4 +143,4 @@ Para iniciar o aplicativo lógico sob demanda, clique no botão **Executar agora
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

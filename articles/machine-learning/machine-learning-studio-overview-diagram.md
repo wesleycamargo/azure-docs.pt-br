@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Diagrama de visão geral dos recursos do Estúdio do Aprendizado de Máquina | Microsoft Azure"
 	description="Um diagrama imprimível dos recursos do Estúdio de Aprendizado de Máquina do Azure, demonstrando como usar o Estúdio para desenvolver um experimento de análise preditiva e operação na nuvem do Azure."
-	keywords="machine learning studio,overview diagram,download"
+	keywords="estúdio de aprendizado de máquina, digrama de visão geral, download"
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -47,4 +47,4 @@ Baixe o diagrama de **Visão geral de recursos do Estúdio de Aprendizado de Má
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

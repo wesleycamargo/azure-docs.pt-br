@@ -19,15 +19,13 @@
 
 # Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Você não pode criar esse recurso com o modelo de implantação clássica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássica. Você não pode criar esse recurso com o modelo de implantação clássica.
 
 Você pode criar facilmente uma nova máquina virtual do Azure baseada no Windows usando um modelo do Gerenciador de Recursos com o PowerShell do Azure. Esse modelo cria uma única máquina virtual que executa o Windows em uma nova rede virtual com uma única sub-rede em um novo grupo de recursos.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
-Antes de se aprofundar, verifique se você tem o Azure PowerShell configurado e pronto para usar.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos usando o Azure PowerShell
 
@@ -290,4 +288,4 @@ Agora você tem uma nova máquina virtual do Windows chamada MyWindowsVM em seu 
 
 [Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

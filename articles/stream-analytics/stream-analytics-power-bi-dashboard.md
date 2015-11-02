@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="O painel do Power BI na Stream Analytics | Microsoft Azure" 
 	description="Use um painel de Power BI de transmissão em tempo real para reunir inteligência comercial e analisar grandes volumes de dados de um trabalho de Stream Analytics." 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
+	keywords="ferramentas de business intelligence, power bi, streaming de dados, painel do power bi"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -221,4 +221,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

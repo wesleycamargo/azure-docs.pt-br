@@ -272,9 +272,9 @@ Você precisa configurar a rede virtual clássica para usar o endereço IP do ga
 
 4. Abra o arquivo que você acabou de baixar e edite o elemento **LocalNetworkSite** para **vnet02** a fim de adicionar o endereço IP do gateway da nova rede virtual obtido na etapa 1 acima. O elemento deve ser semelhante ao exemplo abaixo.
 
-	      <LocalNetworkSite name="vnet03">
+	      <LocalNetworkSite name="vnet02">
 	        <AddressSpace>
-	          <AddressPrefix>10.3.0.0/16</AddressPrefix>
+	          <AddressPrefix>10.2.0.0/16</AddressPrefix>
 	        </AddressSpace>
 	        <VPNGatewayAddress>23.99.213.28</VPNGatewayAddress>
 	      </LocalNetworkSite>
@@ -363,4 +363,4 @@ Agora que as duas redes virtuais estão conectadas, é hora de testar a conectiv
 - Saiba mais sobre [o Provedor de recursos de rede (NRP) para ARM](../resource-groups-networking.md).
 - Exiba as diretrizes gerais sobre como [criar uma conexão VPN S2S entre uma rede virtual clássica e uma rede virtual do ARM](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

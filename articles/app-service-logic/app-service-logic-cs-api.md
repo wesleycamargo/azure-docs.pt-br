@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="10/17/2015"
    ms.author="jehollan"/>
 
 #Aplicativo de API de C#
@@ -105,4 +105,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -288,7 +288,7 @@ No DevOps, repetitividade e previsibilidade são essenciais para qualquer implan
 
 ## Próximas etapas ##
 
-Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo de microsserviços com facilidade ](app-service-agile-software-development.md).
+Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo de microsserviços](app-service-agile-software-development.md), e técnicas de implantação avançadas como a [implantação flighting](app-service-web-test-in-production-controlled-test-flight.md) com facilidade.
 
 <a name="resources"></a>
 ## Mais recursos ##
@@ -305,4 +305,4 @@ Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Gerenciar uma conta do Banco de Dados de Documentos usando o portal de visualização do Azure | Microsoft Azure" 
 	description="Saiba como gerenciar uma conta do Banco de Dados de Documentos pelo portal de visualização do Azure Encontre um guia sobre como usar o Portal de Visualização do Azure para exibir, copiar, excluir e acessar contas." 
-	keywords="Azure preview portal, documentdb, azure, Microsoft azure"
+	keywords="Portal de Visualização do Azure, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Como gerenciar uma conta do Banco de Dados de Documentos no portal de visualização do Azure
 
@@ -91,7 +91,7 @@ O Banco de Dados de Documentos dá suporte a quatro níveis de consistência de 
 
 *Observe que levará alguns minutos antes que uma alteração nas configurações de consistência padrão entre em vigor em toda a sua conta do Banco de Dados de Documentos.*
 
-## <a id="delete"></a> Como excluir uma conta do Banco de Dados de Documentos no portal de visualização do Azure
+## <a id="delete"></a> Como excluir uma conta do Banco de Dados de Documentos no Portal de Visualização do Azure
 Para remover uma conta do Banco de Dados de Documentos do portal de visualização do Azure que você não esteja mais usando, use o comando **Excluir** na folha **Conta do Banco de Dados de Documentos**.
 
 ![Como excluir uma conta do Banco de Dados de Documentos no portal de visualização do Azure](./media/documentdb-manage-account/image009.png)
@@ -113,4 +113,4 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

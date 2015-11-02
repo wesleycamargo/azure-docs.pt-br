@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor="JRJ@BigBangData.co.uk"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -22,12 +22,22 @@ O **[bcp][]** é um utilitário de carregamento em massa de linha de comando que
 
 O bcp é uma maneira rápida e fácil de mover conjuntos de dados menores para dentro e fora de um banco de dados do SQL Data Warehouse. O volume exato de dados que é recomendado para carregamento/extração por meio do bcp dependerá da sua conexão de rede com o datacenter do Azure. Geralmente, as tabelas de dimensão podem ser carregadas e extraídas, mas as tabelas de fatos razoavelmente grandes podem demorar bastante para serem carregadas ou extraídas.
 
-Com o bcp, você pode: - usar um utilitário de linha de comando simples para carregar dados no SQL Data Warehouse. - Usar um utilitário de linha de comando simples para extrair dados do SQL Data Warehouse.
+Com o bcp, você pode:
 
-Este tutorial mostrará a você como: - importar dados em uma tabela usando o bcp no comando - Exportar dados de uma tabela usando o bcp fora do comando
+- Usar um utilitário de linha de comando simples para carregar dados no SQL Data Warehouse.
+- Usar um utilitário de linha de comando simples para extrair dados do SQL Data Warehouse.
+
+Este tutorial mostrará como:
+ 
+- Importar dados em uma tabela usando o comando bcp in
+- Exportar dados de uma tabela usando o comando bcp out
 
 ## Pré-requisitos
-Para acompanhar este tutorial, você precisa: - de um banco de dados do SQL Data Warehouse - Do utilitário de linha de comando bcp instalado - Do utilitário de linha de comando SQLCMD instalado
+Para acompanhar este tutorial, você precisará:
+
+- Um banco de dados do SQL Data Warehouse.
+- O utilitário de linha de comando bcp instalado
+- O utilitário de linha de comando SQLCMD instalado
 
 >[AZURE.NOTE]Você pode baixar os utilitários bcp e sqlcmd do [Centro de Download da Microsoft][].
 
@@ -152,4 +162,4 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 <!--Other Web references-->
 [Centro de Download da Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

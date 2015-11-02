@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Transformar e analisar usando o Azure Data Factory
@@ -24,11 +24,7 @@ As atividades de transformação no Azure Data Factory transformam e processam o
 
 Atividade de transformação | Ambiente de computação 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
-[Streaming do Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
-[Pontuação de Lote de Aprendizado de Máquina](data-factory-create-predictive-pipelines.md) | VM do Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Streaming do Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] [Execução em lotes do aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md) | VM do Azure 
 [Procedimento armazenado](data-factory-stored-proc-activity.md) | SQL Azure | 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] ou Lote do Azure    
 
@@ -42,4 +38,4 @@ Consulte o artigo [Serviços vinculados de computação](data-factory-compute-li
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

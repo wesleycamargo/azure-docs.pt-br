@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/21/2015"
+   ms.date="10/15/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes
@@ -39,15 +39,15 @@ Este tutorial explica como montar, inicializar e formatar volumes e usar o StorS
  
 ## Montar volumes
 
-Use o procedimento a seguir para montar, inicializar e formatar volumes do Azure StorSimple.
+Use o procedimento a seguir para montar, inicializar e formatar volumes do Azure StorSimple. O procedimento usa o Gerenciamento de Disco, um utilitário do sistema para gerenciar discos rígidos e os volumes ou partições que eles contêm. Para saber mais sobre o Gerenciamento de Disco, vá até [Gerenciamento de Disco](https://technet.microsoft.com/library/cc770943.aspx) no site do Microsoft TechNet.
 
 #### Para montar volumes
 
 1. No computador host, inicie o Microsoft iSCSI.
 
-2. Forneça um dos endereços IP da interface como o portal de destino ou endereço IP de descoberta e conecte-se ao dispositivo. Após o dispositivo ser conectado, os volumes ficarão acessíveis para o seu sistema Windows. Para obter mais informações sobre como usar o iniciador Microsoft iSCSI, vá para a seção “Conectando-se a um dispositivo de destino iSCSI” em [Instalando e configurando o iniciador Microsoft iSCSI][1].
+2. Forneça um dos endereços IP da interface como o portal de destino ou endereço IP de descoberta e conecte-se ao dispositivo. Após o dispositivo ser conectado, os volumes ficarão acessíveis para o seu sistema Windows. Para saber mais sobre o uso do iniciador Microsoft iSCSI, vá para a seção "Conectando a um dispositivo de destino iSCSI", em [Instalando e configurando o iniciador Microsoft iSCSI][1].
 
-3. Use qualquer uma das opções a seguir para iniciar o snap-in de Gerenciamento de Disco:
+3. Use qualquer uma das opções a seguir para iniciar o Gerenciamento de Disco:
 
     - Digite Diskmgmt.msc na caixa **Executar**.
 
@@ -59,9 +59,9 @@ Use o procedimento a seguir para montar, inicializar e formatar volumes do Azure
  
 4. Coloque os volumes online:
 
-   1. No Gerenciamento de Disco, clique com o botão direito do mouse em qualquer volume marcado como **Offline**.
+   1. No Gerenciamento de Disco, clique com o botão direito em qualquer volume marcado como **Offline**.
 
-   2. Clique em **Reativar Disco**. O disco deverá ser marcado como **Online** depois que o disco for reativado.
+   2. Clique em **Reativar Disco**. O disco deve ser marcado como **Online** após o disco ser reativado.
 
 5. Inicializar os volumes:
 
@@ -85,7 +85,7 @@ Use o procedimento a seguir para montar, inicializar e formatar volumes do Azure
       - Especifique um tamanho de unidade de alocação com 64 KB.
       - Realize uma formatação rápida.
 
-7. Formate os volumes com várias partições. Para obter instruções, vá até a seção “Partições e Volumes” em [Implementando o Gerenciamento de Disco](https://msdn.microsoft.com/library/dd163556.aspx).
+7. Formate os volumes com várias partições. Para obter instruções, vá até a seção "Partições e Volumes" em [Implementando o Gerenciamento de Disco](https://msdn.microsoft.com/library/dd163556.aspx).
 
 ## Exibir informações sobre os volumes
 
@@ -95,7 +95,7 @@ Use o procedimento a seguir para exibir informações sobre volumes locais e do 
 
 1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager. 
 
-2. No painel **Escopo**, clique no nó **Volumes**. Uma lista de volumes locais e montados, incluindo todos os volumes do Azure StorSimple, aparece no painel **Resultados**. As colunas no painel **Resultados** são configuráveis. (Clique com o botão direito do mouse no nó **Volumes**, selecione **Exibir** e selecione **Adicionar/Remover Colunas**.)
+2. No painel **Escopo**, clique no nó **Volumes**. Uma lista de volumes locais e montados, incluindo todos os volumes do Azure StorSimple, aparece no painel **Resultados**. As colunas no painel **Resultados** são configuráveis. (Clique com o botão direito no nó **Volumes**, selecione **Exibir** e selecione **Adicionar/Remover Colunas**.)
 
     ![Configurar as colunas](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
 
@@ -110,7 +110,9 @@ Use o procedimento a seguir para exibir informações sobre volumes locais e do 
 
 Use o procedimento a seguir para excluir um volume do StorSimple Snapshot Manager.
 
->[AZURE.NOTE]Você não pode excluir um volume se ele fizer parte de um grupo de volumes. (A opção de exclusão não está disponível para volumes que fazem parte de um grupo de volumes). Você deve excluir o grupo de volumes inteiro para excluir o volume.<br>
+>[AZURE.NOTE]Você não pode excluir um volume se ele fizer parte de um grupo de volumes. (A opção de exclusão não está disponível para volumes que fazem parte de um grupo de volumes). Você deve excluir o grupo de volumes inteiro para excluir o volume.
+
+
 #### Para excluir um volume
 
 1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
@@ -125,7 +127,7 @@ Use o procedimento a seguir para excluir um volume do StorSimple Snapshot Manage
 
 5. A caixa de diálogo **Excluir Volume** é exibida. Digite **Confirmar** na caixa de texto e clique em **OK**.
 
-6. Por padrão, o StorSimple Snapshot Manager faz backup de um volume antes de excluí-lo. Essa precaução pode proteger você contra perda de dados se a exclusão tiver sido involuntária. O StorSimple Snapshot Manager exibe uma mensagem de progresso do **Instantâneo Automático** enquanto faz backup do volume.
+6. Por padrão, o StorSimple Snapshot Manager faz backup de um volume antes de excluí-lo. Essa precaução pode proteger você contra perda de dados se a exclusão tiver sido involuntária. O StorSimple Snapshot Manager exibe uma mensagem de andamento do **Instantâneo Automático** enquanto faz backup do volume.
 
     ![Mensagem de instantâneo automático](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png)
 
@@ -151,15 +153,15 @@ Use o procedimento a seguir para configurar um backup de um volume básico e, em
 
 Antes de começar:
 
-- Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para obter mais informações, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+- Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para saber mais, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-- Instale e configure o StorSimple Snapshot Manager. Para obter mais informações, vá até [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+- Instale e configure o StorSimple Snapshot Manager. Para saber mais, vá até [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 #### Para configurar o backup de um volume básico
 
 1. Crie um volume básico no dispositivo StorSimple.
 
-2. Monte, inicialize e formate o volume, conforme descrito em [Montar volumes](#mount-volumes).
+2. Monte, inicialize e formate o volume, como descrito em [Montar volumes](#mount-volumes).
 
 3. Clique no ícone do StorSimple Snapshot Manager na área de trabalho. A janela do StorSimple Snapshot Manager aparece.
 
@@ -193,15 +195,15 @@ Conclua as seguintes etapas para configurar o backup de um volume espelhado din�
 
 Antes de começar:
 
-- Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para obter mais informações, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+- Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para saber mais, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-- Instale e configure o StorSimple Snapshot Manager. Para obter mais informações, vá até [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+- Instale e configure o StorSimple Snapshot Manager. Para saber mais, vá até [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
-- Configure dois volumes no dispositivo StorSimple. (Nos exemplos, os volumes disponíveis são **Disco 1** e **Disco 2**.)
+- Configure dois volumes no dispositivo StorSimple. (Nos exemplos, os volumes disponíveis são **Disco 1** e **Disco 2**).
 
 ### Etapa 1: Usar o Gerenciamento de Disco para criar um volume espelhado dinâmico
 
-O Gerenciamento de Disco é um utilitário do sistema para gerenciar discos rígidos e os volumes ou partições que eles contêm. Para obter mais informações sobre o Gerenciamento de Disco, vá até [Gerenciamento de Disco](https://technet.microsoft.com/library/cc770943.aspx) no site Microsoft TechNet.
+O Gerenciamento de Disco é um utilitário do sistema para gerenciar discos rígidos e os volumes ou partições que eles contêm. Para saber mais sobre o Gerenciamento de Disco, vá até [Gerenciamento de Disco](https://technet.microsoft.com/library/cc770943.aspx) no site do Microsoft TechNet.
 
 #### Para criar um volume espelhado dinâmico
 
@@ -213,19 +215,19 @@ O Gerenciamento de Disco é um utilitário do sistema para gerenciar discos ríg
 
    - Inicie as **Ferramentas Administrativas**, expanda o nó **Gerenciamento do Computador** e selecione **Gerenciamento de Disco**.
 
-2. Certifique-se de que você tenha dois volumes disponíveis no dispositivo StorSimple. (No exemplo, os volumes disponíveis são **Disco 1** e **Disco 2**.) 
+2. Certifique-se de que você tenha dois volumes disponíveis no dispositivo StorSimple. (No exemplo, os volumes disponíveis são **Disco 1** e **Disco 2**). 
 
 3. Na janela Gerenciamento de Disco, na coluna à direita do painel inferior, clique com o botão direito do mouse em **Disco 1** e selecione **Novo Volume Espelhado**.
 
     ![Novo Volume Espelhado](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png)
 
-4. Na página do assistente **Novo Volume Espelhado**, clique em **Próximo**.
+4. Na página do assistente **Novo Volume Espelhado**, clique em **Avançar**.
 
-5. Na página **Selecionar Discos**, selecione o **Disco 2** no painel **Selecionado**, clique em **Adicionar** e clique em **Próximo**.
+5. Na página **Selecionar Discos**, selecione o **Disco 2** no painel **Selecionado**, clique em **Adicionar** e clique em **Avançar**.
 
-6. Na página **Atribuir uma Letra de Unidade ou Caminho**, aceite os padrões e clique em **Próximo**.
+6. Na página **Atribuir uma Letra de Unidade ou Caminho**, aceite os padrões e clique em **Avançar**.
 
-7. Na página **Formatar Volume**, na caixa **Tamanho da Unidade de Alocação**, selecione **64 mil**. Marque a caixa de seleção **Executar uma formatação rápida** e clique em **Próximo**.
+7. Na página **Formatar Volume**, na caixa **Tamanho da Unidade de Alocação**, selecione **64 K**. Marque a caixa de seleção **Executar uma formatação rápida** e clique em **Avançar**.
 
 8. Na página **Concluindo o Novo Volume Espelhado**, examine as configurações e clique em **Concluir**.
 
@@ -233,7 +235,7 @@ O Gerenciamento de Disco é um utilitário do sistema para gerenciar discos ríg
 
     ![Mensagem de conversão de disco dinâmico](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
 
-10. No gerenciamento de disco, verifique se os discos 1 e 2 são mostrados como volumes dinâmicos espelhados. (**Dinâmico** deve aparecer na coluna de status, e a cor da barra de capacidade deve mudar para vermelho, indicando um volume espelhado.)
+10. No gerenciamento de disco, verifique se os discos 1 e 2 são mostrados como volumes dinâmicos espelhados. (**Dinâmico** deve aparecer na coluna de status, e a cor da barra de capacidade deve mudar para vermelho, indicando um volume espelhado).
 
     ![Discos dinâmicos espelhados do Gerenciamento de Disco](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
  
@@ -245,11 +247,11 @@ Use o procedimento a seguir para configurar um volume espelhado dinâmico, em se
 
 1. Clique no ícone do StorSimple Snapshot Manager na área de trabalho. A janela do StorSimple Snapshot Manager aparece. 
 
-2. No painel **Escopo**, clique com o botão direito do mouse no nó **Volumes** e selecione **Examinar volumes novamente**. Quando a verificação for concluída, uma lista de volumes deverá aparecer no painel **Resultados**. O volume dinâmico espelhado é listado como um único volume.
+2. No painel **Escopo**, clique com o botão direito no nó **Volumes** e selecione **Examinar volumes novamente**. Quando a verificação for concluída, uma lista de volumes deverá aparecer no painel **Resultados**. O volume dinâmico espelhado é listado como um único volume.
 
-3. No painel **Resultados**, clique com o botão direito do mouse no volume espelhado dinâmico e clique em **Criar Grupo de Volumes**.
+3. No painel **Resultados**, clique no volume dinâmico espelhado e clique em **Criar Grupo de Volumes**.
 
-4. Na caixa de diálogo **Criar Grupo de Volumes**, digite um nome para o grupo de volumes, atribua o volume espelhado dinâmico a esse grupo e clique em **OK**.
+4. Na caixa de diálogo **Criar Grupo de Volumes**, digite um nome para o grupo de volumes, atribua o volume dinâmico espelhado a esse grupo e clique em **OK**.
 
 5. No painel **Escopo**, expanda o nó **Grupos de Volumes**. O novo grupo de volumes deve aparecer no nó **Grupos de Volumes**.
 
@@ -257,9 +259,9 @@ Use o procedimento a seguir para configurar um volume espelhado dinâmico, em se
 
     - Para iniciar um trabalho de backup interativo (sob demanda), clique em **Fazer Backup**. 
 
-    - Para agendar um backup automático, clique em **Criar Política de Backup**. Na página **Geral**, selecione o grupo de volumes na lista. Na página **Agendamento**, insira os detalhes do agendamento. Quando terminar, clique em **OK**.
+    - Para agendar um backup automático, clique em **Criar Política de Backup**. Na página **Geral**, selecione o grupo de volumes na lista. Na página **Agenda**, insira os detalhes da agenda. Quando tiver terminado, clique em **OK**.
 
-7. Você pode monitorar o trabalho de backup enquanto ele é executado. No painel **Escopo**, expanda o nó **Trabalhos** e clique em **Em execução**. Os detalhes do trabalho aparecem no painel **Resultados**. Depois de concluído o trabalho de backup, os detalhes são transferidos para a lista de trabalhos **Últimas 24 horas**.
+7. Você pode monitorar o trabalho de backup enquanto ele é executado. No painel **Escopo**, expanda o nós **Trabalhos** e clique em **Em execução**. Os detalhes do trabalho aparecem no painel **Resultados**. Quando o trabalho de backup é concluído, os detalhes são transferidos para a lista de trabalhos **Últimas 24 horas**.
 
 ## Próximas etapas
 
@@ -269,4 +271,4 @@ Use o procedimento a seguir para configurar um volume espelhado dinâmico, em se
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

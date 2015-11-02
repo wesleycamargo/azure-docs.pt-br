@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Análise de sentimento Twitter em tempo real com a Stream Analytics | Microsoft Azure"
 	description="Saiba como usar a Stream Analytics para análise de sentimento Twitter em tempo real. Orientações passo a passo de geração de eventos aos dados em um painel em tempo real."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="twitter em tempo real, análise de sentimento, análise de mídia social, ferramenta de análise de mídia social"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -236,4 +236,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

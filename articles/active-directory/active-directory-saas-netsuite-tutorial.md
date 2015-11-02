@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #Tutorial: Como integrar o NetSuite ao Active Directory do Azure
@@ -66,13 +66,13 @@ Este tutorial mostrará como conectar o ambiente NetSuite ao Active Directory do
 
 	> [AZURE.NOTE]Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
-3. Na página **Definir Configurações de Aplicativo**, para o campo **URL de Logon**, digite a URL do locatário do NetSuite usando um dos seguintes formatos:
-	- `https://<tenant-name>.netsuite.com`
-	- `https://<tenant-name>.na1.netsuite.com`
-	- `https://<tenant-name>.na2.netsuite.com`
-	- `https://<tenant-name>.sandbox.netsuite.com`
-	- `https://<tenant-name>.na1.sandbox.netsuite.com`
-	- `https://<tenant-name>.na2.sandbox.netsuite.com`
+3. Na página **Definir Configurações de Aplicativo**, para o campo **URL de Resposta**, digite a URL do locatário do NetSuite usando um dos seguintes formatos:
+	- `https://<tenant-name>.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
 	![Digite a URL do seu locatário][8]
 
@@ -142,23 +142,23 @@ Este tutorial mostrará como conectar o ambiente NetSuite ao Active Directory do
 
 	- No menu de navegação superior, clique em **Instalação** e depois em **Gerenciador de Instalação**.
 
-	![Vá para Gerenciador de Instalação][10]
+		![Vá para Gerenciador de Instalação][10]
 
 	- No menu de navegação à esquerda, selecione **Usuários/Funções** e, em seguida, clique em **Gerenciar Funções**.
 
-	![Vá para Gerenciar Funções][22]
+		![Vá para Gerenciar Funções][22]
 
 	- Clique em **Nova Função**.
 
 	- Digite um **Nome** para a nova função e marque a caixa de seleção **Apenas Logon Único**.
 
-	![Dê um nome à nova função.][23]
+		![Dê um nome à nova função.][23]
 
 	- Clique em **Salvar**.
 
 	- No menu na parte superior, clique em **Permissões**. Em seguida, clique em **Instalação**.
 
-	![Vá para Permissões][24]
+		![Vá para Permissões][24]
 
 	- Selecione **Instalar o Logon Único do SAM** e, em seguida, clique em **Adicionar**.
 
@@ -166,25 +166,27 @@ Este tutorial mostrará como conectar o ambiente NetSuite ao Active Directory do
 
 	- No menu de navegação superior, clique em **Instalação** e depois em **Gerenciador de Instalação**.
 
-	![Vá para Gerenciador de Instalação][10]
+		![Vá para Gerenciador de Instalação][10]
 
 	- No menu de navegação à esquerda, selecione **Usuários/Funções** e, em seguida, clique em **Gerenciar Usuários**.
 
-	![Vá para Gerenciar Usuários][25]
+		![Vá para Gerenciar Usuários][25]
 
 	- Selecione um usuário de teste. Em seguida, clique em **Editar**.
 
-	![Vá para Gerenciar Usuários][26]
+		![Vá para Gerenciar Usuários][26]
 
 	- Na caixa de diálogo Funções, selecione a função que você criou e clique em **Adicionar**.
 
-	![Vá para Gerenciar Usuários][27]
+		![Vá para Gerenciar Usuários][27]
 
 	- Clique em **Salvar**.
 
 19. Para testar sua configuração, consulte a seção intitulada [Atribuir Usuários ao NetSuite](#step-4-assign-users-to-netsuite).
 
 ##Etapa 3: Habilitar o provisionamento automatizado de usuários
+
+> [AZURE.NOTE]Por padrão, os usuários provisionados serão adicionados à subsidiária raiz de seu ambiente NetSuite.
 
 1. No Active Directory do Azure, na página Início Rápido para o NetSuite, clique em **Configurar provisionamento do usuário**.
 
@@ -254,4 +256,4 @@ Este tutorial mostrará como conectar o ambiente NetSuite ao Active Directory do
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

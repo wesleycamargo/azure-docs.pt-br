@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar e monitorar uma data factory usando o PowerShell do Azure
@@ -61,8 +61,9 @@ Nesta etapa, é possível utilizar o PowerShell do Azure para criar uma Azure Da
 
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
+	O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory "ADFTutorialDataFactoryPSH" não está disponível**, altere o nome (por exemplo, yournameADFTutorialDataFactoryPSH). Use esse nome em vez de ADFTutorialFactoryPSH ao executar as etapas neste tutorial. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 
-	O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory "ADFTutorialDataFactoryPSH" não está disponível**, altere o nome (por exemplo, yournameADFTutorialDataFactoryPSH). Use esse nome em vez de ADFTutorialFactoryPSH ao executar as etapas neste tutorial.
+	> [AZURE.NOTE]O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 
 ## <a name="CreateLinkedServices"></a>Etapa 2: Criar serviços vinculados
 Serviços vinculados vinculam armazenamentos de dados ou serviços de computação para uma data factory do Azure. Um repositório de dados pode ser um armazenamento do Azure, Banco de Dados SQL do Azure ou um banco de dados SQL Server local que contém os dados de entrada ou armazena dados de saída para um pipeline de Data Factory. Um serviço de computação é o serviço que processa os dados de entrada e gera dados de saída.
@@ -72,15 +73,15 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 ### Criar um serviço vinculado para uma conta de armazenamento do Azure
 1.	Crie um arquivo JSON chamado **StorageLinkedService.json** em **C:\\ADFGetStartedPSH** com o conteúdo a seguir. Crie a pasta ADFGetStartedPSH se ela ainda não existir.
 
-		{
-		  "name": "StorageLinkedService",
-		  "properties": {
-		    "type": "AzureStorage",
-		    "typeProperties": {
-		      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-		    }
-		  }
-		}
+			{
+		  		"name": "StorageLinkedService",
+		  		"properties": {
+	    			"type": "AzureStorage",
+		    		"typeProperties": {
+		      			"connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		    		}
+		  		}
+			}
 
 	Substitua **nomedaconta** pelo nome da sua conta de armazenamento e **chavedaconta** pela chave da sua conta de armazenamento do Azure.
 2.	No **PowerShell do Azure**, alterne para a pasta **ADFGetStartedPSH**. 
@@ -101,15 +102,15 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 ### Criar um serviço vinculado para um banco de dados SQL do Azure
 1.	Crie um arquivo JSON chamado AzureSqlLinkedService.json com o conteúdo a seguir.
 
-		{
-		  "name": "AzureSqlLinkedService",
-		  "properties": {
-		    "type": "AzureSqlDatabase",
-		    "typeProperties": {
-		      "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-		    }
-		  }
-		}
+			{
+				"name": "AzureSqlLinkedService",
+				"properties": {
+					"type": "AzureSqlDatabase",
+					"typeProperties": {
+				      	"connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+					}
+		  		}
+			}
 
 	Substitua **servername**, **databasename**, ****username@servername** e **password** pelos nomes do servidor SQL do Azure, do banco de dados, da conta de usuário e a senha.
 
@@ -172,35 +173,35 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 
 1.	Crie um arquivo JSON denominado **EmpBlobTable.json** na pasta **C:\\ADFGetStartedPSH** com o seguinte conteúdo:
 
-		{
-		  "name": "EmpTableFromBlob",
-		  "properties": {
-		    "structure": [
-		      {
-		        "name": "FirstName",
-		        "type": "String"
-		      },
-		      {
-		        "name": "LastName",
-		        "type": "String"
-		      }
-		    ],
-		    "type": "AzureBlob",
-		    "linkedServiceName": "AzureStorageLinkedService1",
-		    "typeProperties": {
-		      "folderPath": "adftutorial/",
-		      "format": {
-		        "type": "TextFormat",
-		        "columnDelimiter": ","
-		      }
-		    },
-		    "external": true,
-		    "availability": {
-		      "frequency": "Hour",
-		      "interval": 1
-		    }
-		  }
-		}
+			{
+			  "name": "EmpTableFromBlob",
+			  "properties": {
+			    "structure": [
+			      {
+			        "name": "FirstName",
+			        "type": "String"
+			      },
+			      {
+			        "name": "LastName",
+			        "type": "String"
+			      }
+			    ],
+			    "type": "AzureBlob",
+			    "linkedServiceName": "AzureStorageLinkedService1",
+			    "typeProperties": {
+			      "folderPath": "adftutorial/",
+			      "format": {
+			        "type": "TextFormat",
+			        "columnDelimiter": ","
+			      }
+			    },
+			    "external": true,
+			    "availability": {
+			      "frequency": "Hour",
+			      "interval": 1
+			    }
+			  }
+			}
 	
 	Observe o seguinte:
 	
@@ -217,15 +218,15 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 
 	Para definir **folderPath** e **fileName** dinamicamente com base no horário **SliceStart**, use a propriedade **partitionedBy**. No exemplo a seguir, folderPath usa o ano, mês e dia de SliceStart (hora de início da fatia que está sendo processada) e fileName usa a hora de SliceStart. Por exemplo, se uma fatia é produzida para 2014-10-20T08:00:00, o folderName é definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName é definido como 08.csv.
 
-	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-        "fileName": "{Hour}.csv",
-        "partitionedBy": 
-        [
-        	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-        ],
+			"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+	        "fileName": "{Hour}.csv",
+	        "partitionedBy": 
+	        [
+	        	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+	            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+	            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+	            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+	        ],
 
 	Consulte a [Referência de script JSON](http://go.microsoft.com/fwlink/?LinkId=516971) para obter detalhes sobre as propriedades JSON.
 
@@ -238,30 +239,30 @@ Nesta parte da etapa, você criará uma tabela de saída denominada **EmpSQLTabl
 
 1.	Crie um arquivo JSON denominado **EmpSQLTable.json** na pasta **C:\\ADFGetStartedPSH** com o conteúdo a seguir.
 		
-		{
-		  "name": "EmpSQLTable",
-		  "properties": {
-		    "structure": [
-		      {
-		        "name": "FirstName",
-		        "type": "String"
-		      },
-		      {
-		        "name": "LastName",
-		        "type": "String"
-		      }
-		    ],
-		    "type": "AzureSqlTable",
-		    "linkedServiceName": "AzureSqlLinkedService1",
-		    "typeProperties": {
-		      "tableName": "emp"
-		    },
-		    "availability": {
-		      "frequency": "Hour",
-		      "interval": 1
-		    }
-		  }
-		}
+			{
+			  "name": "EmpSQLTable",
+			  "properties": {
+			    "structure": [
+			      {
+			        "name": "FirstName",
+			        "type": "String"
+			      },
+			      {
+			        "name": "LastName",
+			        "type": "String"
+			      }
+			    ],
+			    "type": "AzureSqlTable",
+			    "linkedServiceName": "AzureSqlLinkedService1",
+			    "typeProperties": {
+			      "tableName": "emp"
+			    },
+			    "availability": {
+			      "frequency": "Hour",
+			      "interval": 1
+			    }
+			  }
+			}
 
      Observe o seguinte:
 	
@@ -281,49 +282,49 @@ Nesta etapa, você cria um pipeline com uma **Atividade de Cópia** que utiliza 
 
 1.	Crie um arquivo JSON denominado **ADFTutorialPipeline.json** na pasta **C:\\ADFGetStartedPSH** com o conteúdo a seguir: 
 	
-		 {
-		  "name": "ADFTutorialPipeline",
-		  "properties": {
-		    "description": "Copy data from a blob to Azure SQL table",
-		    "activities": [
-		      {
-		        "name": "CopyFromBlobToSQL",
-		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-		        "type": "Copy",
-		        "inputs": [
-		          {
-		            "name": "EmpTableFromBlob"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "EmpSQLTable"
-		          }
-		        ],
-		        "typeProperties": {
-		          "source": {
-		            "type": "BlobSource"
-		          },
-		          "sink": {
-		            "type": "SqlSink",
-		            "writeBatchSize": 10000,
-		            "writeBatchTimeout": "00:60:00"
-		          }
-		        },
-		        "Policy": {
-		          "concurrency": 1,
-		          "executionPriorityOrder": "NewestFirst",
-		          "style": "StartOfInterval",
-		          "retry": 0,
-		          "timeout": "01:00:00"
-		        }
-		      }
-		    ],
-		    "start": "2015-07-12T00:00:00Z",
-		    "end": "2015-07-13T00:00:00Z",
-		    "isPaused": false
-		  }
-		}
+			 {
+			  "name": "ADFTutorialPipeline",
+			  "properties": {
+			    "description": "Copy data from a blob to Azure SQL table",
+			    "activities": [
+			      {
+			        "name": "CopyFromBlobToSQL",
+			        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+			        "type": "Copy",
+			        "inputs": [
+			          {
+			            "name": "EmpTableFromBlob"
+			          }
+			        ],
+			        "outputs": [
+			          {
+			            "name": "EmpSQLTable"
+			          }
+			        ],
+			        "typeProperties": {
+			          "source": {
+			            "type": "BlobSource"
+			          },
+			          "sink": {
+			            "type": "SqlSink",
+			            "writeBatchSize": 10000,
+			            "writeBatchTimeout": "00:60:00"
+			          }
+			        },
+			        "Policy": {
+			          "concurrency": 1,
+			          "executionPriorityOrder": "NewestFirst",
+			          "style": "StartOfInterval",
+			          "retry": 0,
+			          "timeout": "01:00:00"
+			        }
+			      }
+			    ],
+			    "start": "2015-07-12T00:00:00Z",
+			    "end": "2015-07-13T00:00:00Z",
+			    "isPaused": false
+			  }
+			}
 
 	Observe o seguinte:
 
@@ -432,4 +433,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

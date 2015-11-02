@@ -88,7 +88,7 @@ Há três classificações que são contados separadamente:
 * [Exceções](app-insights-api-custom-events-metrics.md#track-exception), limitado a 50 pontos/s.
 * Todos os outros dados de telemetria (exibições de página, sessões, solicitações, dependências, métricas, eventos personalizados, resultados de teste da Web).
 
-Se seu aplicativo envia mais do que o limite, alguns dados serão descartados. Você verá um aviso de notificação que isso aconteceu.
+Se seu aplicativo enviar acima do limite durante alguns minutos, alguns dados poderão ser descartados. Você verá um aviso de notificação que isso aconteceu.
 
 ### Dicas para reduzir a sua taxa de dados
 
@@ -135,4 +135,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

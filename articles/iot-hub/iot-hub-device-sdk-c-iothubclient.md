@@ -73,7 +73,7 @@ Para entender isso melhor, vamos ver um exemplo:
 
 Quando você chama **IoTHubClient\_SendEventAsync**, na verdade está colocando o evento em um buffer. O thread em segundo plano criado quando você chama **IoTHubClient\_CreateFromConnectionString** monitora continuamente esse buffer e envia todos os dados que ele contém ao Hub IoT. Isso acontece em segundo plano ao mesmo tempo que o thread principal está executando outro trabalho.
 
-Da mesma forma, quando você registra uma função de retorno de chamada para mensagens usando **IoTHubClient\_SetMessageCallback**, você está sugerindo que o SDK tenha thread em segundo plano que invoque a função de retorno de chamada quando uma mensagem é recebida, independentemente do thread principal.
+Da mesma forma, quando você registra uma função de retorno de chamada para mensagens usando **IoTHubClient\_SetMessageCallback**, você está instruindo ao SDK para que o thread em segundo plano invoque a função de retorno de chamada quando uma mensagem for recebida, independentemente do thread principal.
 
 As APIs "LL" não criam um thread em segundo plano. Em vez disso, uma nova API deve ser chamada para enviar e receber dados explicitamente do Hub IoT. Mais uma vez, vamos dar uma olhada em um exemplo...
 
@@ -276,4 +276,4 @@ Há duas opções que normalmente são usadas:
 
 Este artigo detalha o comportamento da biblioteca **IoTHubClient** encontrada no **SDK do dispositivo IoT do Azure para C**. Com essas informações, você deve ter uma boa compreensão dos recursos da biblioteca **IoTHubClient**. No [próximo artigo](iot-hub-device-sdk-c-serializer.md), forneceremos detalhes semelhantes sobre a biblioteca do **serializador**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

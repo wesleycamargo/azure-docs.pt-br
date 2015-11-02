@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Acessar logs do aplicativo YARN no Hadoop programaticamente | Microsoft Azure"
-	description="Acessar logs do aplicativo programaticamente em um cluster de Hadoop no HDInsight."
+	pageTitle="Acesso aos logs de aplicativo YARN do Hadoop no HDInsight baseado em Linux | Microsoft Azure"
+	description="Saiba como acessar os logs de aplicativo de YARN em um cluster HDInsight (Hadoop) baseado em Linux usando a linha de comando e um navegador da Web."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # Acesso aos logs de aplicativo YARN no HDInsight baseado em Linux
@@ -96,4 +96,4 @@ Depois de criar um túnel SSH, use as etapas a seguir para exibir os logs YARN:
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

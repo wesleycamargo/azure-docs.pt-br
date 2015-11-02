@@ -3,7 +3,7 @@
 	description="Dados de exemplo no Armazenamento de Blobs do Azure" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,12 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.date="10/20/2015" 
+	ms.author="sunliangms;fashah;garye;bradsev" />
 
-#<a name="heading"></a>Dados de exemplo no Armazenamento de Blob do Azure
+#<a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
 
-Este documento aborda os dados de amostragem armazenados no Armazenamento do Blobs do Azure, baixando-o por meio de programação e realizando amostragem com um código Python de exemplo. As etapas para isso são os seguintes:
+Os links neste **menu** levam você até os tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## Introdução
+
+Este documento aborda os dados de amostragem armazenados no Armazenamento do Blobs do Azure, baixando-os por meio de programação e realizando amostragem com um exemplo de código Python. As etapas para isso são os seguintes:
 
 ## Baixar e reduzir os dados de exemplo
 1. Baixe os dados do Armazenamento do Blobs do Azure usando o serviço blob com o código Python de exemplo a seguir: 
@@ -97,4 +103,4 @@ Você pode usar o seguinte código de exemplo para os reduzir os dados de exempl
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

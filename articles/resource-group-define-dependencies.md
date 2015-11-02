@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="mmercuri"/>
 
 # Definindo dependências em modelos do Gerenciador de Recursos do Azure
@@ -43,6 +43,8 @@ Embora você talvez queira usar dependsOn para mapear as dependências entre os 
 
 Esse elemento não é necessário se a função de referência for usada para obter uma representação de um recurso, pois um objeto de referência implica uma dependência no recurso. Na verdade, se houver a opção para usar uma referência em vez de dependsOn, as diretrizes são usar a função de referência e fazer referências implícitas. A justificativa aqui é novamente o desempenho. As referências definem as dependências implícitas que são sabidamente necessárias, uma vez que são referenciadas no modelo. Por causa da presença delas, elas são relevantes, evitando novamente a otimização para desempenho e para evitar o risco potencial de fazer com que o mecanismo de implantação pare de evitar paralelismo desnecessariamente.
 
+Se você precisar definir uma dependência entre um recurso e os recursos criados por meio de um loop de cópia, defina o elemento dependsOn como o nome do loop. Por exemplo, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
+
 ## recursos
 
 A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em 5 níveis de profundidade. É importante observar que não é criada uma dependência implícita entre um recurso filho e o pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn.
@@ -55,11 +57,11 @@ A função reference permite que uma expressão derive seu valor de outro nome J
 
 Você pode usar esse elemento ou o elemento dependsOn para especificar dependências, mas não é necessário usar ambos para o mesmo recurso dependente. As diretrizes são usar a referência implícita para evitar o risco de que um elemento dependsOn desnecessário faça com que o mecanismo de implantação pare inadvertidamente de realizar aspectos da implantação em paralelo.
 
-Para obter mais informações, consulte [Função reference](../resource-group-template-functions/#reference).
+Para saber mais, consulte [Função de referência](../resource-group-template-functions/#reference).
 
 ## Próximas etapas
 
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
 - Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

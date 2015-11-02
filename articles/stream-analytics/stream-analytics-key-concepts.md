@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Saiba mais sobre conceitos principais do Stream Analytics | Microsoft Azure" 
 	description="Conheça os conceitos principais do Azure Stream Analytics: os componentes de um trabalho do Stream Analytics, inclusive com entradas e saídas com suporte, configuração do trabalho e métricas." 
-	keywords="event processing,data stream,key concepts,serialization"	
+	keywords="processamento de eventos, fluxo de dados, principais conceitos, serialização"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -39,7 +39,7 @@ Um trabalho do Stream Analytics inclui o seguinte: - uma ou mais fontes de entra
 
 ### Fluxo de dados
 
-Cada definição de trabalho de Análise de fluxo deve conter fonte entrada pelo menos um fluxo de dados para ser consumida e transformados pelo trabalho. O [Armazenamento de Blob do Azure](http://azure.microsoft.com/documentation/services/storage/) e os [Hubs de Evento do Azure](http://azure.microsoft.com/services/event-hubs/) têm suporte como fontes de entrada de fluxo de dados. As fontes de entrada de Hubs de eventos são usadas para coletar fluxos de eventos de vários dispositivos diferentes e serviços, enquanto o armazenamento de Blob pode ser usado em uma fonte de entrada para a ingestão de grandes quantidades de dados. Como os blobs não transmitem dados, os trabalhos de Análise de fluxo nos blobs não serão temporais por natureza, a menos que os registros no blob contenham os carimbos de data/hora.
+Cada definição de trabalho de Análise de fluxo deve conter fonte entrada pelo menos um fluxo de dados para ser consumida e transformados pelo trabalho. O [Armazenamento de Blob do Azure](http://azure.microsoft.com/documentation/services/storage/) e os [Hubs de Eventos do Azure](http://azure.microsoft.com/services/event-hubs/) têm suporte como fontes de entrada de fluxo de dados. As fontes de entrada de Hubs de eventos são usadas para coletar fluxos de eventos de vários dispositivos diferentes e serviços, enquanto o armazenamento de Blob pode ser usado em uma fonte de entrada para a ingestão de grandes quantidades de dados. Como os blobs não transmitem dados, os trabalhos de Análise de fluxo nos blobs não serão temporais por natureza, a menos que os registros no blob contenham os carimbos de data/hora.
 
 ### Dados de referência
 A Stream Analytics também dá suporte a um segundo tipo de fonte de entrada: dados de referência. Isso é usado para executar a correlação e pesquisas de dados auxiliares e os dados aqui são geralmente estáticos ou raramente alterados. [Armazenamento de blob do Azure](http://azure.microsoft.com/documentation/services/storage/) é a única fonte de entrada com suporte para dados de referência. Os blobs de fonte de dados de referência estão limitados a 50MB de tamanho.
@@ -207,4 +207,4 @@ Agora que você está familiarizado com os principais conceitos do Stream Analyt
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

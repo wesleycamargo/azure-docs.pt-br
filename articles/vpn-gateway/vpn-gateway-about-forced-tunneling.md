@@ -1,14 +1,20 @@
-<properties pageTitle="Configurar túnel forçado para gateways de VPN do Microsoft Azure | Microsoft Azure" description="Se você tiver uma rede virtual com um gateway de VPN entre locais, poderá redirecionar ou "forçar" todo o tráfego de Internet para sua instalação local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" />
+<properties pageTitle="Configurar túnel forçado para gateways de VPN do Microsoft Azure | Microsoft Azure" description="Se você tiver uma rede virtual com um gateway de VPN entre locais, poderá redirecionar ou "forçar" todo o tráfego de Internet para sua instalação local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Configurar o túnel forçado
+
+Este artigo se refere a gateways de Vnets e VPN criados usando o modelo de implantação clássico. Quando as instruções para a configuração de túnel forçado para Gateways de VPN e VNets criados usando o modelo do Gerenciador de Recursos estiverem disponíveis, adicionaremos um link na parte superior desta página.
+
+>[AZURE.NOTE]É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Para saber mais sobre os modelos de implantação, consulte [Modelos de implantação do Azure](../azure-classic-rm.md).
+
+## Sobre túnel forçado
 
 O túnel forçado permite redirecionar ou "forçar" todo o tráfego direcionado para a Internet de volta para seu local por meio de um túnel VPN de site a site para inspeção e auditoria. Esse é um requisito crítico de segurança para a maioria das políticas de TI empresariais. Sem o túnel forçado, o tráfego direcionado para Internet de suas VMs no Azure sempre percorrerão da infraestrutura de rede do Azure diretamente para a Internet, sem a opção para permitir que você inspecione ou audite o tráfego. O acesso não autorizado à Internet pode levar à divulgação de informações ou outros tipos de violações de segurança.
 
@@ -149,6 +155,9 @@ Abaixo estão alguns cmdlets adicionais do PowerShell que podem ser úteis ao tr
 
 ## Próximas etapas
 
-Para obter informações sobre como proteger o tráfego de rede. Consulte [O que é um grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=Oct15_HO3-->
+Para saber mais sobre Rotas definidas pelo usuário, consulte [Rotas definidas pelo usuário e Encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
+
+Para saber mais sobre como proteger o tráfego de rede, consulte [O que é um Grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md). Observe que você jamais deve aplicar um Grupo de segurança de rede a uma sub-rede de gateway VNet do Azure.
+
+<!---HONumber=Oct15_HO4-->

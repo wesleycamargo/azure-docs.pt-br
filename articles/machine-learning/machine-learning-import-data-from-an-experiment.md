@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Importar dados no Estúdio de Aprendizado de Máquina de outro experimento| Microsoft Azure"
 	description="Como salvar os dados de treinamento no Estúdio de Aprendizado de Máquina do Azure e usá-los em outro experimento."
-	keywords="import data,data,data sources,training data"
+	keywords="importar dados, dados, fontes de dados, dados de treinamento"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -35,4 +35,4 @@ Haverá momentos em que você vai querer pegar o resultado intermediário de um 
 
 Quando o salvamento for concluído, o conjunto de dados ficará disponível para uso em qualquer experimento do seu espaço de trabalho. Você pode encontrá-lo na lista **Conjuntos de Dados Salvos** na paleta de módulos.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -19,6 +19,7 @@
 
 # Balanceamento de carga para serviços de infraestrutura do Azure#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Existem dois níveis de balanceamento de carga para serviços de infraestrutura do Azure:
 
@@ -84,4 +85,4 @@ Para obter mais informações sobre o balanceador de carga, confira [Balanceamen
 
 <!-- LINKS -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

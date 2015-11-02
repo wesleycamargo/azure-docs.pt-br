@@ -23,20 +23,6 @@ Você receberá o seguinte tipo de informações:
 
 Verifique se o valor de **PSVersion** é 3.0 ou 4.0. Caso não seja, consulte [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-Você também deve ter o Azure PowerShell versão 1.0.0 ou posterior. Se você não tiver instalado e configurado o Azure PowerShell, clique [aqui](powershell-install-configure.md) para obter instruções.
-
-Você pode verificar a versão do Azure PowerShell instalada com o comando este comando no prompt de comando do Azure PowerShell.
-
-	Get-Module azure | format-table version
-
-Você receberá o seguinte tipo de informações:
-
-	Version
-	-------
-	1.0.0
-
-Se você não tiver a 1.0.0 ou posterior, deve remover o Azure PowerShell usando o Painel de Controle de Programas e Recursos e, em seguida, instalar a versão mais recente. Consulte [How to Install and Configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](powershell-install-configure.md) para obter mais informações.
-
 ### Definir sua conta e assinatura do Azure
 
 Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
@@ -69,4 +55,4 @@ Você pode definir a assinatura do Azure atual ao executar estes comandos no pro
 
 Para obter mais informações sobre contas e assinaturas do Azure, consulte [How to: Connect to your subscription (Como: conectar-se à sua assinatura)](powershell-install-configure.md#Connect).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

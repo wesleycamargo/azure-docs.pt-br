@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Importar dados para o Estúdio de Aprendizado de Máquina de fontes de dados online | Microsoft Azure"
 	description="Como importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diversas fontes online."
-	keywords="import data,data format,data types,data sources,training data"
+	keywords="importar dados, formato de dados, tipos de dados, fontes de dados, dados de treinamento"
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -58,4 +58,4 @@ Provedor de feed de dados | Lê dados de um provedor de feeds com suporte. Atual
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

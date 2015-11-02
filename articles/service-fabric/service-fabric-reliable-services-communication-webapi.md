@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução aos serviços de API Web da malha de serviço com auto-hospedagem do OWIN | Microsoft Azure"
-   description="Este artigo sobre Malha de Serviço explica como implementar a comunicação de serviço usando o API Web ASP.NET com auto-hospedagem OWIN em Serviços confiáveis."
+   pageTitle="Serviço de comunicação com a API Web do ASP.NET | Microsoft Azure"
+   description="Saiba como implementar passo a passo a comunicação de serviço usando o API Web do ASP.NET com auto-hospedagem OWIN na API de Serviços Confiáveis."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -612,6 +612,6 @@ No ASP.NET 5, o conceito e o modelo de programação de separação do *aplicati
 
 ## Próximas etapas
 
-[Depurando seu aplicativo da Malha do Serviço no Visual Studio](service-fabric-debugging-your-application.md)
+[Depurando seu aplicativo da Malha de Serviços no Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

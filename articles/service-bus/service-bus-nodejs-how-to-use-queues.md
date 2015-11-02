@@ -18,13 +18,15 @@
 
 # Como usar filas do Barramento de Serviço
 
-Este artigo descreve como usar as filas do Barramento de Serviço. As amostras são escritas em JavaScript e usam o módulo Node.js do Azure. Os cenários abrangidos incluem **criação de filas**, **envio e recebimento de mensagens** e **exclusão de filas**. Para obter mais informações sobre filas, veja a seção [Próximas etapas][].
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
+Este artigo descreve como usar as filas do Barramento de Serviço. As amostras são escritas em JavaScript e usam o módulo Node.js do Azure. Os cenários abordados incluem a **criação de filas**, o **envio e o recebimento de mensagens** e a **exclusão de filas**. Para obter mais informações sobre filas, veja a seção [Próximas etapas][].
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Criar um aplicativo do Node.js
 
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, veja a seção [Criar e implantar um aplicativo Node.js em um site do Azure][] ou [Serviço de Nuvem do Node.js ][](usando o Windows PowerShell).
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure][] ou [Serviço de Nuvem do Node.js ][](usando o Windows PowerShell).
 
 ## Configurar seu aplicativo para usar o Barramento de serviço
 
@@ -143,15 +145,15 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para obter mais informações sobre cotas, veja [Filas do Azure e Filas do Barramento de Serviço][].
+As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, consulte [Filas do Azure e Filas do Barramento de Serviço][].
 
 ## Receber mensagens de uma fila
 
-As mensagens são recebidas de uma fila com o método **receiveQueueMessage** no objeto **ServiceBusService**. Por padrão, as mensagens são excluídas da fila conforme elas são lidas. No entanto, você pode ler (inspecionar) e bloquear a mensagem sem excluí-la da fila, definindo o parâmetro opcional **isPeekLock** como **true**.
+As mensagens são recebidas de uma fila usando o método **receiveQueueMessage** no objeto **ServiceBusService**. Por padrão, as mensagens são excluídas da fila à medida que são lidas; no entanto, você pode ler (pico) e bloquear a mensagem sem excluí-la da fila configurando o parâmetro opcional **isPeekLock** como **true**.
 
 O comportamento padrão da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-Se o parâmetro **isPeekLock** estiver definido como **true**, o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio do processo de recebimento, chamando o método **deleteMessage** e fornecendo a mensagem a ser excluída como um parâmetro. O método **deleteMessage** marcará a mensagem como sendo consumida e a removerá da fila.
+Se o parâmetro **isPeekLock** estiver definido como **true**, o processo de recebimento se tornará uma operação de duas etapas, o que tornará possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo terminar de processar a mensagem (ou a armazenar de forma segura para um processamento futuro), ele concluirá o segundo estágio do processo de recebimento, chamando o método **deleteMessage** e fornecendo a mensagem a ser excluída como um parâmetro. O método **deleteMessage** marcará a mensagem como sendo consumida e a removerá da fila.
 
 O exemplo a seguir demonstra como receber e processar mensagens usando **receiveQueueMessage**. Primeiro, o exemplo recebe e exclui uma mensagem, em seguida recebe a mensagem usando **isPeekLock** definido como **true** e então exclui a mensagem usando **deleteMessage**:
 
@@ -179,7 +181,7 @@ O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recupera
 
 Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, em caso de falha do aplicativo), o Service Bus desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método **deleteMessage** seja chamado, a mensagem será fornecida novamente ao aplicativo quando reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas de entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método **deleteMessage** seja chamado, a mensagem será fornecida novamente ao aplicativo quando reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
 
 ## Próximas etapas
 
@@ -200,4 +202,4 @@ Para saber mais, veja os seguintes recursos.
   [Filas do Azure e Filas do Barramento de Serviço]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

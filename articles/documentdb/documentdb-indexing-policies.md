@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Políticas de indexação do Banco de Dados de Documentos | Microsoft Azure" 
     description="Compreenda como a indexação funciona no Banco de Dados de Documentos e saiba como configurar e alterar a política de indexação. Configure a política de indexação no Banco de Dados de Documentos para indexação automática e mais desempenho." 
-	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
+	keywords="como funciona a indexação, indexação automática, indexação do banco de dados, banco de dados de documentos, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -769,4 +769,4 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

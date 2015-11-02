@@ -13,12 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="09/14/2015"
+   ms.date="10/18/2015"
    ms.author="yuemlu"/>
 
 # Sistema operacional convidado do Azure 
 
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## SO convidado de outubro
+
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-106 | [3096441] | Atualização de segurança cumulativa do Internet Explorer | 4\.25, 3.32, 2.44 | 13 de outubro de 2015 |
+| MS15-108 | [3089659] | Atualização de segurança para JScript e VBScript soluciona possível execução remota de código | 2\.44 | 13 de outubro de 2015 |
+| MS15-109 | [3096443] | Atualização de segurança para o Shell do Windows para solucionar a execução remota de código | 4\.25, 3.32, 2.44 | 13 de outubro de 2015 |
+| MS15-111 | [3096447] | Atualização de segurança para Kernel do Windows para solucionar a elevação de privilégio | 4\.25, 3.32, 2.44 | 13 de outubro de 2015 |
+| Comunicado de Segurança da Microsoft | [3092627] | Atualização de setembro de 2015 para corrigir o congelamento do Windows ou de aplicativo após a instalação da atualização de segurança 3076895 | 4\.25, 3.32, 2.44 | 13 de outubro de 2015 |
+
 
 ## SO convidado de setembro
 
@@ -172,6 +183,12 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
 
+[3096441]: http://support.microsoft.com/kb/3096441
+[3089659]: http://support.microsoft.com/kb/3089659
+[3096443]: http://support.microsoft.com/kb/3096443
+[3096447]: http://support.microsoft.com/kb/3096447
+[3092627]: http://support.microsoft.com/kb/3092627
+
 [3088903]: http://support.microsoft.com/kb/3088903
 [3089548]: http://support.microsoft.com/kb/3089548
 [3072595]: http://support.microsoft.com/kb/3072595
@@ -288,4 +305,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

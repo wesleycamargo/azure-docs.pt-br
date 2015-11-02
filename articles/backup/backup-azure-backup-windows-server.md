@@ -7,7 +7,7 @@
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Fazer backup de pastas e arquivos do Windows Server ou do Windows Client para o Azure
 Este artigo aborda as etapas necessárias para fazer backup de arquivos e pastas do Windows Server ou do Windows Client para o Azure.
@@ -47,4 +47,4 @@ Antes de prosseguir, verifique se todos os [pré-requisitos](backup-configure-va
 - [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

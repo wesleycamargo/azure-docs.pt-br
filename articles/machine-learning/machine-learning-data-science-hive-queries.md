@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Enviar consultas de Hive para clusters do Hadoop no processo de análise avançada | Microsoft Azure" 
+	pageTitle="Enviar consultas do Hive para clusters Hadoop no Processo de Análise do Cortana | Microsoft Azure" 
 	description="Processar dados de tabelas Hive" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -14,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="10/18/2015" 
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Enviar consultas de Hive para clusters do Hadoop do HDInsight no processo de análise avançada
+#<a name="heading"></a> Enviar consultas do Hive para clusters Hadoop do HDInsight no Processo de Análise do Cortana
 
 Este documento descreve várias maneiras de enviar consultas de Hive para clusters de Hadoop gerenciados por um serviço do HDInsight no Azure. Consultas de Hive podem ser enviadas usando:
 
@@ -35,10 +34,10 @@ Na seção final são discutidos os parâmetros que os usuários podem ajustar p
 ## Pré-requisitos
 Este artigo supõe que você:
  
-* criou uma conta de armazenamento do Azure. Se precisar de instruções para esta tarefa, confira [Criar uma conta de Armazenamento do Azure](../hdinsight-get-started.md#storage) 
-* provisionou um cluster do Hadoop com o serviço HDInsight. Se precisar de instruções, consulte [Provisionar um cluster HDInsight](../hdinsight-get-started.md#provision).
-* Os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não tiverem sido, siga as instruções fornecidas em [Criar e carregar dados para tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados para tabelas Hive primeiro.
-* habilitou o acesso remoto ao cluster. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
+* Criou uma conta de armazenamento do Azure. Se precisar de instruções para esta tarefa, confira [Criar uma conta de Armazenamento do Azure](../hdinsight-get-started.md#storage) 
+* Provisionou um cluster do Hadoop com o serviço HDInsight. Se precisar de instruções, consulte [Provisionar um cluster HDInsight](../hdinsight-get-started.md#provision).
+* Carregou os dados em tabelas do Hive em clusters do Hadoop do Azure HDInsight. Se não tiverem sido, siga as instruções fornecidas em [Criar e carregar dados para tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados para tabelas Hive primeiro.
+* Habilitou o acesso remoto ao cluster. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
 ## <a name="submit"></a>Como enviar consultas de Hive
@@ -326,4 +325,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

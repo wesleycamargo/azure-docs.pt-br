@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Criar Hadoop, HBase ou clusters Storm no Linux no HDInsight usando o Azure CLI | Microsoft Azure"
-   	description="Aprenda a criar Hadoop, HBase ou Storm em Linux para HDInsight usando o Azure CLI."
+   	pageTitle="Criar clusters Hadoop, HBase ou Storm no Linux em HDInsight usando o Azure CLI entre plataformas| Microsoft Azure"
+   	description="Aprenda a criar clusters HDInsight baseados em Linux usando o Azure CLI entre plataformas, modelos do Gerenciador de Recursos do Azure e a API REST do Azure. Você pode especificar o tipo de cluster (Hadoop, HBase ou Storm) ou usar scripts para instalar componentes personalizados."
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
@@ -117,4 +117,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

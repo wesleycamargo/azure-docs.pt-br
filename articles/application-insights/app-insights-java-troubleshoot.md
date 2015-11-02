@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Solucionar problemas do Application Insights em um projeto Web Java" 
-	description="Guia de solução de problemas e perguntas e respostas." 
+	description="Guia de solução de problemas: monitoramento em tempo real aplicativos Java com o Application Insights." 
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
@@ -138,4 +138,4 @@ Consulte [Privacidade e retenção de dados][data].
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

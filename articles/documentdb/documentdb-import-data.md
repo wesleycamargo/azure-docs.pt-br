@@ -2,7 +2,7 @@
 	pageTitle="Importar dados no Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba como usar a ferramenta de migração de dados de software livre do Banco de Dados de Documentos para importar dados no Banco de Dados de Documentos de várias fontes, incluindo arquivos JSON, arquivos CSV, SQL, MongoDB, armazenamento de tabelas do Azure e coleções de Bancos de Dados de Documentos." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="andrewhoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="anhoh"/>
 
 # Importar dados no Banco de Dados de Documentos #
 
@@ -35,7 +35,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes itens instalados:
 
-- [Microsoft .NET Framework 4.51](http://www.microsoft.com/net/downloads) ou superior.
+- [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) ou superior.
 
 ##<a id="Overviewl"></a>Visão geral da ferramenta de migração de dados do Banco de Dados de Documentos ##
 
@@ -57,8 +57,8 @@ Embora a ferramenta de importação inclua uma interface gráfica do usuário (d
 
 O código-fonte da ferramenta de migração está disponível no GitHub [nesse repositório](https://github.com/azure/azure-documentdb-datamigrationtool) e há uma versão compilada no [Centro de Download da Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Você pode compilar a solução ou simplesmente baixar e extrair a versão compilada em um diretório de sua escolha. Em seguida, execute um:
 
-- Dtui.exe: Versão da interface gráfica da ferramenta
-- Dt.exe: Versão de linha de comando da ferramenta
+- **Dtui.exe**: Versão da interface gráfica da ferramenta
+- **Dt.exe**: Versão de linha de comando da ferramenta
 
 ##<a id="JSON"></a>Importar arquivos JSON ##
 
@@ -477,4 +477,4 @@ Na tela de Configuração avançada, especifique a localização do arquivo de l
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="O que é o Estúdio de Aprendizado de Máquina do Azure? | Microsoft Azure"
 	description="Visão geral do Estúdio AM do Azure, uma ferramenta do tipo ";arrastar e soltar"; para criar rapidamente modelos em de uma biblioteca de algoritmos e módulos pronta para uso."
-	keywords="azure machine learning,azure ml, ml studio"
+	keywords="aprendizado de máquina do azure, am do azure, estúdio am"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -48,17 +48,17 @@ Existem três guias na parte superior: **Página inicial** (onde iniciar), **Est
 Clique na guia **Estúdio** e será solicitado que você entre usando a conta da Microsoft, ou sua conta de trabalho ou escola. Depois de conectado, você verá as seguintes guias à esquerda:
 
 - **TESTES** – Testes criados, executados e salvos como rascunhos
-- **SERVIÇOS WEB** -serviços Web que você implantou dos testes
-- **NOTEBOOKS** - notebooks Jupyter que você criou
-- **Conjuntos de dados** - conjuntos de dados que você carregou no Estúdio
-- **MODELOS TREINADOS** -modelos que você treinou em testes e salvos no Estúdio
+- **SERVIÇOS WEB** -Serviços Web que você implantou a partir dos testes
+- **NOTEBOOKS** - Notebooks Jupyter que você criou
+- **CONJUNTOS DE DADOS** - Conjuntos de dados que você carregou no Estúdio
+- **MODELOS TREINADOS** - Modelos que você treinou em testes e salvos no Estúdio
 - **CONFIGURAÇÕES** – Uma coleção das configurações que você pode usar para configurar sua conta e recursos.
 
 ### Galeria
 
-Clique na guia **Galeria** guia e você será levado para a Galeria de Análise do Cortana. A Galeria é um lugar no qual uma comunidade de desenvolvedores e cientistas de dados pode compartilhar soluções criadas usando os componentes do Pacote de Análise do Cortana.
+Clique na guia **Galeria** guia e você será levado para a Galeria de Análise da Cortana. A Galeria é um lugar no qual uma comunidade de desenvolvedores e cientistas de dados pode compartilhar soluções criadas usando os componentes do Pacote de Análise do Cortana.
 
-Para obter mais informações sobre a Galeria, consulte as [Soluções de compartilhamento e descoberta na Galeria de Analise do Cortana](machine-learning-gallery-how-to-use-contribute-publish.md).
+Para saber mais sobre a Galeria, consulte as [Soluções de compartilhamento e descoberta na Galeria de Analise da Cortana](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 ## Componentes de um teste
 
@@ -70,7 +70,7 @@ Um teste consiste em conjuntos de dados que fornecem dados para módulos analít
 - Todas as portas de entrada dos módulos devem ter uma conexão com o fluxo de dados.
 - Todos os parâmetros necessários para cada módulo devem estar configurados.
 
-Você pode criar uma experiência do zero, ou você pode usar uma experiência de exemplo existente como um modelo. Para obter mais informações, consulte [Use experimentos de exemplo para criar novos experimentos](machine-learning-sample-experiments.md).
+Você pode criar uma experiência do zero, ou você pode usar uma experiência de exemplo existente como um modelo. Para saber mais, consulte [Use experimentos de exemplo para criar novos experimentos](machine-learning-sample-experiments.md).
 
 Para obter um exemplo de criação de um teste simples, consulte [Criar um teste simples no Estúdio de Aprendizado de Máquina do Azure](machine-learning-create-experiment.md).
 
@@ -105,7 +105,7 @@ Para obter ajuda sobre navegação através da biblioteca grande dos algoritmos 
 
 ## Implantando um serviço Web de análise preditiva
 
-Quando seu modelo de análise preditiva estiver pronto, você pode implantá-lo como um serviço Web diretamente do Estúdio de aprendizado de máquina. Para obter mais detalhes neste processo, consulte [Implantar um serviço Web do Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md).
+Quando seu modelo de análise preditiva estiver pronto, você pode implantá-lo como um serviço Web diretamente do Estúdio de aprendizado de máquina. Para obter mais detalhes sobre esse processo, consulte [Implantar um serviço Web do Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md).
 
 [ml-studio-overview]: ./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
 
@@ -115,4 +115,4 @@ Quando seu modelo de análise preditiva estiver pronto, você pode implantá-lo 
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

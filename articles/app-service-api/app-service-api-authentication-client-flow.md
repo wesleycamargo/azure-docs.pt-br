@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="tdykstra"/>
 
 # Chamar um aplicativo de API do Azure de um cliente de aplicativo Web autenticado pelo Active Directory do Azure
@@ -227,4 +227,4 @@ Você viu como fazer a autenticação do fluxo de cliente para aplicativos de AP
 [portal do Azure]: https://manage.windowsazure.com/
 [portal de visualização do Azure]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

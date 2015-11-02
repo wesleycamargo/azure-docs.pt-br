@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Perguntas de banco de dados sobre o Banco de Dados de Documentos — perguntas frequentes | Microsoft Azure" 
 	description="Obtenha respostas para perguntas frequentes sobre o serviço de banco de dados de documento NoSql do Banco de Dados de Documentos do Azure. Responda perguntas de banco de dados sobre capacidade, níveis de desempenho e dimensionamento." 
-	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
+	keywords="Perguntas de banco de dados, perguntas frequentes, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -31,7 +31,7 @@ Para obter mais perguntas, respostas e instruções de banco de dados sobre como
 O Banco de Dados de Documentos é um banco de dados voltado a documentos NoSQL que armazena dados no formato JSON. O Banco de Dados de Documentos dá suporte a estruturas de dados autocontidos aninhados, que podem ser consultados com uma sofisticada [gramática de consulta SQL](documentdb-sql-query.md) do Banco de Dados de Documentos. O Banco de Dados de Documentos fornece processamento de transações de alto desempenho de JavaScript por parte do servidor com [procedimentos armazenados, gatilhos e funções definidas pelo usuário](documentdb-programming.md). O banco de dados dá suporte também a níveis de consistência ajustáveis pelo desenvolvedor, com [níveis de desempenho](documentdb-performance-levels.md) associados.
  
 ### Os bancos de dados do Banco de Dados de Documentos têm tabelas como um banco de dados relacional (RDBMS)?
-Não, o Banco de Dados de Documentos armazena dados em coleções de documentos JSON. Para obter informações sobre os recursos do Banco de Dados de Documentos, consulte o [Modelo e conceitos de recursos do Banco de Dados de Documentos](documentdb-resources.md).
+Não, o Banco de Dados de Documentos armazena dados em coleções de documentos JSON. Para saber mais sobre os recursos do Banco de Dados de Documentos, consulte o [Modelo e conceitos de recursos do Banco de Dados de Documentos](documentdb-resources.md).
 
 ### Os bancos de dados do Banco de Dados de Documentos têm suporte para dados sem esquema?
 Sim, o Banco de Dados de Documentos permite que os aplicativos armazenem documentos JSON arbitrários sem definições ou dicas de esquema. Os dados ficam disponíveis imediatamente para consulta com a interface de consulta SQL do Banco de Dados de Documentos.
@@ -49,10 +49,10 @@ Contas do Banco de Dados de Documentos podem ser dimensionadas em termos de arma
 Consulte a página [Detalhes de preços do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=402317) para obter mais informações. Os encargos pelo uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, o número de horas em que as coleções estiveram online e o [nível de desempenho](documentdb-performance-levels.md) de cada coleção.
 
 ### Existe uma avaliação gratuita disponível?
-Se for novo no Azure, você pode se inscrever para uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá a você 30 dias e US $200 para experimentar todos os serviços do Azure. Ou, se você tiver uma assinatura do MSDN, estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
+Se for novo no Azure, você pode se inscrever para uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou, se você tiver uma assinatura do MSDN, estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
 
 ### Como obter ajuda adicional com o Banco de Dados de Documentos?
-Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), nos [Fóruns de desenvolvedores do MSDN do Banco de Dados de Documentos do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou marque um [chat individual com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
+Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), nos [Fóruns de desenvolvedores do MSDN do Banco de Dados de Documentos do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou marque um [chat com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
 
 ## Configurar o Banco de Dados de Documentos do Microsoft Azure
 
@@ -112,4 +112,4 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

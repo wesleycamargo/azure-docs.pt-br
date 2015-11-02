@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/15/2015"
    ms.author="sahajs"/>
 
 # Proteger um banco de dados no SQL Data Warehouse
@@ -78,7 +78,7 @@ O gerenciamento de bancos de dados e servidores lógicos pelo Portal de Gerencia
 
 ## Criptografia
 
-O SQL Data Warehouse do Azure pode ajudar a proteger seus dados criptografando-os quando estiverem “em repouso” ou armazenados em arquivos e backups de banco de dados usando a [Transparent Data Encryption][]. Para criptografar o banco de dados, conecte-se como um proprietário de banco de dados e execute:
+O SQL Data Warehouse do Azure pode ajudar a proteger seus dados criptografando-os quando estiverem “em repouso” ou armazenados em arquivos e backups de banco de dados usando a [Transparent Data Encryption][]. Para criptografar o banco de dados, conecte-se ao banco de dados mestre em seu servidor e execute:
 
 
 ```
@@ -119,4 +119,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 <!--Other Web references-->
 [Controle de acesso baseado em função no portal de Visualização do Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

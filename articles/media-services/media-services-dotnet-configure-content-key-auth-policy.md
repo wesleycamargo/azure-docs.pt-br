@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Criptografia dinâmica: configurar a política de autorização de chave de conteúdo usando .NET" 
-	description="Saiba como configurar uma política de autorização para uma chave de conteúdo." 
+	pageTitle="Configurar política de autorização de chave de conteúdo usando o SDK do .NET dos Serviços de Mídia" 
+	description="Saiba como configurar uma política de autorização para uma chave de conteúdo usando o SDK do .NET dos Serviços de Mídia do Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="10/18/2015"
 	ms.author="juliako"/>
 
 
@@ -403,4 +403,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Perguntas Frequentes sobre o Aprendizado de Máquina do Azure | Microsoft Azure"
 	description="Introdução ao Aprendizado de Máquina do Azure: perguntas frequentes sobre cobrança, recursos e limitações de um serviço de nuvem para modelagem preditiva simplificada."
-	keywords="machine learning introduction,predictive modeling,what is machine learning"
+	keywords="introdução ao aprendizado de máquina, modelagem preditiva, o que é aprendizado de máquina"
 	services="machine-learning"
 	documentationCenter=""
 	authors="pablissima"
@@ -93,8 +93,7 @@ Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do 
 
 **Eu posso ler dados da Amazon S3?**
 
-Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento.
-<!--
+Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento. <!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -179,12 +178,12 @@ Não atualmente, mas com o módulo Python padrão ou um conjunto deles, o mesmo 
 
 **Há um ambiente REPL para Python?**
 
-Você pode usar os blocos de notas Jupyter no Estúdio de aprendizado de máquina. Para obter mais informações, consulte [Introdução aos blocos de notas Jupyter no Estúdio AM do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
+Você pode usar os blocos de notas Jupyter no Estúdio de aprendizado de máquina. Para saber mais, consulte [Introdução aos blocos de notas Jupyter no Estúdio AM do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Serviço Web
 ###Treinando modelos programaticamente
 
-**Como posso treinar novamente modelos do AM do Azure programaticamente?** Use as APIs de novos treinamentos. Há código de exemplo disponível [aqui](https://azuremlretrain.codeplex.com/).
+**Como posso treinar novamente modelos do AzureML programaticamente?** Use as APIs de novos treinamentos. Há código de exemplo disponível [aqui](https://azuremlretrain.codeplex.com/).
 
 ###Criar
 
@@ -202,7 +201,7 @@ O Serviço de Solicitação-Resposta (RRS) é um serviço Web de baixa latência
 
 **Como posso atualizar o modelo para o serviço Web implantado?**
 
-Atualizar um modelo preditivo para um serviço já implantado é tão simples quanto modificar e executar novamente o experimento usado para criar e salvar o modelo treinado. Uma vez que tiver uma nova versão do modelo treinado disponível, o Estúdio AM perguntará se você deseja atualizar seu serviço Web de preparação. Depois que a atualização é aplicada ao serviço Web de preparo, a mesma atualização ficará disponível para ser aplicada também ao serviço Web de produção. Veja [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como atualizar um serviço Web implantado.
+Atualizar um modelo preditivo para um serviço já implantado é tão simples quanto modificar e executar novamente o experimento usado para criar e salvar o modelo treinado. Uma vez que tiver uma nova versão do modelo treinado disponível, o Estúdio AM perguntará se você deseja atualizar seu serviço Web de preparação. Depois que a atualização é aplicada ao serviço Web de preparo, a mesma atualização ficará disponível para ser aplicada também ao serviço Web de produção. Consulte [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como atualizar um serviço Web implantado.
 
 Você também pode usar as APIs de novos treinamentos. O código de exemplo está disponível [aqui](https://azuremlretrain.codeplex.com/).
 
@@ -215,8 +214,7 @@ Após um modelo de previsão ser colocado em produção, você pode monitorá-lo
 
 Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode gravá-la em um blob. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo Gravador.
 
- ** Posso criar serviços Web apenas de modelos criados no Estúdio? 
-Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+ **** Posso criar serviços Web apenas de modelos criados no Estúdio? Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
 
 
 ##Escalabilidade
@@ -309,4 +307,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

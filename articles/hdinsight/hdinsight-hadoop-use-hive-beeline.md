@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Usar o Hive do Hadoop e SSH no HDInsight | Microsoft Azure"
-   description="Aprenda a usar o SSH para se conectar a um cluster Hadoop no HDInsight e enviar interativamente consultas do Hive usando a ferramenta Beeline."
+   pageTitle="Usar o Beeline para trabalhar com o Hive no HDInsight (Hadoop) | Microsoft Azure"
+   description="Aprenda a usar o SSH para se conectar a um cluster Hadoop no HDInsight e enviar interativamente consultas do Hive usando o Beeline. Beeline é um utilitário para trabalhar com HiveServer2 sobre JDBC."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -237,4 +237,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

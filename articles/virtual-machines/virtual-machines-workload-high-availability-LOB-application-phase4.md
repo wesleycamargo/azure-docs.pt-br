@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/20/2015" 
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 4: configurar os servidores Web
@@ -30,36 +30,26 @@ Conclua esta fase antes de passar para a [Fase 5](virtual-machines-workload-high
 
 Há duas máquinas virtuais de servidor Web nas quais você pode implantar aplicativos ASP.NET ou aplicativos mais antigos que podem ser hospedados pelo IIS (Serviços de Informações da Internet) 8 no Windows Server 2012 R2.
 
-> [AZURE.NOTE]Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0.0 e posteriores. Você pode verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**. Os blocos de comandos do Azure PowerShell neste artigo estão sendo testados e atualizados a fim de dar suporte aos novos cmdlets nas versões 1.0.0 e posteriores do Azure PowerShell. Agradecemos sua paciência.
+> [AZURE.NOTE]Este artigo contém comandos para o Azure PowerShell Preview 1.0. Para executar esses comandos no Azure PowerShell 0.9.8 e em versões anteriores, substitua todas as instâncias de "-AzureRM" por "-Azure" e adicione o comando **Switch-AzureMode AzureResourceManager** antes de executar quaisquer comandos. Para saber mais, consulte [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
-Primeiro, você configurar o balanceamento de carga interno para que o Azure distribua o tráfego do cliente para o aplicativo de linha de negócios uniformemente entre os dois servidores Web. Isso requer que você especifique uma instância de balanceamento de carga interno, que consiste em um nome e o seu próprio endereço IP, atribuído por meio do espaço de endereço de sub-rede que você designou para sua rede virtual do Azure. Para determinar se um endereço IP que você escolheu para o balanceador de carga interno está disponível, use estes comandos no prompt do Azure PowerShell. Especifique os valores das variáveis e remova os caracteres < and >.
+Primeiro, você configurar o balanceamento de carga interno para que o Azure distribua o tráfego do cliente para o aplicativo de linha de negócios uniformemente entre os dois servidores Web. Isso requer que você especifique uma instância de balanceamento de carga interno, que consiste em um nome e o seu próprio endereço IP, atribuído por meio do espaço de endereço de sub-rede que você designou para sua rede virtual do Azure.
 
-	Switch-AzureMode AzureServiceManagement
-	$vnet="<Table V – Item 1 – Value column>"
-	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
-	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
+Preencha as variáveis e execute o seguinte conjunto de comandos:
 
-Se o campo **IsAvailable** na exibição do comando Test-AzureStaticVNetIP for **True**, você poderá usar o endereço IP.
-
-Alterne para o modo do Gerenciador de Recursos do PowerShell com este comando.
-
-	Switch-AzureMode AzureResourceManager
-
-Em seguida, preencha as variáveis e execute o seguinte conjunto de comandos:
-
+	# Set up key variables
 	$rgName="<resource group name>"
 	$locName="<Azure location of your resource group>"
 	$vnetName="<Table V – Item 1 – Value column>"
 	$privIP="<available IP address on the subnet>"
-	$vnet=Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-	$frontendIP=New-AzureLoadBalancerFrontendIpConfig -Name WebServers-LBFE -PrivateIPAddress $privIP -SubnetId $vnet.Subnets[1].Id
-	$beAddressPool=New-AzureLoadBalancerBackendAddressPoolConfig -Name WebServers-LBBE
+	$frontendIP=New-AzureRMLoadBalancerFrontendIpConfig -Name WebServers-LBFE -PrivateIPAddress $privIP -SubnetId $vnet.Subnets[1].Id
+	$beAddressPool=New-AzureRMLoadBalancerBackendAddressPoolConfig -Name WebServers-LBBE
 
 	# This example assumes unsecured (HTTP-based) web traffic to the web servers.
-	$healthProbe=New-AzureLoadBalancerProbeConfig -Name WebServersProbe -Protocol "TCP" -Port 80 -IntervalInSeconds 15 -ProbeCount 2
-	$lbrule=New-AzureLoadBalancerRuleConfig -Name "WebTraffic" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "TCP" -FrontendPort 80 -BackendPort 80
-	New-AzureLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure" -Location $locName -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe -FrontendIpConfiguration $frontendIP
+	$healthProbe=New-AzureRMLoadBalancerProbeConfig -Name WebServersProbe -Protocol "TCP" -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+	$lbrule=New-AzureRMLoadBalancerRuleConfig -Name "WebTraffic" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "TCP" -FrontendPort 80 -BackendPort 80
+	New-AzureRMLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure" -Location $locName -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe -FrontendIpConfiguration $frontendIP
 
 Em seguida, adicione um registro de endereço DNS na infraestrutura DNS interna da sua organização, o qual resolve o nome de domínio totalmente qualificado do aplicativo de linha de negócios (como lobapp.corp.contoso.com) para o endereço IP atribuído ao balanceador de carga interno (o valor de $privIP no bloco de comando anterior do Azure PowerShell).
 
@@ -75,13 +65,10 @@ Lembre-se de que você definiu a Tabela M na [Fase 2](virtual-machines-workload-
 
 Quando você tiver fornecido a todos os valores adequados, execute o bloco resultante no prompt do Azure PowerShell.
 
-	# Set up subscription and key variables
-	$subscr="<name of the Azure subscription>"
-	Set-AzureSubscription -SubscriptionName $subscr
-	Switch-AzureMode AzureResourceManager
+	# Set up key variables
 	$rgName="<resource group name>"
 	$locName="<Azure location of your resource group>"
-	$webLB=Get-AzureLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure"	
+	$webLB=Get-AzureRMLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure"	
 	
 	# Use the standard storage account
 	$saName="<Table ST – Item 2 – Storage account name column>"
@@ -89,37 +76,37 @@ Quando você tiver fornecido a todos os valores adequados, execute o bloco resul
 	$vnetName="<Table V – Item 1 – Value column>"
 	$beSubnetName="<Table S - Item 2 - Name column>"
 	$avName="<Table A – Item 3 – Availability set name column>"
-	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	$backendSubnet=Get-AzureVirtualNetworkSubnetConfig -Name $beSubnetName -VirtualNetwork $vnet
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$backendSubnet=Get-AzureRMVirtualNetworkSubnetConfig -Name $beSubnetName -VirtualNetwork $vnet
 	
 	# Create the first web server virtual machine
 	$vmName="<Table M – Item 6 - Virtual machine name column>"
 	$vmSize="<Table M – Item 6 - Minimum size column>"
-	$nic=New-AzureNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
-	$avSet=Get-AzureAvailabilitySet -Name $avName –ResourceGroupName $rgName 
-	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
+	$avSet=Get-AzureRMAvailabilitySet -Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first web server." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 	
 	# Create the second web server virtual machine
 	$vmName="<Table M – Item 7 - Virtual machine name column>"
 	$vmSize="<Table M – Item 7 - Minimum size column>"
-	$nic=New-AzureNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
-	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second second SQL Server computer." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 > [AZURE.NOTE]Como essas máquinas virtuais são para um aplicativo de intranet, elas não recebem um endereço IP público ou um rótulo de nome de domínio DNS e não são expostas na Internet. No entanto, isso também significa que você não poderá se conectar a elas do portal de Visualização do Azure. O botão **Conectar** não ficará disponível quando você exibir as propriedades da máquina virtual.
 
@@ -138,7 +125,7 @@ Depois de reiniciar, reconecte-os usando uma conta que tenha privilégios de adm
 Em seguida, para cada servidor Web, instale e configure o IIS.
 
 1. Execute o Gerenciador do Servidor e clique em **Adicionar funções e recursos**.
-2. Na página Antes de começar, clique em **Avançar**.
+2. Na página Antes de Começar, clique em **Avançar**.
 3. Na página Selecionar tipo de instalação, clique em **Avançar**.
 4. Na página Selecionar servidor de destino, clique em **Avançar**.
 5. Na página Funções do servidor, clique em **Servidor Web (IIS)** na lista **Funções**.
@@ -175,4 +162,4 @@ Para continuar com a configuração dessa carga de trabalho, vá para a [Fase 5:
 
 [Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

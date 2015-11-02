@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/20/2015"
    ms.author="larryfr"/>
 
 #Gerenciar clusters HDInsight usando o Ambari (visualização)
@@ -29,11 +29,15 @@ O <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> simplific
 
 Ambari é fornecido por padrão com os clusters HDInsight baseados em Linux. Clusters HDInsight baseados no Windows fornecem funcionalidade de monitoramento através das APIs REST do Ambari.
 
+##Conectividade
+
+A conexão com o Ambari em seu cluster HDInsight exige o uso do HTTPS. Você também deve autenticar no Ambari usando o nome da conta de administrador (o padrão é __admin__) e a senha fornecidos durante a criação do cluster.
+
 ##Proxy SSH
 
 > [AZURE.NOTE]Enquanto o Ambari para o cluster é acessível diretamente pela Internet, alguns links da interface do Ambari (como para o JobTracker) não são expostos na internet. Portanto, você receberá erros de "servidor não encontrado" ao tentar acessar esses recursos, a menos que use um túnel Secure Shell (SSH) para o tráfego de proxy da web para o nó principal do cluster.
 
-Para obter mais informações sobre como criar e usar um túnel SSH para trabalhar com Ambari, consulte [Usar um túnel SSH para acessar a IU Web do Ambari, ResourceManager, JobHistory, NameNode, Oozie e IU da Web](hdinsight-linux-ambari-ssh-tunnel.md).
+Para saber mais sobre como criar e usar um túnel SSH para trabalhar com Ambari, consulte [Usar um túnel SSH para acessar a IU Web do Ambari, ResourceManager, JobHistory, NameNode, Oozie e IU da Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Interface da Web do Ambari
 
@@ -137,7 +141,7 @@ A seleção de qualquer um desses links abrirá uma nova guia em seu navegador, 
 
 > [AZURE.NOTE]Selecionar um link **Links Rápidos** de algum serviço resultará em um erro "servidor não encontrado", a não ser que você use um túnel SSL como proxy do tráfego da Web para o cluster. Isso ocorre porque os aplicativos Web usados para exibir essas informações não são expostos na Internet.
 >
-> Para obter mais informações sobre o uso em um túnel SSL com HDInsight, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IU da Web](hdinsight-linux-ambari-ssh-tunnel.md)
+> Para saber mais sobre o uso em um túnel SSL com HDInsight, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IU da Web](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ##Gerenciamento
 
@@ -187,7 +191,7 @@ Na página **Painel** ou **Serviços**, use o botão **Ações** na parte inferi
 
 ![ações de serviço](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]Enquanto __Adicionar serviço__ estiver listado nesse menu, ele não deve ser usado para adicionar serviços ao cluster HDInsight. Novos serviços devem ser adicionados usando uma Ação de Script durante o provisionamento do cluster. Para saber mais sobre o uso de Ações de Script, consulte [Personalizar clusters HDInsight usando Ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.WARNING]Enquanto __Adicionar Serviço__ estiver listado nesse menu, ele não deve ser usado para adicionar serviços ao cluster HDInsight. Novos serviços devem ser adicionados usando uma Ação de Script durante o provisionamento do cluster. Para saber mais sobre o uso de Ações de Script, consulte [Personalizar clusters HDInsight usando Ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
 
 Embora o botão **Ações** possa reiniciar todos os serviços, muitas vezes convém iniciar, parar ou reiniciar um serviço específico. Use as seguintes etapas para executar ações em um serviço individual:
@@ -228,4 +232,4 @@ Ambari Web se baseia em uma API REST subjacente, que você pode aproveitar para 
 
 Para obter uma referência completa da API REST, consulte [Referência de API do Ambari, V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

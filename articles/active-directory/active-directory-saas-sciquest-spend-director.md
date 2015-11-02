@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Integração do Active Directory do Azure com o SciQuest Spend Director"
+	pageTitle="Tutorial: Integração do Active Directory do Azure com o SciQuest Spend Director | Microsoft Azure"
 	description="Saiba como configurar o logon único entre o Active Directory do Azure e o SciQuest Spend Director."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -25,7 +25,7 @@ O objetivo deste tutorial é mostrar a você como integrar o SciQuest Spend Dire
 - Você pode habilitar seus usuários a fazerem logon automaticamente no SciQuest Spend Director (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
 ## Pré-requisitos 
 
@@ -41,7 +41,7 @@ Para configurar a integração do Azure AD com o SciQuest Spend Director, você 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrição do cenário
@@ -166,7 +166,7 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 ## Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Active Directory do Azure?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_01.png
@@ -195,4 +195,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

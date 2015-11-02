@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/03/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Como usar o CoreOS no Azure
@@ -24,7 +24,7 @@ Este tópico descreve o [CoreOS] e mostra como criar um cluster de três máquin
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
 
-## <a id='intro'>CoreOS, clusters e contêineres do Linux</a>
+## CoreOS, clusters e contêineres do Linux
 
 O CoreOS é uma versão leve do Linux, criada para fornecer suporte à criação rápida de clusters de máquinas virtuais possivelmente muito grandes e que usam contêineres Linux como único mecanismo de empacotamento, incluindo contêineres [Docker]. O CoreOS deve proporcionar:
 
@@ -40,10 +40,10 @@ Os recursos do CoreOS que dão suporte a essas metas são:
 
 Essa é a descrição genérica do CoreOS e de seus recursos. Para obter informações mais detalhadas sobre o CoreOS, confira [Visão geral do CoreOS].
 
-## <a id='security'>Considerações de segurança</a>
-No momento, o CoreOS parte do pressuposto de que todos que podem executar SSH no cluster têm permissão para gerenciá-los. Como resultado, sem modificações, os clusters CoreOS são excelentes para ambientes de teste e desenvolvimento, mas é necessário aplicar outras medidas de segurança em qualquer ambiente de produção.
+## Considerações de segurança
+No momento, o CoreOS parte do pressuposto de que todos que podem executar SSH no cluster têm permissão para gerenciá-los. Como resultado, sem modificações, os clusters CoreOS são excelentes para ambientes de teste e desenvolvimento, mas é necessário aplicar outras medidas de segurança em ambientes de produção.
 
-## <a id='usingcoreos'>Como usar o CoreOS no Azure</a>
+## Como usar o CoreOS no Azure
 
 Esta seção descreve como criar um serviço de nuvem do Azure com três máquinas virtuais CoreOS por meio da [CLI do Azure (Interface de Linha de Comando do Azure)]. Estas são as etapas básicas:
 
@@ -58,7 +58,7 @@ Esta seção descreve como criar um serviço de nuvem do Azure com três máquin
 
 Usar as instruções presentes em [Como usar SSH com Linux no Azure](virtual-machines-linux-use-ssh-key.md) a fim de criar chaves pública e privada para SSH. As etapas básicas estão descritas nas instruções abaixo. Você vai usar essas chaves para conectar-se às máquinas virtuais no cluster e verificar se elas estão funcionando e podem comunicar-se umas com as outras.
 
-> [AZURE.NOTE]Este tópico parte do pressuposto de que você não tem essas chaves e precisa criar arquivos `myPrivateKey.pem` e `myCert.pem` para garantir a clareza. Se você já salvou as chaves pública e privada no `~/.ssh/id_rsa`, basta digitar `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` para obter o arquivo .pem que você precisa carregar no Azure.
+> [AZURE.NOTE]Este tópico parte do pressuposto de que você não tem essas chaves e precisa criar arquivos `myPrivateKey.pem` e `myCert.pem` para garantir a clareza. Se você já tiver salvado as chaves pública e privada no `~/.ssh/id_rsa`, bastará digitar `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` para obter o arquivo .pem que você precisa carregar no Azure.
 
 1. Em um diretório de trabalho, digite `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` para criar a chave privada e o certificado X.509 associado a ela.
 
@@ -110,7 +110,7 @@ Para obter informações mais detalhadas sobre o arquivo de configuração de nu
 
 3. Digite `azure service create <cloud-service-name>` a fim de criar um serviço de nuvem para seu cluster básico, em que <*cloud-service-name*> é o nome de seu serviço de nuvem CoreOS. O nome desta amostra é **`coreos-cluster`**. Você precisará reutilizar o nome escolhido na criação das suas instâncias de VM CoreOS no serviço de nuvem.
 
-	Uma observação: se observar o que já fez no [portal de visualização](https://portal.azure.com), você encontrará um nome de serviço de nuvem que é um grupo de recursos e um domínio, como mostra a imagem abaixo:
+	Uma observação: se examinar o que já fez no [portal de visualização](https://portal.azure.com), você encontrará um nome de serviço de nuvem que é um grupo de recursos e um domínio, como mostra a imagem abaixo:
 
 	![][CloudServiceInNewPortal]
 
@@ -209,4 +209,4 @@ Agora você deve ter um cluster CoreOS com três nós no Azure. Aqui, você pode
 [YAML]: http://yaml.org/
 [Introdução ao Fleet no CoreOS no Azure]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

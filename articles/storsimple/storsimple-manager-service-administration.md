@@ -57,12 +57,11 @@ A hierarquia de navegação para a interface do usuário do StorSimple Manager �
 |Página de aterrisagem|Páginas de nível de serviço|Páginas de nível de dispositivo|Páginas de nível de dispositivo|
 |---|---|---|---|
 |Serviço StorSimple Manager|Painel de serviço|Painel do dispositivo||
-||Dispositivos →|Monitor|| 
-||Catálogo de backup|Contêineres de volume|Volumes| 
-||Configurar (Serviço)|Políticas de backup|| 
-||Trabalhos|Configurar (Dispositivo)|| 
-||Alertas|Manutenção||
+||Dispositivos →|Monitor| ||Catálogo de backup|Contêineres de volume|Volumes| ||Configurar (Serviço)|Políticas de backup|| ||Trabalhos|Configurar (Dispositivo)| ||Alertas|Manutenção|
 
+![Vídeo disponível](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponível**
+
+Para assistir a um vídeo com orientações sobre a interface de usuário do serviço StorSimple Manager, clique [aqui](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Administrar o dispositivo StorSimple por meio do serviço StorSimple Manager
 
@@ -102,9 +101,6 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 |Criar um pacote de suporte|Serviço StorSimple Manager → Dispositivos → Manutenção|[Criar e gerenciar pacotes de suporte](storsimple-create-manage-support-package.md)|
 |Instalar as atualizações do software|Serviço StorSimple Manager → Dispositivos → Manutenção|[Atualizar seu dispositivo](storsimple-update-device.md)|
 
-![Vídeo disponível](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponível**
-
-Para assistir a um vídeo com orientações sobre a interface de usuário do serviço StorSimple Manager, clique [aqui](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ##Próximas etapas
 Se você tiver problemas com a operação diária do seu dispositivo StorSimple ou com qualquer um de seus componentes de hardware, consulte:
@@ -116,4 +112,4 @@ Se você não conseguir resolver os problemas e precisar criar uma solicitação
 
 -  [Contatar Suporte da Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

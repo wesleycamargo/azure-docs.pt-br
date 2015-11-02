@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="10/19/2015"
    ms.author="tomfitz"/>
 
-# Suporte do Gerenciador de Recursos do Azure para regiões e serviços
+# Suporte do Gerenciador de Recursos do Azure para serviços, regiões e versões de API
 
 O Gerenciador de Recursos do Azure fornece uma nova maneira de implantar e gerenciar os serviços que compõem seus aplicativos. A maioria (não todos) dos serviços suporta o Gerenciador de Recursos e alguns serviços suportam o Gerenciador de Recursos apenas parcialmente. A Microsoft habilitará o Gerenciador de Recursos para todos os serviços importantes para soluções futuras, mas, até que o suporte seja consistente, você precisa saber o status atual de cada serviço. Este tópico fornece uma lista de provedores de recursos com suporte para o Gerenciador de Recursos do Azure.
 
-Ao implantar seus recursos, você também precisa saber quais são as regiões que oferecem suporte a esses recursos. A seção [Regiões com suporte](#supported-regions) mostra como descobrir quais regiões funcionarão para sua assinatura e seus recursos.
+Ao implantar seus recursos, você também precisa saber quais são as regiões que oferecem suporte a esses recursos e quais versões de API estão disponíveis para os recursos. A seção [Regiões com suporte](#supported-regions) mostra como descobrir quais regiões funcionarão para sua assinatura e seus recursos. A seção [Versões de API com suporte](#supported-api-versions) mostra como determinar quais versões de API você pode usar.
 
 As tabelas a seguir listam quais serviços suportam a implantação e o gerenciamento por meio do Gerenciador de Recursos e quais não. A coluna denominada **Mover recursos** refere-se a se recursos desse tipo podem ser movidos para um novo grupo de recursos e uma nova assinatura. A coluna denominada **Portal de visualização** indica se você pode criar o serviço por meio do portal de visualização.
 
@@ -32,9 +32,9 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 | Máquinas Virtuais | Sim | Sim | Não | [Criar VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Sim | Não | | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Serviços de ciclo de vida do Dynamics | Sim | Não | | | |
-| Máquinas virtuais (clássico) | Limitado | Não | Parcial (veja abaixo) | - | - | | Aplicativo remoto | Não | - | - | - | - | | Service Fabric | Não | - | - | - | - |
+| Máquinas Virtuais (clássicas) | Limitado | Sim | Parcial (veja abaixo) | - | - | | Aplicativo remoto | Não | - | - | - | - | | Service Fabric | Não | - | - | - | - |
 
-Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para obter mais informações sobre esses modelos de implantação, consulte [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
+Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, consulte [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
 Recursos de máquinas virtuais (clássico) podem ser movidos para um novo grupo de recursos, mas não uma nova assinatura.
 
@@ -86,7 +86,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Balanceador de carga | Sim | | | [Criar balanceador de carga](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Redes Virtuais | Sim | Sim | Não | [Criar Rede Virtual](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Gerenciador de Tráfego | Sim | Não | | [Criar perfil do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
-| Rota Expressa | Não | Não | - | - | - |
+| Rota Expressa | Sim | Não | Não | [REST da Rota Expressa](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
 ## Mídia e CDN
 
@@ -135,11 +135,11 @@ Antes de implantar seus recursos, verifique as regiões com suporte para o tipo 
 
 ### API REST
 
-A melhor opção para descobrir quais regiões estão disponíveis para um tipo de recurso específico é a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx). Essa operação retorna apenas as regiões que estão disponíveis para sua assinatura e seu tipo de recurso.
+Para descobrir quais regiões estão disponíveis para um tipo de recurso específico em sua assinatura, use a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx).
 
 ### PowerShell
 
-O exemplo a seguir mostra como obter as regiões com suporte para sites da web usando o Azure PowerShell 1.0 Preview. Para obter mais informações sobre a versão 1.0 Preview, consulte [Azure PowerShell 1.0 Preview.](https://azure.microsoft.com/blog/azps-1-0-pre/)
+O exemplo a seguir mostra como obter as regiões com suporte para sites da web usando o Azure PowerShell 1.0 Preview. Para saber mais sobre a versão 1.0 Preview, consulte [Azure PowerShell 1.0 Preview.](https://azure.microsoft.com/blog/azps-1-0-pre/)
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -177,4 +177,44 @@ Que retorna:
             North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
     }
 
-<!---HONumber=Oct15_HO3-->
+## Versões de API com suporte
+
+Ao implantar um modelo, você deve especificar uma versão de API a ser usada para criar cada recurso. A versão disponível da API corresponde a uma versão das operações da API REST lançadas pelo provedor de recursos. Como um provedor de recursos habilita novos recursos, ele lançará uma nova versão da API REST. Portanto, a versão da API especificada em seu modelo afetará quais propriedades estarão disponíveis para você durante a criação do modelo. Em geral, você deve selecionar a versão mais recente da API ao criar novos modelos. Para os modelos existentes, você pode decidir se deseja continuar usando uma versão de API anterior ou atualizar o modelo para a versão mais recente para aproveitar os novos recursos.
+
+### API REST
+
+Para descobrir quais versões de API está disponíveis para os tipos de recurso, use a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+
+### PowerShell
+
+O exemplo a seguir mostra como obter as versões de API disponíveis para um tipo de recurso determinado usando o Azure PowerShell 1.0 Preview.
+
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    
+A saída será semelhante a:
+    
+    2015-08-01
+    2015-07-01
+    2015-06-01
+    2015-05-01
+    2015-04-01
+    2015-02-01
+    2014-11-01
+    2014-06-01
+    2014-04-01-preview
+    2014-04-01
+
+### CLI do Azure
+
+Você pode salvar as informações (incluindo as versões disponíveis de API) para um provedor de recursos em um arquivo com o comando a seguir.
+
+    azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+Você pode abrir o arquivo e localizar o elemento **apiVersions**
+
+## Próximas etapas
+
+- Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+- Para saber mais sobre como implantar recursos, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./azure-portal/resource-group-template-deploy.md)
+
+<!---HONumber=Oct15_HO4-->

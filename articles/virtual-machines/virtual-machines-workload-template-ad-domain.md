@@ -20,7 +20,7 @@
 
 # Implantar um domínio altamente disponível dos Serviços de Domínio do Active Directory com um modelo do Gerenciador de Recursos do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Você não pode criar esse recurso com o modelo de implantação clássica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássica. Você não pode criar esse recurso com o modelo de implantação clássica.
 
 Use as instruções neste artigo para implantar um domínio do Active Directory altamente disponível usando um modelo do Gerenciador de Recursos. Este modelo cria duas máquinas virtuais em uma nova rede virtual na mesma subrrede.
 
@@ -44,9 +44,9 @@ Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recurso
 
 Dependendo do modelo, pode levar algum tempo para o Azure criar a carga de trabalho. Quando a execução do modelo for concluída, você terá um novo domínio do Active Directory com dois servidores no seu grupo de recursos novo ou existente.
 
-## Azure PowerShell
+## PowerShell do Azure
 
-Antes de começar, verifique se você tem a versão correta do Azure PowerShell instalada, faça logon e alterne para o novo modo do Gerenciador de Recursos. Para obter detalhes, clique [aqui](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Preencha o nome de uma implantação do Azure, um novo nome do Grupo de Recursos e um local de datacenter do Azure no seguinte conjunto de comandos. Remova tudo que estiver entre aspas, incluindo os caracteres < and >.
 
@@ -68,7 +68,7 @@ Aqui está um exemplo.
 
 Em seguida, execute o bloco de comando no prompt do Azure PowerShell.
 
-Ao executar o comando **New-AzureRmResourceGroupDeployment**, você será solicitado a fornecer os valores de uma série de parâmetros. Depois de especificar todos os valores de parâmetros, **New-AzureRmResourceGroupDeployment** criará e configurará as máquinas virtuais.
+Ao executar o comando **New-AzureRmResourceGroupDeployment**, será solicitado que você forneça os valores de uma série de parâmetros. Depois de especificar todos os valores de parâmetros, **New-AzureRmResourceGroupDeployment** criará e configurará as máquinas virtuais.
 
 Quando a execução do modelo for concluída, você terá uma nova configuração de domínio do Active Directory com dois servidores no seu grupo de recursos novo.
 
@@ -108,4 +108,4 @@ Após a conclusão da execução do modelo, você terá uma nova configuração 
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

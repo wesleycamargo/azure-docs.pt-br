@@ -36,7 +36,13 @@ Para acompanhar este tutorial, você precisará:
 
 Primeiramente, você criará os objetos que o PolyBase exige para se conectar e consultar dados no armazenamento de blob do Azure.
 
-> [AZURE.IMPORTANT]Os tipos de conta do Armazenamento do Azure com suporte pelo PolyBase são: + Armazenamento com Redundância Local Standard (LRS Standard) + Armazenamento com Redundância Geográfica Standard (GRS Standard) + Armazenamento com Redundância Geográfica com Acesso de Leitura Standard (RAGRS Standard). Os tipos de conta do Armazenamento com Redundância de Zona Standard (ZRS Standard) e Armazenamento com Redundância Local Premium (LRS Premium) NÃO têm suporte pelo PolyBase. Se estiver criando uma nova conta do Armazenamento do Azure, lembre-se de selecionar um tipo de conta de armazenamento com suporte pelo PolyBase do Tipo de Preço.
+> [AZURE.IMPORTANT]Os tipos de conta de Armazenamento do Azure com suporte do PolyBase são:
+> 
+> + Armazenamento com redundância local padrão (Standard-LRS)
+> + Armazenamento com redundância geográfica padrão (Standard-GRS)
+> + Armazenamento com redundância geográfica e acesso de leitura padrão (Standard-RAGRS)
+>
+> Os tipos de conta de Armazenamento com redundância por zona padrão (Standard-ZRS) e Armazenamento com redundância local premium (Premium-LRS) NÃO tem suporte do PolyBase. Se estiver criando uma nova conta do Armazenamento do Azure, lembre-se de selecionar um tipo de conta de armazenamento com suporte pelo PolyBase do Tipo de Preço.
 
 
 ## Criar chave mestra do banco de dados
@@ -328,4 +334,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-BR/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

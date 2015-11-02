@@ -7,7 +7,7 @@
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Restauração de arquivos para um computador cliente Windows ou para um servidor Windows
 Este artigo aborda as etapas necessárias para executar dois tipos de operações de restauração:
@@ -109,4 +109,4 @@ A terminologia usada nessas etapas inclui:
 - [Fazer backup de máquinas virtuais do Azure](backup-azure-vms-introduction.md)
 - [Fazer backup de cargas de trabalho Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

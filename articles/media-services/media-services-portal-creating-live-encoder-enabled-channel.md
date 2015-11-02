@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Use o Portal de Gerenciamento para criar canais que realizam codificação ao vivo de um fluxo com taxa de bits única para fluxo múltiplas taxas de bits" 
-	description="Este tutorial orienta você pelas etapas de criação de um Canal que recebe um fluxo ao vivo de taxa de bits única e o codifica em fluxo de múltiplas taxas de bits." 
+	pageTitle="Crie Canais que realizem Codificação Ativa de um fluxo com Taxa de Bits Única para um Fluxo com Múltiplas Taxas de Bits usando o Portal do Azure" 
+	description="Este tutorial fornece uma orientação pelas etapas de criação de um Canal que recebe uma transmissão ao vivo de taxa de bits única, e a codifica em um fluxo de múltiplas taxas de bits usando o Portal do Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,13 +11,13 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
-#Use o Portal de Gerenciamento para criar canais que realizam codificação ao vivo de um fluxo com taxa de bits única para fluxo múltiplas taxas de bits 
+#Crie canais que realizam codificação ativa de um fluxo com taxa de bits única para um fluxo com múltiplas taxas de bits usando o Portal do Azure
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -273,4 +273,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

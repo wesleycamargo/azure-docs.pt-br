@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Usar o Active Directory para autenticação no Serviço de Aplicativo do Azure" 
 	description="Aprenda as diferentes opções de autenticação e autorização para aplicativos de linha de negócios que são implantados em aplicativos Web do Serviço de Aplicativo do Azure" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
@@ -53,4 +53,4 @@ Em muitos cenários, convém personalizar o comportamento de autenticação e au
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -126,4 +126,4 @@ Você verá que a versão do Agente Linux foi atualizada para a nova versão.
 
 Para obter mais informações sobre o Agente Linux do Azure, consulte [LEIAME do Agente Linux do Azure](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="10/20/2015"
    ms.author="alkohli" />
 
 # Notas de versão da Atualização 1.2 para o StorSimple 8000 Series  
@@ -55,7 +55,7 @@ Esses recursos foram lançados pela primeira vez com a Atualização 1, que foi 
 
 - **Suporte para outros provedores de serviços de nuvem** – Os outros provedores de serviços de nuvem com suporte são Amazon S3, Amazon S3 com RRS, HP e OpenStack (beta).
 
-- **Atualização para as APIs de armazenamento mais recentes** – Com esta versão, o StorSimple foi atualizado para as APIs de serviço de armazenamento do Azure mais recentes. Os dispositivos StorSimple 8000 Series que estão executando as versões de software Atualização 1 (Versão, 0.1, 0.2 e 0.3) estão usando versões das APIs do Serviço de Armazenamento do Azure anteriores a 12 de fevereiro de 2012. Como mencionado no [anúncio sobre remoção de versões de serviço de armazenamento](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/), até 10 de dezembro de 2015, essas APIs serão preteridas. É imperativo que você aplique a Atualização 1 do StorSimple 8000 Series antes de 9 de dezembro de 2015. Se você não conseguir fazer isso, os dispositivos StorSimple deixarão de funcionar corretamente.
+- **Atualização para as APIs de armazenamento mais recentes** – Com esta versão, o StorSimple foi atualizado para as APIs de serviço de armazenamento do Azure mais recentes. Os dispositivos StorSimple 8000 Series que estão executando as versões de software Atualização 1 (Versão, 0.1, 0.2 e 0.3) estão usando versões das APIs do Serviço de Armazenamento do Azure anteriores a 17 de julho de 2009. Conforme mencionado no [anúncio atualizado sobre remoção de versões de serviço de armazenamento](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), até 1 de agosto de 2016, essas APIs serão preteridas. É imperativo que você aplique a Atualização 1 do StorSimple 8000 Series antes de 1 de agosto de 2016. Se você não conseguir fazer isso, os dispositivos StorSimple deixarão de funcionar corretamente.
 
 - **Suporte para ZRS (armazenamento com redundância de zona)** – com a atualização para a versão mais recente das APIs de armazenamento, o StorSimple 8000 Series oferecerá suporte para ZRS (armazenamento com redundância de zona), além de LRS (armazenamento com redundância local) e GRS (armazenamento com redundância geográfica). Consulte o [artigo sobre opções de redundância de armazenamento do Azure](../storage/storage-redundancy.md) para obter detalhes do ZRS.
 
@@ -124,4 +124,4 @@ Esta atualização não pode ser aplicada ao dispositivo virtual. Novos disposit
 - [Instalar a Atualização 1.2 no seu dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

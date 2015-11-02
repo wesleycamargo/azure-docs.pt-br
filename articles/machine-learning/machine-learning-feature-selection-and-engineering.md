@@ -3,7 +3,7 @@
 	description="Explica a finalidade da seleção de recursos e da engenharia de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina."
 	services="machine-learning"
 	documentationCenter=""
-	authors="YanZhangADS"
+	authors="bradsev"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/20/2015"
 	ms.author="zhangya;bradsev" />
 
 
@@ -135,4 +135,4 @@ Observe que nem sempre é necessário realizar a engenharia ou a seleção de re
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

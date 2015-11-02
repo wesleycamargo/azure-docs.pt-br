@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Recuperação de desastres do Banco de Dados SQL" 
-   description="Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Replicação geográfica e Restauração geográfica do Banco de Dados SQL do Azure." 
+   description="Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Replicação geográfica ativa, Replicação geográfica padrão e Restauração geográfica do Banco de Dados SQL do Azure." 
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="10/20/2015"
    ms.author="elfish"/>
 
 # Recuperar um Banco de Dados SQL do Azure de uma interrupção
 
-O Banco de Dados SQL do Azure oferece alguns recursos de recuperação de interrupção:
+O Banco de Dados SQL do Azure oferece os seguintes recursos para a recuperação de uma paralisação:
 
 - Replicação geográfica ativa [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - Replicação geográfica padrão [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
@@ -38,9 +38,9 @@ A operação de recuperação afeta o aplicativo. Ele exige a alteração da cad
 
 Caso ocorra uma interrupção no banco de dados primário, será possível fazer failover para um banco de dados secundário a fim de restaurar a disponibilidade. Para fazer isso, você precisará forçar o encerramento da relação de cópia contínua. Para obter uma descrição completa do encerramento da relação de cópia contínua, clique [aqui](https://msdn.microsoft.com/library/azure/dn741323.aspx).
 
-
-
 ###Portal do Azure
+Use o Portal do Azure para encerrar a relação de cópia contínua com o banco de dados secundário replicado geograficamente.
+
 1. Faça logon no [Portal do Azure](https://portal.Azure.com).
 2. No lado esquerdo da tela, selecione **PROCURAR** e selecione **Bancos de Dados SQL**
 3. Navegue até o banco de dados e selecione-o. 
@@ -48,46 +48,49 @@ Caso ocorra uma interrupção no banco de dados primário, será possível fazer
 4. Em **Secundários** clique com o botão direito do mouse na linha com o nome do banco de dados que você deseja recuperar e selecione **Parar**.
 
 Após o término da relação de cópia contínua, você pode configurar o banco de dados recuperado para ser usado de acordo com o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
-###PowerShell
-Use o PowerShell para executar a recuperação do banco de dados de forma programática.
 
-Para encerrar a relação do banco de dados secundário, use o cmdlet [Stop-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720223).
+###PowerShell
+Use o PowerShell para encerrar a relação de cópia contínua com o banco de dados secundário replicado geograficamente usando o cmdlet [Stop-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720223).
 		
 		$myDbCopy = Get-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName"
 		$myDbCopy | Stop-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -ForcedTermination
 		 
 Após o término da relação de cópia contínua, você pode configurar o banco de dados recuperado para ser usado de acordo com o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
+
 ###API REST 
-Use REST para executar a recuperação do banco de dados de forma programática.
+Use REST para encerrar programaticamente a relação de cópia contínua com o banco de dados secundário replicado geograficamente.
 
 1. Obtenha a cópia contínua do banco de dados usando a operação [Obter cópia de banco de dados](https://msdn.microsoft.com/library/azure/dn509570.aspx).
 2. Interrompa a cópia contínua do banco de dados usando a operação [Parar cópia de banco de dados](https://msdn.microsoft.com/library/azure/dn509573.aspx). Use o nome do servidor secundário e o nome do banco de dados no URI da solicitação Stop Database Copy
 
  Após o término da relação de cópia contínua, você pode configurar o banco de dados recuperado para ser usado de acordo com o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
-## Recuperação usando restauração geográfica
+
+## Recuperação usando a restauração geográfica
 
 Caso ocorra uma interrupção de um banco de dados, você poderá recuperar o banco de dados a partir de seu backup redundante geograficamente mais recente usando a Restauração Geográfica.
 
 > [AZURE.NOTE]A recuperação de um banco de dados cria um novo banco de dados. É importante garantir que o servidor que você está recuperando tenha capacidade de DTU suficiente para o novo banco de dados. Você pode solicitar um aumento dessa cota [contatando o suporte](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portal do Azure
-1. Faça logon no [Portal do Azure](https://portal.Azure.com)
+Para restaurar um Banco de Dados SQL usando a restauração geográfica no Portal do Azure, use as etapas a seguir ou [assista a um vídeo deste procedimento](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore/):
+
+1. Faça logon no [Portal do Azure](https://portal.Azure.com).
 2. No lado esquerdo da tela, selecione **NOVO** e selecione **Dados e Armazenamento** e selecione **Banco de Dados SQL**
 2. Selecione **BACKUP** como a origem e, em seguida, selecione o backup redundante geograficamente do qual você deseja recuperar.
 3. Especifique o restante das propriedades do banco de dados e, em seguida, clique em **Criar**.
 4. O processo de restauração do banco de dados começará e poderá ser monitorado usando **NOTIFICAÇÕES**, no lado esquerdo da tela.
 
 Após a recuperação do banco de dados, você poderá configurá-lo para uso seguindo o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
-###PowerShell 
-Use o PowerShell para executar a recuperação do banco de dados de forma programática.
 
-Para iniciar uma solicitação de Restauração geográfica, use o cmdlet [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx). Para ver um passo a passo detalhado, confira nosso [vídeo explicativo](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell/).
+###PowerShell 
+Para restaurar um Banco de Dados SQL usando a Restauração geográfica com o PowerShell, inicie uma solicitação de restauração geográfica com o cmdlet [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx). Para obter uma orientação detalhada, [assista a um vídeo deste procedimento](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell/).
 
 		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
 		$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –TargetServerName “TargetServerName”
 		Get-AzureSqlDatabaseOperation –ServerName "TargetServerName" –OperationGuid $RecoveryRequest.RequestID
 
 Após a recuperação do banco de dados, você poderá configurá-lo para uso seguindo o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
+
 ###API REST 
 
 Use REST para executar a recuperação do banco de dados de forma programática.
@@ -103,4 +106,4 @@ Use REST para executar a recuperação do banco de dados de forma programática.
 Após a recuperação do banco de dados, você poderá configurá-lo para uso seguindo o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

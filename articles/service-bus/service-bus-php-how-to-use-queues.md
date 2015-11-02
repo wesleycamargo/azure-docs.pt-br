@@ -18,7 +18,9 @@
 
 # Como usar filas do Barramento de Serviço
 
-Este guia mostra como usar as filas do Barramento de Serviço. As amostras são escritas em PHP e usam o [SDK do Azure para PHP](../php-download-sdk.md). Os cenários cobertos incluem **criação de filas**, **envio e recebimento de mensagens** e **exclusão de filas**.
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
+Este guia mostra como usar as filas do Barramento de Serviço. As amostras são escritas em PHP e usam o [SDK do Azure para PHP](../php-download-sdk.md). Os cenários cobertos incluem **criar filas**, **enviar e receber mensagens** e **excluir filas**.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -198,13 +200,13 @@ Se houver falha do aplicativo após o processamento da mensagem, mas antes da so
 
 ## Próximas etapas
 
-Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja a seção [Filas, tópicos e assinaturas][] para obter mais informações.
+Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][] para saber mais.
 
-Para obter mais informações, veja o [Centro de Desenvolvedores PHP](/develop/php/).
+Para saber mais, consulte também o [Centro de Desenvolvedores em PHP](/develop/php/).
 
 [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visão geral das camadas de sistema de mensagens Premium e Standard do Barramento de Serviço | Microsoft Azure"
+	pageTitle="Visão geral das camadas de preço do Sistema de mensagens Premium e Standard do Barramento de Serviço | Microsoft Azure"
 	description="Sistema de mensagens Premium e Standard do Barramento de Serviço"
 	services="service-bus"
 	documentationCenter=".net"
@@ -9,12 +9,12 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="sethm"/>
+	ms.date="10/15/2015"
+	ms.author="darosa"/>
 
 # Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço 
 
@@ -41,7 +41,7 @@ A seguir, algumas diferenças entre as camadas dos sistemas de mensagens Premium
 
 ### Entidades particionadas
 
-Há suporte às entidades particionadas no sistema de mensagens Premium, mas elas não funcionam da mesma forma nas camadas Standard e Basic do sistema de mensagens do Barramento de Serviço. O sistema de mensagens Premium não usa o SQL como um armazenamento de dados e não tem mais a possível competição por recurso associada a uma plataforma compartilhada. Consequentemente, o particionamento não é necessário. Além disso, a contagem de partições foi alterada, de 16 partições no sistema de mensagens Standard para duas partições no Premium. Ter duas partições garante disponibilidade, além de ser um número mais apropriado para o ambiente de tempo de execução Premium. Para saber mais, consulte [Particionando entidades do sistema de mensagens](https://msdn.microsoft.com/library/dn520246.aspx).
+Há suporte às entidades particionadas no sistema de mensagens Premium, mas elas não funcionam da mesma forma nas camadas Standard e Basic do sistema de mensagens do Barramento de Serviço. O sistema de mensagens Premium não usa o SQL como um armazenamento de dados e não tem mais a possível competição por recurso associada a uma plataforma compartilhada. Consequentemente, o particionamento não é necessário. Além disso, a contagem de partições foi alterada, de 16 partições no sistema de mensagens Standard para duas partições no Premium. Ter duas partições garante disponibilidade, além de ser um número mais apropriado para o ambiente de tempo de execução Premium. Para saber mais, consulte [Entidades de mensagens particionadas](service-bus-partitioning.md).
 
 ### Entidades expressas
 
@@ -54,7 +54,7 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Introdução ao sistema de mensagens Premium do Barramento de Serviço do Azure (postagem de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introdução ao sistema de mensagens Premium do Barramento de Serviço do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-- [Visão geral da arquitetura de Barramento de Serviço do Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

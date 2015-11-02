@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Consultas SQL em um banco de dados do Banco de Dados de Documentos — consultar SQL | Microsoft Azure" 
 	description="Saiba como o Banco de Dados de Documentos oferece suporte a consultas SQL em documentos JSON hierárquicos para indexação automática. Descubra um ambiente de banco de dados de consulta SQL que seja realmente livre de esquema." 
-	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
+	keywords="Consultar banco de dados, consultas sql, consulta sql, linguagem de consulta estruturada, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -2089,4 +2089,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

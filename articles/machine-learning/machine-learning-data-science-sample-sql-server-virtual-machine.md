@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/18/2015" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dados de exemplo no SQL Server no Azure
 
-Este documento aborda os dados de exemplo armazenados no SQL Server no Azure usando o SQL e a linguagem de programação Python.
+Este documento mostra como obter amostras de dados armazenados no SQL Server no Azure usando SQL e a linguagem de programação Python. Também mostra como mover dados de amostra para o Aprendizado de Máquina do Azure, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no AM do Azure.
 
->[AZURE.NOTE]O código de exemplo SQL neste documento pressupõe que os dados estejam em um SQL Server no Azure. Se não estiverem, confira o tópico [Mover dados para o SQL Server no Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) no [Guia de Processo Avançado de Dados](machine-learning-data-science-advanced-data-processing.md) para obter instruções e mover os dados para um SQL Server no Azure.
+A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/pyodbc/) para se conectar ao SQL Server no Azure e a biblioteca [Pandas](http://pandas.pydata.org/) para fazer a amostragem.
+
+>[AZURE.NOTE]O código de exemplo SQL neste documento pressupõe que os dados estejam em um SQL Server no Azure. Caso não estejam, consulte o tópico [Mover dados para o SQL Server no Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) para obter instruções sobre como mover os dados para um SQL Server no Azure.
 
 ##<a name="SQL"></a>Usando o SQL
 
@@ -49,13 +51,13 @@ TABLESAMPLE pode ser usado para amostragem conforme demonstrado a seguir. Isso p
 
 ###<a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 
-Usar diretamente as consultas de exemplo acima no módulo do leitor Azure ML para buscar os dados dinamicamente e colocá-los em um experimento ML do Azure. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
+Usar diretamente as consultas de exemplo acima no módulo do leitor Azure ML para buscar os dados dinamicamente e colocá-los em um experimento AM do Azure. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
    
 ![sql leitor][1]
 
 ##<a name="python"></a>Usando a linguagem de programação Python 
 
-Esta seção demonstra como usar a biblioteca pyodbc para se conectar ao banco de dados do SQL Server no Python. A cadeia de conexão do banco de dados é a seguinte (substitua o nome do servidor, o nome do banco de dados, o nome de usuário e a senha pela sua configuração):
+Esta seção demonstra como usar a [biblioteca pyodbc](https://code.google.com/p/pyodbc/) para estabelecer uma conexão ODBC com um banco de dados do SQL Server no Python. A cadeia de conexão do banco de dados é a seguinte (substitua o nome do servidor, o nome do banco de dados, o nome de usuário e a senha pela sua configuração):
 
 	#Set up the SQL Azure connection
 	import pyodbc	
@@ -104,13 +106,13 @@ Você pode usar o código de exemplo a seguir para salvar os dados convertidos e
  
 ![blob de leitor][2]
 
-## Exemplo de ADAPT (Processo de Análise Avançada e Tecnologia) em ação
+## Exemplo do Processo de Análise da Cortana em ação
 
-Para obter um exemplo passo a passo de ponta a ponta do ADAPT (Processo de Análise Avançada e Tecnologia) usando um conjunto de dados público, confira [Processo de Análise Avançada do Azure e Tecnologia em Ação: usando o SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+Para obter um exemplo passo a passo completo do Processo de Análise da Cortana usando um conjunto de dados público, consulte [Processo de Análise da Cortana em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
