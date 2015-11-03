@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="10/21/2015"
 	ms.author="awills"/>
 
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
@@ -21,7 +21,7 @@ Após ter implantado seu aplicativo Web, você pode configurar testes na Web par
 
 ![Exemplo de teste da Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Você pode configurar testes na Web para qualquer ponto de extremidade HTTP que for acessível da Internet pública.
+Você pode configurar testes na Web para qualquer ponto de extremidade HTTP ou HTTPS que for acessível da Internet pública.
 
 Há dois tipos de teste da Web:
 
@@ -246,4 +246,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

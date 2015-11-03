@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
+	ms.date="10/20/2015"
 	ms.author="robmcm"/>
 
 # Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure
@@ -43,41 +43,41 @@ Esta seção mostra como usar o Azure Marketplace para criar um aplicativo Web J
 
 	![](./media/web-sites-java-get-started/newmarketplace.png)
 
-5. Clique em **Web + Móvel**.
+3. Clique em **Web + Móvel**.
 
 	Talvez seja necessário rolar para a esquerda para ver a folha **Marketplace**, onde você pode selecionar **Web + Móvel**.
 
-6. Na caixa de texto de pesquisa, insira o nome de um servidor de aplicativos Java, como o **Apache Tomcat** ou o **Jetty** e pressione Enter.
+4. Na caixa de texto de pesquisa, insira o nome de um servidor de aplicativos Java, como o **Apache Tomcat** ou o **Jetty** e pressione Enter.
 
-4. Nos resultados da pesquisa, clique no servidor de aplicativos Java.
+5. Nos resultados da pesquisa, clique no servidor de aplicativos Java.
 
 	![](./media/web-sites-java-get-started/webmobilejetty.png)
 
-5. Na primeira folha **Apache Tomcat** ou **Jetty**, clique em **Criar**.
+6. Na primeira folha **Apache Tomcat** ou **Jetty**, clique em **Criar**.
 
 	![](./media/web-sites-java-get-started/jettyblade.png)
 
-4. Na próxima folha **Apache Tomcat** ou **Jetty**, insira um nome para o aplicativo Web na caixa **Aplicativo Web**.
+7. Na próxima folha **Apache Tomcat** ou **Jetty**, insira um nome para o aplicativo Web na caixa **Aplicativo Web**.
 
 	Esse nome deve ser exclusivo no domínio azurewebsites.net porque a URL do aplicativo Web será {nome}.azurewebsites.net. Se o nome inserido não for exclusivo, um ponto de exclamação vermelho aparecerá na caixa de texto.
 
-5. Selecione um **Grupo de Recursos** ou crie um novo.
+8. Selecione um **Grupo de Recursos** ou crie um novo.
 
 	Para saber mais sobre grupos de recursos, confira [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](../resource-group-portal.md).
 
-5. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
+9. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
 
 	Para saber mais sobre os planos do Serviço de Aplicativo, confira [Visão geral dos planos do Serviço de Aplicativo do Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-6. Clique em **Criar**.
+10. Clique em **Criar**.
 
 	![](./media/web-sites-java-get-started/jettyportalcreate2.png)
 
 	Em pouco tempo, normalmente menos de um minuto, o Azure termina de criar o novo aplicativo Web.
 
-7. Clique em **Aplicativos Web > {seu novo aplicativo Web}**.
+11. Clique em **Aplicativos Web > {seu novo aplicativo Web}**.
 
-8. Clique na **URL** para navegar até o novo site.
+12. Clique na **URL** para navegar até o novo site.
 
 	![](./media/web-sites-java-get-started/jettyurl.png)
 
@@ -99,7 +99,8 @@ Esta seção mostra como criar um aplicativo Web e configurá-lo manualmente par
 
 2. Clique em **Novo > Web + Móvel**.
 
-6. Clique em **Aplicativo Web**.
+
+3. Clique em **Aplicativo Web**.
 
 4. Insira um nome para o aplicativo Web na caixa **Aplicativo Web**.
 
@@ -109,29 +110,29 @@ Esta seção mostra como criar um aplicativo Web e configurá-lo manualmente par
 
 	Para saber mais sobre grupos de recursos, confira [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](../resource-group-portal.md).
 
-5. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
+6. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
 
 	Para saber mais sobre os planos do Serviço de Aplicativo, confira [Visão geral dos planos do Serviço de Aplicativo do Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-6. Clique em **Criar**.
+7. Clique em **Criar**.
  
-11. Quando o aplicativo Web tiver sido criado, clique em **Aplicativos Web > {seu aplicativo Web}**.
+8. Quando o aplicativo Web tiver sido criado, clique em **Aplicativos Web > {seu aplicativo Web}**.
  
-13. Na folha **Aplicativo Web**, clique em **Configurações**.
+9. Na folha **Aplicativo Web**, clique em **Configurações**.
 
-12. Clique em **Configurações do aplicativo**.
+10. Clique em **Configurações do aplicativo**.
 
-13. Clique na **Versão Java** desejada.
+11. Clique na **Versão Java** desejada.
 
-14. Selecione o **Contêiner da Web** desejado.
+12. Selecione o **Contêiner da Web** desejado.
 
-15. Clique em **Salvar**.
+13. Clique em **Salvar**.
 
 	Em poucos instantes, o aplicativo Web se tornará baseado em Java.
 
-7. Clique em **Aplicativos Web > {seu novo aplicativo Web}**.
+14. Clique em **Aplicativos Web > {seu novo aplicativo Web}**.
 
-8. Clique na **URL** para navegar até o novo site.
+15. Clique na **URL** para navegar até o novo site.
 
 	A página da Web confirma que você criou um aplicativo Web baseado em Java.
 
@@ -147,4 +148,4 @@ Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, confira o 
 
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

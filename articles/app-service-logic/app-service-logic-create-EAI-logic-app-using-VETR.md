@@ -51,12 +51,12 @@ Em seguida, vamos adicionar ações e gatilhos.
 
 
 ## Adicionar Gatilho HTTP
-
+1. Selecione **Criar do Zero**.
 1. Selecione **Ouvinte HTTP** na galeria para criar um novo ouvinte. Chame-o de **HTTP1**.
 2. Deixe **Enviar resposta automaticamente?** definido como falso. Configure a ação do gatilho definindo _Método HTTP_ como _POST_ e definindo _URL Relativa_ como _/OneWayPipeline_:  
 
 	![Gatilho de HTTP][2]
-
+3. Clique na marca de seleção verde.
 
 ## Adicionar ação de validação
 
@@ -74,9 +74,9 @@ Da mesma forma, vamos adicionar o restante das ações.
 ## Adicionar ação Transformar
 Vamos configurar transformações para normalizar os dados de entrada.
 
-1. Adicione **Transformar** da galeria.
-2. Para configurar uma transformação e transformar as mensagens XML de entrada, selecione a ação **Transformar** como a ação a ser executada quando essa API for chamada, e selecione ```triggers(‘httplistener’).outputs.Content``` como valor para _inputXml_. *Mapa* é um parâmetro opcional, uma vez que os dados de entrada são comparados com todas as transformações configuradas e apenas aquelas que correspondem ao esquema são aplicadas.
-3. Por fim, a transformação é executada somente se a validação for bem-sucedida. Para configurar essa condição, selecione o ícone de engrenagem no canto superior direito e selecione _Adicionar uma condição a ser atendida_. Defina a condição como ```equals(actions('xmlvalidator').status,'Succeeded')```:  
+1. Adicione **Serviço de Transformação do BizTalk** na galeria.
+2. Para configurar uma transformação e transformar as mensagens XML de entrada, selecione a ação **Transformar** como a ação a ser executada quando essa API for chamada e selecione ```triggers(‘httplistener’).outputs.Content``` como valor para _inputXml_. *Mapa* é um parâmetro opcional, uma vez que os dados de entrada são comparados com todas as transformações configuradas e apenas aquelas que correspondem ao esquema são aplicadas.
+3. Por fim, a transformação é executada somente se a validação for bem-sucedida. Para configurar essa condição, clique no ícone de engrenagem no canto superior direito e selecione _Adicionar uma condição a ser atendida_. Defina a condição como ```equals(actions('xmlvalidator').status,'Succeeded')```:  
 
 ![Transformações do BizTalk][4]
 
@@ -85,7 +85,8 @@ Vamos configurar transformações para normalizar os dados de entrada.
 Em seguida, vamos adicionar o destino – uma Fila do Barramento de Serviço – no qual gravar os dados.
 
 1. Adicione um **Conector do Barramento de Serviço** da galeria. Defina o **Nome** como _Servicebus1_, defina **Cadeia de Conexão** como a cadeia de conexão para sua instância de barramento de serviço, defina **Nome da Entidade** como _Fila_, e ignore **Nome da assinatura**.
-2. Selecione a ação **Enviar Mensagem** e defina o campo **Mensagem** da ação como _actions('transformservice').outputs.OutputXml_.
+2. Selecione a ação **Enviar Mensagem** e defina o campo **Conteúdo** da ação como _actions('transformservice').outputs.OutputXml_.
+3. Definir o campo **Tipo de Conteúdo** como application/xml
 
 ![Barramento de Serviço][5]
 
@@ -94,18 +95,21 @@ Em seguida, vamos adicionar o destino – uma Fila do Barramento de Serviço –
 Depois do processamento do pipeline, envie de volta uma resposta HTTP tanto para êxito quanto para falha com as seguintes etapas:
 
 1. Adicione um **ouvinte HTTP** da galeria e selecione a ação **Enviar resposta de HTTP**.
-2. Defina **Conteúdo da Resposta** como *Processamento de pipeline concluído*, **Código de Status de Resposta** como *200* para indicar HTTP 200 OK e a **Condição** como a seguinte expressão: ```@equals(actions('servicebusconnector').status,'Succeeded')``` <br/>
+2. Defina a **ID da Resposta** como Enviar *Mensagem*.
+2. Defina **Conteúdo da Resposta** como *Processamento de pipeline concluído*.
+3. **Código de Status de Resposta** como *200* para indicar HTTP 200 OK.
+4. Clique no menu suspenso no canto superior direito e selecione **Adicionar uma condição a ser atendida**. Defina a condição como a seguinte expressão: ```@equals(actions('azureservicebusconnector').status,'Succeeded')``` <br/>
+5. Repita essas etapas para enviar uma resposta HTTP em caso de falha também. Altere **Condição** para a seguinte expressão: ```@not(equals(actions('azureservicebusconnector').status,'Succeeded'))``` <br/>
+6. Clique em **OK** e em **Criar**
 
-
-Repita essas etapas para enviar uma resposta HTTP em caso de falha também. Altere **Condição** para a seguinte expressão: ```@not(equals(actions('servicebusconnector').status,'Succeeded'))``` <br/>
 
 
 ## Conclusão
-Sempre que alguém envia uma mensagem ao ponto de extremidade HTTP, isso dispara o aplicativo e executa as ações que você acabou de criar. Para gerenciar esses aplicativos lógicos, clique em **Procurar** no Portal do Azure e clique em **Aplicativos Lógicos**. Selecione seu aplicativo para obter mais informações.
+Sempre que alguém envia uma mensagem ao ponto de extremidade HTTP, isso dispara o aplicativo e executa as ações que você acabou de criar. Para gerenciar esses aplicativos lógicos, clique em **Procurar** no Portal do Azure e selecione **Aplicativos Lógicos**. Selecione seu aplicativo para obter mais informações.
 
 Alguns tópicos úteis:
 
-[Gerenciar e monitorar seus Aplicativos de API e conectores](app-service-logic-monitor-your-connectors.md) <br/> [Monitorar seus Aplicativos Lógicos](app-service-logic-monitor-your-logic-apps.md)
+[Gerenciar e monitorar seus aplicativos e conectores de API](app-service-logic-monitor-your-connectors.md) <br/> [Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)
 
 <!--image references -->
 [1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
@@ -114,4 +118,4 @@ Alguns tópicos úteis:
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

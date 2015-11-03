@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/10/2015"
+	ms.date="10/16/2015"
 	ms.author="tdykstra"/>
 
 # Criar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure
@@ -28,7 +28,7 @@
 
 ## Visão geral
 
-Este tutorial mostra como criar um aplicativo Web ASP.NET e implantá-lo no [aplicativo Web do Serviço de Aplicativo do Azure](app-service-web-overview.md) usando o Visual Studio 2015 ou o Visual Studio 2013. O tutorial presume que você não tem experiência anterior com o uso do Azure ou do ASP.NET. Ao concluir o tutorial, você terá um aplicativo Web simples em funcionamento na nuvem.
+Este tutorial mostra como implantar um aplicativo Web ASP.NET no [aplicativo Web do Serviço de Aplicativo do Azure](app-service-web-overview.md) usando o Visual Studio 2015 ou o Visual Studio 2013. O tutorial presume que você seja desenvolvedor ASP.NET sem experiência anterior no uso do Azure. Ao concluir o tutorial, você terá um aplicativo Web simples em funcionamento na nuvem.
 
 A ilustração a seguir mostra o aplicativo concluído:
 
@@ -39,18 +39,21 @@ O que você aprenderá:
 * Como preparar seu computador para desenvolvimento do Azure ao instalar o [SDK do Azure para .NET](../dotnet-sdk/).
 * Como configurar o Visual Studio para criar um novo aplicativo Web do Serviço de Aplicativo enquanto ele cria um projeto Web do ASP.NET MVC 5.
 * Como implantar um projeto Web em um aplicativo Web do Serviço de Aplicativo usando o Visual Studio.
-* Como usar o [Portal do Azure](/overview/preview-portal/) para monitorar e gerenciar seu aplicativo Web.
+* Como usar o **Gerenciador de Servidores** do Visual Studio para abrir arquivos remotos e iniciar uma sessão de depuração remota. 
+* Como usar o [portal do Azure](/overview/preview-portal/) para monitorar e gerenciar seu aplicativo Web.
 
-Este é um tutorial rápido e simples que não mostra como personalizar o projeto da Web que você cria. Para obter uma introdução ao desenvolvimento de aplicativos Web do ASP.NET MVC 5, consulte [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) no site do [ASP.NET](http://asp.net/). Para obter links para outros artigos com mais detalhes sobre os aplicativos Web no Serviço de Aplicativo do Azure, consulte a seção [Próximas etapas](#next-steps).
+> [AZURE.NOTE]Este tutorial fala sobre o uso do ASP.NET com o Serviço de Aplicativo do Azure; ele não ensina a desenvolver um aplicativo Web ASP.NET. Para obter uma introdução ao ASP.NET MVC 5, confira [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) no site do [ASP.NET](http://asp.net/). Para obter links para outros artigos com mais detalhes sobre como usar o Serviço de Aplicativo do Azure, confira a seção [Próximas etapas](#next-steps).
+> 
+> Ajude-nos a dar forma ao escopo e à abordagem deste tutorial -- se houver outros tópicos que você gostaria que abordássemos aqui em um tutorial de introdução, deixe um [Comentário do Disqus](#comments) ao final do tutorial.
 
 ##<a name="video"></a>Inscrever-se no Microsoft Azure
 
 Você precisa de uma conta do Azure para concluir este tutorial. Você pode:
 
-* [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que pode usar para testar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
+* [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
 * [Ativar os benefícios de assinante do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). - todos os meses, sua assinatura do MSDN lhe oferece créditos que podem ser usados para serviços pagos do Azure.
 
-> [AZURE.NOTE]Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
+Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
 
 Neste vídeo, Scott Hanselman mostra como é fácil inscrever-se para uma avaliação gratuita do Microsoft Azure. (Duração: 1:58)
 
@@ -70,15 +73,15 @@ O diagrama ilustra o que você está fazendo nas etapas de criação e implanta�
 
 	Se você usar o Visual Studio 2013, as telas serão um pouco diferentes das capturas de tela, mas os procedimentos são essencialmente os mesmos.
 
-2. No menu **Arquivo**, clique em **Novo Projeto**.
+2. No menu **Arquivo**, clique em **Novo > Projeto**.
 
 3. Na caixa de diálogo **Novo Projeto**, clique em **C# > Web > Aplicativo Web ASP.NET**. Se preferir, você pode escolher **Visual Basic**.
 
 3. Verifique se o **.NET Framework 4.5.2** está selecionado como a estrutura de destino.
 
-4.  O [Application Insights do Azure](app-insights-overview.md) monitora seu aplicativo Web quanto à sua disponibilidade, desempenho e utilização. Desmarque a caixa de seleção **Adicionar Application Insights ao projeto** se você não quiser experimentá-lo.
+4.  O [Application Insights do Azure](app-insights-overview.md) monitora seu aplicativo Web quanto à sua disponibilidade, desempenho e utilização. Desmarque a caixa de seleção **Adicionar o Application Insights ao Projeto** se você não quiser experimentá-lo.
 
-4. Nomeie o aplicativo **MyExample**.
+4. Dê ao aplicativo o nome **MyExample**.
 
 5. Clique em **OK**.
 
@@ -126,11 +129,11 @@ O diagrama ilustra o que você está fazendo nas etapas de criação e implanta�
 
 	A seção [Próximas etapas](#next-steps) tem links para informações sobre grupos de recursos.
 
-5. Digite **MyExampleGroup** ou outro nome, se preferir, para o nome do grupo de recursos.
+5. Insira **MyExampleGroup** ou outro nome se preferir, como o nome do grupo de recursos.
 
 5. Na lista suspensa **Região**, escolha o local mais próximo de você.
 
-	Essa configuração especifica em qual datacenter do Azure seu aplicativo Web será executado. Para este tutorial, você pode selecionar qualquer região e isto não fará uma diferença notável. Para um aplicativo Web de produção, você quer seu servidor Web esteja tão próximo quanto possível dos navegadores acessando seu site, para reduzir a [latência](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+	Essa configuração especifica em qual datacenter do Azure seu aplicativo Web será executado. Para este tutorial, você pode selecionar qualquer região e isto não fará uma diferença notável. Mas para um aplicativo Web de produção, você quer que seu servidor Web esteja tão próximo quanto possível dos navegadores acessando seu site para reduzir a [latência](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
 5. Deixe o campo de banco de dados inalterado.
 
@@ -194,11 +197,39 @@ Nesta seção, você implanta projeto Web para o aplicativo Web, como ilustrado 
 
 	![Aplicativo Web em execução no Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-13. Feche o navegador.
+13. Mantenha esta janela do navegador aberta para uso na próxima seção.
 
-**Dica:** você pode habilitar a barra de ferramentas **Publicação Web com um Clique** para uma implantação ainda mais rápida. Clique em **Exibir > Barras de Ferramentas** e, em seguida, selecione **Publicação Web com Um Clique**. Você pode usar a barra de ferramentas para selecionar um perfil, clique em um botão para publicar ou clique em um botão para abrir o assistente **Publicar Web**.
+**Dica:** você pode habilitar a barra de ferramentas **Publicação Web com um Clique** para uma implantação ainda mais rápida. Clique em **Exibir > Barras de Ferramentas** e, em seguida, selecione **Publicação Web com Um Clique**. Você pode usar a barra de ferramentas para selecionar um perfil, clicar em um botão para publicar ou clicar em um botão para abrir o assistente **Publicar Web**.
 
 ![Barra de ferramentas Publicação Web com Um Clique](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+
+## Abrir arquivos remotos no Gerenciador de Servidores
+
+Quando você estiver testando e depurando um aplicativo Web, poderá fazer alterações temporárias rápidas no site remoto abrindo e editando arquivos no **Gerenciador de Servidores**.
+
+1.  No **Gerenciador de Servidores**, navegue até **Azure > Serviço de Aplicativo > MyExampleGroup** e expanda o nó do seu aplicativo Web.
+
+2. Expanda **Arquivos > Exibições > Início** e clique duas vezes no arquivo *Index.cshtml*.
+
+	![](./media/web-sites-dotnet-get-started/indexfileinse.png)
+
+3. Alterar `<h1>ASP.NET</h1>` para `<h1>Azure App Service</h1>`.
+
+4. Salve o arquivo.
+
+5. Atualize a janela do navegador que tem o site em execução no Azure.
+
+	![](./media/web-sites-dotnet-get-started/afterindexedit.png)
+
+Esta alteração agora está no site implantado, mas não o projeto local. Se você reimplantar o projeto, o site será revertido para como era antes dessa alteração.
+
+Esse recurso será útil para [desativar temporariamente customErrors no arquivo Web.config para obter uma mensagem de erro detalhada](web-sites-dotnet-troubleshoot-visual-studio.md).
+
+No **Gerenciador de Servidores**, você também pode clicar com o botão direito do mouse no nó do aplicativo Web e obter acesso a configurações de aplicativo Web em uma janela do Visual Studio, iniciar uma sessão de depuração remota e exibir logs de aplicativo em tempo real à medida que o aplicativo os escreve.
+
+![](./media/web-sites-dotnet-get-started/sewebappmenu.png)
+
+Para obter mais informações, consulte [Solucionando problemas de aplicativos Web do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Monitore e gerencie o aplicativo Web no Portal do Azure
 
@@ -206,7 +237,7 @@ O [Portal do Azure](/services/management-portal/) é uma interface da Web que vo
 
 1. Em seu navegador, vá até [https://portal.azure.com](https://portal.azure.com) e entre com suas credenciais do Azure.
 
-2. Clique em **Aplicativos Web** e, em seguida, clique no nome do seu aplicativo Web.
+2. Clique em **Aplicativos Web** e clique no nome do seu aplicativo Web.
 
 	A folha **Aplicativo Web** exibe uma visão geral das configurações e estatísticas de uso de seu aplicativo Web.
 
@@ -236,11 +267,11 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como adicionar funcionalidade de banco de dados e autorização
 
-	Para obter um tutorial que mostra como acessar um banco de dados e restringir algumas funções de aplicativo a usuários autorizados, consulte [Implantar um aplicativo ASP.NET MVC seguro com associação, OAuth e Banco de Dados SQL em um aplicativo Web do Azure](/develop/net/tutorials/web-site-with-sql-database/). Esse tutorial pressupõe algum conhecimento do MVC 5. Se você for iniciante no MVC 5, consulte [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
+	Para obter um tutorial que mostra como acessar um banco de dados e restringir algumas funções de aplicativo a usuários autorizados, consulte [Implantar um aplicativo ASP.NET MVC seguro com associação, OAuth e Banco de Dados SQL em um aplicativo Web do Azure](/develop/net/tutorials/web-site-with-sql-database/). Esse tutorial pressupõe algum conhecimento do MVC 5. Se você for iniciante no MVC 5, confira [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 
 * Outras maneiras de implantar um projeto Web
 
-	Para obter informações sobre outras maneiras de implantar projetos em aplicativos Web, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Como implantar um aplicativo Web do Azure](web-sites-deploy.md).
+	Para saber mais sobre outras maneiras de implantar projetos em aplicativos Web, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), confira [Como implantar um aplicativo Web do Azure](web-sites-deploy.md).
 
 	O Visual Studio também pode gerar scripts do Windows PowerShell, que permitem a você automatizar a implantação. Para obter mais informações, consulte [Automatizar tudo (Compilando aplicativos de nuvem do mundo real com o Azure) ](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
@@ -261,7 +292,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como escolher entre o Serviço de Aplicativo, os Serviços de Nuvem e as Máquinas Virtuais do Azure para aplicativos Web
 
-	No Azure, você pode executar aplicativos Web em aplicativos Web do Serviço de Aplicativo, conforme mostrado neste tutorial, em Serviços de Nuvem ou Máquinas Virtuais. Para obter mais informações, confira [Aplicativos Web do Azure, serviços de nuvem e VMs: quando usar cada um?](/manage/services/web-sites/choose-web-app-service/).
+	No Azure, você pode executar aplicativos Web em aplicativos Web do Serviço de Aplicativo, conforme mostrado neste tutorial, em Serviços de Nuvem ou Máquinas Virtuais. Para obter mais informações, consulte [Aplicativos Web do Azure, serviços de nuvem e VMs: quando usar o quê?](/manage/services/web-sites/choose-web-app-service/).
 
 * [Como escolher ou criar um plano de Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -269,6 +300,6 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e os serviços existentes do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obter um guia sobre a alteração do portal do Azure para o portal de visualização, consulte [Referência para navegar no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Para obter um guia sobre a alteração do portal do Azure para o portal de visualização, confira [Referência para navegar no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

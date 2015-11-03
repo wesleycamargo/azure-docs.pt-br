@@ -26,7 +26,7 @@ Comece a trabalhar com a Biblioteca .NET do Lote do Azure criando um aplicativo 
 
 	- **Conta do Azure** - você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-	- **Conta do Lote** - consulte a seção **Conta do Lote** da [Visão geral técnica do Lote do Azure](batch-technical-overview.md).
+	- **Conta do Lote** -consulte [Criar e gerenciar uma conta do Lote do Azure](batch-account-create-portal.md).
 
 	- **Conta de armazenamento** - consulte a seção **Criar uma conta de armazenamento** em [Sobre as contas de armazenamento do Azure](../storage-create-storage-account.md). Neste tutorial, você criará um contêiner na conta denominada **testcon1**.
 
@@ -38,9 +38,9 @@ Comece a trabalhar com a Biblioteca .NET do Lote do Azure criando um aplicativo 
 
 - Os assemblies do NuGet:
 
-	1. Depois de criar seu projeto no Visual Studio, clique com botão direito do mouse no projeto no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online **Azure.Batch** e clique em **Instalar** para instalar o pacote do Lote do Microsoft Azure e suas dependências.
+	1. Depois de criar seu projeto no Visual Studio, clique com botão direito do mouse no projeto no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Procure online **Azure.Batch** e clique em **Instalar** para instalar o pacote do Lote do Microsoft Azure e suas dependências.
 
-	2. Pesquise online **WindowsAzure.Storage** e clique em **Instalar** para instalar o pacote Armazenamento do Azure e suas dependências.
+	2. Pesquise online **WindowsAzure.Storage** e clique em **Instalar** para instalar o pacote Armazenamento do Azure suas dependências.
 
 > [AZURE.TIP]Este tutorial usa alguns dos principais conceitos do Lote discutidos em [Noções básicas de API para o Lote do Azure](batch-api-basics.md), leitura altamente recomendada para aqueles que ainda não conhecem o Lote.
 
@@ -61,9 +61,9 @@ Para dar suporte ao aplicativo, é criado um contêiner no Armazenamento do Azur
 
 	Substitua esses valores:
 
-	- **[account-name]** - o nome da conta de armazenamento que você criou anteriormente.
+	- **[nome-conta]** - o nome da conta de armazenamento que você criou anteriormente.
 
-	- **[account-key]** - a chave primária da conta de armazenamento. Você pode encontrar a chave primária da página Armazenamento no portal do Azure.
+	- **[chave-conta]** - a chave primária da conta de armazenamento. Você pode encontrar a chave primária da página Armazenamento no portal do Azure.
 
 2. Salve o arquivo App.config.
 
@@ -78,7 +78,7 @@ Para saber mais sobre cadeias de conexão do Armazenamento do Azure, consulte [C
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 
-2. Adicione *System. Configuration* a **Referências** no **Gerenciador de Soluções** para o projeto GettingStarted
+2. Adicione *System.Configuration* a **Referências** no **Gerenciador de Soluções** para o projeto GettingStarted
 
 3. Adicione este método à classe do Programa que obtém a cadeia de conexão do armazenamento, cria o contêiner e define as permissões:
 
@@ -115,7 +115,7 @@ Para saber mais sobre armazenamento de Blob, consulte [Como usar o armazenamento
 
 1. No **Gerenciador de Soluções**, crie um novo projeto de aplicativo de console chamado **ProcessTaskData**.
 
-2. Depois de criar seu projeto no Visual Studio, clique com botão direito do mouse no projeto no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online **WindowsAzure.Storage** e clique em **Instalar** para instalar o pacote Armazenamento do Azure suas dependências.
+2. Depois de criar seu projeto no Visual Studio, clique com botão direito do mouse no projeto no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Procure online **WindowsAzure.Storage** e clique em **Instalar** para instalar o pacote Armazenamento do Azure suas dependências.
 
 3. Adicione o seguinte usando a diretiva à parte superior de Program.cs.
 
@@ -210,9 +210,9 @@ Um pool de nós de computação é o primeiro conjunto de recursos que você dev
 
 	Substitua os valores entre colchetes por aqueles associados à sua conta do Lote, cada um deles pode ser encontrado no [portal de Visualização do Azure](https://portal.azure.com). Para localizar esses valores, faça logon no [portal de Visualização do Azure](https://portal.azure.com) e:
 
-	- **[account-name]** - clique em **Contas de Lote**, selecione a conta do Lote criada anteriormente
-	- **[account-url]** - na folha Conta do Lote, clique em **Propriedades** > **URL**
-	- **[account-key]** - na folha Conta do Lote, Clique em **Propriedades** > **Chaves** > **Chave de Acesso Primária**
+	- **[nome-conta]** - clique em **Contas do Lote**, selecione a conta do Lote criada anteriormente
+	- **[url-conta]** - na folha Conta do Lote, clique em **Propriedades** > **URL**
+	- **[chave-conta]** - na folha Conta do Lote, Clique em **Propriedades** > **Chaves** > **Chave de Acesso Primária**
 
 3.	Adicione esse método à classe Programa, que cria o pool:
 
@@ -339,7 +339,7 @@ Após o trabalho ser criado, podem ser adicionadas tarefas a ele. Cada tarefa é
 		}
 
 
-	**[account-name]** precisa ser substituído pelo nome da conta de armazenamento criada anteriormente. No exemplo anterior, atualize todas as quatro instâncias de **[account-name]**.
+	**[nome-conta]** precisa ser substituído pelo nome da conta de armazenamento criada anteriormente. No exemplo anterior, atualize todas as quatro instâncias de **[nome-conta]**.
 
 
 2. Adicione este código a Principal, que chama o método que você acabou de adicionar:
@@ -495,4 +495,4 @@ Como você é cobrado pelos recursos no Azure, sempre será uma boa ideia exclui
 
 2. Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Um modo de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

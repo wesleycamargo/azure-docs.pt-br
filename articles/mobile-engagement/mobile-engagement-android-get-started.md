@@ -135,9 +135,15 @@ Baixe e integre a biblioteca de SDK
 
 Para iniciar o envio de dados e assegurar que os usuários estejam ativos, você deve enviar pelo menos uma tela (Atividade) para o back-end do Mobile Engagement.
 
-Vá para **MainActivity.java** e, para substituir a classe base de **MainActivity** de **ActionBarActivity** para **EngagementActivity**, adicione o mostrado a seguir:
+Vá para **MainActivity.java** e adicione o seguinte para substituir a classe base de **MainActivity** para **EngagementActivity**:
 
 	public class MainActivity extends EngagementActivity {
+
+Você deve comentar (excluir) a linha a seguir para este cenário de exemplo simples:
+
+    // setSupportActionBar(toolbar);
+
+Se você quiser manter este quadro, consulte o cenário "Relatórios básicos" no nosso [Integração avançada do Android]
 
 ##<a id="monitor"></a>Conectar o aplicativo com monitoramento em tempo real
 
@@ -149,7 +155,7 @@ O Mobile Engagement permite a você interagir e entrar em contato com seus usuá
 
 ### Habilitar mensagens no aplicativo
 
-1. Copie os recursos de mensagens no aplicativo a seguir para o Manifest.xml entre as marcas `<application>` e `</application>`.
+1. Copie os recursos de mensagens no aplicativo a seguir para seu Manifest.xml entre as marcas `<application>` e `</application>`.
 
 		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
   			<intent-filter>
@@ -204,23 +210,27 @@ O Mobile Engagement permite a você interagir e entrar em contato com seus usuá
 
 ###Especifique um ícone para notificações
 
-Cole o trecho de XML a seguir no Manifest.xml entre as marcas `<application>` e `</application>`.
+Cole o trecho XML a seguir no Manifest.xml entre as marcas `<application>` e `</application>`.
 
 		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
 
 Isso define o ícone que é exibido no sistema e notificações no aplicativo. Embora ele seja opcional para notificações no aplicativo, é obrigatório para notificações do sistema. O Android rejeita as notificações do sistema com ícones inválidos.
 
-Certifique-se de estar usando um ícone que exista em uma das pastas **sorteáveis** (como ``engagement_close.png``). Não há suporte para a pasta **mipmap**.
+Use um ícone existente em uma das pastas **sorteáveis** (como ``engagement_close.png``). Não há suporte para a pasta **mipmap**.
 
 >[AZURE.NOTE]Você não deve usar o ícone **iniciador**. Ele tem uma resolução diferente e normalmente está nas pastas de mipmap, para as quais não há suporte.
 
-É claro que você deve usar um ícone adequado para notificações conforme as [diretrizes de design do Android](http://developer.android.com/design/patterns/notifications.html).
+Para os aplicativos reais, você poderá usar um ícone adequado para notificações conforme as [diretrizes de design do Android](http://developer.android.com/design/patterns/notifications.html).
 
->[AZURE.TIP]Para garantir o uso das resoluções de ícone corretas, analise [estes exemplos](https://www.google.com/design/icons). Role para baixo até a seção **Notificação**, clique em um ícone e clique em `PNGS` para baixar o conjunto de ícones sorteáveis. Você pode ver quais pastas sorteáveis usar com qual resolução para cada versão de ícone.
+>[AZURE.TIP]Para garantir o uso das resoluções de ícone corretas, analise [estes exemplos](https://www.google.com/design/icons). Role para baixo até a seção **Notificação**, clique em um ícone e clique em `PNGS` para baixar o conjunto sorteável de ícones. Você pode ver quais pastas sorteáveis usar com qual resolução para cada versão de ícone.
+
+##Criar um projeto do Google Cloud Messaging com uma chave de API 
+
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ###Habilitar seu aplicativo para receber notificações por push do GCM
 
-1. Cole o conteúdo apresentado a seguir em seu Manifest.xml, entre as marcas `<application>` e `</application>`, depois de substituir o `project number` obtido do console do Google Play. O \\n é intencional, assim, verifique se o número do projeto termina com ele.
+1. Cole o conteúdo apresentado a seguir em seu Manifest.xml, entre as marcas `<application>` e `</application>` depois de substituir o `project number` obtido do console do Google Play. O \\n é intencional, assim, verifique se o número do projeto termina com ele.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -261,11 +271,11 @@ Para permitir que o Mobile Engagement envie notificações por push em seu nome,
 	  
 	![][16]
 
-3. Clique no ícone **Editar** edição na frente da **Chave API**, na seção **Configurações do GCM**, conforme mostrado abaixo:
+3. Clique no ícone **Editar** na frente da **Chave API**, na seção **Configurações do GCM**, como mostrado abaixo:
 	  
 	![][17]
 
-4. No pop-up, cole a Chave de Servidor do GCM obtida na seção [Habilitar Google Cloud Messaging](#register) e, em seguida, clique em **Ok**.
+4. No menu pop-up, cole a Chave do Servidor GCM obtida antes e clique em **Ok**.
 
 	![][18]
 
@@ -307,6 +317,8 @@ Agora criaremos uma campanha simples de notificação por push que enviará uma 
 [SDK do Mobile Engagement Android]: http://go.microsoft.com/?linkid=9863935
 [SDK do Mobile Engagement do Android]: http://go.microsoft.com/?linkid=9863935
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[Integração avançada do Android]: https://azure.microsoft.com/pt-BR/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -328,4 +340,4 @@ Agora criaremos uma campanha simples de notificação por push que enviará uma 
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

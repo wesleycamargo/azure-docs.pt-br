@@ -38,7 +38,7 @@ Neste tutorial, você irá:
 
 2. Clique em **Novo** > **Dados + Armazenamento** > **SQL Data Warehouse**.
 
-	![Criar um data warehouse](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
+    ![Criar](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
 1. Insira um nome para o banco de dados na folha do SQL Data Warehouse. Neste exemplo, nomeie o banco de dados como AdventureWorksDW.
 
@@ -48,12 +48,7 @@ Neste tutorial, você irá:
 ## Etapa 2: configurar e criar um servidor
 No Banco de Dados SQL e no SQL Data Warehouse, cada banco de dados é atribuído a um servidor, e cada servidor é atribuído a uma localização geográfica. O servidor é chamado de servidor SQL lógico.
 
-> [AZURE.NOTE]<a name="note"></a>Um servidor SQL lógico:
-  >
-  > + Fornece uma maneira consistente de configurar vários bancos de dados na mesma localização geográfica.
-  > + Não é hardware físico, como ocorre com um servidor local. Faz parte do software de serviço. É por isso que o chamamos de *servidor lógico*.
-  > + pode hospedar vários bancos de dados sem afetar o desempenho.
-  > + usa um *s* minúsculo em seu nome. O **s**ervidor SQL é um servidor lógico do Azure, enquanto o SQL **S**erver é o produto de banco de dados local da Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Um servidor SQL lógico: >> + Fornece uma maneira consistente de configurar vários bancos de dados na mesma localização geográfica. > + Não é hardware físico, como ocorre com um servidor local. Faz parte do software de serviço. É por isso que o chamamos de *servidor lógico*. > + pode hospedar vários bancos de dados sem afetar o desempenho. > + usa um *s* minúsculo em seu nome. O **s**ervidor SQL é um servidor lógico do Azure, enquanto o SQL **S**erver é o produto de banco de dados local da Microsoft.
 
 1. Clique em **Servidor** > **Criar um novo servidor**. Não há cobrança para o servidor. Se você já tiver um servidor SQL lógico V12 que deseje usar, escolha o servidor existente e vá para a próxima seção. 
 
@@ -128,4 +123,4 @@ Agora que você configurou o firewall poderá fazer conexões da área de trabal
 
 Agora que você criou um banco de dados de exemplo para o SQL Data Warehouse, está pronto para [Conectar](./sql-data-warehouse-get-started-connect.md) ao seu banco de dados.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

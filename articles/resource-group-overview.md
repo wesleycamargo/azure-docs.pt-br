@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Visão geral do Gerenciador de Recursos do Azure
@@ -97,15 +97,19 @@ Para obter mais informações sobre marcas, consulte [Usando marcas para organiz
 
 O Gerenciador de Recursos permite controlar quem tem acesso a ações específicas da sua organização. Ele integra nativamente OAuth e RBAC (controle de acesso baseado em função) à plataforma de gerenciamento e aplica esse controle de acesso a todos os serviços em seu grupo de recursos. Você pode adicionar os usuários à plataforma predefinida e funções específicas ao recurso, bem como aplicar essas funções a uma assinatura, grupo de recursos ou recurso para limitar o acesso. Por exemplo, você pode aproveitar a função predefinida chamada SQL DB Contributor que permite aos usuários gerenciar bancos de dados, mas não os servidores de banco de dados ou políticas de segurança. Adicione usuários da sua organização que precisam desse tipo de acesso à função SQL DB Contributor e aplique a função à assinatura, o grupo de recursos ou recurso.
 
-O Gerenciador de Recursos registra automaticamente as ações do usuário para auditoria.
+O Gerenciador de Recursos registra automaticamente as ações do usuário para auditoria. Para saber mais sobre como trabalhar com os logs de auditoria, confira [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
 
 Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal de visualização do Microsoft Azure](role-based-access-control-configure.md). Este tópico contém uma lista de funções internas e ações permitidas. As funções internas incluem funções gerais de Proprietário, Leitor e Colaborador; bem como funções específicas do serviço, como Colaborador da Máquina Virtual, Colaborador de Rede Virtual e o Gerenciador de Segurança do SQL (para citar apenas algumas das funções disponíveis).
 
-Para obter exemplos de configuração de políticas de acesso, consulte [Gerenciar e auditar o acesso a recursos](azure-portal/resource-group-rbac.md).
+Para obter exemplos de atribuição de funções, confira [Gerenciando o acesso a recursos](azure-portal/resource-group-rbac.md).
 
 Você pode bloquear explicitamente recursos essenciais para impedir que os usuários possam excluí-los ou modificá-los. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-Para ver as práticas recomendadas, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md)
+Para ver as práticas recomendadas, confira [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md)
+
+## Gerenciar recursos com políticas personalizadas
+
+O Gerenciador de Recursos permite que você crie políticas personalizadas para gerenciar seus recursos. Os tipos de políticas que você criar poderão incluir cenários tão diferentes como impor uma convenção de nomenclatura a recursos, limitar quais regiões poderão hospedar um tipo de recurso ou exigir um valor de marca em recursos para organizar a cobrança por departamentos. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
 ## Camada de gerenciamento consistente
 
@@ -117,18 +121,18 @@ Para obter informações sobre a CLI do Azure, consulte [Usando a CLI do Azure p
 
 Para obter informações sobre a API REST, consulte [Referência da API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
-Para obter informações sobre o uso do portal de visualização, consulte [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
+Para saber mais sobre o uso do portal de visualização, confira [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
 
 
 ## Próximas etapas
 
-- Para saber mais sobre a criação de modelos, consulte [Criando modelos](./resource-group-authoring-templates.md).
-- Para implantar o modelo criado, consulte [Implantando modelos](azure-portal/resource-group-template-deploy.md)
-- Para entender as funções que você pode usar em um modelo, consulte [Funções de modelo](./resource-group-template-functions.md)
-- Para obter orientação sobre como criar seus modelos, consulte [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
+- Para saber mais sobre a criação de modelos, confira [Criando modelos](./resource-group-authoring-templates.md).
+- Para implantar o modelo criado, confira [Implantando modelos](azure-portal/resource-group-template-deploy.md)
+- Para entender as funções que você pode usar em um modelo, confira [Funções de modelo](./resource-group-template-functions.md)
+- Para obter diretrizes sobre como criar seus modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
 
 Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
