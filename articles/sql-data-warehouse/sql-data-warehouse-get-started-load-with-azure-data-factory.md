@@ -24,18 +24,22 @@
 + Conectar recursos ao Azure Data Factory.
 + Crie um pipeline para mover dados de Blobs de Armazenamento para o SQL Data Warehouse.
 
+>[AZURE.VIDEO loading-azure-sql-data-warehouse-with-azure-data-factory]
+
 ## Recursos
+
 Para este tutorial, você precisará do seguinte:
 
    + **Armazenamento de Blob do Azure**: o Blob de Armazenamento do Azure será a fonte de dados para o pipeline. Você pode usar um blob existente ou [provisionar um novo](../storage/storage-create-storage-account/).
 
-   + **SQL Data Warehouse**: neste tutorial, você moverá dados para o SQL Data Warehouse. Se você ainda não tiver uma instância configurada, poderá aprender como fazer isso [aqui](sql-data-warehouse-get-started-provision.md). Além disso, a instância precisará ser configurada com nosso conjunto de dados do AdventureWorks DW. Se você não tiver provisionado o data warehouse com dados de exemplo, poderá [carregá-lo manualmente](sql-data-warehouse-get-started-manually-load-samples.md).
+   + **SQL Data Warehouse**: neste tutorial, você moverá dados para o SQL Data Warehouse. Se você ainda não tiver uma instância configurada, poderá aprender a fazer isso [aqui](sql-data-warehouse-get-started-provision.md). Além disso, a instância precisará ser configurada com nosso conjunto de dados do AdventureWorks DW. Se você não tiver provisionado o data warehouse com os dados de exemplo, poderá [carregá-lo manualmente](sql-data-warehouse-get-started-manually-load-samples.md).
 
    + **Azure Data Factory**: o Azure Data Factory concluirá a carga real e se você precisar de mais informações sobre como definir o Azure Data Factory ou criar pipelines, poderá ver isso [aqui](../data-factory/data-factory-build-your-first-pipeline-using-editor/).
 
 Quanto tudo estiver pronto, você poderá prosseguir e preparar seus dados e criar seu pipeline do Azure Data Factory.
 
 ## Dados de exemplo
+
 Além das diferentes partes do pipeline, também precisaremos de alguns dados de exemplo que poderão ser usados para carregar dados no Azure Data Factory.
 
 1. Primeiro, [baixe os dados de exemplo](https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv). Esses dados funcionarão em conjunto com os dados de exemplo que já estiverem em seus dados de exemplo, fornecendo mais três anos de dados de vendas.
@@ -49,11 +53,13 @@ Além das diferentes partes do pipeline, também precisaremos de alguns dados de
 Agora que temos nossos dados no lugar, podemos prosseguir para sua fábrica de dados para criar o pipeline que moverá os dados da conta de armazenamento para o SQL Data Warehouse.
 
 ## Usando o Azure Data Factory
-Agora que tudo está configurado, podemos começar a configurar o pipeline navegando até a instância do Azure Data Factory no Portal de Visualização do Azure. Isso pode ser feito por meio do [Portal do Azure](portal.azure.com), selecionando a fábrica de dados do menu à esquerda.
+
+Agora que tudo está configurado, podemos começar a configurar o pipeline navegando até a instância do Azure Data Factory no Portal de Visualização do Azure. Isso pode ser feito por meio do [Portal do Azure](portal.azure.com), selecionando a fábrica de dados no menu à esquerda.
 
 Aqui haverá três etapas para configurar um pipeline de fábrica de dados do Azure para transferir dados para o data warehouse: vinculação dos serviços, definição dos conjuntos de dados e criação do pipeline.
 
 ### Criando serviços vinculados
+
 A primeira etapa é vincular sua conta de armazenamento do Azure e o SQL Data Warehouse à fábrica de dados.
 
 1. Primeiro, inicie o processo de registro clicando na seção 'Serviços Vinculados' de sua fábrica de dados e clicando em 'Novo armazenamento de dados'. Escolha um nome para registrar seu armazenamento do azure, selecione o Armazenamento do Azure como seu tipo e insira o Nome de Conta e a Chave da Conta.
@@ -72,6 +78,7 @@ A primeira etapa é vincular sua conta de armazenamento do Azure e o SQL Data Wa
 		}
 
 ### Registrando conjuntos de dados
+
 Depois de criar os serviços vinculados, teremos de definir os conjuntos de dados. Aqui, isso significa definir a estrutura dos dados que está sendo movida do armazenamento para o data warehouse. Ler mais sobre a criação
 
 1. Inicie este processo navegando até a seção 'Criar e Implantar' de sua fábrica de dados.
@@ -142,6 +149,7 @@ Depois de criar os serviços vinculados, teremos de definir os conjuntos de dado
 		}
 
 ### Configurando o seu pipeline
+
 Por fim, vamos configurar e executar o pipeline no Azure Data Factory. Esta é a operação que concluirá a movimentação de dados reais. Você pode encontrar uma exibição completa das operações que podem ser executadas com o SQL Data Warehouse e o Azure Data Factory [aqui](../data-factory/data-factory-azure-sql-data-warehouse-connector/).
 
 Na seção 'Criar e Implantar', agora clique em 'Mais Comandos' e em 'Novo Pipeline'. Depois de criar o pipeline, você poderá usar o código abaixo para transferir os dados para o data warehouse:
@@ -193,4 +201,4 @@ Na seção 'Criar e Implantar', agora clique em 'Mais Comandos' e em 'Novo Pipel
 	}
 	
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

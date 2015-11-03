@@ -18,13 +18,13 @@
 
 # Conectar seu aplicativo móvel a APIs de SaaS
 
-Neste tutorial, você conectará seu aplicativo móvel a uma solução de SaaS (software como serviço) empresarial. Você vai atualizar o aplicativo em [Autenticar seu aplicativo com o logon único da Biblioteca de Autenticação do Active Directory do Azure] para criar um documento do Word no SharePoint Online sempre que um novo TodoItem for adicionado.
+Neste tutorial, você conectará seu aplicativo móvel a uma solução de SaaS (software como serviço) empresarial. Você atualizará o aplicativo por meio do [Logon único da Biblioteca de Autenticação do Active Directory do Azure] para criar um documento do Microsoft Word no SharePoint Online sempre que um novo TodoItem for adicionado.
 
 Este tutorial exige o seguinte:
 
 * Visual Studio 2013 em execução no Windows 8.1
 * Uma assinatura ativa do [SharePoint Online]
-* Conclusão do tutorial [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]. Você deve usar o locatário fornecido por sua assinatura do SharePoint.
+* Conclusão do tutorial [Logon Único da Biblioteca de Autenticação do Active Directory do Azure]. Você deve usar o locatário fornecido por sua assinatura do SharePoint.
 
 [AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
@@ -41,7 +41,7 @@ Você já configurou o Azure AD para emitir um token de acesso do SharePoint par
 
 ## <a name="store-credentials"></a>Adicionar informações do SharePoint ao seu Aplicativo Móvel
 
-Para fazer uma chamada para o SharePoint, é necessário especificar os pontos de extremidade que o aplicativo móvel precisa percorrer. Você também precisa ser capaz de provar a identidade do seu serviço de aplicativo. Isso é obtido usando um par de ID do cliente e Segredo do cliente. Você já obteve e armazenou a ID do cliente para o serviço de aplicativo durante a configuração de logon do AAD. Como essas credenciais são sigilosas, você não deve armazená-las como texto sem formatação em nosso código. Em vez disso, você vai definir esses valores como configurações de aplicativo para nosso site de Código de Aplicativo Móvel.
+Para fazer uma chamada para o SharePoint, é necessário especificar os pontos de extremidade que o aplicativo móvel precisa percorrer. Você também precisa ser capaz de provar a identidade do seu serviço de aplicativo. Isso é obtido usando um par de ID do cliente e Segredo do cliente. Você já obteve e armazenou a ID do cliente para o serviço de aplicativo durante a configuração de logon do AAD. Como essas credenciais são sigilosas, você não deverá armazená-las como texto sem formatação em nosso código. Em vez disso, você vai definir esses valores como configurações de aplicativo para nosso site de Código de Aplicativo Móvel.
 
 1. Retorne à guia Aplicativos AAD para seu locatário e selecione o aplicativo Web de seu serviço de aplicativo.
 
@@ -182,10 +182,9 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 
 <!-- URLs. -->
 
-[Preview Azure Management Portal]: https://portal.azure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/pt-BR/sharepoint/
-[Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Logon único da Biblioteca de Autenticação do Active Directory do Azure]: app-service-mobile-ios-aad-sso.md
 [Extensão de Serviço de Aplicativo do back-end .NET de aplicativos móveis]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

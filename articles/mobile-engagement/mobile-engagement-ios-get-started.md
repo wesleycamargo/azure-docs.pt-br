@@ -32,19 +32,18 @@ Este tutorial exige o seguinte:
 
 + XCode 6 ou XCode 7, que podem ser instalados a partir da MAC App Store
 + o [SDK do Mobile Engagement iOS]
-+ Certificado de notificação por push (. p12), que pode ser obtido no centro de desenvolvimento da Apple
 
 A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais do Mobile Engagement para os aplicativos iOS.
 
 > [AZURE.IMPORTANT]A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais do Mobile Engagement para os aplicativos iOS e para concluí-lo, você deve ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
 
-##<a id="setup-azme"></a>Configurar o Mobile Engagement para seu aplicativo iOS
+##<a id="setup-azme"></a>Configurar o Mobile Engagement para seu aplicativo do iOS
 
 [AZURE.INCLUDE [Criar Aplicativo de Mobile Engagement no Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
 ##<a id="connecting-app"></a>Conecte o seu aplicativo ao back-end do Mobile Engagement
 
-Este tutorial apresenta uma "integração básica" que é o conjunto mínimo exigido para coletar dados e enviar uma notificação por push. A documentação de integração completa pode ser encontrada na [integração do SDK do Mobile Engagement iOS](../mobile-engagement-ios-sdk-overview/)
+Este tutorial apresenta uma "integração básica" que é o conjunto mínimo exigido para coletar dados e enviar uma notificação por push. A documentação de integração completa pode ser encontrada na [integração do SDK do iOS do Mobile Engagement](../mobile-engagement-ios-sdk-overview/)
 
 Criaremos um aplicativo básico com XCode para demonstrar a integração.
 
@@ -54,9 +53,9 @@ Criaremos um aplicativo básico com XCode para demonstrar a integração.
 
 ###Conectar o aplicativo ao back-end do Mobile Engagement
 
-1. Faça o download do [SKD do Mobile Engagement iOS].
+1. Baixe o [SDK do iOS do Mobile Engagement].
 2. Extraia o arquivo .tar.gz para uma pasta no seu computador.
-3. Clique com o botão direito do mouse no projeto e, em seguida, selecione **Adicionar arquivos a**.
+3. Clique com o botão direito do mouse no projeto e selecione **Adicionar arquivos a**.
 
 	![][1]
 
@@ -64,7 +63,7 @@ Criaremos um aplicativo básico com XCode para demonstrar a integração.
 
 	![][2]
 
-5. Abra a guia **Criar Fases** e, no menu **Link Binário com as Bibliotecas**, adicione as estruturas, conforme mostrado abaixo:
+5. Abra a guia **Criar Fases** e, no menu **Vincular Binário com Bibliotecas**, adicione as estruturas como mostrado abaixo:
 
 	![][3]
 
@@ -74,11 +73,11 @@ Criaremos um aplicativo básico com XCode para demonstrar a integração.
 
 	![][4]
 
-8. Adicione a linha de código a seguir em seu arquivo **AppDelegate.m**.
+8. Adicione a linha de código a seguir a seu arquivo **AppDelegate.m**.
 
 		#import "EngagementAgent.h"
 
-9. Agora, cole a cadeia de conexão no `didFinishLaunchingWithOptions` delegado.
+9. Agora, cole a cadeia de conexão no representante `didFinishLaunchingWithOptions`.
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
@@ -118,18 +117,18 @@ O Mobile Engagement permite interagir com seus usuários e o REACH com notifica�
 ### Adicionar a biblioteca Reach ao seu projeto
 
 1. Clique com o botão direito em seu projeto.
-2. Selecione **Adicionar arquivo para**.
+2. Selecione **Adicionar arquivo a**.
 3. Navegue até a pasta onde você extraiu o SDK.
 4. Selecione a pasta `EngagementReach`.
 5. Clique em **Adicionar**.
 
 ### Modifique seu Representante do Aplicativo
 
-1. De volta no arquivo **AppDeletegate.m**, importe o módulo do Engagement Reach.
+1. De volta ao arquivo **AppDeletegate.m**, importe o módulo Engagement Reach.
 
 		#import "AEReachModule.h"
 
-2. No método `application:didFinishLaunchingWithOptions`, crie um módulo do Reach e passe-o para sua linha de inicialização do Engagement existente:
+2. No método `application:didFinishLaunchingWithOptions`, crie um módulo Reach e passe-o para sua linha de inicialização do Engagement existente:
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 			AEReachModule * reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
@@ -178,7 +177,7 @@ O Mobile Engagement permite interagir com seus usuários e o REACH com notifica�
 
 <!-- URLs. -->
 [SDK do Mobile Engagement iOS]: http://go.microsoft.com/?linkid=9864553
-[SKD do Mobile Engagement iOS]: http://go.microsoft.com/?linkid=9864553
+[SDK do iOS do Mobile Engagement]: http://go.microsoft.com/?linkid=9864553
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
 
 <!-- Images. -->
@@ -187,4 +186,4 @@ O Mobile Engagement permite interagir com seus usuários e o REACH com notifica�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

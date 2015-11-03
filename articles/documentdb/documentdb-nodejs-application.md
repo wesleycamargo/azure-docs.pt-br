@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Saiba mais sobre o Node.js — tutorial do Node.js para Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba mais sobre o Node.js! O tutorial explica como usar o Banco de Dados de Documentos do Microsoft Azure para armazenar e acessar dados de um aplicativo Web do Node.js Express hospedado em sites do Azure." 
-	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+	keywords="Desenvolvimento de aplicativos, tutorial de banco de dados, aprender node.js, tutorial do node.js, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
+	ms.date="10/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Criar um aplicativo Web Node.js usando o Banco de Dados de Documentos
@@ -40,7 +40,7 @@ Seguindo este tutorial de banco de dados, você criará um aplicativo simples de
 
 ![Captura de tela do aplicativo Minha lista de tarefas pendentes criado neste tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Não há tempo para concluir o tutorial e deseja apenas a solução completa? Não é um problema, você pode obter a solução de exemplo completo da [GitHub][].
+Não há tempo para concluir o tutorial e deseja apenas a solução completa? Não é um problema, você pode obter a solução de exemplo completa do [GitHub][].
 
 ## <a name="_Toc395783176"></a>Pré-requisitos
 
@@ -61,9 +61,9 @@ Vamos iniciar pela criação de uma conta do Banco de Dados de Documentos. Se j�
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>Etapa 2: aprender a criar um novo aplicativo Node.js
+## <a name="_Toc395783178"></a>Etapa 2: Aprender a criar um novo aplicativo Node.js
 
-Agora vamos aprender a criar um projeto Hello World Node.js básico usando a estrutura [Express](http://expressjs.com/).
+Agora vamos aprender a criar um projeto Node.js Hello World básico usando a estrutura [Express](http://expressjs.com/).
 
 1. Abra seu terminal favorito.
 
@@ -542,7 +542,7 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 4. Para concluir uma tarefa, basta marcar a caixa de seleção na coluna Concluir e clicar em **Atualizar tarefas**.
 
-## <a name="_Toc395783182"></a>Etapa 7: implantar seu projeto de desenvolvimento de aplicativo nos sites do Azure
+## <a name="_Toc395783182"></a>Etapa 7: Implantar seu projeto de desenvolvimento de aplicativos em sites do Azure
 
 1. Se ainda não o fez, habilite um repositório git do seu site do Azure. Você poderá encontrar instruções sobre como fazer isso [aqui](../web-sites-publish-source-control-git.md#step4).
 
@@ -560,13 +560,13 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 Parabéns! Você acabou de criar seu primeiro Aplicativo Web Express do Node.js usando o Banco de Dados de Documentos do Azure e o publicou nos sites do Azure.
 
-O código-fonte para o aplicativo de referência completo pode ser baixado no [GitHub][].
+O código-fonte para o aplicativo de referência completo pode ser baixado do [GitHub][].
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+Para saber mais, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
