@@ -71,16 +71,16 @@ No [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=52
 
 1. Atualize a exibição `Contact` para refletir a lista dinâmica de contatos com o seguinte código:
 	<pre>// Add to the very top of the view file
-@model IList&lt;MyContactsList.Web.Models.Contact>
-
-// Replace the default email addresses with the following
-&lt;h3>Contatos públicos&lt;/h3>
-&lt;ul>
-    @foreach (contato var no Modelo)
-    {
-        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
-    }
-&lt;/ul> 
+	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
+	
+	// Replace the default email addresses with the following
+    &lt;h3&gt;Public Contacts&lt;/h3&gt;
+    &lt;ul&gt;
+        @foreach (var contact in Model)
+        {
+            &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
+        }
+    &lt;/ul&gt; 
 	</pre>
 
 	![Atualizações de código Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
@@ -96,4 +96,4 @@ Siga as instruções disponíveis em [Como Implantar um Aplicativo Web do Azure]
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
