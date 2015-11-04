@@ -194,7 +194,13 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 
 |Métrica|Contador|
 |---|---|
-|CPU|\\Processor(\_Total)\\% Processor Time| |Available memory|\\Memory\\Available MBytes| |IOPS|\\PhysicalDisk(\_Total)\\Disk Transfers/sec| |VM read (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec| |VM write (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S| |VM read throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec| |VM write throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
+|CPU|\\Processor(\_Total)\\% Processor Time|
+|Available memory|\\Memory\\Available MBytes|
+|IOPS|\\PhysicalDisk(\_Total)\\Disk Transfers/sec|
+|VM read (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec|
+|VM write (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S|
+|VM read throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec|
+|VM write throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
 
 
 ## Próximas etapas
@@ -208,4 +214,4 @@ Para iniciar a implantação do ASR:
 - [Configurar a proteção com um único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
