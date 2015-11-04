@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/01/2015"
+	ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # Introdução ao Backup do Azure
 Este artigo fornece uma visão geral ampla da solução integrada de backup em nuvem da Microsoft que habilita os clientes a fazer backup de seus dados locais ou no Azure.
@@ -62,7 +69,8 @@ Os principais recursos dessa solução são:
 | Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
 | Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão VM)](backup-azure-vms-introduction.md) | | VMs de IaaS do Azure (Linux) | - | [Backup do Azure](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão VM)](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão VM)](backup-azure-vms-introduction.md) |
 
 
 ## Próximas etapas
@@ -70,4 +78,4 @@ Os principais recursos dessa solução são:
 - As perguntas frequentes sobre o serviço de Backup do Azure estão listadas [aqui](backup-azure-backup-faq.md).
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

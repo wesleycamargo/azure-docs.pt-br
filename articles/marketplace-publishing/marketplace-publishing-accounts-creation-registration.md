@@ -19,7 +19,7 @@
 # Criação de uma conta de vendedor da Microsoft
 Este artigo orienta você sobre a criação e registro de uma conta necessários para se tornar um vendedor da Microsoft aprovado para o Azure Marketplace.
 
-## 1\. Criar uma conta da Microsoft (MSA)
+## 1. Criar uma conta da Microsoft (MSA)
 > [AZURE.WARNING]Para completar o processo de publicação, será necessário criar uma conta da Microsoft. Essa conta será usada para se registrar e fazer logon no Portal de Publicação e no Painel do Vendedor. Você deve ter apenas uma conta da Microsoft para suas ofertas do Azure Marketplace. Elas não devem ser específicas para serviços ou ofertas.
 
 O endereço que forma o nome de usuário deve estar no seu domínio e ser controlado por sua equipe de TI (como publishing@yourcompany.com). Informações sobre pagamento e impostos, bem como relatórios serão encaminhados através desta conta.
@@ -47,7 +47,7 @@ O endereço que forma o nome de usuário deve estar no seu domínio e ser contro
 
 > [AZURE.IMPORTANT]Usar a Lista de Distribuição permite que várias pessoas recebam notificações por email que são relatórios importantes de informações de pagamento, e também garante que a propriedade da MSA possa ser transferida e não esteja vinculada a uma única pessoa.
 
-## 2\. Criar sua conta de Painel do Vendedor
+## 2. Criar sua conta de Painel do Vendedor
 O Painel do Vendedor da Microsoft é usado para registrar as informações da empresa uma vez. O inscrito deve ser um representante válido da empresa e fornecer suas informações pessoais como uma maneira de validar sua identidade. A pessoa que faz o registro deve usar uma conta da Microsoft (MSA) que seja compartilhada com a empresa, e a mesma conta deve ser usada no Portal de Publicação do Azure. Você deve verificar se sua empresa ainda não tem uma conta do Painel do Vendedor antes de tentar criar uma. Durante o processo, vamos coletar informações de conta bancária, informações sobre impostos e informações de endereço da empresa. Esses dados são geralmente obtidos por meio de contatos de finanças ou negócios.
 
 > [AZURE.IMPORTANT]Os seguintes componentes de perfil do vendedor devem ser preenchidos para prosseguir pelas diversas fases da criação e implantação da oferta.
@@ -142,7 +142,7 @@ Se você preferir atualizar suas informações sobre impostos e dados bancários
 
 > [AZURE.WARNING]Você não poderá enviar suas ofertas comerciais por push para produção sem preencher as informações sobre impostos e os dados de conta bancária em sua conta do Painel do Vendedor.
 
-## 3\. Registrar sua conta no Portal de Publicação
+## 3. Registrar sua conta no Portal de Publicação
 O Portal de Publicação do Azure é usado para publicar e gerenciar suas ofertas. Você encontrará algumas informações úteis no Portal de Publicação que guiarão você pelo processo de criação da oferta.
 
 > [AZURE.WARNING]A mesma Conta da Microsoft da empresa que foi usada no registro do Painel do Vendedor DEVE ser usada aqui. Usuários adicionais podem ser adicionados para ajudar após a criação de conta do editor mestre.
@@ -154,11 +154,16 @@ O Portal de Publicação do Azure é usado para publicar e gerenciar suas oferta
 
   >[AZURE.TIP]As políticas de participação são mencionadas [aqui](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Se você tiver problemas com a conclusão do Registro do Vendedor, registre um tíquete de Suporte como abaixo: 1. Entre em contato com o [Suporte](http://go.microsoft.com/fwlink?LinkId=272975) 2. Escolha o **Registro do Painel do Vendedor e sua conta** 3. Escolha **Registrar-se em uma conta de desenvolvedor** 4. Escolha um **método** de contato
+  > Se você tiver problemas com a conclusão do Registro do Vendedor, registre um tíquete de Suporte como abaixo:
+  1. Entre em contato com o [Suporte](http://go.microsoft.com/fwlink?LinkId=272975)
+  2. Escolha o **Registro do Painel do Vendedor e sua conta**
+  3. Escolha **Registrar-se em uma conta de desenvolvedor**
+  4. Escolha um **método** de contato
 
 ### Países de "origem de venda"
 
-> [AZURE.WARNING]Para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa estar dentro dos países aprovados para "origem de venda". Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para obter a lista completa, consulte a seção 1b do documento no link [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
+> [AZURE.WARNING]
+Para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa estar dentro dos países aprovados para "origem de venda". Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para obter a lista completa, consulte a seção 1b do documento no link [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 
@@ -166,7 +171,12 @@ O Portal de Publicação do Azure é usado para publicar e gerenciar suas oferta
 ## Próximas etapas
 Agora que sua conta está criada e registrada, clique no tipo de artefato (máquina virtual, serviço do desenvolvedor, serviço de dados, modelo de solução) que você deseja publicar no Azure Marketplace. Visite um dos seguintes artigos para saber como publicar sua respectiva oferta:
 
-|| Imagem da Máquina Virtual| Serviço do Desenvolvedor | Serviço de Dados | Modelo de Solução | |----|-----|-----|-----|-----| |**Etapa 2: Criar sua oferta** |[Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| || [Pré-requisitos técnicos de imagem de VM][link-single-vm-prereq] | Pré-requisitos técnicos de serviço do desenvolvedor | Pré-requisitos técnicos de serviço de dados | [Pré-requisitos técnicos de serviço de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) | || [Guia de publicação de imagem da VM][link-single-vm] | Guia de publicação do serviço do desenvolvedor | Guia de publicação do serviço de dados | [Guia de publicação do modelo de solução](marketplace-publishing-solution-template-creation.md) | || [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] |
+|| Imagem da Máquina Virtual| Serviço do Desenvolvedor | Serviço de Dados | Modelo de Solução |
+|----|-----|-----|-----|-----|
+|**Etapa 2: Criar sua oferta** |[Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)|
+|| [Pré-requisitos técnicos de imagem de VM][link-single-vm-prereq] | Pré-requisitos técnicos de serviço do desenvolvedor | Pré-requisitos técnicos de serviço de dados | [Pré-requisitos técnicos de serviço de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guia de publicação de imagem da VM][link-single-vm] | Guia de publicação do serviço do desenvolvedor | Guia de publicação do serviço de dados | [Guia de publicação do modelo de solução](marketplace-publishing-solution-template-creation.md) |
+|| [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de Marketing do Azure Marketplace][link-pushstaging] |
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -198,4 +208,4 @@ Agora que sua conta está criada e registrada, clique no tipo de artefato (máqu
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
