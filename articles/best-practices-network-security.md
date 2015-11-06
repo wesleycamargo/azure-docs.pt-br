@@ -23,7 +23,7 @@ Os Serviços de Nuvem da Microsoft entregam serviços e estrutura em larga escal
 ## Início rápido
 O gráfico lógico direcioná-lo a um exemplo específico das várias técnicas de segurança disponíveis na plataforma Microsoft Azure. Use-o para localizar rápida e precisamente o que é necessário ou leia o documento desde o início para obter uma explicação sobre as várias opções disponíveis. ![Fluxograma de opções de segurança][0]
 
-[Exemplo 1: criar uma DMZ para proteger aplicativos com NSGs](#example-1-build-a-simple-dmz-with-nsgs)</br> [Exemplo 2: criar uma DMZ para proteger aplicativos com firewall e NSGs](#example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs)</br> [Exemplo 3: criar uma DMZ para proteger redes com firewall, UDR e NSG](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg)</br> [Exemplo 4: adicionando uma conexão híbrida com uma VPN de dispositivo virtual site a site](#example-4-adding-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br> [Exemplo 5: adicionando uma conexão híbrida com uma VPN Azure Gateway site a site](#example-5-adding-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br> [Exemplo 6: adicionando uma conexão híbrida com a Rota Expressa](#example-6-adding-a-hybrid-connection-with-expressroute)</br> Exemplos para adicionar VNet a conexões VNet, de alta disponibilidade e de encadeamento de serviço serão adicionados a este documento nos próximos meses.
+[Exemplo 1: criar uma rede de perímetro para proteger aplicativos com NSGs](#example-1-build-a-simple-dmz-with-nsgs)</br> [Exemplo 2: criar uma DMZ para proteger aplicativos com firewall e NSGs](#example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs)</br> [Exemplo 3: criar uma rede de perímetro para proteger redes com firewall, UDR e NSG](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg)</br> [Exemplo 4: adicionando uma conexão híbrida com uma VPN de dispositivo virtual site a site](#example-4-adding-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br> [Exemplo 5: adicionando uma conexão híbrida com uma VPN Azure Gateway site a site](#example-5-adding-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br> [Exemplo 6: adicionando uma conexão híbrida com a Rota Expressa](#example-6-adding-a-hybrid-connection-with-expressroute)</br> Exemplos para adicionar VNet a conexões VNet, de alta disponibilidade e de encadeamento de serviço serão adicionados a este documento nos próximos meses.
 
 ## Proteção de infraestrutura e conformidade da Microsoft
 A Microsoft tomou uma posição de liderança dando suporte às iniciativas de conformidade exigidas pelos clientes corporativos. Seguem algumas das certificações de conformidade do Azure: ![Selos de conformidade do Azure][1]
@@ -36,19 +36,20 @@ A Microsoft tem uma abordagem abrangente para proteger a infraestrutura de nuvem
 
 A abordagem acima fornece uma base segura para os clientes implantarem seus serviços na Microsoft Cloud. A próxima etapa é o design e a criação de uma arquitetura de segurança pelos clientes para proteger esses serviços.
 
-## Arquiteturas tradicionais de segurança e DMZs (zonas desmilitarizadas)
-Embora a Microsoft faça investimentos consideráveis para proteger a infraestrutura de nuvem, os clientes também devem proteger os serviços de nuvem e os grupos de recursos. Uma abordagem de segurança em várias camadas fornece a melhor defesa. Uma DMZ (zona de delimitação de segurança de rede) protege recursos da rede interna de uma rede não confiável. DMZ é um conceito conhecido na arquitetura de segurança de rede de TI empresarial, referindo-se às bordas ou partes da rede estabelecidas entre a Internet e a infraestrutura de TI da empresa protegida.
+## Arquiteturas tradicionais de segurança e redes de perímetro
+Embora a Microsoft faça investimentos consideráveis para proteger a infraestrutura de nuvem, os clientes também devem proteger os serviços de nuvem e os grupos de recursos. Uma abordagem de segurança em várias camadas fornece a melhor defesa. Uma rede de perímetro (zona de delimitação de segurança de rede) protege recursos da rede interna de uma rede não confiável. rede de perímetro é um conceito conhecido na arquitetura de segurança de rede de TI empresarial, referindo-se às bordas ou partes da rede estabelecidas entre a Internet e a infraestrutura de TI da empresa protegida.
 
-Em redes empresariais típicas, a infraestrutura básica é reforçada intensamente no perímetro, com várias camadas de dispositivos de segurança. O limite de cada camada consiste em dispositivos e pontos de imposição de políticas. Os dispositivos podem incluir: firewalls, prevenção de DDoS (ataque de negação de serviço distribuído), IDS/IPS (sistemas de detecção de intrusão ou sistemas de proteção), dispositivos VPN (redes virtuais privadas), etc. A imposição de políticas pode assumir a forma de políticas de firewall, ACLs ou roteamento específico. A primeira linha de defesa da rede, que aceita diretamente o tráfego de entrada da Internet, será uma combinação desses mecanismos para bloquear ataques e tráfego perigoso enquanto as solicitações legítimas adentram a rede. Esse tráfego será roteado diretamente aos recursos na DMZ. Esse recurso pode "falar" com recursos mais dentro da rede, passando pelo próximo limite de validação antes de ser roteado mais profundamente na rede. A camada mais externa é chamada DMZ porque essa parte da rede está exposta à Internet, geralmente com alguma forma de proteção em ambos os lados da DMZ. A figura a seguir mostra um exemplo de uma sub-rede DMZ individual em uma rede corporativa com dois limites de segurança (DMZ-Internet e DMZ VLAN Back-end).
+Em redes empresariais típicas, a infraestrutura básica é reforçada intensamente no perímetro, com várias camadas de dispositivos de segurança. O limite de cada camada consiste em dispositivos e pontos de imposição de políticas. Os dispositivos podem incluir: firewalls, prevenção de DDoS (ataque de negação de serviço distribuído), IDS/IPS (sistemas de detecção de intrusão ou sistemas de proteção), dispositivos VPN (redes virtuais privadas), etc. A imposição de políticas pode assumir a forma de políticas de firewall, ACLs ou roteamento específico. A primeira linha de defesa da rede, que aceita diretamente o tráfego de entrada da Internet, será uma combinação desses mecanismos para bloquear ataques e tráfego perigoso enquanto as solicitações legítimas adentram a rede. Esse tráfego será roteado diretamente aos recursos na rede de perímetro. Esse recurso pode "falar" com recursos mais dentro da rede, passando pelo próximo limite de vali
+dação antes de ser roteado mais profundamente na rede. A camada mais externa é chamada rede de perímetro porque essa parte da rede está exposta à Internet, geralmente com alguma forma de proteção em ambos os lados da rede de perímetro. A figura a seguir mostra um exemplo de uma sub-rede rede de perímetro individual em uma rede corporativa com dois limites de segurança (rede de perímetro-Internet e rede de perímetro VLAN Back-end).
 
-![Uma DMZ em uma rede corporativa][3]
+![Uma rede de perímetro em uma rede corporativa][3]
 
-Há muitas arquiteturas usadas para implementar uma DMZ, de um simples do balanceador de carga na frente de um Web farm até uma DMZ com várias sub-redes e diferentes mecanismos em cada limite para bloquear o tráfego e proteger as camadas mais profundas da rede corporativa. Como a DMZ é criada depende das necessidades específicas da organização e da tolerância a riscos associada.
+Há muitas arquiteturas usadas para implementar uma rede de perímetro, de um simples do balanceador de carga na frente de um Web farm até uma rede de perímetro com várias sub-redes e diferentes mecanismos em cada limite para bloquear o tráfego e proteger as camadas mais profundas da rede corporativa. Como a rede de perímetro é criada depende das necessidades específicas da organização e da tolerância a riscos associada.
 
-Conforme os clientes vão movendo suas cargas de trabalho para nuvens públicas, é essencial dar suporte a recursos semelhantes de arquitetura de DMZ no Azure para atender aos requisitos de conformidade e de segurança. Este documento fornece diretrizes sobre como os clientes podem criar um ambiente de rede seguro no Azure, concentrando-se na DMZ, mas envolvendo uma discussão abrangente sobre vários aspectos da segurança de rede, começando com as seguintes questões, dentre outras:
+Conforme os clientes vão movendo suas cargas de trabalho para nuvens públicas, é essencial dar suporte a recursos semelhantes de arquitetura de rede de perímetro no Azure para atender aos requisitos de conformidade e de segurança. Este documento fornece diretrizes sobre como os clientes podem criar um ambiente de rede seguro no Azure, concentrando-se na rede de perímetro, mas envolvendo uma discussão abrangente sobre vários aspectos da segurança de rede, começando com as seguintes questões, dentre outras:
 
-1.	Como pode ser criada uma DMZ no Azure?
-2.	Quais são alguns dos recursos do Azure disponíveis para criar a DMZ?
+1.	Como pode ser criada uma rede de perímetro no Azure?
+2.	Quais são alguns dos recursos do Azure disponíveis para criar a rede de perímetro?
 3.	Como cargas de trabalho de back-end podem ser protegidas?
 4.	Como a comunicação com a Internet é controlada para as cargas de trabalho no Azure?
 5.	Como as redes locais podem ser protegidas contra implantações no Azure?
@@ -60,7 +61,7 @@ O diagrama abaixo mostra várias camadas de segurança que o Azure fornece aos c
 
 Vinda da Internet há a proteção DDoS do Azure vigiando ataques em grande escala contra o Azure. A derrubada dela levaria aos pontos de extremidade públicos definidos pelo cliente que são usados para determinar qual tráfego pode passar pelo serviço de nuvem para a rede virtual. O isolamento de rede virtual do Azure nativo garante o isolamento completo de todas as outras redes e garante que o tráfego flua somente através de métodos e caminhos configurados pelo usuário. Esses caminhos e métodos são a próxima camada onde NSG (grupos de segurança de rede), UDR (roteamento definido pelo usuário) e dispositivos de rede virtual podem ser usados para criar limites de segurança, incluindo DMZs, para proteger as implantações de aplicativo na rede protegida.
 
-A próxima seção fornece uma visão geral das Redes Virtuais do Azure. As Redes Virtuais do Azure são criadas por clientes e as cargas de trabalho implantadas estão conectadas a elas. As Redes Virtuais são a base de todos os recursos de segurança de rede necessários para estabelecer uma DMZ e proteger as implantações dos clientes no Azure.
+A próxima seção fornece uma visão geral das Redes Virtuais do Azure. As Redes Virtuais do Azure são criadas por clientes e as cargas de trabalho implantadas estão conectadas a elas. As Redes Virtuais são a base de todos os recursos de segurança de rede necessários para estabelecer uma rede de perímetro e proteger as implantações dos clientes no Azure.
 
 ## Visão geral das máquinas virtuais do Azure
 Antes que o tráfego da Internet possa acessar as Redes Virtuais do Azure, há duas camadas de segurança inerentes à plataforma Azure:
@@ -75,64 +76,65 @@ Depois que o tráfego alcança a rede virtual, há muitos recursos que entram em
 3.	**Conectividade entre locais**: os clientes podem estabelecer a conectividade entre locais entre uma rede virtual e vários sites locais ou outras redes virtuais no Azure por meio de Gateways de VPN do Azure ou dispositivos de rede virtual de terceiros. O Azure dá suporte a VPNs site a site (S2S) usando protocolos padrão de IPsec/IKE e conectividade privada de Rota Expressa. 
 4.	**Grupo de segurança de rede** (NSG) permite que os clientes criem regras (ACLs) para o nível desejado de granularidade: sub-redes virtuais, VMs individuais ou interfaces de rede. Os clientes podem controlar o acesso permitindo ou negando a comunicação entre as cargas de trabalho em uma rede virtual, de sistemas nas redes do cliente por meio de conectividade entre locais ou comunicação direta via Internet. 
 5.	**Rotas definidas pelo usuário** (UDR) e **Encaminhamento IP** permitem que os clientes definam os caminhos de comunicação entre camadas diferentes em uma rede virtual. Os clientes podem implantar firewall, IDS/IPS e outros dispositivos virtuais, além de rotear o tráfego de rede por meio desses dispositivos de segurança para a aplicação, a auditoria e a inspeção das políticas de limites de segurança.
-6.	**Dispositivos de rede virtual** no Azure Marketplace: dispositivos de segurança, como firewalls, balanceadores de carga e IDS/IPS (serviços de prevenção e de detecção de invasões) estão disponíveis no Azure Marketplace e na Galeria de imagens de VM. Os clientes podem implantar esses dispositivos em suas redes virtuais e, especificamente, em seus limites de segurança (incluindo as sub-redes DMZ) para concluir um ambiente de rede seguro com várias camadas.
+6.	**Dispositivos de rede virtual** no Azure Marketplace: dispositivos de segurança, como firewalls, balanceadores de carga e IDS/IPS (serviços de prevenção e de detecção de invasões) estão disponíveis no Azure Marketplace e na Galeria de imagens de VM. Os clientes podem implantar esses dispositivos em suas redes virtuais e, especificamente, em seus limites de segurança (incluindo as sub-redes rede de perímetro) para concluir um ambiente de rede seguro com várias camadas.
 
-Com esses recursos e funções, um exemplo de como uma arquitetura de DMZ poderia ser criada no Azure é o seguinte:
+Com esses recursos e funções, um exemplo de como uma arquitetura de rede de perímetro poderia ser criada no Azure é o seguinte:
 
-![Uma DMZ em uma Rede Virtual do Azure][5]
+![Uma rede de perímetro em uma Rede Virtual do Azure][5]
 
-## Requisitos e características de DMZ
-Esta seção descreve características e requisitos de uma DMZ no Azure. Conforme descrito anteriormente, a DMZ é projetada para ser o front-end da rede, fazendo a interface de comunicação diretamente da Internet. Os pacotes de entrada devem fluir por dispositivos de segurança, firewall, IDS, IPS e afins, na DMZ antes de alcançar os servidores back-end. Pacotes indo das cargas de trabalho para a Internet também podem fluir pelos dispositivos de segurança na DMZ para fins de auditoria, inspeção e imposição da política antes de sair da rede. Além disso, a DMZ também pode ser usada para hospedar os gateways de VPN entre locais entre redes virtuais de cliente e redes locais.
+## Requisitos e características de rede de perímetro
+Esta seção descreve características e requisitos de uma rede de perímetro no Azure. Conforme descrito anteriormente, a rede de perímetro é projetada para ser o front-end da rede, fazendo a interface de comunicação diretamente da Internet. Os pacotes de entrada devem fluir por dispositivos de segurança, firewall, IDS, IPS e afins, na rede de perímetro antes de alcançar os servidores back-end. Pacotes indo das cargas de trabalho para a Internet também podem fluir pelos dispositivos de segurança na DMZ para fins de auditoria, inspeção e imposição da política antes de sair da rede. Além disso, a rede de perímetro também pode ser usada para hospedar os gateways de VPN entre locais entre redes virtuais de cliente e redes locais.
 
 ### Características da DMZ
-Em relação à figura acima, Uma DMZ em uma Rede Virtual do Azure, algumas das características de uma boa DMZ são as seguintes:
+Em relação à figura acima, Uma rede de perímetro em uma Rede Virtual do Azure, algumas das características de uma boa rede de perímetro são as seguintes:
 
-- DMZ voltada para a Internet (Front-end):
-    - A sub-rede DMZ em si é voltada para a Internet, comunicando-se diretamente com a Internet
+- Rede de perímetro voltada para a Internet (Front-end):
+    - A sub-rede rede de perímetro em si é voltada para a Internet, comunicando-se diretamente com a Internet
     - IPs públicas, VIPs e/ou pontos de extremidade de serviço passam tráfego da internet para a rede e dispositivos de front-end
     - O tráfego de entrada da internet passa por dispositivos de segurança antes de outros recursos da rede de front-end
     - Se segurança de saída estiver habilitada, o tráfego passa por dispositivos de segurança, como a etapa final, antes de passar para a internet
 - "Rede protegida" (Back-end): em direção à infraestrutura básica
     - Não há um caminho direto da Internet para a infraestrutura básica
-    - Os canais para a infraestrutura básica devem percorrer dispositivos de segurança, como NSGs, firewalls ou dispositivos VPN na DMZ
-    - Outros dispositivos na DMZ NÃO DEVEM ligar a Internet à infraestrutura básica
-    - Dispositivos de segurança tanto no lado da Internet quanto no lado da rede protegida da DMZ (por exemplo, os dois ícones de firewall exibidos na figura acima) podem ser um único dispositivo virtual com regras ou interfaces diferenciadas para o limite de internet e o de back-end (por exemplo, um dispositivo, logicamente separado, lidando com a carga em ambos os limites da DMZ)
+    - Os canais para a infraestrutura básica devem percorrer dispositivos de segurança, como NSGs, firewalls ou dispositivos VPN na rede de perímetro
+    - Outros dispositivos na rede de perímetro NÃO DEVEM ligar a Internet à infraestrutura básica
+    - Dispositivos de segurança tanto no lado da Internet quanto no lado da rede protegida da rede de perímetro (por exemplo, os dois ícones de firewall exibidos na figura acima) podem ser um único dispositivo virtual com regras ou interfaces diferenciadas para o limite de internet e o de back-end (por exemplo, um dispositivo, logicamente separado, lidando com a carga em ambos os limites da rede de perímetro)
 - Outras práticas recomendadas e restrições comuns
-    - As cargas de trabalho na DMZ não devem armazenam informações essenciais aos negócios
-    - O acesso e as atualizações para configurações e implantações da DMZ são limitadas somente aos administradores autorizados
+    - As cargas de trabalho na rede de perímetro não devem armazenam informações essenciais aos negócios
+    - O acesso e as atualizações para configurações e implantações da rede de perímetro são limitadas somente aos administradores autorizados
 
-### Requisitos da DMZ
-Para habilitar essas características, a lista a seguir fornece orientação sobre requisitos de rede virtual para implementar uma DMZ com êxito:
+### Requisitos da rede de perímetro
+Para habilitar essas características, a lista a seguir fornece orientação sobre requisitos de rede virtual para implementar uma rede de perímetro com êxito:
 
-- Arquitetura de sub-rede: especifique a rede virtual, de modo que uma sub-rede inteira fique dedicada como DMZ, separada de outras sub-redes na mesma rede virtual. Isso garantirá o tráfego entre a DMZ e outras camadas de sub-rede internas ou privadas flua por meio de um firewall ou dispositivo virtual IDS/IPS nos limites da sub-rede com rotas definidas pelo usuário.
-- O grupo de segurança de rede (NSG) para o DMZ: a própria sub-rede DMZ deve estar aberta para permitir a comunicação entre a DMZ e a Internet, mas isso não significa que os clientes devem ignorar os NSGs. Siga as práticas de segurança comuns para minimizar as superfícies de rede expostas à Internet, bloqueando os intervalos de endereço remoto permitidos para acessar as implantações e/ou os protocolos de aplicativo específicos e as portas que estão abertas. Observe que nem sempre será possível. Por exemplo, se os clientes têm um site externo no Azure, a DMZ deve permitir solicitações de entrada da Web de endereços IP públicos, mas só deve abrir as portas do aplicativo Web: TCP:80 e TCP:443.
-- Tabela de roteamento para DMZ: a própria sub-rede DMZ deve ser capaz de se comunicar diretamente com a Internet, mas não deve permitir a comunicação direta de e para o back-end ou em redes locais sem passar por um dispositivo de firewall ou de segurança.
-- Configuração de dispositivo de segurança DMZ: para rotear e inspecionar os pacotes entre a DMZ e o restante das redes protegidas, os dispositivos de segurança, como dispositivos IPS, IDS e firewall, podem ter vários locais de origem com NICs diferentes para a DMZ e para as sub-redes de back-end. As NICs na DMZ irão se comunicar diretamente de e para a Internet, com os NSGs correspondentes e a tabela de roteamento da DMZ. As NICs conectadas às sub-redes de back-end terão NSGs e tabelas de roteamento mais restritos das sub-redes correspondentes do back-end.
-- Funcionalidade de dispositivo de segurança da DMZ: os dispositivos de segurança implantados na DMZ normalmente executam a seguinte funcionalidade:
+- Arquitetura de sub-rede: especifique a rede virtual, de modo que uma sub-rede inteira fique dedicada como rede de perímetro, separada de outras sub-redes na mesma rede virtual. Isso garantirá o tráfego entre a rede de perímetro e outras camadas de sub-rede internas ou privadas flua por meio de um firewall ou dispositivo virtual IDS/IPS nos limites da sub-rede com rotas definidas pelo usuário.
+- O grupo de segurança de rede (NSG) para o rede de perímetro: a própria sub-rede rede de perímetro deve estar aberta para permitir a comunicação entre a rede de perímetro e a Internet, mas isso não significa que os clientes devem ignorar os NSGs. Siga as práticas de segurança comuns para minimizar as superfícies de rede expostas à Internet, bloqueando os intervalos de endereço remoto permitidos para acessar as implantações e/ou os protocolos de aplicativo específicos e as portas que estão abertas. Observe que nem sempre será possível. Por exemplo, se os clientes têm um site externo no Azure, a rede de perímetro deve permitir solicitações de entrada da Web de endereços IP públicos, mas só deve abrir as portas do aplicativo Web: TCP:80 e TCP:443.
+- Tabela de roteamento para rede de perímetro: a própria sub-rede rede de perímetro deve ser capaz de se comunicar diretamente com a Internet, mas não deve permitir a comunicação direta de e para o back-end ou em redes locais sem passar por um dispositivo de firewall ou de segurança.
+- Configuração de dispositivo de segurança rede de perímetro: para rotear e inspecionar os pacotes entre a rede de perímetro e o restante das redes protegidas, os dispositivos de segurança, como dispositivos IPS, IDS e firewall, podem ter vários locais de origem com NICs diferentes para a rede de perímetro e para as sub-redes de back-end. As NICs na rede de perímetro irão se comunicar diretamente de e para a Internet, com os NSGs correspondentes e a tabela de roteamento da rede de perímetro. As NICs conectadas às sub-redes de back-end terão NSGs e tabelas de roteamento mais restritos das sub-redes correspondentes do back-end.
+- Funcionalidade de dispositivo de segurança da rede de perímetro: os dCaracterísticas da rede de perímetro
+ispositivos de segurança implantados na rede de perímetro normalmente executam a seguinte funcionalidade:
     - Firewall: imposição de regras de firewall ou políticas de controle de acesso para solicitações de entrada
     - Detecção e prevenção de ameaças: detecta ameaças e atenua ataques da Internet
     - Auditoria e registro em log: mantém logs detalhados de auditoria e análise
-    - Proxy invertido: redireciona solicitações de entrada correspondentes aos servidores de back-end mapeando e convertendo os endereços de destino nos dispositivos de front-end da DMZ, normalmente os firewalls, para os endereços de servidor de back-end reais
+    - Proxy invertido: redireciona solicitações de entrada correspondentes aos servidores de back-end mapeando e convertendo os endereços de destino nos dispositivos de front-end da rede de perímetro, normalmente os firewalls, para os endereços de servidor de back-end reais
     - Encaminhar proxy: fornece NAT e também realiza auditoria para a comunicação iniciada de dentro da rede virtual para a Internet
     - Roteador: atua como o roteador para encaminhar tráfego de entrada de sub-rede e entre sub-redes dentro da rede virtual
     - Dispositivo VPN: atua como o local entre gateways de VPN para conectividade VPN entre locais entre redes locais do cliente e redes virtuais do Azure
     - Servidor VPN: atua como servidores VPN para aceitar clientes VPN que se conectam a redes virtuais do Azure
 
->[AZURE.TIP]Mantém as pessoas autorizadas a acessar as peças de segurança da DMZ completamente separadas das pessoas autorizadas como administradores de operações/implantação/desenvolvimento de aplicativos. Manter esses grupos separados permite uma diferenciação de deveres e impede que uma única pessoa ignore controles de segurança de aplicativos e de rede.
+>[AZURE.TIP]Mantém as pessoas autorizadas a acessar as peças de segurança da rede de perímetro completamente separadas das pessoas autorizadas como administradores de operações/implantação/desenvolvimento de aplicativos. Manter esses grupos separados permite uma diferenciação de deveres e impede que uma única pessoa ignore controles de segurança de aplicativos e de rede.
 
 ### Perguntas a serem feitas durante a criação de limites de rede
 Ao se tratar de "Redes do Azure" nesta seção, a menos que especificamente mencionadas, todas as redes (redes, redes virtuais ou sub-redes) fazem referência a redes virtuais privadas do Azure criadas por um administrador de assinatura e não envolvem as redes físicas subjacentes no Azure.
 
-Além disso, as redes virtuais do Azure geralmente são usadas para estender redes locais tradicionais. É possível incorporar soluções de rede híbridas site a site ou Rota Expressa com arquiteturas de DMZ. Essa é uma consideração importante ao criar limites de segurança de rede e é discutida nas perguntas abaixo.
+Além disso, as redes virtuais do Azure geralmente são usadas para estender redes locais tradicionais. É possível incorporar soluções de rede híbridas site a site ou Rota Expressa com arquiteturas de rede de perímetro. Essa é uma consideração importante ao criar limites de segurança de rede e é discutida nas perguntas abaixo.
 
-Portanto, ao criar uma rede com uma DMZ e vários limites de segurança essenciais, três perguntas devem ser respondidas.
+Portanto, ao criar uma rede com uma rede de perímetro e vários limites de segurança essenciais, três perguntas devem ser respondidas.
 
 #### 1) Quantos limites são necessários?
 O primeiro ponto de decisão é decidir quantos limites de segurança são necessários em um determinado cenário:
 
-- Um único limite: um no front-end da DMZ e outro entre a rede virtual e a Internet.
-- Dois limites: um do lado da Internet da rede DMZ, outro entre a sub-rede DMZ e as sub-redes de back-end nas redes virtuais do Azure
-- Três limites: do lado da internet da DMZ, entre a DMZ e as sub-redes de back-end e entre as sub-redes de back-end e a rede local
+- Um único limite: um no front-end da rede de perímetro e outro entre a rede virtual e a Internet.
+- Dois limites: um do lado da Internet da rede rede de perímetro, outro entre a sub-rede rede de perímetro e as sub-redes de back-end nas redes virtuais do Azure
+- Três limites: do lado da internet da rede de perímetro, entre a rede de perímetro e as sub-redes de back-end e entre as sub-redes de back-end e a rede local
 - Limites N: dependendo dos requisitos de segurança, não há limites para o número de limites de segurança que podem ser aplicados a uma determinada rede.
 
 O número e tipo dos limites necessários irão variar dependendo da tolerância a riscos da empresa e o cenário específico que está sendo implementado. Geralmente, essa é uma decisão conjunta feita por vários grupos dentro de uma organização, geralmente uma equipe de risco e conformidade, uma equipe de rede/plataforma e uma equipe de desenvolvimento de aplicativos. As pessoas com conhecimento de segurança, os dados envolvidos e as tecnologias usadas devem pesar na decisão para garantir a postura de segurança apropriada em cada implementação.
@@ -141,7 +143,7 @@ O número e tipo dos limites necessários irão variar dependendo da tolerância
 
 ![Rede híbrida com três limites de segurança][6]
 
-A figura acima mostra uma visão de alto nível de rede de com três limites de segurança, com um limite entre a DMZ e a Internet, entre as sub-redes privadas de front-end e back-end do Azure e entre a sub-rende de back-end e a rede corporativa local.
+A figura acima mostra uma visão de alto nível de rede de com três limites de segurança, com um limite entre a rede de perímetro e a Internet, entre as sub-redes privadas de front-end e back-end do Azure e entre a sub-rende de back-end e a rede corporativa local.
 
 #### 2) Onde estão localizados os limites?
 Depois que o número de limites é decidido, onde implementá-los é o próximo ponto a se decidir. Em geral, há três opções; 1) usar um serviço intermediário baseado na Internet (por exemplo, WAF baseado em nuvem, que não é discutido neste documento), 2) usar recursos nativos e/ou dispositivos virtuais de rede no Azure, 3) usar dispositivos físicos na rede local.
@@ -150,12 +152,12 @@ Em redes puramente do Azure, as opções são recursos nativos do Azure (por exe
 
 Se for necessário um limite entre o Azure e uma rede local, os dispositivos de segurança podem residir em um dos lados da conexão (ou em ambos). Assim, uma decisão deve ser tomada sobre o local para colocar o mecanismo de segurança.
 
-Na figura acima, os limites Internet para DMZ e Frontend para Backend estão totalmente contidos no Azure e devem ser recursos nativos do Azure ou dispositivos de rede virtual. Os dispositivos de segurança no limite entre o Azure (sub-rede de back-end) e a rede corporativa podem estar no lado do Azure ou no lado local ou até uma combinação de dispositivos em ambos os lados. Pode haver vantagens e desvantagens relevantes em ambas as opções; portanto, elas devem ser levadas em consideração.
+Na figura acima, os limites Internet para rede de perímetro e Frontend para Backend estão totalmente contidos no Azure e devem ser recursos nativos do Azure ou dispositivos de rede virtual. Os dispositivos de segurança no limite entre o Azure (sub-rede de back-end) e a rede corporativa podem estar no lado do Azure ou no lado local ou até uma combinação de dispositivos em ambos os lados. Pode haver vantagens e desvantagens relevantes em ambas as opções; portanto, elas devem ser levadas em consideração.
 
 Por exemplo, o uso do mecanismo de segurança físico existente no lado da rede local. A favor: nenhum novo mecanismo é necessário, somente nova configuração. Contra: todo o tráfego deve voltar do Azure à rede local para ser visto pelo mecanismo de segurança. Assim, o tráfego do Azure para o Azure poderia incorrer em latência significativa e afetar a experiência do usuário e o desempenho do aplicativo se ele fosse forçado novamente à rede local para a imposição de política de segurança.
 
 #### 3) Como os limites são implementados?
-Cada limite de segurança provavelmente terá requisitos de recurso diferentes (por exemplo, IDS e regras de Firewall no lado da Internet da DMZ, mas somente ACLs entre a DMZ e a sub-rede de back-end). Decidir quais dispositivos usar dependerá de requisitos de cenário e de segurança. Os exemplos de DMZ 1, 2 e 3 abaixo abordam algumas opções que podem ser usadas. A análise dos recursos de rede nativos do Azure e dos dispositivos disponíveis no Azure do ecossistema de parceiros irá expor as inúmeras opções disponíveis para resolver praticamente qualquer cenário.
+Cada limite de segurança provavelmente terá requisitos de recurso diferentes (por exemplo, IDS e regras de Firewall no lado da Internet da rede de perímetro, mas somente ACLs entre a rede de perímetro e a sub-rede de back-end). Decidir quais dispositivos usar dependerá de requisitos de cenário e de segurança. Os exemplos de rede de perímetro 1, 2 e 3 abaixo abordam algumas opções que podem ser usadas. A análise dos recursos de rede nativos do Azure e dos dispositivos disponíveis no Azure do ecossistema de parceiros irá expor as inúmeras opções disponíveis para resolver praticamente qualquer cenário.
 
 Outro ponto-chave de decisão de implementação é como se conectar à rede local com o Azure. Por meio do Gateway Virtual do Azure ou de um dispositivo de rede virtual. Essas opções estão descritas e são discutidas mais detalhadamente nos exemplos 4, 5 e 6 abaixo.
 
@@ -202,14 +204,14 @@ Há uma regra de saída padrão que permite o tráfego de saída para a Internet
 #### Conclusão
 Essa é uma maneira relativamente simples e direta de isolar a sub-rede de back-end do tráfego de entrada. Mais informações sobre este exemplo como as seguintes:
 
-- Como criar essa DMZ com scripts do PowerShell
-- Como criar essa DMZ com um modelo de ARM
+- Como criar essa rede de perímetro com scripts do PowerShell
+- Como criar essa rede de perímetro com um modelo de ARM
 - Descrições detalhadas de cada comando NSG
 - Cenários de fluxo de tráfego detalhados mostrando como o tráfego é permitido ou negado em cada camada
 
 podem ser encontrados na página [Instruções detalhadas de compilação][Example1].
 
-### Exemplo 2: criar uma DMZ para proteger aplicativos com firewall e NSGs
+### Exemplo 2: criar uma rede de perímetro para proteger aplicativos com firewall e NSGs
 [Voltar ao Início Rápido](#fast-start) | [Instruções detalhadas de compilação para este exemplo][Example2]
 
 ![DMZ de entrada com NVA e NSG][8]
@@ -260,10 +262,10 @@ Essa é uma maneira relativamente simples de proteger seu aplicativo com um fire
 
 podem ser encontrados na página [Instruções detalhadas de compilação][Example2].
 
-### Exemplo 3 - Criar uma DMZ para proteger as redes com um Firewall, um UDR e um NSG
+### Exemplo 3 - Criar uma rede de perímetro para proteger as redes com um Firewall, um UDR e um NSG
 [Voltar ao Início Rápido](#fast-start) | [Instruções detalhadas de compilação para este exemplo][Example3]
 
-![DMZ bidirecional com NVA, NSG e UDR][9]
+![rede de perímetro bidirecional com NVA, NSG e UDR][9]
 
 #### Configuração do ambiente
 Neste exemplo, há uma assinatura que contém o seguinte:
@@ -307,7 +309,7 @@ Depois que as tabelas de roteamento forem criadas, serão associadas às sub-red
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE]Há limitações atuais com redes UDR e híbridas. Isso está sendo resolvido para uma futura versão; exemplos de como habilitar a DMZ com a Rota Expressa ou rede site a site são discutidos abaixo nos exemplos 3 e 4.
+>[AZURE.NOTE]Há limitações atuais com redes UDR e híbridas. Isso está sendo resolvido para uma futura versão; exemplos de como habilitar a rede de perímetro com a Rota Expressa ou rede site a site são discutidos abaixo nos exemplos 3 e 4.
 
 #### Descrição de encaminhamento IP
 Um recurso complementar para UDR é o Encaminhamento IP. Essa é uma configuração em um Dispositivo Virtual que permite receber o tráfego endereçado não especificamente para o dispositivo e, em seguida, encaminhar esse tráfego para seu destino final.
@@ -365,10 +367,10 @@ podem ser encontrados na página [Instruções detalhadas de compilação][Examp
 ### Exemplo 4: adicionando uma conexão híbrida com um VPN site a site de dispositivo virtual
 [Voltar ao Início Rápido](#fast-start) | Instruções detalhadas de compilação estarão disponíveis em breve
 
-![DMZ com rede híbrida conectada com NVA][11]
+![rede de perímetro com rede híbrida conectada com NVA][11]
 
 #### Configuração do ambiente
-Uma rede híbrida usando um NVA (dispositivo virtual de rede) pode ser adicionada a qualquer um dos tipos de DMZ descritas no exemplo 1, 2 ou 3.
+Uma rede híbrida usando um NVA (dispositivo virtual de rede) pode ser adicionada a qualquer um dos tipos de rede de perímetro descritas no exemplo 1, 2 ou 3.
 
 Conforme mostrado na figura acima, uma conexão VPN pela Internet (site a site) é usada para conectar uma rede local a uma rede virtual do Azure através de um dispositivo de rede virtual.
 
@@ -378,7 +380,7 @@ Depois que a VPN estiver no local, o NVA torna-se "hub" central para todas as re
 
 Os fluxos de tráfego devem ser considerados com cuidado, já que podem ser otimizados ou degradados por esse padrão de design dependendo do caso de uso específico.
 
-O uso do ambiente criado no exemplo 3, "Criar uma DMZ para proteger redes com firewall, UDR e NSG" e a adição de uma conexão de rede híbrida VPN site a site gerariam o design a seguir:
+O uso do ambiente criado no exemplo 3, "Criar uma rede de perímetro para proteger redes com firewall, UDR e NSG" e a adição de uma conexão de rede híbrida VPN site a site gerariam o design a seguir:
 
 ![DMZ com NVA conectado usando uma VPN site a site][12]
 
@@ -391,7 +393,7 @@ Logicamente para o NVA, a rede é igual a quatro "zonas de segurança" separadas
 #### Conclusão
 A adição de uma conexão de rede híbrida VPN site a site para uma rede virtual do Azure pode estender a rede local no Azure de maneira segura. Ao usar uma conexão VPN, o tráfego é criptografado e roteado pela Internet. O uso de NVA, como foi feito neste exemplo, fornece um local central para aplicar e gerenciar a política de segurança. Mais informações sobre este exemplo como as seguintes:
 
-- Como criar esse DMZ de exemplo com scripts do PowerShell
+- Como criar esse rede de perímetro de exemplo com scripts do PowerShell
 - Como criar esse exemplo com um modelo de ARM
 - Cenários de fluxo de tráfego detalhados mostrando como o tráfego flui através desse design
 
@@ -400,10 +402,10 @@ estarão disponíveis em breve e vinculados a essa página.
 ### Exemplo 5: adicionando uma conexão híbrida com um Gateway VPN site a site do Azure
 [Voltar ao Início Rápido](#fast-start) | Instruções detalhadas de compilação estarão disponíveis em breve
 
-![DMZ com a rede híbrida do Gateway conectada][14]
+![rede de perímetro com a rede híbrida do Gateway conectada][14]
 
 #### Configuração do ambiente
-Uma rede híbrida usando um Gateway de VPN do Azure pode ser adicionada a qualquer tipo de DMZ descrito nos exemplos 1 e 2.
+Uma rede híbrida usando um Gateway de VPN do Azure pode ser adicionada a qualquer tipo de rede de perímetro descrito nos exemplos 1 e 2.
 
 Conforme mostrado na figura acima, uma conexão VPN pela Internet (site a site) é usada para conectar uma rede local a uma rede virtual do Azure através de um Gateway de VPN do Azure.
 
@@ -413,9 +415,9 @@ Conforme mostrado abaixo, com essa opção, o ambiente agora tem duas bordas de 
 
 Os fluxos de tráfego devem ser considerados com cuidado, já que podem ser otimizados ou degradados por esse padrão de design dependendo do caso de uso específico.
 
-O uso do ambiente criado no exemplo 1, "Criar uma DMZ para proteger aplicativos com NSGs" e a adição de uma conexão de rede híbrida VPN site a site gerariam o design a seguir:
+O uso do ambiente criado no exemplo 1, "Criar uma rede de perímetro para proteger aplicativos com NSGs" e a adição de uma conexão de rede híbrida VPN site a site gerariam o design a seguir:
 
-![DMZ com Gateway conectado usando uma conexão da Rota Expressa][15]
+![rede de perímetro com Gateway conectado usando uma conexão da Rota Expressa][15]
 
 #### Conclusão
 A adição de uma conexão de rede híbrida VPN site a site para uma rede virtual do Azure pode estender a rede local no Azure de maneira segura. Usando o Gateway de VPN do Azure nativo, o tráfego é criptografado com IPSec e roteado via Internet. Além disso, o uso de Gateway de VPN do Azure fornece uma opção de menor custo (sem custos com licença adicional ou com dispositivos virtuais de rede de terceiros). Isso é mais econômico no exemplo 1, em que nenhum dispositivo virtual de rede é usado. Mais informações sobre este exemplo como as seguintes:
@@ -429,10 +431,10 @@ estarão disponíveis em breve e vinculados a essa página.
 ### Exemplo 6: adicionando uma conexão híbrida com a Rota Expressa
 [Voltar ao Início Rápido](#fast-start) | Instruções detalhadas de compilação estarão disponíveis em breve
 
-![DMZ com a rede híbrida do Gateway conectada][16]
+![Rede de perímetro com a rede híbrida do Gateway conectada][16]
 
 #### Configuração do ambiente
-Uma rede híbrida usando uma conexão de emparelhamento privado de Rota Expressa pode ser adicionada a qualquer tipo de DMZ descrita no exemplo 1 ou 2.
+Uma rede híbrida usando uma conexão de emparelhamento privado de Rota Expressa pode ser adicionada a qualquer tipo de rede de perímetro descrita no exemplo 1 ou 2.
 
 Conforme mostrado na figura acima, o emparelhamento privado de Rota Expressa fornece uma conexão direta entre sua rede local e de rede virtual do Azure. O tráfego transmite apenas a rede do provedor de serviços e a rede do Azure/Microsoft, nunca em contato com a Internet.
 
@@ -445,7 +447,7 @@ Como visto no diagrama abaixo, com essa opção, o ambiente agora tem duas borda
 
 Os fluxos de tráfego devem ser considerados com cuidado, já que podem ser otimizados ou degradados por esse padrão de design dependendo do caso de uso específico.
 
-O uso do ambiente criado no exemplo 1, "Criar uma DMZ simples para proteger aplicativos com NSGs" e a adição de uma conexão de rede híbrida VPN site a site gerariam o design a seguir:
+O uso do ambiente criado no exemplo 1, "Criar uma rede de perímetro simples para proteger aplicativos com NSGs" e a adição de uma conexão de rede híbrida VPN site a site gerariam o design a seguir:
 
 ![DMZ com Gateway conectado usando uma conexão da Rota Expressa][17]
 
@@ -473,16 +475,16 @@ estarão disponíveis em breve e vinculados a essa página.
 [0]: ./media/best-practices-network-security/flowchart.png "Fluxograma de opções de segurança"
 [1]: ./media/best-practices-network-security/compliancebadges.png "Selos de conformidade do Azure"
 [2]: ./media/best-practices-network-security/azuresecurityfeatures.png "Recursos de segurança do Azure"
-[3]: ./media/best-practices-network-security/dmzcorporate.png "Uma DMZ em uma rede corporativa"
+[3]: ./media/best-practices-network-security/dmzcorporate.png "Uma rede de perímetro em uma rede corporativa"
 [4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "Arquitetura de segurança do Azure"
-[5]: ./media/best-practices-network-security/dmzazure.png "Uma DMZ em uma Rede Virtual do Azure"
+[5]: ./media/best-practices-network-security/dmzazure.png "Uma rede de perímetro em uma Rede Virtual do Azure"
 [6]: ./media/best-practices-network-security/dmzhybrid.png "Rede híbrida com três limites de segurança"
-[7]: ./media/best-practices-network-security/example1design.png "DMZ de entrada com NSG"
-[8]: ./media/best-practices-network-security/example2design.png "DMZ de entrada com NVA e NSG"
+[7]: ./media/best-practices-network-security/example1design.png "rede de perímetro de entrada com NSG"
+[8]: ./media/best-practices-network-security/example2design.png "rede de perímetro de entrada com NVA e NSG"
 [9]: ./media/best-practices-network-security/example3design.png "DMZ bidirecional com NVA, NSG e UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Exibição lógica das regras de firewall"
-[11]: ./media/best-practices-network-security/example4designoptions.png "DMZ com rede híbrida conectada com NVA"
-[12]: ./media/best-practices-network-security/example4designs2s.png "DMZ com NVA conectado usando uma VPN site a site"
+[11]: ./media/best-practices-network-security/example4designoptions.png "rede de perímetro com rede híbrida conectada com NVA"
+[12]: ./media/best-practices-network-security/example4designs2s.png "rede de perímetro com NVA conectado usando uma VPN site a site"
 [13]: ./media/best-practices-network-security/example4networklogical.png "Rede lógica da perspectiva de NVA"
 [14]: ./media/best-practices-network-security/example5designoptions.png "DMZ com rede híbrida site a site conectada ao Gateway do Azure"
 [15]: ./media/best-practices-network-security/example5designs2s.png "DMZ com Gateway do Azure usando VPN site a site"

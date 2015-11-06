@@ -31,7 +31,7 @@ Normalmente, um Hub de Eventos emprega um editor por dispositivo. Todas as mensa
 
 Cada dispositivo recebe um token exclusivo, que é carregado no dispositivo. Os tokens são produzidos de modo que cada token exclusivo concede acesso a um editor exclusivo diferente. Um dispositivo que possui um token só pode enviar para um editor específico e nenhum outro editor. Se vários dispositivos compartilharem o mesmo token, cada um desses dispositivos compartilhará um editor.
 
-Embora não seja recomendado, é possível equipar os dispositivos com tokens que concedem acesso direto a um Hub de Eventos. Qualquer dispositivo que contém esse token pode enviar mensagens diretamente para esse Hub de Eventos. Esse dispositivo não estará sujeito à limitação. Além disso, o dispositivo não pode ser incluído na lista negra para ser impedido de enviar para esse Hub de Eventos.
+Embora não seja recomendado, é possível equipar os dispositivos com tokens que concedem acesso direto a um Hub de Eventos. Qualquer dispositivo que contém esse token pode enviar mensagens diretamente para esse Hub de Eventos. Esse dispositivo não estará sujeito à limitação. Além disso, o dispositivo não pode ser incluído na lista de bloqueados para ser impedido de enviar para esse Hub de Eventos.
 
 Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os dispositivos não estão cientes da chave; isso impede que dispositivos criem tokens.
 
@@ -89,9 +89,9 @@ Depois que os tokens são criados, cada dispositivo é configurado com seu próp
 
 Quando envia dados a um Hub de Eventos, o dispositivo marca seu token com a solicitação de envio. Para evitar que um invasor intercepte e roube o token, a comunicação entre o dispositivo e o Hub de Eventos deve ocorrer em um canal criptografado.
 
-### Colocando dispositivos em lista negra
+### Colocando dispositivos em lista de bloqueados
 
-Se um token for roubado por um invasor, o invasor pode representar o dispositivo cujo token foi roubado. Colocar um dispositivo na lista negra inutiliza o dispositivo até que ele receba um novo token que usa um outro editor.
+Se um token for roubado por um invasor, o invasor pode representar o dispositivo cujo token foi roubado. Colocar um dispositivo na lista de bloqueados inutiliza o dispositivo até que ele receba um novo token que usa um outro editor.
 
 ## Autenticação de aplicativos back-end
 
