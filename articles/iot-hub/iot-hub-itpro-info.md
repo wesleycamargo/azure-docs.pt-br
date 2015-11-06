@@ -33,7 +33,7 @@ Depois de criar um hub IoT em uma região do Azure, o hub manterá o mesmo ender
 
 ## Hub IoT e segurança
 
-Somente os dispositivos registrados com um hub IoT têm permissão para se comunicar com esse hub IoT. Um dispositivo registrado deve ser concedido à permissão *DeviceConnect*. Um dispositivo identifica incluindo um token que encapsula a ID exclusiva de dispositivos em cada solicitação que faz, e o hub verifica a validade do token e se o dispositivo não está na lista negra (*DeviceConnect* permissão revogada).
+Somente os dispositivos registrados com um hub IoT têm permissão para se comunicar com esse hub IoT. Um dispositivo registrado deve ser concedido à permissão *DeviceConnect*. Um dispositivo identifica incluindo um token que encapsula a ID exclusiva de dispositivos em cada solicitação que faz, e o hub verifica a validade do token e se o dispositivo não está na lista de bloqueados (*DeviceConnect* permissão revogada).
 
 O acesso a outros pontos de extremidade de gerenciamento em um hub IoT também é controlado por meio de um conjunto de permissões: *iothubowner*, *serviço*, *registryRead*, e *registryReadWrite*. Qualquer aplicativo de gerenciamento de cliente que se conecta a um hub IoT deve incluir um token com as permissões apropriadas.
 

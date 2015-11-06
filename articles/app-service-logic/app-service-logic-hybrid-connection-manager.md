@@ -61,7 +61,7 @@ Agora, quando você navegar para o conector novamente, o status da conexão híb
 
 ## Portas TCP e segurança
 
-Quando você cria uma conexão híbrida, um site é criado no servidor IIS local. O servidor IIS pode estar em um DMZ. Os requisitos de porta TCP no servidor IIS incluem:
+Quando você cria uma conexão híbrida, um site é criado no servidor IIS local. O servidor IIS pode estar em um rede de perímetro. Os requisitos de porta TCP no servidor IIS incluem:
 
 Porta TCP | Porque
 --- | ---
@@ -133,4 +133,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
