@@ -28,7 +28,7 @@ Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 
 ![Três etapas para fazer o backup de uma máquina virtual do Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
->[AZURE.NOTE]O backup de máquina virtual é local. Você não pode fazer backup de máquinas virtuais de uma região em um cofre de backup em outra região. Assim, pelo menos um cofre de backup deve ser criado para cada região do Azure com VMs que precisam de backup.
+>[AZURE.NOTE] O backup de máquina virtual é local. Você não pode fazer backup de máquinas virtuais de uma região em um cofre de backup em outra região. Assim, pelo menos um cofre de backup deve ser criado para cada região do Azure com VMs que precisam de backup.
 
 ## Etapa 1 - Descobrir máquinas virtuais do Azure
 O processo de descoberta sempre deve ser executado como a primeira etapa para garantir que qualquer nova máquina virtual adicionada à assinatura seja identificada. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do Serviço de Nuvem e a Região.
@@ -39,7 +39,8 @@ O processo de descoberta sempre deve ser executado como a primeira etapa para ga
 
     ![selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique em **DESCOBRIR** na parte inferior da página. ![botão descobrir](./media/backup-azure-vms/discover-button-only.png)
+3. Clique em **DESCOBRIR** na parte inferior da página.
+    ![botão descobrir](./media/backup-azure-vms/discover-button-only.png)
 
     O processo de descoberta pode ser executado por alguns minutos, enquanto as máquinas virtuais estão sendo tabuladas. Há uma notificação na parte inferior da tela que informa você de que o processo está sendo executado.
 
@@ -58,7 +59,8 @@ Você registra uma máquina virtual do Azure para associá-la ao serviço Backup
 
     ![selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique em **REGISTRAR** na parte inferior da página. ![botão registrar](./media/backup-azure-vms/register-button-only.png)
+3. Clique em **REGISTRAR** na parte inferior da página.
+    ![botão registrar](./media/backup-azure-vms/register-button-only.png)
 
 4. No **menu de atalho Registrar Itens**, selecione as máquinas virtuais que você deseja registrar. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para distinguir entre elas.
 
@@ -70,7 +72,7 @@ Você registra uma máquina virtual do Azure para associá-la ao serviço Backup
 
     ![trabalho de registro](./media/backup-azure-vms/register-create-job.png)
 
-   A máquina virtual também aparece na lista de itens registrados junto com o status da operação de registro.
+    A máquina virtual também aparece na lista de itens registrados junto com o status da operação de registro.
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
@@ -84,6 +86,7 @@ Agora você pode configurar uma política de backup e de retenção para a máqu
 Os cofres do Backup do Azure criados depois e3 maio de 2015 poderão vir com uma política padrão incorporada ao cofre. Essa política padrão é fornecida com uma retenção padrão de 30 dias e agendamento de backup de uma vez por dia.
 
 1. Navegue até o cofre de backup em **Serviços de Recuperação** no portal do Azure e clique em **Itens Registrados**.
+
 2. Selecione **Máquina Virtual do Azure** no menu suspenso.
 
     ![Selecionar a carga de trabalho no portal](./media/backup-azure-vms/select-workload.png)
@@ -94,7 +97,7 @@ Os cofres do Backup do Azure criados depois e3 maio de 2015 poderão vir com uma
 
     Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para distinguir entre elas.
 
-    >[AZURE.TIP]Você pode proteger várias máquinas virtuais de uma só vez.
+    >[AZURE.TIP] Você pode proteger várias máquinas virtuais de uma só vez.
 
     ![Configurar proteção em escala](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -104,7 +107,7 @@ Os cofres do Backup do Azure criados depois e3 maio de 2015 poderão vir com uma
 
     ![Proteger com nova política](./media/backup-azure-vms/policy-schedule.png)
 
-    >[AZURE.NOTE]Uma política de backup também inclui um esquema de retenção para os backups agendados. Se você selecionar uma política de backup, não será possível modificar as opções de retenção na próxima etapa.
+    >[AZURE.NOTE] Uma política de backup também inclui um esquema de retenção para os backups agendados. Se você selecionar uma política de backup, não será possível modificar as opções de retenção na próxima etapa.
 
 5. Escolha um **intervalo de retenção** a ser associado aos backups.
 
@@ -140,7 +143,7 @@ Para disparar o backup inicial imediatamente após a configuração de proteçã
 
     ![Backup em andamento](./media/backup-azure-vms/protect-inprogress.png)
 
->[AZURE.NOTE]Como parte da operação de backup, o serviço de Backup do Azure emite um comando para a extensão de backup em cada máquina virtual para limpar todas as gravações e capturar um instantâneo consistente.
+>[AZURE.NOTE] Como parte da operação de backup, o serviço de Backup do Azure emite um comando para a extensão de backup em cada máquina virtual para limpar todas as gravações e capturar um instantâneo consistente.
 
 Após a conclusão do backup inicial, o status da máquina virtual na guia **Itens Protegidos** será *Protegida*.
 
