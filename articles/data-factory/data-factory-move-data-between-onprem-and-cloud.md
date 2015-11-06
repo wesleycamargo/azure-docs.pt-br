@@ -79,7 +79,7 @@ A instalação do MSI configurará automaticamente regras de firewall do Windows
 
 Mas a instalação presume que as portas de saída mencionadas acima são permitidas por padrão no computador local e no firewall corporativo. Você precisa habilitar essas portas de saída, se esse não for o caso. Se você tiver substituído o firewall do Windows por um firewall de terceiros, talvez seja necessário abrir essas portas manualmente.
 
-Se sua empresa usa um servidor proxy, você precisa adicionar o Microsoft Azure à lista branca. Você pode baixar uma lista de endereços IP do Microsoft Azure válidos do [Centro de Download da Microsoft](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
+Se sua empresa usa um servidor proxy, você precisa adicionar o Microsoft Azure à lista de autorizados. Você pode baixar uma lista de endereços IP do Microsoft Azure válidos do [Centro de Download da Microsoft](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
 
 ## Usando o Gateway de dados: tutorial passo a passo
 Neste passo a passo, você pode criar um data factory com um pipeline que move dados de um banco de dados SQL Server local para um blob do Azure.

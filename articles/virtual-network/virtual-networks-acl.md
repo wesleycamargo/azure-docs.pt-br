@@ -27,7 +27,7 @@ Com as ACLs de rede, você pode fazer o seguinte:
 
 - Permitir ou negar seletivamente o tráfego de entrada com base no intervalo de endereços IPv4 de sub-rede remota para um ponto de extremidade de entrada de máquina virtual.
 
-- Inserir endereços IP em uma lista negra
+- Inserir endereços IP em uma lista de bloqueados
 
 - Criar várias regras por ponto de extremidade de máquina virtual
 
