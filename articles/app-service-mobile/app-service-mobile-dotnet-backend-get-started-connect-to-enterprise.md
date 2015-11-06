@@ -24,7 +24,7 @@ Este tutorial exige o seguinte:
 
 * Visual Studio 2013 em execução no Windows 8.1
 * Uma assinatura ativa do [SharePoint Online]
-* Conclusão do tutorial [Logon Único da Biblioteca de Autenticação do Active Directory do Azure]. Você deve usar o locatário fornecido por sua assinatura do SharePoint.
+* Conclusão do tutorial [Logon único da Biblioteca de Autenticação do Active Directory do Azure]. Você deve usar o locatário fornecido por sua assinatura do SharePoint.
 
 [AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
@@ -187,4 +187,4 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 [Logon único da Biblioteca de Autenticação do Active Directory do Azure]: app-service-mobile-ios-aad-sso.md
 [Extensão de Serviço de Aplicativo do back-end .NET de aplicativos móveis]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
