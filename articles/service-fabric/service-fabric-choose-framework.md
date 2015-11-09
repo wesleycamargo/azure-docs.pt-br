@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -36,4 +36,4 @@ Lembre-se que é perfeitamente aceitável usar diferentes estruturas para servi�
 - [Saiba mais sobre as APIs de atores confiáveis](service-fabric-reliable-actors-introduction.md)
 - [Saiba mais sobre as APIs de serviços confiáveis](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

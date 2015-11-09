@@ -1,5 +1,18 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure ao Box | Microsoft Azure" description="Saiba como usar o Box com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure ao Box | Microsoft Azure" 
+    description="Saiba como usar o Box com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
 
 
 
@@ -7,14 +20,13 @@
 #Tutorial: Integração do Active Directory do Azure ao Box
 
 
->[AZURE.TIP]Para comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=522410).
   
 O objetivo deste tutorial é mostrar a integração do Azure ao Box O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário de teste no Box
   
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao Box poderão fazer logon único no aplicativo em seu site de empresa Box (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md)
+Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao Box poderão fazer logon único no aplicativo em seu site de empresa do Box (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -47,7 +59,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-box-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-box-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -67,7 +79,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Ad do Azure, na página de integração de aplicativos do **Box**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do AD do Azure, na página de integração de aplicativos do **Box**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar logon único](./media/active-directory-saas-box-tutorial/IC769538.png "Configurar logon único")
 
@@ -75,11 +87,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar logon único](./media/active-directory-saas-box-tutorial/IC769539.png "Configurar logon único")
 
-3.  Na página **Configurar URL do aplicativo**, a caixa de texto **URL de locatário do Box**, digite a URL de locatário do Box (p.ex.: https://<mydomainname>.box.com), e clique em **Avançar**:
+3.  Na página **Configurar URL do Aplicativo**, a caixa de texto **URL de Locatário do Box**, digite a URL de locatário do Box (por exemplo: https://<mydomainname>.box.com) e clique em **Avançar**.
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-box-tutorial/IC669826.png "Configurar a URL do aplicativo")
 
-4.  Na página **Configurar logon único no Box**, para baixar seus metadados, clique em **Baixar metadados** e, em seguida, no o arquivo de dados em seu computador.
+4.  Na página **Configurar logon único no Box**, para baixar os metadados, clique em **Baixar metadados** e no arquivo de dados localmente no computador.
 
     ![Configurar logon único](./media/active-directory-saas-box-tutorial/IC669824.png "Configurar logon único")
 
@@ -94,16 +106,16 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1. No Portal de Gerenciamento do Azure, na página de integração de aplicativos do **Box**, clique em **Configurar provisionamento do usuário** para abrir a caixa de diálogo **Configurar provisionamento do usuário**. <br><br>![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769541.png "Habilitar o provisionamento automático de usuários.")
+1. No Portal de Gerenciamento do Azure, na página de integração de aplicativos do **Box**, clique em **Configurar provisionamento de usuário** para abrir o diálogo **Configurar Provisionamento de Usuário**. <br> <br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769541.png "Habilitar o provisionamento automático de usuários.")
 
-2. Na página de diálogo **Habilitar o provisionamento do usuário ao Box**, clique em **Habilitar o provisionamento do usuário**. <br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769544.png "Habilitar o provisionamento automático de usuários.")
+2. Na página do diálogo **Habilitar provisionamento de usuário no Box**, clique em **Habilitar provisionamento de usuário**. <br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769544.png "Habilitar o provisionamento automático de usuários.")
 
-3. Na página **Logon para conceder acesso ao Box**, forneça as credenciais necessárias e, em seguida, clique em **Autorizar**. <br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769546.png "Habilitar o provisionamento automático de usuários.")
+3. Na página **Fazer logon para conceder acesso ao Box**, forneça as credenciais necessárias e clique em **Autorizar**. <br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769546.png "Habilitar o provisionamento automático de usuários.")
 
 
-4. Clique em **Conceder acesso à caixa** para autorizar essa operação e retornar ao Portal de Gerenciamento do Azure. <br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769549.png "Habilitar o provisionamento automático de usuários.")
+4. Clique em **Conceder acesso à Caixa** para autorizar essa operação e retornar ao Portal de Gerenciamento do Azure. <br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769549.png "Habilitar o provisionamento automático de usuários.")
 
-5. Para concluir a configuração, clique no botão Concluir.<br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769551.png "Habilitar o provisionamento automático de usuários.")
+5. Para concluir a configuração, clique no botão Concluir. <br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769551.png "Habilitar o provisionamento automático de usuários.")
 
 
 
@@ -117,7 +129,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 2. Na página de integração de aplicativos do **Box**, clique em **Atribuir usuários**.<br><br> ![Atribuir usuários](./media/active-directory-saas-box-tutorial/IC769552.png "Atribuir usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.<br><br> ![Sim](./media/active-directory-saas-box-tutorial/IC767830.png "Sim")
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição. <br><br> ![Sim](./media/active-directory-saas-box-tutorial/IC767830.png "Sim")
   
 
 Agora, você deve aguardar 10 minutos e verificar se a conta foi sincronizada com o Box.
@@ -131,7 +143,7 @@ Um ciclo de provisionamento de usuário concluído com êxito é indicado por um
 <br><br> ![Status da integração](./media/active-directory-saas-box-tutorial/IC769555.png "Status da integração")
 
 
-No seu locatário do Box, os usuários sincronizados estão listados em **Usuários gerenciados** no **Console do Administrador**.
+Em seu locatário do Box, os usuários sincronizados estão listados em **Usuários Gerenciados** no **Console do Administrador**.
 
 <br><br> ![Status da integração](./media/active-directory-saas-box-tutorial/IC769556.png "Status da integração")
 
@@ -141,4 +153,4 @@ No seu locatário do Box, os usuários sincronizados estão listados em **Usuár
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

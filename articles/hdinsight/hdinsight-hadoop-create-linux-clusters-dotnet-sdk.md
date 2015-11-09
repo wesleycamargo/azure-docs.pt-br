@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Criar Hadoop, HBase ou tempestade em Linux no HDInsight usando cURL e o REST API do Azure | Microsoft Azure"
-   	description="Aprenda a criar Hadoop, HBase ou Storm em Linux para HDInsight usando cURL e REST API do Azure."
+   	pageTitle="Criar clusters do Hadoop, HBase ou Storm em Linux no HDInsight usando cURL e o API REST do Azure | Microsoft Azure"
+   	description="Aprenda a criar clusters do Hadoop, HBase ou Storm em Linux para HDInsight usando cURL e API REST do Azure."
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="jgao"/>
 
 #Criar clusters baseados em Linux no HDInsight usando o SDK do .NET
@@ -22,6 +22,10 @@
 [AZURE.INCLUDE [seletor](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com o HDInsight em um aplicativo .NET Framework. Este documento demonstra como criar um cluster HDInsight baseado em Linux usando o SDK do .NET.
+
+> [AZURE.IMPORTANT]As etapas neste documento criam um cluster com um nó de trabalho. Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
+>
+> Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Pré-requisitos
 
@@ -49,7 +53,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 
     Esses comandos adicionam bibliotecas .NET e referências a elas no projeto atual do Visual Studio.
 
-6. No Gerenciador de Soluções, clique duas vezes em **Program.cs** para abri-lo, cole o seguinte código e forneça valores para as variáveis:
+6. No Solution Explorer, clique duas vezes em **Program.cs** para abri-lo, cole o seguinte código e fornecer valores para as variáveis:
 
         using System;
         using System.Security;
@@ -199,4 +203,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

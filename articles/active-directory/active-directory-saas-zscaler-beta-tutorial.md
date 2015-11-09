@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure com o Zscaler Beta | Microsoft Azure" description="Saiba como usar o Zscaler Beta com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o Zscaler Beta | Microsoft Azure" 
+    description="Saiba como usar o Zscaler Beta com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o Zscaler Beta
->[AZURE.TIP]Para comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=614877).
   
 O objetivo deste tutorial é mostrar a integração do Azure com o Zscaler Beta. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do Zscaler Beta
   
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao Zscaler Beta poderão fazer um logon único no aplicativo do site da sua empresa Zscaler Beta (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Zscaler Beta poderão fazer logon único no aplicativo em seu site de empresa do Zscaler Beta (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -54,11 +67,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no ZScaler Beta com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário carregar um certificado codificado em base 64 no locatário do ZScaler Beta. Se você não estiver familiarizado com esse procedimento, consulte [Como converter certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no ZScaler Beta com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário carregar um certificado codificado em base 64 no locatário do ZScaler Beta. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração do aplicativo **ZScaler Beta**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único **.
+1.  No portal do Azure AD, na página de integração de aplicativos do **ZScaler Beta**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-zscaler-beta-tutorial/IC800225.png "Configurar o logon único")
 
@@ -66,13 +79,13 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-zscaler-beta-tutorial/IC800226.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do ZScaler Beta**, digite a URL usada pelos seus usuários para fazer logon no seu aplicativo ZScaler Beta e, em seguida, clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do ZScaler Beta**, digite a URL usada pelos usuários para fazer logon em seu aplicativo ZScaler Beta e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-zscaler-beta-tutorial/IC800227.png "Configurar a URL do Aplicativo")
 
     >[AZURE.NOTE]Você pode obter o valor real para o ambiente de sua equipe de suporte ZScaler Beta se necessário.
 
-4.  Na página **Configurar logon único no ZScaler Beta**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo do certificado em seu computador.
+4.  Na página **Configurar logon único no ZScaler Beta**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-zscaler-beta-tutorial/IC800228.png "Configurar o logon único")
 
@@ -86,30 +99,30 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Gerenciar Usuários e Autenticação](./media/active-directory-saas-zscaler-beta-tutorial/IC800207.png "Gerenciar Usuários e Autenticação")
 
-8.  Na seção **Escolher Opções de Autenticação para a sua Organização**, execute as seguintes etapas:
+8.  Na seção **Escolher Opções de Autenticação para a sua Organização**, realize as seguintes etapas:
 
     ![Autenticação](./media/active-directory-saas-zscaler-beta-tutorial/IC800208.png "Autenticação")
 
     1.  Selecione **Autenticar usando o Logon Único do SAML**.
     2.  Clique em **Configurar Parâmetros de Logon Único do SAML**.
 
-9.  Na página de diálogo **Configurar Parâmetros de Logon Único do SAML**, execute as seguintes etapas e, em seguida, clique em **Concluir**:
+9.  Na página do diálogo **Configurar Parâmetros de Logon Único do SAML**, realize as seguintes etapas e clique em **Concluído**:
 
     ![Logon Único](./media/active-directory-saas-zscaler-beta-tutorial/IC800209.png "Logon Único")
 
-    1.  No portal do Azure, na página de diálogo **Configurar logon único no ZScaler Beta**, copie o valor **URL de Solicitação de Autenticação** e, em seguida, cole-o na caixa de texto **URL do Portal do SAML para o qual os usuários são enviados para autenticação**.
+    1.  No portal do Azure, na página do diálogo **Configurar logon único no ZScaler Beta**, copie o valor da **URL de Solicitação de Autenticação** e cole-o na caixa de texto **URL do Portal do SAML para o qual os usuários são enviados para autenticação**.
     2.  Na caixa de texto **Atributo que contém o Nome de Logon**, digite **NameID**.
     3.  Para carregar seu certificado baixado, clique em **Zscaler pem**.
-    4.  Selecione **Habilitar o Provisionamento Automático do SAML**.
+    4.  Selecione **Habilitar Provisionamento Automático do SAML**.
 
-10. Na página de caixa de diálogo **Configurar Autenticação de Usuário**, execute as seguintes etapas:
+10. Na página do diálogo **Configurar Autenticação de Usuário**, realize as seguintes etapas:
 
     ![Administração](./media/active-directory-saas-zscaler-beta-tutorial/IC800210.png "Administração")
 
     1.  Clique em **Salvar**.
-    2.  Clique em **Ativar agora**.
+    2.  Clique em **Ativar Agora**.
 
-11. No portal do Azure, na página **Configurar logon único no ZScaler Beta**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
+11. No portal do Azure, na página do diálogo **Configurar logon único no ZScaler Beta**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
 
     ![Configurar o logon único](./media/active-directory-saas-zscaler-beta-tutorial/IC800229.png "Configurar o logon único")
 
@@ -119,7 +132,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  Inicie o **Internet Explorer**.
 
-2.  Selecione **Opções da Internet** no menu **Ferramentas** para abrir a caixa de diálogo **Opções da Internet**.
+2.  Selecione **Opções da Internet** no menu **Ferramentas** para abrir o diálogo **Opções da Internet**.
 
     ![Opções da Internet](./media/active-directory-saas-zscaler-beta-tutorial/IC769492.png "Opções da Internet")
 
@@ -127,7 +140,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Conexões](./media/active-directory-saas-zscaler-beta-tutorial/IC769493.png "Conexões")
 
-4.  Clique em **Configurações de LAN** para abrir a caixa de diálogo **Configurações de LAN**.
+4.  Clique em **Configurações de LAN** para abrir o diálogo **Configurações de LAN**.
 
 5.  Na seção Servidor de proxy, execute as seguintes etapas:
 
@@ -137,9 +150,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     2.  Na caixa de texto Endereço, digite **gateway.zscalerBeta.net**.
     3.  Na caixa de texto Porta, digite **80**.
     4.  Selecione **Ignorar servidor proxy para endereços locais**.
-    5.  Clique em **OK** para fechar a caixa de diálogo **Configurações de Rede de Área Local (LAN)**.
+    5.  Clique em **OK** para fechar o diálogo **Configurações de LAN (Rede de Área Local)**.
 
-6.  Clique em **OK** para fechar a caixa de diálogo **Opções da Internet**.
+6.  Clique em **OK** para fechar o diálogo **Opções da Internet**.
 
 ##Configurando o provisionamento de usuários
   
@@ -147,13 +160,13 @@ Para permitir que os usuários do AD do Azure façam logon no ZScaler Beta, eles
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1.  Faça login no seu locatário do **Zscaler**.
+1.  Faça logon em seu locatário do **Zscaler**.
 
 2.  Clique em **Administração**.
 
     ![Administração](./media/active-directory-saas-zscaler-beta-tutorial/IC781035.png "Administração")
 
-3.  Clique em **Gerenciamento de Usuário**.
+3.  Clique em **Gerenciamento de Usuários**.
 
     ![Adicionar](./media/active-directory-saas-zscaler-beta-tutorial/IC781037.png "Adicionar")
 
@@ -165,7 +178,7 @@ Para permitir que os usuários do AD do Azure façam logon no ZScaler Beta, eles
 
     ![Adicionar usuário](./media/active-directory-saas-zscaler-beta-tutorial/IC781038.png "Adicionar usuário")
 
-    1.  Digite **UserID**, **Nome de Exibição do Usuário**, **Senha**, **Confirmar Senha** e, em seguida, selecione **Grupos** e o **Departamento** de uma conta válida do AAD que você deseja provisionar.
+    1.  Digite **UserID**, **Nome de Exibição do Usuário**, **Senha** e **Confirmar Senha** e selecione **Grupos** e o **Departamento** de uma conta válida do AAD que você deseja provisionar.
     2.  Clique em **Salvar**.
 
 >[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do ZScaler Beta ou APIs fornecidas pelo ZScaler Beta para provisionar as contas de usuário do AAD.
@@ -186,6 +199,6 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-zscaler-beta-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

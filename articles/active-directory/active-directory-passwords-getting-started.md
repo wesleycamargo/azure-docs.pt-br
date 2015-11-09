@@ -185,7 +185,10 @@ Antes de poder habilitar e usar o Write-back de Senha, você deve concluir os se
   >[AZURE.NOTE]Se você estiver executando uma versão anterior do Windows Server 2008 ou 2008 R2, você pode usar este recurso, mas será necessário [Baixar e instalar a atualização KB 2386717](https://support.microsoft.com/kb/2386717) antes de poder aplicar a política de senha local do AD na nuvem.
   
 - Ter a ferramenta Azure AD Connect instalada e preparar o ambiente do AD para sincronização para a nuvem. Para saber mais, consulte [Usar a sua infraestrutura de identidade local na nuvem](active-directory-aadconnect.md).
-- Se você estiver usando DirSync, verifique se o firewall da sua organização está configurado para bloquear conexões de saída e desbloquear a **porta TCP 828 ou 818** para poder habilitar e usar o Write-back de Senha. Se você estiver usando o Azure AD Sync ou o Azure AD Connect, esta etapa não é necessária, porque somente **TCP 443** de saída (e, em alguns casos, **TCP 9350 a 9354**) precisa estar aberta.
+
+  >[AZURE.NOTE]Antes de testar o write-back de senha, certifique-se de primeiro concluir uma importação e sincronização completas do AD e do AD do Azure no
+
+- Se estiver usando o Azure AD Sync ou o Azure AD Connect, a **TCP 443** de saída (e, em alguns casos, as **TCP 9350 a 9354**) precisam estar abertas. Veja [Etapa 3: configurar seu firewall](#step-3-configure-your-firewall) para obter mais informações. Não há mais suporte para o uso do DirSync para esse cenário. Se ainda estiver usando o DirSync, atualize para a versão mais recente do Azure Connect AD antes de implantar o write-back de senha.
 
   >[AZURE.NOTE]É altamente recomendável que qualquer pessoa que use as ferramentas Azure AD Sync ou DirSync atualizem para a versão mais recente do Azure AD Connect para garantir a melhor experiência possível e obter novos recursos conforme são lançados.
   
@@ -248,9 +251,9 @@ Depois de habilitar o Write-back de Senha na ferramenta Azure AD Connect, você 
 ### Etapa 4: configurar as permissões apropriadas do Active Directory
 Para cada floresta que contenha os usuários cujas senhas serão redefinidas, se X for a conta que foi especificada para essa floresta no assistente de configuração (durante a configuração inicial), X deverá receber os direitos estendidos **Redefinir Senha**, **Alterar Senha**, **Permissões de Gravação** no `lockoutTime`, e **Permissões de Gravação** na `pwdLastSet` no objeto raiz de cada domínio da floresta. A direita deve ser marcada como herdada por todos os objetos de usuário.
 
-Se você não tiver certeza a qual conta a descrição acima se refere, abra a interface de usuário da configuração do Azure Active Directory Connect e clique na opção **Examinar sua Solução**. A conta a qual você precisa adicionar a permissão está sublinhada em vermelho na captura de tela abaixo.
+Se não tiver certeza sobre qual conta a descrição acima se refere, abra a interface do usuário da configuração do Azure Active Directory Connect e clique na opção **Examinar sua Solução**. A conta a qual você precisa adicionar a permissão está sublinhada em vermelho na captura de tela abaixo.
 
-**<font color="red">Defina essa permissão para cada domínio em cada floresta de seu sistema, caso contrário o write-back de senha não funcionará corretamente.</font>**
+**<font color="red">Certifique-se de definir essa permissão para cada domínio em cada floresta de seu sistema, caso contrário o write-back de senha não funcionará corretamente.</font>**
 
   ![][032]
 
@@ -348,4 +351,4 @@ Agora que o Write-back de senha foi habilitado, você pode testar se ele funcion
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

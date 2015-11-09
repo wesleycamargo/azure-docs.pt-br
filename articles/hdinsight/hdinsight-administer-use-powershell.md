@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/23/2015"
 	ms.author="jgao"/>
 
 # Gerenciar clusters Hadoop no HDInsight Usando o PowerShell do Azure
@@ -36,7 +36,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 
 ##Provisionar clusters do HDInsight
 
-Os clusters HDInsight requerem um grupo de recursos do Azure e um contêiner de Blob em uma Conta de armazenamento do Azure:
+O cluster HDInsight requer um grupo de recursos do Azure e um contêiner de blobs em uma conta de armazenamento do Azure:
 
 - O Grupo de recursos do Azure é um contêiner lógico para recursos do Azure. O grupo de recursos do Azure e o cluster HDInsight não precisam estar no mesmo local. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md)
 - O HDInsight usa um Contêiner de blob de uma Conta de armazenamento do Azure como o sistema de arquivos padrão. Uma conta de armazenamento do Azure e um contêiner de armazenamento são necessários para poder criar um cluster HDInsight. A conta de armazenamento padrão e o cluster HDInsight precisam estar no mesmo local.
@@ -45,26 +45,24 @@ Os clusters HDInsight requerem um grupo de recursos do Azure e um contêiner de 
 
 **Para criar um grupo de recursos do Azure**
 
-1. Verifique se você está no modo de recursos do Azure:
-
-		Switch-AzureMode -Name AzureResourceManager
-
 2. Conecte-se à sua conta do Azure e selecione uma assinatura (caso você tenha várias assinaturas).
 
-		Add-AzureAccount
-		Select-AzureSubscription
+		Add-AzureRmAccount
+		Get-AzureRmSubscription
+		Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
 
 3. Criar um novo grupo de recursos:
 
-	New-AzureResourceGroup -name <AzureResourceGroupName> -Location <AzureDataCente> #, por exemplo, "Oeste dos EUA"
+	New-AzureRmResourceGroup -name <New Azure Resource Group Name> -Location <Azure Data Center> # Por exemplo, "Oeste dos EUA"
 
-	[AZURE.INCLUDE [lista do centro de dados](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 **Para criar uma conta do Armazenamento do Azure**
 
-	New-AzureStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
+	New-AzureRmStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
 
-	For a full list of the storage account types, see [https://msdn.microsoft.com/pt-BR/library/azure/hh264518.aspx](https://msdn.microsoft.com/pt-BR/library/azure/hh264518.aspx).
+Para obter uma lista completa dos tipos de conta de armazenamento, consulte [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
+
+[AZURE.INCLUDE [lista do centro de dados](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
 Para obter informações sobre como criar uma conta do Armazenamento do Azure usando o portal de visualização do Azure, confira [Criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md).
@@ -72,9 +70,9 @@ Para obter informações sobre como criar uma conta do Armazenamento do Azure us
 Se já tiver uma conta de armazenamento, mas não souber o nome e a chave da conta, você poderá usar os seguintes comandos para recuperar as informações:
 
 	# List Storage accounts for the current subscription
-	Get-AzureStorageAccount
+	Get-AzureRmStorageAccount
 	# List the keys for a Storage account
-	Get-AzureStorageAccountKey -ResourceGroupName <AzureResourceGroupName> -name $storageAccountName <AzureStorageAccountName>
+	Get-AzureRmStorageAccountKey -ResourceGroupName <AzureResourceGroupName> -name $storageAccountName <AzureStorageAccountName>
 
 Para obter detalhes sobre como obter as informações usando o portal de visualização, confira a seção "Exibir, copiar e regenerar teclas de acesso de armazenamento" de [Criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md).
 
@@ -84,14 +82,14 @@ O PowerShell do Azure não pode criar um contêiner de Blob durante o processo d
 
 	$resourceGroupName = "<AzureResoureGroupName>"
 	$storageAccountName = "<AzureStorageAccountName>"
-	$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
+	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
 	$containerName="<AzureBlobContainerName>"
 
 	# Create a storage context object
-	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+	$destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
 	# Create a Blob storage container
-	New-AzureStorageContainer -Name $containerName -Context $destContext
+	New-AzureRmStorageContainer -Name $containerName -Context $destContext
 
 **Para provisionar um cluster**
 
@@ -107,10 +105,10 @@ Depois de preparar a conta de armazenamento e o contêiner de Blob, você estar�
 	$clusterNodes = <ClusterSizeInNodes>
 
 	# Get the Storage account key
-	$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
+	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
 
 	# Create a new HDInsight cluster
-	New-AzureHDInsightCluster -ResourceGroupName $resourceGroupName `
+	New-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName `
 		-ClusterName $clusterName `
 		-Location $location `
 		-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
@@ -121,16 +119,16 @@ Depois de preparar a conta de armazenamento e o contêiner de Blob, você estar�
 ##Listar detalhes do cluster
 Use o seguinte comando para listar todos os clusters na assinatura atual:
 
-	Get-AzureHDInsightCluster
+	Get-AzureRmHDInsightCluster
 
 Use o seguinte comando para mostrar os detalhes de um cluster específico na assinatura atual:
 
-	Get-AzureHDInsightCluster -ResourceGroupName <ResouceGroupName> -ClusterName <ClusterName>
+	Get-AzureRmHDInsightCluster -ClusterName <ClusterName>
 
 ##Excluir clusters
 Use o seguinte comando para excluir um cluster:
 
-	Remove-AzureHDInsightCluster -Name <ClusterName>
+	Remove-AzureRmHDInsightCluster -ClusterName <ClusterName>
 
 
 
@@ -147,9 +145,7 @@ Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviço
 
 Por padrão, esses serviços são concedidos para acesso. Você pode revogar/conceder o acesso. Este é um exemplo:
 
-	Revoke-AzureHDInsightHttpServicesAccess -Name hdiv2 -Location "East US"
-
-No exemplo, <i>hdiv2</i> é um nome de cluster HDInsight.
+	Revoke-AzureHDInsightHttpServicesAccess -ClusterName <Cluster Name>
 
 >[AZURE.NOTE]Ao conceder/revogar o acesso, você redefinirá o nome de usuário de cluster e a senha.
 
@@ -158,7 +154,7 @@ Isso também pode ser feito por meio do portal de visualização. Confira [Admin
 ##Dimensionar clusters
 O recurso de dimensionamento de clusters permite que você altere o número de nós de trabalhador usados por um cluster em execução no Azure HDInsight sem precisar recriar o cluster.
 
->[AZURE.NOTE]Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades. Confira [Familiarizar-se com a interface do portal de cluster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE]Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades. Confira [Familiarize-se com a interface do portal de cluster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
 
 O impacto da alteração do número de nós de dados em cada tipo de cluster com suporte do HDInsight:
 
@@ -202,7 +198,7 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
 
 Para alterar o tamanho do cluster Hadoop usando o PowerShell do Azure, execute este comando no computador cliente:
 
-	Set-AzureHDInsightClusterSize -Name <ClusterName> -ClusterSizeInNodes <NewSize>
+	Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 
 
 
@@ -216,11 +212,41 @@ O seguinte script do PowerShell do Azure envia o trabalho de exemplo de contagem
 	$clusterName = "<HDInsightClusterName>"
 
 	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+	$wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+								-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+								-ClassName "wordcount" `
+								-Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput1"
+	
+	# Submit the job and wait for job completion
+	$cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:" 
+	$wordCountJob = Start-AzureRmHDInsightJob `
+						-ResourceGroupName $resourceGroupName `
+						-ClusterName $clusterName `
+						-HttpCredential $cred `
+						-JobDefinition $wordCountJobDefinition 
+	
+	Wait-AzureRmHDInsightJob `
+		-ResourceGroupName $resourceGroupName `
+		-ClusterName $clusterName `
+		-HttpCredential $cred `
+		-JobId $wordCountJob.JobId 
 
-	# Run the job and show the standard error
-	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
-
+	# Get the job output
+	$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+	$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+	$defaultStorageContainer = $cluster.DefaultStorageContainer
+	
+	Get-AzureRmHDInsightJobOutput `
+		-ResourceGroupName $resourceGroupName `
+		-ClusterName $clusterName `
+		-HttpCredential $cred `
+		-DefaultStorageAccountName $defaultStorageAccount `
+		-DefaultStorageAccountKey $defaultStorageAccountKey `
+		-DefaultContainer $defaultStorageContainer  `
+		-JobId $wordCountJob.JobId `
+		-DisplayOutputType StandardError
+		
 Para obter informações sobre o prefixo **wasb**, consulte [Usar o armazenamento de Blob do Azure para HDInsight][hdinsight-storage].
 
 **Para baixar a saída do trabalho MapReduce**
@@ -343,4 +369,4 @@ Consulte a sessão [Enviar trabalhos MapReduce](#mapreduce) neste artigo.
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -36,6 +36,8 @@ Para uma análise aprofundada sobre a expansão horizontal usando vários Ambien
 
 Para ver como a arquitetura de segurança exibida no AzureCon Deep Dive foi configurada, consulte o artigo sobre a implementação de uma [arquitetura de segurança em camadas](app-service-app-service-environment-layered-security.md) com os Ambientes do Serviço de Aplicativo.
 
+Os aplicativos executados nos Ambientes do Serviço de Aplicativo podem ter seu acesso restrito por dispositivos upstream como WAF (firewalls do aplicativo Web). O artigo sobre como [configurar um WAF para Ambientes do Serviço de Aplicativo](app-service-app-service-environment-web-application-firewall.md) aborda esse cenário.
+
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Recursos de computação dedicados ##
@@ -54,15 +56,15 @@ Para obter mais detalhes sobre a quantidade de recursos de computação disponí
 Para obter detalhes sobre os tamanhos de recursos de computação disponíveis com suporte em um determinado ambiente de serviço de aplicativo, consulte a página [Preços de serviços de aplicativo][AppServicePricing] e revise as opções disponíveis para ambientes de serviço de aplicativo na camada de preços Premium.
 
 ## Suporte a Rede Virtual ##
-Um Ambiente de Serviço de Aplicativo pode ser criado em uma rede virtual regional clássica "v1" existente ou uma nova rede virtual regional clássica "v1" ([obter mais informações sobre redes virtuais][MoreInfoOnVirtualNetworks]). Como um ambiente de serviço de aplicativo sempre existe em uma rede virtual regional, mais precisamente em uma sub-rede de uma rede virtual regional, você pode aproveitar os recursos de segurança de redes virtuais para controlar tanto a comunicação de rede de entrada quanto a de saída.
+Um Ambiente do Serviço de Aplicativo pode ser criado em uma rede virtual “v1” clássica regional existente ou em uma nova rede virtual “v1” clássica regional ([mais informações sobre redes virtuais][MoreInfoOnVirtualNetworks]). Como um ambiente de serviço de aplicativo sempre existe em uma rede virtual regional, mais precisamente em uma sub-rede de uma rede virtual regional, você pode aproveitar os recursos de segurança de redes virtuais para controlar tanto a comunicação de rede de entrada quanto a de saída.
 
 Você pode usar [grupos de segurança de rede][NetworkSecurityGroups] para restringir a comunicação de rede de entrada à sub-rede na qual reside um ambiente de serviço de aplicativo. Isso permite que você execute aplicativos por trás de dispositivos e serviços upstream, como firewalls de aplicativo Web e provedores SaaS de rede.
 
 Aplicativos frequentemente precisam acessar recursos corporativos, como bancos de dados internos e serviços da Web. Uma abordagem comum é disponibilizar esses pontos de extremidade apenas ao tráfego de rede interno que flui dentro de uma rede virtual do Azure. Depois que um ambiente de serviço de aplicativo é combinado à mesma rede virtual que os serviços internos, os aplicativos que são executados no ambiente podem acessá-los, incluindo pontos de extremidade acessíveis via conexões [Site a Site][SiteToSite] e [Rota Expressa do Azure][ExpressRoute].
 
-Para obter mais detalhes sobre o funcionamento dos Ambientes de Serviço de Aplicativo com redes virtuais e redes locais, consulte os seguintes artigos sobre [Arquitetura de rede][NetworkArchitectureOverview], [Controle do tráfego de entrada][ControllingInboundTraffic] e [Conexão segura com back-ends][SecurelyConnectingToBackends].
+Para obter mais detalhes sobre como os Ambientes do Serviço de Aplicativo funcionam com redes virtuais e redes locais, confira os artigos a seguir sobre [Arquitetura de rede][NetworkArchitectureOverview], [Controle do tráfego de entrada][ControllingInboundTraffic] e [Conexão segura a back-ends][SecurelyConnectingToBackends].
 
-**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2".
+**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual “v2”.
 
 ## Introdução
 
@@ -70,9 +72,9 @@ Para se familiarizar com os Ambientes de Serviços de Aplicativo, consulte [Como
 
 Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
 
-Para obter uma visão geral da arquitetura de rede do Ambiente de Serviço de Aplicativo, consulte o artigo [Visão geral da arquitetura de rede][NetworkArchitectureOverview].
+Para obter uma visão geral da arquitetura de rede do Ambiente do Serviço de Aplicativo, veja o artigo [Visão geral da arquitetura de rede][NetworkArchitectureOverview].
 
-Para obter detalhes sobre como usar um Ambiente de Serviço de Aplicativo com o ExpressRoute, consulte o seguinte artigo sobre a [Rota Expressa e Ambientes de Serviço de Aplicativo][NetworkConfigDetailsForExpressRoute].
+Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo com a Rota Expressa, confira o artigo a seguir sobre a [Rota Expressa e os Ambientes do Serviço de Aplicativo][NetworkConfigDetailsForExpressRoute].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -103,4 +105,4 @@ Para obter detalhes sobre como usar um Ambiente de Serviço de Aplicativo com o 
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

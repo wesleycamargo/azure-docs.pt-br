@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure ao ArcGIS | Microsoft Azure" description="Saiba como usar o ArcGIS com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure ao ArcGIS | Microsoft Azure" 
+    description="Saiba como usar o ArcGIS com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure ao ArcGIS
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=526915).
 
 O objetivo deste tutorial é mostrar a integração do Azure ao ArcGIS. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do ArcGIS
 
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao ArcGIS poderão fazer logon único no aplicativo em seu site de empresa ArcGIS (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao ArcGIS poderão fazer logon único no aplicativo em seu site de empresa do ArcGIS (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-arcgis-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-arcgis-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -55,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **ArcGIS**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do AD do Azure, na página de integração de aplicativos do **ArcGIS**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-arcgis-tutorial/IC784738.png "Configurar o logon único")
 
@@ -63,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-arcgis-tutorial/IC784739.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do ArcGIS**, digite a URL usada pelos usuários para fazer logon usando o padrão "**https://company.maps.arcgis.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do ArcGIS**, digite a URL usada pelos usuários para entrar usando o padrão "**https://company.maps.arcgis.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-arcgis-tutorial/IC784740.png "Configurar a URL do Aplicativo")
 
@@ -85,26 +98,25 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Logons Corporativos](./media/active-directory-saas-arcgis-tutorial/IC784744.png "Logons Corporativos")
 
-9.  Na página de configuração **Definir Provedor de Identidade**, execute as seguintes etapas:
+9.  Na página de configuração **Definir Provedor de Identidade**, realize as seguintes etapas:
 
     ![Definir Provedor de Identidade](./media/active-directory-saas-arcgis-tutorial/IC784745.png "Definir Provedor de Identidade")
 
     1.  Na caixa de texto, digite o nome da sua organização.
-    2.  Para **Metadados do Provedor de Identidade Corporativo serão fornecidos usando**, selecione **Um Arquivo**.
+    2.  Para **Os metadados do Provedor de Identidade Corporativo serão fornecidos usando**, selecione **Um Arquivo**.
     3.  Para carregar seu arquivo de metadados baixado, clique em **Escolher arquivo**.
     4.  Clique em **Definir Provedor de Identidade**.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
 
-Para permitir que os usuários do AD do Azure façam logon no ArcGIS, eles devem ser provisionados no ArcGIS.  
-No caso do ArcGIS, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no ArcGIS, eles devem ser provisionados no ArcGIS. No caso do ArcGIS, o provisionamento é uma tarefa manual.
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1.  Faça logon no seu locatário do **ArcGIS**.
+1.  Faça logon em seu locatário do **ArcGIS**.
 
 2.  Clique em **Convidar Membros**.
 
@@ -114,14 +126,14 @@ No caso do ArcGIS, o provisionamento é uma tarefa manual.
 
     ![Adicionar Membros Automaticamente](./media/active-directory-saas-arcgis-tutorial/IC784748.png "Adicionar Membros Automaticamente")
 
-4.  Na página da caixa de diálogo **Membros**, execute as seguintes etapas:
+4.  Na página do diálogo **Membros**, realize as seguintes etapas:
 
     ![Adicionar e revisar](./media/active-directory-saas-arcgis-tutorial/IC784749.png "Adicionar e revisar")
 
-    1.  Insira **Nome**, **Sobrenome** e **Email** de uma conta válida do AAD que deseja provisionar.
-    2.  Clique em **Adicionar e Revisar**.
+    1.  Insira **Nome**, **Sobrenome** e **Email** de uma conta válida do AAD que você deseja provisionar.
+    2.  Clique em **Adicionar e Examinar**.
 
-5.  Revise os dados que inseriu e clique em **Adicionar Membros**.
+5.  Examine os dados inseridos e clique em **Adicionar Membros**.
 
     ![Adicionar membro](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Adicionar membro")
 
@@ -139,10 +151,10 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Atribuir Usuários](./media/active-directory-saas-arcgis-tutorial/IC784751.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-arcgis-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

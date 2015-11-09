@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gerenciar e auditar o acesso a recursos"
+   pageTitle="Gerenciando o acesso aos recursos"
    description="Use o controle de acesso baseado em função (RBAC) para gerenciar permissões de usuário para recursos implantados no Azure."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="10/28/2015"
    ms.author="tomfitz"/>
 
-# Gerenciar o acesso a recursos
+# Gerenciando o acesso aos recursos
 
 Com o Gerenciador de Recursos do Azure, você pode garantir que os usuários em sua organização tenham as permissões apropriadas para gerenciar ou acessar recursos. O Gerenciador de Recursos se beneficia de controle de acesso baseado em função (RBAC) para que você pode facilmente aplicar diretivas de segurança para recursos individuais ou grupos de recursos. Por exemplo, você pode conceder um acesso de usuário a uma máquina virtual específica em uma assinatura ou oferecer ao usuário a capacidade de gerenciar todos os sites em uma assinatura, mas nenhum outro recurso.
 
@@ -265,7 +265,8 @@ Crie a atribuição de função.
 - Para aprender mais sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](../role-based-access-control-configure.md).
 - Para saber mais sobre como trabalhar com entidades de serviço para gerenciar o acesso para aplicativos em sua assinatura, consulte [Autenticar uma entidade de serviço por meio do Gerenciador de recursos do Azure](../resource-group-authenticate-service-principal.md) e [criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](../resource-group-create-service-principal-portal.md).
 - Para saber mais sobre a auditoria de operações em sua organização, consulte [Operações com o Gerenciador de Recursos de Auditoria](../resource-group-audit.md).
+- É possível aplicar restrições e convenções em sua assinatura com políticas personalizadas. Para obter mais informações, veja [Usar a Política para gerenciar recursos e controlar o acesso](../resource-manager-policy.md).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

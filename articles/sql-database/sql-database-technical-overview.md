@@ -39,17 +39,7 @@ Mas como você pode comparar o desempenho relativo de bancos de dados e pools de
 
 ## Entenda as DTUs
 
-A Unidade de Transação de Banco de Dados (DTU) é a unidade de medida no Banco de Dados SQL que representa a potência relativa dos bancos de dados com base em uma medida real: a transação do banco de dados. Usamos um conjunto de operações típicas para uma solicitação OLTP (processamento de transação online) e calculamos quantas transações foram concluídas por segundo sob condições de carga total (essa é a versão curta, você pode ler os detalhes assustadores na [Visão geral de parâmetro de comparação](https://msdn.microsoft.com/library/azure/dn741327.aspx)).
-
-Um banco de dados Básico tem cinco DTUs, o que significa que ele pode concluir cinco transações por segundo, enquanto um banco de dados Premium P11 tem 1750 DTUs.
-
-![DTUS de banco de dados individual](./media/sql-database-technical-overview/single_db_dtus.png)
-
-DTU para bancos de dados individuais é o mesmo que eDTU para bancos de dados elásticos. Por exemplo, um banco de dados em um pool de bancos de dados elásticos Basic oferece até cinco eDTUs. Esse é o mesmo desempenho de um banco de dados individual Basic. A diferença é que o banco de dados elástico não consumirá eDTUs do pool até que isso seja necessário.
-
-![Pools elásticos e eDTUs](./media/sql-database-technical-overview/sqldb_elastic_pools.png)
-
-Um exemplo simples pode ajudar: pegue um pool de banco de dados elástico Basic com 1000 DTUs e solte 800 bancos de dados nele. Contanto que apenas 200 bancos de dados, do total de 800, estejam sendo usados a qualquer momento (5 DTU X 200 = 1000), você não atingirá a capacidade do pool, e o desempenho do banco de dados não será afetado. Este exemplo foi simplificado para manter a clareza. O cálculo real é um pouco mais detalhado. O portal faz os cálculos para você e faz também uma recomendação com base no histórico de uso do banco de dados. Consulte [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md) para aprender como as recomendações funcionam ou para fazer os cálculos você mesmo.
+[AZURE.INCLUDE [Descrição de DTU de Banco de Dados SQL](../../includes/sql-database-understanding-dtus.md)]
 
 ## Mantenha seus aplicativos e a continuidade dos negócios
 
@@ -69,4 +59,4 @@ O SQL Server possui uma tradição de segurança de dados sólida que o banco de
 
 - Comece [criando seu primeiro banco de dados](sql-database-get-started.md). Compile seu primeiro aplicativo em [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) ou [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

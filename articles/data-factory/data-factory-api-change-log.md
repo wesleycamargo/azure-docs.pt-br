@@ -13,11 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Log de alterações SDK do .NET 
 Este artigo fornece informações sobre alterações no SDK do Azure Data Factory em uma versão específica. Você pode baixar o mais recente pacote Nuget para o Azure Data Factory [aqui](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories).
+
+## Versão 4.1.0
+Data de lançamento: 28/10/2015
+
+### Adições de recursos
+* Os seguintes tipos de serviço vinculados foram adicionados: 
+    * [AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
+    * [AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
+* Os seguintes tipos de atividades foram adicionados: 
+    * [DataLakeAnalyticsUSQLActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datalakeanalyticsusqlactivity.aspx)
+* Os seguintes tipos de conjunto de dados foram adicionados: 
+    * [AzureDataLakeStoreDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoredataset.aspx)
+* Os seguintes tipos de fonte e coletor de atividade para Atividade de Cópia foram adicionados:
+    * [AzureDataLakeStoreSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresource.aspx)
+    * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
+
 
 ## Versão 4.0.1
 Data do lançamento: 13-10-2015
@@ -56,9 +72,9 @@ Data do lançamento: 02-10-2015
 | TableListResponse | [DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters | [DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) | 
     
-- A **versão da API** para esta versão é: **2015-10-01**.
+- A **versão de API** para esta versão é: **01/10/2015**.
 
-- Os métodos de **Lista** retornam resultados paginados agora. Se a resposta contém uma propriedade não vazia **NextLink**, o aplicativo cliente precisa continuar a busca da próxima página até que todas as páginas são retornadas. Aqui está um exemplo:
+- Os métodos **List** agora retornam resultados paginados. Se a resposta contiver uma propriedade não vazia **NextLink**, o aplicativo cliente precisa continuar buscando a próxima página até que todas as páginas sejam retornadas. Aqui está um exemplo:
 
 		PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
 	    var pipelines = new List<Pipeline>(response.Pipelines);
@@ -75,8 +91,8 @@ Data do lançamento: 02-10-2015
 - O API da **Lista** retorna apenas o resumo de um pipeline, em vez de todos os detalhes. Por exemplo, as atividades em um resumo de pipeline contém apenas nome e tipo.
 
 ### Adições de recursos
-- A classe [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) dá suporte a duas novas propriedades, **SliceIdentifierColumnName** e **SqlWriterCleanupScript**, para dar suporte a cópia idempotente para o Azure SQL Data Warehouse. Consulte o artigo [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md), especificamente, as seções [Mecanismo 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) e [Mecanismo 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) para obter detalhes sobre essas propriedades.
+- A classe [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) dá suporte a duas novas propriedades, **SliceIdentifierColumnName** e **SqlWriterCleanupScript**, para dar suporte à cópia idempotente no SQL Data Warehouse do Azure. Confira o artigo [SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md), especificamente, as seções [Mecanismo 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) e [Mecanismo 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) para saber mais sobre essas propriedades.
 
-- Agora há suporte para executar o procedimento armazenado nas fontes do Banco de Dados SQL do Azure e Azure SQL Data Warehouse como parte da Atividade de Cópia. As classes [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) e [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) têm as seguintes propriedades para dar suporte: **SqlReaderStoredProcedureName** e **StoredProcedureParameters**. Consulte os artigos [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md#sqlsource) e [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) sobre Azure.com para obter detalhes sobre essas propriedades.
+- Agora há suporte para executar o procedimento armazenado nas fontes do Banco de Dados SQL do Azure e Azure SQL Data Warehouse como parte da Atividade de Cópia. As classes [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) e [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) têm as seguintes propriedades para dar suporte a **SqlReaderStoredProcedureName** e **StoredProcedureParameters**. Confira os artigos [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md#sqlsource) e [SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) em Azure.com para saber mais sobre essas propriedades.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

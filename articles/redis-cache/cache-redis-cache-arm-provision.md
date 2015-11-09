@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="cache" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="10/28/2015" 
 	ms.author="tomfitz"/>
 
 # Criar um Cache Redis usando um modelo
@@ -26,7 +26,13 @@ Para obter mais informações sobre a criação de modelos, consulte [Criação 
 
 Para obter o modelo completo, confira [Modelo do Cache Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
->[AZURE.NOTE]Em breve chegarão os modelos de ARM para a nova [camada Premium](cache-premium-tier-intro.md). Para verificar os modelos mais recentes, consulte [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e procure por `Redis Cache`.
+>[AZURE.NOTE]Estão disponíveis modelos de ARM para a nova [camada Premium](cache-premium-tier-intro.md).
+>
+>-    [Criar um cache Redis Premium com clustering](https://azure.microsoft.com/pt-BR/documentation/templates/201-redis-premium-cluster-diagnostics/)
+>-    [Criar um cache Redis Premium com persistência de dados](https://azure.microsoft.com/pt-BR/documentation/templates/201-redis-premium-persistence/)
+>-    [Criar um cache Redis Premium com VNet e clustering opcional](https://azure.microsoft.com/pt-BR/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+>
+>Para verificar os modelos mais recentes, consulte [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e procure por `Redis Cache`.
 
 ## O que você implantará
 
@@ -131,4 +137,4 @@ Cria o Cache Redis do Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

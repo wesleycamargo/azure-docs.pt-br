@@ -1,7 +1,21 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure com o Jive | Microsoft Azure" description="Saiba como usar o Jive com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o Jive | Microsoft Azure" 
+    description="Saiba como usar o Jive com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o Jive
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=330042). Para obter mais informações sobre esse tópico, consulte [Práticas recomendadas para gerenciar os aprimoramentos de acesso do aplicativo do Active Directory do Azure](http://go.microsoft.com/fwlink/?LinkId=329963).
+
   
 O objetivo deste tutorial é mostrar a integração do Azure com o Jive. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -29,7 +43,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Aplicativos](./media/active-directory-saas-jive-tutorial/IC700994.png "Aplicativos")
 
-4.  Para abrir a **Galeria de aplicativos**, clique em **Adicionar um aplicativo** e, em seguida, clique em **Adicionar um aplicativo para minha organização usar**.
+4.  Para abrir a **Galeria de Aplicativos**, clique em **Adicionar um Aplicativo** e em **Adicionar um aplicativo a ser utilizado pela minha organização**.
 
     ![O que você deseja fazer?](./media/active-directory-saas-jive-tutorial/IC700995.png "O que você deseja fazer?")
 
@@ -50,24 +64,24 @@ A captura de tela a seguir mostra um exemplo de caixa de diálogo correspondente
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, na página de integração de aplicativos do **Jive**, clique em **Configurar provisionamento do usuário** para abrir a caixa de diálogo **Configurar provisionamento do usuário**.
+1.  No Portal de Gerenciamento do Azure, na página de integração de aplicativos do **Jive**, clique em **Configurar provisionamento de usuário** para abrir o diálogo **Configurar Provisionamento de Usuário**.
 
-2.  Na página **Inserir suas credenciais Jive para habilitar o provisionamento automático de usuários**, forneça as seguintes configurações:
+2.  Na página **Inserir suas credenciais do Jive para habilitar o provisionamento automático de usuário**, forneça as seguintes configurações:
 
-    1.  Na caixa de texto **Nome de usuário administrador do Jive**, digite o nome de conta do Jive que tem o perfil do **administrador de sistema** atribuído no Jive.com.
+    1.  Na caixa de texto **Nome do Usuário Administrador do Jive**, digite o nome da conta do Jive que tem o perfil do **Administrador de Sistema** atribuído no Jive.com.
 
-    2.  Na caixa de texto **Senha de administrador do Jive**, digite a senha para essa conta.
+    2.  Na caixa de texto **Senha do Administrador do Jive**, digite a senha desta conta.
 
-    3.  Na caixa de texto **URL de locatário do Jive**, digite a URL de locatário do Jive.
+    3.  Na caixa de texto **URL de Locatário do Jive**, digite a URL de locatário do Jive.
 
-        >[AZURE.NOTE]A URL de locatário do Jive é usada pela sua organização para efetuar logon no Jive. Normalmente, a URL tem o seguinte formato: **www.<organization>.jive.com**.
+        >[AZURE.NOTE]A URL de locatário do Jive é usada pela sua organização para efetuar logon no Jive. Normalmente, a URL tem o seguinte formato: **www.<organização>.jive.com**.
 
-    4.  Clique em **Validar** para verificar sua configuração.
+    4.  Clique em **validar** para verificar sua configuração.
 
-    5.  Clique no botão **Próximo** para abrir a página **Confirmação**.
+    5.  Clique no botão **Avançar** para abrir a página **Confirmação**.
 
-3.  Em seguida, na página **Confirmação**, clique na marca de seleção para salvar sua configuração.
+3.  Na página **Confirmação**, clique na marca de seleção para salvar sua configuração.
   
 Agora, você pode criar uma conta de teste, aguardar 10 minutos e verificar se a conta foi sincronizada no Jive.com.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

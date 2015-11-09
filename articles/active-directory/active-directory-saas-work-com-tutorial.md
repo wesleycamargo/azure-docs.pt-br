@@ -1,15 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure com o Work.com | Microsoft Azure" description="Saiba como usar o Work.com com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o Work.com | Microsoft Azure" 
+    description="Saiba como usar o Work.com com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o Work.com
-  
->[AZURE.TIP]Para comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=529836).
   
 O objetivo deste tutorial é mostrar a integração do Azure com o Work.com. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura do Work.com com logon único habilitado
   
-Depois de concluir este tutorial, os usuários do AAD aos quais você atribui acesso ao Work.com poderão fazer o logon único no aplicativo no site da sua empresa Work.com (serviço provedor iniciado pelo logon) ou usando o [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Depois de concluir este tutorial, os usuários do AAD aos quais você atribuiu acesso ao Work.com poderão fazer logon único no aplicativo em seu site de empresa do Work.com (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -40,7 +52,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-work-com-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-work-com-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -66,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configuração](./media/active-directory-saas-work-com-tutorial/IC794108.png "Configuração")
 
-3.  No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e, em seguida, clique em **Meu Domínio** para abrir a página **Meu Domínio**.
+3.  No painel de navegação à esquerda, na seção **Administrar**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**.
 
     ![Meu Domínio](./media/active-directory-saas-work-com-tutorial/IC767825.png "Meu Domínio")
 
@@ -76,19 +88,19 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Em uma janela de navegador da Web diferente, faça logon no seu portal do Azure.
 
-6.  Na página de integração do aplicativo **Work.com **, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar logon único **.
+6.  Na página de integração de aplicativos do **Work.com**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-work-com-tutorial/IC794109.png "Configurar o logon único")
 
-7.  Na página **Como você deseja que os usuários façam logon no Work.com **, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+7.  Na página **Como você deseja que os usuários façam logon no Work.com**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
     ![Configurar o logon único](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurar o logon único")
 
-8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon do Work.com**, digite a URL usada pelos seus usuários para fazer logon no seu aplicativo Work.com (p. ex.: “ **http://company.my.salesforce.com*”)e, em seguida, clique em **Avançar**:
+8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Work.com**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Work.com (por exemplo: “ **http://company.my.salesforce.com*”)) e clique em **Avançar**:
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurar a URL do Aplicativo")
 
-9.  Na página **Configurar logon único no Work.com**, para baixar seu certificado, clique em **Baixar certificado** e, em seguida, salve o arquivo do certificado em seu computador.
+9.  Na página **Configurar logon único no Work.com**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-work-com-tutorial/IC794112.png "Configurar o logon único")
 
@@ -102,32 +114,32 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurações de Logon Único](./media/active-directory-saas-work-com-tutorial/IC794113.png "Configurações de Logon Único")
 
-13. Na página de caixa de diálogo **Configurações de Logon Único**, execute as seguintes etapas:
+13. Na página do diálogo **Configurações de Logon Único**, realize as seguintes etapas:
 
     ![SAML Habilitado](./media/active-directory-saas-work-com-tutorial/IC781026.png "SAML Habilitado")
 
     1.  Selecione **SAML Habilitado**.
     2.  Clique em **Novo**.
 
-14. Na seção de **Configurações de Logon Único de SAML**, execute as seguintes etapas:
+14. Na seção de **Configurações de Logon Único do SAML**, realize as seguintes etapas:
 
     ![Configuração de Logon Único do SAML](./media/active-directory-saas-work-com-tutorial/IC794114.png "Configuração de logon único do SAML")
 
-    1.  Na caixa de texto **Nome**, digite um nome para sua configuração.  
+    1.  Na caixa de texto **Nome**, digite um nome para a sua configuração.  
 
-        >[AZURE.NOTE]Fornecer um valor para **Nome** preenche automaticamente a caixa de texto **Nome da API**.
+        >[AZURE.NOTE]Fornecer um valor para **Nome** popula automaticamente a caixa de texto **Nome da API**.
 
-    2.  No portal do Azure, na página de diálogo **Configurar logon único no Work.com**, copie o valor da **URL do Emissor** e, em seguida, cole-o na caixa de texto **Emissor**.
-    3.  Para carregar o certificado baixado, clique em **Pesquisar**.
-    4.  Na caixa de texto **Id da Entidade**, digite ****https://salesforce-work.com**.
-5.  Para o **Tipo de Identidade SAML** selecione **Assertion contém a ID de Federação do objeto User**.
-    6.  Para **Local de Identidade de SAML**, selecione **A identidade está no elemento NameIdentfier da instrução de assunto**
-    7.  No portal do Azure, na página de diálogo **Configurar logon único no Work.com**, copie o valor da **URL de Logon Remoto** e, em seguida, cole-o na caixa de texto **URL do Login do Provedor de Identidade**.
-    8.  No portal do Azure, na página de diálogo **Configurar logon único no Work.com**, copie o valor da **URL de Logout Remoto** e, em seguida, cole-o na caixa de texto **URL do logout do Provedor de Identidade**.
-    9.  Para **Associação de Solicitação Iniciada do Provedor de Serviço**, selecione **HTTP Post**.
+    2.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
+    3.  Para carregar o certificado baixado, clique em **Procurar**.
+    4.  Na caixa de texto **ID de Entidade**, digite ****https://salesforce-work.com**.
+5.  Para o **Tipo de Identidade do SAML**, selecione **A declaração contém a ID de Federação do objeto User**.
+    6.  Para **Local de Identidade do SAML**, selecione **A identidade está contida no elemento NameIdentifier da instrução Subject**.
+    7.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL do Logon do Provedor de Identidade**.
+    8.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL do Logoff do Provedor de Identidade**.
+    9.  Para **Associação de Solicitação Iniciada pelo Provedor de Serviços**, selecione **HTTP Post**.
     10. Clique em **Salvar**.
 
-15. No painel de navegação à esquerda, no seu portal Work.com, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e, em seguida, clique em **Meu Domínio** para abrir a página **Meu Domínio**.
+15. No painel de navegação à esquerda, no seu portal do Work.com, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**.
 
     ![Meu Domínio](./media/active-directory-saas-work-com-tutorial/IC794115.png "Meu Domínio")
 
@@ -135,11 +147,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Identidade visual da página de logon](./media/active-directory-saas-work-com-tutorial/IC767826.png "Identidade visual da página de logon")
 
-17. Na página **Identidade Visual da Página de Logon**, na seção **Serviço de Autenticação**, o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
+17. Na página **Identidade Visual da Página de Logon**, na seção **Serviço de Autenticação**, o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e clique em **Salvar**.
 
     ![Identidade visual da página de logon](./media/active-directory-saas-work-com-tutorial/IC784366.png "Identidade visual da página de logon")
 
-18. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+18. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-work-com-tutorial/IC794116.png "Configurar o logon único")
 
@@ -167,7 +179,7 @@ Para que os usuários do Active Directory do Azure possam entrar, eles devem ser
 
     ![Editar usuário](./media/active-directory-saas-work-com-tutorial/IC794118.png "Editar usuário")
 
-    1.  Digite os atributos **Sobrenome**, **Alias**, **Email**, **Nome de Usuário** e **Apelido** de uma conta válida do Active Directory do Azure, que você deseja provisionar nas caixas de texto relacionadas.
+    1.  Digite os atributos **Sobrenome**, **Alias**, **Email**, **Nome de Usuário** e **Apelido** de uma conta válida do Active Directory do Azure que você deseja provisionar nas caixas de texto relacionadas.
     2.  Selecione **Função**, **Licença de Usuário** e **Perfil**.
     3.  Clique em **Salvar**.  
 
@@ -193,6 +205,6 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Agora, você deveria aguardar 10 minutos e verificar se a conta foi sincronizada com o Work.com.
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

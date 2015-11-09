@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure ao Canvas | Microsoft Azure" description="Saiba como usar o Canvas LMS com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties
+    pageTitle="Tutorial: Integração do Active Directory do Azure ao Canvas | Microsoft Azure" 
+    description="Saiba como usar o Canvas LMS com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure ao Canvas LMS
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=524182).
 
 O objetivo deste tutorial é mostrar a integração do Azure ao Canvas. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do Canvas
 
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao Canvas poderão fazer logon único no aplicativo em seu site de empresa Canvas (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao Canvas poderão fazer logon único no aplicativo em seu site de empresa do Canvas (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-canvas-lms-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-canvas-lms-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -51,11 +64,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Tela](./media/active-directory-saas-canvas-lms-tutorial/IC775986.png "Tela")
 ##Configurando o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Canvas com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML. Configurar o logon único para o Canvas exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI)
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Canvas com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML. Configurar o logon único para o Canvas exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **Canvas**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do AD do Azure, na página de integração de aplicativos do **Canvas**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-canvas-lms-tutorial/IC771709.png "Configurar o logon único")
 
@@ -63,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-canvas-lms-tutorial/IC775987.png "Configurar o logon único")
 
-3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Logon do Canvas**, digite a URL usando o padrão `https://<tenant-name>.instructure.com` e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Canvas**, digite a URL usando o padrão `https://<tenant-name>.instructure.com` e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-canvas-lms-tutorial/IC775988.png "Configurar a URL do Aplicativo")
 
@@ -77,7 +90,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Tela](./media/active-directory-saas-canvas-lms-tutorial/IC775990.png "Tela")
 
-7.  No painel de navegação à esquerda, selecione **Autenticação** e clique em **Adicionar Nova Configuração do SAML**.
+7.  No painel de navegação à esquerda, selecione **Autenticação** e clique em **Adicionar Nova Config. do SAML**.
 
     ![Autenticação](./media/active-directory-saas-canvas-lms-tutorial/IC775991.png "Autenticação")
 
@@ -85,11 +98,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Integração Atual](./media/active-directory-saas-canvas-lms-tutorial/IC775992.png "Integração Atual")
 
-    1.  No portal do Azure, na página da caixa de diálogo **Configurar logon único no Canvas**, copie o valor de **ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP**.
-    2.  No portal do Azure, na página da caixa de diálogo **Configurar logon único no Canvas**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
-    3.  No portal do Azure, na página da caixa de diálogo **Configurar logon único no Canvas**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logoff**.
-    4.  No portal do Azure, na página de diálogo **Configurar logon único no Canvas**, copie o valor de **URL de Alteração de Senha** e cole-o na caixa de texto **URL de Alteração de Senha**.
-    5.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital de Certificado**.  
+    1.  No portal do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP**.
+    2.  No portal do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
+    3.  No portal do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logoff**.
+    4.  No portal do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **URL de Alteração de Senha** e cole-o na caixa de texto **URL de Alteração de Senha**.
+    5.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Certificado**.  
 
         >[AZURE.TIP]Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
@@ -97,7 +110,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     7.  Na lista **Formato de Identificador**, selecione **emailAddress**.
     8.  Clique em **Salvar Configurações de Autenticação**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-canvas-lms-tutorial/IC775993.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -106,7 +119,7 @@ Para permitir que os usuários do AD do Azure façam logon no Canvas, eles devem
 
 ###Para provisionar contas de usuário, execute as seguintes etapas:
 
-1.  Faça logon no seu locatário do **Canvas**.
+1.  Faça logon em seu locatário do **Canvas**.
 
 2.  Vá para **Cursos > Contas Gerenciadas > Microsoft**.
 
@@ -148,6 +161,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-canvas-lms-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

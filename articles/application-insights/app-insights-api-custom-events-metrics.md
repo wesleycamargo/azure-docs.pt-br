@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -526,14 +526,6 @@ Chamadas de telemetria individuais podem substituir os valores padrão em seus d
 **Para clientes Web JavaScript**, [use inicializadores de telemetria JavaScript](#js-initializer).
 
 
-## <a name="ikey"></a> Definir a chave de instrumentação para telemetria personalizada selecionada
-
-*C#*
-    
-    var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
-    // ...
-
 
 ## Liberando dados
 
@@ -546,23 +538,37 @@ Normalmente o SDK envia dados em momentos escolhidos para minimizar o impacto so
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Observe que a função é assíncrono para canais de memória, mas síncrona se você optar por usar o [canal persistente](app-insights-windows-desktop.md#persistence-channel).
+É importante lembrar que a função é assíncrona para os canais na memória, mas síncrona se você optar por usar o [canal persistente](app-insights-windows-desktop.md#persistence-channel).
 
 
 
-## Inicializadores e processadores de telemetria
-
-Você pode escrever e configurar plug-ins para o SDK do Application Insights, a fim de personalizar o modo como a telemetria é capturada e processada antes de ser enviada ao serviço Application Insights.
-
-[Saiba mais](app-insights-telemetry-processors.md)
 
 
-## Desabilitar a telemetria padrão
+## Realizando a amostragem, filtrando e processando a telemetria 
 
-Você pode [desabilitar partes selecionadas da telemetria padrão][config] editando `ApplicationInsights.config`. Você poderá fazer isso, por exemplo, se quiser enviar seus próprios dados de TrackRequest.
+É possível escrever códigos para processar a telemetria antes que ela seja enviada do SDK. O processamento inclui dados enviados dos módulos de telemetria padrão, como a coleção de solicitação HTTP e a coleção de dependência.
 
-[Saiba mais][config].
+* [Adicionar propriedades](app-insights-api-filtering-sampling.md#add-properties) à telemetria - por exemplo, números de versão ou valores calculados de outras propriedades.
+* A [amostragem](app-insights-api-filtering-sampling.md#sampling) reduz o volume de dados enviados do seu aplicativo ao portal, sem afetar as métricas exibidas, e sem afetar sua capacidade de diagnosticar problemas navegando entre itens relacionados, como exceções, solicitações e exibições de página.
+* A [filtragem](app-insights-api-filtering-sampling.md#filtering) também reduz o volume. Você controla o que é enviado ou descartado, mas você precisa levar em conta o efeito em suas métricas. Dependendo de como você descartar os itens, você poderá perder a capacidade de navegar entre itens relacionados.
 
+[Saiba mais](app-insights-api-filtering-sampling.md)
+
+
+## Desabilitando a telemetria
+
+Para **parar e iniciar dinamicamente** a coleta e a transmissão de telemetria:
+
+*C#*
+
+```C#
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+Para **desabilitar os coletores padrão selecionados** - por exemplo, contadores de desempenho, solicitações HTTP ou dependências - exclua ou comente as linhas relevantes em [ApplicationInsights.config][config]. Você poderá fazer isso, por exemplo, se quiser enviar seus próprios dados de TrackRequest.
 
 ## <a name="debug"></a>Modo de desenvolvedor
 
@@ -576,6 +582,16 @@ Durante a depuração, é útil ter sua telemetria emitida pelo pipeline para qu
 *VB*
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
+
+## <a name="ikey"></a> Definir a chave de instrumentação para telemetria personalizada selecionada
+
+*C#*
+    
+    var telemetry = new TelemetryClient();
+    telemetry.Context.InstrumentationKey = "---my key---";
+    // ...
+
 
 ## <a name="dynamic-ikey"></a> Chave de instrumentação dinâmica
 
@@ -618,7 +634,7 @@ Em páginas da web, convém defini-lo com base no estado do servidor Web, em vez
 
 TelemetryClient tem uma propriedade de Contexto, que contém um número de valores que serão enviadas junto com todos os dados de telemetria. Normalmente, eles são definidos pelos módulos padrão de telemetria, mas você pode também defini-las por conta própria. Por exemplo:
 
-    telemetryClient.Context.Operation.Name = “MyOperationName”;
+    telemetryClient.Context.Operation.Name = "MyOperationName";
 
 Se você definir qualquer um desses valores por conta própria, considere remover a linha relevante de [Applicationinsights.config][config], de modo que os valores e os valores padrão não fiquem confusos.
 
@@ -628,11 +644,11 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 * **Local** identifica a localização geográfica do dispositivo.
 * **Operação** em aplicativos da web, a solicitação HTTP atual. Em outros tipos de aplicativos, você pode definir isso para agrupar eventos juntos.
  * **ID**: um valor gerado que correlaciona eventos diferentes, para que quando você inspecionar qualquer evento no diagnóstico de pesquisa, você pode localizar "itens relacionados"
- * **Name**: um identificador, geralmente a URL da solicitação HTTP. 
+ * **Nome**: um identificador, geralmente a URL da solicitação HTTP. 
  * **SyntheticSource**: se não for nula ou vazia, essa cadeia de caracteres indica que a origem da solicitação foi identificada como um teste de robô ou web. Por padrão, elas são excluídas de cálculos no Metrics Explorer.
 * As **Propriedades** que são enviadas com todos os dados de telemetria. Pode ser substituído nas chamadas individuais de Track*.
 * **Sessão** identifica a sessão do usuário. A ID é definida como um valor gerado, que é alterado quando o usuário não foi ativo por um tempo.
-* **User** Informações do usuário. 
+* **Usuário** Informações do usuário. 
 
 
 
@@ -708,4 +724,4 @@ Há alguns limites no número de métricas você pode usar.
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

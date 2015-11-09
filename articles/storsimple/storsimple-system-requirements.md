@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/24/2015"
+   ms.date="10/22/2015"
    ms.author="alkohli"/>
 
 # Software StorSimple, alta disponibilidade e requisitos de rede
@@ -163,6 +163,9 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 
 <sup>3</sup> Os IPs fixos do controlador em seu dispositivo StorSimple devem ser roteáveis e conseguirem se conectar à Internet. Os endereços IP fixos são usados para fornecer as atualizações ao dispositivo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple.
 
+> [AZURE.IMPORTANT]Certifique-se de que o firewall não modifique ou descriptografe nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
+
+<br></br>
 ### Roteamento de porta
 
 O roteamento de porta é diferente dependendo da versão de software em execução em seu dispositivo StorSimple.
@@ -197,4 +200,4 @@ Além dos requisitos de rede acima, para obter o desempenho ideal de sua soluç�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

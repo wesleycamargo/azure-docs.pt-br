@@ -1,7 +1,20 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure ao SpringCM | Microsoft Azure" description="Saiba como usar o SpringCM com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure ao SpringCM | Microsoft Azure" 
+    description="Saiba como usar o Spring CM com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o SpringCM
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=536554).
   
 O objetivo deste tutorial é mostrar como configurar o logon único entre o Active Directory do Azure e o SpringCM.
   
@@ -39,7 +52,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-spring-cm-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-spring-cm-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -57,7 +70,7 @@ Esta descreve como permitir que os usuários se autentiquem no SpringCM com a re
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **SpringCM**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **SpringCM**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-spring-cm-tutorial/IC797047.png "Configurar o logon único")
 
@@ -65,17 +78,17 @@ Esta descreve como permitir que os usuários se autentiquem no SpringCM com a re
 
     ![Configurar o logon único](./media/active-directory-saas-spring-cm-tutorial/IC797048.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do SpringCM**, digite a URL usada pelos seus usuários para fazer logon em seu aplicativo SpringCM e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do SpringCM**, digite a URL usada pelos usuários para fazer logon em seu aplicativo SpringCM e clique em **Avançar**.
 
-    A URL do aplicativo é a URL do locatário do SpringCM (por exemplo: **https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=16826*):
+    A URL do aplicativo é a URL de locatário do SpringCM (por exemplo: **https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=16826*)):
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-spring-cm-tutorial/IC797049.png "Configurar a URL do Aplicativo")
 
-4.  Na página **Configurar logon único no SpringCM**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo do certificado em seu computador.
+4.  Na página **Configurar logon único no SpringCM**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-spring-cm-tutorial/IC797050.png "Configurar o Logon Único")
 
-5.  Em outra janela do navegador da Web, entre em seu site de empresa **SpringCM** como administrador.
+5.  Em outra janela do navegador da Web, entre em seu site de empresa do **SpringCM** como administrador.
 
 6.  No menu na parte superior, clique em **IR PARA**, clique em **Preferências** e, na seção **Preferências da Conta**, clique em **SSO do SAML**.
 
@@ -87,11 +100,11 @@ Esta descreve como permitir que os usuários se autentiquem no SpringCM com a re
 
     1.  Para carregar seu certificado baixado do Active Directory do Azure, clique em **Selecionar Certificado do Emissor** ou **Alterar Certificado do Emissor**.
     2.  No portal do Microsoft Azure, na página **Configurar logon único no SpringCM**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
-    3.  No portal do Microsoft Azure, na página **Configurar logon único no SpringCM**, copie o valor de **URL do Serviço de Logon Único** e cole-o na caixa de texto **Ponto de Extremidade Iniciado pelo Provedor de Serviços (SP)**.
-    4.  Para **SAML Habilitado**, selecione**Habilitar**.
+    3.  No portal do Microsoft Azure, na página **Configurar logon único no SpringCM**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **Ponto de Extremidade Iniciado pelo SP (Provedor de Serviços)**.
+    4.  Para **SAML Habilitado**, selecione **Habilitar**.
     5.  Clique em **Salvar**.
 
-8.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+8.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o Logon Único](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Configurar o Logon Único")
 
@@ -99,11 +112,11 @@ Esta descreve como permitir que os usuários se autentiquem no SpringCM com a re
   
 Para permitir que os usuários do AD do Azure façam logon no SpringCM, eles deverão ser provisionados no SpringCM. No caso do SpringCM, o provisionamento será uma tarefa manual.
 
->[AZURE.NOTE]Para obter mais detalhes, consulte [Criar e editar um usuário do SpringCM](http://knowledge.springcm.com/create-and-edit-a-springcm-user)
+>[AZURE.NOTE]Para obter mais detalhes, veja [Criar e editar um usuário do SpringCM](http://knowledge.springcm.com/create-and-edit-a-springcm-user)
 
 ###Para provisionar uma conta de usuário no SpringCM, execute as seguintes etapas:
 
-1.  Faça logon em seu site de empresa **SpringCM** como um administrador.
+1.  Faça logon em seu site de empresa do **SpringCM** como administrador.
 
 2.  Clique em **IRPARA** e clique em **Catálogo de Endereços**.
 
@@ -117,7 +130,7 @@ Para permitir que os usuários do AD do Azure façam logon no SpringCM, eles dev
 
 6.  Digite o nome, o sobrenome e o endereço de email de uma conta de usuário válida do Active Directory do Azure que deseja provisionar nas caixas de texto relacionadas.
 
-7.  Adicione o usuário a um **grupo de Segurança**.
+7.  Adicione o usuário a um **Grupo de segurança**.
 
 8.  Clique em **Salvar**.
 
@@ -135,10 +148,10 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Atribuir Usuários](./media/active-directory-saas-spring-cm-tutorial/IC797055.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
 
     ![Sim](./media/active-directory-saas-spring-cm-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

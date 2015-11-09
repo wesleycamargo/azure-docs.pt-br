@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="10/09/2015"
+ms.date="10/26/2015"
 ms.author="larryfr"/>
 
 #Usar túnel SSH para acessar a interface do usuário do Ambari Web, ResourceManager, JobHistory, NameNode, Oozie, entre outras
@@ -144,21 +144,11 @@ Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para conf
 
 4. Clique na guia **Padrões de URL** e selecione **Adicionar Novo Padrão**. Use o seguinte para definir o padrão e clique em **OK**:
 
-	* **Nome do Padrão** - **headnode**: é apenas um nome amigável para o padrão.
+	* **Nome padrão** – **clusternodes** – Apenas um nome amigável para o padrão.
 
-	* **Padrão de URL** - ***headnode***: define um padrão que corresponde a qualquer URL contendo a palavra **headnode**.
+	* **Padrão de URL** – ***internal.cloudapp.net*** – Isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno de nós do cluster.
 
 	![padrão do foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-
-	> [AZURE.NOTE]Se você estiver usando um cluster __HBase__, também deverá adicionar o padrão a seguir, já que hospeda uma interface da Web em nós zookeeper do cluster:
-	>
-	> * __Nome do Padrão__ - __zookeeper__
-	> * __Padrão de URL__ - __*zookeeper*__
-	>
-	> Se você estiver usando um cluster __Storm__, deverá adicionar os padrões a seguir, já que a interface do usuário do Storm se vincula ao endereço IP dos nós de trabalho durante a recuperação de logs. Estamos trabalhando para alterar isso para usarmos o nome de domínio em uma atualização futura.
-	>
-	> * __Nome do Padrão__ - __nodesbyip__
-	> * __Padrão de URL__ - __*10.0.0.*__
 
 4. Clique em **OK** para adicionar o proxy e fechar **Configurações de Proxy**.
 
@@ -166,13 +156,13 @@ Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para conf
 
 	![modo de seleção do foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/selectmode.png)
 
-Após a execução destas etapas, somente solicitações de URLs que contêm a cadeia de caracteres **headnode** serão roteadas pelo túnel SSL.
+Após a execução destas etapas, somente solicitações de URLs que contêm a cadeia de caracteres __internal.cloudapp.net__ serão roteadas pelo túnel SSL.
 
 ##Verifique com a interface do usuário do Ambari Web
 
 Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verificar se você pode acessar as interfaces do usuário da Web do serviço Ambari Web:
 
-1. Em seu navegador, vá para https://CLUSTERNAME.azurehdinsight.net, onde NOMEDOCLUSTER é o nome do seu cluster HDInsight.
+1. Em seu navegador, vá para https://CLUSTERNAME.azurehdinsight.net, em que CLUSTERNAME é o nome do cluster HDInsight.
 
 	Quando solicitado, insira o nome de usuário do administrador (admin) e a senha do seu cluster. Talvez a interface do usuário do Ambari Web seja solicitada uma segunda vez. Nesse caso, insira novamente as informações.
 
@@ -180,20 +170,20 @@ Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verific
 
 	![Imagem com o YARN selecionado](./media/hdinsight-linux-ambari-ssh-tunnel/yarnservice.png)
 
-3. Quando as informações do serviço YARN forem exibidas, selecione __Links Rápidos__. Será exibida uma lista de nós de cabeçalho do cluster. Selecione um dos nós de cabeçalho e então selecione __Interface do Usuário do ResourceManager__.
+3. Quando as informações do serviço YARN forem exibidas, selecione __Links Rápidos__. Será exibida uma lista de nós de cabeçalho do cluster. Selecione um dos nós de cabeçalho e então selecione __Interface de Usuário do ResourceManager__.
 
 	![Imagem do menu Links Rápidos expandido](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
 
-	> [AZURE.NOTE]Se você tiver uma conexão lenta com a Internet ou se o nó de cabeçalho estiver muito ocupado, será possível obter um indicador de espera em vez de um menu quando você selecionar __Links Rápidos__. Nesse caso, aguarde um minuto ou dois pelos dados a serem recebidos do servidor e experimente a lista novamente.
+	> [AZURE.NOTE]Se você tiver uma conexão lenta com a Internet ou se o nó de cabeçalho estiver muito ocupado, é possível obter um indicador de espera em vez de um menu quando você selecionar __Links Rápidos__. Nesse caso, aguarde um minuto ou dois pelos dados a serem recebidos do servidor e experimente a lista novamente.
 
 
-	> [AZURE.TIP]Se você tiver um monitor de resolução inferior, ou se a janela do navegador não estiver maximizada, algumas entradas do menu __Links Rápidos__ poderão ser cortadas no lado direito da tela. Nesse caso, expanda o menu usando o mouse e a tecla de seta para a direita para rolar a tela para a direita e ver o restante do menu.
+	> [AZURE.TIP]Se o monitor de resolução for inferior, ou se a janela do navegador não estiver maximizada, algumas entradas do menu __Links Rápidos__ poderão ser cortadas no lado direito da tela. Nesse caso, expanda o menu usando o mouse e a tecla de seta para a direita para rolar a tela para a direita e ver o restante do menu.
 
 4. Você verá uma página semelhante à seguinte:
 
 	![Imagem da interface do usuário do ResourceManager YARN](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP]Observe a URL dessa página; ela deverá ser semelhante a \___http://headnode1.CLUSTERNAME-ssh.j8.internal.cloudapp.net:8088/cluster__. Ela está usando o nome de domínio totalmente qualificado (FQDN) interno do nó e não pode ser acessada sem a utilização de um túnel SSH.
+	> [AZURE.TIP]Observe a URL dessa página; ela deverá ser semelhante a \___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Ela está usando o nome de domínio totalmente qualificado (FQDN) interno do nó e não pode ser acessada sem a utilização de um túnel SSH.
 
 ##Próximas etapas
 
@@ -207,4 +197,4 @@ Para obter mais informações sobre como usar SSH com o HDInsight, consulte o se
 
 * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

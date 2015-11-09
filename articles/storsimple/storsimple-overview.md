@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/09/2015"
+   ms.date="10/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida 
@@ -46,7 +46,7 @@ A tabela a seguir descreve algumas das principais vantagens do Microsoft Azure S
 |Disponibilidade no Portal do Azure Governamental | Agora, o StorSimple está disponível no Portal do Azure Governamental. Para saber mais, consulte [Implantar seu dispositivo StorSimple local no Portal Governamental](storsimple-deployment-walkthrough-gov.md).|
 |Suporte para Armazenamento de com redundância de zona | Com a atualização para a versão mais recente das APIs de armazenamento, o StorSimple 8000 series oferecerá suporte para ZRS (armazenamento com redundância de zona), além de LRS (armazenamento com redundância local) e GRS (Armazenamento com redundância geográfica). Consulte [este artigo sobre opções de redundância de Armazenamento do Azure](https://azure.microsoft.com/documentation/articles/storage-redundancy/) para obter detalhes do ZRS.
 
-![ícone de vídeo](./media/storsimple-overview/video_icon.png) Assista a [este vídeo](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) e tenha uma visão geral dos recursos e benefícios do StorSimple 8000 series.
+![ícone de vídeo](./media/storsimple-overview/video_icon.png) Assista a [este vídeo](http://azure.microsoft.com/documentation/videos/guru-pangals-welcome-to-wpc--july-2015) para ver uma introdução aos recursos e benefícios do StorSimple série 8000.
 
 ## Componentes do StorSimple
 
@@ -66,6 +66,8 @@ O diagrama abaixo fornece uma exibição de alto nível da arquitetura e dos com
 
 As seções a seguir descrevem cada um dos componentes com bastante detalhes e explicam como a solução organiza dados, aloca armazenamento e facilita o gerenciamento de armazenamento e a proteção de dados. A última seção fornece definições de alguns termos e conceitos importantes relacionados aos componentes do StorSimple e seu gerenciamento.
 
+![ícone de vídeo](./media/storsimple-overview/video_icon.png) Assista a [este vídeo](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) para ver uma introdução ao dispositivo StorSimple, o dispositivo virtual StorSimple e o serviço StorSimple Manager.
+
 ## Dispositivo StorSimple
 
 O dispositivo do Microsoft Azure StorSimple é uma matriz de armazenamento híbrido local que fornece armazenamento primário e acesso a iSCSI aos dados armazenados nele. Ele gerencia a comunicação com o armazenamento em nuvem e ajuda a garantir a segurança e a confidencialidade de todos os dados armazenados na solução Microsoft Azure StorSimple.
@@ -81,7 +83,7 @@ O dispositivo StorSimple inclui unidades de estado sólido (SSDs) e unidades de 
 
 Somente um controlador está ativo em qualquer momento no tempo. Se o controlador ativo falhar, o segundo controlador ficará ativo automaticamente.
 
-Para saber mais, consulte [Status e componentes de hardware do StorSimple](storsimple-monitor-hardware-status.md).
+Para obter mais informações, consulte [Status e componentes de hardware do StorSimple](storsimple-monitor-hardware-status.md).
 
 ## Dispositivo virtual StorSimple
 
@@ -99,7 +101,7 @@ O dispositivo virtual StorSimple difere de um dispositivo StorSimple físico da 
 - Você registra o dispositivo virtual durante a configuração do dispositivo, e não como uma tarefa separada.
 - Atualmente, a aplicação de atualizações no dispositivo virtual está desabilitada. Se você precisar de um dispositivo virtual com a versão mais recente, crie um novo e execute o failover de contêineres de volume para o novo dispositivo virtual.
 
-Para saber mais, consulte [Dispositivo virtual do StorSimple](storsimple-virtual-device.md).
+Para obter mais informações, consulte [Dispositivo virtual do StorSimple](storsimple-virtual-device.md).
 
 ## Serviço StorSimple Manager
 
@@ -260,7 +262,7 @@ Antes de implantar sua solução de Microsoft Azure StorSimple, recomendamos que
 
 ## Próximas etapas
 
-Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
+Saiba mais sobre a [Segurança do StorSimple](storsimple-security.md).
 
 
 
@@ -269,4 +271,4 @@ Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

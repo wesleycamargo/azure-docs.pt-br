@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -126,4 +126,4 @@ Você talvez queira tentar alterar as versões e mudar da versão 2 para a vers�
 [Solucionar problemas de atualização de aplicativo ](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

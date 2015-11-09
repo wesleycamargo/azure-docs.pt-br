@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="sumukhs"
-   manager="anuragg"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -69,4 +69,4 @@ A ACL é automaticamente aplicada aos pontos de extremidade HTTP pela Malha de S
 ```
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

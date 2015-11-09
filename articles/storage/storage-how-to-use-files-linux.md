@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="10/06/2015"
+      ms.date="10/26/2015"
       ms.author="jutang;tamram" />
 
 
@@ -27,6 +27,12 @@ Você pode criar compartilhamentos de arquivos do Azure usando o portal de visua
 Os aplicativos em execução no Azure podem facilmente montar compartilhamentos de arquivos a partir das máquinas virtuais do Azure. E com a versão mais recente do Armazenamento de arquivos, também é possível montar um compartilhamento de arquivos por meio de um aplicativo local que dá suporte ao SMB 3.0.
 
 É importante lembrar que já que o cliente SMB do Linux ainda não dá suporte à criptografia, montar um compartilhamento de arquivos do Linux ainda requer que o cliente esteja na mesma região do Azure que o compartilhamento de arquivos. No entanto, o suporte à criptografia para Linux está no roteiro dos desenvolvedores do Linux responsáveis pela funcionalidade SMB. As distribuições do Linux que dão suporte à criptografia no futuro também poderão montar um Compartilhamento de arquivos do Azure em qualquer lugar.
+
+## Vídeo: Usando o armazenamento de arquivos do Azure com o Linux
+
+Veja um vídeo que demonstra como criar e usar compartilhamentos de arquivos do Azure no Linux.
+
+> [AZURE.VIDEO azure-file-storage-with-linux]
 
 ## Escolher uma distribuição do Linux a ser usada ##
 
@@ -96,7 +102,7 @@ Você também pode usar a CLI do Azure (Interface de Linha de Comando de Platafo
 
 ## Desenvolver com o armazenamento de arquivo ##
 
-Como desenvolvedor, você pode compilar um aplicativo com o Armazenamento de arquivos usando a [Biblioteca de Cliente do Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java). Para obter exemplos de código, veja [Como usar o Armazenamento de arquivos a partir do Java](storage-java-how-to-use-file-storage.md).
+Como desenvolvedor, você pode compilar um aplicativo com o Armazenamento de arquivos usando a [Biblioteca de Cliente do Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java). Para obter exemplos de código, veja [Como usar o Armazenamento de arquivos por meio do Java](storage-java-how-to-use-file-storage.md).
 
 Você também pode usar a [Biblioteca de Cliente do Armazenamento do Azure para Node.js](https://github.com/Azure/azure-storage-node) para desenvolver um Armazenamento de arquivos.
 
@@ -110,8 +116,9 @@ O Armazenamento de arquivos do Azure para o grupo de usuários do Linux oferece 
 
 Consulte estes links para obter mais informações sobre o armazenamento de arquivo do Azure.
 
-### Artigos conceituais
+### Artigos e vídeos conceituais
 
+- [Armazenamento de Arquivos do Azure: um sistema de arquivos SMB de nuvem ininterrupto SMB para Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Como usar o Armazenamento de Arquivos do Azure com o Windows](storage-dotnet-how-to-use-files.md)
 
 ### Suporte de ferramentas para o Armazenamento de arquivos
@@ -130,4 +137,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

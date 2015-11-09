@@ -1,7 +1,20 @@
-<properties pageTitle="Tutorial: integração do Active Directory do Azure ao Egnyte | Microsoft Azure" description="Saiba como usar o Egnyte com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integração do Active Directory do Azure ao Egnyte | Microsoft Azure" 
+    description="Saiba como usar o Egnyte com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integração do Active Directory do Azure ao Egnyte
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=528188).
   
 O objetivo deste tutorial é mostrar a integração do Azure ao Egnyte.  
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
@@ -9,7 +22,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes ite
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do Egnyte
   
-Depois de concluir este tutorial, os usuários do Azure AD que você atribuiu ao Egnyte poderão fazer logon único no aplicativo em seu site de empresa do Egnyte (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Egnyte poderão fazer logon único no aplicativo em seu site de empresa do Egnyte (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md)
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -39,11 +52,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-egnyte-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-egnyte-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
-6.  Na **caixa de pesquisa**, digite **egnyte**.
+6.  Na **caixa de pesquisa**, digite **Egnyte**.
 
     ![Galeria de Aplicativos](./media/active-directory-saas-egnyte-tutorial/IC787813.png "Galeria de Aplicativos")
 
@@ -58,7 +71,7 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Egnyte**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **Egnyte**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-egnyte-tutorial/IC787815.png "Configurar o logon único")
 
@@ -66,11 +79,11 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
 
     ![Configurar o logon único](./media/active-directory-saas-egnyte-tutorial/IC787816.png "Configurar o logon único")
 
-3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Logon no Egnyte**, digite sua URL usando o seguinte padrão "**https://company.egnyte.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Egnyte**, digite a URL usando o padrão "**https://company.egnyte.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-egnyte-tutorial/IC787817.png "Configurar a URL do Aplicativo")
 
-4.  Na página **Configurar logon único no Egnyte**, clique em **Baixar certificado** e salve o arquivo de certificado em seu computador.
+4.  Na página **Configurar logon único no Egnyte**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-egnyte-tutorial/IC787818.png "Configurar o logon único")
 
@@ -84,28 +97,28 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
 
     ![Configurações](./media/active-directory-saas-egnyte-tutorial/IC787820.png "Configurações")
 
-8.  Clique na guia **Configuração** e clique em **Segurança**.
+8.  Clique na guia **Configuração** e em **Segurança**.
 
     ![Segurança](./media/active-directory-saas-egnyte-tutorial/IC787821.png "Segurança")
 
-9.  Na seção **Autenticação de Logon Único**, execute as seguintes etapas:
+9.  Na seção **Autenticação de Logon Único**, realize as seguintes etapas:
 
     ![Autenticação de Logon Único](./media/active-directory-saas-egnyte-tutorial/IC787822.png "Autenticação de Logon Único")
 
     1.  Para **Autenticação de logon único**, selecione **SAML 2.0**.
-    2.  Para **Provedor de Identidade**, selecione **AzureAD**.
-    3.  No portal do Azure, na página da caixa de diálogo **Configurar logon único no Egnyte**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de logon do provedor de identidade**.
-4.  No portal do Azure, na página da caixa de diálogo **Configurar logon único no Egnyte**, copie o valor de **ID de Entidade** e cole-o na caixa de texto **ID de entidade do provedor de identidade**.
-    5.  Crie um arquivo **codificado em base-64** usando o certificado baixado.  
+    2.  Para **Provedor de identidade**, selecione **AzureAD**.
+    3.  No portal do Azure, na página do diálogo **Configurar logon único no Egnyte**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de logon do provedor de identidade**.
+4.  No portal do Azure, na página do diálogo **Configurar logon único no Egnyte**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **ID de entidade do provedor de identidade**.
+    5.  Crie um arquivo **codificado em base 64** de seu certificado baixado.  
 
         >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  Abra seu certificado codificado em base-64 no bloco de notas, copie o conteúdo dele em sua área de transferência e, então, cole-o na caixa de texto **Certificado de provedor de identidade**
+    6.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do provedor de identidade**.
     7.  Para **Mapeamento de usuário padrão**, selecione **Endereço de email**.
-    8.  Para **Usar valor de emissor específico ao domínio**, selecione **desabilitado**.
+    8.  Para **Usar valor do emissor específico do domínio**, selecione **desabilitado**.
     9.  Clique em **Salvar**.
 
-10. No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -116,13 +129,13 @@ Para permitir que os usuários do Azure AD façam logon no Egnyte, eles deverão
 
 1.  Faça logon em seu site de empresa do **Egnyte** como administrador.
 
-2.  Acesse **Configurações > Usuários e Grupos**.
+2.  Vá para **Configurações > Usuários e Grupos**.
 
-3.  Clique em **Adicionar Novo Usuário** e selecione o tipo de usuário que você deseja adicionar.
+3.  Clique em **Adicionar Novo Usuário** e selecione o tipo de usuário que deseja adicionar.
 
     ![Usuários](./media/active-directory-saas-egnyte-tutorial/IC787824.png "Usuários")
 
-4.  Na seção **Novo Usuário Padrão**, execute as seguintes etapas:
+4.  Na seção **Novo Usuário Padrão**, realize as seguintes etapas:
 
     ![Novo Usuário Padrão](./media/active-directory-saas-egnyte-tutorial/IC787825.png "Novo Usuário Padrão")
 
@@ -145,10 +158,10 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
     ![Atribuir Usuários](./media/active-directory-saas-egnyte-tutorial/IC787826.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-egnyte-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integração do Active Directory do Azure ao Clever | Microsoft Azure" description="Saiba como usar o Clever com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integração do Active Directory do Azure ao Clever | Microsoft Azure" 
+    description="Saiba como usar o Clever com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integração do Active Directory do Azure ao Clever
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=551005).
 
 O objetivo deste tutorial é mostrar a integração do Azure ao Clever. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do Clever
 
-Depois de concluir este tutorial, os usuários do Azure AD que você atribuiu ao Clever poderão fazer logon único no aplicativo em seu site de empresa Clever (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Clever poderão fazer logon único no aplicativo em seu site de empresa do Clever (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-clever-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-clever-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -51,13 +64,13 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Clever](./media/active-directory-saas-clever-tutorial/IC798979.png "Clever")
 ##Configurando o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários autentiquem no Clever com a própria conta no Azure AD usando federação baseada no protocolo SAML. Seu aplicativo Clever espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizado à sua configuração de **atributos de token saml**. A captura de tela a seguir mostra um exemplo disso.
+O objetivo desta seção é descrever como permitir que os usuários autentiquem no Clever com a própria conta no Azure AD usando federação baseada no protocolo SAML. Seu aplicativo Clever espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de **atributos do token SAML**. A captura de tela a seguir mostra um exemplo disso.
 
 ![Atributos](./media/active-directory-saas-clever-tutorial/IC798980.png "Atributos")
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração do aplicativo **Clever**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **Clever**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-clever-tutorial/IC784682.png "Configurar o logon único")
 
@@ -65,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Configurar o logon único](./media/active-directory-saas-clever-tutorial/IC798981.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Clever**, digite a URL usada pelos seus usuários para fazer logon em seu aplicativo Clever (por exemplo: “ **https://clever.com/in/azsandbox*) e clique em **Avançar**:
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Clever**, digite a URL usada pelos seus usuários para fazer logon em seu aplicativo Clever (por exemplo: **https://clever.com/in/azsandbox*)) e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-clever-tutorial/IC798982.png "Configurar a URL do Aplicativo")
 
@@ -75,11 +88,11 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 5.  Em outra janela do navegador da Web, faça logon em seu site de empresa do Clever como um administrador.
 
-6.  Na barra de ferramentas, clique em **Logon instantâneo**.
+6.  Na barra de ferramentas, clique em **Logon Instantâneo**.
 
     ![Logon Instantâneo](./media/active-directory-saas-clever-tutorial/IC798984.png "Logon Instantâneo")
 
-7.  Na página **Logon Instantâneo**, execute as seguintes etapas:
+7.  Na página **Logon Instantâneo**, realize as seguintes etapas:
 
     ![Logon Instantâneo](./media/active-directory-saas-clever-tutorial/IC798985.png "Logon Instantâneo")
 
@@ -90,11 +103,11 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     2.  Para **Sistema de Identidade**, selecione **ADFS**.
     3.  Clique em **Salvar**.
 
-8.  No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+8.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-clever-tutorial/IC798986.png "Configurar o logon único")
 
-9.  No menu, na parte superior, clique em **Atributos** para abrir a caixa de diálogo **Atributos de Token SAML**.
+9.  Na parte superior do menu, clique em **Atributos** para abrir o diálogo **Atributos de Token SAML**.
 
     ![Atributos](./media/active-directory-saas-clever-tutorial/IC795920.png "Atributos")
 
@@ -107,8 +120,8 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     |clever.student.credentials.district\_username|User.userprincipalname|
 
     1.  Para cada linha de dados na tabela acima, clique em **adicionar atributo do usuário**.
-    2.  Na caixa de texto **Nome do Atributo**, digite o nome do atributo mostrado para a linha.
-    3.  Na caixa de texto **Valor do Atributo**, selecione o valor do atributo mostrado para a linha.
+    2.  Na caixa de texto **Nome do Atributo**, digite o nome do atributo mostrado para essa linha.
+    3.  Na caixa de texto **Valor do Atributo**, selecione o valor do atributo mostrado para essa linha.
     4.  Clique em **Concluído**.
 
 11. Clique em **Aplicar Alterações**.
@@ -135,6 +148,6 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
     ![Sim](./media/active-directory-saas-clever-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

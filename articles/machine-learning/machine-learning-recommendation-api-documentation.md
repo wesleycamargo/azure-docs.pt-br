@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="10/28/2015" 
 	ms.author="LuisCa"/>
 
 #Documentação da API de Recomendações do Aprendizado de Máquina do Azure
@@ -1773,7 +1773,7 @@ A tabela a seguir descreve os parâmetros de compilação para uma compilação 
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
-|HEADER |`"Content-Type", "text/xml"` (Se estiver enviando Corpo da Solicitação)|
+|HEADER |`"Content-Type", "text/xml"` (Se estiver enviando o Corpo da solicitação)|
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
@@ -1848,7 +1848,7 @@ XML de OData
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
-|HEADER |`"Content-Type", "text/xml"` (Se estiver enviando Corpo da Solicitação)|
+|HEADER |`"Content-Type", "text/xml"` (Se estiver enviando o Corpo da solicitação)|
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
@@ -2905,4 +2905,4 @@ Código de status HTTP: 200
 Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br> Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br> Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br> © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

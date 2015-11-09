@@ -92,7 +92,7 @@ O exemplo a seguir mostra como usar a CLI do Azure para gerar um token de SAS qu
 
 2. Em seguida, digite este comando na CLI do Azure para obter a cadeia de caracteres de conexão para sua conta:
 
-		azure storage account connectionString show youraccountname
+		azure storage account connectionstring show youraccountname
 
 3. Crie uma variável de ambiente com a cadeia de caracteres de conexão que você acabou de gerar:
 
@@ -358,4 +358,4 @@ Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em noss
 [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

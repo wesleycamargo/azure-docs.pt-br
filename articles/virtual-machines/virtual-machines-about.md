@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/23/2015"
 	ms.author="cynthn"/>
 
 #Sobre as máquinas virtuais do Azure 
@@ -22,9 +22,9 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-Máquinas Virtuais do Azure é um dos vários tipos de recursos de computação sob demanda escalonáveis oferecidos pelo Azure. Normalmente, você escolhe uma máquina virtual, em vez de outra opção, quando precisa de mais controle sobre o ambiente de computação do que as outras opções oferecem.
+Máquinas Virtuais do Azure é um dos vários tipos de recursos de computação sob demanda escalonáveis oferecidos pelo Azure. Normalmente, você escolhe uma máquina virtual quando precisa de mais controle sobre o ambiente de computação do que as outras opções oferecem.
 
-Outra abordagem é usar uma máquina virtual em seu próprio hardware. Em comparação com essa abordagem, uma máquina virtual do Azure oferece a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que executa a máquina virtual. No entanto, você ainda precisa manter a máquina virtual – configurar, corrigir e manter o sistema operacional e qualquer outro software executado na máquina virtual.
+Uma máquina virtual do Azure oferece a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que executa a máquina virtual. No entanto, você ainda precisa manter a máquina virtual – configurar, corrigir e manter o sistema operacional e qualquer outro software executado na máquina virtual.
 
 Esta tabela ajuda a comparar as opções oferecidas pelo Azure.
 
@@ -52,4 +52,4 @@ Se você estiver começando a aprender sobre as máquinas virtuais do Azure, con
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/29/2015" 
+    ms.date="10/28/2015" 
     ms.author="elizapo" />
 
 
@@ -30,7 +30,7 @@ Continue lendo para obter informações específicas sobre os dados de perfil do
 
 ## Como um administrador pode chegar aos dados?
 
-Se você precisar acessar os dados para um dos seus usuários (para recuperação de desastres ou se o usuário sair da empresa), entre em contato com o [Azure RemoteApp](mailto:remoteappforum@microsoft.com) e forneça as informações de assinatura para a coleta e a identidade do usuário. A equipe de RemoteApp do Azure fornece uma URL em que você pode acessar os dados. De lá, você pode procurar o local e recuperar quaisquer documentos ou arquivos de que precisa.
+Se você precisar acessar os dados para um dos seus usuários (para recuperação de desastres ou se o usuário sair da empresa), entre em contato com o [Azure RemoteApp](mailto:remoteappforum@microsoft.com) e forneça as informações de assinatura para a coleta e a identidade do usuário. A equipe do Azure RemoteApp fornece uma URL para o VHD. Baixe esse VHD e recupere quaisquer documentos ou arquivos que você precisa. Observe que o VHD é de 50 GB, por isso levará algum tempo para baixá-lo.
 
 
 ## É feito backup dos dados?
@@ -126,4 +126,4 @@ Não, não há suporte para isso com o Azure RemoteApp, que usa RDSH, que també
 
 Não, não há suporte para isso com o Azure RemoteApp.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

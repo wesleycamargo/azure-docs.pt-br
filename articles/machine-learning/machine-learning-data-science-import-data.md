@@ -14,22 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/27/2015"
 	ms.author="garye;bradsev" />
 
 
 # Importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados
 
-Esse **menu** liga os tópicos que descrevem a inclusão de dados em ambientes de destino em que os dados podem ser armazenados e processados durante o Processo de Análise do Cortana (CAPS).
-
-[AZURE.INCLUDE [seletor de dados de ingestão de limite](../../includes/cap-ingest-data-selector.md)]
-
-
 ## Introdução
 
 Para usar seus próprios dados no Estúdio de Aprendizado de Máquina para desenvolver e treinar uma solução de análise preditiva, você pode:
 
-- carregar dados de um **arquivo local** antes do tempo por meio do disco rígido para criar um módulo de conjunto de dados no espaço de trabalho.  
+- carregar dados de um **arquivo local** antes do tempo do seu disco rígido para criar um módulo de conjunto de dados no espaço de trabalho.  
 - acessar dados de uma das várias **fontes de dados online** enquanto o teste é executado usando o módulo [Leitor][reader]. 
 - usar dados de outro teste de Aprendizado de Máquina do Azure salvo como um **conjunto de dados**. 
 
@@ -96,4 +91,4 @@ Se necessário, você pode converter o formato Data Table de volta para o format
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

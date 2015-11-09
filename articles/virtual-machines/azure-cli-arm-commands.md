@@ -37,7 +37,7 @@ Além dos parâmetros opcionais específicos aos comandos documentados aqui, há
 
 Assim como acontece com o [modo de Gerenciamento de Serviço do Azure](../virtual-machines-command-line-tools.md), o modo Gerenciador de Recursos da CLI do Azure fornece comandos que criam recursos de forma imperativa na linha de comando. Por exemplo, se você digitar `azure group create <groupname> <location>` você está solicitando o Azure para criar um grupo de recursos e com `azure group deployment create <resourcegroup> <deploymentname>` você está instruindo o Azure a criar uma implantação de qualquer número de itens e colocá-los em um grupo. Como cada tipo de recurso tem comandos imperativos, é possível encadeá-los para criar implantações bastante complexas.
 
-No entanto, usar os _modelos_ do grupo de recursos que descrevem um recurso de grupo é uma abordagem declarativa que é muito mais poderosa, que permitem automatizar implantações complexas de (quase) qualquer número de recursos para (quase) qualquer finalidade. Ao usar os modelos, o único comando obrigatório é a implantação de um. Para obter uma visão geral dos modelos, recursos e grupos de recursos, consulte [Visão geral do grupo de recursos do Azure](resource-groups-overview).
+No entanto, usar os _modelos_ do grupo de recursos que descrevem um recurso de grupo é uma abordagem declarativa que é muito mais poderosa, que permitem automatizar implantações complexas de (quase) qualquer número de recursos para (quase) qualquer finalidade. Ao usar os modelos, o único comando obrigatório é a implantação de um. Para obter uma visão geral dos modelos, recursos e grupos de recursos, consulte [Visão geral do grupo de recursos do Azure](../resource-group-overview.md).
 
 ##Requisitos de uso
 
@@ -1742,4 +1742,4 @@ Opções de parâmetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

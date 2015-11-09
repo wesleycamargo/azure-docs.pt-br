@@ -30,17 +30,27 @@ A amostragem está atualmente na versão Beta e pode ser alterada no futuro.
 A amostragem está atualmente disponível para o SDK do ASP.NET ou para [qualquer página da Web](#other-web-pages).
 
 ### Servidor ASP.NET
-Para configurar a amostragem em seu aplicativo, insira o seguinte trecho de código ao método `Application_Start()` em Global.asax.cs:
 
-```C#
+1. Atualize os pacotes NuGet do seu projeto para a versão de *pré-lançamento* mais recente do Application Insights. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web. 
 
-    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+2. Adicionar esse trecho de código a ApplicationInsights.config
+
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
 ```
 
-> [AZURE.NOTE]Para o percentual de amostragem, escolha um percentual que esteja próximo a 100/N, em que N é um inteiro. Por exemplo, os valores válidos incluem 50 (=1/2), 33,33 (=1/3), 25 (=1/4), 20 (=1/5) e assim por diante. Atualmente, a amostragem não dá suporte a outros valores.
+> [AZURE.NOTE]Para o percentual de amostragem, escolha um percentual que esteja próximo a 100/N, em que N é um inteiro. Atualmente, a amostragem não dá suporte a outros valores.
 
+<a name="other-web-pages"></a>
 ### Páginas da Web com JavaScript
 
 Você pode configurar páginas da Web para a amostragem em qualquer servidor. Para servidores ASP.NET, configure os lados do cliente e do servidor.
@@ -65,6 +75,26 @@ Lembre-se de fornecer o mesmo percentual de amostragem no JavaScript fornecido n
 [Saiba mais sobre a API](app-insights-api-custom-events-metrics.md)
 
 
+### Alternativa: definir a amostragem no código do servidor
+
+
+Em vez de definir o parâmetro de amostragem no arquivo .config, você pode usar o código. Isso permitiria ativar e desativar a amostragem.
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
+    // It's recommended to set SamplingPercentage in the .config file instead.
+
+    // This configures sampling percentage at 10%:
+    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+
+```
+
+
 ## Quando usar a amostragem?
 
 A amostragem não é necessária para a maioria dos aplicativos de pequeno e médio porte. As informações de diagnóstico mais úteis e as estatísticas mais precisas são obtidas por meio da coleta de dados em todas as atividades de usuário.
@@ -74,7 +104,7 @@ As principais razões pelas quais você usaria a amostragem são:
 
 
 * O serviço Application Insights remove (“limita”) os pontos de dados quando o aplicativo envia uma taxa muito alta de telemetria em um curto intervalo de tempo. 
-* Você deseja permanecer dentro da [cota](app-insights-pricing.md) de pontos de dados para o tipo de preço. 
+* Você deseja permanecer dentro da [cota](app-insights-pricing.md) de pontos de dados para o seu tipo de preço. 
 * Para reduzir o tráfego de rede da coleção de telemetria. 
 
 ## Como funciona a amostragem?
@@ -132,4 +162,4 @@ O SDK do lado do cliente (JavaScript) participa da amostragem em conjunto com o 
 
 * Não, atualmente, não há suporte para a amostragem de aplicativos do dispositivo. 
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

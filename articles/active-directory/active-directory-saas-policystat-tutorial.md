@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure com o PolicyStat | Microsoft Azure" description="Saiba como usar o PolicyStat com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o PolicyStat | Microsoft Azure" 
+    description="Saiba como usar o PolicyStat com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o PolicyStat
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=616313).
   
 O objetivo deste tutorial é mostrar a integração do Azure com o PolicyStat. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do PolicyStat
   
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao PolicyStat poderão fazer logon único no aplicativo em seu site de empresa PolicyStat (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao PolicyStat poderão fazer logon único no aplicativo em seu site de empresa do PolicyStat (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-policystat-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-policystat-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -51,13 +64,13 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![PolicyStat](./media/active-directory-saas-policystat-tutorial/IC810430.png "PolicyStat")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no PolicyStat com sua conta do AD do Azure usando federação baseada em protocolo SAML. Seu aplicativo PolicyStat espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizado à sua configuração de **atributos de token saml**. A captura de tela a seguir mostra um exemplo disso.
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no PolicyStat com sua conta do AD do Azure usando federação baseada em protocolo SAML. Seu aplicativo PolicyStat espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de **atributos do token SAML**. A captura de tela a seguir mostra um exemplo disso.
 
 ![Atributos](./media/active-directory-saas-policystat-tutorial/IC808628.png "Atributos")
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **PolicyStat**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **PolicyStat**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-policystat-tutorial/IC808629.png "Configurar o logon único")
 
@@ -65,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-policystat-tutorial/IC808630.png "Configurar o logon único")
 
-3.  Na página **Definir configurações do aplicativo**, na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para fazer logon em seu aplicativo PolicyStat (por exemplo: *“https://demo-azure.policystat.com”*) e, em seguida, clique em**Avançar**.
+3.  Na página **Definir Configurações do Aplicativo**, na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para fazer logon em seu aplicativo PolicyStat (por exemplo: *“https://demo-azure.policystat.com”*) e clique em **Avançar**.
 
     ![Definir configurações de aplicativo](./media/active-directory-saas-policystat-tutorial/IC808631.png "Definir configurações de aplicativo")
 
@@ -75,36 +88,36 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do PolicyStat como administrador.
 
-6.  Clique na guia **Admin** e, em seguida, clique em **Configuração de Logon Único** no painel de navegação à esquerda.
+6.  Clique na guia **Administrador** e em **Configuração de Logon Único** no painel de navegação à esquerda.
 
     ![Menu do Administrador](./media/active-directory-saas-policystat-tutorial/IC808633.png "Menu do Administrador")
 
-7.  Na seção **Instalação**, selecione **Habilitar Integração de Logon Único**.
+7.  Na seção **Configuração**, selecione **Habilitar Integração de Logon Único**.
 
     ![Configuração de Logon Único](./media/active-directory-saas-policystat-tutorial/IC808634.png "Configuração de Logon Único")
 
-8.  Clique em **Configurar Atributos** e em seguida, na seção **Configurar Atributos**, execute as seguintes etapas:
+8.  Clique em **Configurar Atributos** e, em seguida, na seção **Configurar Atributos**, realize as seguintes etapas:
 
     ![Configuração de Logon Único](./media/active-directory-saas-policystat-tutorial/IC808635.png "Configuração de Logon Único")
 
     1.  Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
     2.  Na caixa de texto **Atributo de Nome**, digite **firstname**.
-    3.  Na caixa de texto **Atributo de sobrenome**, digite **lastname**.
+    3.  Na caixa de texto **Atributo de Sobrenome**, digite **lastname**.
     4.  Na caixa de texto **Atributo de Email**, digite **emailaddress**.
     5.  Clique em **Salvar Alterações**.
 
-9.  Clique em **Seus Metadados de IDP** e, na seção **Seus Metadados de IDP**, execute as seguintes etapas:
+9.  Clique em **Seus Metadados do IDP** e, na seção **Seus Metadados do IDP**, realize as seguintes etapas:
 
     ![Configuração de Logon Único](./media/active-directory-saas-policystat-tutorial/IC808635.png "Configuração de Logon Único")
 
-    1.  Abra o arquivo de metadados baixado, copie o conteúdo e, em seguida, cole-o na caixa de texto **Seus Metadados de Provedor de Identidade**
+    1.  Abra o arquivo de metadados baixado, copie o conteúdo e cole-o na caixa de texto **Seus Metadados do Provedor de Identidade**
     2.  Clique em **Salvar Alterações**.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-policystat-tutorial/IC771723.png "Configurar o logon único")
 
-11. 12. No menu, na parte superior, clique em **Atributos** para abrir a caixa de diálogo **Atributos de Token SAML**.
+11. 12. Na parte superior do menu, clique em **Atributos** para abrir o diálogo **Atributos de Token SAML**.
 
     ![Atributos](./media/active-directory-saas-policystat-tutorial/IC795920.png "Atributos")
 
@@ -113,7 +126,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Atributos](./media/active-directory-saas-policystat-tutorial/IC804823.png "Atributos")
 
     1.  Clique em **adicionar atributo de usuário**.
-    2.  Na caixa de texto **Nome do atributo**, digite **uid**.
+    2.  Na caixa de texto **Nome do Atributo**, digite **uid**.
     3.  Na caixa de texto **Valor do Atributo**, selecione **ExtractMailPrefix()**.
     4.  Na lista **Email**, selecione **User.mail**.
     5.  Clique em **Concluído**.
@@ -131,7 +144,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 1.  No portal do AD do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos **PolicyStat **, clique em **Atribuir usuários**.
+2.  Na página de integração de aplicativos **PolicyStat**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-policystat-tutorial/IC808636.png "Atribuir Usuários")
 
@@ -139,6 +152,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-policystat-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

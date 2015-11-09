@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/23/2015"
 	ms.author="markusvi"/>
 
 
@@ -63,13 +63,12 @@ Para configurar a integração do 23 Video ao AD do Azure, você precisa adicion
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **23 Video**.<br><br> ![Aplicativos][5]<br>
-7. No painel de resultados, selecione **23 Video** e clique em **Concluir** para adicionar o aplicativo.
-
+7. No painel de resultados, selecione **23 Video** e clique em **Concluir** para adicionar o aplicativo. <br><br>![Aplicativos][25]<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o 23 Video, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do 23 Video é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado do 23 Video.<br> Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure como sendo o valor de **nome de usuário** no 23 Video.
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário do 23 Video é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado do 23 Video.<br> Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure como o valor de **Nome de usuário** no 23 Video.
  
 Para configurar e testar o logon único do AD do Azure com o 23 Video, você precisa concluir os seguintes blocos de construção:
 
@@ -81,17 +80,17 @@ Para configurar e testar o logon único do AD do Azure com o 23 Video, você pre
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único em seu aplicativo do 23 Video.<br>
+O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único em seu aplicativo 23 Video.<br>
 
 **Para configurar o logon único do AD do Azure com o 23 Video, realize as seguintes etapas:**
 
 1. No portal do AD do Azure, na página de integração de aplicativos do **23 Video**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
-2. Na página **Como você deseja que os usuários façam logon no 23 Video**, selecione **Logon único do AD do Azure** e clique em **Avançar**. <br><br>![Logon único do AD do Azure][7]<br>
+2. Na página **Como você deseja que os usuários façam logon no 23 Video**, selecione **Logon único do AD do Azure** e clique em **Avançar**. <br><br> ![Logon único do AD do Azure][7] <br>
 
 3. Na página do diálogo **Definir Configurações de Aplicativo**, realize as seguintes etapas: <br><br>![Logon único do AD do Azure][8] <br>
  
-     a. Na caixa de texto **URL de Resposta**, digite a URL usada pelos usuários para entrar no site do 23 Video (por exemplo: **https://britta-simon.23Video.com/saml/login*).
+     a. Na caixa de texto **URL de Resposta**, digite a URL usada pelos usuários para entrar no site do 23 Video (por exemplo: **https://britta-simon.23Video.com/saml/login*)).
 
      >[AZURE.NOTE]A integração do Active Directory com o SAML 2.0 está disponível para todos os usuários do 23 Video. Entre em contato com o Suporte em [support@23company.com](mailto:support@23company.com) se precisar dos metadados relacionados.
 
@@ -140,13 +139,13 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
 
     d. Na lista **Função**, selecione **Usuário**. e. Clique em **Próximo**.
 
 7. Na página do diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png) <br>
  
-8. Na página do diálogo **Obter senha temporária**, realize as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) <br>
+8. Na página do diálogo **Obter senha temporária** realize as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) <br>
   
     a. Anote o valor da **Nova Senha**.
 
@@ -167,7 +166,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no 23 Vid
 
 2. Na seção **Usuários**, clique em **Configurar**. <br><br>![Atribuir usuário][400]<br>
 
-3. Clique em **Adicionar novo usuário**. <br><br>![Atribuir usuário][401]<br>
+3. Clique em **Adicionar um novo usuário**. <br><br>![Atribuir usuário][401]<br>
 
 4. Na seção **Convidar alguém para participar deste site**, realize as seguintes etapas: <br><br>![Atribuir usuário][402]<br>
 
@@ -178,11 +177,11 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no 23 Vid
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela acesso ao 23 Video. <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela o acesso ao 23 Video. <br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao 23 Video, realize as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
+1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br> <br>![Atribuir usuário][201]<br>
 2. Na lista de aplicativos, selecione **23 Video**. <br><br>![Atribuir usuário][202] <br>
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 1. Na lista Usuários, selecione **Brenda Fernandes**.
@@ -208,6 +207,7 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [3]: ./media/active-directory-saas-23video-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-23video-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_01.png
+[25]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_02.png
 
 [6]: ./media/active-directory-saas-23video-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_03.png
@@ -228,4 +228,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

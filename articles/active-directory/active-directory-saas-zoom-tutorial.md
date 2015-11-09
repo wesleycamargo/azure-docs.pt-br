@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure com o Zoom | Microsoft Azure" description="Saiba como usar o Zoom com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o Zoom | Microsoft Azure" 
+    description="Saiba como usar o Zoom com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o Zoom
->[AZURE.TIP]Para comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=528083).
   
 O objetivo deste tutorial é mostrar a integração do Azure com o Zoom. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do Zoom
   
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao Zoom poderão fazer um logon único no aplicativo do site da sua empresa Zoom (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Zoom poderão fazer logon único no aplicativo em seu site de empresa do Zoom (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -39,7 +52,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-zoom-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-zoom-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -53,11 +66,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Zoom com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Zoom com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração do aplicativo **Zoom**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único **.
+1.  No portal do Azure AD, na página de integração de aplicativos do **Zoom**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar logon único](./media/active-directory-saas-zoom-tutorial/IC784696.png "Configurar logon único")
 
@@ -65,12 +78,12 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar logon único](./media/active-directory-saas-zoom-tutorial/IC784697.png "Configurar logon único")
 
-3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Logon no Zoom**, digite sua URL usando o seguinte padrão "**http://company.zoom.us*" e, em seguida, clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Zoom**, digite a URL usando o padrão "**http://company.zoom.us*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configurar a URL do Aplicativo
 ")
 
-4.  Na página **Configurar logon único no Zoom**, clique em **Baixar certificado** e, em seguida, salve o arquivo de certificado em seu computador.
+4.  Na página **Configurar logon único no Zoom**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
     ![Configurar logon único](./media/active-directory-saas-zoom-tutorial/IC784699.png "Configurar logon único")
 
@@ -80,20 +93,20 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Logon único](./media/active-directory-saas-zoom-tutorial/IC784700.png "Logon único")
 
-7.  Clique na guia **Controle de Segurança** e, em seguida, vá para as configurações **Logon Único**.
+7.  Clique na guia **Controle de Segurança** e vá para as configurações de **Logon Único**.
 
 8.  Na seção de Configurações de Logon Único, execute as seguintes etapas:
 
     ![Logon único](./media/active-directory-saas-zoom-tutorial/IC784701.png "Logon único")
 
-    1.  No portal do Azure, na página de diálogo **Configurar logon único no Zoom**, copie o valor da **URL do Serviço de Logon Único** e, em seguida, cole-o na caixa de texto **URL da página de logon**.
-    2.  No portal do Azure, na página de diálogo **Configurar logout único no Zoom**, copie o valor da **URL do Serviço de Logout Único** e, em seguida, cole-o na caixa de texto **URL da página de logout**.
-    3.  Crie um arquivo **codificado em base 64** a partir do certificado baixado.  
+    1.  No portal do Azure, na página do diálogo **Configurar logon único no Zoom**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL da página de logon**.
+    2.  No portal do Azure, na página do diálogo **Configurar logon único no Zoom**, copie o valor da **URL do Serviço de Logoff Único** e cole-o na caixa de texto **URL da página de logoff**.
+    3.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
 
-        >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-    4.  Abra seu certificado codificado em base 64 no bloco de notas, copie o conteúdo dele em sua área de transferência e, então, cole-o na caixa de texto **Certificado de provedor de identidade**
-    5.  No portal do Azure, na página de diálogo **Configurar logon único no Zoom**, copie o valor da **URL do Emissor** e, em seguida, cole-o na caixa de texto **Emissor**.
+    4.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do provedor de identidade**
+    5.  No portal do Azure, na página do diálogo **Configurar logon único no Zoom**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
     6.  Clique em **Salvar**.
 
 9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
@@ -106,15 +119,15 @@ Para permitir que os usuários do AD do Azure façam logon no Zoom, eles devem s
 
 ###Para provisionar contas de usuário, execute as seguintes etapas:
 
-1.  Faça logon no site da sua empresa de **Zoom** como um administrador.
+1.  Faça logon em seu site de empresa do **Zoom** como administrador.
 
 2.  Clique na guia **Gerenciamento de Contas** e, em seguida, clique em **Gerenciamento de Usuários**.
 
-3.  Na seção Gerenciamento de Usuários, clique em **Adicionar Usuários**.
+3.  Na seção Gerenciamento de Usuários, clique em **Adicionar usuários**.
 
     ![Gerenciamento de usuário](./media/active-directory-saas-zoom-tutorial/IC784703.png "Gerenciamento de usuário")
 
-4.  Na página **Adicionar usuários**, execute as seguintes etapas:
+4.  Na página **Adicionar usuários**, realize as seguintes etapas:
 
     ![Adicionar usuários](./media/active-directory-saas-zoom-tutorial/IC784704.png "Adicionar usuários")
 
@@ -132,7 +145,7 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 1.  No portal do AD do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Zoom **, clique em **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **Zoom**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-zoom-tutorial/IC784705.png "Atribuir usuários")
 
@@ -140,6 +153,6 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-zoom-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
