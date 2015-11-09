@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integração do Active Directory do Azure ao Cornerstone OnDemand | Microsoft Azure" description="Saiba como usar o Cornerstone OnDemand com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integração do Active Directory do Azure ao Cornerstone OnDemand | Microsoft Azure" 
+    description="Saiba como usar o Cornerstone OnDemand com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integração do Active Directory do Azure ao Cornerstone OnDemand
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=526246).
 
 O objetivo deste tutorial é mostrar a integração do Azure ao Cornerstone OnDemand. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do Cornerstone OnDemand
 
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Cornerstone OnDemand poderão fazer logon único no aplicativo, em seu site de empresa do Cornerstone OnDemand (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Cornerstone OnDemand poderão fazer logon único no aplicativo em seu site de empresa do Cornerstone OnDemand (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -55,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração do aplicativo **Cornerstone OnDemand**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único **.
+1.  No portal do Azure AD, na página de integração de aplicativos do **Cornerstone OnDemand**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Habilitar Logon Único](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781596.png "Habilitar Logon Único")
 
@@ -63,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Logon Único do AD do Microsoft Azure](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781597.png "Logon Único do AD do Microsoft Azure")
 
-3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Logon do Cornerstone OnDemand**, digite a URL usando o seguinte padrão “**http://company.csod.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Cornerstone OnDemand**, digite a URL usando o padrão "**http://company.csod.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781598.png "Configurar a URL do Aplicativo")
 
@@ -75,11 +88,11 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     1.  O certificado baixado
     2.  O valor da **URL de Logon Remoto**
-    3.  O valor da **URL de Logon Remoto**.
+    3.  O valor da **URL de Logoff Remoto**.
 
     >[AZURE.NOTE]O Logon Único precisa ser configurado pela equipe de suporte do Cornerstone OnDemand. Assim que a configuração for concluída, você receberá uma notificação da equipe de suporte.
 
-6.  Selecione a confirmação de configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+6.  Selecione a confirmação de configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781600.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -104,10 +117,10 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
     ![Atribuir usuários](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC775564.png "Atribuir usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Atribuir Usuários](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781601.png "Atribuir Usuários")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

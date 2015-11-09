@@ -20,6 +20,10 @@
 
 A Microsoft oferece uma ampla variedade de recursos com os serviços do Azure IoT. Esses serviços oferecem recursos de nível enterprise para coletar dados dos dispositivos, analisar transmissões de dados em movimento, armazenamento e consulta de grandes conjuntos de dados, visualização tanto de dados em tempo real como históricos, e integram com importantes sistemas de back office. O Azure IoT Suite compacta um conjunto de serviços normalmente utilizados e recursos estendidos para reduzir o tempo de implantação para os clientes. Essas extensões incluem soluções pré-configuradas que oferecem a implementação de base dos padrões mais comuns de solução. Combinado com os kits de desenvolvimento de software (software development kit, SDKs) IoT, os clientes podem personalizar facilmente as soluções pré-configuradas ou aproveitá-las como exemplos para o desenvolvimento de novas soluções.
 
+O vídeo a seguir oferece uma introdução ao Azure IoT Suite:
+
+> [AZURE.VIDEO azurecon-2015-introducing-the-microsoft-azure-iot-suite]
+
 ## Serviços do Azure IoT no Azure IoT Suite
 
 O principal serviço do pacote do IoT do Azure é o serviço de Hub IoT. Este serviço fornece um sistema de mensagens de dispositivo para nuvem e de nuvem para serviço. Ele atua como gateway para a nuvem e os outros principais serviços do Pacote IoT.
@@ -30,12 +34,12 @@ Recursos de armazenamento de dados são habilitados por meio de uma combinação
 
 A visualização dos dados é fornecida por uma combinação de sites do Azure e o Microsoft Power BI. A flexibilidade do Power BI permite que os clientes criem seus próprios painéis interativos rapidamente por meio de dados do Pacote IoT.
 
-Mais detalhes sobre a arquitetura e como esses serviços são usados podem ser encontrados no artigo [Microsoft Azure e a Internet das Coisas (IoT)](iot-suite-what-is-azure-iot.md).
+Mais detalhes sobre a arquitetura e como esses serviços são usados podem ser encontrados no artigo [Microsoft Azure e a IoT I(Internet das Coisas)](iot-suite-what-is-azure-iot.md).
 
 ## Soluções pré-configuradas
 
 Soluções pré-configuradas são incluídas no Pacote IoT do Azure para permitir que os clientes tenham uma introdução rápida e explorem cenários possibilitados pelo Pacote IoT do Azure.
 
-A primeira solução pré-configurada disponível é o [Monitoramento Remoto](iot-suite-what-are-preconfigured-solutions.md).
+A primeira solução pré-configurada disponível é o [Monitoramento remoto](iot-suite-what-are-preconfigured-solutions.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

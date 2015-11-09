@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Adicionando relatórios de integridade personalizados da Malha de Serviço"
+   pageTitle="Adicionar relatórios de integridade personalizados do Service Fabric | Microsoft Azure"
    description="Descreve como enviar relatórios de integridade personalizados para entidades de integridade da Malha de Serviço do Azure. Fornece recomendações para projetar e implementar relatórios de integridade de qualidade."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Adicionando relatórios de integridade personalizados da Malha de Serviço
@@ -271,7 +271,7 @@ Com base nos dados de integridade, os criadores de serviço e administradores de
 
 [Como monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Atualização de aplicativo da Malha de Serviço](service-fabric-application-upgrade.md)
+[Atualização de aplicativo da Malha do Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

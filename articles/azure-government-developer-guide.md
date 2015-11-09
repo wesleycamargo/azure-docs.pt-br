@@ -4,7 +4,7 @@
 	services="" 
 	documentationCenter="" 
 	authors="Joharve2" 
-	manager="carolz" 
+	manager="Chrisnie" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="azure-government" 
-	ms.date="01/21/2014" 
+	ms.date="10/29/2015" 
 	ms.author="jharve"/>
 
 
@@ -65,7 +65,17 @@ O Azure Government atualmente tem os seguintes serviços disponíveis nas regiõ
 - Active Directory
 - Agendador
 - Rede Virtual
-- Banco de dados SQL
+- Banco de Dados SQL
+- Arquivos do Azure
+- Serviços de mídia
+- Gerenciador de Tráfego
+- Barramento de Serviço
+- StorSimple
+- Cache Redis
+- Serviço de Backup do Azure
+- Automação
+- Rota Expressa
+- etc.
 
 Outros serviços estão disponíveis e mais serviços serão adicionados continuamente. Para obter a lista mais atual dos serviços, consulte a [página regiões](http://azure.microsoft.com/regions/#services) que destacará todas as regiões disponíveis e seus serviços.
 
@@ -78,18 +88,31 @@ Use a tabela a seguir para guiá-lo ao mapear pontos de extremidade públicos do
 
 Tipo de serviço|Público do Azure|Azure Government
 ---|---|---
-Página inicial do Azure Government|windowsazure.com|microsoftazure.us
 Portal de Gerenciamento|manage.windowsazure.com|manage.windowsazure.us
 Geral|*.windows.net|*.usgovcloudapi.net
 Núcleo|*.core.windows.net|*.core.usgovcloudapi.net
 Computação|*.cloudapp.net|*.usgovcloudapp.net
-Armazenamento de Blob|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Armazenamento de fila|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Armazenamento de Blob|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Armazenamento de Fila|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Armazenamento de tabela|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Gerenciamento de serviços|management.core.windows.net|management.core.usgovcloudapi.net
 Banco de Dados SQL|*.database.windows.net|*.database.usgovcloudapi.net
+Ponto de extremidade com balanceamento de carga do ARM|https://management.windows.net|https://management.usgovcloudapi.net  
+
+* Para a autenticação do ARM por meio do Azure AD, veja [Fazendo a autenticação de solicitações do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
 ## <a name="next"></a>Próximas etapas
-Se você estiver interessado em saber mais sobre o Azure Government e como sua organização pode se qualificar para acessar, vá para <A href="http://azure.com/gov"> http://www.azure.com/gov</a>
+
+Se você estiver interessado em aprender mais sobre o Governo do Azure aproveite alguns dos links abaixo.
+
+- **[Inscrever-se para obter uma avaliação](https://azuregov.microsoft.com/trial/azuregovtrial)**
+
+- **[Adquirindo e acessando o Azure Governamental](http://azure.com/gov)**
+
+- **[Visão geral do Azure Governamental](/azure-government-overview)**
+
+- **[Blog do Azure Governamental](http://blogs.msdn.com/b/azuregov/)**
+
+- **[Conformidade do Azure](http://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -105,4 +128,4 @@ Se você estiver interessado em saber mais sobre o Azure Government e como sua o
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure" 
-	description="Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para Serviços de Mídia do Microsoft Azure. Os Serviços de Mídia do Microsoft Azure fornecem serviço de transmissão ao vivo, que permite aos clientes transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Microsoft Azure como a plataforma de nuvem. No momento da elaboração deste documento, o MP4 fragmentado pré-codificado era o único mecanismo de ingestão para transmissão ao vivo nos Serviços de Mídia do Microsoft Azure. Este documento também aborda as práticas recomendadas de criação de mecanismos robustos de ingestão dinâmica e altamente redundantes." 
+	description="Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para Serviços de Mídia do Microsoft Azure. Os Serviços de Mídia do Microsoft Azure fornecem serviço de transmissão ao vivo, que permite aos clientes transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Microsoft Azure como a plataforma de nuvem. Este documento também aborda as práticas recomendadas de criação de mecanismos robustos de ingestão dinâmica e altamente redundantes." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="cenkdin,juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,18 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/21/2015" 
 	ms.author="juliako"/>
 
 #Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure
 
-Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para Serviços de Mídia do Microsoft Azure. Os Serviços de Mídia do Microsoft Azure fornecem serviço de transmissão ao vivo, que permite aos clientes transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Microsoft Azure como a plataforma de nuvem. No momento da elaboração deste documento, o MP4 fragmentado pré-codificado era o único mecanismo de ingestão para transmissão ao vivo nos Serviços de Mídia do Microsoft Azure. Este documento também aborda as práticas recomendadas de criação de mecanismos robustos de ingestão dinâmica e altamente redundantes.
+Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para Serviços de Mídia do Microsoft Azure. Os Serviços de Mídia do Microsoft Azure fornecem serviço de transmissão ao vivo, que permite aos clientes transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Microsoft Azure como a plataforma de nuvem. Este documento também aborda as práticas recomendadas de criação de mecanismos robustos de ingestão dinâmica e altamente redundantes.
 
-##Notação de conformidade
+
+##1\. Notação de conformidade
 
 As palavras-chave “DEVE”, “NÃO DEVE”, “OBRIGATÓRIO”, “RECOMENDADO”, “PODE” E “OPCIONAL” neste documento devem ser interpretadas conforme descritas na RFC 2119.
 
-##Diagrama de serviço 
+##2\. Diagrama de serviço 
 
 O diagrama a seguir mostra a arquitetura de alto nível do serviço de transmissão ao vivo nos Serviços de Mídia do Microsoft Azure:
 
@@ -36,9 +37,11 @@ O diagrama a seguir mostra a arquitetura de alto nível do serviço de transmiss
 ![image1][image1]
 
 
-##Formato de fluxo de bits – MP4 fragmentado ISO 14496-12
+##3\. Formato de fluxo de bits – MP4 fragmentado ISO 14496-12
 
-O formato de conexão para ingestão de transmissão ao vivo que é abordado neste documento se baseia no [ISO-14496-12]. Consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) para ver uma explicação detalhada do formato MP4 fragmentado e das extensões para arquivos de vídeo sob demanda e ingestão de transmissão ao vivo.
+O formato de conexão para ingestão de transmissão ao vivo que é abordado neste documento se baseia no [ISO-14496-12]. Consulte [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) para ver uma explicação detalhada do formato MP4 fragmentado e das extensões para arquivos de vídeo sob demanda e ingestão de transmissão ao vivo.
+
+###Definições de formato de ingestão ao vivo 
 
 Veja abaixo uma lista de definições de formato especial que se aplicam à ingestão dinâmica nos Serviços de Mídia do Microsoft Azure:
 
@@ -46,16 +49,18 @@ Veja abaixo uma lista de definições de formato especial que se aplicam à inge
 2. A Seção 3.3.2 em [1] define uma caixa opcional chamada StreamManifestBox para ingestão dinâmica. Devido à lógica de roteamento do balanceador de carga do Microsoft Azure, o uso dessa caixa foi preterido e NÃO DEVE estar presente durante a ingestão no Serviço de Mídia do Microsoft Azure. Se essa caixa estiver presente, os Serviços de Mídia do Azure vai ignorá-la silenciosamente.
 3. O TrackFragmentExtendedHeaderBox definido na Seção 3.2.3.2 em [1] DEVE estar presente em cada fragmento.
 4. A versão 2 do TrackFragmentExtendedHeaderBox DEVE ser usada para gerar segmentos de mídia com URLs idênticas em vários datacenters. O campo do índice de fragmento é OBRIGATÓRIO para failover entre datacenters de formatos de streaming baseados em índice, como HTTP Live Streaming (HLS) da Apple e MPEG-DASH baseado em índice. Para habilitar o failover entre datacenters, o índice de fragmento DEVE ser sincronizado em vários codificadores e aumentado em incrementos de 1 para cada fragmento de mídia sucessivo, mesmo entre reinícios ou falhas do codificador.
-5. A Seção 3.3.6 em [1] define a caixa chamada MovieFragmentRandomAccessBox (‘mfra’) que PODE ser enviada no fim da ingestão dinâmica para indicar o EOS (Fim do Fluxo) para o canal. Devido à lógica de ingestão dos Serviços de Mídia do Azure, o uso do EOS foi preterido e a caixa ‘mfra’ para ingestão dinâmica NÃO DEVE ser enviada. Se enviada, os Serviços de Mídia do Azure vão ignorá-la silenciosamente. É recomendável usar [Redefinir Canais](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) para redefinir o estado do ponto de ingestão, assim como é recomendável usar [Parar Programas](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) para encerrar uma apresentação e um fluxo.
+5. A Seção 3.3.6 em [1] define a caixa chamada MovieFragmentRandomAccessBox (‘mfra’) que PODE ser enviada no fim da ingestão ao vivo para indicar o EOS (Fim do Fluxo) para o canal. Devido à lógica de ingestão dos Serviços de Mídia do Azure, o uso do EOS foi preterido e a caixa ‘mfra’ para ingestão dinâmica NÃO DEVE ser enviada. Se enviada, os Serviços de Mídia do Azure vão ignorá-la silenciosamente. É recomendável usar [Redefinir Canais](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) para redefinir o estado do ponto de ingestão, assim como é recomendável usar [Parar Programas](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) para encerrar uma apresentação e um fluxo.
 6. A duração do fragmento MP4 DEVE ser constante para reduzir o tamanho dos manifestos do cliente e aprimorar a heurística de download do cliente por meio do uso de marcas de repetição. A duração PODE flutuar para compensar as taxas de quadro de números não inteiros.
 7. A duração do fragmento MP4 DEVE estar entre segundos 2 e 6 segundos, aproximadamente.
 8. Os carimbos de data/hora e índices do fragmento MP4 (TrackFragmentExtendedHeaderBox fragment\_absolute\_time e fragment\_index) DEVEM chegar na ordem crescente. Embora os Serviços de Mídia do Azure sejam resilientes a fragmentos duplicados, sua capacidade de reordenar os fragmentos de acordo com a linha do tempo da mídia é bastante limitada.
 
-##Formato de protocolo – HTTP
+##4\. Formato de protocolo – HTTP
 
 A ingestão dinâmica com base no MP4 fragmentado ISO para Serviços de Mídia do Microsoft Azure usa uma solicitação HTTP POST padrão de longa execução para transmitir ao serviço dados de mídia codificados empacotados no formato MP4 fragmentado. Cada HTTP POST envia um fluxo de bits (“Fluxo”) MP4 fragmentado completo, começando do início com as caixas de cabeçalho ( caixa ‘ftyp’, “Live Server Manifest Box” e ‘moov’) e continuando com uma sequência de fragmentos (caixas ‘moof’ e ‘mdat’). Consulte a seção 9.2 em [1] para ver a sintaxe de URL da solicitação HTTP POST. Veja um exemplo de URL de POST:
 
 	http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+
+###Requisitos
 
 Veja os requisitos em detalhes:
 
@@ -67,11 +72,11 @@ Veja os requisitos em detalhes:
 6. O codificador NÃO DEVE usar o substantivo Events(), conforme descrito na seção 9.2 em [1] para ingestão dinâmica nos Serviços de Mídia do Microsoft Azure.
 7. Se a solicitação HTTP POST for encerrada ou o tempo limite esgotar antes do fim do fluxo com um erro TCP, o codificador DEVERÁ emitir uma nova solicitação POST usando uma nova conexão e seguir os requisitos acima com o requisito adicional de que DEVE reenviar os dois fragmentos MP4 anteriores para cada faixa do fluxo, bem como retomar sem introduzir descontinuidades na linha do tempo da mídia. O reenvio dos dois últimos fragmentos MP4 de cada faixa garante que não haja perda de dados. Em outras palavras, se um fluxo contiver uma faixa de áudio e vídeo, e a solicitação POST atual falhar, o codificador deverá se reconectar e reenviar os últimos dois fragmentos da faixa de áudio, que anteriormente foram enviadas com êxito, e os dois últimos fragmentos da faixa de vídeo, que anteriormente foram enviadas com êxito, a fim de garantir que não haja nenhuma perda de dados. O codificador DEVE manter um buffer de “avanço” da mídia de fragmentos, que ele reenvia durante a reconexão.
 
-##Escala de tempo 
+##5\. Escala de tempo 
 
 O [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) descreve o uso da “Escala de tempo” para SmoothStreamingMedia (Seção 2.2.2.1), StreamElement (Seção 2.2.2.3), StreamFragmentElement (2.2.2.6) e LiveSMIL (Seção 2.2.7.3.1). Se o valor da escala de tempo não estiver presente, o valor padrão usado será 10.000.000 (10 MHz). Embora a Especificação de Formato Streaming Suave não bloqueie o uso de outros valores de escala de tempo, a maioria das implementações de codificador usa esse valor padrão (10 MHz) para gerar dados de ingestão de Streaming Suave. Devido ao recurso [Empacotamento Dinâmico de Mídia do Azure](media-services-dynamic-packaging-overview.md), é recomendável usar a escala de tempo de 90 kHz para fluxos de vídeo e 44,1 ou 48,1 kHz para fluxos de áudio. Se diferentes valores de escala de tempo forem usados para diferentes fluxos, a escala de tempo do nível de fluxo DEVERÁ ser enviada. Consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
-##Definição de "Fluxo"  
+##6\. Definição de "Fluxo"  
 
 "Fluxo" é a unidade básica da operação na ingestão dinâmica para compor apresentações ao vivo e tratar do failover de streaming e cenários de redundância. "Fluxo" é definido como um único fluxo de bits MP4 fragmentado exclusivo que pode conter uma única faixa ou várias faixas. Uma apresentação ao vivo completa pode conter um ou mais fluxos, dependendo da configuração dos codificadores dinâmicos. Os exemplos a seguir ilustram as várias opções de uso de fluxo(s) para compor uma apresentação ao vivo completa.
 
@@ -107,7 +112,7 @@ Nessa opção, o cliente escolhe agrupar a faixa de áudio com a faixa de vídeo
 
 O que foi mostrado acima NÃO é uma lista completa de todas as opções possíveis de ingestão para este exemplo. Na verdade, qualquer agrupamento de faixas em fluxos tem suporte da ingestão dinâmica. Os clientes e fornecedores de codificadores podem escolher suas próprias implementações com base na complexidade de engenharia, na capacidade do codificador e nas considerações de failover e redundância. No entanto, deve ser observado que, na maioria dos casos, há apenas uma faixa de áudio para toda a apresentação ao vivo, de modo que é importante garantir a integridade do fluxo de ingestão que contém a faixa de áudio. Geralmente, essa consideração resulta na colocação da faixa de áudio em seu próprio fluxo (como na Opção 2) ou no agrupamento dela com a faixa de vídeo de taxa de bits mais baixa (como na Opção 3). Além disso, para melhor redundância e tolerância a falhas, enviar a mesma faixa de áudio em dois fluxos diferentes (Opção 2 com faixas de áudio redundantes) ou agrupar a faixa de áudio em pelo menos duas faixas de vídeo de taxa de bits mais baixa (Opção 3 com áudio agrupado em pelo menos dois fluxos de vídeo) é altamente recomendável para ingestão dinâmica nos Serviços de Mídia do Microsoft Azure.
 
-##Failover de serviço 
+##7\. Failover de serviço 
 
 Dada a natureza da transmissão ao vivo, o bom suporte ao failover é essencial para garantir a disponibilidade do serviço. Os Serviços de Mídia do Microsoft Azure foram desenvolvidos para tratar os vários tipos de falha, incluindo erros de rede, erros de servidor, problemas de armazenamento, etc. Quando usado em conjunto com a lógica apropriada de failover do lado do codificador dinâmico, o cliente pode obter um serviço de transmissão ao vivo altamente confiável da nuvem.
 
@@ -125,7 +130,7 @@ Nesta seção, abordaremos os cenários de failover de serviço. Nesse caso, a f
 	4. Os dois últimos fragmentos enviados para cada faixa DEVERÃO ser reenviados e o streaming retomado sem introdução de uma descontinuidade na linha do tempo da mídia. Os carimbos de data/hora do fragmento MP4 devem aumentar continuamente, mesmo entre as solicitações HTTP POST.
 6. O codificador DEVERÁ encerrar a solicitação HTTP POST se os dados não estiverem sendo enviados a uma taxa proporcional à duração do fragmento MP4. Uma solicitação HTTP POST que não envia dados pode impedir que os Serviços de Mídia do Azure se desconectem rapidamente do codificador no caso de uma atualização de serviço. Por esse motivo, o HTTP POST para faixas esparsas (sinal de anúncio) DEVE ser curto, terminando assim que o fragmento esparso é enviado.
 
-##Failover do codificador
+##8\. Failover do codificador
 
 O failover de codificador é o segundo tipo de cenário de failover que precisa ser resolvido para entrega de transmissão ao vivo completa. Nesse cenário, a condição de erro ocorreu no lado do codificador.
 
@@ -141,7 +146,7 @@ Veja abaixo as expectativas do ponto de extremidade da ingestão dinâmica quand
 5. O novo fluxo DEVE ser semanticamente equivalente ao fluxo anterior e intercambiável no nível de cabeçalho e fragmento.
 6. O novo codificador DEVE tentar minimizar a perda de dados. O fragment\_absolute\_time e o fragment\_index dos fragmentos de mídia DEVEM aumentar do ponto em que o codificador parou pela última vez. O fragment\_absolute\_time e fragment\_index DEVEM aumentar de forma contínua, mas é permitida a introdução de uma descontinuidade se necessário. Os Serviços de Mídia do Azure ignorarão os fragmentos que já receberam e processaram, de modo que é melhor errar no reenvio de fragmentos do que introduzir descontinuidades na linha do tempo da mídia. 
 
-##Redundância do codificador 
+##9\. Redundância do codificador 
 
 Para determinados eventos ao vivo críticos que demandam disponibilidade e qualidade de experiência ainda mais altas, é recomendável utilizar codificadores redundantes ativo-ativo para atingir um failover contínuo sem perda de dados.
 
@@ -151,13 +156,13 @@ Conforme ilustrado no diagrama acima, existem dois grupos de codificadores que e
 
 Os requisitos para esse cenário são quase os mesmos que os requisitos no caso de Failover de Codificador, com a exceção de que o segundo conjunto de codificadores é executado ao mesmo tempo que os codificadores primários
 
-##Redundância de serviço  
+##10\. Redundância de serviço  
 
 Para distribuição global altamente redundante, às vezes, é necessário ter backup entre regiões para lidar com desastres regionais. Ao expandir a topologia “Redundância do Codificador”, os clientes podem optar por ter uma implantação de serviço redundante em uma região diferente, que seja conectada com o segundo conjunto de codificadores. Os clientes também podem trabalhar com um provedor CDN para implantar um GTM (Gerenciador de Tráfego Global) na frente das duas implantações de serviços para rotear diretamente o tráfego do cliente. Os requisitos para os codificadores são os mesmos do caso “Redundância do Codificador”, com a única exceção de que o segundo conjunto de codificadores precisa ser apontado para um ponto de extremidade de ingestão dinâmica diferente. O diagrama a seguir mostra essa configuração:
 
 ![image7][image7]
 
-##Tipos especiais de formato de ingestão 
+##11\. Tipos especiais de formato de ingestão 
 
 Esta seção aborda alguns tipos especiais de formato de ingestão dinâmica que foram desenvolvidos para tratar alguns cenários específicos.
 
@@ -195,7 +200,6 @@ Veja abaixo uma implementação recomendada para faixas de áudio redundantes:
 2. Use fluxos separados para enviar as duas taxas de bits de vídeo mais baixas. Cada um desses fluxos também DEVE conter uma cópia de cada faixa de áudio exclusiva. Por exemplo, quando há suporte para vários idiomas, esses fluxos DEVEM conter faixas de áudio para cada idioma.
 3. Use instâncias de servidor (codificador) separadas para codificar e enviar os fluxos redundantes mencionados em (1) e (2). 
 
-
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
 Você pode exibir os roteiros de aprendizagem do AMS aqui:
@@ -215,4 +219,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução ao Monitoramento de Integridade da Malha do Serviço"
-   description="Este artigo descreve o modelo de Monitoramento de Integridade da Malha do Serviço do Azure, incluindo entidades de integridade, relatório e avaliação."
+   pageTitle="Monitoramento de integridade do Service Fabric | Microsoft Azure"
+   description="Uma introdução ao modelo de Monitoramento de integridade do Service Fabric do Azure, que fornece monitoramento do cluster e seus aplicativos e serviços."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Introdução ao Monitoramento de Integridade da Malha do Serviço
@@ -336,4 +336,4 @@ O modelo de integridade é muito usado para monitoramento e diagnóstico, para a
 [Atualização de aplicativo da Malha do Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

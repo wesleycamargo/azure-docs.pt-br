@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 #Disponibilidade e confiabilidade dos clusters Hadoop em HDInsight
@@ -37,7 +37,7 @@ Os nós [ZooKeeper](http://zookeeper.apache.org/) (ZKs) são usados para eleiç�
 
 Em geral, todo o acesso ao cluster por meio de gateways públicos (Ambari Web e APIs REST,) não é afetado por ter vários nós de cabeçalho. A solicitação é encaminhada para o nó de cabeçalho ativo e atendida conforme apropriada.
 
-Ao acessar o cluster usando o SSH, a conexão pela porta 22 (o padrão para o SSH) irá se conectar ao headnode0; conectando por meio da porta 23 irá se conectar ao headnode1.
+Ao acessar o cluster usando o SSH, a conexão pela porta 22 (o padrão de SSH) vai conectar ao nó de cabeçalho 0; a conexão pela porta 23 vai conectar ao nó de cabeçalho 1.
 
 ### Nomes internos de domínio totalmente qualificado (FQDN)
 
@@ -49,7 +49,7 @@ Por exemplo, o serviço de Oozie pode ser executado somente em um nó de cabeça
 
 Isso retornará um valor semelhante ao seguinte, que contém a URL interna para usar com o comando `oozie`:
 
-	"oozie.base.url": "http://headnode0.CLUSTERNAME-ssh.d9.internal.cloudapp.net:11000/oozie"
+	"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
 ## Como verificar o status do serviço
 
@@ -74,7 +74,7 @@ Por exemplo, para verificar o status do serviço **HDFS** em um cluster chamado 
 A resposta será semelhante ao seguinte:
 
 	{
-	  "href" : "http://headnode0.mycluster-ssh.j7.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+	  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
 	  "ServiceInfo" : {
 	    "cluster_name" : "mycluster",
 	    "service_name" : "HDFS",
@@ -82,7 +82,7 @@ A resposta será semelhante ao seguinte:
 	  }
 	}
 
-A URL indica que o serviço está sendo executado no **headnode0**.
+A URL indica que o serviço está sendo executado no **nó de cabeçalho 0**.
 
 O estado indica que o serviço está sendo executado ou **INICIADO**.
 
@@ -166,4 +166,4 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

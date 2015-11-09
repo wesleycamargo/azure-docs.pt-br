@@ -127,7 +127,9 @@ Se quiser adicionar uma conta manualmente, você poderá fazer isso desta maneir
 Se quiser adicionar manualmente uma conta que não seja do Azure, por exemplo, sua conta da Microsoft, você poderá fazer isso desta maneira:
 
 
-- Primeiro, você precisará obter a chave secreta do site ao qual a conta está associada. Por exemplo, no Outlook.com, vá para as configurações de conta, configurações de segurança e selecione a configuração de um aplicativo de autenticação. Você precisa selecionar Não posso digitalizar o código de barras para obter a chave secreta.
+- A adição manual de uma conta não Azure pode ser feita por meio do exame do código QR ou digitando a chave secreta.
+- Se você inserir a chave secreta manualmente, obtenha a chave secreta do site ao qual a conta está associada. Por exemplo, no Outlook.com, vá para as configurações de conta, configurações de segurança e selecione a configuração de um aplicativo de autenticação. Você precisa selecionar Não posso digitalizar o código de barras para obter a chave secreta.
+- 
 
 ![Adicionar conta](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
@@ -135,11 +137,11 @@ Se quiser adicionar manualmente uma conta que não seja do Azure, por exemplo, s
 
 ![Adicionar conta](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- Clique no botão Inserir Manualmente na parte inferior.
+- Examine o código QR ou clique no botão Inserir Manualmente na parte inferior. Se você examinar o código QR, ignore a próxima etapa, uma vez que a ativação será iniciada imediatamente.
 
 ![Adicionar conta](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
-- Insira o nome da conta e a Chave Secreta fornecidos na mesma página que mostra o código de barras. Isso vai nas caixas de código e URL no aplicativo móvel. Isso iniciará a ativação.
+- Se inserir manualmente a chave secreta, insira o nome da conta e a chave secreta que é fornecida na mesma página que mostra o código de barras. Isso vai nas caixas de código e URL no aplicativo móvel. Isso iniciará a ativação.
 
 ![Adicionar conta](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
@@ -162,4 +164,4 @@ Desse ponto em diante, quando for necessário verificar sua entrada, você tocar
 
 ![ID de Toque](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

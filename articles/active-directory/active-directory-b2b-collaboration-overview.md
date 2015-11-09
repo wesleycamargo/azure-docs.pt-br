@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Colaboração do Active Directory B2B (Entre Empresas) do Azure"
+   pageTitle="Colaboração B2B do Azure AD (Active Directory do Azure) | Microsoft Azure"
    description="Colaboração do Active Directory B2B do Azure permite que os parceiros de negócios acessem seus aplicativos corporativos, com cada um de seus usuários representado por uma conta exclusiva do AD do Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="10/27/2015"
    ms.author="curtand"/>
 
-# Colaboração do Active Directory B2B do Azure
+# Colaboração B2B do AD do Azure (Active Directory do Azure)
 
-A colaboração do Active Directory B2B do Azure lhe permite habilitar o acesso a seus aplicativos corporativos de identidades gerenciados por parceiro. Você pode criar relações entre empresas convidando e autorizando usuários de empresas parceiras para acessar os recursos. A complexidade é reduzida, pois cada empresa agrupa uma vez com o Active Directory do Azure (AD do Azure) e cada usuário é representado por uma única conta de AD do Azure. A segurança é aumentada porque o acesso é revogado quando usuários parceiros são desligados de suas organizações e acesso involuntário por meio da associação a diretórios internos é impedido. Para parceiros de negócios que ainda não têm o AD do Azure, a colaboração B2B tem uma experiência de inscrição simplificada para fornecer contas do AD do Azure aos parceiros de negócios.
+A colaboração B2B do AD do Azure permite habilitar o acesso aos seus aplicativos corporativos por meio de identidades gerenciadas por parceiros. Você pode criar relações entre empresas convidando e autorizando usuários de empresas parceiras para acessar os recursos. A complexidade é reduzida, pois cada empresa é federada uma única vez com o Active Directory do Azure e cada usuário é representado por uma única conta do AD do Azure. A segurança é aumentada porque o acesso é revogado quando usuários parceiros são desligados de suas organizações e acesso involuntário por meio da associação a diretórios internos é impedido. Para parceiros de negócios que ainda não têm o AD do Azure, a colaboração B2B tem uma experiência de inscrição simplificada para fornecer contas do AD do Azure aos parceiros de negócios.
 
 -   Seus parceiros de negócios usam suas próprias credenciais de entrada, que libera você de gerenciar um diretório de parceiro externo e da necessidade de remover o acesso quando os usuários saem da organização do parceiro.
 
@@ -42,7 +42,7 @@ O processo:
 
 4. Depois de conectado, o usuário será redirecionado para o aplicativo que foi compartilhado com eles.
 
-Convites para endereços de email do consumidor (por exemplo, gmail ou [*comcast.net*](http://comcast.net/)) não têm suporte no momento.
+Atualmente, não há suporte a convites para endereços de email do consumidor (por exemplo, Gmail ou [*comcast.net*](http://comcast.net/)).
 
 Para obter mais informações sobre como funciona a colaboração B2B, confira [este vídeo](http://aka.ms/aadshowb2b).
 
@@ -61,5 +61,15 @@ wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.
 jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
+## Próximas etapas
+Conferir nossos outros artigos sobre a colaboração B2B do Azure
 
-<!---HONumber=Oct15_HO3-->
+- [O que é a colaboração AD B2B do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Como funciona](active-directory-b2b-how-it-works.md)
+- [Passo a passo detalhado](active-directory-b2b-detailed-walkthrough.md)
+- [Referência do formato de arquivo CSV](active-directory-b2b-references-csv-file-format.md)
+- [Formato do token de usuário externo](active-directory-b2b-references-external-user-token-format.md)
+- [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
+
+<!---HONumber=Nov15_HO1-->

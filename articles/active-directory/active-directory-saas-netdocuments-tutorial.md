@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure ao NetDocuments | Microsoft Azure" description="Saiba como usar o NetDocuments com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure ao NetDocuments | Microsoft Azure" 
+    description="Saiba como usar o NetDocuments com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o NetDocuments
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=529696).
   
 O objetivo deste tutorial é mostrar a integração do Azure com o NetDocuments. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do NetDocuments
   
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao NetDocuments poderão fazer logon único no aplicativo em seu site de empresa do NetDocuments (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao NetDocuments poderão fazer logon único no aplicativo em seu site de empresa do NetDocuments (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-netdocuments-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-netdocuments-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -51,13 +64,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no NetDocuments com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
-Configurar o logon único para o NetDocuments exige que você recupere um valor de impressão digital de um certificado.  
-Se você não estiver familiarizado com esse procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no NetDocuments com sua conta do AD do Azure usando federação baseada em protocolo SAML. Configurar o logon único para o NetDocuments exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração do aplicativo **NetDocuments**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **NetDocuments**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-netdocuments-tutorial/IC795043.png "Configurar o logon único")
 
@@ -65,14 +76,14 @@ Se você não estiver familiarizado com esse procedimento, consulte [Como recupe
 
     ![Configurar o logon único](./media/active-directory-saas-netdocuments-tutorial/IC795044.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas:
+3.  Na página **Configurar URL do Aplicativo**, realize as seguintes etapas:
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo NetDocuments (por exemplo: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
-    2.  Na caixa de texto **URL de Resposta do NetDocuments**, digite o mesmo valor que você digitou na caixa de texto **URL de Logon**.  
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo NetDocuments (por exemplo: "**https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*")).
+2.  Na caixa de texto **URL de Resposta do NetDocuments**, digite o mesmo valor que você digitou na caixa de texto **URL de Logon**.  
 
-        >[AZURE.NOTE]Você pode encontrar o valor correto no fim da caixa de diálogo**Identidade Federada** (consulte a captura de tela da etapa 9).
+        >[AZURE.NOTE]Você pode encontrar o valor correto no fim do diálogo **Identidade Federada** (veja a captura de tela da etapa 9).
 
     3.  Clique em **Próximo**.
 
@@ -92,15 +103,15 @@ Se você não estiver familiarizado com esse procedimento, consulte [Como recupe
 
     ![Configurar opções de autenticação avançada](./media/active-directory-saas-netdocuments-tutorial/IC795048.png "Configurar opções de autenticação avançada")
 
-9.  Na caixa de diálogo **Identidade Federada**, execute as seguintes etapas:
+9.  No diálogo **Identidade Federada**, realize as seguintes etapas:
 
     ![Identidade Federada](./media/active-directory-saas-netdocuments-tutorial/IC795049.png "Identidade Federada")
 
-    1.  Como **Tipo de servidor de identidade federada**, selecione **Serviços de Federação do Active Directory**.
+    1.  Para **Tipo de servidor de identidade federada**, selecione **Serviços de Federação do Active Directory**.
     2.  Clique em **Escolher arquivo** para carregar o arquivo de metadados baixado.
     3.  Clique em **OK**.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -109,7 +120,7 @@ Para permitir que os usuários do AD do Azure façam logon no NetDocuments, eles
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1.  Faça logon em seu site de empresa **NetDocuments** como um administrador.
+1.  Faça logon em seu site de empresa do **NetDocuments** como administrador.
 
 2.  No menu na parte superior, clique em **Administrador**.
 
@@ -119,7 +130,7 @@ Para permitir que os usuários do AD do Azure façam logon no NetDocuments, eles
 
     ![Repositório](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Repositório")
 
-4.  Na caixa de texto **Endereço de Email**, digite o endereço de email de uma conta válida do Active Directory do Azure que você deseja provisionar clique em **Adicionar Usuário**.
+4.  Na caixa de texto **Endereço de Email**, digite o endereço de email de uma conta válida do Active Directory do Azure que você deseja provisionar e clique em **Adicionar Usuário**.
 
     ![Endereço de Email](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Endereço de Email")
 
@@ -143,6 +154,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

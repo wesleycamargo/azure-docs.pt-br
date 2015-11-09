@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Ativos de certificados na Automação do Azure | Microsoft Azure"
-   description="Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados por runbooks para autenticação em relação a recursos do Azure e de terceiros. Este artigo explica os detalhes de certificados e como trabalhar com elas na criação textual e gráfica."
+   description="Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados pelos runbooks ou pelas configurações DSC para serem autenticados em recursos do Azure e de terceiros. Este artigo explica os detalhes de certificados e como trabalhar com elas na criação textual e gráfica."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Ativos de certificado na Automação do Azure
 
-Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados por meio de runbooks usando a atividade **Get-AutomationCertificate**. Isso permite criar runbooks que usam certificados para autenticação ou adicioná-los a recursos do Azure ou de terceiros que seu runbook possa estar criando ou configurando.
+Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados pelos runbooks ou pelas configurações DSC usando a atividade **Get-AutomationCertificate**. Isso permite criar runbooks e configurações DSC que usam certificados para autenticação ou adicioná-los a recursos do Azure ou de terceiros.
 
 >[AZURE.NOTE]Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
 
 ## Cmdlets do Windows PowerShell
 
-Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de certificados de automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo PowerShell do Azure](../powershell-install-configure.md) que está disponível para uso em runbooks de Automação.
+Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de certificados de automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks e na configuração DSC da Automação.
 
 |Cmdlets|Descrição|
 |:---|:---|
@@ -32,19 +32,19 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de certi
 |[Remove- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913773.aspx)|Remove um certificado da Automação do Azure.|
 |[Set- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913763.aspx)|Define as propriedades para um certificado existente, incluindo o carregamento do arquivo de certificado e a definição da senha para um. pfx.|
 
-## Atividades de runbook
+## Atividades para acessar certificados
 
-As atividades na tabela a seguir são usadas para acessar certificados em um runbook.
+As atividades na tabela a seguir são usadas para acessar certificados em um runbook ou em uma configuração DSC.
 
 |Atividades|Descrição|
 |:---|:---|
-|Get-AutomationCertificate|Obtém um certificado para uso em um runbook.|
+|Get-AutomationCertificate|Obtém um certificado a ser usado em um runbook ou configuração DSC.|
 
->[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de GetAutomationCertificate, pois isso pode complicar a descoberta de dependências entre runbooks e ativos de certificados no momento do design.
+>[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de GetAutomationCertificate, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de certificados no momento do design.
 
 ## Criando um novo certificado
 
-Ao criar um novo certificado, você carrega um arquivo cer ou pfx na Automação do Azure. Se marcar certificado como exportável, você poderá transferi-lo do repositório de certificados da Automação do Azure. Se ele não for exportável, só poderá ser usado para assinatura no runbook.
+Ao criar um novo certificado, você carrega um arquivo cer ou pfx na Automação do Azure. Se marcar certificado como exportável, você poderá transferi-lo do repositório de certificados da Automação do Azure. Se ele não for exportável, ele só poderá ser usado para a assinatura no runbook ou na configuração DSC.
 
 ### Para criar um novo certificado com o portal do Azure
 
@@ -77,9 +77,9 @@ Os comandos de exemplo a seguir mostram como criar um novo certificado de automa
 	
 	New-AzureAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable
 
-## Usando um certificado em um runbook
+## Usando um certificado
 
-Você deve usar a atividade **Get-AutomationCertificate** para usar um certificado em um runbook. Não é possível usar o cmdlet [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx), pois ele retorna informações sobre o ativo de certificado, mas não sobre o próprio certificado.
+Você deve usar a atividade **Get-AutomationCertificate** para usar um certificado. Não é possível usar o cmdlet [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx), pois ele retorna informações sobre o ativo de certificado, mas não sobre o próprio certificado.
 
 ### Exemplo de runbook textual
 
@@ -107,4 +107,4 @@ Esse exemplo usa o parâmetro **UseConnectionObject** definido para a atividade 
 
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

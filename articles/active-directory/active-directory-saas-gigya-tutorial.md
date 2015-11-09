@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integração do Active Directory do Azure ao Gigya | Microsoft Azure" description="Saiba como usar o Gigya com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integração do Active Directory do Azure ao Gigya | Microsoft Azure" 
+    description="Saiba como usar o Gigya com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/20/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integração do Active Directory do Azure ao Gigya
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=528575).
   
 O objetivo deste tutorial é mostrar a integração do Azure ao Gigya. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do Gigya
   
-Depois de concluir este tutorial, os usuários do Azure AD que você atribuiu ao Gigya poderão fazer logon único no aplicativo em seu site de empresa do Gigya (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Gigya poderão fazer logon único no aplicativo em seu site de empresa do Gigya (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-gigya-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-gigya-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -51,11 +64,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Gigya](./media/active-directory-saas-gigya-tutorial/IC789527.png "Gigya")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Gigya com a respectiva conta do Azure AD usando a federação baseada no protocolo SAML. Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base-64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Gigya com a respectiva conta do Azure AD usando a federação baseada no protocolo SAML. Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base-64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Gigya**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **Gigya**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-gigya-tutorial/IC789528.png "Configurar o logon único")
 
@@ -63,36 +76,36 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de logon no Gigya**, digite sua URL usando o seguinte padrão "**http://company.gigya.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon no Gigya**, digite a URL usando o padrão "**http://company.gigya.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configurar a URL do Aplicativo")
 
-4.  Na página **Configurar logon único no Gigya**, clique em **Baixar certificado** e salve o arquivo de certificado em seu computador.
+4.  Na página **Configurar logon único no Gigya**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-gigya-tutorial/IC789531.png "Configurar o logon único")
 
 5.  Em outra janela do navegador da Web, faça logon em seu site de empresa do Gigya como administrador.
 
-6.  Acesse **Configurações > Logon SAML** e clique no botão **Adicionar**.
+6.  Vá para **Configurações > Logon do SAML** e clique no botão **Adicionar**.
 
     ![Logon no SAML](./media/active-directory-saas-gigya-tutorial/IC789532.png "Logon no SAML")
 
-7.  Na seção **Logon SAML**, execute as seguintes etapas:
+7.  Na seção **Logon do SAML**, realize as seguintes etapas:
 
     ![Configuração de SAML](./media/active-directory-saas-gigya-tutorial/IC789533.png "Configuração de SAML")
 
-    1.  Na caixa de texto **Nome**, digite um nome para sua configuração.
+    1.  Na caixa de texto **Nome**, digite um nome para a sua configuração.
     2.  No portal do Azure, na página da caixa de diálogo **Configurar logon único no Gigya**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
-    3.  No portal do Azure, na página da caixa de diálogo **Configurar logon único no Gigya**, copie o valor da **URL de Serviço de Logon Único** e cole-o na caixa de texto **URL de Serviço de Logon Único**.
-    4.  No portal do Azure, na página da caixa de diálogo **Configurar logon único no Gigya**, copie o valor da **Formato de Identificador de Nome** e cole-o na caixa de texto **Formato de Identificação de Nome**.
-    5.  Crie um arquivo **codificado em base-64** usando o certificado baixado.
+    3.  No portal do Azure, na página do diálogo **Configurar logon único no Gigya**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL do Serviço de Logon Único**.
+    4.  No portal do Azure, na página do diálogo **Configurar logon único no Gigya**, copie o valor da **Formato do Identificador de Nome** e cole-o na caixa de texto **Formato da ID de Nome**.
+    5.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.
         
-		>[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+		>[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  Abra seu certificado codificado em base-64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**.
+    6.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**.
     7.  Clique em **Salvar Configurações**.
 
-8.  No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+8.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-gigya-tutorial/IC789534.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -103,7 +116,7 @@ Para permitir que os usuários do Azure AD façam logon no Gigya, eles devem ser
 
 1.  Faça logon em seu site de empresa do **Gigya** como administrador.
 
-2.  Acesse **Administração > Gerenciar Usuários** e clique em **Convidar Usuários**.
+2.  Acesse **Administrador > Gerenciar Usuários** e clique em **Convidar Usuários**.
 
     ![Gerenciar Usuários](./media/active-directory-saas-gigya-tutorial/IC789535.png "Gerenciar Usuários")
 
@@ -134,6 +147,6 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
     ![Sim](./media/active-directory-saas-gigya-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

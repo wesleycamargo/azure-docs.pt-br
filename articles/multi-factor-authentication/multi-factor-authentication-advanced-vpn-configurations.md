@@ -43,4 +43,4 @@ Guia de configuração | Descrição
 [Configuração da VPN do Juniper/Pulse Secure SSL e do Azure MFA para LDAP](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx)| Integrar perfeitamente o dispositivo de VPN Juniper/Pulse Secure SSL ao Azure MFA usando LDAP|
 [Configuração da VPN do Juniper/Pulse Secure SSL e do Azure MFA para RADIUS](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Integrar perfeitamente o dispositivo de VPN Juniper/Pulse Secure SSL ao Azure MFA usando RADIUS
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

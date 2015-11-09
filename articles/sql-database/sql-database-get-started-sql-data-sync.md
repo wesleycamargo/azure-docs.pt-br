@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/27/2015"
 	ms.author="jhubbard"/>
 
 
@@ -23,6 +23,7 @@ Neste tutorial, você aprenderá os conceitos básicos da Sincronização de Dad
 
 Este tutorial pressupõe uma experiência mínima anterior com SQL Server e com o Banco de Dados SQL do Azure. Neste tutorial, você criará um grupo de sincronização híbrido (instâncias do Banco de Dados SQL e do SQL Server) totalmente configurado e sincronizando no agendamento definido.
 
+**Nota!** A documentação técnica completa da Sincronização de Dados do SQL do Azure, localizada anteriormente no MSDN, agora é um único PDF que você baixa [aqui](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Etapa 1: conecte-se ao Banco de Dados SQL do Azure
 
@@ -63,7 +64,7 @@ Certifique-se de que você tenha os itens a seguir no computador que você insta
 <a id="InstallClient"></a>
 ### Etapa 2b: Instalar um novo Agente Cliente
 
-Siga a instrução em [Instalar um Agente Cliente (Sincronização de Dados do SQL)](http://msdn.microsoft.com/library/jj823137.aspx) para instalar o agente.
+Siga as instruções em [Instalar um Agente Cliente (Sincronização de Dados do SQL)] ((http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf) para instalar o agente.
 
 
 
@@ -80,7 +81,7 @@ Siga a instrução em [Instalar um Agente Cliente (Sincronização de Dados do S
 
 ## Etapa 3: Registrar um banco de dados do SQL Server com o Agente Cliente
 
-Depois que o Agente Cliente for instalado, registre cada banco de dados do SQL Server local que você pretende incluir em um grupo de sincronização com o agente. Para registrar um banco de dados com o agente, siga as instruções em [Registrar um banco de dados do SQL Server com um Agente Cliente](http://msdn.microsoft.com/library/jj823138.aspx).
+Depois que o Agente Cliente for instalado, registre cada banco de dados do SQL Server local que você pretende incluir em um grupo de sincronização com o agente. Para registrar um banco de dados com o agente, siga as instruções em [Registrar um banco de dados do SQL Server com um Agente Cliente](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 
 
@@ -195,11 +196,11 @@ Parabéns. Você criou um grupo de sincronização que inclui uma instância do 
 ## Próximas etapas
 Para obter informações adicionais sobre banco de dados SQL e Sincronização de Dados do SQL, consulte:
 
-* [Baixe a documentação técnica de Sincronização de Dados do SQL](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
+* [Baixe a documentação técnica completa da Sincronização de Dados do SQL](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [Visão geral do Banco de Dados SQL](sql-database-technical-overview.md)
 * [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

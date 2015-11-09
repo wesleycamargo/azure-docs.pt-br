@@ -23,7 +23,7 @@ Um uso de pontos de extremidade é a configuração do balanceador de carga do A
 
 O balanceador de carga do Azure mapeia o endereço IP público e o número da porta do tráfego de entrada até o endereço IP privado e o número da porta da máquina virtual e vice-versa no tráfego de resposta da máquina virtual.
 
->[AZURE.NOTE]Quando você configura o balanceamento de carga do tráfego entre várias máquinas virtuais ou serviços usando configurações padrão, ele fornece uma distribuição aleatória do tráfego de entrada. Se você estiver procurando por afinidade de sessão, confira [modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
+>[AZURE.NOTE]O balanceador de carga do Azure fornecerá um tráfego de rede de distribuição de hash entre várias instâncias de máquina virtual usando as configurações padrão (para obter mais informações sobre a distribuição de hash, veja [Recursos do balanceador de carga](load-balancer-overview.md#load-balancer-features). Se você estiver procurando por afinidade de sessão, confira [modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md).
 
 Para um serviço de nuvem que contenha instâncias de funções web ou funções de trabalho, você pode definir um ponto de extremidade público na definição do serviço (.csdef).
  
@@ -36,7 +36,7 @@ A figura a seguir mostra um ponto de extremidade de balanceamento de carga para 
 
 
 
-Quando os clientes da Internet enviam solicitações de página da Web para o endereço IP público do serviço de nuvem e a porta TCP 443, o balanceador de carga executa um balanceamento de carga baseado em hash dessas solicitações entre as três máquinas virtuais no conjunto de balanceamento de carga. Você pode obter mais informações sobre o algoritmo do balanceador de carga na [página de visão geral do balanceador de carga](load-balancer-overview#load-balancer-features).
+Quando os clientes da Internet enviam solicitações de página da Web para o endereço IP público do serviço de nuvem e a porta TCP 443, o balanceador de carga executa um balanceamento de carga baseado em hash dessas solicitações entre as três máquinas virtuais no conjunto de balanceamento de carga. Você pode obter mais informações sobre o algoritmo do balanceador de carga na página [Visão geral do balanceador de carga](load-balancer-overview.md#load-balancer-features).
 
 
 ## Próximas etapas
@@ -52,4 +52,4 @@ Quando os clientes da Internet enviam solicitações de página da Web para o en
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

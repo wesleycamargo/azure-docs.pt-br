@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integração do Active Directory do Azure ao Directions on Microsoft | Microsoft Azure" description="Saiba como usar o Directions on Microsoft o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integração do Active Directory do Azure ao Directions on Microsoft | Microsoft Azure" 
+    description="Saiba como usar o Directions on Microsoft o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integração do Active Directory do Azure ao Directions on Microsoft
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=533728).
 
 O objetivo deste tutorial é mostrar a integração do Active Directory do Azure ao Directions on Microsoft. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura do Directions on Microsoft
 
-Se você ainda não tiver uma assinatura federada do Directions on Microsoft, envie um solicitação por email para "*service@DirectionsOnMicrosoft.com*”.
+Se ainda não tiver uma assinatura federada do Directions on Microsoft, envie uma solicitação por email para "*service@DirectionsOnMicrosoft.com*”.
 
 Depois de concluir este tutorial, os usuários do Active Directory do Azure que você atribuiu ao Directions on Microsoft poderão fazer um logon único no aplicativo usando o logon único.
 
@@ -40,7 +53,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-directions-microsoft-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-directions-microsoft-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -57,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração do aplicativo **Directions on Microsoft**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **Directions on Microsoft**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Habilitar Logon Único](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Habilitar Logon Único")
 
@@ -69,7 +82,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Configurar a URL do Aplicativo")
 
-4.  Na página **Configurar logon único no Directions on Microsoft**, clique em **Baixar metadados** e salve o arquivo de metadados em seu computador.
+4.  Na página **Configurar logon único no Directions on Microsoft**, clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-directions-microsoft-tutorial/IC786882.png "Configurar o logon único")
 
@@ -77,7 +90,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     >[AZURE.NOTE]O Logon único para o Directions on Microsoft precisa ser habilitado pela equipe de suporte do Directions on Microsoft. Você receberá uma notificação quando o logon único for habilitado.
 
-6.  No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-directions-microsoft-tutorial/IC786883.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -95,8 +108,8 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
     ![Atribuir usuários](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Atribuir usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Sim")
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

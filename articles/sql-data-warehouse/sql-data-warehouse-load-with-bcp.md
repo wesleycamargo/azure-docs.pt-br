@@ -18,6 +18,12 @@
 
 
 # Carregar dados com o bcp
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 O **[bcp][]** é um utilitário de carregamento em massa de linha de comando que permite copiar dados entre o SQL Server, arquivos de dados e o SQL Data Warehouse. Use o bcp para importar grandes quantidades de linhas nas tabelas do SQL Data Warehouse ou para exportar dados das tabelas do SQL Server em arquivos de dados. Exceto quando usado com a opção queryout, o bcp não exige conhecimento em Transact-SQL.
 
 O bcp é uma maneira rápida e fácil de mover conjuntos de dados menores para dentro e fora de um banco de dados do SQL Data Warehouse. O volume exato de dados que é recomendado para carregamento/extração por meio do bcp dependerá da sua conexão de rede com o datacenter do Azure. Geralmente, as tabelas de dimensão podem ser carregadas e extraídas, mas as tabelas de fatos razoavelmente grandes podem demorar bastante para serem carregadas ou extraídas.
@@ -32,7 +38,10 @@ Este tutorial mostrará como:
 - Importar dados em uma tabela usando o comando bcp in
 - Exportar dados de uma tabela usando o comando bcp out
 
+>[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
+
 ## Pré-requisitos
+
 Para acompanhar este tutorial, você precisará:
 
 - Um banco de dados do SQL Data Warehouse.
@@ -41,10 +50,12 @@ Para acompanhar este tutorial, você precisará:
 
 >[AZURE.NOTE]Você pode baixar os utilitários bcp e sqlcmd do [Centro de Download da Microsoft][].
 
-##Importar dados no SQL Data Warehouse
+## Importar dados no SQL Data Warehouse
+
 Neste tutorial, você criará uma tabela no SQL Data Warehouse e importará dados na tabela.
 
 ### Etapa 1: Criar uma tabela no SQL Data Warehouse do Azure
+
 Em um prompt de comando, conecte-se à sua instância usando o comando a seguir, substituindo os valores conforme apropriado:
 
 ```
@@ -162,4 +173,4 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 <!--Other Web references-->
 [Centro de Download da Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

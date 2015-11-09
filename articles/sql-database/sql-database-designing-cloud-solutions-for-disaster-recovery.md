@@ -93,7 +93,7 @@ No caso de uma interrupção em uma das regiões secundários, o gerenciador de 
 
 ![Figura 6](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
 
-A principal **vantagem** desse padrão de design é que você pode escalar a carga de trabalho do aplicativo em vários secundários para obter o desempenho ideal do usuário final. As **desvantagens** dessa opção são:
+A principal **vantagem** desse padrão de design é que você pode dimensionar a carga de trabalho do aplicativo em vários secundários para obter o desempenho ideal para o usuário final. As **desvantagens** dessa opção são:
 
 + conexões de leitura e gravação entre as instâncias do aplicativo e o banco de dados tem latência e custos variáveis
 + o desempenho do aplicativo é afetado durante a interrupção
@@ -147,4 +147,4 @@ A estratégia de DR específica pode combinar ou estender esses padrões para at
 | Implantação ativa-ativa para balanceamento de carga de aplicativo | Acesso de leitura/gravação < 5 s | Tempo de detecção de falha + chamada à API de failover + alteração da cadeia de conexão SQL + teste de verificação de aplicativo
 | Implantação ativa-passiva para preservação de dados | Acesso somente leitura < 5 s Acesso de leitura/gravação = zero | Acesso somente leitura = tempo de detecção de falha de conectividade + teste de verificação de aplicativo <br>Acesso de leitura/gravação = tempo para atenuar a interrupção 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

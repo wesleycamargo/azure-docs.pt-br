@@ -27,7 +27,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 **Notas de instalação do Ubuntu**
 
-- Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd.
+- O formato VHDX não tem suporte no Azure, somente o **VHD fixo**. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd.
 
 - Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar LVM ou [RAID](virtual-machines-linux-configure-raid.md) em discos de dados.
 
@@ -59,7 +59,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. As imagens do Ubuntu Azure estão seguindo o kernel *Habilitação de HardWare* (HWE). Atualize o sistema operacional para o kernel mais recente, executando os seguintes comandos:
+4. As imagens do Ubuntu Azure estão seguindo o kernel de *Habilitação de HardWare* (HWE). Atualize o sistema operacional para o kernel mais recente, executando os seguintes comandos:
 
 	Ubuntu 12,04:
 
@@ -119,4 +119,4 @@ Kernel de Habilitação de HardWare do Ubuntu (HWE)
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

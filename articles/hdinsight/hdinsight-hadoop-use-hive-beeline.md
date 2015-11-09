@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/05/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #Usar o Hive com o Hadoop no HDInsight com Beeline
@@ -55,21 +55,27 @@ Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop ba
 
 ##<a id="beeline"></a>Usar o comando Beeline
 
+1. Uma vez conectado, use o seguinte para obter o nome de host do nó de cabeçalho:
+
+        hostname -f
+    
+    Salve o nome do host retornado, pois ele será usado mais tarde ao se conectar com HiveServer2 por meio do Beeline.
+    
 2. Uma vez conectado, inicie a CLI do Hive usando o seguinte comando:
 
         beeline
 
-2. No prompt `beeline>`, use o seguinte para conectar-se ao serviço HiveServer2:
+2. No prompt `beeline>`, use o seguinte para se conectar ao serviço HiveServer2. Substitua __HOSTNAME__ pelo nome do host retornado para o nó de cabeçalho anteriormente:
 
-        !connect jdbc:hive2://headnode0:10001/;transportMode=http admin
+        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
 
     Quando solicitado, insira a senha da conta do administrador (admin) para o cluster HDInsight. Quando a conexão for estabelecida, o prompt será alterado para o seguinte:
     
-        jdbc:hive2://headnode0:10001/>
+        jdbc:hive2://HOSTNAME:10001/>
 
-3. Os comandos Beeline normalmente começam com um caractere `!`, por exemplo `!help` exibe a Ajuda. No entanto, com frequência o `!` poderá ser omitido. Por exemplo, `help` também funcionará.
+3. Os comandos Beeline normalmente começam com um caractere `!`, por exemplo `!help` exibe a ajuda. No entanto, com frequência o `!` pode ser omitido. Por exemplo, `help` também funcionará.
 
-    Se você exibir a Ajuda, observará `!sql`, que é usado para executar instruções HiveQL. No entanto, o HiveQL é tão comumente usado que você pode omitir o `!sql` anterior. As duas instruções a seguir têm exatamente os mesmos resultados; a exibição das tabelas atualmente disponíveis por meio do Hive:
+    Se você exibir a ajuda, observará `!sql`, que é usado para executar instruções HiveQL. No entanto, o HiveQL é tão comumente usado que você pode omitir o `!sql` anterior. As duas instruções a seguir têm exatamente os mesmos resultados; a exibição das tabelas atualmente disponíveis por meio do Hive:
     
         !sql show tables;
         show tables;
@@ -115,7 +121,7 @@ Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop ba
     * **ROW FORMAT** - informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
     * **STORED AS TEXTFILE LOCATION** - informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
     * **SELECT** - Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
-    * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - Informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Normalmente, você teria somente os dados com o mesmo esquema dentro da mesma pasta durante a consulta com o hive, mas este arquivo de log de exemplo é armazenado com outros formatos de dados.
+    * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** – informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Normalmente, você teria somente os dados com o mesmo esquema dentro da mesma pasta durante a consulta com o hive, mas este arquivo de log de exemplo é armazenado com outros formatos de dados.
 
     > [AZURE.NOTE]As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa, como um processo automático de carregamento de dados, ou outra operação MapReduce, mas sempre quer que as consultas Hive utilizem os dados mais recentes.
     >
@@ -170,15 +176,15 @@ O Beeline também pode ser usado para executar um arquivo com instruções HiveQ
     
 3. Para salvar o arquivo, use __Ctrl__+___\_X__, insira __Y__ e, por fim, __Enter__.
 
-4. Use o seguinte para executar o arquivo usando o Beeline:
+4. Use o seguinte para executar o arquivo usando Beeline. Substitua __HOSTNAME__ pelo nome obtido anteriormente para o nó do cabeçalho, e __PASSWORD__ pela senha da conta de administrador:
 
-        beeline -u 'jdbc:hive2://headnode0:10001/;transportMode=http' -n admin -p GiantR0b0! -f query.hql
+        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
 
 5. Para verificar se a tabela **errorLogs** foi criada, inicie o Beeline e conecte-se ao HiveServer2, então use a seguinte instrução para retornar todas as linhas de **errorLogs**:
 
         SELECT * from errorLogs;
 
-    Três linhas de dados devem ser retornadas, todas contendo **[ERROR]** na coluna t4:
+    Três linhas de dados devem ser devolvidas, todas contendo **[ERROR]** na coluna t4:
     
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
@@ -237,4 +243,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

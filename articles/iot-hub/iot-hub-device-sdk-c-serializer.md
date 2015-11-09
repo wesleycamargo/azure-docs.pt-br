@@ -12,7 +12,7 @@
      ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="nana"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="michelb"/>
 
@@ -656,4 +656,4 @@ Este artigo apresenta detalhes sobre os aspectos exclusivos da biblioteca do **s
 
 Isso também conclui a série de três partes sobre como desenvolver aplicativos com o **SDK do dispositivo IoT do Azure para C**. Essas informações devem ser suficientes para começar, mas também proporcionam um entendimento muito detalhado do funcionamento das APIs. Se você ainda estiver procurando detalhes adicionais, haverá alguns exemplos no SDK que não foram abordados aqui. Caso contrário, a [documentação do SDK](https://github.com/Azure/azure-iot-sdks) é um ótimo recurso para saber mais.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

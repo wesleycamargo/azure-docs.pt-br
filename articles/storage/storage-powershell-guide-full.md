@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2015"
+	ms.date="10/26/2015"
 	ms.author="selcint"/>
 
 # Usando o PowerShell do Azure com o Armazenamento do Azure
@@ -237,7 +237,7 @@ Para obter mais informações sobre como configurar uma cadeia de conexão, cons
 
 Agora você configurou o seu computador e sabe como gerenciar assinaturas e contas de armazenamento usando o PowerShell do Azure. Vá para a próxima seção para aprender a gerenciar blobs do Azure e instantâneos de blob.
 
-## Como gerenciar blobs do Azure e instantâneos de blob
+## Como gerenciar blobs do Azure
 A Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Esta seção pressupõe que você já esteja familiarizado com os conceitos do serviço de Armazenamento de Blob do Azure. Para obter informações detalhadas, confira [Como usar o Armazenamento de Blob do .NET](storage-dotnet-how-to-use-blobs.md) e [Conceitos do serviço Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Como criar um contêiner
@@ -736,4 +736,4 @@ Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerSh
 [Next Steps]: #next
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

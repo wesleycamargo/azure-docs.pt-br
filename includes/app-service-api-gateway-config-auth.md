@@ -14,11 +14,11 @@
   
 3. Escolha o provedor de identidade que você quer usar e siga as etapas no artigo correspondente para configurar seu aplicativo de API com esse provedor. Esses artigos foram escritos para aplicativos móveis, mas os procedimentos são os mesmos para os aplicativos de API. Alguns dos procedimentos exigem que você use o [Portal do Azure].
 
- - [Conta da Microsoft](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Logon no Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Logon no Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Logon no Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Active Directory do Azure](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
+ - [Conta da Microsoft](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
+ - [Logon no Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
+ - [Logon no Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
+ - [Logon no Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
+ - [Active Directory do Azure](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
 
 Por exemplo, as capturas de tela a seguir mostram o que você verá nas páginas do [portal do Azure] e nas folhas do [portal de visualização do Azure] depois de ativar a autenticação do Active Directory do Azure.
 
@@ -38,4 +38,4 @@ No portal do antigo, a guia **Configurar** do aplicativo que você criou no **Ac
 
 (A URL de resposta na imagem mostra a mesma URL duas vezes, uma vez com `http:` e uma vez com `https:`.)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

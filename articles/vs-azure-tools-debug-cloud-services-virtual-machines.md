@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="10/28/2015"
    ms.author="patshea" />
 
 # Depurando um serviço de nuvem ou máquina virtual do Azure no Visual Studio
@@ -88,11 +88,11 @@ Para desanexar o depurador de todos os processos em sua instância ou função, 
 
 ## Limitações da depuração remota no Azure
 
-Para o Azure SDK 4.3, a depuração remota tem as limitações a seguir.
+No SDK 2.3 do Azure, a depuração remota tem as limitações a seguir.
 
 - Com a depuração remota habilitada, você não pode publicar um serviço de nuvem no qual qualquer função tenha mais de 25 instâncias.
 
-- O depurador usa as portas de 30400 a 30424 e de 31400 a 31424. Se você tentar usar algumas delas, não será possível publicar o serviço e uma das seguintes mensagens de erro aparecerá no log de atividades do Azure:
+- O depurador usa as portas 30400 a 30424, 31400 a 31424 e 32400 a 32424. Se você tentar usar algumas delas, não será possível publicar o serviço e uma das seguintes mensagens de erro aparecerá no log de atividades do Azure:
 
     - Erro ao validar o arquivo .cscfg em relação ao arquivo .csdef. O intervalo de portas reservado 'range' para o ponto de extremidade Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector da função 'role' é sobreposto por uma porta ou um intervalo já definido.
     - Falha na alocação. Tente novamente mais tarde, reduzindo o tamanho da VM ou o número de instâncias de função, ou tente implantar em uma região diferente.
@@ -190,4 +190,4 @@ Os projetos ASP.NET do Visual Studio oferecem uma opção para criar uma máquin
 - Use o **Intellitrace** para coletar um log de chamadas e eventos de um servidor de liberação. Consulte [Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Use o **Diagnóstico do Azure** para registrar em log informações detalhadas do código em execução nas funções, estejam elas em execução no ambiente de desenvolvimento ou no Azure. Consulte [Coletando dados de log usando o Diagnóstico do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

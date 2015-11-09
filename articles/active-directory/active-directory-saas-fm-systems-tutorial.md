@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integração do Active Directory do Azure ao FM:Systems | Microsoft Azure" description="Saiba como usar o FM:Systems com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integração do Active Directory do Azure ao FM:Systems | Microsoft Azure" 
+    description="Saiba como usar o FM:Systems com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure ao FM:Systems
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=534787).
   
 O objetivo deste tutorial é mostrar a integração do Azure ao FM:Systems. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do FM:Systems
   
-Depois de concluir este tutorial, os usuários do Azure AD que você atribuiu ao FM:Systems poderão fazer logon único no aplicativo em seu site de empresa do FM:Systems (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao FM:Systems poderão fazer logon único no aplicativo em seu site de empresa do FM:Systems (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,11 +51,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-fm-systems-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-fm-systems-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
-6.  Na **caixa de pesquisa **, digite **FM:Systems**.
+6.  Na **caixa de pesquisa**, digite **FM:Systems**.
 
     ![Galeria de Aplicativos](./media/active-directory-saas-fm-systems-tutorial/IC795900.png "Galeria de Aplicativos")
 
@@ -55,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **FM:Systems**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **FM:Systems**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Configurar o logon único")
 
@@ -67,13 +80,13 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon no FM:Systems**, digite sua **URL de Resposta** do FM:Systems (por exemplo: **https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).
+    1.  Na caixa de texto **URL de Entrada do FM:Systems**, digite a **URL de Resposta** do FM:Systems (por exemplo: **https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*)).
 
         >[AZURE.WARNING]Você pode obter esse valor com a equipe de suporte do FM:Systems.
 
     2.  Clique em **Próximo**.
 
-4.  Na página **Configurar logon único no FM:Systems**, para baixar seus metadados, clique em **Baixar metadados** e salve os metadados no computador.
+4.  Na página **Configurar logon único no FM:Systems**, para baixar os metadados, clique em **Baixar metadados** e salve os metadados no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-fm-systems-tutorial/IC795903.png "Configurar o logon único")
 
@@ -81,7 +94,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     >[AZURE.NOTE]A equipe de suporte do FM:Systems precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
 
-6.  No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-fm-systems-tutorial/IC795904.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -92,7 +105,7 @@ Para permitir que os usuários do Azure AD façam logon no FM:Systems, eles deve
 
 1.  Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do FM:Systems como administrador.
 
-2.  Acesse **Administração do Sistema > Gerenciar Segurança > Usuários > Lista de usuários**.
+2.  Vá para **Administração do Sistema > Gerenciar Segurança > Usuários > Lista de usuários**.
 
     ![Administração do Sistema](./media/active-directory-saas-fm-systems-tutorial/IC795905.png "Administração do Sistema")
 
@@ -100,7 +113,7 @@ Para permitir que os usuários do Azure AD façam logon no FM:Systems, eles deve
 
     ![Criar Novo Usuário](./media/active-directory-saas-fm-systems-tutorial/IC795906.png "Criar Novo Usuário")
 
-4.  Na seção **Criar Usuário**, execute as seguintes etapas:
+4.  Na seção **Criar Usuário**, realize as seguintes etapas:
 
     ![Criar Usuário](./media/active-directory-saas-fm-systems-tutorial/IC795907.png "Criar Usuário")
 
@@ -121,10 +134,10 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
     ![Atribuir Usuários](./media/active-directory-saas-fm-systems-tutorial/IC795908.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

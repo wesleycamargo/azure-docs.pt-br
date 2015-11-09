@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/19/2015"
+   ms.date="10/21/2015"
    ms.author="tomfitz"/>
 
 # Suporte do Gerenciador de Recursos do Azure para serviços, regiões e versões de API
@@ -29,12 +29,12 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
-| Máquinas Virtuais | Sim | Sim | Não | [Criar VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| Batch | Sim | Não | | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
+| Máquinas Virtuais | Sim | Sim, várias opções | Não | [Criar VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
+| Batch | Sim | [Sim (somente clássicas)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Serviços de ciclo de vida do Dynamics | Sim | Não | | | |
-| Máquinas Virtuais (clássicas) | Limitado | Sim | Parcial (veja abaixo) | - | - | | Aplicativo remoto | Não | - | - | - | - | | Service Fabric | Não | - | - | - | - |
+| Máquinas Virtuais (clássicas) | Limitado | Sim, várias opções | Parcial (veja abaixo) | - | - | | Aplicativo Remoto | Não | Não | - | - | - | | Service Fabric | Não | Não | - | - | - |
 
-Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, consulte [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
+Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para obter mais informações sobre esses modelos de implantação, veja [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
 Recursos de máquinas virtuais (clássico) podem ser movidos para um novo grupo de recursos, mas não uma nova assinatura.
 
@@ -42,11 +42,11 @@ Recursos de máquinas virtuais (clássico) podem ser movidos para um novo grupo 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| Gerenciamento da API| Sim | Não | Sim | [Criar API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
-| Aplicativos de API | Sim | Sim | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
-| Aplicativos Web | Sim | Sim | Sim, com limitações (veja abaixo) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
-| Hubs de Notificação | Sim | Sim | | [Criar Hub de Notificação](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
-| Aplicativos Lógicos | Sim | Sim | | | |
+| Gerenciamento da API | Sim | Não | Sim | [Criar API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
+| Aplicativos de API | Sim | [Sim](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
+| Aplicativos Web | Sim | [Sim](https://portal.azure.com/#create/Microsoft.WebSite) | Sim, com limitações (veja abaixo) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
+| Hubs de Notificação | Sim | [Sim](https://portal.azure.com/#create/Microsoft.NotificationHub) | | [Criar Hub de Notificação](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
+| Aplicativos Lógicos | Sim | [Sim](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | | | |
 | Compromisso de mobilidade | Sim | Não | Sim | | |
 
 Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de Aplicativo. Para mover os aplicativos Web, as opções são:
@@ -59,23 +59,23 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
-| Banco de Dados de Documentos | Sim | Sim | Sim | [REST do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| Armazenamento | Sim | Sim | | [Criar Armazenamento](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
-| Cache Redis | Sim | Sim | Sim | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| Banco de dados SQL | Sim | Sim | Sim | [Criar banco de dados](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
-| Pesquisar | Sim | Sim | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| SQL Data Warehouse | Sim | Sim | | | |
-| StorSimple | Não | Não | - | - | - | | Backup | Não | Não | - | - | - | | Recuperação de site | Não | Não | - | - | - | | Cache gerenciado | Não | Não | - | - | - | | Catálogo de dados | Não | Não | - | - | - |
+| Banco de Dados de Documentos | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DocumentDB) | Sim | [REST do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
+| Armazenamento | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [Criar Armazenamento](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
+| Cache Redis | Sim | [Sim](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Sim | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
+| Banco de dados SQL | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Sim | [Criar banco de dados](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| Pesquisar | Sim | [Sim](https://portal.azure.com/#create/Microsoft.Search) | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
+| SQL Data Warehouse | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| StorSimple | Não | Não | - | - | - | | Cache gerenciado | Não | Não | - | - | - |
 
 ## Análise
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Hub de evento | Sim | Não | | [Criar Hub de eventos](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
-| Análise de fluxo | Sim | Sim | | | |
-| HDInsights | Sim | Sim | | | |
-| Data Factory | Sim | Sim | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Aprendizado de Máquina | Não | Não | - | - | - |
+| Análise de fluxo | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
+| HDInsights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
+| Data Factory | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DataFactory) | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
+| Aprendizado de Máquina | Não | Não | - | - | - | | Catálogo de Dados | Não | Não | - | - | - |
 
 ## Rede
 
@@ -84,7 +84,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Application Gateway | Sim | | | | |
 | DNS | Sim | | | [Criar zona DNS](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Balanceador de carga | Sim | | | [Criar balanceador de carga](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Redes Virtuais | Sim | Sim | Não | [Criar Rede Virtual](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Redes Virtuais | Sim | [Sim](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | Não | [Criar Rede Virtual](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Gerenciador de Tráfego | Sim | Não | | [Criar perfil do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
 | Rota Expressa | Sim | Não | Não | [REST da Rota Expressa](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
@@ -101,6 +101,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Serviços do BizTalk | Sim | Não | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Barramento de Serviço | Sim | Não | | [REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
+| Backup | Não | Não | - | - | - | | Recuperação de Site | Não | Não | - | - | - |
 
 ## Gerenciamento de acesso e identidade 
 
@@ -112,19 +113,19 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | Sim | Sim | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
-| Bing Mapas | Sim | Sim | | | |
+| Application Insights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Bing Mapas | Sim | [Sim](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
 | Conta do Visual Studio | Sim | | | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## Gerenciamento 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| Automação | Sim | Sim | | | |
+| Automação | Sim | [Sim](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | | | |
 | Cofre da Chave | Sim | Não | Sim | [REST do Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
 | Agendador | Sim | Não | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Insights Operacionais | Sim | Não | Sim | | |
-| IoTHubs | Sim | Sim | | | |
+| IoTHubs | Sim | [Sim](https://portal.azure.com/#create/Microsoft.IotHub) | | | |
 
 
 ## Regiões com suporte
@@ -139,7 +140,7 @@ Para descobrir quais regiões estão disponíveis para um tipo de recurso espec�
 
 ### PowerShell
 
-O exemplo a seguir mostra como obter as regiões com suporte para sites da web usando o Azure PowerShell 1.0 Preview. Para saber mais sobre a versão 1.0 Preview, consulte [Azure PowerShell 1.0 Preview.](https://azure.microsoft.com/blog/azps-1-0-pre/)
+O exemplo a seguir mostra como obter as regiões com suporte para sites da web usando o Azure PowerShell 1.0 Preview. Para obter mais informações sobre a versão 1.0 Preview, veja [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -159,13 +160,17 @@ A saída será semelhante a:
     Central US
     East US 2
 
+Para o Azure PowerShell 0.9.8, use o seguinte comando:
+
+    PS C:\> ((Get-AzureProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+
 ### CLI do Azure
 
 O exemplo a seguir retorna todos os locais com suporte para cada tipo de recurso.
 
     azure location list
 
-Você também pode filtrar os resultados de local com uma ferramenta como **jq**. Para saber mais sobre ferramentas como jq, consulte [Ferramentas úteis para interagir com o Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+Você também pode filtrar os resultados de local com uma ferramenta como o **jq**. Para saber mais sobre ferramentas como o jq, veja [Ferramentas úteis para interagir com o Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -183,7 +188,7 @@ Ao implantar um modelo, você deve especificar uma versão de API a ser usada pa
 
 ### API REST
 
-Para descobrir quais versões de API está disponíveis para os tipos de recurso, use a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+Para descobrir quais versões de API estão disponíveis para os tipos de recursos, use a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx).
 
 ### PowerShell
 
@@ -204,17 +209,21 @@ A saída será semelhante a:
     2014-04-01-preview
     2014-04-01
 
+Para o Azure PowerShell 0.9.8, use:
+
+    PS C:\> ((Get-AzureProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+
 ### CLI do Azure
 
 Você pode salvar as informações (incluindo as versões disponíveis de API) para um provedor de recursos em um arquivo com o comando a seguir.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
-Você pode abrir o arquivo e localizar o elemento **apiVersions**
+É possível abrir o arquivo e encontrar o elemento **apiVersions**
 
 ## Próximas etapas
 
-- Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
-- Para saber mais sobre como implantar recursos, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./azure-portal/resource-group-template-deploy.md)
+- Para saber mais sobre como criar modelos do Gerenciador de Recursos do Azure, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+- Para saber mais sobre como implantar recursos, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

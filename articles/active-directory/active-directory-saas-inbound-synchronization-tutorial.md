@@ -1,11 +1,21 @@
-<properties pageTitle="Tutorial: Configurando o Workday para sincronização de entrada | Microsoft Azure" description="Saiba como usar a Sincronização de Entrada com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Configurando o Workday para sincronização de entrada | Microsoft Azure" 
+    description="Saiba como usar o Inbound Synchronization com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Configurando o Workday para sincronização de entrada
 >[AZURE.NOTE]O Azure Active Directory (AD) Premium está disponível para clientes na China usando a instância mundial do AD do Azure. O Azure AD Premium não tem suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China.
-
-&nbsp;
-
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=330042).
 
 O objetivo deste tutorial é mostrar as etapas necessárias para executar no Workday e no AD do Microsoft Azure para importar as pessoas do Workday para o AD do Microsoft Azure. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -38,7 +48,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 	![Aplicativos](./media/active-directory-saas-inbound-synchronization-tutorial/IC700994.png "Aplicativos")
 
-4.  Para abrir a **Galeria de aplicativos**, clique em **Adicionar um aplicativo** e, em seguida, clique em **Adicionar um aplicativo para minha organização usar**.
+4.  Para abrir a **Galeria de Aplicativos**, clique em **Adicionar um Aplicativo** e em **Adicionar um aplicativo a ser utilizado pela minha organização**.
 
 	![O que você deseja fazer?](./media/active-directory-saas-inbound-synchronization-tutorial/IC700995.png "O que você deseja fazer?")
 
@@ -52,7 +62,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Criação de um usuário do sistema de integração
 
-1.  No **Workday Workbench**, digite **Criar usuário** na caixa de pesquisa e, em seguida, clique no link **Criar usuário do sistema de integração**.     
+1.  No **Workday Workbench**, digite **criar usuário** na caixa de pesquisa e clique no link **Criar Usuário do Sistema de Integração**.     
 
 	![criar usuário](./media/active-directory-saas-inbound-synchronization-tutorial/IC750979.png "criar usuário")
 
@@ -74,7 +84,7 @@ Para o cenário descrito neste tutorial, você precisa criar um grupo de seguran
 
 ##Atribuindo o usuário do sistema de integração ao grupo de segurança
 
-1.  Insira Editar grupo de segurança na caixa de pesquisa e, em seguida, clique no link **Editar grupo de segurança**.     
+1.  Insira Editar grupo de segurança na caixa de pesquisa e clique no link **Editar Grupo de Segurança**.     
 
 	![Editar grupo de segurança](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "Editar grupo de segurança")
 
@@ -147,28 +157,28 @@ O objetivo desta seção é descrever como configurar o AD do Microsoft Azure pa
 
 ###Para configurar a importação de usuário no AD do Microsoft Azure, execute as seguintes etapas:
 
-1.  Na página de integração do aplicativo **Workday**, clique em **Configurar importação de usuário** para abrir a caixa de diálogo **Configurar provisionamento**.    
+1.  Na página de integração de aplicativos do **Workday**, clique em **Configurar importação de usuários** para abrir o diálogo **Configurar Provisionamento**.    
 
-2.  Na página **Configurações e credenciais de administrador**, execute as seguintes etapas e, em seguida, clique em Avançar:
+2.  Na página **Configurações e credenciais do administrador**, realize as seguintes etapas e clique em Avançar:
 
 	![Configurações e credenciais do administrador](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "Configurações e credenciais do administrador")
 
-	1.  Na caixa de texto **Nome de usuário administrador do Workday**, digite o nome do usuário que você criou na seção [Criando um usuário do sistema de integração](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
+	1.  Na caixa de texto **Nome de usuário administrador do Workday**, digite o nome de usuário que você criou na seção [Criando um usuário do sistema de integração](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
     2.  Na caixa de texto **Senha do administrador do Workday**, digite a senha do usuário que você criou na seção [Criando um usuário do sistema de integração](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
-    3.  Na caixa de texto **URL do locatário do Workday**, digite a URL ou o seu locatário do Workday.    
+    3.  Na caixa de texto **URL de locatário do Workday**, digite a URL ou o seu locatário do Workday.    
 
-3.  Na página **Testar conexão**, clique em **Iniciar teste** para confirmar a conectividade e, em seguida, clique em **Próximo**.
+3.  Na página **Testar conexão**, clique em **Iniciar teste** para confirmar a conectividade e clique em **Avançar**.
 
 	![Testar conexão](./media/active-directory-saas-inbound-synchronization-tutorial/IC750996.png "Testar conexão")
 
-4.  Na página **Opções de provisionamento**, clique em **Próximo**.
+4.  Na página de opções **Provisionamento**, clique em **Avançar**.
 
 	![Opções de provisionamento](./media/active-directory-saas-inbound-synchronization-tutorial/IC750997.png "Opções de provisionamento")
 
-5.  Na caixa de diálogo **Iniciar o provisionamento**, clique em **Concluir**.
+5.  No diálogo **Iniciar provisionamento**, clique em **Concluir**.
 
 	![Iniciar provisionamento](./media/active-directory-saas-inbound-synchronization-tutorial/IC750998.png "Iniciar provisionamento")
 
 Agora, você pode ir para a seção **Usuários** e verificar se o usuário do Workday foi importado.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

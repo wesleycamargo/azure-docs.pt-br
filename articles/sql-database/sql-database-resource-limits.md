@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="09/11/2015"
+	ms.date="10/27/2015"
 	ms.author="jroth" />
 
 
@@ -53,13 +53,13 @@ Para um banco de dados individual, os limites são definidos pelo nível de serv
 
 [AZURE.INCLUDE [Tabela de níveis de serviço de BD SQL para bancos de dados elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Para obter uma discussão detalhada dos níveis de serviço, consulte [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+Para obter uma definição expandida de cada recurso listado nas tabelas anteriores, consulte as descrições em [Limites e recursos das camadas de serviço](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). Para obter uma visão geral das camadas de serviço, consulte [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
 
 ## Cota de DTU por servidor
 
 Atualmente, o Banco de Dados SQL do Azure tem uma cota de DTU por servidor lógico de 15.000 DTUs. Essa cota representa as DTUs que podem ser hospedadas por um servidor lógico, com base na soma das DTUs se o nível de desempenho de cada banco de dados no servidor. Por exemplo, um servidor com cinco bancos de dados Básicos (máximo de 5 x 5 DTUs), dois bancos de dados Standard S1 (máximo de 2 X 20 DTUs) e três bancos de dados Premium P1 (máximo de 3 X 100 DTUs) consumiu 365 DTUs de sua cota de 15.000 DTUs.
 
->[AZURE.NOTE]Você pode solicitar um aumento dessa cota [entrando em contato com o suporte](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+>[AZURE.NOTE]Você pode solicitar um aumento dessa cota [contatando o suporte](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
 ## Outros limites de Banco de Dados SQL
 
@@ -75,4 +75,4 @@ Atualmente, o Banco de Dados SQL do Azure tem uma cota de DTU por servidor lógi
 
 [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

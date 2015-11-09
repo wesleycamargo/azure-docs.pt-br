@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="nana"
+   ms.workload="na"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 
@@ -234,10 +234,10 @@ Para aprender sobre comando e controle, vá para tal seção mais adiante neste 
 
 
    ```
-   static const char* deviceId = "[Device Id]";
-   static const char* deviceKey = "[Device Key]";
-   static const char* hubName = "[IoTHub Name]";
-   static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
+   var deviceID = "[DeviceID]";
+   var deviceKey = "[Device Key]";
+   var hubName = "[IoT Hub Name]";
+   var hubSuffix = "[IoT Hub Suffix i.e azure-devices.net]";
    ```
 
 -  Substitua "[Id do dispositivo]" e "[chave do dispositivo]” com os dados do dispositivo.
@@ -248,10 +248,10 @@ Para aprender sobre comando e controle, vá para tal seção mais adiante neste 
 
 
    ```
-     static const char* deviceId = "mydevice";
-   static const char* deviceKey = "mykey";
-   static const char* hubName = "Contoso";
-   static const char* hubSuffix = "azure-devices.net";
+   var deviceID = "mydevice";
+   var deviceKey = "mykey";
+   var hubName = "Contoso";
+   var hubSuffix = "azure-devices.net";
    ```
 
 
@@ -309,4 +309,4 @@ Agora que o dispositivo está conectado e enviando dados de temperatura gerados 
 
 Há várias maneiras de estender a funcionalidade deste exemplo: conectar o sensor real ao seu dispositivo para enviar a data real; implementar a funcionalidade de comando e controle, etc. Use nosso [guia](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) sobre como estender a solução de monitoramento remoto para saber mais sobre isso.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

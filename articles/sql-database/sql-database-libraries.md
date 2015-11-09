@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="08/04/2015"
 	ms.author="pehteh"/>
 
 
@@ -22,14 +22,6 @@
 
 
 Este tópico lista o número de versão mínimo para cada biblioteca/driver que os programas clientes podem usar ao se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server.
-
-
-Este tópico é dividido em duas seções:
-
-
-- *Tabela das bibliotecas de driver lançadas pela Microsoft* -abrange as bibliotecas lançadas pela Microsoft. A Microsoft mantém as informações contidas nesta seção.
-- *Bibliotecas de terceiros* -lista as bibliotecas lançadas e mantidas por terceiros, e não pela Microsoft. **Somente a comunidade pública de desenvolvedores mantém esta seção. A Microsoft não manterá esta seção.**
-
 
 ## Tabela de bibliotecas de driver lançadas pela Microsoft
 
@@ -45,6 +37,14 @@ A tabela a seguir exibe as bibliotecas lançadas pela Microsoft. A coluna **Bibl
 | ODBC | Windows | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0+ | Microsoft ODBC Driver para SQL Server | [Link](http://msdn.microsoft.com/library/jj730308.aspx) |
 | ODBC | Suse Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Microsoft ODBC Driver para SQL Server | . |
 | ODBC | Redhat Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Microsoft ODBC Driver para SQL Server | . |
+
+### Suporte para ODBC
+
+Ao usar o assistente de DSN (nome da fonte de dados) para definir uma fonte de dados para o Banco de Dados SQL do Azure, clique na opção **Com Autenticação do SQL Server usando uma ID de logon e senha inseridos pelo usuário** e selecione **Conectar-se ao SQL Server para obter as configurações padrão das opções de configuração adicionais**. Insira seu nome de usuário e senha para se conectar ao seu servidor do Banco de Dados SQL do Azure como **ID de logon** e **Senha**. Desmarque a caixa de seleção **Conectar-se ao SQL Server para obter as configurações padrão...** Clique em **Alterar o banco de dados padrão para:** e digite o nome do seu Banco de Dados SQL do Azure, mesmo que ele não apareça na lista. Observe que o assistente lista vários idiomas na lista **Alterar o idioma das mensagens de sistema do SQL Server para:**.
+
+Nesta versão, o Banco de Dados SQL do Microsoft Azure dá suporte a apenas ao inglês, então selecione inglês como idioma. O Banco de Dados SQL do Microsoft Azure não dá suporte a **Servidor Espelho** ou **Anexar Banco de Dados**, portanto, deixe esses itens vazios. Clique em **Testar conexão**.
+
+Ao usar o driver ODBC do SQL Server 2008 Native Client, o botão **Testar Conexão** pode levar a um erro em que **master.dbo.syscharsets** não tem suporte. Ignore este erro, salve o DSN e use-o.
 
 
 ### OLEDB para DB2 e SQL Server, para design DRDA
@@ -82,4 +82,4 @@ A tabela a seguir exibe as bibliotecas lançadas por terceiros, como outras empr
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

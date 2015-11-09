@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 
@@ -292,9 +292,9 @@ A definição de trabalho descreve onde encontrar o workflow.xml, bem como outro
 
 	Isso retornará informações similares às seguintes:
 
-		headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net
+		hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net
 
-	A porta usada para o JobTracker é 8050, de modo que o endereço completo a ser usado para o JobTracker é **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050**.
+	A porta usada para o JobTracker é a 8050, assim, o endereço completo a ser usado para o JobTracker será **hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050**.
 
 1. Use o seguinte para criar a configuração de definição de trabalho do Oozie:
 
@@ -390,13 +390,13 @@ As etapas a seguir usam o comando Oozie para enviar e gerenciar fluxos de trabal
 	Isso retornará um valor semelhante ao seguinte:
 
 		<name>oozie.base.url</name>
-		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
+		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	A parte ****http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** é a URL a ser usada com o comando do Oozie.
+	A parte ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** é a URL a ser usada com o comando do Oozie.
 
 2. Use o seguinte para criar uma variável de ambiente para a URL para que você não precise digitá-la para cada comando:
 
-		export OOZIE_URL=http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie
+		export OOZIE_URL=http://HOSTNAMEt:11000/oozie
 
 	Substitua a URL pela recebida anteriormente.
 
@@ -477,11 +477,7 @@ A IU da Web do Oozie fornece um modo de exibição baseado na web sobre o status
 
 Para acessar a interface do usuário do Oozie da Web, use as seguintes etapas:
 
-1. Crie um túnel SSH para o cluster HDInsight. Para obter informações sobre como fazer isso, consulte um destes procedimentos:
-
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
-
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+1. Crie um túnel SSH para o cluster HDInsight. Para obter mais informações sobre como fazer isso, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IUs da Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 2. Quando um túnel tiver sido criado, abra a interface do usuário da Web do Ambari no navegador da Web. O URI do site Ambari é ****https://CLUSTERNAME.azurehdinsight.net**. Substitua **NOMEDOCLUSTER** pelo nome do cluster do HDInsight baseado em Linux.
 
@@ -725,4 +721,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

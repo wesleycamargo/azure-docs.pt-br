@@ -195,22 +195,41 @@ Se você quiser uma lista de usuários com dados como, por exemplo, quais págin
 
 ## Reduzir o tráfego do meu aplicativo no Application Insights
 
-* Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), desabilite todos os módulos dos quais você não precisa, como contadores de desempenho.
-* Se você estiver usando o [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcule a agregação de lotes de valores de métrica antes de enviar o resultado. Há uma sobrecarga de TrackMetric() que possibilita isso.
+* Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), desabilite todos os módulos dos quais você não precisa, como o coletor do contador de desempenho.
+* Use a [Amostragem e filtragem](app-insights-api-filtering-sampling.md) no SDK.
+* Se estiver usando o [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcule a agregação de lotes de valores de métrica antes de enviar o resultado. Há uma sobrecarga de TrackMetric() que possibilita isso.
 
-Saiba mais sobre [cotas e preços](app-insights-pricing.md).
+
+Saiba mais sobre [preços e cotas](app-insights-pricing.md).
+
+## Desabilitar telemetria
+
+Para **parar e iniciar dinamicamente** a coleta e a transmissão de telemetria do servidor:
+
+```
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+
+
+Para **desabilitar os coletores padrão selecionados** - por exemplo, contadores de desempenho, solicitações HTTP ou dependências - exclua ou comente as linhas relevantes em [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). Você poderá fazer isso, por exemplo, se quiser enviar seus próprios dados de TrackRequest.
+
+
 
 ## Exibir contadores de desempenho do sistema
 
-Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto de contadores de desempenho do sistema. Há uma folha predefinida denominada **Servidores** que exibe vários deles.
+Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto de contadores de desempenho do sistema. Há uma folha predefinida intitulada **Servidores** que exibe vários deles.
 
 ![Abra o recurso Application Insights e clique em Servidores](./media/app-insights-how-do-i/121-servers.png)
 
 ### Se você não ver dados do contador de desempenho
 
-* **Servidor IIS** em sua própria máquina ou em uma VM. [Instalar Monitor de Status](app-insights-monitor-performance-live-website-now.md). 
-* **Site do azure** - ainda não há suporte para contadores de desempenho. Existem várias métricas que você pode obter como parte padrão do painel de controle do site do Azure.
-* **Servidor Unix** - [instalar collectd](app-insights-java-collectd.md)
+* **Servidor IIS** em seu próprio computador ou em uma VM. [Instalar Monitor de Status](app-insights-monitor-performance-live-website-now.md). 
+* **Site do Azure** - ainda não há suporte para contadores de desempenho. Existem várias métricas que você pode obter como parte padrão do painel de controle do site do Azure.
+* **Servidor Unix** - [Instalar collectd](app-insights-java-collectd.md)
 
 ### Para exibir mais contadores de desempenho
 
@@ -224,4 +243,4 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 
 Atualmente, não monitoramos contadores de desempenho
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

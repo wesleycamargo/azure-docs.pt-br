@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Instalar e usar o Solr em clusters HDInsight do Hadoop
@@ -158,19 +158,29 @@ O painel do Solr é uma IU Web que permite que você trabalhe com o Solr atravé
 
 Depois de estabelecer um túnel SSH, use as seguintes etapas para usar o painel do Solr:
 
-1. No seu navegador, conecte-se a \_\___http://headnode0:8983/solr/#/__. Esse tráfego deve ser roteado por meio do túnel SSH para headnode0 para o cluster HDInsight. Você verá uma página semelhante à seguinte:
+1. Determine o nome de host para o nó de cabeçalho:
+
+    1. Em um navegador, vá para https://CLUSTERNAME.azurehdinsight.net. Quando solicitado, use o nome de usuário e a senha de administrador para se autenticar no site.
+    
+    2. No menu na parte superior da página, selecione __Hosts__.
+    
+    3. Selecione a entrada que começa com __hn0__. Quando a página é aberta, o nome do host é exibido na parte superior. O formato do nome do host é __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. Esse é o nome de host, que você deve usar ao se conectar ao painel do Solr.
+    
+1. No navegador, conecte-se a \___http://HOSTNAME:8983/solr/#/__, em que __HOSTNAME__ é o nome determinado nas etapas anteriores.
+
+    Esse tráfego deve ser roteado por meio do túnel SSH para o nó de cabeçalho do cluster HDInsight. Você verá uma página semelhante à seguinte:
 
 	![Imagem do painel do Solr](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
-2. No painel à esquerda, use a lista suspensa **Seletor de Núcleo** para selecionar **coleção1**. Várias entradas devem aparecer então abaixo de __coleção1__.
+2. No painel à esquerda, use a lista suspensa **Seletor de Núcleo** para selecionar **collection1**. Várias entradas devem aparecer então abaixo de __collection1__.
 
-3. Nas entradas abaixo de __coleção1__, selecione __Consulta__. Use os valores a seguir para preencher a página de pesquisa:
+3. Nas entradas abaixo de __collection1__, selecione __Consulta__. Use os valores a seguir para preencher a página de pesquisa:
 
 	* Na caixa de texto **q**, digite ***:***. Isso retornará como resultado todos os documentos que são indexados em Solr. Se você quiser procurar uma cadeia de caracteres específica dentro dos documentos, você pode inserir essa cadeia de caracteres aqui.
 
 	* Na caixa de texto **wt**, selecione o formato de saída. O padrão é **json**.
 
-	Por fim, selecione o botão **Executar consulta** na parte inferior da página de pesquisa.
+	Por fim, selecione o botão **Executar Consulta** na parte inferior da página de pesquisa.
 
 	![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
 
@@ -240,9 +250,13 @@ Se você precisar interromper ou iniciar o Solr manualmente, use os seguintes co
 
 Como uma prática recomendada, você deve fazer backup dos dados indexados de nós do cluster Solr no armazenamento de Blob do Azure. Execute as seguintes etapas para fazê-lo:
 
-1. Conecte-se ao cluster usando o SSH, então use o comando a seguir para criar um instantâneo dos dados indexados:
+1. Conecte-se ao cluster usando o SSH, depois use o comando a seguir para obter o nome de host do nó de cabeçalho:
 
-		curl http://headnode0:8983/solr/replication?command=backup
+        hostname -f
+        
+2. Use o seguinte para criar um instantâneo dos dados indexados. Substitua __HOSTNAME__ pelo nome retornado do comando anterior:
+
+		curl http://HOSTNAME:8983/solr/replication?command=backup
 
 	Você verá uma resposta semelhante a essa:
 
@@ -255,7 +269,7 @@ Como uma prática recomendada, você deve fazer backup dos dados indexados de n�
 		  <str name="status">OK</str>
 		</response>
 
-2. Em seguida, altere os diretórios para __/usr/hdp/current/solr/example/solr__. Haverá um subdiretório aqui para cada coleção. Cada diretório de coleção contém um diretório __dados__, que é onde o instantâneo para essa coleção está localizado.
+2. Em seguida, altere os diretórios para __/usr/hdp/current/solr/example/solr__. Haverá um subdiretório aqui para cada coleção. Cada diretório da coleção contém um diretório __dados__, que é onde o instantâneo para essa coleção está localizado.
 
 	Por exemplo, se você usou as etapas anteriores para indexar os documentos de exemplo, o diretório __/usr/hdp/current/solr/example/solr/collection1/data__ agora deve conter um diretório chamado __snapshot.###########__, em que os símbolos “#” são a data e hora do instantâneo.
 
@@ -263,7 +277,7 @@ Como uma prática recomendada, você deve fazer backup dos dados indexados de n�
 
 		tar -zcf snapshot.20150806185338855.tgz snapshot.20150806185338855
 
-	Isso criará um novo arquivo chamado __snapshot.20150806185338855.tgz__ com os conteúdos do diretório __snapshot.20150806185338855__.
+	Isso criará um novo arquivo chamado __snapshot.20150806185338855.tgz__, que contém o conteúdo do diretório __snapshot.20150806185338855__.
 
 3. Em seguida, você pode armazenar o arquivo para armazenamento primário do cluster usando o seguinte comando:
 
@@ -271,12 +285,12 @@ Como uma prática recomendada, você deve fazer backup dos dados indexados de n�
 
 	> [AZURE.NOTE]Talvez você queira criar um diretório dedicado para armazenar os instantâneos do Solr. Por exemplo: `hadoop fs -mkdir /solrbackup`.
 
-Para obter mais informações sobre como trabalhar com backups e restaurações do Solr, consulte [Fazendo backups e restaurações de SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
+Para obter mais informações sobre como trabalhar com backups e restaurações do Solr, consulte [Fazendo e restaurando backups de SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
 
 
 ## Consulte também
 
-- [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md). O Hue é uma interface do usuário da Web que torna mais fácil criar, executar e salvar trabalhos Pig e Hive, bem como procurar o armazenamento padrão do cluster HDInsight.
+- [Instalar e usar matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md). O Hue é uma interface do usuário da Web que torna mais fácil criar, executar e salvar trabalhos Pig e Hive, bem como procurar o armazenamento padrão do cluster HDInsight.
 
 - [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark]. Use a personalização do cluster para instalar o Spark em clusters de Hadoop do HDInsight. O Spark é uma estrutura de processamento paralelo de software livre que dá suporte a processamento na memória para melhorar o desempenho de aplicativos analíticos de Big Data.
 
@@ -284,7 +298,7 @@ Para obter mais informações sobre como trabalhar com backups e restaurações 
 
 - [Instalar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md). Use a personalização do cluster para instalar o Giraph em clusters de Hadoop do HDInsight. O Giraph permite que você realize processamento de tabelas usando o Hadoop, além de poder ser usado com o HDInsight do Azure.
 
-- [Instalar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar o Hue em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
+- [Instalar matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar o Hue em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
 
 
 
@@ -294,4 +308,4 @@ Para obter mais informações sobre como trabalhar com backups e restaurações 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

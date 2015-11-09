@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/22/2015"
    ms.author="telmos" />
 
 # O que é um NSG (grupo de segurança de rede)?
@@ -23,7 +23,7 @@ Você pode usar um NSG para controlar o tráfego em uma ou mais instâncias de m
 
 ![NSGs](./media/virtual-network-nsg-overview/figure1.png)
 
-A figura acima mostra uma rede virtual com duas sub-redes, com um NSG associado a cada sub-rede para o controle de tráfego.
+A figura acima mostra uma rede virtual com duas sub-redes e quatro VMs (duas em cada sub-rede). Observe que as VMs na rede de *Back-end* têm PIPs (IPs públicos) diretamente associados a elas, e as VMs na sub-rede de *Front-end* estão atrás de um balanceador de carga do Azure. Você pode usar NSGs vinculadas a cada sub-rede para controlar como o tráfego flui para a sub-rede, independentemente de serem originadas de um VIP ou um PIP.
 
 >[AZURE.NOTE]Não há suporte para grupos de segurança de rede e ACLs baseadas em ponto de extremidade na mesma instância de VM. Se você quiser usar um NSG e já tiver uma ACL de ponto de extremidade à disposição, primeiro remova a ACL de ponto de extremidade. Para saber mais sobre como fazer isso, confira [Gerenciando listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md).
 
@@ -33,33 +33,36 @@ Os grupos de segurança de rede são diferentes das ACLs baseadas em ponto de ex
 
 Um grupo de segurança de rede tem um *nome*, está associado a um *região* e tem um rótulo descritivo. Ele contém dois tipos de regras: **entrada** e **saída**. As Regras de entrada são aplicadas aos pacotes de entrada de uma máquina virtual e as Regras de saída são aplicadas a pacotes de saída de uma VM. As regras são aplicadas no host onde a VM está localizada. Um pacote de entrada ou de saída tem que corresponder a uma regra **Permitir** para ser aceito; do contrário, será descartado.
 
+### Regras NSG
+
 As regras são processadas na ordem de prioridade. Por exemplo, uma regra com um número de prioridade mais baixo (por exemplo, 100) é processada antes das regras com números de prioridade mais altos (por exemplo, 200). Quando uma correspondência é encontrada, nenhuma outra regra é processada.
 
-Uma regra especifica o seguinte:
+Uma regra NSG contém as propriedades a seguir.
 
-- **Nome:** um identificador exclusivo para a regra
+|Propriedade|Descrição|Valores de exemplo|
+|---|---|---|
+|**Descrição**|Descrição da regra|Permitir tráfego de entrada para todas as VMs na sub-rede X|
+|**Protocolo**|Protocolo para fazer a correspondência da regra|TCP, UDP ou *| |**Intervalo de porta de origem**|Intervalo de portas de origem para fazer a correspondência da regra|80, 100-200, *| |**Intervalo de porta de destino**|Intervalo de portas de destino para fazer a correspondência da regra|80, 100-200, *| |**Prefixo do endereço de origem**|Prefixo de endereço de origem para fazer a correspondência da regra|10\.10.10.1, 10.10.10.0/24, REDE\_VIRTUAL|
+|**Prefixo de endereço de destino**|Prefixo de endereço de destino para fazer a correspondência da regra|10\.10.10.1, 10.10.10.0/24, REDE\_VIRTUAL|
+|**Direção**|Direção do tráfego para fazer a correspondência da regra|entrada ou saída|
+|**Prioridade**|Prioridade da regra. As regras são verificadas em ordem de prioridade, e depois que uma regra é aplicada, nenhuma outra regra é testada quanto à correspondência.|10, 100, 65000|
+|**Access**|Tipo de acesso a ser aplicado se a regra for correspondente|permitir ou negar|
 
-- **Tipo:** Entrada/Saída
+### Marcas padrão
 
-- **Prioridade:** <You can specify an integer between 100 and 4096>
+Marcas padrão são identificadores fornecidos pelo sistema para atender a uma categoria de endereços IP. Você pode usar marcas padrão nas propriedades *prefixo de endereço de origem* e *prefixo de endereço de destino* de qualquer regra. Há três marcas padrão que você pode usar.
 
-- **Endereço IP de origem:** CIDR do intervalo de IP de origem
+- **REDE\_VIRTUAL:** essa marca padrão indica todo o espaço de endereço de rede. Ela inclui o espaço de endereço da rede virtual (intervalos de CIDR definidos no Azure), bem como todos os espaços de endereço locais conectados e redes virtuais do Azure conectadas (redes locais).
 
-- **Intervalo de porta de origem:** <integer or range between 0 and 65536>
+- **BALANCEADORDECARGA\_AZURE:** essa marca padrão denota o balanceador de carga de infraestrutura do Azure. Isso significa um IP de datacenter do Azure de onde se originarão as investigações de integridade do Azure. Ele somente é necessário se a VM ou um conjunto de máquinas virtuais associado ao NSG estiver participando de um conjunto de balanceamento de carga.
 
-- **Intervalo de IP de destino:** CIDR do intervalo de IP de destino
-
-- **Intervalo de porta de destino:** <integer or range between 0 and 65536>
-
-- **Protocolo:** <TCP, UDP ou ' *' são permitidos>
-
-- **Acesso:** Permitir/Negar
+- **INTERNET:** essa marca padrão denota o espaço de endereço IP que está fora da rede virtual e acessível através da Internet pública. Esse intervalo também inclui o espaço de IP público de propriedade do Azure.
 
 ### Regras padrão
 
 Um NSG contém regras padrão. As regras padrão não podem ser excluídas, mas como recebem a prioridade mais baixa, elas podem ser substituídas pelas regras que você criar. As regras padrão descrevem as configurações padrão recomendadas pela plataforma. Como ilustrado pelas regras padrão abaixo, o tráfego que começa e termina em uma VNet é permitido tanto na Entrada quanto na Saída.
 
-Enquanto a conectividade com a Internet é permitida na Saída, ela é por padrão bloqueada na Entrada. Há uma regra padrão para permitir que o BL (balanceador de carga) do Azure investigue a integridade da VM. Você pode substituir essa regra se a VM ou o conjunto de VMs no NSG não participar do conjunto de balanceamento de carga.
+Enquanto a conectividade com a Internet é permitida na Saída, ela é por padrão bloqueada na Entrada. Há uma regra padrão para permitir que o BL (balanceador de carga) do Azure investigue a integridade da VM. Você pode substituir essa regra se a VM ou o conjunto de VMs no NSG não participar de um conjunto de balanceamento de carga.
 
 As regras padrão são:
 
@@ -78,20 +81,6 @@ As regras padrão são:
 | PERMITIR SAÍDA DA VNET | 65000 | REDE\_VIRTUAL | * | REDE\_VIRTUAL | * | * | PERMITIR |
 | PERMITIR SAÍDA DA INTERNET | 65001 | * | * | INTERNET | * | * | PERMITIR |
 | NEGAR TODAS AS SAÍDAS | 65500 | * | * | * | * | * | NEGAR |
-
-### Marcas padrão
-
-Marcas padrão são identificadores fornecidos pelo sistema para atender a uma categoria de endereços IP. As marcas padrão podem ser especificadas nas regras definidas pelo cliente. As marcas padrão são os seguintes:
-
-- **REDE\_VIRTUAL:** essa marca padrão indica todo o espaço de endereço de rede. Ela inclui o espaço de endereço da rede virtual (CIDR de IP no Azure), bem como todo o espaço de endereço local conectado (redes locais). Isso também inclui espaços de endereço VNet para VNet .
-
-- **BALANCEADORDECARGA\_AZURE:** essa marca padrão denota o balanceador de carga de infraestrutura do Azure. Isso significa um IP de datacenter do Azure de onde se originarão as investigações de integridade do Azure. Ele somente é necessário se a VM ou um conjunto de máquinas virtuais associado ao NSG estiver participando de um conjunto de balanceamento de carga.
-
-- **INTERNET:** essa marca padrão denota o espaço de endereço IP que está fora da rede virtual e acessível através da Internet pública. Esse intervalo também inclui o espaço de IP público de propriedade do Azure.
-
-### Tráfego ICMP
-
-As atuais regras do NSG permitem apenas protocolos *TCP* ou *UDP*. Não há uma marca específica para *ICMP*. No entanto, o tráfego ICMP é permitido em uma Rede Virtual por padrão por meio das regras da VNet de entrada que permitem o tráfego de/para qualquer porta e protocolo na VNet.
 
 ## Associando NSGs
 
@@ -141,11 +130,17 @@ Em vez de usar uma regra de negação, considere o uso de uma regra para permiti
 
 >[AZURE.WARNING]O Azure usa uma sub-rede especial conhecida como sub-rede de **Gateway** para manipular o gateway de VPN para outras VNets e redes locais. A associação de um NSG a essa sub-rede fará com que o gateway de VPN pare de funcionar como esperado. NÃO associe NSGs a sub-redes de gateway!
 
+### Regras especiais
+
 Você também precisa levar em conta as regras especiais listadas abaixo. Certifique-se de não bloquear o tráfego permitido por essas regras, caso contrário sua infraestrutura não poderá se comunicar com os serviços essenciais do Azure.
 
 - **IP virtual do nó do host:** serviços básicos de infraestrutura, como DHCP, DNS e integridade de monitoramento, são fornecidos pelo endereço IP virtualizado host 168.63.129.16. Este endereço IP público pertence à Microsoft e será o único endereço IP virtualizado usado em todas as regiões para essa finalidade. Esse endereço IP é mapeado para o endereço IP físico da máquina do servidor (nó do host) que hospeda a máquina virtual. O nó do host atua como a retransmissão DHCP, o solucionador de DNS recursivo e a fonte de sonda para a investigação de integridade do balanceador de carga e a investigação de integridade da máquina. A comunicação com esse endereço IP não deve ser considerada como um ataque.
 
 - **Licenciamento (Serviço de Gerenciamento de Chaves):** as imagens do Windows em execução nas máquinas virtuais devem ser licenciadas. Para fazer isso, uma solicitação de licenciamento é enviada para os servidores de host do serviço de gerenciamento de chaves que lidar com essas consultas. Isso sempre será na porta de saída 1688.
+
+### Tráfego ICMP
+
+As atuais regras do NSG permitem apenas protocolos *TCP* ou *UDP*. Não há uma marca específica para *ICMP*. No entanto, o tráfego ICMP é permitido em uma Rede Virtual por padrão por meio das regras da VNet de entrada que permitem o tráfego de/para qualquer porta e protocolo na VNet.
 
 ## Limites
 
@@ -164,4 +159,4 @@ Lembre-se de exibir todos os [limites relacionados aos serviços de rede no Azur
 - [Implantar NSGs no modelo de implantação clássico](virtual-networks-create-nsg-classic-ps.md).
 - [Implantar NSGs no Gerenciador de Recursos](virtual-networks-create-nsg-arm-pportal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

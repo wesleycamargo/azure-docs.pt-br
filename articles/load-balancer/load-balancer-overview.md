@@ -16,7 +16,8 @@
    ms.author="joaoma" />
 
 
-# Visão geral do balanceador de carga 
+# O que é balanceador de carga do Azure?
+ 
 O balanceador de carga do Azure oferece alta disponibilidade e desempenho de rede para seus aplicativos. É um balanceador de carga do tipo Camada 4 (TCP, UDP) que distribui tráfego de entrada entre instâncias íntegras de serviço, em serviços de nuvem ou máquinas virtuais, definidos em um conjunto de balanceador de carga.
  
 Ele pode ser configurado para:
@@ -87,7 +88,7 @@ A configuração do balanceador de carga do Azure dá suporte para NAT de cone c
 
 Você pode obter mais de um endereço IP público de balanceamento de carga atribuído a um conjunto de máquinas virtuais. Com esse recurso, você pode hospedar vários sites SSL e/ou ouvintes de Grupo de Disponibilidade AlwaysOn do SQL no mesmo conjunto de máquinas virtuais. Saiba mais em [Vários VIPs por serviço de nuvem](load-balancer-multivip.md)
 
-**Implantações baseadas em modelos usando o Gerenciador de recursos do Azure (visualização pública)** Gerenciador de Recursos do Azure (ARM) é a nova estrutura de gerenciamento de serviços no Azure. O balanceador de carga do Azure agora pode ser gerenciado usando ferramentas e APIs baseadas no Gerenciador de Recursos do Azure. Para saber mais sobre o Gerenciador de Recursos do Azure, consulte [Iaas ficou mais fácil com o Gerenciador de Recursos do Azure](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
+****Implantações baseadas em modelos usando o Gerenciador de Recursos do Azure ** ARM (Gerenciador de Recursos do Azure) é a nova estrutura de gerenciamento de serviços no Azure. O balanceador de carga do Azure agora pode ser gerenciado usando ferramentas e APIs baseadas no Gerenciador de Recursos do Azure. Para saber mais sobre o Gerenciador de Recursos do Azure, consulte [Iaas ficou mais fácil com o Gerenciador de Recursos do Azure](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
 
 
 ## Próximas etapas
@@ -99,4 +100,4 @@ Você pode obter mais de um endereço IP público de balanceamento de carga atri
 [Introdução - Balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

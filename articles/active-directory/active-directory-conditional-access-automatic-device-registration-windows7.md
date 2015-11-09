@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="10/26/2015"
 	ms.author="femila"/>
 
 # Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7
@@ -22,7 +22,7 @@ Como um administrador de TI, você pode configurar seus dispositivos ingressados
 
 ##Instalar o pacote de software de registro de dispositivo em dispositivos ingressados no Windows 7
 
-O registro de dispositivo para o Windows 7 está disponível como um pacote MSI baixável. O pacote deve ser instalado em computadores Windows 7 que fazem parte de um domínio do Active Directory. Você deve implantar o pacote usando um sistema de distribuição de software como o System Center Configuration Manager. O pacote MSI dá suporte às opções de instalação silenciosa padrão com o parâmetro /quiet. O pacote de software está disponível para download no site do Microsoft Connect. Aqui você pode selecionar e baixar o Ingresso no Local de Trabalho para o Windows 7.
+O registro de dispositivo para o Windows 7 está disponível como um [pacote MSI que pode ser baixado](https://connect.microsoft.com/site1164). O pacote deve ser instalado em computadores Windows 7 que fazem parte de um domínio do Active Directory. Você deve implantar o pacote usando um sistema de distribuição de software como o System Center Configuration Manager. O pacote MSI dá suporte às opções de instalação silenciosa padrão com o parâmetro /quiet. O pacote de software está disponível para download no [site do Microsoft Connect](https://connect.microsoft.com/site1164). Aqui você pode selecionar e baixar o Ingresso no Local de Trabalho para o Windows 7.
 
 ![](./media/active-directory-conditional-access/device-registration-process-windows7.gif)
 
@@ -52,4 +52,4 @@ Em seguida, abra um prompt de comando no computador com o Windows 7 e execute o 
 
 O Log de Eventos do Windows no computador Windows 7 exibirá as mensagens relacionadas ao Ingresso no Local de Trabalho. Você pode encontrar mensagens de eventos de Ingresso no Local de Trabalho bem-sucedidas e malsucedidas. O Log de Eventos pode ser encontrado no Visualizador de Eventos em Logs de Aplicativos e Serviços > Ingresso no Local de Trabalho da Microsoft.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

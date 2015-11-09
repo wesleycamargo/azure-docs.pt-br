@@ -1,8 +1,8 @@
 Recurso| Limite padrão
 ---|---
-Perfis por assinatura | 100
+Perfis por assinatura | 100 <sup>1</sup>
 Pontos de extremidade por perfil| 200
 
-Contate o suporte para aumentar o limite padrão
+<sup>1</sup>Contate o suporte caso precise aumentar esses limites.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

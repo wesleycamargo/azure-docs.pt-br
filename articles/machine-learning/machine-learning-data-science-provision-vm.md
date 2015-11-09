@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/27/2015" 
 	ms.author="bradsev" />
 
 
@@ -48,19 +48,19 @@ Antes de criar uma VM do Azure, você deve ter o seguinte:
 As etapas envolvidas na criação de sua instância da VM de ciência de dados são as seguintes:
 
 1.	Faça logon no portal do Azure
-2.	Navegue até **Novo** -> **Computação** -> **Marketplace** e procure *Máquina Virtual de Ciência de Dados*. Selecione a VM chamada “**Máquina Virtual de Ciência de Dados**” publicados pela Microsoft para ver um painel que descreve a Máquina Virtual de Ciência de Dados
-3.	Clique no botão **Criar** na parte inferior para ser levado para um assistente. ![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
-4.	 As seções a seguir fornecem as entradas para cada etapa no assistente usada para criar a VM de Ciência de Dados
-
+2.	Navegue até **Novo** -> **Computação** -> **Marketplace** e procure *Máquina Virtual de Ciência de Dados*.![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
+3.	Selecione a VM chamada “**Máquina Virtual de Ciência de Dados**” publicada pela Microsoft para ver um painel que descreve a Máquina virtual de ciência de dados 	
+4.	 Clique no botão **Criar** na parte inferior para ser levado para um assistente. ![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+5.	 As seções a seguir fornecem as entradas para cada uma das 5 etapas (enumeradas à direita da figura acima) do assistente usado para criar a VM de ciência de dados. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
 
  **1. Noções básicas**:
 
-- **Nome**: o nome do seu servidor de ciência de dados que você está criando.
+- **Nome**: o nome do servidor de ciência de dados que você está criando.
 - **Nome de Usuário**: ID de logon da conta de administrador
 - **Senha**: senha da conta de administrador
 - **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado
 - **Grupo de Recursos**: é possível criar um novo grupo ou usar um existente
-- **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede
+- **Local**: selecione o data center mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede
 
  **2. Tamanho**:
 
@@ -97,10 +97,10 @@ Se desejar usar o R para a análise, a VM tem o RRO (Revolution R Open) instalad
 Para o desenvolvimento com Python, a distribuição do Anaconda Python 2.7 foi instalada. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. Você pode usar pacotes de IDEs com o Anaconda como o IDLE ou Spyder. Você pode iniciar um desses pesquisando na barra de pesquisa (tecla **Win** + **S**).
 
 ### IPython Notebook
-A distribuição do Anaconda também é incluída em um IPython Notebook, um ambiente de compartilhamento de código e análise. Um servidor do Ipython Notebook foi pré-configurado. Há um ícone de área de trabalho para iniciar o navegador para acessar o servidor do bloco de anotações. Se estiver na VM por meio da área de trabalho remota, você também poderá visitar [https://localhost:9999/](https://localhost:9999/) para acessar o servidor do IPython Notebook (Observação: basta clicar em Continuar se receber avisos de certificado.)
+A distribuição do Anaconda também é incluída em um IPython Notebook, um ambiente de compartilhamento de código e análise. Um servidor do Ipython Notebook foi pré-configurado. Há um ícone de área de trabalho para iniciar o navegador para acessar o servidor do bloco de anotações. Se estiver na VM por meio da área de trabalho remota, você também poderá visitar [https://localhost:9999/](https://localhost:9999/) para acessar o servidor de notebook IPython (Observação: basta clicar em Continuar se receber avisos de certificado.)
 
 ### Visual Studio 2015 Community edition
-Visual Studio Community edition instalada na VM. É uma versão gratuita do IDE popular da Microsoft que pode ser usada para fins de avaliação e para equipes muito pequenas. Confira os termos de uso ***aqui*** (Link TBD). Abra o Visual Studio, clicando duas vezes no ícone da área de trabalho ou no menu **Iniciar**. Você também pode procurar programas com **Win** + **S** e inserindo “Visual Studio”.
+Visual Studio Community edition instalada na VM. É uma versão gratuita do IDE popular da Microsoft que pode ser usada para fins de avaliação e para equipes muito pequenas. Confira os termos de uso ***aqui*** (Link TBD). Abra o Visual Studio, clicando duas vezes no ícone da área de trabalho ou no menu **Iniciar**. Você também pode procurar programas com **Win** + **S** e inserir “Visual Studio”.
 
 Observação: você pode receber uma mensagem informando que o seu período de avaliação expirou. É possível inserir credenciais da Conta da Microsoft ou criar uma e inseri-las para obter acesso ao Visual Studio Community Edition. Lá, você pode criar projetos em linguagens como C# e Python
 
@@ -108,7 +108,7 @@ Observação: você pode receber uma mensagem informando que o seu período de a
 Uma versão limitada do SQL Server também é fornecida com o Community Edition do Visual Studio. Você pode acessar o SQL Server iniciando o **SQL Server Management Studio**. O nome da VM será populado como o Nome do Servidor. Use a Autenticação do Windows quando estiver conectado como o administrador no Windows. Quando estiver no SQL Server Management Studio, você pode criar outros usuários, criar bancos de dados, importar dados e executar consultas SQL.
 
 ### As tabelas 
-Várias ferramentas do Azure são instaladas na VM: - Há um atalho da área de trabalho para acessar a documentação do SDK do Azure. - **AzCopy** usado para mover dados para dentro e para fora de sua Conta do Armazenamento do Microsoft Azure. - **Gerenciador de Armazenamento do Azure** usado para percorrer os objetos armazenados em sua Conta do Armazenamento do Azure. - **Microsoft Azure Powershell** - uma linguagem de script usada para administrar seus recursos do Azure em uma linguagem de script que também é instalada em sua VM.
+Várias ferramentas do Azure são instaladas na VM: – há um atalho da área de trabalho para acessar a documentação do SDK do Azure. – **AzCopy** usado para mover dados para dentro e para fora de sua Conta do Armazenamento do Microsoft Azure. – **Gerenciador de Armazenamento do Azure** usado para percorrer os objetos armazenados em sua Conta do Armazenamento do Azure. – **Microsoft Azure Powershell** - uma linguagem de script usada para administrar seus recursos do Azure em uma linguagem de script que também está instalada em sua VM.
 
 ###Power BI
 
@@ -119,4 +119,4 @@ Observação: será necessário uma conta do Office 365 para acessar o Power BI.
 ## Ferramentas de desenvolvimento adicionais da Microsoft
 O [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) pode ser usado para descobrir e baixar outras ferramentas de desenvolvimento da Microsoft. Também há um atalho para a ferramenta fornecida na área de trabalho da VM.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

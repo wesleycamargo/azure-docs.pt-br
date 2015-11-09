@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="10/23/2015" 
 	ms.author="stefsch"/>
 
 # Detalhes da configuração de rede para Ambientes de Aplicativo de Serviço com a Rota Expressa 
@@ -26,31 +26,43 @@ Os clientes podem conectar um circuito da [Rota Expressa do Azure][ExpressRoute]
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Conectividade de rede necessária ##
-Há requisitos de conectividade de rede para Ambientes do Serviço de Aplicativo que não podem ser inicialmente atendidos em uma rede virtual conectada a uma Rota Expressa.
-
-Os Ambientes do Serviço de Aplicativo exigem tudo o que se segue para que funcionem corretamente:
+Há requisitos de conectividade de rede para Ambientes do Serviço de Aplicativo que não podem ser inicialmente atendidos em uma rede virtual conectada a uma Rota Expressa. Os Ambientes do Serviço de Aplicativo exigem tudo o que se segue para que funcionem corretamente:
 
 
--  Conectividade de rede de saída com o Armazenamento do Azure no mundo todo e conectividade com os recursos do Banco de Dados SQL localizados na mesma região do Ambiente do Serviço de Aplicativo. Esse caminho de rede não pode viajar por meio de proxies corporativos internos, pois ao fazer isso, provavelmente mudaria o endereço NAT efetivo do tráfego de rede de saída. Alterar o endereço NAT do tráfego de rede de saída de um Ambiente do Serviço de Aplicativo direcionado aos pontos de extremidade do Banco de Dados SQL e Armazenamento do Azure causaria falhas de conectividade.
--  A configuração DNS para a rede virtual deve ser capaz de resolver pontos de extremidade nos seguintes domínios controlados pelo Azure: **.file.core.windows.net*, **.blob.core.windows.net*, **.database.windows.net*.
--  A configuração DNS para a rede virtual deve permanecer estável sempre que os Ambientes do Serviço de Aplicativo forem criados, bem como durante a reconfiguração e as mudanças de escala nos Ambientes do Serviço de Aplicativo.   
--  Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível e disponível. 
+-  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui os pontos de extremidade localizados na mesma região que o Ambiente de Serviço de Aplicativo, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
+-  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Resolver pontos de extremidade do Banco de Dados SQL nos seguintes domínios: *database.windows.net*.
+-  Conectividade de rede de saída para os pontos de extremidade do plano de gerenciamento do Azure (pontos de extremidade ASM e ARM). Inclui conectividade de saída para *management.core.windows.net* e *management.azure.com*. 
+-  Conectividade de rede de saída para *mscrl.microsoft.com* e *crl.microsoft.com*. Necessária para dar suporte à funcionalidade SSL.
+-  A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Se esses pontos de extremidade não puderem ser resolvidos, tentativas de criação do Ambiente de Serviço de Aplicativo irão falhar, e Ambientes de Serviços de Aplicativo existentes serão marcados como não íntegros.
+-  Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível a partir da sub-rede contendo o Ambiente de Serviço de Aplicativo. 
+-  O caminho da rede de saída não pode passar por proxies corporativos internos, nem pode ser encapsulado à força em locais. Isso altera o endereço NAT eficiente de tráfego de rede de saída do Ambiente de Serviço de Aplicativo. Alterar o endereço NAT do tráfego de rede de saída de um Ambiente do Serviço de Aplicativo causará falhas de conectividade em muitos dos pontos de extremidade listados acima. Isso resulta em tentativas de criação de Ambiente de Serviço de Aplicativo, e faz com que Ambientes de Serviços de Aplicativo anteriormente íntegros sejam marcados como não íntegros.  
 -  O acesso de rede de entrada a portas obrigatórias para Ambientes do Serviço de Aplicativo deve ser permitido, como descrito neste [artigo][requiredports].
 
-O requisito de DNS pode ser atendido ao garantir uma configuração DNS válida para a rede virtual.
+Os requisitos de DNS podem ser atendidos, garantindo que uma infraestrutura de DNS válida seja configurada e mantida para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Acionar uma reinicialização sem interrupção do ambiente usando o ícone "Reiniciar" localizado na parte superior da folha de gerenciamento do Ambiente do Serviço de Aplicativo no [novo portal de gerenciamento][NewPortal] fará com que o ambiente capte a nova configuração de DNS.
 
 Os requisitos de acesso de rede de entrada podem ser atendidos ao configurar um [grupo de segurança de rede][NetworkSecurityGroups] na sub-rede do Ambiente do Serviço de Aplicativo para permitir o acesso obrigatório, como descrito neste [artigo][requiredports].
 
 ## Habilitando a conectividade de rede de saída para um Ambiente do Serviço de Aplicativo##
 Por padrão, um circuito da Rota Expressa recentemente criado anuncia uma rota padrão que permite conectividade de saída da Internet. Com essa configuração, um Ambiente do Serviço de Aplicativo será capaz de se conectar a outros pontos de extremidade do Azure.
 
-No entanto, uma configuração de cliente comum é definir sua própria rota padrão, que força o tráfego de saída da Internet para o fluxo local por meio da infraestrutura de firewall/proxy de um cliente. Esse fluxo de tráfego invariavelmente interrompe os Ambientes do Serviço de Aplicativo porque o tráfego de saída é bloqueado no local ou seu endereço de rede é convertido em um conjunto irreconhecível de endereços que não funcionam mais com vários pontos de extremidade do Azure.
+No entanto, uma configuração de cliente comum é definir sua própria rota padrão (0.0.0.0/0), que força o tráfego de saída da Internet para o fluxo local. Esse fluxo de tráfego invariavelmente interrompe os Ambientes do Serviço de Aplicativo porque o tráfego de saída é bloqueado no local ou seu endereço de rede é convertido em um conjunto irreconhecível de endereços que não funcionam mais com vários pontos de extremidade do Azure.
 
 A solução é definir uma (ou mais) UDRs (rotas definidas pelo usuário) na sub-rede que contém o Ambiente do Serviço de Aplicativo. Uma UDR define rotas específicas de sub-rede que serão consideradas no lugar da rota padrão.
 
+Se possível, é recomendável usar a seguinte configuração:
+
+- A configuração de Rota Expressa anuncia 0.0.0.0/0 e, por padrão, encapsula à força todo o tráfego de saída no local.
+- O UDR aplicado à sub-rede que contém o Ambiente do Serviço de Aplicativo define 0.0.0.0/0 com um tipo do próximo salto da Internet (veja um exemplo disso no final deste artigo).
+
+O efeito combinado dessas etapas é que o nível de sub-rede UDR terá precedência sobre o encapsulamento forçado da Rota Expressa, garantindo acesso de Internet de saída do Ambiente do Serviço de Aplicativo.
+
+**IMPORTANTE:** as rotas definidas em uma UDR **devem** ser específicas o suficiente para ter precedência sobre todas as rotas anunciadas pela configuração de Rota Expressa. O exemplo a seguir usa o intervalo de endereço 0.0.0.0/0 amplo, e potencialmente pode ser substituído por acidente pelos anúncios de rota usando intervalos de endereços mais específicos.
+
+**MUITO IMPORTANTE:** não há suporte para Ambientes do Serviço de Aplicativo com configurações de Rota Expressa que **incorretamente cruzam anúncios de rotas do caminho de emparelhamento público para o caminho de emparelhamento particular**. As configurações de Rota Expressa com emparelhamento público definido receberão anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se esses intervalos de endereços forem incorretamente anunciados de modo cruzado no caminho de emparelhamento particular, o resultado final será que todos os pacotes de saída de rede da sub-rede do Ambiente do Serviço de Aplicativo serão incorretamente encapsulados à força em uma infraestrutura de rede local do cliente. Esse fluxo de rede interromperá os Ambientes do Serviço de Aplicativo. A solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento particular.
+
 Outras informações sobre rotas definidas pelo usuário estão disponíveis nesta [visão geral][UDROverview].
 
-Os detalhes sobre como criar e configurar rotas definidas pelo usuário estão disponíveis neste [Guia de instruções][UDRHowTo].
+Os detalhes sobre como criar e configurar rotas definidas pelo usuário estão disponíveis neste [Guia de Instruções][UDRHowTo].
 
 ## Exemplo de configuração da UDR para um Ambiente do Serviço de Aplicativo ##
 
@@ -69,22 +81,18 @@ O trecho a seguir cria uma tabela de rota chamada "DirectInternetRouteTable" na 
 
 **Etapa 2: Criar uma ou mais rotas na tabela de rotas**
 
-Você precisará adicionar uma ou mais rotas à tabela de rotas para permitir acesso de saída da Internet. O exemplo abaixo adiciona rotas suficientes para cobrir todos os endereços possíveis do Azure usados na região oeste dos EUA.
+Você precisará adicionar uma ou mais rotas à tabela de rotas para permitir acesso de saída da Internet.
 
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 1' -AddressPrefix 23.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 2' -AddressPrefix 40.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 3' -AddressPrefix 65.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 4' -AddressPrefix 104.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 5' -AddressPrefix 137.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 6' -AddressPrefix 138.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 7' -AddressPrefix 157.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 8' -AddressPrefix 168.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 9' -AddressPrefix 191.0.0.0/8 -NextHopType Internet
+A abordagem recomendada para configurar o acesso de saída à Internet é definir uma rota para 0.0.0.0/0, como mostrado abaixo.
+  
+    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
 
+Lembre-se de que 0.0.0.0/0 é um intervalo de endereço amplo e assim será substituído por intervalos de endereços mais específicos anunciados pela Rota Expressa. Para reiterar a recomendação anterior, um UDR com uma rota 0.0.0.0/0 deve ser usado em conjunto com uma configuração de Rota Expressa que só anuncia 0.0.0.0/0 também.
 
-Para obter uma lista abrangente e atualizada dos intervalos CIDR em uso pelo Azure, você poderá baixar um arquivo Xml com todos os intervalos do [Centro de Download da Microsoft][DownloadCenterAddressRanges]
+Como alternativa, você pode baixar uma lista abrangente e atualizada de intervalos CIDR em uso pelo Azure. O arquivo Xml contendo todos os intervalos de endereços IP do Azure está disponível na [Centro de Download da Microsoft][DownloadCenterAddressRanges].
 
-**Observação:** em algum ponto, um CIDR abreviado de 0.0.0.0/0 estará disponível para uso no parâmetro *AddressPrefix*. Essa abreviação se compara a “todos os endereços da Internet”. Por enquanto, os desenvolvedores precisarão usar um conjunto amplo de intervalos de CIDR, suficiente para cobrir todos os possíveis intervalos de endereços do Azure.
+No entanto, observe que esses intervalos se alteram ao longo do tempo, necessitando de atualizações manuais periódicas para um UDR manter-se em sincronia. Além disso, uma vez que há um limite de 100 rotas em um único UDR, você precisará "resumir" os intervalos de endereços IP do Azure para caberem no limite de 100 rotas, tendo em mente que rotas definidas por UDR precisam ser mais específicas que as rotas anunciadas por sua Rota Expressa.
+
 
 **Etapa 3: Associar a tabela de rotas à sub-rede que contém o Ambiente do Serviço de Aplicativo**
 
@@ -98,16 +106,18 @@ A última etapa da configuração é associar a tabela de rotas à sub-rede em q
 Depois que a tabela de rotas estiver associada à sub-rede, é recomendável primeiro testar e confirmar o efeito desejado. Por exemplo, implante uma máquina virtual na sub-rede e verifique se:
 
 
-- O tráfego de saída para pontos de extremidade do Azure não está fluindo pelo circuito da Rota Expressa.
-- As pesquisas DNS para pontos de extremidade do Azure estão sendo resolvidas corretamente. 
+- O tráfego de saída para pontos de extremidade do Azure e que não sejam do Azure mencionados anteriormente neste artigo **não** está fluindo pelo circuito da Rota Expressa. É muito importante verificar esse comportamento, uma vez que o tráfego de saída da sub-rede ainda está sendo encapsulado à força no local, sempre haverá falha na criação do Ambiente do Serviço de Aplicativo. 
+- Todas as pesquisas de DNS para os pontos de extremidade mencionados anteriormente estão sendo resolvidas corretamente. 
 
-Depois que as etapas acima forem confirmadas, você poderá excluir a máquina virtual e continuar com a criação de um Ambiente do Serviço de Aplicativo!
+Depois que as etapas acima forem confirmadas, você precisará excluir a máquina virtual porque a sub-rede precisa estar "vazia" no momento em que o Ambiente do Serviço de Aplicativo é criado.
+ 
+Prossiga então com a criação de um Ambiente do Serviço de Aplicativo.
 
 ## Introdução
 
-Para se familiarizar com os ambientes do serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
+Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
 
-Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
+Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
 
 <!-- LINKS -->
 [virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
@@ -122,8 +132,9 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
+[NewPortal]: https://portal.azure.com
  
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
