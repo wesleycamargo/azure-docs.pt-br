@@ -16,7 +16,8 @@
 
 #Tutorial: Integração do Active Directory do Azure ao Bamboo HR
 
-O objetivo deste tutorial é mostrar a integração do Azure ao BambooHR. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao BambooHR.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do BambooHR
@@ -64,7 +65,9 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![BambooHR](./media/active-directory-saas-bamboo-hr-tutorial/IC796687.png "BambooHR")
 ##Configurando o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no BambooHR com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML. Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no BambooHR com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.  
+Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64.  
+Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -111,7 +114,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Configurar o logon único](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
 
-Para permitir que os usuários do AD do Azure façam logon no BambooHR, eles deverão ser provisionados no BambooHR. No caso do BambooHR, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no BambooHR, eles deverão ser provisionados no BambooHR.  
+No caso do BambooHR, o provisionamento é uma tarefa manual.
 
 ###Para provisionar contas de usuário, execute as seguintes etapas:
 

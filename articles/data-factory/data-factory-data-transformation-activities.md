@@ -24,7 +24,11 @@ As atividades de transformação no Azure Data Factory transformam e processam o
 
 Atividade de transformação | Ambiente de computação 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [Execução em lotes do aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md) | VM do Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] 
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] 
+[Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] 
+[Execução em lotes do aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md) | VM do Azure 
 [Procedimento armazenado](data-factory-stored-proc-activity.md) | SQL Azure |
 [U-SQL da Análise Data Lake](data-factory-usql-activity.md) | Análise Azure Data Lake 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] ou Lote do Azure

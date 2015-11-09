@@ -16,7 +16,8 @@
 
 #Tutorial: Integração do Active Directory do Azure ao TimeOffManager
   
-O objetivo deste tutorial é mostrar a integração do Azure com o TimeOffManager. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o TimeOffManager.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do TimeOffManager
@@ -138,7 +139,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ##Configurando o provisionamento de usuários
   
-Para permitir que os usuários do AD do Azure façam logon no TimeOffManager, eles deverão ser provisionados no TimeOffManager. O TimeOffManager dá suporte ao provisionamento de usuário just in time. Não há nenhum item de ação para você. Os usuários são adicionados automaticamente durante o primeiro logon usando o logon único.
+Para permitir que os usuários do AD do Azure façam logon no TimeOffManager, eles deverão ser provisionados no TimeOffManager.  
+O TimeOffManager dá suporte ao provisionamento de usuário just in time. Não há nenhum item de ação para você.  
+Os usuários são adicionados automaticamente durante o primeiro logon usando o logon único.
 
 >[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do TimeOffManager ou as APIs fornecidas pelo TimeOffManager para provisionar as contas de usuário do AAD.
 

@@ -64,7 +64,9 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Samanage](./media/active-directory-saas-samanage-tutorial/IC771708.png "Samanage")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Samanage com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML. Como parte desse procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Samanage com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.  
+Como parte desse procedimento, será necessário criar um arquivo de certificado codificado em base 64.  
+Se você não estiver familiarizado com este procedimento, confira [Como converter certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -96,16 +98,19 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 8.  Na página do diálogo **Fazer logon usando o SAML**, realize as seguintes etapas e clique em **Salvar Alterações**:
 
-    1.  Clique em **Habilitar o Logon Único com SAML**. ![Fazer logon usando SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Fazer logon usando SAML")
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Samanage**, copie o valor da **ID de Provedor de Identidade** e cole-o na caixa de texto **URL do Provedor de Identidade**.![Configurar o logon único](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configurar o logon único")
-3.  No portal do Azure, na página do diálogo **Configurar logon único no Samanage**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
-    4.  No portal do Azure, na página do diálogo **Configurar logon único no Samanage**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
+    1.  Clique em **Habilitar o Logon Único com SAML**. 
+        ![Fazer logon usando SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Fazer logon usando SAML")
+    2.  No portal do Azure, na página de diálogo **Configurar logon único no Samanage**, copie o valor de **ID do Provedor de Identidade** e cole-o na caixa de texto **URL do Provedor de Identidade **.
+        ![Configurar o logon único](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configurar o logon único")
+    3.  No portal do Azure, na página de diálogo **Configurar logon único no Samanage**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
+    4.  No portal do Azure, na página de diálogo **Configurar logon único no Samanage**, copie o valor de **URL de Logout Remoto** e cole-o na caixa de texto **URL de Logout**.
     5.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
 
         >[AZURE.TIP]Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     6.  Abra seu certificado codificado em base 64 no bloco de notas, copie o conteúdo dele para sua área de transferência e cole-o na caixa de texto **Certificado X.509**
-    7.  Clique em **Criar usuários se eles não existirem no Samanage**.![Atualizar](./media/active-directory-saas-samanage-tutorial/IC771722.png "Atualizar")
+    7.  Clique em **Criar usuários se não existirem no Samanage**.
+        ![Atualizar](./media/active-directory-saas-samanage-tutorial/IC771722.png "Atualizar")
     8.  Clique em **Atualizar**.
 
 9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
