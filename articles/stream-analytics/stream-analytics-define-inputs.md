@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/13/2015"
+	ms.date="10/23/2015"
 	ms.author="jeffstok"/>
 
 # Noções básicas sobre entradas do Stream Analytics
@@ -137,7 +137,7 @@ A tabela a seguir explica cada propriedade na guia de entrada do armazenamento d
 </tr>
 <tr>
 <td>Padrão de prefixo do caminho [opcional]</td>
-<td>O caminho do arquivo usado para localizar seus blobs no contêiner especificado. No caminho, você pode optar por especificar uma ou mais instâncias das três variáveis a seguir:<BR>{data}, {hora},<BR>{partição}<BR>Exemplo 1: cluster1/logs/{data}/{hora}/{partição}<BR>Exemplo 2: cluster1/logs/{data}</td>
+<td>O caminho do arquivo usado para localizar seus blobs no contêiner especificado. No caminho, você pode optar por especificar uma ou mais instâncias das três variáveis a seguir:<BR>{data}, {hora},<BR>{partição}<BR>Exemplo 1: cluster1/logs/{data}/{hora}/{partição}<BR>Exemplo 2: cluster1/logs/{data}<P>Observe que "*" não é um valor permitido para pathprefix. Apenas <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de blobs do Azure</a> válidos são permitidos.</td>
 </tr>
 <tr>
 <td>Formato de data [opcional]</td>
@@ -201,4 +201,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/19/2015"
+    ms.date="10/29/2015"
     ms.author="larryfr"/>
 
 # Desenvolvimento de Ação de Script com o HDInsight
@@ -43,7 +43,7 @@ Ao desenvolver um script personalizado para um cluster HDInsight, há várias pr
 - [Gravar informações para STDOUT e STDERR](#bPS7)
 - [Salvar arquivos como ASCII com terminações de linha LF](#bps8)
 
-> [AZURE.IMPORTANT]Ações de script devem ser concluídas em 15 minutos ou atingirão o tempo limite. Durante o provisionamento de nó, o script é executado simultaneamente com outros processos de instalação e configuração. A competição por recursos, como tempo de CPU ou largura de banda rede, pode fazer com que o script leve mais tempo para ser concluído comparado ao seu tempo de conclusão no ambiente de desenvolvimento.
+> [AZURE.IMPORTANT]Ações de script devem ser concluídas em 60 minutos ou atingirão o tempo limite. Durante o provisionamento de nó, o script é executado simultaneamente com outros processos de instalação e configuração. A competição por recursos, como tempo de CPU ou largura de banda rede, pode fazer com que o script leve mais tempo para ser concluído comparado ao seu tempo de conclusão no ambiente de desenvolvimento.
 
 ### <a name="bPS1"></a>Direcionar para a versão do Hadoop
 
@@ -71,7 +71,7 @@ Por exemplo, se um script personalizado instala um aplicativo em /usr/local/bin 
 
 ### <a name="bPS5"></a>Garantir alta disponibilidade da arquitetura de cluster
 
-Clusters HDInsight baseados em Linux fornecem dois nós de cabeçalho que estão ativos dentro do cluster; Ações de Script são executadas para ambos esses nós. Se os componentes que você instala esperam apenas um nó de cabeçalho, você deve criar um script que instalará o componente em apenas um dos dois nós de cabeçalho no cluster. Os nós de cabeçalho são nomeados **headnode0** e **headnode1**.
+Clusters HDInsight baseados em Linux fornecem dois nós de cabeçalho que estão ativos dentro do cluster; Ações de Script são executadas para ambos esses nós. Se os componentes que você instala esperam apenas um nó de cabeçalho, você deve criar um script que instalará o componente em apenas um dos dois nós de cabeçalho no cluster.
 
 > [AZURE.IMPORTANT]Serviços padrão instalados como parte do HDInsight são projetados para fazer failover entre os dois nós de cabeçalho, conforme necessário; no entanto, essa funcionalidade não se estende a componentes personalizados instalados por meio de Ações de Script. Se você precisa que os componentes instalados por meio de uma Ação de Script fiquem altamente disponíveis, você deve implementar seu próprio mecanismo de failover que use os dois nós de cabeçalho disponíveis.
 
@@ -83,7 +83,7 @@ Por exemplo, a amostra a seguir copia o arquivo giraph-Examples.jar do sistema d
 
     hadoop fs -copyFromLocal /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 
-### <a name="bPS7"></a>Gravar informações para STDOUT e STDERR
+### <a name="bPS7"></a>Gravar informações em STDOUT e STDERR
 
 As informações gravadas para STDOUT e STDERR são registradas e podem ser exibidas após o cluster ter sido provisionado usando a interface do usuário Web da Ambari.
 
@@ -97,7 +97,7 @@ Por padrão, `echo` enviará a cadeia de caracteres para STDOUT. Para direcioná
 
 Isso redireciona as informações enviadas a STDOUT (1, que é o padrão e, portanto, não listado aqui) para STDERR (2). Para obter mais informações sobre redirecionamento de E/S, consulte [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-Para saber mais sobre exibição de informações registradas em log por Ações de Script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+Para saber mais sobre exibição de informações registradas em log por Ações de Script, consulte [Personalizar clusters HDInsight usando Ação de Script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
 ###<a name="bps8"></a> Salvar arquivos como ASCII com terminações de linha LF
 
@@ -145,9 +145,9 @@ Em que VARIABLENAME é o nome da variável. Para acessar a variável depois diss
 
     PASSWORD=$1
 
-O acesso subsequente às informações poderia então usar `$PASSWORD`.
+O acesso subsequente às informações poderia, então, usar `$PASSWORD`.
 
-Variáveis de ambiente definidas no script existem somente dentro do escopo do script. Em alguns casos, talvez seja necessário adicionar variáveis de ambiente gerais do sistema que persistirão após a conclusão do script. Geralmente, isso é para os usuários se conectando ao cluster via SSH poderem usar os componentes instalados pelo script. Isso pode ser feito adicionando-se a variável de ambiente a `/etc/environment`. Por exemplo, o demonstrado a seguir adiciona __HADOOP\_CONF\_DIR__:
+Variáveis de ambiente definidas no script existem somente dentro do escopo do script. Em alguns casos, talvez seja necessário adicionar variáveis de ambiente gerais do sistema que persistirão após a conclusão do script. Geralmente, isso é para os usuários se conectando ao cluster via SSH poderem usar os componentes instalados pelo script. Isso pode ser feito adicionando a variável de ambiente a `/etc/environment`. Por exemplo, o demonstrado a seguir adiciona __HADOOP\_CONF\_DIR__:
 
     echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
@@ -195,7 +195,7 @@ _Causa_: este erro é gerado quando as linhas em um script terminam com CRLF. Os
 
 Esse problema ocorre geralmente quando o script é criado em um ambiente Windows, já que CRLF é uma terminação de linha comum para muitos editores de texto no Windows.
 
-_Solução_: se for uma opção em seu editor de texto, selecione o formato Unix ou LF para o final da linha. Você também pode usar os seguintes comandos em um sistema Unix para alterar o CRLF para um LF:
+_Solução_: se for uma opção em seu editor de texto, selecione o formato Unix ou LF para terminação de linha. Você também pode usar os seguintes comandos em um sistema Unix para alterar o CRLF para um LF:
 
 > [AZURE.NOTE]Os comandos a seguir são a grosso modo equivalentes, no sentido que ambos devem alterar as terminações de linha CRLF para LF. Selecione um deles com base nos utilitários disponíveis no sistema.
 
@@ -208,7 +208,7 @@ _Solução_: se for uma opção em seu editor de texto, selecione o formato Unix
 
 __Erro__: `line 1: #!/usr/bin/env: No such file or directory`.
 
-_Causa_: este erro ocorre quando o script foi salvo como UTF-8 com uma BOM (marca de ordem de byte).
+_Causa_: este erro ocorre quando o script foi salvo como UTF-8 com uma BOM (Marca de Ordem de Byte).
 
 _Solução_: salve o arquivo como ASCII ou UTF-8, sem nenhuma BOM. Você também pode usar o seguinte comando em um sistema Linux ou Unix para criar um novo arquivo sem a BOM:
 
@@ -220,4 +220,4 @@ Para o comando acima, substitua __INFILE__ pelo arquivo que contém a BOM. __OUT
 
 [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

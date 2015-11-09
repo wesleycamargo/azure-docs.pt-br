@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure com o Pagerduty | Microsoft Azure" description="Saiba como usar o Pagerduty com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o Pagerduty | Microsoft Azure" 
+    description="Saiba como usar o Pagerduty com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o Pagerduty
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=522516).
   
 O objetivo deste tutorial é mostrar a integração do Azure com o Pagerduty. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do Pagerduty
   
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao Pagerduty poderão fazer logon único no aplicativo em seu site de empresa do Pagerduty (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Pagerduty poderão fazer logon único no aplicativo em seu site de empresa do Pagerduty (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-pagerduty-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-pagerduty-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -51,11 +64,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![PagerDuty](./media/active-directory-saas-pagerduty-tutorial/IC778530.png "PagerDuty")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Pagerduty com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Pagerduty com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **Pagerduty**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **Pagerduty**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-pagerduty-tutorial/IC778531.png "Configurar logon único")
 
@@ -63,17 +76,17 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar logon único](./media/active-directory-saas-pagerduty-tutorial/IC778532.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de Entrada do Pagerduty**, digite sua URL usando o seguinte padrão "*https://\<nome do locatário>.Pagerduty.com*" e, em seguida, clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Pagerduty**, digite a URL usando o padrão "*https://\<nome-locatário>.Pagerduty.com*" e clique em **Avançar**.
 
     ![Configurar a url do aplicativo](./media/active-directory-saas-pagerduty-tutorial/IC778533.png "Configurar a url do aplicativo")
 
-4.  Na página **Configurar logon único no Pagerduty**, clique em **Baixar certificado** e, em seguida, salve o arquivo de certificado em seu computador.
+4.  Na página **Configurar logon único no Pagerduty**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-pagerduty-tutorial/IC778534.png "Configurar o logon único")
 
 5.  Em outra janela do navegador da Web, faça logon em seu site de empresa do Pagerduty como administrador.
 
-6.  No menu na parte superior, clique em **Configurações de Conta**.
+6.  No menu na parte superior, clique em **Configurações da Conta**.
 
     ![Configurações da Conta](./media/active-directory-saas-pagerduty-tutorial/IC778535.png "Configurações da Conta")
 
@@ -85,14 +98,14 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Habilitar logon único](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Habilitar logon único")
 
-    1.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
+    1.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
 
-        >[AZURE.TIP]Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-    2.  Abra seu certificado codificado em base 64 no bloco de notas, copie o conteúdo dele para sua área de transferência e cole-o na caixa de texto **Certificado X.509**
-    3.  No portal do Azure, na página de diálogo **Configurar logon único no Pagerduty**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
-    4.  No portal do Azure, na página de diálogo **Configurar logon único no Pagerduty**, copie o valor de **URL de Logout Remoto** e cole-o na caixa de texto **URL de Logout**.
-    5.  Selecione**Ativar Logon Único**.
+    2.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
+    3.  No portal do Azure, na página do diálogo **Configurar logon único no Pagerduty**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
+    4.  No portal do Azure, na página do diálogo **Configurar logon único no Pagerduty**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
+    5.  Selecione **Ativar Logon Único**.
     6.  Clique em **Salvar Alterações**.
 
 9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
@@ -104,7 +117,7 @@ Para permitir que os usuários do AD do Azure façam logon no Pagerduty, eles de
 
 ###Para provisionar contas de usuário, execute as seguintes etapas:
 
-1.  Faça logon no locatário do **Pagerduty**.
+1.  Faça logon em seu locatário do **Pagerduty**.
 
 2.  No menu na parte superior, clique em **Usuários**.
 
@@ -112,7 +125,7 @@ Para permitir que os usuários do AD do Azure façam logon no Pagerduty, eles de
 
     ![Adicionar Usuários](./media/active-directory-saas-pagerduty-tutorial/IC778539.png "Adicionar Usuários")
 
-4.  Na caixa de diálogo **Convidar sua equipe**, digite o**Nome e Sobrenome** e o endereço de **Email** do usuário do AD do Azure que você deseja configurar, clique em**Adicionar** e, em seguida, clique em **Enviar Convites**.
+4.  No diálogo **Convidar sua equipe**, digite o **Nome e Sobrenome** e o endereço de **Email** do usuário do Azure AD que você deseja configurar, clique em **Adicionar** e em **Enviar Convites**.
 
     ![Convidar sua equipe](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "Convidar sua equipe")
 
@@ -136,6 +149,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

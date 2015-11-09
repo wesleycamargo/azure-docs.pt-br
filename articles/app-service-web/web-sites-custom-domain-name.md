@@ -3,9 +3,10 @@
 	description="Saiba como usar um nome de domínio personalizado com um aplicativo Web no Serviço de Aplicativo do Azure."
 	services="app-service"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="cephalin"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe"
+	tags="top-support-issue"/>
 
 <tags
 	ms.service="app-service"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="mwasson"/>
+	ms.date="10/23/2015"
+	ms.author="cephalin"/>
 
 # Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure
 
@@ -26,15 +27,17 @@
 
 Quando você cria um aplicativo Web, o Azure o atribui a um subdomínio do azurewebsites.net. Por exemplo, se seu aplicativo Web é chamado **contoso**, a URL é **contoso.azurewebsites.net**. O Azure também fornece um endereço IP virtual.
 
-Para um aplicativo Web de produção, é bem provável que você queira que os usuários vejam um nome de domínio personalizado. Este artigo explica como reservar ou configurar um domínio personalizado com [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
+Para um aplicativo Web de produção, talvez você deseje que os usuários vejam um nome de domínio personalizado. Este artigo explica como configurar um domínio personalizado com [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+Se precisar de mais ajuda em qualquer momento neste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns do Azure no MSDN e do Stack Overflow](http://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Para enviar um incidente, vá para o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 ## Visão geral
 
-Se você tiver um nome de domínio ou quiser reservar um domínio de outros registradores de domínio, aqui estão as etapas gerais para obter um nome de domínio personalizado para o aplicativo Web:
+Se você ainda não registrou um nome de domínio externo (ou seja, não *.azurewebsites.net), a maneira mais fácil de configurar um domínio personalizado é comprá-lo diretamente no [portal de visualização do Azure](https://portal.azure.com). O processo permite que você gerencie o nome de domínio do aplicativo Web diretamente no portal em vez de acessar um site de terceiros como o GoDaddy para gerenciá-lo. Da mesma forma, a configuração do nome de domínio no aplicativo Web é bastante simplificada, independentemente do aplicativo Web usar ou não o [Gerenciador de Tráfego do Azure](web-sites-traffic-manager-custom-domain-name.md). Para obter mais informações, veja [Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](custom-dns-web-site-buydomains-web-app.md).
+
+Se você já tiver um nome de domínio ou se desejar reservar um domínio de outros registradores de domínio, veja abaixo as etapas gerais para obter um nome de domínio personalizado para o aplicativo Web: (veja as [instruções específicas para o GoDaddy.com](web-sites-godaddy-custom-domain-name.md)):
 
 1. Reserve o seu nome de domínio. Este artigo não aborda este processo. Existem muitas opções de registradores de domínio. Quando você se inscrever, o site do registrador vai fornecer instruções sobre o processo.
 1. Crie registros DNS que mapeiem o domínio para seu aplicativo Web do Azure.
@@ -70,7 +73,7 @@ Ignore este passo se você estiver criando um registro CNAME. Para criar um regi
 3.	Clique na lâmina **Aplicativos Web**.
 4.	Clique no nome do seu aplicativo Web.
 5.	Na página **Informações Gerais**, clique em **Todas as Configurações**.
-6.	Clique em **Domínios personalizados e SSL**. 
+6.	Clique em **Domínios personalizados e SSL**.
 7.	Na folha **Domínios personalizados e SSL**, clique em **Trazer domínios externos”**. O endereço IP está localizado na parte inferior dessa parte.
 
 ## Criar os registros DNS
@@ -95,7 +98,7 @@ Em muitas ferramentas de registradores, basta digitar apenas a parte de subdomí
   <tr>
     <td>@</td>
     <td>(endereço) A</td>
-    <td>127.0.0.1</td>
+    <td>168.62.48.183</td>
   </tr>
   <tr>
     <td>www</td>
@@ -106,7 +109,7 @@ Em muitas ferramentas de registradores, basta digitar apenas a parte de subdomí
 
 Considerando que o nome de domínio personalizado é “contoso.com”, isso criaria os seguintes registros:
 
-- **contoso.com** mapeado para 127.0.0.1.
+- **contoso.com** mapeado para 168.62.48.183.
 - **www.contoso.com** mapeado para **contoso.azurewebsites.net**.
 
 >[AZURE.NOTE]Você pode usar o DNS do Azure para hospedar os registros de domínio necessários para seu aplicativo Web. Para configurar seu domínio personalizado e criar seus registros no DNS do Azure, consulte [Criar registros de DNS personalizados para um aplicativo Web](../dns-web-sites-custom-domain).
@@ -127,6 +130,13 @@ Os visitantes do seu aplicativo Web não enxergarão o subdomínio awverify; ele
 
 >[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
+## Verificar propagação de DNS
+
+Depois de concluir as etapas de configuração, pode levar algum tempo para que as alterações sejam propagadas, dependendo do seu provedor DNS. É possível verificar se a propagação de DNS está funcionando como esperado usando [http://digwebinterface.com/](http://digwebinterface.com/). Depois de navegar para o site, especifique os nomes de host na caixa de texto e clique em **Aprofundar-se**. Verifique os resultados para confirmar se as alterações recentes tiveram efeito.
+
+![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
+
+> [AZURE.NOTE]A propagação das entradas de DNS leva até 48 horas (às vezes, mais). Se você configurou tudo corretamente, você ainda precisa aguardar até que a propagação seja bem-sucedida.
 
 ## Próximas etapas
 
@@ -145,6 +155,5 @@ Para obter mais informações, consulte: [Introdução ao DNS do Azure](../dns/d
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -65,6 +65,8 @@ Erros transitórios também são chamados de falhas transitórias. Quando o prog
 **Observação:** Talvez seja necessário incluir os erros de federação 10053 e 10054 em sua lógica de repetição.
 
 
+<a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
+
 ## Erros de cópia de banco de dados
 
 
@@ -87,6 +89,8 @@ A tabela a seguir abrange vários erros que você pode encontrar ao copiar um ba
 |40570|16|Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente mais tarde.|
 |40571|16|Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente mais tarde.|
 
+
+<a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
 
 ## Erros de governança de recursos
 
@@ -124,6 +128,8 @@ Para ver uma discussão adicional sobre a governança de recursos e os erros ass
 - [Governança de Recursos do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).
 
 
+<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
+
 ## Erros de federação
 
 
@@ -146,23 +152,25 @@ A tabela a seguir abrange os erros que você pode encontrar ao trabalhar com fed
 |10054, 10053|20|Ocorreu um erro de nível de transporte ao receber os resultados do servidor. Uma conexão estabelecida foi anulada pelo software no computador host|Implemente a lógica de repetição em seu aplicativo.|
 |40530|15|<statement> deve ser a única instrução no lote|Certifique-se de que não haja nenhuma outra instrução no lote|
 |40604|16|Não foi possível `CREATE DATABASE`, pois isso excederia a cota do servidor|Expanda a cota de contagem do banco de dados do servidor|
-|45000|16|Falha na operação de <statement>. O nome da federação especificado <federation_name> não é válido|Federation\_name não está em conformidade com as regras de nome de federação ou não é um identificador válido|
-|45001|16|Falha na operação de <statement>. O nome da federação especificado não existe|O nome da federação não existe|
-|45002|16|Falha na operação de <statement>. O nome da chave de federação especificado <distribution_name> não é válido|Chave de federação inválida ou inexistente|
-|45004|16|Falha na operação de <statement>. O valor especificado não é válido para a chave da federação <distribution_name> e a federação <federation_name>|`USE FEDERATION`: use um valor de limite que esteja no domínio do tipo de dados da chave de federação ou que não seja NULL.<br/><br/>`ALTER FEDERATION SPLIT`: use um valor válido no domínio da chave de federação que ainda não seja um ponto de divisão existente.<br/><br/>`ALTER FEDERATION DROP`: use um valor válido no domínio da chave de federação que já seja um ponto de divisão.|
+|45000|16|Falha na operação <statement>. O nome da federação especificado <federation_name> não é válido|Federation\_name não está em conformidade com as regras de nome de federação ou não é um identificador válido|
+|45001|16|Falha na operação <statement>. O nome da federação especificado não existe|O nome da federação não existe|
+|45002|16|Falha na operação <statement>. O nome da chave de federação especificada <distribution_name> não é válido|Chave de federação inválida ou inexistente|
+|45004|16|Falha na operação <statement>. O valor especificado não é válido para a chave da federação <distribution_name> e a federação <federation_name>|`USE FEDERATION`: use um valor de limite que esteja no domínio do tipo de dados da chave de federação ou que não seja NULL.<br/><br/>`ALTER FEDERATION SPLIT`: use um valor válido no domínio da chave de federação que ainda não seja um ponto de divisão existente.<br/><br/>`ALTER FEDERATION DROP`: use um valor válido no domínio da chave de federação que já seja um ponto de divisão.|
 |45005|16|<statement> não pode ser executado enquanto outra operação de federação estiver em andamento na federação <federation_name> e no membro com a id <member_id>|Aguarde a operação simultânea ser concluída.|
-|45006|16|Falha nas operações de <statement>. Relações de chave estrangeira em tabelas de referência que se referem a tabelas federadas não são permitidas em membros da federação|Sem suporte.|
-|45007|16|Falha na operação de <statement>. Relações de chave estrangeira entre tabelas federadas devem incluir as colunas de chave de federação.|Sem suporte|
-|45008|16|Falha na operação de <statement>. O tipo de dados da chave de federação não coincide com o tipo de dados da coluna|Sem suporte.|
-|45009|16|Falha na operação de <statement>. A operação não tem suporte em conexões de filtragem|Sem suporte.|
-|45010|16|Falha na operação de <statement>. Não é possível atualizar a chave da federação|Sem suporte.|
-|45011|16|Falha na operação de <statement>. Não é possível atualizar o esquema da chave da federação|Sem suporte.|
+|45006|16|Falha nas operações <statement>. Relações de chave estrangeira em tabelas de referência que se referem a tabelas federadas não são permitidas em membros da federação|Sem suporte.|
+|45007|16|Falha na operação <statement>. Relações de chave estrangeira entre tabelas federadas devem incluir as colunas de chave de federação.|Sem suporte|
+|45008|16|Falha na operação <statement>. O tipo de dados da chave de federação não coincide com o tipo de dados da coluna|Sem suporte.|
+|45009|16|Falha na operação <statement>. A operação não tem suporte em conexões de filtragem|Sem suporte.|
+|45010|16|Falha na operação <statement>. Não é possível atualizar a chave da federação|Sem suporte.|
+|45011|16|Falha na operação <statement>. Não é possível atualizar o esquema da chave da federação|Sem suporte.|
 |45012|16|O valor especificado para a chave de federação não é válido|O valor deve estar no intervalo que a conexão está tratando.<br/><br/>Se filtrado, o valor da chave de federação especificado.<br/><br/>Se não filtrado, o intervalo coberto pelo membro da federação.|
 |45013|16|O SID já existe com um nome de usuário diferente|O SID de um usuário em um membro da federação é copiado do SID a mesma conta de usuário na raiz da federação. Sob certas condições, o SID já pode estar em uso.|
 |45014|16|Não há suporte para %Is em %Is.|Operação sem suporte.|
-|45022|16|Falha na operação de <statement>. O valor limite especificado já existe para a chave de federação <distribution_name> e a federação <federation_name>|Especifique um valor que já seja um valor de limite.|
-|45023|16|Falha na operação de <statement>. O valor limite especificado não existe para a chave de federação <distribution_name> e a federação <federation_name>|Especifique um valor que não seja um valor de limite.|
+|45022|16|Falha na operação <statement>. O valor limite especificado já existe para a chave de federação <distribution_name> e a federação <federation_name>|Especifique um valor que já seja um valor de limite.|
+|45023|16|Falha na operação <statement>. O valor limite especificado não existe para a chave de federação <distribution_name> e a federação <federation_name>|Especifique um valor que não seja um valor de limite.|
 
+
+<a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
 
 ## Erros gerais
 
@@ -242,4 +250,4 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 - [Limitações e diretrizes de gerais do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Gerenciamento de recursos](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

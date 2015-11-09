@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/20/2015"
+	ms.date="10/23/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -28,9 +28,10 @@
 
 Este artigo fornece instruções para exportar um BACPAC do seu banco de dados SQL do Azure com o PowerShell.
 
-Um BACPAC é um arquivo .bacpac que contém um esquema de banco de dados e dados. Para obter detalhes, confira o Pacote de Backup (.bacpac) em [Aplicativos de camada de dados](https://msdn.microsoft.com/library/ee210546.aspx).
+Um [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) é um arquivo .bacpac que contém um esquema de banco de dados e dados. O caso de uso primário para um BACPAC é mover um banco de dados de um servidor para outro, [migrar um banco de dados local para a nuvem](sql-database-cloud-migrate.md) e arquivar um banco de dados existente em um formato aberto.
 
-> [AZURE.NOTE]O Banco de Dados SQL do Azure cria automaticamente backups de todos os bancos de dados de usuário. Para obter detalhes, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
+> [AZURE.NOTE]BACPACs não devem ser usados para operações de backup e restauração. O Banco de Dados SQL do Azure cria automaticamente backups de todos os bancos de dados de usuário. Para obter detalhes, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
+
 
 O BACPAC é exportado para um contêiner de blob de armazenamento do Azure que você poderá baixar depois que a operação for concluída com êxito.
 
@@ -39,7 +40,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Um banco de dados SQL Azure. Se você não tiver um banco de dados SQL, crie um seguindo as etapas neste artigo: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
-- Uma [conta de Armazenamento do Azure](storage-create-storage-account.md) com um contêiner de blob para armazenar o BACPAC. Atualmente, a conta de armazenamento deve usar o modelo de implantação clássica e, portanto, escolha **Clássico** ao criar uma conta de armazenamento.
+- Uma [conta de Armazenamento do Azure](storage-create-storage-account.md) com um contêiner de blob para armazenar o BACPAC. Atualmente, a conta de armazenamento deve usar o modelo de implantação clássica, sendo assim, escolha **Clássico** ao criar uma conta de armazenamento.
 - PowerShell do Azure. Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
 
 
@@ -69,7 +70,7 @@ Existem algumas variáveis em que você precisará substituir os valores de exem
 Substitua os nomes de servidor e de banco de dados com o servidor e o banco de dados atualmente em sua conta. Para obter o nome do blob, insira o nome do arquivo BACPAC que será criado. Insira o que quiser como o nome do arquivo BACPAC, mas você deve incluir a extensão .bacpac.
 
     $ServerName = "servername"
-    $DatabaseName = "nameofdatabasetobackup"
+    $DatabaseName = "nameofdatabasetoexport"
     $BlobName = "filename.bacpac"
 
 No [Portal de Visualização do Azure](https://portal.azure.com), navegue até sua conta de armazenamento para obter esses valores. Você pode encontrar a chave de acesso primária clicando em **Todas as configurações** e em **Chaves** na folha da sua conta de armazenamento.
@@ -147,4 +148,4 @@ A execução desse comando solicitará uma senha. Insira a senha do administrado
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

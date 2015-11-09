@@ -93,6 +93,9 @@ Obtenha a chave de conta [aqui](https://datamarket.azure.com/account/keys).
  
 ---
 
+##APIs de lote
+O serviço de análise de texto permite que você faça extrações de opiniões e frases-chave no modo de lote. Para GetSentimentBatch e GetKeyPhrasesBatch, cada um dos registros pontuados conta como uma transação. Assim, por exemplo, se você obtiver a opinião de 1.000 registros em uma única chamada, 1.000 transações serão deduzidas.
+
 ###GetSentimentBatch###
 
 **URL**
@@ -205,4 +208,4 @@ Na resposta abaixo, você obtém a lista de frases-chave, associada às IDs do t
 As Ids inseridas no sistema são as Ids retornadas pelo sistema. O serviço Web não verifica se as Ids são exclusivas. É responsabilidade do chamador verificar a exclusividade.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

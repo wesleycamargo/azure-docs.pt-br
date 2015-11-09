@@ -1,14 +1,26 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure com o xMatters OnDemand | Microsoft Azure" description="Saiba como usar o xMatters OnDemand com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o xMatters OnDemand | Microsoft Azure" description="Saiba como usar o xMatters OnDemand com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o xMatters OnDemand
->[AZURE.TIP]Para comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=524330).
   
 O objetivo deste tutorial é mostrar a integração do Azure com o xMatters OnDemand. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do xMatters OnDemand
   
-Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao xMatters OnDemand poderão fazer logon único no aplicativo, em seu site de empresa xMatters OnDemand (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao xMatters OnDemand poderão fazer logon único no aplicativo em seu site de empresa do xMatters OnDemand (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -39,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-xmatters-ondemand-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-xmatters-ondemand-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -57,7 +69,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração do aplicativo **xMatters OnDemand**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar logon único **.
+1.  No portal do Azure AD, na página de integração de aplicativos do **XMatters OnDemand**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar logon único](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Configurar logon único")
 
@@ -65,11 +77,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar logon único](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776792.png "Configurar logon único")
 
-3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de entrada do XMatters OnDemand**, digite sua URL usando o seguinte padrão "*https://\<nome do locatário>.XMattersOnDemand.com*" e, em seguida, clique em **Próximo**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de entrada do XMatters OnDemand**, digite a URL usando o padrão "*https://\<nome-locatário>.XMattersOnDemand.com*" e clique em **Avançar**.
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776793.png "Configurar a URL do aplicativo")
 
-4.  Na página **Configurar logon único no XMatters OnDemand**, clique em **Baixar certificado** e, em seguida, salve o arquivo do certificado em seu computador como **c:\\XMatters OnDemand.cer**.
+4.  Na página **Configurar logon único no XMatters OnDemand**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente como **c:\\XMatters OnDemand.cer**.
 
     >[AZURE.IMPORTANT]Você precisa encaminhar o certificado para a equipe de suporte do xMatters. O certificado precisa ser carregado pela equipe de suporte do xMatters antes de você finalizar a configuração de logon único.
 
@@ -77,7 +89,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Em uma janela diferente do navegador da Web, faça logon em seu site de empresa XMatters OnDemand como administrador.
 
-6.  Na barra de ferramentas na parte superior, clique em **Admin** e, em seguida, clique em **Detalhes da Empresa** na barra de navegação à esquerda.
+6.  Na barra de ferramentas na parte superior, clique em **Administrador** e em **Detalhes da Empresa** na barra de navegação à esquerda.
 
     ![Administrador](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "Administrador")
 
@@ -86,12 +98,12 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Configuração de SAML](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "Configuração de SAML")
 
     1.  Selecione **Habilitar SAML**.
-    2.  No portal do Azure, na página de diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **ID do Provedor de Identidade** e, em seguida, cole-o na caixa de texto **ID do Provedor de Identidade**.
-    3.  No portal do Azure, na página de diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **URL de Serviço de Logon Único** e, em seguida, cole-o na caixa de texto **URL de Logon Único**.
-    4.  No portal do Azure, na página de diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **URL de Serviço de Logout Único** e, em seguida, cole-o na caixa de texto **URL de Logout Único**.
-    5.  Na página Detalhes da Empresa, na parte superior, clique em **Salvar alterações**. ![Detalhes da empresa](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Detalhes da empresa")
+    2.  No portal do Azure, na página do diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **ID de Provedor de Identidade** e cole-o na caixa de texto **ID de Provedor de Identidade**.
+    3.  No portal do Azure, na página do diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon Único**.
+    4.  No portal do Azure, na página do diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **URL de Serviço de Logoff Único** e cole-o na caixa de texto **URL de Logoff Único**.
+    5.  Na página Detalhes da Empresa, na parte superior, clique em **Salvar Alterações**. ![Detalhes da empresa](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Detalhes da empresa")
 
-8.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+8.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 
     ![Configurar logon único](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.png "Configurar logon único")
 
@@ -101,7 +113,7 @@ Para permitir que os usuários do AD do Azure façam logon no XMatters OnDemand,
 
 ###Para provisionar contas de usuário, execute as seguintes etapas:
 
-1.  Faça logon no seu locatário do **XMatters OnDemand**.
+1.  Faça logon em seu locatário do **XMatters OnDemand**.
 
 2.  Clique na guia **Usuários**.
 
@@ -111,11 +123,11 @@ Para permitir que os usuários do AD do Azure façam logon no XMatters OnDemand,
 
 4.  Selecione **Ativo**.
 
-5.  Na seção **Adicionar um Usuário**, execute as seguintes etapas:
+5.  Na seção **Adicionar um Usuário**, realize as seguintes etapas:
 
     ![Adicionar um Usuário](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "Adicionar um Usuário")
 
-    1.  Insira **UserID**, **Nome**, **Sobrenome**, **Site** de uma conta válida do AAD que você deseja provisionar.
+    1.  Insira **UserID**, **Nome**, **Sobrenome** e **Site** de uma conta válida do AAD que você deseja provisionar.
     2.  Clique em **Salvar**.
 
 >[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do XMatters OnDemand ou APIs fornecidas pelo XMatters OnDemand para provisionar as contas de usuário do AAD.
@@ -128,7 +140,7 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 1.  No portal do AD do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **XMatters OnDemand **, clique em **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **XMatters OnDemand**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "Atribuir usuários")
 
@@ -136,6 +148,6 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-xmatters-ondemand-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

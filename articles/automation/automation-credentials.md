@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Ativos de credenciais na Automação do Azure | Microsoft Azure"
-   description="Ativos de credenciais na Automação do Azure contêm credenciais de segurança que podem ser usadas para autenticação para recursos acessados pelo runbook. Este artigo descreve como criar ativos de credenciais e usá-los em um runbook."
+   description="Os ativos de credenciais na Automação do Azure contêm credenciais de segurança que podem ser usadas para a autenticação em recursos acessados pelo runbook ou pela configuração DSC. Este artigo descreve como criar ativos de credenciais e usá-los em um runbook ou uma configuração DSC."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Ativos de credenciais na Automação do Azure
 
-Um ativo de credencial de Automação contém um objeto [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) que contém credenciais de segurança, como um nome de usuário e uma senha. Runbooks podem usar cmdlets que aceite um objeto PSCredential para autenticação ou o runbook pode extrair o nome de usuário e a senha do objeto PSCredential para fornecer a algum aplicativo ou serviço que exija autenticação. As propriedades de uma credencial são armazenadas com segurança na Automação do Azure e podem ser acessadas no runbook com a atividade [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx).
+Um ativo de credencial de Automação contém um objeto [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) que contém credenciais de segurança, como um nome de usuário e uma senha. Runbooks e configurações DSC podem usar cmdlets que aceitam um objeto PSCredential para autenticação ou eles podem extrair o nome de usuário e a senha do objeto PSCredential para fornecê-los a algum aplicativo ou serviço que exija a autenticação. As propriedades de uma credencial são armazenadas com segurança na Automação do Azure e podem ser acessadas no runbook ou na configuração DSC com a atividade [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx).
 
 >[AZURE.NOTE]Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
 
 ## Cmdlets do Windows PowerShell
 
-Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de credenciais de automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo PowerShell do Azure](../powershell-install-configure.md) que está disponível para uso em runbooks de Automação.
+Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de credenciais de automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks e na configuração DSC da Automação.
 
 |Cmdlets|Descrição|
 |:---|:---|
@@ -34,13 +34,13 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de crede
 
 ## Atividades de runbook
 
-As atividades na tabela a seguir são usadas para acessar credenciais em um runbook.
+As atividades na tabela a seguir são usadas para acessar credenciais em um runbook ou em uma configuração DSC.
 
 |Atividades|Descrição|
 |:---|:---|
-|Get-AutomationPSCredential|Obtém uma credencial a ser usada em um runbook. Retorna um objeto [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential).|
+|Get-AutomationPSCredential|Obtém uma credencial a ser usada em um runbook ou configuração DSC. Retorna um objeto [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential).|
 
->[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de Get-AutomationPSCredential, pois isso pode complicar a descoberta de dependências entre runbooks e ativos de credenciais no momento do design.
+>[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de Get-AutomationPSCredential, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de credenciais no momento do design.
 
 ## Criando uma nova credencial
 
@@ -71,9 +71,9 @@ Os comandos de exemplo a seguir mostram como criar uma nova credencial de automa
 	$cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
 	New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
 
-## Usando uma credencial do PowerShell em um runbook
+## Usando uma credencial do PowerShell
 
-Você recupera um ativo de credencial em um runbook com a atividade **Get-AutomationPSCredential**. Isso retorna um [objeto PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) que você pode usar com uma atividade ou cmdlet que exija um parâmetro PSCredential. Você também pode recuperar as propriedades do objeto de credencial para usar individualmente. O objeto tem uma propriedade para o nome de usuário e a senha segura, ou você pode usar o método **GetNetworkCredential** para retornar um objeto [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) que fornecerá uma versão sem segurança da senha.
+Recupere um ativo de credencial em um runbook ou configuração DSC com a atividade **Get-AutomationPSCredential**. Isso retorna um [objeto PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) que você pode usar com uma atividade ou cmdlet que exija um parâmetro PSCredential. Você também pode recuperar as propriedades do objeto de credencial para usar individualmente. O objeto tem uma propriedade para o nome de usuário e a senha segura, ou você pode usar o método **GetNetworkCredential** para retornar um objeto [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) que fornecerá uma versão sem segurança da senha.
 
 ### Exemplo de runbook textual
 
@@ -96,6 +96,8 @@ A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráf
 
 ![Adicionar a credencial à tela](media/automation-credentials/get-credential.png)
 
+## Usando uma credencial do PowerShell na DSC
+Embora as Configurações DSC na Automação do Azure possam fazer referência aos ativos de credenciais usando **Get-AutomationPSCredential**, os ativos de credenciais também podem ser transmitidos por meio de parâmetros, se desejado. Para obter mais informações, veja [Compilando configurações na DSC de Automação do Azure](automation-dsc-compile.md#credential-assets).
 
 ## Artigos relacionados
 
@@ -103,4 +105,4 @@ A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráf
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

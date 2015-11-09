@@ -511,14 +511,16 @@ A atividade de hive usa as 2 entradas e produz uma fatia de saída todos os dias
 	}
 
 
+## Encadeando atividades
+É possível encadear duas atividades fazendo com que o conjunto de dados de saída de uma atividade seja o conjunto de dados de entrada da outra atividade. As atividades podem estar no mesmo pipeline ou em pipelines diferentes. A segunda atividade é executada apenas quando a primeira é concluída com êxito. Este encadeamento ocorre no nível de fração de tempo (uma unidade separada em um conjunto de dados).
 
 ## Variáveis de sistema do Data Factory
 
 Nome de variável | Descrição | Escopo do objeto | Escopo JSON e casos de uso
 ------------- | ----------- | ------------ | ------------------------
-WindowStart | Início do intervalo de tempo para a janela da execução de atividade atual | atividade | <ol><li>Especifica consultas de seleção de dados. Consulte os artigos de conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md).</li><li>Passe parâmetros para o script do Hive (exemplo mostrado acima).</li>
+WindowStart | Início do intervalo de tempo para a janela da execução de atividade atual | atividade | <ol><li>Especifica consultas de seleção de dados. Veja os artigos sobre o conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md).</li><li>Transmita parâmetros para o script do Hive (exemplo mostrado acima).</li>
 WindowEnd | Fim do intervalo de tempo para a janela da execução de atividade atual | atividade | o mesmo que o descrito acima
-SliceStart | Início do intervalo de tempo para a fatia de dados sendo gerada | atividade<br/>conjunto de dados | <ol><li>Especifique caminhos de pasta dinâmicos e nomes de arquivos trabalhando simultaneamente com o [Blob do Azure](data-factory-azure-blob-connector.md) e [Conjuntos de dados do sistema de arquivos](data-factory-onprem-file-system-connector.md).</li><li>Especifique dependências de entrada com funções do data factory na coleção de entradas de atividade.</li></ol>
+SliceStart | Início do intervalo de tempo para a fatia de dados sendo gerada | atividade<br/>conjunto de dados | <ol><li>Especifique caminhos de pasta dinâmicos e nomes de arquivos trabalhando simultaneamente com o [Blob do Azure](data-factory-azure-blob-connector.md) e os [Conjuntos de dados do Sistema de Arquivos](data-factory-onprem-file-system-connector.md).</li><li>Especifique as dependências de entrada com funções da fábrica de dados na coleção de entradas de atividade.</li></ol>
 SliceEnd | Fim do intervalo de tempo para a fatia de dados atual que está sendo gerada | atividade<br/>conjunto de dados | O mesmo que o descrito acima. 
 
 > [AZURE.NOTE]Atualmente, o data factory exige que a agenda especificada na atividade corresponda exatamente à agenda especificada na disponibilidade do conjunto de dados de saída. Isso significa que WindowStart, WindowEnd e SliceStart e SliceEnd sempre são mapeados para o mesmo período de tempo e uma única fatia de saída.
@@ -527,14 +529,14 @@ SliceEnd | Fim do intervalo de tempo para a fatia de dados atual que está sendo
 
 Você pode usar funções no Data Factory junto com as variáveis do sistema mencionadas acima para as seguintes finalidades:
 
-1.	Especificando consultas de seleção de dados (consulte os artigos de conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
+1.	Especificando consultas de seleção de dados (veja os artigos sobre o conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
 	A sintaxe para invocar uma função do Data Factory é: **$$<function>** para consultas de seleção de dados e outras propriedades na atividade e nos conjuntos de dados.  
 2. Especificar dependências de entrada com funções de data factory na coleção de entradas da atividade (consulte o exemplo acima).
 
 	$$ não é necessário para especificar expressões de dependência de entrada.
 
-No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atribuída a um valor retornado pela função **Text.Format**. Esta amostra também usa uma variável de sistema chamada **WindowStart**, que representa a hora de início da janela de execução de atividade.
+No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atribuída a um valor retornado pela função **Text.Format**. Este exemplo também usa uma variável de sistema chamada **WindowStart**, que representa a hora de início da janela de execução de atividade.
 	
 	{
 	    "Type": "SqlSource",
@@ -549,18 +551,18 @@ Categoria | Função | Parâmetros | Descrição
 -------- | -------- | ---------- | ----------- 
 Hora | AddHours(X,Y) | X: DateTime <p>Y: int</p> | Adiciona Y horas até o momento X determinado. <p>Exemplo: 5/9/2013 12h + 2 horas = 5/9/2013 14h</p>
 Hora | AddMinutes(X,Y) | X: DateTime <p>Y: int</p> | Adiciona Y minutos a X.<p>Exemplo: 15/9/2013 12h + 15 minutos = 15/9/2013 12h15</p>
-Hora | StartOfHour(X) | X: Datetime | Obtém a hora de início para a hora representada pelo componente de hora do X. <p>Exemplo: a StartOfHour de 15/9/2013 17:10:23 é 15/9/2013 17:00:00</p>
+Hora | StartOfHour(X) | X: Datetime | Obtém a hora de início para a hora representada pelo componente de hora do X. <p>Exemplo: a StartOfHour de 15/9/2013 17h10min23 é 15/9/2013 17h</p>
 Data | AddDays(X,Y) | X: DateTime<p>Y: int</p> | Adiciona Y dias a X.<p>Exemplo: 15/9/2013 12h + 2 dias = 17/9/2013 12h</p>
 Data | AddMonths(X,Y) | X: DateTime<p>Y: int</p> | Adiciona Y meses a X.<p>Exemplo: 15/9/2013 12h + 1 mês = 15/10/2013 12h</p> 
 Data | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | Adiciona Y * 3 meses a X.<p>Exemplo: 15/9/2013 12h + 1 trimestre = 15/12/2013 12h</p>
 Data | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | Adiciona Y * 7 dias a X<p>Exemplo: 15/9/2013 12h + 1 semana = 22/9/2013 12h</p>
 Data | AddYears(X,Y) | X: DateTime<p>Y: int</p> | Adiciona Y anos a X<p>Exemplo: 15/9/2013 12h + 1 ano = 15/9/2014 12h</p>
-Data | Day(X) | X: DateTime | Obtém o componente de dia de X.<p>Exemplo: O componente Day de 15/9/2013 12h é 15.</p>
+Data | Day(X) | X: DateTime | Obtém o componente de dia de X.<p>Exemplo: o componente Day de 15/9/2013 12h é 15.</p>
 Data | DayOfWeek(X) | X: DateTime | Obtém o componente de dia da semana de X.<p>Exemplo: o DayOfWeek de 15/9/2013 12h é Domingo.</p>
 Data | DayOfYear(X) | X: DateTime | Obtém o dia do ano que representa o componente de ano de X.<p>Exemplos:<br/>1/12/2015: dia 335 de 2015<br/>31/12/2015: dia 365 de 2015<br/>31/12/2016: dia 366 de 2016 (ano bissexto)</p>
 Data | DaysInMonth(X) | X: DateTime | Obtém os dias do mês representados pelo componente de mês do parâmetro X.<p>Exemplo: DaysInMonth de 15/9/2013 são 30, já que há 30 dias do mês de setembro.</p>
-Data | EndOfDay(X) | X: DateTime | Obtém a data e hora que representam o fim do dia (componente do dia) do X.<p>Exemplo: EndOfDay de 15/9/2013 17:10:23 é 15/9/2013 23:59:59.</p>
-Data | EndOfMonth(X) | X: DateTime | Obtém o final do mês representado pelo componente de mês de parâmetro X.<p>Exemplo: EndOfMonth de 15/9/2013 17:09:23 é 30/9/2013 23:59:59 (data e hora que representam o final do mês de setembro)</p>
+Data | EndOfDay(X) | X: DateTime | Obtém a data e hora que representam o fim do dia (componente do dia) do X.<p>Exemplo: EndOfDay de 15/9/2013 17h10min23 é 15/9/2013 23h59min59.</p>
+Data | EndOfMonth(X) | X: DateTime | Obtém o final do mês representado pelo componente de mês de parâmetro X.<p>Exemplo: EndOfMonth de 15/9/2013 17h09min23 é 30/9/2013 23h59min59 (data e hora que representam o final do mês de setembro)</p>
 Data | StartOfDay(X) | X: DateTime | Obtém o início do dia representado pelo componente dia do parâmetro X.<p>Exemplo: StartOfDay de 15/9/2013 17:10:23 é 15/9/2013 12h.</p>
 DateTime | From(X) | X: Cadeia de caracteres | Analise a cadeia de caracteres X para um valor de data e hora.
 DateTime | Ticks(X) | X: DateTime | Obtém os tiques de propriedade do parâmetro X. Um tique é igual a 100 nanossegundos. O valor dessa propriedade representa o número de tiques que se passaram desde 0h, meia-noite de 1º de janeiro de 0001. 
@@ -580,11 +582,11 @@ Texto | Format(X) | X: variável de cadeia de caracteres | Formata o texto.
 
 ## Grande aprofundamento em dependência de dados
 
-Para gerar uma fatia do conjunto de dados por uma execução de atividade, o data factory usa o seguinte **modelo dependência** para determinar as relações entre o conjunto(s) de dados consumido por uma atividade e o conjunto(s) de dados produzido por uma atividade.
+Para gerar uma fatia do conjunto de dados por uma execução de atividade, o Data Factory usa o seguinte **modelo dependência** para determinar as relações entre o(s) conjunto(s) de dados consumido(s) por uma atividade e o(s) conjunto(s) de dados produzido(s) por uma atividade.
 
 O intervalo de tempo do conjunto(s) de dados de entrada necessário para gerar a fatia do conjunto de dados de saída é chamado de **período de dependência**.
 
-Executar uma atividade gera uma fatia do conjunto de dados somente depois que as fatias de dados no conjunto(s) de dados de entrada dentro do período de dependência estão disponíveis. Isso significa que todas as fatias de entrada que compõem o período de dependência devem estar com status **Pronta** para que a fatia do conjunto de dados de saída seja produzida por uma execução de atividade.
+Executar uma atividade gera uma fatia do conjunto de dados somente depois que as fatias de dados no conjunto(s) de dados de entrada dentro do período de dependência estão disponíveis. Isso significa que todas as fatias de entrada que compõem o período de dependência devem estar com status **Pronto** para que a fatia do conjunto de dados de saída seja produzida por uma execução de atividade.
 
 Para gerar a fatia do conjunto de dados [início, fim], uma função é necessária para mapear a fatia do conjunto de dados para seu período de dependência. Essa função é essencialmente uma fórmula que converte o início e fim da fatia do conjunto de dados até o início e fim do período de dependência. Mais formalmente,
 	
@@ -601,17 +603,17 @@ Você também pode fornecer seu próprio mapeamento para o período de dependên
    
 ## Validação e dependência de dados
 
-Um conjunto de dados pode ter, opcionalmente, uma política de validação definida que especifica como os dados gerados pela execução de uma fatia podem ser validados antes de estarem prontos para consumo. Consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md) para obter detalhes.
+Um conjunto de dados pode ter, opcionalmente, uma política de validação definida que especifica como os dados gerados pela execução de uma fatia podem ser validados antes de estarem prontos para consumo. Veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md) para obter detalhes.
 
-Nesses casos, quando execução da fatia tiver terminado, o status da fatia de saída é alterado para **Esperando** com um substatus de **Validação**. Depois que as fatias são validadas, o status de fatia é alterado para **Pronto**.
+Nesses casos, quando a execução da fatia tiver terminado, o status da fatia de saída será alterado para **Aguardando** com um substatus de **Validação**. Depois que as fatias são validadas, o status de fatia é alterado para **Pronto**.
    
 Se uma fatia de dados foi produzida mas não passou na validação, as execuções de atividade para fatias downstream que dependem da fatia na qual houve falha na validação não serão processadas.
 
-Os diversos estados de fatias de dados no data factory são abordados no artigo [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
+Os diversos estados de fatias de dados no Data Factory são abordados no artigo [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
 
 ## Dados externos
 
-Um conjunto de dados pode ser marcado como externo (como mostra o JSON abaixo), indicando que ele não foi gerado com o Azure Data Factory. Nesse caso, a política de conjunto de dados pode ter um conjunto de parâmetros que descrevem uma política de validação e repetição de tentativas para o conjunto de dados. Consulte [Criando pipelines](data-factory-create-pipelines.md) para obter uma descrição de todas as propriedades.
+Um conjunto de dados pode ser marcado como externo (como mostra o JSON abaixo), indicando que ele não foi gerado com o Azure Data Factory. Nesse caso, a política de conjunto de dados pode ter um conjunto de parâmetros que descrevem uma política de validação e repetição de tentativas para o conjunto de dados. Veja [Criando pipelines](data-factory-create-pipelines.md) para obter uma descrição de todas as propriedades.
 
 Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias de dados para dados externos precisam estar prontas para que fatias dependentes possam ser processadas.
 
@@ -676,4 +678,4 @@ Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias
 
   
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

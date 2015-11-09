@@ -1,14 +1,26 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure com o TeamSeer | Microsoft Azure" description="Saiba como usar o TeamSeer com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o TeamSeer | Microsoft Azure" 
+    description="Saiba como usar o TeamSeer com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure ao TeamSeer
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=526800).
   
 O objetivo deste tutorial é mostrar a integração do Azure ao TeamSeer. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do TeamSeer
   
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao TeamSeer poderão fazer logon único no aplicativo em seu site de empresa TeamSeer (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao TeamSeer poderão fazer logon único no aplicativo em seu site de empresa do TeamSeer (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -39,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-teamseer-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-teamseer-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -53,11 +65,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TeamSeer com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TeamSeer com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração do aplicativo **TeamSeer**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único **.
+1.  No portal do Azure AD, na página de integração de aplicativos do **TeamSeer**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-teamseer-tutorial/IC789621.png "Configurar o logon único")
 
@@ -65,17 +77,17 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-teamseer-tutorial/IC789628.png "Configurar o logon único")
 
-3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Logon do TeamSeer**, digite a URL usando o padrão "**http://www.teamseer.com/companyid*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do TeamSeer**, digite a URL usando o padrão "**http://www.teamseer.com/companyid*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-teamseer-tutorial/IC789629.png "Configurar a URL do Aplicativo")
 
-4.  Na página **Configurar logon único no TeamSeer**, para baixar seu certificado, clique em **Baixar certificado** e, em seguida, salve o arquivo do certificado em seu computador.
+4.  Na página **Configurar logon único no TeamSeer**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-teamseer-tutorial/IC789630.png "Configurar o logon único")
 
 5.  Em outra janela do navegador da Web, faça logon em seu site de empresa TeamSeer como um administrador.
 
-6.  Vá para **RH Admin**.
+6.  Vá para **Administrador de RH**.
 
     ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789634.png "HR Admin")
 
@@ -91,19 +103,19 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurações do SAML](./media/active-directory-saas-teamseer-tutorial/IC789637.png "Configurações do SAML")
 
-    1.  No portal do Azure, na página de diálogo **Configurar logon único no TeamSeer**, copie o valor da **URL do serviço de logon único** e, em seguida, cole-o na caixa de texto **URL**.
-    2.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
+    1.  No portal do Azure, na página do diálogo **Configurar logon único no TeamSeer**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL**.
+    2.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
 
-        >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-    3.  Abra seu certificado codificado em base 64 no bloco de notas, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado Público de IdP**.
+    3.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado Público do IdP**.
 
 10. Para concluir a configuração do provedor de SAML, execute as seguintes etapas:
 
     ![Configurações do SAML](./media/active-directory-saas-teamseer-tutorial/IC789638.png "Configurações do SAML")
 
-    1.  Nos **Endereços de email de teste**, digite o endereço de email do usuário de teste.
-    2.  Na caixa de texto **Emissor**, digite a URL do emissor do provedor de serviços.
+    1.  Nos **Endereços de Email de Teste**, digite o endereço de email do usuário de teste.
+    2.  Na caixa de texto **Emissor**, digite a URL do Emissor do provedor de serviços.
     3.  Clique em **Salvar**.
 
 11. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
@@ -122,14 +134,14 @@ Para permitir que os usuários do AD do Azure façam logon no TeamSeer, eles dev
 
     ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789640.png "HR Admin")
 
-    1.  Vá para **RH Admin > Usuários**.
-    2.  Clique em **Executar o Assistente de novo usuário**.
+    1.  Vá para **Administrador de RH > Usuários**.
+    2.  Clique em **Executar o assistente de Novo Usuário**.
 
-3.  Na seção de **Detalhes do Usuário**, execute as seguintes etapas:
+3.  Na seção **Detalhes do Usuário**, realize as seguintes etapas:
 
     ![Detalhes do Usuário](./media/active-directory-saas-teamseer-tutorial/IC789641.png "Detalhes do Usuário")
 
-    1.  Digite o **Nome**, **Sobrenome**, **Nome de usuário (Endereço de email)** de uma conta válida do AAD que deseja provisionar nas caixas de texto relacionadas.
+    1.  Digite o **Nome**, **Sobrenome** e **Nome de usuário (Endereço de email)** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
     2.  Clique em **Próximo**.
 
 4.  Siga as instruções na tela para adicionar um novo usuário e clique em **Concluir**.
@@ -152,6 +164,6 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
     ![Sim](./media/active-directory-saas-teamseer-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

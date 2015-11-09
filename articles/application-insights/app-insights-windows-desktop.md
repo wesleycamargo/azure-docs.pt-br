@@ -62,13 +62,13 @@ O núcleo SDK fornece apenas uma API: diferentemente dos SDKs Web ou de disposit
 
     * Se você instalou somente o pacote de API principal Microsoft.ApplicationInsights, deve definir a chave no código, por exemplo, em main(): 
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "`*sua chave*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *sua chave* `";`
 
-    * Se você instalou um dos outros pacotes, pode definir a chave usando código ou defini-la em ApplicationInsights.config:
+    Se você instalou um dos outros pacotes, pode definir a chave usando código ou defini-la em ApplicationInsights.config:
  
     `<InstrumentationKey>`*sua chave*`</InstrumentationKey>`
 
-
+    Se você usar ApplicationInsights.config, verifique se suas propriedades no Gerenciador de Soluções estão definidas como **Ação de Compilação = Conteúdo, Copiar para Diretório de Saída = Copiar**.
 
 ## <a name="telemetry"></a>Inserir chamadas de telemetria
 
@@ -115,12 +115,12 @@ Por exemplo, em um Aplicativo Windows Forms, você poderia escrever:
 
 Use qualquer uma das [APIs do Application Insights][api] para enviar telemetria. Em aplicativos de área de trabalho do Windows, nenhuma telemetria é enviada automaticamente. Normalmente você utilizaria:
 
-* `TrackPageView(pageName)` sobre alternância de formulários, páginas ou guias
+* `TrackPageView(pageName)` ao alternar formulários, páginas ou guias
 * `TrackEvent(eventName)` para outras ações de usuário
-* `TrackMetric(name, value)` em uma tarefa em segundo plano para enviar relatórios regulares de métricas não anexadas a eventos específicos
+* `TrackMetric(name, value)` em uma tarefa em segundo plano para enviar relatórios regulares de métricas não anexadas a eventos específicos.
 * `TrackTrace(logEvent)` para [log de diagnóstico][diagnostic]
-* `TrackException(exception)` nas cláusulas catch
-* `Flush()` para verificar se toda a telemetria foi enviada antes de fechar o aplicativo. Use isso somente se você estiver usando a API principal (Microsoft.ApplicationInsights) sozinha. Os SDKs Web e de dispositivo implantam esse comportamento automaticamente. (Se o aplicativo for executado em contextos onde a internet não está sempre disponível, confira também [Canal de persistência](#persistence-channel).)
+* `TrackException(exception)` em cláusulas catch
+* `Flush()` para garantir que toda a telemetria foi enviada antes de fechar o aplicativo. Use isso somente se você estiver usando a API principal (Microsoft.ApplicationInsights) sozinha. Os SDKs Web e de dispositivo implantam esse comportamento automaticamente. (Se o seu aplicativo for executado em contextos em que a Internet não esteja sempre disponível, confira também [Canal de persistência](#persistence-channel).)
 
 
 #### Inicializadores de contexto
@@ -177,9 +177,9 @@ Se você usou o TrackMetric ou o parâmetro de medidas do TrackEvent, abra o [Me
 
 Se seu aplicativo for executado onde não houver conexão à Internet sempre disponível ou for lenta, considere usar o canal de persistência em vez do canal de memória padrão.
 
-O canal de memória padrão perde qualquer telemetria que não tenha sido enviada no momento em que o aplicativo foi fechado. Embora você possa usar `Flush()` para tentar enviar os dados restantes no buffer, ainda perderá dados se não houver uma conexão de internet ou se o aplicativo for desativado antes da conclusão da transmissão.
+O canal de memória padrão perde qualquer telemetria que não tenha sido enviada no momento em que o aplicativo foi fechado. Embora você possa usar `Flush()` para tentar enviar os dados restantes no buffer, ele ainda perderá os dados se não houver uma conexão com a Internet ou se o aplicativo for desativado antes da conclusão da transmissão.
 
-Por outro lado, o canal de persistência armazena a telemetria em buffer em um arquivo antes de enviá-lo ao portal. O `Flush()` garante que os dados são armazenados no arquivo. Se os dados não são enviados quando o aplicativo é fechado, ele permanece no arquivo. Quando o aplicativo for reiniciado, os dados serão enviados se houver conexão com a Internet. Os dados ficarão acumulados no arquivo ou pelo tempo que for necessário até que uma conexão fique disponível.
+Por outro lado, o canal de persistência armazena a telemetria em buffer em um arquivo antes de enviá-la ao portal. O `Flush()` garante que os dados sejam armazenados no arquivo. Se os dados não são enviados quando o aplicativo é fechado, ele permanece no arquivo. Quando o aplicativo for reiniciado, os dados serão enviados se houver conexão com a Internet. Os dados ficarão acumulados no arquivo ou pelo tempo que for necessário até que uma conexão fique disponível.
 
 ### Para usar o canal de persistência
 
@@ -198,7 +198,7 @@ Por outro lado, o canal de persistência armazena a telemetria em buffer em um a
       TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
     
     ``` 
-3. Use `telemetryClient.Flush()` antes que seu aplicativo feche para garantir que os dados serão enviados para o portal ou salvos no arquivo.
+3. Use `telemetryClient.Flush()` antes de fechar seu aplicativo para garantir que os dados sejam enviados para o portal ou salvos no arquivo.
 
     Observe que Flush() é síncrono para o canal de persistência, mas assíncrono para outros canais.
 
@@ -207,7 +207,7 @@ O canal de persistência é otimizado para cenários de dispositivos, onde o nú
 
 #### Exemplo
 
-Digamos que você deseja monitorar exceções sem tratamento. Você assina o evento `UnhandledException`. No retorno de chamada, você deve incluir uma chamada para Liberar para garantir que a telemetria será persistida.
+Digamos que você deseja monitorar exceções sem tratamento. Você se inscreve no evento `UnhandledException`. No retorno de chamada, você deve incluir uma chamada para Liberar para garantir que a telemetria será persistida.
  
 ```C# 
 
@@ -228,7 +228,7 @@ private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionE
 
 ``` 
 
-Quando o aplicativo é desligado, você vê um arquivo em `%LocalAppData%\Microsoft\ApplicationInsights` contendo os eventos compactados.
+Quando o aplicativo for desligado, você verá um arquivo em `%LocalAppData%\Microsoft\ApplicationInsights`, que contém os eventos compactados.
  
 Na próxima vez em que você iniciar este aplicativo, o canal irá pegar esse arquivo e entregar a telemetria ao Application Insights se conseguir.
 
@@ -274,7 +274,7 @@ namespace ConsoleApplication1
 ```
 
 
-O código do canal de persistência está no [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel).
+O código do canal de persistência está no [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel).
 
 
 ## <a name="usage"></a>Próximas etapas
@@ -299,4 +299,4 @@ O código do canal de persistência está no [github](https://github.com/Microso
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

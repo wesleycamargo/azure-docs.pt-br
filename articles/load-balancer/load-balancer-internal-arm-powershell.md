@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="10/21/2015"
    ms.author="joaoma" />
 
 # Introdução à configuração de um balanceador de carga interno usando o Gerenciador de Recursos do Azure
@@ -30,6 +30,7 @@ Nesta página, abordaremos a sequência de tarefas individuais que precisam ser 
 
 ## O que é necessário para criar um balanceador de carga interno?
 
+
 Os itens a seguir devem ser configurados antes da criação de um balanceador de carga interno:
 
 - Configuração do IP de front-end - vai configurar o endereço IP privado para tráfego de rede de entrada 
@@ -44,10 +45,10 @@ Os itens a seguir devem ser configurados antes da criação de um balanceador de
 
 É possível obter mais informações sobre componentes do balanceador de carga com o gerenciador de recursos do Azure em [Suporte do Gerenciador de Recursos do Azure para balanceador de carga](load-balancer-arm.md).
 
-As etapas a seguir mostram como configurar um balanceador de carga para carga balanceada entre duas máquinas virtuais.
+As etapas a seguir mostram como configurar um balanceador de carga entre 2 máquinas virtuais.
 
 
-## Passo a passo usando o powershell
+## Passo a passo usando o Powershell
 
 
 ### Criar grupo de recursos para o balanceador de carga
@@ -88,7 +89,7 @@ O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especi
 
 No exemplo anterior, criamos um grupo de recursos denominado "NRP-RG" e o local "Oeste dos EUA".
 
-## Crie a rede virtual e um endereço IP público para o pool de IP front-end
+## Crie a Rede virtual e um endereço IP privado para o pool de IP front-end
 
 
 ### Etapa 1
@@ -235,14 +236,46 @@ PS C:\> $backendnic1
 
 Use o comando Add-AzureVMNetworkInterface para atribuir o NIC a uma máquina virtual.
 
-Você pode encontrar o passo a passo para criar uma máquina virtual e atribuir a um NIC de acordo com a documentação [Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+Você pode encontrar orientações de como criar uma máquina virtual e atribuir a ela um NIC de acordo com a documentação [Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), opção 4 ou 5.
 
 
-## Consulte também
+## Atualizar um balanceador de carga existente
+
+
+### Etapa 1
+
+Usando o balanceador de carga do exemplo acima, atribua o objeto balanceador de carga à variável $slb usando Get-AzureLoadBalancer
+
+	$slb=get-azureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+### Etapa 2
+
+No exemplo a seguir, você adicionará uma nova regra de NAT de entrada usando a porta 81 no front-end e a porta 8181 do pool de back-end a um balanceador de carga existente
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### Etapa 3
+
+Salvar a nova configuração usando Set-AzureLoadBalancer
+
+	$slb | Set-AzureLoadBalancer
+
+## Remover um balanceador de carga
+
+Use o comando Remove-AzureLoadBalancer para excluir um balanceador de carga criado anteriormente denominado "NRP-LB" em um grupo de recursos chamado " "NRP-RG"
+
+	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]Você pode usar a opção -Force para evitar a solicitação de exclusão.
+
+
+
+## Veja também
 
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

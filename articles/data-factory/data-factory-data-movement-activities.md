@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="10/27/2015" 
 	ms.author="spelluru"/>
 
 # Atividades de movimentação de dados
@@ -27,25 +27,26 @@ A atividade de cópia copia os dados de um armazenamento de dados de **origem** 
 
 | **Fonte** | **Coletor** |
 | ------ | ---- |
-| [Blob do Azure](data-factory-azure-blob-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server como IaaS, Banco de Dados de Documentos do Azure, Sistema de Arquivos local |
-| [Tabela do Azure](data-factory-azure-table-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server como IaaS, Banco de Dados de Documentos do Azure |
-| [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server como IaaS, Banco de Dados de Documentos do Azure |
-| [SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server como IaaS, Banco de Dados de Documentos do Azure |
-| [Banco de Dados de Documentos do Azure](data-factory-azure-documentdb-connector.md) | Blob do Azure,Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure |
-| [SQL Server no IaaS](data-factory-sqlserver-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server no IaaS |
-| [Sistema de arquivos local](data-factory-onprem-file-system-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server como IaaS, Sistema de Arquivos local |
-| [SQL Server local](data-factory-sqlserver-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server no IaaS |
-| [Banco de dados Oracle local](data-factory-onprem-oracle-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server no IaaS |
-| [Banco de dados MySQL local](data-factory-onprem-mysql-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server no IaaS |
-| [Banco de dados DB2 local](data-factory-onprem-db2-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server no IaaS |
-| [Banco de dados Teradata local](data-factory-onprem-teradata-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server no IaaS |
-| [Banco de dados Sybase local](data-factory-onprem-sybase-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server no IaaS |
-| [Banco de dados PostgreSQL local](data-factory-onprem-postgresql-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Servidor SQL local, SQL Server no IaaS |
+| [Blob do Azure](data-factory-azure-blob-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Banco de Dados de Documentos do Azure, Sistema de arquivos local, Repositório Azure Data Lake |
+| [Tabela do Azure](data-factory-azure-table-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Banco de Dados de Documentos do Azure, Repositório Azure Data Lake |
+| [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Banco de Dados de Documentos do Azure, Repositório Azure Data Lake |
+| [SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Banco de Dados de Documentos do Azure, Repositório Azure Data Lake |
+| [Banco de Dados de Documentos do Azure](data-factory-azure-documentdb-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Repositório Azure Data Lake |
+| [Repositório Azure Data Lake](data-factory-azure-datalake-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Banco de Dados de Documentos do Azure, Sistema de arquivos local, Repositório Azure Data Lake | 
+| [SQL Server no IaaS](data-factory-sqlserver-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Repositório Azure Data Lake |
+| [Sistema de arquivos local](data-factory-onprem-file-system-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Sistema de Arquivos local, Repositório Azure Data Lake |
+| [SQL Server local](data-factory-sqlserver-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Repositório Azure Data Lake |
+| [Banco de dados Oracle local](data-factory-onprem-oracle-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Repositório Azure Data Lake |
+| [Banco de dados MySQL local](data-factory-onprem-mysql-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Repositório Azure Data Lake |
+| [Banco de dados DB2 local](data-factory-onprem-db2-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Repositório Azure Data Lake |
+| [Banco de dados Teradata local](data-factory-onprem-teradata-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Repositório Azure Data Lake |
+| [Banco de dados Sybase local](data-factory-onprem-sybase-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Repositório Azure Data Lake |
+| [Banco de dados PostgreSQL local](data-factory-onprem-postgresql-connector.md) | Blob do Azure, Tabela do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, SQL Server local, SQL Server na IaaS, Repositório Azure Data Lake |
 
 ## <a name="copyactivity"></a>Atividade de cópia
-A atividade de cópia usa um conjunto de dados de entrada (**fonte**) e copia dados por configuração de atividades para um conjunto de dados de saída (**coletor**). A cópia de dados é feita em um modo de lotes de acordo com a agenda especificada na atividade.
+A atividade de cópia usa um conjunto de dados de entrada (**fonte**) e copia os dados por configuração de atividade para um conjunto de dados de saída (**coletor**). A cópia de dados é feita em um modo de lotes de acordo com a agenda especificada na atividade.
 
-> [AZURE.NOTE]Para obter informações sobre como definir atividades em geral em um alto nível como várias propriedades e seções JSON disponíveis para todas as atividades, consulte o artigo [Understanding Pipelines & Activities (Entendendo pipelines e atividades)](data-factory-create-pipelines.md).
+> [AZURE.NOTE]Para saber mais sobre como definir atividades em geral em um nível alto como várias seções e propriedades JSON disponíveis para todas as atividades, confira o artigo [Entendendo pipelines e atividades](data-factory-create-pipelines.md).
 
 A atividade de cópia fornece as seguintes funcionalidades:
 
@@ -76,7 +77,7 @@ O gateway de dados fornece as seguintes funcionalidades:
 3.	Ter um único painel de monitoramento e gerenciamento com visibilidade do status do gateway com o painel baseado em nuvem da data factory.
 
 
-Consulte [Mover dados entre o local e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter mais detalhes.
+Veja [Mover dados entre o local e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter mais detalhes.
 
 ### Movimentação de dados confiável e econômica
 A atividade de cópia é projetada para mover grandes volumes de dados de forma confiável, resistente a erros transitórios em uma grande variedade de fontes de dados. Os dados podem ser copiados em uma maneira econômica com a opção de habilitar a compactação durante a transmissão.
@@ -93,12 +94,12 @@ Você pode encontrar o mapeamento para um determinado sistema de tipo nativo par
 A atividade de cópia dá suporte a vários formatos de arquivo, incluindo os formatos binário, texto e Avro para repositórios baseados em arquivo. É possível usar a atividade de cópia para a conversão de dados de um formato para outro. Exemplo: texto (CSV) para Avro.
 
 ### Propriedades da atividade de cópia
-Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam com cada tipo de atividade.
+Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade.
 
 No caso da atividade de cópia, a seção **typeProperties** varia de acordo com os tipos de fontes e coletores. Cada uma das páginas especificas do armazenamento de dados listadas acima documenta essas propriedades específicas para o tipo de armazenamento de dados.
 
 
 ## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

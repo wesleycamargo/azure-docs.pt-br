@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure com o Kontiki | Microsoft Azure" description="Saiba como usar o Kontiki com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o Kontiki | Microsoft Azure" 
+    description="Saiba como usar o Kontiki com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o Kontiki
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=529076).
   
 O objetivo deste tutorial é mostrar a integração do Azure com o Kontiki. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura do Kontiki com logon único habilitado
   
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao Kontiki poderão fazer um logon único no aplicativo do site da sua empresa Kontiki (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Kontiki poderão fazer logon único no aplicativo em seu site de empresa do Kontiki (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-kontiki-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-kontiki-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -55,19 +68,19 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração do aplicativo **Kontiki**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar logon único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **Kontiki**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Configurar o logon único")
 
-2.  Na página **Como você deseja que os usuários façam logon no Kontiki**, selecione **Logon único do AD do Microsoft Azure** e clique em **Avançar**.
+2.  Na página **Como você deseja que os usuários façam logon no Kontiki**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
     ![Configurar o logon único](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do aplicativo**, na caixa de texto **URL de logon do Kontiki**, digite a URL usada pelos seus usuários para fazer logon no seu aplicativo Kontiki (p. ex.: “ *https://company.mc.eval.kontiki.com/*") e, em seguida, clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Kontiki**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Kontiki (por exemplo: “*https://company.mc.eval.kontiki.com/*")) e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Configurar a URL do Aplicativo")
 
-4.  Na página **Configurar o logon único no Kontiki**, clique em **Baixar metadados** e salve o arquivo de metadados em seu computador.
+4.  Na página **Configurar o logon único no Kontiki**, clique em **Baixar metadados** e salve o arquivo de metadados no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Configurar o logon único")
 
@@ -75,7 +88,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     >[AZURE.NOTE]A configuração de logon único deve ser executada pela equipe de suporte do Kontiki. Assim que a configuração foi concluída, você receberá uma notificação.
 
-6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Configurar o Logon Único")
 ##Configurando o provisionamento de usuários
@@ -93,10 +106,10 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
     ![Atribuir Usuários](./media/active-directory-saas-kontiki-tutorial/IC790243.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-kontiki-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -238,19 +238,19 @@ isPaused | Se definido como verdadeiro, o pipeline não será executado. Valor p
 Agendador | A propriedade "Agendador" é usada para definir o agendamento desejado para a atividade. Suas subpropriedades são as mesmas na [propriedade de disponibilidade em um conjunto de dados](data-factory-create-datasets.md#Availability). | Não |   
 
 ### Tipos de atividade
-O Azure Data Factory fornece uma ampla gama de atividades de [movimentação de dados](data-factory-data-movement-activities.md) e [transformação de dados](data-factory-data-transformation-activities.md).
+O Azure Data Factory fornece uma ampla gama de atividades de [Movimentação de dados](data-factory-data-movement-activities.md) e [Transformação de dados](data-factory-data-transformation-activities.md).
 
 ### Políticas
 As políticas afetam o comportamento de tempo de execução de uma atividade, especialmente quando a divisão de uma tabela é processada. A tabela a seguir fornece os detalhes.
 
 Propriedade | Valores permitidos | Valor Padrão | Descrição
 -------- | ----------- | -------------- | ---------------
-simultaneidade | Inteiro <p>Valor máximo: 10</p> | 1 | Número de execuções concorrentes da atividade.<p>Determina o número de execuções de atividade paralela que podem ocorrer em intervalos diferentes. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter uma maior simultaneidade acelera o processamento de dados.</p> 
-executionPriorityOrder | NewestFirst<p>OldestFirst</p> | OldestFirst | Determina a ordem das divisões de dados que estão sendo processadas.<p>Por exemplo, se você tiver 2 divisões (uma ocorre às 16h e a outra às 17h), e ambas estão aguardando execução. Se você definir o executionPriorityOrder como NewestFirst, a divisão às 17h será processada primeiro. De modo semelhante, se você definir o executionPriorityORder como OldestFIrst, a divisão às 16h será processada.</p> 
-tentar novamente | Inteiro<p>Valor máx. pode ser 10</p> | 3 | Número de novas tentativas antes do processamento de dados da divisão ser marcado como Com falha. A execução da atividade para uma divisão de dados é repetida até a contagem de repetição especificada. A nova tentativa é feita logo após a falha.
-Tempo limite | TimeSpan | 00:00:00 | Tempo limite para a atividade. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<p>Se um valor não for especificado ou for 0, o tempo limite é infinito.</p><p>Se o tempo de processamento de dados em uma divisão exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da propriedade de repetição. Quando o tempo limite ocorre, o status será TimedOut.</p>
-atrasar | TimeSpan | 00:00:00 | Especifique o atraso antes do processamento de dados da divisão começar.<p>A execução da atividade de uma divisão de dados é iniciada após o atraso passar do tempo de execução esperado.</p><p>Exemplo: 00:10:00 (implica o atraso de 10 minutos)</p>
-longRetry | Inteiro<p>Valor máximo: 10</p> | 1 | O número de longas novas tentativas antes que a execução da divisão falhe.<p>Tentativas longRetry são espaçadas por longRetryInterval. Portanto, se você precisar especificar um tempo entre tentativas de repetição, use longRetry. Se Retry e longRetry forem especificados, cada tentativa de longRetry incluirá novas tentativas de Retry e o número máximo de tentativas será Retry * longRetry.</p><p>Por exemplo, se tivermos o seguinte na política de atividade:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>Pressupomos que haja apenas uma divisão para executar (o status é PendingExecution) e sempre ocorre falha na execução de atividade. Inicialmente haveria três tentativas consecutivas de execução. Após cada tentativa, o status de divisão seria Retry. Depois de três primeiras tentativas, o status da divisão seria LongRetry.</p><p>Depois de uma hora (por exemplo, valor do longRetryInteval), deve haver outro conjunto de três tentativas consecutivas de execução. Depois disso, o status da divisão seria Com falha e não haveria nova tentativa. Portanto, em geral, foram feitas 6 tentativas.</p><p>Observação: Se qualquer execução for bem-sucedida, o status da divisão seria Pronto e não haveria nova tentativa.</p><p>longRetry pode ser usado em situações em que dados dependentes chegam em horários não determinísticos ou o ambiente geral está bastante instável nos dados em que o processamento ocorre. Nesses casos, fazer novas tentativas uma após a outra pode não ajudar e fazer isso após um intervalo de tempo resulta na saída desejada.</p><p>Nota de advertência: não definir valores altos para longRetry ou longRetryInterval. Geralmente, valores mais altos implicam em outros problemas sistêmicos que estão sendo tratados em</p> 
+simultaneidade | Inteiro <p>Valor máximo: 10</p> | 1 | Número de execuções simultâneas da atividade.<p>Determina o número de execuções de atividade paralela que podem ocorrer em divisões diferentes. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter uma maior simultaneidade acelera o processamento de dados.</p> 
+executionPriorityOrder | NewestFirst<p>OldestFirst</p> | OldestFirst | Determina a ordem das divisões de dados que estão sendo processadas.<p>Por exemplo, se você tiver 2 divisões (uma ocorre às 16h e a outra às 17h), e ambas estão aguardando execução. Se você definir o executionPriorityOrder como NewestFirst, a divisão às 17h será processada primeiro. De modo semelhante, se você definir executionPriorityORder como OldestFIrst, a divisão às 16h será processada.</p> 
+tentar novamente | Inteiro<p>O valor máx. pode ser 10</p> | 3 | Número de novas tentativas antes do processamento de dados da divisão ser marcado como Com falha. A execução da atividade para uma divisão de dados é repetida até a contagem de repetição especificada. A nova tentativa é feita logo após a falha.
+Tempo limite | TimeSpan | 00:00:00 | Tempo limite para a atividade. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<p>Se um valor não for especificado ou for 0, o tempo limite será infinito.</p><p>Se o tempo de processamento de dados em uma divisão exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da propriedade de repetição. Quando atingir o tempo limite, o status será TimedOut.</p>
+atrasar | TimeSpan | 00:00:00 | Especifique o atraso antes do processamento de dados da divisão começar.<p>A execução da atividade para uma divisão de dados é iniciada após o Atraso passar do tempo de execução esperado.</p><p>Exemplo: 00:10:00 (implica o atraso de 10 minutos)</p>
+longRetry | Inteiro<p>Valor máx.: 10</p> | 1 | O número de tentativas repetidas longas antes que a execução da divisão falhe.<p>Tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar especificar um tempo entre tentativas de repetição, use longRetry. Se Retry e longRetry forem especificados, cada tentativa de longRetry incluirá tentativas de Retry e o número máximo de tentativas será Retry * longRetry.</p><p>Por exemplo, se tivermos o seguinte na política de atividade:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>Considerando que haja apenas uma divisão para executar (o status é PendingExecution) e a execução de atividade sempre falhe. Inicialmente haveria três tentativas consecutivas de execução. Após cada tentativa, o status de divisão seria Retry. Depois das três primeiras tentativas, o status da divisão seria LongRetry.</p><p>Depois de uma hora (por exemplo, valor de longRetryInteval), deve haver outro conjunto de três tentativas consecutivas de execução. Depois disso, o status da divisão seria Com falha e não haveria nova tentativa. Portanto, em geral, foram feitas seis tentativas.</p><p>Observação: se uma execução for bem-sucedida, o status da divisão seria Pronto e não haveria novas tentativas.</p><p>longRetry pode ser usado em situações em que dados dependentes chegam em horários não determinísticos ou o ambiente geral está bastante instável onde o processamento de dados ocorre. Nesses casos, fazer novas tentativas uma após a outra pode não ajudar e fazer isso após um intervalo de tempo resulta na saída desejada.</p><p>Advertência: não defina valores altos para longRetry ou longRetryInterval. Geralmente, valores mais altos implicam outros problemas sistêmicos que estão sendo tratados em</p> 
 longRetryInterval | TimeSpan | 00:00:00 | O intervalo entre tentativas de repetição longa 
 
 ## Criação e gerenciamento de um pipeline
@@ -260,7 +260,7 @@ O Azure Data Factory fornece vários mecanismos para criar e implantar pipelines
 
 1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com/).
 2. Navegue até sua instância do Azure Data Factory na qual você deseja criar um pipeline
-3. Clique no bloco **Criar e implantar** na lente **Resumo**. 
+3. Clique no bloco **Criar e Implantar** na lente **Resumo**. 
  
 	![Bloco Criar e implantar](./media/data-factory-create-pipelines/author-deploy-tile.png)
 
@@ -272,25 +272,25 @@ O Azure Data Factory fornece vários mecanismos para criar e implantar pipelines
 
 	![Editor de pipeline](./media/data-factory-create-pipelines/pipeline-in-editor.png)
 
-6. Depois de concluir a criação do pipeline, em seguida, clique em **Implantar** na barra de comando para implantar o pipeline.
+6. Depois de concluir a criação do pipeline, clique em **Implantar** na barra de comando para implantar o pipeline.
 
-	**Observação:** durante a implantação, o serviço Azure Data Factory executa algumas verificações de validação para ajudar a corrigir alguns problemas comuns. Caso haja um erro, as informações correspondentes serão exibidas. Execute ações corretivas e, em seguida, reimplante o pipeline criado. Você pode usar o editor para atualizar e excluir um pipeline.
+	**Observação:** durante a implantação, o serviço do Azure Data Factory executa algumas verificações de validação para ajudar a corrigir alguns problemas comuns. Caso haja um erro, as informações correspondentes serão exibidas. Execute ações corretivas e, em seguida, reimplante o pipeline criado. Você pode usar o editor para atualizar e excluir um pipeline.
 
 ### Usando o plug-in do Visual Studio
-Você pode usar o Visual Studio para criar e implantar pipelines no Azure Data Factory. Para obter mais informações, consulte [Tutorial: Copiar dados de Armazenamento do Azure para SQL Azure (Visual Studio)](data-factory-get-started-using-vs.md).
+Você pode usar o Visual Studio para criar e implantar pipelines no Azure Data Factory. Para saber mais, confira o [Tutorial: copiar dados do Armazenamento do Azure para o SQL do Azure (Visual Studio)](data-factory-get-started-using-vs.md).
 
 ### Usando o PowerShell do Azure
 Você pode usar o Azure PowerShell para criar pipelines no Azure Data Factory. Digamos que você definiu o pipeline JSON em um arquivo em c:\\DPWikisample.json. Você pode carregá-lo na sua instância do Azure Data Factory, conforme mostrado no exemplo a seguir.
 
 	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-Para saber mais sobre esse cmdlet, consulte [New-AzureDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/dn820227.aspx).
+Para saber mais sobre esse cmdlet, confira [New-AzureDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/dn820227.aspx).
 
 ### Usando a API REST
-Você também pode criar e implantar o pipeline usando APIs REST. Esse mecanismo pode ser utilizado para criar pipelines programaticamente. Para saber mais sobre isso, consulte [Criar ou atualizar um Pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
+Você também pode criar e implantar o pipeline usando APIs REST. Esse mecanismo pode ser utilizado para criar pipelines programaticamente. Para saber mais, confira [Criar ou atualizar um pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
 
 ### Usando o SDK .NET
-Você também pode criar e implantar o pipeline usando SDK .NET. Esse mecanismo pode ser utilizado para criar pipelines programaticamente. Para saber mais sobre isso consulte, [Criar, gerenciar e monitorar as fábricas de dados programaticamente](data-factory-create-data-factories-programmatically.md).
+Você também pode criar e implantar o pipeline usando SDK .NET. Esse mecanismo pode ser utilizado para criar pipelines programaticamente. Para saber mais, confira [Criar, gerenciar e monitorar fábricas de dados de forma programática](data-factory-create-data-factories-programmatically.md).
 
 
 ## Planejamento e execução
@@ -298,20 +298,20 @@ Até agora você entendeu o que são pipelines e atividades. Você também viu c
 
 Um pipeline está ativo somente entre sua hora de início e de término. Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline for pausado, ele não será executado independentemente da sua hora de início e término. Para um pipeline ser executado, ele não deve estar pausado.
 
-Na verdade, não é o pipeline que é executado. São as atividades no pipeline que são executadas. Entretanto, elas fazem isso no contexto geral do pipeline. Consulte [Agendamento e execução](data-factory-scheduling-and-execution.md) para compreender como funciona a programação e a execução no Azure Data Factory.
+Na verdade, não é o pipeline que é executado. São as atividades no pipeline que são executadas. Entretanto, elas fazem isso no contexto geral do pipeline. Confira [Agendamento e Execução](data-factory-scheduling-and-execution.md) para saber como funciona o agendamento e a execução no Azure Data Factory.
 
 ## Gerenciar e monitorar  
-Quando um pipeline é implantado, você pode gerenciar e monitorar seu pipeline, divisões e execuções. Leia mais sobre isso aqui: [Monitorar e Gerenciar Pipelines](data-factory-monitor-manage-pipelines.md).
+Quando um pipeline é implantado, você pode gerenciar e monitorar seu pipeline, divisões e execuções. Leia mais sobre isso aqui: [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
 
 ## Próximas etapas
 
-- Noções básicas sobre [agendamento e execução no Azure Data Factory](data-factory-scheduling-and-execution.md).  
+- Conheça o [agendamento e execução no Azure Data Factory](data-factory-scheduling-and-execution.md).  
 - Leia sobre o [movimento de dados](data-factory-data-movement-activities.md) e [recursos de transformação de dados](data-factory-data-transformation-activities.md) no Azure Data Factory
-- Noções básicas sobre o [gerenciamento e monitoramento no Azure Data Factory](data-factory-monitor-manage-pipelines.md).
+- Conheça o [gerenciamento e monitoramento no Azure Data Factory](data-factory-monitor-manage-pipelines.md).
 - [Criar e implantar seu primeiro pipeline](data-factory-build-your-first-pipeline.md). 
 
 ## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md).
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md).
  
 
    
@@ -336,4 +336,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -1,60 +1,83 @@
 <properties
-	pageTitle="Introdução ao backup de máquinas virtuais do Azure | Microsoft Azure"
-	description="Uma introdução ao backup de máquinas virtuais no Azure usando o serviço de Backup do Azure"
+	pageTitle="Planejar sua infraestrutura de backup da VM no azure | Microsoft Azure"
+	description="Considerações importantes para planejar sua infraestrutura de backup da VM no Azure"
 	services="backup"
 	documentationCenter=""
-	authors="trinadhk"
-	manager="shreeshd"
+	authors="Jim-Parker"
+	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/23/2015"
+	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
-# Backup de máquinas virtuais do Azure
+# Planejar sua infraestrutura de backup da VM no azure
+Este artigo aborda as principais considerações que você deve ter em mente ao planejar sua infraestrutura de backup da VM. Se você [preparou seu ambiente](backup-azure-vms-prepare.md), esta é a próxima etapa antes de começar [a fazer backup de suas VMs](backup-azure-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, consulte a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-Esta seção fornece uma introdução ao uso do Backup do Microsoft Azure para proteger as máquinas virtuais do Azure. Lendo-o, você aprenderá sobre:
+## Como o Azure faz backup de máquinas virtuais?
+Quando o serviço de Backup do Azure inicia um trabalho de backup no horário agendado, ele dispara a extensão de backup para obter um instantâneo pontual. Esse instantâneo é feito em conjunto com o Serviço de Sombreamento de Volume (VSS) para obter um instantâneo consistente dos discos na máquina virtual sem ter que fechá-la.
 
-- Como funciona o backup de máquinas virtuais do Azure
-- O procedimento para fazer backup de sua máquina virtual do Azure
-- Os pré-requisitos para obter uma experiência positiva de backup
-- Os erros típicos encontrados e como lidar com eles
-- A lista de cenários sem suporte e como influenciar alterações no produto
-
-Para saber mais sobre máquinas virtuais do Azure rapidamente, consulte a [Documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/).
-
-## Por que fazer backup da máquina virtual do Azure?
-A computação em nuvem permite que os aplicativos sejam executados em um ambiente escalonável e altamente disponível – por isso a Microsoft desenvolveu as máquinas virtuais do Azure. Os dados gerados por essas máquinas virtuais do Azure são importantes e exigem backup para fins de proteção. Os cenários típicos que exigem que os dados sejam restaurados de backups são:
-
-- Exclusão acidental ou mal-intencionada de arquivos
-- Corrupção da máquina virtual durante uma atualização de patch
-- Exclusão acidental ou mal-intencionada de toda a máquina virtual
-
-É possível fazer backup dos dados dessas máquinas virtuais de duas maneiras distintas:
-
-- Fazer backup das fontes individuais de dados por meio da máquina virtual
-- Fazer backup da máquina virtual inteira
-
-O backup de toda a máquina virtual é popular porque é muito mais simples de gerenciar e também facilita restaurações do sistema operacional e do aplicativo inteiros. O Backup do Azure pode ser usado para backup de dados no convidado ou backup da máquina virtual completa.
-
-Os benefícios comerciais do uso do Backup do Azure para backup de máquinas virtuais são:
-
-- Automação dos fluxos de trabalho de backup e recuperação para máquinas virtuais
-- Backups consistentes com aplicativos para assegurar que os dados recuperados sejam iniciados por meio de um estado consistente.
-- Nenhum tempo de inatividade envolvido durante o backup de máquinas virtuais.
-- É possível fazer backup de máquinas virtuais do Windows ou do Linux.
-- Os pontos de recuperação estão disponíveis para fácil restauração no cofre de Backup do Azure.
-- Remoção automática e coleta de lixo de pontos de recuperação mais antigos.
-
-## Como funciona o backup de máquinas virtuais do Azure?
-Para fazer backup de uma máquina virtual, primeiro é necessário um instantâneo pontual dos dados. O serviço de Backup do Azure inicia o trabalho de backup no horário agendado e dispara a extensão de backup para obter um instantâneo. A extensão de backup é coordenada com o serviço VSS no convidado para obter consistência e chama a API de instantâneo de blob do serviço de Armazenamento do Azure depois que a consistência é atingida. Isso é feito para obter um instantâneo consistente dos discos da máquina virtual, sem a necessidade de desligá-la.
-
-Depois que o instantâneo é criado, os dados são transferidos pelo serviço do Backup do Azure para o cofre de backup. O serviço se encarrega de identificar e transferir somente os blocos que foram alterados desde o último backup – tornando o armazenamento de backups eficiente. Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado. Esse ponto de recuperação pode ser visto no portal de gerenciamento do Azure.
+Depois que o instantâneo é criado, os dados são transferidos pelo serviço do Backup do Azure para o cofre de backup. Para tornar o processo de backup mais eficiente, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde o último backup.
 
 ![Arquitetura de backup de máquinas virtuais do Azure](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
->[AZURE.NOTE]Para máquinas virtuais do Linux, é possível apenas o backup consistente com arquivos.
+Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado.
 
-## Calculando instâncias protegidas
-As máquinas virtuais do Azure submetidas a backup usando o Backup do Azure estarão sujeitas aos [preços do Backup do Azure](http://azure.microsoft.com/pricing/details/backup/). O cálculo de instâncias protegidas se baseia no tamanho *real* da máquina virtual, que é a soma de todos os dados na máquina virtual – exceto o "disco de recursos". Você *não* é cobrado com base no tamanho máximo com suporte para cada disco de dados anexado à máquina virtual, mas sim nos dados reais armazenados no disco de dados. Da mesma forma, a cobrança do armazenamento de backup é baseada na quantidade de dados armazenados com o Backup do Azure, que é a soma dos dados reais em cada ponto de recuperação.
+### Consistência de dados
+Fazer backup e restaurar dados corporativos críticos é complicado pelo fato de que é necessário ser feito o backup enquanto os aplicativos que produzem os dados estão em execução. Para resolver isso, o Backup do Azure fornece backup consistente com o aplicativo para cargas de trabalho da Microsoft usando o Serviço de Instantâneo de Volume (VSS) para garantir que os dados sejam gravados corretamente para armazenamento.
+
+>[AZURE.NOTE]Em máquinas virtuais Linux, apenas é possível o backup consistentes de arquivos, já que o Linux não tem uma plataforma equivalente ao VSS.
+
+Esta tabela explica os tipos de consistência e as condições que elas ocorrem durante o backup da VM do Azure e procedimentos de restauração.
+
+| Consistência | Baseado em VSS | Explicação e detalhes |
+|-------------|-----------|---------|
+| Consistência de aplicativo | Sim | Este é o tipo de consistência ideal para cargas de trabalho da Microsoft porque garante:<ol><li> que a VM *será iniciada*. <li>Não há *corrupção*. <li>Não há *perda de dados*.<li> Os dados são consistentes com o aplicativo que usa os dados, envolvendo o aplicativo no momento do backup — usando o VSS.</ol> A maioria das cargas de trabalho Microsoft têm gravadores VSS que executam ações específicas de carga de trabalho relacionadas a consistência dos dados. Por exemplo, o Microsoft SQL Server tem um gravador VSS que garante que as gravações no arquivo de log de transações e no banco de dados sejam realizadas corretamente.<br><br> Para backup da VM do Azure, obter um ponto de recuperação consistente no aplicativo significa que a extensão de backup foi capaz de invocar o fluxo de trabalho do VSS e ser concluída *corretamente* antes que o instantâneo da VM fosse tirado. Naturalmente, isso significa que os gravadores VSS de todos os aplicativos na VM do Azure também são chamados.<br><br>Aprenda as [noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e aprofunde-se nos detalhes de [como ele funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
+| Consistência do sistema de arquivos | Sim - para computadores executando Windows | Há dois cenários em que o ponto de recuperação pode *ser consistente com o sistema de arquivos*:<ul><li>Backup de VMs do Linux no Azure, já que o Linux não tem uma plataforma equivalente ao VSS.<li>Falha do VSS durante o backup de máquinas virtuais do Windows no Azure.</li></ul> Em ambos os casos, o melhor que você pode fazer é garantir que: <ol><li>* a VM seja iniciada*. <li>Não haja *corrupção*.<li>Não haja *perda de dados*.</ol> Os aplicativos precisam implementar seu próprio mecanismo de "correção" nos dados restaurados.|
+| Consistência de falhas | Não | Essa situação é equivalente a um computador tendo uma "falha" (por meio de uma reinicialização forçada ou flexível). Isso geralmente acontece quando a máquina virtual do Azure está desligada no momento do backup. Para backup da máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no meio de armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup. <br/> <br/> Embora não haja garantia, na maioria dos casos, o sistema operacional será inicializado. Normalmente, isso é seguido por um procedimento de verificação de disco, como chkdsk, para corrigir qualquer erro de corrupção. Quaisquer dados na memória ou gravações que não tenham sido totalmente liberadas para o disco serão perdidas. O aplicativo geralmente segue com seu próprio mecanismo de verificação, caso seja necessário realizar reversão de dados. Para backup de máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Isso geralmente acontece quando a VM do Azure é desligada no momento do backup.<br><br>Por exemplo, se o log de transações tiver entradas que não estão presentes no banco de dados, o software de banco de dados fará uma reversão até que os dados estejam consistentes. Ao lidar com dados distribuídos em vários discos virtuais (como volumes estendidos), um ponto de recuperação consistente quanto a falhas não garante a exatidão dos dados.|
+
+
+## Desempenho e utilização de recursos
+Como o software de backup que é implantado localmente, o backup de VMs no Azure também precisa ser planejado quanto à capacidade e à utilização de recursos. Os [limites de Armazenamento do Azure](azure-subscription-service-limits.md#storage-limits) definem como estruturar as implantações de VM para obter o máximo de desempenho com o mínimo de impacto para executar cargas de trabalho.
+
+Existem dois limites principais de Armazenamento do Azure que têm impacto sobre o desempenho do backup:
+
+- Egresso máximo por conta de armazenamento
+- Taxa de solicitação total por conta de armazenamento
+
+### Limites da conta de armazenamento
+Quando os dados de backup são copiados da conta de armazenamento do cliente, eles contam na direção das métricas de IOPS e Egresso (taxa de transferência de armazenamento) da conta de armazenamento. Ao mesmo tempo, as máquinas virtuais também estão em execução e consumindo IOPS e taxa de transferência. O objetivo é garantir que o tráfego total - backup e máquina virtual - não exceda os limites da conta de armazenamento.
+
+### Número de discos
+O processo de backup é ávido e tenta consumir tantos recursos quanto possível, com o objetivo de concluir o backup o mais rápido que puder. No entanto, todas as operações de E/S são limitadas pela *Taxa de transferência de destino por blob único*, que tem um limite de *60 MB por segundo*. Para acelerar o processo de backup, são feitas tentativas de backup de cada disco da VM *paralelamente*. Portanto, se uma VM tem 4 discos, o Azure Backup tentará fazer o backup de todos os 4 discos em paralelo. Devido a isso, o fator mais importante que determina o tráfego de backup em saída de uma conta de armazenamento do cliente é o **número de discos** cujo backup está sendo feito da conta de armazenamento.
+
+### Agendamento de backup
+Um fator adicional que afeta o desempenho é o **agendamento de backup**. Se você configurar todas as VMs para backup simultâneo, o número de discos cujo backup está sendo feito *em paralelo* aumentará, já que o Backup do Azure tenta realizar o backup do máximo possível de discos. Portanto, uma maneira de reduzir o tráfego de backup de uma conta de armazenamento é garantir que o backup das VMs diferentes seja feito em diferentes momentos do dia, sem sobreposição.
+
+## Planejamento da capacidade
+Reunir todos esses fatores significa que o uso da conta de armazenamento precisa ser planejado corretamente. Baixe a [planilha do Excel para planejamento de capacidade de backup de VMs](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) e veja o impacto de suas escolhas relativas a disco e agendamento de backup.
+
+### Taxa de transferência de backup
+Para cada disco cujo backup está sendo feito, o Backup do Azure lê os blocos no disco e armazena somente os dados alterados (backup incremental). Esta tabela mostra os valores de taxa de transferência média, que você pode esperar do Backup do Azure. Usando isso, você pode estimar a quantidade de tempo que leva para fazer o backup de um disco de um determinado tamanho.
+
+| Operação de backup | Melhor taxa de transferência possível |
+| ---------------- | ---------- |
+| Backup inicial | 160 Mbps |
+| Backup incremental (DR) | 640 Mbps <br><br> Essa taxa de transferência pode cair significativamente se houver muita variação dispersa no disco cujo backup precisa ser feito. |
+
+### Tempo total de backup da VM
+Embora a maioria do tempo é gasto na leitura e cópia de dados, existem outras operações que contribuem para o tempo total gasto para fazer o backup de uma VM:
+
+- Tempo necessário para [instalar ou atualizar a extensão de backup](backup-azure-vms.md#offline-vms)
+- Tempo de espera de fila: uma vez que o serviço de backup estiver processando backups de vários clientes, a operação de backup não será iniciada imediatamente. Em períodos de pico de carga, os tempos de espera podem se estender a até 8 horas devido ao número de backups sendo processados. No entanto, o tempo total de backup da VM será de menos de 24 horas para políticas de backup diárias.
+
+## Como as instâncias protegidas são calculadas?
+As máquinas virtuais do Azure submetidas a backup usando o Backup do Azure estão sujeitas aos [preços do Backup do Azure](http://azure.microsoft.com/pricing/details/backup/). O cálculo de instâncias protegidas se baseia no tamanho *real* da máquina virtual, que é a soma de todos os dados na máquina virtual – exceto o "disco de recursos". Você *não* é cobrado com base no tamanho máximo com suporte para cada disco de dados anexado à máquina virtual, mas sim nos dados reais armazenados no disco de dados. Da mesma forma, a cobrança do armazenamento de backup é baseada na quantidade de dados armazenados com o Backup do Azure, que é a soma dos dados reais em cada ponto de recuperação.
 
 Por exemplo, considere uma máquina virtual de tamanho A2-Standard que tem dois discos de dados adicionais com um tamanho máximo de 1 TB cada. A tabela a seguir fornece os dados reais armazenados em cada um desses discos:
 
@@ -69,58 +92,14 @@ Neste caso, o tamanho *real* da máquina virtual é de 17 GB + 30 GB + 0 GB = 47
 
 A cobrança não é iniciada até que o primeiro backup bem-sucedido seja concluído. Neste ponto, será iniciada a cobrança de instâncias Protegidas e de Armazenamento. A cobrança continuará desde que haja *dados de backup armazenados com o Backup do Microsoft Azure* para a máquina virtual. Executar a operação Parar Proteção não interrompe a cobrança se os dados de backup forem mantidos. A cobrança para uma máquina virtual especificada será descontinuada somente se a proteção for interrompida *e* os dados de backup forem excluídos. Quando não há nenhum trabalho de backup ativo (quando a proteção tiver sido interrompida), o tamanho da máquina virtual no momento do último backup bem-sucedido torna-se o tamanho da instância protegida em que a fatura mensal se baseia.
 
-## Pré-requisitos
-### 1\. Cofre de backup
-Para iniciar o backup de suas máquinas virtuais do Azure, você precisa primeiro criar um cofre de backup. O cofre é uma entidade que armazena todos os backups e pontos de recuperação que foram criados ao longo do tempo. O cofre também contém as políticas de backup que serão aplicadas às máquinas virtuais que passarão por backup.
-
-A imagem abaixo mostra os relacionamentos entre as várias entidades do Backup do Azure: ![Relação e entidades do Backup do Azure](./media/backup-azure-vms-introduction/vault-policy-vm.png)
-
-### Para criar um cofre de backup
-
-1. Entre no [Portal de Gerenciamento](http://manage.windowsazure.com/).
-
-2. Clique em **Novo** -> **Serviços de Dados** -> **Serviços de Recuperação** -> **Cofre de Backup** > **Criação Rápida**. Se você tem várias assinaturas associadas à sua conta organizacional, escolha a assinatura correta a ser associada ao cofre de backup. Em cada assinatura do Azure, você pode ter vários cofres de backup para organizar as máquinas virtuais que estão sendo protegidas.
-
-3. Em **Nome**, digite um nome amigável para identificar o cofre. Ele precisa ser exclusivo para cada assinatura.
-
-4. Em **Região**, selecione a região geográfica para o cofre. Observe que o cofre deve estar na mesma região que as máquinas virtuais que você deseja proteger. Se você tiver máquinas virtuais em diferentes regiões, crie um cofre em cada uma delas. Não é necessário especificar contas de armazenamento para armazenar os dados de backup – o cofre de backup e o serviço de Backup do Azure cuidarão disso automaticamente. ![Criar cofre de backup](./media/backup-azure-vms-introduction/backup_vaultcreate.png)
-
-5. Clique em **Criar cofre**. Pode levar algum tempo para que o cofre de backup seja criado. Monitore as notificações de status na parte inferior do portal. ![Criar notificação de cofre](./media/backup-azure-vms-introduction/creating-vault.png)
-
-6. Uma mensagem confirmará que o cofre foi criado com êxito e ele será listado na página de Serviços de Recuperação como Ativo. Certifique-se de que a opção de redundância de armazenamento apropriada esteja selecionada logo depois que o cofre for criado. Leia mais sobre [como definir a opção de redundância de armazenamento no cofre de backup](backup-configure-vault.md#azure-backup---storage-redundancy-options). ![Lista de cofres de backup](./media/backup-azure-vms-introduction/backup_vaultslist.png)
-
-7. Clicar no cofre de backup abre a página **Início Rápido**, em que são mostradas as instruções para backup de máquinas virtuais do Azure. ![Instruções de backup de máquina virtual na página Painel](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
-
-
-### 2\. Agente de VM
-Antes de iniciar o backup da máquina virtual do Azure, verifique se o agente de VM do Azure está instalado corretamente na máquina virtual. Para fazer backup da máquina virtual, o serviço de Backup do Azure instala uma extensão para o Agente de VM. Como o agente de VM é um componente opcional no momento em que a máquina virtual é criada, você precisa garantir que a caixa de seleção do agente de VM esteja marcada antes de a máquina virtual ser provisionada.
-
-Saiba mais sobre o [Agente de VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e [como instalá-lo](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
-
-## Limitações
-
-- Não há suporte para o backup de máquinas virtuais baseadas no Gerenciador de Recursos do Azure (também conhecido como IaaS V2).
-- Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
-- Não há suporte para o backup de máquinas virtuais usando o armazenamento Premium.
-- Não há suporte para o backup de máquinas virtuais com vários IPs reservados.
-- Não há suporte para o backup de máquinas virtuais com um IP reservado e nenhum ponto de extremidade definido.
-- Não há suporte para o backup de máquinas virtuais usando vários NICs que não têm suporte.
-- O backup de máquinas virtuais em uma configuração de balanceamento de carga (voltado para Internet e interno) não tem suporte.
-- Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Primeiro, exclua a máquina virtual existente e todos os discos associados e, em seguida, restaure os dados do backup.
-- Não há suporte para backup e restauração entre regiões.
-- Há suporte para o backup de máquinas virtuais com o serviço de Backup do Azure em todas as regiões públicas do Azure. Veja aqui uma [lista de verificação](http://azure.microsoft.com/regions/#services) das regiões com suporte. Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
-- O backup de máquinas virtuais com o serviço de Backup do Azure tem suporte somente para as versões selecionadas de sistema operacional:
-  - **Linux**: a lista de distribuições aprovadas pelo Azure está disponível [aqui](../virtual-machines-linux-endorsed-distributions.md). Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual.
-  - **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
-- A restauração de uma VM controladora de domínio que é parte de uma configuração multi-DC tem suporte somente através do PowerShell. Leia mais sobre [como restaurar um controlador de domínio com vários DCs](backup-azure-restore-vms.md#restoring-domain-controller-vms)
-
-Se houver algum recurso que você gostaria de ver incluído, [envie-nos comentários](http://aka.ms/azurebackup_feedback).
+## Perguntas?
+Se houver dúvidas ou algum recurso que você gostaria de ver incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
 ## Próximas etapas
-Para começar a usar o backup de máquinas virtuais, saiba como:
 
 - [Máquinas virtuais de backup](backup-azure-vms.md)
-- [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Gerenciar o backup de máquinas virtuais](backup-azure-manage-vms.md)
+- [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
+- [Solucionar problemas de backup da VM](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

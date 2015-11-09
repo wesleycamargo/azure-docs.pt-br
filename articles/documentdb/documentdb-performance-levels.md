@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/16/2015" 
 	ms.author="johnmac"/>
 
 #Níveis de desempenho no Banco de Dados de Documentos
@@ -29,7 +29,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 
 ##Introdução aos níveis de desempenho
 
-Cada coleção do Banco de Dados de Documentos criada em uma conta padrão é provisionada com um nível de desempenho. Os níveis de desempenho são designados como S1, S2 ou S3, indo do mais baixo ao mais alto em termos de desempenho. O nível de desempenho da coleção determina a quantidade de recursos de serviço reservados ao seu aplicativo. Cada coleção em um banco de dados pode ter um nível de desempenho diferente, permitindo designar uma produtividade maior para coleções acessadas com frequência e menos produtividade para coleções acessadas com pouca frequência.
+Cada coleção do Banco de Dados de Documentos criada em uma conta padrão é provisionada com um nível de desempenho. Os níveis de desempenho são designados como S1, S2 ou S3, indo do mais baixo ao mais alto em termos de desempenho. O nível de desempenho da coleção determina a quantidade de recursos de processamento de solicitação reservados para o seu aplicativo. Cada coleção em um banco de dados pode ter um nível de desempenho diferente, permitindo designar uma produtividade maior para coleções acessadas com frequência e menos produtividade para coleções acessadas com pouca frequência. O nível mínimo de desempenho para qualquer coleção é S1.
 
 Cada nível de desempenho tem um limite de RU (unidade de solicitação) associado. Trata-se do limite que será reservado para uma coleção com base em seu nível de desempenho, e fica disponível para ser usado apenas por essa coleção. As coleções podem ser criadas por meio do [Portal do Azure](http://portal.azure.com) ou por qualquer um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). As APIs do Banco de Dados de Documentos permitem especificar o nível de desempenho de uma coleção.
 
@@ -122,4 +122,4 @@ Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](ht
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

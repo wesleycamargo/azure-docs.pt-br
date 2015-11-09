@@ -74,7 +74,35 @@ Os seguintes tipos de arquivo são aceitos:
 	
 > Para que WebJobs contínuos sejam executados de forma confiável e em todas as instâncias, ative a configuração Sempre Ativado* para o aplicativo Web, caso contrário, ele poderá interromper a execução quando o site de host do SCM ficar ocioso por muito tempo.
 
-## <a name="CreateScheduled"></a>Criar um Trabalho Web agendado
+## <a name="CreateScheduledCRON"></a>Criar um WebJob agendado usando uma expressão CRON
+
+Essa técnica está disponível para aplicativos Web em execução no modo Standard ou Premium e exige que a configuração **Sempre Ativado** esteja habilitada no aplicativo.
+
+Para transformar um Trabalho Web Sob Demanda em um Trabalho Web agendado, basta incluir um arquivo `settings.job` na raiz do arquivo .zip do Trabalho Web. Esse arquivo JSON deve incluir uma propriedade `schedule` com uma [expressão CRON](https://en.wikipedia.org/wiki/Cron), como mostrado no exemplo abaixo.
+
+A expressão CRON é composta por 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`.
+
+Por exemplo, para disparar o WebJob a cada 15 minutos, o `settings.job` teria:
+
+```json
+{
+    "schedule": "0 */15 * * * *"
+}
+``` 
+
+Outros exemplos de agendamento CRON:
+
+- A cada hora (ou seja, sempre que a contagem de minutos for 0): `* 0 * * * *` 
+- A cada hora entre 9h e 17h: `* 0 9-17 * * *` 
+- Às 9h30 todos os dias: `* 30 9 * * *`
+- Às 9h30 todos os dias de semana: `* 30 9 * * 1-5`
+
+**Observação**: ao implantar um Trabalho Web do Visual Studio, certifique-se de marcar as propriedades do arquivo `settings.job` como “Copiar se mais recente”.
+
+
+## <a name="CreateScheduled"></a>Criar um Trabalho Web agendado usando o Agendador do Azure
+
+A técnica alternativa a seguir utiliza o Agendador do Azure. Nesse caso, seu Trabalho Web não tem nenhum conhecimento direto do agendamento. Em vez disso, o Agendador do Azure é configurado para disparar o Trabalho Web em um agendamento.
 
 O portal de gerenciamento do Azure ainda não tem a capacidade de criar um Trabalho Web agendado, mas até que esse recurso seja adicionado você pode fazê-lo usando o [portal antigo](http://manage.windowsazure.com).
 
@@ -211,4 +239,4 @@ Para obter mais informações, consulte [Recursos Recomendados para Trabalhos We
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

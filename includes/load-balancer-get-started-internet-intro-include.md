@@ -1,7 +1,9 @@
-You can use a load balancer to provide high availability for your workloads in Azure. An Azure load balancer is a Layer-4 (TCP, UDP) type load balancer that distributes incoming traffic among healthy service instances in cloud services or virtual machines defined in a load balancer set.
+Você pode usar um balanceador de carga para fornecer alta disponibilidade para suas cargas de trabalho no Azure. Um balanceador de carga do Azure é um balanceador de carga do tipo Camada 4 (TCP, UDP) que distribui tráfego de entrada entre instâncias íntegras de serviço, em serviços de nuvem ou máquinas virtuais, definidos em um conjunto de balanceador de carga.
  
-You can configure a load balancer to.
+Você pode configurar um balanceador de carga para:
 
-- Load balance incoming Internet traffic to virtual machines (VMs). We refer to a load balancer in this scenario as an [Internet facing load balancer](load-balancer-internet-overview.md).
-- Load balance traffic between VMs in a virtual network (VNet), VMs in cloud services, or between on-premises computers and VMs in a cross-premises virtual network. We refer to a load balancer in this scenario as an [internal load balancer (ILB)](load-balancer-internal-overview.md).
-- 	Forward external traffic to a specific VM instance.
+- Balancear a carga do tráfego de entrada na Internet para VMs (máquinas virtuais). Nós nos referimos a um balanceador de carga neste cenário como um [Balanceador de carga voltado para a Internet](load-balancer-internet-overview.md).
+- Balancear a carga do tráfego entre máquinas virtuais em uma VNet (rede virtual), entre máquinas virtuais em serviços de nuvem ou entre computadores locais e máquinas virtuais em uma rede virtual entre instalações. Nós nos referimos a um balanceador de carga neste cenário como um [ILB (Balanceador de carga interno)](load-balancer-internal-overview.md).
+- 	Encaminhar tráfego externo para uma instância VM específica.
+
+<!---HONumber=Nov15_HO1-->

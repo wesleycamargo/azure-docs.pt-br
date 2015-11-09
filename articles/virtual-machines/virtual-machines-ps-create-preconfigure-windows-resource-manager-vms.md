@@ -27,26 +27,14 @@ Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de c
 
 ## Etapa 1: instalar o PowerShell do Azure
 
-Você também deve ter o Azure PowerShell versão 1.0.0 ou posterior. Se você não tiver instalado e configurado o Azure PowerShell, clique [aqui](../powershell-install-configure.md) para obter instruções.
-
-Verifique a versão instalada do PowerShell do Azure com este comando no prompt do PowerShell do Azure.
-
-	Get-Module azure | format-table version
-
-Aqui está um exemplo.
-
-	Version
-	-------
-	1.0.0
-
-Se não tiver a Versão 1.0.0 ou posterior, remova o Azure PowerShell usando a opção Programas e Recursos do Painel de Controle e instale a versão mais recente. Consulte [How to Install and Configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](../powershell-install-configure.md) para obter mais informações.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Etapa 2: definir sua assinatura
 
 Primeiro, inicie um prompt do Azure PowerShell.
 
 Faça logon em sua conta.
-	
+
 	Login-AzureRmAccount
 
 Obtenha o nome da sua assinatura usando o comando a seguir.
@@ -130,8 +118,8 @@ Use este comando para listar os conjuntos de disponibilidade existentes.
 
 	Get-AzureRmAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-### Regras de NAT	
-	
+### Regras de NAT
+
 As máquinas virtuais baseadas no Gerenciador de Recursos podem ser configuradas com regras NAT de entrada para permitirem o tráfego de entrada da Internet e serem colocadas em um conjunto balanceado por carga. Em ambos os casos, você deve especificar uma instância do balanceador de carga e outras configurações. Para obter mais informações, consulte [Como criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 As VMs criadas com o modelo de implantação do Gerenciador de Recursos exigem uma rede virtual do Gerenciador de Recursos. Se for necessário, crie uma nova rede virtual baseada no Gerenciador de Recursos com pelo menos uma sub-rede para a nova máquina virtual. Veja um exemplo de uma nova rede virtual chamada **TestNet** com duas sub-redes chamadas **frontendSubnet** e **backendSubnet**.
@@ -396,4 +384,4 @@ Veja o conjunto de comandos do Azure PowerShell para criar essa máquina virtual
 
 [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

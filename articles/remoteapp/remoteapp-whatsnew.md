@@ -13,24 +13,43 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="10/23/2015" 
     ms.author="elizapo" />
 
 
 
-# O que há de novo no RemoteApp?
+# O que há de novo no Azure RemoteApp?
 
-Uma das vantagens do RemoteApp é que estamos sempre trabalhando para melhorá-lo. Sempre que isso for feito, anunciaremos as alterações aqui.
+Uma das vantagens do Azure RemoteApp é que estamos sempre trabalhando para melhorá-lo. Sempre que isso for feito, anunciaremos as alterações aqui.
+
+## Setembro de 2015
+- O Infopath foi adicionado à imagem da galeria e ao modelo do Microsoft Office 365. Para compartilhar o Infopath, atualize suas coleções com a imagem mais recente.
+- Atualizações do cliente:
+	- O cliente Windows foi atualizado para permitir que os usuários compartilhem comentários, principalmente sobre problemas de conexão.
+	- O Cliente iOS foi atualizado para corrigir mensagens de erro e um problema de expiração de credenciais antes da data prevista.
+- Estamos trabalhando para testar o suporte do Office 2016. Após a conclusão, procure imagens atualizadas.
+- Foi publicado um novo artigo sobre o [as diferenças entre as coleções de nuvem e híbridos](remoteapp-collections.md) – isso o ajudará a escolher o tipo de coleção que funciona melhor para aplicativos – somente em nuvem, nuvem + VNET ou híbrida.
+- Deseja compartilhar QuickBooks usando o Azure RemoteApp, mas não tem certeza das etapas? Confira o [novo artigo do Eric](remoteapp-quickbooks.md) que lhe diz exatamente o que fazer.
+
+## Agosto de 2015
+Grandes mudanças aconteceram em agosto – eis alguns destaques:
+
+- Agora você pode usar uma VNET do Azure com uma coleção de nuvem! Confira as [instruções de criação de nuvem](remoteapp-create-cloud-deployment.md) das novas etapas.
+- Agora é possível adicionar aplicativos ao menu **Iniciar ** para o cliente Windows RemoteApp. Os aplicativos aparecerão na lista de aplicativos, e você pode fixá-los no menu **Iniciar ** no Windows.
+- Uma nova imagem foi adicionada à galeria de VM do Azure – Host da Sessão da Área de Trabalho Remota do Windows Server com o Microsoft Office 365 ProPlus.
+- O cliente Mac foi corrigido para que aplicativos com janelas modais parem congelar.
+- Foram documentadas orientações de como usar a [assinatura do Office 365 ProPlus](remoteapp-officesubscription.md) com o Azure RemoteApp.
+- Foram detalhadas orientações de como [proteger aplicativos e dados](remoteapp-secure.md) na coleção Azure RemoteApp.
 
 ## 2015 de julho
 
 Julho prepara o terreno para mudanças planejadas em agosto, portanto, não há muito sobre o que discorrer no momento; o que há são principalmente atualizações de documento. Essas são as alterações mais recentes:
 
-- Uma guia **suporte** foi adicionada ao portal para que você possa acessar mais facilmente os recursos de suporte, como os fóruns.
+- Uma guia **Suporte** foi adicionada ao portal para que você possa acessar mais facilmente recursos de suporte, como fóruns.
 - As informações de solução de problemas foram reformuladas para a criação de uma coleção híbrida. Confira as dicas [mais recentes e melhores](remoteapp-hybridtrouble.md) de solução de problemas, por exemplo, como identificar as portas corretas para configurar sua VNET.
-- O modo como os [dados de usuário](remoteapp-upd.md) são criados e salvos no RemoteApp do Azure foi documentado.
+- O modo pelo qual os [dados de usuário](remoteapp-upd.md) são criados e salvos no Azure RemoteApp foi documentado.
 - A maneira de [bloquear aplicativos](remoteapp-secure.md) foi documentada.
-- Os [cmdlets do RemoteApp do Azure](https://msdn.microsoft.com/library/mt428031.aspx) foram publicados.
+- Os [cmdlets do Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx) foram publicados.
 - E, finalmente, começamos uma conversa sobre terminologia com alguns usuários de RemoteApp do Azure. Procure por alterações no modo como fazemos referência às diferentes opções de coleção.
 
 ## Junho de 2015
@@ -61,4 +80,8 @@ Precisa ver o Azure RemoteApp no mundo real? Confira o tutorial [Executar qualqu
 
 Obrigado por estar conosco - o mês que vem traz mais atualizações.
 
-<!---HONumber=Oct15_HO3-->
+
+### Ajude-nos a ajudar você 
+Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
+
+<!---HONumber=Nov15_HO1-->

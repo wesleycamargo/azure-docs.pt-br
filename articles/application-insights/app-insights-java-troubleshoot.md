@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Solução de problemas e perguntas e respostas para o Application Insights para Java
@@ -24,7 +24,7 @@ Dúvidas ou problemas com o [Visual Studio Application Insights em Java][java]? 
 
 *No Eclipse, ao adicionar o SDK do Application Insights por meio de Maven ou Gradle, recebo erros de validação de soma de verificação ou de compilação.*
 
-* Se o elemento <version> de dependência estiver usando um padrão com caracteres curinga (ex.: Maven `<version>[0.9,)</version>` ou Gradle `version:'0.9.+'`), tente definir uma versão específica, como `0.9.3`.
+* Se o elemento <version> de dependência estiver usando um padrão com caracteres curinga (ex.: Maven `<version>[1.0,)</version>` ou Gradle `version:'1.0.+'`), tente definir uma versão específica, como `1.0.2`. Veja as [notas de versão](app-insights-release-notes-java.md) da versão mais recente.
 
 ## Sem dados 
 
@@ -138,4 +138,4 @@ Consulte [Privacidade e retenção de dados][data].
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

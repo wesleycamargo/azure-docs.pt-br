@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -79,4 +79,4 @@ O mesmo código de rastreamento que você adicionou ao aplicativo acima para dia
 * [Diagnóstico e monitoramento de desempenho de Atores da Malha do Serviço do Azure](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnóstico de Serviços Confiáveis com estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

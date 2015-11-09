@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2015"
+   ms.date="10/28/2015"
    ms.author="saurabh"/>
 
 # Instalar o .NET em uma Função do Serviço de Nuvem 
@@ -142,4 +142,4 @@ Quando você implantar o serviço, as tarefas de inicialização serão executad
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

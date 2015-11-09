@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -23,6 +23,8 @@
 
 Este tópico é um bom ponto de partida para a conectividade do cliente com o Banco de Dados SQL do Azure. Ele fornece links para exemplos de código de várias tecnologias que você pode usar para se conectar e interagir com o Banco de Dados SQL. As tecnologias incluem Enterprise Library, JDBC, PHP e muito mais. As informações fornecidas se aplicam independentemente de qual tecnologia específica você usar para se conectar ao banco de dados SQL.
 
+
+<a id="a-tech-independent-recommend" name="a-tech-independent-recommend"></a>
 
 ## Recomendações de tecnologia independente
 
@@ -35,6 +37,8 @@ Este tópico é um bom ponto de partida para a conectividade do cliente com o Ba
  - Imposição de limites
  - Limitação
 
+
+<a id="b-authentication-recommend" name="b-authentication-recommend"></a>
 
 ## Recomendações de autenticação
 
@@ -63,8 +67,10 @@ A abordagem de usuário independente tem vantagens e desvantagens:
  - Uma pessoa que é um usuário independente em vários bancos de dados pode ter mais senhas para lembrar ou atualizar.
 
 
-Outras informações são fornecidas em - [Bancos de dados independentes](http://msdn.microsoft.com/library/ff929071.aspx).
+Mais informações são fornecidas em - [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](http://msdn.microsoft.com/library/ff929188.aspx).
 
+
+<a id="c-connection-recommend" name="c-connection-recommend"></a>
 
 ## Recomendações de conexão
 
@@ -73,8 +79,7 @@ Outras informações são fornecidas em - [Bancos de dados independentes](http:/
  - O padrão de 15 segundos é muito curto para conexões que dependem da Internet.
 
 
-- Certifique-se de que o seu [firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md) permite a comunicação TCP de saída na porta 1433.
- - Você pode definir as configurações de firewall em um servidor de banco de dados SQL ou em um banco de dados individuais.
+- No computador que hospeda o programa cliente, certifique-se de que o firewall permite comunicação TCP de saída na porta 1433.
 
 
 - Se o seu programa cliente se conecta ao Banco de Dados SQL V12 enquanto seu cliente é executado em uma máquina virtual do Azure (VM), abra os seguintes intervalos de porta 11000-11999 e 14000-14999 na VM: Clique [aqui](sql-database-develop-direct-route-ports-adonet-v12.md) para obter detalhes.
@@ -145,6 +150,8 @@ Quando ocorre algum erro com o Banco de Dados SQL, uma [SqlException](http://msd
 Para saber mais, consulte:- [Desenvolvimento do Banco de Dados SQL do Azure: tópicos de tutoriais](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Solucionar problemas de conexão com o Banco de Dados SQL do Azure](http://support.microsoft.com/kb/2980233/)
 
 
+<a id="e-technologies" name="e-technologies"></a>
+
 ## Tecnologias
 
 
@@ -167,4 +174,4 @@ Vários exemplos de código são fornecidos para clientes que são executados no
 
 - [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

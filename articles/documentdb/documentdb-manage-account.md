@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="10/22/2015" 
 	ms.author="anhoh"/>
 
 # Como gerenciar uma conta do Banco de Dados de Documentos no portal de visualização do Azure
@@ -30,11 +30,11 @@ No [portal de Visualização do Microsoft Azure](https://portal.azure.com/), ace
 
 ### Exibir e copiar uma tecla de acesso no portal de visualização do Azure
 
-1.      No [portal de Visualização do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
+1.      No [portal de Visualização do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
 
-2.      Na lente **Resumo**, clique em **Chaves**.
+2.      Na lente **Resumo**, clique em **Chaves**.
 
-3.      Na folha **Chaves**, clique no botão **Copiar** à direita da chave que você quer copiar.
+3.      Na folha **Chaves**, clique no botão **Copiar** à direita da chave que você quer copiar.
 
   ![Exibir e copiar uma tecla de acesso no Portal de Visualização do Azure, folha Chaves](./media/documentdb-manage-account/image004.jpg)
 
@@ -46,17 +46,17 @@ Você deve alterar as chaves de acesso da sua conta do Banco de Dados de Documen
 
 Se tiver aplicativos ou serviços de nuvem usando a conta do Banco de Dados de Documentos, você perderá as conexões se regenerar chaves, a menos que você as reverta. As etapas a seguir descrevem o processo envolvido ao reverter suas chaves.
 
-1.      Atualize as chaves de acesso no código do aplicativo para fazer referência à chave de acesso secundária da conta do Banco de Dados de Documentos.
+1.      Atualize as chaves de acesso no código do aplicativo para fazer referência à chave de acesso secundária da conta do Banco de Dados de Documentos.
 
-2.      Regenere a chave de acesso primária de sua conta do Banco de Dados de Documentos. No [portal de Visualização do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos.
+2.      Regenere a chave de acesso primária de sua conta do Banco de Dados de Documentos. No [portal de Visualização do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos.
 
-3.      Na lente Resumo, clique em **Chaves**.
+3.      Na lente Resumo, clique em **Chaves**.
 
-4.      Na folha de **Chaves**, clique no comando **Regenerar Principal** e, em seguida, clique em **Ok** para confirmar que você quer gerar uma nova chave.
+4.      Na folha de **Chaves**, clique no comando **Regenerar Principal** e, em seguida, clique em **Ok** para confirmar que você quer gerar uma nova chave.
 
-5.      Uma vez que você verificou que a nova chave está disponível para uso(aproximadamente 5 minutos após a regeneração), atualize a chave de acesso em seu código do aplicativo para fazer referência à nova chave de acesso principal.
+5.      Uma vez que você verificou que a nova chave está disponível para uso(aproximadamente 5 minutos após a regeneração), atualize a chave de acesso em seu código do aplicativo para fazer referência à nova chave de acesso principal.
 
-6.      Regenere a chave de acesso secundária.
+6.      Regenere a chave de acesso secundária.
 
 *Observe que levará alguns minutos antes que a chave gerada recentemente possa ser usada para acessar sua conta do Banco de Dados de Documentos.*
 
@@ -65,7 +65,7 @@ O Banco de Dados de Documentos dá suporte a quatro níveis de consistência de 
 
 - A coerência **Forte** garante que as operações de leitura sempre devolvam o valor que foi gravado por último.
 
-- A consistência **Bounded Staleness** garante que as leituras não estejam muito desatualizadas. Ela especificamente garante que as leituras não sejam mais do que versões K mais antigas do que a última versão gravada.
+- A consistência **Bounded Staleness** garante que as leituras não estejam muito desatualizadas. Ela especificamente garante que as leituras não sejam mais do que versões *K* mais antigas do que a última versão gravada.
 
 - A consistência **Session** garante leituras monotônicas (você nunca lê dados antigos, e novos e antigos novamente), gravações monotônicas (as gravações são ordenadas) e que você lê as gravações mais recentes dentro de qualquer ponto de vista do cliente único.
 
@@ -75,34 +75,34 @@ O Banco de Dados de Documentos dá suporte a quatro níveis de consistência de 
 
 ### Para especificar a consistência padrão para uma conta do Banco de Dados de Documentos
 
-1.      No [portal de Visualização do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
+1.      No [portal de Visualização do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
 
-2.      Na lente **Configuração**, clique em **Consistência Padrão**.
+2.      Na lente **Configuração**, clique em **Consistência Padrão**.
 
-3.      Na folha **Consistência Padrão**, selecione o nível de consistência padrão que você quer para sua conta do Banco de Dados de Documentos.
+3.      Na folha **Consistência Padrão**, selecione o nível de consistência padrão que você quer para sua conta do Banco de Dados de Documentos.
 
 ![Sessão de consistência padrão](./media/documentdb-manage-account/image005.png)
 
 ![Consistência limitada padrão](./media/documentdb-manage-account/image006.png)
 
-4.      Clique em **Salvar**.
+4.      Clique em **Salvar**.
 
-5.      O progresso da operação pode ser monitorado por meio do Hub de Notificações do portal de Visualização do Azure.
+5.      O progresso da operação pode ser monitorado por meio do Hub de Notificações do portal de Visualização do Azure.
 
-*Observe que levará alguns minutos antes que uma alteração nas configurações de consistência padrão entre em vigor em toda a sua conta do Banco de Dados de Documentos.*
+*É importante lembrar que levará alguns minutos antes que uma alteração nas configurações padrão de consistência tenha efeito em toda a sua conta do Banco de Dados de Documentos.*
 
-## <a id="delete"></a> Como excluir uma conta do Banco de Dados de Documentos no portal de visualização do Azure
-Para remover uma conta do Banco de Dados de Documentos do portal de visualização do Azure que você não esteja mais usando, use o comando **Excluir** na folha **Conta do Banco de Dados de Documentos**.
+## <a id="delete"></a> Como: excluir uma conta do Banco de Dados de Documentos no portal de visualização do Azure
+Para remover uma conta do Banco de Dados de Documentos do portal de visualização do Azure que não esteja mais sendo usada, use o comando **Delete** na folha **Conta do Banco de Dados de Documentos**.
 
 ![Como excluir uma conta do Banco de Dados de Documentos no portal de visualização do Azure](./media/documentdb-manage-account/image009.png)
 
-1.      No [portal de Visualização do Azure](https://portal.azure.com/), acesse a Conta do Banco de Dados de Documentos que você quer excluir. 
+1.      No [portal de Visualização do Azure](https://portal.azure.com/), acesse a Conta do Banco de Dados de Documentos que você quer excluir. 
 
-2.      Na folha **Conta do Banco de Dados de Documentos**, clique o comando **Excluir**.
+2.      Na folha **Conta do Banco de Dados de Documentos**, clique o comando **Excluir**.
 
-3.      Na folha de confirmação de resultado, digite o nome da Conta do Banco de Dados de Documentos para confirmar que você quer excluir a conta.
+3.      Na folha de confirmação de resultado, digite o nome da Conta do Banco de Dados de Documentos para confirmar que você quer excluir a conta.
 
-4.      Clique no botão **Excluir** na folha de confirmação.
+4.      Clique no botão **Excluir** na folha de confirmação.
 
 ## <a id="next"></a>Próximas etapas
 
@@ -113,4 +113,4 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
  
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure ao SmarterU | Microsoft Azure" description="Saiba como usar o SmarterU com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure ao SmarterU | Microsoft Azure" 
+    description="Saiba como usar o SmarterU com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o SmarterU
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=524463).
   
 O objetivo deste tutorial é mostrar a integração do Azure com o SmarterU. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do SmarterU
   
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao SmarterU poderão fazer logon único no aplicativo em seu site de empresa SmarterU (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao SmarterU poderão fazer logon único no aplicativo em seu site de empresa do SmarterU (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -39,7 +52,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-smarteru-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-smarteru-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -57,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **SmarterU**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **SmarterU**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-smarteru-tutorial/IC777323.png "Configurar o logon único")
 
@@ -65,13 +78,13 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-smarteru-tutorial/IC777324.png "Configurar o logon único")
 
-3.  Na página **Configurar logon único no SmarterU**, para baixar seus metadados, clique em **Baixar metadados** e salve o arquivo de dados localmente como **c:\\SmarterUMetaData.cer**.
+3.  Na página **Configurar logon único no SmarterU**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de dados localmente como **c:\\SmarterUMetaData.cer**.
 
     ![Configurar o logon único](./media/active-directory-saas-smarteru-tutorial/IC777325.png "Configurar o logon único")
 
 4.  Em outra janela do navegador da Web, faça logon em seu site de empresa SmarterU como um administrador.
 
-5.  Na barra de ferramentas na parte superior, clique em **Configurações de Conta**.
+5.  Na barra de ferramentas na parte superior, clique em **Configurações da Conta**.
 
     ![Configurações da Conta](./media/active-directory-saas-smarteru-tutorial/IC777326.png "Configurações da Conta")
 
@@ -83,7 +96,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     2.  Na seção **Controle de Logon Mestre**, selecione a guia **SmarterU**.
     3.  Na seção **Logon Padrão de Usuário**, selecione a guia **SmarterU**.
     4.  Selecione **Habilitar Okta**.
-    5.  Abra o arquivo de metadados baixado, copie o conteúdo e cole-o na caixa de texto **Metadados do Okta**.
+    5.  Copie o conteúdo do arquivo de metadados baixado e cole-o na caixa de texto **Metadados do Okta**.
     6.  Clique em **Salvar**.
 
 7.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
@@ -96,7 +109,7 @@ Para permitir que os usuários do AD do Azure façam logon no SmarterU, eles dev
 
 ###Para provisionar contas de usuário, execute as seguintes etapas:
 
-1.  Faça logon no seu locatário do **SmarterU**.
+1.  Faça logon em seu locatário do **SmarterU**.
 
 2.  Vá para **Usuários**.
 
@@ -105,7 +118,7 @@ Para permitir que os usuários do AD do Azure façam logon no SmarterU, eles dev
     ![Novo Usuário](./media/active-directory-saas-smarteru-tutorial/IC777329.png "Novo Usuário")
 
     1.  Clique em **+Usuário**.
-    2.  Digite os valores de atributo relacionados da conta de usuário do AD do Azure nas seguintes caixas de texto:**Email Principal**, **ID do Funcionário**, **Senha**, **Verificar Senha**, **Nome Dado**, **Sobrenome**.
+    2.  Digite os valores dos atributos relacionados da conta de usuário do Azure AD nas seguintes caixas de texto:**Email Principal**, **ID de Funcionário**, **Senha**, **Confirmar Senha**, **Nome Fornecido** e **Sobrenome**.
     3.  Clique em **Ativo**.
     4.  Clique em **Salvar**.
 
@@ -123,10 +136,10 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Atribuir Usuários](./media/active-directory-saas-smarteru-tutorial/IC777330.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
 
     ![Sim](./media/active-directory-saas-smarteru-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

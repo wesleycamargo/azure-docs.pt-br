@@ -55,8 +55,6 @@ Uma VPN site a site permite que você crie uma conexão segura entre o site loca
 
 Para obter informações sobre como configurar uma conexão de gateway de VPN site a site, consulte [Configurar uma rede virtual com uma conexão VPN site a site](vpn-gateway-site-to-site-create.md).
 
-Se você quiser criar uma conexão de gateway de VPN site a site usando o RRAS, consulte [Configurar uma VPN site a site usando RRAS (Serviço de Roteamento e Acesso Remoto ) do Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
-
 
 ## Conexões ponto a site
 
@@ -84,11 +82,11 @@ A Rota Expressa do Azure permite criar conexões privadas entre os datacenters d
 
 Em alguns casos, o uso de conexões da Rota Expressa para transferir dados entre o local e o Azure pode proporcionar um custo/benefício significativo. Com a Rota Expressa, você pode estabelecer conexões com o Azure em um local de Rota Expressa (instalação do provedor do Exchange) ou conectar-se diretamente ao Azure da sua rede WAN existente (como uma VPN MPLS) fornecida por um provedor de serviço de rede.
 
-Para obter mais informações sobre o Rota Expressa, consulte [Visão Geral Técnica da Rota Expressa](../expressroute/expressroute-introduction.md).
+Para obter mais informações sobre a Rota Expressa, consulte [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md).
 
 
 ## Próximas etapas
 
 Consulte as [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) e as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) para obter mais informações.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

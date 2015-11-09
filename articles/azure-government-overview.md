@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
-   ms.date="07/22/2015"
-   ms.author="john.harvey@microsoft.com"/>
+   ms.date="10/28/2015"
+   ms.author="jharve"/>
 
-#  Visão geral do Governo do Microsoft Azure 
+# Visão geral do Governo do Microsoft Azure 
 
 <p> O Microsoft Azure Government é uma instância isolada fisicamente e da rede do Microsoft Azure. Esta visão geral fornece uma introdução ao ambiente e aos serviços, bem como links para informações adicionais.
 
@@ -27,7 +27,7 @@ O Governo do Azure é uma nuvem de comunidade do governo (GCC) projetada para da
 
 Além disso, o Governo do Azure é projetado para atender a segurança de nível superior e conformidade necessária para cargas de trabalho privadas e exclusivas do setor público dos Estados Unidos encontradas em regulamentações, como FedRAMP (Federal Risk and Authorization Management Program), ECSB (Department of Defense Enterprise Cloud Service Broker), política de segurança do CJIS (Criminal Justice Information Services) e HIPAA (Health Insurance Portability and Accountability Act).
 
-Abaixo está uma exibição resumida da infraestrutura, malha, serviços e estruturas da Nuvem do Governo do Azure que estão disponíveis para ajudar organizações governamentais a criar soluções de nuvem híbridas para atender às suas metas. Como alguns serviços abaixo só estão disponíveis no modo de visualização, consulte a [página de regiões](http://azure.microsoft.com/regions/#services) que os serviços mais atualizados normalmente disponíveis estão listados.
+Veja abaixo uma exibição resumida da infraestrutura, malha, serviços e estruturas do Azure Governamental que estão disponíveis para ajudar as organizações governamentais a criar soluções de nuvem híbrida para atender às suas metas. Veja a [página de regiões](http://azure.microsoft.com/regions/#services), já que os serviços mais atualizados normalmente disponíveis estão listados lá.
 
 ![][2]
 
@@ -39,13 +39,13 @@ Além de fornecer os serviços robustos e recursos do Azure público, o Governo 
 
 - **Segurança, privacidade e conformidade** - A Microsoft implementou sua estrutura robusta de controles de segurança, privacidade e conformidade, além de controles rígidos adicionais para atender o maior nível de requisitos encontrados em Níveis de Impacto ECSB e CJIS.
 
-- **Armazenamento de dados** – o ambiente do Governo do Azure mantém dois datacenters com mais de 500 milhas de distância. Todos os dados de clientes gerenciados são armazenados em datacenters nos Estados Unidos Continental (CONUS)
+- **Armazenamento de Dados** – O ambiente do Azure Governamental mantém dois datacenters com mais de 800 milhas de distância. Todos os dados de clientes gerenciados são armazenados em datacenters nos Estados Unidos Continental (CONUS)
 
 - **Equipe dos EUA** – Todos os operadores e administradores do Governo do Azure são cidadãos americanos investigados.
 
 - **Gerenciamento de identidades** – O gerenciamento de identidades no ambiente do Governo do Azure é uma instância separada do Active Directory do Azure.
 
-- **Conformidade** – A Microsoft está investindo continuamente para atender e manter rigorosos requisitos de conformidade federal, estadual e local como FedRAMP, CJIS, ECSB e HIPAA para soluções de nuvem do governo dos EUA.
+- **Conformidade** – A Microsoft está investindo continuamente para atender e manter rigorosos e variáveis requisitos de conformidade federal, estadual e local como o FedRAMP, CJIS, ECSB, HIPAA e IRS 1075 para soluções de nuvem do governo dos EUA.
 
 - **Integração de nuvem** – O Governo do Azure fornece um ambiente integrado com o Governo O365 permitindo um logon único entre os serviços de nuvem e serviços avançados, como 1TB de espaço de armazenamento do OneDrive.
 
@@ -60,7 +60,7 @@ As organizações do governo dos EUA interessadas em serviços de nuvem podem te
 
 
 ## <a name="Features"></a> Recursos disponíveis atualmente no Microsoft Azure Government
-O Azure Government atualmente tem os seguintes serviços disponíveis nas regiões do governo de IOWA e da VIRGÍNIA nos E.U.A.:
+Serviços do Azure Governamental disponíveis nas regiões do governo dos EUA nos Estados de IOWA e da VIRGÍNIA:
 
 - Máquinas Virtuais
 - Serviços de Nuvem
@@ -74,6 +74,11 @@ O Azure Government atualmente tem os seguintes serviços disponíveis nas regiõ
 - Gerenciador de Tráfego
 - Barramento de Serviço
 - StorSimple
+- Cache Redis
+- Serviço de Backup do Azure
+- Automação
+- Rota Expressa
+- etc.
 
 Outros serviços estão disponíveis e mais serviços serão adicionados continuamente. Para obter a lista mais atual dos serviços, consulte a [página regiões](http://azure.microsoft.com/regions/#services) que destacará todas as regiões disponíveis e seus serviços.
 
@@ -85,9 +90,17 @@ Atualmente, o Governo de Iowa e da Virgínia nos E.U.A. são os centros de dados
 
 Se você estiver interessado em aprender mais sobre o Governo do Azure aproveite alguns dos links abaixo.
 
-- **<A href="http://azure.com/gov">Adquirindo e acessando o Governo do Azure</a>**
+- **[Inscrever-se para obter uma avaliação](https://azuregov.microsoft.com/trial/azuregovtrial)**
 
-- **<A href="/azure-government-developer-guide">Guia de Desenvolvedores do Governo do Azure</a>**
+- **[Adquirindo e acessando o Azure Governamental](http://azure.com/gov)**
+
+- **[Guia do Desenvolvedor do Azure Governamental](/azureazure-government-developer-guide)**
+
+- **[Blog do Azure Governamental](http://blogs.msdn.com/b/azuregov/)**
+
+- **[Conformidade do Azure](http://azure.microsoft.com/support/trust-center/compliance/)**
+
+
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
@@ -104,4 +117,4 @@ Se você estiver interessado em aprender mais sobre o Governo do Azure aproveite
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

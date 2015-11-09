@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integração do Active Directory do Azure ao Coupa | Microsoft Azure" description="Saiba como usar o Coupa com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integração do Active Directory do Azure ao Coupa | Microsoft Azure" 
+    description="Saiba como usar o Coupa com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integração do Active Directory do Azure ao Coupa
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=529806).
 
 O objetivo deste tutorial é mostrar a integração do Azure ao Coupa. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do Coupa
 
-Depois de concluir este tutorial, os usuários do Azure AD que você atribuiu ao Coupa poderão fazer um logon único no aplicativo usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Coupa poderão fazer logon único no aplicativo usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-coupa-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-coupa-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -51,23 +64,23 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Coupa](./media/active-directory-saas-coupa-tutorial/IC791899.png "Coupa")
 ##Configurando o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários autentiquem no Coupa com a própria conta no Azure AD usando federação baseada no protocolo SAML. Configurar o logon único para o Coupa exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
+O objetivo desta seção é descrever como permitir que os usuários autentiquem no Coupa com a própria conta no Azure AD usando federação baseada no protocolo SAML. Configurar o logon único para o Coupa exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
 1.  Faça logon em seu site de empresa do Coupa como administrador.
 
-2.  Acesse **Configuração > Controle de Segurança**.
+2.  Vá para **Configuração > Controle de Segurança**.
 
     ![Controles de Segurança](./media/active-directory-saas-coupa-tutorial/IC791900.png "Controles de Segurança")
 
-3.  Para baixar o arquivo de metadados do Coupa em seu computador, clique em **Baixar e importar metadados SP**.
+3.  Para baixar o arquivo de metadados do Coupa no computador, clique em **Baixar e importar metadados do SP**.
 
     ![Metadados de Coupa SP](./media/active-directory-saas-coupa-tutorial/IC791901.png "Metadados de Coupa SP")
 
 4.  Em uma janela de navegador diferente, faça logon no portal do Active Directory do Azure.
 
-5.  Na página de integração do aplicativo **Coupa**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único **.
+5.  Na página de integração de aplicativos do **Coupa**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-coupa-tutorial/IC791902.png "Configurar o logon único")
 
@@ -75,12 +88,12 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Configurar o logon único](./media/active-directory-saas-coupa-tutorial/IC791903.png "Configurar o logon único")
 
-7.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas:
+7.  Na página **Configurar URL do Aplicativo**, realize as seguintes etapas:
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-coupa-tutorial/IC791904.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo Coupa (por exemplo: "*http://company.Coupa.com*”).
-    2.  Abra o arquivo de metadados do Coupa baixado e copie o**Índice/URL de AssertionConsumerService**.
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo Coupa (por exemplo: “*http://company.Coupa.com*”)).
+    2.  Abra o arquivo de metadados do Coupa baixado e copie o **Índice/URL de AssertionConsumerService**.
     3.  Na caixa de texto **URL de Resposta do Coupa**, cole o valor de **Índice/URL de AssertionConsumerService**.
     4.  Clique em **Próximo**.
 
@@ -88,19 +101,19 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Configurar o logon único](./media/active-directory-saas-coupa-tutorial/IC791905.png "Configurar o logon único")
 
-9.  No site da empresa Coupa, acesse **Configuração > Controle de Segurança**.
+9.  No site de empresa do Coupa, vá para **Configuração > Controle de Segurança**.
 
     ![Controles de Segurança](./media/active-directory-saas-coupa-tutorial/IC791900.png "Controles de Segurança")
 
-10. Na seção **Fazer Logon usando credenciais do Coupa**, execute as seguintes etapas:
+10. Na seção **Fazer Logon usando as credenciais do Coupa**, realize as seguintes etapas:
 
     ![Fazer logon usando credenciais do Coupa](./media/active-directory-saas-coupa-tutorial/IC791906.png "Fazer logon usando credenciais do Coupa")
 
-    1.  Selecione **Fazer Login usando SAML**.
-    2.  Para carregar seu arquivo de metadados baixado, clique em **Procurar**.do Azure Active.
+    1.  Selecione **Fazer logon usando o SAML**.
+    2.  Clique em **Procurar** para carregar seu arquivo de metadados baixado do Active do Azure.
     3.  Clique em **Salvar**.
 
-11. No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+11. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-coupa-tutorial/IC791907.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -111,7 +124,7 @@ Para permitir que os usuários do Azure AD façam logon no Coupa, eles devem ser
 
 1.  Faça logon em seu site de empresa do **Coupa** como administrador.
 
-2.  No menu na parte superior, clique em **Configuração** e clique em **Usuários**.
+2.  No menu na parte superior, clique em **Configuração** e em **Usuários**.
 
     ![Usuários](./media/active-directory-saas-coupa-tutorial/IC791908.png "Usuários")
 
@@ -119,11 +132,11 @@ Para permitir que os usuários do Azure AD façam logon no Coupa, eles devem ser
 
     ![Criar Usuários](./media/active-directory-saas-coupa-tutorial/IC791909.png "Criar Usuários")
 
-4.  Na seção **Criação de Usuário**, execute as seguintes etapas:
+4.  Na seção **Criação de Usuário**, realize as seguintes etapas:
 
     ![Detalhes do Usuário](./media/active-directory-saas-coupa-tutorial/IC791910.png "Detalhes do Usuário")
 
-    1.  Digite os atributos **Login**, **Nome**, **Sobrenome**, **ID do Logon Único**, **Email** de uma conta válida do Active Directory do Azure que você deseja provisionar nas caixas de texto relacionadas.
+    1.  Digite os atributos **Logon**, **Nome**, **Sobrenome**, **ID de Logon Único** e **Email** de uma conta válida do Active Directory do Azure que você deseja provisionar nas caixas de texto relacionadas.
     2.  Clique em **Criar**.
 
     >[AZURE.NOTE]O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
@@ -142,10 +155,10 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
     ![Atribuir usuários](./media/active-directory-saas-coupa-tutorial/IC791911.png "Atribuir Usuários")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar sua atribuição.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-coupa-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

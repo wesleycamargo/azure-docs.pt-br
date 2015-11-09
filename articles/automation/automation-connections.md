@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Ativos de conexão na Automação do Azure | Microsoft Azure"
-   description="Ativos de conexão na Automação do Azure contêm as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook. Este artigo explica os detalhes de conexões e como trabalhar com elas na criação textual e gráfica."
+   description="Os ativos de conexão na Automação do Azure contêm as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou uma configuração DSC. Este artigo explica os detalhes de conexões e como trabalhar com elas na criação textual e gráfica."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Ativos de conexão na Automação do Azure
 
-Um ativo de conexão da Automação contém as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook. Isso pode incluir as informações necessárias para autenticação, como um nome de usuário e uma senha, além das informações de conexão, como uma URL ou uma porta. O valor de uma conexão é manter todas as propriedades para se conectar a um aplicativo específico em um ativo, em vez de criar diversas variáveis. O usuário pode editar os valores para uma conexão em um único local, e você pode passar o nome de uma conexão a um runbook em um único parâmetro. As propriedades de uma conexão podem ser acessadas no runbook com a atividade **Get-AutomationConnection**.
+Um ativo de conexão da Automação contém as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou da configuração DSC. Isso pode incluir as informações necessárias para autenticação, como um nome de usuário e uma senha, além das informações de conexão, como uma URL ou uma porta. O valor de uma conexão é manter todas as propriedades para se conectar a um aplicativo específico em um ativo, em vez de criar diversas variáveis. O usuário pode editar os valores para uma conexão em um único local, e você pode transmitir o nome de uma conexão para um runbook ou uma configuração DSC em um único parâmetro. As propriedades de uma conexão podem ser acessadas no runbook ou na configuração DSC com a atividade **Get-AutomationConnection**.
 
 Ao criar uma conexão, você deve especificar um *tipo de conexão*. O tipo de conexão é um modelo que define um conjunto de propriedades. A conexão define valores para cada propriedade definida em seu tipo de conexão. Os tipos de conexão são adicionados à Automação do Azure nos módulos de integração ou criados com a [API da Automação do Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx). Os únicos tipos de conexão que estão disponíveis quando você cria uma conexão são aqueles instalados em sua conta de automação.
 
@@ -25,7 +25,7 @@ Ao criar uma conexão, você deve especificar um *tipo de conexão*. O tipo de c
 
 ## Cmdlets do Windows PowerShell
 
-Os cmdlets na tabela a seguir são usados para criar e gerenciar conexões da Automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do PowerShell do Azure](../powershell-install-configure.md) que está disponível para uso em runbooks da Automação.
+Os cmdlets na tabela a seguir são usados para criar e gerenciar conexões da Automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks e configurações DSC da Automação.
 
 |Cmdlet|Descrição|
 |:---|:---|
@@ -34,15 +34,15 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar conexões da Au
 |[Remove-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921827.aspx)|Remove uma conexão existente.|
 |[Set-AzureAutomationConnectionFieldValue](http://msdn.microsoft.com/library/dn921826.aspx)|Define o valor de determinado campo para uma conexão existente.|
 
-## Atividades de runbook
+## Atividades
 
-As atividades na tabela a seguir são usadas para acessar conexões em um runbook.
+As atividades na tabela a seguir são usadas para acessar conexões em um runbook ou em uma configuração DSC.
 
 |Atividades|Descrição|
 |---|---|
-|Get-AutomationConnection|Obtém uma conexão para usar em um runbook. Retorna uma tabela de hash com as propriedades da conexão.|
+|Get-AutomationConnection|Obtém uma conexão a ser usada. Retorna uma tabela de hash com as propriedades da conexão.|
 
->[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de **Get-AutomationConnection**, pois isso pode complicar a descoberta de dependências entre runbooks e ativos de conexão no momento do design.
+>[AZURE.NOTE]Evite usar variáveis no parâmetro –Name de **Get-AutomationConnection**, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão no momento do design.
 
 ## Criando uma nova conexão
 
@@ -79,9 +79,9 @@ Os comandos de exemplo a seguir criam uma nova conexão para o [Twilio](http://w
 	New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
 
 
-## Usando uma conexão em um runbook
+## Usando uma conexão em um runbook ou configuração DSC
 
-Você recupera uma conexão em um runbook com o cmdlet **Get-AutomationConnection**. Essa atividade recupera os valores dos diferentes campos na conexão e retorna-os como um [tabela de hash](http://go.microsoft.com/fwlink/?LinkID=324844) que pode ser usada com os comandos apropriados no runbook.
+Recupere uma conexão em um runbook ou configuração DSC com o cmdlet **Get-AutomationConnection**. Essa atividade recupera os valores dos diferentes campos na conexão e os retorna como um [tabela de hash](http://go.microsoft.com/fwlink/?LinkID=324844) que pode então ser usada com os comandos apropriados no runbook ou na configuração DSC.
 
 ### Exemplo de runbook textual
 Os comandos de exemplo a seguir mostram como usar a conexão do Twilio do exemplo anterior para enviar uma mensagem de texto de um runbook. A atividade Send-TwilioSMS usada aqui tem dois conjuntos de parâmetros, e cada um deles usa um método diferente para autenticação no serviço Twilio. Um usa um objeto de conexão e o outro usa parâmetros individuais para o SID de Conta e o Token de Autorização. Ambos os métodos são mostrados neste exemplo.
@@ -120,4 +120,4 @@ A imagem abaixo mostra o mesmo exemplo mostrado acima, mas usa o conjunto de par
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

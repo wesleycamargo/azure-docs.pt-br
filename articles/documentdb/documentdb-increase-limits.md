@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Solicitação de aumento dos limites da conta do Banco de Dados de Documentos | Microsoft Azure" 
-	description="Saiba como solicitar um ajuste aos limites do Banco de Dados de Documentos, como o número de coleções permitidas, procedimentos armazenados e cláusulas de consulta." 
-	services="documentdb" 
-	authors="AndrewHoh" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="Solicitação de aumento dos limites da conta do Banco de Dados de Documentos | Microsoft Azure"
+	description="Saiba como solicitar um ajuste aos limites do Banco de Dados de Documentos, como o número de coleções permitidas, procedimentos armazenados e cláusulas de consulta."
+	services="documentdb"
+	authors="AndrewHoh"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/22/2015"
 	ms.author="anhoh"/>
 
 # Limites da conta do Banco de Dados de Documentos aumentados por solicitação
 
-O [Banco de Dados de Documentos do Microsoft Azure](http://azure.microsoft.com/services/documentdb/) tem um conjunto de limites padrão e imposições de cota. Diversas cotas podem ser ajustadas entrando em contato com o suporte do Azure. Este artigo mostra como solicitar um aumento de limite de conta.
+O [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) tem um conjunto de limites padrão e imposições de cota. Diversas cotas podem ser ajustadas entrando em contato com o suporte do Azure. Este artigo mostra como solicitar um aumento de limite de conta.
 
 Após ler este artigo, você poderá responder as perguntas a seguir:
 
@@ -35,11 +35,12 @@ A tabela a seguir descreve as cotas do Banco de Dados de Documentos que podem se
 |Número de procedimentos armazenados, gatilhos e UDFs por coleção |25 cada
 |Coleções máximas por conta do banco de dados |100
 |Armazenamento máximo de documentos por banco de dados (100 coleções) |1 TB
-|Número máximo de UDFs por consulta |1
-|Número máximo de JOINs por consulta |2
-|Número máximo de cláusulas AND por consulta |5
-|Número máximo de cláusulas OR por consulta |5
+|Número máximo de UDFs por consulta |2
+|Número máximo de JOINs por consulta |5
+|Número máximo de cláusulas AND por consulta |20
+|Número máximo de cláusulas OR por consulta |10
 |Número máximo de valores por expressão IN |100
+|Número máximo de pontos em um argumento de polígono em uma consulta ST\_WITHIN |16
 |Número máximo de coleções criadas por minuto |5
 |Número máximo de operações de escala por minuto |5
 
@@ -54,41 +55,24 @@ As etapas a seguir mostram como solicitar um ajuste de cota.
 
 	![Captura de tela da criação de um chamado de suporte](media/documentdb-increase-limits/getsupport.png)
 
-3. Na folha **Nova solicitação de suporte**, clique em **Tipo de solicitação** e, em seguida, na folha **Tipo de solicitação**, clique em **Cotas**.
+3. Na folha **Nova solicitação de suporte**, clique em **Noções Básicas**. Em seguida, defina **Tipo de emissão** como **Cota**, **Assinatura** como a sua assinatura que hospeda sua conta do Banco de Dados de Documentos, **Serviço** como o **Banco de Dados de Documentos** e **Plano de suporte** como **SUPORTE de cota - Incluído**. Finalmente, clique em **Próximo**.
 
 	![Captura de tela do tipo de solicitação de chamado de suporte](media/documentdb-increase-limits/supportrequest1.png)
 
-4. Na folha **Assinatura**, escolha a assinatura que hospeda sua conta do Banco de Dados de Documentos.
+4. Na folha **Problema**, escolha uma severidade. Defina **Tipo de problema** como **Banco de Dados de Documentos** e inclua informações sobre o aumento da cota em **Detalhes**. Clique em **Próximo**.
 
 	![Captura de tela do seletor de assinatura de chamado de suporte](media/documentdb-increase-limits/supportrequest2.png)
 
-5. Na folha **Recursos**, escolha **Contas do Banco de Dados de Documentos**.
+5. Por fim, preencha suas informações de contato na folha **Informações de contato**.
 
 	![Captura de tela do seletor de recurso de chamado de suporte](media/documentdb-increase-limits/supportrequest3.png)
 
-6. Na folha **Plano de suporte**, escolha **Suporte gratuito de cotas**.
+Depois que o chamado de suporte tiver sido criado, você deve receber o número de solicitação de suporte por email. Você também pode exibir a solicitação de suporte clicando em **Gerenciar solicitações de suporte** na folha **Ajuda + suporte**.
 
-	![Captura de tela do seletor de plano de suporte do chamado de suporte](media/documentdb-increase-limits/supportrequest4.png)
+![Captura de tela da folha das solicitações de suporte](media/documentdb-increase-limits/supportrequest4.png)
 
-7. Na folha **Problema**, escolha a categoria do problema **Solicitações de aumento de cota ou núcleo no Banco de Dados de Documentos**.
-
-	![Captura de tela do seletor de categoria de problema do chamado de suporte](media/documentdb-increase-limits/supportrequest5.png)
-
-8. Na folha **Descrição**, insira uma descrição da solicitação. Certifique-se de incluir os ajustes de cota específicos que você está solicitando, bem como as contas para as quais os ajustes devem ser feitos.
-
-	![Captura de tela da caixa de texto de descrição do chamado de suporte](media/documentdb-increase-limits/supportrequest6.png)
-
-9. Clique em **Criar**.
-
-	![Captura de tela do botão de criação do chamado de suporte](media/documentdb-increase-limits/supportrequest7.png)
-
-Depois que o chamado de suporte tiver sido criado, você deve receber o número de solicitação de suporte por email. Você também pode exibir a solicitação de suporte clicando em **Solicitações de suporte** na folha **Ajuda + suporte**.
-
-![Captura de tela da folha das solicitações de suporte](media/documentdb-increase-limits/supportrequest8.png)
-  
 
 ##<a name="NextSteps"></a> Próximas etapas
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
- 
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

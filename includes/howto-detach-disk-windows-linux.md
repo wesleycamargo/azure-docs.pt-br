@@ -1,16 +1,18 @@
 <properties writer="kathydav" editor="tysonn" manager="timlt" />
 
-Quando não precisar mais de um disco de dados conectado a uma máquina virtual, você poderá desanexá-lo facilmente. Essa ação remove o disco da máquina virtual, mas não o remove do armazenamento. Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
+Quando não precisar mais de um disco de dados conectado a uma máquina virtual, você poderá desanexá-lo facilmente. Essa ação remove o disco da máquina virtual, mas não o remove do armazenamento.
 
-> [AZURE.NOTE]Uma máquina virtual no Azure usa diferentes tipos de discos -- um disco de sistema operacional, um disco temporário local e discos de dados opcionais. Discos de dados são a forma recomendada de armazenar dados para uma máquina virtual. Para obter detalhes, consulte [Sobre discos e VHDs para Máquinas Virtuais](../../virtual-machines-disks-vhds.md). Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a máquina virtual.
+Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
 
-## Localize o disco##
+> [AZURE.NOTE]Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a máquina virtual.
+
+
+## Localize o disco
 
 Se você não souber o nome do disco ou deseja verificá-lo antes de desanexá-lo, siga estas etapas.
 
-> [AZURE.NOTE]O Azure designa automaticamente um nome ao disco ao anexá-lo. O nome consiste no nome do serviço de nuvem, no nome da máquina virtual e no número.
 
-1. Se você ainda não tiver feito isso, entre no [Portal do Azure](http://manage.windowsazure.com).
+1. Se ainda não tiver feito isso, entre no [Portal do Azure](http://manage.windowsazure.com).
 
 2. Clique em **Máquinas virtuais**, clique no nome da máquina virtual e, em seguida, clique em **Painel**.
 
@@ -19,11 +21,10 @@ Se você não souber o nome do disco ou deseja verificá-lo antes de desanexá-l
 	![Encontrar disco de dados](./media/howto-detach-disk-windows-linux/FindDataDisks.png)
 
 
-## Desanexar o disco##
-
-Depois de localizar o nome do disco, você estará pronto para desanexá-lo:
+## Desanexar o disco
 
 1. Clique em **Máquinas virtuais**, clique no nome da máquina virtual que tem o disco de dados que você deseja desanexar e clique **Painel**.
+
 2. Na barra de comandos, clique em **Desanexar o disco**.
 
 3. Selecione o disco de dados e, em seguida, clique na marca de seleção para desanexá-lo.
@@ -32,4 +33,4 @@ Depois de localizar o nome do disco, você estará pronto para desanexá-lo:
 
 O disco permanece no armazenamento mas não esteja conectado a uma máquina virtual.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

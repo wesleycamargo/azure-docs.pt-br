@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="sdanie"/>
 
 # Referência de políticas do Gerenciamento de API do Azure
@@ -32,6 +32,8 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 	-	[Validar JWT][] - Impõe a existência e a validade de JWT extraída de um cabeçalho HTTP especificado ou um parâmetro de consulta especificado.
 -	[Políticas avançadas][]
 	-	[Controlar fluxo][] - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions][].
+	-	[Encaminhar solicitações][] -encaminha a solicitação ao serviço de back-end.
+	-	[Registrar em log no Hub de Eventos][] - envia mensagens no formato especificado para um destino de mensagem definido por uma entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
 	-	[Definir variável][] - Mantém um valor em uma variável [contexto][] para acesso posterior.
 -	[Políticas de autenticação][]
 	-	[Autenticar com o Basic][] - Autenticar com um serviço de back-end usando a autenticação Básica.
@@ -72,6 +74,8 @@ Para obter mais informações sobre expressões de política, consulte o vídeo 
 [Definir variável]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 [contexto]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
+[Encaminhar solicitações]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
+[Registrar em log no Hub de Eventos]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
 
 [Políticas de autenticação]: https://msdn.microsoft.com/library/azure/dn894079.aspx
 [Autenticar com o Basic]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
@@ -105,4 +109,4 @@ Para obter mais informações sobre expressões de política, consulte o vídeo 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

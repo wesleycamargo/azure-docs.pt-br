@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/26/2015"
    ms.author="cherylmc" />
 
 # Perguntas frequentes de gateway de VPN
@@ -70,6 +70,10 @@ Validamos um conjunto de dispositivos de VPN site a site padrão em parceria com
 ### O que devo fazer se tiver um dispositivo VPN que não esteja na lista de dispositivos compatíveis conhecidos?
 
 Se não encontrar seu dispositivo listado como um dispositivo de VPN compatível conhecido e desejar usá-lo para a conexão VPN, você precisará verificar se ele atende às opções de configuração de IPsec/IKE e aos parâmetros listados com suporte [aqui](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Os dispositivos que atendem aos requisitos mínimos devem funcionar bem com os gateways de VPN. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
+
+### Por que meu túnel VPN baseado em políticas é desativado quando o tráfego está ocioso?
+
+Esse comportamento é esperado para gateways de VPN baseados em políticas (também conhecidos como roteamento estático). Quando o tráfego pelo túnel de fica ocioso por mais de 5 minutos, o túnel é interrompido. Mas assim que o tráfego começa a fluir em qualquer direção, o túnel é restabelecido imediatamente. Se tiver um gateway de VPN baseado em rotas (também conhecido como dinâmico), você não terá esse comportamento.
 
 ### Posso usar VPNs de software para me conectar ao Azure?
 
@@ -252,4 +256,4 @@ Exibir mais perguntas frequentes sobre redes para obter detalhes adicionais:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

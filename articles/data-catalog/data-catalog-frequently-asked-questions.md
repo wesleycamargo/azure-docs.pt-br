@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 # Perguntas frequentes sobre o Catálogo de Dados do Azure
@@ -71,12 +71,15 @@ Durante a visualização, o **Catálogo de Dados do Azure** dá suporte ao regis
 - Diretório de Armazenamento do Azure
 - Arquivo do HDFS
 - Diretório do HDSF
+- Tabela Teradata
+- Exibição do Teradata
 
-Além dos recursos listados acima, o **Catálogo de Dados do Azure** oferece suporte à descoberta dos seguintes contêineres de ativos de dados:
+Além dos ativos listados acima, o **Catálogo de Dados do Azure** dá suporte à descoberta dos seguintes contêineres de ativos:
 
 - Banco de Dados SQL Server
 - Banco de dados Oracle
 - Cluster HDFS
+- Banco de dados do Teradata 
 
 
 ## P.: Como posso solicitar suporte para outra fonte de dados?
@@ -89,11 +92,11 @@ O melhor lugar para começar é seguindo as instruções no guia de [Introduçã
 
 ## P.: Como posso registrar meus dados?
 
-Para registrar os dados no **Catálogo de Dados do Azure**, abra a ferramenta de registro do **Catálogo de Dados do Azure** da área “Publicar” do portal do **Catálogo de Dados do Azure**. No aplicativo de publicação do **Catálogo de Dados do Azure**, faça logon usando as mesmas credenciais que você usa para acessar o portal do **Catálogo de Dados do Azure** e selecione a fonte de dados e os ativos específicos que você deseja registrar.
+Para registrar seus dados no **Catálogo de Dados do Azure**, abra a ferramenta de registro do **Catálogo de Dados do Azure** na área “Publicar” do portal do **Catálogo de Dados do Azure**. No aplicativo de publicação do **Catálogo de Dados do Azure**, faça logon usando as mesmas credenciais que você usa para acessar o portal do **Catálogo de Dados do Azure** e selecione a fonte de dados e os ativos específicos que você deseja registrar.
 
 ## P.: Quais propriedades são extraídas para ativos de dados que são registrados?
 
-As propriedades específicas serão diferentes conforme a fonte de dados, porém, em geral, o serviço de publicação do **Catálogo de Dados do Azure** extrairá as seguintes informações:
+As propriedades específicas serão diferentes conforme a fonte de dados, mas, em geral, o serviço de publicação do **Catálogo de Dados do Azure** extrairá as seguintes informações:
 
 - Nome do ativo
 - Tipo de Ativo
@@ -102,25 +105,25 @@ As propriedades específicas serão diferentes conforme a fonte de dados, porém
 - Tipos de dados do atributo/coluna
 - Descrição do atributo/coluna
 
-> [AZURE.IMPORTANT]Registrar ativos de dados com o **Catálogo de Dados do Azure** não move ou copia os dados para a nuvem. Registrar os ativos de uma fonte de dados copiará os metadados dos ativos para o Azure, mas os dados permanecerão no local na fonte de dados de origem. A única exceção a essa regra é se um usuário optar por carregar registros de visualização ou um perfil de dados ao registrar ativos. Quando você estiver incluindo uma visualização, até 20 registros serão copiados de cada ativo, sendo armazenados como um instantâneo no **Catálogo de Dados do Azure**. Quando você estiver incluindo um perfil de dados, as informações agregadas (como o tamanho de tabelas, os valores nulos de porcentagem por coluna e os valores mínimos, máximo e médio para colunas) serão calculadas e incluídas nos metadados armazenados no catálogo.
+> [AZURE.IMPORTANT]O registro de ativos de dados com o **Catálogo de Dados do Azure** não move ou copia seus dados para a nuvem. Registrar os ativos de uma fonte de dados copiará os metadados dos ativos para o Azure, mas os dados permanecerão no local na fonte de dados de origem. A única exceção a essa regra é se um usuário optar por carregar registros de visualização ou um perfil de dados ao registrar ativos. Quando você estiver incluindo uma visualização, até 20 registros serão copiados de cada ativo e armazenados como um instantâneo no **Catálogo de Dados do Azure**. Quando você estiver incluindo um perfil de dados, as informações agregadas (como o tamanho de tabelas, os valores nulos de porcentagem por coluna e os valores mínimos, máximo e médio para colunas) serão calculadas e incluídas nos metadados armazenados no catálogo.
 
 <br/>
 
-> [AZURE.NOTE]Para fontes de dados como o SQL Server Analysis Services com uma propriedade **Descrição** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor dessa propriedade. Para bancos de dados relacionais do SQL Server, que não têm uma propriedade **Descrição** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor da propriedade estendida ms\_description para objetos e colunas. Para saber mais, consulte o TechNet [Usando propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE]Para fontes de dados como o SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor dessa propriedade. Para bancos de dados relacionais do SQL Server que não têm uma propriedade **Description** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor da propriedade estendida ms\_description para objetos e colunas. Para saber mais, veja [Usando propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) no TechNet.
 
 ## P.: Quanto tempo levará para recursos recém-registrados aparecem no Catálogo de Dados do Azure?
 
-Depois que você registrar os ativos com o **Catálogo de Dados do Azure**, poderá haver um período de espera de 5 a 10 segundos para eles aparecerem no portal do **Catálogo de Dados do Azure**.
+Depois de registrar os ativos com o **Catálogo de Dados do Azure**, poderá haver um período de espera de 5 a 10 segundos para eles aparecerem no portal do **Catálogo de Dados do Azure**.
 
 ## P.: Como posso anotar e enriquecer os metadados para meus ativos de dados registrados?
 
-A maneira mais simples de fornecer metadados para os ativos registrados é selecionar o ativo no portal do **Catálogo de Dados do Azure** e inserir os valores de metadados no painel de propriedades ou no painel de esquema do objeto selecionado.
+A maneira mais simples de fornecer metadados para os ativos registrados é selecionar o ativo no portal do **Catálogo de Dados do Azure** e inserir os valores de metadados no painel de propriedades ou no painel de esquema para o objeto selecionado.
 
 Você também pode fornecer alguns metadados, como marcas e especialistas, durante o processo de registro. Os valores fornecidos no serviço de publicação do **Catálogo de Dados do Azure** serão aplicados a todos os ativos que estiverem sendo registrados no momento. Para exibir os objetos recém-registrados no portal e fazer uma anotação adicional, selecione o botão **Exibir Portal** na tela final do aplicativo de publicação do **Catálogo de Dados do Azure**.
 
 ## P.: Como posso excluir meus objetos de dados registrados?
 
-Você pode excluir um objeto do **Catálogo de Dados do Azure** selecionando o objeto no portal e então clicando no botão **Excluir**. Isso removerá os metadados do objeto do **Catálogo de Dados do Azure**, mas não afetará a fonte de dados subjacente real.
+Você pode excluir um objeto do **Catálogo de Dados do Azure** selecionando o objeto no portal e clicando no botão **Excluir**. Isso removerá os metadados do objeto do **Catálogo de Dados do Azure**, mas não afetará a fonte de dados subjacente real.
 
 ## P.: O que é um especialista?
 
@@ -128,18 +131,18 @@ Especialista é uma pessoa que tem uma perspectiva bem informada sobre um objeto
 
 ## P.: Qual é o SLA para visualização?
 
-Durante a visualização do **Catálogo de Dados do Azure**, não há nenhum contrato de nível de serviço explícito.
+Durante a visualização do **Catálogo de Dados do Azure**, não há nenhum SLAplícito.
 
 ## P.: Como posso compartilhar informações com a equipe do Catálogo de Dados do Azure se eu encontrar problemas?
 
 Use o fórum do **Catálogo de Dados do Azure** para relatar problemas, compartilhar informações e fazer perguntas. O fórum pode ser encontrado em http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
 ##P.: O Catálogo de Dados do Azure funciona com essa outra fonte de dados na qual estou interessado?
-Estamos trabalhando ativamente para adicionar mais fontes de dados ao **Catálogo de Dados do Azure**. Se houver uma fonte de dados para a qual você gostaria que tivesse suporte, sugira-a (ou apoie a sugestão, caso já exista) no [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Estamos trabalhando ativamente para adicionar mais fontes de dados ao **Catálogo de Dados do Azure**. Se houver uma fonte de dados para a qual você gostaria que tivesse suporte, sugira (ou apoie a sugestão, caso já exista) no [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## P.: Como o Catálogo de Dados do Azure se relaciona com o Catálogo de Dados no Power BI para Office 365?
 
-Pense no **Catálogo de Dados do Azure** como uma evolução do Catálogo de Dados. O **Catálogo de Dados do Azure** oferece recursos semelhantes para a descoberta e a publicação de fonte de dados, mas se concentra em cenários mais amplos e não dependentes do Office 365. Logo após a disponibilização geral do **Catálogo de Dados do Azure**, ambos os catálogos serão mesclados em um único serviço.
+Considere o **Catálogo de Dados do Azure** como uma evolução do Catálogo de Dados. O **Catálogo de Dados do Azure** oferece recursos semelhantes para a descoberta e a publicação de fonte de dados, mas se concentra em cenários mais amplos e não dependentes do Office 365. Logo após a disponibilidade do **Catálogo de Dados do Azure** se tornar ampla, os dois catálogos serão mesclados em um único serviço.
 
 ## P.: De quais permissões um usuário precisa para registrar ativos com o Catálogo de Dados do Azure?
 
@@ -147,15 +150,15 @@ O usuário que executa a ferramenta de registro do **Catálogo de Dados do Azure
 
 ## P.: O Catálogo de Dados do Azure também ficará disponível para implantação local?
 
-O **Catálogo de Dados do Azure** é um serviço de nuvem que pode trabalhar com fontes de dados locais e na nuvem, fornecendo uma solução de descoberta de fonte de dados híbrida. No momento, não há planos para uma versão do serviço do **Catálogo de Dados do Azure** executado localmente.
+O **Catálogo de Dados do Azure** é um serviço de nuvem que pode trabalhar com fontes de dados locais e na nuvem, fornecendo uma solução de descoberta de fonte de dados híbrida. No momento, não há planos para uma versão do serviço do **Catálogo de Dados do Azure** a ser executado localmente.
 
 ##P.: É possível extrair mais metadados/metadados mais detalhados das fontes de dados que registramos?
 
-Estamos trabalhando ativamente para expandir os recursos do **Catálogo de Dados do Azure**. Se houver metadados adicionais que você gostaria de extrair da fonte de dados durante o registro, sugira-a (ou vote nela caso já tenha sido sugerida) no [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). No futuro, permitiremos que terceiros adicionem novos tipos de fonte de dados por meio de uma API de extensibilidade.
+Estamos trabalhando ativamente para expandir os recursos do **Catálogo de Dados do Azure**. Se houver metadados adicionais que você gostaria de extrair da fonte de dados durante o registro, sugira (ou vote na sugestão, caso já tenha sido sugerida) no [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). No futuro, permitiremos que terceiros adicionem novos tipos de fonte de dados por meio de uma API de extensibilidade.
 
 ## P.: Como posso restringir a visibilidade dos ativos de dados registrado para que apenas determinadas pessoas possam descobri-los?
 
-R: Selecione os ativos de dados no **Catálogo de Dados do Azure** e clique no botão "Apropriar-se". Os proprietários dos ativos de dados no **Catálogo de Dados do Azure** podem alterar as configurações de visibilidade para permitir que todos os usuários do Catálogo possam descobrir os ativos de sua propriedade ou para restringir a visibilidade a usuários específicos.
+R: Selecione os ativos de dados no **Catálogo de Dados do Azure** e clique no botão "Apropriar-se". Os proprietários dos ativos de dados no **Catálogo de Dados do Azure** podem alterar as configurações de visibilidade para permitir que todos os usuários do Catálogo possam descobrir os ativos de sua propriedade, ou para restringir a visibilidade a usuários específicos.
 
 ## P.: Como faço para atualizar o registro de um ativo de dados para que as alterações na fonte de dados sejam refletidas no Catálogo?
 
@@ -163,10 +166,10 @@ R.: Para atualizar os metadados de ativos de dados que já estão registrados no
 
 ## P:. Como posso fazer perguntas ou obter ajuda ao trabalhar com o Catálogo de Dados do Azure?
 
-Se você tiver problemas ou precisar de ajuda com a visualização do **Catálogo de Dados do Azure**, participe do [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Se você tiver problemas ou precisar de ajuda com a visualização do **Catálogo de Dados do Azure**, escreva no [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## P.: Minha dúvida não foi respondida aqui. O que devo fazer?
 
 Vá diretamente para o [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

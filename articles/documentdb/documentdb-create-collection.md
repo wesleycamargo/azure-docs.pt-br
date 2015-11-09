@@ -40,7 +40,7 @@ Para usar o Banco de Dados de Documentos do Microsoft Azure, você deve ter uma 
 
 	- **Padrão**. Essa política é mais útil quando você está executando consultas de igualdade em cadeias de caracteres e usando as consultas ORDER BY, intervalo e igualdade para números. Essa política tem uma sobrecarga de armazenamento de índice menor que o **Intervalo**.
 	- **Hash**. Essa política é mais útil quando você está executando consultas de igualdade para números e cadeias de caracteres. Essa política tem a menor sobrecarga de armazenamento do índice.
-	- **Intervalo**. Essa política é mais útil quando você está usando consultas ORDER BY, intervalo e igualdade em números e cadeias de caracteres. Essa política tem uma sobrecarga de armazenamento de índice maior do que o **Padrão** ou **Hash**.
+	- **Intervalo**. Essa política é mais útil quando você está usando consultas ORDER BY, de intervalo e de igualdade em números e cadeias de caracteres. Essa política tem uma sobrecarga de armazenamento de índice maior do que o **Padrão** ou **Hash**.
 
 	Para obter mais informações sobre políticas de indexação, consulte [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md).
 
@@ -65,4 +65,4 @@ Agora que você tem uma coleção, a próxima etapa é adicionar documentos ou i
 
 Depois de ter documentos em uma coleção, você pode usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) em seus documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal de visualização, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), ou um dos [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -18,13 +18,15 @@
 
 # Mover dados de e para o Armazenamento de Blobs do Azure usando o Gerenciador de Armazenamento do Azure
 
+Orientações sobre as tecnologias usadas para mover dados para e/ou do armazenamento de blobs do Azure estão vinculadas aqui:
+
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## Introdução
 
 O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita do Windows para inspecionar e alterar dados em uma conta de Armazenamento do Azure. Ele pode ser baixado do [Gerenciador de Armazenamento do Azure](http://azurestorageexplorer.codeplex.com/).
 
-> [AZURE.NOTE]Se você está usando a VM que foi configurada com os scripts fornecidos pelas [Máquinas virtuais de Ciência de Dados no Azure](machine-learning-data-science-virtual-machines.md), o Gerenciador de Armazenamento do Azure já está instalado na máquina virtual.
+> [AZURE.NOTE]Se você estiver usando a VM configurada com os scripts fornecidos pelas [Máquinas virtuais de ciências de dados no Azure](machine-learning-data-science-virtual-machines.md), o Gerenciador de armazenamento do Azure já estará instalado na VM.
 
 > [AZURE.NOTE]Para obter uma introdução completa ao armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
@@ -53,4 +55,4 @@ As etapas a seguir mostram como carregar/baixar os dados usando o Gerenciador de
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

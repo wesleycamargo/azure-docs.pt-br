@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure
@@ -174,6 +174,15 @@ O seguinte exemplo mostra como definir parâmetros:
 
 Na seção de variáveis, você constroi valores que podem ser usados para simplificar expressões de idioma do modelo. Normalmente, essas variáveis serão baseadas em valores fornecidos pelos parâmetros.
 
+Você define variáveis com a seguinte estrutura:
+
+    "variables": {
+       "<variable-name>": "<variable-value>",
+       "<variable-name>": { 
+           <variable-complex-type-value> 
+       }
+    }
+
 O seguinte exemplo mostra como definir uma variável que é construída com base em dois valores de parâmetro:
 
     "parameters": {
@@ -228,6 +237,7 @@ Você define recursos com a seguinte estrutura:
          "name": "<name-of-the-resource>",
          "location": "<location-of-resource>",
          "tags": "<name-value-pairs-for-resource-tagging>",
+         "comments": "<your-reference-notes>",
          "dependsOn": [
            "<array-of-related-resource-names>"
          ],
@@ -240,18 +250,19 @@ Você define recursos com a seguinte estrutura:
 
 | Nome do elemento | Obrigatório | Descrição
 | :----------------------: | :------: | :----------
-| apiVersion | Sim | Versão da API que oferece suporte ao recurso. Para obter as versões e esquemas disponíveis para os recursos, confira [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
+| apiVersion | Sim | Versão da API que oferece suporte ao recurso. Para obter as versões e os esquemas disponíveis para os recursos, veja [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
 | type | Sim | Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso que tem suporte do provedor de recursos.
 | name | Sim | Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986.
 | location | Não | Locais geográficos com suporte do recurso fornecido.
 | marcas | Não | Marcas que são associadas ao recurso.
+| comentários | Não | Suas anotações para documentar os recursos em seu modelo
 | dependsOn | Não | Recursos dos quais o recurso que está sendo definido depende. As dependências entre recursos são avaliadas e os recursos são implantados na ordem de dependência. Quando os recursos não dependem uns dos outros, é possível que tentem ser implantados paralelamente. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos.
 | propriedades | Não | Definições de configuração específicas do recurso.
 | recursos | Não | Recursos filho que dependem do recurso que está sendo definido.
 
 Se o nome do recurso não for exclusivo, você poderá usar a função auxiliar **resourceId** (descrita abaixo) para obter o identificador exclusivo de qualquer recurso.
 
-Os valores para o elemento **properties** são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Consulte [Referência do Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) para obter as operações da API REST para o recurso que você deseja implantar.
+Os valores do elemento **properties** são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Veja [Referência do Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) para obter as operações da API REST para o recurso que deseja implantar.
 
 O exemplo a seguir mostra um recurso **Microsoft.Web/serverfarms** e um recurso **Microsoft.Web/sites** com um recurso **Extensions** aninhado:
 
@@ -335,9 +346,9 @@ O exemplo a seguir mostra um valor que é retornado na seção de saídas.
 ## Cenários mais avançados.
 Este tópico fornece uma introdução do modelo. No entanto, o cenário pode exigir tarefas mais avançadas.
 
-Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para saber mais, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
+Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para obter mais informações, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
 
-Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+Para iterar um número de vezes especificado ao criar um tipo de recurso, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 
 Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Isso é comum ao trabalhar com contas de armazenamento ou redes virtuais que são compartilhadas entre vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](../resource-group-template-functions#resourceid).
 
@@ -424,9 +435,9 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
     }
 
 ## Próximas etapas
-- Para obter detalhes sobre as funções que você pode usar de dentro de um modelo, consulte [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
-- Para saber como implantar o modelo que você criou, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
+- Para obter detalhes sobre as funções que você pode usar de dentro de um modelo, veja [Funções do Modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
+- Para saber como implantar o modelo que você criou, veja [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 - Para ver um exemplo detalhado da implantação de um aplicativo, confira [Provisionar e implantar microsserviços de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
+- Para ver os esquemas disponíveis, veja [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Como exibir a integridade agregada das entidades da Malha do Serviço"
+   pageTitle="Como exibir a integridade agregada das entidades do Service Fabric do Azure | Microsoft Azure"
    description="Descreve como consultar, exibir e avaliar a integridade agregada das entidades da Malha do Serviço do Azure, por meio de consultas de integridade e consultas gerais."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Como exibir relatórios de integridade da Malha do Serviço
@@ -833,7 +833,7 @@ Sempre que houver um problema no cluster ou aplicativo, observe a integridade do
 
 [Como monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Atualização de aplicativo da Malha de Serviço](service-fabric-application-upgrade.md)
+[Atualização de aplicativo da Malha do Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

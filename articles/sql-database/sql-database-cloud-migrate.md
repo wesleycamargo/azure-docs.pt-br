@@ -18,11 +18,7 @@
 
 # Migrando um banco de dados do SQL Server para o Banco de Dados SQL do Azure
 
-O Banco de Dados SQL V12 do Azure oferece compatibilidade de mecanismo quase completa com o SQL Server 2014 e o SQL Server 2016. Para os bancos de dados compatíveis, a migração para o Banco de Dados SQL do Azure é um esquema direto e uma operação de movimentação de dados que requer poucas (se houver) alterações no esquema e pouca ou nenhuma reengenharia de aplicativos. Onde os bancos de dados precisam ser alterados, o escopo dessas alterações é mais restrito do que o Banco de Dados SQL do Azure v11.
-
-Desde o início, os recursos do SQL Server no escopo do servidor não têm suporte do Banco de Dados SQL V12 do Azure. Os bancos de dados e aplicativos que dependem desses recursos precisarão de alguma reengenharia para que possam ser migrados.
-
->[AZURE.NOTE]Para migrar outros tipos de bancos de dados, incluindo o Microsoft Access, Sybase, MySQL Oracle e DB2 para o Banco de Dados SQL do Azure, consulte [Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/).
+A complexidade da movimentação de seu banco de dados local para o Banco de Dados SQL do Azure varia de acordo com o design do banco de dados e do aplicativo, e com sua tolerância à inatividade. Para os bancos de dados compatíveis, a migração para o Banco de Dados SQL do Azure é um esquema direto e uma operação de movimentação de dados que requer poucas (se houver) alterações no esquema e pouca ou nenhuma reengenharia de aplicativos. [O Banco de Dados SQL do Azure V12](../sql-database-v12-whats-new.md) oferece compatibilidade de mecanismo quase completa com o SQL Server 2014 e o SQL Server 2016. No Banco de Dados SQL do Microsoft Azure, há suporte total para a maioria das instruções Transact-SQL do SQL Server 2016. Isso inclui os tipos de dados do SQL Server, seus operadores e as funções de cadeia de caracteres, aritméticas, lógicas e de cursor, além de outros elementos Transact-SQL que dependem da maioria dos aplicativos. Funções com suporte parcial ou sem suporte geralmente estão relacionadas às diferenças no modo como o Banco de Dados SQL gerencia o banco de dados (como recursos de segurança, de alta disponibilidade e de arquivos) ou para recursos de finalidade especial, como o service broker. Já que o Banco de Dados SQL isola muitos recursos de dependência no banco de dados mestre, muitas atividades de nível de servidor são inadequadas e sem suporte. O Banco de Dados SQL geralmente não dá suporte a recursos preteridos no SQL Server. Os bancos de dados e os aplicativos que dependem de [funções com suporte parcial ou sem suporte](../sql-database-transact-sql-information.md) precisarão de alguma reengenharia para que possam ser migrados.
 
 O fluxo de trabalho para a migração de um banco de dados do SQL Server para o Banco de Dados SQL do Azure é:
 
@@ -30,21 +26,33 @@ O fluxo de trabalho para a migração de um banco de dados do SQL Server para o 
  2. [Se não for compatível, corrija problemas de compatibilidade do banco de dados](#fix-database-compatibility-issues)
  3. [Migrar um banco de dados compatível](#options-to-migrate-a-compatible-database-to-azure-sql-database)
 
+>[AZURE.NOTE]Para migrar outros tipos de bancos de dados, incluindo o Microsoft Access, o Sybase, o MySQL Oracle e o DB2 para o Banco de Dados SQL do Azure, consulte [Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/).
+
 ## Determinar se o seu banco de dados é compatível
-Há dois métodos principais a serem usados para determinar se o banco de dados de origem é compatível. -Exportar Aplicativo da Camada de Dados: esse método usa um assistente no Management Studio e exibe mensagens de erro no console. -SQLPackage.exe: [sqlpackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) é um utilitário de linha de comando que acompanha o Visual Studio e o SQL Server. Este método gerará um relatório.
+Há dois métodos principais a serem usados para determinar se o banco de dados de origem é compatível. -Exportar Aplicativo da Camada de Dados: esse método usa um assistente no Management Studio para analisar seu banco de dados e exibir mensagens de compatibilidade do banco de dados, se houver, no console. -SQLPackage: esse método usa o utilitário de linha de comando [sqlpackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) do SQLPackage.exe para analisar seu banco de dados e gerar um relatório. O SQLPackage é fornecido com o Visual Studio e o SQL Server.
 
-> [AZURE.NOTE]Há um terceiro método, que também usará arquivos de rastreamento para testar a compatibilidade. Esse é o [assistente de Migração do SQL Azure](http://sqlazuremw.codeplex.com/), uma ferramenta gratuita do Codeplex. No entanto, atualmente essa ferramenta pode encontrar erros de compatibilidade que sejam problemas para o Banco de Dados SQL do Azure V11 e que não sejam problemas para o Banco de Dados SQL do Azure V12.
+> [AZURE.NOTE]Há um terceiro método que usará arquivos de rastreamento como informações de origem adicionais para testar a compatibilidade no nível do aplicativo, bem como no nível do banco de dados. É o [Assistente de Migração do SQL Azure](http://sqlazuremw.codeplex.com/), uma ferramenta gratuita no Codeplex. No entanto, atualmente essa ferramenta pode encontrar erros de compatibilidade que sejam problemas para o Banco de Dados SQL do Azure V11 e que não sejam problemas para o Banco de Dados SQL do Azure V12.
 
-Se forem detectadas incompatibilidades de banco de dados, você precisará corrigir essas incompatibilidades antes de poder migrar seu banco de dados para o Banco de Dados SQL do Azure. Para obter diretrizes sobre como corrigir problemas de compatibilidade do banco de dados, acesse [corrigir problemas de compatibilidade do banco de dados](#fix-database-compatibility-issues).
+Se forem detectadas incompatibilidades de banco de dados, você precisará corrigi-las antes de poder migrar seu banco de dados para o Banco de Dados SQL do Azure. Para obter diretrizes sobre como corrigir problemas de compatibilidade do banco de dados, acesse [corrigir problemas de compatibilidade do banco de dados](#fix-database-compatibility-issues).
 
 > [AZURE.IMPORTANT]Estas opções não capturam todos os problemas de compatibilidade entre os diferentes níveis de bancos de dados do SQL Server (ou seja, nível 90, 100 e 110). Se você estiver migrando de um banco de dados mais antigo (nível 80, 90, 100 e 110), deverá passar pelo processo de atualização primeiro (pelo menos no ambiente de desenvolvimento) e uma vez no SQL Server 2014 ou posterior e então migrar para o Banco de Dados SQL do Azure.
 
 ## Determinar se seu banco de dados é compatível com o uso de sqlpackage.exe
 
-1. Abra um prompt de comando e altere um diretório com a versão mais recente do sqlpackage.exe. Esse utilitário é fornecido com o Visual Studio e o SQL Server.
-2. Execute o seguinte comando, substituindo os seguintes argumentos: < server_name >, < database_name >, < target_file >, < schema_name.table_name > e < output_file >. O motivo da presença do argumento /p:TableName é que só queremos testar a compatibilidade de banco de dados para exportar para o Banco de Dados SQL do Azure V12, em vez de exportar os dados de todas as tabelas. Infelizmente, o argumento de exportação para sqlpackage.exe não dá suporte à extração de tabelas e, portanto, será necessário especificar uma pequena tabela única. O < output_file > conterá o relatório de erros.
+1. Abra um prompt de comando e altere um diretório com a versão mais recente do sqlpackage.exe. Esse utilitário é fornecido com o Visual Studio e o SQL Server. Você também pode [baixar](https://msdn.microsoft.com/library/mt204009.aspx) a versão mais recente do SQL Server Data Tools para obter esse utilitário.
+2. Execute o seguinte comando sqlpackage.exe com os seguintes argumentos para o seu ambiente:
 
 	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
+
+	| Argumento | Descrição |
+	|---|---|
+	| < server_name > | nome do servidor de origem |
+	| < database_name > | nome do banco de dados de origem |
+	| < target_file > | nome do arquivo e um local para o arquivo BACPAC |
+	| < schema_name.table_name > | as tabelas cujos dados serão enviados para o arquivo de destino |
+	| < output_file > | o nome do arquivo e o local do arquivo de saída com erros, se houver algum |
+
+	O motivo da presença do argumento /p:TableName é que só queremos testar a compatibilidade de banco de dados para exportar para o Banco de Dados SQL do Azure V12, em vez de exportar os dados de todas as tabelas. Infelizmente, o argumento de exportação para sqlpackage.exe não dá suporte à extração de tabelas e, portanto, será necessário especificar uma pequena tabela única. O < output_file > conterá o relatório de erros. A cadeia de caracteres ">2>&1" redireciona a saída padrão e o erro padrão resultantes da execução do comando para o arquivo de saída especificado.
 
 	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -63,7 +71,7 @@ Se forem detectadas incompatibilidades de banco de dados, você precisará corri
 
 	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
-4. No assistente de exportação, na guia **Configurações**, configure a exportação para salvar o arquivo BACPAC em um disco local ou em um blob do Azure. Um arquivo BACPAC só será salvo se você não tiver nenhum problema de compatibilidade de banco de dados. Se houver problemas de compatibilidade, eles serão exibidos no console.
+4. No assistente de exportação, clique em **Avançar** e, na guia **Configurações**, configure a exportação para salvar o arquivo BACPAC em um disco local ou em um blob do Azure. Um arquivo BACPAC só será salvo se você não tiver nenhum problema de compatibilidade de banco de dados. Se houver problemas de compatibilidade, eles serão exibidos no console.
 
 	![Exportar configurações](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
 
@@ -79,19 +87,44 @@ Se forem detectadas incompatibilidades de banco de dados, você precisará corri
 
 	![Exportar configurações](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
 
+8.	Se o arquivo *.BACPAC for gerado com êxito, seu banco de dados será compatível com o Banco de Dados SQL, e você estará pronto para migrar.
+
 ## Opções para migrar um banco de dados compatível com o Banco de Dados SQL do Azure
 
-- No caso de bancos de dados pequenos a médios, migrar um banco de dados do SQL Server 2005 ou posterior [compatível](#determine-if-your-database-is-compatible) é tão simples quanto executar o [Assistente Implantar Banco de Dados no Banco de Dados do Microsoft Azure](#use-the-deploy-database-to-microsoft-azure-database-wizard) no SQL Server Management Studio. Se você tiver os desafios de conectividade (sem conectividade, baixa largura de banda ou problemas de tempo limite), poderá [usar o BACPAC para migrar](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) um banco de dados do SQL Server para o Banco de Dados SQL do Azure.
-- Para bancos de dados médios a grandes ou quando você tiver desafios de conectividade, [use um BACPAC para migrar](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) um banco de dados do SQL Server para o Banco de Dados SQL do Azure. Com este método, você usa o SQL Server Management Studio para exportar os dados e o esquema para um arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) (armazenado localmente ou em um blob do Azure) e, em seguida, importar o arquivo BACPAC para sua instância SQL do Azure. Se você armazenar o BACPAC em um blob do Azure, também será possível importar o arquivo BACPAC do [portal do Azure](sql-database-import.md) ou [usando o PowerShell](sql-database-import-powershell.md).
-- Para bancos de dados maiores, você conseguirá o melhor desempenho migrando o esquema e os dados separadamente. Com este método, você cria um script do esquema usando o SQL Server Management Studio ou cria um projeto de banco de dados no Visual Studio e implante o esquema para o Banco de Dados SQL do Azure. Depois que o esquema tiver sido importado para o Banco de Dados SQL do Azure, você usará o [BCP](https://msdn.microsoft.com/library/ms162802.aspx) para extrair os dados em arquivos simples e importará esses arquivos para o Banco de Dados SQL do Azure.
+Após verificar que você tem um banco de dados compatível, será necessário escolher o método de migração. Primeiro, você precisa decidir se pode tirar o banco de dados da produção durante a migração. Se não puder, use a replicação de transação do SQL Server, discutida abaixo. Se puder enfrentar algum tempo de inatividade, ou se estiver executando um teste de migração de seu banco de dados de produção que mais tarde poderá migrar usando a replicação transacional, considere um dos três métodos a seguir.
 
- ![Diagrama de migração do SSMS](./media/sql-database-migrate-ssms/01SSMSDiagram.png)
+### Migrando um banco de dados compatível com tempo de inatividade   
+A lista a seguir descreve as opções para migração de um banco de dados compatível para o Banco de Dados SQL do Azure quando você puder enfrentar algum tempo de inatividade durante a migração, e antes de apontar seus usuários e aplicativos para o banco de dados migrado no Banco de Dados SQL do Azure. Com esses métodos, você estará migrando seu banco de dados do modo como ele estiver em um determinado momento.
+
+> [AZURE.WARNING]Antes de migrar seu banco de dados usando qualquer um desses métodos, garanta que não haja nenhuma transação ativa para assegurar a consistência transacional durante a migração. Há vários métodos para fechar um banco de dados para novas sessões, desde desabilitar a conectividade do cliente até criar um [instantâneo do banco de dados](https://msdn.microsoft.com/library/ms175876.aspx).
+
+- No caso de bancos de dados pequenos a médios, a migração um banco de dados do SQL Server 2005 ou posterior [compatível](#determine-if-your-database-is-compatible) é tão simples quanto executar o [Assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure](#use-the-deploy-database-to-microsoft-azure-database-wizard) no SQL Server Management Studio. Se você tiver desafios de conectividade (ausência de conectividade, baixa largura de banda ou problemas de tempo limite), poderá [usar o BACPAC para migrar](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) um banco de dados do SQL Server para o Banco de Dados SQL do Azure.
+- Para bancos de dados médios a grandes ou quando você tiver desafios de conectividade, [use um BACPAC para migrar](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) um banco de dados do SQL Server para o Banco de Dados SQL do Azure. Com este método, você usa o SQL Server Management Studio para exportar os dados e o esquema para um arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) (armazenado localmente ou em um blob do Azure) e depois importar o arquivo BACPAC para sua instância SQL do Azure. Se você armazenar o BACPAC em um blob do Azure, também será possível importar o arquivo BACPAC do [portal do Azure](sql-database-import.md) ou [usando o PowerShell](sql-database-import-powershell.md).
+- Para bancos de dados maiores, você conseguirá o melhor desempenho migrando o esquema e os dados separadamente. Com esse método, crie um [arquivo BACPAC sem dados](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) e importe este BACPAC para o Banco de Dados SQL do Azure. Depois que o esquema tiver sido importado para o Banco de Dados SQL do Azure, você usará o [BCP](https://msdn.microsoft.com/library/ms162802.aspx) para extrair os dados em arquivos simples e importará esses arquivos para o Banco de Dados SQL do Azure.
+
+	 ![Diagrama de migração do SSMS](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
+
+### Migrando um banco de dados compatível sem tempo de inatividade
+
+Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você pode usar a replicação transacional do SQL Server como sua solução de migração. No momento, esse método está em modo de visualização com o [SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/). Com a replicação transacional, todas as alterações feitas em seus dados ou no esquema ocorridas entre o início da migração e sua conclusão aparecerão em seu Banco de Dados SQL do Azure. Quando a migração for concluída, bastará alterar a cadeia de conexão de seus aplicativos para apontá-los para seu Banco de Dados SQL do Azure em vez de apontá-los para seu banco de dados local. Assim que a replicação transacional realizar todas as alterações restantes em seu banco de dados local, e todos os seus aplicativos apontarem para o Banco de Dados do Azure, você poderá desinstalar a replicação com segurança, deixando o Banco de Dados SQL do Azure como o sistema de produção.
+
+ ![Diagrama do SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
+
+
+A replicação transacional é uma tecnologia interna e integrada ao SQL Server desde o SQL Server 6.5. É uma tecnologia muito madura e comprovada, conhecida da maioria dos DBAs e na qual eles têm experiência. Com o [SQL Server 2016 preview](http://www.microsoft.com/server-cloud/products/sql-server-2016/), é possível configurar o Banco de Dados SQL do Azure como um [assinante de replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) para sua publicação local. A experiência de configurá-lo no Management Studio é exatamente a mesma de configurar um assinante de replicação transacional em um servidor local. O suporte para esse cenário ocorre com as seguintes versões do SQL Server:
+
+ - SQL14 SP1 CU3 e versões posteriores
+ - SQL14 RTM CU10 e versões posteriores
+ - SQL11 SP2 CU8 e versões posteriores
+ - SQL11 SP3, quando for lançado
+
+Você também pode usar a replicação transacional para migrar um subconjunto de seu banco de dados local. A publicação que você replica no Banco de Dados SQL do Azure pode ser limitada a um subconjunto de tabelas no banco de dados que está sendo replicado. Além disso, para cada tabela que estiver sendo replicada, você poderá limitar os dados a um subconjunto de linhas e/ou um subconjunto de colunas.
 
 ## Use o Assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure
 
-O assistente Implantar Banco de Dados para o Banco de Dados do Microsoft Azure no SQL Server Management Studio migra uma migração de um banco de dados SQL Server 2005 ou posterior [compatível](#determine-if-your-database-is-compatible) diretamente em sua instância de servidor lógico do Azure SQL.
+O assistente para Implantar Banco de Dados para o Banco de Dados do Microsoft Azure no SQL Server Management Studio faz uma migração de um banco de dados SQL Server 2005 ou posterior [compatível](#determine-if-your-database-is-compatible) diretamente em sua instância de servidor lógico do Azure SQL.
 
-> [AZURE.NOTE]As etapas abaixo supõem que você já tenha provisionado sua instância lógica do Azure SQL e tenha as informações sobre a conexão a seu alcance.
+> [AZURE.NOTE]As etapas abaixo supõem que você já tenha [provisionado](../sql-database-get-started.md) sua instância lógica do Azure SQL e tenha as informações sobre a conexão a seu alcance.
 
 1. Verifique se você tem a versão 13.0.600.65 ou posterior do SQL Server Management Studio. As novas versões do Management Studio são atualizadas mensalmente para permanecerem em sincronia com as atualizações para o portal do Azure.
 
@@ -102,8 +135,15 @@ O assistente Implantar Banco de Dados para o Banco de Dados do Microsoft Azure n
 
 	![Implantar para o Azure por meio do menu de Tarefas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard01.png)
 
-4.	No assistente de implantação, configure a conexão ao servidor do Banco de Dados SQL do Azure.
-5.	Forneça o **Novo nome de banco de dados** para o banco de dados no Banco de Dados SQL do Azure, defina a **Edição do Banco de Dados SQL do Microsoft Azure** (camada de serviço), **Tamanho máximo do banco de dados**, **Objetivo de Serviço** (nível de desempenho) e **Nome do arquivo temporário** para o arquivo BACPAC criado por esse assistente durante o processo de migração. Consulte [Camadas de serviço do Banco de Dados SQL do Azure](sql-database-service-tiers.md) para saber mais sobre camadas de serviço e níveis de desempenho.
+4.	No assistente de implantação, clique em **Avançar** e clique em **Conectar** para configurar a conexão com seu servidor do Banco de Dados SQL do Azure.
+
+	![Implantar para o Azure por meio do menu de Tarefas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
+
+5. Na caixa de diálogo Conectar-se ao Servidor, insira suas informações de conexão para conectar-se ao seu servidor do Banco de Dados SQL.
+
+	![Implantar para o Azure por meio do menu de Tarefas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
+
+5.	Forneça o **Nome do novo nome de banco de dados** para o banco de dados no Banco de Dados SQL do Azure, defina a **Edição do Banco de Dados SQL do Microsoft Azure** (camada de serviço), **Tamanho máximo do banco de dados**, **Objetivo de Serviço** (nível de desempenho) e **Nome do arquivo temporário** para o arquivo BACPAC criado por esse assistente durante o processo de migração. Consulte [Camadas de serviço do Banco de Dados SQL do Azure](sql-database-service-tiers.md) para saber mais sobre camadas de serviço e níveis de desempenho.
 
 	![Exportar configurações](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
@@ -113,7 +153,7 @@ O assistente Implantar Banco de Dados para o Banco de Dados do Microsoft Azure n
 
 ## Usar um BACPAC para migrar um banco de dados do SQL Server para o Banco de Dados SQL do Azure
 
-Para bancos de dados médios a grandes ou quando você tiver desafios de conectividade, você poderá separar o processo de migração em duas etapas distintas. Você pode exportar o esquema e seus dados em um arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) usando um ou dois métodos.
+Para bancos de dados médios a grandes ou quando você tiver desafios de conectividade, você poderá separar o processo de migração em duas etapas distintas. Você pode exportar o esquema e seus dados para um arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) usando um ou dois métodos.
 
 - [Exportar para um arquivo BACPAC usando o SQL Server Management Studio](#export-a-compatible-sql-server-database-to-a-bacpac-file-using-sql-server-management-studio)
 - [Exportar para um BACPAC usando o SqlPackage](#export-a-compatible-sql-server-database-to-a-bacpac-file-using-sqlpackage)
@@ -152,9 +192,15 @@ Use as etapas abaixo para usar o utilitário de linha de comando [SqlPackage.exe
 > [AZURE.NOTE]As etapas a seguir supõem que você já configurou um servidor de Banco de Dados SQL do Azure, tem as informações de conexão disponíveis e verificou se o banco de dados de origem é compatível.
 
 1. Abra um prompt de comando e altere um diretório com o utilitário de linha de comando sqlpackage.exe - esse utilitário é fornecido com o Visual Studio e o SQL Server.
-2. Execute o comando a seguir, substituindo estes argumentos: < server_name >, < database_name > e < target_file >.
+2. Execute o seguinte comando sqlpackage.exe com os seguintes argumentos para o seu ambiente:
 
 	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
+
+	| Argumento | Descrição |
+	|---|---|
+	| < server_name > | nome do servidor de origem |
+	| < database_name > | nome do banco de dados de origem |
+	| < target_file > | nome do arquivo e um local para o arquivo BACPAC |
 
 	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
@@ -166,29 +212,29 @@ Use as etapas abaixo para importar de um arquivo BACPAC para o Banco de Dados SQ
 
 1. Verifique se você tem a versão 13.0.600.65 ou posterior do SQL Server Management Studio. As novas versões do Management Studio são atualizadas mensalmente para permanecerem em sincronia com as atualizações para o portal do Azure.
 
-	 >[AZURE.IMPORTANT]Baixe a versão [mais recente](https://msdn.microsoft.com/library/mt238290.aspx) do SQL Server Management Studio. É recomendável que você sempre use a versão mais recente do Management Studio.
+	> [AZURE.IMPORTANT]Baixe a versão [mais recente](https://msdn.microsoft.com/library/mt238290.aspx) do SQL Server Management Studio. É recomendável que você sempre use a versão mais recente do Management Studio.
 
 2. Abra o Management Studio e conecte-se ao banco de dados de origem no Pesquisador de Objetos.
 
 	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/MigrateUsingBACPAC01.png)
 
-    Quando o BACPAC tiver sido criado, conecte-se ao seu servidor do Banco de Dados SQL do Azure, clique com o botão direito do mouse na pasta **Bancos de Dados** e clique em **Importar Aplicativo da Camada de Dados...**
+3. Quando o BACPAC tiver sido criado, conecte-se ao seu servidor do Banco de Dados SQL do Azure, clique com o botão direito do mouse na pasta **Bancos de Dados** e clique em **Importar Aplicativo da Camada de Dados...**
 
     ![Importar o item de menu do aplicativo da camada de dados](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
 
-3.	No assistente de importação, selecione o arquivo BACPAC recém-exportado para criar o novo Banco de Dados SQL do Azure.
+4.	No assistente de importação, selecione o arquivo BACPAC recém-exportado para criar o novo Banco de Dados SQL do Azure.
 
     ![Configurações de importação](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
 
-4.	Forneça o **Novo nome de banco de dados** para o banco de dados no Banco de Dados SQL do Azure, defina a **Edição do Banco de Dados SQL do Microsoft Azure** (camada de serviço), **Tamanho máximo do banco de dados**, **Objetivo de Serviço** (nível de desempenho).
+5.	Forneça o **Nome do novo banco de dados** para o banco de dados no Banco de Dados SQL do Azure, defina a **Edição do Banco de Dados SQL do Microsoft Azure** (camada de serviço), **Tamanho máximo do banco de dados**, **Objetivo de Serviço** (nível de desempenho).
 
     ![Configurações de banco de dados](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
 
-5.	Clique em **Avançar** e clique em **Concluir** para importar o arquivo BACPAC para um novo banco de dados no servidor do Banco de Dados SQL do Azure.
+6.	Clique em **Avançar** e clique em **Concluir** para importar o arquivo BACPAC para um novo banco de dados no servidor do Banco de Dados SQL do Azure.
 
-6. Usando o Pesquisador de Objetos, conecte-se ao banco de dados migrado em seu servidor de Banco de Dados SQL do Azure.
+7. Usando o Pesquisador de Objetos, conecte-se ao banco de dados migrado em seu servidor de Banco de Dados SQL do Azure.
 
-7.	Usando o Portal do Azure, exiba seu banco de dados e suas propriedades.
+8.	Usando o Portal do Azure, exiba seu banco de dados e suas propriedades.
 
 ## Importar de um arquivo BACPAC para o Banco de Dados SQL do Azure usando o SqlPackage
 
@@ -197,9 +243,17 @@ Use as etapas abaixo para usar o utilitário de linha de comando [SqlPackage.exe
 > [AZURE.NOTE]As etapas abaixo supõem que você já tenha provisionado um servidor do Banco de Dados SQL do Azure e tenha as informações sobre a conexão a seu alcance.
 
 1. Abra um prompt de comando e altere um diretório com o utilitário de linha de comando sqlpackage.exe - esse utilitário é fornecido com o Visual Studio e o SQL Server.
-2. Execute o comando a seguir, substituindo estes argumentos: < server_name >, < database_name >, < user_name >, < password > e < source_file >.
+2. Execute o seguinte comando sqlpackage.exe com os seguintes argumentos para o seu ambiente:
 
-	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< target_file >
+	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >
+
+	| Argumento | Descrição |
+	|---|---|
+	| < server_name > | nome do servidor de destino |
+	| < database_name > | nome do banco de dados de destino |
+	| < user_name > | o nome de usuário no servidor de destino |
+	| < password > | a senha do usuário |
+	| < source_file > | o nome e o local do arquivo BACPAC que está sendo importado |
 
 	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
@@ -222,4 +276,4 @@ Se você determinar que o banco de dados do SQL Server de origem não é compat�
 
 - SQL Server Management Studio. Você pode corrigir os problemas no Management Studio usando vários comandos Transact-SQL, como **ALTER DATABASE**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

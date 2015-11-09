@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integração do Active Directory do Azure com o ShiftPlanning | Microsoft Azure" description="Saiba como usar o ShiftPlanning com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o ShiftPlanning | Microsoft Azure" 
+    description="Saiba como usar o ShiftPlanning com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integração do Active Directory do Azure com o ShiftPlanning
->[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=526797).
   
 O objetivo deste tutorial é mostrar a integração do Azure com o ShiftPlanning. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do ShiftPlanning
   
-Depois de concluir este tutorial, os usuários do AD do Azure que você atribuiu ao ShiftPlanning poderão fazer logon único no aplicativo em seu site de empresa ShiftPlanning (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586)
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao ShiftPlanning poderão fazer logon único no aplicativo em seu site de empresa do ShiftPlanning (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -38,7 +51,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
     ![Adicionar aplicativo](./media/active-directory-saas-shiftplanning-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
     ![Adicionar um aplicativo da galeria](./media/active-directory-saas-shiftplanning-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
@@ -51,11 +64,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no ShiftPlanning com sua conta do AD do Azure usando federação baseada no protocolo SAML. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no ShiftPlanning com sua conta do AD do Azure usando federação baseada no protocolo SAML. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **ShiftPlanning**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração de aplicativos do **ShiftPlanning**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configurar o logon único")
 
@@ -63,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-shiftplanning-tutorial/IC786616.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon no ShiftPlanning**, digite sua URL usando o seguinte padrão "**https://company.shiftplanning.com/includes/saml/*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do ShiftPlanning**, digite a URL usando o padrão "**https://company.shiftplanning.com/includes/saml/*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-shiftplanning-tutorial/IC786617.png "Configurar a URL do Aplicativo")
 
@@ -71,7 +84,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-shiftplanning-tutorial/IC786618.png "Configurar o logon único")
 
-5.  Em outra janela do navegador da Web, faça logon em seu site de empresa **ShiftPlanning** como um administrador.
+5.  Em outra janela do navegador da Web, faça logon em seu site de empresa do **ShiftPlanning** como administrador.
 
 6.  No menu na parte superior, clique em **Administrador**.
 
@@ -81,22 +94,22 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Logon Único](./media/active-directory-saas-shiftplanning-tutorial/IC786620.png "Logon Único")
 
-8.  Na seção **Logon Único**, execute as seguintes etapas:
+8.  Na seção **Logon Único**, realize as seguintes etapas:
 
     ![Logon Único](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Logon Único")
 
     1.  Selecione **SAML Habilitado**.
     2.  Selecione **Permitir Logon de Senha**
-    3.  No portal do Azure, na página de caixa de diálogo **Configurar logon único no ShiftPlanning**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL do Emissor SAML**.
-    4.  No portal do Azure, na página de caixa de diálogo **Configurar logon único no ShiftPlanning**, copie o valor de **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff Remoto**.
-    5.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
+    3.  No portal do Azure, na página do diálogo **Configurar logon único no ShiftPlanning**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL do Emissor do SAML**.
+    4.  No portal do Azure, na página do diálogo **Configurar logon único no ShiftPlanning**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff Remoto**.
+    5.  Crie um arquivo **codificado em base 64** de seu certificado baixado.  
 
         >[AZURE.TIP]Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  Abra seu certificado codificado em base 64 no bloco de notas, copie o conteúdo dele para sua área de transferência e cole-o na caixa de texto **Certificado X.509**
+    6.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
     7.  Clique em **Salvar Configurações**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -119,12 +132,12 @@ Para permitir que os usuários do AD do Azure façam logon no ShiftPlanning, ele
 
     ![Adicionar Funcionários](./media/active-directory-saas-shiftplanning-tutorial/IC786624.png "Adicionar Funcionários")
 
-5.  Na seção **Adicionar Funcionários**, execute as seguintes etapas:
+5.  Na seção **Adicionar Funcionários**, realize as seguintes etapas:
 
     ![Salvar Funcionários](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "Salvar Funcionários")
 
-    1.  Digite o **Nome**, o **Sobrenome** e o **Email** de uma conta válida do AAD que deseja provisionar nas caixas de texto relacionadas.
-    2.  Clique em**Salvar Funcionários**.
+    1.  Digite o **Nome**, **Sobrenome** e **Email** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
+    2.  Clique em **Salvar Funcionários**.
 
 >[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do ShiftPlanning ou as APIs fornecidas pelo ShiftPlanning para provisionar as contas de usuário do AAD.
 
@@ -144,6 +157,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-shiftplanning-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

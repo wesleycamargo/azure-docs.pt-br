@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/18/2015"
+	ms.date="10/27/2015"
 	ms.author="danlep"/>
 
 # Conectar-se a uma assinatura do Azure a partir da interface de linha de comando do Azure (CLI do Azure)
@@ -27,7 +27,7 @@ A CLI do Azure é um conjunto de comandos entre plataformas, de software livre, 
 
 Há duas formas de se conectar à sua assinatura da CLI do Azure:
 
-* **Faça logon no Azure usando uma contra corporativa ou de estudante**: use o Active Directory do Azure para autenticar as credenciais. A partir da versão 0.9.9, a CLI dá suporte a contas organizacionais habilitadas para a autenticação multifator. Após o logon, você pode usar o Gerenciador de Recursos ou os comandos clássicos (Gerenciamento de Serviços).
+* **Fazer logon no Azure usando uma conta corporativa ou de estudante ou uma identidade de conta da Microsoft** - Essa opção usa um desses tipos de identidade de conta para fazer a autenticação. A partir da versão 0.9.9 da CLI, a CLI dá suporte à autenticação interativa para contas que têm a autenticação multifator habilitada. Após o logon no modo interativo, você pode usar o Gerenciador de Recursos ou os comandos clássicos (Gerenciamento de Serviços).
 
 * **Baixe e use um arquivo de configurações de publicação**: instala um certificado que permite executar tarefas de gerenciamento pelo tempo que a assinatura e o certificado forem válidos. Esse método permite que você use apenas comandos clássicos (Gerenciamento de Serviços).
 
@@ -35,78 +35,73 @@ Para obter mais informações sobre a autenticação e o gerenciamento da assina
 
 Se não tiver uma conta do Azure, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][free-trial].
 
-
-## Usar o método de logon
-
-O método de logon funciona apenas com um conta corporativa ou de estudante, também chamada de *conta organizacional*. Essa conta é gerenciada pela sua organização e definida no Active Directory do Azure da organização. Você pode [criar uma conta organizacional](#create-an-organizational-account) se não tiver uma.
+> [AZURE.NOTE]Se estiver usando uma versão da CLI do Azure anterior à versão 0.9.9, é possível usar o comando `azure login` apenas com identidades de conta corporativa ou de estudante; as identidades de conta da Microsoft não funcionam. Entretanto, você pode usar qualquer identidade para fazer logon em sua conta com o comando `azure login` interativo com as versões 0.9.9 e superior da CLI do Azure.
 
 
-* **Para fazer logon** na CLI do Azure usando uma conta corporativa ou de estudante, use o seguinte comando:
 
-	```
-	azure login -u <username>
-	```
+## Usar o método de logon interativo
 
-	Insira a senha quando solicitado.
+Use o comando `azure login` – sem nenhum argumento – para fazer a autenticação de modo interativo com:
 
-	Se essa for a primeira vez fazendo logon com essas credenciais, você será solicitado a verificar se deseja armazenar um token de autenticação no cache. Esse aviso também ocorrerá se você tiver usado anteriormente o comando `azure logout` (descrito abaixo). Para ignorar esse aviso em cenários de automação, execute `azure login` com o parâmetro `-q`.
+- uma identidade de conta corporativa ou de estudante que exija a autenticação multifator, ou
+- uma identidade de conta da Microsoft quando desejar acessar a funcionalidade de modo de implantação do Gerenciador de Recursos
+
+> [AZURE.NOTE]Em ambos os casos, a autenticação e a autorização são realizadas com o Active Directory do Azure; no caso de contas da Microsoft, pelo acesso ao seu domínio padrão do Active Directory do Azure. (Se você se inscreveu para obter uma avaliação gratuita, você pode não estar ciente de que o Active Directory do Azure criou um domínio padrão para a sua conta.)
+
+Fazer logon no modo interativo é fácil: digite `azure login` e siga os prompts, como mostrado abaixo:
+
+	azure login                                                                                                                                                                                         
+	info:    Executing command login
+	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code B4MGHQS7K to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
+	
+Copie o código oferecido, acima, e abra um navegador em http://aka.ms/devicelogin. Digite o código; em seguida, você será solicitado a inserir o nome de usuário e a senha para a identidade que deseja usar. Quando esse processo for concluído, o shell de comando concluirá o processo de logon. Ele poderia ser semelhante ao seguinte:
+	
+	info:    Added subscription Visual Studio Ultimate with MSDN
+	info:    Added subscription Azure Free Trial
+	info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+	+
+	info:    login command OK
+
+## Usando o logon não interativo com uma conta corporativa ou de estudante
+
+
+O método de logon não interativo funciona apenas com um conta corporativa ou de estudante, também chamada de *conta organizacional*. Essa conta é gerenciada pela sua organização e definida no Active Directory do Azure da organização. Você pode [criar uma conta organizacional](#create-an-organizational-account) se não tiver uma ou [criar uma ID corporativa ou de estudante por meio de sua ID de conta da Microsoft](./virtual-machines/resource-group-create-work-id-from-personal.md). Isso exige que você especifique um nome de usuário ou um nome de usuário e uma senha para o comando `azure login`, desta forma:
+
+	azure login -u ahmet@contoso.onmicrosoft.com
+	info:    Executing command login
+	Password: *********
+	|info:    Added subscription Visual Studio Ultimate with MSDN
+	+
+	info:    login command OK
+	
+Insira a senha quando solicitado.
+
+	If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
 
 * **Para fazer logoff**, use o seguinte comando:
 
-	```
-	azure logout -u <username>
-	```
+		azure logout -u <username>
 
 	Se as assinaturas associadas à conta forem autenticadas apenas com o Active Directory, o logoff excluirá as informações da assinatura do perfil local. No entanto, se um arquivo de configurações de publicação também tiver sido importado para as assinaturas, o logoff excluirá apenas as informações relacionadas ao Active Directory do perfil local.
-
-### Autenticação multifator
-A partir da versão 0.9.9 da CLI do Azure, você pode fazer logon com uma conta organizacional que usa autenticação multifator (autenticação com uma senha e um ou mais métodos adicionais de verificação, como um dispositivo confiável ou fornecimento de outros dados pessoais).
-
-Depois de executar `azure login` com o nome de usuário e a senha da conta, a CLI fornece o endereço de uma página da Web que você precisa abrir. As instruções orientam você a inserir um código nessa página para continuar a autenticação. Depois que a política de autenticação for cumprida, a CLI do Azure concluirá o logon.
-
-
-### Criar uma conta organizacional
-
-Se, no momento, você não tiver uma conta corporativa ou de estudante, e estiver usando uma conta pessoal para fazer logon na sua assinatura do Azure, você poderá criar facilmente uma conta organizacional usando as etapas a seguir.
-
-1. Entre no [Portal do Azure][portal] e selecione **Active Directory**.
-
-2. Se não houver diretório, selecione **Criar o diretório** e forneça as informações solicitadas.
-
-3. Selecione o diretório e adicione um novo usuário. Esse novo usuário é uma conta corporativa ou de estudante.
-
-	Durante a criação do usuário, você receberá um endereço de email para o usuário e uma senha temporária. Salve essas informações, pois elas serão necessárias posteriormente.
-
-4. No Portal do Azure, selecione **Configurações** e, em seguida, **Administradores**. Selecione **Adicionar** e adicione o novo usuário como um coadministrador. Isso permite que a conta corporativa ou de estudante gerencie sua assinatura do Azure.
-
-5. Por fim, faça logoff do portal do Azure e faça logon outra vez usando a nova conta corporativa ou de estudante. Se este for o primeiro logon usando essa conta, será solicitado que você altere a senha.
-
-	Verifique se as suas assinaturas são exibidas ao fazer logon com a nova conta.
-
-Para saber mais sobre contas corporativas ou de estudante, confira [Inscrever-se no Microsoft Azure como uma organização][signuporg].
 
 ## Usar o método do arquivo de configurações de publicação
 
 Se você precisa apenas usar os comandos clássicos (Gerenciamento de Serviços) da CLI, é possível conectar usando um arquivo de configurações de publicação.
 
-* **Para baixar o arquivo de configurações de publicação** da sua conta, use o seguinte comando:
+* **Para baixar o arquivo de configurações de publicação** de sua conta, use o seguinte comando:
 
-	```
-	azure account download
-	```
+		azure account download
 
-	Isso abre o navegador padrão e solicita que você entre no [Portal do Azure][portal]. Depois de entrar, um arquivo `.publishsettings` é baixado. Anote onde esse arquivo está salvo.
+Isso abre o navegador padrão e solicita que você entre no [Portal do Azure][portal]. Depois de entrar, um arquivo `.publishsettings` é baixado. Anote onde esse arquivo está salvo.
 
-	> [AZURE.NOTE]Se a conta estiver associada a vários locatários do Active Directory do Azure, você deverá selecionar para qual Active Directory você deseja baixar um arquivo de configurações de publicação.
+	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 	>
-	> Depois de selecionado por meio da página de download ou acessando o Portal do Azure, o Active Directory escolhido se torna o padrão usado pelo portal e pela página de download. Depois que um padrão tiver sido estabelecido, você verá o texto `__clique aqui para retornar à página de seleção__` na parte superior da página de download. Use o link fornecido para retornar à página de seleção.
+	> Once selected using the download page, or by visiting the Azure Portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 * **Para importar o arquivo de configurações de publicação**, execute o seguinte comando:
 
-	```
-	azure account import <path to your .publishsettings file>
-	```
-
+		azure account import <path to your .publishsettings file>
+	
 	Depois de importar as configurações de publicação, você deverá excluir o arquivo `.publishsettings`, uma vez que ele não é mais exigido pelas CLI do Azure e impõe um risco à segurança, pois pode ser usado para obter acesso à sua assinatura.
 
 
@@ -134,7 +129,7 @@ Uma vez conectado à sua assinatura do Azure, você pode começar a usar os coma
 
 ## Armazenamento de configurações da CLI
 
-Se você fizer logon com uma conta corporativa ou de estudante, ou importar configurações de publicação, seus logs e o perfil da CLI serão armazenados em um diretório `.azure` localizado no seu diretório `user`. O diretório `user` é protegido pelo seu sistema operacional. No entanto, é recomendável que você execute etapas adicionais para criptografar seu diretório `user`. Você pode fazer isso das seguintes maneiras:
+Se você fizer logon com uma conta corporativa ou de estudante ou importar as configurações de publicação, seus logs e o perfil da CLI serão armazenados em um diretório `.azure` localizado no seu diretório `user`. O diretório `user` é protegido pelo seu sistema operacional. No entanto, é recomendável que você execute etapas adicionais para criptografar seu diretório `user`. Você pode fazer isso das seguintes maneiras:
 
 * No Windows, modifique as propriedades do diretório ou use o BitLocker.
 * No Mac, ative o FileVault para o diretório.
@@ -161,4 +156,4 @@ Se você fizer logon com uma conta corporativa ou de estudante, ou importar conf
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

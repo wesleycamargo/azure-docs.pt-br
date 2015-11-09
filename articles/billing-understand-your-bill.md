@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/16/2015"
+   ms.date="10/22/2015"
    ms.author="kareni"/>
 
 
@@ -24,7 +24,15 @@ Os encargos das assinaturas do Microsoft Azure variam de acordo com o plano de t
 
 Observe que até 24 horas de uso latente de seu período de cobrança anterior pode ser relatado no seu período de cobrança atual.
 
-Para obter mais informações sobre planos de tarifas, uso e consumo, consulte a [página de opções de compra do Microsoft Azure](http://azure.microsoft.com/pricing/purchase-options/).
+Para obter mais informações sobre os planos de taxa e consumo, confira a [página Opções de Compra do Microsoft Azure](http://azure.microsoft.com/pricing/purchase-options/).
+
+Os links abaixo abrangem uma lista completa de todos os serviços do Microsoft Azure.
+
+- [Lista de Detalhes do Serviço (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+- [Lista de Detalhes do Serviço (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+
+*OBSERVAÇÃO: o link **csv1** se refere aos nomes de cabeçalho de coluna para a versão 1 do csv e o link **csv2** se refere aos novos nomes de cabeçalho de coluna para versão 2 do csv. Esses arquivos são atualizados mensalmente.*
+
 
 ## Conteúdo:
 
@@ -45,7 +53,7 @@ No [Portal de uso e cobrança](https://account.windowsazure.com/subscriptions) v
 
 Para exibir ou baixar uma fatura:
 
-1. Entre no [Portal de uso e cobrança](https://account.windowsazure.com/subscriptions) usando sua ID da conta da Microsoft ou a ID da conta corporativa ou de estudante.
+1. Entre no [Portal de uso e cobrança](https://account.windowsazure.com/subscriptions) usando sua ID da conta da Microsoft ou a ID da conta do corporativa ou de estudante.
 
 2. Clique na assinatura na qual você gostaria de ver os detalhes e o uso.
 
@@ -81,7 +89,8 @@ Oferta de compromisso | Gastar com dedução do seu compromisso pré-pago | [Arq
 
 ## Cabeçalho - Informações do cliente
 
-A seção de informações do cliente identifica informações pertinentes no que diz respeito ao seu uso e perfil. ![cabeçalho](./media/billing-understand-your-bill/Header.png)
+A seção de informações do cliente identifica informações pertinentes no que diz respeito ao seu uso e perfil.
+    ![cabeçalho](./media/billing-understand-your-bill/Header.png)
 
 ### Nº da Fatura
 Um identificador de fatura único para fins de acompanhamento
@@ -181,7 +190,7 @@ Tarifa | Tarifa | Tarifa exibe a tarifa com a qual você é cobrado por unidade 
 Valor | Valor | Exibe o resultado da multiplicação da coluna Faturável pela coluna Tarifa. Se a quantidade consumida não exceder a quantidade incluída, não haverá cobrança nessa coluna.
 
 ## Analisar os dados de uso diário
-Dependendo de seu uso, pode haver milhares de linhas de dados de uso diário. Se você quiser analisar esses dados, clique em **Baixar uso** e escolha uma versão de arquivo de variáveis separado por vírgulas (. csv) para ver seus dados de uso diário do período de faturamento apropriado. Para referência, você pode baixar um arquivo. csv de exemplo para cada versão abaixo.
+Dependendo de seu uso, pode haver milhares de linhas de dados de uso diário. Se você quiser analisar esses dados, clique em **Baixar uso** e escolher uma versão de arquivo de variáveis separado por vírgulas (. csv) para ver seus dados de uso diário do período de faturamento apropriado. Para referência, você pode baixar um arquivo. csv de exemplo para cada versão abaixo.
 
  NOME | BAIXAR |
  :----------:| :-------: |
@@ -221,7 +230,7 @@ Informações do Serviço 2 | Informações do Serviço 2 | Este é um campo her
 
 Além de alguns novos campos e as alterações de nome do arquivo csv versão 2, haverá uma formatação padronizada para os dados nos campos abaixo:
 
-- **ID da instância**: o campo ID da instância representa o identificador especificado pelo usuário para o serviço provisionado. Atualmente, há dois formatos em que a ID de instância é representada: é o nome do recurso ou ID do recurso totalmente qualificado. Os serviços do Microsoft Azure estão fazendo a transição para representar a ID de instância em um formato padronizado de ID de recurso totalmente qualificado _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Durante a transição para o novo formato de serviços você verá o campo de dados da ID da instância mudar de apenas o nome do recurso para a ID do recurso. A ID de recurso é o formato usado pelo [API do Gerenciador de recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx) para identificar recursos em um uma assinatura.
+- **ID da instância**: o campo ID de instância representa o identificador especificado pelo usuário para o serviço provisionado. Atualmente, há dois formatos em que a ID de instância é representada: é o nome do recurso ou ID do recurso totalmente qualificado. Os serviços do Microsoft Azure estão fazendo a transição para representar a ID de instância em um formato padronizado de ID de recurso totalmente qualificado _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Durante a transição para o novo formato de serviços você verá o campo de dados da ID da instância mudar de apenas o nome do recurso para a ID do recurso. A ID de recurso é o formato usado pelo [API do Gerenciador de recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx) para identificar recursos em um uma assinatura.
 
 ![instanceId](./media/billing-understand-your-bill/instanceid.png)
 
@@ -229,21 +238,13 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre Usando marcas para organizar os recursos do Azure Serviços que oferecem suporte a marcas de emissão são:  
+- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md). Serviços que oferecem suporte a marcas de emissão são:  
     - Máquinas Virtuais
     - Armazenamento e
-    - Serviços de rede fornecidos com a [API do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
+    - Serviços de rede fornecidos com o [API do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
 
 ![marcas](./media/billing-understand-your-bill/tags.png)
 
-
-Consulte estas fontes adicionais para obter mais detalhes sobre cada serviço. Esses arquivos são atualizados mensalmente, publicados no dia 25 do próximo mês e estão disponíveis de **maio de 2015** em diante para o .csv Versão 1 e de **junho de 2015** em diante para o .csv Versão 2. A seguir está a URL (Uniform Resource Locator) do arquivo de base para os campos de download de serviço:
-
->>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v2_MMYYYY.xlsx
-
-
-
-Para encontrar a versão mais atual, digite no ano e mês (ao procurar pelo arquivo de maio de 2015, digite **052015** na seção _**“MMYYYY”**_ na URL acima). Esta planilha fornece uma listagem de todas as combinações possíveis dos campos relacionados ao serviço no **Relatório de download de uso**.
 
 ## Mais Recursos
 Navegue até a seção **Gerenciar contas, assinaturas e funções administrativas**, em [Gerenciar seus serviços](https://msdn.microsoft.com/library/azure/dn578292.aspx) para obter alguns links muito úteis:
@@ -262,4 +263,4 @@ Navegue até a seção **Gerenciar contas, assinaturas e funções administrativ
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

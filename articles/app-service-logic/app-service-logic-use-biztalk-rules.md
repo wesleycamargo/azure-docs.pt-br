@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/01/2015"
+   ms.date="10/28/2015"
    ms.author="andalmia"/>
 
 #Regras do BizTalk
@@ -91,21 +91,24 @@ Agora, vamos usar use Regras de Negócio para implementar a lógica de negócios
 ##Criação de Aplicativo de API de Regras
 
 
-1. Faça logon no Portal do Azure e vá para a home page.
-1. Clique em Novo -> Azure Marketplace -> Aplicativos de API - > Regras do BizTalk -> Criar ![Alt text][3]
+1. Fazer logon no Portal do Azure
+2. Selecione Novo -> Marketplace e procure por *Regras do BizTalk*
+3. Selecione Regras do BizTalk na lista de resultados. A folha Regras do BizTalk é aberta
+4. Selecione o botão *Criar* ![Alt text][3]
 1. Na nova lâmina que será aberta, insira as seguintes informações:  
 	1. Nome – dê um nome para seu Aplicativo de API de Regras
-	1. Plano de hospedagem do aplicativo - selecione ou crie uma plano de hospedagem na Web
+	1. Plano do Serviço de Aplicativo – selecione ou crie um novo Plano do Serviço de Aplicativo
 	1. Camada de preços – escolha a camada de preço na qual deseja posicionar esse aplicativo
 	1. Grupo de recursos - selecione ou crie um grupo de recursos onde o aplicativo deve residir
+	2. Assinatura - Selecione a assinatura que deseja usar
 	1. Local - escolha a região geográfica onde você quer que o aplicativo seja implantado.
-4.	Clique em Criar. Seu Aplicativo de API do de Regras do BizTalk seria criado em alguns minutos.
+4.	Selecione *Criar*. Seu Aplicativo de API do de Regras do BizTalk seria criado em alguns minutos.
 
 ##Criação do vocabulário
-Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria criar vocabulários. A expectativa é que o desenvolvedor seja a pessoa mais comum a fazer esse exercício. Para fazer isso, execute as seguintes etapas:
+Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria criar vocabulários. A expectativa é que o desenvolvedor seja a pessoa mais comum a fazer esse exercício. Veja como fazer isso:
 
 
-1. Navegue até o Aplicativo de API criado em Procurar -> Aplicativo de API -><Your Rules API App>. Isso deve levar você a um Painel do Aplicativo de API de Regras semelhante a este:
+1. Inicie o Aplicativo de API das Regras do BizTalk no portal acessando Procurar -> Aplicativos de API-><Your Rules API App>. Isso levará você a um Painel do Aplicativo de API de Regras semelhante ao mostrado abaixo:
 
    ![Alt text][4]
 
@@ -115,13 +118,14 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
 1.	Após você clicar em "Adicionar", uma nova lâmina "Adicionar Definição" abrirá. Insira os valores a seguir
   1.	Nome – apenas caracteres alfanuméricos são esperados, sem caracteres especiais. Ele deve ser exclusivo em sua lista de definições de vocabulário existente.
   2.	Descrição – campo opcional.
-  3.	Tipo – dois tipos têm suporte. Neste exemplo, escolha Literal
-  4.	Tipo de entrada – permite aos usuários selecionarem o tipo de dados da definição. Atualmente, você pode selecionar quatro tipos de dados: 
-    i.	Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres")  
-    ii.	Booliano – pode ser verdadeiro ou falso  
-    iii.	Número – pode ser qualquer número decimal  
-    iv.	DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\PM  
-    v.	Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. O usuário pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave “to” (“a”). Por exemplo, o usuário pode inserir um valor exclusivo 1; um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. Observe que o intervalo tem suporte somente para números.
+  3.	Tipo de Definição – há suporte para dois tipos. Neste exemplo, escolha Literal
+  4.	Tipo de dados – permite aos usuários selecionar o tipo de dados da definição. Atualmente, há suporte para quatro tipos de dados: 
+     i. Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres") 
+     ii. Booliano – pode ser verdadeiro ou falso 
+     iii. Número – pode ser qualquer número decimal 
+     iv. DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\\PM  
+  5. Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. Você pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave do *to*. Por exemplo, é possível inserir um valor exclusivo 1, um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. É importante lembrar que o intervalo dá suporte apenas para números.
+  6. Selecione *OK*.
 
 ![Alt text][5]
 ##Definição XML
@@ -189,13 +193,13 @@ Cada regra da política pode ser habilitada ou desabilitada. Por padrão, todas 
 Todas as regras da política são executadas em ordem. A prioridade de execução é determinada pela ordem em que elas ocorrem na política. Essa prioridade pode ser alterada simplesmente arrastando e soltando a regra.
 
 ##Testar política
-Depois de criar sua política, antes de utilizá-lo na produção, você pode testar a política. Usando o comando “Test Policy", os usuários acessam a lâmina Testar Política. Nesta lâmina, você pode ver uma lista das definições de vocabulário usadas na política que exigem uma entrada do usuário. Os usuários podem adicionar valores manualmente para essas entradas para seu cenário de teste. Eles também podem optar por importar XMLs de teste para as entradas. Após todas as entradas serem fornecidas, o teste pode ser executado e as saídas para cada definição de vocabulário serão exibidas na coluna de saída para facilitar a comparação. Para exibir logs amigáveis para o Analista de negócios, clique em "Exibir Logs" para exibir os logs de execução. Para salvar os logs, a opção "Salvar Saída" é disponibilizada para armazenar todos os dados relacionados ao teste para uma análise independente.
+É possível testar suas políticas usando o comando “Testar Política” na folha Testar Política. Nesta lâmina, você pode ver uma lista das definições de vocabulário usadas na política que exigem uma entrada do usuário. Os usuários podem adicionar valores manualmente para essas entradas para seu cenário de teste. Eles também podem optar por importar XMLs de teste para as entradas. Após todas as entradas serem fornecidas, o teste pode ser executado e as saídas para cada definição de vocabulário serão exibidas na coluna de saída para facilitar a comparação. Para exibir logs amigáveis para o Analista de negócios, clique em "Exibir Logs" para exibir os logs de execução. Para salvar os logs, a opção "Salvar Saída" é disponibilizada para armazenar todos os dados relacionados ao teste para uma análise independente.
 
 ## Usando regras em aplicativos lógicos
-Após a política ter sido criada e testada, ela está pronta para consumo. Os usuários podem criar um novo aplicativo lógico em Novo -> Aplicativo Lógico. No designer, as regras do BizTalk estão disponível na galeria à direita. Agora, é possível arrastar e soltar em qualquer lugar da superfície do designer. Feito isso, haverá a opção de escolher quais Aplicativos de API de Regras (Ação) serão o alvo. As ações incluem a lista de políticas que devem ser executadas. Escolha uma política específica após a qual as entradas necessárias para a política precisam ser inseridas. Os usuários podem usar a saída do Aplicativo de API de Regras downstream para tomadas de decisões adicionais.
+Após a política ter sido criada e testada, ela está pronta para consumo. É possível criar um novo Aplicativo Lógico selecionando Aplicativos Lógicos no lado esquerdo da home page do portal. Depois de criar seu Aplicativo Lógico, inicie-o e selecione *Disparadores e Ações*. É possível selecionar o modelo *Criar do Zero*. Siga as etapas para adicionar o Aplicativo de API de Regras do BizTalk ao Aplicativo Lógico. Feito isso, haverá a opção de escolher quais Aplicativos de API de Regras (Ação) serão o alvo. As ações incluem a lista de políticas que devem ser executadas. Escolha uma política específica após a qual as entradas necessárias para a política precisam ser fornecidas. Os usuários podem usar a saída do Aplicativo de API de Regras downstream para tomadas de decisões adicionais.
 
 ## Usando regras por meio de APIs
-O Aplicativo de API de Regras também pode ser invocado usando um conjunto avançado de APIs disponíveis. Assim, os usuários não ficam restritos a usar apenas fluxos, e podem usar as regras em qualquer aplicativo fazendo chamadas REST. As APIs REST exatas disponíveis podem ser exibidas clicando na lente "Definição de API" no painel de Regras.
+O Aplicativo de API de Regras também pode ser invocado usando um conjunto avançado de APIs. Assim, os usuários não ficam restritos a usar apenas Aplicativos Lógicos e podem usar Regras em qualquer aplicativo fazendo chamadas REST. As APIs REST exatas disponíveis podem ser exibidas clicando na lente "Definição de API" no painel de Regras.
 
 ![Alt text][10]
 
@@ -246,4 +250,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

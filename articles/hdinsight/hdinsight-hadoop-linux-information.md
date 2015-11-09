@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 # Informações sobre o uso do HDInsight no Linux
@@ -23,7 +23,19 @@ Os clusters Azure HDInsight baseados em Linux fornecem Hadoop em um ambiente Lin
 
 ## Nomes de domínio
 
-O FQDN (nome de domínio totalmente qualificado) a usar ao se conectar ao cluster é **&lt;clustername>.azurehdinsight.net** ou (somente para SSH) **&lt;clustername-ssh>.azurehdinsight.net**.
+O FQDN (Nome de Domínio Totalmente Qualificado) a ser usado ao se conectar com um cluster na Internet é **&lt;clustername>.azurehdinsight.net** ou (só para SSH) **&lt;clustername-ssh>.azurehdinsight.net**.
+
+Internamente, cada nó no cluster tem um nome que é atribuído durante a configuração do cluster. Para localizar nomes de cluster, você pode visitar a página __Hosts__ na interface de usuário do Ambari Web ou usar o seguinte para retornar uma lista de hosts de API REST do Ambari usando [cURL](http://curl.haxx.se/) e [jq](https://stedolan.github.io/jq/):
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+
+Substitua __SENHA__ por uma senha da conta de administrador, e __NOME DO CLUSTER__ pelo nome do seu cluster. Isso retornará um documento JSON que contém uma lista dos hosts no cluster e o jq extrai o valor `host_name` do elemento de cada host no cluster.
+
+Se for necessário localizar o nome do nó para um serviço específico, você pode consultar o Ambari desse componente. Por exemplo, para localizar os hosts do nó do nome HDFS, use o seguinte.
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+
+Isso retorna um documento JSON que descreve o serviço e, em seguida, o jq extrai apenas o valor `host_name` para os hosts.
 
 ## Acesso remoto aos serviços
 
@@ -35,7 +47,7 @@ O FQDN (nome de domínio totalmente qualificado) a usar ao se conectar ao cluste
 
 	> [AZURE.IMPORTANT]Enquanto o Ambari para seu cluster possa ser acessado diretamente pela Internet, algumas funcionalidades se baseiam no acesso de nós pelo nome de domínio interno usado pelo cluster. Como é um nome de domínio interno, e não público, você receberá erros de "servidor não encontrado" ao tentar acessar alguns recursos pela Internet.
 	>
-	> Para usar a funcionalidade completa da interface do usuário do Ambari Web, use um túnel SSH para tráfego Web de proxy para nó de cabeçalho do cluster. Consulte [Usar o Túnel SSH para acessar a interface do usuário da Web do Ambari, ResourceManager, JobHistory, NameNode, Oozie, entre outras](hdinsight-linux-ambari-ssh-tunnel.md)
+	> Para usar a funcionalidade completa da interface do usuário do Ambari Web, use um túnel SSH para tráfego Web de proxy para nó de cabeçalho do cluster. Consulte [Usar o Túnel SSH para acessar a interface de usuário do Ambari Web, ResourceManager, JobHistory, NameNode, Oozie, entre outras](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -49,7 +61,7 @@ O FQDN (nome de domínio totalmente qualificado) a usar ao se conectar ao cluste
 	>
 	> A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
-* **SSH** - &lt;clustername>-ssh.azurehdinsight.net na porta 22 ou 23. A porta 22 é usada para a conexão ao headnode0, enquanto a 23 é usada para a conexão ao headnode1. Para obter mais informações sobre nós de cabeçalho, confira [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net na porta 22 ou 23. A porta 22 é usada para conectar ao nó do cabeçalho 0, enquanto 23 é usado para a conexão ao nó de cabeçalho 1. Para obter mais informações sobre nós de cabeçalho, consulte [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
 
 	> [AZURE.NOTE]Você só pode acessar os nós de cabeçalho do cluster por meio de SSH de uma máquina cliente. Uma vez conectado, você pode acessar os nós de trabalho usando SSH no nó de cabeçalho.
 
@@ -57,7 +69,7 @@ O FQDN (nome de domínio totalmente qualificado) a usar ao se conectar ao cluste
 
 Arquivos relacionados ao Hadoop encontram-se nos nós de cluster em `/usr/hdp`. O diretório raiz contém os seguintes subdiretórios:
 
-* __2.2.4.9-1__: este diretório é nomeado de acordo com a versão do Hortonworks Data Platform usada pelo HDInsight e, portanto, o número em seu cluster pode ser diferente daquele listado aqui.
+* __2.2.4.9-1__: este diretório é nomeado de acordo com a versão do Hortonworks Data Platform usada pelo HDInsight e, portanto, o número em seu cluster pode ser diferente do listado aqui.
 * __atual__: este diretório contém links para os diretórios sob o diretório __2.2.4.9-1__ e existe para que você não precise digitar um número de versão (que pode ser alterado) sempre que quiser acessar um arquivo.
 
 Dados de exemplo e arquivos JAR encontram-se no HDFS (Sistema de Arquivos Distribuído do Hadoop) ou no armazenamento de Blob do Azure em '/example' ou 'wasb:///example'.
@@ -112,7 +124,7 @@ Você também pode encontrar as informações de armazenamento usando o portal d
 
 1. No [Portal de Visualização do Azure](https://portal.azure.com/), selecione o cluster HDInsight.
 
-2. Na seção __Fundamentos__, selecione __Todas as configurações__.
+2. Na seção __Noções Básicas__, selecione __Todas as configurações__.
 
 3. Em __Configurações__, selecione __Chaves de Armazenamento do Azure__.
 
@@ -152,7 +164,7 @@ Você pode executar operações de dimensionamento enquanto outros trabalhos ou 
 
 Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte maneira:
 
-* __Hadoop__: ao reduzir o número de nós em um cluster, alguns dos serviços no cluster são reiniciados. Isso pode fazer com que todos os trabalhos em execução ou pendentes falhem após a conclusão da operação de dimensionamento. Você pode reenviar os trabalhos quando a operação for concluída.
+* __Hadoop__: ao reduzir verticalmente o número de nós em um cluster, alguns dos serviços no cluster são reiniciados. Isso pode fazer com que todos os trabalhos em execução ou pendentes falhem após a conclusão da operação de dimensionamento. Você pode reenviar os trabalhos quando a operação for concluída.
 
 * __HBase__: servidores regionais são balanceados automaticamente em alguns minutos após o término da operação de dimensionamento. Para balancear manualmente servidores regionais, use as seguintes etapas:
 
@@ -170,19 +182,19 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
 
 			balancer
 
-* __Storm__: deve rebalancear quaisquer topologias Storm em execução após uma operação de dimensionamento ter sido realizada. Isso permite que a topologia reajuste as configurações de paralelismo com base no novo número de nós no cluster. Para rebalancear topologias em execução, use uma das seguintes opções:
+* __Storm__: você deve rebalancear qualquer topologia do Storm em execução após uma operação de dimensionamento. Isso permite que a topologia reajuste as configurações de paralelismo com base no novo número de nós no cluster. Para rebalancear topologias em execução, use uma das seguintes opções:
 
 	* __SSH__: conecte-se ao servidor e use o seguinte comando para rebalancear uma topologia:
 
 			storm rebalance TOPOLOGYNAME
 
-		Você também pode especificar parâmetros para substituir as dicas de paralelismo fornecidas originalmente pela topologia. Por exemplo, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` reconfigurará a topologia para 5 processos de trabalho, 3 executores para o componente do jato azul e 10 executores para o componente do raio amarelo.
+		Você também pode especificar parâmetros para substituir as dicas de paralelismo fornecidas originalmente pela topologia. Por exemplo, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` reconfigurará a topologia para 5 processos de trabalho, 3 executores para o componente blue-spout e 10 executores para o componente yellow-bolt.
 
-	* __Interface do usuário do Storm__: use as etapas a seguir para rebalancear uma topologia que usa a interface do usuário do Storm.
+	* __Interface do usuário do Storm__: use as etapas a seguir para rebalancear uma topologia usando a interface do usuário do Storm.
 
-		1. [Crie um túnel SSH para o cluster e abra a interface do usuário da Web do Ambari](hdinsight-linux-ambari-ssh-tunnel.md).
+		1. [Crie um túnel SSH para o cluster e abra a interface do usuário do Ambari Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-		2. Na lista de serviços à esquerda da página, selecione __Storm__. Então, selecione __Interface do Usuário do Storm__ em __Links Rápidos__.
+		2. Na lista de serviços à esquerda da página, selecione __Storm__. Depois selecione __Interface do Usuário do Storm__ em __Links Rápidos__.
 
 
 			![Entrada de interface do usuário do Storm em links rápidos](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
@@ -191,7 +203,7 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
 
 			![a interface do usuário do storm](./media/hdinsight-hadoop-linux-information/storm-ui.png)
 
-		3. Selecione a topologia que você deseja rebalancear e, em seguida, selecione o botão __Rebalancear__. Insira o atraso antes de a operação de rebalanceamento ser executada.
+		3. Selecione a topologia que você quer rebalancear e, em seguida, selecione o botão __Rebalancear__. Insira o atraso antes de a operação de rebalanceamento ser executada.
 
 Para obter informações específicas sobre como dimensionar o cluster HDInsight, consulte:
 
@@ -201,7 +213,7 @@ Para obter informações específicas sobre como dimensionar o cluster HDInsight
 
 ## Como instalo o Hue (ou outro componente do Hadoop)?
 
-HDInsight é um serviço gerenciado, o que significa que nós em um cluster poderão ser destruídos e reprovisionados automaticamente pelo Azure se um problema for detectado. Por isso, não é recomendável instalar manualmente as coisas diretamente em nós de cluster. Em vez disso, use [Ações de Script do HDInsight](hdinsight-hadoop-customize-cluster.md) quando você precisar instalar o seguinte:
+HDInsight é um serviço gerenciado, o que significa que nós em um cluster poderão ser destruídos e reprovisionados automaticamente pelo Azure se um problema for detectado. Por isso, não é recomendável instalar manualmente as coisas diretamente em nós de cluster. Em vez disso, use [Ações de Script do HDInsight](hdinsight-hadoop-customize-cluster.md) quando precisar instalar o seguinte:
 
 * Um serviço ou site da Web como Spark ou Hue.
 * Um componente que requer alterações de configuração em vários nós no cluster. Por exemplo, uma variável de ambiente necessária, a criação de um diretório de log ou a criação de um arquivo de configuração.
@@ -214,13 +226,13 @@ Ações de Script são scripts Bash executados durante o provisionamento do clus
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 * [Spark](hdinsight-hadoop-spark-install-linux.md)
 
-Para obter informações sobre como desenvolver suas próprias ações de Script, consulte [Desenvolvimento de Ação de Script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Para saber mais sobre como desenvolver suas próprias ações de script, consulte [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ###Arquivos Jar
 
 Algumas tecnologias Hadoop são fornecidas em arquivos jar independentes que contêm funções usadas como parte de um trabalho MapReduce, ou de dentro de Pig ou Hive. Embora elas possam ser instaladas usando Ações de Script, elas geralmente não exigem nenhuma configuração e podem apenas ser carregadas no cluster após o provisionamento e usadas diretamente. Se você deseja certificar-se que o componente resistirá ao refazer a imagem do cluster, você pode armazenar o arquivo jar em WASB.
 
-Por exemplo, se você quer usar a versão mais recente do [DataFu](http://datafu.incubator.apache.org/), você pode baixar um jar que contém o projeto e carregá-lo ao cluster HDInsight. Siga a documentação do DataFu sobre como usá-lo do Pig ou Hive.
+Por exemplo, para usar a versão mais recente do [DataFu](http://datafu.incubator.apache.org/), baixe um jar que contém o projeto e carregue-o no cluster do HDInsight. Siga a documentação do DataFu sobre como usá-lo do Pig ou Hive.
 
 > [AZURE.IMPORTANT]Alguns componentes que são arquivos jar autônomos são fornecidos com o HDInsight, mas não estão no caminho. Se você estiver procurando por um componente específico, você pode usar o acompanhamento para procurá-lo em seu cluster:
 >
@@ -232,7 +244,7 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 
 > [AZURE.WARNING]Há suporte total a componentes fornecidos com o cluster HDInsight e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=hdinsight) e [http://stackoverflow.com](http://stackoverflow.com). Além disso, projetos Apache têm sites de projetos em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=hdinsight) e [http://stackoverflow.com](http://stackoverflow.com). Além disso, os projetos do Apache têm sites do projeto em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
 
 ## Próximas etapas
 
@@ -240,4 +252,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

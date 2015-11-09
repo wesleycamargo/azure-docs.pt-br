@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="larryfr"/>
 
 #Criar clusters baseados em Linux no HDInsight usando cURL e API REST do Azure
@@ -23,17 +23,21 @@
 
 A API REST do Azure permite executar operações de gerenciamento de serviços hospedados na plataforma Azure, incluindo a criação de novos recursos, como clusters HDInsight baseados em Linux. Neste documento, você aprenderá como criar modelos do Gerenciador de Recursos do Azure para configurar um cluster HDInsight e armazenamento associado, bem como usar cURL para implantar o modelo na API REST do Azure para criar um novo cluster HDInsight.
 
+> [AZURE.IMPORTANT]As etapas neste documento usam o número padrão de nós de trabalho (4) para um cluster HDInsight. Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
+>
+> Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+
 ##Pré-requisitos
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __CLI do Azure__ A CLI do Azure é usada para criar uma entidade de serviço, que é usada para gerar tokens de autenticação para solicitações para a API REST do Azure.
+- __CLI do Azure__. A CLI do Azure é usada para criar uma entidade de serviço, que é usada para gerar tokens de autenticação para solicitações para a API REST do Azure.
 
     Para obter informações sobre como instalar a CLI, consulte [Instalar a CLI do Azure](xplat-cli-install.md).
 
-- __cURL__. Esse utilitário está disponível por meio de seu sistema de gerenciamento de pacotes ou pode ser baixado em [http://curl.haxx.se/](http://curl.haxx.se/).
+- __cURL__. Esse utilitário está disponível por meio de seu sistema de gerenciamento de pacotes ou pode ser baixado de [http://curl.haxx.se/](http://curl.haxx.se/).
 
-    > [AZURE.NOTE]Se você estiver usando o PowerShell para executar os comandos neste documento, você deverá primeiro remover o `curl` alias criado por padrão. Esse alias usa Invoke-WebRequest, um cmdlet do PowerShell, em vez do cURL quando você usa o comando `curl` de um prompt do PowerShell e retornará erros para muitos dos comandos usados neste documento.
+    > [AZURE.NOTE]Se você estiver usando o PowerShell para executar comandos neste documento, deverá primeiro remover o alias `curl` criado por padrão. Esse alias usa Invoke-WebRequest, um cmdlet do PowerShell, em vez do cURL quando você usa o comando `curl` de um prompt do PowerShell e retornará erros para muitos dos comandos usados neste documento.
     > 
     > Para remover esse alias, use o seguinte no prompt do PowerShell:
     >
@@ -43,7 +47,7 @@ A API REST do Azure permite executar operações de gerenciamento de serviços h
 
 ##Criar um modelo
 
-Os modelos de Gerenciamento de Recursos do Azure são documentos JSON que descrevem um __grupo de recursos__ e todos os recursos que ele contém (por exemplo, HDInsight). Essa abordagem baseada em modelo permite a definição de todos os recursos necessários ao HDInsight em um modelo, e também gerenciar alterações no grupo todo por meio de __implantações__ que aplicam mudanças ao grupo.
+Os modelos de Gerenciamento de Recursos do Azure são documentos JSON que descrevem um __grupo de recursos__ e todos os recursos que ele contém (por exemplo, HDInsight). Essa abordagem baseada em modelo permite que você defina todos os recursos necessários ao HDInsight em um modelo, e gerencie alterações no grupo todo por meio de __implantações__ que aplicam alterações ao grupo.
 
 Normalmente, os modelos são fornecidos em duas partes: o próprio modelo e um arquivo de parâmetros que você preenche com valores específicos de sua configuração. Por exemplo, o nome do cluster, o nome do administrador e a senha. Ao usar a API REST diretamente, você deve combinar esses elementos em um arquivo. O formato deste documento JSON é:
 
@@ -251,17 +255,17 @@ Por exemplo, esta é uma fusão dos arquivos de modelo e parâmetros de [https:/
         }
     }
 
-Esse exemplo será usado nas etapas neste documento. Você deve substituir os _valores_ do espaço reservado na seção __Parâmetros__ no final do documento com os valores que você deseja usar para seu cluster.
+Esse exemplo será usado nas etapas neste documento. Você deve substituir os _valores_ do espaço reservado na seção __Parâmetros__ no final do documento pelos valores que quer usar no cluster.
 
 ##Faça logon na sua assinatura do Azure
 
-Siga as etapas documentadas em [Conectar a uma assinatura do Azure a partir da Interface de Linha de Comando do Azure (Azure CLI)](xplat-cli-connect.md) e conectar à sua assinatura usando o método de __logon__.
+Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](xplat-cli-connect.md) e conecte à sua assinatura usando o método de __logon__.
 
 ##Criar uma entidade de serviço
 
 > [AZURE.IMPORTANT]Ao seguir as etapas no artigo vinculado a seguir, você deve fazer as seguintes alterações:
 > 
-> * Quando as etapas pedirem para usar um valor de __leitor__, você deve usar __proprietário__. Isso criará uma entidade de serviço que pode fazer alterações em serviços de sua assinatura, que é necessária para a criação de um cluster HDInsight.
+> * Quando as etapas pedirem para usar um valor de __leitor__, use, em vez disso, __proprietário__. Isso criará uma entidade de serviço que pode fazer alterações em serviços de sua assinatura, que é necessária para a criação de um cluster HDInsight.
 >
 > Você também deve salvar as seguintes informações usadas nesse processo:
 > 
@@ -294,19 +298,19 @@ Use o seguinte para criar um novo grupo de recursos. Você deve criar o grupo pr
 
 * Substitua __SUBSCRIPTIONID__ pela ID da assinatura recebida ao criar a entidade de serviço.
 * Substitua __ACCESSTOKEN__ pelo token de acesso recebido na etapa anterior.
-* Substitua __LOCALDODATACENTER__ pelo data center no qual você quer criar o grupo de recursos e os recursos. Por exemplo, "Centro-Sul dos EUA". 
+* Substitua __DATACENTERLOCATION__ pelo data center no qual você quer criar o grupo de recursos e os recursos. Por exemplo, "Centro-Sul dos EUA". 
 * Substitua __GROUPNAME__ pelo nome que você deseja usar para esse grupo:
 
     curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d $'{ "location": "DATACENTERLOCATION" }’
 
-Se essa solicitação for bem-sucedida, você receberá uma resposta do 200 series, e o corpo da resposta conterá um documento JSON com informações sobre o grupo. O `"provisioningState"` elemento conterá um valor de `"Succeeded"`.
+Se essa solicitação for bem-sucedida, você receberá uma resposta do 200 series, e o corpo da resposta conterá um documento JSON com informações sobre o grupo. O elemento `"provisioningState"` conterá um valor de `"Succeeded"`.
 
 ##Criar uma implantação
 
 Use o seguinte para implantar a configuração de cluster (modelo de valores de parâmetro) no grupo de recursos.
 
 * Substitua __SUBSCRIPTIONID__ e __ACCESSTOKEN__ pelos valores usados anteriormente. 
-* Substitua __GROUPNAME__ pelo nome do grupo de recursos criado na seção anterior:
+* Substitua __GROUPNAME__ pelo nome do grupo de recursos criado na seção anterior.
 * Substitua __DEPLOYMENTNAME__ pelo nome que você deseja usar para essa implementação.
 
     curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d "{definir a cadeia de caracteres do corpo para o modelo e os parâmetros}"
@@ -324,7 +328,7 @@ Se essa solicitação for bem-sucedida, você receberá uma resposta do 200 seri
 Para verificar o status da implantação, use o seguinte:
 
 * Substitua __SUBSCRIPTIONID__ e __ACCESSTOKEN__ pelos valores usados anteriormente. 
-* Substitua __GROUPNAME__ pelo nome do grupo de recursos criado na seção anterior:
+* Substitua __GROUPNAME__ pelo nome do grupo de recursos criado na seção anterior.
 
     curl -X "GET" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json"
 
@@ -351,4 +355,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

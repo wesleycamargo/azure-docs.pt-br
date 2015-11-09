@@ -20,7 +20,7 @@
 
 Os links neste **menu** levam você até os tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-explore-data-selector.md)]
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Introdução
 
@@ -32,4 +32,4 @@ Este documento aborda como realizar a amostragem de dados armazenados em três l
 - A amostragem dos **dados do SQL Server** é realizada usando SQL e a linguagem de programação Python. 
 - A amostragem dos **dados da tabela do Hive** é realizada usando consultas de Hive.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
+   ms.date="10/27/2015"
    ms.author="cherylmc" />
 
 # Sobre dispositivos VPN para conexões de rede virtual site a site
@@ -47,19 +47,19 @@ Para suporte ao dispositivo VPN, entre em contato com o fabricante do dispositiv
 | Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Não compatível |
 | Brocade | Vyatta 5400 vRouter | Roteador virtual 6.6R3 GA | [Instruções de configuração](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | Não compatível |
 | Ponto de Verificação | Gateway de segurança | R75.40, R75.40VS | [Instruções de configuração](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Instruções de configuração](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco | ASA | 8\.3 | [Exemplos do Cisco ASA](https://msdn.microsoft.com/library/azure/dn133793.aspx) | Não compatível |
-| Cisco | ASR | IOS 15.1 (estático), IOS 15.2 (dinâmico) | [Exemplos do Cisco ASR](https://msdn.microsoft.com/library/azure/dn133802.aspx) | [Exemplos do Cisco ASR](https://msdn.microsoft.com/library/azure/dn133802.aspx) |
-| Cisco | ISR | IOS 15.0 (estático), IOS 15.1 (dinâmico) | [Exemplos do Cisco ISR](https://msdn.microsoft.com/library/azure/dn133800.aspx) | [Exemplos do Cisco ISR](https://msdn.microsoft.com/library/azure/dn133800.aspx) |
+| Cisco | ASA | 8\.3 | [Exemplos da Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | Não compatível |
+| Cisco | ASR | IOS 15.1 (estático), IOS 15.2 (dinâmico) | [Exemplos da Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Exemplos da Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Cisco | ISR | IOS 15.0 (estático), IOS 15.1 (dinâmico) | [Exemplos da Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Exemplos da Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Citrix | Dispositivo CloudBridge MPX ou VPX virtual | N/D | [Instruções de integração](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Não compatível |
 | Dell SonicWALL | Séries TZ, NSA, SuperMassive e NSA classe E | SonicOS 5.8.x, SonicOS 5.9.x e SonicOS 6.x | [Instruções de configuração](https://www.sonicwall.com/app/projects/file_downloader/document_lib.php?t=TN&id=348) | Não compatível |
 | F5 | Série BIG-IP | N/D | [Instruções de configuração](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Não compatível |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [Instruções de configuração](http://docs.fortinet.com/fortigate/admin-guides) | [Instruções de configuração](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | Série SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Instruções de configuração](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Não compatível |
-| Juniper | SRX | JunOS 10.2 (estático) e JunOS 11.4 (dinâmico) | [Exemplos do Juniper SRX](https://msdn.microsoft.com/library/azure/dn133794.aspx) | [Exemplos do Juniper SRX](https://msdn.microsoft.com/library/azure/dn133794.aspx) |
-| Juniper | Série J | JunOS 10.4r9 (estático), JunOS 11.4 (dinâmico) | [Exemplos da série J Juniper](https://msdn.microsoft.com/library/azure/dn133799.aspx) | [Exemplos da série J Juniper](https://msdn.microsoft.com/library/azure/dn133799.aspx) |
-| Juniper | ISG | ScreenOS 6.3 (estático e dinâmico) | [Exemplos do Juniper ISG](https://msdn.microsoft.com/library/azure/dn133797.aspx) | [Exemplos do Juniper ISG](https://msdn.microsoft.com/library/azure/dn133797.aspx) |
-| Juniper | SSG | ScreenOS 6.2 (estático e dinâmico) | [Exemplos do Juniper SSG](https://msdn.microsoft.com/library/azure/dn133796.aspx) | [Exemplos do Juniper SSG](https://msdn.microsoft.com/library/azure/dn133796.aspx) |
-| Microsoft | Serviço de Roteamento e Acesso Remoto | Windows Server 2012 | Não compatível | [Exemplos de RRAS (Serviço de Roteamento e Acesso Remoto)](https://msdn.microsoft.com/library/azure/dn133801.aspx) |
+| Juniper | SRX | JunOS 10.2 (estático) e JunOS 11.4 (dinâmico) | [Exemplos do Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Exemplos do Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | Série J | JunOS 10.4r9 (estático), JunOS 11.4 (dinâmico) | [Exemplos do Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Exemplos do Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | ISG | ScreenOS 6.3 (estático e dinâmico) | [Exemplos do Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Exemplos do Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | SSG | ScreenOS 6.2 (estático e dinâmico) | [Exemplos do Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Exemplos do Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Microsoft | Serviço de Roteamento e Acesso Remoto | Windows Server 2012 | Não compatível | [Exemplos da Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Openswan | Openswan | 2\.6.32 | (Em breve) | Não compatível |
 | Redes Palo Alto | Todos os dispositivos com PAN-OS 5.0 ou superior em execução | PAN-OS 5x ou superior | [Redes Palo Alto](https://support.paloaltonetworks.com/) | Não compatível |
 | Watchguard | Todos | Fireware XTM v11.x | [Instruções de configuração](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | Não compatível |
@@ -156,4 +156,4 @@ Para saber mais sobre gateways de VPN, consulte [Sobre gateways de VPN](vpn-gate
 
 Para configurar uma VPN site a site, consulte [Criar uma rede virtual com uma conexão VPN site a site](vpn-gateway-site-to-site-create.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

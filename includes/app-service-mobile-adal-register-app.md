@@ -25,6 +25,6 @@
 Seu aplicativo está configurado no AAD para que os usuários possam fazer logon usando o logon do AAD.
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Como configurar seu aplicativo móvel com o Active Directory do Azure]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
+[Como configurar seu aplicativo móvel com o Active Directory do Azure]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

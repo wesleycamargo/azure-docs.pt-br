@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Usando relatórios de integridade do sistema para solução de problemas"
-   description="Descreve os relatórios de Integridade do Sistema e como usá-los para solução de problemas de cluster ou problemas de aplicativos"
+   pageTitle="Solucionar problemas com relatórios de integridade do sistema | Microsoft Azure"
+   description="Descreve os relatórios de integridade enviados por componentes do Service Fabric do Azure e seu uso para solucionar problemas de cluster ou de aplicativos."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Usando relatórios de integridade do sistema para solução de problemas
@@ -527,7 +527,7 @@ System.Hosting relatará Erro se a validação durante a atualização falhar ou
 
 [Como monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Atualização de aplicativo da Malha de Serviço](service-fabric-application-upgrade.md)
+[Atualização de aplicativo da Malha do Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

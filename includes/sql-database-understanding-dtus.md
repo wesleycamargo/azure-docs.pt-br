@@ -1,6 +1,6 @@
-A unidade de taxa de transferência de banco de dados (DTU) é a unidade de medida do Banco de Dados SQL que representa a potência relativa de um banco de dados para processar transações considerando as restrições do hardware que faz funcionar o banco de dados. DTU é um conceito semelhante à potência de um carro. Ele descreve o desempenho relativo de um banco de dados para outro. Assim como com potência em um carro, quanto mais DTU um banco de dados tem, mais potência que ele tem. Potência é uma função de diferentes fatores: peso, capacidade do motor, turbo, sistema de exaustão. Da mesma forma, a DTU é uma função da quantidade e tipo de memória, computação e disco que um banco de dados pode consumir. Você pode ler os detalhes sobre como determinar a DTU na [Visão geral de Benchmark](https://msdn.microsoft.com/library/azure/dn741327.aspx).
+A Unidade de Transação de Banco de Dados (DTU) é a unidade de medida no Banco de Dados SQL que representa a potência relativa dos bancos de dados com base em uma medida real: a transação do banco de dados. Usamos um conjunto de operações típicas para uma solicitação OLTP (processamento de transação online) e calculamos quantas transações foram concluídas por segundo sob condições de carga total (essa é a versão curta, você pode ler os detalhes assustadores na [Visão geral de parâmetro de comparação](../articles/sql-database/sql-database-benchmark-overview.md)).
 
-Exemplo: Um banco de dados básico tem 5 DTUs, o que significa que ele tem relativamente muito menos capacidade de transferência de transações que um banco de dados Premium P11 que tem 1750 DTUs.
+Um banco de dados Básico tem cinco DTUs, o que significa que ele pode concluir cinco transações por segundo, enquanto um banco de dados Premium P11 tem 1750 DTUs.
 
 ![DTUs de banco de dados individual por camada e nível](./media/sql-database-understanding-dtus/single_db_dtus.png)
 
@@ -10,4 +10,4 @@ DTU para bancos de dados individuais é o mesmo que eDTU para bancos de dados el
 
 Um exemplo simples pode ajudar: pegue um pool de banco de dados elástico Basic com 1000 DTUs e solte 800 bancos de dados nele. Contanto que apenas 200 bancos de dados, do total de 800, estejam sendo usados a qualquer momento (5 DTU X 200 = 1000), você não atingirá a capacidade do pool, e o desempenho do banco de dados não será afetado. Este exemplo foi simplificado para manter a clareza. O cálculo real é um pouco mais detalhado. O portal faz os cálculos para você e faz também uma recomendação com base no histórico de uso do banco de dados. Consulte [Considerações de preço e desempenho para um pool de banco de dados elástico](../articles/sql-database/sql-database-elastic-pool-guidance.md) para aprender como as recomendações funcionam ou para fazer os cálculos você mesmo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
