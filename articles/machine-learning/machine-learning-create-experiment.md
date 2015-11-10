@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Criar uma experiência simples no Studio de Aprendizado de Máquina | Microsoft Azure"
 	description="Um primeiro tutorial de aprendizado de máquina para criar uma experiência simples para treinar e testar um modelo de regressão linear no Studio de Aprendizado de Máquina do Azure."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
+	keywords="experimento,regressão linear,algoritmos de aprendizado de máquina,tutorial de aprendizado de máquina,técnicas de modelos de previsão "
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
+	ms.date="11/03/2015"
 	ms.author="garye"/>
 
 # Tutorial de aprendizado de máquina: Crie sua primeira experiência no Studio de Aprendizado de Máquina do Azure
@@ -25,9 +25,9 @@ Neste primeiro tutorial de Aprendizado de Máquina, vamos criar um modelo de reg
 
 Um experimento de Estúdio de Aprendizado de Máquina consiste em arrastar componentes para uma tela, conectá-los para *criar um modelo de*, *treinar o modelo* e *pontuar e testar o modelo*. O experimento usa técnicas de modelagem de previsão na forma de módulos do Studio de Aprendizado de Máquina que incluem dados, treinam um modelo em relação a ele e aplicam o modelo a novos dados. Também é possível adicionar módulos para pré-processar dados e selecionar recursos, dividir dados em conjuntos de treinamento e teste e avaliar ou cruzar a validade da qualidade de seu modelo.
 
-Digite Estúdio de Aprendizado de Máquina:: [https://studio.azureml.net](https://studio.azureml.net), e clique no botão **Introdução**. Você pode escolher Acesso de Convidado ou entrar com sua conta da Microsoft.
+Insira Estúdio de Aprendizado de Máquina: [https://studio.azureml.net](https://studio.azureml.net) e clique no botão **Introdução**. Você pode escolher Acesso de Convidado ou entrar com sua conta da Microsoft.
 
-Para obter mais informações gerais sobre o Estúdio do Aprendizado de Máquina, consulte [O que é o Estúdio de Aprendizado de Máquina?](machine-learning-what-is-ml-studio.md)
+Para obter informações mais gerais sobre o Estúdio do Aprendizado de Máquina, consulte [O que é o Estúdio de Aprendizado de Máquina?](machine-learning-what-is-ml-studio.md)
 
 >[AZURE.TIP]Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
@@ -58,7 +58,7 @@ Há uma série de conjuntos de dados de exemplo incluídos no Estúdio de Aprend
 
 1. Inicie um novo experimento clicando em **+NOVO** na parte inferior da janela do Estúdio de Aprendizado de Máquina, selecione **EXPERIMENTO** e selecione **Experimento em Branco**. Selecione o nome de experimento padrão na parte superior da tela e renomeie para algo significativo, por exemplo, **Previsão de preço de automóvel**.
 
-2. À esquerda da tela do experimento está uma paleta de conjuntos de dados e módulos. Digite **automóvel** na caixa de pesquisa na parte superior desta paleta para localizar o conjunto de dados rotulado **Dados de preço de automóvel (Brutos)**.
+2. À esquerda da tela do experimento está uma paleta de conjuntos de dados e módulos. Digite **automóvel** na caixa Pesquisar na parte superior desta paleta para localizar o conjunto de dados rotulado **Dados de preço de automóvel (brutos)**.
 
 	![Pesquisa de paleta][screen1a]
 
@@ -80,7 +80,7 @@ Um conjunto de dados geralmente requer algum pré-processamento antes de poder s
 
 Primeiro, removeremos a coluna **normalized-losses** e removeremos qualquer linha que tenha dados ausentes.
 
-1. Digite **colunas do projeto** na caixa de pesquisa na parte superior da paleta do módulo para encontrar o módulo [Colunas do Projeto][project-columns] e arraste-o para a tela do experimento a fim de conectá-lo à porta de saída do conjunto de dados **Dados de preço de automóvel (Brutos)**. Esse módulo permite selecionar quais colunas de dados desejamos incluir ou excluir no modelo.
+1. Digite **colunas do projeto** na caixa de pesquisa na parte superior da paleta do módulo para encontrar o módulo [Colunas do Projeto][project-columns] e arraste-o para a tela do experimento a fim de conectá-lo à porta de saída do conjunto de dados **Dados de preço de automóvel (brutos)**. Esse módulo permite selecionar quais colunas de dados desejamos incluir ou excluir no modelo.
 
 2. Selecione o módulo [Colunas do Projeto][project-columns] e clique em **Iniciar seletor de coluna** no painel **Propriedades**.
 
@@ -140,17 +140,17 @@ Agora que os dados estão prontos, construir um modelo preditivo consiste em tre
 
 Desejamos prever o preço de um automóvel, que pode ser qualquer valor, portanto, usaremos um modelo de regressão. Para este exemplo, treinaremos um modelo simples de *regressão linear* e na próxima etapa o testaremos.
 
-1. Podemos usar nossos dados para teste e treinamento dividindo-os em conjuntos separados de treinamento e de teste. Selecione e arraste o módulo [Dividir][split] até a tela do experimento e conecte-o à porta de saída do último módulo [Colunas do Projeto][project-columns]. Configure **Fração de linhas no primeiro conjunto de dados de saída** para 0,75. Desta forma, usaremos 75% dos dados para treinar o modelo e manteremos 25% para teste.
+1. Podemos usar nossos dados para teste e treinamento dividindo-os em conjuntos separados de treinamento e de teste. Selecione e arraste o módulo [Dividir Dados][split] até a tela do experimento e conecte-o à porta de saída do último módulo [Colunas do Projeto][project-columns]. Configure **Fração de linhas no primeiro conjunto de dados de saída** para 0,75. Desta forma, usaremos 75% dos dados para treinar o modelo e manteremos 25% para teste.
 
 	> [AZURE.TIP]Alterando o parâmetro **Semente aleatória**, é possível produzir amostras aleatórias diferentes para treinamento e teste. Esse parâmetro controla a alimentação do gerador de número pseudoaleatório.
 
-2. Execute o experimento. Isso permite que os módulos [Colunas do Projeto][project-columns] e [Dividir][split] passem pelas definições de coluna para os módulos que incluiremos em seguida.
+2. Execute o experimento. Isso permite que os módulos [Colunas do Projeto][project-columns] e [Dividir Dados][split] passem pelas definições de coluna para os módulos que incluiremos em seguida.
 
 3. Para selecionar o algoritmo de aprendizado, expanda a categoria **Aprendizado de Máquina** na paleta do módulo à esquerda da tela e expanda **Inicializar Modelo**. Isso exibe várias categorias de módulos que podem ser usados para inicializar os algoritmos de Aprendizado de Máquina.
 
 	Para este experimento, selecione o módulo [Regressão Linear][linear-regression] na categoria **Regressão** (também é possível localizar o módulo digitando “Regressão Linear” na caixa de pesquisa da paleta) e arraste-o até a tela do experimento.
 
-4. Localize e arraste o módulo [Modelo de Treinamento][train-model] até a tela do experimento. Conecte-se à porta de entrada à esquerda da saída do módulo [Regressão Linear][linear-regression]. Conecte-se à porta de entrada à direita dos dados de treinamento (porta esquerda) do módulo [Dividir][split].
+4. Localize e arraste o módulo [Modelo de Treinamento][train-model] até a tela do experimento. Conecte-se à porta de entrada à esquerda da saída do módulo [Regressão Linear][linear-regression]. Conecte-se à porta de entrada à direita dos dados de treinamento (porta esquerda) do módulo [Dividir Dados][split].
 
 5. Selecione o módulo [Modelo de Treinamento][train-model], clique em **Iniciar seletor de coluna** no painel **Propriedades** e selecione a coluna **preço**. Este é o valor que nosso modelo vai prever.
 
@@ -166,7 +166,7 @@ O resultado é um modelo de regressão treinado que pode ser usado para pontuar 
 
 Agora que treinamos o modelo usando 75% de nossos dados, podemos usá-lo para classificar os outros 25% dos dados e ver se nosso modelo funciona bem.
 
-1. Localize e arraste o módulo do [Modelo de Pontuação][score-model] para o experimento da tela e conecte a porta de entrada à esquerda à saída do módulo [Modelo de Treinamento][train-model]. Conecta a porta de entrada direita à saída de dados de teste (porta à direita) do módulo [Dividir][split].  
+1. Localize e arraste o módulo do [Modelo de Pontuação][score-model] para o experimento da tela e conecte a porta de entrada à esquerda à saída do módulo [Modelo de Treinamento][train-model]. Conecte a porta de entrada direita à saída de dados de teste (porta à direita) do módulo [Dividir Dados][split].  
 
 	![Módulo de Modelo de Pontuação][screen8a]
 
@@ -200,11 +200,11 @@ Agora que você concluiu um primeiro tutorial de aprendizado de máquina e o seu
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-Quando estiver satisfeito com seu modelo, você poderá implantá-lo como um serviço Web a ser usado para prever preços de automóveis usando novos dados. Veja [Implantar um serviço Web do Aprendizado de Máquina do Azure][publish] para obter mais detalhes.
+Quando estiver satisfeito com seu modelo, você poderá implantá-lo como um serviço Web a ser usado para prever preços de automóveis usando novos dados. Consulte [Implantar um serviço Web do Aprendizado de Máquina do Azure][publish] para obter mais detalhes.
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Para obter um passo a passo maior e detalhado das técnicas de modelagem de previsão para criar, treinar, pontuar e implantar um modelo, veja [Desenvolver uma solução preditiva usando o Aprendizado de Máquina do Azure][walkthrough].
+Para obter um passo a passo maior e detalhado das técnicas de modelagem de previsão para criar, treinar, pontuar e implantar um modelo, consulte [Desenvolver uma solução preditiva usando o Aprendizado de Máquina do Azure][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -234,4 +234,4 @@ Para obter um passo a passo maior e detalhado das técnicas de modelagem de prev
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -18,6 +18,11 @@
 
 # Carregar dados com o Azure Data Factory
 
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
  Este tutorial mostrará como criar um pipeline no Azure Data Factory que moverá os dados dos Blobs de Armazenamento do Azure para um SQL Data Warehouse. Com as etapas a seguir, você vai:
 
 + Configurar dados de exemplo em um Blob de Armazenamento do Azure.
@@ -201,4 +206,4 @@ Na seção 'Criar e Implantar', agora clique em 'Mais Comandos' e em 'Novo Pipel
 	}
 	
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

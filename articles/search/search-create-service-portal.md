@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar um serviço de Pesquisa do Azure no portal | Microsoft Azure"
-	description="Adicionar um serviço de Pesquisa do Azure gratuito ou padrão para uma assinatura existente usando o portal do Azure"
+	description="Adicione uma Pesquisa do Azure gratuita ou padrão a uma assinatura existente usando o portal do Azure. A Pesquisa do Azure é um serviço de pesquisa hospedado na nuvem para aplicativos personalizados."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Criar um serviço de Pesquisa do Azure no portal do Azure
@@ -120,4 +120,4 @@ As informações a seguir mostram como compilar e gerenciar aplicativos de pesqu
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
    ms.date="10/08/2015"
@@ -229,4 +229,4 @@ Depois de criar um pool de banco de dados elástico, você pode gerenciar os ban
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

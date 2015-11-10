@@ -79,7 +79,7 @@ Para obter mais informações sobre como definir o modelo, consulte [Criação d
 
 Para esquemas de modelo, confira [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-Para obter informações sobre como usar um modelo de implantação, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md).
+Para saber mais sobre como usar um modelo de implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
 Para obter orientações sobre como estruturar seus modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md).
 
@@ -101,7 +101,7 @@ O Gerenciador de Recursos registra automaticamente as ações do usuário para a
 
 Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal de visualização do Microsoft Azure](role-based-access-control-configure.md). Este tópico contém uma lista de funções internas e ações permitidas. As funções internas incluem funções gerais de Proprietário, Leitor e Colaborador; bem como funções específicas do serviço, como Colaborador da Máquina Virtual, Colaborador de Rede Virtual e o Gerenciador de Segurança do SQL (para citar apenas algumas das funções disponíveis).
 
-Para obter exemplos de atribuição de funções, confira [Gerenciando o acesso a recursos](azure-portal/resource-group-rbac.md).
+Para obter exemplos de atribuição de funções, consulte [Gerenciando o acesso a recursos](resource-group-rbac.md).
 
 Você pode bloquear explicitamente recursos essenciais para impedir que os usuários possam excluí-los ou modificá-los. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
@@ -127,7 +127,7 @@ Para saber mais sobre o uso do portal de visualização, confira [Usando o Porta
 ## Próximas etapas
 
 - Para saber mais sobre a criação de modelos, confira [Criando modelos](./resource-group-authoring-templates.md).
-- Para implantar o modelo criado, confira [Implantando modelos](azure-portal/resource-group-template-deploy.md)
+- Para implantar o modelo criado, consulte [Implantando modelos](resource-group-template-deploy.md)
 - Para entender as funções que você pode usar em um modelo, confira [Funções de modelo](./resource-group-template-functions.md)
 - Para obter diretrizes sobre como criar seus modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
 
@@ -135,4 +135,4 @@ Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

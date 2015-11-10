@@ -21,12 +21,7 @@ Use os Aplicativos Móveis do Serviço de Aplicativo para criar facilmente aplic
 
 Para começar, siga estes tutoriais para criar um aplicativo de tarefas que se conecta a um back-end móvel no Serviço de Aplicativo. Escolha sua plataforma de cliente:
 
-  * [iOS](../app-service-mobile-ios-get-started.md)
-  * [Xamarin.iOS](../app-service-mobile-xamarin-ios-get-started.md)
-  * [Xamarin.Android](../app-service-mobile-xamarin-android-get-started.md)
-  * [Xamarin.Forms](../app-service-mobile-xamarin-forms-get-started.md)
-  * [Windows](../app-service-mobile-windows-store-dotnet-get-started.md)
-  * [HTML](../app-service-mobile-html-get-started.md)
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ##Vídeos
 
@@ -34,4 +29,4 @@ Para começar, siga estes tutoriais para criar um aplicativo de tarefas que se c
 
 Aplicativos Móveis do Serviço de Aplicativo com Kirill Gavrylyuk
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

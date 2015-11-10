@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Fluxo de trabalho típico para o desenvolvimento de Pesquisa do Azure | Microsoft Azure"
-	description="Um fluxo de trabalho ou roteiro para criar aplicativos de protótipo e produção que se integram à Pesquisa do Azure."
+	description="Um fluxo de trabalho ou roteiro para criar aplicativos de protótipo e produção que se integram à Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Fluxo de trabalho típico para o desenvolvimento da Pesquisa do Azure
 
-Este artigo é um roteiro para a inclusão da Pesquisa do Azure como um componente que oferece experiência de pesquisa no seu aplicativo personalizado. Dependendo se você estiver testando as coisas ou pronto para começar de vez, orientações preliminares sobre como integrar a Pesquisa do Azure no seu projeto de desenvolvimento personalizado podem ser úteis.
+Este artigo é um roteiro para a inclusão da Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem, como um componente que oferece experiência de pesquisa no seu aplicativo personalizado. Dependendo se você estiver testando as coisas ou pronto para começar de vez, orientações preliminares sobre como integrar a Pesquisa do Azure no seu projeto de desenvolvimento personalizado podem ser úteis.
 
 Nas seções a seguir, vamos separar um fluxo de trabalho típico para um protótipo inicial que ajudarão você a avaliar como o Azure pesquisa atende aos requisitos de pesquisa do seu aplicativo. A parte dois deste artigo aborda as decisões de design importantes que levam a um esforço de desenvolvimento de aplicativo mais intenso.
 
@@ -190,4 +190,4 @@ Lembre-se de que somente a camada de preços Standard pode ser escalada ou reduz
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

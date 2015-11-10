@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.topic="hero-article" 
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Criar seu primeiro pipeline do Azure Data Factory usando o Visual Studio
@@ -246,4 +246,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

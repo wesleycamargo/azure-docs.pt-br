@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/19/2015"
+	ms.date="11/04/2015"
 	ms.author="wesmc"/>
 
 # Introdução aos Hubs de Notificação para aplicativos do iOS
@@ -302,8 +302,8 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 				signature = [self CF_URLEncodedString:[rawHmac base64EncodedStringWithOptions:0]];
 
 				// Construct authorization token string
-				token = [NSString stringWithFormat:@"SharedAccessSignature sr=%@&sig=%@&se=%qu&skn=%@",
-					targetUri, signature, expires, HubSasKeyName];
+				token = [NSString stringWithFormat:@"SharedAccessSignature sig=%@&se=%qu&skn=%@&sr=%@",
+					signature, expires, HubSasKeyName, targetUri];
 			}
 			@catch (NSException *exception)
 			{
@@ -365,7 +365,7 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-		        if (error || httpResponse.statusCode != 200)
+		        if (error || (httpResponse.statusCode != 200 && httpResponse.statusCode != 201))
 		        {
 		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
 		        }
@@ -433,9 +433,9 @@ Se você quiser enviar notificações em um aplicativo. Esta seção fornece um 
 11. Compile o projeto e verifique se não há erros.
 
 
+> [AZURE.NOTE]Se você encontrar um erro de compilação em Xcode7 sobre o suporte de bitcode, deverá alterar as "Configurações de Compilação" -> "Habilitar Bitcode"(ENABLE\_BITCODE) como ‘NO’ no Xcode. No momento, o SDK de Hubs de Notificação não oferece suporte a bitcode.
 
 Você encontrará todas as cargas de notificação possíveis no [Guia de programação de notificação local e por push] da Apple.
-
 
 
 ##Testar seu aplicativo
@@ -459,7 +459,7 @@ Se você tiver problemas ou recomendações para melhorar este tutorial para tod
 
 ##Próximas etapas
 
-Neste exemplo simples, você envia notificações para todos os seus dispositivos iOS. Como uma próxima etapa do aprendizado, sugerimos que você continue no tutorial [Usar Hubs de Notificação para enviar notificações por push aos usuários]. Esse tutorial o orientará na criação de um back-end para enviar as notificações usando marcas.
+Neste exemplo simples, você envia notificações para todos os seus dispositivos iOS. Como uma próxima etapa do aprendizado, sugerimos que você prossiga até o tutorial [Usar Hubs de Notificação para enviar notificações por push aos usuários]. Esse tutorial o orientará na criação de um back-end para enviar as notificações usando marcas.
 
 Se desejar segmentar os usuários por grupos de interesse, você também poderá mudar para [Usar Hubs de Notificação para enviar as últimas notícias].
 
@@ -504,4 +504,4 @@ Para obter informações mais gerais sobre os Hubs de Notificação, consulte [D
 
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -147,6 +147,7 @@ Quando um cliente acessa o armazenamento de arquivos, a versão SMB usada depend
 | Windows 8 | SMB 3.0 |
 | Windows Server 2012 | SMB 3.0 |
 | Windows Server 2012 R2 | SMB 3.0 |
+| Windows 10 | SMB 3.0 |
 
 ### Montar o compartilhamento de arquivos de uma máquina virtual do Azure com o Windows em execução
 
@@ -367,7 +368,7 @@ Para saber mais sobre como criar e usar assinaturas de acesso compartilhado, con
 
 A partir da versão 5.x da Biblioteca de Cliente do Armazenamento do Azure, você pode copiar um arquivo em outro arquivo, um arquivo em um blob ou um blob em um arquivo. Nas próximas seções, demonstramos como executar essas operações de cópia de modo programático.
 
-Você também pode usar o AzCopy para copiar um arquivo para outro, ou para copiar um blob em um arquivo ou vice-versa. Para obter detalhes sobre como copiar arquivos com o AzCopy, confira [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only).
+Você também pode usar o AzCopy para copiar um arquivo para outro, ou para copiar um blob em um arquivo ou vice-versa. Para obter detalhes sobre como copiar arquivos com o AzCopy, consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only).
 
 > [AZURE.NOTE]Se você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma assinatura de acesso compartilhado (SAS) para autenticar o objeto de origem, mesmo se você estiver copiando dentro da mesma conta de armazenamento.
 
@@ -480,7 +481,7 @@ Você pode habilitar métricas para armazenamento de arquivos no portal do Azure
 
 2. **Os compartilhamentos de arquivo do Azure são visíveis publicamente na Internet ou somente podem ser acessados do Azure?**
  
-	Desde que a porta 445 (TCP de saída) esteja aberta e o cliente dê suporte ao protocolo SMB 3.0 (*por exemplo,*, Windows 8 ou o Windows Server 2012), o compartilhamento de arquivos está disponível por meio da Internet.
+	Desde que a porta 445 (TCP de saída) esteja aberta e o cliente dê suporte ao protocolo SMB 3.0 (*por exemplo,*, o Windows 8 ou o Windows Server 2012), o compartilhamento de arquivos está disponível por meio da Internet.
 
 3. **O tráfego de rede entre uma máquina virtual do Azure e uma contagem de compartilhamento de arquivo conta como largura de banda externa cobrada na assinatura?**
 
@@ -549,4 +550,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->
