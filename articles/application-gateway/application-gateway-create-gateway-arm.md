@@ -120,7 +120,11 @@ Atribui o Intervalo de endereços 10.0.0.0/24 à variável de sub-rede a ser usa
 	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 Cria uma rede virtual chamada "appgwvnet" no grupo de recursos "appw-rg" para a região Oeste dos EUA usando o prefixo 10.0.0.0/16 com a sub-rede 10.0.0.0/24
+
+### Etapa 3
 	
+	$subnet=$vnet.Subnets[0]
+
 ## Criar um endereço IP público para a configuração de front-end
 
 	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
@@ -178,7 +182,7 @@ Cria a regra de roteamento do balanceador de carga chamada "rule01" configurando
 
 Configura o tamanho da instância do Application Gateway
 
->[AZURE.NOTE]O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Médio. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
 
 ## Criar Application Gateway usando New-AzureApplicationGateway
 
@@ -192,7 +196,7 @@ Cria um Application Gateway com todos os itens de configuração das etapas acim
 Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicationGateway` para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito.
 
 
-**Observação:** o cmdlet `Start-AzureApplicationGateway` pode levar de 15 a 20 minutos para ser concluído.
+**Observação:** a conclusão do cmdlet `Start-AzureApplicationGateway` pode demorar de 15 a 20 minutos.
 
 No exemplo abaixo, o Application Gateway é chamado "appgwtest" e o grupo de recursos é "aplicativo rg":
 
@@ -213,9 +217,9 @@ Use o `Start-AzureApplicationGateway` para iniciar o Application Gateway:
 
 ## Verifique o status do Application Gateway
 
-Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* foi bem-sucedido na etapa anterior, o Estado deve ser *Running*, e Vip e DnsName devem ter entradas válidas.
+Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se *Start-AzureApplicationGateway* tiver sido bem-sucedido na etapa anterior, o Estado deverá ser *Em Execução*, e Vip e DnsName devem ter entradas válidas.
 
-Este exemplo mostra um Application Gateway que está ativo, em execução e pronto para assumir o tráfego destinado a `http://<generated-dns-name>.cloudapp.net`.
+Este exemplo mostra um application gateway que está ativo, em execução e pronto para assumir o tráfego destinado a `http://<generated-dns-name>.cloudapp.net`.
 
 	Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
@@ -367,9 +371,9 @@ Este exemplo mostra um Application Gateway que está ativo, em execução e pron
 
 Para excluir um gateway de aplicativo, você precisará seguir este procedimento na ordem:
 
-1. Use o cmdlet `Stop-AzureApplicationGateway` para interromper o gateway. 
+1. Use o cmdlet `Stop-AzureApplicationGateway` para parar o gateway. 
 2. Use o cmdlet `Remove-AzureApplicationGateway` para remover o gateway.
-3. Verifique, usando o cmdlet `Get-AzureApplicationGateway`, se o gateway foi removido.
+3. Verifique se o gateway foi removido usando o cmdlet `Get-AzureApplicationGateway`.
 
 
 ### Etapa 1
@@ -385,7 +389,7 @@ Use o `Stop-AzureApplicationGateway` para parar o Application Gateway:
 	Stop-AzureApplicationGateway -ApplicationGateway $getgw  
 
 
-Depois que o Application Gateway estiver em um estado Stopped, use o cmdlet `Remove-AzureApplicationGateway` para remover o serviço.
+Depois que o Application Gateway estiver em um estado Parado, use o cmdlet `Remove-AzureApplicationGateway` para remover o serviço.
 
 
 	Remove-AzureApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
@@ -414,4 +418,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

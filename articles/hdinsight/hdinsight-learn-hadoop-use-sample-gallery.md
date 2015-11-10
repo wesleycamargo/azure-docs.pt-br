@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="07/09/2015"
+   ms.date="10/29/2015"
    ms.author="jgao"/>
 
 # Saiba mais sobre o Hadoop usando a Galeria de Introdução do HDInsight do Azure
@@ -45,7 +45,7 @@ Você pode acessar o Painel navegando até http://<YourHDInsightClusterName>.azu
 **Para executar um exemplo da Galeria de Introdução**
 
 1. Entre no [portal de visualização do Azure][azure.portal].
-2. Clique em **Procurar Tudo** no menu à esquerda, clique em **Clusters HDInsight** e clique no nome do cluster.
+2. Clique em **Procurar** no menu à esquerda, clique em **Clusters HDInsight** e clique no nome do cluster.
 3. Clique em **Painel** no menu superior.
 4. Insira o nome de usuário e a senha para o usuário HTTP (também chamado de usuário de cluster).
 6. Clique em **Galeria de Introdução** no topo da página.
@@ -68,4 +68,4 @@ Outras maneiras de saber mais sobre o HDInsight incluem:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

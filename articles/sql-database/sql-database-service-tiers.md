@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Camadas de serviço do Banco de Dados SQL"
-   description="Compare os recursos de continuidade dos negócios e desempenho das camadas de serviço do Banco de Dados SQL do Azure para encontrar o equilíbrio certo entre custo e capacidade à medida que as escala horizontalmente sob demanda e sem tempo de inatividade."
-   services="sql-database"
-   documentationCenter=""
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="Camadas de serviço do Banco de Dados SQL"
+	description="Compare os recursos de continuidade dos negócios e desempenho das camadas de serviço do Banco de Dados SQL do Azure para encontrar o equilíbrio certo entre custo e capacidade à medida que as escala horizontalmente sob demanda e sem tempo de inatividade."
+	services="sql-database"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="10/29/2015"
-   ms.author="jroth"/>
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="11/03/2015"
+	ms.author="jroth"/>
 
 # Camadas de serviço do Banco de Dados SQL
  
@@ -45,7 +45,7 @@ Para entender melhor as DTUs, consulte o [seção sobre DTUs](#understanding-dtu
 >[AZURE.NOTE]Para obter uma explicação detalhada de todas as outras linhas nesta tabela de camadas de serviço, consulte [Limites e recursos da camada de serviço](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ### Camadas de serviço para pools de banco de dados elástico
-Além de criar e escalar um banco de dados individual, você também tem a opção de gerenciar vários bancos de dados dentro de um [pool de banco de dados elástico](sql-database-elastic-pool.md). Todos os bancos de dados em um pool de banco de dados elástico compartilham um conjunto comum de recursos. As características de desempenho são medidas pelas *Unidades de Transação de Banco de Dados Elástico* (eDTUs). Da mesma forma que ocorre com os bancos de dados individuais, os pools de banco de dados elástico são fornecidos em três camadas de desempenho: **Básico**, **Standard** e **Premium**. Para bancos de dados elásticos essas três camadas de serviço ainda definem os limites de desempenho geral e vários outros recursos.
+Além de criar e escalar um banco de dados individual, você também tem a opção de gerenciar vários bancos de dados dentro de um [pool de banco de dados elástico](sql-database-elastic-pool.md). Todos os bancos de dados em um pool de banco de dados elástico compartilham um conjunto comum de recursos. As características de desempenho são medidas pelas *Unidades de Transação de Banco de Dados Elástico* (eDTUs). Da mesma forma que ocorre com os bancos de dados individuais, os pools de banco de dados elástico são fornecidos em três camadas de desempenho: **Basic**, **Standard** e **Premium**. Para bancos de dados elásticos essas três camadas de serviço ainda definem os limites de desempenho geral e vários outros recursos.
 
 Pools de banco de dados elástico permitem que esses bancos de dados compartilhem e consumam os recursos DTU sem a necessidade de atribuir um nível de desempenho específicos para os bancos de dados no pool. Por exemplo, um banco de dados individual em um pool Standard pode usar de 0 eDTUs até o máximo de banco de eDTU de banco de dados (qualquer um dos 100 eDTUs definidos pela camada de serviço ou um número personalizado configurado por você). Isso permite que vários bancos de dados com diferentes cargas de trabalho usem os recursos de eDTU disponíveis para todo o pool de forma eficiente.
 
@@ -95,4 +95,4 @@ Se estiver interessado em gerenciar vários bancos de dados como um grupo, consi
 Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

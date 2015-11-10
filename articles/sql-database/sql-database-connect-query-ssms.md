@@ -45,14 +45,14 @@ Ao trabalhar com o Banco de Dados SQL, você deverá usar a versão mais recente
 
 O motivo mais comum das falhas de conexão são os erros no nome do servidor, nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança. Verifique se as configurações de firewall do servidor permitem conexões do endereço IP do seu computador local e o endereço IP usado pelo cliente do SSMS. Às vezes, eles são diferentes.
 
-Se a conexão falhar devido a uma regra de firewall, o endereço IP será listado na mensagem de erro. Adicione esse endereço IP à regra de firewall do servidor. Para saber mais, consulte [Como definir configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
+Se a conexão falhar devido a configurações de firewall, a versão mais recente do SSMS criará a regra de firewall para você depois de perguntar se pode fazer isso. Para obtê-la, consulte [Baixar SSMS](https://msdn.microsoft.com/library/mt238290.aspx). Se você estiver usando uma versão anterior, o endereço IP será informado em uma mensagem de erro e você precisará adicionar esse endereço IP à regra de firewall do servidor. Para saber mais, consulte [Como definir configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
 
 ## Executar consultas de exemplo
 
-Depois de se conectar, você pode executar uma consulta de exemplo. Se você não tiver criado o banco de dados usando o exemplo AdventureWorks em [Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md), essa consulta não funcionará. Vá direto para as Próximas Etapas para saber mais.
+Depois de se conectar, você pode executar uma consulta de exemplo. Se você não tiver criado o banco de dados usando o exemplo da AdventureWorks em [Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md), essa consulta não funcionará. Vá direto para as Próximas Etapas para saber mais.
 
 1. No **Pesquisador de Objetos**, navegue até o banco de dados **AdventureWorks**.
-2. Clique com o botão direito do mouse no banco de dados e selecione **Nova consulta**.
+2. Clique com o botão direito do mouse no banco de dados e selecione **Nova Consulta**.
 
 	![Nova consulta](./media/sql-database-connect-query-ssms/4-run-query.png)
 
@@ -76,4 +76,4 @@ Você pode usar instruções Transact-SQL para criar e gerenciar bancos de dados
 
 Se não tiver experiência com o Transact-SQL, consulte [Tutorial: Escrevendo instruções Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) e a [Referência do Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

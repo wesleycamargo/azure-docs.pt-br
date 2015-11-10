@@ -99,7 +99,7 @@ No painel de controle do Aplicativo Web do Azure, adicione a extensão do Applic
 
 ## Exibir desempenho de telemetria
 
-Entre no [Portal de Visualização do Azure](http://portal.azure.com), procure o Application Insights e abra o recurso que você criou.
+Entre no [portal do Azure](http://portal.azure.com), procure o Application Insights e abra o recurso que você criou.
 
 ![Selecione Navegar, Application Insights e selecione seu aplicativo.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -216,4 +216,4 @@ Suporte ao IIS: IIS 7, 7,5, 8 e 8.5 (o IIS é obrigatório)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

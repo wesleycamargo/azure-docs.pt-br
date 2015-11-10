@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Usar o Fiddler para avaliar e testar as APIs REST de Pesquisa do Azure
 
-Este procedimento usa o Fiddler, disponível como um [download gratuito da Telerik](http://www.telerik.com/fiddler), para emitir solicitações HTTP e exibir as respostas usando a API REST de Pesquisa do Azure, sem precisar escrever nenhum código. As APIs REST do Serviço de Pesquisa do Azure são documentadas no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Este procedimento usa o Fiddler, disponível como um [download gratuito da Telerik](http://www.telerik.com/fiddler), para emitir solicitações HTTP e exibir as respostas usando a API REST de Pesquisa do Azure, sem precisar escrever nenhum código. A Pesquisa do Azure é um serviço de pesquisa hospedado na nuvem totalmente gerenciado no Microsoft Azure, facilmente programável por meio APIs REST e .NET. As APIs REST do serviço Pesquisa do Azure estão documentadas no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 Nas etapas a seguir, você criará um índice, carregará documentos, consultará o índice e consultará o sistema quanto a informações de serviço.
 
@@ -235,4 +235,4 @@ Os links a seguir fornecem informações adicionais para uma abordagem sem códi
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
