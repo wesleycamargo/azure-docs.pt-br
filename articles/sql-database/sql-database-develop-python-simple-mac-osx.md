@@ -102,11 +102,11 @@ No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/libra
 Este exemplo de código demonstra o uso de transações nas quais você:
 
 
-- Inicia uma transação
+-Inicia uma transação
 
-- Insere uma linha de dados
+-Insere uma linha de dados
 
-- Reverte a transação para desfazer a inserção
+-Reverte a transação para desfazer a inserção
 
 
 	import pymssql
@@ -118,4 +118,4 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
