@@ -21,9 +21,9 @@
 # Introdução a Na Memória (visualização)
 
 
-As tecnologias Na Memória do SQL melhoram muito o desempenho de cargas de trabalho transacionais e analíticas. Com o OLTP Na Memória, você pode atingir até 30 vezes o ganho em produtividade de transações, e com a Análise Na Memória, você pode atingir uma melhoria de até 100 vezes no desempenho da consulta, dependendo da carga de trabalho.
+As tecnologias Na Memória do SQL melhoram muito o desempenho de cargas de trabalho transacionais e analíticas. Com o OLTP Na Memória, você pode atingir até 30 vezes o ganho em produtividade de transações, e com a Análise Na Memória, você pode atingir uma melhoria de até 100 vezes no desempenho da consulta, dependendo da carga de trabalho. Com a Análise em Tempo Real, você combina essas tecnologias para obter informações comerciais em tempo real com base em dados operacionais.
 
-A Análise Em Memória está disponível de forma geral. O OLTP Na Memória está na versão de visualização para bancos de dados SQL do Azure Premium.
+A Análise Em Memória está disponível de forma geral no Banco de Dados do Azure. O OLTP Na Memória e a Análise Operacional em Tempo Real existem em versão de visualização para os bancos de dados SQL do Azure Premium.
 
 
 ## Introdução
@@ -31,18 +31,18 @@ A Análise Em Memória está disponível de forma geral. O OLTP Na Memória est�
 Experimente o OLTP Na Memória para cargas de trabalho transacionais:
 
 
-- [Enriquecer um banco de dados AdventureWorksLT com exemplos de OLTP Na Memória](#Enrich-an-AdventureWorksLT-database-with-In-Memory-OLTP-samples).
+- [Instalar o exemplo de OLTP Na Memória](#install-the-in-memory-oltp-sample).
 - [Usar o OLTP Na Memória em um Aplicativo do SQL Azure existente.](sql-database-in-memory-oltp-migration.md)
 - [Monitorar o armazenamento na memória](sql-database-in-memory-oltp-monitoring.md).
 
 
-Experimente a Análise Na Memória para cargas de trabalho transacionais:
+Experimente a Análise Na Memória para cargas de trabalho de análise:
 
-- [Instalar a Análise Na Memória](#Install-the-In-Memory-Analytics-sample).
+- [Instalar o exemplo de Análise Na Memória](#install-the-in-memory-analytics-sample).
 - Saiba mais sobre [índices Columnstore](https://msdn.microsoft.com/library/gg492088.aspx) no MSDN.
 
 
-## Enriquecer um banco de dados AdventureWorksLT com exemplos de OLTP Na Memória
+## Instalar o exemplo de OLTP Na Memória.
 
 Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns cliques no portal de visualização do Azure. Em seguida, as etapas a seguir explicam como é possível enriquecer seu banco de dados AdventureWorksLT com tabelas e procedimentos armazenados compilados nativamente, para ilustrar os objetos OLTP Na Memória.
 
@@ -241,9 +241,11 @@ Versão de setembro de 2015 de visualização do [SQL Server Data Tools Preview 
 
 ## Recursos adicionais
 
-Mais informações sobre o OLTP Na Memória e Análise: [OLTP Na Memória (Otimização Na Memória)](https://msdn.microsoft.com/library/dn133186.aspx)
+[Saiba mais sobre o OLTP Na Memória no MSDN](https://msdn.microsoft.com/library/dn133186.aspx)
 
-[Saiba mais sobre índices Columnstore no MSDN](https://msdn.microsoft.com/library/gg492088.aspx)
+[Saiba mais sobre a Análise Na Memória (Columnstore) no MSDN](https://msdn.microsoft.com/library/gg492088.aspx)
+
+[Saiba mais sobre a Análise Operacional em Tempo Real no MSDN](https://msdn.microsoft.com/library/dn817827.aspx)
 
 [White paper sobre padrões comuns de carga de trabalho e considerações sobre migração](https://msdn.microsoft.com/library/dn673538.aspx) descreve os padrões de carga de trabalho onde o OLTP Na Memória geralmente fornece ganhos significativos de desempenho.
 
@@ -251,6 +253,6 @@ Mais informações sobre o OLTP Na Memória e Análise: [OLTP Na Memória (Otimi
 
 Experimente [Usar o OLTP Na Memória em um Aplicativo do SQL Azure existente.](sql-database-in-memory-oltp-migration.md)
 
-[Monitore o armazenamento na memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
+[Monitore o Armazenamento Na Memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

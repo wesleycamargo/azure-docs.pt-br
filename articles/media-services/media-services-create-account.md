@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/28/2015"  
+	ms.date="11/03/2015"  
 	ms.author="juliako"/>
 
 
@@ -35,7 +35,14 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
 -   **Uma conta dos Serviços de Mídia**. Sua conta fornece acesso a um conjunto de Serviços de Mídia baseado na nuvem que está disponível no Azure. Uma conta de Serviços de Mídia não armazena o conteúdo de mídia real. Em vez disso, armazena metadados sobre o conteúdo de mídia e os trabalhos de processamento de mídia em sua conta. No momento em que cria a conta, você seleciona uma região de Serviços de Mídia disponível. A região selecionada é um data center que armazena os registros dos metadados de sua conta.
 
-    > [AZURE.NOTE]As regiões de Serviços de Mídia disponíveis incluem o seguinte: norte da Europa, Europa Ocidental, oeste dos EUA, leste dos EUA, sudeste da Ásia, Ásia Oriental, oeste do Japão, leste do Japão. Os Serviços de Mídia não usam grupos de afinidade.
+    > [AZURE.NOTE]As regiões de Serviços de Mídia Disponíveis (AMS) incluem o seguinte: Norte da Europa, Europa Ocidental, Oeste dos EUA, Leste dos EUA, Sudeste da Ásia, Ásia Oriental, Oeste do Japão, Leste do Japão. Os Serviços de Mídia não usam grupos de afinidade.
+    >
+	> O AMS agora também está disponível nos seguintes data centers: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o Portal de Gerenciamento do Azure para [criar contas do Serviço de Mídia](media-services-create-account.md#create-a-media-services-account-using-quick-create) e executar várias tarefas descritas [aqui](https://azure.microsoft.com/documentation/services/media-services/). No entanto, a Codificação Ativa não está habilitada nesses data centers. Além disso, nem todos os tipos de Unidades reservadas de Codificação estão disponíveis nesses data centers.
+	>
+	>- Sul do Brasil: somente as Unidades Reservadas de Codificação Standard e Basic estão disponíveis
+	>- Índia Ocidental, Sul da Índia e Índia Central: somente as Unidades Reservadas de Codificação Basic estão disponíveis
+
+
 -   **Uma conta de armazenamento associada**. Sua conta de armazenamento é uma conta de Armazenamento do Azure que está associada à sua conta de Serviços de Mídia. A conta de armazenamento fornece armazenamento de blob para arquivos de mídia e deve estar localizada na mesma região geográfica que a conta de Serviços de Mídia. Quando cria uma conta de Serviços de Mídia, você pode escolher uma conta de armazenamento existente na mesma região ou criar uma nova conta de armazenamento na mesma região. Se você excluir uma conta de Serviços de Mídia, os blobs em sua conta de armazenamento relacionada não serão excluídos.
 
 <a id="quick"></a>
@@ -92,4 +99,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
   [portal do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

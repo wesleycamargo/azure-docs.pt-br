@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introdução à Pesquisa do Azure no Java | Microsoft Azure"
-	description="Como criar um aplicativo de Pesquisa do Azure personalizado usando Java como linguagem de programação."
+	description="Como criar um aplicativo de pesquisa hospedado na nuvem no Azure usando Java como linguagem de programação."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure em Java
@@ -231,4 +231,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/02/2015"
 	ms.author="genemi"/>
 
 
@@ -81,17 +81,10 @@ Quando seu programa se comunicar com o Banco de Dados SQL do Azure por meio de u
 ### Aumento do intervalo entre tentativas de repetição
 
 
-Seu programa sempre deverá esperar pelo menos de 6 a 10 segundos antes de sua primeira tentativa. Caso contrário, o serviço de nuvem poderá ser repentinamente inundado com solicitações que ainda não estará pronto para processar.
 
+É recomendável que você aguarde 5 segundos antes de sua primeira tentativa. Tentar novamente após um atraso inferior a 5 segundos poderá sobrecarregar o serviço de nuvem. Para cada tentativa subsequente, o atraso deverá aumentar exponencialmente, até um máximo de 60 segundos.
 
-Se mais de uma repetição for necessária, o intervalo deverá aumentar antes de cada repetição sucessiva, até um máximo. Duas das estratégias alternativas são:
-
-
-- Aumento monotônico do intervalo. Por exemplo, você poderia adicionar outro em 5 segundos a cada intervalo sucessivo.
-
-
-- Aumento exponencial do intervalo. Por exemplo, você poderá multiplicar cada intervalo sucessivo por 1,5.
-
+Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.NET está disponível em [Pool de conexão do SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Você também poderá definir um número máximo de tentativas antes que o programa seja automaticamente encerrado.
 
@@ -121,13 +114,13 @@ Uma forma de testar sua lógica de repetição é desconectar seu computador cli
 Como parte da primeira tentativa de repetição, seu programa poderá corrigir o problema de ortografia e tentar se conectar.
 
 
-Para que isso seja prático, desconecte seu computador da rede antes de iniciar o programa. Em seguida, seu programa reconhecerá um parâmetro de tempo de execução que faz com que o programa: 1. Adicione temporariamente 11001 à sua lista de erros a serem considerados como transitórios. 2. Tente fazer sua primeira conexão como de costume. 3. Depois que o erro for detectado, remova 11001 da lista. 4. Exiba uma mensagem informando ao usuário para conectar o computador à rede. - Pause a execução adicional usando o método **Console.ReadLine** ou uma caixa de diálogo com um botão OK. O usuário pressiona a tecla Enter depois que o computador é conectado à rede. 5. Tente se conectar novamente, esperando êxito.
+Para que isso seja prático, desconecte seu computador da rede antes de iniciar o programa. Em seguida, seu programa reconhecerá um parâmetro de tempo de execução que faz com que o programa: 1. Adicione temporariamente 11001 à sua lista de erros a serem considerados como transitórios. 2. Tente fazer sua primeira conexão como de costume. 3. Depois que o erro for detectado, remova 11001 da lista. 4. Exiba uma mensagem informando ao usuário para conectar o computador à rede. - pause a execução adicional usando o método **Console.ReadLine** ou uma caixa de diálogo com um botão OK. O usuário pressiona a tecla Enter depois que o computador é conectado à rede. 5. Tente se conectar novamente, esperando êxito.
 
 
 ### Testar errando o nome do banco de dados ao se conectar
 
 
-Seu programa pode errar intencionalmente o nome de usuário antes da primeira tentativa de conexão. O erro será: - **SqlException.Number** = 18456 - Mensagem: "Falha no logon do usuário 'WRONG\_NomeDoMeuUsuário'."
+Seu programa pode errar intencionalmente o nome de usuário antes da primeira tentativa de conexão. O erro será: - **SqlException.Number** = 18456 - Mensagem: "Falha no logon do usuário 'WRONG\_NomeDoMeuUsuário'".
 
 
 Como parte da primeira tentativa de repetição, seu programa poderá corrigir o problema de ortografia e tentar se conectar.
@@ -141,7 +134,7 @@ Para que fique prático, seu programa poderá reconhecer um parâmetro de tempo 
 ## Conexão: cadeia de conexão
 
 
-A cadeia de conexão necessária para conectar ao Banco de Dados SQL do Azure é um pouco diferente da cadeia de conexão para o Microsoft SQL Server. Você pode copiar a cadeia de conexão para o seu banco de dados do [portal de visualização do Azure](http://portal.azure.com/).
+A cadeia de conexão necessária para conectar ao Banco de Dados SQL do Azure é um pouco diferente da cadeia de conexão para o Microsoft SQL Server. Você pode copiar a cadeia de conexão para o seu banco de dados desde o [portal de visualização do Azure](http://portal.azure.com/).
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
@@ -211,7 +204,7 @@ ADO.NET 4.5: - adiciona suporte ao protocolo TDS 7.4. Isso inclui aprimoramentos
 Quando você usa um objeto de conexão de um pool de conexões, é recomendável que seu programa feche temporariamente a conexão quando ela não for usada imediatamente. Reabrir uma conexão não é tão caro quanto criar uma nova conexão.
 
 
-Se você estiver usando o ADO.NET 4.0 ou anterior, é recomendável que atualize para o ADO.NET mais recente. -A partir de julho de 2015, você poderá [baixar o ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+Se você estiver usando o ADO.NET 4.0 ou anterior, é recomendável que atualize para o ADO.NET mais recente. -a partir de julho de 2015, você poderá [baixar o ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -284,7 +277,7 @@ Aqui estão algumas instruções Transact-SQL SELECT que a consulta registra em 
 
 | Consulta de log | Descrição |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | A exibição [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) oferece informações sobre os eventos individuais, incluindo as falhas de conectividade relacionadas a reconfiguração, a limitação e a acúmulo de recursos excessivos.<br/><br/>O ideal é que você possa correlacionar os valores **start\_time** ou **end\_time** às informações sobre quando o programa cliente apresentou problemas.<br/><br/>**DICA:** você deverá se conectar ao banco de dados **mestre** para executar isto. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | A exibição [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) oferece informações sobre os eventos individuais, incluindo algumas que podem causar falhas transitórias ou falhas de conectividade.<br/><br/>O ideal é que você possa correlacionar os valores **start\_time** ou **end\_time** às informações sobre quando o programa cliente apresentou problemas.<br/><br/>**DICA:** você deverá se conectar ao banco de dados **mestre** para executar isto. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | A exibição [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas dos tipos de eventos para diagnóstico adicional.<br/><br/>**DICA:** você deverá se conectar ao banco de dados **mestre** para executar isto. |
 
 
@@ -407,7 +400,7 @@ Para obter detalhes, consulte: [5 - Tão fácil como evitar um log: usando o blo
 
 Em seguida, a partir da classe **SqlDatabaseTransientErrorDetectionStrategy**, é o código-fonte C# do método **IsTransient**. O código-fonte explica quais erros são considerados transitórios e dignos de repetição, até abril de 2013.
 
-Diversas linhas **//comment** foram removidas desta cópia para enfatizar a legibilidade.
+Diversas linhas de **//comentário** foram removidas desta cópia para enfatizar a legibilidade.
 
 
 ```
@@ -485,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* é uma biblioteca de tentativas de repetições de finalidade geral licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de tentativa de repetição para quase tudo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

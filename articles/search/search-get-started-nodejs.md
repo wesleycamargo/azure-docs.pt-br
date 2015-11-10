@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introdução à Pesquisa do Azure no NodeJS | Microsoft Azure"
-	description="Percorra a criação de um aplicativo de Pesquisa do Azure personalizado usando NodeJS como sua linguagem de programação."
+	description="Percorra a criação de um aplicativo de pesquisa em um serviço de pesquisa hospedado na nuvem no Azure usando NodeJS como linguagem de programação."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure no NodeJS
@@ -147,4 +147,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

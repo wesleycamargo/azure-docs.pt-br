@@ -3,7 +3,7 @@
 	description="Aprenda sobre o banco de dados SQL do Azure e SQL Server em máquinas virtuais do Azure. Revise comuns motivadores comerciais para determinar qual tecnologia SQL funciona melhor para seu aplicativo." 
 	services="sql-database, virtual-machines" 
 	documentationCenter="" 
-	authors="Selcin" 
+	authors="jeffgoll" 
 	manager="jeffreyg" 
 	editor="tysonn"/>
 
@@ -12,9 +12,9 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="10/19/2015" 
-	ms.author="selcint"/>
+	ms.author="jeffreyg"/>
 
 # Noções básicas sobre o Banco de Dados SQL do Azure e SQL Server em máquinas virtuais do Azure
 
@@ -257,4 +257,4 @@ Obrigado a todos por dar vida a este artigo!
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

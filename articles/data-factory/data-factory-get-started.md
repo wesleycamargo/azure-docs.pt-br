@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="10/12/2015"
+	ms.topic="get-started-article" 
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Tutorial: Copiar dados de um blob do Azure para o SQL do Azure
@@ -113,4 +113,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

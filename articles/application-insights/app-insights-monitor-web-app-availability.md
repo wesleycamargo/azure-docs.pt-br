@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="11/04/2015"
 	ms.author="awills"/>
 
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
@@ -217,14 +217,17 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 
 ## Perguntas? Problemas?
 
-
-* *Há uma diferença entre "testes na Web" e "disponibilidade"?*
-
-    Usamos os dois termos de forma intercambiável.
-
 * *Posso chamar o código através do meu teste na Web?*
 
     Não. As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Mas há uma série de plug-ins que você pode achar úteis.
+
+* *Há suporte para HTTPS?*
+
+    No momento, oferecemos suporte ao SSL 3.0 e ao TLS 1.0.
+
+* *Há diferença entre "testes na Web" e "testes de disponibilidade"?*
+
+    Usamos os dois termos de forma intercambiável.
 
 ## <a name="video"></a>Vídeo
 
@@ -246,4 +249,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

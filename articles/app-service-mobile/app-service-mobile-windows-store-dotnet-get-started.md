@@ -95,4 +95,4 @@ Nesta seção, você baixa um projeto de modelo de aplicativo Windows universal 
 [portal do Azure]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

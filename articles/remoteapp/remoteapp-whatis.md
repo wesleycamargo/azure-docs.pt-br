@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # O que é o RemoteApp do Azure?
 
-O RemoteApp do Azure oferece a funcionalidade do programa RemoteApp Microsoft local, o suporte pelos Serviços de área de trabalho remota, para o Azure. O RemoteApp do Azure o ajudará a fornecer acesso remoto seguro aos aplicativos de vários dispositivos de usuário diferentes.
+O RemoteApp do Azure oferece a funcionalidade do programa RemoteApp Microsoft local, o suporte pelos Serviços de área de trabalho remota, para o Azure. O RemoteApp do Azure o ajudará a fornecer acesso remoto seguro aos aplicativos de vários dispositivos de usuário diferentes. Basicamente, o Azure RemoteApp hospeda sessões não persistentes do Terminal Server na nuvem e você pode usá-las e compartilhá-las com seus usuários.
 
 Com o Azure RemoteApp, você pode compartilhar aplicativos e recursos com usuários em praticamente qualquer dispositivo. Hospedamos seus aplicativos na nuvem, o que significa que cuidamos do hardware e da escala para atender às demandas dos usuários. Tudo o que você precisa fazer é carregar os aplicativos que deseja compartilhar e fazer com que seus usuários usem esses aplicativos. [Os usuários mantêm seus próprios dispositivos](remoteapp-clients.md), enquanto você gerencia tudo por meio do portal do Azure. Você tem até a opção de usar suas credenciais corporativas, permitindo garantir a segurança de aplicativos e dados.
 
@@ -78,6 +78,6 @@ Vá! Experimente! Estes artigos ajudam a começar com o Azure RemoteApp:
  
 
 ### Ajude-nos a ajudar você 
-Você sabia que, além de classificar este artigo e de fazer comentários a seguir, você pode fazer alterações no próprio artigo? Falta alguma coisa? Há algo errado? Eu escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
+Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

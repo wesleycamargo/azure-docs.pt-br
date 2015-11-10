@@ -69,8 +69,9 @@ Ao selecionar a opção de filtro na parte superior da folha, você pode filtrar
 ## Links relacionados
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Instalação do Agente do Azure AD Connect Health para AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Instalação do Agente do Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
