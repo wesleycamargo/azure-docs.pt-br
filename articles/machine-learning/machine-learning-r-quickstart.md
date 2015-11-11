@@ -644,7 +644,8 @@ O código R completo para esta seção está disponível no arquivo zip baixado 
 
 Como já mencionado, as série de tempo são uma série de valores de dados indexados por tempo. Objetos de série de tempo R são usados para criar e gerenciar o índice de tempo. Há diversas vantagens em usar objetos de série de tempo. Os objetos de série temporal evitam que você tenha que lidar com os vários detalhes do gerenciamento dos valores de índice da série temporal que são encapsulados no objeto. Além disso, os objetos de série de tempo permitem que você use vários métodos de série de tempo para plotar, imprimir, modelar etc.
 
-A classe de série de tempo POSIXct é comumente usada e é relativamente simples. Essa classe de série de tempo mede o tempo a partir do início da época, 1º de janeiro de 1970. Vamos usar objetos de série de tempo POSIXct neste exemplo. Outras classes de objeto de série temporal de R amplamente utilizados incluem zoo e xts, série temporal extensível. <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+A classe de série de tempo POSIXct é comumente usada e é relativamente simples. Essa classe de série de tempo mede o tempo a partir do início da época, 1º de janeiro de 1970. Vamos usar objetos de série de tempo POSIXct neste exemplo. Outras classes de objeto de série temporal de R amplamente utilizados incluem zoo e xts, série temporal extensível.
+<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Exemplo de objeto de série temporal
 
@@ -1346,4 +1347,4 @@ Alguns ótimos recursos na Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!----HONumber=Oct15_HO4-->
+<!-----HONumber=Oct15_HO4-->
