@@ -68,10 +68,8 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Pesquisar | Sim | [Sim](https://portal.azure.com/#create/Microsoft.Search) | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
 | StorSimple | Não | Não | - | - | - |
-| Backup | Não | Não | - | - | - |
-| Recuperação de site | Não | Não | - | - | - |
 | Cache gerenciado | Não | Não | - | - | - |
-| Catálogo de dados | Não | Não | - | - | - |
+
 
 ## Análise
 
@@ -81,7 +79,8 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Análise de fluxo | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Data Factory | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DataFactory) | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Aprendizado de Máquina | Não | Não | - | - | - | | Catálogo de Dados | Não | Não | - | - | - |
+| Aprendizado de Máquina | Não | Não | - | - | - |
+| Catálogo de Dados | Não | Não | - | - | - |
 
 ## Rede
 
@@ -107,7 +106,8 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Serviços do BizTalk | Sim | Não | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Barramento de Serviço | Sim | Não | | [REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Backup | Não | Não | - | - | - | | Recuperação de Site | Não | Não | - | - | - |
+| Backup | Não | Não | - | - | - |
+| Recuperação de Site | Não | Não | - | - | - |
 
 ## Gerenciamento de acesso e identidade 
 
@@ -234,4 +234,4 @@ Você pode salvar as informações (incluindo as versões disponíveis de API) p
 - Para saber mais sobre como criar modelos do Gerenciador de Recursos do Azure, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar recursos, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

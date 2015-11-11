@@ -106,7 +106,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 	Isso configura um recurso (__conf\\hbase-site.xml__), que contém informações de configuração para o HBase.
 
-	> [AZURE.NOTE]Você também pode definir valores de configuração via código. Veja os comentários no exemplo __CreateTable__ abaixo sobre como fazer isso.
+	> [AZURE.NOTE] Você também pode definir valores de configuração via código. Veja os comentários no exemplo __CreateTable__ abaixo sobre como fazer isso.
 
 	Isso também configura o [Plug-in compilador do Maven](http://maven.apache.org/plugins/maven-compiler-plugin/) e o [Plug-in de tonalidade do Maven](http://maven.apache.org/plugins/maven-shade-plugin/). O plug-in compilador é usado para compilar a topologia. O plug-in de tonalidade é usado para evitar a duplicação de licenças no pacote JAR que é criado pelo Maven. O motivo do uso desse recurso é que os arquivos de licença duplicados causam um erro no momento da execução no cluster do HDInsight. Utilizar o plug-in de tonalidade do Maven com a implementação `ApacheLicenseResourceTransformer` evita esse erro.
 
@@ -156,7 +156,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 	Esse arquivo será usado para carregar a configuração HBase para um cluster HDInsight.
 
-	> [AZURE.NOTE]Esse é um arquivo hbase-site.xml absolutamente mínimo, contendo as configurações estritamente mínimas para o cluster HDInsight. Para um versão completa do arquivo de configuração hbase-site.xml usado pelo HDInsight, consulte [Gerenciar clusters Hadoop no HDInsight usando o portal do Azure](hdinsight-administer-use-management-portal.md#rdp). O arquivo hbase-site.xml está no diretório C:\\apps\\dist\\hbase-<número de versão>-hadoop2\\conf. A parte do caminho para o arquivo referente ao número de versão será modificada conforme o HBase é atualizado no cluster.
+	> [AZURE.NOTE] Esse é um arquivo hbase-site.xml absolutamente mínimo, contendo as configurações estritamente mínimas para o cluster HDInsight. Para um versão completa do arquivo de configuração hbase-site.xml usado pelo HDInsight, consulte [Gerenciar clusters Hadoop no HDInsight usando o portal do Azure](hdinsight-administer-use-management-portal.md#rdp). O arquivo hbase-site.xml está no diretório C:\apps\dist\hbase-&lt;número de versão>-hadoop2\conf. A parte do caminho para o arquivo referente ao número de versão será modificada conforme o HBase é atualizado no cluster.
 
 3. Salve o arquivo __hbase-site.xml__.
 
@@ -347,11 +347,11 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 3. Assim que o comando for concluído, o diretório __hbaseapp\\target__ conterá um arquivo chamado __hbaseapp-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]O arquivo __hbaseapp-1.0-SNAPSHOT.jar__ é um uberjar (algumas vezes chamado de fatjar), que contém todas as dependências exigidas para executar o aplicativo.
+	> [AZURE.NOTE] O arquivo __hbaseapp-1.0-SNAPSHOT.jar__ é um uberjar (algumas vezes chamado de fatjar), que contém todas as dependências exigidas para executar o aplicativo.
 
 ##Carregar o arquivo JAR e iniciar um trabalho
 
-> [AZURE.NOTE]Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md). As etapas a seguir usam o [PowerShell do Azure](../install-configure-powershell.md).
+> [AZURE.NOTE] Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md). As etapas a seguir usam o [PowerShell do Azure](../install-configure-powershell.md).
 
 1. Após instalar e configurar o PowerShell do Azure, crie um novo arquivo chamado __hbase-runner.psm1__. Use o seguinte como conteúdo deste arquivo:
 
@@ -619,4 +619,4 @@ Substitua __hdinsightclustername__ pelo nome do seu cluster HDInsight.
 
 Utilize o parâmetro `-showErr` para exibir o erro padrão (STDERR) produzido durante a execução do trabalho.
 
-<!----HONumber=Oct15_HO4-->
+<!-----HONumber=Oct15_HO4-->
