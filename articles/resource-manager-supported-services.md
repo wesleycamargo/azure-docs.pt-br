@@ -32,7 +32,9 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 | Máquinas Virtuais | Sim | Sim, várias opções | Não | [Criar VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Sim | [Sim (somente clássicas)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Serviços de ciclo de vida do Dynamics | Sim | Não | | | |
-| Máquinas Virtuais (clássicas) | Limitado | Sim, várias opções | Parcial (veja abaixo) | - | - | | Aplicativo Remoto | Não | Não | - | - | - | | Service Fabric | Não | Não | - | - | - |
+| Máquinas Virtuais (clássicas) | Limitado | Sim | Parcial (veja abaixo) | - | - |
+| Aplicativo remoto | Não | - | - | - | - |
+| Service Fabric | Não | - | - | - | - |
 
 Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para obter mais informações sobre esses modelos de implantação, veja [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -65,7 +67,11 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Banco de dados SQL | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Sim | [Criar banco de dados](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Pesquisar | Sim | [Sim](https://portal.azure.com/#create/Microsoft.Search) | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| StorSimple | Não | Não | - | - | - |
+| Backup | Não | Não | - | - | - |
+| Recuperação de site | Não | Não | - | - | - |
 | StorSimple | Não | Não | - | - | - | | Cache gerenciado | Não | Não | - | - | - |
+| Catálogo de dados | Não | Não | - | - | - |
 
 ## Análise
 
@@ -108,7 +114,9 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Active Directory do Azure | Não | Não | - | - | - | | Actice Directory B2C do Azure | Não | Não | - | - | - | | Autenticação multifator | Não | Não | - | - | - |
+| Active Directory do Azure | Não | Não | - | - | - |
+| Actice Directory B2C do Azure | Não | Não | - | - | - |
+| Autenticação multifator | Não | Não | - | - | - |
 
 ## Serviços para Desenvolvedores 
 

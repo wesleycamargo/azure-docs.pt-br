@@ -364,12 +364,19 @@ Para configurar, você precisa atualizar o arquivo courier.config na pasta **Con
 
 Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+De maneira semelhante, instale o módulo Courier em seu site de produção e configure-o para apontar para o aplicativo Web de estágio em seu respectivo arquivo courier.config, conforme mostrado aqui
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
+  <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+            <user>0</user>
+           </repository>
+  </repositories>
+```
 
 Clique na guia Courier2 no painel do aplicativo Web Umbraco CMS e selecione os locais. Você deve ver o nome do repositório, como mencionado em `courier.config`. Faça isso tanto nos aplicativos Web de produção quanto nos de preparo.
 
