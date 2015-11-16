@@ -1,16 +1,16 @@
 
 <properties
-	pageTitle="Backup do Azure - gerenciar máquinas virtuais | Microsoft Azure"
-	description="Saiba como gerenciar uma máquina virtual do Azure"
+	pageTitle="Gerenciar e monitorar backups de máquinas virtuais do Azure | Microsoft Azure"
+	description="Saiba como gerenciar e monitorar backups de uma máquina virtual do Azure"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
-# Gerenciar e monitorar o backup de máquinas virtuais do Azure
+# Gerenciar e monitorar backups de máquinas virtuais do Azure
 
 ## Gerenciar máquinas virtuais protegidas
 
@@ -249,4 +249,4 @@ Os alertas baseados em eventos em estão sujeitos às seguintes limitações:
 
 - [Restaurar máquinas virtuais do Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

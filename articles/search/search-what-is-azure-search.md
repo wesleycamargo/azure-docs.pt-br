@@ -1,6 +1,6 @@
 <properties
 	pageTitle="O que é a Pesquisa do Azure"
-	description="Visão geral técnica e resumo dos recursos de Pesquisa do Azure"
+	description="A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado. Saiba mais nesta visão geral técnica e resumo dos recursos."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,12 +14,12 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # O que é a Pesquisa do Azure?
 
-O Serviço de Pesquisa do Azure é um serviço de nuvem totalmente gerenciado que permite que os desenvolvedores criem aplicativos avançados de pesquisa usando um SDK de .NET ou APIs REST. Ele inclui a pesquisa de texto completo com escopo sobre o seu conteúdo mais comportamentos de pesquisa avançados semelhantes àqueles encontrados nos mecanismos de pesquisa da web comercial, tais como, sugestões de preenchimento automático de consulta com base em um termo parcial de entrada, realce de ocorrências e navegação facetada. O suporte de linguagem natural é incorporado, usando as regras linguísticas apropriadas para o idioma especificado.
+O Serviço da Pesquisa do Azure é um serviço de nuvem hospedado totalmente gerenciado que permite que os desenvolvedores criem aplicativos avançados de pesquisa usando um SDK do .NET ou as APIs REST. Ele inclui a pesquisa de texto completo com escopo sobre o seu conteúdo mais comportamentos de pesquisa avançados semelhantes àqueles encontrados nos mecanismos de pesquisa da web comercial, tais como, sugestões de preenchimento automático de consulta com base em um termo parcial de entrada, realce de ocorrências e navegação facetada. O suporte de linguagem natural é incorporado, usando as regras linguísticas apropriadas para o idioma especificado.
 
 Você pode dimensionar o seu serviço com base na necessidade do aumento de pesquisa ou capacidade de armazenamento. Por exemplo, os varejistas podem aumentar a capacidade para atender os volumes adicionais associados aos eventos promocionais ou compras no feriado.
 
@@ -131,4 +131,4 @@ Você também pode tentar estes tutoriais:
 
 [Como usar a Pesquisa do Azure no .NET](search-howto-dotnet-sdk.md) [Introdução ao .NET da Pesquisa do Azure](search-get-started-dotnet.md) [Pesquisa do Azure: tutoriais, demonstrações em vídeo e exemplos](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

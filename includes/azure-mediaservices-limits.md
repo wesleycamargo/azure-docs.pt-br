@@ -9,11 +9,11 @@ Trabalhos por conta AMS ||50\.000<sup>2</sup>
 Localizadores exclusivos associados a um ativo simultaneamente||5<sup>4</sup>
 Canais ao vivo por conta AMS</p></td>|5</p></td>|N/A<sup>1</sup>
 Programas no estado “interrompido” por canal</p></td>|50</p></td>|N/A<sup>1</sup>
-Programa no estado “executando” por canal </p></td>|3</p></td>|N/A<sup>1</sup>
-Pontos de extremidade de streaming no estado “executando” por conta AMS</p></td>|2</p></td>|N/A<sup>1</sup>
-Unidades de streaming por ponto de extremidade de streaming</p></td>|10 </p></td>|N/A<sup>1</sup>
-Unidades de codificação por conta AMS</p></td>|25</p></td>|N/A<sup>1</sup>
-Contas de armazenamento | |1,000<sup>5</sup>
+Programa no estado “executando” por canal </p></td>|3</p></td>|3
+Pontos de extremidade de transmissão no estado de execução por conta do AMS</p></td>|2</p></td>|ND<sup>1</sup>
+Unidades de transmissão por ponto de extremidade de transmissão </p></td>|10 </p></td>|ND<sup>1</sup>
+Unidades de codificação por conta do AMS </p></td>|25</p></td>|ND<sup>1</sup>
+Contas de armazenamento | |1\.000<sup>5</sup>
 
 <sup>1</sup> Você pode solicitar para atualizar os limites para essa cota abrindo um tíquete de suporte. Não crie mais contas AMS para aumentar os limites; em vez disso, envie um tíquete de suporte.
 
@@ -23,6 +23,6 @@ Contas de armazenamento | |1,000<sup>5</sup>
 
 <sup>4</sup> Os localizadores não foram desenvolvidos para gerenciar o controle de acesso por usuário. Para conceder direitos de acesso diferentes para usuários individuais, use as soluções de gerenciamento de direitos digitais (DRM).
 
-<sup>5</sup> As contas de armazenamento devem ser da mesma assinatura do Azure.
+<sup>5</sup> As contas de armazenamento devem pertencer à mesma assinatura do Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

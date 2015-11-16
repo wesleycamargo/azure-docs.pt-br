@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/13/2015"
+   ms.workload="data-management"
+   ms.date="10/21/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -96,7 +96,7 @@ Para outras maneiras de criptografar seus segredos de dados, considere:
 
 * [Criptografia no nível de célula](https://msdn.microsoft.com/library/ms179331.aspx) para criptografar colunas específicas ou até mesmo células de dados com diferentes chaves de criptografia.
 * Se você precisar de um Módulo de Segurança de Hardware ou do gerenciamento central de sua hierarquia de chaves de criptografia, considere o uso do [cofre da chave do Azure com o SQL Server em uma VM do Azure](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
-
+* [Sempre Criptografado](https://msdn.microsoft.com/library/mt163865.aspx) (na visualização) torna a criptografia transparente para os aplicativos e permite que os clientes criptografem dados confidenciais em aplicativos cliente sem compartilhar as chaves de criptografia com o Banco de Dados SQL.
 
 ## Auditoria
 
@@ -106,4 +106,4 @@ A Auditoria e o rastreamento dos eventos de banco de dados podem ajudar você a 
 
 Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a atender a vários requisitos de conformidade de segurança, o Banco de Dados SQL do Azure também participa de auditorias regulares e foi certificado em relação a vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](http://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](http://azure.microsoft.com/support/trust-center/services/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

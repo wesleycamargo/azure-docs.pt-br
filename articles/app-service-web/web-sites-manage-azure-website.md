@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="10/28/2015" 
 	ms.author="erikre"/>
 
 # Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure
@@ -66,7 +66,7 @@ Enquanto seu aplicativo Web estiver em execução, verifique se ele está dispon
 ### Backups
 
 - Defina [backups automáticos](web-sites-backup.md) de seu aplicativo Web. Saiba mais sobre backups [neste vídeo](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Saiba sobre as opções para a [recuperação de banco de dados](http://msdn.microsoft.com/library/azure/hh852669.aspx) no Banco de dados SQL do Azure.
+- Saiba sobre as opções para a [recuperação de banco de dados](https://azure.microsoft.com/pt-BR/documentation/articles/sql-database-business-continuity/) no Banco de dados SQL do Azure.
 
 ### Solucionar problemas
 
@@ -103,4 +103,4 @@ Se você usar o Visual Studio Online, é possível configurar a implantação co
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

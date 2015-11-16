@@ -62,7 +62,10 @@ Nesta seção, você escreverá um aplicativo do console do Windows que simula u
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
 
-> [AZURE.NOTE]Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, é recomendado implementar políticas de repetição (por exemplo, retirada exponencial), como sugerido no artigo do MSDN [Tratamento de falhas transitórias].
+  Por padrão, o método **Create** cria um **DeviceClient** que usa o protocolo AMQP para se comunicar com o Hub IoT. Para usar o protocolo HTTPS, use a substituição do método **Create** para especificar o protocolo. Se você optar por usar o protocolo HTTPS, você também deve adicionar o pacote NuGet **Microsoft.AspNet.WebApi.Client** ao seu projeto para incluir o namespace **System.Net.Http.Formatting**.
+
+
+> [AZURE.NOTE]Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, é recomendado implementar políticas de repetição (como a retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias] do MSDN.
 
 <!-- Links -->
 
@@ -72,4 +75,4 @@ Nesta seção, você escreverá um aplicativo do console do Windows que simula u
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

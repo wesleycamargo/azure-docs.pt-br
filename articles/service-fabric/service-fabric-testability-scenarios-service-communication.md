@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Cenários da Possibilidade de Teste da Malha do Serviço: comunicação do serviço" 
+   pageTitle="Possibilidade de teste: comunicação de serviço | Microsoft Azure" 
    description="As comunicação entre serviços é um ponto de integração essencial de um aplicativo da Malha do Serviço. Este artigo aborda as considerações de design e as técnicas de teste." 
    services="service-fabric" 
    documentationCenter=".net" 
@@ -16,7 +16,7 @@
    ms.date="08/25/2015"
    ms.author="vturecek"/>
 
-# Cenários da Possibilidade de Teste da Malha do Serviço: comunicação do serviço
+# Cenários de possibilidade de teste do Service Fabric: comunicação do serviço
 
 Os estilos de arquitetura orientada a serviços e microsserviços surgem naturalmente na Malha do Serviço. Nesses tipos de arquiteturas distribuídas, os aplicativos de microsserviço divididos em componentes são compostos normalmente por vários serviços que precisam se comunicar. Mesmo no caso mais simples, há geralmente pelo menos um serviço Web sem estado e um serviço de armazenamento de dados com estado que precisam se comunicar.
 
@@ -101,4 +101,4 @@ Neste exemplo, definimos `QuorumLossMode` como `PartialQuorumLoss` para indicar 
 
 [Saiba mais sobre os Cenários da Possibilidade de Teste](service-fabric-testability-scenarios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

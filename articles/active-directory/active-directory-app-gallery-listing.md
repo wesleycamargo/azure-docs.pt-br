@@ -13,48 +13,88 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="10/29/2015"
    ms.author="mbaldwin"/>
 
 
 # Listando seu aplicativo na galeria de aplicativos do Azure Active Directory
 
-Para listar um aplicativo que oferece suporte a logon único com o Azure Active Directory na [Galeria do Azure AD](http://azure.microsoft.com/marketplace/active-directory/all/) e no Azure Marketplace, a equipe do Azure AD precisará verificar sua integração. Isso requer que você envie as informações a seguir para <waadpartners@microsoft.com>:
+Para listar um aplicativo que dê suporte a logon único com o Active Directory do Azure na [galeria do Azure AD](http://azure.microsoft.com/marketplace/active-directory/all/), o aplicativo primeiro precisa implementar um dos seguintes modos de integração:
 
-- O nome de usuário e a senha de uma conta de usuário de teste em uma instância de teste do Azure Active Directory que é capaz de entrar em seu aplicativo
-- URL e/ou instruções sobre como esse usuário de teste deve entrar no aplicativo
-- Forneça uma breve descrição de como os clientes criam a conexão entre seu aplicativo e o Azure AD. Isso poderia ser:
-  - Incorporado ao aplicativo usando a estrutura de consentimento do Azure AD
-  - Configurando o Azure AD como um provedor de identidade (SAML 2.0, WS-Federation ou OpenID Connect) usando o portal administrativo de um aplicativo
-  - Entrando em contato com alguém na sua organização para criar a conexão manualmente
-- Se seu aplicativo oferecer suporte à configuração do Azure AD como um provedor de identidade por meio de um portal administrativo de autoatendimento, forneça também uma conta de administrador de teste para verificação.
+* **OpenID Connect**: integração direta com o Azure AD usando o OpenID Connect para autenticação e a API de consentimento do AD do Azure para configuração. Se você estiver apenas começando uma integração e seu aplicativo não der suporte a SAML, esse é o modo recomendado.
 
-Depois que o teste for concluído, o aplicativo poderá ser listado na galeria de aplicativos do Azure Active Directory e no Azure Marketplace. Responda às perguntas abaixo e envie para <waadpartners@microsoft.com>.
+* **SAML**: seu aplicativo já tem a capacidade de configurar provedores de identidade de terceiros usando o protocolo SAML.
+
+Os requisitos de listagem para cada modo estão abaixo.
+
+##Integração do OpenID Connect
+
+Para integrar seu aplicativo ao Azure AD, siga as [instruções de desenvolvedor](active-directory-authentication-scenarios.md). Responda às perguntas abaixo e envie para waadpartners@microsoft.com.
+
+* Fornece credenciais para uma conta ou locatário de teste com o aplicativo que pode ser usado pela equipe do Azure AD para testar a integração.  
+
+* Forneça instruções sobre como a equipe do AD do Azure pode entrar e conectar uma instância do AD do Azure em seu aplicativo usando a [estrutura de consentimento do AD do Azure](https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
+
+* Forneça instruções adicionais necessárias à equipe do AD do Azure para testar o logon único no seu aplicativo.
+
+* Forneça as informações abaixo:
 
 > Nome da empresa:
->
+> 
 > Site da empresa:
->
+> 
 > Nome do aplicativo:
->
+> 
 > Descrição do aplicativo (limite de 256 caracteres):
->
+> 
 > Site do aplicativo (informativo):
->
+> 
 > Site de suporte técnico do aplicativo ou informações de contato:
->
-> Você integrou seu aplicativo ao Azure AD e o testou (consulte [cenários de autenticação do Azure Active Directory](active-directory-authentication-scenarios.md))?
->
+> 
 > ID do cliente do aplicativo, conforme mostrado nos detalhes do aplicativo em https://manage.windowsazure.com:
->
+> 
 > URL de inscrição do aplicativo onde os clientes vão para se inscrever e/ou comprar o aplicativo:
->
-> Escolha até três categorias em que seu aplicativo deva ser listado (para saber as categorias disponíveis, consulte o [Azure Active Directory Marketplace](http://go.microsoft.com/fwlink/?LinkId=327881)):
->
+> 
+> Escolha até três categorias em que seu aplicativo deva ser listado (para saber as categorias disponíveis, consulte o Azure Active Directory Marketplace):
+> 
 > Anexe o ícone pequeno do aplicativo (arquivo PNG, 45px por 45px, cor de plano de fundo sólida):
->
+> 
 > Anexe o ícone grande do aplicativo (arquivo PNG, 215px por 215px, cor de plano de fundo transparente):
->
+> 
 > Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
 
-<!---HONumber=Oct15_HO3-->
+##Integração SAML
+
+Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a um locatário do AD do Azure usando [estas instruções para adicionar um aplicativo personalizado](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). Depois de testar se a integração do aplicativo funciona com o AD do Azure, envie as informações a seguir para <waadpartners@microsoft.com>.
+
+* Fornece credenciais para uma conta ou locatário de teste com o aplicativo que pode ser usado pela equipe do Azure AD para testar a integração.  
+
+* Forneça os valores da URL de logon do SAML, da URL de emissor (ID da entidade) e da URL de resposta (serviço do consumidor de declaração) para seu aplicativo, conforme descrito [aqui](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). Se você geralmente fornece esses valores como parte de um arquivo de metadados do SAML, envie este também.
+
+* Forneça uma breve descrição de como configurar o AD do Azure como um provedor de identidade em seu aplicativo usando o SAML 2.0. Se seu aplicativo der suporte à configuração do AD do Azure como um provedor de identidade por meio de um portal administrativo de autoatendimento, verifique se as credenciais fornecidas acima incluem a capacidade de configurá-la.
+
+* Forneça as informações abaixo:
+
+> Nome da empresa:
+> 
+> Site da empresa:
+> 
+> Nome do aplicativo:
+> 
+> Descrição do aplicativo (limite de 256 caracteres):
+> 
+> Site do aplicativo (informativo):
+> 
+> Site de suporte técnico do aplicativo ou informações de contato:
+> 
+> URL de inscrição do aplicativo onde os clientes vão para se inscrever e/ou comprar o aplicativo:
+> 
+> Escolha até três categorias em que seu aplicativo deva ser listado (para saber as categorias disponíveis, consulte o [Azure Active Directory Marketplace](https://azure.microsoft.com/pt-BR/marketplace/active-directory/))):
+> 
+> Anexe o ícone pequeno do aplicativo (arquivo PNG, 45px por 45px, cor de plano de fundo sólida):
+> 
+> Anexe o ícone grande do aplicativo (arquivo PNG, 215px por 215px, cor de plano de fundo transparente):
+> 
+> Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
+
+<!---HONumber=Nov15_HO2-->

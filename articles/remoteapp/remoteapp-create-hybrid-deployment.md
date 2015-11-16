@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # Como criar uma coleção híbrida para o Azure RemoteApp
@@ -54,7 +54,7 @@ Você precisa fazer o seguinte antes de criar a coleção:
 ## Etapa 1: Configurar a sua rede virtual
 Você pode implantar uma coleção híbrida que use uma rede virtual existente do Azure, ou pode criar uma nova rede virtual. Uma rede virtual permite que os seus usuários acessem os dados da sua rede local através dos recursos remotos do RemoteApp. Usar uma rede virtual do Azure fornece à sua coleção acesso direto à rede a outros serviços do Azure e máquinas virtuais implantadas naquela rede virtual.
 
-Examine as informações sobre [Planejamento de Rede Virtual](remoteapp-planvpn.md) e [Tamanho da Rede Virtual](remoteapp-vnetsizing.md) antes de criar sua Rede Virtual.
+Examine as informações sobre [planejamento da Rede Virtual](remoteapp-planvnet.md) e [Tamanho da Rede Virtual](remoteapp-vnetsizing.md) antes de criar sua Rede Virtual.
 
 ### Criar um VNET do Azure e associá-lo à sua implantação do Active Directory
 
@@ -87,6 +87,8 @@ Você pode encontrar mais informações sobre a criação de máquinas virtuais 
 
 Depois de criar sua coleção do Azure RemoteApp, clique duas vezes no nome da coleção. Isso abrirá a página **Início Rápido** - é nela que você terminará de configurar a coleção.
 
+Algo deu errado? Confira as [informações de solução de problemas de coleção híbrida](remoteapp-hybridtrouble.md).
+
 ## Etapa 3: Vincular sua coleção ao domínio local ##
 
  
@@ -98,7 +100,7 @@ Depois de criar sua coleção do Azure RemoteApp, clique duas vezes no nome da c
 
 ## Etapa 4: Criar uma imagem do Azure RemoteApp ##
 
-Uma imagem do modelo do Azure RemoteApp contém programas que você quer compartilhar com os usuários. Você pode criar uma nova [imagem de modelo](remoteapp-imageoptions.md) ou vincular a uma imagem existente (uma já importada ou carregada no RemoteApp do Azure). Você também pode vincular a uma das [imagens de modelo](remoteapp-images.md) do Azure RemoteApp que contém os programas Office 365 ou Office 2013 (para avaliação).
+Uma imagem do modelo do Azure RemoteApp contém programas que você quer compartilhar com os usuários. Você pode criar uma nova [imagem de modelo](remoteapp-imageoptions.md) ou vincular a uma imagem existente (uma já importada ou carregada no RemoteApp do Azure). Você também pode vincular a uma das [imagens de modelo](remoteapp-images.md) do Azure RemoteApp que contém os programas Office 365 ou Office 2013 (para uso de avaliação).
 
 Se estiver fazendo o upload da nova imagem, será necessário inserir o nome e escolher o local para a imagem. Na próxima página do assistente, você verá um conjunto de cmdlets do PowerShell - copie e execute esses cmdlets em um prompt elevado do Windows PowerShell para fazer o upload da imagem específica.
 
@@ -110,7 +112,7 @@ Se estiver conectando-se a uma imagem do modelo existente, especifique o nome da
 
 O Azure RemoteApp requer que você se integre ao Active Directory do Azure 1) configurando o Active Directory do Azure com a opção de sincronização de senha, ou 2) configurando o Active Directory do Azure sem a opção de sincronização de senha, mas usando um domínio federado ao AD FS.
 
-Consulte [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) - este artigo ajuda a configurar a integração de diretórios em quatro etapas.
+Confira [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) - este artigo ajuda você a configurar a integração de diretórios em quatro etapas.
 
 Consulte o [Roteiro de sincronização do diretório](http://msdn.microsoft.com//library/azure/hh967642.aspx) para as informações de planejamento e etapas detalhadas.
 
@@ -120,7 +122,7 @@ Um aplicativo do Azure RemoteApp é o aplicativo ou programa fornecido aos usuá
 
 Antes que os usuários possam acessar aplicativos, você precisa publicá-los para o feed do usuário final – uma lista dos aplicativos disponíveis que os usuários acessam por meio do cliente da área de trabalho remota.
  
-Você pode publicar vários aplicativos em sua coleção. Na página de publicação, clique em **Publicar** para adicionar um aplicativo. É possível publicar no menu **Iniciar** da imagem do modelo ou especificar o caminho na imagem do modelo do aplicativo. Se você optar por adicionar do menu **Iniciar**, escolha o programa a ser adicionado. Se você optar por fornecer o caminho para o aplicativo, forneça um nome para o aplicativo e o caminho para onde ele está instalado na imagem do modelo.
+Você pode publicar vários aplicativos em sua coleção. Na página de publicação, clique em **Publicar** para adicionar um aplicativo. É possível publicar por meio do menu **Iniciar** da imagem do modelo ou especificando o caminho na imagem do modelo do aplicativo. Se você optar por adicionar por meio do menu **Iniciar**, escolha o programa a ser adicionado. Se você optar por fornecer o caminho para o aplicativo, forneça um nome para o aplicativo e o caminho para onde ele está instalado na imagem do modelo.
 
 ## Etapa 7: Configurar o acesso do usuário ##
 
@@ -147,4 +149,4 @@ Agora que você criou sua coleção, precisa adicionar os usuários que você qu
 ### Ajude-nos a ajudar você 
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

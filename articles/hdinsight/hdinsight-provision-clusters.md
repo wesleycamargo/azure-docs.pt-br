@@ -240,7 +240,7 @@ Para obter mais informações sobre os recursos, benefícios e capacidades das r
 
 ## Criar usando o portal de visualização
 
-Você pode consultar as [opções de configuração básica] e as [opções de configuração avançada] para ver as explicações dos campos.
+Você pode consultar as [opções de configuração básica](#basic-configuration-options) e as [opções de configuração avançada](#advanced-configuration-options) para ver as explicações dos campos.
 
 **Para criar um cluster HDInsight**
 
@@ -757,4 +757,4 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop com
 [ssisclustercreate]: http://msdn.microsoft.com/pt-BR/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/pt-BR/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -29,7 +29,7 @@ Se você planeja executar cargas de trabalho em Lote de produção, talvez seja 
 ## Cotas de assinatura
 Recurso|Limite padrão|Limite máximo
 ---|---|---
-Contas do Lote por região e assinatura|1|20
+Contas do Lote por região e assinatura|1|50
 
 ## Cotas para conta do Lote
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -95,4 +95,4 @@ O suporte do Azure entrará em contato com você. A conclusão do pedido pode le
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

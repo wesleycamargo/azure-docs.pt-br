@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Criar um aplicativo de pesquisa geoespacial usando a Pesquisa do Azure" 
-	description="Crie um aplicativo de pesquisa geoespacial usando o Bing e a Pesquisa do Azure" 
+	pageTitle="Criar um aplicativo de pesquisa geoespacial usando a Pesquisa do Azure | Microsoft Azure" 
+	description="Crie um aplicativo de pesquisa geoespacial usando o Bing e a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Criar um aplicativo de pesquisa geoespacial usando a Pesquisa do Azure
@@ -167,4 +167,4 @@ Para um estudo individual adicional, considere adicionar mais capacidade ao apli
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

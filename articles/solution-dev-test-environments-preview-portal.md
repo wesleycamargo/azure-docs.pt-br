@@ -144,7 +144,7 @@ A tabela a seguir lista os valores padrão para os parâmetros especificados no 
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Criar ambientes
-Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](azure-portal/resource-group-portal.md). Grupos de recursos o habilitam a agrupar recursos do Azure para que eles possam ser gerenciados coletivamente. [Permissões](azure-portal/resource-group-rbac.md) podem ser atribuídas a grupos de recursos, de modo que pessoas específicas de sua organização possam criá-los, modificá-los, excluí-los ou exibi-los, juntamente com os recursos neles. Alertas e informações de cobrança de recursos no grupo de recursos podem ser exibidos no [Portal de Visualização do Azure](https://portal.azure.com). Grupos de recursos são criados em um [local](http://azure.microsoft.com/regions/) do Azure. Neste artigo, todos os recursos são criados no local Centro dos Estados Unidos. Ao começar a criar ambientes reais, você poderá escolher o local que melhor atende às suas necessidades.
+Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](azure-portal/resource-group-portal.md). Grupos de recursos o habilitam a agrupar recursos do Azure para que eles possam ser gerenciados coletivamente. [Permissões](resource-group-rbac.md) podem ser atribuídas a grupos de recursos, para que pessoas específicas em sua organização possam criar, modificar, excluir ou exibi-los, juntamente com os recursos neles. Alertas e informações de cobrança de recursos no grupo de recursos podem ser exibidos no [Portal de Visualização do Azure](https://portal.azure.com). Grupos de recursos são criados em um [local](http://azure.microsoft.com/regions/) do Azure. Neste artigo, todos os recursos são criados no local Centro dos Estados Unidos. Ao começar a criar ambientes reais, você poderá escolher o local que melhor atende às suas necessidades.
 
   **Etapa 5:** crie grupos de recursos para os ambientes de desenvolvimento e testes usando um dos métodos a seguir. Ambos os métodos obterão exatamente o mesmo resultado.
 
@@ -384,4 +384,4 @@ Agora que viu como é fácil criar, manter e excluir os ambientes de desenvolvim
 - Use o [Release Management para Visual Studio](http://msdn.microsoft.com/Library/vs/alm/Release/overview) para criar pipelines de implantação gerenciados e contínuos, a fim de liberar com rapidez, facilidade e frequência.
 - Solicite um convite para a visualização do [Laboratório de Desenvolvimento/Teste do Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Ele o habilita a gerenciar ambientes de laboratório de desenvolvimento e teste usando modelos e configurar cotas e políticas para uso em sua organização.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

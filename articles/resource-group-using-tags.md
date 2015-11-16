@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="10/28/2015"
 	ms.author="tomfitz"/>
 
 
@@ -155,8 +155,9 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcas de cobr
 
 ## Próximas etapas
 
-- Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, veja a seção [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md).
-- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, veja a seção [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
-- Para obter uma introdução ao uso do portal de visualização, veja a seção [Usando o portal de visualização do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
+- É possível aplicar restrições e convenções em sua assinatura com políticas personalizadas. A política que você definir pode exigir que uma determinada marca seja definida para todos os recursos. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
+- Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, veja [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md).
+- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, veja [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
+- Para obter uma introdução ao uso do portal de visualização, veja [Usando o portal de visualização do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Mover e processar arquivos de log usando o [PowerShell] do Data Factory
 Este artigo fornece uma passo a passo completo de um cenário canônico de processamento de log usando o Data Factory do Azure para transformar dados de arquivos de log em informações.
+
+> [AZURE.IMPORTANT]Este artigo não cobre todos os cmdlets de Data Factory. Consulte [Referência de cmdlet de Data Factory][cmdlet-reference] para obter uma documentação abrangente sobre os cmdlets de Data Factory.
+>    
+> Se estiver usando o Azure PowerShell 1.0 Preview, você precisará usar os cmdlets documentados [aqui](https://msdn.microsoft.com/library/dn820234.aspx). Por exemplo, use New-AzureRMDataFactory em vez de New-AzureDataFactory.
 
 ## Cenário
 A Contoso é uma empresa de jogos que cria os jogos para várias plataformas: PCs (computadores pessoais), dispositivos de mão e consoles de jogos. Cada um desses jogos produz toneladas de logs. O objetivo da Contoso é coletar e analisar os logs gerados por esses jogos para obter informações sobre o uso, identificar oportunidades de vendas e vendas cruzadas, desenvolver novos recursos atraentes etc. para melhorar os negócios e fornecer a melhor experiência para os clientes.
@@ -297,7 +301,7 @@ O Portal do Azure não dá suporte à criação de conjuntos de dados e tabelas 
 ### Para criar as tabelas
 
 1.	No PowerShell do Azure, navegue até a pasta **Tabelas** (**C:\\ADFWalkthrough\\Tables**) do local onde você extraiu os exemplos.
-2.	Use o cmdlet **New-AzureDataFactoryDataset** para criar o conjunto de dados conforme descrito a seguir para **RawGameEventsTable**.json	
+2.	Use o cmdlet **New-AzureDataFactoryDataset** para criar o conjunto de dados para **RawGameEventsTable**.json, como descrito a seguir	
 
 
 		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
@@ -434,7 +438,7 @@ Para especificar o período ativo para o pipeline, você pode usar o cmdlet Set-
 
 	![Folha FATIA DE DADOS RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Se houver um erro, você verá um status **Falha** aqui. Você também pode ver as duas fatias com status **Pronto** ou com status **PendingValidation**, dependendo da rapidez com que as fatias são processadas.
+	Se houver um erro, você verá um status **Falha** aqui. Você também pode ver as duas fatias com status **Ready** ou com status **PendingValidation**, dependendo da rapidez com que as fatias são processadas.
  
 	Consulte a [Referência do Desenvolvedor do Azure Data Factory][developer-reference] para obter uma compreensão de todos os status possíveis da fatia.
 
@@ -558,4 +562,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -40,7 +40,7 @@ Pools de banco de dados elástico no Banco de Dados SQL do Azure permitem que IS
 
 Pools de banco de dados elástico também são indicados para um grande número de bancos de dados com padrões de utilização específicos. Para um determinado banco de dados, esse padrão é caracterizado por baixa utilização média com picos de utilização relativamente pouco frequentes.
 
-Quanto mais bancos de dados forem adicionados ao pool, maior será a economia; porém, dependendo do seu padrão de utilização do aplicativo, é possível observar uma economia em, no mínimo, dois bancos de dados S3.
+Quanto mais bancos de dados você conseguir adicionar a um pool, maior será a sua economia. Dependendo de seu padrão de utilização do aplicativo, é possível ver economias com apenas dois bancos de dados S3.
 
 As seções a seguir ajudarão a compreender como avaliar se sua coleção específica de bancos de dados se beneficiará com o uso de um pool de banco de dados elástico. Os exemplos usam pools de banco de dados elástico Standard, mas os mesmos princípios também se aplicam aos pools Basic e Premium.
 
@@ -435,4 +435,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools de ba
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

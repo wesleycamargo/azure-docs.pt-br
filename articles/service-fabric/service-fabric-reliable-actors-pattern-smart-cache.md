@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Padrão de design de cache inteligente de Atores Confiáveis"
-   description="Padrão de design sobre como usar os Atores Confiáveis como infraestrutura de armazenamento em cache em aplicativos baseados na Web"
+   pageTitle="Padrão de design de cache inteligente | Microsoft Azure"
+   description="Padrão de design sobre como usar o modelo de programação dos Reliable Actors do Service Fabric para criar uma infraestrutura de caching para aplicativos baseados na Web."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,11 +17,13 @@
    ms.author="vturecek"/>
 
 # Padrão de design de Atores Confiáveis: cache inteligente
+
 A combinação de uma camada da Web, camada de cache, camada de armazenamento e, ocasionalmente, uma camada de trabalho, é quase uma parte padrão dos aplicativos de hoje. A camada de cache geralmente é essencial para o desempenho e pode, na verdade, ser composta por várias camadas em si. Muitos caches são pares simples de chave-valor, enquanto outros sistemas, como o [Redis](http://redis.io), são usados como caches que oferecem semântica mais rica. Ainda assim, qualquer camada de cache especial será limitada em semântica e, o mais importante, ainda é outra camada a ser gerenciada. E se, em vez disso, os objetos apenas mantivessem o estado em variáveis locais e esses objetos pudessem ser colocados em instantâneos ou persistidos em um repositório durável automaticamente? Além disso, as coleções avançadas, como listas, conjuntos classificados, filas e outros tipos personalizados para esse fim são simplesmente modelados como métodos e variáveis de membro.
 
 ![][1]
 
 ## O exemplo de placar de líderes
+
 Tome como exemplo o placar de líderes — um objeto Leaderboard precisa manter uma lista de jogadores classificados e suas pontuações para que possamos consultá-lo. Por exemplo, para os “100 principais jogadores” ou para localizar a posição de um jogador no placar de líderes em relação a +- N jogadores acima e abaixo dele. Uma solução típica com ferramentas tradicionais exigiria obter (‘GET’) o objeto Leaderboard (coleção que oferece suporte à inserção de uma nova tupla<Player  Points> chamada Score), classificá-lo e, por fim, colocá-lo (‘PUT’) de volta no cache. Provavelmente, nós BLOQUEARÍAMOS (GETLOCK, PUTLOCK) o objeto Leaderboard para consistência. Vamos observar uma solução baseada em ator, em que o estado e o comportamento estão juntos. Há duas opções:
 
 * Implementar a Coleção Leaderboard como parte do ator
@@ -280,6 +282,7 @@ Basicamente, o Cache Inteligente fornece:
 
 
 ## Próximas etapas
+
 [Padrão: redes e gráficos distribuídos](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [Padrão: controle de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
@@ -298,4 +301,4 @@ Basicamente, o Cache Inteligente fornece:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

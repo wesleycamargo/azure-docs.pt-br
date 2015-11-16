@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
 # Gerenciar clusters Hadoop no HDInsight Usando o portal do Azure
@@ -150,11 +150,6 @@ Por padrão, esses serviços são concedidos para acesso. Você pode revogar/con
 6. Para **NOME DE USUÁRIO** e **NOVA SENHA**, digite o novo nome de usuário e a senha (respectivamente) para o cluster.
 7. Clique em **SALVAR**.
 
-Isso também pode ser feito por meio de cmdlets do PowerShell do Azure:
-
-- Grant-AzureHDInsightHttpServicesAccess
-- Revoke-AzureHDInsightHttpServicesAccess
-
 Consulte [Administrar clusters HDInsight usando o PowerShell do Azure](hdinsight-administer-use-powershell.md).
 
 ##Abrir a linha de comando do Hadoop
@@ -199,10 +194,8 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o portal do 
 * [Introdução ao Azure HDInsight](../hdinsight-get-started.md)
 * [Qual versão do Hadoop está no Azure HDInsight?](hdinsight-component-versioning.md)
 
-[image-cluster-quickcreate]: ./media/hdinsight-administer-use-management-portal/HDI.QuickCreateCluster.png
-[image-cluster-landing]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG "Página inicial do cluster"
-[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
-[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Linha de comando do Hadoop"
-[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
+[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png
+[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
+[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

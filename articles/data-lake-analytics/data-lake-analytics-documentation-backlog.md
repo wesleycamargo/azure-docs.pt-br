@@ -21,29 +21,36 @@
 Continuaremos adicionando nova documentação para dar suporte à Análise Azure Data Lake à medida que o serviço se desenvolve e para destacar opções e casos de uso comuns. Esta página contém a documentação atualmente planejada. Você pode enviar seus comentários sobre os aspectos que gostaria de ver em destaque adicionando um comentário a este artigo, enviando uma solicitação pull no GitHub ou enviando-nos um email.
 
 ## Lista de pendências de documentação
-Área |Tópico | Prioridade | Status
-------------- | ------------- | -------------- | --------------
-U-SQL | Consulta Distribuída | 1 | Pendente, Trabalhando para obter orientação apropriada sobre o firewall
-U-SQL | Processando o JSON | 2 |  
-O Barramento de | Interagindo com o Curl | |API RestFUL pendente |
-U-SQL | Tabelas particionadas |1 |
-U-SQL | Ajuste de desempenho | |
-U-SQL | Guia do programador | |
-U-SQL | Introdução ao U-SQL de uma tela de fundo do T-SQL | |
-U-SQL | Introdução ao U-SQL de uma tela de fundo do Hive | |
-U-SQL | Diagramas em trilhos de gramática | 1 | em andamento, usando [este](http://bottlecaps.de/rr/ui) |
-O Barramento de | Protegendo trabalhos, dados e tabelas na Análise Data Lake |1|Trabalharei junto com o Saveen neste
-O Barramento de | Movendo a saída do trabalho para o SQL Data Warehouse usando o Data Factory |1 |Trabalharei junto com o Sreedhar neste
-O Barramento de | Coordenando a implantação da Análise Data Lake com outros serviços do Azure usando modelos ARM |1 |Inclui um modelo ARM no Gerenciamento usando o artigo sobre o PowerShell. Ele será ativado com a visualização pública. O gerenciamento que usa a CLI terá a mesma cobertura
-Ferramentas | Usando as ferramentas de diagnóstico | 1 |
+
+Área |Tópico | Prioridade | Status | Atribuído a | Solicitado por 
+------------- | ------------- | -------------- | -------------- | --------------- | --------------
+U-SQL | Consulta Distribuída | 1 | Em andamento | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Processando o JSON | 2 | Pendente | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
+O Barramento de | Interagindo com o Curl | 3 |Pendente |[@mumian](https://github.com/mumian)
+U-SQL | Tabelas particionadas |1 | Pendente | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Ajuste de desempenho | 2 | Pendente | [@MikeRys](https://github.com/mikerys) | 
+U-SQL | Guia do programador | 2 | Pendente | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Introdução ao U-SQL de uma tela de fundo do T-SQL | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
+U-SQL | Introdução ao U-SQL de uma tela de fundo do Hive | 1 | Pendente | [@mumian](https://github.com/mumian)| [@MikeRys](https://github.com/mikerys)
+U-SQL | Diagramas em trilhos de gramática | 1 | em andamento, usando [este](http://bottlecaps.de/rr/ui) | [@mwinkle](https://github.com/mwinkle) | [@mwinkle](https://github.com/mwinkle)
+O Barramento de | Protegendo trabalhos, dados e tabelas na Análise Data Lake |1| em andamento | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
+O Barramento de | Movendo a saída do trabalho para o SQL Data Warehouse usando o Data Factory |1 | em andamento | [@mumian](https://github.com/mumian) | 
+Ferramentas | Usando as ferramentas de diagnóstico | 1 | Pendente | [@mumian](https://github.com/mumian) | 
 
 
+
+
+## Documentos concluídos da Lista de Pendências
+
+Área |Tópico | location
+------------- | ------------- | -------------- 
+O Barramento de | Coordenando a implantação da Análise Data Lake com outros serviços do Azure usando modelos ARM | [local](https://azure.microsoft.com/pt-BR/documentation/articles/data-lake-analytics-manage-use-powershell/)
 
 ## Como fornecer comentários sobre a lista de pendências
 Há algumas opções para fornecer comentários sobre a lista de pendências:
 
 * Adicionar um comentário abaixo
-* Enviar uma solicitação pull sobre este documento no Repositório de Conteúdo do Azure
+* Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar um email para [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

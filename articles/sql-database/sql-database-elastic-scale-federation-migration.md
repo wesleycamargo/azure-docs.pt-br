@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Migração de federações" 
+    pageTitle="Migração de federações | Microsoft Azure" 
     description="Descreve as etapas para migrar um aplicativo existente criado com o recurso de Federações para o modelo de banco de dados elástico." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/14/2015" 
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # Migração de federações 
 
@@ -108,7 +108,7 @@ O Utilitário de Migração de Federações fornece as habilidades para:
 
 ## Comparação de recursos
 
-Embora as ferramentas de banco de dados elástico ofereçam muitos recursos adicionais (por exemplo, [consultando vários fragmentos](sql-database-elastic-scale-multishard-querying.md), [dividindo e mesclando fragmentos](sql-database-elastic-scale-overview-split-and-merge.md),[ elasticidade de fragmento](sql-database-elastic-scale-elasticity.md), [cache no cliente](sql-database-elastic-scale-shard-map-management.md) e muito mais), há alguns recursos Federations importantes para os quais não há suporte em ferramentas de banco de dados elástico.
+Embora as ferramentas de Banco de dados elástico ofereçam vários recursos adicionais (por exemplo, [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md), [divisão e mesclagem de fragmentos](sql-database-elastic-scale-overview-split-and-merge.md), elasticidade de fragmento, [caching no cliente](sql-database-elastic-scale-shard-map-management.md) e muito mais), há alguns recursos de Federações importantes para os quais não há suporte nas ferramentas de banco de dados elástico.
   
 - O uso de **FILTERING=ON**. Em vez disso, é recomendável que você use segurança em nível de linha (RLS) para filtragem de linha. Assim como a filtragem em federações, a RLS adiciona automaticamente um predicado para todas as consultas em uma tabela fragmentada. Para obter detalhes, consulte [Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md). 
  
@@ -134,7 +134,7 @@ Embora as ferramentas de banco de dados elástico ofereçam muitos recursos adic
 * Realizar a instrução SWITCH OUT em um membro da federação possibilita ao banco de dados resultante aproveitar todos os recursos do banco de dados SQL do Azure (ou seja, novas edições, backup, PITR, auditoria, etc.)
 
 ##Precisa de mais tempo para a migração? 
-Se seu aplicativo ainda não estiver pronto para funcionar sem federações, contate o Suporte da Microsoft usando as instruções mencionadas [aqui](https://support.microsoft.com/kb/3087180).
+Se o seu aplicativo ainda não estiver pronto para funcionar sem Federações, entre em contato com o Suporte da Microsoft usando as instruções mencionadas [aqui](https://support.microsoft.com/kb/3087180).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -150,4 +150,4 @@ Se seu aplicativo ainda não estiver pronto para funcionar sem federações, con
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

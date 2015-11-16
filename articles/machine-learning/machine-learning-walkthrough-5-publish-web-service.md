@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="garye"/>
 
 
@@ -98,8 +98,11 @@ Para implantar um serviço Web derivado de nosso teste, clique em **Implantar Se
 
 Você pode configurar o serviço clicando na guia **CONFIGURAÇÃO**. Assim, você pode modificar o nome do serviço (é dado o nome do teste por padrão) e fornecer uma descrição para ele. Também pode adicionar rótulos mais simpáticos para as colunas de entrada e saída.
 
+![Configurar o serviço Web][5]
+
 ## Teste do serviço Web
-Na página **PAINEL**, clique no link **Teste** em **Ponto de extremidade padrão**. Um diálogo aparecerá e solicitará dados de entrada para o serviço. Existem as mesmas colunas que apareciam no conjunto de dados de risco de crédito alemão original.
+Na página **PAINEL**, clique no link **Teste** em **Ponto de extremidade padrão**. Um diálogo aparecerá e solicitará dados de entrada para o serviço. Essas são as mesmas colunas que apareceram no conjunto de dados de risco de crédito alemão original. ![Teste do serviço Web][6]
+
 
 Insira um conjunto de dados e clique em **OK**.
 
@@ -114,6 +117,8 @@ Os resultados gerados pelo serviço Web são exibidos na parte inferior do paine
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
+[5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
+[6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
 
 
 <!-- Module References -->
@@ -127,4 +132,4 @@ Os resultados gerados pelo serviço Web são exibidos na parte inferior do paine
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

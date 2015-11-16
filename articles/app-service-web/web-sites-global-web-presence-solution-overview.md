@@ -33,9 +33,9 @@ A seguir há um exemplo de um site .COM em execução nos Aplicativos Web do Ser
 
 Crie novos sites rapidamente por meio de um CMS popular na galeria ou inclua seus ativos da Web existentes nos Aplicativos Web do Serviço de Aplicativo dentre diversas linguagens e estruturas.
 
-O Azure Marketplace oferece modelos de CMS (sistemas de gerenciamento de conteúdo de site), como [Orchard], [Umbraco], Drupal e [WordPress]. Você pode criar um aplicativo Web usando seu tipo de CMS favorito. Você pode escolher dentre vários back-ends de banco de dados para atender às suas necessidades, incluindo o [Banco de Dados do SQL Azure] e [MySQL].
+O Azure Marketplace oferece modelos populares de CMS (sistemas de gerenciamento de conteúdo de site), como Orchard, Umbraco, Drupal e [WordPress]. Você pode criar um aplicativo Web usando seu tipo de CMS favorito. Você pode escolher dentre vários back-ends de banco de dados para atender às suas necessidades, incluindo o [Banco de Dados do SQL Azure] e [MySQL].
 
-Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web oferecem suporte à publicação direta de opções de controle de código-fonte populares, como [Visual Studio], [Visual Studio Online] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc...
+Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviço de Aplicativo, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares ou seu sistema de gerenciamento de controle do código-fonte. Os Aplicativos Web dão suporte à publicação direta por meio de opções populares de controle do código-fonte, como [Visual Studio], [Visual Studio Online] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Publicar de forma confiável
 
@@ -49,7 +49,7 @@ Além disso, ao planejar alterações em um site da Web ativo, você pode facilm
 
 Use o domínio dos Aplicativos Web do Serviço de Aplicativo gratuitamente ou mapeie para seu nome de domínio registrado e proteja sua marca com seu certificado SSL assinado por uma autoridade de certificação.
 
-O domínio ***.azurewebsites.net** é gratuito quando você executa seu site nos Aplicativos Web. Ou então, você pode mapear seu site para um [domínio personalizado] (por exemplo, contoso.com), que você obteve em qualquer registro de DNS, como o GoDaddy.
+O domínio ***.azurewebsites.net** é gratuito quando você executa seu site nos Aplicativos Web. Ou então, você pode mapear seu site para um [domínio personalizado] (por exemplo, contoso.com), que você obteve em qualquer Registro DNS, como o GoDaddy.
 
 Se coleta informações do usuário, realiza comércio eletrônico ou gerencia outros dados confidenciais, você pode proteger a reputação de sua marca e seus clientes com o [HTTPS]. O nome de domínio ***.azurewebsites.net** já vem com um certificado SSL e, se usar seu domínio personalizado, você poderá incluir seu certificado SSL para ele nos Aplicativos Web. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, confira [Detalhes de preços do Serviço de Aplicativos].
 
@@ -97,8 +97,6 @@ Torne seu site .COM atraente com recursos de mídia avançada, como:
 
 [Azure App Service]: /services/app-service/web/
 
-[Orchard]: web-sites-dotnet-orchard-cms-gallery.md
-[Umbraco]: web-sites-gallery-umbraco.md
 [WordPress]: web-sites-php-web-site-gallery.md
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
 [Banco de Dados do SQL Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
@@ -139,4 +137,4 @@ Torne seu site .COM atraente com recursos de mídia avançada, como:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

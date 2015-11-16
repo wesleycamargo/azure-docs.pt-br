@@ -13,7 +13,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="vm-windows"
    	ms.workload="big-compute"
-   	ms.date="09/30/2015"
+   	ms.date="11/02/2015"
    	ms.author="v-marsma"/>
 
 # Maximizar o uso de recursos de computação do Lote do Azure com tarefas de nó simultâneas
@@ -38,7 +38,7 @@ Para ilustrar os benefícios da execução de tarefas paralelas, digamos que o s
 
 A configuração de nós de computação em sua solução do Lote para execução de tarefas paralelas é feita no nível do pool. Quando você trabalhar com a API .NET do Lote, a propriedade [CloudPool.MaxTasksPerComputeNode][maxtasks_net] será definida durante a criação de um pool. Na API REST do Lote, o elemento [maxTasksPerNode][maxtasks_rest] será definido no corpo da solicitação durante a criação do pool.
 
-O Lote do Azure permite um máximo de tarefas por configuração de nó de até quatro vezes (4x) o número de núcleos de nó. Por exemplo, se o pool estiver configurado com nós de tamanho "Grande" (quatro núcleos), `maxTasksPerNode` poderá ser definido como dezesseis. Os detalhes sobre o número de núcleos para cada um dos tamanhos de nó podem ser encontrados em [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md) e você poderá encontrar mais informações sobre os limites de serviço em [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
+O Lote do Azure permite um máximo de tarefas por configuração de nó de até quatro vezes (4x) o número de núcleos de nó. Por exemplo, se o pool estiver configurado com nós de tamanho "Grande" (quatro núcleos), `maxTasksPerNode` poderá ser definido como dezesseis. Os detalhes sobre o número de núcleos para cada um dos tamanhos de nó podem ser encontrados em [Tamanhos dos Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md). Você ainda poderá encontrar mais informações sobre os limites de serviço em [Cotas e limites para o serviço de Lote do Azure](batch-quota-limit.md).
 
 > [AZURE.TIP]Leve em consideração o valor `maxTasksPerNode` ao criar uma [fórmula de autoescala][enable_autoscaling] para o pool. Por exemplo, uma fórmula que avalia `$RunningTasks` poderia ser drasticamente afetada por um aumento nas tarefas por nó. Consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md) para saber mais.
 
@@ -106,11 +106,11 @@ A segunda execução do exemplo mostra uma redução significativa na duração 
 
 ## Mapa de Calor do Explorador do Lote
 
-O [Explorador do Lote][batch_explorer], um dos [aplicativos de exemplo][github_samples] do Lote do Azure, contém um recurso *Mapa de Calor* que fornece a visualização do uso do núcleo do nó dentro em um pool. Ao executar o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample], use o recurso Mapa de Calor para visualizar facilmente a atividade do nó principal.
+O [Gerenciador de Lotes][batch_explorer], um dos [aplicativos de exemplo][github_samples] do Lote do Azure, contém um recurso *Mapa de Calor* que fornece a visualização da execução de tarefa. Ao executar o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample], use o recurso Mapa de Calor para visualizar facilmente a execução de tarefas paralelas em cada nó.
 
 ![Mapa de Calor do Explorador do Lote][1]
 
-*Mapa de Calor do Explorador do Lote mostrando quatro nós com quatro núcleos cada, com cada núcleo executando uma tarefa no momento*
+*Mapa de Calor do Gerenciador de Lotes que mostra um pool de quatro nós, com cada nó atualmente executando quatro tarefas*
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
@@ -127,4 +127,4 @@ O [Explorador do Lote][batch_explorer], um dos [aplicativos de exemplo][github_s
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

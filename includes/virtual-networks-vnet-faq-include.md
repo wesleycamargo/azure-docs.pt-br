@@ -219,15 +219,16 @@ Você só pode usar serviços de computação em redes virtuais. Os serviços de
 
 ### Posso usar Aplicativos Web com Rede Virtual?
 
-Não. Um Aplicativo Web do Azure não pode ser implantado em uma rede virtual. No entanto, os Aplicativos Web poderão se conectar e acessar os recursos na rede virtual do Azure se você tiver configurado o ponto a site para sua rede virtual. Para saber mais, confira o seguinte:
+Sim. Você pode implantar Aplicativos Web em uma Rede Virtual usando o ASE (Ambiente do Serviço de Aplicativo). Além disso, os Aplicativos Web poderão se conectar e acessar os recursos na Rede Virtual do Azure se você tiver configurado o ponto a site para a sua Rede Virtual. Para saber mais, confira o seguinte:
 
-- [Integração da rede virtual de Aplicativos Web](http://azure.microsoft.com/blog/
-- 014/09/15/azure-websites-virtual-network-integration/)
+
+- [Criando Aplicativos Web em um Ambiente do Serviço de Aplicativo](https://azure.microsoft.com/pt-BR/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+
+- [Integração da rede virtual de Aplicativos Web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
 - [Usando conexões híbridas e integração de rede virtual com Aplicativos Web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Integrar um aplicativo Web a uma Rede Virtual do Azure](web-sites-integrate-with-vnet.md)
-
 
 ### Posso implantar serviços de nuvem com funções web e de trabalho (PaaS) em uma rede virtual?
 
@@ -265,4 +266,4 @@ Sim. Você pode usar APIs REST para gerenciar redes virtuais e conectividade ent
 
 Sim. Você pode usar ferramentas de linha de comando e o PowerShell para uma variedade de plataformas. Mais informações podem ser encontradas [aqui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

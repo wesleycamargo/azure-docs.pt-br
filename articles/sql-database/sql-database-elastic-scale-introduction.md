@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Banco de Dados SQL do Azure - ferramentas de bancos de dados elásticos"
+    pageTitle="Visão geral dos recursos das ferramentas de Banco de Dados Elástico | Microsoft Azure"
     description="Os desenvolvedores de SaaS (Software como um serviço) podem criar com facilidade bancos de dados elásticos e escalonáveis na nuvem usando estas ferramentas"
     services="sql-database"
     documentationCenter=""
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/27/2015"
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015"
+    ms.author="ddove;sidneyh"/>
 
 # Visão geral dos recursos do Banco de Dados Elástico
 
@@ -108,4 +108,4 @@ O que podemos aperfeiçoar? Este tópico explica o recurso de maneira clara? Ou 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

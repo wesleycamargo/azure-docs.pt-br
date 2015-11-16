@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="11/03/2015"
    ms.author="bwren" />
 
 # Runbook Workers Híbridos da Automação do Azure
@@ -51,6 +51,10 @@ Considere as seguintes recomendações para hybrid workers:
 - Designe vários hybrid workers em cada grupo para alta disponibilidade.  
 - Hybrid workers podem coexistir com os servidores de runbook do Service Management Automation ou do System Center Orchestrator.
 - Pense na possibilidade de usar um computador fisicamente localizado ou próximo da região da sua conta de automação, uma vez que os dados do trabalho são enviados de volta à Automação do Azure quando um trabalho é concluído.
+
+Requisitos de firewall:
+
+- O computador local que executa o Hybrid Runbook Worker deve ter acesso de saída a *.cloudapp.net nas portas 443, 9354 e 30000-30199.
 
 ## Instalando o Runbook Worker Híbrido
 O procedimento abaixo descreve como instalar e configurar o Hybrid Runbook Worker. Execute as duas primeiras etapas uma vez para seu ambiente de Automação e depois repita as etapas restantes para cada computador de trabalho.
@@ -164,4 +168,4 @@ Você pode usar os critérios a seguir para determinar se a Automação do Azure
 - [Como editar um Runbook na Automação do Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

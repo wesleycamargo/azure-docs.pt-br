@@ -51,7 +51,7 @@ Nesta seção você cria um projeto de aplicativo de console e adiciona a ele um
 
 1. Se você ainda não o fez, siga a [Implantar um aplicativo de API](app-service-dotnet-deploy-api-app.md) para implantar o projeto de exemplo ContactsList em um aplicativo de API na sua assinatura do Azure.
 
-	Esse tutorial direciona você para definir o nível de acesso na caixa de diálogo publicar do Visual Studio como **Disponível para qualquer pessoa**, que é o mesmo que **Público (anônimo)** no portal. No entanto, se você fez o tutorial [Proteger um aplicativo API](../app-service-dotnet-add-authentication.md) depois disso, o nível de acesso foi definido como **Público (autenticado)** e, nesse caso, você precisa alterá-lo conforme indicado na etapa a seguir.
+	Esse tutorial direciona você para definir o nível de acesso na caixa de diálogo publicar do Visual Studio como **Disponível para qualquer pessoa**, que é o mesmo que **Público (anônimo)** no portal. No entanto, se você fez o tutorial [Proteger um aplicativo API](../app-service-api-dotnet-add-authentication.md) depois disso, o nível de acesso foi definido como **Público (autenticado)** e, nesse caso, você precisa alterá-lo conforme indicado na etapa a seguir.
 
 2. No [Portal de Visualização do Azure](https://portal.azure.com/), na folha **Aplicativo de API** para o aplicativo de API que você deseja chamar, vá para **Configurações > Configurações do aplicativo** e defina **Nível de acesso** como **Público (anônimo)**.
 
@@ -102,7 +102,7 @@ Nesta seção você cria um projeto de aplicativo de desktop do Windows e adicio
 
 ### Configurar o aplicativo de API e criar o projeto
 
-1. Execute o tutorial [Proteger um aplicativo API](../app-service-dotnet-add-authentication.md) para configurar um aplicativo de API com nível de acesso **Público (autenticado)**.
+1. Execute o tutorial [Proteger um aplicativo API](../app-service-api-dotnet-add-authentication.md) para configurar um aplicativo de API com nível de acesso **Público (autenticado)**.
 
 1. No Visual Studio, crie um projeto para desktop do Windows Forms.
 
@@ -205,4 +205,4 @@ Para obter exemplos adicionais de um código que chame um aplicativo de API de c
 Para obter informações sobre como usar a autenticação em aplicativos de API, consulte [Autenticação para aplicativos de API e aplicativos móveis no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

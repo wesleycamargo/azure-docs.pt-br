@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Roteamento dependente de dados" 
-	description="Como usar o ShardMapManager para roteamento dependente de dados, um recurso de banco de dados elástico para Banco de Dados SQL do Azure" 
+	pageTitle="Roteamento dependente de dados | Microsoft Azure" 
+	description="Como usar o ShardMapManager para o roteamento dependente de dados, um recurso dos bancos de dados elásticos para o Banco de Dados SQL do Azure" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 #Roteamento dependente de dados
 
@@ -22,9 +22,13 @@ A classe **ShardMapManager** fornece a aplicativos ADO.NET a capacidade de direc
 
 Usando o roteamento de dados dependentes, não é necessário para o aplicativo controlar a várias cadeias de caracteres de conexão ou locais de banco de dados associados a diferentes subconjuntos de dados no ambiente fragmentado. Em vez disso, o [Gerenciador de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md) assume a responsabilidade pelo envio de conexões abertas no banco de dados correto quando necessário, com base nos dados do mapa de fragmentos e no valor da chave de fragmentação que é o destino da solicitação do aplicativo. (Essa chave é normalmente o *customer\_id*, *tenant\_id*, *date\_key* ou outro identificador específico que é um parâmetro fundamental da solicitação de banco de dados).
 
+## Baixar a biblioteca de cliente
+
+Para instalar a biblioteca, vá para a [Biblioteca de cliente de Banco de Dados Elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+
 ## Usando um ShardMapManager em um aplicativo de roteamento dependente de dados 
 
-Para aplicativos que usam roteamento dependente de dados, um **ShardMapManager** deve ser instanciado uma vez por domínio de aplicativo, durante a inicialização, utilizando a chamada de fábrica **GetSQLShardMapManager**.
+Para aplicativos que usam o roteamento dependente de dados, um **ShardMapManager** deve ter uma instância criada uma vez por domínio de aplicativo, durante a inicialização, usando a chamada de fábrica **GetSQLShardMapManager**.
 
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, 
                       ShardMapManagerLoadPolicy.Lazy);
@@ -32,23 +36,23 @@ Para aplicativos que usam roteamento dependente de dados, um **ShardMapManager**
 
 Neste exemplo, tanto um **ShardMapManager** quanto um **ShardMap** específico que ele contém são inicializados.
 
-Para um aplicativo que não está manipulando o próprio mapa de fragmentos, as credenciais usadas no método de fábrica para obter o **ShardMapManager** (no exemplo acima, *smmConnectionString*) devem ser credenciais que tenham permissões somente leitura no banco de dados do **Mapa de Fragmentos Global** referenciado pela cadeia de conexão. Essas credenciais são normalmente diferentes das credenciais usadas para abrir conexões com o Gerenciador de mapa do fragmento. Consulte também [Usar as credenciais em bibliotecas de cliente de banco de dados elástico](sql-database-elastic-scale-manage-credentials.md).
+Para um aplicativo que não está manipulando o próprio mapa de fragmentos, as credenciais usadas no método de fábrica para obter o **ShardMapManager** (no exemplo acima, *smmConnectionString*) devem ser credenciais que tenham permissões somente leitura no banco de dados do **Mapa de Fragmentos Global** referenciado pela cadeia de conexão. Essas credenciais são normalmente diferentes das credenciais usadas para abrir conexões com o Gerenciador de mapa do fragmento. Veja também [Usar as credenciais nas bibliotecas de cliente de banco de dados elástico](sql-database-elastic-scale-manage-credentials.md).
 
 ## Invocando o roteamento dependente de dados 
 
-O método **ShardMap.OpenConnectionForKey (key, connectionString, connectionOptions)** retorna uma conexão ADO.Net pronta para emitir comandos para o banco de dados apropriado com base no valor do parâmetro **key**. As informações de fragmento são armazenadas em cache no aplicativo pelo **ShardMapManager**, pois essas solicitações normalmente não envolvem uma pesquisa de banco de dados no banco de dados do **Mapa de Fragmentos Global**.
+O método **ShardMap.OpenConnectionForKey (key, connectionString, connectionOptions)** retorna uma conexão do ADO.NET pronta para executar comandos para o banco de dados apropriado com base no valor do parâmetro **key**. As informações de fragmentos são armazenadas em cache no aplicativo pelo **ShardMapManager**, portanto, essas solicitações normalmente não envolvem uma pesquisa de banco de dados no banco de dados do **Mapa de Fragmentos Global**.
 
-* O parâmetro **key** é usado como uma chave de pesquisa para o mapa de fragmentos para determinar o banco de dados apropriado para a solicitação. 
+* O parâmetro **key** é usado como uma chave de pesquisa no mapa de fragmentos para determinar o banco de dados apropriado para a solicitação. 
 
-* O **connectionString** é usado para passar somente as credenciais do usuário para a conexão desejada. Nenhum nome de banco de dados ou do servidor está incluído nessa *connectionString*, pois o método determinará o banco de dados e o servidor usando o **ShardMap**.
+* **connectionString** é usado para transmitir somente as credenciais do usuário para a conexão desejada. Nenhum nome de banco de dados ou de servidor está incluído nessa *connectionString*, pois o método determinará o banco de dados e o servidor usando o **ShardMap**.
 
 * A enumeração **connectionOptions** é usada para indicar se a validação ocorre ou não ao fornecer a conexão aberta. **ConnectionOptions.Validate** é recomendado. Em um ambiente onde mapas de fragmento podem ser alterado e linhas podem estar sendo movidos para outros bancos de dados como resultado de operações de divisão ou de mesclagem, a validação assegura que a pesquisa em cache do banco de dados com base em um valor de chave ainda está correta. A validação envolve uma consulta curta para o mapa do fragmento local de destino do banco de dados (não para o mapa do fragmento global) antes que a conexão é entregue ao aplicativo.
 
 Se a validação em relação ao mapa de fragmento local falhar (indicando que o cache está incorreto), o Gerenciador de mapa do fragmento consultará o mapa do fragmento global para obter o novo valor correto para a pesquisa, atualizar o cache e obtenha e retorne a conexão de banco de dados apropriado.
 
-A única vez que **ConnectionOptions.None** (não validado) é aceitável ocorre quando as alterações de mapeamento de fragmentos não são esperados enquanto um aplicativo está online. Nesse caso, os valores do cache podem ser considerados sempre corretas, e a chamada de validação extra ida e volta ao banco de dados de destino pode ser ignorada com segurança. Isso poderá reduzir latências de transação e o tráfego de banco de dados. O **connectionOptions** também pode ser definido por meio de um valor em um arquivo de configuração para indicar se as alterações de fragmentação são ou não esperadas durante um dado período.
+A única vez que **ConnectionOptions.None** (não validado) é aceitável ocorre quando as alterações de mapeamento de fragmentos não são esperadas enquanto um aplicativo estiver online. Nesse caso, os valores do cache podem ser considerados sempre corretas, e a chamada de validação extra ida e volta ao banco de dados de destino pode ser ignorada com segurança. Isso poderá reduzir latências de transação e o tráfego de banco de dados. **connectionOptions** também pode ser definido por meio de um valor em um arquivo de configuração para indicar se as alterações de fragmentação são ou não esperadas durante um período.
 
-Este é um exemplo de código que usa o Gerenciador de Mapa de Fragmentos para executar roteamento dependente de dados com base no valor de uma chave de inteiro **CustomerID** usando um objeto **ShardMap** chamado **customerShardMap**.
+Este é um exemplo de código que usa o Gerenciador de Mapa de Fragmentos para executar o roteamento dependente de dados com base no valor de uma chave de inteiro **CustomerID** usando um objeto **ShardMap** chamado **customerShardMap**.
 
 ## Exemplo: roteamento dependente de dados 
 
@@ -72,13 +76,13 @@ Este é um exemplo de código que usa o Gerenciador de Mapa de Fragmentos para e
 
 Observe que, em vez de usar um construtor para um **SqlConnection** seguido por uma chamada **Open()** para o objeto de conexão, o método **OpenConnectionForKey** é usado e oferece uma nova conexão já aberta no banco de dados correto. Conexões utilizados dessa forma ainda se beneficiar do pool de conexões do ADO.Net. Como transações e solicitações podem ser atendidas por um fragmento por vez, isso deve ser a única modificação necessária em um aplicativo já usando ADO.Net.
 
-O método **OpenConnectionForKeyAsync** também está disponível se seu aplicativo usar a programação assíncrona com o ADO.Net. Seu comportamento é o equivalente ao roteamento dependente de dados do método **Connection.OpenAsync** do ADO.Net.
+O método **OpenConnectionForKeyAsync** também está disponível se o seu aplicativo usar a programação assíncrona com o ADO.NET. Seu comportamento é o equivalente ao roteamento dependente de dados do método **Connection.OpenAsync** do ADO.NET.
 
 ## Integrando a manipulação de falhas transitórias 
 
-É uma prática recomendada no desenvolvimento de aplicativos de acesso de dados na nuvem garantir que as falhas transitórias na conexão com ou consultar o banco de dados são capturadas pelo aplicativo e que as operações serão repetidas várias vezes antes que ocorra um erro. O tratamento de falha transitória para aplicativos em nuvem é discutida em [Tratamento de Falhas Transitórias](http://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx).
+É uma prática recomendada no desenvolvimento de aplicativos de acesso de dados na nuvem garantir que as falhas transitórias na conexão com ou consultar o banco de dados são capturadas pelo aplicativo e que as operações serão repetidas várias vezes antes que ocorra um erro. O tratamento de falha transitória para aplicativos em nuvem é discutido em [Tratamento de falhas transitórias](http://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx).
  
-A manipulação de falhas transitórias pode coexistir naturalmente com o padrão de Roteamento dependente de dados. O principal requisito é repetir a solicitação de acesso de dados inteira incluindo o **uso** do bloco que obteve a conexão de roteamento dependente de dados. O exemplo anterior poderia ser reescrito da seguinte maneira (alteração de anotação realçada).
+A manipulação de falhas transitórias pode coexistir naturalmente com o padrão de Roteamento dependente de dados. O principal requisito é repetir a solicitação de acesso de dados inteira incluindo o bloqueio **using** que obteve a conexão de roteamento dependente de dados. O exemplo anterior poderia ser reescrito da seguinte maneira (alteração de anotação realçada).
 
 ### Exemplo – roteamento com falhas transitórias manipulação dependentes dos dados 
 
@@ -117,4 +121,4 @@ Propriedades transacionais são garantidas para todas as operações locais para
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

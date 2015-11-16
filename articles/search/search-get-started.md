@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Introdução à Pesquisa do Azure | Microsoft Azure" 
-	description="Introdução à Pesquisa do Azure" 
+	description="Comece a usar a Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure
 
-A Pesquisa do Microsoft Azure é um novo serviço que permite que você incorpore a funcionalidade de pesquisa em aplicativos personalizados. Ela fornece o mecanismo de pesquisa e armazenamento para seus dados, os quais você acessa e gerencia usando uma biblioteca .NET ou uma API REST.
+A Pesquisa do Microsoft Azure é um novo serviço de pesquisa de nuvem hospedado que permite que você insira a funcionalidade de pesquisa em aplicativos personalizados. Ela fornece o mecanismo de pesquisa e armazenamento para seus dados, os quais você acessa e gerencia usando uma biblioteca .NET ou uma API REST.
 
 Este artigo apresenta a API REST de Pesquisa do Azure.
 
@@ -378,4 +378,4 @@ Pronto para a próxima etapa? Os links a seguir levam você a materiais adiciona
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

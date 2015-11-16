@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # Como criar uma coleção na nuvem do Azure RemoteApp
@@ -40,7 +40,7 @@ Você precisa fazer o seguinte antes de criar a coleção:
 - Este procedimento pressupõe que usará ou uma das imagens de modelo fornecidas como parte de sua assinatura ou que você já carregou a imagem do modelo que deseja usar. Se desejar fazer o upload da imagem do modelo, é possível fazer isso na página Imagens do modelo. Apenas clique em **Fazer o upload de uma imagem do modelo** e siga as etapas do assistente. 
 - Deseja usar a imagem do Office 365 ProPlus? Verifique as informações [aqui](remoteapp-officesubscription.md).
 - Deseja fornecer aplicativos personalizados ou programas LOB? Crie uma nova [imagem](remoteapp-imageoptions.md) e use-a em sua coleção de nuvem.
-- Descubra se você precisa conectar-se a uma VNET. Se você escolher conectar-se a uma VNET, verifique se ela atende às [diretrizes de dimensionamento](remoteapp-vnetsizing.md) e se [pode se conectar ao RemoteApp](remoteapp-vnet.md). Confira o [artigo sobre planejamento da VNET](remoteapp-planvpn.md) para saber mais.
+- Descubra se você precisa conectar-se a uma VNET. Se você escolher conectar-se a uma VNET, verifique se ela atende às [diretrizes de dimensionamento](remoteapp-vnetsizing.md) e se [pode se conectar ao RemoteApp](remoteapp-vnet.md). Confira o [artigo sobre planejamento da VNET](remoteapp-planvnet.md) para saber mais.
 - Se você estiver usando uma VNET, decida se deseja colocá-la em seu domínio do Active Directory local.
 
 ## Etapa 1: criar uma coleção na nuvem, com ou sem uma VNET##
@@ -109,4 +109,4 @@ Agora que você criou sua coleção, precisa adicionar os usuários que você qu
 ### Ajude-nos a ajudar você 
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

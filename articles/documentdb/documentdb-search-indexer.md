@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="06/16/2015" 
+    ms.date="10/28/2015" 
     ms.author="anhoh"/>
 
 #Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores
@@ -270,4 +270,4 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
  - Para saber mais sobre a Pesquisa do Azure, clique [aqui](/services/search/).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

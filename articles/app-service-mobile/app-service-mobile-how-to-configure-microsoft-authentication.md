@@ -18,21 +18,23 @@
 
 # Como configurar seu aplicativo para usar o logon da conta da Microsoft
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Este tópico mostra como configurar os aplicativos móveis do Azure para usar a conta da Microsoft como um provedor de autenticação.
 
 ## <a name="register"> </a>Registrar seu aplicativo com a conta da Microsoft
 
-1. Faça logon no [Portal de Gerenciamento do Azure] e navegue para o seu aplicativo móvel.
+1. Faça logon no [Portal de Gerenciamento do Azure] e navegue até seu Aplicativo Móvel.
 
-2. Clique em **Configurações**, **Autenticação de usuário**, e, em seguida, clique em **Conta Microsoft**. Copie a **URL de Redirecionamento**. Você a usará para configurar um novo aplicativo para sua Conta Microsoft.
+2. Clique em **Configurações**, **Autenticação de usuário** e em **Conta da Microsoft**. Copie a **URL de Redirecionamento**. Você a usará para configurar um novo aplicativo para sua Conta Microsoft.
 
 3. Navegue até a página [Meus Aplicativos] no Centro de Desenvolvedoras da conta da Microsoft e faça logon com sua conta da Microsoft, se necessário.
 
 4. Clique em **Criar aplicativo**, digite um **Nome de aplicativo** e clique em **Aceito**.
 
-5. Clique em **Configurações da API**. Selecione **Sim** para **Aplicativo cliente móvel ou de desktop**. No campo **URL de redirecionamento**, insira a **URL de redirecionamento** copiada anteriormente. É o gateway do aplicativo móvel acrescido de _/signin-microsoft_. Por exemplo: `https://contosogateway.azurewebsites.net/signin-microsoft`. Certifique-se de que você está usando o esquema HTTPS. Depois de inserir a URL de redirecionamento, clique em **Salvar**.
+5. Clique em **Configurações da API**. Selecione **Sim** para **Aplicativo cliente móvel ou de desktop**. No campo **URL de Redirecionamento**, insira a **URL de Redirecionamento** copiada anteriormente. É o gateway do Aplicativo Móvel acrescido de _/signin-microsoft_. Por exemplo: `https://contosogateway.azurewebsites.net/signin-microsoft`. Certifique-se de que você está usando o esquema HTTPS. Depois de inserir a URL de redirecionamento, clique em **Salvar**.
 
 	![][0]
 
@@ -45,7 +47,7 @@ Este tópico mostra como configurar os aplicativos móveis do Azure para usar a 
 
 ## <a name="secrets"> </a>Adicionar informações da conta da Microsoft ao seu aplicativo móvel
 
-1. No [Portal de gerenciamento], na folha de configurações da Conta Microsoft para seu aplicativo móvel, cole os valores de ID do cliente e segredo do cliente que você obteve anteriormente. Em seguida, clique em **Salvar**.
+1. No [Portal de Gerenciamento do Azure], na folha de configurações da Conta da Microsoft do seu Aplicativo Móvel, cole os valores de ID de Cliente e Segredo do Cliente que você obteve anteriormente. Em seguida, clique em **Salvar**.
 
     ![][1]
 
@@ -68,7 +70,5 @@ Agora você está pronto para usar uma conta da Microsoft para autenticação em
 
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
-[Portal de gerenciamento]: https://portal.azure.com/
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

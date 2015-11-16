@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.date="10/30/2015"
 	ms.author="markvi"/>
 
 
@@ -25,7 +25,7 @@ O objetivo deste tutorial é mostrar a você como integrar o CloudPassage com o 
 - Você pode habilitar seus usuários a fazerem logon automaticamente no CloudPassage (logon único) com suas contas do AD do Azure
 - Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
 ## Pré-requisitos 
 
@@ -162,27 +162,27 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
 **Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Active Directory**.<br> ![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
+1. No **Portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Active Directory**.<br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.<br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_03.png)
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.<br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_03.png)
  
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_04.png)
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_04.png)
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_05.png)
+5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_05.png)
   1. Em Tipo de Usuário, selecione Novo usuário na organização.
   2. Na caixa de texto **Nome de Usuário**, digite **BrendaFernandes**.
   3. Clique em Avançar.
 
-6.  Na página de caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_06.png)
+6.  Na página de caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_06.png)
   1. Na caixa de texto **Nome**, digite **Brenda**.  
   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
   3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
   4. Na lista **Função**, selecione **Usuário**.
   5. Clique em **Próximo**.
 
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.<br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_07.png)
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.<br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_07.png)
  
 8. Na página de caixa de diálogo **Obter senha temporária** execute as seguintes etapas:<br>![Criação de um usuário de teste do Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_08.png)
   1. Anote o valor da **Nova Senha**.
@@ -281,4 +281,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [29]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_16.png
 [30]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_17.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Executando o teste de caos."
-   description="Este artigo fala sobre os cenários de malha de serviço predefinidos fornecidos pela Microsoft."
+   pageTitle="Testes de caos e failover | Microsoft Azure"
+   description="Usando os cenários de testes de caos e failover do Service Fabric para induzir falhas e verificar a confiabilidade de seus serviços."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -28,7 +28,7 @@ O cenário de caos gera falhas no cluster de toda a malha de serviço. O cenári
 ### Falha simulada no teste de caos
  - Reinício de um nó
  - Reinício de um pacote de código implantado
- - Remoção de uma réplica
+ - Remoção de uma Réplica
  - Reinício de uma réplica
  - Movimentação de uma réplica primária (opcional)
  - Movimentação de uma réplica secundária (opcional)
@@ -142,8 +142,8 @@ O cenário do teste de failover é uma versão do cenário de teste de Caos que 
 
 ### Falhas simuladas no teste de failover
 - Reiniciar um pacote de código implantado onde a partição está hospedada
-- Remover uma réplica primária/secundária ou uma instância sem monitoração de estado
-- Reiniciar uma réplica primária secundária (se o serviço persistir)
+- Remover uma réplica Primária/Secundária ou uma instância sem estado
+- Reiniciar uma Réplica Primária Secundária (se o serviço persistir)
 - Mover uma réplica primária
 - Mover uma réplica secundária
 - Reinicie a partição.
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

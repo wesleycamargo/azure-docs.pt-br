@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução aos Serviços Confiáveis da Malha de Serviços do Microsoft Azure"
-   description="Como criar um aplicativo de Malha de Serviços com serviços com e sem estado."
+   pageTitle="Introdução ao Reliable Services | Microsoft Azure"
+   description="Introdução à criação de um aplicativo do Service Fabric do Microsoft Azure com serviços com e sem estado."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="10/15/2015"
    ms.author="vturecek"/>
 
-# Introdução aos Serviços Confiáveis da Malha de Serviços do Microsoft Azure
+# Introdução ao Reliable Services do Service Fabric do Microsoft Azure
 
-Um aplicativo da Malha de Serviços contém um ou mais serviços que executam seu código. Este tutorial explica as etapas de criação de aplicativos da Malha de Serviços “Olá Mundo” com e sem estado usando o modelo de programação de [*Serviços Confiáveis*](../Service-Fabric/service-fabric-reliable-services-introduction.md).
+Um aplicativo do Service Fabric contém um ou mais serviços que executam seu código. Este tutorial explica as etapas para criar aplicativos do Service Fabric “Hello World” com e sem estado usando o modelo de programação dos [*Reliable Services*](service-fabric-reliable-services-introduction.md).
 
 Um serviço sem estado é o tipo de serviço mais comum em aplicativos em nuvem atualmente. O serviço é considerado sem estado porque o serviço em si não contém dados que precisam ser armazenados de forma confiável ou que precisam ser altamente disponíveis - em outras palavras, se uma instância de um serviço sem estado é desligada, todo o seu estado interno é perdido. Nesses tipos de serviços, o estado deve ser preservado em um repositório externo, como Tabelas do Azure ou um banco de dados SQL, para se tornar altamente disponível e confiável.
 
-A Malha de Serviços introduz um novo tipo de serviço com estado: um serviço que pode manter o estado de forma confiável dentro de si mesmo, localizado junto com o código que o está usando. A Malha de Serviços torna o estado altamente disponível sem a necessidade de manter o estado em um repositório externo.
+O Service Fabric introduz um novo tipo de serviço com estado: um serviço que pode manter o estado de forma confiável dentro de si mesmo, localizado junto com o código que o está usando. A Malha de Serviços torna o estado altamente disponível sem a necessidade de manter o estado em um repositório externo.
 
 Neste tutorial, você implementará um serviço sem estado e um serviço com estado que mantém um contador interno. No serviço sem estado, o valor do contador é perdido quando o serviço é reiniciado ou movido. No entanto, no serviço com estado, a Malha de Serviços torna o estado do contador confiável para que, se a execução do serviço for interrompida por qualquer motivo no meio de contagem, seja possível retomá-la de onde parou.
 
@@ -30,9 +30,9 @@ Neste tutorial, você implementará um serviço sem estado e um serviço com est
 
 Vamos começar com um serviço sem estado.
 
-Inicie o Visual Studio 2015 RC como **Administrador** e crie um novo projeto de **Aplicativo da Malha de Serviços** chamado *HelloWorld*:
+Inicie o Visual Studio 2015 RC como **Administrador** e crie um novo projeto do **Aplicativo do Service Fabric** chamado *HelloWorld*:
 
-![Use a caixa de diálogo Novo Projeto para criar um Aplicativo da Malha de Serviços](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Usar o diálogo Novo Projeto para criar um aplicativo do Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
 Em seguida, crie um projeto de **Serviço sem Estado** chamado *HelloWorldStateless*:
 
@@ -110,7 +110,7 @@ No mesmo aplicativo **HelloWorld**, adicione um novo serviço clicando duas veze
 
 Selecione **Serviço com Estado da Malha de Serviços** e nomeie-o como "HelloWorldStateful". Clique em **Adicionar**.
 
-![Use a caixa de diálogo Novo Projeto para criar um novo serviço com estado da Malha de Serviços](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![Usar o diálogo Novo Projeto para criar um novo serviço com estado do Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
 Seu aplicativo agora deve ter dois serviços: o serviço sem estado *HelloWorld* e o serviço com estado *HelloWorldStateful*.
 
@@ -204,4 +204,4 @@ Quando os serviços estão em execução, você pode ver os eventos ETW gerados 
 
 [Referência do desenvolvedor para Serviços Confiáveis](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do SQL Server local ou em IaaS (VM do Azure) usando o Azure Data Factory
@@ -204,6 +204,15 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	   }
 	}
 
+> [AZURE.NOTE]No exemplo acima, **sqlReaderQuery** é especificado para o SqlSource. A Atividade de Cópia executa essa consulta na fonte do Banco de Dados do SQL Server para obter os dados.
+>  
+> Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usar parâmetros).
+>  
+> Se você não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, as colunas definidas na seção de estrutura do conjunto de dados JSON serão usadas para criar uma consulta (selecione column1, column2 de mytable) que será executada no Banco de Dados SQL Server. Se a definição de conjunto de dados não tem a estrutura, todas as colunas serão selecionadas da tabela.
+
+
+Veja a seção [Sql Source](#sqlsource) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) para obter a lista de propriedades com o suporte de SqlSource e de BlobSink.
+
 ## Exemplo: copiar dados do Blob do Azure para o SQL Server
 
 O exemplo a seguir mostra:
@@ -212,7 +221,7 @@ O exemplo a seguir mostra:
 2.	O serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
-4.	O [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
+4.	O [pipeline](data-factory-create-pipelines.md) com a atividade de Cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
 
 O exemplo copia, a cada hora, dados pertencentes a uma série temporal do Blob do Azure para uma tabela no banco de dados do SQL Server. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -329,7 +338,7 @@ O exemplo copia dados para uma tabela chamada "MyTable" no SQL Server. Você dev
 
 **Pipeline com Atividade de cópia**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo **source** está definido como **BlobSource** e o tipo **sink** está definido como **SqlSink**.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **BlobSource** e o tipo **sink** está definido como **SqlSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -382,13 +391,13 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| type | A propriedade do tipo deve ser definida como: **OnPremisesSqlServer**. | Sim |
+| type | A propriedade type deve ser definida como: **OnPremisesSqlServer**. | Sim |
 | connectionString | Especifique as informações de connectionString necessárias para conexão com o banco de dados do SQL Server local usando a autenticação do SQL ou então a autenticação do Windows. | Sim |
 | gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados do SQL Server local. | Sim |
 | Nome de Usuário | Especifique o nome de usuário se você estiver usando a Autenticação do Windows. | Não |
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não |
 
-Você pode criptografar credenciais usando o cmdlet **New-AzureDataFactoryEncryptValue** e usá-las na cadeia de conexão, conforme mostrado no exemplo a seguir (propriedade **EncryptedCredential**):
+Você pode criptografar credenciais usando o cmdlet **New-AzureDataFactoryEncryptValue** e usá-las na cadeia de conexão, como mostrado no seguinte exemplo (propriedade **EncryptedCredential**):
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -422,11 +431,11 @@ Se o nome de usuário e senha forem especificados, o gateway os usará para repr
 	     } 
 	}
 
-Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do SQL Server.
+Veja [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do SQL Server.
 
 ## Propriedades de tipo de conjunto de dados do SQL Server
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como estrutura, disponibilidade e política de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Server, blob do Azure, tabela do Azure, etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como estrutura, disponibilidade e política de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Server, blob do Azure, tabela do Azure, etc.).
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **SqlServerTable** tem as propriedades a seguir.
 
@@ -436,17 +445,31 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 ## Propriedades de tipo de atividade de cópia do SQL Server
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades.
+
+> [AZURE.NOTE]A Atividade de cópia usa apenas uma entrada e produz apenas uma saída.
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
-No caso de Atividade de cópia, quando a fonte é do tipo **SqlSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
+### SqlSource
+
+No caso da atividade de Cópia, quando a fonte é do tipo **SqlSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. Se não for especificada, a instrução SQL que é executada é: select from MyTable. | Não |
+| sqlReaderStoredProcedureName | Nome do procedimento armazenado que lê os dados da tabela de origem. | Nome do procedimento armazenado. | Não |
+| storedProcedureParameters | Parâmetros para o procedimento armazenado. | Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não |
 
-**SqlSink** dá suporte às seguintes propriedades:
+Se **sqlReaderQuery** for especificado para SqlSource, a Atividade de Cópia executará essa consulta na fonte do Banco do SQL Server para obter os dados.
+
+Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usar parâmetros).
+
+Se você não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, as colunas definidas na seção de estrutura do conjunto de dados JSON serão usadas para criar uma consulta (selecione column1, column2 de mytable) que será executada no Banco de Dados SQL Server. Se a definição de conjunto de dados não tem a estrutura, todas as colunas serão selecionadas da tabela.
+
+### SqlSink
+
+O **SqlSink** dá suporte às seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
@@ -468,7 +491,7 @@ No caso de Atividade de cópia, quando a fonte é do tipo **SqlSource**, as segu
 
 ### Mapeamento de tipo para SQL Server e SQL Azure
 
-Conforme mencionado no artigo [Atividades de movimentação de dados ](data-factory-data-movement-activities.md), A atividade de cópia executa conversões automáticas de tipos de fontes para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
+Como mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões do tipo automático de tipos de fonte para tipos de coletor, com a seguinte abordagem de duas etapas:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -518,4 +541,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,10 +1,9 @@
 <properties
-	pageTitle="Como posso alterar a letra da unidade do disco temporário? | Microsoft Azure"
-	description="Altere a letra da unidade do disco temporário em uma máquina virtual Windows criada com o modelo de implantação clássica."
+	pageTitle="Tornar a unidade D de uma VM um disco de dados | Microsoft Azure"
+	description="Descreve como alterar as letras da unidade para uma VM do Windows criada usando o modelo clássico de implantação para que você possa usar a unidade D: como uma unidade de dados."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="cynthn
-"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,43 +14,90 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="11/03/2015"
 	ms.author="cynthn"/>
 
-#Alterar a letra da unidade do disco temporário do Windows em uma máquina virtual criada com o modelo de implantação clássica
+# Usar a unidade D como uma unidade de dados em uma VM do Windows 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
-Se você precisar usar a unidade D para armazenar dados, siga estas instruções para usar uma unidade diferente para o disco temporário. Nunca use o disco temporário para armazenar os dados que você precisa manter.
+Se você precisar usar a unidade D para armazenar dados, siga estas instruções para usar uma letra de unidade diferente para o disco temporário. Nunca use o disco temporário para armazenar os dados que você precisa manter.
 
-Antes de começar, você precisará de um disco de dados anexado à máquina virtual, permitindo que você armazene o arquivo de paginação (pagefile. sys) do Windows durante esse procedimento. Consulte [Como anexar um disco de dados a uma máquina virtual Windows][Attach] se você não tiver um. Para obter instruções sobre como descobrir quais discos estão anexados, consulte "Localizar o disco" em [Como desanexar um disco de dados de uma máquina virtual Windows][Detach].
+## Anexar o disco de dados
 
-Se você quiser usar um disco de dados existente na unidade D, verifique se que você carregou também o VHD para a conta de Armazenamento. Para obter instruções, consulte as etapas 3 e 4 em [Criar e carregar um VHD do Windows Server no Azure][VHD].
+Primeiro, você precisará anexar o disco de dados à máquina virtual. Para anexar um novo disco, confira [Como anexar um disco de dados a uma máquina virtual do Windows][Attach].
 
-> [AZURE.WARNING]Se você redimensionar ou "Parar (desalocar)" uma máquina virtual, isso pode disparar o posicionamento da máquina virtual para um novo hipervisor. Um evento de manutenção planejada ou não planejada também pode disparar esse posicionamento. Nesse cenário, o disco temporário será reatribuído à primeira letra da unidade disponível. Se você tiver um aplicativo que requer especificamente a unidade "D", certifique-se de que, depois de mover o arquivo de paginação, você atribui um novo disco persistente e ele recebe a letra D. O Azure não aceitará a letra D de volta.
+Se você quiser usar um disco de dados existente, verifique se carregou também o VHD para a Conta de armazenamento. Para obter instruções, consulte as etapas 3 e 4 em [Criar e carregar um VHD do Windows Server no Azure][VHD].
 
-> [AZURE.WARNING]Se você redimensionar uma máquina virtual depois de mover explicitamente o arquivo de paginação, observe que você pode encontrar um erro na inicialização se o disco temporário da nova máquina virtual não for grande o suficiente para conter o arquivo de paginação do tamanho da VM original. Você também poderá encontrar este erro se o disco temporário não for definido para a próxima letra da unidade disponível, fazendo com que o Windows referencie uma letra da unidade inválida na configuração do arquivo de paginação enquanto o Azure cria a unidade temporária com a próxima letra da unidade disponível.
 
-##Alterar a letra da unidade
+## Mover temporariamente o pagefile.sys para a unidade C
 
-1. Faça logon na máquina virtual. Para obter mais detalhes, consulte [Como fazer logon em uma máquina virtual executando o Windows Server][Logon].
+1. Conectar-se à máquina virtual. 
 
-2. Mova pagefile.sys da unidade D para outra unidade.
+2. Clique com o botão direito no menu **Iniciar** e selecione **Sistema**.
 
-3. Reinicie a máquina virtual.
+3. No menu à esquerda, selecione **Configurações avançadas do sistema**.
 
-4. Faça logon novamente e altere a letra da unidade de D para E.
+4. Na seção **Desempenho**, selecione **Configurações**.
 
-5. No [portal do Azure](http://manage.windowsazure.com), anexe um disco de dados existente ou esvazie o disco de dados.
+5. Selecione a guia **Avançado**.
 
-6.	Faça logon na máquina virtual novamente, inicialize o disco e atribua D como a letra da unidade do disco que você acabou de anexar.
+5. Na seção **Memória virtual**, selecione **Alterar**.
 
-7.	Verifique se E está mapeada para o disco temporário.
+6. Selecione a unidade **C**, em seguida, clique em **Tamanho gerenciado do sistema** e clique em **Definir**.
 
-8.	Mova pagefile.sys da outra unidade para a unidade E.
+7. Selecione a unidade **C**, em seguida, clique em **Nenhum arquivo de paginação** e clique em **Definir**.
 
-9.	Reinicie a máquina virtual.
+8. Clique em Aplicar. Você receberá um aviso de que o computador precisa ser reiniciado para que as alterações entrem em vigor.
+
+9. Reinicie a máquina virtual.
+
+
+
+
+## Alterar a letra da unidade 
+
+1. Depois que a VM for reiniciada, faça logon novamente na VM.
+
+2. Clique no menu **Iniciar**, digite **diskmgmt. msc** e pressione Enter. O Gerenciamento de Disco será iniciado.
+
+3. Clique com o botão direito do mouse em **D**, a unidade de Armazenamento Temporário, e selecione **Alterar Letra da Unidade e Caminhos**.
+
+4. Na Letra da unidade, selecione a unidade **G** e clique em **OK**.
+
+5. Clique com o botão direito do mouse no disco de dados e selecione **Alterar Letra da Unidade e Caminhos**.
+
+6. Na Letra da unidade, selecione a unidade **D** e clique em **OK**.
+
+7. Clique com o botão direito do mouse em **G**, a unidade de Armazenamento Temporário, e selecione **Alterar Letra da Unidade e Caminhos**.
+
+8. Na Letra da unidade, selecione a unidade **E** e clique em **OK**.
+
+> [AZURE.NOTE]Se sua VM tiver outros discos ou unidades, use o mesmo método para reatribuir as letras da unidade dos outros discos e unidades. Você deseja que a configuração do disco seja: - C: disco do SO - D: Disco de Dados - E: Disco temporário
+
+
+
+## Mova o pagefile.sys de volta para a unidade de armazenamento temporário 
+
+1. Clique com o botão direito no menu **Iniciar** e selecione **Sistema**
+
+2. No menu à esquerda, selecione **Configurações avançadas do sistema**.
+
+3. Na seção **Desempenho**, selecione **Configurações**.
+
+4. Selecione a guia **Avançado**.
+
+5. Na seção **Memória virtual**, selecione **Alterar**.
+
+6. Selecione a unidade **C** do SO, em seguida, clique em **Nenhum arquivo de paginação** e clique em **Definir**.
+
+7. Selecione a unidade **E** de armazenamento temporário, em seguida, clique em **Tamanho gerenciado do sistema** e clique em **Definir**.
+
+8. Clique em **Aplicar**. Você receberá um aviso de que o computador precisa ser reiniciado para que as alterações entrem em vigor.
+
+9. Reinicie a máquina virtual.
+
 
 
 
@@ -65,8 +111,6 @@ Se você quiser usar um disco de dados existente na unidade D, verifique se que 
 <!--Link references-->
 [Attach]: storage-windows-attach-disk.md
 
-
-
 [VHD]: virtual-machines-create-upload-vhd-windows-server.md
 
 [Logon]: virtual-machines-log-on-windows-server.md
@@ -75,4 +119,4 @@ Se você quiser usar um disco de dados existente na unidade D, verifique se que 
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

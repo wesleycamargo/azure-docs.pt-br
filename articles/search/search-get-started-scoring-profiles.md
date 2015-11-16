@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Como usar os perfis de pontuação na Pesquisa do Azure" 
-	description="Introdução aos perfis de pontuação na Pesquisa do Azure" 
+	pageTitle="Como usar os perfis de pontuação na Pesquisa do Azure | Microsoft Azure" 
+	description="Ajuste a classificação da pesquisa por meio de perfis de pontuação na Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Como usar os perfis de pontuação na Pesquisa do Azure
@@ -126,4 +126,4 @@ Precisa voltar atrás e aprender mais sobre a criação de índice? [Assista a e
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

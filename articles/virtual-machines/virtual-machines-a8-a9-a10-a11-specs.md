@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/29/2015"
+ ms.date="10/30/2015"
  ms.author="danlep"/>
 
 # Sobre as instâncias de computação intensiva A8, A9, A10 e A11
@@ -29,7 +29,7 @@ Este artigo fornece informações básicas e considerações sobre o uso das ins
 
 * **Suporte para clusters HPC do Linux e Windows** – Implante um software de agendamento de trabalho e gerenciamento de cluster nas instâncias A8, A9, A10 e A11 no Azure para criar um cluster HPC autônomo ou para adicionar capacidade a um cluster local. Assim como outros tamanhos de VM do Azure, as instâncias A8, A9, A10 e A11 oferecem suporte a imagens padrão ou personalizadas de sistema operacional Windows Server e Linux ou modelos do Gerenciador de Recursos do Azure (IaaS) em VMs, ou versões do SO convidado do Azure em serviços de nuvem (PaaS, apenas para Windows Server).
 
->[AZURE.NOTE]As instâncias A10 e A11 têm as mesmas otimizações de desempenho e especificações das instâncias A8 e A9. No entanto, elas não incluem o acesso à rede RDMA no Azure. Elas foram projetadas para aplicativos HPC que não exigem comunicação constante e de baixa latência entre os nós, também conhecidos como aplicativos paramétricos ou totalmente paralelos. E ao executar cargas de trabalho que não aplicativos MPI, as instâncias A8 e A9 não acessam a rede RDMA e são funcionalmente equivalentes às instâncias A10 e A11.
+>[AZURE.NOTE]As instâncias A10 e A11 têm as mesmas otimizações de desempenho e especificações das instâncias A8 e A9. No entanto, elas não incluem o acesso à rede RDMA no Azure. Elas foram projetadas para aplicativos HPC que não exigem comunicação constante e de baixa latência entre os nós, também conhecidos como aplicativos paramétricos ou totalmente paralelos.
 
 
 ## Especificações
@@ -61,17 +61,15 @@ Back-end de 32 Gbps, compatível com RDMA | Permite a comunicação de aplicativ
 
 As instâncias A10 e A11 têm um único adaptador de rede Ethernet de 10 Gbps que se conecta à Internet e aos serviços do Azure.
 
-## Considerações sobre a assinatura do Azure
+## Considerações sobre a assinatura
 
 * **Conta do Azure** – Se desejar implantar mais do que um pequeno número de instâncias de computação intensiva, considere uma assinatura pré-paga ou outras opções de compra. Você também pode usar sua assinatura do MSDN. Consulte [Benefícios do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Se estiver usando uma [avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/), é possível usar apenas um número limitado de núcleos de computação do Azure.
 
-* **Cota de núcleos** – Talvez seja necessário aumentar a cota de núcleos em sua assinatura do Azure, cujo padrão é de 20 núcleos, que não é suficiente para muitos cenários com instâncias de 8 ou 16 núcleos. Para os testes iniciais, você pode solicitar um aumento de cota para 100 núcleos. Para fazer isso, abra um tíquete de suporte gratuito, como mostrado em [Noções básicas sobre limites e aumentos do Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Cota de núcleos** – Talvez seja necessário aumentar a cota de núcleos em sua assinatura do Azure do padrão de 20 núcleos por assinatura (para implantações do Gerenciamento de Serviços do Azure) ou de 20 núcleos por região (para implantações do Gerenciador de Recursos do Azure), o que não é suficiente para muitos cenários com instâncias de 8 ou 16 núcleos. Para os testes iniciais, você pode solicitar um aumento de cota para 100 núcleos. Para isso, abra um tíquete de suporte gratuito, como mostrado em [Noções básicas sobre limites e aumentos do Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
     >[AZURE.NOTE]Cotas do Azure são limites de crédito, não garantias de capacidade. Você é cobrado apenas pelo núcleos que usa.
 
-* **Grupo de afinidades** – Atualmente, um grupo de afinidades não é recomendado para a maioria das novas implantações. No entanto, observe que se estiver usando um grupo de afinidades que contenha instâncias de tamanhos diferentes A8 - A11, você não poderá usá-lo também para instâncias A8–A11, e vice-versa.
-
-* **Rede virtual** – Uma rede virtual do Azure não precisa usar as instâncias de computação intensiva. No entanto, talvez seja necessário ter pelo menos uma rede virtual do Azure baseada em nuvem para muitos cenários de IaaS, ou uma conexão entre sites se você precisar acessar recursos locais, como um servidor de licença de aplicativo. Será necessário criar uma nova rede virtual (regional) antes de implantar as instâncias. Não há suporte para a adição de uma VM A8, A9, A10 ou A11 a uma rede virtual em um grupo de afinidades. Para obter mais informações, veja [Como criar uma rede virtual (VNet)](../virtual-network/virtual-networks-create-vnet.md) e [Configurar uma rede virtual com uma conexão VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+* **Rede Virtual** -não há necessidade de ter uma rede virtual do Azure para usar instâncias de computação intensiva. No entanto, talvez seja necessário ter pelo menos uma rede virtual do Azure baseada em nuvem para muitos cenários de IaaS, ou uma conexão entre sites se você precisar acessar recursos locais, como um servidor de licença de aplicativo. Será necessário criar uma nova rede virtual (regional) antes de implantar as instâncias. Não há suporte para a adição de uma VM A8, A9, A10 ou A11 a uma rede virtual em um grupo de afinidades. Para obter mais informações, veja a [documentação da rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 * **Serviço de nuvem ou conjunto de disponibilidade** – Para se conectar por meio da rede RDMA, as instâncias A8 e A9 devem ser implantadas no mesmo serviço de nuvem (para cenários de IaaS com VMs baseadas em Linux ou Windows no Gerenciamento de Serviços do Azure, ou cenários de PaaS com o Windows Server) ou no mesmo conjunto de disponibilidade (para VMs baseadas em Linux ou Windows no Gerenciador de Recursos do Azure).
 
@@ -79,7 +77,7 @@ As instâncias A10 e A11 têm um único adaptador de rede Ethernet de 10 Gbps qu
 
 ### Considerações para HPC Pack e Linux
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) é o cluster HPC gratuito da Microsoft e a solução de gerenciamento de trabalho para o Windows. A partir do HPC Pack 2012 R2 Update 2, o HPC Pack dá suporte a várias distribuições Linux para executar em nós de computação implantados em VMs do Azure, gerenciadas por um nó principal do Windows Server. Com a versão mais recente do HPC Pack, você pode implantar um cluster baseado em Linux que pode executar aplicativos MPI que acessam a rede RDMA no Azure. Para obter mais informações, veja [Introdução aos nós de computação do Linux em um cluster do HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) é o cluster HPC gratuito da Microsoft e a solução de gerenciamento de trabalho para o Windows. A partir do HPC Pack 2012 R2 Update 2, o HPC Pack dá suporte a várias distribuições Linux para executar em nós de computação implantados em VMs do Azure, gerenciadas por um nó principal do Windows Server. Com a versão mais recente do HPC Pack, você pode implantar um cluster baseado em Linux que pode executar aplicativos MPI que acessam a rede RDMA no Azure. Para saber mais, veja [Introdução aos nós de computação do Linux em um cluster HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md).
 
 ### Considerações para HPC Pack e Windows
 
@@ -91,7 +89,7 @@ Para obter mais informações e listas de verificação para usar as instâncias
 
 ### Acesso por meio de VMs Linux A8 e A9
 
-Dentro de um único serviço de nuvem ou conjunto de disponibilidade, as instâncias A8 e A9 podem acessar a rede RDMA no Azure ao executar aplicativos MPI que utilizem os drivers de RDMA Linux para comunicação entre instâncias. No momento, há suporte ao RDMA do Linux do Azure apenas da [Intel MPI Library 5](https://software.intel.com/pt-BR/intel-mpi-library/).
+Dentro de um único serviço de nuvem ou conjunto de disponibilidade, as instâncias A8 e A9 podem acessar a rede RDMA no Azure ao executar aplicativos MPI que utilizem os drivers de RDMA Linux para comunicação entre instâncias. No momento, há suporte apenas ao RDMA do Linux do Azure da [Intel MPI Library 5](https://software.intel.com/pt-BR/intel-mpi-library/).
 
 >[AZURE.NOTE]Atualmente drivers RDMA Linux do Azure não estão disponíveis para instalação por meio de extensões do driver. Eles só estão disponíveis usando imagens compatíveis com RDMA SLES 12 do Azure Marketplace.
 
@@ -120,18 +118,16 @@ MPI | MS-MPI 2012 R2 ou posterior, autônomo ou instalado por meio do HPC Pack 2
 
 ## Informações adicionais importantes
 
-* Os tamanhos de VM A8–A11 só estão disponíveis na camada de preços padrão.
+* **Preços** - Os tamanhos de VM A8-A11 só estão disponíveis no tipo de preço Standard.
 
-* Não é possível redimensionar uma VM Azure existente para o tamanho A8, A9, A10 ou A11.
+* **Redimensionamento** – Não é possível redimensionar uma instância com um tamanho diferente de A8-A11 para um dos tamanhos da instância de computação intensiva (A8-11) e não é possível redimensionar uma instância de computação intensiva para um tamanho que não seja de computação intensiva. Isso ocorre devido ao hardware especializado e às otimizações de desempenho específicas para as instâncias de computação intensiva.
 
-* As instâncias A8, A9, A10 e A11 não podem ser implantadas atualmente por meio de um serviço de nuvem que faça parte de um grupo de afinidades existente. Da mesma forma, um grupo de afinidades com um serviço de nuvem que contém as instâncias A8, A9, A10 e A11 não pode ser usado para implantações de outros tamanhos de instância. Se tentar fazer essas implantações, você verá uma mensagem de erro semelhante a `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.`
-
-* A rede RDMA no Azure reserva o espaço de endereço 172.16.0.0/12. Se você planeja executar aplicativos MPI em instâncias A8 e A9 implantadas em uma rede virtual do Azure, verifique se o espaço do endereço de rede virtual não se sobrepõe à rede RDMA.
+* **Espaço de endereço de rede RDMA** - A rede RDMA no Azure reserva o espaço de endereço 172.16.0.0/12. Se você planeja executar aplicativos MPI em instâncias A8 e A9 em uma rede virtual do Azure, verifique se o espaço do endereço de rede virtual não se sobrepõe à rede RDMA.
 
 ## Próximas etapas
 
-* Para obter detalhes sobre a disponibilidade e preços das instâncias A8, A9, A10 e A11, confira [Preços de Máquinas Virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Preços de Serviços de Nuvem](http://azure.microsoft.com/pricing/details/cloud-services/).
+* Para obter detalhes sobre a disponibilidade e preços das instâncias A8, A9, A10 e A11, confira [Preços das Máquinas Virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Preços dos Serviços de Nuvem](http://azure.microsoft.com/pricing/details/cloud-services/).
 * Para implantar e configurar um cluster baseado em Linux com instâncias A8 e A9 para acessar a rede RDMA do Azure, veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md).
 * Para começar a implantar e usar instâncias A8 e A9 com o HPC Pack no Windows, veja [Configurar um cluster de RDMA do Windows com o HPC Pack para executar aplicativos MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

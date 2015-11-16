@@ -17,7 +17,7 @@
 	ms.author="billmath"/>
 
 # A experiência de conexão com o Azure Multi-Factor Authentication
-As informações a seguir ajudam a orientar você no processo de conexão.
+A documentação fornecida nesta página mostra uma experiência de logon típica. Para obter ajuda com a conexão, veja [Problemas com a Multi-Factor Authentication do Azure](multi-factor-authentication-end-user-manage-settings.md)
 
 
 ## Qual será sua experiência de conexão?
@@ -102,4 +102,4 @@ A seção a seguir mostrará como se conectar com um método alternativo quando 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

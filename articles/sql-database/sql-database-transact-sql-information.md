@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/07/2015"
+   ms.date="11/02/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Informações de Transact-SQL de Banco de Dados SQL do Azure
@@ -76,6 +76,8 @@ O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos exis
 - SHUTDOWN
 - sp\_addmessage
 - Opções de sp\_configure e RECONFIGURE
+- sp\_helpuser
+- sp\_migrate\_user\_to\_contained
 - Auditoria do SQL Server (usar auditoria de Banco de Dados SQL em vez disso)
 - SQL Server Profiler
 - Rastreamento do SQL Server
@@ -86,12 +88,12 @@ O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos exis
 
 ## Referência completa do Transact-SQL
 
-Para obter mais informações sobre gramática, uso e exemplos do Transact-SQL, consulte [Referência do Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx) nos Manuais Online do SQL Server.
+Para obter mais informações sobre gramática, uso e exemplos do Transact-SQL, veja [Referência do Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx) nos Manuais Online do SQL Server.
 
 ### Sobre as marcas "Aplica-se a"
 
-A referência do Transact-SQL inclui tópicos relacionados ao SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 e Banco de Dados SQL do Microsoft Azure. Na parte superior de cada tópico há uma seção indicando quais produtos dão suporte ao assunto do tópico. Se um produto é omitido, o recurso descrito pelo tópico não está disponível nesse produto. Por exemplo, grupos de disponibilidade foram introduzidos no SQL Server 2012. O tópico **CRIAR GRUPO DE DISPONIBILIDADE** indica que ele se aplica ao **SQL Server (desde o SQL Server 2012 até a versão atual)**, porque ele não se aplica ao SQL Server 2008, SQL Server 2008 R2, nem ao Banco de Dados SQL do Microsoft Azure.
+A referência do Transact-SQL inclui tópicos relacionados ao SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 e Banco de Dados SQL do Microsoft Azure. Na parte superior de cada tópico há uma seção indicando quais produtos dão suporte ao assunto do tópico. Se um produto é omitido, o recurso descrito pelo tópico não está disponível nesse produto. Por exemplo, grupos de disponibilidade foram introduzidos no SQL Server 2012. O tópico **CRIAR GRUPO DE DISPONIBILIDADE** indica que ele se aplica ao **SQL Server (desde o SQL Server 2012 até a versão atual)**, pois ele não se aplica ao SQL Server 2008, SQL Server 2008 R2, nem ao Banco de Dados SQL do Microsoft Azure.
 
-Em alguns casos, o assunto geral do tópico pode ser usado em um produto, mas não há suporte para todos os argumentos. Por exemplo, usuários de bancos de dados independentes foram introduzidos no SQL Server 2012. A instrução **CREATE USER** pode ser usada em qualquer produto SQL Server; no entanto, a sintaxe **WITH PASSWORD** não pode ser usada com versões anteriores. Nesse caso, seções **Aplica-se a** adicionais são inseridas nas descrições apropriadas do argumento no corpo do tópico.
+Em alguns casos, o assunto geral do tópico pode ser usado em um produto, mas não há suporte para todos os argumentos. Por exemplo, usuários de bancos de dados independentes foram introduzidos no SQL Server 2012. A instrução **CREATE USER** pode ser usada em qualquer produto do SQL Server; no entanto, a sintaxe **WITH PASSWORD** não pode ser usada com versões anteriores. Nesse caso, seções **Aplica-se a** adicionais são inseridas nas descrições apropriadas do argumento no corpo do tópico.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

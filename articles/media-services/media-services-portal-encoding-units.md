@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Como dimensionar a codificação de unidades reservadas usando o Portal do Azure" 
-	description="Saiba como dimensionar os Serviços de Mídia especificando o número de Unidades Reservadas para Streaming por Demanda e Unidades Reservadas para Codificação com as quais você deseja provisionar sua conta." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,milangada" 
-	manager="dwrede" 
+<properties
+	pageTitle="Como escalar o processamento de mídia usando o Portal do Azure"
+	description="Saiba como dimensionar os Serviços de Mídia especificando o número de Unidades Reservadas para Streaming por Demanda e Unidades Reservadas para Codificação com as quais você deseja provisionar sua conta."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako,milangada"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
-#Como dimensionar a codificação usando o Portal do Azure
+# Como escalar o processamento de mídia usando o Portal do Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -25,11 +25,13 @@
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
-##Visão geral
+## Visão geral
 
-Uma conta de serviços de mídia está associada a um tipo de unidade reservada que determina a velocidade com que seus trabalhos de codificação são processados. Você pode escolher entre os seguintes tipos de unidade reservada: **Basic**, **Standard** ou **Premium**. Por exemplo, o mesmo trabalho de codificação é executado mais rápido quando se usa o tipo de unidade reservada **Standard** em comparação com aquela do tipo **Basic**. Para saber mais, consulte [Tipos de unidade reservada para codificação](http://azure.microsoft.com/blog/author/milanga).
+Uma conta dos Serviços de Mídia é associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **Basic**, **Standard** ou **Premium**. Por exemplo, o mesmo trabalho de codificação é executado mais rápido quando se usa o tipo de unidade reservada **Standard** em comparação com aquela do tipo **Basic**. Para saber mais, consulte [Tipos de unidade reservada para codificação](http://azure.microsoft.com/blog/author/milanga).
 
 Além de especificar o tipo de unidade reservada, você pode especificar para provisionar sua conta com unidades reservadas para codificação. O número de unidades reservadas para codificação provisionada determina o número de tarefas de mídia que podem ser processadas simultaneamente em uma determinada conta. Por exemplo, se sua conta tiver cinco unidades reservadas, as cinco tarefas de mídia serão executadas simultaneamente enquanto houver tarefas para serem processadas. As tarefas restantes irão aguardar na fila e serão selecionadas para processamento sequencialmente assim que uma tarefa em execução seja concluída. Se uma conta não tiver nenhuma unidade reservada provisionada, as tarefas serão selecionadas sequencialmente. Nesse caso, o tempo de espera entre a conclusão de uma tarefa e o início da próxima dependerá da disponibilidade dos recursos do sistema.
+
+>[AZURE.IMPORTANT]As Unidades Reservadas trabalham para paralelizar todo o processamento de mídia, incluindo trabalhos de indexação usando o Indexador de Mídia do Azure. No entanto, ao contrário da codificação, a indexação de trabalhos não processará mais rapidamente com unidades reservadas mais rápidas.
 
 Para alterar o tipo de unidade reservada e o número de unidades reservadas para codificação, faça o seguinte:
 
@@ -40,11 +42,11 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas para
 	Para alterar o **TIPO DE UNIDADE RESERVADA**, pressione BASIC, STANDARD ou PREMIUM.
 
 	Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, use controle deslizante **CODIFICAÇÃO**.
-	
-	
+
+
 	![Página Processadores](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
-	  
+
 	>[AZURE.NOTE]Os datacenters a seguir não oferecem o tipo de unidade reservada Premium: Singapura, Hong Kong, Osaka, Pequim, Xangai.
 
 3. Pressione o botão SALVAR para salvar as alterações.
@@ -66,7 +68,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

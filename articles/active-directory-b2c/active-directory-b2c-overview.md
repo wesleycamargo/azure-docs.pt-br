@@ -54,12 +54,13 @@ Aprenda a usar os recursos específicos da visualização do Active Directory B2
 
 Estes links serão úteis na exploração em profundidade do serviço:
 
-- Obtenha ajuda sobre o Excedente de Pilha usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
-- Envie-nos sua opinião sobre a visualização usando a [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory); nós queremos ouvi-la! Use a frase "AzureADB2C:" no título da sua publicação para que possamos encontrá-la.
+- Veja as [informações sobre preços do Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c)
+- Obtenha ajuda no Stack Overflow usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
+- Envie-nos sua opinião sobre a visualização usando a [Voz do usuário](http://feedback.azure.com/forums/169401-azure-active-directory); nós queremos ouvi-la! Use a frase "AzureADB2C:" no título da sua publicação para que possamos encontrá-la.
 - O Active Directory B2C do Azure dá suporte a protocolos padrão da indústria, OpenID Connect e OAuth 2.0, usando um modelo de registro de aplicativo que chamamos de "Modelo de aplicativo v 2.0".
   - [Referência ao protocolo do modelo aplicativo v 2.0](active-directory-b2c-reference-protocols.md)
   - [Referência ao token do modelo de aplicativo v2.0](active-directory-b2c-reference-tokens.md)
 - [Perguntas frequentes do Active Directory B2C do Azure](active-directory-b2c-faqs.md)
 - [Solicitações de suporte de arquivo em relação ao Active Directory B2C do Azure](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

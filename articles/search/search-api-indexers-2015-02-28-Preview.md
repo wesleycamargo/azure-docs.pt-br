@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)" 
+pageTitle="Operações de indexador (API REST do Serviço da Pesquisa do Azure: 2015-02-28-Preview) | Microsoft Azure" 
 description="Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/29/2015" 
+ms.date="11/04/2015" 
 ms.author="heidist" />
 
 #Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)#
@@ -21,7 +21,7 @@ ms.author="heidist" />
 
 ## Visão geral ##
 
-O Azure Search pode se integrar diretamente a algumas fontes de dados comuns, eliminando a necessidade de escrever código para indexar seus dados. Para configurar isso, você pode chamar a API do Azure Search para criar e gerenciar **indexadores** e **fontes de dados**.
+A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado do Microsoft Azure. O Azure Search pode se integrar diretamente a algumas fontes de dados comuns, eliminando a necessidade de escrever código para indexar seus dados. Para configurar isso, você pode chamar a API do Azure Search para criar e gerenciar **indexadores** e **fontes de dados**.
 
 Um **indexador** é um recurso que conecta fontes de dados a índices de pesquisa de destino. Um indexador é usado para as seguintes finalidades:
 
@@ -776,4 +776,4 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 </tr>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
