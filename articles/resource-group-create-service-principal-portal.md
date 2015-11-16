@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar uma nova entidade de serviço do Azure usando o portal do Azure"
-   description="Descreve como criar uma nova entidade de serviço do Azure que possa ser usada com o controle de acesso baseado em função no Gerenciador de Recursos do Azure, para gerenciar o acesso aos recursos."
+   pageTitle="Criar um aplicativo do AD e uma entidade de serviço no portal | Microsoft Azure"
+   description="Descreve como criar um novo aplicativo do Active Directory e uma nova entidade de serviço que possam ser usados com o controle de acesso baseado em função no Gerenciador de Recursos do Azure, para gerenciar o acesso aos recursos."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,24 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/29/2015"
    ms.author="tomfitz"/>
 
-# Criar uma nova entidade de serviço do Azure usando o portal do Azure
+# Criar o aplicativo do Active Directory e a entidade de serviço usando o portal
 
 ## Visão geral
-Uma entidade de serviço é um processo automatizado, aplicativo ou serviço que precisa acessar outros recursos. Usando o Gerenciador de Recursos do Azure, você pode conceder acesso a uma entidade de serviço e autenticá-la para executar as ações de gerenciamento permitidas nos recursos que existem na assinatura ou como um locatário.
+Quando tiver um aplicativo que precisa acessar ou modificar um recurso em sua assinatura, você poderá usar o portal para criar um aplicativo do Active Directory e atribuí-lo a uma função com a permissão correta. Quando você cria um aplicativo do Active Directory por meio do portal, ele realmente cria o aplicativo e uma entidade de serviço. Use a entidade de serviço ao definir as permissões.
 
-Este tópico mostra como criar uma nova entidade de serviço usando o Portal do Azure. Atualmente, você deve usar o portal do Microsoft Azure para criar uma nova entidade de serviço. Essa capacidade será adicionada ao portal de visualização do Azure em uma versão posterior.
+Este tópico mostra como criar um novo aplicativo e uma nova entidade de serviço usando o Portal do Azure. Atualmente, você deve usar o portal do Microsoft Azure para criar um novo aplicativo do Active Directory. Essa capacidade será adicionada ao portal de visualização do Azure em uma versão posterior. Você pode usar o portal de visualização para atribuir o aplicativo a uma função.
 
 ## Conceitos
-1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso desenvolvido para a nuvem. Para mais detalhes, consulte: [O que é o Active Directory do Azure](./active-directory-whatis/)
+1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso desenvolvido para a nuvem. Para mais detalhes, consulte: [O que é o Active Directory do Azure](active-directory/active-directory-whatis.md)
 2. Entidade de serviço - uma instância de um aplicativo em um diretório.
-3. Aplicativo do AD - um registro de diretório no AAD que identifica um aplicativo ao AAD. Para mais detalhes, consulte [Noções básicas de autenticação no AD do Azure](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
+3. Aplicativo do AD - um registro de diretório no AAD que identifica um aplicativo ao AAD. 
+
+Para obter uma explicação mais detalhada de aplicativos e entidades de serviço, consulte [Objetos de aplicativo e de entidade de serviço](active-directory/active-directory-application-objects.md). Para obter mais informações sobre a autenticação do Active Directory, consulte [Cenários de autenticação do Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 
-## Criar um aplicativo do Active Directory
-1. Faça logon na sua conta do Azure por meio do [portal clássico](https://manage.windowsazure.com/).
+## Criar o aplicativo e os objetos de entidade de serviço
+
+1. Faça logon na sua conta do Azure por meio do [portal](https://manage.windowsazure.com/).
 
 2. Selecione **Active Directory** no painel à esquerda.
 
@@ -64,7 +67,7 @@ Este tópico mostra como criar uma nova entidade de serviço usando o Portal do 
 
      ![propriedades do aplicativo][4]
 
-## Criar sua senha de entidade de serviço
+## Criar uma chave de autenticação para seu aplicativo
 O portal agora deve estar com seu aplicativo selecionado.
 
 1. Clique na guia **Configurar** para definir a senha do aplicativo.
@@ -93,11 +96,41 @@ Seu aplicativo agora está pronto e a entidade de serviço criada em seu locatá
 * **ID DO CLIENTE** - como seu nome de usuário.
 * **CHAVE** - como sua senha.
 
+## Atribuindo o aplicativo a uma função
+
+Você pode usar o [portal de visualização](https://portal.azure.com) para atribuir o aplicativo do Active Directory a uma função que tenha acesso ao recurso que você precisa acessar. Para obter informações sobre como atribuir aplicativos a uma função, consulte [Controle de acesso baseado em função do Azure Active Directory](active-directory/role-based-access-control-configure.md).
+
+## Obter o token de acesso no código
+
+Se estiver usando o .NET, você poderá recuperar o token de acesso para o aplicativo com o código a seguir.
+
+Primeiro, você deve instalar a Biblioteca de Autenticação do Active Directory em seu projeto do Visual Studio. A maneira mais fácil de fazer isso é usar o pacote do NuGet. Abra o Console do Gerenciador de Pacotes e digite os comandos a seguir.
+
+    PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+    PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
+
+No aplicativo, adicione um método semelhante ao seguinte para recuperar o token.
+
+    public static string GetAccessToken()
+    {
+        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+        var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+        if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+        }
+
+        string token = result.AccessToken;
+
+        return token;
+    }
+
 ## Próximas etapas
 
-- Para aprender a especificar políticas de segurança, consulte [Gerenciar e auditar o acesso a recursos](azure-portal/resource-group-rbac.md).  
-- Para ver as etapas de como permitir que uma entidade de serviço acesse recursos, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](./resource-group-authenticate-service-principal.md)  
-- Para uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md).
+- Para aprender a especificar políticas de segurança, consulte [Gerenciar e auditar o acesso a recursos](resource-group-rbac.md).  
+- Para obter uma demonstração em vídeo dessas etapas, consulte [Habilitando o gerenciamento programático de um recurso do Azure com o Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+- Para obter informações sobre como usar o Azure PowerShell ou a CLI do Azure para trabalhar com aplicativos do Active Directory e entidades de serviço, incluindo como usar um certificado para autenticação, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](./resource-group-authenticate-service-principal.md).
 - Para obter orientações sobre como implantar recursos de segurança com o Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
 
 
@@ -116,4 +149,4 @@ Seu aplicativo agora está pronto e a entidade de serviço criada em seu locatá
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -34,13 +34,7 @@ Antes de entrar em detalhes sobre a implantação de um aplicativo existente, é
 
   Este é um exemplo de manifesto do aplicativo:
 
- ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationManifest ApplicationTypeName="actor2Application"
-                       ApplicationTypeVersion="1.0.0.0"
-                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  ```xml <?xml version="1.0" encoding="utf-8"?> <ApplicationManifest ApplicationTypeName="actor2Application" ApplicationTypeVersion="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
@@ -55,8 +49,7 @@ Antes de entrar em detalhes sobre a implantação de um aplicativo existente, é
       </Service>
     </DefaultServices>
 
-  </ApplicationManifest>
-  ```
+  </ApplicationManifest> ```
 
 * **Manifesto do serviço**
 
@@ -64,16 +57,7 @@ Antes de entrar em detalhes sobre a implantação de um aplicativo existente, é
 
   Este é um exemplo de manifesto do serviço:
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ServiceManifest Name="actor2Pkg"
-                   Version="1.0.0.0"
-                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="actor2Type" />
-    </ServiceTypes>
+  ```xml <?xml version="1.0" encoding="utf-8"?> <ServiceManifest Name="actor2Pkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ServiceTypes> <StatelessServiceType ServiceTypeName="actor2Type" /> </ServiceTypes>
 
     <CodePackage Name="Code" Version="1.0.0.0">
       <EntryPoint>
@@ -90,8 +74,7 @@ Antes de entrar em detalhes sobre a implantação de um aplicativo existente, é
         <Endpoint Name="ServiceEndpoint" />
       </Endpoints>
     </Resources>
-  </ServiceManifest>
-  ```
+  </ServiceManifest> ```
 
 ## Estrutura de arquivo do pacote de aplicativos
 Para implantar um aplicativo usando os cmdlets do PowerShell, por exemplo, o aplicativo precisa seguir uma estrutura de diretório predefinida.
@@ -294,7 +277,7 @@ Um serviço da Malha de Serviço pode ser implantado em várias 'configurações
 
 * `InstanceCount`: é usado para especificar quantas instâncias do serviço devem ser iniciadas no cluster do Service Fabric. É possível definir o valor de `InstanceCount` de acordo com o tipo de aplicativo que está sendo implantado. Os dois cenários mais comuns são:
 
-	* `InstanCount = "1"`: nesse caso, somente uma instância do serviço será implantada no cluster. O agendador da Malha de Serviço determina em qual nó o serviço será implantado. A contagem de uma única instância também faz sentido para aplicativos que exigem uma configuração diferente, caso sejam executados em várias instâncias. Nesse caso, é mais fácil definir vários serviços no mesmo arquivo de manifesto do aplicativo e usar `InstanceCount = "1"`. Assim, o resultado final terá várias instâncias do mesmo serviço, mas cada uma com uma configuração específica. Um valor de `InstanceCount` maior que um fará sentido apenas se a meta for ter várias instâncias exatamente da mesma configuração.
+	* `InstanceCount = "1"`: nesse caso, somente uma instância do serviço será implantada no cluster. O agendador da Malha de Serviço determina em qual nó o serviço será implantado. A contagem de uma única instância também faz sentido para aplicativos que exigem uma configuração diferente, caso sejam executados em várias instâncias. Nesse caso, é mais fácil definir vários serviços no mesmo arquivo de manifesto do aplicativo e usar `InstanceCount = "1"`. Assim, o resultado final terá várias instâncias do mesmo serviço, mas cada uma com uma configuração específica. Um valor de `InstanceCount` maior que um fará sentido apenas se a meta for ter várias instâncias exatamente da mesma configuração.
 
 	* `InstanceCount ="-1"`: nesse caso, uma instância do serviço será implantada em cada nó do cluster do Service Fabric. O resultado final será ter uma (e apenas uma) instância do serviço para cada nó no cluster. Essa é uma configuração útil para aplicativos de front-end (por exemplo, um ponto de extremidade REST), pois aplicativos cliente precisam apenas se 'conectar' a qualquer um dos nós do cluster para usar o ponto de extremidade. Essa configuração também pode ser usada quando, por exemplo, todos os nós do cluster da Malha de Serviço estiverem conectados a um balanceador de carga para que o tráfego do cliente possa ser distribuído pelo serviço em execução em todos os nós do cluster.
 
@@ -353,4 +336,4 @@ Veja [isso](service-fabric-develop-your-service-index.md) se desejar obter mais 
 [5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
 [6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

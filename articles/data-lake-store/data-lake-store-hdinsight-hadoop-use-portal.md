@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="nitinme"/>
 
 # Provisionar um cluster HDInsight com o Repositório Data Lake usando o portal de visualização do Azure
@@ -23,7 +23,12 @@
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Aprenda a usar o Portal de Visualização do Azure para configurar um cluster HDInsight (Hadoop, HBase ou Storm) para trabalhar com um Repositório Azure Data Lake. Algumas considerações importantes para esta versão: * **para clusters Hadoop e Storm (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será nos Blobs de Armazenamento do Azure (WASB). * **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou adicional.
+Aprenda a usar o Portal de Visualização do Azure para configurar um cluster HDInsight (Hadoop, HBase ou Storm) para trabalhar com um Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
+
+* **Para clusters Hadoop e Storm (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
+
+* **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou armazenamento adicional.
+
 
 Neste artigo, provisionaremos um cluster Hadoop com o Repositório Data Lake como armazenamento adicional. A configuração do HDInsight para trabalhar com o Repositório Data Lake usando o Portal de Visualização do Azure envolve as seguintes etapas:
 
@@ -43,7 +48,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 Nesta seção, você cria um cluster HDInsight Hadoop que usa o Repositório Data Lake como um armazenamento adicional. Nesta versão, para um cluster Hadoop, o Repositório Data Lake pode ser usado apenas como um armazenamento adicional para o cluster. O armazenamento padrão ainda será nos blobs de armazenamento do Azure (WASB). Portanto, vamos criar primeiro a conta de armazenamento e os contêineres de armazenamento exigidos para o cluster.
 
-1. Faça logon no novo [portal de visualização do Azure](https://portal.azure.com).
+1. Faça logon no novo [Portal de Visualização do Azure](https://portal.azure.com).
 
 2. Siga as etapas em [Criar clusters de Hadoop no HDInsight](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal) para começar a provisionar um cluster HDInsight.
  
@@ -80,7 +85,7 @@ Nesta seção, você cria um cluster HDInsight Hadoop que usa o Repositório Dat
 
 1. Faça logon no novo [Portal de Visualização do Azure](https://portal.azure.com).
 
-2. Se você não tiver uma conta do Repositório Data Lake, crie uma. Siga as instruções em [Introdução ao Repositório Data Lake do Azure usando o portal de visualização do Azure](data-lake-store-get-started-portal.md).
+2. Se você não tiver uma conta do Repositório Data Lake, crie uma. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o portal de visualização do Azure](data-lake-store-get-started-portal.md).
 
 	Se você já tiver uma conta do Repositório Data Lake, no painel esquerdo, clique em **Procurar**, clique em **Repositório Data Lake**, e, em seguida, clique no nome de conta ao qual você deseja conceder acesso.
 
@@ -162,7 +167,7 @@ Após a configuração de um cluster HDInsight, você poderá executar trabalhos
 
 Após a configuração do cluster HDInsight para usar o Repositório Data Lake, você poderá usar os comandos do shell HDFS para acessar o armazenamento.
 
-1. Faça logon no novo [portal de visualização do Azure](https://portal.azure.com).
+1. Faça logon no novo [Portal de Visualização do Azure](https://portal.azure.com).
 
 2. Clique em **Procurar**, em **Clusters HDInsight** e clique no cluster HDInsight que você criou.
 
@@ -202,4 +207,4 @@ Para obter instruções sobre como adicionar uma entidade de serviço a um siste
 [makecert]: https://msdn.microsoft.com/pt-BR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/pt-BR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

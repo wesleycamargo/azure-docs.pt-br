@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/17/2015"
+   ms.date="10/29/2015"
    ms.author="jehollan"/>
 
 #Aplicativo de API de C#
@@ -79,7 +79,7 @@ Por exemplo, imagine que você está usando o gatilho do Office 365 **Novo Email
 }
 ```
 
-Mas é recomendável carregar esses anexos em uma postagem do Yammer. Infelizmente, o esquema dos anexos do Yammer é ligeiramente diferente. Agora, você pode analisar isso dentro do aplicativo lógico. Para o objeto de contexto, passe: `@triggerBody()`, e para a expressão, passe:
+Mas é recomendável carregar esses anexos em uma postagem do Yammer. Infelizmente, o esquema dos anexos do Yammer é ligeiramente diferente. Agora, você pode analisar isso dentro do Aplicativo lógico. Para o objeto de contexto, passe: `@triggerBody()`, e para a expressão, passe:
 
 ```javascript
 JArray YammerAttachments = new JObject();
@@ -105,4 +105,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

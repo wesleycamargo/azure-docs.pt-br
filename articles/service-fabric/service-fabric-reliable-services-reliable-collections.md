@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Coleções Confiáveis"
-   description="As Coleções Confiáveis permitem desenvolver aplicativos em nuvem altamente disponíveis, escalonáveis e de baixa latência."
+   pageTitle="Reliable Collections | Microsoft Azure"
+   description="Os serviços com estado do Service Fabric fornecem coleções confiáveis que permitem escrever aplicativos em nuvem altamente disponíveis, escalonáveis e com baixa latência."
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="mcoskun"/>
 
-# Coleções Confiáveis
+# Introdução à Reliable Collections nos serviços com estado do Service Fabric
 
 As Coleções Confiáveis permitem desenvolver aplicativos em nuvem altamente disponíveis, escalonáveis e de baixa latência como se você estivesse desenvolvendo aplicativos de máquina única. As classes no namespace `Microsoft.ServiceFabric.Data.Collections` fornecem um conjunto de coleções prontas para uso que automaticamente tornam seu estado altamente disponível. Os desenvolvedores só precisam programar para as APIs de Coleções Confiáveis e permitir que as Coleções Confiáveis gerenciem o estado local e replicado.
 
@@ -38,7 +38,7 @@ As Coleções Confiáveis fornecem sólidas garantias de consistência prontas p
 
 As APIs de Coleções Confiáveis são uma evolução das APIs de coleções simultâneas (encontradas no namespace `System.Collections.Concurrent`):
 
-1. Assíncronas: retornam uma tarefa já que, ao contrário das Coleções Confiáveis, as operações são replicadas e persistidas.
+1. Assíncronas: retorna uma Tarefa, já que, ao contrário das coleções concorrentes, as operações são replicadas e mantidas.
 2. Sem parâmetro de saída: usam `ConditionalResult<T>` para retornar um bool e um valor em vez de parâmetros. `ConditionalResult<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
 3. Transações: usam um objeto de transação para permitir que o usuário agrupe as ações em várias Coleções Confiáveis em uma transação.
 
@@ -78,7 +78,7 @@ O Gerenciador de Estado Confiável e as Coleções Confiáveis seguem um modelo 
 
 Para entender melhor o modelo de log e ponto de verificação, primeiro vamos analisar o cenário de disco infinito. O Gerenciador de Estado Confiável registra cada operação antes que ela seja replicada. Isso permite que a Coleção Confiável se aplique somente à operação na memória. Como os logs são persistidos, mesmo quando a réplica falha e precisa ser reiniciada, o Gerenciador de Estado Confiável tem informações suficientes em seus logs para repetir todas as operações que a réplica perdeu. Como o disco é infinito, registros de log nunca precisam ser removidos e a Coleção Confiável precisa apenas gerenciar o estado na memória.
 
-Agora vamos examinar o cenário de disco finito. Em um ponto, o Gerenciador de Estado Confiável ficará sem espaço em disco. Antes que isso ocorra, o Gerenciador de Estado Confiável precisa truncar seu log para liberar espaço para os registros mais recentes. Ele irá solicitar as Coleções Confiável para criar um ponto de verificação do seu estado na memória. É responsabilidade da Coleção Confiável persistir seu estado até esse ponto. Depois que as Coleções Confiáveis concluírem seus pontos de verificação, o Gerenciador de Estado Confiável poderá truncar o log para liberar espaço em disco. Dessa forma, quando a réplica precisar ser reiniciada, as Coleções Confiáveis irão recuperar seu estado com ponto de verificação, e o Gerenciador de Estado Confiável irá recuperar e reproduzir todas as alterações de estado que ocorreram desde o ponto de verificação.
+Agora vamos examinar o cenário de disco finito. Em um ponto, o Gerenciador de Estado Confiável ficará sem espaço em disco. Antes que isso ocorra, o Gerenciador de Estado Confiável precisa truncar seu log para liberar espaço para os registros mais recentes. Ele solicitará às Reliable Collections para criar um ponto de verificação do seu estado na memória em disco. É responsabilidade da Coleção Confiável persistir seu estado até esse ponto. Depois que as Coleções Confiáveis concluírem seus pontos de verificação, o Gerenciador de Estado Confiável poderá truncar o log para liberar espaço em disco. Dessa forma, quando a réplica precisar ser reiniciada, as Coleções Confiáveis irão recuperar seu estado com ponto de verificação, e o Gerenciador de Estado Confiável irá recuperar e reproduzir todas as alterações de estado que ocorreram desde o ponto de verificação.
 
 ## Bloqueio
 Nas Coleções Confiáveis, todas as transações têm duas fases: uma transação não libera os bloqueios que adquiriu até que a transação seja encerrada com uma confirmação ou anulação.
@@ -115,7 +115,7 @@ Eis aqui algumas coisas que se deve manter em mente:
 
 - [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
 - [Introdução aos serviços de API da Web da Malha de Serviços](service-fabric-reliable-services-communication-webapi.md)
-- [Uso avançado do modelo de programação de Serviços Confiáveis](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
+- [Uso avançado do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-advanced-usage.md)
 - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

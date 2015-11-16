@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/21/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # Suporte do Gerenciador de Recursos do Azure para serviços, regiões e versões de API
@@ -32,9 +32,7 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 | Máquinas Virtuais | Sim | Sim, várias opções | Não | [Criar VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Sim | [Sim (somente clássicas)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Serviços de ciclo de vida do Dynamics | Sim | Não | | | |
-| Máquinas Virtuais (clássicas) | Limitado | Sim | Parcial (veja abaixo) | - | - |
-| Aplicativo remoto | Não | - | - | - | - |
-| Service Fabric | Não | - | - | - | - |
+| Máquinas Virtuais (clássicas) | Limitado | Sim, várias opções | Parcial (veja abaixo) | - | - | | Aplicativo Remoto | Não | Não | - | - | - | | Service Fabric | Não | Não | - | - | - |
 
 Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para obter mais informações sobre esses modelos de implantação, veja [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -67,9 +65,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Banco de dados SQL | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Sim | [Criar banco de dados](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Pesquisar | Sim | [Sim](https://portal.azure.com/#create/Microsoft.Search) | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Sim | [Sim](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | Não | Não | - | - | - |
-| Cache gerenciado | Não | Não | - | - | - |
-
+| StorSimple | Não | Não | - | - | - | | Cache gerenciado | Não | Não | - | - | - |
 
 ## Análise
 
@@ -79,8 +75,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | Análise de fluxo | Sim | [Sim](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Sim | [Sim](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Data Factory | Sim | [Sim](https://portal.azure.com/#create/Microsoft.DataFactory) | Sim | [Criar fábrica de dados](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Aprendizado de Máquina | Não | Não | - | - | - |
-| Catálogo de Dados | Não | Não | - | - | - |
+| Aprendizado de Máquina | Não | Não | - | - | - | | Catálogo de Dados | Não | Não | - | - | - |
 
 ## Rede
 
@@ -97,8 +92,9 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
+| CDN | Sim (visualização) | Não | | | |
 | Serviço de mídia | Não | Não | | | |
-| CDN | Não | Não | | | |
+
 
 ## Integração híbrida
 
@@ -106,16 +102,13 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Serviços do BizTalk | Sim | Não | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Barramento de Serviço | Sim | Não | | [REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Backup | Não | Não | - | - | - |
-| Recuperação de Site | Não | Não | - | - | - |
+| Backup | Não | Não | - | - | - | | Recuperação de Site | Não | Não | - | - | - |
 
 ## Gerenciamento de acesso e identidade 
 
 | O Barramento de | Gerenciador de Recursos habilitado | Portal de Visualização | Mover recursos | API REST | Esquema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Active Directory do Azure | Não | Não | - | - | - |
-| Actice Directory B2C do Azure | Não | Não | - | - | - |
-| Autenticação multifator | Não | Não | - | - | - |
+| Active Directory do Azure | Não | Não | - | - | - | | Actice Directory B2C do Azure | Não | Não | - | - | - | | Autenticação multifator | Não | Não | - | - | - |
 
 ## Serviços para Desenvolvedores 
 
@@ -140,7 +133,7 @@ Ao trabalhar com aplicativos Web, você não pode mover um plano de Serviço de 
 
 Durante a implantação de recursos, você normalmente precisa especificar uma região para os recursos. O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações em sua assinatura que impedem o uso de algumas regiões que oferecem suporte aos recursos. Essas limitações podem estar relacionadas a problemas tributários de seu país de residência ou ao resultado de uma política colocada pelo seu administrador de assinatura para usar somente determinadas regiões.
 
-Antes de implantar seus recursos, verifique as regiões com suporte para o tipo de recurso, executando um dos seguintes comandos.
+Para obter uma lista completa de todas as regiões com suporte para todos os serviços do Azure, veja [Serviços por região](https://azure.microsoft.com/regions/#services); no entanto, essa lista pode incluir regiões que não tem suporte em sua assinatura. É possível determinar as regiões para um determinado tipo de recurso com suporte da sua assinatura executando um dos comandos a seguir.
 
 ### API REST
 
@@ -232,6 +225,6 @@ Você pode salvar as informações (incluindo as versões disponíveis de API) p
 ## Próximas etapas
 
 - Para saber mais sobre como criar modelos do Gerenciador de Recursos do Azure, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
-- Para saber mais sobre como implantar recursos, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./azure-portal/resource-group-template-deploy.md).
+- Para saber mais sobre como implantar recursos, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

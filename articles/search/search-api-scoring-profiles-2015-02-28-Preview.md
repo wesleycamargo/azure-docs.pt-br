@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Perfis de pontuação (API REST da Pesquisa do Azure Versão 2015-02-28-Preview) | Microsoft Azure"
-	description="Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)"
+	description="A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado que dá suporte ao ajuste de resultados classificados com base em perfis de pontuação definidos pelo usuário."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="10/01/2015" />
+	ms.date="11/04/2015" />
 
 # Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)
 
@@ -370,4 +370,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

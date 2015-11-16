@@ -32,13 +32,13 @@ Há requisitos de conectividade de rede para Ambientes do Serviço de Aplicativo
 -  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui os pontos de extremidade localizados na mesma região que o Ambiente de Serviço de Aplicativo, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
 -  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Resolver pontos de extremidade do Banco de Dados SQL nos seguintes domínios: *database.windows.net*.
 -  Conectividade de rede de saída para os pontos de extremidade do plano de gerenciamento do Azure (pontos de extremidade ASM e ARM). Inclui conectividade de saída para *management.core.windows.net* e *management.azure.com*. 
--  Conectividade de rede de saída para *mscrl.microsoft.com* e *crl.microsoft.com*. Necessária para dar suporte à funcionalidade SSL.
+-  Conectividade de rede de saída para *ocsp.msocsp.com*. Necessária para dar suporte à funcionalidade SSL.
 -  A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Se esses pontos de extremidade não puderem ser resolvidos, tentativas de criação do Ambiente de Serviço de Aplicativo irão falhar, e Ambientes de Serviços de Aplicativo existentes serão marcados como não íntegros.
 -  Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível a partir da sub-rede contendo o Ambiente de Serviço de Aplicativo. 
 -  O caminho da rede de saída não pode passar por proxies corporativos internos, nem pode ser encapsulado à força em locais. Isso altera o endereço NAT eficiente de tráfego de rede de saída do Ambiente de Serviço de Aplicativo. Alterar o endereço NAT do tráfego de rede de saída de um Ambiente do Serviço de Aplicativo causará falhas de conectividade em muitos dos pontos de extremidade listados acima. Isso resulta em tentativas de criação de Ambiente de Serviço de Aplicativo, e faz com que Ambientes de Serviços de Aplicativo anteriormente íntegros sejam marcados como não íntegros.  
--  O acesso de rede de entrada a portas obrigatórias para Ambientes do Serviço de Aplicativo deve ser permitido, como descrito neste [artigo][requiredports].
+-  O acesso de rede de entrada a portas obrigatórias para os Ambientes do Serviço de Aplicativo deve ser permitido, como descrito neste [artigo][requiredports].
 
-Os requisitos de DNS podem ser atendidos, garantindo que uma infraestrutura de DNS válida seja configurada e mantida para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Acionar uma reinicialização sem interrupção do ambiente usando o ícone "Reiniciar" localizado na parte superior da folha de gerenciamento do Ambiente do Serviço de Aplicativo no [novo portal de gerenciamento][NewPortal] fará com que o ambiente capte a nova configuração de DNS.
+Os requisitos de DNS podem ser atendidos, garantindo que uma infraestrutura de DNS válida seja configurada e mantida para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Disparar uma reinicialização do ambiente sem interrupção usando o ícone “Reiniciar” localizado na parte superior da folha de gerenciamento do Ambiente do Serviço de Aplicativo no [novo portal de gerenciamento][NewPortal] fará com que o ambiente capture a nova configuração de DNS.
 
 Os requisitos de acesso de rede de entrada podem ser atendidos ao configurar um [grupo de segurança de rede][NetworkSecurityGroups] na sub-rede do Ambiente do Serviço de Aplicativo para permitir o acesso obrigatório, como descrito neste [artigo][requiredports].
 
@@ -56,11 +56,11 @@ Se possível, é recomendável usar a seguinte configuração:
 
 O efeito combinado dessas etapas é que o nível de sub-rede UDR terá precedência sobre o encapsulamento forçado da Rota Expressa, garantindo acesso de Internet de saída do Ambiente do Serviço de Aplicativo.
 
-**IMPORTANTE:** as rotas definidas em uma UDR **devem** ser específicas o suficiente para ter precedência sobre todas as rotas anunciadas pela configuração de Rota Expressa. O exemplo a seguir usa o intervalo de endereço 0.0.0.0/0 amplo, e potencialmente pode ser substituído por acidente pelos anúncios de rota usando intervalos de endereços mais específicos.
+**IMPORTANTE:** as rotas definidas em uma UDR **devem** ser específicas o suficiente para ter precedência sobre todas as rotas anunciadas pela configuração da Rota Expressa. O exemplo a seguir usa o intervalo de endereço 0.0.0.0/0 amplo, e potencialmente pode ser substituído por acidente pelos anúncios de rota usando intervalos de endereços mais específicos.
 
-**MUITO IMPORTANTE:** não há suporte para Ambientes do Serviço de Aplicativo com configurações de Rota Expressa que **incorretamente cruzam anúncios de rotas do caminho de emparelhamento público para o caminho de emparelhamento particular**. As configurações de Rota Expressa com emparelhamento público definido receberão anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se esses intervalos de endereços forem incorretamente anunciados de modo cruzado no caminho de emparelhamento particular, o resultado final será que todos os pacotes de saída de rede da sub-rede do Ambiente do Serviço de Aplicativo serão incorretamente encapsulados à força em uma infraestrutura de rede local do cliente. Esse fluxo de rede interromperá os Ambientes do Serviço de Aplicativo. A solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento particular.
+**MUITO IMPORTANTE:** não há suporte para Ambientes do Serviço de Aplicativo com configurações da Rota Expressa que **incorretamente cruzam anúncios de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado**. As configurações de Rota Expressa com emparelhamento público definido receberão anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se esses intervalos de endereços forem incorretamente anunciados de modo cruzado no caminho de emparelhamento particular, o resultado final será que todos os pacotes de saída de rede da sub-rede do Ambiente do Serviço de Aplicativo serão incorretamente encapsulados à força em uma infraestrutura de rede local do cliente. Esse fluxo de rede interromperá os Ambientes do Serviço de Aplicativo. A solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento particular.
 
-Outras informações sobre rotas definidas pelo usuário estão disponíveis nesta [visão geral][UDROverview].
+Informações preliminares sobre as rotas definidas pelo usuário estão disponíveis nesta [visão geral][UDROverview].
 
 Os detalhes sobre como criar e configurar rotas definidas pelo usuário estão disponíveis neste [Guia de Instruções][UDRHowTo].
 
@@ -68,7 +68,7 @@ Os detalhes sobre como criar e configurar rotas definidas pelo usuário estão d
 
 **Pré-requisitos**
 
-1. Instale o Azure Powershell mais recente da [página Downloads do Azure][AzureDownloads] (de junho de 2015 em diante). Em "Ferramentas de linha de comando", há um link "Instalar" em "Windows Powershell" que instalará os cmdlets mais recentes do PowerShell.
+1. Instale o Azure Powershell mais recente na [página Downloads do Azure][AzureDownloads] (de junho de 2015 em diante). Em "Ferramentas de linha de comando", há um link "Instalar" em "Windows Powershell" que instalará os cmdlets mais recentes do PowerShell.
 
 2. É recomendável que uma sub-rede exclusiva seja criada para uso exclusivo por um Ambiente do Serviço de Aplicativo. Isso garante que as UDRs aplicadas à sub-rede abrirão apenas tráfego de saída para o Ambiente do Serviço de Aplicativo.
 3. **Importante**: não implante o Ambiente do Serviço de Aplicativo **até** que as etapas de configuração a seguir sejam seguidas. Isso garante que a conectividade de rede de saída esteja disponível antes da tentativa de implantar um Ambiente do Serviço de Aplicativo.
@@ -89,7 +89,7 @@ A abordagem recomendada para configurar o acesso de saída à Internet é defini
 
 Lembre-se de que 0.0.0.0/0 é um intervalo de endereço amplo e assim será substituído por intervalos de endereços mais específicos anunciados pela Rota Expressa. Para reiterar a recomendação anterior, um UDR com uma rota 0.0.0.0/0 deve ser usado em conjunto com uma configuração de Rota Expressa que só anuncia 0.0.0.0/0 também.
 
-Como alternativa, você pode baixar uma lista abrangente e atualizada de intervalos CIDR em uso pelo Azure. O arquivo Xml contendo todos os intervalos de endereços IP do Azure está disponível na [Centro de Download da Microsoft][DownloadCenterAddressRanges].
+Como alternativa, você pode baixar uma lista abrangente e atualizada de intervalos CIDR em uso pelo Azure. O arquivo Xml que contém todos os intervalos de endereços IP do Azure está disponível na [Centro de Download da Microsoft][DownloadCenterAddressRanges].
 
 No entanto, observe que esses intervalos se alteram ao longo do tempo, necessitando de atualizações manuais periódicas para um UDR manter-se em sincronia. Além disso, uma vez que há um limite de 100 rotas em um único UDR, você precisará "resumir" os intervalos de endereços IP do Azure para caberem no limite de 100 rotas, tendo em mente que rotas definidas por UDR precisam ser mais específicas que as rotas anunciadas por sua Rota Expressa.
 
@@ -137,4 +137,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

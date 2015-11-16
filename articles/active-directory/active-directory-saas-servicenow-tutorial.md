@@ -11,13 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="11/02/2015" 
     ms.author="markvi" />
 
 #Tutorial: Integração do Active Directory do Azure com o ServiceNow
   
-O objetivo deste tutorial é mostrar a integração do Azure ao ServiceNow.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao ServiceNow. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário no ServiceNow
@@ -79,91 +78,142 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configurar logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do ServiceNow**, digite a URL usando o padrão "*https://<InstanceName>.servicenow.com*" e clique em **Avançar**.
+3.  Na página **Definir Configurações do Aplicativo**, execute as seguintes etapas:
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configurar a URL do aplicativo")
+
+    a. Na caixa de texto **URL de logon ServiceNow**, digite a URL usada pelos usuários para entrar no seu aplicativo ServiceNow (p. ex.: *https://\< InstanceName > service-now.com*).
+
+    b. Na caixa de texto **URL do Emissor**, digite a URL usada pelos usuários para entrar no seu aplicativo ServiceNow (p. ex.: *https://\< InstanceName > service-now.com*).
+
+    c. Clique em **Próximo**.
+
+4.  Na página **Configurar logon único automaticamente**, clique em **Configurar logon único manualmente para esse aplicativo** e clique em **Avançar**.
+
+    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configurar a URL do aplicativo")
+
+
 
 4.  Na página **Configurar logon único no ServiceNow**, clique em **Baixar certificado**, salve o arquivo de certificado no computador e clique em **Avançar**.
 
     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configurar logon único")
 
-5.  Em seu locatário do ServiceNow, na barra de navegação à esquerda, clique em **Propriedades** para abrir a página **Propriedades do Logon único do SAML 2.0**.
+1. Entre no seu aplicativo ServiceNow como administrador.
+
+2. No painel de navegação à esquerda, clique em **Propriedades**.
+
+    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/IC7694980.png "Configurar a URL do aplicativo")
 
 
-6. Na página **Propriedades do Logon Único do SAML 2.0**, realize as seguintes etapas:
+3. No diálogo **Várias propriedades de SSO do provedor**, execute as seguintes etapas:
 
-     6\.1. Para **Habilitar autenticação externa**, selecione **Sim**.
+    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/IC7694981.png "Configurar a URL do aplicativo")
 
+    a. Como **Habilitar vários provedores SSO**, selecione **Sim**.
 
-     6\.2. Na caixa de texto **A URL do Provedor de Identidade que emitirá o token de segurança do SAML2 com informações do usuário**, digite **https://sts.windows.net/<GUID do locatário>/**.
+    b. Como **Habilitar log de depuração com integração SSO de vários provedores**, selecione **Sim**.
 
+    c. Na caixa de texto **O campo na tabela de usuário que...**, digite **nome\_de\_usuário**.
 
-     6\.3. Na caixa de texto **A URL base do serviço AuthnRequest do Provedor de Identidade**, digite **https://login.windows.net/<GUID do locatário>/saml2**.
-
-
-     6\.4. Na caixa de texto **A URL base do serviço SingleLogoffRequest do Provedor de Identidade**, digite **https://login.windows.net/<GUID do locatário>/saml2**.
-
-
-     6\.5. Na caixa de texto **A associação de protocolo do serviço SingleLogoffRequest do Provedor de Identidade**, digite **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
-
-     6\.6. Para **Entrar em LogoutRequest**, selecione **Sim**.
-
-     6\.7. Na caixa de texto **Quando o logon único do SAML 2.0 falhar porque a sessão não foi autenticada ou por ser o primeiro logon, redirecione para essa URL**, digite **https://login.windows.net/<GUID do locatário>/saml2**.
-
-  
-
-7. Na seção **Propriedades do Provedor de Serviço (Service-Now) **, execute as seguintes etapas:
-
-     7\.1. Na caixa de texto **A URL da home page de instância do Service-now**, digite a URL da home page de instância do ServiceNow. A URL da home page de instância do ServiceNow é uma concatenação da **URL de locatário do ServiceNow** e de **/navpage.do**: **https://<InstanceName>.service-now.com/navpage.do** <br><br> ![Home page de instância do Service-now](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Home page de instância do Service-now")
-
-
-     7\.2. Na caixa de texto **A identificação da entidade ou o emissor**, digite a URL do seu locatário.
-
-     7\.3. Na caixa de texto **A URI do público que aceita o token SAML2**, digite a URL do seu locatário.
-
-     7\.4. Na caixa de texto **O campo da tabela Usuário para corresponder ao elemento NameID da Entidade em SAMLResponse**, digite **email**.
-
-     7\.5. Na caixa de texto **A política NameID a ser usada para retornar o NameID da Entidade em SAMLResponse**, digite **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
-
-     7\.6 Deixe desmarcada a opção **Criar uma solicitação de AuthnContextClass na instrução AuthnRequest**.
-
-     7\.7 Na caixa de texto **O método AuthnContextClassRef que será incluído em nossa AuthnRequest do SAML 2.0 para o Provedor de Identidade**, digite ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+    d. Clique em **Salvar**.
 
 
 
-8. Na seção **Configurações avançadas**, realize as seguintes etapas:
+1. No painel de navegação à esquerda, clique em **Certificados x509**.
 
-     8\.1. Na caixa de texto **O número de segundos antes da restrição “notBefore”, ou após a restrição “notOnOrAfter” a serem considerados ainda válidos**, digite **60**.
-
-
-9. Para salvar a configuração, clique em **Salvar**.
-
-10. Na barra de navegação à esquerda, clique em **Certificado** para abrir a página **Certificado**.
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694973.png "Configurar logon único")
 
 
+1. No diálogo **Certificados x. 509**, clique em **Novo**.
 
-11. Para carregar seu certificado, na página de certificados, execute as seguintes etapas:
-
-     11\.1. Clique em **Novo**.
-
-     11\.2. Na caixa de texto **Nome**, digite **SAML 2.0**.
-
-     11\.3. Selecione **Ativo**.
-
-     11\.4. Para **Formato**, selecione **PEM**.
-
-     11\.5. Crie um arquivo codificado em base-64 a partir do certificado baixado.[AZURE.NOTE]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
-
-     11\.6. Em **Bloco de Notas**, abra o arquivo codificado em Base 64 e copie o conteúdo desse arquivo na área de transferência.
-
-     11\.7. Cole o conteúdo da área de transferência na caixa de texto **Certificado PEM**.
-
-     11\.8. Clique em **Enviar**.
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Configurar logon único")
 
 
+1. No diálogo **Certificados x. 509**, execute as seguintes etapas:
 
-12. No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em Concluir para fechar o diálogo Configurar Logon Único. <br><br> ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749326.png "Configurar logon único")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configurar logon único")
 
+    a. Clique em **Novo**.
+
+    b. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: **TestSAML2.0**).
+
+    c. Selecione **Ativo**.
+
+    d. Para **Formato**, selecione **PEM**.
+
+    e. Como **Tipo**, selecione **Confiar nos Certificados do Repositório**.
+
+    f. Crie um arquivo codificado em base-64 usando o certificado baixado.
+    > [AZURE.NOTE]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+    
+    g. Abra seu certificado codificado base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado PEM**.
+
+    h. Clique em **Atualizar**.
+
+
+1. No painel de navegação à esquerda, clique em **Provedores de Identidade**.
+
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694976.png "Configurar logon único")
+
+1. No diálogo **Provedores de Identidade**, clique em **Novo**:
+
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configurar logon único")
+
+
+1. No diálogo **Provedores de Identidade**, clique em **SAML2 Atualização1?**:
+
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configurar logon único")
+
+
+1. No diálogo Propriedades de SAML2 Atualização1, execute as seguintes etapas:
+
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "Configurar logon único")
+
+
+    Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: **SAML 2.0**).
+
+    b. Na caixa de texto **Campo de Usuário**, digite **email**.
+
+    c. No portal do AD do Azure, copie o valor **ID do provedor de identidade** e cole-o na caixa de texto **URL do provedor de identidade**.
+
+    d. No portal do AD do Azure, copie o valor **URL de solicitação de autenticação** e cole-o na caixa de texto **Solicitação de autenticação do provedor de identidade**.
+
+    e. No portal do AD do Azure, copie o valor **URL de serviço de logon único** e cole-o na caixa de texto **Solicitação de logon único do provedor de identidade**.
+
+    f. Na caixa de texto **Home page do ServiceNow**, digite a URL da sua página inicial de instância do ServiceNow.
+
+    > [AZURE.NOTE]A home page da instância do ServiceNow é uma concatenação da **URL do locatário ServieNow** e **/navpage.do** (p. ex.: **https://fabrikam.service-now.com/navpage.do*).
+ 
+
+    g. Na caixa de texto **ID da entidade/emissor**, digite a URL do seu locatário do ServiceNow.
+
+    h. Na caixa de texto **URL do Público-alvo**, digite a URL do seu locatário do ServiceNow.
+
+    i. Na caixa de texto **associação de protocolo SingleLogoffRequest do DP**, digite **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
+
+    j. Na caixa de texto Política da NameID, digite **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
+
+    k. Desmarque **Criar um AuthnContextClass**.
+
+    l. No **método AuthnContextClassRef**, digite ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+
+    m. Na caixa de texto **Distorção do Relógio**, digite **60**.
+
+    n. Como **Script de Logon Único**, selecione **MultiSSO\_SAML2\_Update1**.
+
+    o. Como **Certificado x509**, selecione o certificado que você criou na etapa anterior.
+
+    p. Clique em **Enviar**.
+
+
+
+6. No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configurar logon único")
+
+7. Na página **Confirmação de logon único**, clique em **Concluir**.
+ 
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configurar logon único")
 
 
 
@@ -219,7 +269,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-servicenow-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 
 ## Recursos adicionais
@@ -227,4 +277,4 @@ Se você quiser testar suas configurações de logon único, abra o Painel de Ac
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

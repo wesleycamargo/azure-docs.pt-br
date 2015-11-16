@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Atualização de aplicativo a Malha do Serviço: tópicos avançados"
+   pageTitle="Atualização de aplicativos: tópicos avançados | Microsoft Azure"
    description="Este artigo aborda alguns tópicos avançados relativos à atualização de um aplicativo Malha do Serviço."
    services="service-fabric"
    documentationCenter=".net"
@@ -16,7 +16,7 @@
    ms.date="07/17/2015"
    ms.author="subramar"/>
 
-# Atualização de aplicativo a Malha do Serviço: tópicos avançados
+# Atualização de aplicativos do Service Fabric: tópicos avançados
 
 ## Modo de atualização manual
 
@@ -51,4 +51,4 @@ Hipóteses em que usar um pacote diff seria uma boa opção:
 [Solucionar problemas de atualização de aplicativo](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

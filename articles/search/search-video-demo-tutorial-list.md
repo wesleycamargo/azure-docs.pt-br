@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Vídeos, exemplos e tutoriais na Pesquisa do Azure"
-	description="Localize todos os vídeos, exemplos, demonstrações e tutoriais criados para a Pesquisa do Azure em uma lista central."
+	pageTitle="Vídeos, exemplos e tutoriais na Pesquisa do Azure | Microsoft Azure"
+	description="Lista central de todos os vídeos, exemplos, demonstrações e tutoriais criados para a Pesquisa do Azure, um serviço de nuvem hospedado do Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/29/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 #Pesquisa do Azure: tutoriais, demonstrações em vídeo e exemplos
@@ -25,13 +25,16 @@ Atualize-se mais rapidamente com os seguintes vídeos, demonstrações, tutoriai
 
 [**A demonstração do portal Trabalhos da Cidade de Nova York (NYC) para Pesquisa Azure**](http://aka.ms/azjobsdemo) é um site da Web ASP.NET que demonstra os recursos da Pesquisa do Azure usando os dados da NYC Open Data Initiative.
 
-[**Avaliar Serviço de Aplicativo + Pesquisa do Azure**](search-tryappservice.md) é uma sessão de uma hora livre com a Pesquisa do Azure que inclui dados, um aplicativo Web funcional e código-fonte que você pode modificar online para testar vários recursos de pesquisa.
+[**Avaliar Serviço de Aplicativo + Pesquisa do Azure no aplicativo de combinação do ASP.NET MVC**](search-tryappservice.md) é uma sessão gratuita de uma hora com a Pesquisa do Azure que inclui dados, um aplicativo Web funcional e código-fonte que você pode modificar online para testar vários recursos de pesquisa em um aplicativo do ASP.NET.
+
+[**Site de Demonstração da Pesquisa do Azure**](https://searchsamples.azurewebsites.net/#/) é uma coleção de aplicativos de demonstração da Pesquisa do Azure. Teste aplicativos de pesquisa de mídia, de pesquisa geográfica e de inventário de produto usando a Pesquisa do Azure.
 
 ##Vídeos
 
 Link|Descrição
 ----|-----------
-[Práticas recomendadas do AzureCon 2015 para a Pesquisa do Azure](https://azure.microsoft.com/pt-BR/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Conselhos práticos sobre como obter escala, desempenho ideal e eficiência de codificação ao compilar aplicativos para cenários móveis ou da Web. 
+[O que é a Pesquisa do Azure?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|Visão geral da Pesquisa do Azure em um minuto e meio.
+[Práticas recomendadas do AzureCon 2015 para a Pesquisa do Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Conselhos práticos sobre como obter escala, desempenho ideal e eficiência de codificação ao compilar aplicativos para cenários móveis ou da Web. 
 [Microsoft Virtual Academy: adicionando Pesquisa do Azure a seus sites e aplicativos](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|Série de sete partes sobre como adicionar Pesquisa do Azure a um aplicativo, apresentada por Liam Cavanagh, Janusz Lembicz e Bernardita Torres Garayar.
 [Build 2015: dados modernos](http://channel9.msdn.com/Events/Build/2015/2-663)|Aos 29 minutos da sessão, saiba como a Pesquisa do Azure se enquadra na revolução de dados moderna, apresentada por Shawn Bice e Pablo Castro.
 [Build 2015: usando a Pesquisa do Azure para criar excelentes experiências de pesquisa em Mobile e WebApps](http://channel9.msdn.com/Events/Build/2015/2-745)|Pablo Castro apresenta na Microsoft Build 2015.
@@ -50,6 +53,7 @@ Link|Descrição
 
 Passo a passo|Descrição
 -----------|-----------
+[Como pesquisar dados do StackExchange usando a Pesquisa do Azure](search-howto-stackexchange-data.md)|Pesquisa de texto completo em dados do StackExchange em um aplicativo integrado com a Pesquisa do Azure.
 [Como usar a Pesquisa do Azure com D3.js para criar visualizações de dados interativas](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Publicação de blog e código de exemplo que demonstra como adicionar recursos de pesquisa visuais ao seu aplicativo personalizado.
 [Introdução à Pesquisa do Azure em .NET](search-get-started-dotnet.md)|Aprenda como trabalhar com a Pesquisa do Azure em código gerenciado.
 [Introdução à Pesquisa do Azure no NodeJS](search-get-started-nodejs.md)|Aprenda como trabalhar com a Pesquisa do Azure em NodeJS.
@@ -65,16 +69,16 @@ Passo a passo|Descrição
 
 ##Exemplos de código
 
-[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) é um repositório GitHub que contém códigos de exemplo criados por Liam Cavanagh. Os exemplos a seguir podem ser encontrados nesse repositório:
+[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) é um repositório GitHub que contém exemplos de código criados por Liam Cavanagh. Os exemplos a seguir podem ser encontrados nesse repositório:
 
 - [AdventureWorksWP8]() é um aplicativo do Windows Phone.
 - [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
 - [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) é um arquivo index.html que fornece dados em um tutorial.
 - [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) é um aplicativo do ASP.NET MVC para a Pesquisa do Azure.
-- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) fornece o código-fonte para o site de demonstração ao vivo NYCJob.
-- [Recomendações](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) usa o Active Data Factory, o Banco de Dados SQL, o armazenamento de Blob e o HDInsight para implementar recomendações sobre produtos com base na frequência em que os produtos são comprados em conjunto.
+- O [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) fornece o código-fonte para o site de demonstração ao vivo do NYCJob.
+- As [Recomendações](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) usam o Active Data Factory, Banco de Dados SQL, armazenamento de Blob e o HDInsight para implementar as recomendações de produtos com base na frequência com que os produtos são comprados em conjunto.
 
-[****https://github.com/AzureSearch**](https://github.com/AzureSearch) é outro repositório GitHub para a Pesquisa do Azure que contém códigos de exemplo criados pela equipe de desenvolvimento da Pesquisa do Azure. Você pode procurar o repositório para ver o que ele contém, ou clicar nos links a seguir para ir diretamente para exemplos específicos.
+[****https://github.com/AzureSearch**](https://github.com/AzureSearch) é outro repositório GitHub para a Pesquisa do Azure que contém exemplos de código criados pela equipe de desenvolvimento da Pesquisa do Azure. Você pode procurar o repositório para ver o que ele contém, ou clicar nos links a seguir para ir diretamente para exemplos específicos.
 
 - [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
 - [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
@@ -91,4 +95,4 @@ No CodePlex, você pode encontrar vários exemplos publicados durante a visualiz
 - [**Exemplo de Sincronização do SQL Server com a Pesquisa do Azure**](http://sqlserver2azuresearch.codeplex.com/) é um aplicativo do console do Windows que carrega um conjunto de linhas do SQL Server de um banco de dados local incorporado.
 - [**Demonstração de Perfis de Pontuação**](https://azuresearchscoringprofiles.codeplex.com/) é um aplicativo do console do Windows que define, executa e atualiza um perfil de pontuação para ajustar os resultados da pesquisa.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

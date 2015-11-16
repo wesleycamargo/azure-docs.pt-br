@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/30/2015" 
 	ms.author="mimig"/>
 
 # Monitorar uma conta do Banco de Dados de Documentos usando o Portal de Visualização do Azure 
@@ -21,7 +21,7 @@
 Você pode monitorar suas contas do Banco de Dados de Documentos no [Portal de Visualização do Microsoft Azure](https://portal.azure.com/). Para cada conta do Banco de Dados de Documentos, tanto as métricas de desempenho (como as solicitações e erros de servidor) quanto as métricas de utilização (como consumo de armazenamento) estão disponíveis.
 
 ## Como: exibir métricas de desempenho para uma conta do Banco de Dados de Documentos
-1.	No [Portal de Visualização do Azure](https://portal.azure.com/), clique em **Procurar Tudo**, **Contas do Banco de Dados de Documentos** e clique no nome da conta do Banco de Dados de Documentos cujas métricas de desempenho você quer ver.
+1.	No [Portal de visualização do Azure](https://portal.azure.com/), clique em **Procurar**, **Contas do Banco de Dados de Documentos** e clique no nome da conta do Banco de Dados de Documentos cujas métricas de desempenho você deseja ver.
 2.	Dentro da lente **Monitoramento**, você pode, por padrão, consultar:
 	*	Solicitações totais para o dia de hoje.
 	*	Média de solicitações por minuto no dia atual. 
@@ -30,7 +30,7 @@ Você pode monitorar suas contas do Banco de Dados de Documentos no [Portal de V
 
 
 3.	Clicar em **Total de Solicitações** ou **Média de Solicitações por Segundo** abre uma folha detalhada de **Métrica**.
-4.	A folha **Métrica** mostra detalhes das métricas que você selecionou. Na parte superior da folha há um gráfico e, abaixo dele, uma tabela que mostra valores de agregação das métricas selecionadas como a média, o mínimo e o máximo. A folha Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na folha de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).   
+4.	A folha **Métrica** mostra detalhes das métricas que você selecionou. Na parte superior da folha, há um gráfico e, abaixo dele, uma tabela que mostra valores de agregação das métricas selecionadas, como a média, o mínimo e o máximo. A folha Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na folha de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).   
 
 	![Captura de tela da lâmina Métrica](./media/documentdb-monitor-accounts/madocdb2.png)
 
@@ -90,4 +90,4 @@ Agora, você pode tratar essa parte como qualquer outra parte de métrica, perso
 Para saber mais sobre a capacidade do Banco de Dados de Documentos, consulte [Gerenciar a capacidade do Banco de Dados de Documentos](documentdb-manage.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

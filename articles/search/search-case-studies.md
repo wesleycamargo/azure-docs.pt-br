@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Quem está usando a Pesquisa do Azure: estudos de caso e relatos de clientes"
-	description="Estudos de caso e relatos de clientes da Pesquisa do Azure."
+	description="Estudos de caso e histórias de clientes sobre a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="10/05/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Quem está usando a Pesquisa do Azure: estudos de caso e relatos de clientes
@@ -61,4 +61,4 @@ Saiba como uma startup sueca criou um portal que conecta compradores a varejista
 [5]: ./media/search-case-studies/weichert_m.png
 [6]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

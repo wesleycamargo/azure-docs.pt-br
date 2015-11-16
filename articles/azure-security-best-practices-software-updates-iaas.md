@@ -119,4 +119,4 @@ Além das considerações gerais que foram explicadas neste artigo, você també
 
 Use as diretrizes descritas neste artigo para ajudar a determinar as melhores opções para as atualizações de software de máquinas virtuais no Azure IaaS. Existem muitas semelhanças entre as práticas recomendadas de atualização de software em um datacenter tradicional versus o IaaS do Azure; portanto, é recomendável que você avalie suas diretivas de atualização de software atual para incluir as VMs do Azure e as práticas recomendadas relevantes deste artigo em seu processo geral de atualização de software.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

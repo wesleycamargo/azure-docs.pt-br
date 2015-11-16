@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/30/2015"
 	ms.author="larryfr"/>
 
 
@@ -121,4 +121,4 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
 8. Após os serviços serem reiniciados, use o botão **Ações de Serviço** para **Desativar o Modo de Manutenção**. Use este Ambari para retomar o monitoramento dos alertas do serviço.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

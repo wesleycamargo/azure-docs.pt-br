@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cenários de teste personalizados"
-   description="Como fortalecer seus serviços contra falhas normais/anormais"
+   pageTitle="Cenários de teste personalizados | Microsoft Azure"
+   description="Como fortalecer seus serviços contra falhas normais/anormais."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -153,4 +153,4 @@ class Test
 ```
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

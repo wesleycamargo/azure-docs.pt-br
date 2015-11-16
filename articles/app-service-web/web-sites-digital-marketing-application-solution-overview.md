@@ -31,9 +31,9 @@ A seguir há um exemplo de uma campanha de marketing digital global multicanais 
 
 Crie novos aplicativos Web rapidamente por meio de um CMS popular na galeria ou inclua seus ativos da Web existentes nos Aplicativos Web do Serviço de Aplicativo dentre diversas linguagens e estruturas.
 
-O Azure Marketplace oferece modelos de CMS (sistemas de gerenciamento de conteúdo de site), como [Orchard], [Umbraco], Drupal e [WordPress]. Você pode criar um aplicativo Web usando seu tipo de CMS favorito. Você pode escolher dentre vários back-ends de banco de dados para atender às suas necessidades, incluindo o [Banco de Dados do SQL Azure] e [MySQL].
+O Azure Marketplace oferece modelos populares de CMS (sistemas de gerenciamento de conteúdo de site), como Orchard, Umbraco, Drupal e [WordPress]. Você pode criar um aplicativo Web usando seu tipo de CMS favorito. Você pode escolher dentre vários back-ends de banco de dados para atender às suas necessidades, incluindo o [Banco de Dados do SQL Azure] e [MySQL].
 
-Seus ativos da Web existentes podem ser executados em Aplicativos Web, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares. Se costuma cria campanhas de marketing digitais com frequência, é possível que você tenha ativos da Web existentes em um sistema de gerenciamento de controle do código-fonte. Você pode implantar Aplicativos Web diretamente de opções de controle de código-fonte populares, como o [Visual Studio], o [Visual Studio Online] e o [Git] - local, GitHub, BitBucket, DropBox, Mercurial etc...
+Seus ativos da Web existentes podem ser executados em Aplicativos Web, independentemente de utilizarem .NET, PHP, Java, Node.js ou Python. Você pode movê-los para os Aplicativos Web usando suas ferramentas de [FTP] familiares. Se costuma cria campanhas de marketing digitais com frequência, é possível que você tenha ativos da Web existentes em um sistema de gerenciamento de controle do código-fonte. Você pode implantar Aplicativos Web diretamente de opções populares de controle do código-fonte, como o [Visual Studio], [Visual Studio Online] e [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Permanecer ágil
 
@@ -95,8 +95,6 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 
 [Azure App Service]: /services/app-service/web/
 
-[Orchard]: web-sites-dotnet-orchard-cms-gallery.md
-[Umbraco]: web-sites-gallery-umbraco.md
 [WordPress]: web-sites-php-web-site-gallery.md
   
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
@@ -140,4 +138,4 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

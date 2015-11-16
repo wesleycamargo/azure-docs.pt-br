@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="11/03/2015"
 	ms.author="sdanie"/>
 
 # Como proteger um back-end de API da Web com o Active Directory do Azure e Gerenciamento de API
@@ -547,4 +547,4 @@ Para outra demonstração de configuração e uso dessa diretiva, consulte [Abor
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [Gerenciar sua primeira API]: api-management-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

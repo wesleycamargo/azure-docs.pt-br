@@ -89,7 +89,7 @@ O impacto sobre o desempenho é muito pequeno. As chamadas de rastreamento não 
 
 1. Você precisará de uma assinatura do [Microsoft Azure](http://azure.com). A inscrição é gratuita e você pode optar pela [camada de preços](https://azure.microsoft.com/pricing/details/application-insights/) gratuita do Application Insights.
 
-2. Entre no [Portal de Visualização do Azure](http://portal.azure.com)
+2. Entre no [Portal do Azure](http://portal.azure.com)
 3. Crie um recurso Application Insights. É onde você verá dados do seu aplicativo.
 
     ![Adicionar, Serviços de Desenvolvedor, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -154,4 +154,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

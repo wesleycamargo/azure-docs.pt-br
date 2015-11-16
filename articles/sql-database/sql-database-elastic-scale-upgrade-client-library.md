@@ -1,11 +1,11 @@
 <properties
 	
-	pageTitle="Upgrade to the latest elastic database client library" 
+	pageTitle="Upgrade to the latest elastic database client library | Microsoft Azure" 
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
-	ms.author="sidneyh" />
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh" />
 
 # Atualizar para a biblioteca de cliente de banco de dados elástico mais recente
 
-Novas versões da biblioteca de cliente de banco de dados elástico estão disponíveis por meio de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) e da interface do Gerenciador NuGetPackage no Visual Studio. Atualizações contêm correções de bugs e suporte para novos recursos de biblioteca de cliente.
+Novas versões da [biblioteca de cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md) estão disponíveis por meio do [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) e da interface do Gerenciador de Pacotes NuGet no Visual Studio. Atualizações contêm correções de bugs e suporte para novos recursos de biblioteca de cliente.
 
 Recompile seu aplicativo com a nova biblioteca, além de alterar os metadados do Gerenciador de Mapa de Fragmentos existentes armazenados em seus Bancos de Dados SQL do Azure para dar suporte aos novos recursos.
 
@@ -29,8 +29,8 @@ Executar estas etapas nesta ordem garante que as versões antigas da biblioteca 
 **1. Atualize seus aplicativos.** No Visual Studio, baixe e referencie a versão mais recente da biblioteca do cliente em todos os seus projetos de desenvolvimento que usam a biblioteca. Em seguida, recrie e implante.
 
  * Em sua solução do Visual Studio, selecione **Ferramentas** --> **NuGet** --> **Gerenciar pacotes NuGet para solução**. 
- * (Visual Studio 2013) No painel esquerdo, selecione **Atualizações** e, em seguida, selecione o botão **Atualizar** no pacote **Biblioteca de cliente de dimensionamento elástico do Banco de dados SQL do Azure** que aparece na janela.
- * (Visual Studio 2015) Defina a caixa de Filtro para **Atualização disponível**. Selecione o pacote de atualização e clique no botão **Atualizar**.
+ * (Visual Studio 2013) No painel esquerdo, selecione **Atualizações** e, em seguida, selecione o botão **Atualizar** no pacote **Biblioteca de cliente de escala elástica do Banco de dados SQL do Azure** que aparece na janela.
+ * (Visual Studio 2015) Defina a caixa de Filtro para **Atualização disponível**. Selecione o pacote para atualizar e clique no botão **Atualizar**.
 	
  
  * Criar e implantar.
@@ -97,4 +97,4 @@ Versão de visualização inicial
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Atores Confiáveis para a Internet das Coisas"
-   description="Os Atores Confiável do Service Fabric são os principais blocos de construção (como uma camada intermediária) em um sistema que combina um front-end de sistema de mensagens que dá suporte a vários transportes como HTTPS, MQTT ou AMQP, e então se comunica com atores que representam dispositivos individuais."
+   pageTitle="Reliable Actors para a Internet das Coisas | Microsoft Azure"
+   description="Os Reliable Actors do Service Fabric são os principais blocos de construção em um sistema que combina um front-end do sistema de mensagens que dá suporte a vários transportes como HTTPS, MQTT ou AMQP e que se comunica com atores que representam dispositivos individuais."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -217,4 +217,4 @@ Concluímos que mais e mais clientes olharão para os Atores da Malha do Serviç
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

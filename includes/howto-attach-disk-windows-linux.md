@@ -2,6 +2,7 @@
 Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../articles/virtual-machines-disks-vhds.md).
 
 ##<a id="attachempty"></a>Tutorial: anexar um disco vazio
+
 Anexar um disco vazio é o modo mais simples de se adicionar um disco de dados, porque o Azure cria o arquivo .vhd para você e o coloca na conta de armazenamento.
 
 1. Clique em **Máquinas Virtuais**e, em seguida, selecione a máquina virtual apropriada.
@@ -28,6 +29,8 @@ Anexar um disco vazio é o modo mais simples de se adicionar um disco de dados, 
 4.	Após o disco de dados ser criado e anexado, ele é listado no painel da máquina virtual.
 
 	![Disco de dados vazio anexado com êxito](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
+	
+> [AZURE.NOTE]Depois de adicionar um novo disco de dados, você precisará fazer logon na máquina virtual e inicializar o disco para que a máquina virtual possa usar o disco para armazenamento.
 
 ##<a id="attachexisting"></a>Tutorial: anexar um disco existente
 
@@ -55,6 +58,4 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 
 	![Disco de dados anexado com êxito](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
 
-> [AZURE.NOTE]Depois de adicionar um disco de dados, você precisará fazer logon na máquina virtual e inicializar o disco para que a máquina virtual possa usar o disco para armazenamento.
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

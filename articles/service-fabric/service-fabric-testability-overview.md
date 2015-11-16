@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visão geral da Possibilidade de Teste"
-   description="Este artigo descreve o recurso de Possibilidade de Teste na Malha do Serviço do Microsoft Azure."
+   pageTitle="Visão geral da Possibilidade de Teste | Microsoft Azure"
+   description="Este artigo descreve o recurso de possibilidade de teste no Service Fabric do Microsoft Azure para induzir falhas e executar cenários de teste em seus serviços."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -94,4 +94,4 @@ Para criar serviços realmente em nuvem, é muito importante garantir que esses 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

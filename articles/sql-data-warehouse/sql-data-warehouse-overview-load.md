@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/04/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Carregar dados no SQL Data Warehouse
@@ -163,6 +163,16 @@ Observe que você também pode carregar uma subseção das linhas de uma tabela 
 
 Além da instrução `CREATE TABLE...AS SELECT`, você também pode carregar dados de tabelas externas em tabelas preexistentes com uma instrução 'INSERT...INTO'.
 
+##  Criar estatísticas sobre os dados recém-carregados 
+
+O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, confira o tópico [Estatísticas][] no grupo de tópicos Desenvolver. Veja abaixo um exemplo de como criar estatísticas na tabela carregada neste exemplo.
+
+
+```
+create statistics [<name>] on [<Table Name>] ([<Column Name>]);
+create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
+```
+
 ## Próximas etapas
 Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvolvimento][].
 
@@ -175,6 +185,7 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 [visão geral sobre desenvolvimento]: sql-data-warehouse-overview-develop.md
 [Migrar esquema]: sql-data-warehouse-migrate-schema.md
 [Migrar código]: sql-data-warehouse-migrate-code.md
+[Estatísticas]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -189,4 +200,4 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 [Documentação do Armazenamento do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-create-storage-account/
 [Documentação da Rota Expressa]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

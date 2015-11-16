@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="11/03/2015"
 	ms.author="garye"/>
 
 # Implantar um serviço Web de Aprendizado de Máquina do Azure
@@ -24,11 +24,11 @@ Em um ponto de exibição de alto nível, isso é feito em três etapas:
 
 - **[Criar uma experiência de treinamento]** - o Estúdio de Aprendizado de Máquina do Azure é um ambiente de desenvolvimento visual colaborativo usado para treinar e testar um modelo de análise de previsão usando os dados de treinamento que você fornecer.
 - **[Convertê-lo em um teste preditivo]**: depois que o modelo tiver sido treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, prepare e simplifique seu teste de pontuação.
-- **[Implantá-lo como um serviço Web]**: com apenas um clique, você pode publicar seu teste de pontuação como um serviço Web do Azure. Os usuários podem enviar dados ao seu modelo e receber as previsões do modelo.
+- **[Implantá-lo como um serviço Web]**: com apenas um clique, você pode implantar seu teste de pontuação como um serviço Web do Azure. Os usuários podem enviar dados ao seu modelo e receber as previsões do modelo.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Depois de publicar o serviço Web, você pode:
+Depois de implantar o serviço Web, é possível:
 
 - **[Acessá-lo]** por meio da API do serviço Web
 - **[Gerenciá-lo]** por meio do portal de gerenciamento do Azure, e
@@ -55,20 +55,20 @@ O processo de criar e gerenciar testes de treinamento é abordado mais detalhada
 
 ## Converter o teste de treinamento em um teste preditivo
 
-Após treinar o seu modelo, você estará pronto para usá-lo para pontuar novos dados. Para fazer isso, converta o teste de treinamento em um teste preditivo. Ao converter em um teste preditivo, você estará preparando seu modelo para ser publicado como um serviço Web de pontuação. Os usuários do serviço Web enviarão dados de entrada para seu modelo e seu modelo enviará de volta os resultados da previsão. Assim, à medida que converte em um teste preditivo, é recomendável ter em mente como você espera que seu modelo seja usado por outras pessoas.
+Após treinar o seu modelo, você estará pronto para usá-lo para pontuar novos dados. Para fazer isso, converta o teste de treinamento em um teste preditivo. Ao converter em um teste preditivo, você estará preparando seu modelo para ser implantado como um serviço Web de pontuação. Os usuários do serviço Web enviarão dados de entrada para seu modelo e seu modelo enviará de volta os resultados da previsão. Assim, à medida que converte em um teste preditivo, é recomendável ter em mente como você espera que seu modelo seja usado por outras pessoas.
 
-Para converter o teste de treinamento em um teste preditivo, clique em **Executar** na parte inferior da tela de teste e clique em **Configurar Serviço Web**.
+Para converter o teste de treinamento em um teste preditivo, clique em **Executar** na parte inferior da tela do teste, clique em **Configurar Serviço Web** e selecione **Serviço Web Preditivo**.
 
 ![Converter para o teste de pontuação](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
-Para obter mais detalhes sobre como fazer essa conversão, consulte [Converter um teste de treinamento de Aprendizado de Máquina em um teste preditivo](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+Para obter mais detalhes sobre como fazer essa conversão, veja [Converter um teste de treinamento do Aprendizado de Máquina em um teste preditivo](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 
 
 ## Implantar o teste preditivo como um serviço Web
 
-Agora que o teste preditivo foi devidamente preparado, você pode publicá-lo como um serviço Web do Azure. Usando o serviço Web, os usuários podem enviar dados para seu modelo e o modelo retornará suas previsões.
+Agora que o teste preditivo foi devidamente preparado, você pode implantá-lo como um serviço Web do Azure. Usando o serviço Web, os usuários podem enviar dados para seu modelo e o modelo retornará suas previsões.
 
-Para publicar o teste preditivo, clique em **Executar** na parte inferior da tela de teste e clique em **Implantar Serviço Web**. O serviço Web é configurado e colocado no painel de serviço Web.
+Para implantar o teste preditivo, clique em **Executar** na parte inferior da tela do teste e clique em **Implantar Serviço Web**. O serviço Web é configurado e colocado no painel de serviço Web.
 
 ![Implantar o serviço Web](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
 
@@ -76,7 +76,7 @@ Para testar o serviço Web, clique no link **Teste** no painel de serviço Web. 
 
 ![Teste do serviço Web](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-Na guia **CONFIGURAÇÃO**, você pode alterar o nome de exibição do serviço e fornecer uma descrição. O nome e a descrição são exibidos no Portal de Gerenciamento do Azure onde você gerencia seus serviços Web. Você pode fornecer uma descrição dos dados de entrada, dados de saída e parâmetros de serviço Web, inserindo uma cadeia de caracteres para cada coluna em **ESQUEMA DE ENTRADA**, **ESQUEMA DE SAÍDA** e **PARÂMETRO DE SERVIÇO WEB**. Essas descrições são usadas na documentação do código de exemplo fornecida para o serviço Web. Você também pode habilitar o log para diagnosticar quaisquer falhas que esteja vendo quando o serviço Web for acessado.
+Na guia **CONFIGURAÇÃO**, você pode alterar o nome de exibição do serviço e fornecer uma descrição. O nome e a descrição são exibidos no Portal de Gerenciamento do Azure onde você gerencia seus serviços Web. Você pode fornecer uma descrição dos dados de entrada, dados de saída e parâmetros de serviço Web inserindo uma cadeia de caracteres para cada coluna em **INPUT SCHEMA**, **OUTPUT SCHEMA** e **WEB SERVICE PARAMETER**. Essas descrições são usadas na documentação do código de exemplo fornecida para o serviço Web. Você também pode habilitar o log para diagnosticar quaisquer falhas que esteja vendo quando o serviço Web for acessado.
 
 Para obter mais informações, consulte [Habilitar o log de serviços Web de Aprendizado de Máquina](machine-learning-web-services-logging.md).
 
@@ -89,27 +89,26 @@ Depois de implantar o serviço Web por meio do Estúdio de Aprendizado de Máqui
 
 O painel fornece todas as informações necessárias para acessar o serviço Web. Por exemplo, a chave de API é fornecida para permitir acesso autorizado ao serviço e as páginas de ajuda de API são fornecidas para ajudar você a começar a escrever seu código.
 
-Para obter mais informações sobre como acessar um serviço Web de Aprendizado de Máquina, consulte [Como consumir um serviço Web de Aprendizado de Máquina do Azure publicado](machine-learning-consume-web-services.md).
+Para obter mais informações sobre como acessar um serviço Web do Aprendizado de Máquina, veja [Como consumir um serviço Web implantado do Aprendizado de Máquina do Azure](machine-learning-consume-web-services.md).
 
 
 ## Gerenciar o serviço Web no Portal de Gerenciamento do Azure
 
-No Portal de Gerenciamento do Azure, você pode gerenciar seus serviços Web clicando no serviço **Aprendizado de Máquina**, abrindo o espaço de trabalho de Aprendizado de Máquina e abrindo o serviço Web na guia **SERVIÇOS WEB**. Nesta página, você pode monitorar o serviço Web, atualizá-lo e excluí-lo. Você também pode adicionar um segundo ponto de extremidade ao serviço Web, além do ponto de extremidade padrão que é criado quando você o publica.
+No Portal de Gerenciamento do Azure, você pode gerenciar seus serviços Web clicando no serviço **Aprendizado de Máquina**, abrindo o espaço de trabalho de Aprendizado de Máquina e abrindo o serviço Web na guia **SERVIÇOS WEB**. Nesta página, você pode monitorar o serviço Web, atualizá-lo e excluí-lo. Você também pode adicionar um segundo ponto de extremidade ao serviço Web, além do ponto de extremidade padrão que é criado durante sua implantação.
 
-Para obter mais informações, consulte [Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md).
-<!-- When this article gets published, fix the link and uncomment
+Para obter mais informações, consulte [Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
 
 ## Atualizar o serviço Web
 
-Você pode fazer alterações ao serviço Web, como atualizar o modelo com dados de treinamento adicional e publicá-lo novamente, substituindo o serviço Web original.
+Você pode fazer alterações ao serviço Web, como atualizar o modelo com dados de treinamento adicionais e implantá-lo novamente, substituindo o serviço Web original.
 
-Para atualizar o serviço Web, abra o teste preditivo original que você usou para implantar o serviço Web original e faça uma cópia editável clicando em **SALVAR COMO**. Faça as alterações e clique em **Implantar Serviço Web**. Como você já publicou esse teste antes, o Estúdio de Aprendizado de Máquina pergunta se você deseja substituir o serviço existente. Se você clicar em **SIM**, o serviço Web existente será interrompido e o novo teste preditivo será publicado em seu lugar.
+Para atualizar o serviço Web, abra o teste preditivo original que você usou para implantar o serviço Web original e faça uma cópia editável clicando em **SALVAR COMO**. Faça as alterações e clique em **Implantar Serviço Web**. Como você já implantou esse teste antes, o Estúdio de Aprendizado de Máquina pergunta se você deseja substituir o serviço existente. Se você clicar em **SIM**, o serviço Web existente será interrompido e o novo teste preditivo será implantado em seu lugar.
 
 > [AZURE.NOTE]Se você fez alterações na configuração do serviço Web original, por exemplo, inserindo um novo nome de exibição ou uma descrição, você precisará inserir esses valores novamente.
 
 Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para obter mais informações, consulte [Treinar novamente os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

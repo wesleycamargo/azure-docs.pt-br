@@ -92,10 +92,10 @@ Por exemplo, para disparar o WebJob a cada 15 minutos, o `settings.job` teria:
 
 Outros exemplos de agendamento CRON:
 
-- A cada hora (ou seja, sempre que a contagem de minutos for 0): `* 0 * * * *` 
-- A cada hora entre 9h e 17h: `* 0 9-17 * * *` 
-- Às 9h30 todos os dias: `* 30 9 * * *`
-- Às 9h30 todos os dias de semana: `* 30 9 * * 1-5`
+- A cada hora (ou seja, sempre que a contagem de minutos for 0): `0 0 * * * *` 
+- A cada hora entre 9h e 17h: `0 0 9-17 * * *` 
+- Às 9h30 todos os dias: `0 30 9 * * *`
+- Às 9h30 todos os dias de semana: `0 30 9 * * 1-5`
 
 **Observação**: ao implantar um Trabalho Web do Visual Studio, certifique-se de marcar as propriedades do arquivo `settings.job` como “Copiar se mais recente”.
 
@@ -239,4 +239,4 @@ Para obter mais informações, consulte [Recursos Recomendados para Trabalhos We
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

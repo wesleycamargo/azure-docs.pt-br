@@ -183,13 +183,17 @@ Você pode:
 
 ![](./media/app-insights-how-do-i/115-metrics.png)
 
+## Modificar valores ou nomes de propriedade
+
+Crie um filtro (app-insights-api-filtering-sampling.md#filtering). Isso permite modificar ou filtrar a telemetria antes que ela seja enviada do seu aplicativo para o Application Insights.
+
 ## Listar usuários específicos e seu uso
 
-Se você quiser apenas [pesquisar usuários específicos](#search-specific-users), poderá definir a [ID de usuário autenticado](app-insights-api-custom-events-metrics/#authenticated-users).
+Se você desejar apenas [pesquisar usuários específicos](#search-specific-users), é possível definir a [ID de usuário autenticado](app-insights-api-custom-events-metrics/#authenticated-users).
 
 Se você quiser uma lista de usuários com dados como, por exemplo, quais páginas eles exibem e com qual frequência eles fazem logon, você tem duas opções:
 
-* [definir a ID de usuário autenticado](app-insights-api-custom-events-metrics/#authenticated-users) ou [exportar para um banco de dados](app-insights-code-sample-export-sql-stream-analytics.md) e usar ferramentas adequadas para analisar seus dados de usuário.
+* [Defina a ID de usuário autenticado](app-insights-api-custom-events-metrics/#authenticated-users) ou [exporte para um banco de dados](app-insights-code-sample-export-sql-stream-analytics.md) e use ferramentas adequadas para analisar seus dados de usuário.
 * Se você tiver apenas um pequeno número de usuários, envie métricas ou eventos personalizados usando os dados de interesse, como o valor da métrica ou o nome do evento, definindo a ID de usuário como uma propriedade. Para analisar os modos de exibição de página, substitua a chamada trackPageView JavaScript padrão. Para analisar a telemetria do lado do servidor, use um inicializador de telemetria para adicionar a ID de usuário para todas as telemetria do servidor. Em seguida, filtre e segmente as métricas e pesquisas na ID de usuário.
 
 
@@ -236,11 +240,4 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 * Primeiro, [adicione um novo gráfico](app-insights-metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.
 * Caso contrário, [adicione o contador ao conjunto coletado pelo módulo do contador de desempenho](app-insights-web-monitor-performance.md#system-performance-counters).
 
-
- 
-
-### Funções da Web do Azure
-
-Atualmente, não monitoramos contadores de desempenho
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

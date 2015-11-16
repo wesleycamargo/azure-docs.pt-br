@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Padrão de design de composição de serviço com estado de Atores Confiáveis"
-   description="O padrão de design dos Atores Confiáveis do Service Fabric que usa atores para manter o estado entre chamadas de serviço, bem como resultados do serviço anterior armazenado em cache. O estado pode ser persistente ou transitório."
+   pageTitle="Padrão de composição do serviço com estado | Microsoft Azure"
+   description="O padrão de design dos Reliable Actors do Service Fabric que usa atores com estado para manter o estado entre chamadas de serviço, bem como resultados do serviço anterior armazenado em cache."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -18,9 +18,11 @@
    ms.author="vturecek"/>
 
 # Padrão de design de Atores Confiáveis: composição de serviço com estado
+
 Os desenvolvedores passaram a última década e meia criando serviços sem estado de N camadas no mundo corporativo. Eles criaram serviços nos bancos de dados, serviços de ordem superior sobre outros serviços, bem como mecanismos de orquestração e middleware orientado a mensagem para coordenar esses serviços. À medida que as cargas de trabalho foram evoluindo, seja exigindo mais interatividade, seja em escala, a arquitetura orientado ao serviço sem estado começou a mostrar seus pontos fracos.
 
 ## O método antigo: serviços SOA
+
 Embora os serviços SOA tenham sido escalados horizontalmente de modo perfeito devido à sua natureza sem estado, eles criaram um afunilamento na camada de armazenamento — simultaneidade e taxa de transferência. O acesso ao armazenamento foi se tornando cada vez mais caro. Como uma prática comum, a maioria dos desenvolvedores introduziu cache à respectiva solução para reduzir a demanda no armazenamento, mas essa solução tinha suas desvantagens — outra camada para gerenciar, acesso simultâneo ao cache, limitações e alterações semânticas e, por fim, consistência. Conforme detalhado anteriormente no padrão Cache Inteligente, o modelo de ator virtual fornece uma solução perfeita para isso.
 
 Alguns desenvolvedores tentarem resolver o problema replicando a camada de armazenamento. No entanto, essa abordagem não escalava bem e rapidamente atingia os limites CAP. O segundo desafio desenvolveu-se em torno dos requisitos em constante mudança; usuários finais e empresas estão exigindo serviços interativos — responder às solicitações em milissegundos, em vez de segundos. Para responder, os desenvolvedores começaram a criar serviços de fachada sobre outros serviços, em alguns casos, dezenas de serviços para criar serviços centrados no usuário. No entanto, compor vários serviços de downstream rapidamente mostrou os problemas de latência.
@@ -34,6 +36,7 @@ O diagrama abaixo ilustra esse ponto:
 ![][1]
 
 ## Melhor solução com atores
+
 No caso de composição de serviços, os atores podem ser sem ou com estado.
 
 * Atores sem estado podem ser usados como proxies para os serviços subjacentes. Esses atores podem ser dinamicamente escalados no cluster da Malha do Serviço do Azure e armazenar em cache determinadas informações relacionadas ao serviço, como seu ponto de extremidade assim que ele é descoberto.
@@ -46,6 +49,7 @@ A maioria dos desenvolvedores deseja usar uma abordagem centrada no usuário em 
 Agora, vamos falar sobre uma abordagem baseada em ator. Um ator de usuário pode representar o comportamento do usuário (navegando em um catálogo, curtindo um produto, adicionando um item à cesta, recomendando um produto a um amigo), bem como seu estado composto (seu perfil, itens na cesta, lista de itens recomendados pelos amigos, seu histórico de compras, localização geográfica atual, etc.).
 
 ## Usando atores com estado
+
 Primeiramente, vamos observar um exemplo onde o ator de usuário precisa popular seu estado usando vários serviços. Não vamos fornecer um exemplo de código para isso porque tudo que discutimos no padrão Cache Inteligente também se aplica aqui. Podemos ativar o ator de usuário no momento do logon, populando-o com dados suficientes de serviços de back-end. Obviamente, como vimos em muitas ocasiões anteriores neste documento, o estado total e parcial pode ser pré-populado sob demanda, com base em um temporizador, ou um pouco dos dois, e armazenado em cache no ator. Neste exemplo, Perfil e Lista de Desejos são ilustrados abaixo:
 
 ![][2]
@@ -71,6 +75,7 @@ Vemos desvantagens do “serviço sem estado” na criação de serviços escalo
 
 
 ## Próximas etapas
+
 [Padrão: cache inteligente](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Padrão: redes e gráficos distribuídos](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -91,4 +96,4 @@ Vemos desvantagens do “serviço sem estado” na criação de serviços escalo
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/27/2015"
+	ms.date="11/03/2015"
 	ms.author="jroth" />
 
 
@@ -75,4 +75,4 @@ Atualmente, o Banco de Dados SQL do Azure tem uma cota de DTU por servidor lógi
 
 [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

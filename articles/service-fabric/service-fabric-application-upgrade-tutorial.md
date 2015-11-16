@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Tutorial de atualização do aplicativo de malha de serviço"
-   description="Este artigo o orienta por meio de uma experiência de atualização de um aplicativo de malha do serviço."
+   pageTitle="Tutorial de atualização de aplicativos | Microsoft Azure"
+   description="Este artigo descreve a experiência de implantação de um aplicativo do Service Fabric, alteração do código e distribuição de uma atualização."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -18,13 +18,13 @@
 
 
 
-# Tutorial do aplicativo de atualização
+# Tutorial de atualização de aplicativo
 
 O mais usado e o método de atualização recomendado é a atualização sem interrupção monitorada. A malha do serviço monitora a integridade do aplicativo que está sendo atualizado com base em um conjunto de diretivas de integridade. Quando os aplicativos em um domínio de atualização (UD) tiverem sido atualizados, a malha do serviço avalia a integridade do aplicativo e determina se prossegue para o próximo domínio de atualização ou retorna um erro para a atualização com base nas diretivas de integridade. Uma atualização do aplicativo monitorada pode ser executada usando APIs, PowerShell ou REST nativos ou gerenciados.
 
 A atualização sem interrupção da malha do serviço monitorados permite que ao administrador de aplicativos configurar a política de avaliação de integridade que malha de serviço usa para determinar se o aplicativo está íntegro. Além disso, ela também permite ao administrador configurar a ação a ser executada quando ocorre um erro na avaliação de integridade como, por exemplo, reversão automática. Esta seção fornece passo a passo de uma atualização monitorada para um dos exemplos do SDK.
 
-## Etapa 1: criar e implantar o exemplo de objetos visuais
+## Etapa 1: criar e implantar o exemplo de Objetos Visuais
 
 Essas etapas podem ser executadas abrindo o projeto no Visual Studio e clicando com o botão direito na Solução e selecionando o comando implantar no item de menu de Malha do serviço. Consulte [gerenciando seu aplicativo de Malha do serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md) para obter mais informações. Como alternativa, pode-se usar o PowerShell.
 
@@ -34,7 +34,7 @@ Depois de criar o projeto no Visual Studio, você pode usar o comando do PowerSh
 
 Agora, você pode usar o [Gerenciador de Malha do serviço para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo tem um serviço web que pode ser acessado no Internet Explorer, digitando [http://localhost:80](http://localhost:80) na barra de endereços. Você deve ver alguns objetos visuais flutuantes moverem-se na tela. Além disso, você pode usar **Get-ServiceFabricApplication** para verificar o status do aplicativo.
 
-## Etapa 2: atualização do exemplo de objetos visuais
+## Etapa 2: atualizar o exemplo de Objetos Visuais
 
 Você pode notar que a com a versão implantada na Etapa 1, os objetos visuais não giram. Vamos atualizar esse aplicativo para um onde os objetos visuais possam girar.
 
@@ -97,7 +97,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 
 Se o comando acima não funcionar, é provável que você precise recompilar todos os serviços. Conforme mencionado na Etapa 2, você terá que atualizar sua versão do serviço Web.
 
-## Etapa 5: iniciar a atualização de aplicativo
+## Etapa 5: iniciar a atualização do aplicativo
 
 Agora, estamos prontos para iniciar a atualização de aplicativo usando o seguinte comando:
 
@@ -126,4 +126,4 @@ Você talvez queira tentar alterar as versões e mudar da versão 2 para a vers�
 [Solucionar problemas de atualização de aplicativo ](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

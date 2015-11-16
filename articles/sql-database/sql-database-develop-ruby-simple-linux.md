@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="09/21/2015" 
 	ms.author="andrela"/>
 
 
@@ -38,7 +38,7 @@ Depois que seu computador estiver configurado com o FreeTDS, instale o Ruby se v
 
 Se você tiver problemas com assinaturas, execute o seguinte comando.
 
-    command curl -sSL https://rvm.io/mpapis.asc | gph --import - 
+    command curl -sSL https://rvm.io/mpapis.asc | gpg --import - 
 
 Se não houver nenhum problema com assinaturas, execute os seguintes comandos.
 
@@ -117,4 +117,4 @@ Para alinhar com o formado [datetime](http://msdn.microsoft.com/library/ms187819
     puts row
     end 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

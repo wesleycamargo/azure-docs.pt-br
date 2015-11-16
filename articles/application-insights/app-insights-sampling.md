@@ -33,7 +33,7 @@ A amostragem está atualmente disponível para o SDK do ASP.NET ou para [qualque
 
 1. Atualize os pacotes NuGet do seu projeto para a versão de *pré-lançamento* mais recente do Application Insights. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web. 
 
-2. Adicionar esse trecho de código a ApplicationInsights.config
+2. Adicione esse trecho de código a [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
 ```XML
 
@@ -162,4 +162,6 @@ O SDK do lado do cliente (JavaScript) participa da amostragem em conjunto com o 
 
 * Não, atualmente, não há suporte para a amostragem de aplicativos do dispositivo. 
 
-<!---HONumber=Nov15_HO1-->
+>>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
+
+<!---HONumber=Nov15_HO2-->

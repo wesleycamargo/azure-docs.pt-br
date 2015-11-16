@@ -82,7 +82,7 @@ Ao usar a Malha do Serviço, você pode:
 
 - Monitorar e diagnosticar a integridade de seus aplicativos e definir políticas para realizar reparos automáticos.
 
-- Ampliar ou reduzir com facilidade o cluster da Malha do Serviço, sabendo que os aplicativos são dimensionados de acordo com os recursos disponíveis.
+- Escale vertical ou horizontalmente o cluster do Service Fabric com facilidade, sabendo que os aplicativos são escalados de acordo com os recursos disponíveis.
 
 - Observar o balanceador de recursos de autorrecuperação administrar a redistribuição de aplicativos entre os clusters da Malha do Serviço para recuperar-se de falhas e otimizar a distribuição da carga com base nos recursos disponíveis.
 
@@ -98,4 +98,4 @@ Ao usar a Malha do Serviço, você pode:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

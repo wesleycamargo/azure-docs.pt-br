@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Usando a biblioteca de cliente do banco de dados elástico com o Entity Framework" 
-	description="O cliente de banco de dados elástico facilita a escala e o Entity Framework é fácil de usar para codificação de bancos de dados" 
+	pageTitle="Usando a biblioteca de cliente do banco de dados elástico com o Entity Framework | Microsoft Azure" 
+	description="Usar a biblioteca de cliente do Banco de Dados Elástico e o Entity Framework para bancos de dados de codificação" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 # Biblioteca cliente do Banco de Dados Elástico com Entity Framework 
  
-Você pode usar a biblioteca de cliente do banco de dados elástico do Microsoft Entity Framework (EF) para criar aplicativos que aproveitam a fragmentação de banco de dados, facilitando a escala vertical da camada de dados do aplicativo. Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das ferramentas de banco de dados elástico. O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do Entity Framework **Code First**. O tutorial [Code First – Novo banco de dados](http://msdn.microsoft.com/data/jj193542.aspx) para o EF serve como exemplo de execução para este documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
+Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md). O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do Entity Framework **Code First**. O tutorial [Code First – Novo banco de dados](http://msdn.microsoft.com/data/jj193542.aspx) para o EF serve como exemplo de execução para este documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
   
 ## Baixar e executar o código de exemplo
 Para baixar o código para este artigo:
@@ -281,4 +281,4 @@ Aplicativos do Entity Framework podem aproveitar facilmente as ferramentas de ba
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

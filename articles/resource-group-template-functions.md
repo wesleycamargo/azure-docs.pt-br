@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Funções de modelo do Gerenciador de Recursos do Azure"
-   description="Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, cadeias de caracteres de formato e recuperar informações de implantação."
+   pageTitle="Funções do modelo do Gerenciador de Recursos | Microsoft Azure"
+   description="Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="tomfitz"/>
 
-# Funções de modelo do Gerenciador de Recursos do Azure
+# Funções do modelo do Gerenciador de Recursos do Azure
 
 Este tópico descreve todas as funções que você pode usar em um modelo do Gerenciador de Recursos do Azure.
+
+As funções do modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Gerenciador de Recursos resolve **variables('var1')** e **VARIABLES('VAR1')** da mesma forma.
 
 ## adicionar
 
@@ -68,7 +70,7 @@ O exemplo a seguir mostra como combinar diversos valores para retornar um valor.
 
 **copyIndex(offset)**
 
-Retorna o índice atual de um loop de iteração. Para ver exemplos do uso desta função, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+Retorna o índice atual de um loop de iteração. Para obter exemplos de como usar essa função, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 
 ## implantação
 
@@ -131,7 +133,7 @@ O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em Int
 
 **length(array)**
 
-Retorna o número de elementos em uma matriz. Normalmente, é usado para especificar o número de iterações durante a criação de recursos. Para ver um exemplo de como usar essa função, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+Retorna o número de elementos em uma matriz. Normalmente, é usado para especificar o número de iterações durante a criação de recursos. Para obter um exemplo de como usar essa função, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 
 ## listKeys
 
@@ -543,6 +545,6 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 - Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - Para mesclar diversos modelos, veja a seção [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
-- Para saber como implantar o modelo que você criou, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
+- Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

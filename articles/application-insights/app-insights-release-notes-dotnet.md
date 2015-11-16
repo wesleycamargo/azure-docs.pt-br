@@ -32,23 +32,35 @@ Consulte [Introdução ao Application Insights para .NET](app-insights-start-mon
 * Compare o ApplicationInsights.config com a cópia antiga. A maioria das alterações que você ocorreu porque removemos alguns módulos e tornamos outros parametrizáveis. Reaplique as personalizações feitas no arquivo antigo.
 * Recompile sua solução.
 
+## Versão 2.0.0-beta2
+- Suporte adicionado a ITelemetryProcessor e a capacidade de configurar por meio de código ou configuração. [Habilita a filtragem personalizada no SDK](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
+- Inicializadores de contexto removidos. Em vez disso, use [Inicializadores de Telemetria](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
+- Application Insights atualizado para o .NET Framework 4.6. 
+- Os nomes de evento personalizado agora podem ter até 512 caracteres.
+- Propriedade ```OperationContext.Name``` renomeada para ```RootName```.
+- Propriedade ```RequestTelemetry.Id``` removida.
+- Propriedades ```Id``` e ```Context.Operation.Id``` de RequestTelemetry não seriam inicializadas durante a criação de uma nova RequestTelemetry.
+- ```RequestTelemetry.Name``` não é mais inicializado. Em vez disso, ```RequestTelemetry.Context.Operation.Name``` será usado.
+- No monitoramento de solicitação, o código de resposta 401 faz parte do handshake de autenticação normal e resultará em uma solicitação bem-sucedida.
+- Corrija o bloqueio de thread da interface do usuário ao inicializar InMemoryChannel (canal padrão) do thread da interface do usuário. Isso corrige problemas de congelamento da interface do usuário com aplicativos do WPF.
+ 
 ## Versão 2.0.0-beta1
 - O TrackDependency produzirá um JSON válido quando nem todos os campos obrigatórios tiverem sido especificados.
 - A propriedade redundante ```RequestTelemetry.ID``` agora é apenas um proxy para ```RequestTelemetry.Operation.Id```.
 - Nova interface ```ISupportSampling``` e sua implementação explícita pela maioria dos tipos de item de dados.
-- Propriedade ```Count``` DependencyTelemetry marcada como Obsoleta. Use ```SamplingPercentage```.
+- A propriedade ```Count``` em DependencyTelemetry foi marcada como Obsoleta. Em vez disso, use ```SamplingPercentage```.
 - Novo ```CloudContext``` introduzido e propriedades ```RoleName``` e ```RoleInstance``` movidas dele para ```DeviceContext```.
 - Nova propriedade ```AuthenticatedUserId``` em ```UserContext``` para especificar a identidade do usuário autenticado.
-- `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer` adicionado, `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer` que inicializa o contexto do usuário autenticado conforme definido pelo SDK do Javascript.
+- `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer` adicionado, `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer` que inicializa o contexto do usuário autenticado, conforme definido pelo SDK do Javascript.
 - `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` adicionado, bem como o suporte de amostragem de taxa fixa como sua implementação.
 - `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder` adicionado, que permite a criação de um `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` com um conjunto de `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
 
 ## Versão 1.2
 
-- Inicializadores de telemetria que não têm dependências em bibliotecas do ASP.NET foram movidos de `Microsoft.ApplicationInsights.Web` para o novo nuget de dependência `Microsoft.ApplicationInsights.WindowsServer`
+- Inicializadores de telemetria que não têm dependências em bibliotecas do ASP.NET foram movidos de `Microsoft.ApplicationInsights.Web` para o novo NuGet de dependência `Microsoft.ApplicationInsights.WindowsServer`
 - `Microsoft.ApplicationInsights.Web.dll` foi renomeado em `Microsoft.AI.Web.dll`
-- O nuget `Microsoft.ApplicationInsights.Web.TelemetryChannel` foi renomeado em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. O assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` foi renomeado em `Microsoft.AI.ServerTelemetryChannel.dll`. A classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` foi renomeada em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
-- Todos os namespaces que fazem parte do SDK Web foram alterados para excluir a parte `Extensibility`. Isso inclui todos os inicializadores de telemetria em ApplicationInsights.config e o módulo `ApplicationInsightsWebTracking` no web.config.
+- O NuGet `Microsoft.ApplicationInsights.Web.TelemetryChannel` foi renomeado em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. O assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` foi renomeado em `Microsoft.AI.ServerTelemetryChannel.dll`. A classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` foi renomeada em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- Todos os namespaces que fazem parte do SDK da Web foram alterados para excluir a parte `Extensibility`. Isso inclui todos os inicializadores de telemetria em ApplicationInsights.config e o módulo `ApplicationInsightsWebTracking` no web.config.
 - As dependências são coletadas usando o agente de instrumentação do tempo de execução (habilitado por meio da extensão do Monitor de Status ou do Site do Azure) não serão marcadas como assíncronas se não houver nenhum HttpContext.Current no thread.
 - A propriedade `SamplingRatio` de `DependencyTrackingTelemetryModule` não faz nada e foi marcada como obsoleta.
 - O assembly `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector` foi renomeado em `Microsoft.AI.PerfCounterCollector`
@@ -58,15 +70,15 @@ Consulte [Introdução ao Application Insights para .NET](app-insights-start-mon
 ## Versão 1.1
 
 - O novo tipo de telemetria `DependencyTelemetry` foi adicionado, que pode ser usado para enviar informações sobre chamadas de dependência do aplicativo (como chamadas SQL, HTTP, etc.).
-- O novo método de sobrecarga `TelemetryClient.TrackDependency` foi adicionado, o que permite enviar informações sobre chamadas de dependência.
+- O novo método de sobrecarga `TelemetryClient.TrackDependency` foi adicionado, que permite enviar informações sobre chamadas de dependência.
 - NullReferenceException fixo lançado pelo módulo de diagnóstico quando TelemetryConfiguration.CreateDefault é usado.
 
 ## Versão 1.0
 
-- Os módulos e inicializadores de telemetria movidos dos subnamespaces separados para o namespace `Microsoft.ApplicationInsights.Extensibility.Web` da raiz.
-- O prefixo “Web” foi removido de nomes dos inicializadores e módulos de telemetria porque ele já está incluído no nome do namespace `Microsoft.ApplicationInsights.Extensibility.Web`.
+- Módulos e inicializadores de telemetria movidos dos subnamespaces separados para o namespace `Microsoft.ApplicationInsights.Extensibility.Web` raiz.
+- O prefixo “Web” foi removido dos nomes dos inicializadores e módulos de telemetria porque ele já está incluído no nome do namespace `Microsoft.ApplicationInsights.Extensibility.Web`.
 - `DeviceContextInitializer` movido do assembly `Microsoft.ApplicationInsights` para o assembly `Microsoft.ApplicationInsights.Extensibility.Web` e convertido em um `ITelemetryInitializer`.
-- Altere os nomes do namespace e do assembly de `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` para `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` para consistência com o nome do pacote NuGet.
+- Altere os nomes do namespace e do assembly de `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` para `Microsoft.ApplicationInsights.Extensibility.DependencyCollector`, a fim de manter a consistência com o nome do pacote NuGet.
 - Renomeie `RemoteDependencyModule` para `DependencyTrackingTelemetryModule`.
 - Renomeie `CustomPerformanceCounterCollectionRequest` para `PerformanceCounterCollectionRequest`.
 
@@ -97,4 +109,4 @@ Não há notas de versão disponíveis para versões anteriores.
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

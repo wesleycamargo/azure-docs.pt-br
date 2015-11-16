@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo para usar o logon do Twitter
@@ -29,7 +29,7 @@ Para concluir o procedimento deste tópico, você deve ter uma conta do Twitter 
 
 1. Faça logon no [Portal de Gerenciamento do Azure] e navegue para o seu aplicativo móvel. Copie a sua **URL**. Você a usará para configurar o seu aplicativo do Twitter.
 
-2. Clique em **Configurações**, **Autenticação de usuário**, e, em seguida, clique em **Twitter**. Copie a **URL de callback**. Você a usará para configurar o seu aplicativo do Twitter.
+2. Clique em **Configurações**, **Autenticação de usuário** e em **Twitter**. Copie a **URL de callback**. Você a usará para configurar o seu aplicativo do Twitter.
 
 3. Navegue até o site de [Desenvolvedores do Twitter,] entre com suas credenciais da conta do Twitter e clique em **Criar Novo Aplicativo**.
 
@@ -71,6 +71,5 @@ Agora você está pronto para usar o Twitter para autenticação em seu aplicati
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
 [Portal de gerenciamento]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

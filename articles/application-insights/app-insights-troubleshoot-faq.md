@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
  
 # Solução de problemas e perguntas - Application Insights para ASP.NET
@@ -136,12 +136,15 @@ Consulte as [notas de versão](app-insights-release-notes.md) para o SDK adequad
 + Clique no botão Atualizar. A folha se atualiza periodicamente, mas você também pode fazê-lo manualmente. O intervalo de atualização é maior para intervalos de tempo maiores.
 + No painel inicial do Microsoft Azure, veja o mapa de status de serviço. Se houver indicações de alerta, espere até que elas tenham voltado a OK; então, feche e abra novamente a folha do Application Insights de seu aplicativo.
 + Verifique também o [nosso blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
++ Se você editou o ApplicationInsights.config, verifique cuidadosamente a configuração de TelemetryInitializers e TelemetryProcessors. Um tipo ou parâmetro nomeado incorretamente pode fazer com que o SDK não envie nenhum dado.
 
 #### Nenhum dado desde que publiquei o aplicativo no meu servidor
 
++ Verifique que você copiou todos da Microsoft. DLLs do ApplicationInsights no servidor, junto com Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 + Em seu firewall, você terá que abrir as portas TCP 80 e 443 para tráfego de saída de dc.services.visualstudio.com e f5.services.visualstudio.com.
 + Se você tiver que usar um proxy para envio fora de sua rede corporativa, defina [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) em Web.config
 + Windows Server 2008: certifique-se de ter instalado as seguintes atualizações: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+
 
 #### <a name="q04"></a>Eu não vejo nenhum dado na Análise de Uso para meu site.
 
@@ -166,7 +169,7 @@ Você precisaria preparar um proxy que pudesse retransmitir as chamadas POST htt
 
 ## O Monitor de Status não funciona
 
-Consulte [Solução de problemas do Monitor de Status](app-insights-monitor-performance-live-website-now.md#troubleshooting). Portas de firewall são o problema mais comum.
+Veja [Solução de problemas do Monitor de Status](app-insights-monitor-performance-live-website-now.md#troubleshooting). Portas de firewall são o problema mais comum.
 
 ## O Portal
 
@@ -243,4 +246,4 @@ Você pode [gravar um Script do PowerShell](app-insights-powershell-script-creat
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

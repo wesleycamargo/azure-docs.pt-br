@@ -27,37 +27,35 @@ Configure seu primeiro ou próximo farm do SharePoint de desenvolvimento/teste o
 
 ## Farm de desenvolvimento/teste básico do SharePoint
 
-Para máquinas virtuais criadas usando o modelo de implantação do Gerenciador de Recursos, consulte o item [Farm não HA do SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) no Azure Marketplace do Portal de Visualização do Azure. Isso cria um farm de desenvolvimento/teste básico para um site do SharePoint voltado para a Internet.
+Este ambiente criado automaticamente consiste em três servidores em uma rede virtual do Azure somente na nuvem: um controlador de domínio, um servidor SQL e o servidor do SharePoint.
 
-Você também pode usar um modelo do Gerenciador de Recursos do Azure. Consulte [Implantar um farm de três servidores do SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Veja o item [Farm de não HA do SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) no Azure Marketplace do portal de Visualização do Azure. Isso cria um farm de desenvolvimento/teste básico para um site do SharePoint voltado para a Internet. Veja [Criar farms de servidores do SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) para obter mais detalhes.
 
-O ambiente criado automaticamente consiste em três servidores para um controlador de domínio, um servidor SQL e o servidor do SharePoint em uma rede virtual do Azure somente na nuvem.
+Você também pode usar um modelo do Gerenciador de Recursos do Azure. Veja [Implantar um farm de três servidores do SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-Para criar uma configuração parecida com o modelo clássico de implantação, use o item [Farm do SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) no Azure Marketplace do Portal de Visualização do Azure.
-
+> [AZURE.NOTE]O item **Farm do SharePoint Server** no Azure Marketplace do portal de Visualização do Azure foi removido.
 
 ## Farm de desenvolvimento/teste do SharePoint de alta disponibilidade
 
-Para máquinas virtuais criadas usando o modelo de implantação do Gerenciador de Recursos, consulte o item [Farm HA do SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) no Azure Marketplace do Portal de Visualização do Azure. Isso cria um farm altamente disponível para um site do SharePoint voltado para a Internet.
+Este ambiente criado automaticamente consiste em nove servidores em uma rede virtual do Azure somente na nuvem: dois para controladores de domínio, três para um cluster do SQL Server, dois servidores do SharePoint da camada de aplicativos e dois servidores do SharePoint da camada da Web.
 
-Você também pode usar um modelo do Gerenciador de Recursos do Azure. Consulte [Implantar um farm de nove servidores do SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
+Veja o item [Farm de HA do SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) no Azure Marketplace do portal de Visualização do Azure. Isso cria um farm de desenvolvimento/teste de alta disponibilidade para um site do SharePoint voltado para a Internet. Veja [Criar farms de servidores do SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) para obter mais detalhes.
 
-O ambiente criado automaticamente consiste em nove servidores em uma rede virtual do Azure somente na nuvem: dois para controladores de domínio, três para um cluster do SQL Server, dois servidores do SharePoint da camada de aplicativos e dois servidores do SharePoint da camada da Web.
+Você também pode usar um modelo do Gerenciador de Recursos do Azure. Veja [Implantar um farm de nove servidores do SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
-Para criar uma configuração parecida com o modelo clássico de implantação, use o item [Farm do SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) no Azure Marketplace do Portal de Visualização do Azure.
-
+> [AZURE.NOTE]O item **Farm do SharePoint Server** no Azure Marketplace do portal de Visualização do Azure foi removido.
 
 ## Farm de desenvolvimento/teste de nuvem híbrida
 
 Com o [farm de intranet do SharePoint em um ambiente de desenvolvimento/teste de nuvem híbrida](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), você cria uma configuração de nuvem híbrida simulada que hospeda um farm do SharePoint simples de duas camadas, o qual você pode usar para testar um farm do SharePoint de intranet hospedado no Azure de seu local na Internet.
 
-Esta configuração usa as máquinas virtuais clássicas.
+Esta configuração usa o modelo de implantação clássica.
 
 ## Farm de produção do SharePoint de intranet de alta disponibilidade
 
 Com a implantação do [SharePoint 2013 com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure](virtual-machines-workload-intranet-sharepoint-overview.md), você cria um farm do SharePoint Server 2013 de intranet pronto para produção e de alta disponibilidade no Azure.
 
-Esta configuração usa as máquinas virtuais clássicas.
+Esta configuração usa o modelo de implantação clássica.
 
 ## Recursos adicionais
 
@@ -71,4 +69,4 @@ Esta configuração usa as máquinas virtuais clássicas.
 
 [Implantar DirSync (Sincronização de Diretório) do Office 365 no Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

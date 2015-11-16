@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Personalização do indexador da Pesquisa do Azure" 
-	description="Saiba como personalizar as configurações e as políticas de indexadores da Pesquisa do Azure." 
+	pageTitle="Personalização do indexador da Pesquisa do Azure | Microsoft Azure" 
+	description="Saiba como personalizar as configurações e políticas de indexadores na Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="chaosrealm" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
 #Personalização do indexador da Pesquisa do Azure
@@ -117,4 +117,4 @@ Mesmo se você optar por tolerar algumas falhas, as informações sobre quais do
 E isso é tudo por enquanto. Caso você tenha pensamentos ou sugestões para futuras ideias de conteúdo, envie um tweet para nós usando a hashtag #AzureSearch ou envie suas ideias pela nossa [página UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="11/02/2015" 
 	ms.author="juliako"/>
 
 
@@ -36,7 +36,7 @@ Para mais informações:
 - [Documentação do Azure Media Player](http://aka.ms/ampdocs) 
 - [Blog de Introdução do Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
 - [Inscreva-se para se manter atualizado com a versão mais recente do Azure Media Player](http://aka.ms/ampsignup)
-- [Adicionar novas solicitações de recurso, ideias, comentários](http://feedback.azure.com/forums/293565-azure-media-player/filters/my_feedback) 
+- [Adicionar novas solicitações de recurso, ideias, comentários](http://aka.ms/ampuservoice) 
 
 
 ##Outras ferramentas para criar aplicativos de player
@@ -48,7 +48,7 @@ Você também pode usar qualquer um dos seguintes SDKs:
 - [Plataforma de Mídia da Microsoft: Player Framework](http://playerframework.codeplex.com/) 
 - [Documentação da estrutura de player HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Plug-in Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming](https://www.microsoft.com/mediaplatform/sspk.aspx) 
+- [Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming](http://aka.ms/sspk) 
 - [Desenvolvimento de aplicativos de vídeo do XBOX](http://xbox.create.msdn.com/) 
  
 
@@ -82,4 +82,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 [Repositório do dash.js do GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

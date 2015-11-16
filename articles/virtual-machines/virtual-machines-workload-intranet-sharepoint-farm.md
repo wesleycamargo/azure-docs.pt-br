@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/29/2015"
 	ms.author="josephd"/>
 
 # Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint na Intranet
@@ -48,9 +48,9 @@ Você pode criar gratuitamente esses ambientes de desenvolvimento/teste com sua 
 
 ### Rede virtual somente na nuvem
 
-Uma rede virtual somente na nuvem não é conectada a uma rede local. Se você apenas quiser criar rapidamente um farm do SharePoint básico ou de alta disponibilidade, consulte [Farm do SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md). O exemplo a seguir mostra a configuração básica do farm do SharePoint.
+Uma rede virtual somente na nuvem não é conectada a uma rede local. Se você apenas desejar criar rapidamente um farm do SharePoint básico ou de alta disponibilidade, veja [Farm do SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md). O exemplo a seguir mostra a configuração básica do farm do SharePoint.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
 
 ### Rede virtual entre locais
 
@@ -128,4 +128,4 @@ Depois de configurado, você poderá expandir esse farm do SharePoint com a orie
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

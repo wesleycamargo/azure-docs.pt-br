@@ -18,9 +18,7 @@
 
 # Adicionar notificações por push a seu aplicativo Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Visão geral
 
@@ -40,6 +38,10 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Conclua o [tutorial de início rápido](../app-service-mobile-xamarin-ios-get-started.md).
 
+##<a name="create-hub"></a>Criar um Hub de notificação
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
 ## <a id="register"></a>Registre o aplicativo para obter notificações por push
 
 [AZURE.INCLUDE [Habilitar Notificações por push da Apple](../../includes/enable-apple-push-notifications.md)]
@@ -48,7 +50,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-##<a id="update-server"></a>Atualize o projeto de servidor para enviar notificações por push
+##<a id="update-server"></a>Atualizar o projeto de servidor para enviar notificações por push
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
@@ -56,7 +58,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-## <a name="configure-app"></a>Configure seu projeto Xamarin.iOS
+## <a name="configure-app"></a>Configure seu projeto do Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
@@ -75,7 +77,7 @@ Para concluir este tutorial, você precisará do seguinte:
             }
         }
 
-1. Adicione a seguinte declaração `using` no topo do arquivo **AppDelegate.cs**.
+1. Adicione a seguinte declaração `using` ao topo do arquivo **AppDelegate.cs**.
 
         using Microsoft.WindowsAzure.MobileServices;
 
@@ -133,7 +135,7 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 	
 	> [AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
-2. No aplicativo, digite uma tarefa e, em seguida, clique no ícone do sinal de adição (**+**).
+2. No aplicativo, digite uma tarefa e clique no ícone do sinal de adição (**+**).
 
 3. Verifique se uma notificação é recebida e clique em **OK** para ignorar a notificação.
 
@@ -154,4 +156,4 @@ Este tutorial foi concluído com êxito.
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

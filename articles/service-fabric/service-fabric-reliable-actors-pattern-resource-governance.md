@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Padrão de design de Controle de Recursos dos Atores da Malha do Serviço do Azure"
-   description="O padrão de design de como os Atores da Malha do Serviço podem ser usados para modelar aplicativos que precisam ser dimensionados, mas usam recursos restritos"
+   pageTitle="Padrão de design de governança de recursos | Microsoft Azure"
+   description="O padrão de design de como os Reliable Actors do Service Fabric podem ser usados para modelar aplicativos precisa ser escalado verticalmente, mas usar recursos restritos."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,6 +17,7 @@
    ms.author="vturecek"/>
 
 # Padrão de design de Atores Confiáveis: governança de recursos
+
 Esse padrão e cenários relacionados podem ser facilmente reconhecidos pelos desenvolvedores (corporativos ou não) que têm recursos restritos no local ou na nuvem, os quais não podem dimensionar imediatamente, ou que desejam enviar aplicativos e dados em larga escala para a nuvem.
 
 Na empresa, esses recursos restritos, como bancos de dados, são executados em hardware de escala vertical. Qualquer pessoa com um longo histórico corporativo sabe que essa é uma situação comum no local. Mesmo em escala de nuvem, temos visto essa situação ocorrer quando um serviço de nuvem tenta exceder o limite de conexões TCP de 64 K entre uma tupla de endereço/porta ou ao tentar se conectar a um banco de dados baseado em nuvem que limita o número de conexões simultâneas.
@@ -30,6 +31,7 @@ O diagrama abaixo ilustra esse cenário:
 ![][1]
 
 ## Modelando cenários de cache com atores
+
 Basicamente, modelamos o acesso a recursos como um ator ou vários atores que atuam como proxies (digamos conexão, por exemplo) para um recurso ou um grupo de recursos. Você pode gerenciar diretamente o recurso por meio de atores individuais ou usar um ator de coordenação que gerencia os atores de recurso. Para tornar isso mais concreto, falaremos sobre a necessidade comum de ter que trabalhar em uma camada de armazenamento particionada (também conhecida como fragmentada) por motivos de desempenho e escalabilidade. Nossa primeira opção é bem básica: podemos usar uma função estática para mapear e resolver os atores para recursos de downstream. Tal função pode retornar, por exemplo, uma cadeia de conexão com determinada entrada. Cabe inteiramente a nós como implementar essa função. Obviamente, essa abordagem tem suas desvantagens, como afinidade estática, que dificulta bastante o reparticionamento de recursos ou remapeamento de um ator para recursos. Temos aqui um exemplo bastante simples — fazemos aritmética modular para determinar o nome do banco de dados usando userId e usamos região para identificar o servidor do banco de dados.
 
 ## Exemplo de código do Controle de Recursos – resolução estática
@@ -140,6 +142,7 @@ public class Resolver : Actor<ResolverState>, IResolver
 ```
 
 ## Acessando recursos com capacidade finita
+
 Agora vejamos outro exemplo; acesso exclusivo a recursos valiosos, como DB, contas de armazenamento e sistemas de arquivos com capacidade finita de taxa de transferência. Nosso cenário é o seguinte: queremos processar eventos usando um ator chamado EventProcessor, que é responsável por processar e persistir o evento, nesse caso, em um arquivo CSV por motivos de simplicidade. Embora possamos seguir a abordagem de particionamento discutida acima para escalar horizontalmente nossos recursos, ainda temos que lidar com os problemas de simultaneidade. Isso porque escolhemos um exemplo baseado em arquivo para ilustrar esse ponto específico — gravar em um único arquivo de vários atores levantará problemas de simultaneidade. Para resolver o problema, introduzimos outro ator chamado EventWriter que tem propriedade exclusiva dos recursos restritos. O cenário é ilustrado abaixo:
 
 ![][3]
@@ -398,6 +401,7 @@ Esse padrão é muito comum em cenários onde os desenvolvedores têm recursos r
 
 
 ## Próximas etapas
+
 [Padrão: cache inteligente](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Padrão: redes e gráficos distribuídos](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -417,4 +421,4 @@ Esse padrão é muito comum em cenários onde os desenvolvedores têm recursos r
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

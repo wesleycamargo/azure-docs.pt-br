@@ -13,29 +13,95 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/03/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Instrução Create Table As Select (CTAS) no SQL Data Warehouse
-A instrução Create Table As Select ou CTAS é um dos mais importantes recursos do T-SQL disponível. É uma operação totalmente em paralelo que cria uma nova tabela com base na saída de uma instrução Select. Você pode considerá-la uma versão sobrecarregada de SELECT... INTO se desejar.
+A instrução Create Table As Select ou CTAS é um dos mais importantes recursos do T-SQL disponível. É uma operação totalmente em paralelo que cria uma nova tabela com base na saída de uma instrução SELECT. O CTAS é a maneira mais rápida e simples de criar uma cópia de uma tabela. Você pode considerá-la uma versão sobrecarregada de SELECT... INTO se desejar. Este documento fornece exemplos e as práticas recomendadas para o CTAS.
 
-A CTAS também pode ser usada para solucionar diversos recursos sem suporte listados acima. Isso pode ser geralmente uma situação de ganho mútuo pois não apenas o seu código estará compatível, mas ele será executado muitas vezes mais rapidamente no SQL Data Warehouse. Isso é devido ao seu design totalmente em paralelo.
+## Usando o CTAS para copiar uma tabela
 
-> [AZURE.NOTE]Tente imaginar “CTAS primeiro”. Se você achar que você pode resolver um problema usando CTAS, que geralmente é a melhor maneira de abordá-lo, mesmo se você estiver escrevendo mais dados como um resultado.
+Talvez um dos usos mais comuns do CTAS seja criar uma cópia de uma tabela para que você possa alterar a DDL. Se, por exemplo, você criou originalmente a tabela como ROUND\_ROBIN e agora deseja alterá-la para uma tabela distribuída em uma coluna, o CTAS será como você alteraria a coluna de distribuição. O CTAS também pode ser usado para alterar os tipos de particionamento, indexação ou coluna.
 
-Os cenários que podem ser solucionados com CTAS incluem:
+Digamos que você criou esta tabela usando o tipo de distribuição padrão do ROUND\_ROBIN distribuído desde que nenhuma coluna de distribuição foi especificada em CREATE TABLE.
+
+```
+CREATE TABLE FactInternetSales
+(
+	ProductKey int NOT NULL,
+	OrderDateKey int NOT NULL,
+	DueDateKey int NOT NULL,
+	ShipDateKey int NOT NULL,
+	CustomerKey int NOT NULL,
+	PromotionKey int NOT NULL,
+	CurrencyKey int NOT NULL,
+	SalesTerritoryKey int NOT NULL,
+	SalesOrderNumber nvarchar(20) NOT NULL,
+	SalesOrderLineNumber tinyint NOT NULL,
+	RevisionNumber tinyint NOT NULL,
+	OrderQuantity smallint NOT NULL,
+	UnitPrice money NOT NULL,
+	ExtendedAmount money NOT NULL,
+	UnitPriceDiscountPct float NOT NULL,
+	DiscountAmount float NOT NULL,
+	ProductStandardCost money NOT NULL,
+	TotalProductCost money NOT NULL,
+	SalesAmount money NOT NULL,
+	TaxAmt money NOT NULL,
+	Freight money NOT NULL,
+	CarrierTrackingNumber nvarchar(25),
+	CustomerPONumber nvarchar(25)
+);
+```
+
+Agora, você deseja criar uma nova cópia da tabela com um Índice Columnstore Clusterizado para que possa aproveitar o desempenho das tabelas Columnstore Clusterizado. Você também deseja distribuir essa tabela na ProductKey, uma vez que está antecipando as associações nessa coluna e quer evitar a movimentação dos dados durante as junções em ProductKey. Por fim, também deseja adicionar o particionamento em OrderDateKey para que possa excluir rapidamente os dados antigos descartando as partições antigas. Aqui está a declaração CTAS que copiaria sua tabela antiga para uma nova tabela.
+
+```
+CREATE TABLE FactInternetSales_new
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = HASH(ProductKey),
+    PARTITION
+    (
+        OrderDateKey RANGE RIGHT FOR VALUES 
+        (
+        20000101,20010101,20020101,20030101,20040101,20050101,20060101,20070101,20080101,20090101,
+        20100101,20110101,20120101,20130101,20140101,20150101,20160101,20170101,20180101,20190101,
+        20200101,20210101,20220101,20230101,20240101,20250101,20260101,20270101,20280101,20290101
+        )
+    )
+)
+AS SELECT * FROM FactInternetSales;
+```
+
+Finalmente, você pode renomear suas tabelas para trocar na nova tabela, em seguida, descartar a tabela antiga.
+
+```
+RENAME OBJECT FactInternetSales TO FactInternetSales_old;
+RENAME OBJECT FactInternetSales_new TO FactInternetSales;
+
+DROP TABLE FactInternetSales_old;
+```
+
+> [AZURE.NOTE]O SQL Data Warehouse do Azure ainda não dá suporte às estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, consulte o tópico [Estatísticas][] no Grupo de desenvolvimento de tópicos.
+
+## Usando o CTAS para resolver os recursos sem suporte
+
+O CTAS também pode ser usado para solucionar os diversos recursos sem suporte listados abaixo. Isso pode ser geralmente uma situação de ganho mútuo pois não apenas o seu código estará compatível, mas ele será executado muitas vezes mais rapidamente no SQL Data Warehouse. Isso é devido ao seu design totalmente em paralelo. Os cenários que podem ser solucionados com CTAS incluem:
 
 - SELECT..INTO
 - ANSI JOINS em instruções UPDATE 
 - ANSI JOINs em instruções DELETE
 - Instrução MERGE
 
-Este documento também inclui algumas práticas recomendadas para durante a codificação com CTAS.
+> [AZURE.NOTE]Tente imaginar “CTAS primeiro”. Se você achar que você pode resolver um problema usando CTAS, que geralmente é a melhor maneira de abordá-lo, mesmo se você estiver escrevendo mais dados como um resultado.
+> 
 
 ## SELECT..INTO
 Você pode achar SELECT... INTO aparecendo em vários lugares na sua solução.
 
-Um exemplo SELECT..INTO está ilustrado abaixo:
+Abaixo está um exemplo de uma instrução SELECT..INTO:
 
 ```
 SELECT *
@@ -43,14 +109,13 @@ INTO    #tmp_fct
 FROM    [dbo].[FactInternetSales]
 ```
 
-A maneira para converter isso em CTAS é bastante direta:
+Converter isso em CTAS é bem simples:
 
 ```
 CREATE TABLE #tmp_fct
 WITH
 (
     DISTRIBUTION = ROUND_ROBIN
-,   LOCATION = USER_DB
 )
 AS
 SELECT  *
@@ -58,7 +123,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-O uso das CTAS significa que você também pode especificar uma preferência de distribuição de dados e o índice opcional na tabela também.
+> [AZURE.NOTE]O CTAS atualmente requer que uma coluna de distribuição seja especificada. Se você não estiver tentando alterar intencionalmente a coluna de distribuição, o CTAS será executado mais rapidamente se você selecionar uma coluna de distribuição igual à tabela subjacente, já que essa estratégia evita a movimentação dos dados. Se você estiver criando uma pequena tabela na qual o desempenho não é um problema, poderá especificar ROUND\_ROBIN para evitar ter de decidir sobre uma coluna de distribuição.
 
 ## Substituição da junção ANSI para atualizar instruções
 
@@ -357,10 +422,11 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Article references-->
 [Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
+[Estatísticas]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [CTAS]: https://msdn.microsoft.com/pt-BR/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

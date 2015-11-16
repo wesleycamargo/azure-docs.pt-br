@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Integração do SDK do Android do Azure Mobile Engagement" 
+<properties
+	pageTitle="Integração do SDK do Android do Azure Mobile Engagement"
 	description="Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 
@@ -35,17 +35,21 @@ Clique para ver o [Conteúdo do SDK](mobile-engagement-android-sdk-content.md).
 
 ##Notas de versão
 
+##4\.1.1 (04/11/2015)
+
+Aprimoramentos de estabilidade.
+
 ##4\.1.0 (25/08/2015)
 
 - Lidar com o novo modelo de permissão para Android M.
-- Agora é possível configurar os recursos de localização em tempo de execução em vez de usar o `AndroidManifest.xml`.
-- Corrigir um bug de permissão: se você usar o `ACCESS_FINE_LOCATION`, então o `ACCESS_COARSE_LOCATION` não é mais necessário.
+- Agora é possível configurar os recursos de localização no tempo de execução em vez de usar o `AndroidManifest.xml`.
+- Corrija um bug de permissão: se você usar `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` não será mais necessário.
 - Aprimoramentos de estabilidade.
 
 Para versões anteriores, consulte as [notas de versão completas](mobile-engagement-android-release-notes.md).
 
 ##Procedimentos de atualização
 
-Se você já tiver integrado uma versão mais antiga do nosso SDK em seu aplicativo, consulte [Procedimentos de atualização](mobile-engagement-android-upgrade-procedure.md).
+Se você já tiver integrado uma versão mais antiga do nosso SDK em seu aplicativo, veja [Procedimentos de atualização](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

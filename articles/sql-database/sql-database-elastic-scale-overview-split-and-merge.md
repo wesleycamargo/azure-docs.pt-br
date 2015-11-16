@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Dimensionamento usando a ferramenta de divisão/mesclagem do banco de dados elástico" 
+    pageTitle="Escalando com a ferramenta de divisão/mesclagem de banco de dados elástico | Microsoft Azure" 
     description="Explica como manipular fragmentos e mover os dados por meio de um serviço auto-hospedado usando APIs de banco de dados elástico." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh"/>
+    authors="ddove"/>
 
 <tags 
     ms.service="sql-database" 
@@ -12,14 +12,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/29/2015" 
-    ms.author="sidneyh" />
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh" />
 
 # Dimensionamento usando a ferramenta de divisão/mesclagem do Banco de Dados Elástico
 
-Se você optar por não usar o modelo simples de alocar bancos de dados separados para cada shardlet (locatário), seu aplicativo pode precisar redistribuir flexivelmente os dados entre os bancos de dados quando houver flutuação das necessidades de capacidade. Ferramentas de banco de dados elástico incluem uma ferramenta de divisão/mesclagem hospedada pelo cliente para rebalancear a distribuição de dados e gerenciar pontos de acesso para aplicativos fragmentados. Ela é desenvolvida com base em uma capacidade subjacente para mover shardlets sob demanda entre diferentes bancos de dados e integra-se ao gerenciamento de mapa de fragmentos para manter a consistência dos mapeamentos.
+As [ferramentas de banco de dados elástico](sql-database-elastic-scale-introduction.md) incluem uma ferramenta para rebalancear a distribuição de dados e gerenciar pontos de acesso para aplicativos fragmentados. A **ferramenta de divisão/mesclagem** gerencia a escala vertical e horizontal. Você pode adicionar ou remover bancos de dados do seu conjunto de fragmentos e usar a ferramenta de divisão/mesclagem para reequilibrar a distribuição de shardlets entre eles. (Para obter definições de termos, confira o [Glossário de escala elástica](sql-database-elastic-scale-glossary.md)).
 
-A ferramenta de divisão/mesclagem gerencia a escala e redução horizontal. Você pode adicionar ou remover bancos de dados do seu conjunto de fragmentos e usar a ferramenta de divisão/mesclagem para reequilibrar a distribuição de shardlets entre eles. Para definições de termos, consulte o [Glossário de escala elástica](sql-database-elastic-scale-glossary.md).
+A ferramenta move os shardlets sob demanda entre diferentes bancos de dados e é integrada ao [gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) para manter a consistência dos mapeamentos.
+
+Para começar, veja [Ferramenta de divisão/mesclagem de Banco de dados elástico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Novidades na divisão/mesclagem
 
@@ -29,9 +31,7 @@ A versão 1.0.0 da ferramenta de divisão/mesclagem apresenta as seguintes melho
 
 ## Como atualizar
 
-Para atualizar para a versão mais recente da divisão/mesclagem, siga estas etapas:
-
-1. Baixe a versão mais recente do pacote de divisão/mesclagem do NuGet, conforme descrito em [Baixar os pacotes de divisão/mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md#download-the-Split-Merge-packages).
+1. Baixe a versão mais recente do pacote de divisão/mesclagem do NuGet como descrito em [Baixar os pacotes de divisão/mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md#download-the-Split-Merge-packages).
 2. Altere o arquivo de configuração do serviço de nuvem para sua implantação de divisão/mesclagem refletir os novos parâmetros de configuração. Um novo parâmetro obrigatório são as informações sobre o certificado usado para criptografia. Uma maneira fácil de fazer isso é comparar o novo arquivo de modelo de configuração do download em relação a sua configuração existente. Certifique-se de que adicionar as configurações para "DataEncryptionPrimaryCertificateThumbprint" e "DataEncryptionPrimary" para a função de trabalho e da web.
 3. Antes de implantar a atualização para o Azure, certifique-se de que todas as operações de divisão/mesclagem em execução no momento terminaram. Você pode fazer isso facilmente consultando as tabelas RequestStatus e PendingWorkflows no banco de dados de metadados de divisão/mesclagem para as solicitações em andamento.
 4. Atualize sua implantação de serviço de nuvem existente para divisão/mesclagem na sua assinatura do Azure com o novo pacote e o seu arquivo de configuração de serviço atualizado.
@@ -39,15 +39,16 @@ Para atualizar para a versão mais recente da divisão/mesclagem, siga estas eta
 Você não precisa provisionar um novo banco de dados de metadados para atualizar a divisão/mesclagem. A nova versão irá atualizar automaticamente seu banco de dados de metadados existentes para a nova versão.
 
 ## Cenários de divisão/mesclagem 
+
 Aplicativos precisam de flexibilidade para além dos limites de um único banco de dados do Banco de Dados SQL do Azure, como ilustrado nos cenários a seguir:
 
-* **Capacidade de crescimento – intervalos de divisão**: a capacidade de aumentar a capacidade agregada na camada de dados atende às necessidades crescentes de capacidade. Nesse cenário, o aplicativo fornece a capacidade adicional fragmentando os dados e distribuindo-a incrementalmente em mais bancos de dados até que as necessidades de capacidade sejam atendidas. O recurso ‘dividir’ do Serviço de divisão/mesclagem de escala elástica aborda este cenário. 
+* **Capacidade de Crescimento – Intervalos de Divisão**: a capacidade de aumentar a capacidade agregada na camada de dados atende às necessidades crescentes de capacidade. Nesse cenário, o aplicativo fornece a capacidade adicional fragmentando os dados e distribuindo-a incrementalmente em mais bancos de dados até que as necessidades de capacidade sejam atendidas. O recurso ‘dividir’ do Serviço de divisão/mesclagem de escala elástica aborda este cenário. 
 
-* **Capacidade de redução – intervalos de mesclagem**: a capacidade flutua devido à natureza sazonal de uma empresa. Este cenário destaca a necessidade de facilmente escalar de volta para menos unidades quando o negócio desacelera. O recurso ‘mesclar’ no Serviço de divisão/mesclagem de escala elástica aborda esse requisito.
+* **Capacidade de Redução – Intervalos de Mesclagem**: a capacidade flutua devido à natureza sazonal de uma empresa. Este cenário destaca a necessidade de facilmente escalar de volta para menos unidades quando o negócio desacelera. O recurso ‘mesclar’ no Serviço de divisão/mesclagem de escala elástica aborda esse requisito.
 
-* **Gerenciar pontos de acesso – movendo shardlets**: com vários locatários por banco de dados, a alocação de shardlets a fragmentos pode causar afunilamentos de capacidade em alguns fragmentos. Isso exige a realocação de shardlets ou a movimentação de shardlets ocupados para fragmentos novos ou menos utilizados.
+* **Gerenciar Pontos de Acesso – Movendo Shardlets**: com vários locatários por banco de dados, a alocação de shardlets a fragmentos pode causar afunilamentos de capacidade em alguns fragmentos. Isso exige a realocação de shardlets ou a movimentação de shardlets ocupados para fragmentos novos ou menos utilizados.
 
-A seguir, vamos nos referir a qualquer processamento no serviço juntamente a tais recursos como solicitações de **divisão/mesclagem/movimentação**.
+A seguir, vamos nos referir a qualquer processamento no serviço, juntamente com esses recursos, como solicitações de **divisão/mesclagem/movimentação**.
 
 
 Figura 1: visão geral conceitual de divisão/mesclagem
@@ -60,25 +61,25 @@ Figura 1: visão geral conceitual de divisão/mesclagem
 
 ## Principais recursos e conceitos
 
-**Serviços hospedados pelo cliente**: a divisão/mesclagem é fornecida como um serviço hospedado pelo cliente. Você deve implantar e hospedar o serviço na sua assinatura do Microsoft Azure. O pacote que você baixou do NuGet contém um modelo de configuração para concluir as informações da sua implantação específica. Consulte o [tutorial de divisão/mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obter mais detalhes. Uma vez que o serviço é executado na sua assinatura do Azure, você pode controlar e configurar a maioria dos aspectos de segurança do serviço. O modelo padrão inclui as opções para configurar o SSL, autenticação de cliente baseada no certificado, criptografia para credenciais armazenadas, proteção DoS e restrições de IP. Você pode encontrar mais informações sobre os aspectos de segurança no documento de [configuração de segurança de divisão/mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md) a seguir.
+**Serviços Hospedados pelo Cliente**: a divisão/mesclagem é fornecida como um serviço hospedado pelo cliente. Você deve implantar e hospedar o serviço na sua assinatura do Microsoft Azure. O pacote que você baixou do NuGet contém um modelo de configuração para concluir as informações da sua implantação específica. Veja o [tutorial de divisão/mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obter mais detalhes. Uma vez que o serviço é executado na sua assinatura do Azure, você pode controlar e configurar a maioria dos aspectos de segurança do serviço. O modelo padrão inclui as opções para configurar o SSL, autenticação de cliente baseada no certificado, criptografia para credenciais armazenadas, proteção DoS e restrições de IP. Você pode encontrar mais informações sobre os aspectos de segurança no documento sobre [configuração de segurança de divisão/mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md) a seguir.
 
 O serviço padrão implantado é executado com um operador e uma função web. Cada um usa o tamanho da VM A1 nos Serviços de Nuvem do Azure. Embora não seja possível modificar essas configurações durante a implantação do pacote, eles podem ser alterados após uma implantação bem-sucedida no serviço de nuvem em execução (por meio do portal do Azure). Observe que a função de trabalho não deve ser configurada para mais de uma única instância por motivos técnicos.
 
-**Integração do mapa de fragmentos**: o serviço de divisão/mesclagem interage com o mapa de fragmentos do aplicativo. Ao usar o serviço de divisão/mesclagem para dividir ou mesclar intervalos ou para mover shardlets entre dois fragmentos, o serviço mantém automaticamente o mapa de fragmentos atualizado. Para fazer isso, o serviço se conecta ao banco de dados do gerenciador de mapa do fragmento do aplicativo e mantém intervalos e mapeamentos como progresso de solicitações de divisão/mesclagem/movimentação. Isso garante que o mapa de fragmentos sempre apresente uma exibição atualizada quando operações de divisão mesclagem estiverem sendo realizadas. Operações de divisão, mesclagem e de movimentação de shardlet são implementadas movendo um lote de shardlets do fragmento de origem para o fragmento de destino. Durante a operação de movimentação do shardlet, os shardlets sujeitos ao lote atual são marcados como offline no mapa de fragmentos e ficam indisponíveis para conexões de roteamento dependentes de dados usando a API **OpenConnectionForKey**.
+**Integração do mapa de fragmentos**: o serviço de divisão/mesclagem interage com o mapa de fragmentos do aplicativo. Ao usar o serviço de divisão/mesclagem para dividir ou mesclar intervalos ou para mover shardlets entre dois fragmentos, o serviço mantém automaticamente o mapa de fragmentos atualizado. Para fazer isso, o serviço se conecta ao banco de dados do gerenciador de mapa do fragmento do aplicativo e mantém intervalos e mapeamentos como progresso de solicitações de divisão/mesclagem/movimentação. Isso garante que o mapa de fragmentos sempre apresente uma exibição atualizada quando operações de divisão mesclagem estiverem sendo realizadas. Operações de divisão, mesclagem e de movimentação de shardlet são implementadas movendo um lote de shardlets do fragmento de origem para o fragmento de destino. Durante a operação de movimentação dos shardlets, os shardlets sujeitos ao lote atual são marcados como offline no mapa de fragmentos e ficam indisponíveis para conexões de roteamento dependente de dados usando a API **OpenConnectionForKey**.
 
-**Conexões de shardlet consistentes**: quando a movimentação de dados é iniciada para um novo lote de shardlets, todas as conexões de roteamento dependentes de dados fornecidas pelo mapa de fragmentos ao fragmento que armazena o shardlet serão interrompidas e as conexões subsequentes das APIs do mapa de fragmentos com esses shardlets serão bloqueadas enquanto a movimentação de dados estiver em andamento para evitar inconsistências. Conexões com outros shardlets no mesmo fragmento também serão interrompidas, mas funcionarão de novo, imediatamente em uma nova tentativa. Depois que o lote é movido, os shardlets são marcados novamente como online para o fragmento de destino e os dados de origem são removidos do fragmento de origem. O serviço passa por essas etapas, a cada lote, até que todos os shardlets sejam movidos. Isso levará a várias operações de interrupção de conexão ao longo da operação de divisão/mesclagem/movimentação.
+**Conexões de Shardlets Consistentes**: quando a movimentação de dados é iniciada para um novo lote de shardlets, todas as conexões de roteamento dependente de dados fornecidas pelo mapa de fragmentos ao fragmento que armazena o shardlet são interrompidas e as conexões subsequentes das APIs do mapa de fragmentos a esses shardlets são bloqueadas enquanto a movimentação de dados estiver em andamento para evitar inconsistências. Conexões com outros shardlets no mesmo fragmento também serão interrompidas, mas funcionarão de novo, imediatamente em uma nova tentativa. Depois que o lote é movido, os shardlets são marcados novamente como online para o fragmento de destino e os dados de origem são removidos do fragmento de origem. O serviço passa por essas etapas, a cada lote, até que todos os shardlets sejam movidos. Isso levará a várias operações de interrupção de conexão ao longo da operação de divisão/mesclagem/movimentação.
 
-**Gerenciamento de disponibilidade do shardlet**: a limitação da interrupção da conexão com o lote atual de shardlets, conforme discutido acima, restringe o escopo de indisponibilidade a um lote de shardlets por vez. Isso é preferível a uma abordagem em que o fragmento completo permaneceria offline para todos os seus shardlets ao longo da operação de divisão/mesclagem. O tamanho de um lote, definido como o número de shardlets distintos para mover por vez, é um parâmetro de configuração. Ele pode ser definido para cada operação de divisão/mesclagem, dependendo das necessidades de desempenho e de disponibilidade do aplicativo. Observe que o intervalo que está sendo bloqueado no mapa do fragmento pode ser maior que o tamanho de lote especificado. Isso ocorre porque o serviço escolhe o tamanho do intervalo, de modo que o número real de valores de chave de fragmentação nos dados corresponda aproximadamente ao tamanho do lote. É importante lembrar isso, especialmente para chaves de fragmentação escassamente preenchidas.
+**Gerenciando a Disponibilidade de Shardlets**: a limitação da interrupção da conexão com o lote atual de shardlets, como discutido acima, restringe o escopo de indisponibilidade a um lote de shardlets por vez. Isso é preferível a uma abordagem em que o fragmento completo permaneceria offline para todos os seus shardlets ao longo da operação de divisão/mesclagem. O tamanho de um lote, definido como o número de shardlets distintos para mover por vez, é um parâmetro de configuração. Ele pode ser definido para cada operação de divisão/mesclagem, dependendo das necessidades de desempenho e de disponibilidade do aplicativo. Observe que o intervalo que está sendo bloqueado no mapa do fragmento pode ser maior que o tamanho de lote especificado. Isso ocorre porque o serviço escolhe o tamanho do intervalo, de modo que o número real de valores de chave de fragmentação nos dados corresponda aproximadamente ao tamanho do lote. É importante lembrar isso, especialmente para chaves de fragmentação escassamente preenchidas.
 
 **Armazenamento de metadados**: o serviço de divisão/mesclagem usa um banco de dados para manter seu status e manter registros durante o processamento da solicitação. O usuário cria este banco de dados na sua assinatura e fornece a cadeia de conexão para ele no arquivo de configuração para a implantação do serviço. Os administradores da organização do usuário também podem se conectar a este banco de dados para examinar o andamento da solicitação e para investigar informações detalhadas sobre falhas potenciais.
 
-**Reconhecimento de fragmentação**: o serviço de divisão/mesclagem faz distinção entre (1) tabelas fragmentadas, (2) tabelas de referência e (3) tabelas normais. A semântica de uma operação de divisão/mesclagem/movimentação depende do tipo da tabela usada e é definida da seguinte maneira:
+**Reconhecimento de fragmentação**: o serviço de divisão/mesclagem faz uma distinção entre (1) tabelas fragmentadas, (2) tabelas de referência e (3) tabelas normais. A semântica de uma operação de divisão/mesclagem/movimentação depende do tipo da tabela usada e é definida da seguinte maneira:
 
-* **Tabelas fragmentadas**: operações de divisão, mesclagem e movimentação movem os shardlets do fragmento de origem para o de destino. Após a conclusão bem-sucedida da solicitação geral, esses shardlets não estarão mais presentes na origem. Observe que as tabelas de destino precisam existir no fragmento de destino e não podem conter dados no intervalo de destino antes do processamento da operação. 
+* **Tabelas fragmentadas**: operações de divisão, mesclagem e movimentação movem os shardlets do fragmento de origem para o fragmento de destino. Após a conclusão bem-sucedida da solicitação geral, esses shardlets não estarão mais presentes na origem. Observe que as tabelas de destino precisam existir no fragmento de destino e não podem conter dados no intervalo de destino antes do processamento da operação. 
 
-* **Tabelas de referência**: em tabelas de referência, as operações de divisão, de mesclagem e de movimentação copiam os dados do fragmento de origem no de destino. No entanto, observe que nenhuma alteração ocorre no fragmento de destino, para uma determinada tabela, se já houver alguma linha nesta tabela, no destino. A tabela deve estar vazia para que qualquer operação de cópia de tabela de referência seja processada.
+* **Tabelas de referência**: em tabelas de referência, as operações de divisão, mesclagem e movimentação copiam os dados do fragmento de origem no fragmento de destino. No entanto, observe que nenhuma alteração ocorre no fragmento de destino, para uma determinada tabela, se já houver alguma linha nesta tabela, no destino. A tabela deve estar vazia para que qualquer operação de cópia de tabela de referência seja processada.
 
-* **Outras tabelas**: outras tabelas podem estar presentes na origem ou no destino de uma operação de divisão e mesclagem. A divisão/mesclagem ignora essas tabelas em qualquer operação de cópia ou movimentação de dados. No entanto, observe que elas podem interferir com essas operações no caso de restrições.
+* **Outras Tabelas**: outras tabelas podem estar presentes na origem ou no destino de uma operação de divisão e mesclagem. A divisão/mesclagem ignora essas tabelas em qualquer operação de cópia ou movimentação de dados. No entanto, observe que elas podem interferir com essas operações no caso de restrições.
 
 As informações sobre tabelas de referência versus fragmentadas são fornecidas pelas APIs **SchemaInfo** no mapa de fragmentos. O exemplo a seguir ilustra o uso dessas APIs em um objeto de gerenciador de mapa de fragmento smm:
 
@@ -98,13 +99,13 @@ As informações sobre tabelas de referência versus fragmentadas são fornecida
 
 As tabelas “region” e “nation” são definidas como tabelas de referência e serão copiadas com operações de divisão/mesclagem/mover. Já “customer” e “order” por sua vez são definidos como tabelas fragmentadas. C\_CUSTKEY e O\_CUSTKEY servem como chave de fragmentação.
 
-**Integridade referencial**: o serviço de divisão/mesclagem analisa as dependências entre as tabelas e usa relações de chave estrangeira-chave primária para preparar as operações para mover tabelas de referência e shardlets. Em geral, as tabelas de referência são copiadas primeiro em ordem de dependência, os shardlets são então copiados na ordem de suas dependências em cada lote. Isso é necessário para que as restrições FK-PK no fragmento de destino sejam respeitadas a medida que os novos dados chegam.
+**Integridade Referencial**: o serviço de divisão/mesclagem analisa as dependências entre as tabelas e usa relações de chave estrangeira/chave primária para preparar as operações para mover tabelas de referência e shardlets. Em geral, as tabelas de referência são copiadas primeiro em ordem de dependência, os shardlets são então copiados na ordem de suas dependências em cada lote. Isso é necessário para que as restrições FK-PK no fragmento de destino sejam respeitadas a medida que os novos dados chegam.
 
-**Consistência de mapa de fragmentos e conclusão eventual**: em caso de falhas, o serviço de divisão/mesclagem retoma as operações após qualquer interrupção e tenta concluir as solicitações em andamento. No entanto, podem haver situações irrecuperáveis (ex.: quando o fragmento de destino é perdido ou comprometido e não pode ser reparado). Sob tais circunstâncias, alguns shardlets que deveriam ser movidos podem continuar a residir no fragmento de origem. O serviço garante que os mapeamentos de shardlet são atualizados somente depois que os dados necessários tiverem sido copiados, com êxito, no destino. Shardlets só são excluídos na origem depois que todos os seus dados tiverem sido copiados para o destino e os mapeamentos correspondentes atualizados com êxito. A operação de exclusão ocorre em segundo plano quando o intervalo já está online no fragmento de destino. O serviço de divisão/mesclagem sempre garante a exatidão dos mapeamentos armazenados no mapa de fragmentos.
+**Consistência do mapa de fragmentos e conclusão eventual**: em caso de falhas, o serviço de divisão/mesclagem retoma as operações após uma interrupção e tenta concluir as solicitações em andamento. No entanto, podem haver situações irrecuperáveis (ex.: quando o fragmento de destino é perdido ou comprometido e não pode ser reparado). Sob tais circunstâncias, alguns shardlets que deveriam ser movidos podem continuar a residir no fragmento de origem. O serviço garante que os mapeamentos de shardlet são atualizados somente depois que os dados necessários tiverem sido copiados, com êxito, no destino. Shardlets só são excluídos na origem depois que todos os seus dados tiverem sido copiados para o destino e os mapeamentos correspondentes atualizados com êxito. A operação de exclusão ocorre em segundo plano quando o intervalo já está online no fragmento de destino. O serviço de divisão/mesclagem sempre garante a exatidão dos mapeamentos armazenados no mapa de fragmentos.
 
 ## Obtendo os binários de serviço
 
-Os binários do serviço de divisão/mesclagem são fornecidos por meio do [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Consulte o [tutorial de divisão/mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) passo a passo para saber mais sobre como baixar os binários.
+Os binários de serviço para divisão/mesclagem são fornecidos por meio do [NuGet](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Veja o [tutorial de divisão/mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) passo a passo para saber mais sobre como baixar os binários.
 
 ## A interface do usuário de divisão/mesclagem
 
@@ -139,7 +140,7 @@ A implementação atual do serviço de divisão/mesclagem está sujeita aos requ
 
 * O serviço depende atualmente da identidade de linha estabelecida por um índice exclusivo ou chave que inclui a chave de fragmentação para melhorar o desempenho e a confiabilidade de shardlets grandes. Isso permite que o serviço mova dados em uma granularidade ainda maior do que apenas fragmentando o valor chave. Isso ajuda a reduzir a quantidade máxima de espaço de log e de bloqueios necessários durante a operação. Considere a criação de um índice exclusivo ou uma chave primária, incluindo a chave de fragmentação em uma determinada tabela, se quiser usar essa tabela com solicitações de divisão/mesclagem/movimentação. Por motivos de desempenho, a chave de fragmentação deve ser a coluna à esquerda na chave ou índice.
 
-* Durante o processamento de solicitações, alguns dados de shardlet podem estar presentes tanto no fragmento de origem quanto no de destino. Isso é necessário no momento para proteger contra falhas durante a movimentação de shardlet. Conforme explicado acima, a integração de divisão/mesclagem ao mapa de fragmentos de escala elástica garante que as conexões por meio das APIs de roteamento dependentes de dados usando o método **OpenConnectionForKey** no mapa de fragmentos não encontrem nenhum estado intermediário inconsistente. No entanto, na conexão aos fragmentos de origem ou destino sem usar o método **OpenConnectionForKey**, estados intermediários inconsistentes podem ficar visíveis quando solicitações de divisão/mesclagem/movimentação estiverem ocorrendo. Essas conexões podem mostrar resultados parciais ou duplicados, dependendo do tempo ou do fragmento que subjaz à conexão. Atualmente, essa limitação inclui as conexões feitas por Consultas-Multi-Fragmento de Escala Elástica.
+* Durante o processamento de solicitações, alguns dados de shardlet podem estar presentes tanto no fragmento de origem quanto no de destino. Isso é necessário no momento para proteger contra falhas durante a movimentação de shardlet. Como explicamos acima, a integração de divisão/mesclagem com o mapa de fragmentos da Escala Elástica garante que as conexões por meio das APIs de roteamento dependente de dados que usam o método **OpenConnectionForKey** no mapa de fragmentos não encontrem nenhum estado intermediário inconsistente. No entanto, na conexão aos fragmentos de origem ou destino sem usar o método **OpenConnectionForKey**, estados intermediários inconsistentes podem ficar visíveis quando solicitações de divisão/mesclagem/movimentação estiverem ocorrendo. Essas conexões podem mostrar resultados parciais ou duplicados, dependendo do tempo ou do fragmento que subjaz à conexão. Atualmente, essa limitação inclui as conexões feitas por Consultas-Multi-Fragmento de Escala Elástica.
 
 * O banco de dados de metadados para o serviço de divisão/mesclagem não deve ser compartilhado entre diferentes funções. Por exemplo, uma função do serviço de divisão/mesclagem executado de preparo precisa apontar para um banco de dados de metadados diferentes da função de produção.
  
@@ -151,9 +152,9 @@ O serviço de divisão/mesclagem é executado como um serviço de nuvem em sua a
 ## Monitoramento 
 ### Tabelas de status 
 
-O serviço de divisão/mesclagem fornece a tabela **RequestStatus** no banco de dados de armazenamento dos metadados para o monitoramento das solicitações em andamento e concluídas. A tabela lista uma linha para cada solicitação de divisão/mesclagem enviada para essa instância do serviço de divisão/mesclagem. Ele oferece as seguintes informações para cada solicitação:
+O Serviço de divisão/mesclagem fornece a tabela **RequestStatus** no banco de dados de armazenamento dos metadados para o monitoramento das solicitações em andamento e concluídas. A tabela lista uma linha para cada solicitação de divisão/mesclagem enviada para essa instância do serviço de divisão/mesclagem. Ele oferece as seguintes informações para cada solicitação:
 
-* **Timestamp**: a hora e a data em que a solicitação foi iniciada.
+* **Carimbo de Data/Hora**: a hora e a data em que a solicitação foi iniciada.
 
 * **OperationId**: um GUID que identifica exclusivamente a solicitação. Essa solicitação também pode ser usada para cancelar a operação enquanto ela ainda está em andamento.
 
@@ -161,14 +162,14 @@ O serviço de divisão/mesclagem fornece a tabela **RequestStatus** no banco de 
 
 * **CancelRequest**: um sinalizador que indica se a solicitação foi cancelada.
 
-* **Progress**: uma estimativa percentual da conclusão da operação. Um valor de 50 indica que a operação está aproximadamente 50% concluída.
+* **Andamento**: uma estimativa percentual da conclusão da operação. Um valor de 50 indica que a operação está aproximadamente 50% concluída.
 
-* **Details**: um valor XML que fornece um relatório de progresso mais detalhado. O relatório de andamento é atualizado periodicamente a medida em que conjuntos de linhas são copiados da origem ao destino. No caso de falhas ou exceções, essa coluna também inclui informações mais detalhadas sobre a falha.
+* **Detalhes**: um valor XML que fornece um relatório de andamento mais detalhado. O relatório de andamento é atualizado periodicamente a medida em que conjuntos de linhas são copiados da origem ao destino. No caso de falhas ou exceções, essa coluna também inclui informações mais detalhadas sobre a falha.
 
 
 ### Diagnóstico do Azure
 
-O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do Azure 2.5 para monitoramento e diagnóstico. Você controla a configuração de diagnóstico conforme explicado aqui: [Habilitando o diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure](../cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico: uma para a função web e outro para a função de trabalho. Essas configurações de diagnóstico para o serviço de seguem as diretrizes de [Conceitos básicos do Serviço de Nuvem no Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Inclui as definições para registrar os Contadores de desempenho, logs do IIS, Logs de Eventos do Windows e logs de eventos do aplicativo de divisão/mesclagem.
+O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do Azure 2.5 para monitoramento e diagnóstico. Você controla a configuração de diagnóstico, como explicado aqui: [Habilitando o diagnóstico nos Serviços de Nuvem e nas Máquinas Virtuais do Azure](../cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico: uma para a função web e outro para a função de trabalho. Essas configurações de diagnóstico para o serviço seguem as orientações contidas em [Noções básicas do Serviço de Nuvem no Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Inclui as definições para registrar os Contadores de desempenho, logs do IIS, Logs de Eventos do Windows e logs de eventos do aplicativo de divisão/mesclagem.
 
 ## Implantando o diagnóstico 
 
@@ -194,11 +195,11 @@ Para habilitar o monitoramento e diagnóstico usando a configuração de diagnó
     
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-Você pode encontrar mais informações sobre como configurar e implantar configurações de diagnóstico aqui: [Habilitando o diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure](../cloud-services-dotnet-diagnostics.md).
+Você pode encontrar mais informações sobre como configurar e implantar configurações de diagnóstico aqui: [Habilitando o diagnóstico nos Serviços de Nuvem e nas Máquinas Virtuais do Azure](../cloud-services-dotnet-diagnostics.md).
 
 ## Recuperação de diagnósticos 
 
-Você pode acessar facilmente o diagnóstico do Gerenciador de Servidores do Visual Studio na parte do Azure da árvore do Gerenciador de Servidores. Abra uma instância do Visual Studio e, na barra de menus, clique em Modo de exibição e em Gerenciador de Servidores. Clique no ícone do Azure para conectar-se à sua assinatura do Azure. Em seguida, navegue para Azure -> Armazenamento -> <your storage account> -> Tabelas -> WADLogsTable. Para saber mais, consulte [Procurando recursos de armazenamento com o Gerenciador de Servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx).
+Você pode acessar facilmente o diagnóstico do Gerenciador de Servidores do Visual Studio na parte do Azure da árvore do Gerenciador de Servidores. Abra uma instância do Visual Studio e, na barra de menus, clique em Modo de exibição e em Gerenciador de Servidores. Clique no ícone do Azure para conectar-se à sua assinatura do Azure. Em seguida, navegue para Azure -> Armazenamento -> <your storage account> -> Tabelas -> WADLogsTable. Para saber mais, veja [Procurando recursos de armazenamento com o Gerenciador de Servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 ![WADLogsTable][2]
 
@@ -238,4 +239,4 @@ Além disso, uma propriedade de exclusividade com a chave de fragmentação como
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

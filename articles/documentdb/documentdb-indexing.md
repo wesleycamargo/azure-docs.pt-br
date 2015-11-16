@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="arramac"/>
 	
 # Indexação automática no Banco de Dados de Documentos do Azure
@@ -55,7 +55,7 @@ Uma implicação importante do tratamento uniforme de ambos os valores de instâ
 
 ![Índice como uma árvore](media/documentdb-indexing/IndexAsTree.png)
 
-Apesar de serem independentes de esquema, as linguagens de consulta SQL e JavaScript do Banco de Dados de Documentos oferecem projeções e filtros relacionais, navegação hierárquica entre documentos e invocação de UDFs totalmente escritas em JavaScript. O tempo de execução da consulta do Banco de Dados de Documentos é capaz de dar suporte a essas consultas já que pode operar diretamente nesta representação de árvore de índice dos dados.
+Apesar de serem independentes de esquema, as linguagens de consulta SQL e JavaScript do Banco de Dados de Documentos oferecem projeções e filtros relacionais, navegação hierárquica entre documentos, operações espaciais e invocação de UDFs totalmente escritas em JavaScript. O tempo de execução da consulta do Banco de Dados de Documentos é capaz de dar suporte a essas consultas já que pode operar diretamente nesta representação de árvore de índice dos dados.
 
 A política de indexação padrão indexa automaticamente todas as propriedades de todos os documentos e oferece consultas consistentes (o que significa que o índice é atualizado de forma síncrona com a gravação de documento). Como o Banco de Dados de Documentos dá suporte a atualizações consistentes à árvore de índice em escala? O Banco de Dados de Documentos usa técnicas otimizadas de manutenção de índice estruturado de log, livre de bloqueios. Isso significa que o Banco de Dados de Documentos pode oferecer suporte a um volume permanente de gravações rápidas e ainda assim oferecer consultas consistentes.
 
@@ -67,4 +67,4 @@ A indexação do Banco de Dados de Documentos foi projetada para eficiência de 
 - Saiba mais sobre como personalizar o índice do Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

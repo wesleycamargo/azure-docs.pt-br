@@ -312,13 +312,13 @@ Nesta seção, você aprenderá como o Umbraco CMS usa módulos personalizados p
 Lembre-se sempre de remover a pasta `install` em seu aplicativo e nunca carregá-la em aplicativos Web em estágio ou produção. Para este tutorial, usarei o WebMatrix
 
 #### Configurar um ambiente de preparo
-Crie um slot de implantação, conforme mencionado acima, para o aplicativo Web Umbraco CMS, supondo que você já tenha um aplicativo Web Umbraco CMS em funcionamento. Do contrário, você pode criar um no marketplace. Para saber mais, clique [aqui](web-sites-gallery-umbraco).
+Crie um slot de implantação, conforme mencionado acima, para o aplicativo Web Umbraco CMS, supondo que você já tenha um aplicativo Web Umbraco CMS em funcionamento. Do contrário, você pode criar um no marketplace.
 
-Atualize as Cadeias de conexão para o slot de implantação de estágio para apontar para o banco de dados recém-criado, **umbraco-stage-db**. O aplicativo Web de produção (umbraositecms-1) e o aplicativo Web de preparo (umbracositecms-1-stage) **TÊM** que apontar para bancos de dados diferentes.
+Atualize as Cadeias de conexão do slot de implantação de estágio para apontarem para o banco de dados recém-criado, **umbraco-stage-db**. O aplicativo Web de produção (umbraositecms-1) e o aplicativo Web de preparo (umbracositecms-1-stage) **DEVEM** apontar para bancos de dados diferentes.
 
 ![Atualizar a Cadeia de conexão para aplicativos Web de preparo com o novo banco de dados de preparo](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
-Clique em **Obter configurações de publicação** para o slot de implantação **estágio**. Isso irá baixar um arquivo de configurações de publicação que armazena todas as informações necessárias ao Visual Studio ou ao Web Matrix para publicar seu aplicativo do aplicativo Web de desenvolvimento local para o aplicativo Web do Azure.
+Clique em **Obter configurações de publicação** para o **estágio** do slot de implantação. Isso irá baixar um arquivo de configurações de publicação que armazena todas as informações necessárias ao Visual Studio ou ao Web Matrix para publicar seu aplicativo do aplicativo Web de desenvolvimento local para o aplicativo Web do Azure.
 
  ![Obter configurações de publicação para o aplicativo Web de preparo](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
 
@@ -326,18 +326,18 @@ Clique em **Obter configurações de publicação** para o slot de implantação
 
 ![Importar Configurações de publicação para o Umbraco usando Web Matrix](./media/app-service-web-staged-publishing-realworld-scenarios/11import.png)
 
-- Analise as alterações feitas na caixa de diálogo e implante seu aplicativo Web local em seu aplicativo Web do Azure, *umbracositecms-1-stage*. Quando você implanta arquivos diretamente no seu aplicativo Web de preparo, deve omitir arquivos na pasta `~/app_data/TEMP/`, já que eles serão regenerados quando o aplicativo Web de preparo for iniciado pela primeira vez. Você também deverá omitir o arquivo `~/app_data/umbraco.config`, já que ele também será regenerado.
+- Examine as alterações feitas na caixa de diálogo e implante seu aplicativo Web local em seu aplicativo Web do Azure, *umbracositecms-1-stage*. Ao implantar arquivos diretamente no seu aplicativo Web de preparo, você omitirá os arquivos na pasta `~/app_data/TEMP/`, já que eles serão regenerados quando o aplicativo Web de preparo for iniciado pela primeira vez. Você também deverá omitir o arquivo `~/app_data/umbraco.config`, já que ele também será regenerado.
 
 ![Examinar as alterações de publicação no Web Matrix](./media/app-service-web-staged-publishing-realworld-scenarios/12umbpublish.png)
 
 - Após a publicação bem-sucedida do aplicativo Web Umbraco local no aplicativo Web de preparo, procure seu aplicativo Web de preparo e execute alguns testes para eliminar problemas.
 
 #### Configurar módulo de implantação Courier2
-Com o módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2), você pode enviar conteúdo, folhas de estilo, módulos de desenvolvimento e muito mais com um simples clique com o botão direito do mouse em um aplicativo Web de preparo para implantações mais tranquilas e redução de risco de danificar seu aplicativo Web de produção ao implantar uma atualização. Comprar uma licença para Courier2 para o domínio `*.azurewebsites.net` e seu domínio personalizado (digamos http://abc.com) Depois que você adquirir a licença, coloque a licença baixada (arquivo .LIC) na pasta `bin`.
+Com o módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2), você pode enviar conteúdo por push, folhas de estilo, módulos de desenvolvimento e muito mais com um simples clique com o botão direito do mouse em um aplicativo Web de preparo para implantações sem problemas e reduzindo o risco de danificar seu aplicativo Web de produção ao implantar uma atualização. Compre uma licença para o Courier2 para o domínio `*.azurewebsites.net` e seu domínio personalizado (digamos http://abc.com) Depois que você adquirir a licença, coloque a licença baixada (arquivo .LIC) na pasta `bin`.
 
 ![Soltar o arquivo de licença na pasta bin](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
-Baixe o pacote Courier2 [aqui](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/) . Faça logon no seu aplicativo Web de estágio, por exemplo http://umbracocms-site-stage.azurewebsites.net/umbraco, clique no menu **Desenvolvedor** e selecione **Pacotes** . Clique no pacote local **Instalar**
+Baixe o pacote Courier2 [aqui](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/). Faça logon no seu aplicativo Web de preparo, por exemplo http://umbracocms-site-stage.azurewebsites.net/umbraco, clique no menu **Desenvolvedor** e selecione **Pacotes**. Clique no pacote local **Instalar**
 
 ![Instalador do pacote Umbraco](./media/app-service-web-staged-publishing-realworld-scenarios/14umbpkg.png)
 
@@ -362,27 +362,20 @@ Para configurar, você precisa atualizar o arquivo courier.config na pasta **Con
   </repositories>
  ```
 
-Em `<repositories>`, insira a URL do site de produção e as informações do usuário. Se estiver usando o provedor de associação Umbraco padrão, adicione a ID do usuário Administração na seção <user>. Se estiver usando o provedor de associação Umbraco personalizado, use `<login>`,`<password>` para o módulo Courier 2 saber como se conectar ao site de produção. Para obter mais detalhes, examine a [documentação](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation)  do módulo Courier.
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-De maneira semelhante, instale o módulo Courier em seu site de produção e configure-o para apontar para o aplicativo Web de estágio em seu respectivo arquivo courier.config, conforme mostrado aqui
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
-Clique na guia Courier2 no painel do aplicativo Web Umbraco CMS e selecione os locais. Você deve ver o nome do repositório, conforme mencionado em `courier.config`. Faça isso tanto no aplicativo Web de produção quanto no de preparo.
+Clique na guia Courier2 no painel do aplicativo Web Umbraco CMS e selecione os locais. Você deve ver o nome do repositório, como mencionado em `courier.config`. Faça isso tanto nos aplicativos Web de produção quanto nos de preparo.
 
 ![Exibir repositório de aplicativo Web de destino](./media/app-service-web-staged-publishing-realworld-scenarios/16courierloc.png)
 
-Agora vamos implantar algum conteúdo do site de preparo para o site de produção. Vá até Conteúdo e selecione uma página existente ou crie uma nova página. Vou selecionar uma página existente do meu aplicativo Web cujo título da página é alterado para **Introdução – novo** e clico em **Salvar e Publicar**.
+Agora vamos implantar algum conteúdo do site de preparo para o site de produção. Vá até Conteúdo e selecione uma página existente ou crie uma nova página. Selecionarei uma página existente do meu aplicativo Web cujo título da página é alterado para **Introdução – novo** e agora clicarei em **Salvar e Publicar**.
 
 ![Alterar o título da página e publicar](./media/app-service-web-staged-publishing-realworld-scenarios/17changepg.png)
 
@@ -408,17 +401,17 @@ Para saber mais sobre como usar o Courier, leia a documentação.
 
 O Courier não implantará ajuda na atualização de uma versão do Umbraco CMS para outra. Ao atualizar a versão do Umbraco CMS, você deve verificar as incompatibilidades entre seus módulos personalizados ou módulos de terceiros e as bibliotecas principais do Umbraco. Como prática recomendada
 
-1. SEMPRE faça backup de seu aplicativo Web e do banco de dados antes de fazer uma atualização. No aplicativo Web do Azure, você pode configurar backups automáticos para recursos de seus sites usando o recurso backup e restaurando seu site, se necessário, usando o recurso restaurar. Para obter mais detalhes, confira [Como fazer backup de seu aplicativo Web](web-sites-backup) e [Como restaurar seu aplicativo Web](web-sites-restore).
+1. SEMPRE faça backup de seu aplicativo Web e do banco de dados antes de fazer uma atualização. No aplicativo Web do Azure, você pode configurar backups automáticos para recursos de seus sites usando o recurso backup e restaurando seu site, se necessário, usando o recurso restaurar. Para obter mais detalhes, veja [Como fazer backup de seu aplicativo Web](web-sites-backup) e [Como restaurar seu aplicativo Web](web-sites-restore).
 
 2. Verifique se os pacotes de terceiros que estiver usando são compatíveis com a versão para a qual você está atualizando. Na página de download do pacote, examine a Compatibilidade de projeto com a versão do Umbraco CMS.
 
-Para obter mais detalhes sobre como atualizar seu aplicativo Web localmente, siga as orientações conforme mencionado [aqui](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
+Para obter mais detalhes sobre como atualizar seu aplicativo Web localmente, siga as orientações mencionadas [aqui](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
 
-Após a atualização do site de desenvolvimento local, publique as alterações no aplicativo Web de preparo. Teste seu aplicativo e, se estiver tudo correto, use o botão **Alternar** para **Alternar** seu site de preparo com o aplicativo Web de produção. Ao executar a operação **Alternar**, você pode exibir as alterações que serão afetadas na configuração de seu aplicativo Web. Com essa operação **Alternar**, estamos alternando os bancos de dados e aplicativos Web. Isso significa que, após ALTERNAR, o aplicativo Web de produção apontará para o banco de dados umbraco-stage-db e o aplicativo Web de preparo apontará para o banco de dados umbraco-prod-db.
+Após a atualização do site de desenvolvimento local, publique as alterações no aplicativo Web de preparo. Teste seu aplicativo e, se estiver tudo certo, use o botão **Alternar** para **Alternar** seu site de preparo para o aplicativo Web de produção. Ao executar a operação **Alternar**, você pode exibir as alterações que serão afetadas na configuração de seu aplicativo Web. Com essa operação **Alternar**, estamos alternando os bancos de dados e aplicativos Web. Isso significa que, após ALTERNAR, o aplicativo Web de produção apontará para o banco de dados umbraco-stage-db e o aplicativo Web de preparo apontará para o banco de dados umbraco-prod-db.
 
 ![Alternar visualização para implantar o Umbraco CMS](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-A vantagem de alternar o aplicativo Web e o banco de dados: 1. Fornece a capacidade de reverter para a versão anterior do seu aplicativo Web com outra **Alternação** se houver algum problema de aplicativo. 2. Para uma atualização, você precisa implantar arquivos e banco de dados do aplicativo Web de preparo para o aplicativo Web de produção e o banco de dados. Há muitas coisas que podem dar errado durante a implantação de banco de dados e de arquivos. Usando o recurso **Alternar** dos slots, podemos reduzir o tempo de inatividade durante uma atualização e reduzir o risco de falhas que podem ocorrer na implantação das alterações. 3. Permite fazer **testes A/B** usando o recurso [Teste em produção](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+A vantagem de alternar o aplicativo Web e o banco de dados: 1. Fornece a capacidade de reverter para a versão anterior do seu aplicativo Web com outra **Alternância** se houver algum problema com o aplicativo. 2. Para uma atualização, você precisa implantar arquivos e banco de dados do aplicativo Web de preparo para o aplicativo Web de produção e o banco de dados. Há muitas coisas que podem dar errado durante a implantação de banco de dados e de arquivos. Usando o recurso **Alternância** dos slots, podemos reduzir o tempo de inatividade durante uma atualização e reduzir o risco de falhas que podem ocorrer na implantação das alterações. 3. Fornece a capacidade de fazer **testes A/B** usando o recurso [Teste em produção](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
 Este exemplo mostra a flexibilidade da plataforma, onde você pode criar módulos personalizados semelhantes ao módulo Umbraco Courier para gerenciar a implantação entre ambientes.
 
@@ -429,4 +422,4 @@ Este exemplo mostra a flexibilidade da plataforma, onde você pode criar módulo
 
 [Como bloquear acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

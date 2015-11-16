@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/29/2015"
 	ms.author="stepsic"/>
 	
 # Implantar com o Visual Studio
@@ -65,4 +65,4 @@ No futuro, você pode revisar seu aplicativo lógico no controle do código-font
 
 Se você não quiser usar o Visual Studio, mas ainda quiser usar ferramentas para implantar seu aplicativo lógico por meio do controle do código-fonte, use diretamente a [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou o [Powershell](../powershell-azure-resource-manager.md) para automatizar suas implantações.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -158,8 +158,8 @@ Você pode selecionar qualquer operação para obter mais detalhes sobre ela.
 
 ## Próximas etapas
 
-- Para saber mais sobre como definir políticas de segurança, veja [Gerenciando o acesso aos recursos](./azure-portal/resource-group-rbac.md).
+- Para saber mais sobre como definir políticas de segurança, veja [Gerenciando o acesso aos recursos](resource-group-rbac.md).
 - Para saber mais sobre como conceder acesso a uma entidade de serviço, veja [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 - Para saber como realizar ações em um recurso para todos os usuários, veja [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

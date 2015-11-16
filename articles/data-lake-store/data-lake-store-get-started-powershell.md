@@ -31,11 +31,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
 - **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell 1.0 ou posterior**. Veja [Instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para obter instruções. Depois de instalar o Azure PowerShell 1.0 ou superior, você deve executar o cmdlet a seguir para instalar o módulo do Repositório Azure Data Lake.
-
-		Install-Module AzureRM.DataLakeStore
-
-	Para obter mais informações sobre o módulo **AzureRM.DataLakeStore**, veja [Galeria do PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+- **Azure PowerShell 1.0**. Instale-o clicando [aqui](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
 
 ## Criar uma conta do Repositório Azure Data Lake
 
@@ -82,7 +78,7 @@ Você pode criar diretórios em sua conta do Repositório Azure Data Lake para g
 
 		$myrootdir = "/"
 
-2. Criar um novo diretório chamado **mynewdirectory** na raiz especificada.
+2. Crie um novo diretório chamado **mynewdirectory** na raiz especificada.
 
 		New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStoreName -Path $myrootdir/mynewdirectory
 
@@ -97,7 +93,7 @@ Você pode criar diretórios em sua conta do Repositório Azure Data Lake para g
 
 ## Carregar dados no Repositório Azure Data Lake
 
-É possível carregar seus dados no Repositório Data Lake diretamente no nível da raiz ou em um diretório que você criou na conta. Os trechos de código a seguir demonstram como carregar alguns dados de exemplo no diretório (**mynewdirectory**) criado na seção anterior.
+É possível carregar seus dados no Repositório Data Lake diretamente no nível da raiz ou em um diretório que você criou na conta. Os trechos de código abaixo demonstram como carregar alguns dados de exemplo no diretório (**mynewdirectory**) criado na seção anterior.
 
 Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Baixe o arquivo e armazene-o em um diretório local no computador, como C:\\sampledata.
 
@@ -140,7 +136,7 @@ Quando solicitado, insira **Y** para excluir a conta.
 ## Próximas etapas
 
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
-- [Usar a Análise Azure Data Lake com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
+- [Usar a Análise Data Lake do Azure com o Repositório Data Lake](data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

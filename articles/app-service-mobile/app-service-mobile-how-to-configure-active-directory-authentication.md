@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/29/2015" 
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo para usar o logon do Active Directory do Azure
@@ -26,7 +26,7 @@ Este tópico mostra como configurar os Serviços de Aplicativos do Azure para us
 
 1. Faça logon no [Portal de Gerenciamento do Azure de Visualização] e navegue para o seu aplicativo móvel.
 
-2. Em **Configurações**, clique em **Autenticação de usuário**, e, em seguida, clique em **Active Directory do Azure**. Copie a **URL do aplicativo** e a **URL de resposta** listada ali. Você as usará mais tarde. Verifique se a **URL do aplicativo** e a **URL de resposta** estão usando o esquema HTTPS.
+2. Em **Configurações**, clique em **Autenticação móvel** e em **Active Directory do Azure**. Copie a **URL do aplicativo** e a **URL de resposta** listada ali. Você as usará mais tarde. Verifique se a **URL do aplicativo** e a **URL de resposta** estão usando o esquema HTTPS.
 
     ![][1]
 
@@ -73,6 +73,5 @@ Autentique os usuários do aplicativo móvel com o logon único do Active Direct
 [Portal de Gerenciamento do Azure de Visualização]: https://portal.azure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->
