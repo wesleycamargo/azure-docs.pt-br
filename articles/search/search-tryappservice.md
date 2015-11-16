@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Experimente o Serviço de Aplicativo do Azure com a Pesquisa do Azure" 
-   description="Teste a Pesquisa do Azure gratuitamente, por até uma hora, usando o modelo TryAzureAppService." 
+   pageTitle="Experimentar o Serviço de Aplicativo do Azure com a Pesquisa do Azure | Microsoft Azure" 
+   description="Experimente a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado, gratuitamente até uma hora, usando o modelo TryAzureAppService." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/13/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Experimente o Serviço de Aplicativo do Azure com a Pesquisa do Azure
@@ -529,4 +529,4 @@ A captura de tela a seguir mostra o esquema usado para criar o índice usado nes
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

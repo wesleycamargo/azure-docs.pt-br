@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Transição da versão da api de visualização=2014* para a versão da api=2015*#
 
-A orientação a seguir serve para clientes que criam aplicativos personalizados nas versões de visualização da Pesquisa do Azure pesquisa e agora estão migrando para a versão disponível publicamente, 2015-02-28.
+A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado do Microsoft Azure. A orientação a seguir serve para clientes que criam aplicativos personalizados nas versões de visualização da Pesquisa do Azure pesquisa e agora estão migrando para a versão disponível publicamente, 2015-02-28.
 
 Como um cliente de visualização, você pode ter usado uma dessas versões mais antigas de visualização:
 
@@ -144,4 +144,4 @@ A versão de API `2015-02-28` está sob SLA. Use as opções de suporte e os lin
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

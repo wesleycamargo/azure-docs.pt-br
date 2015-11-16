@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Descrição do cluster do Balanceador de Recursos"
-   description="Especificando a descrição de um cluster para o Balanceador de Recursos"
+   pageTitle="Descrição de cluster do Balanceador do Recursos | Microsoft Azure"
+   description="Descrevendo um cluster do Service Fabric especificando domínios de falha, domínios de atualização, propriedades de nó e capacidades de nó do Balanceador de Recursos."
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -16,11 +16,11 @@
    ms.date="09/03/2015"
    ms.author="masnider"/>
 
-# Descrição de cluster
+# Descrevendo um cluster do Service Fabric
 
 O Balanceador de Recursos da Malha de Serviço fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Balanceador de Recursos usa essa informação para dispor os serviços de forma a assegurar alta disponibilidade dos serviços em execução no cluster, ao mesmo tempo que assegura a máxima utilização dos recursos do cluster. As características do Balanceador de Recursos que descrevem um cluster são domínios de falha, domínios de atualização, propriedades de nó e capacidades de nó. Além disso, o Balanceador de Recursos tem algumas opções de configuração que podem melhorar seu desempenho.
 
-## Principais Conceitos
+## Principais conceitos
 
 ### Domínios de falha:
 
@@ -192,4 +192,4 @@ Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

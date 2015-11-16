@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="10/01/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Novidades na atualização mais recente para a Pesquisa do Azure#
 
-A Pesquisa do Azure está disponível, oferecendo um contrato de nível de serviço (SLA) com 99,9% de disponibilidade para as configurações com suporte da [versão 2015-02-28 da API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+A Pesquisa do Azure é um serviço de pesquisa hospedado na nuvem do Microsoft Azure. Ela geralmente está disponível, oferecendo um SLA (contrato de nível de serviço) com 99,9% de disponibilidade para as configurações com suporte da [versão de 28/02/2015 da API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##Como é feito o controle de versão e lançamento dos recursos
 
@@ -32,7 +32,7 @@ A biblioteca .NET e as APIs REST têm várias versões. APIs mais antigas perman
 
 Essa versão adiciona novo [suporte à sintaxe de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx), que pode ser usado em relação a [versão de visualização da API REST do Serviço de Pesquisa do Azure](search-api-2015-02-28-preview.md). Para usar a nova sintaxe, especifique o `queryType` em uma operação de Pesquisa de Documentos.
 
-Além disso, os dois recursos a seguir saíram do modo de visualização e agora fazem parte da API oficial no MSDN: - processadores de linguagem Natural - POST em pesquisa, sugestões e consultas de pesquisa
+Além disso, os dois seguintes recursos saíram do modo de visualização e agora fazem parte da API oficial no MSDN: - [Processadores de linguagem natural](search-language-support.md) - POST em pesquisa, sugestões e consultas de pesquisa
 
 ##.NET SDK 0.10.0-preview
 **Lançamento: agosto de 2015**
@@ -105,7 +105,7 @@ Esta versão foi a versão de visualização pública da Pesquisa do Azure, forn
 ##API de gerenciamento versão 2015-08-19
 **Lançamento: 11 de setembro de 2015**
 
-A [API REST de gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx) inclui as seguintes atualizações.
+A [API REST de Gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx) inclui as seguintes atualizações.
 
 - checkNameAvailability verifica se o nome de um determinado serviço já está sendo usado.
 - O intervalo de réplica era de 1 a 6, e agora é de 1 a 12.
@@ -125,4 +125,4 @@ A versão de visualização da [API REST de gerenciamento](search-management-api
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

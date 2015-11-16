@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="07/20/2015"
-	ms.author="mebha"/>
+	ms.date="11/03/2015"
+	ms.author="meetb"/>
 
 
 # Conectar-se ao Banco de Dados SQL usando PHP no Windows
@@ -180,4 +180,4 @@ Para saber mais sobre o uso e a instalação de PHP, confira [Acessando os Banco
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Padrão de computação distribuída de Atores Confiáveis"
-   description="Os Atores Confiáveis do Service Fabric funcionam bem com mensagens assíncronas paralelas, estado distribuído facilmente gerenciado e computação paralela."
+   pageTitle="Padrão de computação distribuída | Microsoft Azure"
+   description="Os Reliable Actors do Service Fabric funcionam bem com mensagens assíncronas paralelas, estado distribuído facilmente gerenciado e computação paralela."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -206,4 +206,4 @@ Não estamos de forma alguma afirmando que a Malha de Serviço do Azure seja uma
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

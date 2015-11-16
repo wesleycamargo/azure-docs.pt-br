@@ -3,8 +3,8 @@
 	description="Use recursos como análise de armazenamento, registro em log do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure."
 	services="storage"
 	documentationCenter=""
-	authors="dominicbetts"
-	manager="adinah"
+	authors="jasonnewyork"
+	manager="tadb"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="v-dobett"/>
+	ms.author="jahogg"/>
 
 # Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 
@@ -914,4 +914,4 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introdução à API REST de Gerenciamento de Pesquisa do Azure" 
-	description="Introdução à API REST de Gerenciamento de Pesquisa do Azure" 
+	pageTitle="Introdução à API REST de Gerenciamento da Pesquisa do Azure | Microsoft Azure" 
+	description="Administrar o serviço hospedado de nuvem da Pesquisa do Azure usando uma API REST de Gerenciamento" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Introdução à API REST de Gerenciamento de Pesquisa do Azure
@@ -204,4 +204,4 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar e monitorar uma data factory usando o PowerShell do Azure
@@ -27,6 +27,10 @@
 O tutorial [Introdução à Azure Data Factory][adf-get-started] mostra como criar e monitorar uma Azure Data Factory usando o [Portal de Visualização do Azure][azure-preview-portal]. Neste tutorial, você vai criar e monitorar uma Azure Data Factory usando cmdlets do PowerShell do Azure. O pipeline na data factory que você cria neste tutorial copia dados de um blob do Azure em um banco de dados SQL do Azure.
 
 > [AZURE.NOTE]Este artigo não cobre todos os cmdlets de Data Factory. Consulte [Referência de cmdlet de Data Factory][cmdlet-reference] para obter uma documentação abrangente sobre os cmdlets de Data Factory.
+>  
+>  Se estiver usando o Azure PowerShell 1.0 Preview, você precisará usar os cmdlets documentados [aqui](https://msdn.microsoft.com/library/dn820234.aspx). Por exemplo, use New-AzureRMDataFactory em vez de New-AzureDataFactory.
+
+
 
 ##Pré-requisitos
 Além dos pré-requisitos listados no tópico Visão geral do tutorial, você precisa ter o PowerShell do Azure instalado no computador. Se ainda não tiver o [PowerShell do Azure][download-azure-powershell] no seu computador, baixe-o e instale-o.
@@ -83,7 +87,7 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 		  		}
 			}
 
-	Substitua **nomedaconta** pelo nome da sua conta de armazenamento e **chavedaconta** pela chave da sua conta de armazenamento do Azure.
+	Substitua **accountname** pelo nome de sua conta de armazenamento e **accountkey** pela chave de sua conta de armazenamento do Azure.
 2.	No **PowerShell do Azure**, alterne para a pasta **ADFGetStartedPSH**. 
 3.	É possível usar o cmdlet **New-AzureDataFactoryLinkedService** para criar um serviço vinculado. Esse cmdlet e outros cmdlets de Data Factory que você usa neste tutorial exigem que os valores sejam passados aos parâmetros **ResourceGroupName** e **DataFactoryName**. Como alternativa, é possível usar **Get-AzureDataFactory** para obter um objeto DataFactory e passar o objeto sem digitar ResourceGroupName e DataFactoryName toda vez que você executa um cmdlet. Execute o comando a seguir para atribuir a saída do cmdlet **Get-AzureDataFactory** a uma variável: **$df**. 
 
@@ -112,7 +116,7 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 		  		}
 			}
 
-	Substitua **servername**, **databasename**, ****username@servername** e **password** pelos nomes do servidor SQL do Azure, do banco de dados, da conta de usuário e a senha.
+	Substitua **servername**, **databasename**, ****username@servername** e **password** pelos nomes do servidor SQL do Azure, banco de dados, conta de usuário e senha.
 
 2.	Execute o comando a seguir para criar um serviço vinculado.
 	
@@ -129,7 +133,7 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 
 ## <a name="CreateInputAndOutputDataSets"></a>Etapa 3: Criar tabelas de entrada e saída
 
-Na etapa anterior, você criou os serviços vinculados **StorageLinkedService** e **AzureSqlLinkedService** para vincular uma conta de armazenamento do Azure e o banco de dados SQL do Azure à data factory: **ADFTutorialDataFactoryPSH**. Nesta etapa, você criará tabelas que representam os dados de entrada e saída da Atividade de Cópia no pipeline que será criado na próxima etapa.
+Na etapa anterior, você criou os serviços vinculados **StorageLinkedService** e **AzureSqlLinkedService** para vincular uma conta de armazenamento do Azure e o banco de dados SQL do Azure à data factory: **ADFTutorialDataFactoryPSH**. Nesta etapa, você criará conjuntos de dados que representam os dados de entrada e saída da Atividade de Cópia no pipeline que você criará na próxima etapa.
 
 Uma tabela é um conjunto de dados retangular e é o único tipo de conjunto de dados que tem suporte no momento. A tabela de entrada neste tutorial refere-se a um contêiner de blob no Armazenamento do Azure apontado pelo StorageLinkedService, enquanto a tabela de saída refere-se a uma tabela SQL no banco de dados SQL do Azure apontada pelo AzureSqlLinkedService.
 
@@ -210,9 +214,9 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 	- **folderPath** é definido como o contêiner **adftutorial**. É possível também especificar o nome de um blob dentro da pasta. Como você não está especificando o nome do blob, dados de todos os blobs no contêiner são considerados como um entrada de dados.  
 	- O **type** de formato é definido como **TextFormat**
 	- Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (**columnDelimiter**)	
-	- A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1** ), de modo que o serviço Data Factory vai procurar dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado.
+	- A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1** ), portanto, o serviço do Data Factory procurará dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado.
 
-	Se você não especificar um **fileName** para uma **tabela** de **entradas**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
+	Se você não especificar um **fileName** para uma **tabela** de **entrada**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
  
 	Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -235,7 +239,7 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 		New-AzureDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### Criar tabela de saída
-Nesta parte da etapa, você criará uma tabela de saída denominada **EmpSQLTable** que aponta para uma tabela SQL (**emp**) no banco de dados SQL do Azure que é representada pelo serviço vinculado **AzureSqlLinkedService**. O pipeline copia os dados do blob de entrada na tabela **emp**.
+Nesta parte da etapa, você criará uma tabela de saída chamada **EmpSQLTable** que aponta para uma tabela SQL (**emp**) no banco de dados SQL do Azure que é representada pelo serviço vinculado **AzureSqlLinkedService**. O pipeline copia os dados do blob de entrada na tabela **emp**.
 
 1.	Crie um arquivo JSON denominado **EmpSQLTable.json** na pasta **C:\\ADFGetStartedPSH** com o conteúdo a seguir.
 		
@@ -253,7 +257,7 @@ Nesta parte da etapa, você criará uma tabela de saída denominada **EmpSQLTabl
 			      }
 			    ],
 			    "type": "AzureSqlTable",
-			    "linkedServiceName": "AzureSqlLinkedService1",
+			    "linkedServiceName": "AzureSqlLinkedService",
 			    "typeProperties": {
 			      "tableName": "emp"
 			    },
@@ -334,7 +338,7 @@ Nesta etapa, você cria um pipeline com uma **Atividade de Cópia** que utiliza 
 
 	Substitua o valor da propriedade **start** pelo dia atual e o valor de **end** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
-	Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
+	Se você não especificar o valor para a propriedade **end**, ele será calculado como “**início + 48 horas**”. Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
 	
 	No exemplo acima, como cada fatia de dados é produzida por hora, haverá 24 fatias de dados.
 	
@@ -354,7 +358,7 @@ Nesta etapa, você usará o PowerShell do Azure para monitorar o que está acont
  
 2.	Execute **Get-AzureDataFactorySlice** para obter detalhes sobre todas as fatias do **EmpSQLTable**, que é a tabela de saída do pipeline.
 
-		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
+		Get-AzureDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
 	Substitua a parte de data, mês e ano do parâmetro **StartDateTime** pelo ano, mês e data atuais. Isso deve corresponder ao valor de **Start** no pipeline de JSON.
 
@@ -386,7 +390,7 @@ Nesta etapa, você usará o PowerShell do Azure para monitorar o que está acont
 
 3.	Executar **Get-AzureDataFactoryRun** para obter os detalhes de execuções de atividade para uma fatia **específica**. Altere o valor do parâmetro **StartDateTime** para corresponder a hora de **Start** da fatia da saída acima. O valor de **StartDateTime** deve estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-03-03T22:00:00Z.
 
-		Get-AzureDataFactoryRun $df -TableName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
+		Get-AzureDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
 	Você deverá ver uma saída semelhante ao seguinte:
 
@@ -411,7 +415,7 @@ Nesta etapa, você usará o PowerShell do Azure para monitorar o que está acont
 Consulte [Referência de cmdlet de Data Factory][cmdlet-reference] para obter uma documentação abrangente sobre os cmdlets de Data Factory.
 
 ## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md).
+Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md).
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -433,4 +437,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

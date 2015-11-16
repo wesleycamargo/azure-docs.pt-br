@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Criando e gerenciando trabalhos de banco de dados elástico"
+	pageTitle="Criando e gerenciando trabalhos de banco de dados elástico | Microsoft Azure"
 	description="Explore a criação e o gerenciamento de um trabalho de banco de dados elástico."
 	services="sql-database"
 	documentationCenter=""
 	manager="jhubbard"
-	authors="sidneyh"
+	authors="ddove"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/04/2015"
 	ms.author="ddove; sidneyh"/>
 
 # Criar e gerenciar trabalhos de Banco de Dados SQL elástico com o Portal (visualização)
@@ -115,4 +115,4 @@ Se um trabalho falhar, será possível encontrar um log de sua execução. Cliqu
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

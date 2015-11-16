@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure" 
-	description="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure" 
+	pageTitle="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure | Microsoft Azure" 
+	description="Crie sua primeira solução de pesquisa usando a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Crie sua primeira solução de pesquisa usando a Pesquisa do Azure
@@ -206,4 +206,4 @@ Você também pode examinar a [API REST da Pesquisa do Azure](http://msdn.micros
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

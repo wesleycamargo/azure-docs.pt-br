@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/10/2015" 
+    ms.date="10/30/2015" 
     ms.author="hawong"/>
 
 # Casos de uso comuns do Banco de Dados de Documentos
@@ -79,4 +79,4 @@ Ou, se você quiser ler mais sobre os clientes que usam o Banco de Dados de Docu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). A loja do futuro utiliza pesquisa rápida e um fluxo de dados fácil.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

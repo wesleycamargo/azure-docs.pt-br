@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Atualização de aplicativa Malha do Serviço: parâmetros de atualização"
-   description="Este artigo descreve os vários parâmetros relacionados à atualização de um aplicativa Malha do Serviço."
+   pageTitle="Atualização de aplicativos: parâmetros de atualização | Microsoft Azure"
+   description="Descreve os parâmetros relacionados à atualização de um aplicativo do Service Fabric, incluindo verificações de integridade a serem executadas e políticas para desfazer automaticamente a atualização."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -77,4 +77,4 @@ Este artigo descreve os vários parâmetros que se aplicam durante a atualizaç�
 [Serialização de dados](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

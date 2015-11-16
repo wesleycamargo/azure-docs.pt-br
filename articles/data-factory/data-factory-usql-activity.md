@@ -178,7 +178,7 @@ Veja a definição de exemplo de serviço vinculado do Repositório Azure Data L
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -187,4 +187,4 @@ Veja a definição de exemplo de serviço vinculado do Repositório Azure Data L
 
 Veja [Mover dados para e do Repositório Azure Data Lake](data-factory-azure-datalake-connector.md) para obter descrições das propriedades JSON no serviço vinculado do Repositório Azure Data Lake acima e trechos de código JSON de conjunto de dados.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

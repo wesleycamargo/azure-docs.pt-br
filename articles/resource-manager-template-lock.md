@@ -60,7 +60,7 @@ As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
 Esse recurso é adicionado ao seu modelo para impedir as ações especificadas em um recurso. O bloqueio se aplica a todos os usuários e grupos. Normalmente, você aplica um bloqueio apenas por um tempo limitado, como quando um processo está sendo executado e você deseja garantir que alguém em sua organização não modifique ou exclua um recurso inadvertidamente.
 
-Para criar ou excluir bloqueios de gerenciamento, você deve ter acesso às ações **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Das funções internas, somente **Proprietário** e **Administrador do Acesso de Usuário** recebem permissão para realizar essas ações. Para obter mais informações sobre o controle de acesso baseado em função, veja [Gerenciando o acesso aos recursos](./azure-portal/resource-group-rbac.md).
+Para criar ou excluir bloqueios de gerenciamento, você deve ter acesso às ações **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Das funções internas, somente **Proprietário** e **Administrador do Acesso de Usuário** recebem permissão para realizar essas ações. Para obter mais informações sobre o controle de acesso baseado em função, veja [Gerenciando o acesso aos recursos](resource-group-rbac.md).
 
 O bloqueio é aplicado ao recurso especificado e a todos os recursos filho. Se você aplicar mais de um bloqueio a um recurso, o bloqueio mais restritivo terá precedência. Por exemplo, se você aplicar ReadOnly no nível pai (como no grupo de recursos) e CanNotDelete em um recurso dentro desse grupo, o bloqueio mais restritivo (ReadOnly) do pai terá precedência.
 
@@ -133,4 +133,4 @@ O próximo exemplo aplica um bloqueio somente leitura ao grupo de recursos.
 - Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para obter mais informações sobre bloqueios, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,9 @@
 Este artigo mostra como usar o Azure PowerShell para backup e recuperação de VMs IaaS do Azure.
 
 ## Conceitos
-[Comece com o backup de VM IaaS do Azure](backup-azure-vms-introduction.md) na documentação de backup do Azure. Ela aborda os conceitos básicos sobre por que você deve fazer backup de sua VM, pré-requisitos e limitações.
+[Comece com o backup de VM IaaS do Azure](backup-azure-vms-introduction.md) na documentação de backup do Azure.
+
+> [AZURE.WARNING]Antes de começar, é importante ter noções básicas sobre os [pré-requisitos](backup-azure-vms-prepare.md) necessários para trabalhar com o Backup do Azure e as [limitações](backup-azure-vms-prepare.md#limitations) da atual solução de backup de VM.
 
 Para usar efetivamente o PowerShell, é necessário compreender a hierarquia de objetos e de onde começar.
 
@@ -79,9 +81,9 @@ DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:
 
 > [AZURE.NOTE]O fuso horário do campo BackupTime no PowerShell é UTC. No entanto, quando o tempo de backup é mostrado no portal do Azure, o fuso horário é alinhado ao sistema local com a diferença UTC.
 
-Uma política de backup está associada a pelo menos uma política de retenção. A política de retenção define quanto tempo um ponto de recuperação é mantido pelo Backup do Azure. O commandlet **New-AzureRMBackupRetentionPolicy** cria objetos do PowerShell que armazenam informações de política de retenção. Esses objetos de política de retenção são usados como entradas para o commandlet *New-AzureRMBackupProtectionPolicy* ou diretamente com o commandlet *Enable-AzureRMBackupProtection*.
+Uma política de backup está associada a pelo menos uma política de retenção. A política de retenção define quanto tempo um ponto de recuperação é mantido pelo Backup do Azure. O commandlet **New-AzureRMBackupRetentionPolicy** cria objetos do PowerShell que armazenam informações da política de retenção. Esses objetos de política de retenção são usados como entradas para o commandlet *New-AzureRMBackupProtectionPolicy* ou diretamente com o commandlet *Enable-AzureRMBackupProtection*.
 
-Uma política de backup define quando e com que frequência será feito o backup de um item. O commandlet **New-AzureRMBackupProtectionPolicy** cria um objeto do PowerShell que mantém as informações de política de backup. A política de backup é usada como entrada para o commandlet *Enable-AzureRMBackupProtection*.
+Uma política de backup define quando e com que frequência será feito o backup de um item. O commandlet **New-AzureRMBackupProtectionPolicy** cria um objeto do PowerShell que mantém as informações da política de backup. A política de backup é usada como entrada para o commandlet *Enable-AzureRMBackupProtection*.
 
 ```
 PS C:\> $Daily = New-AzureRMBackupRetentionPolicyObject -DailyRetention -Retention 30
@@ -100,7 +102,7 @@ PS C:\> Get-AzureRMBackupContainer -Type AzureVM -Status Registered -Vault $back
 ```
 
 ### Backup inicial
-O agendamento de backup se encarregará de fazer a cópia inicial completa do item e a cópia incremental para os backups subsequentes. No entanto, se você quiser forçar o backup inicial para ocorrer em determinado momento ou até mesmo imediatamente, use o commandlet **Backup-AzureRMBackupItem**:
+O agendamento de backup se encarregará de fazer a cópia inicial completa do item e a cópia incremental para os backups subsequentes. No entanto, se desejar forçar o backup inicial para que ele ocorra em um determinado momento ou até mesmo imediatamente, use o commandlet **Backup-AzureRMBackupItem**:
 
 ```
 PS C:\> $container = Get-AzureRMBackupContainer -Vault $backupvault -type AzureVM -name "testvm"
@@ -117,7 +119,7 @@ testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01
 ### Monitoramento de um trabalho de backup
 A maioria das operações de longa duração no Backup do Azure são modeladas como um trabalho. Isso facilita acompanhar o andamento sem a necessidade de manter o portal do Azure aberto em todos os momentos.
 
-Para obter o último status de um trabalho em andamento, use o commandlet **Get-AzureRMBackupJob**.
+Para obter o status mais recente de um trabalho em andamento, use o commandlet **Get-AzureRMBackupJob**.
 
 ```
 PS C:\> $joblist = Get-AzureRMBackupJob -Vault $backupvault -Status InProgress
@@ -128,7 +130,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-Em vez de sondar esses trabalhos para conclusão (o que é um código adicional desnecessário) é mais simples usar o commandlet **Wait-AzureRMBackupJob**. Quando usado em um script, o commandlet fará uma pausa na execução até que o trabalho seja concluído ou o valor de tempo limite especificado seja atingido.
+Em vez de sondar esses trabalhos para conclusão (o que é um código adicional desnecessário), é mais simples usar o commandlet **Wait-AzureRMBackupJob**. Quando usado em um script, o commandlet fará uma pausa na execução até que o trabalho seja concluído ou o valor de tempo limite especificado seja atingido.
 
 ```
 PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
@@ -149,7 +151,7 @@ PS C:\> $backupitem = Get-AzureRMBackupContainer -Vault $backupvault -Type Azure
 
 ### Escolha um ponto de recuperação
 
-Agora você pode listar todos os pontos de recuperação para o item de backup usando o commandlet **Get-AzureRMBackupRecoveryPoint** e escolha o ponto de recuperação para restaurar. Normalmente os usuários escolhem o ponto mais recente *AppConsistent* na lista.
+Agora você pode listar todos os pontos de recuperação para o item de backup usando o commandlet **Get-AzureRMBackupRecoveryPoint** e escolher o ponto de recuperação para restaurar. Normalmente, os usuários escolhem o ponto *AppConsistent* mais recente na lista.
 
 ```
 PS C:\> $rp =  Get-AzureRMBackupRecoveryPoint -Item $backupitem
@@ -166,7 +168,7 @@ A variável ```$rp``` é uma matriz de pontos de recuperação para o item de ba
 
 Há uma diferença importante entre as operações de restauração feitas por meio do portal do Azure e por meio do Azure PowerShell. Com o PowerShell, a operação de restauração para na restauração de discos e configura as informações do ponto de recuperação. Ele não cria uma máquina virtual.
 
-> [AZURE.WARNING]O Restore-AzureRMBackupItem não cria uma VM. Ele restaura apenas os discos para a conta de armazenamento especificada. Este não é o mesmo comportamento que você experimenta no portal do Azure.
+> [AZURE.WARNING]O Restore-AzureRMBackupItem não cria uma VM. Ele restaura apenas os discos para a conta de armazenamento especificada. Este não é o mesmo comportamento que você verá no portal do Azure.
 
 ```
 PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
@@ -298,6 +300,6 @@ for( $i = 1; $i -le $numberofdays; $i++ )
 $DAILYBACKUPSTATS | Out-GridView
 ```
 
-Se você deseja adicionar recursos de gráficos para a saída de relatório, saiba mais no blog do TechNet em [gráficos com o PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
+Se você deseja adicionar recursos de gráficos à saída do relatório, saiba mais no blog do TechNet em [Gráficos com o PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -43,6 +43,17 @@ Agora, criaremos uma campanha de Notificação por Push simples que enviará um 
 
 	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
+7. Você poderá receber a notificação em seu dispositivo iOS no centro de notificação dessa forma:
+
+	![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
+
+8. Se você tiver um Apple Watch emparelhado com este dispositivo iOS, você poderá ver a notificação em seu Apple Watch:
+
+	![](./media/mobile-engagement-ios-send-push/apple-watch.png)
+
+
  
 
-<!---HONumber=Oct15_HO3-->
+ 
+
+<!---HONumber=Nov15_HO2-->

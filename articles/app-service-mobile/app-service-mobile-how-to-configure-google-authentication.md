@@ -18,31 +18,33 @@
 
 # Como configurar seu aplicativo para usar o logon do Google
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Este tópico mostra como configurar aplicativos móveis para usar o Google como um provedor de autenticação.
 
 Para concluir o procedimento neste tópico, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-1. Faça logon no [Portal de Gerenciamento do Azure] e navegue para o seu aplicativo móvel. Copie a sua **URL**. Você a usará posteriormente com seu aplicativo Google.
+1. Faça logon no [Portal de Gerenciamento do Azure] e navegue até seu Aplicativo Móvel. Copie a sua **URL**. Você a usará posteriormente com seu aplicativo Google.
  
-2. Clique em **Configurações**, **Autenticação de usuário** e clique em **Google**. Copie o **URI de redirecionamento**. Você o usará para configurar o seu aplicativo Google.
+2. Clique em **Configurações**, **Autenticação de usuário** e em **Google**. Copie o **URI de Redirecionamento**. Você o usará para configurar o seu aplicativo Google.
 
 3. Vá até o site [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) faça logon com suas credenciais de conta do Google, clique em **Criar projeto**, forneça um **Nome do projeto** e clique em **Criar**.
 
-4. Na barra de navegação à esquerda, clique em **API e Autenticação**, clique em **APIs Sociais** e clique em **API do Google+** > **Habilitar API**.
+4. Na barra de navegação à esquerda, clique em **API e Autenticação** e, em **APIs Sociais**, clique em **API do Google+** > **Habilitar API**.
 
-5. Clique em **API e Autenticação** > **Credenciais** > **Tela de consentimento de OAuth**, selecione seu **Endereço de email**, insira um **Nome do Produto** e clique em **Salvar**.
+5. Clique em **API e Autenticação** > **Credenciais** > **Tela de consentimento do OAuth**, selecione seu **Endereço de email**, insira um **Nome do Produto** e clique em **Salvar**.
 
-6. Na guia **Credenciais**, clique em **Adicionar credenciais** > **ID do cliente OAuth 2.0** e selecione **Aplicativo Web**.
+6. Na guia **Credenciais**, clique em **Adicionar credenciais** > **ID do cliente do OAuth 2.0** e selecione **Aplicativo Web**.
 
-7. Cole a **URL** dos Aplicativos Móveis que você copiou anteriormente em **Origens autorizadas JavaScript** e cole o **URI de redirecionamento** que você copiou anteriormente em **URI de redirecionamento autorizado**. Esse URI é o gateway de aplicativo móvel acrescentado do caminho _/signin-google_. Por exemplo: `https://contosogateway.azurewebsites.net/signin-google`. Certifique-se de que você está usando o esquema HTTPS. Em seguida, clique em **Criar**.
+7. Cole a **URL** dos Aplicativos Móveis que você copiou anteriormente em **Origens Autorizadas do JavaScript** e cole o **URI de Redirecionamento** que você copiou anteriormente em **URI de Redirecionamento Autorizado**. O URI de redirecionamento é o gateway do Aplicativo Móvel acrescentado com o caminho _/signin-google_. Por exemplo: `https://contosogateway.azurewebsites.net/signin-google`. Certifique-se de que você está usando o esquema HTTPS. Em seguida, clique em **Criar**.
 
 8. Na próxima tela, anote os valores de ID do cliente e de segredo do cliente.
 
     > [AZURE.IMPORTANT]O segredo do cliente é uma credencial de segurança importante. Não compartilhe essa senha com ninguém nem distribua-a em um aplicativo cliente.
 
-9. No [Portal de Gerenciamento do Azure], na folha de configurações do Google para seu aplicativo móvel, cole os valores de ID e de segredo do cliente que você obteve anteriormente. Em seguida, clique em **Salvar**.
+9. No [Portal de Gerenciamento do Azure], na folha de configurações do Google do seu Aplicativo Móvel, cole os valores de ID de Cliente e Segredo do Cliente que você obteve anteriormente. Em seguida, clique em **Salvar**.
 
      ![][1]
 
@@ -67,4 +69,4 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visão geral técnica"
-   description="Uma visão geral técnica da Malha do Serviço. Discute os principais conceitos e visão geral da arquitetura"
+   pageTitle="Visão geral técnica do Service Fabric | Microsoft Azure"
+   description="Uma visão geral técnica da Malha do Serviço. Discute os principais conceitos e a visão geral da arquitetura."
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -54,4 +54,4 @@ Para saber mais sobre a Malha do Serviço, consulte:
 - [Cenários de Aplicativo](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

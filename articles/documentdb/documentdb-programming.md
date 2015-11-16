@@ -750,7 +750,7 @@ __.chain()
 </table>
 
 ## Suporte de tempo de execução
-O [SDK do lado do servidor de JavaScript do Banco de Dados de Documentos](http://dl.windowsazure.com/documentDB/jsserverdocs/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme o padrão [ECMA-262](documentdb-interactions-with-resources.md).
+O [SDK do lado do servidor de JavaScript do Banco de Dados de Documentos](http://dl.windowsazure.com/documentDB/jsserverdocs/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme o padrão [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Segurança
 Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área restrita para que os efeitos de um script não vazem para o outro sem passar pelo isolamento da transação de captura instantânea no nível do banco de dados. Os ambientes de tempo de execução são colocados em pools, porém, seu contexto é limpo após cada execução. Portanto, sua segurança é garantida e cada um deles está livre de qualquer efeito colateral inesperado advindo do outro.
@@ -920,4 +920,4 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 -	[Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

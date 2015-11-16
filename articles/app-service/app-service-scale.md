@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/29/2015" 
 	ms.author="stepsic"/>
 
 # Dimensionar a camada de preços no Serviço de Aplicativo do Azure
@@ -28,7 +28,7 @@ Para obter informações sobre planos de serviço de aplicativo, consulte [O que
 
 Por fim, a colocação em escala funciona de maneira diferente se você quiser usar um [Ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md) dedicado. Consulte [Colocando em escala aplicativos Web em um Ambiente de Serviço de Aplicativo](app-service-web-scale-a-web-app-in-an-app-service-environment.md) para obter mais detalhes.
 
-> [AZURE.NOTE]Antes de alternar de um modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, você deve primeiro remover os limites de gastos em vigor para sua assinatura de Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE]Antes de alternar de um modo **Gratuito** para o modo **Básico**, **Standard** ou **Premium**, você deve primeiro remover os limites de gastos em vigor para a sua assinatura do Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
@@ -131,4 +131,4 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/02/2015" 
 	ms.author="genemi"/>
 
 
@@ -100,16 +100,6 @@ A menos que seu programa vá reutilizar a conexão de outra operação imediatam
 - Feche a conexão.
 
 
-#### Exceção gerada ao usar um pool
-
-
-Quando o pool de conexões estiver habilitado e um erro de tempo limite ou outro erro de logon ocorrer, uma exceção será lançada. As tentativas de conexão subsequentes falharão pelos próximos cinco segundos, o que é o chamado de *período de bloqueio*.
-
-Se o aplicativo tenta se conectar dentro do período de bloqueio, a primeira exceção será lançada novamente. Após o término do período de bloqueio, as falhas subsequentes resultam em um novo período de bloqueio que dura o dobro do período de bloqueio anterior.
-
-A duração máxima de um período de bloqueio é de 60 segundos.
-
-
 ### Outras portas diferentes apenas da 1433 em V12
 
 
@@ -131,7 +121,12 @@ O sistema Azure tem a capacidade de reconfigurar dinamicamente os servidores qua
 
 No entanto, uma reconfiguração pode fazer com que o programa cliente perca a conexão com o Banco de Dados SQL. Esse erro é chamado de *falha transitória*.
 
-O programa cliente pode tentar restabelecer uma conexão depois de aguardar cerca de 6 a 60 segundos entre as repetições. Você deve fornecer a lógica de repetição no cliente.
+Se o seu programa de cliente tiver uma lógica de repetição, ele poderá tentar restabelecer a conexão depois de fornecer o tempo de falha transitória para corrigir a si mesmo.
+
+Recomendamos que você aguarde 5 segundos antes de sua primeira tentativa. Tentar novamente após um atraso inferior a 5 segundos poderá sobrecarregar o serviço de nuvem. Para cada tentativa subsequente, o atraso deverá aumentar exponencialmente, até um máximo de 60 segundos.
+
+Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.NET está disponível em [Pool de conexão do SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+
 
 Para obter exemplos de código que demonstram a lógica de repetição, consulte: - [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md).
 
@@ -174,4 +169,4 @@ Vários exemplos de código são fornecidos para clientes que são executados no
 
 - [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

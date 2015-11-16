@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="wesmc"/>
 
 #Hubs de Notificação do Azure - Diretrizes de Diagnóstico
@@ -85,7 +85,7 @@ Depois que a mensagem de notificação tenha sido recebida pelo respectivo PNS, 
 
 Se um PNS tenta entregar uma notificação, mas o dispositivo está offline, a notificação é armazenada pelo PNS para um período de tempo limitado e entregue ao dispositivo quando ele estiver disponível. Apenas uma notificação recente de um aplicativo específico é armazenada. Se várias notificações são enviadas quando o dispositivo estiver offline, cada nova notificação faz com que a notificação anterior seja descartada. Esse comportamento de manter somente a notificação mais recente é chamado de notificações de coalescência no APNS e recolhimento no GCM (que usa uma chave de recolhimento). Se o dispositivo permanecer offline por um longo tempo, nenhuma notificação que estava sendo armazenada para ele é descartada. Origem - [Diretrizes de APNS] e [Diretrizes de GCM]
 
-Com os Hubs de Notificação do Azure - você pode transmitir uma chave de coalescência através do cabeçalho HTTP usando a API `SendNotification` genérica (por exemplo, para o SDK do .NET – `SendNotificationAsync`) que também usa cabeçalhos HTTP que são transmitidos no estado em que estão para o respectivo PNS.
+Com os Hubs de Notificação do Azure - você pode transmitir uma chave de coalescência por meio do cabeçalho HTTP usando a API `SendNotification` genérica (por exemplo, para o SDK do .NET – `SendNotificationAsync`) que também usa cabeçalhos HTTP que são transmitidos no estado em que estão para o respectivo PNS.
 
 ##Dicas de diagnóstico automático
 
@@ -115,7 +115,7 @@ Aqui examinaremos os vários caminhos para diagnosticar e verificar a causa raiz
 
 	![][8]
  
-	> [AZURE.NOTE]A funcionalidade do Visual Studio para editar os registros só deve ser usada durante o desenvolvimento e teste com um número limitado de registros. Se surgir a necessidade de corrigir seus registros em massa, considere o uso da funcionalidade de Importação/Exportação de registro descrita aqui - [Importação/Exportação de registros] (disponível apenas na camada padrão)
+	> [AZURE.NOTE]A funcionalidade do Visual Studio para editar os registros só deve ser usada durante o desenvolvimento e teste com um número limitado de registros. Se surgir a necessidade de corrigir seus registros em massa, considere o uso da funcionalidade de Importação/Exportação de registros descrita aqui - [Importação/Exportação de registros](https://msdn.microsoft.com/library/dn790624.aspx)
 
 2. **Gerenciador do Barramento de Serviço**
 
@@ -227,7 +227,7 @@ Mais detalhes aqui -
 [Diretrizes de modelo]: https://msdn.microsoft.com/library/dn530748.aspx
 [Diretrizes de APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [Diretrizes de GCM]: http://developer.android.com/google/gcm/adv.html
-[Importação/Exportação de registros]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [Gerenciador do Barramento de Serviço]: http://msdn.microsoft.com/library/dn530751.aspx
 [Código do Gerenciador do Barramento de Serviço]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Visão Geral do Gerenciador do VS Server]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
@@ -239,4 +239,4 @@ Mais detalhes aqui -
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

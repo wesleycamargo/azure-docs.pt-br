@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Anexar um disco a uma VM | Microsoft Azure"
-	description="Anexe um disco de dados a uma máquina virtual criada com o modelo de implantação clássico e inicialize-a."
+	description="Anexe um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássica e inicialize-a."
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/14/2015"
 	ms.author="cynthn"/>
 
 # Anexe um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássico
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-attach-disk-preview.md).
 
-É possível anexar discos vazios e discos com dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo.
+Se você precisa de um disco de dados adicional, é possível anexar um disco vazio ou um disco existente com dados a uma VM. Em ambos os casos, os discos são arquivos .vhd que residem em uma conta de armazenamento do Azure. No caso de um novo disco, depois que você anexar o disco, você também precisará inicializá-lo para que esteja pronto para ser usado por uma VM do Windows.
 
-É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual do Azure, ela contém um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. **Não use a unidade D para armazenar dados.** Como seu nome quer dizer, a unidade D oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque não reside no armazenamento do Azure.
+É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual do Azure, ela contém um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. **Não use a unidade D para armazenar dados.** Como o nome sugere, o disco temporário fornece apenas armazenamento temporário. Não oferece redundância nem backup porque não reside no armazenamento do Azure.
 
 ## Passo a passo em vídeo
 
@@ -43,15 +43,15 @@ Veja um passo a passo deste tutorial.
 
 3. Expanda o menu e selecione **Discos**.
 
-4. A seção **Discos** lista disco 0, disco 1 e disco 2. Disco 0 é o disco do sistema operacional, disco 1 é o disco temporário (que não deve ser usado para armazenamento de dados) e o disco 2 é o disco de dados que você anexou à máquina virtual. O disco de dados tem uma capacidade de 5 GB, com base no que você especificou quando anexou o disco. Clique com o botão direito do mouse em disco 2 e selecione **Inicializar**.
+4. A seção **Discos** lista os discos. Na maioria dos casos, ele terá disco 0, disco 1 e disco 2. Disco 0 é o disco do sistema operacional, disco 1 é o disco temporário (que não deve ser usado para o armazenamento de dados) e disco 2 é o disco de dados que você acabou de anexar à máquina virtual. O novo disco de dados listará a Partição como **desconhecida**. Clique com o botão direito do mouse no disco e selecione **Inicializar**.
 
-5.	Você é notificado de que todos os dados serão apagados quando o disco for inicializado. Clique em **Sim** para confirmar o aviso e inicializar o disco. Em seguida, clique novamente com o botão direito do mouse em disco 2 e selecione **Novo Volume**.
+5.	Você é notificado de que todos os dados serão apagados quando o disco for inicializado. Clique em **Sim** para confirmar o aviso e inicializar o disco. Depois de concluir, a Partição será listada como **GPT**. Clique com o botão direito do mouse no disco novamente e selecione **Novo Volume**.
 
 6.	Conclua o assistente usando os valores padrão. Quando o assistente for concluído, a seção **Volumes** listará o novo volume. Agora, o disco está online e pronto para armazenar dados.
 
 	![Volume inicializado com êxito](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]O tamanho da máquina virtual determina quantos discos você pode anexar a ela. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-size-specs.md).
+> [AZURE.NOTE]O tamanho da máquina virtual determina quantos discos você pode anexar a ela. Para obter detalhes, veja [Tamanhos das máquinas virtuais](virtual-machines-size-specs.md).
 
 ## Recursos adicionais
 
@@ -61,4 +61,4 @@ Veja um passo a passo deste tutorial.
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

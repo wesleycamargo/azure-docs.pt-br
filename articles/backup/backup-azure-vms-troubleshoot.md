@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Backup de máquina virtual do Azure - Solução de problemas | Microsoft Azure"
-	description="Encontre informações sobre como solucionar problemas de backup e restauração de máquina virtual do Azure"
+	pageTitle="Solucionar problemas de backup de máquinas virtuais do Azure | Microsoft Azure"
+	description="Solucionar problemas de backup e restauração de máquinas virtuais do Azure"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Solucionar problemas de backup de máquinas virtuais do Azure
@@ -123,4 +123,4 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
 1. Obter a lista de [IPs do datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) a colocar na lista branca.
 2. Desbloquear o IPs usando o commandlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Executar este commandlet na VM do Azure em uma janela do PowerShell com privilégios elevados (Executar como administrador).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

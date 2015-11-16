@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/28/2015" 
 	ms.author="bradsev" />
 
 # Mover dados do Armazenamento de Blobs do Azure usando conectores SSIS
@@ -45,16 +45,16 @@ Para realizar as tarefas descritas neste artigo, você deve ter uma assinatura d
 Para usar os **conectores SSIS**, você deverá baixar:
 
 - **SQL Server 2014 ou 2016 Standard (ou mais recente)**: a instalação inclui os Serviços de Integração do SQL Server.
-- **Feature Pack dos Serviços de Integração do Microsoft SQL Server 2016 para Azure**: é possível baixá-lo da página [Serviços de Integração do SQL Server](https://www.microsoft.com/download/details.aspx?id=49492).
+- **Feature Pack dos Serviços de Integração do Microsoft SQL Server 2014 ou 2016 para Azure**: eles podem ser baixados, respectivamente, nas páginas dos [Serviços de Integração do SQL Server 2014](http://www.microsoft.com/download/details.aspx?id=47366) e [Serviços de Integração do SQL Server 2016](https://www.microsoft.com/download/details.aspx?id=49492).
 
-> [AZURE.NOTE]O SSIS é instalado com o SQL Server, mas não está incluído na versão Express. Para saber mais sobre quais aplicativos estão incluídos em várias edições do SQL Server, consulte [Edições do SQL Server](http://www.microsoft.com/pt-BR/server-cloud/products/sql-server-editions/)
+> [AZURE.NOTE]O SSIS é instalado com o SQL Server, mas não está incluído na versão Express. Para obter informações sobre quais aplicativos estão incluídos nas várias edições do SQL Server, veja [Edições do SQL Server](http://www.microsoft.com/pt-BR/server-cloud/products/sql-server-editions/)
 
-Para obter os materiais de treinamento sobre SSIS, consulte [Treinamento prático sobre o SSIS](http://www.microsoft.com/download/details.aspx?id=20766)
+Para obter os materiais de treinamento sobre o SSIS, veja [Treinamento prático sobre o SSIS](http://www.microsoft.com/download/details.aspx?id=20766)
 
-Para saber mais sobre como usar o SISS para compilar pacotes de extração simples, transformação e carregamento (ETL), consulte [Tutorial sobre SSIS: criando um pacote ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
+Para obter informações sobre como começar a usar o SISS para compilar pacotes ETL (extração, transformação e carregamento) simples, veja [Tutorial do SSIS: criando um pacote ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## Baixar o conjunto de dados NYC Taxi  
-O exemplo descrito aqui usa um conjunto de dados disponível publicamente, o conjunto de dados [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). O conjunto de dados é formado por cerca de 173 milhões de corridas de táxi em NYC no ano de 2013. Há dois tipos de dados: dados sobre detalhes da corrida e dados sobre tarifas. Como há um arquivo para cada mês, temos 24 arquivos no total, cada um deles com aproximadamente 2 GB descompactados. O conjunto de dados pode ser obtido de forma conveniente no [Github](https://github.com/andresmh/nyctaxitrips)
+O exemplo descrito aqui usa um conjunto de dados disponível publicamente, o conjunto de dados [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). O conjunto de dados é formado por cerca de 173 milhões de corridas de táxi em NYC no ano de 2013. Há dois tipos de dados: dados sobre detalhes da corrida e dados sobre tarifas. Como há um arquivo para cada mês, temos 24 arquivos no total, cada um deles com aproximadamente 2 GB descompactados.
 
 
 ## Carregar dados no armazenamento de blob do Azure
@@ -88,4 +88,4 @@ Podemos observar aqui que o pacote de recursos do SSIS permite que fluxos mais c
 - Para executar um script Hive em um cluster HDInsight do Azure com SSIS, use a [Tarefa Hive de HDInsight do Azure](https://msdn.microsoft.com/library/mt146771.aspx).
 - Para executar um script Pig em um cluster HDInsight do Azure com SSIS, use a [Tarefa Pig de HDInsight do Azure](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

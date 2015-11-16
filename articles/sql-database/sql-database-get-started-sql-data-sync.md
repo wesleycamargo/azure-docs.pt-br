@@ -20,10 +20,9 @@
 #Introdução à Sincronização de Dados do SQL do Azure (visualização)
 Neste tutorial, você aprenderá os conceitos básicos da Sincronização de Dados do SQL do Azure usando o portal do Azure (Visualização).
 
-
 Este tutorial pressupõe uma experiência mínima anterior com SQL Server e com o Banco de Dados SQL do Azure. Neste tutorial, você criará um grupo de sincronização híbrido (instâncias do Banco de Dados SQL e do SQL Server) totalmente configurado e sincronizando no agendamento definido.
 
-**Nota!** A documentação técnica completa da Sincronização de Dados do SQL do Azure, localizada anteriormente no MSDN, agora é um único PDF que você baixa [aqui](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+> [AZURE.NOTE]A documentação técnica completa da Sincronização de Dados do SQL do Azure, localizada anteriormente no MSDN, agora é um único PDF que você baixa [aqui](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Etapa 1: conecte-se ao Banco de Dados SQL do Azure
 
@@ -64,7 +63,7 @@ Certifique-se de que você tenha os itens a seguir no computador que você insta
 <a id="InstallClient"></a>
 ### Etapa 2b: Instalar um novo Agente Cliente
 
-Siga as instruções em [Instalar um Agente Cliente (Sincronização de Dados do SQL)] ((http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf) para instalar o agente.
+Siga as instruções em [Instalar um Agente Cliente (Sincronização de Dados do SQL)](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf) para instalar o agente.
 
 
 
@@ -203,4 +202,4 @@ Para obter informações adicionais sobre banco de dados SQL e Sincronização d
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

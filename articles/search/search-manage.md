@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gerencie o seu serviço de Pesquisa no Microsoft Azure | Microsoft Azure" 
-	description="Gerenciar seu serviço de Pesquisa no Microsoft Azure" 
+	description="Gerenciar a Pesquisa do Azure, serviço de pesquisa de nuvem hospedado do Microsoft Azure" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Gerenciar seu serviço de Pesquisa no Microsoft Azure
 
-A Pesquisa do Azure é um serviço baseado em nuvem e uma API baseada em HTTP que pode ser usada em aplicativos de pesquisa personalizados. Nosso serviço de Pesquisa fornece o mecanismo para análise de texto de pesquisa em texto completo, recursos de pesquisa avançada, armazenamento de dados de pesquisa e uma sintaxe de comandos de consulta.
+A Pesquisa do Azure é um serviço baseado em nuvem com uma API baseada em HTTP que pode ser usado em aplicativos de pesquisa personalizados. Nosso serviço de Pesquisa fornece o mecanismo para análise de texto de pesquisa em texto completo, recursos de pesquisa avançada, armazenamento de dados de pesquisa e uma sintaxe de comandos de consulta.
 
 Este artigo explica como administrar um serviço de Pesquisa no [Portal do Azure](https://portal.azure.com).
 
@@ -193,4 +193,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

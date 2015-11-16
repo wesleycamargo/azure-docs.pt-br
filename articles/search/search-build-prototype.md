@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Criar um aplicativo de protótipo para a Pesquisa do Azure" 
-	description="Crie o seu primeiro protótipo de aplicativo para começar a usar a Pesquisa do Azure." 
+	description="Crie seu primeiro protótipo de aplicativo para começar a usar a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Criar um aplicativo de protótipo para a Pesquisa do Azure
 
-Os desenvolvedores que avaliam a Pesquisa do Azure quase sempre começam com um aplicativo de teste preliminar que demonstra a importância de adicionar a Pesquisa do Azure para um aplicativo personalizado. Neste artigo, damos alguns blocos de construção para acelerar o processo de criação de protótipos.
+Os desenvolvedores que avaliam a pesquisa de nuvem hospedada da Pesquisa do Azure quase sempre começam com um aplicativo de teste preliminar que demonstra a importância de adicionar a Pesquisa do Azure a um aplicativo personalizado. Neste artigo, damos alguns blocos de construção para acelerar o processo de criação de protótipos.
  
 - Um projeto do Visual Studio C# que inclui arquivos data.json e schema.json. Ter dados de exemplo permite criar e executar imediatamente a solução, confirmando que a solução funciona em seu sistema antes de escrever uma linha de código. 
 
@@ -133,4 +133,4 @@ Visite estes links para saber mais:
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/04/2015"
    ms.author="kunalds"/>
 
 
@@ -79,4 +79,4 @@ O mesmo código de rastreamento que você adicionou ao aplicativo acima para dia
 * [Diagnóstico e monitoramento de desempenho de Atores da Malha do Serviço do Azure](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnóstico de Serviços Confiáveis com estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

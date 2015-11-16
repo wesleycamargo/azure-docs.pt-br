@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure
@@ -54,32 +54,6 @@ A sintaxe básica do modelo é JSON. No entanto, expressões e funções estende
 
 Normalmente, você usa expressões com funções para executar operações e configurar a implantação. Assim como no JavaScript, as chamadas de função são formatadas como **functionName(arg1,arg2,arg3)**. Você faz referência às propriedades usando os operadores dot e [index].
 
-A lista a seguir mostra funções comuns.
-
-- **parameters(parameterName)**
-
-    Retorna um valor de parâmetro fornecido quando a implantação é executada.
-
-- **variables(variableName)**
-
-    Retorna uma variável que é definida no modelo.
-
-- **concat(arg1,arg2,arg3,...)**
-
-    Combina vários valores de cadeia de caracteres. Essa função pode conter qualquer número de argumentos.
-
-- **base64(inputString)**
-
-    Retorna a representação base64 da cadeia de caracteres de entrada.
-
-- **resourceGroup()**
-
-    Retorna um objeto estruturado (com id, nome e propriedades de local) que representa o grupo de recursos atual.
-
-- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
-
-    Retorna o identificador exclusivo de um recurso. Pode ser usada para recuperar o recurso de outro grupo de recursos.
-
 O seguinte exemplo mostra como usar várias das funções ao construir valores:
  
     "variables": {
@@ -88,7 +62,7 @@ O seguinte exemplo mostra como usar várias das funções ao construir valores:
        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-Por enquanto, você sabe o suficiente sobre expressões e funções para entender as seções do modelo. Para obter mais informações sobre todas as funções de modelo, incluindo parâmetros e o formato dos valores retornados, consulte [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md).
+Para obter a lista completa das funções de modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md).
 
 
 ## Parâmetros
@@ -107,7 +81,10 @@ Você define parâmetros com a seguinte estrutura:
          "minValue": <optional-minimum-value-for-int-parameters>,
          "maxValue": <optional-maximum-value-for-int-parameters>,
          "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
-         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>,
+         "metadata": {
+             "description": "<optional-description-of-the parameter>" 
+         }
        }
     }
 
@@ -121,6 +98,7 @@ Você define parâmetros com a seguinte estrutura:
 | maxValue | Não | O valor máximo para parâmetros de tipo int, esse valor é inclusivo.
 | minLength | Não | O comprimento mínimo para cadeia, secureString e parâmetros do tipo de matriz, esse valor é inclusivo.
 | maxLength | Não | O comprimento máximo para cadeia, secureString e parâmetros do tipo de matriz, esse valor é inclusivo.
+| description | Não | Descrição do parâmetro que será exibida aos usuários do modelo por meio da interface do modelo personalizado do portal.
 
 Os valores e tipos permitidos são:
 
@@ -262,7 +240,7 @@ Você define recursos com a seguinte estrutura:
 
 Se o nome do recurso não for exclusivo, você poderá usar a função auxiliar **resourceId** (descrita abaixo) para obter o identificador exclusivo de qualquer recurso.
 
-Os valores do elemento **properties** são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Veja [Referência do Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) para obter as operações da API REST para o recurso que deseja implantar.
+Os valores do elemento **properties** são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) criar o recurso. Veja [Referência do Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) para obter as operações da API REST para o recurso que deseja implantar.
 
 O exemplo a seguir mostra um recurso **Microsoft.Web/serverfarms** e um recurso **Microsoft.Web/sites** com um recurso **Extensions** aninhado:
 
@@ -346,7 +324,7 @@ O exemplo a seguir mostra um valor que é retornado na seção de saídas.
 ## Cenários mais avançados.
 Este tópico fornece uma introdução do modelo. No entanto, o cenário pode exigir tarefas mais avançadas.
 
-Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para obter mais informações, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
+Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para obter mais informações, veja [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
 
 Para iterar um número de vezes especificado ao criar um tipo de recurso, veja [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 
@@ -435,9 +413,9 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
     }
 
 ## Próximas etapas
-- Para obter detalhes sobre as funções que você pode usar de dentro de um modelo, veja [Funções do Modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
-- Para saber como implantar o modelo que você criou, veja [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
+- Para obter detalhes sobre as funções que você pode usar em um modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
+- Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 - Para ver um exemplo detalhado da implantação de um aplicativo, confira [Provisionar e implantar microsserviços de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- Para ver os esquemas disponíveis, veja [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
+- Para ver os esquemas disponíveis, confira [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

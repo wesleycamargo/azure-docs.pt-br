@@ -13,52 +13,111 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/22/2015"
+   ms.date="10/30/2015"
    ms.author="alkohli"/>
 
 # Software StorSimple, alta disponibilidade e requisitos de rede
 
 ## Visão geral
 
-Bem-vindo ao Microsoft Azure StorSimple. Este artigo descreve os requisitos do sistema importantes e as práticas recomendadas para seu dispositivo StorSimple e para os clientes de armazenamento acessarem o dispositivo. Esses requisitos incluem:
+Bem-vindo ao Microsoft Azure StorSimple. Este artigo descreve os requisitos do sistema importantes e as práticas recomendadas para seu dispositivo StorSimple e para os clientes de armazenamento acessarem o dispositivo. Recomendamos a revisão cuidadosa das informações antes de implantar o sistema Azure StorSimple. Consulte-as quando necessário durante a implantação e operação subsequente.
+
+Os requisitos do sistema incluem:
 
 - **Requisitos de software para clientes de armazenamento** - descreve os sistemas operacionais com suporte e quaisquer requisitos adicionais para esses sistemas operacionais.
-- **Requisitos de alta disponibilidade para o StorSimple** - descreve os requisitos de alta disponibilidade e as práticas recomendadas para o dispositivo StorSimple e o computador host. 
 - **Requisitos de rede para o dispositivo StorSimple** - fornece informações sobre as portas que precisam ser abertas no firewall para permitir o tráfego iSCSI, de nuvem ou de gerenciamento.
+- **Requisitos de alta disponibilidade para o StorSimple** - descreve os requisitos de alta disponibilidade e as práticas recomendadas para o dispositivo StorSimple e o computador host. 
 
-Recomendamos a revisão cuidadosa das informações a seguir antes de implantar o sistema Azure StorSimple. Consulte-as como necessário durante a implantação e operação seguinte.
 
 ## Requisitos de software para clientes de armazenamento 
 
 Os requisitos de software a seguir são para os clientes de armazenamento que acessam seu dispositivo StorSimple.
 
-| Sistemas operacionais com suporte | Versão necessária | Detalhes/observações |
+| Sistemas operacionais com suporte | Versão necessária | Requisitos/observações adicionais |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server | 2008R2 SP1, 2012, 2012R2 |<ul><li>Os volumes iSCSI do StorSimple recebem suporte para uso somente nos seguintes tipos de disco do Windows:<ul><li>Volume simples em disco básico</li><li>Volume simples e espelhado em disco dinâmico</li></ul>O uso do Gerenciador de Instantâneos do StorSimple no Windows Server é necessário para backup/restauração de discos dinâmicos espelhados e para quaisquer backups consistentes com o aplicativo.</li><li>O Gerenciador de Instantâneos StorSimple só recebe suporte no Windows Server 2008 R2 SP1 (64 bits), Windows 2012 R2 e Windows Server 2012. <ul><li>Se você estiver usando o Windows Server 2012, instale o .NET 3.5 – 4.5 antes de instalar o Gerenciador de Instantâneos do StorSimple.</li><li>Se você estiver usando o Windows Server 2008 R2 SP1, instale o Windows Management Framework 3.0 antes de instalar o Gerenciador de Instantâneos StorSimple.</li></ul></li><li>Provisionamento dinâmico do Windows Server 2012 e recursos ODX receberão suporte se você estiver usando um volume iSCSI do StorSimple.<ul><li>O StorSimple pode criar apenas volumes de provisionamento dinâmico. Ele não pode criar volumes parcial ou totalmente provisionados.</li><li>Reformatar um volume de provisionamento dinâmico pode levar muito tempo. Recomendamos a exclusão do volume e criação de um novo em vez de reformatar.</li><li>Se você ainda preferir reformatar um volume:<ul><li>Execute o comando a seguir antes de reformatar a fim de evitar atrasos por recuperação de espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Após a conclusão da formatação, use o seguinte comando para reativar a recuperação de espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique o hotfix do Windows Server 2012, conforme descrito em KB2870270 em seu computador com Windows Server.</li></ul></li></ul><li>O Adaptador do StorSimple para SharePoint só tem suporte no SharePoint 2010 e no SharePoint 2013. O RBS exige o SQL Server Enterprise Edition, versão 2008 R2 ou 2012.</li></ul>|
-| VMWare | Testado com VMware vSphere 5.1 como cliente iSCSI | O recurso de bloco VAAI é testado com o VMware vSphere v.5.1 em dispositivos StorSimple. 
-| Linux RHEL/CentOS | Suporte para clientes Linux iSCSI com o iniciador Open-iSCSI versões 5 e 6 | Suporte somente com o iniciador open-iSCSI. |
+| Windows Server | 2008R2 SP1, 2012, 2012R2 |Os volumes StorSimple iSCSI são suportados para o uso somente nos seguintes tipos de disco do Windows:<ul><li>Volume simples no disco básico</li><li>Volume simples e espelhado no disco dinâmico</li></ul>O provisionamento dinâmico do Windows Server 2012 e dos recursos ODX serão suportados se você estiver usando um volume StorSimple iSCSI.<br><br>O StorSimple pode criar apenas volumes escassamente provisionados. Ele não pode criar volumes parcial ou totalmente provisionados.<br><br>Reformatar um volume de provisionamento dinâmico pode levar muito tempo. É recomendável excluir o volume e criar um novo em vez de reformatar. No entanto, se você ainda preferir reformatar um volume:<ul><li>execute o comando a seguir antes de reformatar para evitar atrasos de reclamação de espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>depois da conclusão da formatação, use o seguinte comando para reativar a reclamação de espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>aplique o hotfix do Windows Server 2012, conforme descrito em [KB 2878635](https://support.microsoft.com/kb/2870270) em seu computador Windows Server.</li></ul></li></ul></ul> Se você estiver configurando o Gerenciador de Instantâneos do StorSimple ou o Adaptador do StorSimple para SharePoint, vá para [Requisitos de software para os componentes opcionais](#software-requirements-for-optional-components).|
+| VMWare ESX | 5\.1 | Suportado com o VMware vSphere 5.1 como cliente iSCSI. O recurso de bloco VAAI é suportado com o VMware vSphere v.5.1 nos dispositivos StorSimple. 
+| Linux RHEL/CentOS | 5 e 6 | Suporte para os clientes Linux iSCSI com o iniciador open-iSCSI versões 5 e 6. |
 | Linux | SUSE Linux 11 | |
- >[AZURE.NOTE]Com base nos testes limitados realizados internamente, o IBM AIX não recebe suporte com o StorSimple no momento.
+ >[AZURE.NOTE]O IBM AIX não é suportado atualmente com o StorSimple.
+
+## Requisitos de software para os componentes opcionais
+
+Os seguintes requisitos de software são para os componentes opcionais do StorSimple (Gerenciador de Instantâneos do StorSimple e Adaptador do StorSimple para SharePoint).
+
+| Componente | Plataforma de host | Requisitos/observações adicionais |
+| --------------------------- | ---------------- | ------------- |
+| Gerenciador de instantâneos do StorSimple | Windows Server 2008R2 SP1, 2012, 2012R2 | O uso do Gerenciador de Instantâneos do StorSimple no Windows Server é necessário para fazer backup/restauração dos discos dinâmicos espelhados e quaisquer backups consistentes com o aplicativo.<br> O Gerenciador de Instantâneos do StorSimple é suportado somente no Windows Server 2008 R2 SP1 (64 bits), Windows 2012 R2 e Windows Server 2012.<ul><li>Se você estiver usando o Windows Server 2012, instale o .NET 3.5 – 4.5 antes de instalar o Gerenciador de Instantâneos do StorSimple.</li><li>Se você estiver usando o Windows Server 2008 R2 SP1, deverá instalar o Windows Management Framework 3.0 antes de instalar o Gerenciador de Instantâneos do StorSimple.</li></ul> |
+| Adaptador do StorSimple para SharePoint | Windows Server 2008R2 SP1, 2012, 2012R2 |<ul><li>O Adaptador do StorSimple para SharePoint só tem suporte no SharePoint 2010 e no SharePoint 2013.</li><li>O RBS requer o SQL Server Enterprise Edition, versão 2008 R2 ou 2012.</li></ul>|
+ 
+## Requisitos de rede para seu dispositivo StorSimple
+
+Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso abrir portas no firewall para permitir o tráfego de gerenciamento, de nuvem ou iSCSI. A tabela a seguir lista as portas que precisam estar abertas no firewall. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
+
+| Nº da porta<sup>1,2</sup> | Entrada ou saída | Escopo da porta | Obrigatório | Observações |
+|------------------------|-----------|------------|----------|-------| 
+|TCP 80 (HTTP)<sup>3</sup>| Saída | WAN | Não |<ul><li>A porta de saída é usada para acesso à Internet a fim de obter as atualizações.</li><li>O proxy da Web de saída pode ser configurado pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para os IPs fixos do controlador.</li></ul> |
+|TCP 443 (HTTPS)<sup>3</sup>| Saída | WAN | Sim |<ul><li>A porta de saída é usada para acesso aos dados na nuvem.</li><li>O proxy da Web de saída pode ser configurado pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para os IPs fixos do controlador.</li></ul>|
+|UDP 53 (DNS) | Saída | WAN | Em alguns casos; consulte as observações. |Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. |
+| UDP 123 (NTP) | Saída | WAN | Em alguns casos; consulte as observações. |Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet. |
+| TCP 9354 | Saída | WAN | Em alguns casos; consulte as observações. |A porta de saída é usada pelo dispositivo StorSimple para se comunicar com o serviço StorSimple Manager. Esta porta é exigida se a rede atual não oferecer suporte ao uso de HTTP 1.1 para se conectar à Internet. Por exemplo, se você estiver usando um servidor proxy baseado em HTTP 1.0.<br> Se estiver se conectando através de um servidor proxy, consulte [requisitos de barramento de serviço](https://msdn.microsoft.com/library/azure/ee706729.aspx) para obter informações detalhadas. |
+| 3260 (iSCSI) | No | LAN | Não | Esta porta é usada para acessar dados em iSCSI.|
+| 5985 | No | LAN | Não | A porta de entrada é usada pelo Gerenciador de Instantâneos do StorSimple para se comunicar com o dispositivo StorSimple.<br>Essa porta também é usada quando você se conecta remotamente ao Windows PowerShell para StorSimple via HTTP. |
+| 5986 | No | LAN | Não | Esta porta é usada quando você se conecta remotamente ao Windows PowerShell para StorSimple via HTTPS. |
+
+<sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
+
+<sup>2</sup> Se várias portas tiverem uma configuração de gateway, a ordem do tráfego de saída roteado será determinada com base na ordem de roteamento da porta descrita em [Roteamento da porta](#port-routing) abaixo.
+
+<sup>3</sup> Os IPs fixos do controlador em seu dispositivo StorSimple devem ser roteáveis e conseguirem se conectar à Internet. Os endereços IP fixos são usados para fornecer as atualizações ao dispositivo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple.
+
+> [AZURE.IMPORTANT]Verifique se o firewall não modifica nem descriptografa nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
+
+### Roteamento de porta
+
+O roteamento de porta é diferente dependendo da versão de software em execução em seu dispositivo StorSimple.
+
+- Se o dispositivo estiver executando uma versão do software anterior à Atualização 1, como GA, versão 0.1, 0.2 ou 0,3, o roteamento das portas será decidido da seguinte maneira:
+
+     Interface de rede de 10 GbE configurada por último > Outras interfaces de rede de 10 GbE > Última interface de rede de 1 GbE configurada > Outra interface de rede de 1 GbE
+
+- Se o dispositivo estiver executando a Atualização 1, o roteamento das portas será decidido da seguinte maneira:
+
+     DADOS 0 > Interface de rede de 10 GbE configurada por último > Outras interfaces de rede de 10 GbE > Última interface de rede de 1 GbE configurada > Outra interface de rede de 1 GbE
+
+    Na Atualização 1, a métrica de roteamento de DADOS 0 é a mais baixa; portanto, todo o tráfego de nuvem é roteado por meio de DADOS 0. Anote isso se houver mais de uma interface de rede habilitada para nuvem em seu dispositivo StorSimple.
+
+### Práticas recomendadas de rede
+
+Além dos requisitos de rede acima, para obter o desempenho ideal de sua solução StorSimple, atenda às seguintes práticas recomendadas:
+
+- Verifique se o dispositivo StorSimple tem uma largura de banda dedicada de 40 Mbps (ou mais) disponível sempre. Essa largura de banda não deve ser compartilhada com outros aplicativos.
+
+- Verifique a conectividade de rede com a Internet está disponível sempre. Conexões de Internet esporádicas ou não confiáveis com os dispositivos, sem incluir qualquer conectividade com a Internet, resultarão em uma configuração sem suporte.
+
+- Isole o tráfego iSCSI e o tráfego de nuvem com interfaces de rede dedicadas em seu dispositivo para acesso iSCSI e à nuvem. Para obter mais informações, veja como [modificar as interfaces de rede](storsimple-modify-device-config.md#modify-network-interfaces) em seu dispositivo StorSimple.
+
+- Não use uma configuração do LACP (Protocolo de Agregação de Link) para as suas interfaces de rede. Essa é uma configuração sem suporte.
+
 
 ## Requisitos de alta disponibilidade para o StorSimple
 
-A plataforma de hardware incluída com a solução StorSimple possui recursos de disponibilidade e confiabilidade de nível empresarial que fornecem uma base para uma infraestrutura de armazenamento altamente disponível e tolerante a falhas em seu datacenter. No entanto, há requisitos e práticas recomendadas que você deve obedecer para ajudar a garantir a disponibilidade de sua solução do Azure StorSimple. Antes de implantar o Azure StorSimple, examine cuidadosamente os requisitos e práticas recomendadas a seguir para o dispositivo StorSimple e computadores host conectados.
+A plataforma de hardware incluída com a solução StorSimple possui os recursos de disponibilidade e confiabilidade que fornecem uma base para uma infraestrutura de armazenamento altamente disponível e tolerante a falhas em seu datacenter. No entanto, há requisitos e práticas recomendadas que você deve obedecer para ajudar a garantir a disponibilidade de sua solução do Azure StorSimple. Antes de implantar o Azure StorSimple, examine cuidadosamente os requisitos e práticas recomendadas a seguir para o dispositivo StorSimple e computadores host conectados.
+
+Para obter mais informações sobre como monitorar e manter os componentes de hardware do seu dispositivo StorSimple, vá para [Usar o serviço Gerenciador do StorSimple para monitorar os componentes de hardware e status](storsimple-monitor-hardware-status.md) e [Substituição dos componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
 ### Requisitos de alta disponibilidade e procedimentos para seu dispositivo StorSimple
 
 Examine as seguintes informações com atenção para garantir a alta disponibilidade do seu dispositivo StorSimple.
 
-#### Módulos de energia e resfriamento (PCMs)
+#### PCMs
 
-Os dispositivos StorSimple incluem PCMs redundantes e intercambiáveis. Cada PCM tem capacidade suficiente para atender ao chassi inteiro. Para garantir a alta disponibilidade, os dois PCMs devem estar instalados.
+Os dispositivos StorSimple incluem módulos redundantes, intercambiáveis e de refrigeração (PCMs). Cada PCM tem capacidade suficiente para atender ao chassi inteiro. Para garantir a alta disponibilidade, os dois PCMs devem estar instalados.
 
 - Conecte seus PCMs a fontes de alimentação diferentes a fim de fornecer disponibilidade de uma fonte de alimentação falhar.
-
 - Se um PCM falhar, solicite uma substituição imediatamente.
-
 - Remova um PCM com falha somente quando tiver a reposição e estiver pronto para instalá-lo.
-
-- Não remova os dois PCMs simultaneamente. O módulo PCM inclui a bateria. A remoção dos dois PCMs resultará em um desligamento sem proteção por bateria.
+- Não remova os dois PCMs simultaneamente. O módulo PCM inclui o módulo de bateria de backup. Remover os dois PCMs resultará em um desligamento sem proteção da bateria e o estado do dispositivo não será salvo. Para obter mais informações sobre a bateria, vá para [Manter o módulo de bateria de backup](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
 
 #### Módulos do controlador
 
@@ -72,11 +131,9 @@ Os dispositivos StorSimple incluem módulos de controlador redundantes e interca
 
 - Certifique-se de que as conexões de rede para ambos os módulos de controlador sejam idênticas, e as interfaces da rede conectada tenham uma configuração de rede idêntica.
 
-- Se um módulo de controlador falhar ou precisar de substituição, certifique-se de que o outro módulo de controlador esteja em um estado ativo antes de substituir o módulo de controlador com falha.
+- Se um módulo de controlador falhar ou precisar de substituição, certifique-se de que o outro módulo de controlador esteja em um estado ativo antes de substituir o módulo de controlador com falha. Para verificar se um controlador está ativo, vá para [Identificar o controlador ativo em seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- Não remova os dois módulos de controlador ao mesmo tempo.
-
-- Se estiver ocorrendo um failover do controlador, não desligue o módulo do controlador em espera ou o remova do chassi.
+- Não remova os dois módulos de controlador ao mesmo tempo. Se estiver ocorrendo um failover do controlador, não desligue o módulo do controlador em espera ou o remova do chassi.
 
 - Após o failover do controlador, aguarde pelo menos cinco minutos antes de remover um dos módulos de controlador.
 
@@ -96,7 +153,7 @@ Cada módulo de controlador do dispositivo StorSimple tem quatro interfaces de r
 
 - Quando possível, use o MPIO em servidores para garantir que os servidores possam tolerar um link, rede ou falha de interface.
 
-Para saber mais sobre como colocar o dispositivo em rede para proporcionar alta disponibilidade e desempenho, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+Para saber mais sobre como colocar o dispositivo em rede para ter uma alta disponibilidade e desempenho, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### SSDs e HDDs
 
@@ -108,11 +165,11 @@ Dispositivos StorSimple incluem discos de estado sólido (SSDs) e unidades de di
 
 - Se um SSD ou HDD falhar ou exigir substituição, remova somente o SSD ou HDD que exige a substituição.
 
-- Não remova mais de um SSD ou HDD do sistema a qualquer momento.
+- Não remova mais de um SSD ou HDD do sistema a qualquer momento. Uma falha de dois ou mais discos de determinado tipo (HDD, SSD) ou uma falha consecutiva em um curto período pode resultar em mau funcionamento do sistema e possível perda de dados. Se isso ocorrer, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter assistência.
 
 - Durante a substituição, monitore o **Status de Hardware** na página **Manutenção** das unidades no SSDs e HDDs. Um status de marca de verificação verde indica que os discos estão íntegros ou OK, enquanto que um ponto de exclamação vermelho indica um SSD ou HDD com falha.
 
-- Uma falha de dois ou mais discos de determinado tipo (HDD, SSD) ou uma falha consecutiva em um curto período pode resultar em mau funcionamento do sistema e possível perda de dados. Se isso ocorrer, entre em contato com o suporte técnico para obter assistência. Recomendamos a configuração de instantâneos em nuvem para todos os volumes que você precisa proteger em caso de falha do sistema.
+- Recomendamos a configuração de instantâneos em nuvem para todos os volumes que você precisa proteger em caso de falha do sistema.
 
 #### Compartimento EBOD
 
@@ -120,77 +177,23 @@ O modelo do dispositivo StorSimple 8600 inclui um compartimento EBOD (Extended B
 
 - Verifique se ambos os módulos do controlador de compartimento EBOD, os cabos SAS e todos os discos rígidos estão sempre instalados.
 
-- Se um compartimento EBOD ou um HDD falhar, solicite uma substituição imediatamente.
+- Se um módulo do controlador de compartimento EBOD falhar, solicite uma substituição imediatamente.
 
-- Se um módulo do controlador de compartimento EBOD falhar, certifique-se de que o outro módulo do controlador esteja ativo antes de substituir o módulo com falha.
+- Se um módulo do controlador de compartimento EBOD falhar, certifique-se de que o outro módulo do controlador esteja ativo antes de substituir o módulo com falha. Para verificar se um controlador está ativo, vá para [Identificar o controlador ativo em seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- Se um HDD falhar ou exigir substituição, remova somente HDD que exige a substituição. Não remova um HDD até que haja uma indicação de que os discos e a matriz estejam íntegros.
-
-- Não remova mais de um HDD do sistema a qualquer momento.
-
-- Durante uma substituição do módulo do controlador EBOD ou do HDD, monitore continuamente o status do componente relevante no serviço Gerenciador do StorSimple acessando **Manutenção** - status do **Hardware**.
+- Durante uma substituição do módulo do controlador EBOD, monitore continuamente o status do componente no serviço Gerenciador do StorSimple acessando o status **Manutenção** - **Hardware**.
 
 - Se um cabo SAS falha ou exigir substituição (o Suporte da Microsoft deve participar dessa decisão), remova apenas o cabo SAS que exige a substituição.
 
 - Não remova simultaneamente os dois cabos SAS do sistema em nenhum momento.
 
-### Requisitos de alta disponibilidade para os computadores host
+### Recomendações de alta disponibilidade para os computadores de host
 
-Leia com atenção estes requisitos e práticas recomendadas para garantir a alta disponibilidade dos hosts conectados ao dispositivo StorSimple.
+Leia com atenção essas práticas recomendadas para garantir a alta disponibilidade dos hosts conectados ao dispositivo StorSimple.
 
-- Configure o StorSimple com [configurações de cluster de servidores de arquivos com dois nós][1]. Ao remover os pontos individuais de falha e criando redundância no lado do host, a solução inteira se torna altamente disponível.
+- Defina o StorSimple com as [configurações de cluster do servidor de arquivos com dois nós][1]. Ao remover os pontos individuais de falha e criando redundância no lado do host, a solução inteira se torna altamente disponível.
 
 - Use compartilhamentos CA (disponíveis continuamente) disponíveis no Windows Server 2012 (SMB 3.0) para alta disponibilidade durante o failover dos controladores de armazenamento. Para obter informações adicionais sobre a configuração de clusters de servidor de arquivos e compartilhamentos Disponíveis Continuamente com o Windows Server 2012, consulte esta [demonstração em vídeo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
-
-## Requisitos de rede para seu dispositivo StorSimple
-
-Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso abrir portas no firewall para permitir o tráfego de gerenciamento, de nuvem ou iSCSI. A tabela a seguir lista as portas que precisam estar abertas no firewall. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
-
-| Nº da porta<sup>1,2</sup> | Entrada ou saída | Escopo da porta | Obrigatório | Observações |
-|------------------------|-----------|------------|----------|-------| 
-|TCP 80 (HTTP)<sup>3</sup>| Saída | WAN | Não |<ul><li>A porta de saída é usada para acesso à Internet a fim de obter as atualizações.</li><li>O proxy da Web de saída pode ser configurado pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para os IPs fixos do controlador.</li></ul> |
-|TCP 443 (HTTPS)<sup>3</sup>| Saída | WAN | Sim |<ul><li>A porta de saída é usada para acesso aos dados na nuvem.</li><li>O proxy da Web de saída pode ser configurado pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para os IPs fixos do controlador.</li></ul>|
-|UDP 53 (DNS) | Saída | WAN | Em alguns casos; consulte as observações. |Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. |
-| UDP 123 (NTP) | Saída | WAN | Em alguns casos; consulte as observações. |Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet. |
-| TCP 9354 | Saída | WAN | Em alguns casos; consulte as observações. |A porta de saída é usada pelo dispositivo StorSimple para se comunicar com o serviço StorSimple Manager. Esta porta é exigida se a rede atual não oferecer suporte ao uso de HTTP 1.1 para se conectar à Internet. Por exemplo, se você estiver usando um servidor proxy baseado em HTTP 1.0.<br> Se estiver se conectando através de um servidor proxy, consulte [requisitos de barramento de serviço](https://msdn.microsoft.com/library/azure/ee706729.aspx) para obter informações detalhadas. |
-| 3260 (iSCSI) | No | LAN | Não | Esta porta é usada para acessar dados em iSCSI.|
-| 5985 | No | LAN | Não | Porta de entrada é usada pelo Gerenciador de Instantâneos do StorSimple para se comunicar com o dispositivo StorSimple.<br>Essa porta também é usada quando você se conecta remotamente ao Windows PowerShell para StorSimple via HTTP. |
-| 5986 | No | LAN | Não | Esta porta é usada quando você se conecta remotamente ao Windows PowerShell para StorSimple via HTTPS. |
-
-<sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
-
-<sup>2</sup> Se várias portas executarem uma configuração de gateway, a ordem do tráfego de saída roteado será determinada com base na ordem de roteamento de porta descrita abaixo.
-
-<sup>3</sup> Os IPs fixos do controlador em seu dispositivo StorSimple devem ser roteáveis e conseguirem se conectar à Internet. Os endereços IP fixos são usados para fornecer as atualizações ao dispositivo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple.
-
-> [AZURE.IMPORTANT]Certifique-se de que o firewall não modifique ou descriptografe nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
-
-<br></br>
-### Roteamento de porta
-
-O roteamento de porta é diferente dependendo da versão de software em execução em seu dispositivo StorSimple.
-
-- Se o dispositivo estiver executando uma versão do software anterior à Atualização 1, como GA, versão 0.1, 0.2 ou 0,3, o roteamento das portas será decidido da seguinte maneira:
-
-     Interface de rede de 10 GbE configurada por último > Outras interfaces de rede de 10 GbE > Última interface de rede de 1 GbE configurada > Outra interface de rede de 1 GbE
-
-- Se o dispositivo estiver executando a Atualização 1, o roteamento das portas será decidido da seguinte maneira:
-
-     DADOS 0 > Interface de rede de 10 GbE configurada por último > Outras interfaces de rede de 10 GbE > Última interface de rede de 1 GbE configurada > Outra interface de rede de 1 GbE
-
-Na Atualização 1, a métrica de roteamento de DADOS 0 é a mais baixa; portanto, todo o tráfego de nuvem é roteado por meio de DADOS 0. Anote isso se houver mais de uma interface de rede habilitada para nuvem em seu dispositivo StorSimple.
-
-### Práticas recomendadas de rede
-
-Além dos requisitos de rede acima, para obter o desempenho ideal de sua solução StorSimple, atenda às seguintes práticas recomendadas:
-
-- Verifique se o dispositivo StorSimple tem uma largura de banda dedicada de 40 Mbps (ou mais) disponível sempre. Essa largura de banda não deve ser compartilhada com outros aplicativos.
-
-- Verifique a conectividade de rede com a Internet está disponível sempre. Conexões de Internet esporádicas ou não confiáveis com os dispositivos, sem incluir qualquer conectividade com a Internet, resultarão em uma configuração sem suporte.
-
-- Isole o tráfego iSCSI e o tráfego de nuvem com interfaces de rede dedicadas em seu dispositivo para acesso iSCSI e à nuvem. Para obter mais informações, veja como [modificar as interfaces de rede](storsimple-modify-device-config.md#modify-network-interfaces) em seu dispositivo StorSimple.
-
-- Não use uma configuração do LACP (Protocolo de Agregação de Link) para as suas interfaces de rede. Essa é uma configuração sem suporte.
 
 ## Próximas etapas
 
@@ -200,4 +203,4 @@ Além dos requisitos de rede acima, para obter o desempenho ideal de sua soluç�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

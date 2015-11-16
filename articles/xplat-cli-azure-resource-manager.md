@@ -44,7 +44,7 @@ Trabalhar com o Gerenciador de Recursos do Azure por meio da CLI do Azure exige 
 
 Para saber mais sobre a autenticação para o Microsoft Azure, consulte [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE]Quando você usa uma conta corporativa ou de estudante, que é gerenciada pelo Active Directory do Azure, você também pode usar o controle de acesso baseado em função (RBAC) do Azure para gerenciar o acesso e o uso de recursos do Azure. Para obter detalhes, consulte [Gerenciar e auditar o acesso a recursos](../azure-portal/resource-group-rbac.md)
+>[AZURE.NOTE]Quando você usa uma conta corporativa ou de estudante, que é gerenciada pelo Active Directory do Azure, você também pode usar o controle de acesso baseado em função (RBAC) do Azure para gerenciar o acesso e o uso de recursos do Azure. Para obter detalhes, consulte [Gerenciar e auditar o acesso a recursos](resource-group-rbac.md)
 
 ## Definir o modo Gerenciador de Recursos do Azure
 
@@ -88,30 +88,31 @@ Criar um novo modelo está além do escopo deste artigo. Então, para começar, 
 
 1. Baixe os arquivos azuredeploy.json e azuredeploy.parameters.json de [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) para uma pasta de trabalho no computador local.
 
-2. Abra o arquivo azuredeploy.parameters.json em um editor de texto e insira valores de parâmetro adequados para seu ambiente (deixando o valor **ubuntuOSVersion** inalterado). ```
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "newStorageAccountName": {
-	      "value": "MyStorageAccount"
-	    },
-	    "adminUsername": {
-	      "value": "MyUserName"
-	    },
-	    "adminPassword": {
-	      "value": "MyPassword"
-	    },
-	    "dnsNameForPublicIP": {
-	      "value": "MyDomainName"
-	    },
-	    "ubuntuOSVersion": {
-	      "value": "14.04.2-LTS"
-	    }
-	  }
-	}
-```
-3. Depois de salvar o arquivo azuredeploy.parameters.json, use o comando a seguir para criar um novo grupo de recursos com base no modelo. A opção `-e` especifica o arquivo azuredeploy.parameters.json que você modificou na etapa anterior. Substitua *testRG* pelo nome do grupo que deseja usar e *testDeploy* pelo nome da implantação à sua escolha. O local deve ser o mesmo que o especificado no seu arquivo de parâmetro do modelo.
+2. Abra o arquivo azuredeploy.parameters.json em um editor de texto e insira valores de parâmetro adequados para seu ambiente (deixando o valor **ubuntuOSVersion** inalterado).
+
+		{
+	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	  	"contentVersion": "1.0.0.0",
+	  	"parameters": {
+		    "newStorageAccountName": {
+		      "value": "MyStorageAccount"
+		    },
+		    "adminUsername": {
+		      "value": "MyUserName"
+		    },
+		    "adminPassword": {
+		      "value": "MyPassword"
+		    },
+		    "dnsNameForPublicIP": {
+		      "value": "MyDomainName"
+		    },
+		    "ubuntuOSVersion": {
+		      "value": "14.04.2-LTS"
+		    }
+		  }
+		}
+	```
+3. Depois de salvar o arquivo azuredeploy.parameters.json, use o comando a seguir para criar um novo grupo de recursos com base no modelo. A opção `-e` especifica o arquivo azuredeploy.parameters.json que você modificou na etapa anterior. Substitua *testRG* pelo nome do grupo que deseja usar e *testDeploy* por um nome de implantação de sua escolha. O local deve ser o mesmo que o especificado no seu arquivo de parâmetro do modelo.
 
 		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
 
@@ -149,15 +150,15 @@ Criar um novo modelo está além do escopo deste artigo. Então, para começar, 
 	>
 	> Se você não fornecer um nome de implantação, um nome é criado automaticamente com base no nome do arquivo de modelo. Ele é retornado como parte da saída do comando `azure group create`.
 
-	Agora você pode criar uma SSH para a VM usando o nome de domínio especificado. Quando conectar à VM, você precisa usar um nome de domínio totalmente qualificado do formato `<domainName>.<region>.cloudapp.azure.com`, como `MyDomainName.westus.cloudapp.azure.com`.
+	Agora você pode criar uma SSH para a VM usando o nome de domínio especificado. Quando se conectar à VM, você precisa usar um nome de domínio totalmente qualificado do formato `<domainName>.<region>.cloudapp.azure.com`, como `MyDomainName.westus.cloudapp.azure.com`.
 
 5. Para exibir o grupo, use o comando a seguir.
 
 		azure group show "testRG"
 
-	Esse comando retorna informações sobre os recursos do grupo. Se tiver vários grupos, use o comando `azure group list` para recuperar uma lista de nomes de grupo e, em seguida, usar `azure group show` para exibir detalhes de um grupo específico.
+	Esse comando retorna informações sobre os recursos do grupo. Se você tiver vários grupos, use o comando `azure group list` para recuperar uma lista de nomes de grupo e use `azure group show` para exibir detalhes de um grupo específico.
 
-Você também pode usar um modelo diretamente do [GitHub](https://github.com/Azure/azure-quickstart-templates) em vez de baixar um computador. Para fazer isso, passe a URL para o arquivo azuredeploy.json do modelo em seu comando usando a opção **--template-url**. Para obter a URL, abra o azuredeploy.json no GitHub em modo _bruto_ e copie a URL que aparece na barra de endereços do navegador. Você pode usar essa URL diretamente para criar uma implantação usando um comando semelhante ao exemplo a seguir.
+Você também pode usar um modelo diretamente do [GitHub](https://github.com/Azure/azure-quickstart-templates) em vez de baixar um no computador. Para isso, transmita a URL para o arquivo azuredeploy.json do modelo em seu comando usando a opção **--template-url**. Para obter a URL, abra azuredeploy.json no GitHub no modo _bruto_ e copie a URL que aparece na barra de endereços do navegador. Você pode usar essa URL diretamente para criar uma implantação usando um comando semelhante ao exemplo a seguir.
 
 	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
 Você precisará inserir os parâmetros de modelo necessários.
@@ -202,11 +203,11 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 
 ## Próximas etapas
 
-* Para saber mais sobre como trabalhar com o Gerenciador de Recursos do Azure usando o Azure PowerShell, consulte [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
-* Para saber mais sobre como trabalhar com o Gerenciador de Recursos do Azure no Portal do Azure, consulte [Usando grupos de recursos para gerenciar os recursos do Azure][psrm].
+* Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure usando o Azure PowerShell, veja [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
+* Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure no Portal do Azure, veja [Usando grupos de recursos para gerenciar os recursos do Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="10/26/2015"
+ms.date="11/02/2015"
 ms.author="larryfr"/>
 
 #Usar túnel SSH para acessar a interface do usuário do Ambari Web, ResourceManager, JobHistory, NameNode, Oozie, entre outras
@@ -197,4 +197,4 @@ Para obter mais informações sobre como usar SSH com o HDInsight, consulte o se
 
 * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

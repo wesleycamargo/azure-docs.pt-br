@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/03/2015" 
 	ms.author="tdykstra"/>
 
 # Implantar e configurar um aplicativo de API de conector SaaS em um Serviço de Aplicativo do Azure
@@ -236,4 +236,4 @@ Você viu como instalar, configurar e testar um conector de SaaS. Para obter mai
 [Portal Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

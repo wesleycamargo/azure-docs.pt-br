@@ -8,12 +8,12 @@
    editor="cgronlun"/>
  
 <tags
-   ms.service="data-lake"
+   ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="nitinme"/>
 
 # Provisionar um cluster HDInsight com o Repositório Data Lake usando o Azure PowerShell
@@ -23,7 +23,12 @@
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight (Hadoop, HBase ou Storm) para trabalhar com um Repositório Azure Data Lake. Algumas considerações importantes para esta versão: * **para clusters Hadoop e Storm (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será nos Blobs de Armazenamento do Azure (WASB). * **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou adicional.
+Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight (Hadoop, HBase ou Storm) para trabalhar com um Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
+
+* **Para clusters Hadoop e Storm (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
+
+* **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou armazenamento adicional.
+
 
 Neste artigo, provisionaremos um cluster Hadoop com o Repositório Data Lake como armazenamento adicional.
 
@@ -39,13 +44,9 @@ A configuração do HDInsight para trabalhar com o Repositório Data Lake usando
 Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pt-BR/pricing/free-trial/).
-- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Consulte [instruções](data-lake-store-get-started-portal.md#signup).
+- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
 - **SDK do Windows**. Você pode instalá-lo clicando [aqui](https://dev.windows.com/pt-BR/downloads). Use isso para criar um certificado de segurança.
-- **Azure PowerShell 1.0 ou posterior**. Consulte [Instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para obter instruções. Após a instalação do Azure PowerShell 1.0 ou posterior, você deve executar o cmdlet a seguir para instalar o módulo do Repositório Azure Data Lake.
-
-		Install-Module AzureRM.DataLakeStore
-
-	Para saber mais sobre o módulo **AzureRM.DataLakeStore**, consulte [Galeria do PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+- **Azure PowerShell 1.0**. Instale-o clicando [aqui](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
  
 
 ## Criar um Repositório Azure Data Lake
@@ -119,7 +120,7 @@ Verifique se o [SDK do Windows](https://dev.windows.com/pt-BR/downloads) está i
 
 4. Use o utilitário [Pvk2Pfx][pvk2pfx] para converter os arquivos .pvk e .cer criados pelo MakeCert em um arquivo .pfx. Execute o comando a seguir.
 
-		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po myPassword
+		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
 	Quando receber a solicitação, digite a senha da chave privada especificada anteriormente. O valor especificado para o parâmetro **-po** é a senha que está associada ao arquivo .pfx. Após a conclusão bem-sucedida do comando, você também verá um arquivo CertFile.pfx no diretório de certificado especificado.
 
@@ -131,7 +132,7 @@ Nesta seção, você executará as etapas para criar uma entidade de serviço pa
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
 		
-		$password = Read-Host –Prompt "Enter the password" –AsSecureString  # This is the password you specified for the .pfx file (e.g. "myPassword")
+		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
 		
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 		
@@ -293,4 +294,4 @@ Após a configuração do cluster HDInsight para usar o Repositório Data Lake, 
 [makecert]: https://msdn.microsoft.com/pt-BR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/pt-BR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

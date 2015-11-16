@@ -13,7 +13,7 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
@@ -96,7 +96,8 @@ A segurança é uma preocupação para qualquer pessoa que execute os seus negó
 - [Funções de aplicativo](http://msdn.microsoft.com/library/ms190998.aspx) gerenciado com GRANT, DENY, REVOKE
 - [Criptografia transparente de dados](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
- - Agora, o Banco de Dados SQL oferece suporte à autenticação do Active Directory do Azure, um mecanismo de conexão com o Banco de Dados SQL usando identidades no Active Directory do Azure (Azure AD). Com a autenticação do Active Directory do Azure, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em um único local.
+ - Agora, o Banco de Dados SQL oferece suporte à autenticação do Active Directory do Azure, um mecanismo de conexão com o Banco de Dados SQL usando identidades no Active Directory do Azure (Azure AD). Com a autenticação do Active Directory do Azure, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em um único local central.
+- [Sempre Criptografado](https://msdn.microsoft.com/library/mt163865.aspx) (na visualização) torna a criptografia transparente para os aplicativos e permite que os clientes criptografem dados confidenciais em aplicativos cliente sem compartilhar as chaves de criptografia com o Banco de Dados SQL.
 
 
 ## Maior continuidade dos negócios quando a recuperação for necessária
@@ -161,4 +162,4 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 
 [Termos de Uso Adicionais para Visualizações do Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

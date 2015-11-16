@@ -41,7 +41,7 @@ As redes virtuais são a maneira recomendada para conectar máquinas virtuais no
 
 Para conectar máquinas virtuais em uma rede virtual:
 
-1.	Crie a rede virtual no [Portal do Azure](http://manage.windowsazure.com). Para obter mais informações, consulte [Criar uma rede virtual (clássica) usando o portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+1.	Crie a rede virtual no [Portal de Visualização do Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 2.	Crie o conjunto de serviços de nuvem para sua implantação de modo a refletir seu design para conjuntos de disponibilidade e balanceamento de carga. No portal, clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada** para cada serviço de nuvem.
 3.	Para criar cada máquina virtual nova, clique em **Novo > Computação > Máquina Virtual > Da Galeria**. Escolha o serviço de nuvem e a rede virtual corretos para a VM. Se o serviço de nuvem já fizer parte de uma rede virtual, seu nome já estará selecionado para você.
 
@@ -52,7 +52,7 @@ Para conectar máquinas virtuais em uma rede virtual:
 Para conectar máquinas virtuais em um serviço de nuvem autônomo:
 
 1.	Crie o serviço de nuvem no [Portal do Azure](http://manage.windowsazure.com). Clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada**. Ou você pode criar o serviço de nuvem para sua implantação ao criar sua primeira máquina virtual.
-2.	Ao criar as máquinas virtuais, escolha o nome do serviço de nuvem criado na etapa anterior.![Adicionar uma máquina virtual a um serviço de nuvem existente](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
+2.	Ao criar as máquinas virtuais, escolha o nome do serviço de nuvem criado na etapa anterior. ![Adicionar uma máquina virtual a um serviço de nuvem existente](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Recursos
 [Máquinas virtuais de balanceamento de carga](../articles/load-balance-virtual-machines.md)
@@ -67,4 +67,4 @@ Após criar uma máquina virtual, é uma boa ideia adicionar um disco de dados p
 
 [Como anexar um disco de dados a uma máquina virtual Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

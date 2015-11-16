@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="10/30/2015"
    ms.author="maroche"/>
 
 # Perguntas frequentes sobre o Catálogo de Dados do Azure
@@ -70,7 +70,7 @@ Durante a visualização, o **Catálogo de Dados do Azure** dá suporte ao regis
 - Blob de Armazenamento do Azure
 - Diretório de Armazenamento do Azure
 - Arquivo do HDFS
-- Diretório do HDSF
+- Diretório do HDFS
 - Tabela Teradata
 - Exibição do Teradata
 
@@ -79,7 +79,7 @@ Além dos ativos listados acima, o **Catálogo de Dados do Azure** dá suporte �
 - Banco de Dados SQL Server
 - Banco de dados Oracle
 - Cluster HDFS
-- Banco de dados do Teradata 
+- Banco de dados do Teradata
 
 
 ## P.: Como posso solicitar suporte para outra fonte de dados?
@@ -172,4 +172,4 @@ Se você tiver problemas ou precisar de ajuda com a visualização do **Catálog
 
 Vá diretamente para o [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

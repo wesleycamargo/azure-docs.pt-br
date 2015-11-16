@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Depurando seu aplicativo da Malha do Serviço no Visual Studio usando F5"
-   description="Melhore a confiabilidade e o desempenho dos seus serviços usando o Visual Studio e um cluster de desenvolvimento local."
+   pageTitle="Depurar seu aplicativo no Visual Studio | Microsoft Azure"
+   description="Melhore a confiabilidade e o desempenho dos seus serviços desenvolvendo e depurando-os no Visual Studio e em um cluster de desenvolvimento local."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Depurando seu aplicativo da Malha do Serviço no Visual Studio usando F5
+# Depurando seu aplicativo do Service Fabric usando o Visual Studio
 
 Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malha do Serviço no cluster de desenvolvimento de um computador local. O Visual Studio pode implantar o aplicativo no cluster local e conectar o depurador automaticamente a todas as instâncias do seu aplicativo.
 
@@ -66,4 +66,4 @@ Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malh
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

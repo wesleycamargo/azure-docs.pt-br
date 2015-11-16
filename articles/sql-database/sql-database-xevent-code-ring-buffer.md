@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Código do Arquivo de Evento de XEvent para o Banco de Dados SQL | Microsoft Azure" 
+	pageTitle="Código do Buffer de Anel de XEvent para o Banco de Dados SQL | Microsoft Azure" 
 	description="Fornece um exemplo de código Transact-SQL que se torna fácil e rápido por meio do uso do destino do Buffer de Anéis, no Banco de Dados SQL do Azure." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/22/2015" 
 	ms.author="genemi"/>
 
 
@@ -54,7 +54,7 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 - Uma conta e uma assinatura do Azure. Você pode se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 
-- Qualquer banco de dados no qual você pode criar uma tabela.
+- Qualquer banco de dados no qual você possa criar uma tabela.
  - Opcionalmente, você pode [criar um banco de dados de demonstração](sql-database-get-started.md) do **AdventureWorksLT** em minutos.
 
 
@@ -377,4 +377,4 @@ Outros tópicos com exemplos de código para eventos estendidos estão disponív
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

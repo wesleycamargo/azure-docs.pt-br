@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Solucionar problemas de atualizações de aplicativa Malha do Serviço"
+   pageTitle="Solucionando problemas de atualizações de aplicativo | Microsoft Azure"
    description="Este artigo aborda alguns problemas comuns em torno da atualização de um aplicativa Malha do Serviço e como resolvê-los."
    services="service-fabric"
    documentationCenter=".net"
@@ -225,4 +225,4 @@ O tempo de atualização para um domínio de atualização é limitado pelo *Upg
 [Serialização de dados](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

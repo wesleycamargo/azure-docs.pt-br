@@ -41,9 +41,9 @@ As redes virtuais que estão associadas a grupos de afinidades serão habilitada
 	
 	Edite as seguintes linhas no arquivo de configuração de rede substituindo os valores pelos seus:
 
-	**Valor antigo:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**Valor antigo:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Novo valor:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**Novo valor:** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Salve suas alterações e [importe](../virtual-networks-using-network-configuration-file/) a configuração de rede para o Azure.
 
@@ -51,7 +51,7 @@ As redes virtuais que estão associadas a grupos de afinidades serão habilitada
 
 ## Grupos de afinidades e VMs
 
-Conforme mencionado anteriormente, os grupos de afinidades geralmente não são recomendados para máquinas virtuais. Você somente deve usar um grupo de afinidades quando um conjunto de VMs tiver que ter a menor latência de rede possível entre as máquinas virtuais. Ao colocar VMs em um grupo de afinidades, as VMs estarão todas na mesma unidade de escala ou cluster de computação.
+Conforme mencionado anteriormente, os grupos de afinidades geralmente não são recomendados para máquinas virtuais. Você somente deve usar um grupo de afinidades quando um conjunto de VMs tiver que ter a menor latência de rede possível entre as máquinas virtuais. Ao colocar VMs em um grupo de afinidade, as VMs estarão todas na mesma unidade de escala ou cluster de cálculo.
 
 É importante observar que o uso de um grupo de afinidades pode ter duas consequências possivelmente negativas:
 
@@ -66,4 +66,4 @@ Máquinas virtuais que estão atualmente em um grupo de afinidades não precisam
 Quando uma máquina virtual é implantada, ela é implantada em uma única unidade de escala. Os grupos de afinidades pode restringir o conjunto de tamanhos de VM disponíveis para uma nova implantação de VM, mas qualquer VM existente já implantada fica restrita ao conjunto de tamanhos de VM disponíveis na unidade de escala em que a VM estiver implantada. Por isso, a remoção de uma máquina virtual do grupo de afinidades não terá consequências.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

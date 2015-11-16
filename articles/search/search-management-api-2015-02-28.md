@@ -1,10 +1,10 @@
-<properties pageTitle="API REST de Gerenciamento da Pesquisa do Azure, versão 2015-02-28" description="API REST de Gerenciamento da Pesquisa do Azure: versão 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="API REST de Gerenciamento da Pesquisa do Azure versão 28/02/2015 | Microsoft Azure" description="API REST de Gerenciamento da Pesquisa do Azure: versão 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="09/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
 # API de gerenciamento: versão 2015-02-28
 
-Este documento descreve a versão **2015-02-28* da API REST de gerenciamento da Pesquisa do Azure. Desde então, foi substituído por versões mais recentes. Para obter a versão mais recente, consulte [API REST de gerenciamento da Pesquisa do Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) no MSDN.
+A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado do Microsoft Azure. Este documento descreve a versão **2015-02-28* da API REST de gerenciamento da Pesquisa do Azure. Desde então, foi substituído por versões mais recentes. Para obter a versão mais recente, consulte [API REST de gerenciamento da Pesquisa do Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) no MSDN.
 
 ##Operações de gerenciamento de serviço
 
@@ -810,6 +810,6 @@ O código de status de resposta será HTTP 200 (OK) se tiver êxito.
 
 ###Corpo da resposta###
 
-Nenhuma.
+Nenhum.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

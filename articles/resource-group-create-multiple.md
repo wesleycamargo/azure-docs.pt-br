@@ -154,6 +154,6 @@ Você pode especificar a implantação de um recurso após outro recurso usando 
 ## Próximas etapas
 - Para saber mais sobre as seções de um modelo, confira [Criando modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
 - Para ver todas as funções que você pode usar em um modelo, confira [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md).
-- Para saber mais sobre como implantar modelos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md).
+- Para saber mais sobre como implantar o modelo, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

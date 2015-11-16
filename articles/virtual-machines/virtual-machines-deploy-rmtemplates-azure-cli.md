@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="11/01/2015"
 	ms.author="rasquill"/>
 
 # Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure
@@ -22,7 +22,6 @@
 Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI do Azure para automatizar as tarefas comuns de implantação e gerenciamento de máquinas virtuais do Azure a seguir. Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico. Não é possível usar modelos no modelo de implantação clássico.
-
 
 - [Criar rapidamente uma máquina virtual no Azure](#quick-create-a-vm-in-azure)
 - [Implantar uma máquina virtual no Azure com base em um modelo](#deploy-a-vm-in-azure-from-a-template)
@@ -38,7 +37,7 @@ Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI
 
 ## Preparando-se
 
-Para usar a CLI do Azure com grupos de recursos do Azure, você precisará ter a versão correta da CLI do Azure e uma conta de trabalho ou escolar.
+Para usar a CLI do Azure com grupos de recursos do Azure, você precisará ter a versão correta da CLI do Azure e uma conta do Azure. Se você não tiver a CLI do Azure, [instale-a](xplat-cli-install.md).
 
 ### Atualizar sua versão da CLI do Azure para 0.9.0 ou posterior
 
@@ -47,7 +46,7 @@ Digite `azure --version` para ver se você já tem a versão 0.9.0 ou posterior 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-Se a sua versão não for 0.9.0 ou posterior, será necessário [instalar a CLI do Azure](../xplat-cli-install.md) ou atualizá-la usando um dos instaladores nativos ou por meio de **npm** digitando `npm update -g azure-cli`.
+Se a versão não for a 0.9.0 ou posterior, será necessário atualizá-la usando um dos instaladores nativos ou por meio do **npm** digitando `npm update -g azure-cli`.
 
 Você também pode executar a CLI do Azure como um contêiner do Docker usando a [imagem do Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/) abaixo. De um host Docker, execute o seguinte comando:
 
@@ -57,9 +56,9 @@ Você também pode executar a CLI do Azure como um contêiner do Docker usando a
 
 Se ainda não tiver uma assinatura do Azure, mas tiver uma assinatura do MSDN, você poderá ativar seus [benefícios de assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou então, você poderá se inscrever para uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-Você precisa ter uma conta de trabalho ou escolar para usar os modelos de gerenciamento de recursos do Azure. Se você tiver um, você pode digitar `azure login` e inserir seu nome de usuário e senha para fazer logon.
+Agora, [faça logon com a conta do Azure de modo interativo](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguindo os prompts para ter uma experiência de logon interativa para sua conta do Azure.
 
-> [AZURE.NOTE]Se não tiver uma, você verá uma mensagem de erro indicando que precisa de um tipo diferente de conta. Para criar uma com base em sua atual conta do Azure, veja [Criando uma identidade corporativa ou de estudante no Active Directory do Azure](resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE]Se você tiver uma ID de trabalho ou escolar e souber que não tem habilitada a autenticação de dois fatores, poderá **também** usar `azure login -u` juntamente com a ID de trabalho ou escolar para fazer logon *sem* uma sessão interativa. Se você não tiver uma ID de trabalho ou escolar, poderá [criar uma ID de trabalho ou escolar a partir de sua conta pessoal da Microsoft](resource-group-create-work-id-from-personal.md) para fazer logon da mesma maneira.
 
 Sua conta pode ter mais de uma assinatura. Você pode listar suas assinaturas digitando `azure account list`, que pode ser semelhante a:
 
@@ -84,15 +83,11 @@ Por padrão, a CLI do Azure é iniciada no modo de gerenciamento de serviços (m
 
 	azure config mode arm
 
-
-
-> [AZURE.NOTE]Você pode alternar de volta para o conjunto de comandos padrão digitando `azure config mode asm`.
-
 ## Noções básicas sobre grupos de recursos e modelos de recursos do Azure
 
 A maioria dos aplicativos é criada a partir de uma combinação de diferentes tipos de recursos (como uma ou mais VMs e contas de Armazenamento, um banco de dados SQL, uma Rede Virtual ou uma rede de transmissão de conteúdo). A API de gerenciamento de serviço do Azure padrão e o portal do Azure representava esses itens usando uma abordagem de acordo com o serviço. Essa abordagem requer que você implante e gerencie individualmente os serviços individuais (ou localize outras ferramentas fazê-lo) e não como uma única unidade lógica de implantação.
 
-Com os *modelos do Gerenciador de Recursos do Azure*, é possível implantar e gerenciar esses diferentes recursos como uma unidade lógica de implantação de forma declarativa. Em vez de informar imperativamente ao Azure o que implantar, em um comando após o outro, você descreve a implantação inteira em um arquivo JSON (todos os recursos e configurações e parâmetros de implantação associados) e instrui o Azure a implantar esses recursos como um grupo.
+Porém, os *modelos do Gerenciador de Recursos do Azure* tornam possível implantar e gerenciar esses diferentes recursos como uma unidade lógica de implantação de forma declarativa. Em vez de informar imperativamente ao Azure o que implantar, em um comando após o outro, você descreve a implantação inteira em um arquivo JSON (todos os recursos e configurações e parâmetros de implantação associados) e instrui o Azure a implantar esses recursos como um grupo.
 
 Em seguida, você pode gerenciar o ciclo de vida geral dos recursos do grupo usando os comandos de gerenciamento de recursos da CLI do Azure para:
 
@@ -101,7 +96,7 @@ Em seguida, você pode gerenciar o ciclo de vida geral dos recursos do grupo usa
 - Auditar operações.
 - Marcar recursos com metadados extras para ter melhor acompanhamento.
 
-Você pode saber muito mais sobre os grupos de recursos do Azure e o que eles podem fazer para você na [visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Se você está interessado na criação de modelos, veja [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Você pode saber muito mais sobre os grupos de recursos do Azure e o que eles podem fazer por você na [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Se você estiver interessado na criação de modelos, confira [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 ## <a id="quick-create-a-vm-in-azure"></a>Tarefa: criar rapidamente uma VM no Azure
 
@@ -123,7 +118,7 @@ Em primeiro lugar, crie o grupo de recursos.
     info:    group create command OK
 
 
-Em segundo lugar, você precisará de uma imagem. Para encontrar uma imagem com a CLI do Azure, veja [Navegando e selecionando imagens de máquinas virtuais do Azure com o PowerShell e a CLI do Azure](resource-groups-vm-searching.md). Porém, para este artigo, aqui está uma pequena lista de imagens populares. Vamos usar a imagem estável do CoreOS para esta criação rápida.
+Em segundo lugar, você precisará de uma imagem. Para encontrar uma imagem com a CLI do Azure, confira [Navegando e selecionando imagens de máquinas virtuais do Azure com o PowerShell e a CLI do Azure](resource-groups-vm-searching.md). Porém, para este artigo, aqui está uma pequena lista de imagens populares. Vamos usar a imagem estável do CoreOS para esta criação rápida.
 
 > [AZURE.NOTE]Para ComputeImageVersion, você pode também pode simplesmente fornecer 'latest' como o parâmetro tanto na linguagem do modelo quanto na CLI do Azure. Isso permitirá que você use sempre a versão mais recente e corrigida da imagem sem ter que modificar seus scripts ou modelos. Isso é mostrado abaixo.
 
@@ -147,7 +142,7 @@ Em segundo lugar, você precisará de uma imagem. Para encontrar uma imagem com 
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
 | MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
 
-Basta criar sua VM inserindo o comando `azure vm quick-create` e se preparando para os prompts. O resultado deve ser semelhante a esse:
+Basta criar sua VM inserindo o comando `azure vm quick-create` e preparando-se para os prompts. O resultado deve ser semelhante a esse:
 
     azure vm quick-create
     info:    Executing command vm quick-create
@@ -232,7 +227,7 @@ Basta criar sua VM inserindo o comando `azure vm quick-create` e se preparando p
 
 E, assim, você obtém sua nova VM.
 
-## <a id="deploy-a-vm-in-azure-from-a-template"></a>Tarefa: implantar uma VM no Azure por meio de um modelo
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Tarefa: implantar uma VM no Azure a partir de um modelo
 
 Use as instruções nestas seções para implantar uma nova VM do Azure usando um modelo com a CLI do Azure. O modelo cria uma única máquina virtual em uma nova rede virtual com uma única sub-rede e, diferentemente de `azure vm quick-create`, permite descrever o que você deseja com precisão e repeti-lo sem erros. Aqui está o que o modelo cria:
 
@@ -434,7 +429,7 @@ Após decidir quanto a esses valores, você estará pronto para criar um grupo e
 
 Depois que tiver os valores de parâmetros prontos, você deverá criar um grupo de recursos para a implantação do modelo e, em seguida, implantar o modelo.
 
-Para criar o grupo de recursos, digite `azure group create <group name> <location>` com o nome do grupo desejado e o local do data center no qual você deseja implantar. Isso acontece rapidamente:
+Para criar o grupo de recursos, digite `azure group create <group name> <location>` com o nome do grupo desejado e o local do datacenter no qual você deseja implantar. Isso acontece rapidamente:
 
     azure group create myResourceGroup westus
     info:    Executing command group create
@@ -694,11 +689,11 @@ Obviamente, você precisará de um .vhd para isso. Você pode usar um que já te
 
 Para uma máquina virtual baseada no Windows, consulte [Criar e carregar um VHD do Windows Server no Azure](virtual-machines-create-upload-vhd-windows-server.md).
 
-Para uma máquina virtual baseada em Linux, veja [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-create-upload-vhd.md).
+Para uma máquina virtual baseada no Linux, confira [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-create-upload-vhd.md).
 
 ### Etapa 3: criar a máquina virtual usando o modelo
 
-Agora, você está pronto para criar uma nova máquina virtual com base no .vhd. Crie um grupo para implantação usando o `azure group create <location>`:
+Agora, você está pronto para criar uma nova máquina virtual com base no .vhd. Crie um grupo para a implantação usando o `azure group create <location>`:
 
     azure group create myResourceGroupUser eastus
     info:    Executing command group create
@@ -713,7 +708,7 @@ Agora, você está pronto para criar uma nova máquina virtual com base no .vhd.
     data:
     info:    group create command OK
 
-Em seguida, crie a implantação usando a opção `--template-uri` para chamar o modelo diretamente (ou você pode usar a opção `--template-file` para usar um arquivo salvo localmente). Observe que, como o modelo tem padrões especificados, você será solicitado a fornecer somente alguns itens. Se você implantar o modelo em locais diferentes, talvez ocorram alguns conflitos de nomenclatura com os valores padrão (particularmente com o nome DNS que você criar).
+Em seguida, crie a implantação usando a opção `--template-uri` para chamar o modelo diretamente (ou você pode utilizar a opção `--template-file` para usar um arquivo salvo localmente). Observe que, como o modelo tem padrões especificados, você será solicitado a fornecer somente alguns itens. Se você implantar o modelo em locais diferentes, talvez ocorram alguns conflitos de nomenclatura com os valores padrão (particularmente com o nome DNS que você criar).
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json \
@@ -1108,7 +1103,7 @@ Aqui está o conteúdo do arquivo JSON para o modelo. Se você quiser a versão 
 
 ### Etapa 2: criar a implantação usando o modelo
 
-Crie um grupo de recursos para o modelo usando o `azure group create <location>`. Em seguida, crie uma implantação nesse grupo de recursos usando `azure group deployment create` e transmitindo o grupo de recursos e um nome de implantação e respondendo aos prompts para parâmetros no modelo que não tinham valores padrão.
+Crie um grupo de recursos para o modelo usando o `azure group create <location>`. Em seguida, crie uma implantação nesse grupo de recursos usando `azure group deployment create` e transmitindo o grupo de recursos e um nome de implantação, e respondendo aos prompts para os parâmetros no modelo que não tinham valores padrão.
 
 
     azure group create lbgroup westus
@@ -1176,7 +1171,7 @@ Observe que esse modelo implanta uma imagem do Windows Server. No entanto, ela p
 
 ## <a id="remove-a-resource-group"></a>Tarefa: remover um grupo de recursos
 
-Lembre-se de que você pode reimplantar em um grupo de recursos, mas, quando terminar de usá-lo, você pode excluí-lo usando `azure group delete <group name>`.
+Lembre-se que você pode reimplantar em um grupo de recursos, mas se terminar de usá-lo, poderá excluí-lo usando `azure group delete <group name>`.
 
     azure group delete myResourceGroup
     info:    Executing command group delete
@@ -1184,9 +1179,9 @@ Lembre-se de que você pode reimplantar em um grupo de recursos, mas, quando ter
     + Deleting resource group myResourceGroup
     info:    group delete command OK
 
-## <a id="show-the-log-for-a-resource-group-deployment"></a>Tarefa: mostrar o log para uma implantação de grupo de recursos
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Tarefa: mostrar o log para uma implantação do grupo de recursos
 
-Essa é uma tarefa comum ao se criar ou usar modelos. A chamada para exibir os logs de implantação de um grupo é `azure group log show <groupname>`, que exibe várias informações úteis para entender por que algo aconteceu ou não. (Para obter mais informações sobre como solucionar problemas em suas implantações, bem como outras informações sobre problemas, veja [Solucionando problemas de implantações de grupos de recursos no Azure](resource-group-deploy-debug.md).)
+Essa é uma tarefa comum ao se criar ou usar modelos. A chamada para exibir os logs de implantação de um grupo é `azure group log show <groupname>`, que exibe várias informações úteis para entender por que algo aconteceu ou não. (Para obter mais informações sobre como solucionar problemas em suas implantações, bem como outras informações sobre problemas, confira [Solucionando problemas das implantações do grupo de recursos no Azure](resource-group-deploy-debug.md).)
 
 Para lidar com falhas específicas, por exemplo, você pode usar ferramentas como **jq** para consultar itens de forma um pouco mais precisa, por exemplo, quais falhas individuais precisam ser corrigidas. O exemplo a seguir usa **jq** para analisar um log de implantação para **lbgroup**, procurando as falhas.
 
@@ -1265,11 +1260,11 @@ E, em seguida, procurar por myVM1:
     info:    vm show command OK
 
 
-> [AZURE.NOTE]Se desejar armazenar e manipular de forma programática a saída dos seus comandos de console, convém usar uma ferramenta de análise JSON, como **[jq](https://github.com/stedolan/jq)** ou **[jsawk](https://github.com/micha/jsawk)**, ou bibliotecas de idiomas que sejam adequadas à tarefa.
+> [AZURE.NOTE]Se quiser armazenar e manipular de forma programática a saída dos seus comandos de console, poderá usar uma ferramenta de análise JSON, como **[jq](https://github.com/stedolan/jq)** ou **[jsawk](https://github.com/micha/jsawk)**, ou bibliotecas de linguagem adequadas à tarefa.
 
-## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tarefa: fazer logon em uma máquina virtual baseada em Linux
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tarefa: fazer logon em uma máquina virtual baseada no Linux
 
-Normalmente, as máquinas Linux são conectadas por meio de SSH. Para obter mais informações, veja [Como usar o SSH com o Linux no Azure](virtual-machines-linux-use-ssh-key.md).
+Normalmente, as máquinas Linux são conectadas por meio de SSH. Para obter mais informações, confira [Como usar o SSH com o Linux no Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## <a id="stop-a-virtual-machine"></a>Tarefa: parar uma VM
 
@@ -1277,7 +1272,7 @@ Execute este comando:
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Use esse parâmetro para manter o VIP (IP virtual) da rede virtual, caso essa seja a última VM nessa rede virtual. <br><br> Se você usar o parâmetro `StayProvisioned`, você ainda será cobrado pela VM.
+>[AZURE.IMPORTANT]Use esse parâmetro para manter o VIP (IP virtual) da rede virtual, caso essa seja a última VM nessa rede virtual. <br><br> Se você usar o parâmetro `StayProvisioned`, ainda será cobrado pela VM.
 
 ## <a id="start-a-virtual-machine"></a>Tarefa: iniciar uma VM
 
@@ -1302,8 +1297,8 @@ Em seguida, você precisará montar o disco, como faria normalmente no Linux (ou
 
 ## Próximas etapas
 
-Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, veja [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure](xplat-cli-azure-resource-manager.md). Para saber mais sobre os recursos do Azure e seus conceitos, confira [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
+Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure](xplat-cli-azure-resource-manager.md). Para saber mais sobre os recursos do Azure e seus conceitos, confira [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
 
-Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
+Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

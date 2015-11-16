@@ -1,11 +1,10 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="Como adicionar usuários a um pool de bancos de dados elásticos" 
 	description="Você deve adicionar um usuário com privilégios para cada banco de dados do pool" 
 	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="11/03/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Como adicionar usuários a um pool de bancos de dados elástico
@@ -33,11 +32,11 @@ O recurso **trabalhos de Banco de Dados Elástico** (visualização) permite que
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. O usuário também deve ter permissões suficientes para executar o script especificado para o trabalho. Use o procedimento **sp\_addrolemember** para fornecer ao usuário as permissões mínimas necessárias para que o script execute com êxito.
+3. O usuário também deve ter permissões suficientes para executar o script especificado para o trabalho. Use o procedimento [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) para fornecer ao usuário as permissões mínimas necessárias para que o script seja executado com êxito.
 
 ## Próximas etapas
 
-Criar e gerenciar trabalhos: consulte [Criando e gerenciando trabalhos de banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md).
+Criar e gerenciar trabalhos: veja [Criando e gerenciando trabalhos de banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -45,4 +44,4 @@ Criar e gerenciar trabalhos: consulte [Criando e gerenciando trabalhos de banco 
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -90,4 +90,4 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 - Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](../virtual-network-create-udr-arm-template) e associá-las a sub-redes. 
 - Saiba como [criar rotas no modelo de implantação clássico](../virtual-network-create-udr-classic-ps) e associá-las a sub-redes.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

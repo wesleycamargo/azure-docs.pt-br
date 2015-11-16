@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/27/2015"
 	ms.author="jaime.espinosa"/>
 
 
@@ -27,7 +27,7 @@ Aproveite a capacidade dos [aplicativos Web do Serviço de Aplicativo](http://go
 
 ## Mais do que apenas sites##
 
-As empresas modernas interagem com seus clientes de formas cada vez mais sofisticadas. Empresas de todos os tipos consideram sua presença corporativa na Web como parte crucial de seus negócios, um dos principais componentes em seu plano de negócios. Para acomodar essa importância, as empresas estão procurando por uma plataforma que lhes fornece agilidade, segurança e escalabilidade. Além disso, elas exigem a capacidade de se vincular a seus sistemas de negócios existentes, poder implantar novo código rapidamente e criar instâncias em todo o mundo. Com o Serviço de Aplicativo do Azure e os aplicativos Web, as organizações podem agradar a seus clientes de forma rápida e econômica.
+As empresas modernas interagem com seus clientes de formas cada vez mais sofisticadas. Empresas de todos os tipos consideram sua presença corporativa na Web como parte crucial de seus negócios, um dos principais componentes em seu plano de negócios. Para acomodar essa importância, as empresas estão buscando uma plataforma que lhes fornecerá agilidade, segurança e escalabilidade. Além disso, elas precisam da capacidade de vincular aos seus sistemas de negócios existentes, ser capazes de implantar rapidamente um novo código e criar instâncias em todo o mundo. Com o Serviço de Aplicativo do Azure e os aplicativos Web, as organizações podem agradar a seus clientes de forma rápida e econômica.
 
 ## Por que aplicativos Web? ##
 
@@ -39,7 +39,7 @@ Os Aplicativos Web do Serviço de Aplicativo do Azure são uma plataforma totalm
 
 ## Conceitos de aplicativos Web ##
 
-- **Galeria de Aplicativos Web** - selecione em uma lista crescente de modelos de aplicativos Web existentes. Aproveite o melhor da comunidade de aplicativos OSS com a instalação com um clique de pacotes, como Wordpress, Joomla e Drupal. Inicie seu processo de desenvolvimento de aplicativos da maneira certa tirando proveito de estruturas como .NET MVC, Django e CakePHP.
+- **Galeria de Aplicativos Web** - selecione em uma lista crescente de modelos de aplicativos Web existentes. Aproveite o melhor da comunidade de aplicativos OSS com a instalação com um clique de pacotes, como Wordpress, Joomla e Drupal. Inicie seu processo de desenvolvimento de aplicativos da maneira certa aproveitando estruturas como .NET MVC, Django e CakePHP.
 - **Ajuste de escala automático** - os aplicativos Web permitem que você ajuste a escala vertical ou horizontalmente com rapidez para lidar com qualquer carga de cliente de entrada. Selecione manualmente o número e tamanho das máquinas virtuais ou configure o dimensionamento automático para ajustar seus servidores com base na carga ou cronograma.
 - **Integração contínua** - Configure fluxos de trabalho de implantação e integração contínua com o VSO, GitHub, TeamCity, Hudson ou BitBucket, permitindo que você compile, teste e implante automaticamente seu aplicativo Web a cada teste de integração ou verificação de código bem-sucedida.
 - **Slots de implantação** - implemente a [Implantação de teste][Slots] para verificar seu código em um ambiente de pré-produção que é idêntico a seu aplicativo Web de produção no Serviço de Aplicativo do Azure. Quando estiver satisfeito, lance uma nova versão de seu aplicativo sem tempo de inatividade executando uma operação de permuta. 
@@ -65,4 +65,4 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

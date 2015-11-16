@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Instalando trabalhos de banco de dados elástico" 
+	pageTitle="Instalando trabalhos de banco de dados elástico | Microsoft Azure" 
 	description="Percorra a instalação do recurso de trabalho elástico." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,27 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
-	ms.author="ddove; sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # Visão geral de Instalando trabalhos de Banco de Dados Elástico
-O recurso **trabalhos de Banco de Dados Elástico** pode ser instalado por meio do PowerShell ou pelo portal do Azure, embora você receba acesso para criar e gerenciar trabalhos usando a API do PowerShell somente se você instalar o pacote do PowerShell. Além disso, as APIs do PowerShell fornecem muito mais funcionalidade sobre o portal neste momento. Para obter mais informações sobre **trabalhos de Banco de Dados Elástico**, consulte [Visão geral de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md).
+Os [**trabalhos de Banco de Dados Elástico**](sql-database-elastic-jobs-overview.md) podem ser instalados por meio do PowerShell ou pelo portal do Azure. Você pode obter acesso para criar e gerenciar trabalhos usando a API do PowerShell apenas se você instalar o pacote do PowerShell. Além disso, as APIs do PowerShell fornecem muito mais funcionalidade do que o portal neste momento.
 
-Se você já tiver instalado **trabalhos de Banco de Dados Elástico** por meio do Portal de um **pool de banco de dados elástico** já existente, a mais recente visualização do Powershell inclui scripts para atualizar sua instalação existente. É recomendável atualizar sua instalação para o versão mais recente dos componentes do **trabalhos de Banco de Dados Elástico**, para tirar proveito da nova funcionalidade exposta por meio das APIs do PowerShell.
+Se você já tiver instalado **trabalhos de Banco de Dados Elástico** por meio do Portal de um **pool de Banco de Dados Elástico** existente, a visualização mais recente do Powershell incluirá scripts para atualizar sua instalação existente. É altamente recomendável atualizar sua instalação para a versão mais recente dos componentes dos **trabalhos de Banco de Dados Elástico** para aproveitar a nova funcionalidade exposta por meio das APIs do PowerShell.
 
 ## Pré-requisitos
-* Uma assinatura do Azure. Para uma avaliação gratuita, consulte [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure. Para obter uma avaliação gratuita, veja [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell, versão 0.8.16 ou posterior. Instale a versão mais recente (0.9.5) por meio do [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
-* [O utilitário de linha de comando do NuGet](https://nuget.org/nuget.exe) é usado para instalar o pacote de trabalhos de Banco de Dados Elástico. Para obter mais informações, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
+* O [Utilitário de Linha de Comando do NuGet](https://nuget.org/nuget.exe) é usado para instalar o pacote de trabalhos de Banco de Dados Elástico. Para obter mais informações, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## Baixar e importar o pacote do PowerShell de trabalhos de Banco de Dados Elástico
 1. Inicie a janela de comando do Microsoft Azure PowerShell e navegue até o diretório onde você baixou o utilitário de linha de comando do NuGet (nuget.exe).
 
-2. Baixar e importar o pacote **trabalhos de Banco de Dados Elástico** para o diretório atual com o seguinte comando:
+2. Baixe e importe o pacote **trabalhos de Banco de Dados Elástico** no diretório atual com o seguinte comando:
 
 		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-    Os arquivos do **trabalhos de Banco de Dados Elástico** são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x**, em que *x.x.xxxx.x* refere-se ao número de versão. Os cmdlets do PowerShell (incluindo DLLs de cliente necessários) estão localizados no subdiretório **tools\\ElasticDatabaseJobs**, enquanto os scripts do PowerShell para instalar, atualizar e desinstalar também residem no subdiretório **ferramentas**.
+    Os arquivos de **trabalhos de Banco de Dados Elástico** são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x**, em que *x.x.xxxx.x* refere-se ao número de versão. Os cmdlets do PowerShell (incluindo DLLs de cliente necessários) estão localizados no subdiretório **tools\\ElasticDatabaseJobs**, enquanto que os scripts do PowerShell para instalar, atualizar e desinstalar também residem no subdiretório **tools**.
 
 3. Navegue até o subdiretório Ferramentas, na pasta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x, digitando cd ferramentas, por exemplo:
 
@@ -49,7 +49,7 @@ Se você já tiver instalado **trabalhos de Banco de Dados Elástico** por meio 
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
-2.	Execute o script do PowerShell .\\InstallElasticDatabaseJobs.ps1 e forneça valores para as variáveis solicitadas. Esse script cria os componentes descritos em [preços e componentes de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview/#components-and-pricing), juntamente com a configuração do Serviço de Nuvem do Azure para usar os componentes dependentes.
+2.	Execute o script do PowerShell .\\InstallElasticDatabaseJobs.ps1 e forneça valores para as variáveis solicitadas. Esse script cria os componentes descritos em [Preços e componentes de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview/#components-and-pricing), juntamente com a configuração do Serviço de Nuvem do Azure para usar os componentes dependentes.
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
@@ -113,7 +113,7 @@ Para sistemas com grandes números de trabalhos sendo executados em paralelo em 
 
 ## Atualizar uma instalação existente de componentes do trabalhos de Banco de Dados Elástico usando o PowerShell
 
-**Trabalhos de Banco de Dados Elástico** pode ser atualizado em uma instalação existente para dimensionamento e alta disponibilidade. Esse processo permite atualizações futuras do código de serviço sem precisar remover e recriar o banco de dados de controle. Esse processo também pode ser usado dentro da mesma versão para modificar o tamanho da VM de serviço ou a contagem de trabalho do servidor.
+Os **Trabalhos de Banco de Dados Elástico** podem ser atualizados em uma instalação existente em relação à escala e à alta disponibilidade. Esse processo permite atualizações futuras do código de serviço sem precisar remover e recriar o banco de dados de controle. Esse processo também pode ser usado dentro da mesma versão para modificar o tamanho da VM de serviço ou a contagem de trabalho do servidor.
 
 Para atualizar o tamanho da VM de uma instalação, execute o script a seguir com parâmetros atualizados para os valores de sua escolha.
 
@@ -150,13 +150,13 @@ Para atualizar o tamanho da VM de uma instalação, execute o script a seguir co
 
 ## Instalar os componentes de trabalhos de Banco de Dados Elástico usando o Portal
 
-Após a [criação de um pool de banco de dados elástico](sql-database-elastic-pool-portal.md), você pode instalar componentes dos **trabalhos de Banco de Dados Elástico** para habilitar a execução de tarefas administrativas em cada banco de dados no pool de Banco de Dados Elástico. Diferentemente do que ocorre quando as APIs do PowerShell de **trabalhos de Banco de Dados Elástico** são usadas, a interface do portal está atualmente restrita à execução exclusivamente em um pool existente.
+Após a [criação de um pool de Banco de Dados Elástico](sql-database-elastic-pool-portal.md), você pode instalar componentes dos **trabalhos de Banco de Dados Elástico** para habilitar a execução de tarefas administrativas em cada banco de dados no pool de Banco de Dados Elástico. Ao contrário do que ocorre quando as APIs do PowerShell de **trabalhos de Banco de Dados Elástico** são usadas, a interface do portal está atualmente restrita à execução exclusivamente em um pool existente.
 
 
 **Tempo estimado para conclusão:** 10 minutos.
 
-1. No modo de exibição de painel do pool de banco de dados elástico, via **Portal de Visualização do Azure**, clique em [Criar trabalho](https://ms.portal.azure.com/#).
-2. Se você estiver criando um trabalho pela primeira vez, será necessário instalar os **trabalhos de Banco de Dados Elástico** clicando em **TERMOS DA VISUALIZAÇÃO**. 
+1. Na exibição de painel do pool de banco de dados elástico, por meio do **Portal de visualização do Azure**, clique em [Criar trabalho](https://ms.portal.azure.com/#).
+2. Se estiver criando um trabalho pela primeira vez, será necessário instalar os **trabalhos de Banco de Dados Elástico** clicando em **TERMOS DA VISUALIZAÇÃO**. 
 3. Aceite os termos clicando na caixa de seleção.
 4. No modo de exibição "Instalar serviços", clique em **CREDENCIAIS DO TRABALHO**.
 
@@ -174,11 +174,11 @@ Após a [criação de um pool de banco de dados elástico](sql-database-elastic-
 
 	![Implantação ainda em andamento][4]
 
-Se a desinstalação for necessária, exclua o grupo de recursos. Confira [Como desinstalar os componentes de trabalho de banco de Dados Elástico](sql-database-elastic-jobs-uninstall.md).
+Se a desinstalação for necessária, exclua o grupo de recursos. Veja [Como desinstalar os componentes de trabalho de Banco de Dados Elástico](sql-database-elastic-jobs-uninstall.md).
 
 ## Próximas etapas
 
-Certifique-se de que uma credencial com os direitos apropriados para a execução do script é criada em cada banco de dados no grupo; para obter mais informações, consulte [Como adicionar usuários a todos os banco de dados no meu grupo de bancos de dados](sql-database-elastic-jobs-add-logins-to-dbs.md). Consulte [Criando e gerenciando trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-create-and-manage.md) para começar.
+Certifique-se de que uma credencial com os direitos apropriados para a execução do script é criada em cada banco de dados no grupo; para obter mais informações, veja [Como adicionar usuários a todos os bancos de dados no meu grupo de bancos de dados](sql-database-elastic-jobs-add-logins-to-dbs.md). Veja [Criando e gerenciando trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-create-and-manage.md) para começar.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
@@ -187,4 +187,4 @@ Certifique-se de que uma credencial com os direitos apropriados para a execuçã
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

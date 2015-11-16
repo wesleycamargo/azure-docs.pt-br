@@ -25,7 +25,7 @@ Você:
 - Deseja mover sua assinatura do Azure de um diretório para outro?
 - Ter o Azure e o Office 365 em diferentes locatários e quer consolidar?
 
-Se sua conta estiver nos EUA, agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure - para assinaturas pré-pagas. Adicionamos a capacidade de transferir sua assinatura para outro usuário. Em outras palavras, agora você pode alterar o administrador da conta em qualquer assinatura pré-paga que possua.
+Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure - para assinaturas pré-pagas ou do MSDN. Adicionamos a capacidade de transferir sua assinatura para outro usuário. Em outras palavras, agora você pode alterar o administrador da conta em qualquer assinatura pré-paga ou do MSDN que você possuir, não importa o país em que você está localizado.
 
 ## Como transferir uma assinatura do Azure
 
@@ -111,4 +111,4 @@ Se sua conta estiver nos EUA, agora você pode fazer isso facilmente no Centro d
 4. Atualizar alertas de cobrança para essa assinatura no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nesta assinatura. Você pode fazê-lo no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

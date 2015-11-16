@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -34,7 +34,8 @@ Este tópico lista várias categorias de mensagens de erro. A maioria das catego
 Em seu programa cliente, você tem a opção de fornecer ao usuário uma mensagem alternativa, personalizada por você, para qualquer um dos erros.
 
 
-**Dica:** a seção de erros de *falha transitória* é muito importante. Esses erros devem fazer com seu programa cliente execute a lógica de *repetição* que você criou para repetir a operação.
+> [AZURE.TIP]A seção a seguir, sobre erros de [*falha transitória*](#bkmk_connection_errors), é muito importante.
+
 
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
@@ -44,25 +45,42 @@ Em seu programa cliente, você tem a opção de fornecer ao usuário uma mensage
 
 A tabela a seguir aborda os erros de perda de conexão e outros erros transitórios com que você pode se deparar ao trabalhar na Internet com o Banco de Dados SQL do Azure.
 
-Erros transitórios também são chamados de falhas transitórias. Quando o programa captura um `SqlException`, seu programa pode verificar se o valor `sqlException.Number` é um valor listado nesta seção de falhas transitórias. Se o valor `Number` indicar uma falha transitória, seu programa pode repetir a tentativa de estabelecer uma conexão e tentar novamente a consulta através da conexão. Para obter exemplos de código de lógica de repetição, consulte:
+
+### Falhas transitórias mais comuns
+
+
+Erros de falhas transitórias normalmente se manifestam como uma das seguintes mensagens de erro de seus programas de cliente:
+
+- O banco de dados <db_name> no servidor <Azure_instance> não está disponível atualmente. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da sessão de <session_id>
+
+- O banco de dados <db_name> no servidor <Azure_instance> não está disponível atualmente. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da sessão de <session_id> (Microsoft SQL Server, erro: 40613)
+
+- Uma conexão existente foi fechada à força pelo host remoto.
+
+- System.Data.Entity.Core.EntityCommandExecutionException: erro ao executar a definição de comando. Consulte a exceção interna para obter detalhes. ---> System.Data.SqlClient.SqlException: erro de nível de transporte ao receber os resultados do servidor. (provedor: Provedor de Sessão, erro: 19 - a conexão física não é utilizável)
+
+Erros de falha transitória devem solicitar que o programa cliente execute a *lógica de repetição* que você projetar para tentar a operação novamente. Para obter exemplos de código de lógica de repetição, consulte:
 
 
 - [Desenvolvimento do cliente e exemplos de código de início rápido para o Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-- [Como conectar-se de forma confiável ao Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn864744.aspx)
+- [Ações para corrigir erros e falhas transitórias no Banco de Dados SQL](sql-database-connectivity-issues.md)
+
+
+### Números de erros de falha transitória
 
 
 | Número do erro | Severidade | Descrição |
 | ---: | ---: | :--- |
 | 4060 | 16 | Não é possível abrir o banco de dados "%.&#x2a;ls" solicitado pelo logon. Houve falha no logon. |
 |40197|17|O serviço encontrou um erro ao processar sua solicitação. Tente novamente. Código de erro %d.<br/><br/>Você receberá este erro quando o serviço ficar inativo devido a atualizações de software ou hardware, falhas de hardware ou quaisquer outros problemas de failover. O código de erro (%d) inserido na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou failover que ocorreu. Alguns exemplos de códigos que são inseridos na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>Reconectar-se ao servidor do Banco de Dados SQL conectará você automaticamente a uma cópia íntegra do banco de dados. Seu aplicativo deve capturar o erro 40197, registrar o código de erro inserido (%d) na mensagem para solução do problema e tentar se reconectar ao Banco de Dados SQL até que os recursos estejam disponíveis e a conexão seja restabelecida.|
-|40501|20|O serviço está ocupado. Repita a solicitação depois de 10 segundos. ID do incidente: %ls. Código: %d.<br/><br/>*Observação:* para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>• [Limitação do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn338079.aspx).
+|40501|20|O serviço está ocupado. Repita a solicitação depois de 10 segundos. ID do incidente: %ls. Código: %d.<br/><br/>*Observação:* para obter mais informações, consulte:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md).
 |40613|17|O banco de dados “%.&#x2a;ls” no servidor “%.&#x2a;ls” não está disponível momento. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da sessão “%.&#x2a;ls”.|
 |49918|16|Não é possível processar a solicitação. Não há recursos suficientes para processar a solicitação.<br/><br/>O serviço está ocupado no momento. Tente fazer novamente a solicitação. |
 |49919|16|Não é possível criar o processo ou atualizar a solicitação. Muitas operações de criação ou atualização em andamento para a assinatura "%ld".<br/><br/>O serviço está ocupado processando várias solicitações de criação ou atualização para a assinatura ou o servidor. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para operações pendentes. Espere até que as solicitações pendentes de criação ou atualização sejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
 |49920|16|Não é possível processar a solicitação. Muitas operações em andamento para assinatura "% ld".<br/><br/>O serviço está ocupado processando várias solicitações para essa assinatura. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para status de operação. Espere até que as solicitações pendentes estejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
 
-**Observação:** Talvez seja necessário incluir os erros de federação 10053 e 10054 em sua lógica de repetição.
+**Observação:** talvez seja necessário incluir os erros de federação 10053 e 10054 em sua lógica de repetição.
 
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
@@ -70,7 +88,7 @@ Erros transitórios também são chamados de falhas transitórias. Quando o prog
 ## Erros de cópia de banco de dados
 
 
-A tabela a seguir abrange vários erros que você pode encontrar ao copiar um banco de dados no Banco de Dados SQL do Azure. Para saber mais, consulte [Copiando Bancos de Dados no Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ff951624.aspx).
+A tabela a seguir abrange vários erros que você pode encontrar ao copiar um banco de dados no Banco de Dados SQL do Azure. Para obter mais informações, consulte [Copiar um banco de dados SQL do Azure](sql-database-copy.md).
 
 
 |Número do erro|Severidade|Descrição|
@@ -107,13 +125,13 @@ A tabela a seguir abrange os erros causados pelo uso excessivo de recursos enqua
 **Dica:** o link a seguir oferece mais informações que se aplicam à maioria ou a todos os erros nesta seção:
 
 
-- [Limites de Recurso de Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn338081.aspx).
+- [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
 
 |Número do erro|Severidade|Descrição|
 |---:|---:|:---|
-|10928|20|ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para saber mais, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>A ID do recurso qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>•[Governança de recursos do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
-|10929|20|ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para saber mais, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, tente novamente mais tarde.<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>•[Governança de recursos do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).|
+|10928|20|ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para saber mais, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>A ID do recurso qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md). |
+|10929|20|ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para saber mais, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, tente novamente mais tarde.<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>*Observação:* para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>•[Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md).|
 |40544|20|O banco de dados atingiu sua cota de tamanho. Particione ou exclua dados, descarte índices ou consulte a documentação para conhecer as possíveis resoluções.|
 |40549|16|A sessão foi encerrada porque você tem uma transação de longa duração. Tente encurtar a transação.|
 |40550|16|A sessão foi encerrada porque adquiriu muitos bloqueios. Tente ler ou modificar menos linhas em uma única transação.|
@@ -125,7 +143,7 @@ A tabela a seguir abrange os erros causados pelo uso excessivo de recursos enqua
 Para ver uma discussão adicional sobre a governança de recursos e os erros associados a ela, consulte:
 
 
-- [Governança de Recursos do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).
+- [Limites de Recurso de Banco de Dados SQL do Azure](sql-database-resource-limits.md).
 
 
 <a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
@@ -133,14 +151,14 @@ Para ver uma discussão adicional sobre a governança de recursos e os erros ass
 ## Erros de federação
 
 
-A tabela a seguir abrange os erros que você pode encontrar ao trabalhar com federações. Para saber mais, consulte [Gerenciando Federações de Bancos de Dados (Banco de Dados SQL do Azure)](http://msdn.microsoft.com/library/azure/hh597455.aspx).
+A tabela a seguir abrange os erros que você pode encontrar ao trabalhar com federações.
 
 
 > [AZURE.IMPORTANT]A implementação atual das Federações será descontinuada com as camadas de serviço Web e Business. A versão V12 do Banco de Dados SQL do Azure não dá suporte às camadas de serviço Web e Business.
 > 
 > O recurso de Dimensionamento elástico foi projetado para criar aplicativos de fragmentação com um esforço mínimo.
 > 
-> Para obter mais informações sobre o Dimensionamento Elástico, consulte [Tópicos sobre o Dimensionamento Elástico do Banco de Dados SQL do Azure](sql-database-elastic-scale-documentation-map.md). Considere a implantação de soluções personalizadas de fragmentação para maximizar a escalabilidade, a flexibilidade e o desempenho. Para obter mais informações sobre a fragmentação personalizada, consulte [Colocando em Escala Horizontalmente o Bancos de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn495641.aspx).
+> Para obter mais informações sobre o Dimensionamento Elástico, consulte [Tópicos sobre o Dimensionamento Elástico do Banco de Dados SQL do Azure](sql-database-elastic-scale-documentation-map.md). Considere a implantação de soluções personalizadas de fragmentação para maximizar a escalabilidade, a flexibilidade e o desempenho. Para obter mais informações sobre fragmentação personalizada, consulte [Visão geral dos recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md).
 
 
 |Número do erro|Severidade|Descrição|Redução|
@@ -162,7 +180,7 @@ A tabela a seguir abrange os erros que você pode encontrar ao trabalhar com fed
 |45008|16|Falha na operação <statement>. O tipo de dados da chave de federação não coincide com o tipo de dados da coluna|Sem suporte.|
 |45009|16|Falha na operação <statement>. A operação não tem suporte em conexões de filtragem|Sem suporte.|
 |45010|16|Falha na operação <statement>. Não é possível atualizar a chave da federação|Sem suporte.|
-|45011|16|Falha na operação <statement>. Não é possível atualizar o esquema da chave da federação|Sem suporte.|
+|45011|16|Falha na operação de <statement>. Não é possível atualizar o esquema da chave da federação|Sem suporte.|
 |45012|16|O valor especificado para a chave de federação não é válido|O valor deve estar no intervalo que a conexão está tratando.<br/><br/>Se filtrado, o valor da chave de federação especificado.<br/><br/>Se não filtrado, o intervalo coberto pelo membro da federação.|
 |45013|16|O SID já existe com um nome de usuário diferente|O SID de um usuário em um membro da federação é copiado do SID a mesma conta de usuário na raiz da federação. Sob certas condições, o SID já pode estar em uso.|
 |45014|16|Não há suporte para %Is em %Is.|Operação sem suporte.|
@@ -247,7 +265,7 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 
 ## Links relacionados
 
-- [Limitações e diretrizes de gerais do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
-- [Gerenciamento de recursos](http://msdn.microsoft.com/library/azure/dn338083.aspx)
+- [Diretrizes e limitações gerais do Banco de Dados SQL do Azure](sql-database-general-limitations.md)
+- [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

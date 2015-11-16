@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis
@@ -79,4 +79,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

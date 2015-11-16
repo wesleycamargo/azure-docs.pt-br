@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/03/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -23,6 +23,7 @@
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
+
 
 O **[bcp][]** é um utilitário de carregamento em massa de linha de comando que permite copiar dados entre o SQL Server, arquivos de dados e o SQL Data Warehouse. Use o bcp para importar grandes quantidades de linhas nas tabelas do SQL Data Warehouse ou para exportar dados das tabelas do SQL Server em arquivos de dados. Exceto quando usado com a opção queryout, o bcp não exige conhecimento em Transact-SQL.
 
@@ -34,7 +35,7 @@ Com o bcp, você pode:
 - Usar um utilitário de linha de comando simples para extrair dados do SQL Data Warehouse.
 
 Este tutorial mostrará como:
- 
+
 - Importar dados em uma tabela usando o comando bcp in
 - Exportar dados de uma tabela usando o comando bcp out
 
@@ -64,14 +65,20 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 Depois de conectado, copie o script de tabela a seguir no prompt do sqlcmd e pressione a tecla Enter:
 
 ```
-CREATE TABLE DimDate2 (DateId INT NOT NULL, CalendarQuarter TINYINT NOT NULL, FiscalQuarter TINYINT NOT NULL);
-```
-
-Na próxima linha, insira o terminador de lote GO e, em seguida, pressione a tecla Enter para executar a instrução:
-
-```
+CREATE TABLE DimDate2 
+(
+    DateId INT NOT NULL,
+    CalendarQuarter TINYINT NOT NULL,
+    FiscalQuarter TINYINT NOT NULL
+)
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = ROUND_ROBIN
+);
 GO
 ```
+>[AZURE.NOTE]Veja o tópico [Design de tabela][] no grupo de tópicos Desenvolver para obter mais informações sobre as opções disponíveis na cláusula WITH.
 
 ### Etapa 2: Criar um arquivo de dados de origem
 
@@ -127,6 +134,19 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
+### Etapa 4: criar estatísticas sobre os dados recém-carregados 
+
+O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, confira o tópico [Estatísticas][] no grupo de tópicos Desenvolver. Veja abaixo um exemplo de como criar estatísticas na tabela carregada neste exemplo
+
+Execute as seguintes instruções CREATE STATISTICS em um prompt de sqlcmd:
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+GO
+```
+
 ## Exportar dados do SQL Data Warehouse
 Neste tutorial, você criará um arquivo de dados de uma tabela no SQL Data Warehouse. Exportaremos os dados que criamos acima para um novo arquivo de dados chamado DimDate2\_export.txt.
 
@@ -163,8 +183,11 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 
 <!--Article references-->
 
-[Carregar dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-load/
-[Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
+[Carregar dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Design de tabela]: ./sql-data-warehouse-develop-table-design.md
+[Estatísticas]: ./sql-data-warehouse-develop-statistics.md
+
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -173,4 +196,4 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 <!--Other Web references-->
 [Centro de Download da Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

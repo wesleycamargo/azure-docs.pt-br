@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="andkjell;billmath"/>
 
 # Pré-requisitos para o Azure AD Connect (Azure Active Directory Connect)
@@ -31,8 +31,9 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas que você preci
 **Ambiente e servidores locais**
 
 - A versão de esquema do AD e o nível funcional de floresta devem ser o Windows Server 2003 ou posterior. Os controladores de domínio podem executar qualquer versão, desde os requisitos de nível de floresta e de esquema sejam atendidos.
+- Se você planeja usar o recurso **write-back de senha**, os Controladores de Domínio devem estar no Windows Server 2008 (com o SP mais recente) ou posterior.
 - O Azure AD Connect deve ser instalado no Windows Server 2008 ou posterior. Esse servidor pode ser um controlador de domínio ou um servidor membro se usar configurações expressas. Se você usar configurações personalizadas, o servidor também pode ser independente e não precisa ser ingressado em um domínio.
-- Se você planeja usar a sincronização de senha do recurso, o servidor deve ser o Windows Server 2008 R2 SP1 ou posterior.
+- Se você planeja usar o recurso **sincronização de senha**, o servidor deve ser o Windows Server 2008 R2 SP1 ou posterior.
 - Se os Serviços de Federação do Active Directory estiverem sendo implantados, os servidores onde o AD FS ou Proxy de Aplicativo Web será instalado devem ser Windows Server 2012 R2 ou posterior. O gerenciamento remoto do Windows deve estar habilitado nesses servidores para instalação remota.
 - O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Por padrão, um SQL Server 2012 Express LocalDB (uma versão light do SQL Server Express) é instalado e a conta de serviço para o serviço é criada no computador local. O SQL Server Express tem um limite de tamanho de 10GB que permite que você gerencie aproximadamente 100.000 objetos. Se precisar gerenciar um volume maior de objetos de diretório, você precisa apontar o processo de instalação para uma versão diferente do SQL Server. O Azure Connect AD oferece suporte a todos as versões do Microsoft SQL Server do SQL Server 2008 (com SP4) para o SQL Server 2014.
 
@@ -40,11 +41,11 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas que você preci
 
 - Uma conta de Administrador Global de AD do Azure para o diretório do AD do Azure com o qual você deseja se integrar.
 - Uma conta de Administrador Corporativo do Active Directory local se você usar configurações expressas ou atualizar do DirSync.
-- [Contas são Active Directory](active-directory-aadconnect-accounts-permissions.md) se você usar o caminho de instalação de configurações personalizadas.
+- [Contas são do Active Directory](active-directory-aadconnect-accounts-permissions.md) se você usar o caminho de instalação de configurações personalizadas.
 
 **Conectividade**
 
-- Se você estiver usando um proxy de saída para conectar-se à Internet, a seguinte configuração no arquivo **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** deve ser adicionada para que o assistente de instalação e a Sincronização do AD do Azure possam se conectar à Internet e ao AD do Azure.
+- Se estiver usando um proxy de saída para se conectar à Internet, a seguinte configuração no arquivo **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** deve ser adicionada para que o assistente de instalação e a sincronização do AD do Azure possam se conectar à Internet e ao AD do Azure.
 
 ```
     <system.net>
@@ -58,7 +59,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas que você preci
     </system.net>
 ```
 
-Esse texto deve ser inserido na parte inferior do arquivo. Neste código, &lt;PROXYADRESS&gt; representa o nome de host ou endereço IP do proxy real. - Se o proxy limita as URLs que podem ser acessadas, as URLs documentadas em [intervalos de endereços IP e URLs do Office 365](https://support.office.com/pt-BR/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devem ser abertos no proxy.
+Esse texto deve ser inserido na parte inferior do arquivo. Neste código, &lt;PROXYADRESS&gt; representa o nome de host ou o endereço IP do proxy real. - Se o proxy limitar as URLs que podem ser acessadas, as URLs documentadas em [intervalos de endereços IP e URLs do Office 365](https://support.office.com/pt-BR/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) deverão ser abertas no proxy.
 
 **Outros**
 
@@ -76,7 +77,7 @@ O Azure AD Connect depende do PowerShell e do .Net 4.5.1. Dependendo da versão 
   - A versão mais recente do PowerShell está disponível no **Windows Management Framework 4.0**, disponível no [Centro de Download da Microsoft](http://www.microsoft.com/downloads).
   - .NET 4.5.1 e versões posteriores estão disponíveis no [Centro de Download da Microsoft](http://www.microsoft.com/downloads).
 - Windows Server 2008
-  - A versão mais recente do PowerShell suportada está disponível no **Windows Management Framework 3.0**, disponível no [Centro de Download da Microsoft](http://www.microsoft.com/downloads).
+  - A versão mais recente do PowerShell com suporte está disponível no **Windows Management Framework 3.0**, disponível no [Centro de Download da Microsoft](http://www.microsoft.com/downloads).
  - .NET 4.5.1 e versões posteriores estão disponíveis no [Centro de Download da Microsoft](http://www.microsoft.com/downloads).
 
 ## Componentes de suporte do Azure AD Connect
@@ -112,6 +113,6 @@ Os requisitos mínimos para computadores que executam o AD FS ou servidores de a
 
 
 ## Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais do Active Directory do Azure](active-directory-aadconnect.md).
+Saiba mais sobre [Como integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

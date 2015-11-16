@@ -19,7 +19,7 @@
 
 # Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]((azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md).
 
 Este tópico descreve como usar a CLI do Azure no modo asm (Gerenciamento de Serviços) para criar, gerenciar e excluir serviços na linha de comando de computadores com Mac, Linux e Windows. É possível realizar muitas das mesmas tarefas usando as várias bibliotecas dos SDKs do Azure, com o Azure PowerShell, e usando o Portal do Azure. O uso dos serviços do Azure com o modo de Gerenciamento de Serviços é conceitualmente semelhante à criação e ao gerenciamento de conceitos e serviços individuais do Azure, como Sites, Máquinas Virtuais, Redes Virtuais, Armazenamento e assim por diante.
 
@@ -2350,4 +2350,4 @@ Remove uma entrada de servidor DNS da configuração de rede.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

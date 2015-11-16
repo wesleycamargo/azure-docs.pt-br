@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gerenciando aplicativos da Malha do Serviço no Visual Studio"
-   description="Você pode gerenciar os serviços e aplicativos da Malha do Serviço do Microsoft Azure por meio do Visual Studio."
+   pageTitle="Gerenciar seus aplicativos no Visual Studio | Microsoft Azure"
+   description="Use o Visual Studio para criar, desenvolver, empacotar, implantar e depurar seus aplicativos e serviços do Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Gerenciando aplicativos da Malha do Serviço no Visual Studio
+# Usar o Visual Studio para simplificar a escrita e o gerenciamento de seus aplicativos do Service Fabric
 
-Você pode gerenciar os serviços e aplicativos da Malha do Serviço do Microsoft Azure por meio do Visual Studio. Depois de [configurar o ambiente de desenvolvimento](../service-fabric-setup-your-development-environment),você pode usar o Visual Studio para criar aplicativos da Malha do Serviço, adicionar serviços, ou pacotes, registrar e implantar aplicativos no cluster de desenvolvimento local.
+É possível gerenciar os serviços e aplicativos do Service Fabric por meio do Visual Studio. Depois de [configurar o ambiente de desenvolvimento](service-fabric-setup-your-development-environment.md),você pode usar o Visual Studio para criar aplicativos da Malha do Serviço, adicionar serviços, ou pacotes, registrar e implantar aplicativos no cluster de desenvolvimento local.
 
-Para gerenciar aplicativos da Malha do Serviço, no Gerenciador de Soluções, clique com o botão direito do mouse no projeto do aplicativo.
+Para gerenciar seu aplicativo, no Gerenciador de Soluções, clique com o botão direito do mouse no projeto do aplicativo.
 
 ![Gerencie seu aplicativo da Malha do Serviço clicando com o botão direito do mouse no projeto do Aplicativo][manageservicefabric]
 
 ## Implantando o aplicativo da Malha do Serviço
 
-A implantação de um aplicativo da Malha do Serviço combina as etapas a seguir em uma única operação.
+A implantação de um aplicativo combina as etapas a seguir em uma única operação.
 
 1. Criar o pacote de aplicativo
 2. Carregar o pacote de aplicativo no repositório de imagens
@@ -79,4 +79,4 @@ Você pode remover um aplicativo do cluster local usando o Gerenciador de Servid
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

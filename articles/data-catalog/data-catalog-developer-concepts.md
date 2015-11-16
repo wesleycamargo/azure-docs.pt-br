@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
+   ms.date="10/27/2015"
    ms.author="derrickv"/>
 
 # Conceitos de desenvolvedor do Catálogo de Dados do Azure
@@ -40,7 +40,7 @@ Os usuários são entidades de segurança que têm permissões para executar aç
 
 Há várias funções de que um usuário pode ter. Para obter mais informações sobre funções, consulte a seção Funções e a Autorização.
 
-Somente usuários individuais (e não grupos de segurança) podem ser adicionados.
+Usuários individuais e grupos de segurança podem ser adicionados.
 
 O Catálogo de Dados do Azure usa o Active Directory do Azure para gerenciar identidades e acesso. Cada usuário do catálogo deve ser um membro do Active Directory para a conta.
 
@@ -92,19 +92,19 @@ Essas propriedades se aplicam a todos os tipos de ativos de raiz e todos os tipo
 
 > [AZURE.NOTE]As propriedades cujos nomes começam com um sublinhado duplo são tipos do sistema.
 
-<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>A hora da última modificação na raiz. Isso é definido pelo cliente. (O servidor não mantém esse valor).</td></tr><tr><td>__id</td><td>Guid</td><td>ID do item (somente leitura). Essa ID garante a exclusividade do ativo. Por isso, a chave para o item é __Id, __id da Raiz. Essa tupla só tem garantia de exclusividade em um diretório.</td></tr><tr><td>__typeId</td><td>Guid</td><td>O tipo de ativo (somente leitura)</td></tr><tr><td>__creatorId</td><td>Cadeia de caracteres</td><td>Uma cadeia de caracteres usada pelo criador do ativo para identificá-lo com exclusividade. </td></tr></table>
+<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>A hora da última modificação na raiz. Isso é definido pelo cliente. (O servidor não mantém esse valor).</td></tr><tr><td>__id</td><td>Cadeia de caracteres</td><td>ID do item (somente leitura). Essa ID garante a exclusividade do ativo em um catálogo.</td></tr><tr><td>__type</td><td>Cadeia de caracteres</td><td>O tipo de ativo (somente leitura)</td></tr><tr><td>__creatorId</td><td>Cadeia de caracteres</td><td>Uma cadeia de caracteres usada pelo criador do ativo para identificá-lo com exclusividade. </td></tr></table>
 
 ### Propriedades comuns de raiz
 
 Essas propriedades se aplicam a todos os tipos de ativos de raiz.
 
-<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>name</td><td>Cadeia de caracteres</td><td>Um nome derivado das informações de local da fonte de dados</td></tr><tr><td>dsl</td><td>Local da fonte de dados</td><td>Descreve com exclusividade a fonte de dados e é um dos identificadores do ativo. (Consulte a seção de identidade dupla). A estrutura da dsl varia de acordo com o tipo de origem.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Mais detalhes sobre o tipo de ativo.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descreve o usuário que registrou esse ativo por último. Contém a ID exclusiva do usuário (o upn), bem como um nome de exibição (lastName e firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>A última vez que este ativo foi registrado no catálogo.</td></tr></table>
+<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>name</td><td>Cadeia de caracteres</td><td>Um nome derivado das informações de local da fonte de dados</td></tr><tr><td>dsl</td><td>Local da fonte de dados</td><td>Descreve com exclusividade a fonte de dados e é um dos identificadores do ativo. (Consulte a seção de identidade dupla). A estrutura da dsl varia de acordo com o tipo de origem.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Mais detalhes sobre o tipo de ativo.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descreve o usuário que registrou esse ativo por último. Contém a ID exclusiva do usuário (o upn), bem como um nome de exibição (lastName e firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>A última vez que este ativo foi registrado no catálogo.</td></tr><tr><td>containerId</td><td>Cadeia de caracteres</td><td>ID do ativo de contêiner da fonte de dados. Não há suporte para essa propriedade para o tipo Contêiner.</td></tr></table>
 
 ### Tipos de ativos de raiz
 
 Tipos de ativos de raiz são os tipos que representam os vários tipos de ativos de dados que podem ser registrados no catálogo.
 
-<table><tr><td><b>Tipo de Ativo</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>Tabela</td><td></td><td></td><td>Uma Tabela representa quaisquer dados tabulares. Isso inclui uma Tabela SQL, Exibição SQL, Tabela Tabular do Analysis Services, dimensão do multidimensional do Analysis Services, Tabela do Oracle, etc...   </td></tr><tr><td>Medida</td><td></td><td></td><td>Esse tipo representa uma medida do Analysis Services.</td></tr><tr><td></td><td>Medida</td><td>Coluna</td><td>Metadados que descrevem a medida</td></tr><tr><td></td><td>isCalculated </td><td>Booliano</td><td>Especifica se a medida é calculada ou não.</td></tr><tr><td></td><td>measureGroup</td><td>Cadeia de caracteres</td><td>Contêiner físico para medidas</td></tr><tr><td>KPI</td><td></td><td></td><td>Esse tipo representa um indicador chave de desempenho do Analysis Services.</td></tr><tr><td></td><td>goalExpression</td><td>Cadeia de caracteres</td><td>Uma expressão numérica MDX ou um cálculo que retorna o valor de destino do KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Cadeia de caracteres</td><td>Uma expressão numérica MDX que retorna o valor real do KPI.</td></tr><tr><td></td><td>statusExpression</td><td>Cadeia de caracteres</td><td>Uma expressão MDX que representa o estado do KPI em um ponto específico no tempo.</td></tr><tr><td></td><td>trendExpression</td><td>Cadeia de caracteres</td><td>Uma expressão MDX que avalia o valor do KPI com o passar do tempo. A tendência pode ser qualquer critério com base no tempo que seja útil em um contexto de negócios específico.</td></tr><tr><td></td><td>measureGroup</td><td>Cadeia de caracteres</td><td>contêiner físico para medidas</td></tr><tr><td>Relatório</td><td></td><td></td><td>Esse tipo representa um relatório do SQL Server Reporting Services </td></tr><tr><td></td><td>CreatedBy</td><td>Cadeia de caracteres</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>Cadeia de caracteres</td><td></td></tr></table>
+<table><tr><td><b>Tipo de Ativo</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>Tabela</td><td></td><td></td><td>Uma Tabela representa quaisquer dados tabulares. Isso inclui uma Tabela SQL, Exibição SQL, Tabela Tabular do Analysis Services, dimensão do multidimensional do Analysis Services, Tabela do Oracle, etc...   </td></tr><tr><td>Medida</td><td></td><td></td><td>Esse tipo representa uma medida do Analysis Services.</td></tr><tr><td></td><td>Medida</td><td>Coluna</td><td>Metadados que descrevem a medida</td></tr><tr><td></td><td>isCalculated </td><td>Booliano</td><td>Especifica se a medida é calculada ou não.</td></tr><tr><td></td><td>measureGroup</td><td>Cadeia de caracteres</td><td>Contêiner físico para medidas</td></tr><tr><td></td><td>goalExpression</td><td>Cadeia de caracteres</td><td>Uma expressão numérica MDX ou um cálculo que retorna o valor de destino do KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Cadeia de caracteres</td><td>Uma expressão numérica MDX que retorna o valor real do KPI.</td></tr><tr><td></td><td>statusExpression</td><td>Cadeia de caracteres</td><td>Uma expressão MDX que representa o estado do KPI em um ponto específico no tempo.</td></tr><tr><td></td><td>trendExpression</td><td>Cadeia de caracteres</td><td>Uma expressão MDX que avalia o valor do KPI com o passar do tempo. A tendência pode ser qualquer critério com base no tempo que seja útil em um contexto de negócios específico.</td></tr><tr><td></td><td>measureGroup</td><td>Cadeia de caracteres</td><td>contêiner físico para medidas</td></tr><tr><td>Relatório</td><td></td><td></td><td>Esse tipo representa um relatório do SQL Server Reporting Services </td></tr><tr><td></td><td>CreatedBy</td><td>Cadeia de caracteres</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>Cadeia de caracteres</td><td></td></tr><tr><td>Contêiner</td><td></td><td></td><td>Esse tipo representa um contêiner de outros ativos, como um banco de dados SQL, um contêiner de Blobs do Azure ou um modelo do Analysis Services.</td></tr></table>
 
 ### Tipos de anotação
 
@@ -123,6 +123,10 @@ Tipos de anotação representam tipos de metadados que podem ser atribuídos a o
 
 <tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>colunas</td></td><td>ColumnDataProfile[]</td><td>O número de linhas no conjunto de dados</td></tr>
+
+<tr><td>Documentação</td><td></td><td></td><td>Um determinado ativo pode ter apenas uma documentação associada a ele.</td></tr>
+<tr><td></td><td>Tipo MIME</td><td>cadeia de caracteres</td><td>O tipo mime do conteúdo.</td></tr>
+<tr><td></td><td>conteúdo</td><td>cadeia de caracteres</td><td>O conteúdo da documentação.</td></tr>
 
 
 </table>
@@ -258,4 +262,4 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

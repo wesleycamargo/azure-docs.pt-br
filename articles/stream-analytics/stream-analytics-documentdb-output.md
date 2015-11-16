@@ -19,7 +19,7 @@
 
 # Banco de Dados de Documentos como saída do Stream Analytics do Azure
 
-Agora o Stream Analytics do Azure oferece suporte ao [Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) como saída, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento descreve como implementar essa integração da melhor maneira. Para aqueles que não estão familiarizados com o Banco de Dados de Documentos, consulte [Roteiro de aprendizagem do Banco de Dados de Documentos](../articles/documentdb-get-started.md/) para começar.
+Agora o Stream Analytics do Azure oferece suporte ao [Banco de Dados de Documentos do Azure](http://azure.microsoft.com/services/documentdb/) como saída, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento descreve como implementar essa integração da melhor maneira. Para aqueles que não estão familiarizados com o Banco de Dados de Documentos, veja [Roteiro de aprendizagem do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para obter uma introdução.
 
 A saída do Banco de Dados de Documentos do Azure no Stream Analytics permite a gravação dos resultados de seu processamento de fluxo em sua coleção de Banco de Dados de Documentos. O Stream Analytics não cria coleções em seu banco de dados, em vez disso, ele exige a criação delas antecipadamente. Isso serve para que os custos de cobrança de coleções de Banco de Dados de Documentos sejam transparentes, e para que você possa ajustar o desempenho, a consistência e a capacidade de suas coleções diretamente com as [APIs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781481.aspx). Recomendamos o uso de um banco de dados do Banco de Dados de Documentos por trabalho de transmissão a fim de separar logicamente suas coleções de acordo com o trabalho de transmissão.
 
@@ -59,4 +59,4 @@ A criação de Banco de Dados de Documentos como uma saída no Stream Analytics 
 -   **Chave de Partição** – O nome do campo nos eventos de saída usado para especificar a chave para a saída do particionamento em várias coleções. Para uma saída de coleção única, nenhuma coluna de saída arbitrária pode ser usada, por exemplo, PartitionId.  
 -   **ID do Documento** – Opcional. O nome do campo em eventos de saída usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

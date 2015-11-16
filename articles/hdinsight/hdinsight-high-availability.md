@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/29/2015"
 	ms.author="jgao"/>
 
 
@@ -68,11 +68,19 @@ Os nós principais são alocados como grandes VMs (máquinas virtuais) por padr�
 
 VMs extragrandes podem ser configuradas usando cmdlets do PowerShell do Azure ou o SDK do HDInsight.
 
-A criação e o provisionamento de um cluster usando o PowerShell do Azure estão documentados em [Administrar o HDInsight usando o PowerShell](hdinsight-administer-use-powershell.md). A configuração de um nó principal extragrande exige a adição do parâmetro `-HeadNodeVMSize ExtraLarge` para o cmdlet `New-AzureHDInsightcluster` usado neste código.
+A criação e o provisionamento de um cluster usando o PowerShell do Azure estão documentados em [Administrar o HDInsight usando o PowerShell](hdinsight-administer-use-powershell.md). A configuração de um nó principal extragrande exige a adição do parâmetro `-HeadNodeVMSize ExtraLarge` para o cmdlet `New-AzureRmHDInsightcluster` usado neste código.
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge head-node VM
-    New-AzureHDInsightCluster -Name $clusterName -Location $location -HeadNodeVMSize ExtraLarge -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
+    New-AzureRmHDInsightCluster `
+				-ResourceGroupName $resourceGroupName `
+				-ClusterName $clusterName ` 
+				-Location $location `
+				-HeadNodeVMSize ExtraLarge `
+				-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+				-DefaultStorageAccountKey $storageAccountKey `
+				-DefaultStorageContainerName $containerName  `
+				-ClusterSizeInNodes $clusterNodes
 
 Para o SDK, a história é semelhante. A criação e o provisionamento de um cluster usando o SDK estão documentados em [Usando o SDK .NET do HDInsight](hdinsight-provision-clusters.md#sdk). A configuração de um nó principal extra grande exige a adição do parâmetro `HeadNodeSize = NodeVMSize.ExtraLarge` para o método `ClusterCreateParameters()` usado neste código.
 
@@ -80,15 +88,15 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 	# Configured with an ExtraLarge head-node VM
     ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
     {
-    Name = clustername,
-    Location = location,
-    HeadNodeSize = NodeVMSize.ExtraLarge,
-    DefaultStorageAccountName = storageaccountname,
-    DefaultStorageAccountKey = storageaccountkey,
-    DefaultStorageContainer = containername,
-    UserName = username,
-    Password = password,
-    ClusterSizeInNodes = clustersize
+		Name = clustername,
+		Location = location,
+		HeadNodeSize = NodeVMSize.ExtraLarge,
+		DefaultStorageAccountName = storageaccountname,
+		DefaultStorageAccountKey = storageaccountkey,
+		DefaultStorageContainer = containername,
+		UserName = username,
+		Password = password,
+		ClusterSizeInNodes = clustersize
     };
 
 
@@ -98,4 +106,4 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 - [Conectar ao clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Usando o SDK .NET do HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

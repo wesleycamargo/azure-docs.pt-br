@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="mebha"/>
+	ms.date="11/03/2015"
+	ms.author="meetb"/>
 
 
 # Conectar-se ao Banco de Dados SQL usando Node.js no Windows
@@ -53,7 +53,7 @@ Em seguida, navegue até a pasta node\_modules\\msnodesql e abra o executável *
 Consulte o [tópico Introdução](sql-database-get-started.md) para aprender a criar um exemplo de banco de dados e recuperar a cadeia de conexão. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionarão apenas com o **esquema AdventureWorks**.
 
 
-## Conectar-se ao seu Banco de Dados SQL
+## Conectar-se ao banco de dados SQL
 
 
 - Copie o seguinte código em um arquivo .js localizado no diretório do projeto.
@@ -224,4 +224,4 @@ Para que este exemplo de código funcione, você deve primeiro ter ou criar um p
 
 Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conectar o Banco de Dados do SQL Azure à Pesquisa do Azure usando indexadores" 
+	pageTitle="Conectando o Banco de Dados SQL do Azure à Pesquisa do Azure usando indexadores | Microsoft Azure" 
 	description="Saiba como extrair dados do Banco de Dados SQL do Azure para um índice de Pesquisa do Azure usando indexadores." 
 	services="search" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
 #Conectar o Banco de Dados do SQL Azure à Pesquisa do Azure usando indexadores
 
-O serviço de Pesquisa do Azure facilita o fornecimento de uma excelente experiência de pesquisa. Porém, antes de poder pesquisar, você precisa preencher um índice de Pesquisa do Azure com seus dados. Se os dados estiverem em um Banco de Dados SQL do Azure, o novo **indexador da Pesquisa do Azure para o Banco de Dados SQL do Azure** (ou **indexador do SQL Azure** para resumir) na Pesquisa do Azure poderá automatizar o processo de indexação. Isso significa menos código para escrever e menos infraestrutura para se preocupar.
+O serviço da Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado que facilita o fornecimento de uma excelente experiência de pesquisa. Antes de pesquisar, você precisa popular um índice da Pesquisa do Azure com seus dados. Se os dados estiverem em um Banco de Dados SQL do Azure, o novo **indexador da Pesquisa do Azure para o Banco de Dados SQL do Azure** (ou **indexador do SQL Azure** para resumir) na Pesquisa do Azure poderá automatizar o processo de indexação. Isso significa menos código para escrever e menos infraestrutura para se preocupar.
 
 Atualmente, os indexadores funcionam apenas com o Banco de Dados SQL do Azure, SQL Server em VMs do Azure e [Banco de Dados de Documentos do Azure](../documentdb/documentdb-search-indexer.md). Neste artigo, vamos nos concentrar nos indexadores que funcionam com o Banco de Dados SQL do Azure. Se você quiser suporte para outras fontes de dados, forneça seus comentários no [Fórum de comentários da Pesquisa do Azure](http://feedback.azure.com/forums/263029-azure-search).
 
@@ -279,4 +279,4 @@ R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e o
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

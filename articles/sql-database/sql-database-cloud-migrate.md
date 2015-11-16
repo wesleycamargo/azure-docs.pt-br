@@ -106,17 +106,18 @@ A lista a seguir descreve as opções para migração de um banco de dados compa
 
 ### Migrando um banco de dados compatível sem tempo de inatividade
 
-Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você pode usar a replicação transacional do SQL Server como sua solução de migração. No momento, esse método está em modo de visualização com o [SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/). Com a replicação transacional, todas as alterações feitas em seus dados ou no esquema ocorridas entre o início da migração e sua conclusão aparecerão em seu Banco de Dados SQL do Azure. Quando a migração for concluída, bastará alterar a cadeia de conexão de seus aplicativos para apontá-los para seu Banco de Dados SQL do Azure em vez de apontá-los para seu banco de dados local. Assim que a replicação transacional realizar todas as alterações restantes em seu banco de dados local, e todos os seus aplicativos apontarem para o Banco de Dados do Azure, você poderá desinstalar a replicação com segurança, deixando o Banco de Dados SQL do Azure como o sistema de produção.
+Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você pode usar a replicação transacional do SQL Server como sua solução de migração. Com a replicação transacional, todas as alterações feitas em seus dados ou no esquema ocorridas entre o início da migração e sua conclusão aparecerão em seu Banco de Dados SQL do Azure. Quando a migração for concluída, bastará alterar a cadeia de conexão de seus aplicativos para apontá-los para seu Banco de Dados SQL do Azure em vez de apontá-los para seu banco de dados local. Assim que a replicação transacional realizar todas as alterações restantes em seu banco de dados local, e todos os seus aplicativos apontarem para o Banco de Dados do Azure, você poderá desinstalar a replicação com segurança, deixando o Banco de Dados SQL do Azure como o sistema de produção.
 
  ![Diagrama do SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
 
-A replicação transacional é uma tecnologia interna e integrada ao SQL Server desde o SQL Server 6.5. É uma tecnologia muito madura e comprovada, conhecida da maioria dos DBAs e na qual eles têm experiência. Com o [SQL Server 2016 preview](http://www.microsoft.com/server-cloud/products/sql-server-2016/), é possível configurar o Banco de Dados SQL do Azure como um [assinante de replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) para sua publicação local. A experiência de configurá-lo no Management Studio é exatamente a mesma de configurar um assinante de replicação transacional em um servidor local. O suporte para esse cenário ocorre com as seguintes versões do SQL Server:
+A replicação transacional é uma tecnologia interna e integrada ao SQL Server desde o SQL Server 6.5. É uma tecnologia muito madura e comprovada, conhecida da maioria dos DBAs e na qual eles têm experiência. Com o [SQL Server 2016 preview](http://www.microsoft.com/server-cloud/products/sql-server-2016/), é possível configurar o Banco de Dados SQL do Azure como um [assinante de replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) para a sua publicação local. A experiência de configurá-lo no Management Studio é exatamente a mesma de configurar um assinante de replicação transacional em um servidor local. O suporte para esse cenário ocorre com as seguintes versões do SQL Server:
 
- - SQL14 SP1 CU3 e versões posteriores
- - SQL14 RTM CU10 e versões posteriores
- - SQL11 SP2 CU8 e versões posteriores
- - SQL11 SP3, quando for lançado
+ - SQL Server 2016 CTP3 (visualização) e posterior 
+ - SQL Server 2014 SP1 CU3 e posterior
+ - SQL Server 2014 RTM CU10 e posterior
+ - SQL Server 2012 SP2 CU8 e posterior
+ - SQL Server 2013 SP3 quando ele for lançado
 
 Você também pode usar a replicação transacional para migrar um subconjunto de seu banco de dados local. A publicação que você replica no Banco de Dados SQL do Azure pode ser limitada a um subconjunto de tabelas no banco de dados que está sendo replicado. Além disso, para cada tabela que estiver sendo replicada, você poderá limitar os dados a um subconjunto de linhas e/ou um subconjunto de colunas.
 
@@ -276,4 +277,4 @@ Se você determinar que o banco de dados do SQL Server de origem não é compat�
 
 - SQL Server Management Studio. Você pode corrigir os problemas no Management Studio usando vários comandos Transact-SQL, como **ALTER DATABASE**.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

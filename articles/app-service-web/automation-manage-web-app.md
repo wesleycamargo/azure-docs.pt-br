@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="10/28/2015"
 	ms.author="csand"/>
 
 
@@ -43,4 +43,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 * Confira o [Guia de introdução](../automation-intro.md) da Automação do Azure.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

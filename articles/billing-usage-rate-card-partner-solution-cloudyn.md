@@ -1,5 +1,5 @@
 <properties
-   pageTitle="APIs de Uso do Microsoft Azure e RateCard permitem que o Cloudyn forneça ITFM para os clientes"
+   pageTitle="APIs de uso e do RateCard do Microsoft Azure permitem que o Cloudyn forneça ITFM para os clientes | Microsoft Azure"
    description="Fornece uma perspectiva exclusiva do parceiro de cobrança Cloudyn do Microsoft Azure, em suas experiências para integrar as APIs de cobrança do Azure em seus produtos. Isso é especialmente útil para clientes do Azure e Cloudyn que estejam interessados em usar/experimentar o Cloudyn para serviços do Azure."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/14/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;bryanla"/>
 
 # APIs de Uso do Microsoft Azure e RateCard permitem que o Cloudyn forneça ITFM para os clientes 
@@ -74,7 +74,7 @@ Aqui está um breve vídeo que mostra como um cliente do Azure pode o usar Cloud
 + Inicie uma avaliação gratuita do [Cloudyn para o Azure](https://www.cloudyn.com/microsoft-azure/) para ver como você pode obter transparência de custos com relatórios personalizados e análises para sua implantação de nuvem do Microsoft Azure.
 + Consulte [informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md) para uma visão geral das APIs de Uso e RateCard do Azure. 
 + Confira a [referência da API REST de Cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) para obter mais informações sobre as duas APIs, que fazem parte do conjunto de APIs fornecidas pelo Gerenciador de Recursos do Azure.
-+ Se você gostaria de mergulhar no código de exemplo, confira nossos [exemplos de código da API do Microsoft Azure no Github](https://github.com/Azure/BillingCodeSamples).
++ Se você gostaria de se aprofundar no exemplo de código, confira nossos exemplos de código da API de Cobrança do Microsoft Azure em [Exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ## Saiba mais
 + Para saber mais sobre as ofertas do Microsoft Azure Enterprise Agreement (EA), visite [licenciamento do Azure para a empresa](http://azure.microsoft.com/pricing/enterprise-agreement/)
@@ -90,4 +90,4 @@ Aqui está um breve vídeo que mostra como um cliente do Azure pode o usar Cloud
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -51,8 +51,9 @@ A API do Node.js é um conjunto de wrappers que permite a implementação por me
 
 ## Gerenciado os cofres da chave
 
-Os contêineres do Cofre da Chave do Azure (cofres) podem ser gerenciados usando o PowerShell ou a CLI, conforme descrito nos seguintes artigos:
+Os contêineres do Cofre da Chave do Azure (cofres) podem ser gerenciados com a REST, o PowerShell ou a CLI, como descrito nos seguintes artigos:
 
+- [Criar e gerenciar Cofres de Chaves com a CLI](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [Criar e gerenciar Cofres das Chaves com o PowerShell](key-vault-get-started.md)
 - [Criar e gerenciar Cofres das Chaves com a CLI](key-vault-manage-with-cli.md)
 
@@ -67,4 +68,4 @@ Os artigos a seguir apresentam orientação específica da tarefa:
 
 - Este download contém o aplicativo de exemplo HelloKeyVault e um exemplo de serviço Web do Azure. [Exemplos de código de Cofre da Chave do Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
