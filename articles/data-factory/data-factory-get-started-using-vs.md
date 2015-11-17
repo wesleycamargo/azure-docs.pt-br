@@ -35,7 +35,9 @@ Neste tutorial, você fará o seguinte usando o Visual Studio 2013:
 ## Criar e implantar as entidades de data factory usando o Visual Studio 
 
 ### Pré-requisitos
-Você deve ter os seguintes itens instalados no computador: - Visual Studio 2013 - Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [Página de Download do Azure](http://azure.microsoft.com/downloads/) e clique em **Instalação do VS 2013** na seção **.NET**.
+Você deve ter os seguintes itens instalados no computador: 
+- Visual Studio 2013 
+- Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [Página de Download do Azure](http://azure.microsoft.com/downloads/) e clique em **Instalação do VS 2013** na seção **.NET**.
 
 ### Passo a passo
 
@@ -224,8 +226,10 @@ Você criou tabelas e serviços vinculados de entrada/saída até o momento. Ago
 ## Use o Gerenciador de Servidores para examinar as entidades de data factory
 
 1. No **Visual Studio**, clique em **Exibir** no menu e em **Gerenciador de Servidores**.
-2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, digite a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Digite a **Senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**. ![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. Clique com o botão direito em uma data factory e selecione Exportar Data Factory para Novo Projeto para criar um projeto do Visual Studio com base em uma data factory existente. ![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, digite a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Digite a **Senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.  
+	![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. Clique com o botão direito em uma data factory e selecione Exportar Data Factory para Novo Projeto para criar um projeto do Visual Studio com base em uma data factory existente.
+	![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Atualizar ferramentas de data factory para o Visual Studio
 Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça o seguinte:
