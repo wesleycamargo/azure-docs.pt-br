@@ -20,28 +20,28 @@
 
 # Monitorar o armazenamento na memória XTP
 
-Consulte o [artigo Camadas de serviço do banco de dados SQL](sql-database-service-tiers.md) para saber mais sobre camadas de serviço e armazenamento.
-
-Ao usar [Na Memória](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento na memória XTP. Cada camada de serviço Premium tem um tamanho máximo de armazenamento na memória. Quando esse limite for excedido, as operações insert e update poderão começar a falhar (com o erro 41805). Nesse ponto, você precisará excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
+Quando você usar [Na Memória](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residirão no armazenamento na memória XTP. Cada camada de serviço Premium tem um tamanho máximo de armazenamento na memória, que está documentado no [artigo Camadas de serviço do banco de Dados SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Quando esse limite for excedido, as operações insert e update poderão começar a falhar (com o erro 41805). Nesse ponto, você precisará excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
 
 ## Determinar se os dados se ajustarão ao limite de armazenamento na memória
+
+Determine o limite de armazenamento: consulte o [artigo Camadas de serviço do Banco de dados SQL](sql-database-service-tiers.md#service-tiers-for-single-databases) para obter os limites de armazenamento das diferentes camadas do serviço Premium.
 
 A estimativa dos requisitos de memória para uma tabela com otimização de memória funciona no SQL Server da mesma forma como no Banco de Dados SQL do Azure. Reserve alguns minutos para examinar este tópico no [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
 Observe que a tabela e as linhas de variável de tabela, bem como índices, contam para o tamanho máximo dos dados do usuário. Além disso, ALTER TABLE precisa de espaço suficiente para criar uma nova versão da tabela inteira e de seus índices.
 
-##### Tamanho máximo de armazenamento na memória XTP para camadas de serviço Premium:
+## Monitoramento e alertas
 
-
-
-Você pode monitorar o uso de armazenamento na memória no [portal](http://portal.azure.com/) do Azure:
+Você pode monitorar o uso de armazenamento na memória como uma porcentagem do [limite de armazenamento para sua camada de desempenho](sql-database-service-tiers.md#service-tiers-for-single-databases) no [portal](http://portal.azure.com/) do Azure:
 
 - Na folha Banco de Dados, localize a caixa de utilização Recurso e clique em Editar.
 - Em seguida, selecione a porcentagem de Armazenamento na Memória XTP métrico.
+- Para adicionar um alerta, clique na caixa Utilização de Recursos para abrir a folha Métrica e clique em Adicionar alerta.
 
 Ou use a consulta a seguir para mostrar a utilização de armazenamento na memória:
 
     select xtp_storage_percent from sys.dm_db_resource_stats
+
 
 ## Corrigir situações de memória insuficiente - Erro 41805
 
@@ -56,6 +56,6 @@ Para resolver esse erro:
 - Atualize a camada de serviço para uma com armazenamento na memória suficiente para os dados que você precisa manter em tabelas com otimização de memória.
 
 ## Próximas etapas
-Saiba mais sobre [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
+Saiba mais sobre [Monitorando o Banco de Dados SQL do Azure usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

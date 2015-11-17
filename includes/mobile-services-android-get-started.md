@@ -10,7 +10,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. Aguarde até que a atividade de sincronização do Gradle seja concluída. Se você encontrar um erro "falha ao localizar destino", isso ocorre porque a versão usada no Android Studio não corresponde à versão do exemplo. A maneira mais fácil de corrigir esse problema é clicar no link **Instalar plataforma(a) ausente(s) e sincronizar o projeto** na mensagem de erro. Você pode receber mensagens de erro de versão adicionais, e deve simplesmente repetir esse processo até que nenhum erro seja exibido.
+4. Aguarde até que a atividade de sincronização do Gradle seja concluída. Se você encontrar um erro "falha ao localizar destino", isso ocorre porque a versão usada no Android Studio não corresponde à versão do exemplo. A maneira mais fácil de corrigir esse problema é clicar no link **Instalar plataforma(a) ausente(s) e sincronizar o projeto** na mensagem de erro. Você pode receber mensagens de erro de versão adicionais e deve simplesmente repetir esse processo até que nenhum erro seja exibido.
     - Há outra maneira de corrigir esse problema, se você deseja executar a versão "mais recente e melhor" do Android. Você pode atualizar **targetSdkVersion** no arquivo *build.gradle* no diretório de *aplicativo* para corresponder à versão já instalada em seu computador, que você pode descobrir clicando no ícone do **Gerenciador de SDK** e verificando qual versão está listada. Em seguida, pressione **Sincronizar Projeto com Arquivos do Gradle**. Você pode receber uma mensagem de erro para a versão das Ferramentas de Compilação e pode corrigi-la da mesma maneira.
 
 ### Executando o aplicativo
@@ -19,7 +19,7 @@ Você pode executar o aplicativo usando o emulador ou um dispositivo real.
 
 1. Para executar de um dispositivo, conecte-se ao computador com um cabo USB. Você deve [configurar o dispositivo para o desenvolvimento](https://developer.android.com/training/basics/firstapp/running-app.html). Se estiver desenvolvendo em um computador com o Windows, você deverá baixar e instalar um driver USB.
 
-2. Para executar usando o emulador Android, você deve definir no mínimo um AVD (Dispositivo Virtual Android). Clique no ícone do Gerenciador do AVD para criar e gerenciar esses dispositivos.
+2. Para executar usando o emulador Android, você deverá definir no mínimo um AVD (Dispositivo Virtual Android). Clique no ícone do Gerenciador do AVD para criar e gerenciar esses dispositivos.
 
 3. No menu **Executar**, clique em **Executar** para iniciar o projeto e escolha um dispositivo ou emulador na caixa de diálogo exibida.
 
@@ -39,4 +39,4 @@ Você pode executar o aplicativo usando o emulador ou um dispositivo real.
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

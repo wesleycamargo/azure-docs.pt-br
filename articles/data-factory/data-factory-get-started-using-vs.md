@@ -240,8 +240,4 @@ Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça 
 
 Confira [Monitorar conjuntos de dados e pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obter instruções sobre como usar o Portal de Visualização do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
 
-
-## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
-
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

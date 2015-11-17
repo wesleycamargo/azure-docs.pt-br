@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao seu primeiro aplicativo de Pesquisa do Azure em .NET | Microsoft Azure"
+	pageTitle="Introdução ao seu primeiro aplicativo de Pesquisa do Azure em .NET | Microsoft Azure | Serviço de pesquisa hospedado na nuvem"
 	description="Tutorial sobre como criar uma solução usando a biblioteca de cliente .NET no SDK .NET da Pesquisa do Azure."
 	services="search"
 	documentationCenter=""
@@ -794,4 +794,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

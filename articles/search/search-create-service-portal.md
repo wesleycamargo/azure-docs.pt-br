@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criar um serviço de Pesquisa do Azure no portal | Microsoft Azure"
+	pageTitle="Criar um serviço Pesquisa do Azure no portal | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
 	description="Adicione uma Pesquisa do Azure gratuita ou padrão a uma assinatura existente usando o portal do Azure. A Pesquisa do Azure é um serviço de pesquisa hospedado na nuvem para aplicativos personalizados."
 	services="search"
 	documentationCenter=""
@@ -19,11 +19,11 @@
 
 # Criar um serviço de Pesquisa do Azure no portal do Azure
 
-A Pesquisa do Microsoft Azure é um novo serviço que permite que você incorpore a funcionalidade de pesquisa em aplicativos personalizados. Ele fornece um mecanismo de pesquisa e armazenamento para seus dados de pesquisa, os quais você acessa e gerencia usando o portal do Azure, um SDK do .NET ou uma API REST. Os principais recursos incluem consultas de preenchimento automático, correspondência difusa, realce de ocorrências, navegação facetada e suporte a vários idiomas. Para obter mais informações sobre o que a Pesquisa do Azure faz, consulte [Apresentando a Pesquisa do Azure](fundamentals-azure-search-chappell/).
+A Pesquisa do Microsoft Azure é um novo serviço de pesquisa de nuvem hospedado que permite que você insira a funcionalidade de pesquisa em aplicativos personalizados. Ele fornece um mecanismo de pesquisa e armazenamento para seus dados de pesquisa, os quais você pode acessar e gerenciar por meio do portal do Azure, um SDK do .NET ou uma API REST. Os principais recursos incluem consultas de preenchimento automático, correspondência difusa, realce de ocorrências, navegação facetada, perfis de pontuação e suporte a vários idiomas. Para saber mais sobre o que a Pesquisa do Azure faz, confira [O que é a Pesquisa do Azure](seach-what-is-search.md).
 
-## Adicionar a Pesquisa do Azure à sua assinatura  
+## Adicionar a Pesquisa do Azure à sua assinatura gratuitamente
 
-Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura existente sem custos adicionais ao selecionar o serviço compartilhado, ou por um valor padrão ao optar por recursos dedicados.
+Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura do Azure existente sem custos adicionais ao selecionar o serviço compartilhado, ou por um valor padrão ao optar por recursos dedicados.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
@@ -52,25 +52,14 @@ Como administrador, você pode adicionar a Pesquisa do Azure a uma assinatura ex
 
 Observe as notificações na barra de navegação rápida. Um aviso é exibido quando o serviço fica pronto para uso.
 
-<a id="sub-2"></a>
-## Localizar o nome do serviço e chaves de Api do serviço de Pesquisa do Azure
-
-Depois que o serviço for criado, você poderá retornar ao portal do Azure para obter a URL ou `api-key`. As conexões com o serviço de Pesquisa do Azure exigem que você tenha a URL e a `api-key` para autenticar a chamada.
-
-1. Na barra de navegação rápida, clique em **Home** e clique no serviço Pesquisa do Azure para abrir o painel do serviço.
-
-2. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
-
-  	![][3]
-
-3. Copie a URL do serviço e uma chave de administrador. Você precisará para a próxima tarefa, [Operações de serviço de teste](#sub-4).
-
 <a id="sub-3"></a>
-## Atualizar para a camada padrão
+## Adicionar um serviço de pesquisa de camada Standard para obter recursos dedicados
 
-Muitos clientes iniciam com o serviço gratuito e, em seguida, atualizam para a camada padrão quando armazenamento ou o desempenho de consulta se torna inadequado para as cargas de trabalho que eles precisam executar. A camada padrão oferece a você recursos dedicados em um datacenter do Azure, que só você pode utilizar. Operações de Pesquisa do Azure requerem tanto réplicas de serviço quanto de armazenamento. Quando se inscreve para a pesquisa padrão, você pode otimizar a configuração de serviço para usar mais de qualquer um dos recursos que for mais importante no seu contexto.
+Muitos clientes começam com o serviço gratuito depois alternam para a camada Standard para acomodar cargas de trabalho maiores. A camada Standard oferece a você recursos dedicados em um data center do Azure que só você pode utilizar.
 
-Para usar a camada padrão, repita as etapas anteriores deste artigo para criar um novo serviço de Pesquisa do Azure, escolhendo o tipo de preço Padrão. Observe que configurar recursos dedicados pode levar algum tempo, 15 minutos ou mais.
+Operações de Pesquisa do Azure requerem tanto réplicas de serviço quanto de armazenamento. Em contraste com o serviço gratuito, que não tem a opção de adição de recursos, a camada Standard permite dimensionar para adicionar mais armazenamento ou suporte a consultas ao aumentar qualquer recurso que seja mais importante para seu cenário.
+
+Para usar a camada Standard, você precisará criar um novo serviço de pesquisa nesse nível de preço. Você pode repetir as etapas anteriores deste artigo para criar um novo serviço de Pesquisa do Azure. Observe que configurar recursos dedicados pode levar algum tempo, 15 minutos ou mais.
 
 Não há nenhuma atualização in-loco da versão gratuita. A alteração para padrão, com seu potencial de dimensionamento, requer um novo serviço. Você precisará recarregar os índices e documentos usados por seu aplicativo de pesquisa.
 
@@ -85,6 +74,20 @@ Um serviço de Pesquisa do Azure na camada padrão é criado com uma réplica e 
 Réplicas e partições adicionais são cobradas segundo as unidades de pesquisa. O total de unidades de pesquisa necessárias para dar suporte a qualquer configuração de recursos em particular é mostrado na página, conforme você adiciona recursos.
 
 Você pode verificar os [Detalhes de Preços](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obter as informações de cobrança por unidade. Consulte [Limites e restrições](search-limits-quotas-capacity.md) para ajudá-lo a decidir como configurar combinações de partição e de réplica.
+
+<a id="sub-2"></a>
+## Localizar o nome do serviço e chaves de Api do serviço de Pesquisa do Azure
+
+Depois que o serviço for criado, você poderá retornar ao portal do Azure para obter a URL ou `api-key`. As conexões com o serviço de Pesquisa do Azure exigem que você tenha a URL e a `api-key` para autenticar a chamada.
+
+1. Na barra de navegação rápida, clique em **Home** e clique no serviço Pesquisa do Azure para abrir o painel do serviço.
+
+2. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
+
+  	![][3]
+
+3. Copie a URL do serviço e uma chave de administrador. Você precisará para a próxima tarefa, [Operações de serviço de teste](#sub-4).
+
 
 <a id="sub-4"></a>
 ## Testar operações de serviço
@@ -120,4 +123,4 @@ As informações a seguir mostram como compilar e gerenciar aplicativos de pesqu
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

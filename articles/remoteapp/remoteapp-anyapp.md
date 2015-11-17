@@ -13,18 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="09/02/2015"
+   ms.date="11/05/2015"
    ms.author="elizapo"/>
 
 # Execute qualquer aplicativo do Windows em qualquer dispositivo com o Azure RemoteApp
 
-Você pode executar um aplicativo do Windows em qualquer lugar e em qualquer dispositivo, agora, é sério: basta usar o Azure RemoteApp. Seja o Internet Explorer 6, um aplicativo personalizado escrito há 10 anos ou um aplicativo do Office, os usuários não precisam mais estar vinculados a um sistema operacional específico (como o Windows XP) para esses poucos aplicativos.
+Você pode executar um aplicativo do Windows em qualquer lugar e em qualquer dispositivo, agora, é sério: basta usar o Azure RemoteApp. Seja um aplicativo personalizado escrito há 10 anos ou um aplicativo do Office, os usuários não precisam mais estar vinculados a um sistema operacional específico (como o Windows XP) para esses poucos aplicativos.
 
 Com o RemoteApp, os usuários também podem usar seus próprios dispositivos Android ou Apple e obter a mesma experiência que eles têm no Windows (ou em Windows Phones). Isso é realizado hospedando seus aplicativos do Windows em uma coleção de máquinas virtuais do Windows no Azure, em que os usuários podem acessá-los em qualquer lugar em que com conexão à Internet.
 
 Continue lendo para obter um exemplo de como fazer isso.
 
-Neste artigo, vamos compartilhar o Access com todos os nossos usuários. No entanto, você pode usar QUALQUER aplicativo. Desde que você possa instalar o aplicativo em um computador com Windows Server 2012 R2, poderá compartilhá-lo seguindo as etapas abaixo. Você pode examinar os [requisitos de aplicativo](remoteapp-appreqs) para certificar-se de que seu aplicativo funcionará.
+Neste artigo, vamos compartilhar o Access com todos os nossos usuários. No entanto, você pode usar QUALQUER aplicativo. Desde que você possa instalar o aplicativo em um computador com Windows Server 2012 R2, poderá compartilhá-lo seguindo as etapas abaixo. Você pode examinar os [requisitos de aplicativo](remoteapp-appreqs.md) para certificar-se de que seu aplicativo funcionará.
 
 Como o Access é um banco de dados e queremos que esse banco de dados seja útil, podemos realizar algumas etapas adicionais para permitir que os usuários acessem o compartilhamento de dados do Access. Se seu aplicativo não é um banco de dados ou se você não precisa que seus usuários sejam capazes de acessar um compartilhamento de arquivos, poderá ignorar as etapas neste tutorial
 
@@ -109,4 +109,4 @@ Agora que você já dominou a criação de uma coleção, tente criar uma [cole�
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

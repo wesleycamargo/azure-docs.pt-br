@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução à Pesquisa do Azure no NodeJS | Microsoft Azure"
+	pageTitle="Introdução à Pesquisa do Azure no NodeJS | Microsoft Azure | Serviço de pesquisa hospedado na nuvem"
 	description="Percorra a criação de um aplicativo de pesquisa em um serviço de pesquisa hospedado na nuvem no Azure usando NodeJS como linguagem de programação."
 	services="search"
 	documentationCenter=""
@@ -147,4 +147,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

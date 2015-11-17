@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Conectar a Pesquisa do Azure aos aplicativos Web do MVC ASP.NET | Microsoft Azure"
+	pageTitle="Conectar a Pesquisa do Azure aos aplicativos Web do MVC ASP.NET | Microsoft Azure | Serviço de pequisa hospedado na nuvem"
 	description="Associe um aplicativo Web MVC ASP.NET à Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem. Saiba como conectar, consultar e renderizar os resultados usando a biblioteca do .NET ou a API REST."
 	services="search"
 	documentationCenter=""
@@ -462,4 +462,4 @@ Para ampliar seu entendimento sobre a Pesquisa do Azure e a integração do ASP.
 - [Estudo de caso do desenvolvedor de Pesquisa do Azure](search-dev-case-study-whattopedia.md)
 - [Fluxo de trabalho típico para o desenvolvimento da Pesquisa do Azure](search-workflow.md) 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis e ao Sencha Touch
@@ -42,6 +42,7 @@ Uma captura de tela do aplicativo completo é mostrada abaixo:
 - Baixe e instale [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
 
 - Java Runtime Environment (JRE) ou Java Development Kit (se você estiver criando aplicativos para o Android)
+- Gem Ruby e SASS.
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
 
@@ -94,7 +95,7 @@ Na maioria dos aplicativos do Touch, caso deseje adicionar uma biblioteca extern
 
 Você pode adicionar manualmente as extensões do Azure ao aplicativo, usando as seguintes etapas:
 
-1. Baixe o pacote de extensões do Azure [aqui](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure). (Você pode usar sua ID dos Fóruns do Sencha para acessar esta área).
+1. Baixe o pacote de extensões do Azure [aqui](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure). (Você pode usar sua ID dos Fóruns do Sencha para acessar esta área).
 
 2. Copie o pacote de extensões do Azure do diretório de download para o local em que você desejaria que ele resida e descompacte-o:
 
@@ -111,7 +112,7 @@ Você pode adicionar manualmente as extensões do Azure ao aplicativo, usando as
 
 Todos os aplicativos gerados pelo Sencha Cmd têm uma pasta de "pacotes" na raiz. O local dessa pasta pode ser configurado, mas independentemente de sua localização, a função da pasta "pacotes" é servir como o armazenamento de todos os pacotes usados pelo aplicativo (ou pelos aplicativos, caso tenha criado um Espaço de Trabalho do Sencha).
 
-Como Ext.Azure é um "pacote" do Sencha Cmd, o código-fonte pode ser facilmente instalado e incluído em seu aplicativo usando o Sencha Cmd. (Consulte [Pacotes do Sencha Cmd](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages) para obter mais informações).
+Como Ext.Azure é um "pacote" do Sencha Cmd, o código-fonte pode ser facilmente instalado e incluído em seu aplicativo usando o Sencha Cmd. (Consulte [Pacotes do Sencha Cmd](http://docs.sencha.com/cmd/6.x/cmd_packages/cmd_packages.html) para obter mais informações).
 
 Para baixar e instalar o pacote de extensões do Azure do repositório de Pacotes do Sencha, você precisará adicionar o nome do pacote ao arquivo **app.json** e criar seu aplicativo:
 
@@ -663,7 +664,7 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
   2. Usando o Sencha Cmd, execute os comandos a seguir:
 
-    * *sencha app refresh* : isso instruirá o Sencha Cmd a localizar todas as dependências do aplicativo e baixar os pacotes necessários (por exemplo, [Extensões do Sencha Touch para o Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
+    * *sencha app refresh* : isso instruirá o Sencha Cmd a localizar todas as dependências do aplicativo e baixar os pacotes necessários (por exemplo, [Extensões do Sencha Touch para o Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
 
     * *sencha web start*: Isso iniciará um servidor web local para testar o aplicativo.
 
@@ -701,7 +702,7 @@ Em seguida, obtenha mais informações sobre as Extensões do Sencha Touch para 
 ##Recursos adicionais
 
   * [Baixe o Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
-  * [Extensões do Sencha Touch para o Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
+  * [Extensões do Sencha Touch para o Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
 
 ##Resumo
@@ -716,4 +717,4 @@ Para obter mais informações sobre como começar a usar o Sencha Touch, acesse 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

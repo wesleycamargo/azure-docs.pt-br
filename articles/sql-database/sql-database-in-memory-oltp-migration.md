@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Use o OLTP Na Memória para melhorar o desempenho transacional do Azure SQL | Microsoft Azure"
+	pageTitle="O OLTP Na Memória melhora o desempenho do txn SQL | Microsoft Azure"
 	description="Adote o OLTP Na Memória para melhorar o desempenho transacional em um banco de dados SQL existente."
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
 	manager="jeffreyg"
-	editor=""/>
+	editor="MightyPen"/>
 
 
 <tags
@@ -14,107 +14,223 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/28/2015"
+	ms.date="11/10/2015"
 	ms.author="jodebrui"/>
 
 
-# Usar Na Memória (Visualização) para melhorar o desempenho do aplicativo Azure SQL
+# Usar Na Memória (visualização) para melhorar o desempenho do aplicativo no Banco de Dados SQL
 
-Siga estas etapas para otimizar o desempenho transacional do Banco de Dados SQL do Azure Premium usando [Na Memória](sql-database-in-memory.md).
+Siga estas etapas para otimizar o desempenho transacional do Banco de Dados SQL do Azure [Premium](sql-database-service-tiers.md) usando o recurso [Na Memória](sql-database-in-memory.md).
 
-Por comparação, escolha uma carga de trabalho semelhante à sua carga de trabalho de produção com um número semelhante de conexões simultâneas e taxa de leitura/gravação. Para minimizar a latência de rede, recomendamos executar sua carga de trabalho de teste na mesma região do Azure como o banco de dados.
 
-## Etapa 1: Copiar os dados para um novo Banco de Dados Premium
-1.	Exporte seu banco de dados de produção para um bacpac usando:
+## Etapa 1: Verifique se o banco de dados Premium dá suporte a Na Memória
 
-	R. A funcionalidade de exportação do [portal](https://portal.azure.com/) ou
+Os bancos de dados Premium criados em novembro de 2015 ou posteriormente dão suporte ao recurso Na Memória. Você pode verificar se o seu banco de dados Premium oferece suporte ao recurso Na Memória ao executar a instrução Transact-SQL a seguir. Na Memória terá suporte se o resultado retornado for 1 (e não 0):
 
-	B. A funcionalidade Exportar Aplicativo da Camada de Dados no SQL Server Management Studio
+```
+SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
+```
 
-2.	Importe o bacpac para um novo banco de dados Premium em um servidor V12:
+*XTP* significa *Processamento de Transação Extrema*
 
-	R. No portal: navegue até o servidor e selecione a opção Importar Banco de Dados. Selecione uma tipo de preço Premium.
+Se seu banco de dados existente tiver de ser movido para um novo banco de dados Premium V12, você poderá usar as técnicas a seguir para exportar e importar seus dados.
 
-	B. No SQL Server Management Studio (SSMS): conecte-se ao servidor, clique com o botão direito do mouse no nó Bancos de Dados e selecione Importar Aplicativo da Camada de Dados.
+#### Etapas de exportação
+
+Exporte seu banco de dados de produção para um bacpac usando:
+
+- A funcionalidade [Exportar](sql-database-export.md) do [portal](https://portal.azure.com/).
+
+- A funcionalidade **Exportar Aplicativo da Camada de Dados** em um [SSMS.exe atualizado](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio).
+ 1. No **Pesquisador de Objetos**, expanda o nó **Bancos de Dados**.
+ 2. Clique com o botão direito do mouse no nó do seu banco de dados.
+ 3. Clique em **Tarefas** > **Exportar Aplicativo da Camada de Dados**.
+ 4. Opere a janela do assistente exibida.
+
+
+#### Etapas de importação
+
+Importe o bacpac para um novo banco de dados Premium.
+
+1. No [portal](http://portal.azure.com/) do Azure,
+ - Navegue até o servidor.
+ - Selecione a opção [Importar Banco de Dados](sql-database-import.md).
+ - Selecione um tipo de preços Premium.
+
+2. Use o SSMS para importar o bacpac:
+ - No **Pesquisador de Objetos**, clique com o botão direito do mouse no nó **Bancos de Dados**.
+ - Clique em **Importar Aplicativo da Camada de Dados**.
+ - Opere a janela do assistente exibida.
 
 
 ## Etapa 2: Identificar os objetos para migrar para o OLTP Na Memória
-O SQL Server Management Studio (SSMS) inclui um relatório de análise de desempenho de transação que pode ser executado em um banco de dados com uma carga de trabalho ativa para identificar tabelas e procedimentos armazenados candidatos à migração para OLTP Na Memória. Confira [Determinando se uma tabela ou um procedimento armazenado deve ser movido para o OLTP Na Memória](https://msdn.microsoft.com/library/dn205133.aspx) para obter mais detalhes.
 
-1.	Conecte-se ao banco de dados de produção usando o SSMS. Como alternativa, se você tiver uma carga de trabalho em execução no novo banco de dados de teste, poderá se conectar a ela também.
-2.	Clique com o botão direito do mouse no banco de dados e selecione Relatórios -> Relatórios Padrão -> Relatório de Análise de Desempenho de Transação. O relatório permitirá que você identifique tabelas e procedimentos armazenados que podem se beneficiar do OLTP na memória, com base no uso.
+O SSMS inclui um relatório **Visão Geral da Análise do Desempenho da Transação** que pode ser executado em um banco de dados com uma carga de trabalho ativa. O relatório identifica as tabelas e os procedimentos armazenados candidatos à migração para OLTP Na Memória.
 
+No SSMS, para gerar o relatório: - no **Pesquisador de Objetos**, clique com o botão direito do mouse no nó do seu banco de dados. - Clique em **Relatórios** > **Relatórios Padrão** > **Visão Geral da Análise do Desempenho da Transação**.
 
-## Etapa 3: Migrar tabelas
-1.	Conecte-se ao novo banco de dados de teste usando o SSMS. Para evitar a necessidade de usar a opção WITH (SNAPSHOT) em consultas, é recomendável configurar a opção MEMORY\_OPTIMIZED\_ELEVATE\_TO\_SNAPSHOT do banco de dados.
-2.	Uma vez conectado ao novo banco de dados de teste, execute:
-
-   	    ALTER DATABASE CURRENT SET MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT=ON
-
-3.	Migre a tabela baseada em disco para otimização de memória usando qualquer uma destas abordagens:
-
-	R. Assistente de Otimização de Memória SSMS: quando conectado ao banco de dados de teste, clique com o botão direito do mouse na tabela e selecione o Supervisor de Otimização de Memória. Use o supervisor para determinar se a tabela tem algum recurso que não tenha suporte com otimização de memória. Caso contrário, o supervisor poderá realizar a migração do esquema e dos dados reais. Examine o [tópico do supervisor de otimização de memória no MSDN](https://msdn.microsoft.com/library/dn284308.aspx) para obter mais detalhes.
-
-	B. Migração Manual: conecte-se ao novo banco de dados de teste usando o SSMS.
-
-Siga estas etapas para migrar uma tabela:
-
-1.	Crie a tabela usando um script ao clicar com o botão direito do mouse na tabela e selecione Script de Tabela como -> CREATE To -> Nova Janela de Consulta.
-2.	Altere o índice CLUSTERIZADO para NONCLUSTERED e adicione a opção WITH (MEMORY\_OPTIMIZED = ON).
-3.	Se a tabela usar qualquer recurso sem suporte, implemente soluções alternativas. O MSDN documenta como lidar com [recursos sem suporte comuns](https://msdn.microsoft.com/library/dn247639.aspx).
-4.	Renomeie a tabela existente usando sp\_rename.
-5.	Crie a nova tabela com otimização de memória executando o script CREATE TABLE.
-6.	Copie os dados executando a seguinte instrução: ``INSERT INTO <new_memory_optimized_table> SELECT * FROM <old_disk_based_table>
-
-## Etapa 4 (opcional): Migrar procedimentos armazenados
-
-Conecte-se ao novo banco de dados de teste usando a versão de setembro de 2015 Preview do [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) ou posterior.
-
-Identifique todos os recursos sem suporte em procedimentos armazenados compilados nativamente executando o [Supervisor de Compilação Nativo](https://msdn.microsoft.com/library/dn284308.aspx) no procedimento anterior. As soluções alternativas para recursos sem suporte comuns são documentadas no [MSDN](https://msdn.microsoft.com/library/dn296678.aspx).
-
-Duas coisas a serem consideradas ao migrar de um procedimento armazenado para nativo:
-
-- Os módulos nativos exigem as seguintes opções:
-
-	- NATIVE\_COMPILATION
-	- SCHEMABINDING
+Para saber mais, consulte [Determinando se uma tabela ou um procedimento armazenado deve ser transportado para o OLTP Na Memória](http://msdn.microsoft.com/library/dn205133.aspx).
 
 
+## Etapa 3: Criar um banco de dados de teste comparável
 
-- Os módulos nativos usam [blocos ATOMIC](https://msdn.microsoft.com/library/dn452281.aspx) para gerenciamento de transações; as instruções BEGIN TRAN/COMMIT/ROLLBACK explícitas não são necessárias.
+Suponha que o relatório indique que o banco de dados tem uma tabela que pode se beneficiar do que está sendo convertido em uma tabela com otimização de memória. É recomendável que você primeiro teste para confirmar a indicação.
 
-Um procedimento armazenado compilado nativamente típico se parece com este:
+Você precisa de uma cópia de teste do seu banco de dados de produção. O banco de dados de teste deve estar no mesmo nível da camada de serviço que seu banco de dados de produção.
 
+Para facilitar o teste, ajuste seu banco de dados de teste da seguinte maneira:
 
-   	    CREATE PROCEDURE schemaname.procedurename
-   		@param1 type1, …
-   		WITH NATIVE_COMPILATION, SCHEMABINDING
-   		AS
-   		BEGIN ATOMIC WITH (TRANSACTION ISOLATION LEVEL = SNAPSHOT, LANGUAGE = N'your_language')
+1. Conecte-se ao banco de dados de teste usando o SSMS.
 
-   		…
-
-   		END
-
+2. Para evitar a necessidade da opção WITH (SNAPSHOT) em consultas, defina a opção de banco de dados como mostrado na seguinte instrução T-SQL: ```
+ALTER DATABASE CURRENT
+	SET
+		MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
+```
 
 
-Observe que embora SNAPSHOT seja o nível de isolamento mais comumente usado com a tabela com otimização de memória, REPEATABLE READ e SERIALIZABLE também têm suporte.
+## Etapa 4: Migrar tabelas
 
-##### Siga estas etapas para migrar um procedimento armazenado:
+Você deve criar e preencher uma cópia com otimização de memória da tabela que você deseja testar. Você pode criá-la usando:
 
-1.	Crie um script para o procedimento armazenado clicando com o botão direito do mouse no procedimento e selecionando Script de Procedimento como -> CREATE To -> Nova Janela de Consulta.
-2.	Reescreva o cabeçalho de procedimento usando o modelo acima e remova qualquer instrução BEGIN TRAN/ROLLBACK/COMMIT.
-3.	Se o procedimento armazenado usar qualquer recurso sem suporte, implemente soluções alternativas. O MSDN documenta como lidar com [recursos sem suporte comuns](https://msdn.microsoft.com/library/dn296678.aspx).
-4.	Descarte o procedimento usando DROP ou renomeie o procedimento antigo usando sp\_rename.
-5.	Crie o novo procedimento armazenado compilado nativamente executando o script CREATE PROCEDURE.
+- O Assistente de Otimização de Memória útil no SSMS.
+- T-SQL Manual.
 
-## Etapa 5: Executar sua carga de trabalho
-Execute sua carga de trabalho de teste nas tabelas com otimização de memória e nos procedimentos armazenados compilados nativamente e meça o ganho de desempenho.
 
-## Próximas etapas
+#### Assistente de Otimização de Memória no SSMS
 
-[Monitorar o armazenamento Na Memória](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
+Para usar essa opção de migração:
 
-[Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
+1. Conecte-se ao banco de dados de teste com o SSMS.
 
-<!---HONumber=Nov15_HO1-->
+2. No **Pesquisador de Objetos**, clique com o botão direito do mouse na tabela e clique em **Supervisor de Otimização de Memória**.
+ - O assistente **Supervisor Otimizador de Memória da Tabela** é exibido.
+
+3. No assistente, clique em **Validação de migração** (ou no botão **Avançar**) para ver se a tabela tem algum recurso incompatível que não tenha suporte em tabelas com otimização de memória. Para obter mais informações, consulte:
+ - A *lista de verificação de otimização de memória* no [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx).
+ - [Construções Transact-SQL sem suporte do OLTP Na Memória](http://msdn.microsoft.com/library/dn246937.aspx).
+ - [Migrando para o OLTP Na Memória](http://msdn.microsoft.com/library/dn247639.aspx).
+
+4. Se a tabela não tiver recursos sem suporte, o supervisor poderá executar o esquema e a migração de dados reais para você.
+
+
+#### T-SQL Manual
+
+Para usar essa opção de migração:
+
+1. Conecte-se ao banco de dados de teste usando o SSMS (ou um utilitário semelhante).
+
+2. Obtenha o script T-SQL completo para a tabela e seus índices.
+ - No SSMS, clique com o botão direito do mouse no nó da sua tabela.
+ - Clique em **Script de Tabela como** > **CREATE Para** > **Nova Janela de Consulta**.
+
+3. Na janela de script, adicione WITH (MEMORY\_OPTIMIZED = ON) à instrução CREATE TABLE.
+
+4. Se houver um índice CLUSTERED, altere-o para NONCLUSTERED.
+
+5. Renomeie a tabela existente usando SP\_RENAME.
+
+6. Crie a nova cópia da tabela com otimização de memória executando o script CREATE TABLE editado.
+
+7. Copie os dados para sua tabela com otimização de memória usando INSERT...SELECT * INTO:
+	
+```
+INSERT INTO <new_memory_optimized_table>
+		SELECT * FROM <old_disk_based_table>;
+```
+
+
+## Etapa 5 (opcional): Migrar procedimentos armazenados
+
+O recurso Na Memória também pode modificar um procedimento armazenado para melhorar o desempenho.
+
+
+### Considerações sobre procedimentos armazenados compilados nativamente
+
+Um procedimento armazenado compilado nativamente deve ter as seguintes opções na sua cláusula WITH T-SQL:
+
+- NATIVE\_COMPILATION
+
+- SCHEMABINDING: significa tabelas cujas definições de coluna o procedimento armazenado não pode alterar de alguma forma que afete o próprio procedimento armazenado, a menos que você descarte o procedimento armazenado.
+
+
+Um módulo nativo deve usar grandes [blocos ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) para o gerenciamento de transações. Não há uma função para uma BEGIN TRANSACTION explícita.
+
+
+### CREATE PROCEDURE típico para compilados nativamente
+
+Normalmente, o T-SQL para criar um procedimento armazenado nativamente compilado é semelhante ao seguinte modelo:
+
+```
+CREATE PROCEDURE schemaname.procedurename
+	@param1 type1, …
+	WITH NATIVE_COMPILATION, SCHEMABINDING
+	AS
+		BEGIN ATOMIC WITH
+			(TRANSACTION ISOLATION LEVEL = SNAPSHOT,
+			LANGUAGE = N'your_language__see_sys.languages'
+			)
+		…
+		END;
+```
+
+- Para TRANSACTION\_ISOLATION\_LEVEL, o SNAPSHOT é o valor mais comum para o procedimento armazenado nativamente compilado. No entanto, também há suporte para um subconjunto dos outros valores:
+ - REPEATABLE READ
+ - SERIALIZABLE
+
+
+- O valor LANGUAGE deve estar presente na exibição sys.languages.
+
+
+### Como migrar um procedimento armazenado
+
+As etapas da migração são:
+
+
+1. Obtenha o script CREATE PROCEDURE para o procedimento armazenado interpretado regular.
+
+2. Reescreva o cabeçalho para que ele corresponda ao modelo anterior.
+
+3. Verificar se o código T-SQL de procedimento armazenado usa os recursos sem suporte para procedimentos armazenados compilados nativamente. Implemente soluções alternativas, se necessário.
+ - Para obter detalhes, consulte [Problemas de migração para procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn296678.aspx).
+
+4. Renomeie o antigo procedimento armazenado usando SP\_RENAME. Ou simplesmente descarte-o usando DROP.
+
+5. Execute o script T-SQL CREATE PROCEDURE editado.
+
+
+## Etapa 6: Executar sua carga de trabalho no teste
+
+Execute uma carga de trabalho em seu banco de dados de teste que seja semelhante à carga de trabalho executada em seu banco de dados de produção. Isso deve revelar o ganho de desempenho obtido com o uso do recurso Na Memória para tabelas e procedimentos armazenados.
+
+Os principais atributos da carga de trabalho são:
+
+- Número de conexões simultâneas.
+
+- Taxa de leitura/gravação.
+
+
+Para ajustar e executar a carga de trabalho de teste, considere usar a ferramenta ostress.exe, ilustrada [aqui](sql-database-in-memory.md).
+
+
+Para minimizar a latência de rede, execute o teste na mesma região geográfica do Azure onde está o banco de dados.
+
+
+## Etapa 7: Monitoramento pós-implementação
+
+Considere monitorar os efeitos de desempenho de suas implementações de Na Memória em produção:
+
+- [Monitorar o armazenamento Na Memória](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
+
+- [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
+
+
+## Links relacionados
+
+- [OLTP Na Memória (Otimização Na Memória)](http://msdn.microsoft.com/library/dn133186.aspx)
+
+- [Introdução aos procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn133184.aspx)
+
+- [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx)
+
+<!---HONumber=Nov15_HO3-->

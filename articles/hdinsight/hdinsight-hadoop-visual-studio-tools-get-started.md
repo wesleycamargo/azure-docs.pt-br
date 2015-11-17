@@ -180,15 +180,36 @@ A versão mais recente da ferramenta permite que você veja o que está dentro d
 
 	![Ferramentas Hadoop: exibir projetos hive das ferramentas do HDInsight para o Visual Studio][12]
 
+### Execução do Hive de caminho mais rápido via HiveServer2
+
+>[AZURE.NOTE]Este tutorial funciona com o cluster HDInsight versão 3.2 e mais recentes.
+
+As ferramentas do HDInsight usadas para enviar trabalhos Hive via WebHCat (também conhecido como Templeton). Demorou muito tempo para retornar informações de erro e detalhes do trabalho. Para resolver esse problema de desempenho, as Ferramentas do HDInsight executam trabalhos do Hive diretamente no cluster por meio do HiveServer2 para que ele ignore RDP/SSH. Além de melhorar o desempenho, os usuários também podem exibir o Hive em gráficos Tez e os detalhes da Tarefa.
+
+Para o cluster HDInsight versão 3.2 ou posterior, você pode ver um botão **Executar via HiveServer2**:
+
+![hdinsight visual studio tools execute via hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
+
+E você poderá ver os logs transmitidos em tempo real e ver os gráficos de trabalho se a consulta do Hive for executada no Tez.
+ 
+![hdinsight visual studio tools fast path hive execution](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
+
+
 ### Gráfico de desempenho do trabalho do Tez Hive
 
-As Ferramentas do Visual Studio para HDInsight dão suporte para mostrar gráficos de desempenho para os trabalhos de Hive executados pelo mecanismo de execução Tez. Para obter informações sobre como habilitar Tez, consulte [usar Hive no HDInsight][hdinsight.hive]. Depois de enviar um trabalho do Hive no Visual Studio, o Visual Studio mostrará o gráfico quando o trabalho for concluído. Talvez seja necessário clicar no botão **Atualizar** para obter o status mais recente do trabalho.
+As Ferramentas do Visual Studio para HDInsight dão suporte para mostrar gráficos de desempenho para os trabalhos de Hive executados pelo mecanismo de execução Tez. Para obter informações sobre como habilitar Tez, consulte [usar Hive no HDInsight][hdinsight.hive]. Depois de enviar um trabalho do Hive no Visual Studio, o Visual Studio mostrará o gráfico quando o trabalho for concluído. Talvez seja necessário clicar no botão **Atualizar** para obter o status do trabalho mais recente.
 
 > [AZURE.NOTE]Esse recurso só está disponível para o cluster HDInsight versão acima de 3.2.4.593 e só pode funcionar para trabalhos concluídos. Isso funciona para clusters baseados em Windows e Linux.
 
 ![gráfico de desempenho do hive tez do hadoop](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
 Para ajudar você a entender melhor a consulta do Hive, a ferramenta adiciona a Exibição de Operador do Hive nesta versão. Basta clicar duas vezes nos vértices do gráfico do trabalho para ver todos os operadores dentro do vértice. Você também pode passar o mouse sobre um operador específico para exibir mais detalhes desse operador.
+
+### Exibição de execução de tarefa para o Hive em trabalhos do Tez
+
+A exibição de execução da Tarefa para o Hive em trabalhos do Tez pode ser usada para obter informações estruturadas e visualizadas para trabalhos do Hive e para obter mais detalhes sobre o trabalho. Quando houver problemas de desempenho, você poderá usar o modo de exibição para obter mais detalhes. Por exemplo, como é o funcionamento de cada tarefa e as informações detalhadas sobre cada tarefa (leitura/gravação de dados, hora de agendamento/inicial/final etc.), de forma que você possa ajustar configurações de trabalho ou a arquitetura do sistema com base nas informações visualizadas.
+
+![hdinsight visual studio tools task execution view](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png)
 
 ## Executar scripts do Pig
 
@@ -237,4 +258,4 @@ Neste artigo, você aprendeu como se conectar a clusters HDInsight no Visual Stu
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
