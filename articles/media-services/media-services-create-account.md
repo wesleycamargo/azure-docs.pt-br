@@ -37,9 +37,9 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
     > [AZURE.NOTE]As regiões de Serviços de Mídia Disponíveis (AMS) incluem o seguinte: Norte da Europa, Europa Ocidental, Oeste dos EUA, Leste dos EUA, Sudeste da Ásia, Ásia Oriental, Oeste do Japão, Leste do Japão. Os Serviços de Mídia não usam grupos de afinidade.
     >
-	> O AMS agora também está disponível nos seguintes data centers: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o Portal de Gerenciamento do Azure para [criar contas do Serviço de Mídia](media-services-create-account.md#create-a-media-services-account-using-quick-create) e executar várias tarefas descritas [aqui](https://azure.microsoft.com/documentation/services/media-services/). No entanto, a Codificação Ativa não está habilitada nesses data centers. Além disso, nem todos os tipos de Unidades reservadas de Codificação estão disponíveis nesses data centers.
+	> O AMS agora também está disponível nos seguintes data centers: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o Portal de Gerenciamento do Azure para [criar contas do Serviço de Mídia](media-services-create-account.md#create-a-media-services-account-using-quick-create) e executar várias tarefas descritas [aqui](https://azure.microsoft.com/documentation/services/media-services/). No entanto, a Codificação Ativa não está habilitada nesses datacenters. Além disso, nem todos os tipos de Unidades Reservadas para Codificação estão disponíveis nesses datacenters.
 	>
-	>- Sul do Brasil: somente as Unidades Reservadas de Codificação Standard e Basic estão disponíveis
+	>- Sul do Brasil: somente as Unidades Reservadas para Codificação Standard e Básico estão disponíveis
 	>- Índia Ocidental, Sul da Índia e Índia Central: somente as Unidades Reservadas de Codificação Basic estão disponíveis
 
 
@@ -74,12 +74,16 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
 	Além disso, você pode exibir o código que usa o SDK dos Serviços de Mídia do Azure para realizar as seguintes tarefas: carregar, codificar e publicar vídeos. Você pode clicar em um dos links na seção **ESCREVER UM CÓDIGO**, copiar o código e usá-lo em seu aplicativo.
 
+
+
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
-Você pode exibir os roteiros de aprendizagem do AMS aqui:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Enviar comentários
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ## Próximas etapas
 
@@ -99,4 +103,4 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
   [portal do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

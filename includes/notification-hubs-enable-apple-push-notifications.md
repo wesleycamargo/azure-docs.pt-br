@@ -6,7 +6,7 @@ O APNS (Serviço de Notificação por Push da Apple) usa certificados para auten
 
 Gere o arquivo CSR (Solicitação de Assinatura de Certificado), usado pela Apple para gerar um certificado de push assinado.
 
-1. Em seu Mac, execute a ferramenta Acesso do Conjunto de Chaves. Ela pode ser executada da pasta **Utilitários** ou da pasta **Outros** no launch pad.
+1. Em seu Mac, execute a ferramenta Acesso do Conjunto de Chaves. Ela pode ser aberta a partir da pasta **Utilitários** ou da pasta **Outros** no launch pad.
 
 2. Clique em **Acesso do Conjunto de Chaves**, expanda **Assistente de Certificado** e clique em **Solicitar um Certificado de uma Autoridade de Certificação...**.
 
@@ -35,7 +35,7 @@ Para poder enviar notificações por push para um aplicativo iOS, você deverá 
 
 2. Atualize os três campos a seguir para seu novo aplicativo e, em seguida, clique em **Continuar**:
 
-	* **Nome**: digite um nome descritivo para o aplicativo no campo **Nome** na seção **Descrição de ID do Aplicativo**.
+	* **Nome**: digite um nome descritivo para o aplicativo no campo **Nome**, na seção **Descrição de ID do Aplicativo**.
 	
 	* **Identificador de Pacote**: na seção **ID de Aplicativo Explícita**, digite um **Identificador de Pacote** no formato `<Organization Identifier>.<Product Name>`, como mencionado no [Guia de Distribuição de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=613485). O *Identificador de Organização* e *Nome do Produto* usados deverão corresponder ao identificador da organização e o nome do produto usados quando você criar seu projeto XCode. Na captura de tela abaixo, *NotificationHubs* é usado como um identificador de organização e *GetStarted* é usado como o nome do produto. Garantir que isso corresponda aos valores que você usará em seu projeto XCode permitirá que você use o perfil de publicação correto com XCode.
 	
@@ -126,7 +126,7 @@ Para poder enviar notificações por push para um aplicativo iOS, você deverá 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
 
-6. Finalmente, selecione um nome para o perfil em **Nome do Perfil**, clique em **Gerar** e, em seguida, clique em **Concluído**
+6. Finalmente, selecione um nome para o perfil em **Nome do Perfil** e clique em **Gerar**.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
@@ -135,4 +135,4 @@ Para poder enviar notificações por push para um aplicativo iOS, você deverá 
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/16/2015"
+	ms.date="11/11/2015"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Visão geral
 
-Este guia demonstra como executar cenários comuns usando o Serviço de armazenamento de blob do Azure. Os exemplos são escritos em C# e usam a biblioteca do cliente de armazenamento do Azure para .NET. Os cenários cobertos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs.
+Este guia demonstra como executar cenários comuns usando o Serviço de armazenamento de blob do Azure. Os exemplos são escritos em C# e usam a biblioteca do cliente de armazenamento do Azure para .NET. A Biblioteca do Cliente de Armazenamento é um SDK que simplifica a interação com as APIs REST do Armazenamento de Blob. Os cenários abordados neste guia incluem o **carregamento**,a **listagem**, o **download** e a **exclusão** de blobs e você deve levar aproximadamente uma hora para concluí-los. Se você quiser assistir a um Vídeo de Introdução, consulte [Introdução ao armazenamento em cinco minutos](https://azure.microsoft.com/pt-BR/documentation/videos/azure-storage-5-minute-overview/) ou leia o guia [Introdução ao armazenamento em cinco minutos](https://azure.microsoft.com/pt-BR/documentation/articles/storage-getting-started-guide/)guia.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -338,7 +338,20 @@ Para obter mais informações sobre as diferenças entre os três tipos de blobs
 
 ## Próximas etapas
 
-Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga estes links para saber mais sobre tarefas de armazenamento mais complexas. <ul> <li>Exibir a documentação de referência do serviço Blob para obter detalhes completos sobre as APIs disponíveis: <ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Biblioteca de cliente de armazenamento para referência .NET</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">referência da API REST</a></li> </ul> </li> <li>Conheça tarefas mais avançadas que você pode executar com o armazenamento do Azure em <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Armazenando e acessando dados no Azure</a>.</li> <li>Saiba como simplificar o código que você escreve para trabalhar com o armazenamento do Azure usando o <a href="../websites-dotnet-webjobs-sdk/">SDL WebJobs do Azure.</li> <li>Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure. <ul> <li>Usar o <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Armazenamento de Tabela</a> para armazenar dados estruturados.</li> <li>Usar<a href="/documentation/articles/storage-dotnet-how-to-use-queues/"> o Armazenamento de blobs</a> para armazenar dados não estruturados.</li> <li>Usar o <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Banco de Dados SQL</a> para armazenar dados relacionais.</li> </ul> </li> </ul>
+Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga estes links para saber mais.
+
+### Documentação de referência do armazenamento de Blob
+
+- Referência à [Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+- [Referência da API REST](http://msdn.microsoft.com/library/azure/dd179355)
+
+### Guias de recursos adicionais
+
+- [Introdução ao armazenamento Tabela para .NET](storage-dotnet-how-to-use-tables.md)
+- [Introdução ao armazenamento Fila para .NET](storage-dotnet-how-to-use-queues.md)
+- [Introdução ao armazenamento Arquivo para .NET](storage-dotnet-how-to-use-files.md)
+- [Usar o Banco de Dados SQL para armazenar dados relacionais](../sql-database/articles/sql-database-dotnet-how-to-use.md)
+- [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -353,4 +366,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

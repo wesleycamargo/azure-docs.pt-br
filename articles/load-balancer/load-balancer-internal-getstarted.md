@@ -23,6 +23,7 @@
 
 O ILB (Balanceamento de Carga Interno) do Azure fornece balanceamento de carga entre máquinas virtuais que residem em um serviço de nuvem ou em uma rede virtual com escopo regional. Para obter informações sobre o uso e a configuração de redes virtuais com escopo regional, consulte [Redes Virtuais Regionais](virtual-networks-migrate-to-regional-vnet.md). Redes virtuais existentes configuradas para um grupo de afinidade não podem usar o ILB.
 
+
 ## Para criar um conjunto de balanceamento de carga interno para máquinas virtuais
 
 Para criar um conjunto de balanceamento de carga interno do Azure e os servidores que enviarão o tráfego para ele, faça o seguinte:
@@ -332,4 +333,4 @@ Para obter informações adicionais sobre cmdlets de Balanceamento de Carga Inte
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

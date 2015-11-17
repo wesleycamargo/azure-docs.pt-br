@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução à Pesquisa do Azure no Java | Microsoft Azure"
+	pageTitle="Introdução à Pesquisa do Azure no Java | Microsoft Azure | Serviço de pesquisa hospedado na nuvem"
 	description="Como criar um aplicativo de pesquisa hospedado na nuvem no Azure usando Java como linguagem de programação."
 	services="search"
 	documentationCenter=""
@@ -231,4 +231,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

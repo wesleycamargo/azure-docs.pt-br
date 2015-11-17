@@ -22,7 +22,7 @@
 
 O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos IoT e um back-end de aplicativo. Um dos maiores desafios enfrentados por projetos IoT é sobre conectar dispositivos de forma confiável e segura ao back-end de aplicativo. Para simplificar este cenário, o Hub IoT do Azure oferece um sistema de mensagens confiável em grande escala da nuvem para dispositivo e do dispositivo para a nuvem, permite comunicações seguras usando credenciais de segurança e controle de acesso por dispositivo, além de incluir bibliotecas de dispositivos para os idiomas e as plataformas mais populares.
 
-Este tutorial mostra como usar o portal do Azure para criar um Hub IoT. Também mostra como criar uma identidade de dispositivo em seu hub IoT, criar um dispositivo simulado que envia mensagens de dispositivo para nuvem e recebe essas mensagens de seu back-end de nuvem.
+Este tutorial mostra como usar o portal de visualização do Azure para criar um Hub IoT. Também mostra como criar uma identidade de dispositivo em seu hub IoT, criar um dispositivo simulado que envia mensagens de dispositivo para nuvem e recebe essas mensagens de seu back-end de nuvem.
 
 Ao fim deste tutorial, você terá três aplicativos de console do Windows:
 
@@ -36,11 +36,11 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio 2015,
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fja-jp%2Fdevelop%2Fiot%2Ftutorials%2Fgetstarted%2F target="\_blank").
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Fgetstarted%2F target="\_blank").
 
 ## Crie um hub IoT
 
-1. Faça logon no [Portal de Visualização do Azure].
+1. Faça logon no [portal de visualização do Azure].
 
 2. Na barra de navegação, clique em **Novo**, em seguida, clique em **Internet das coisas**, e, em seguida, clique em **Hub IoT**.
 
@@ -115,7 +115,7 @@ Informações adicionais sobre o Hub IoT:
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
-[Portal de Visualização do Azure]: https://portal.azure.com/
+[portal de visualização do Azure]: https://portal.azure.com/
 
 [Enviar mensagens da nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
 [Mensagens do processo de dispositivo para nuvem]: iot-hub-csharp-csharp-process-d2c.md
@@ -129,4 +129,4 @@ Informações adicionais sobre o Hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

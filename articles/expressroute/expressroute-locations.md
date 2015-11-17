@@ -44,6 +44,7 @@ A tabela a seguir fornece informações sobre regiões e limites geopolíticos p
 |**Região Geopolítica**|**Regiões do Azure**|**Locais de Rota Expressa**|
 |---|---|---|---|
 |**Nuvem do Governo dos EUA**|Governo dos EUA|Iowa, Virgínia|Ashburn, Chicago|
+|**Nuvem na China**|China|Leste, Norte|
 
 
 Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota Expressa padrão. Você precisará habilitar o complemento premium de Rota Expressa para dar suporte a conectividade global. Não há suporte a conectividade para ambientes de nuvem nacionais. Você pode trabalhar com seu provedor de conectividade se surgir necessidade de fazê-lo.
@@ -56,7 +57,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Provedor de serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Suportado | Suportado | Amsterdã, Vale do Silício, Cingapura, Washington, D.C. |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Suportado | Com suporte | Amsterdã +, Londres+, Dallas, Vale do Silício, Washington, D.C. |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Suportado | Com suporte | Amsterdã, Londres, Dallas, Vale do Silício, Washington, D.C. |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Suportado | Com suporte | Amsterdã, Londres, Vale do Silício, Cingapura, Tóquio, Washington, D.C. |
 |**China Telecom Global** | Em breve | Sem suporte | Hong Kong+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Sem suporte | Amsterdã, Londres |
@@ -93,7 +94,14 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Com suporte | Sem suporte | Chicago+, Washington D.C. |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Em breve | Sem suporte | Chicago+, Washington D.C.+ |
 | **[Comunicações de nível 3 - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Sem suporte | Chicago+, Washington D.C. |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Sem suporte | Chicago+, Washington D.C. |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Sem suporte | Chicago, Washington D.C. |
+
+#### Nuvem na China
+
+| **Provedor de serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
+|-----------------------|--------------------|----------------|---------------|
+| **China Telecom** | Com suporte | Sem suporte | Pequim, Xangai +|
+Para saber mais, consulte [Rota Expressa na China](http://www.windowsazure.cn/home/features/expressroute/).
 
 ## Conectividade por meio de provedores de serviços não listados
 
@@ -129,4 +137,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 - Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->
