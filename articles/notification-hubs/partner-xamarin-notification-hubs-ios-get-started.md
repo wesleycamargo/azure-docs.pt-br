@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/03/2015"
 	ms.author="yuaxu"/>
 
 # Introdução aos Hubs de Notificação
@@ -81,7 +81,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNS e voc
 
 3. Em **AppDelegate.cs**, adicione a seguinte instrução using:
 
-    using WindowsAzure.Messaging;
+    	using WindowsAzure.Messaging;
 
 4. Declarar uma instância de **SBNotificationHub**:
 
@@ -98,9 +98,17 @@ Seu hub de notificação agora está configurado para funcionar com o APNS e voc
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert |
-                UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
-            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
+            if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+    			var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
+                       UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
+                       new NSSet ());
+
+			    UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
+			    UIApplication.SharedApplication.RegisterForRemoteNotifications ();
+			} else {
+			    UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
+			    UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (notificationTypes);
+			}
 
             return true;
         }
@@ -323,4 +331,4 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

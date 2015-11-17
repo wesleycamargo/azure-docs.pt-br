@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -37,7 +37,7 @@ Confira o [Python Developer Center] para obter mais artigos que abrangem o desen
  - Visual Studio 2013 ou 2015
  - [Ferramentas Python 2.2 para Visual Studio]
  - [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]
- - [Azure Ferramentas SDK para VS 2013] ou [Azure Ferramentas SDK para VS 2015]
+ - [Ferramentas do SDK do Azure para VS 2013] ou [Ferramentas do SDK do Azure para VS 2015]
  - [Python 2.7 de 32 bits]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -207,8 +207,8 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Azure Ferramentas SDK para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure Ferramentas SDK para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Ferramentas do SDK do Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs
 [Depuração remota no Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
@@ -218,4 +218,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="10/05/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 
@@ -90,7 +90,7 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
 1. Navegue até o local onde salvou os arquivos de projeto compactados, expanda os arquivos em seu computador e inicie um dos arquivos de comando a seguir da subpasta **server**.
 
-	+ ** launch-windows** (computadores com Windows)
+	+ **.\\start-iisexpress.ps1** (computadores com o Windows)
 	+ ** launch-mac.command** (computadores com Mac OS X)
 	+ ** launch-linux.sh** (computadores com Linux)
 
@@ -106,7 +106,7 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
    	Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na segunda coluna do aplicativo.
 
-	> [AZURE.NOTE]Você poderá examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo app.js.
+	> [AZURE.NOTE]Você poderá examinar o código que acessa o seu serviço móvel para consultar e inserir dados, que estão localizados no arquivo page.js.
 
 4. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida na tabela **TodoItems**.
 
@@ -154,4 +154,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

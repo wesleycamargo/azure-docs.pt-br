@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Fluxo de trabalho típico para o desenvolvimento de Pesquisa do Azure | Microsoft Azure"
+	pageTitle="Fluxo de trabalho típico para o desenvolvimento de Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa hospedado na nuvem"
 	description="Um fluxo de trabalho ou roteiro para criar aplicativos de protótipo e produção que se integram à Pesquisa do Azure, um serviço de pesquisa hospedado na nuvem."
 	services="search"
 	documentationCenter=""
@@ -190,4 +190,4 @@ Lembre-se de que somente a camada de preços Standard pode ser escalada ou reduz
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

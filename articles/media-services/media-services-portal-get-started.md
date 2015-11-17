@@ -223,16 +223,15 @@ Algumas considerações se aplicam:
 
 
 
-##Próximas etapas
+##Próximas etapas: Roteiros de aprendizagem dos Serviços de Mídia
 
-###Roteiros de aprendizagem dos Serviços de Mídia
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Você pode exibir os roteiros de aprendizagem do AMS aqui:
+##Enviar comentários
 
-- [Fluxo de trabalho do streaming ao vivo do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Fluxo de trabalho do streaming sob demanda do AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Procurando outra coisa?
+## Procurando outra coisa?
 
 Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
@@ -261,4 +260,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

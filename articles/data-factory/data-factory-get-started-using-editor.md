@@ -383,8 +383,6 @@ Para obter uma lista de atividades com suporte, consulte o tópico [Pipelines e 
  
 Para concluir este tutorial usando o PowerShell do Azure, consulte [Criar e monitorar uma data factory usando o PowerShell do Azure][monitor-manage-using-powershell].
 
-## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md).
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -503,4 +501,4 @@ Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos par
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -39,7 +39,7 @@ Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recurso
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e clique em **OK**.
+1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
 2.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
 3.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
 4.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
@@ -50,7 +50,7 @@ Dependendo do modelo, pode levar algum tempo para o Azure criar a carga de traba
 
 ### PowerShell do Azure
 
-> [AZURE.NOTE]Este artigo contém comandos para o Azure PowerShell Preview 1.0. Para executar esses comandos no Azure PowerShell 0.9.8 e em versões anteriores, substitua **New-AzureRMResourceGroup** por **New-AzureResourceGroup**, substitua **New-AzureResourceGroupDeployment** por **New-AzureResourceGroupDeployment**, e adicione o comando **Switch-AzureMode AzureResourceManager** antes do comando **New-AzureResourceGroup**. Para saber mais, consulte [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Este artigo contém comandos para o Azure PowerShell Preview 1.0. Para executar esses comandos no Azure PowerShell 0.9.8 e em versões anteriores, substitua **New-AzureRMResourceGroup** por **New-AzureResourceGroup**, substitua **New-AzureRMResourceGroupDeployment** por **New-AzureResourceGroupDeployment**, e adicione o comando **Switch-AzureMode AzureResourceManager** antes do comando **New-AzureResourceGroup**. Para saber mais, consulte [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Preencha o nome de uma implantação do Azure, um novo nome do Grupo de Recursos e um local de datacenter do Azure no seguinte conjunto de comandos. Remova tudo que estiver entre aspas, incluindo os caracteres < and >.
 
@@ -111,7 +111,7 @@ Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recurso
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e clique em **OK**.
+1.	Clique em **Parâmetros**. No painel **Parâmetros**, insira novos valores, selecione os valores permitidos ou aceite os valores padrão e, em seguida, clique em **OK**.
 2.	Se necessário, clique em **Assinatura** e selecione a assinatura correta do Azure.
 3.	Clique em **Grupo de recursos** e selecione um grupo de recursos existente. Como alternativa, clique em **Ou criar novo** para criar um novo para essa carga de trabalho.
 4.	Se necessário, clique em **Local do grupo de recursos** e selecione o local correto do Azure.
@@ -122,7 +122,7 @@ Dependendo do modelo, pode levar algum tempo para o Azure criar a carga de traba
 
 ### PowerShell do Azure
 
-> [AZURE.NOTE]Este artigo contém comandos para o Azure PowerShell Preview 1.0. Para executar esses comandos no Azure PowerShell 0.9.8 e em versões anteriores, substitua **New-AzureRMResourceGroup** por **New-AzureResourceGroup**, substitua **New-AzureResourceGroupDeployment** por **New-AzureResourceGroupDeployment**, e adicione o comando **Switch-AzureMode AzureResourceManager** antes do comando **New-AzureResourceGroup**. Para saber mais, consulte [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Este artigo contém comandos para o Azure PowerShell Preview 1.0. Para executar esses comandos no Azure PowerShell 0.9.8 e em versões anteriores, substitua **New-AzureRMResourceGroup** por **New-AzureResourceGroup**, substitua **New-AzureRMResourceGroupDeployment** por **New-AzureResourceGroupDeployment**, e adicione o comando **Switch-AzureMode AzureResourceManager** antes do comando **New-AzureResourceGroup**. Para saber mais, consulte [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Preencha o nome de uma implantação do Azure, um novo nome do Grupo de Recursos e um local de datacenter do Azure no seguinte conjunto de comandos. Remova tudo que estiver entre aspas, incluindo os caracteres < and >.
 
@@ -186,4 +186,4 @@ Quando a execução do modelo for concluída, você terá, então, um novo farm 
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

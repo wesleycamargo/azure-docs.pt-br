@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Bancos de dados NoSQL — introdução ao SDK do .NET do Banco de Dados de Documentos | Microsoft Azure"
 	description="Saiba como criar um banco de dados e configurar uma conta do Banco de Dados de Documentos do Azure. Crie um bancos de dados, uma coleção e armazene documentos JSON em uma conta do banco de dados NoSQL."
-	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
+	keywords="Criar um banco de dados, criar banco de dados, banco de dados nosql, bancos de dados nosql, nuget, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="09/16/2015"
+	ms.date="11/05/2015"
 	ms.author="anhoh"/>
 
 #Introdução ao SDK do .NET do Banco de Dados de Documentos  
@@ -75,6 +75,8 @@ Primeiro, adicione essas referências para o início de seu aplicativo C#, no ar
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
+
+> [AZURE.IMPORTANT]Para concluir este aplicativo, adicione as dependências acima.
 
 Em seguida, salve o ponto de extremidade de conta do Banco de Dados de Documentos e uma das duas chaves de acesso, a primária ou a secundária, que pode ser encontrada no [Portal de Visualização do Azure](https://portal.azure.com).
 
@@ -478,4 +480,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

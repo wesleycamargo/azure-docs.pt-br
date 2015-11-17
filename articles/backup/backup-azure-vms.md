@@ -70,13 +70,13 @@ Você registra uma máquina virtual do Azure para associá-la ao serviço Backup
 
     ![trabalho de registro](./media/backup-azure-vms/register-create-job.png)
 
-   A máquina virtual também aparece na lista de itens registrados junto com o status da operação de registro.
+    A máquina virtual também aparece na lista de itens registrados junto com o status da operação de registro.
 
-    ![Registering status 1](./media/backup-azure-vms/register-status01.png)
+    ![Status de registro 1](./media/backup-azure-vms/register-status01.png)
 
-    When the operation completes, the status will change to reflect the *registered* state.
+    Quando a operação for concluída, o status no portal será alterado para refletir o estado *registrado*.
 
-    ![Registration status 2](./media/backup-azure-vms/register-status02.png)
+    ![Status de registro 2](./media/backup-azure-vms/register-status02.png)
 
 ## Etapa 3 - Proteger máquinas virtuais do Azure
 Agora você pode configurar uma política de backup e de retenção para a máquina virtual. Várias máquinas virtuais podem ser protegidas em escala usando uma única ação de proteção.
@@ -161,4 +161,4 @@ Se você tiver problemas durante o backup da sua máquina virtual, dê uma olhad
 - [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

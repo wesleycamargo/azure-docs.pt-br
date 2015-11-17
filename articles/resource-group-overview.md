@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/09/2015"
    ms.author="tomfitz"/>
 
 # Visão geral do Gerenciador de Recursos do Azure
@@ -123,16 +123,17 @@ Para obter informações sobre a API REST, consulte [Referência da API REST do 
 
 Para saber mais sobre o uso do portal de visualização, confira [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
 
+O Gerenciador de Recursos do Azure oferece suporte a compartilhamento de recursos entre origens (CORS). Com o CORS, você pode chamar a API REST do Gerenciador de Recursos ou uma API REST do serviço do Azure de um aplicativo Web que resida em um domínio diferente. Sem suporte do CORS, o navegador da Web impediria que um aplicativo em um domínio acessasse recursos em outro domínio. O Gerenciador de Recursos habilita o CORS para todas as solicitações com credenciais de autenticação válidas.
 
 ## Próximas etapas
 
-- Para saber mais sobre a criação de modelos, confira [Criando modelos](./resource-group-authoring-templates.md).
+- Para saber mais sobre a criação de modelos, consulte [Criando modelos](./resource-group-authoring-templates.md).
 - Para implantar o modelo criado, consulte [Implantando modelos](resource-group-template-deploy.md)
-- Para entender as funções que você pode usar em um modelo, confira [Funções de modelo](./resource-group-template-functions.md)
-- Para obter diretrizes sobre como criar seus modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
+- Para entender as funções que você pode usar em um modelo, consulte [Funções de modelo](./resource-group-template-functions.md)
+- Para obter orientação sobre como criar seus modelos, consulte [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
 
 Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

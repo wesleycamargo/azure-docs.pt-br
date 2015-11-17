@@ -172,7 +172,4 @@ Faça o seguinte:
 - Clique no link [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) na parte superior para executar o tutorial usando o PowerShell do Azure.
 - Clique no link [Usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) na parte superior para executar o tutorial usando o Visual Studio. 
 
-## Enviar comentários
-Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

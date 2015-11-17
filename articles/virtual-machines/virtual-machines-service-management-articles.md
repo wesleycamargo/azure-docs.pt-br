@@ -38,7 +38,7 @@
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[Criar e gerenciar uma máquina virtual baseada em Windows usando o Azure PowerShell](virtual-machines-create-windows-powershell-service-manager.md)
+[Criar máquinas virtuais do Windows com o PowerShell e o modelo de implantação clássico](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Como criar uma VM personalizada executando Linux usando a interface de linha de comando do Azure (CLI do Azure)](virtual-machines-linux-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [Referência da API REST de Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

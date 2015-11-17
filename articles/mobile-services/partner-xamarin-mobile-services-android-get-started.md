@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/05/2015" 
+	ms.date="11/05/2015" 
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
@@ -141,4 +141,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
