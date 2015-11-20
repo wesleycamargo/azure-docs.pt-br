@@ -13,4 +13,4 @@ A etapa opcional final deste tutorial é para verificar no Banco de Dados SQL as
 
 	Observe que a tabela inclui as colunas Id, \_\_createdAt, \_\_updatedAt e \_\_version. Essas colunas suportas sincronização de dados offline e são implementadas na classe de base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Para obter mais informações, consulte [Começar a usar a sincronização de dados offline].
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

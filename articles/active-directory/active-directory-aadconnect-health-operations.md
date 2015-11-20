@@ -22,7 +22,7 @@ O tópico a seguir descreve as várias operações que podem ser executadas usan
 
 ## Habilitar notificações por email
 Você pode configurar o serviço do Azure AD Connect Health para enviar notificações por email quando os alertas forem gerados, indicando que sua infraestrutura não está íntegra. Isso ocorrerá quando um alerta for gerado, bem como quando ele é marcado como resolvido. Siga as instruções abaixo para configurar notificações por email.
->[AZURE.NOTE]As notificações por email são desabilitadas por padrão.
+>[AZURE.NOTE] As notificações por email são desabilitadas por padrão.
 
 
 ### Para habilitar notificações por Email do Azure AD Connect Health
@@ -107,15 +107,19 @@ A permissão é concedida se um usuário final tem acesso no nível do diretóri
 Para permitir a um usuário o acesso no nível *todas as instâncias de serviço* no Azure AD Connect Health, abra a folha principal no Azure AD Connect Health.<br>
 [//]: # (RBAC\_MainBladeSS)
 #### Etapa 2: Adicione usuários, grupos e atribua funções
-1. Clique na parte "Usuários" na seção Configurar.<br> ![Folha Principal do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+1. Clique na parte "Usuários" na seção Configurar.<br>
+![Folha Principal do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 [//]: # (RBAC\_MainBladeUserPart)
 2. Selecione "Adicionar"
 3. Selecione a “Função”<br>
+![Adicionar Usuários do RBAC do Azure AD Connect Health ](./media/active-directory-aadconnect-health/RBAC_add.png)
 [//]: # (RBAC\_AddRole)
 4. Digite o nome ou identificador do usuário ou grupo de destino. Você pode selecionar um ou mais usuários ou grupos ao mesmo tempo.
+![Selecionar Usuário do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Selecione "Ok".<br>
 [//]: # (RBAC\_LastStep)
 6. Uma vez concluída a atribuição de função, os usuários e/ou grupos aparecerão na lista.<br>
+![Lista de Usuários do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 [//]: # (RBAC\_ListofUsersAndGroups)
 
 Essas etapas permitirão acesso aos usuários e grupos listados de acordo com suas funções.
@@ -126,12 +130,14 @@ Essas etapas permitirão acesso aos usuários e grupos listados de acordo com su
 #### Etapa 3: Compartilhe o local da folha com usuários ou grupos
 1. Depois de atribuir permissões, um usuário pode acessar o Azure AD Connect Health indo a [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
 2. Uma vez na folha, o usuário pode fixar a folha ou partes diferentes no painel clicando em "Fixar no painel"<br>
+![fixar folha do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 [//]: # (RBAC\_PinBlade)
 
->[AZURE.NOTE]Um usuário com a função "Leitor" atribuída não poderá executar a operação "criar" para obter a extensão do Azure AD Connect Health no Azure Marketplace. Esse usuário ainda pode obter a folha indo para o link acima. Para uso subsequente, o usuário pode fixar a folha no painel.
+>[AZURE.NOTE] Um usuário com a função "Leitor" atribuída não poderá executar a operação "criar" para obter a extensão do Azure AD Connect Health no Azure Marketplace. Esse usuário ainda pode obter a folha indo para o link acima. Para uso subsequente, o usuário pode fixar a folha no painel.
 
 ### Remover usuários e/ou grupos
 Você pode remover um usuário ou grupo adicionado à parte de controle de acesso baseado em função do Azure AD Connect Health clicando com botão direito e selecionando “Remover”.<br>
+![Remover Usuário do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_remove.png)
 [//]: # (RBAC\_RemoveUser)
 
 [//]: # "Fim da seção de RBAC"
@@ -145,4 +151,4 @@ Você pode remover um usuário ou grupo adicionado à parte de controle de acess
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->
