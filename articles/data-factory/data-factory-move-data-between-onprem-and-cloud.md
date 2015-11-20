@@ -385,7 +385,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 	- Na seção de atividades, há somente uma atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
 	- Na seção **transformation**, **SqlSource** é especificado como o **source type** e **BlobSink **é especificado como o **sink type**.
-- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
+	- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
 	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
@@ -514,10 +514,15 @@ Você também pode criar um serviço do SQL Server vinculado usando a folha de s
 7.	Na folha **Credenciais**, clique em **Clique aqui para definir credenciais**.
 8.	Na caixa de diálogo **Definindo Credenciais**, faça o seguinte:
 
-	![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Selecione a **autenticação** que você deseja que o serviço de Data Factory use para se conectar ao banco de dados. 2. Insira o nome do usuário que tem acesso ao banco de dados para a configuração **NOME DE USUÁRIO**. 3. Insira a senha do usuário para a configuração **SENHA**. 4. Clique em **OK** para fechar a caixa de diálogo. 
+	![Caixa de diálogo de Configurando Credenciais](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	Selecione a **autenticação** que você deseja que o serviço de Data Factory use para se conectar ao banco de dados. 
+	2.	Insira o nome do usuário que tem acesso ao banco de dados para a configuração **NOME DE USUÁRIO**. 
+	3.	Insira a senha do usuário para a configuração **SENHA**.  
+	4.	Clique em **OK** para fechar a caixa de diálogo. 
 4. Clique em **OK** para fechar a folha **Credenciais**. 
 5. Clique em **OK** na folha **Novo armazenamento de dados**. 	
-6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Confirme se o status de **SqlServerLinkedService** está definido como Online na folha Serviços Vinculados.
+	![Status do serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Se você acessar o portal de um computador diferente do computador do gateway, você deve garantir que o aplicativo Gerenciador de credenciais possa se conectar ao computador do gateway. Se o aplicativo não puder acessar o computador do gateway, ele não permitirá que você defina credenciais da fonte de dados teste a conexão à fonte de dados.
 
@@ -589,7 +594,8 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureDataFactoryGateway**
 ## Fluxo de dados de cópia usando o Gateway de Gerenciamento de Dados
 Quando você usa uma atividade de cópia em um pipeline de dados para incluir dados locais na nuvem para processamento adicional, ou exportar dados de resultado na nuvem de volta para um armazenamento de dados local, a atividade de cópia usa internamente um gateway para transferir os dados da fonte de dados local para a nuvem e vice-versa.
 
-Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a cópia com o gateway de dados: ![Fluxo de dados usando o gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a cópia com o gateway de dados:
+![Fluxo de dados usando o gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	O desenvolvedor de dados cria um novo gateway para uma Azure Data Factory usando o [Portal do Azure](http://portal.azure.com) ou [Cmdlet do PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	O desenvolvedor de dados usa o painel "Serviços vinculados" para definir um novo serviço vinculado para um armazenamento de dados local com o gateway. Como parte da configuração de dados do serviço vinculado, o desenvolvedor usa o aplicativo Configurando Credenciais como mostrado no tutorial passo a passo para especificar as credenciais e tipos de autenticação. A caixa de diálogo do aplicativo Configurando Credenciais se comunicará com o armazenamento de dados para testar a conexão e o gateway para salvar as credenciais.
@@ -615,4 +621,4 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 ## Enviar comentários
 Apreciamos muito seus comentários sobre este artigo. Reserve alguns minutos para enviar seus comentários por meio de [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->
