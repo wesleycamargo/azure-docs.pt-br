@@ -1251,7 +1251,24 @@ Cria um recurso de ip público. Você criará o recurso ip público e o associar
 	info:    network public-ip create command OK
 
 
-Opções de parâmetro: -h, --help informações de uso de saída -v, -- verbose usa a saída detalhada -- json usa a saída json -g, --resource-group <resource-group> o nome do recurso de grupo -n, --nome <name> o nome do ip público -l, --location <location> o local -d, --domain-name-label <domain-name-label> o rótulo de nome de domínio. Isso configura o DNS para <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> o método de alocação [Static][Dynamic] -i, --idletimeout <idletimeout> o tempo limite de ociosidade em minutos -f, --reverse-fqdn <reverse-fqdn> o fqdn inverso -t, --tags <tags> a lista de marcas. Podem ser vários. No formato "name = value". O nome é obrigatório e o valor é opcional. Por exemplo, -t tag1=value1;tag2 -s, --subscription <subscription> o identificador de assinatura <br>
+Opções de parâmetro:
+	-h, --help                                   informações de uso de saída
+	-v, -- verbose                               usa a saída detalhada
+	-- json                                      usa a saída json
+	-g, --resource-group <resource-group>        o nome do recurso de grupo
+	-n, --nome                                   <name> o nome do ip público
+	-l, --location <location>                    o local
+	-d, --domain-name-label <domain-name-label>  o rótulo de nome de domínio.
+	Isso configura o DNS para <domain-name-label>.<location>.cloudapp.azure.com 
+	-a, --allocation-method <allocation-method>  o método de alocação [Static][Dynamic]
+	-i, --idletimeout <idletimeout>              o tempo limite de ociosidade em minutos
+	-f, --reverse-fqdn <reverse-fqdn>            o fqdn inverso
+	-t, --tags <tags>                            a lista de marcas.
+	Podem ser vários. No formato "name = value".
+	O nome é obrigatório e o valor é opcional.
+	Por exemplo, -t tag1=value1;tag2
+	-s, --subscription <subscription>            o identificador de assinatura
+<br>
 
 	network public-ip set [options] <resource-group> <name>
 Atualiza as propriedades de um recurso ip público existente. No exemplo a seguir alteramos o endereço IP público de Dinâmico para Estático.
@@ -1742,4 +1759,4 @@ Opções de parâmetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
